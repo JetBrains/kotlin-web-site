@@ -51,61 +51,64 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
    kotlin {
       // other KMP targets
       // ...
-      val xcf = XCFramework()
       // Name of the module that will be imported in the consumer project
       val xcframeworkName = "Shared"
+      val xcf = XCFramework(xcframeworkName)
    
       listOf(
          iosX64(),
          iosArm64(),
          iosSimulatorArm64(),
       ).forEach {
-           it.binaries.framework {
+          it.binaries.framework {
               baseName = xcframeworkName
+              // Specify CFBundleIdentifier to uniquely identify the framework
+              binaryOption("bundleId", "org.example.${xcframeworkName}")
               xcf.add(this)
+              isStatic = true
            }
         }
       //...
    }
    ```
-2. Sync the updated Gradle configuration.
-3. Run the Gradle task to create the framework:
+2. Run the Gradle task to create the framework:
    
    `./gradlew :shared:assembleSharedReleaseXCFramework`
-4. The resulting framework will be created as the `shared/build/XCFrameworks/release/shared.xcframework` folder in your project directory.
-5. Put the `shared.xcframework` folder in a ZIP archive and calculate the checksum for the resulting archive, for example:
+3. The resulting framework will be created as the `shared/build/XCFrameworks/release/Shared.xcframework` folder in your project directory.
+4. Put the `Shared.xcframework` folder in a ZIP archive and calculate the checksum for the resulting archive, for example:
    
-   `swift package compute-checksum shared.xcframework.zip`
-6. Upload the ZIP file to the file storage of your choice.
-7. Create a `Package.swift` file with the following code:
+   `swift package compute-checksum Shared.xcframework.zip`
+5. Upload the ZIP file to the file storage of your choice.
+6. Create a `Package.swift` file with the following code:
    ```Swift
    // swift-tools-version:5.3
    import PackageDescription
     
    let package = Package(
-      name: "shared",
+      name: "Shared",
       platforms: [
         .iOS(.v14),
       ],
       products: [
-         .library(name: "shared", targets: ["shared"])
+         .library(name: "Shared", targets: ["shared"])
       ],
       targets: [
          .binaryTarget(
-            name: "shared",
+            name: "Shared",
             url: "<link to the uploaded XCFramework ZIP file>",
             checksum:"<checksum calculated for the ZIP file>")
       ]
    )
    ```
-8. You can check if the package manifest is valid by running the following command next to the `Package.swift` file:
+7. You can check if the package manifest is valid by running the following command next to the `Package.swift` file:
 
     ```shell
-    swift package describe
+    swift package reset && swift package show-dependencies --format json
     ```
     
-    The output will describe any found errors, or show the parsed tree of the manifest if it is grammatically correct. 
-9. Push the `Package.swift` file to the repository you settled on earlier. Make sure to create and push a git tag with the
+    The output will describe any found errors, or show the successful download and parsing result if the manifest is correct.
+
+8. Push the `Package.swift` file to the repository you settled on earlier. Make sure to create and push a git tag with the
 Semantic Version of the package.
 
 Now that both files are accessible, you can try and set up the dependency in Xcode:
@@ -118,6 +121,8 @@ the `Package.swift` file.
 To make several KMP modules available as iOS binaries, create an umbrella module and combine other modules in it,
 then build an XCFramework of this umbrella module.
 
+<!--TODO remove this note when https://youtrack.jetbrains.com/issue/KT-66565 is fixed-->
+
 > The name `umbrella` is reserved in Apple development. Don't use it for the module you are exporting.
 > 
 {type="note"}
@@ -129,7 +134,7 @@ For example, you have a `network` and a `database` module, which you combine in 
     ```kotlin
     kotlin {
         val frameworkName = "together"
-        val xcf = XCFramework()
+        val xcf = XCFramework(frameworkName)
     
         listOf(
             iosX64(),
@@ -161,17 +166,14 @@ For example, you have a `network` and a `database` module, which you combine in 
 
     ```kotlin
     kotlin {
-        // ...
-        listOf(
-            iosX64(),
-            iosArm64(),
-            iosSimulatorArm64()
-        ).forEach { iosTarget ->
-            iosTarget.binaries.framework {
-                baseName = "network"
-                isStatic = true
-            }
+        androidTarget {
+            //...
         }
+        
+        iosX64()
+        iosArm64()
+        iosSimulatorArm64()
+        
         //...
     }
     ```
