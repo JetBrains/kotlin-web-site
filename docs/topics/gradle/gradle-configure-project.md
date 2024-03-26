@@ -19,8 +19,10 @@ from the Gradle plugins DSL:
 
 ```kotlin
 plugins {
-    // replace `<...>` with the plugin name
+    // Replace `<...>` with the plugin name appropriate for your target environment
     kotlin("<...>") version "%kotlinVersion%"
+    // For example, if your target environment is JVM:
+    // kotlin("jvm") version "%kotlinVersion%"
 }
 ```
 
@@ -29,8 +31,10 @@ plugins {
 
 ```groovy
 plugins {
-    // replace `<...>` with the plugin name
+    // Replace `<...>` with the plugin name appropriate for your target environment
     id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
+    // For example, if your target environment is JVM: 
+    // id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
 }
 ```
 

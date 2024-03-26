@@ -42,14 +42,15 @@ check [our instructions on how to configure your build to support this version](
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.0.0-Beta4</strong>
-            <p>Released: <strong>February 13, 2024</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.0-Beta4" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.0.0-Beta5</strong>
+            <p>Released: <strong>March 20, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.0-Beta5" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <p>A stabilization release for the Kotlin K2 compiler.</p>
             <p>Includes improvements for the Gradle build tool.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.0-Beta4">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.0.0-Beta4</a>.</p>
+            <p>Improves Kotlin/Wasm interoperability with JavaScript.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.0-Beta5">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.0.0-Beta5</a>.</p>
         </td>
     </tr>
 </table>

@@ -10,8 +10,8 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 {type="note"}
 
 The Kotlin %kotlinEapVersion% release is out! It mostly covers the stabilization of the [new Kotlin K2 compiler](#kotlin-k2-compiler), 
-which reached its Beta status for all targets since 1.9.20. In addition, there are [improvements for the Gradle build tool](#gradle-improvements)
-as well as changes in [Kotlin/JS](#kotlin-js).
+which reached its Beta status for all targets since 1.9.20. In addition, there are new features in [Kotlin/Wasm](#kotlin-wasm)
+and [Kotlin/JS](#kotlin-js), as well as [improvements for the Gradle build tool](#gradle-improvements).
 
 ## IDE support
 
@@ -57,7 +57,7 @@ If you encounter any of the problems mentioned above, you can take the following
   >
   {type="note"}
 
-* Update the Gradle version in your project to 8.3 when it becomes available.
+* Update the Gradle version in your project to 8.3 or later.
 
 ### Smart cast improvements
 
@@ -98,7 +98,7 @@ fun petAnimal(animal: Any) {
     if (isCat) {
         // In Kotlin %kotlinEapVersion%, the compiler can access
         // information about isCat, so it knows that
-        // isCat was smart cast to type Cat.
+        // animal was smart cast to type Cat.
         // Therefore, the purr() function is successfully called.
         // In Kotlin 1.9.20, the compiler doesn't know
         // about the smart cast, so calling the purr()
@@ -387,7 +387,7 @@ being called: `platform foo`
 * On the JavaScript platform, calling the `foo()` function in common code results in the `foo()` function from common 
 code being called: `common foo`, since there is none available in platform code.
 
-In Kotlin %kotlinEapVersion%, common code doesn’t have access to platform code, so both platforms successfully resolve the `foo()` 
+In Kotlin %kotlinEapVersion%, common code doesn't have access to platform code, so both platforms successfully resolve the `foo()` 
 function to the `foo()` function in common code: `common foo`
 
 In addition to the improved consistency of behavior across platforms, we also worked hard to fix cases where there was 
@@ -413,7 +413,6 @@ fun common() {
     // RESOLUTION_TO_CLASSIFIER : Expected class
     // Identity has no default constructor.
 }
-
 ```
 
 </td>
@@ -429,7 +428,7 @@ actual class Identity {
 </tr>
 </table>
 
-In this example, the expected class `Identity` has no default constructor, so it can’t be called successfully in common code.
+In this example, the expected class `Identity` has no default constructor, so it can't be called successfully in common code.
 Previously, only an IDE error was reported, but the code still compiled successfully on the JVM. However, now the compiler
 correctly reports an error:
 
@@ -437,10 +436,10 @@ correctly reports an error:
 Expected class 'expect class Identity : Any' does not have default constructor
 ```
 
-##### When resolution behavior doesn’t change
+##### When resolution behavior doesn't change
 
 We are still in the process of migrating to the new compilation scheme, so the resolution behavior is still the same when
-you call functions that aren’t within the same source set. You will notice this difference mainly when you use overloads 
+you call functions that aren't within the same source set. You will notice this difference mainly when you use overloads 
 from a multiplatform library in your common code.
 
 For example, if you have this library, which has two `whichFun()` functions with different signatures:
@@ -468,10 +467,10 @@ fun main(){
 }
 ```
 In comparison, if you declare the overloads for `whichFun()` within the same source set, the function from common code 
-is resolved because your code doesn’t have access to the platform-specific version:
+is resolved because your code doesn't have access to the platform-specific version:
 
 ```kotlin
-// Example library isn’t used
+// Example library isn't used
 
 // MODULE: common
 fun whichFun(x: Any) = println("common function") 
@@ -546,7 +545,7 @@ No additional actions are required.
 
 ### Try the Kotlin K2 compiler in Kotlin Playground
 
-Kotlin Playground supports the 2.0.0-Beta4 release. [Check it out!](https://pl.kotl.in/czuoQprce)
+Kotlin Playground supports the %kotlinEapVersion% release. [Check it out!](https://pl.kotl.in/czuoQprce)
 
 ### Support in IntelliJ IDEA
 
@@ -573,192 +572,101 @@ We would appreciate any feedback you may have!
 * [Enable the Send usage statistics option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
   allow JetBrains to collect anonymous data about K2 usage.
 
-## Gradle improvements
+## Kotlin/Native: resolving conflicts with Objective-C methods
 
-Kotlin %kotlinEapVersion% is fully compatible with Gradle 6.8.3 through 8.4.
-You can also use Gradle versions up to the latest Gradle release, but if you do, 
-keep in mind that you might encounter deprecation warnings or some new Gradle features might not work.
+Objective-C methods can have different names, but the same number and types of parameters. For example,
+[`locationManager:didEnterRegion:`](https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate/1423560-locationmanager?language=objc)
+and [`locationManager:didExitRegion:`](https://developer.apple.com/documentation/corelocation/cllocationmanagerdelegate/1423630-locationmanager?language=objc).
+In Kotlin, these methods have the same signature, so an attempt to use them triggers a conflicting overloads error.
 
-This version brings the following changes:
-* [Improved Gradle dependency handling for CInteropProcess in Kotlin/Native](#improved-gradle-dependency-handling-for-cinteropprocess-in-kotlin-native)
-* [Visibility changes in Gradle](#visibility-changes-in-gradle)
-* [New directory for Kotlin data in Gradle projects](#new-directory-for-kotlin-data-in-gradle-projects)
-* [Kotlin/Native compiler downloaded when needed](#kotlin-native-compiler-downloaded-when-needed)
+Previously, you had to manually suppress conflicting overloads to avoid this compilation error. To improve Kotlin
+interoperability with Objective-C, the Kotlin %kotlinEapVersion% introduces the new `@ObjCSignatureOverride` annotation.
 
-### Improved Gradle dependency handling for CInteropProcess in Kotlin/Native
+The annotation instructs the Kotlin compiler to ignore conflicting overloads, in case several functions with the same
+argument types, but different argument names, are inherited from the Objective-C class.
 
-In this release, we enhanced the handling of the `defFile` property to ensure better Gradle task dependency management in 
-Kotlin/Native projects. 
+Applying this annotation is also safer than general error suppression. It allows you to use it only in the case of overriding
+Objective-C methods, which are supported and tested, while general suppression may hide important errors and lead to silently broken code.
 
-Before this update, Gradle builds could fail if the `defFile` property was designated as an output 
-of another task that hadn't been executed yet. The workaround for this issue was to add a dependency on this task:
+## Kotlin/Wasm
 
-```kotlin
-kotlin {
-    macosArm64("native") {
-        compilations.getByName("main") {
-            cinterops {
-                val cinterop by creating {
-                    defFileProperty.set(createDefFileTask.flatMap { it.defFile.asFile })
-                    project.tasks.named(interopProcessingTaskName).configure {
-                        dependsOn(createDefFileTask)
-                    }
-                }
-            }
-        }
-    }
-}
-```
+Kotlin %kotlinEapVersion% improves performance and interoperability with JavaScript:
 
-To fix this, there is a new `RegularFileProperty` called `definitionFile`. Now, Gradle lazily verifies the presence of 
-the `definitionFile` property after the connected task has run later in the build process. This new approach eliminates 
-the need for additional dependencies.
+* [Unsigned primitive types in functions with @JsExport](#unsigned-primitive-types-in-functions-with-jsexport)
+* [Binaryen available by default in production builds](#binaryen-available-by-default-in-production-builds)
+* [Generation of TypeScript declaration files in Kotlin/Wasm](#generation-of-typescript-declaration-files-in-kotlin-wasm)
+* [Support for named export](#support-for-named-export)
 
-The `CInteropProcess` task and the `CInteropSettings` class use the `definitionFile` property instead of `defFile` and 
-`defFileProperty`:
+### Unsigned primitive types in functions with @JsExport
 
-<tabs group ="build-script">
+Kotlin %kotlinEapVersion% further improves the interoperability between Kotlin/Wasm and JavaScript. Now you can use
+[unsigned primitive types](unsigned-integer-types.md) inside external declarations and functions with the `@JsExport`
+annotation that makes Kotlin/Wasm functions available in JavaScript code.
 
-<tab id="kotlin" title="Kotlin" group-key="kotlin">
+It helps to ease the previous limitation when [generic class types](generics.md) couldn't be used directly inside
+exported declarations. Now you can export functions with unsigned primitives as a return or parameter type and consume
+external declarations that return unsigned primitives.
 
-```kotlin
-kotlin {
-    macosArm64("native") {
-        compilations.getByName("main") {
-            cinterops {
-                val cinterop by creating {
-                    definitionFile.set(project.file("def-file.def"))
-                }
-            }
-        }
-    }
-}
-```
+For more information on Kotlin/Wasm interoperability with JavaScript, see the [documentation](wasm-js-interop.md#use-javascript-code-in-kotlin).
 
-</tab>
+### Binaryen available by default in production builds
 
-<tab id="groovy" title="Groovy" group-key="groovy">
+Kotlin/Wasm now applies WebAssembly's [Binaryen](https://github.com/WebAssembly/binaryen) library during production
+compilation to all the projects as opposed to the previous manual approach.
 
-```groovy
-kotlin {
-    macosArm64("native") {
-        compilations.main {
-            cinterops {
-                cinterop {
-                    definitionFile.set(project.file("def-file.def"))
-                }
-            }
-        }
-    }
-}
-```
+Binaryen is a great tool for code optimization. We believe it will improve your project performance and enhance your
+development experience.
 
-</tab>
-
-</tabs>
-
-> `defFile` and `defFileProperty` parameters are now deprecated.
+> This change only affects production compilation. The development compilation process stays the same.
 >
-{type="warning"}
-
-### Visibility changes in Gradle
-
-> This change impacts only Kotlin DSL users.
-> 
 {type="note"}
 
-In Kotlin %kotlinEapVersion%, we've modified the Kotlin Gradle Plugin for better control and safety in your build scripts.
-Previously, certain Kotlin DSL functions and properties intended for a specific DSL context would inadvertently leak to 
-other DSL contexts. This leakage could lead to the use of incorrect compiler options, settings being applied multiple times,
-and other misconfigurations:
+### Generation of TypeScript declaration files in Kotlin/Wasm
 
-```kotlin
-kotlin {
-    // Target DSL couldn't access methods and properties defined in the
-    // kotlin{} extension DSL
-    jvm {
-        // Compilation DSL couldn't access methods and properties defined
-        // in the kotlin{} extension DSL and Kotlin jvm{} target DSL
-        compilations.configureEach {
-            // Compilation task DSLs couldn't access methods and 
-            // properties defined in the kotlin{} extension, Kotlin jvm{}
-            // target or Kotlin compilation DSL
-            compileTaskProvider.configure {
-                // For example:
-                explicitApi()
-                // ERROR as it is defined in the kotlin{} extension DSL
-                mavenPublication {}
-                // ERROR as it is defined in the Kotlin jvm{} target DSL
-                defaultSourceSet {}
-                // ERROR as it is defined in the Kotlin compilation DSL
-            }
-        }
-    }
-}
-```
-
-To fix this issue, we've added the `@KotlinGradlePluginDsl` annotation,
-preventing the exposure of the Kotlin Gradle plugin DSL functions and properties to the levels where they are not intended
-to be available. The following levels are separated from each other:
-
-* Kotlin extension
-* Kotlin target
-* Kotlin compilation
-* Kotlin compilation task
-
-If your build script is configured incorrectly, you should see compiler warnings with suggestions on how to fix it. For example:
-
-```kotlin
-kotlin {
-    jvm {
-        sourceSets.getByName("jvmMain").dependencies {
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.3")
-        }
-    }
-}
-```
-
-In this case, the warning message for `sourceSets` is:
-
-```kotlin
-[DEPRECATION] 'sourceSets: NamedDomainObjectContainer<KotlinSourceSet>' is deprecated.Accessing 'sourceSets' container on the Kotlin target level DSL is deprecated . Consider configuring 'sourceSets' on the Kotlin extension level .
-```
-
-We would appreciate your feedback on this change! Share your comments directly to Kotlin developers in our [#eap Slack channel](https://kotlinlang.slack.com/archives/C0KLZSCHF).
-[Get a Slack invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
-
-### New directory for Kotlin data in Gradle projects
-
-> With this change, you may need to add the `.kotlin` directory to your project's `.gitignore` file.
+> Generating TypeScript declaration files in Kotlin/Wasm is [Experimental](components-stability.md#stability-levels-explained).
+> It may be dropped or changed at any time.
 >
 {type="warning"}
 
-In Kotlin 1.8.20, the Kotlin Gradle plugin started to store its data in the Gradle project cache directory: `<project-root-directory>/.gradle/kotlin`.
-However, the `.gradle` directory is reserved for Gradle only, and as a result it's not future-proof. To solve this, since 
-Kotlin 2.0.0-Beta2 we store Kotlin data in your `<project-root-directory>/.kotlin` by default. We will continue to store
-some data in `.gradle/kotlin` directory for backward compatibility.
+In Kotlin %kotlinEapVersion%, the Kotlin/Wasm compiler is now capable of generating TypeScript definitions from any
+`@JsExport` declarations in your Kotlin code. These definitions can be used by IDEs and JavaScript tools to provide code
+autocompletion, help with type-checks, and make it easier to include Kotlin code in JavaScript.
 
-There are new Gradle properties so that you can configure a directory of your choice and more:
+The Kotlin/Wasm compiler collects any [top-level functions](wasm-js-interop.md#functions-with-the-jsexport-annotation)
+marked with `@JsExport` and automatically generates TypeScript definitions in a `.d.ts` file.
 
-| Gradle property                                     | Description                                                                                                      |
-|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| `kotlin.project.persistent.dir`                     | Configures the location where your project-level data is stored. Default: `<project-root-directory>/.kotlin`     |
-| `kotlin.project.persistent.dir.gradle.disableWrite` | A boolean value that controls whether writing Kotlin data to the `.gradle` directory is disabled. Default: false |
+To generate TypeScript definitions, in your `build.gradle.kts` file in the wasmJs section,
+add the `generateTypeScriptDefinitions()` function:
 
-Add these properties to the `gradle.properties` file in your projects for them to take effect.
+```kotlin
+kotlin {
+    wasmJs {
+        binaries.executable()
+        browser {
+        }
+        generateTypeScriptDefinitions()
+    }
+}
+```
 
-### Kotlin/Native compiler downloaded when needed
+### Support for named export
 
-Before Kotlin 2.0.0-Beta4, if you had a [Kotlin/Native target](native-target-support.md) configured in the Gradle build script
-of your multiplatform project, then Gradle would always download the Kotlin/Native compiler in the 
-[configuration phase](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:configuration).
-Even if there was no task to compile code for a Kotlin/Native target due to run in the [execution phase](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:execution).
-Downloading the Kotlin/Native compiler in this way was particularly inefficient for users who only wanted to check the 
-JVM or JavaScript code in their projects. For example, to perform tests or checks with their Kotlin project as part of a CI process.
+Previously, all exported declarations from Kotlin/Wasm were imported into JavaScript using default export.
+Now, you can import each Kotlin declaration marked with `@JsExport` by name:
 
-In Kotlin 2.0.0-Beta4, we changed this behavior in the Kotlin Gradle plugin so that the Kotlin/Native 
-compiler is downloaded in the [execution phase](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:execution) 
-**only** when a compilation is requested for a Kotlin/Native target.
+```kotlin
+// Kotlin:
+@JsExport
+fun add(a: Int, b: Int) = a + b
+```
+
+```javascript
+//JS:
+import { add } from "./index.mjs"
+```
+
+Named exports make it easier to share code between Kotlin and JavaScript modules. They help improve readability and
+manage dependencies between modules.
 
 ## Kotlin/JS
 
@@ -773,7 +681,7 @@ This version brings the following changes:
 >
 {type="warning"}
 
-To make it easier to work with JavaScript APIs, in Kotlin 2.0.0-Beta4, we provide a new plugin: 
+To make it easier to work with JavaScript APIs, in Kotlin %kotlinEapVersion%, we provide a new plugin: 
 [`js-plain-objects`](https://github.com/JetBrains/kotlin/tree/master/plugins/js-plain-objects),
 that you can use to create type-safe plain JavaScript objects.
 The plugin checks your code for any [external interfaces](wasm-js-interop.md#external-interfaces) 
@@ -884,9 +792,300 @@ in your `gradle.properties` file, set the following property:
 kotlin.js.yarn=false
 ```
 
+## Gradle improvements
+
+Kotlin %kotlinEapVersion% is fully compatible with Gradle 6.8.3 through 8.5.
+You can also use Gradle versions up to the latest Gradle release, but if you do,
+keep in mind that you might encounter deprecation warnings or some new Gradle features might not work.
+
+This version brings the following changes:
+
+* [Improved Gradle dependency handling for CInteropProcess in Kotlin/Native](#improved-gradle-dependency-handling-for-cinteropprocess-in-kotlin-native)
+* [Visibility changes in Gradle](#visibility-changes-in-gradle)
+* [New directory for Kotlin data in Gradle projects](#new-directory-for-kotlin-data-in-gradle-projects)
+* [Kotlin/Native compiler downloaded when needed](#kotlin-native-compiler-downloaded-when-needed)
+* [Deprecating old ways of defining compiler options](#deprecating-old-ways-of-defining-compiler-options)
+
+### Improved Gradle dependency handling for CInteropProcess in Kotlin/Native
+
+In this release, we enhanced the handling of the `defFile` property to ensure better Gradle task dependency management in
+Kotlin/Native projects.
+
+Before this update, Gradle builds could fail if the `defFile` property was designated as an output
+of another task that hadn't been executed yet. The workaround for this issue was to add a dependency on this task:
+
+```kotlin
+kotlin {
+    macosArm64("native") {
+        compilations.getByName("main") {
+            cinterops {
+                val cinterop by creating {
+                    defFileProperty.set(createDefFileTask.flatMap { it.defFile.asFile })
+                    project.tasks.named(interopProcessingTaskName).configure {
+                        dependsOn(createDefFileTask)
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+To fix this, there is a new `RegularFileProperty` called `definitionFile`. Now, Gradle lazily verifies the presence of
+the `definitionFile` property after the connected task has run later in the build process. This new approach eliminates
+the need for additional dependencies.
+
+The `CInteropProcess` task and the `CInteropSettings` class use the `definitionFile` property instead of `defFile` and
+`defFileProperty`:
+
+<tabs group ="build-script">
+
+<tab id="kotlin" title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    macosArm64("native") {
+        compilations.getByName("main") {
+            cinterops {
+                val cinterop by creating {
+                    definitionFile.set(project.file("def-file.def"))
+                }
+            }
+        }
+    }
+}
+```
+
+</tab>
+
+<tab id="groovy" title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    macosArm64("native") {
+        compilations.main {
+            cinterops {
+                cinterop {
+                    definitionFile.set(project.file("def-file.def"))
+                }
+            }
+        }
+    }
+}
+```
+
+</tab>
+
+</tabs>
+
+> `defFile` and `defFileProperty` parameters are now deprecated.
+>
+{type="warning"}
+
+### Visibility changes in Gradle
+
+> This change impacts only Kotlin DSL users.
+>
+{type="note"}
+
+In Kotlin %kotlinEapVersion%, we've modified the Kotlin Gradle Plugin for better control and safety in your build scripts.
+Previously, certain Kotlin DSL functions and properties intended for a specific DSL context would inadvertently leak to
+other DSL contexts. This leakage could lead to the use of incorrect compiler options, settings being applied multiple times,
+and other misconfigurations:
+
+```kotlin
+kotlin {
+    // Target DSL couldn't access methods and properties defined in the
+    // kotlin{} extension DSL
+    jvm {
+        // Compilation DSL couldn't access methods and properties defined
+        // in the kotlin{} extension DSL and Kotlin jvm{} target DSL
+        compilations.configureEach {
+            // Compilation task DSLs couldn't access methods and
+            // properties defined in the kotlin{} extension, Kotlin jvm{}
+            // target or Kotlin compilation DSL
+            compileTaskProvider.configure {
+                // For example:
+                explicitApi()
+                // ERROR as it is defined in the kotlin{} extension DSL
+                mavenPublication {}
+                // ERROR as it is defined in the Kotlin jvm{} target DSL
+                defaultSourceSet {}
+                // ERROR as it is defined in the Kotlin compilation DSL
+            }
+        }
+    }
+}
+```
+
+To fix this issue, we've added the `@KotlinGradlePluginDsl` annotation,
+preventing the exposure of the Kotlin Gradle plugin DSL functions and properties to the levels where they are not intended
+to be available. The following levels are separated from each other:
+
+* Kotlin extension
+* Kotlin target
+* Kotlin compilation
+* Kotlin compilation task
+
+If your build script is configured incorrectly, you should see compiler warnings with suggestions on how to fix it. For example:
+
+```kotlin
+kotlin {
+    jvm {
+        sourceSets.getByName("jvmMain").dependencies {
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.7.3")
+        }
+    }
+}
+```
+
+In this case, the warning message for `sourceSets` is:
+
+```kotlin
+[DEPRECATION] 'sourceSets: NamedDomainObjectContainer<KotlinSourceSet>' is deprecated.Accessing 'sourceSets' container on the Kotlin target level DSL is deprecated . Consider configuring 'sourceSets' on the Kotlin extension level .
+```
+
+We would appreciate your feedback on this change! Share your comments directly to Kotlin developers in our [#eap Slack channel](https://kotlinlang.slack.com/archives/C0KLZSCHF).
+[Get a Slack invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+
+### New directory for Kotlin data in Gradle projects
+
+> With this change, you may need to add the `.kotlin` directory to your project's `.gitignore` file.
+>
+{type="warning"}
+
+In Kotlin 1.8.20, the Kotlin Gradle plugin started to store its data in the Gradle project cache directory: `<project-root-directory>/.gradle/kotlin`.
+However, the `.gradle` directory is reserved for Gradle only, and as a result it's not future-proof. To solve this, since
+Kotlin 2.0.0-Beta2 we store Kotlin data in your `<project-root-directory>/.kotlin` by default. We will continue to store
+some data in `.gradle/kotlin` directory for backward compatibility.
+
+There are new Gradle properties so that you can configure a directory of your choice and more:
+
+| Gradle property                                     | Description                                                                                                      |
+|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `kotlin.project.persistent.dir`                     | Configures the location where your project-level data is stored. Default: `<project-root-directory>/.kotlin`     |
+| `kotlin.project.persistent.dir.gradle.disableWrite` | A boolean value that controls whether writing Kotlin data to the `.gradle` directory is disabled. Default: false |
+
+Add these properties to the `gradle.properties` file in your projects for them to take effect.
+
+### Kotlin/Native compiler downloaded when needed
+
+Before Kotlin %kotlinEapVersion%, if you had a [Kotlin/Native target](native-target-support.md) configured in the Gradle build script
+of your multiplatform project, Gradle would always download the Kotlin/Native compiler in the
+[configuration phase](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:configuration).
+
+It happened even if there was no task to compile code for a Kotlin/Native target due to run in the [execution phase](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:execution).
+Downloading the Kotlin/Native compiler in this way was particularly inefficient for users who only wanted to check the
+JVM or JavaScript code in their projects. For example, to perform tests or checks with their Kotlin project as part of a CI process.
+
+In Kotlin %kotlinEapVersion%, we changed this behavior in the Kotlin Gradle plugin so that the Kotlin/Native
+compiler is downloaded in the [execution phase](https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:execution)
+and **only** when a compilation is requested for a Kotlin/Native target.
+
+In turn, Kotlin/Native compiler's dependencies are now downloaded not as a part of the compiler, but in the execution
+phase as well.
+
+If you encounter any issues with the new behavior, you can temporarily switch back to the previous behavior by adding
+the following Gradle property to your `gradle.properties` file:
+
+```none
+kotlin.native.toolchain.enabled=false
+```
+
+Please report any problems to our issue tracker [YouTrack](https://kotl.in/issue), as this property will be removed in
+future releases.
+
+### Deprecating old ways of defining compiler options
+
+In this release, we continue refining the ways of setting up compiler options. It should resolve ambiguity between
+different ways and make the project configuration more straightforward.
+
+Since Kotlin %kotlinEapVersion%, the following DSLs for specifying compiler options are deprecated:
+
+* The `HasCompilerOptions` interface. It was inconsistent with other DSLs and had the same `compilerOptions` object as
+  the Kotlin compilation task, which was confusing. Instead, we recommend using the `compilerOptions` property from the
+  Kotlin compilation task:
+  
+  ```kotlin
+  kotlinCompilation.compileTaskProvider.configure {
+      compilerOptions { ... }
+  }
+  ```
+  
+  For example:
+  
+  ```kotlin
+  kotlin {
+     js(IR) {
+         compilations.all {
+             compileTaskProvider.configure {
+                 compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
+             }
+         }
+     }
+  }
+  ```
+
+* The `KotlinCompile<KotlinOptions>` interface. Use `KotlinCompilationTask<CompilerOptions>` instead.
+* The `kotlinOptions` DSL from the `KotlinCompilation` interface.
+* The `kotlinOptions` DSL from the `KotlinNativeArtifactConfig` interface, the `KotlinNativeLink` class,
+  and the `KotlinNativeLinkArtifactTask` class. Use the `toolOptions` DSL instead.
+* The `dceOptions` DSL from the `KotlinJsDce` interface. Use the `toolOptions` DSL instead.
+
+For more information on how to specify compiler options in the Kotlin Gradle plugin, see [How to define options](gradle-compiler-options.md#how-to-define-options).
+
+## Standard library: Stable AutoCloseable interface
+
+In Kotlin %kotlinEapVersion%, the common [`AutoCloseable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-auto-closeable/)
+interface becomes [Stable](components-stability.md#stability-levels-explained). It allows you to easily close resources
+and includes a couple of useful functions:
+
+* The `use()` extension function, which executes a given block function on the selected resource and then closes it down
+  correctly, whether an exception is thrown or not.
+* The `AutoCloseable()` constructor function, which creates instances of the `AutoCloseable` interface.
+
+In the example below, we define the `XMLWriter` interface and assume that there is a resource that implements it.
+For example, this resource could be a class that opens a file, writes XML content, and then closes it:
+
+```kotlin
+interface XMLWriter {
+    fun document(encoding: String, version: String, content: XMLWriter.() -> Unit)
+    fun element(name: String, content: XMLWriter.() -> Unit)
+    fun attribute(name: String, value: String)
+    fun text(value: String)
+
+    fun flushAndClose()
+}
+
+fun writeBooksTo(writer: XMLWriter) {
+    val autoCloseable = AutoCloseable { writer.flushAndClose() }
+    autoCloseable.use {
+        writer.document(encoding = "UTF-8", version = "1.0") {
+            element("bookstore") {
+                element("book") {
+                    attribute("category", "fiction")
+                    element("title") { text("Harry Potter and the Prisoner of Azkaban") }
+                    element("author") { text("J. K. Rowling") }
+                    element("year") { text("1999") }
+                    element("price") { text("29.99") }
+                }
+                element("book") {
+                    attribute("category", "programming")
+                    element("title") { text("Kotlin in Action") }
+                    element("author") { text("Dmitry Jemerov") }
+                    element("author") { text("Svetlana Isakova") }
+                    element("year") { text("2017") }
+                    element("price") { text("25.19") }
+                }
+            }
+        }
+    }
+}
+```
+
 ## What to expect from upcoming Kotlin EAP releases
 
-The upcoming 2.0.0-Beta5 release will increase the stability of the K2 compiler.
+The upcoming 2.0.0-RC1 release will further increase the stability of the K2 compiler.
 If you are currently using K2 in your project, 
 we encourage you to stay updated on Kotlin releases and experiment with the updated K2 compiler. 
 [Share your feedback on using Kotlin K2](#leave-your-feedback-on-the-new-k2-compiler).
@@ -904,4 +1103,4 @@ Starting from IntelliJ IDEA 2023.3 and Android Studio Iguana (2023.2.1) Canary 1
 bundled plugin included in your IDE. This means that you can't install the plugin from JetBrains Marketplace anymore. 
 The bundled plugin supports upcoming Kotlin EAP releases.
 
-To update to the new Kotlin EAP version, [change the Kotlin version](configure-build-for-eap.md) to %kotlinEapVersion% in your build scripts.
+To update to the new Kotlin EAP version, [change the Kotlin version](configure-build-for-eap.md#adjust-the-kotlin-version) to %kotlinEapVersion% in your build scripts.
