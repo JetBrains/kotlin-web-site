@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+{% set docsNavBack={
+    "url": "/docs/home.html",
+    "text": "Kotlin Docs"
+} %}
+
+{% set newDocsLink = site.data["core"].get(request.path) %}
+{% if not newDocsLink %}{% set newDocsLink="/api/core/"%}{% endif %}
+
 {% block scripts %}
     <script src="{{ url_for('static', filename='api.js')|autoversion }}"></script>
 {% endblock %}
@@ -8,17 +16,72 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='api.css')|autoversion }}">
 {% endblock %}
 
-{% set docsNavBack={
-    "url": "/docs/home.html",
-    "text": "Kotlin Docs"
-} %}
+{% block top_banner %}
+    <style>
+        #optimize-banner { display: none!important; }
+
+        .api-docs-to-core {
+            background: linear-gradient(90.12deg, #7F52FF 23%, #A952FF 34.23%, #9952FF 44.65%, #8952FF 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            padding: 0;
+
+            font-family: JetBrains Sans,Inter, Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: 0.0015em;
+            text-align: left;
+        }
+        .api-docs-to-core, .api-docs-to-core:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+        .api-docs-to-core::before {
+            display: inline-block;
+            content: '';
+            background: url("/assets/images/core-launch.svg") center center no-repeat;
+            margin-right: 8px;
+            height: 52px;
+            width: 48px;
+        }
+
+        .page_js_no .api-docs-to-core__close {
+            display: none;
+        }
+
+        .api-docs-to-core__close {
+            text-indent: -99999px;
+            position: absolute;
+            top: 50%;
+            right: 32px;
+            transform: translateY(-50%);
+            display: block;
+            background-color: transparent;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            height: 32px;
+            width: 32px;
+            padding: 4px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 704px) { .api-docs-to-core { display: none; } }
+        @media (min-width: 705px) { .api-docs-to-core-mobile { display: none; } }
+    </style>
+    <a class="api-docs-to-core" href="{{ newDocsLink }}" target="_blank">
+        Try docs with the new design →
+        <button type="button" class="api-docs-to-core__close">
+            <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" fill="#fff" d="M19.707 5.707l-1.414-1.414L12 10.586 5.707 4.293 4.293 5.707 10.586 12l-6.293 6.293 1.414 1.414L12 13.414l6.293 6.293 1.414-1.414L13.414 12l6.293-6.293z"></path></svg>
+        </button>
+    </a>
+{% endblock %}
 
 {% block content %}
-    {% set newDocsLink = site.data["core"].get(request.path) %}
-    {% if not newDocsLink %}{% set newDocsLink="/api/core/"%}{% endif %}
-    <p style="background: #f6ca9e; padding: 10px 5px; margin: -20px 0 20px; text-align: center;">
-        Something text for a new docs announcement. Go to new <a href="{{ newDocsLink }}">Kotlin Core docs</a>.
-    </p>
     <div class="g-grid">
         <div class="api-layout">
             <div class="api-layout_button-box">
