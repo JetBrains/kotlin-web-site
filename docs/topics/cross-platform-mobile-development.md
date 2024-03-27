@@ -156,7 +156,7 @@ Kotlin Multiplatform is an open-source technology built by JetBrains that allows
 * Full code-sharing flexibility and the ability to share both the logic and the UI, thanks to [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/), a modern declarative cross-platform UI framework built by JetBrains.
 * No need to introduce a new language to your codebase when you already use Kotlin for Android. You can reuse your Kotlin code and expertise, which makes migrating to Kotlin Multiplatform less risky compared to other technologies.
 
-If your team needs help kickstarting a new multiplatform technology, we recommend reviewing our guide on [_How to introduce multiplatform development to your team_.](multiplatform-introduce-your-team.md)
+If your team needs help adopting a new multiplatform technology, we recommend reviewing our guide on [_How to introduce multiplatform development to your team_.](multiplatform-introduce-your-team.md)
 
 > [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html)
 >
