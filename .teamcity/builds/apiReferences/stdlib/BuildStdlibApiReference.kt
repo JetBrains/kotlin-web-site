@@ -8,7 +8,7 @@ object BuildStdlibApiReference : BuildType({
   artifactRules = "latest-version.zip"
 
   dependencies {
-    dependency(AbsoluteId("Kotlin_BuildPlayground_Sirius_LibraryReferenceLatestDocs")) {
+      dependency(AbsoluteId("Kotlin_KotlinRelease_1920_LibraryReferenceLatestDocs")) {
       snapshot {
         reuseBuilds = ReuseBuilds.SUCCESSFUL
         onDependencyFailure = FailureAction.FAIL_TO_START
