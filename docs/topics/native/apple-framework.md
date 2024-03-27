@@ -224,7 +224,7 @@ __attribute__((swift_name("KotlinMutableDictionary")))
 ```
 
 Kotlin classes have a `KotlinBase` base class in Objective-C, the class extends
-the `NSObject` class there. There are also have wrappers for collections and exceptions. 
+the `NSObject` class there. There are also wrappers for collections and exceptions. 
 Most of the collection types are mapped to similar collection types from the other side:
 
 |Kotlin|Swift|Objective-C|
