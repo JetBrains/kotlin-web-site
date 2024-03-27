@@ -10,4 +10,8 @@ object StdlibPrepareDokkaTemplates: BuildType({
   name = "Prepare dokka templates for stdlib"
 
   templates(PrepareDokkaTemplate)
+
+  params {
+    param("env.ALGOLIA_INDEX_NAME", "api-core")
+  }
 })
