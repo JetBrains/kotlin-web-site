@@ -1,9 +1,10 @@
 [//]: # (title: Swift package export setup)
 
-Kotlin/Native output for an Apple target can be consumed as a Swift package manager (SPM) dependency.
-For example, if your Kotlin Multiplatform project has an iOS target, you may want to make the binary available
-as a dependency to iOS developers working on native Swift projects. Using KMP tooling, you can provide
-an artifact that would seamlessly integrate with projects in Xcode.
+You can set up the Kotlin/Native output for an Apple target to be consumed as a Swift package manager (SPM) dependency.
+
+Consider a Kotlin Multiplatform project that has an iOS target. You may want to make this iOS binary available
+as a dependency to iOS developers working on native Swift projects. Using Kotlin Multiplatform tooling, you can provide
+an artifact that would seamlessly integrate with their Xcode projects.
 
 This guide shows how to do this by building [XCFrameworks](multiplatform-build-native-binaries.md#build-xcframeworks)
 with the Kotlin Gradle plugin.
@@ -30,9 +31,9 @@ to maintain.
 * Store the `Package.swift` within the consumer project's repository. This helps to avoid the versioning and maintenance issues.
   However, this approach can cause problems with multi-repository SPM setups of the consumer project and further automation:
 
-  1. In a multi-package project, only one consumer package can depend on the external module, to avoid dependency conflicts
-  within the project. So, all the logic that depends on your Kotlin Multiplatform module should be encapsulated in a particular consumer package.
-  2. If you publish the Kotlin Multiplatform project using an automated CI process, this process would need to include publishing the
+  * In a multi-package project, only one consumer package can depend on the external module (to avoid dependency conflicts
+  within the project). So, all the logic that depends on your Kotlin Multiplatform module should be encapsulated in a particular consumer package.
+  * If you publish the Kotlin Multiplatform project using an automated CI process, this process would need to include publishing the
   updated `Package.swift` file to the consumer repository. Such a phase in CI can be difficult to maintain as it may lead
   to conflicting updates of the consumer repository.
 
@@ -75,12 +76,14 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
 2. Run the Gradle task to create the framework:
    
    `./gradlew :shared:assembleSharedReleaseXCFramework`
-3. The resulting framework will be created as the `shared/build/XCFrameworks/release/Shared.xcframework` folder in your project directory.
-4. Put the `Shared.xcframework` folder in a ZIP archive and calculate the checksum for the resulting archive, for example:
+  
+   The resulting framework will be created as the `shared/build/XCFrameworks/release/Shared.xcframework` folder in your project directory.
+
+3. Put the `Shared.xcframework` folder in a ZIP archive and calculate the checksum for the resulting archive, for example:
    
    `swift package compute-checksum Shared.xcframework.zip`
-5. <a name="upload"></a>Upload the ZIP file to the file storage of your choice.
-6. Create a `Package.swift` file with the following code:
+4. <anchor name="upload"></anchor> Upload the ZIP file to the file storage of your choice.
+5. Create a `Package.swift` file with the following code:
    ```Swift
    // swift-tools-version:5.3
    import PackageDescription
@@ -101,7 +104,8 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
       ]
    )
    ```
-7. You can check if the package manifest is valid by running the following command next to the `Package.swift` file:
+6. Validate the manifest.
+   One way to do this is to run the following shell command in the directory with the `Package.swift` file:
 
     ```shell
     swift package reset && swift package show-dependencies --format json
@@ -109,7 +113,7 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
     
     The output will describe any found errors, or show the successful download and parsing result if the manifest is correct.
 
-8. Push the `Package.swift` file to the repository you settled on earlier. Make sure to create and push a git tag with the
+7. Push the `Package.swift` file to the repository you settled on earlier. Make sure to create and push a git tag with the
 semantic version of the package.
 
 Now that both files are accessible, you can test the import in Xcode:
@@ -184,8 +188,9 @@ For example, you have a `network` and a `database` module, which you combine in 
     }
     ```
 
-3. Currently, the Gradle script cannot assemble a framework if the module being exported does not contain any source code.
-   To work around this, create an empty Kotlin file inside the `together` folder, for example, `together/src/commonMain/kotlin/Together.kt`.
+3. Create an empty Kotlin file inside the `together` folder, for example, `together/src/commonMain/kotlin/Together.kt`.
+   This is a workaround, as the Gradle script currently cannot assemble a framework if the exported module does not
+   contain any source code.
 
 4. Run the Gradle task that assembles the framework:
 
@@ -193,7 +198,7 @@ For example, you have a `network` and a `database` module, which you combine in 
     ./gradlew :together:assembleTogetherReleaseXCFramework
     ```
 
-5. Follow steps 5–9 from [the previous section](#upload) for `together.xcframework`: archive, calculate the checksum, upload
+5. Follow steps 4–7 from [the previous section](#upload) for `together.xcframework`: archive, calculate the checksum, upload
 the archived XCFramework, create and push a `Package.swift` file.
 
 Now you can import the dependency into an Xcode project. After adding the `import together` directive,
