@@ -16,22 +16,53 @@ Here you will learn how to create your first Kotlin notebook and run a single co
 1. In IntelliJ IDEA, select **File | New | Project**.
 2. In the panel on the left, select **New Project**. 
 3. Name the new project and change its location if necessary.
+
+> Select the **Create Git repository** checkbox to place the new project under version control. 
+> You will be able to do it later at any time.
+> 
+{type="tip"}
+
 4. From the **Language** list, select **Kotlin**.
+
+![Create a new Kotlin Notebook project](new-notebook-project.png){width=700}
+
 5. Select the **IntelliJ** build system.
 6. From the **JDK list**, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in your project.
-6. Click **Create**.
+7. Enable the **Add sample code** option to create a file with a sample `"Hello World!"` application.
+
+> You can also enable the **Generate code with onboarding tips** option to add some additional useful comments to your sample code.
+> 
+{type="tip"}
+
+8. Click **Create**.
 
 ## Create a Kotlin notebook
 
-1. To create a new notebook, select **File | New | Kotlin Notebook**.
+1. To create a new notebook, select **File | New | Kotlin Notebook**, or right-click on a folder and select **New | Kotlin Notebook**.
+
+![Create a new Kotlin notebook](new-notebook.png){width=700}
+
 2. Set the name of the new notebook, for example, **first-notebook**, and press **Enter**.
    A new tab with a Kotlin notebook **first-notebook.ipynb** will open.
 3. In the open tab, type the following code in the code cell:
 
    ```kotlin
-   println("Hello, it's a Kotlin notebook!")
+   println("Hello, this is a Kotlin notebook!")
    ```
-4. Press the ![Run Cell and Select Below](run-cell-and-select-below.png){width=30}{type="joined"} button or press **Shift** + **Return** to run the code cell. 
+4. To run a code cell click the **Run Cell and Select Below** ![Run Cell and Select Below](run-cell-and-select-below.png){width=30}{type="joined"} button or press **Shift** + **Return**.
+5. Add a markdown cell by clicking on the **Add Markdown Cell** button. 
+6. Type `# Example operations` in the cell, and run it the same way you run code cells to render it.
+7. In a new code cell type `10 + 10`, and run it.
+8. Define a variable in a code cell. For example, `val a = 100`. 
+
+> Once you run a code cell with defined variables, those variables become accessible in all other code cells.
+> 
+{type="tip"}
+
+9. Create a new code cell and add `println(a * a)`.
+10. Run all code and markdown cells in the notebook using the **Run All** ![Run all button](run-all-button.png){width=30}{type="joined"} button.
+
+![First notebook](first-notebook.png){width=700}
 
 Congratulations! You have just created your first Kotlin notebook.
 
