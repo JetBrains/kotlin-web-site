@@ -1,6 +1,10 @@
 [//]: # (title: Get started with data analysis with Kotlin Notebook)
 
-Get to know Kotlin notebooks by completing these steps:
+Kotlin Notebook is an interactive tool that lets you mix code, visuals, and markdown in one document. 
+You can use notebooks to write and execute code in parts, known as code cells, see the results instantly, and jot down your thoughts. 
+This setup makes it an excellent tool for rapid prototyping, analytics, and data science.
+
+Get to know Kotlin Notebook by completing these steps:
 
 ![First step](icon-1.svg){width=25}{type="joined"} [Set up an environment for working with Kotlin notebooks](kotlin-notebook-set-up-env.md)
 

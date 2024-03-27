@@ -17,6 +17,8 @@ Before you create your first Kotlin notebook, you need to set up an environment.
 2. In IntelliJ IDEA, select **IntelliJ IDEA | Settings | Plugins** or **File | Settings | Plugins**.
 3. In the **Marketplace** tab, browse the **Kotlin Notebook** plugin and install it.
 
+![Install Kotlin Notebook from the marketplace](kotlin-notebook-plugin.png){width=700}
+
    > Alternatively, you can download the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook)
    > and install it manually.
    >
