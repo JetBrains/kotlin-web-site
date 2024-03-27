@@ -6,7 +6,7 @@ Let's think about analyzing what's actually inside collections when debugging, d
 into memory dumps or databases, working with REST APIs, and receiving JSON files containing large amounts of data. These are examples of typical
 software development duties that require your analytics skills.
 
-With Kotlin's Exploratory Data Analysis (EDA) tools, such as Kandy and Kotlin DataFrame, you have at your disposal a rich set of 
+With Kotlin's Exploratory Data Analysis (EDA) tools, such as [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted.html), you have at your disposal a rich set of 
 capabilities to enhance your analytics skills and support you in the following scenarios:
 
 * **Load, transform, and visualize data in various formats:** with our EDA tools, you can perform tasks like filtering, sorting, and aggregating data. Our tools can seamlessly
@@ -17,7 +17,7 @@ read data right in the IDE from different file formats, including CSV, JSON, and
 * **Efficiently analyze data stored in relational databases:** Kotlin DataFrame seamlessly integrates with databases and provides capabilities similar to SQL queries. 
 You can retrieve, manipulate, and visualize data directly from various databases.
 
-* **Fetch and analyze real-time and dynamic datasets from web APIs:** the EDA tools' flexibility allows integration with external APIs via OpenAPI and other protocols. 
+* **Fetch and analyze real-time and dynamic datasets from web APIs:** the EDA tools' flexibility allows integration with external APIs via protocols like OpenAPI. 
 This feature helps you with fetching data from web APIs, cleaning and transforming it, and creating visualizations.
 
 ![Kotlin Notebook](data-analysis-notebook.gif){width=700}
