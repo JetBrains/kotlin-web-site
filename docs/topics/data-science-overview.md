@@ -18,7 +18,7 @@ read data right in the IDE from different file formats, including CSV, JSON, and
 You can retrieve, manipulate, and visualize data directly from various databases.
 
 * **Fetch and analyze real-time and dynamic datasets from web APIs:** the EDA tools' flexibility allows integration with external APIs via protocols like OpenAPI. 
-This feature helps you with fetching data from web APIs, cleaning and transforming it, and creating visualizations.
+This feature helps you fetch data from web APIs, to then clean and transform the data to your needs.
 
 ![Kotlin Notebook](data-analysis-notebook.gif){width=700}
 
