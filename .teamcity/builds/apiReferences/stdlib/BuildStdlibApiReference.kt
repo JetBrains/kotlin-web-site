@@ -5,7 +5,6 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 
 object BuildStdlibApiReference : BuildType({
   name = "Stdlib Api reference"
-
   artifactRules = "latest-version.zip"
 
   dependencies {
