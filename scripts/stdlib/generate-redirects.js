@@ -71,9 +71,9 @@ async function readFiles(currentPath) {
 
 const MANUAL_LINKS = {
     "api/latest/kotlin.test/alltypes/index.html":
-        "api/core/kotlin-test/",
+        "api/core/kotlin-test/index.html",
     "api/latest/jvm/stdlib/alltypes/index.html":
-        "api/core/kotlin-stdlib/",
+        "api/core/kotlin-stdlib/index.html",
 
     // > I think it's the right thing to hide HIDDEN deprecated api from the documentation,
     // > so these pages can be redirected just to their containing package in the new docs.
