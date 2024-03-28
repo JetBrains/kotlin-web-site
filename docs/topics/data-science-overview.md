@@ -20,6 +20,10 @@ You can retrieve, manipulate, and visualize data directly from various databases
 * **Fetch and analyze real-time and dynamic datasets from web APIs:** the EDA tools' flexibility allows integration with external APIs via protocols like OpenAPI. 
 This feature helps you fetch data from web APIs, to then clean and transform the data to your needs.
 
+Our Kotlin data analysis tools and Kotlin notebooks let you smoothly handle your data from start to finish. Effortlessly 
+retrieve your data with simple drag-and-drop functionality. Clean, transform, and visualize it with just a few lines of code. 
+Besides, export your output charts in a matter of clicks.
+
 ![Kotlin Notebook](data-analysis-notebook.gif){width=700}
 
 Would you like to try our Kotlin tools for data analysis?
