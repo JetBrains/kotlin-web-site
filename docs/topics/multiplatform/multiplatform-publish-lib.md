@@ -129,7 +129,7 @@ specify the variant names in the Android target block in the `shared/build.gradl
 
 ```kotlin
 kotlin {
-    android {
+    androidTarget {
         publishLibraryVariants("release", "debug")
     }
 }
@@ -156,7 +156,7 @@ with no classifier). This mode is disabled by default and can be enabled as foll
 
 ```kotlin
 kotlin {
-    android {
+    androidTarget {
         publishLibraryVariantsGroupedByFlavor = true
     }
 }
