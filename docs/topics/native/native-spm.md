@@ -51,28 +51,30 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
    import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
    
    kotlin {
-      // Other Kotlin Multiplatform targets
-      // ...
-      // Name of the module to be imported in the consumer project
-      val xcframeworkName = "Shared"
-      val xcf = XCFramework(xcframeworkName)
+       // Other Kotlin Multiplatform targets
+       // ...
+       // Name of the module to be imported in the consumer project
+       val xcframeworkName = "Shared"
+       val xcf = XCFramework(xcframeworkName)
    
-      listOf(
-         iosX64(),
-         iosArm64(),
-         iosSimulatorArm64(),
-      ).forEach {
-          it.binaries.framework {
-              baseName = xcframeworkName
-              // Specify CFBundleIdentifier to uniquely identify the framework
-              binaryOption("bundleId", "org.example.${xcframeworkName}")
-              xcf.add(this)
-              isStatic = true
+       listOf(
+           iosX64(),
+           iosArm64(),
+           iosSimulatorArm64(),
+       ).forEach { 
+           it.binaries.framework {
+               baseName = xcframeworkName
+               
+               // Specify CFBundleIdentifier to uniquely identify the framework
+               binaryOption("bundleId", "org.example.${xcframeworkName}")
+               xcf.add(this)
+               isStatic = true
            }
-        }
-      //...
+       }
+       //...
    }
    ```
+   
 2. Run the Gradle task to create the framework:
    
    `./gradlew :shared:assembleSharedReleaseXCFramework`
@@ -82,8 +84,10 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
 3. Put the `Shared.xcframework` folder in a ZIP archive and calculate the checksum for the resulting archive, for example:
    
    `swift package compute-checksum Shared.xcframework.zip`
+
 4. <anchor name="upload"></anchor> Upload the ZIP file to the file storage of your choice.
 5. Create a `Package.swift` file with the following code:
+
    ```Swift
    // swift-tools-version:5.3
    import PackageDescription
@@ -104,6 +108,7 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
       ]
    )
    ```
+   
 6. Validate the manifest.
    One way to do this is to run the following shell command in the directory with the `Package.swift` file:
 
