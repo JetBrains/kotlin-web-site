@@ -34,14 +34,14 @@ function parsePropsString([definition, _, componentName, propsString]) {
 function parseFreemakerContent(originalContent) {
     /* parse to [ fullEntry, componentName, propsString ] */
     const parseRegex = /(\{%\s*ktl_component\s+"(\w+)"\s*(\s[^%]+)?%})/g;
-
-    return Promise.all([...originalContent.matchAll(parseRegex)].map(parsePropsString))
+    const content = replaceEnv(originalContent);
+    return Promise.all([...content.matchAll(parseRegex)].map(parsePropsString))
         .then(entries => entries
             .reduce((text, [definition, componentName, props]) => {
                 const rendered = compileComponent(componentName, props);
                 console.log(rendered);
                 return text.replace(definition, rendered);
-            }, replaceEnv(originalContent))
+            }, content)
         )
 }
 
