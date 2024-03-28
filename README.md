@@ -125,6 +125,31 @@ Currently, there is no way to deploy the Kotlin website locally. This ticket tra
 
 You can contribute to the Kotlin website by sending us a pull request.
 
+## Local development
+
+#### preliminaries: python3 installed
+
+```
+# install frontend dependencies
+yarn install
+
+# at first start you need to build the static
+yarn run next-build-static
+
+# run NextJS server
+yarn run next-dev
+
+# run webpack dev server for everything else
+yarn start
+
+# install dependencies for the python server
+pip  install --no-build-isolation -r requirements.txt
+
+# run python server
+python3 kotlin_website.py
+```
+Now you can open the website at [http://localhost:9000](http://localhost:9000).
+
 ## Feedback and issues
 
 You can:
