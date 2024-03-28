@@ -48,6 +48,7 @@ build_contenteditable = False
 build_check_links = True
 build_errors = []
 url_adapter = app.create_url_adapter(None)
+node_env = os.environ.get('NODE_ENV', 'development')
 
 root_folder = path.join(os.path.dirname(__file__))
 data_folder = path.join(os.path.dirname(__file__), "data")
@@ -235,6 +236,12 @@ def kotlin_reference_pdf():
 @app.route('/docs/kotlin-docs.pdf')
 def kotlin_docs_pdf():
     return send_file(path.join(root_folder, "assets", "kotlin-reference.pdf"))
+
+
+if node_env != 'production':
+    @app.route('/docs/<path:path>')
+    def docs(path):
+        return send_from_directory('dist/docs/', path)
 
 
 @app.route('/_next/<path:path>')

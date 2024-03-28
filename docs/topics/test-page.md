@@ -68,7 +68,7 @@ plugins {
 
 ## Codeblocks
 
-Just a codeblock: 
+Just a codeblock:
 
 ```kotlin
     import java.util.*
@@ -291,10 +291,10 @@ jvmTest<Scope>
 1. One
 2. Two
 3. Three
-   1. Three point 1
-   2. Three point 2
-   3. Three point 3
-      1. Three point 1 and 1
+    1. Three point 1
+    2. Three point 2
+    3. Three point 3
+        1. Three point 1 and 1
 4. With a codeblock inside:
 
    ```kotlin
@@ -306,11 +306,11 @@ jvmTest<Scope>
 * First bullet
 * Second bullet
 * Third bullet
-  * One more
-  * Another one
-    * Wow, one more
+    * One more
+    * Another one
+        * Wow, one more
 * With a codeblock inside:
-   
+
    ```kotlin
    jvmTest<Scope>
    ```
@@ -338,7 +338,7 @@ jvmTest<Scope>
 * [internal link](roadmap.md)
 * [external link](https://jetbrains.com)
 * emojis ❌✅🆕
-* variable using: lastest Kotlin version is %kotlinVersion% 
+* variable using: lastest Kotlin version is %kotlinVersion%
 
 ## Embedded elements
 
@@ -379,14 +379,14 @@ Warning:
 >
 {type="warning"}
 
-Note: 
+Note:
 
-> As for native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),  only some of their 
+> As for native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),  only some of their
 > APIs need an opt-in with `@ExperimentalForeignApi`. In such cases, you get a warning with an opt-in requirement.
 >
 {type="note"}
 
-Tip: 
+Tip:
 
 > As for native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),  only some of their
 > APIs need an opt-in with `@ExperimentalForeignApi`. In such cases, you get a warning with an opt-in requirement.
