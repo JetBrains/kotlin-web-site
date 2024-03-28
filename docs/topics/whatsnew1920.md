@@ -79,11 +79,11 @@ You can specify it in your `build.gradle.kts` file:
 
 ```kotlin
 kotlin {
-   sourceSets.all {
-       languageSettings {
-           languageVersion = "2.0"
-       }
-   }
+    sourceSets.all {
+        languageSettings {
+            languageVersion = "2.0"
+        }
+    }
 }
 ```
 
@@ -250,23 +250,19 @@ In this case, the compilation fails, and you get all the errors in the compilati
 ```kotlin
 // An example of passing compiler options in a Gradle build file:
 kotlin {
-   macosX64("native") {
-       binaries.executable()
+    macosX64("native") {
+        binaries.executable()
 
+        compilations.configureEach {
+            compilerOptions.configure {
+                // To report linkage issues as warnings:
+                freeCompilerArgs.add("-Xpartial-linkage-loglevel=WARNING")
 
-       compilations.configureEach {
-           compilerOptions.configure {
-
-
-               // To report linkage issues as warnings:
-               freeCompilerArgs.add("-Xpartial-linkage-loglevel=WARNING")
-
-
-               // To raise linkage warnings to errors:
-               freeCompilerArgs.add("-Xpartial-linkage-loglevel=ERROR")
-           }
-       }
-   }
+                // To raise linkage warnings to errors:
+                freeCompilerArgs.add("-Xpartial-linkage-loglevel=ERROR")
+            }
+        }
+    }
 }
 ```
 
@@ -439,7 +435,7 @@ kotlin {
     androidTarget()
     iosArm64()
     iosSimulatorArm64()
-   
+
     // The iosMain source set is created automatically
 }
 ```
@@ -617,18 +613,21 @@ the `commonMain` root source set:
 ```kotlin
 kotlin {
     sourceSets {
-       // For the common source set
+        // For the common source set
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-common:1.9.10")
             }
+        }
 
-       // For the JVM source set
+        // For the JVM source set
         val jvmMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
             }
-       // For the JS source set
+        }
+
+        // For the JS source set
         val jsMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-js:1.9.10")
@@ -733,12 +732,12 @@ To use these targets in your project, update the `build.gradle.kts` file:
 
 ```kotlin
 kotlin {
-   wasmWasi {
-      // ...
-   }
-   wasmJs {
-      // ...
-   }
+    wasmWasi {
+        // ...
+    }
+    wasmJs {
+        // ...
+    }
 }
 ```
 
@@ -788,10 +787,10 @@ For example, you're no longer required to return a value for DOM event listeners
 
 ```kotlin
 fun main() {
-	window.onload = {
-    	document.body?.sayHello()
-    	null
-	}
+    window.onload = {
+        document.body?.sayHello()
+        null
+    }
 }
 ```
 
@@ -923,7 +922,7 @@ inline fun <reified T : Enum<T>> printAllValues() {
     print(enumEntries<T>().joinToString { it.name })
 }
 
-printAllValues<RGB>() 
+printAllValues<RGB>()
 // RED, GREEN, BLUE
 ```
 
@@ -959,7 +958,7 @@ designed specifically to be consistent with Java's atomic arrays so that in the 
   > appreciate your feedback in [YouTrack](https://kotl.in/issue).
   >
   {type="warning"}
-* In the `kotlin.native.concurrent package`, the Atomics API that was deprecated in Kotlin 1.9.0 with deprecation level `WARNING` has had its deprecation level raised to `ERROR`.
+* In the `kotlin.native.concurrent` package, the Atomics API that was deprecated in Kotlin 1.9.0 with deprecation level `WARNING` has had its deprecation level raised to `ERROR`.
 * In the `kotlin.concurrent` package, member functions of the [`AtomicInt`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.concurrent/-atomic-int/index.html) and [`AtomicLong`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.concurrent/-atomic-long/index.html) classes that had deprecation level: `ERROR`, have been removed.
 * All [member functions](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.concurrent/-atomic-reference/#functions) of the `AtomicReference` class now use atomic intrinsic functions.
 

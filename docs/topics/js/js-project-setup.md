@@ -34,7 +34,7 @@ The Kotlin Multiplatform Gradle plugin lets you manage aspects of your project i
 
 ```groovy
 kotlin {
-    //...
+    // ...
 }
 ```
 
@@ -119,7 +119,7 @@ of the build script:
 ```kotlin
 kotlin {
     sourceSets {
-      val jsMain by getting {
+        val jsMain by getting {
             dependencies {
                 implementation("org.example.myproject:1.1.0")
             }
@@ -240,7 +240,7 @@ Once an npm dependency is installed, you can use its API in your code as describ
 
 ## run task
 
-The Kotlin/JS plugin provides a `jsRun` task that lets you run pure Kotlin/JS projects without additional configuration.
+The Kotlin Multiplatform Gradle plugin provides a `jsRun` task that lets you run pure Kotlin/JS projects without additional configuration.
 
 For running Kotlin/JS projects in the browser, this task is an alias for the `browserDevelopmentRun` task (which is also
 available in Kotlin multiplatform projects). It uses the [webpack-dev-server](https://webpack.js.org/configuration/dev-server/)
@@ -343,9 +343,9 @@ To run tests, execute the standard lifecycle `check` task:
 ```bash
 ./gradlew check
 ```
-         
+
 To specify environment variables used by your Node.js test runners (for example, to pass external information to your tests, or to fine-tune package resolution), use the `environment()` function with a key-value pair inside the `testTask {}` block in your build script:
-         
+
 ```groovy
 kotlin {
     js {
@@ -355,7 +355,7 @@ kotlin {
             }
         }
     }
-}        
+}
 ```
 
 ### Karma configuration
@@ -371,7 +371,7 @@ All Karma configuration abilities are well described in Karma's [documentation](
 
 ## webpack bundling
 
-For browser targets, the Kotlin/JS plugin uses the widely known [webpack](https://webpack.js.org/) module bundler.
+For browser targets, the Kotlin Multiplatform Gradle plugin uses the widely known [webpack](https://webpack.js.org/) module bundler.
 
 ### webpack version 
 
@@ -425,7 +425,7 @@ config.module.rules.push({
     loader: 'loader-name'
 });
 ```
-     
+
 All webpack configuration
 capabilities are well described in its [documentation](https://webpack.js.org/concepts/configuration/).
 
@@ -682,7 +682,7 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
         file("my-kotlin-js-store")
     rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).lockFileName = 'my-yarn.lock'
 }
-``` 
+```
 
 </tab>
 </tabs>
@@ -772,7 +772,7 @@ rootProject.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlu
 rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin) {
     rootProject.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension).ignoreScripts = false
 }
-``` 
+```
 
 </tab>
 </tabs>

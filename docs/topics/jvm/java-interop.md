@@ -83,12 +83,11 @@ create references to `Person::age` and `person::age`. The same applies for `name
 
 ```kotlin
 val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11))
-    Persons
+    persons
          // Call a reference to Java synthetic property:
         .sortedBy(Person::age)
          // Call Java getter via the Kotlin property syntax:
         .forEach { person -> println(person.name) }
-}
 ```
 
 ### How to enable Java synthetic property references {initial-collapse-state="collapsed"}

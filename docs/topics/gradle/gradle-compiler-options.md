@@ -254,7 +254,7 @@ tasks
         compilerOptions
             .languageVersion
             .set(
-              org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleLanguageVersion%
+                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleLanguageVersion%
             )
     }
 ```
@@ -266,9 +266,9 @@ tasks
 tasks
     .withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class)
     .configureEach {
-        compilerOptions.languageVersion = 
-                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleLanguageVersion%
-}
+        compilerOptions.languageVersion =
+            org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleLanguageVersion%
+    }
 ```
 
 </tab>

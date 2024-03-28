@@ -18,8 +18,8 @@ from the Gradle plugins DSL:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-// Replace `<...>` with the plugin name appropriate for your target environment
 plugins {
+    // Replace `<...>` with the plugin name appropriate for your target environment
     kotlin("<...>") version "%kotlinVersion%"
     // For example, if your target environment is JVM:
     // kotlin("jvm") version "%kotlinVersion%"
@@ -30,8 +30,8 @@ plugins {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-// Replace `<...>` with the plugin name appropriate for your target environment
 plugins {
+    // Replace `<...>` with the plugin name appropriate for your target environment
     id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
     // For example, if your target environment is JVM: 
     // id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
@@ -349,7 +349,7 @@ This type of plugin manages which repositories to download a toolchain from. As 
 
 ```kotlin
 plugins {
-  id("org.gradle.toolchains.foojay-resolver-convention") version("%foojayResolver%")
+    id("org.gradle.toolchains.foojay-resolver-convention") version("%foojayResolver%")
 }
 ```
 
@@ -358,7 +358,7 @@ plugins {
 
 ```groovy
 plugins {
-  id 'org.gradle.toolchains.foojay-resolver-convention' version '%foojayResolver%'
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '%foojayResolver%'
 }
 ```
 
@@ -535,8 +535,8 @@ in your JAR file:
 
 ```kotlin
 tasks.jar(type: Jar) {
-     from sourceSets.main.outputs
-     from sourceSets.main.kotlin.classesDirectories
+    from sourceSets.main.outputs
+    from sourceSets.main.kotlin.classesDirectories
 }
 ```
 
@@ -612,8 +612,8 @@ project contains Java files). If you don't store them separately, specify the so
 
 ```kotlin
 kotlin {
-    sourceSets["main"].apply {    
-        kotlin.srcDir("src/main/myKotlin") 
+    sourceSets["main"].apply {
+        kotlin.srcDir("src/main/myKotlin")
     }
 }
 ```
@@ -1170,7 +1170,7 @@ repositories {
 </tab>
 <tab title="Groovy" group-key="groovy">
 
-```kotlin
+```groovy
 repositories {
     mavenCentral()
 }

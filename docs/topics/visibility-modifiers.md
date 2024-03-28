@@ -102,7 +102,7 @@ Use the following syntax to specify the visibility of the primary constructor of
 class C private constructor(a: Int) { ... }
 ```
 
-Here the constructor is private. By default, all constructors are `public`, which effectively
+Here the constructor is `private`. By default, all constructors are `public`, which effectively
 amounts to them being visible everywhere the class is visible (this means that a constructor of an `internal` class is only
 visible within the same module).
 
@@ -119,6 +119,5 @@ a module is a set of Kotlin files compiled together, for example:
 
 * An IntelliJ IDEA module.
 * A Maven project.
-* A Gradle source set (with the exception that the `test` source set can access the internal declarations of `main`).
+* A Gradle source set (with the exception that the `test` source set can access the `internal` declarations of `main`).
 * A set of files compiled with one invocation of the `<kotlinc>` Ant task.
-

@@ -74,7 +74,7 @@ when (x) {
 Smart casts can be used in the following conditions:
 
 <table header-style="none">
-        <tr>
+    <tr>
         <td>
             <code>val</code> local variables
         </td>
@@ -82,7 +82,7 @@ Smart casts can be used in the following conditions:
             Always, except <a href="delegated-properties.md">local delegated properties</a>.
         </td>
     </tr>
-        <tr>
+    <tr>
         <td>
             <code>val</code> properties
         </td>
@@ -90,7 +90,7 @@ Smart casts can be used in the following conditions:
             If the property is <code>private</code>, <code>internal</code>, or if the check is performed in the same <a href="visibility-modifiers.md#modules">module</a> where the property is declared. Smart casts can't be used on <code>open</code> properties or properties that have custom getters.
         </td>
     </tr>
-        <tr>
+    <tr>
         <td>
             <code>var</code> local variables
         </td>
@@ -98,7 +98,7 @@ Smart casts can be used in the following conditions:
             If the variable is not modified between the check and its usage, is not captured in a lambda that modifies it, and is not a local delegated property.
         </td>
     </tr>
-        <tr>
+    <tr>
         <td>
             <code>var</code> properties
         </td>

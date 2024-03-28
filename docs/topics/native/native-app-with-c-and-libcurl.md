@@ -56,7 +56,7 @@ The output will be an executable command-line app that you can run on macOS and 
     
     ```
 
-   * Targets are defined using `macOSX64`, `macosArm64`, `linuxX64`, `linuxArm64`, and `mingwX64` for macOS, Linux,
+   * Targets are defined using `macosX64`, `macosArm64`, `linuxX64`, `linuxArm64`, and `mingwX64` for macOS, Linux,
      and Windows. See the complete list of [supported platforms](native-target-support.md).
    * The entry itself defines a series of properties to indicate how the binary is generated and the entry
      point of the applications. These can be left as default values.

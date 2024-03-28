@@ -239,7 +239,7 @@ manually declare this relation in your `build.gradle.kts` file:
 
 ```kotlin
 kotlin {
-// ...
+    // ...
     sourceSets {
         val commonTest by getting
         val androidInstrumentedTest by getting {
@@ -262,7 +262,7 @@ To work around that, use the new `invokeWhenCreated()` API in your `build.gradle
 
 ```kotlin
 kotlin {
-// ...
+    // ...
     sourceSets.invokeWhenCreated("androidFreeDebug") {
         // ...
     }

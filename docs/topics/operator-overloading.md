@@ -98,8 +98,8 @@ For the *prefix* forms `++a` and `--a` resolution works the same way, and the ef
 | `a * b` | `a.times(b)` |
 | `a / b` | `a.div(b)` |
 | `a % b` | `a.rem(b)` |
-| `a..b ` | `a.rangeTo(b)` |
-| `a..<b ` | `a.rangeUntil(b)` |
+| `a..b` | `a.rangeTo(b)` |
+| `a..<b` | `a.rangeUntil(b)` |
 
 For the operations in this table, the compiler just resolves the expression in the *Translated to* column.
 

@@ -50,7 +50,7 @@ Documents a value parameter of a function or a type parameter of a class, proper
 To better separate the parameter name from the description, if you prefer, you can enclose the name of the
 parameter in brackets. The following two syntaxes are therefore equivalent:
 
-```
+```none
 @param name description.
 @param[name] description.
 ```

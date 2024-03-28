@@ -33,7 +33,7 @@ kotlin {
         }
     }
 }
-``` 
+```
 
 </tab>
 </tabs>
@@ -120,7 +120,7 @@ kotlin {
         }
     }
 }
-``` 
+```
 
 </tab>
 </tabs>
@@ -140,7 +140,6 @@ kotlin {
         }
     }
 }
-
 ```
 
 </tab>
@@ -156,7 +155,7 @@ kotlin {
         }
     }
 }
-``` 
+```
 
 </tab>
 </tabs>
@@ -233,11 +232,11 @@ specified library declarations will then be available only in those source sets.
 kotlin {
     sourceSets {
         commonMain.dependencies {
-                // kotlinx.coroutines will be available in all source sets
+            // kotlinx.coroutines will be available in all source sets
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
         androidMain.dependencies {
-            
+
         }
         iosMain.dependencies {
             // SQLDelight will be available only in the iOS source set, but not in Android or common

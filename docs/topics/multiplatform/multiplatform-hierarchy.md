@@ -87,7 +87,7 @@ kotlin {
 </tab>
 <tab title="Groovy" group-key="groovy">
 
-```kotlin
+```groovy
 kotlin {
     androidTarget()
     iosArm64()
@@ -255,12 +255,8 @@ It will hold the shared code for several targets.
 For example, here’s what to do if you want to share code among native Linux,
 Windows, and macOS targets (`linuxX64`, `mingwX64`, and `macosX64`):
 
-![Manually configured hierarchical structure](manual-hierarchical-structure.png)
-
 1. Add the intermediate source set `desktopMain`, which holds the shared logic for these targets.
 2. Specify the source set hierarchy using the `dependsOn` relation.
-
-The resulting hierarchical structure will look like this:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -311,6 +307,10 @@ kotlin {
 
 </tab>
 </tabs>
+
+The resulting hierarchical structure will look like this:
+
+![Manually configured hierarchical structure](manual-hierarchical-structure.png)
 
 You can have a shared source set for the following combinations of targets:
 

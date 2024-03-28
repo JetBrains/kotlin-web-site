@@ -17,7 +17,7 @@ Create a React Application using Kotlin/JS, and see how you can leverage Kotlin'
 
 ## Building web applications with Spring Boot and Kotlin
 
-Build a sample blog application by combining the power of Spring Boot and Kotlin.
+Build a simple blog application by combining the power of Spring Boot and Kotlin.
 
 [**Start**](https://spring.io/guides/tutorials/spring-boot-kotlin/)
 
