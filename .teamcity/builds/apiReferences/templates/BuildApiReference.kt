@@ -8,7 +8,6 @@ import jetbrains.buildServer.configs.kotlin.Triggers
 import jetbrains.buildServer.configs.kotlin.buildSteps.GradleBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.triggers.VcsTrigger
-import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 fun BuildSteps.scriptDropSnapshot(block: ScriptBuildStep.() -> Unit) = step(
     ScriptBuildStep {
@@ -60,7 +59,6 @@ object BuildApiReference : Template({
     artifactRules = "build/dokka/htmlMultiModule/** => pages.zip"
 
     params {
-        param("teamcity.vcsTrigger.runBuildInNewEmptyBranch", "true")
         param("DOKKA_TEMPLATES_VERSION", DOKKA_TEMPLATES_VERSION)
     }
 
