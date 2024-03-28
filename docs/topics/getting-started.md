@@ -126,20 +126,18 @@ Follow Kotlin on ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](http
 
 <tab id="data-analysis" title="Data analysis">
 
-From building data pipelines to productionizing machine learning models, Kotlin can be a great choice for
-working with data.
+From building data pipelines to productionizing machine learning models, Kotlin is a great choice for working with data and getting the most out of it.
 
-1. **Get started with your first Kotlin Notebook:**
+1. **Create and edit notebooks seamlessly within the IDE:**
 
-   * [Get started with Kotlin notebooks](get-started-with-kotlin-notebooks.md).
+   * [Get started with Kotlin Notebook](get-started-with-kotlin-notebooks.md).
 
-2. **Use Kotlin libraries for data manipulation and visualization:**
+2. **Explore and experiment with your data:**
 
-   * [Serialization](serialization.md)
-   * [DataFrame](https://kotlin.github.io/dataframe/overview.html)
-   * [Kandy](https://kotlin.github.io/kandy/welcome.html)
+   * [DataFrame](https://kotlin.github.io/dataframe/overview.html) – a library for data analysis and manipulation.
+   * [Kandy](https://kotlin.github.io/kandy/welcome.html) – a plotting tool for data visualization.
 
-3. **Join the Kotlin Data Analysis community:**
+3. **Get the latest updates about Kotlin for Data Analysis:**
 
    * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#datascience](https://kotlinlang.slack.com/archives/C4W52CFEZ) channel.
    * ![Twitter](twitter.svg){width=25}{type="joined"} Twitter: follow [KotlinForData](http://twitter.com/KotlinForData).
