@@ -1,0 +1,28 @@
+version: '3'
+services:
+  nginx-server:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/nginx-server/Dockerfile
+    ports:
+      - 8081:80
+    networks:
+      - network1
+
+  playwright:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/playwright/Dockerfile
+    command: yarn run test:visual:ci
+    environment:
+      BASE_URL: "http://nginx-server"
+      ipc: host
+    volumes:
+      - ./test/snapshots:/var/www/test/snapshots
+    depends_on:
+      - nginx-server
+    networks:
+      - network1
+
+networks:
+  network1:
