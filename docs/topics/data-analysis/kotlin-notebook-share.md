@@ -19,10 +19,14 @@ universal Jupyter format.
 One effective platform is [JetBrains Datalore](https://datalore.jetbrains.com). 
 This platform not only facilitates the sharing of Kotlin notebooks but also enhances their usability.
 Datalore allows you to execute and edit notebooks, and incorporates advanced features like the creation of interactive 
-reports and the option to schedule notebook runs. To see it in action, see [Kotlin Datalore example using DataFrame](https://datalore.jetbrains.com/report/static/KQKedA4jDrKu63O53gEN0z/xSJ4rx49hcH71pPnFgZBCq).
+reports and the option to schedule notebook runs. To see it in action, see [Kotlin Datalore example using DataFrame](https://datalore.jetbrains.com/report/static/KQKedA4jDrKu63O53gEN0z/B5YeMMONSAR78FgKQ9yJyW).
+
+![Datalore Notebook example](datalore-example.png){width=700}
 
 GitHub is another great option. It natively renders Kotlin notebooks, allowing for straightforward sharing and collaboration.
 For an example, see the [Examples of Kotlin DataFrame GitHub repository](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/titanic/Titanic.ipynb).
+
+![GitHub Notebook example](github-notebook.png){width=700}
 
 ## What's next
 
