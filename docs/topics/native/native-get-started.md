@@ -7,9 +7,11 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
 ## Before you start
 
 1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/) with the latest [Kotlin plugin](releases.md).
-2. Clone the [project template](https://github.com/Kotlin/kmp-native-wizard)
+2. In IDEA, install the [Native Debugging Support](https://plugins.jetbrains.com/plugin/12775-native-debugging-support)
+   plugin and restart the IDE.
+3. Clone the [project template](https://github.com/Kotlin/kmp-native-wizard)
    by selecting **File** | **New** | **Project from Version Control** in IntelliJ IDEA.
-3. Open the `build.gradle.kts` file, the build script that contains the project settings. To create Kotlin/Native applications,
+4. Open the `build.gradle.kts` file, the build script that contains the project settings. To create Kotlin/Native applications,
    you need the Kotlin Multiplatform Gradle plugin installed. Ensure that you use the latest version of the plugin:
 
    ```kotlin
@@ -17,9 +19,9 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
        kotlin("multiplatform") version "%kotlinVersion%"
    }
    ```
-   
+
 > * Read more about these settings in the [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md).
-> * Read more about the Gradle build system in the [documentation](gradle.md). 
+> * Read more about the Gradle build system in the [documentation](gradle.md).
 >
 {type="tip"}
 
@@ -59,7 +61,10 @@ performs the incremental build of the project.
        val name = readln()
    }
    ```
-3. In the `build.gradle.kts` file, specify `System.in` as the input to use when running the project:
+
+3. To be able to run the app using Gradle tasks, specify `System.in` as the input to use in the `build.gradle.kts` file
+   and sync the Gradle files:
+
    ```kotlin
    kotlin {
        //...
@@ -74,9 +79,11 @@ performs the incremental build of the project.
        //...
    }
    ```
+   {initial-collapse-state="collapsed" collapsed-title="runTask?.standardInput = System.`in`"}
+
 4. Eliminate the whitespaces and count the letters:
    * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to remove the empty spaces in the name.
-   * Use the scope function [`let`](scope-functions.md#let) to run the function within the object context. 
+   * Use the scope function [`let`](scope-functions.md#let) to run the function within the object context.
    * Use a [string template](strings.md#string-templates) to insert your name length into the string by adding a dollar sign `$` and enclosing it in curly braces – `${it.length}`.
      `it` is the default name of a [lambda parameter](coding-conventions.md#lambda-parameters).
 
@@ -92,7 +99,7 @@ performs the incremental build of the project.
    }
    ```
 
-5. Save the changes and run the application.
+5. Run the application.
 6. Enter your name and enjoy the result:
 
    ![Application output](native-output-2.png){width=700}
@@ -129,7 +136,7 @@ performs the incremental build of the project.
    }
    ```
 
-4. Save the changes and run the application.
+4. Run the application.
 5. Enter your name and enjoy the result:
 
    ![Application output](native-output-3.png){width=700}
