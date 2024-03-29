@@ -19,6 +19,7 @@ services:
       ipc: host
     volumes:
       - ./test/snapshots:/var/www/test/snapshots
+      - ./test-results:/var/www/test-results
     depends_on:
       - nginx-server
     networks:

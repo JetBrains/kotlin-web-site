@@ -26,7 +26,15 @@ object E2ETests : BuildType({
       script {
           scriptContent = "docker compose -f docker-compose-e2e-statics.yml up --exit-code-from playwright"
       }
+//      script {
+//          scriptContent = "zip -r test-results.zip test-results/"
+//      }
   }
+
+    artifactRules = """
+      +:test-results/ => test-results/
+    """.trimIndent()
+
 
   requirements {
     exists("docker.server.version")
