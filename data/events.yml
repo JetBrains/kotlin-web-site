@@ -6,6 +6,14 @@
   title: 'KotlinConf 2024 Global Minna'
   subject: 'KotlinConf 2024 Global Minna'
   url: https://kommunity.com/kotlin-minna-user-group/events/kotlinconf-2024-global-minna-2180e651
+- lang: es
+  startDate: '2024-04-18'
+  endDate: '2024-04-18'
+  location: Santiago, Chile
+  speaker: 'Jose Valladares'
+  title: 'Santiago KUG Meetup'
+  subject: 'Microservicios con Kotlin'
+  url: https://github.com/Droides-Chile/droideschile-meetup
 - lang: en
   startDate: '2024-02-22'
   endDate: '2024-02-22'
