@@ -16,6 +16,9 @@ def generate_sitemap(pages, filename='sitemap.xml'):
         if type is None:
             continue
 
+        if url.endswith('test-page.html'):
+            continue
+
         is_page = type.startswith('Page')
         is_exclude = type == 'Page_NotFound'
 
