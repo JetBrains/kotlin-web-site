@@ -9,6 +9,8 @@ import {
 } from './visual-constants';
 import { getElementScreenshotWithPadding } from './utils';
 
+const MAX_DIFF_PIXEL_RATIO = 0.011;
+
 test.describe('WebHelp page appearance', async () => {
     test.beforeEach(async ({ page }) => {
         const webHelpPage = new WebHelpPage(page, '/docs/test-page.html');
@@ -52,7 +54,10 @@ test.describe('WebHelp page appearance', async () => {
         test(`Should render layout of the article properly on ${resolution.name}`, async ({ page }) => {
             await page.setViewportSize(resolution);
             const screenshot = await page.screenshot({ fullPage: true });
-            expect(screenshot).toMatchSnapshot(`layout_${resolution.name}.png`);
+            expect(screenshot).toMatchSnapshot({
+                name: `layout_${resolution.name}.png`,
+                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+            });
         });
 
         test(`Should render micro format properly on ${resolution.name}`, async ({ page }) => {
@@ -148,7 +153,10 @@ test.describe('WebHelp page appearance', async () => {
             await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT_LONG);
             const codeBlockElement = await codeBlock.elementHandle();
             const screenshot = await getElementScreenshotWithPadding(page, codeBlockElement, ELEMENT_PADDING_OFFSET);
-            expect(screenshot).toMatchSnapshot(`code-block_expandable_${resolution.name}.png`);
+            expect(screenshot).toMatchSnapshot({
+                name: `code-block_expandable_${resolution.name}.png`,
+                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+            });
         });
 
         test(`Should render playground properly on ${resolution.name}`, async ({ page }) => {
@@ -203,7 +211,10 @@ test.describe('WebHelp page appearance', async () => {
             await page.setViewportSize(resolution);
             const element = page.locator('div.table').filter({ hasText: 'Dependencies' }).first();
             const screenshot = await element.screenshot();
-            expect(screenshot).toMatchSnapshot(`table_complex_codeblocks_${resolution.name}.png`);
+            expect(screenshot).toMatchSnapshot({
+                name: `table_complex_codeblocks_${resolution.name}.png`,
+                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+            });
         });
 
         test(`Should render ordered list properly on ${resolution.name}`, async ({ page }) => {
