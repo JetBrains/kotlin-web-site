@@ -281,7 +281,7 @@ We would appreciate your feedback on this feature in [YouTrack](https://youtrack
 #### How to enable the data objects preview
 
 To try this feature out, enable the `-language-version 1.9` compiler option. In a Gradle project, you can do so by
-adding the following to your `build.gradle(.kts)`:
+adding the following to your `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
