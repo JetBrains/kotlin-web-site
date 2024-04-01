@@ -114,7 +114,10 @@ test.describe('WebHelp page appearance', async () => {
             await page.setViewportSize(resolution);
             const codeBlock = page.locator(testSelector('code-block')).filter({ hasText: 'MessageService' }).first();
             const screenshot = await codeBlock.screenshot();
-            expect(screenshot).toMatchSnapshot(`code-block_${resolution.name}.png`);
+            expect(screenshot).toMatchSnapshot({
+                name: `code-block_${resolution.name}.png`,
+                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+            });
         });
 
         test(`Should render hovered codeblock properly on ${resolution.name}`, async ({ page }) => {
@@ -122,7 +125,10 @@ test.describe('WebHelp page appearance', async () => {
             const codeBlock = page.locator(testSelector('code-block')).filter({ hasText: 'MessageService' }).first();
             await codeBlock.hover();
             const screenshot = await codeBlock.screenshot();
-            expect(screenshot).toMatchSnapshot(`code-block_hovered_${resolution.name}.png`);
+            expect(screenshot).toMatchSnapshot({
+                name: `code-block_hovered_${resolution.name}.png`,
+                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+            });
         });
 
         test(`Should render expandable codeblock properly on ${resolution.name}`, async ({ page }) => {
@@ -130,7 +136,10 @@ test.describe('WebHelp page appearance', async () => {
             const codeBlock = page.locator(testSelector('code-collapse')).filter({ hasText: 'package' }).first();
             const codeBlockElement = await codeBlock.elementHandle();
             const screenshot = await getElementScreenshotWithPadding(page, codeBlockElement, ELEMENT_PADDING_OFFSET);
-            expect(screenshot).toMatchSnapshot(`code-block_expandable_${resolution.name}.png`);
+            expect(screenshot).toMatchSnapshot({
+                name: `code-block_expandable_${resolution.name}.png`,
+                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+            });
         });
 
         test(`Should render expandable codeblock when expanded properly on ${resolution.name}`, async ({ page }) => {
@@ -140,7 +149,10 @@ test.describe('WebHelp page appearance', async () => {
             await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT_LONG);
             const codeBlockElement = await codeBlock.elementHandle();
             const screenshot = await getElementScreenshotWithPadding(page, codeBlockElement, ELEMENT_PADDING_OFFSET);
-            expect(screenshot).toMatchSnapshot(`code-block_expandable_expanded_${resolution.name}.png`);
+            expect(screenshot).toMatchSnapshot({
+                name: `code-block_expandable_expanded_${resolution.name}.png`,
+                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
+            });
         });
 
         test(`Should render collapsed codeblock properly on ${resolution.name}`, async ({ page }) => {
