@@ -29,7 +29,7 @@ object E2ETests : BuildType({
   }
 
     artifactRules = """
-      +:test-results/ => test-results/
+      +:test-results/ => results/
     """.trimIndent()
 
   requirements {
