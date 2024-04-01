@@ -16,24 +16,17 @@ function replaceEnv(value) {
 
     while (matched = value.match(/\$\{process\.env\.([^}]+)\}/)) {
         const { 0: token, 1: variable, index } = matched;
-        const envValue = process.env[variable];
+        const envValue = process.env[variable] || '';
         value = value.substring(0, index) + envValue + value.substring(index + token.length);
     }
 
     return value;
 }
 
-function normalizeProps(props) {
-    for (const [key, value] of Object.entries(props)) {
-        props[key] = replaceEnv(value);
-    }
-    return props;
-}
-
 function parsePropsString([definition, _, componentName, propsString]) {
     return new Promise((resolve, reject) => {
         new KeyValueParser(propsString || '', { async: true, quoted: '\"' })
-            .on('end', props => resolve([definition, componentName, normalizeProps(props)]))
+            .on('end', props => resolve([definition, componentName, props]))
             .on('error', err => reject(err));
     });
 }
@@ -41,14 +34,14 @@ function parsePropsString([definition, _, componentName, propsString]) {
 function parseFreemakerContent(originalContent) {
     /* parse to [ fullEntry, componentName, propsString ] */
     const parseRegex = /(\{%\s*ktl_component\s+"(\w+)"\s*(\s[^%]+)?%})/g;
-
-    return Promise.all([...originalContent.matchAll(parseRegex)].map(parsePropsString))
+    const content = replaceEnv(originalContent);
+    return Promise.all([...content.matchAll(parseRegex)].map(parsePropsString))
         .then(entries => entries
             .reduce((text, [definition, componentName, props]) => {
                 const rendered = compileComponent(componentName, props);
                 console.log(rendered);
                 return text.replace(definition, rendered);
-            }, originalContent)
+            }, content)
         )
 }
 

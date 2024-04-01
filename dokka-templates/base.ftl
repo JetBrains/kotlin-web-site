@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html class="no-js">
 <head>
+    <#if "${process.env.DOKKA_NOINDEX}" == "true"><meta name="robots" content="noindex, nofollow"></#if>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <@page_metadata.display/>
     <@template_cmd name="pathToRoot"><script>var pathToRoot = "${pathToRoot}";</script></@template_cmd>

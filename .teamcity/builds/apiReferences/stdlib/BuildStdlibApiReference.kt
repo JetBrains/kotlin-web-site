@@ -5,11 +5,10 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 
 object BuildStdlibApiReference : BuildType({
   name = "Stdlib Api reference"
-
   artifactRules = "latest-version.zip"
 
   dependencies {
-    dependency(AbsoluteId("Kotlin_BuildPlayground_Sirius_LibraryReferenceLatestDocs")) {
+      dependency(AbsoluteId("Kotlin_KotlinRelease_1920_LibraryReferenceLatestDocs")) {
       snapshot {
         reuseBuilds = ReuseBuilds.SUCCESSFUL
         onDependencyFailure = FailureAction.FAIL_TO_START
