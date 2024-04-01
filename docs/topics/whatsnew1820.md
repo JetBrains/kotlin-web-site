@@ -130,7 +130,7 @@ fun findByRgb(rgb: String): Color? = Color.entries.find { it.rgb == rgb }
 #### How to enable the entries property
 
 To try this feature out, opt in with `@OptIn(ExperimentalStdlibApi)` and enable the `-language-version 1.9` compiler
-option. In a Gradle project, you can do so by adding the following to your `build.gradle(.kts)`:
+option. In a Gradle project, you can do so by adding the following to your `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
