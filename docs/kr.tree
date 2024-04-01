@@ -209,6 +209,7 @@
                 <toc-element id="native-cocoapods-xcode.md"/>
                 <toc-element id="native-cocoapods-dsl-reference.md"/>
             </toc-element>
+            <toc-element id="native-spm.md"/>
             <toc-element id="native-libraries.md"/>
             <toc-element id="native-platform-libs.md"/>
             <toc-element id="native-dynamic-libraries.md"/>
