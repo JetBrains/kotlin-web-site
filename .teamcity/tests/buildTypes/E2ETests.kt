@@ -1,6 +1,6 @@
 package tests.buildTypes
 
-import jetbrains.buildServer.configs.kotlin.*
+import builds.kotlinlang.buidTypes.BuildReferenceDocs
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildFeatures.PullRequests
 import jetbrains.buildServer.configs.kotlin.buildFeatures.pullRequests
@@ -15,7 +15,7 @@ object E2ETests : BuildType({
   }
 
     dependencies {
-        artifacts(AbsoluteId("Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildReferenceDocs")) {
+        artifacts(BuildReferenceDocs) {
             cleanDestination = true
             artifactRules = "+:docs.zip!** => dist/docs/"
         }
@@ -29,7 +29,7 @@ object E2ETests : BuildType({
   }
 
     artifactRules = """
-      +:test-results/ => results/
+      +:test-results/ => test-results/
     """.trimIndent()
 
   requirements {
