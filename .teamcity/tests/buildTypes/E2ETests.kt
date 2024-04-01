@@ -33,6 +33,7 @@ object E2ETests : BuildType({
 
     artifactRules = """
       +:test-results/ => test-results/
+      +:test/snapshots/ => snapshots/
     """.trimIndent()
 
 
