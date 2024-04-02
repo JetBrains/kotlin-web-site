@@ -17,13 +17,7 @@ For a detailed example, see the [Notebook in the KotlinDataFrame SQL Examples Gi
    {type="tip"}
 
 3. Create a new Kotlin Notebook by selecting **File** | **New** | **Kotlin Notebook**.
-4. In the Kotlin Notebook, import the Kotlin DataFrame library by running the following command:
-
-```kotlin
-%use dataframe
-```
-
-5. Ensure you have access to an SQL database, such as MariaDB or MySQL.
+4. Ensure you have access to an SQL database, such as MariaDB or MySQL.
 
 
 ## Connect to database
@@ -35,8 +29,16 @@ the schema of all tables within it.
 Let's look at an example:
 
 1. Open your Kotlin Notebook file (`.ipynb`).
+2. Add a dependency for a JDBC (Java Database Connectivity) driver, and specify the JDBC driver version.
+Here we use MariaDB as an example:
 
-2. Import the Kotlin DataFrame library, which is essential for data manipulation tasks, along with
+```kotlin
+USE {
+   dependencies("org.mariadb.jdbc:mariadb-java-client:$version")
+}
+```
+
+3. Import the Kotlin DataFrame library, which is essential for data manipulation tasks, along with
 the necessary Java libraries for SQL connectivity and utility functions: 
 
 ```kotlin
@@ -45,7 +47,7 @@ import java.sql.DriverManager
 import java.util.*
 ```
 
-3. Use the `DatabaseConfiguration` class to define your database's connection parameters, 
+4. Use the `DatabaseConfiguration` class to define your database's connection parameters, 
 including the URL, username, and password:
 
 ```kotlin
@@ -56,7 +58,7 @@ val PASSWORD = "YOUR_PASSWORD"
 val dbConfig = DatabaseConfiguration(URL, USER_NAME, PASSWORD)
 ```
 
-4. Once connected, use the `getSchemaForAllSqlTables()` function to fetch and display the 
+5. Once connected, use the `getSchemaForAllSqlTables()` function to fetch and display the 
 schema information for each table in the database:
 
 ```kotlin
