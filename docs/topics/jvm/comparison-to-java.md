@@ -23,8 +23,8 @@ Kotlin fixes a series of issues that Java suffers from:
     [type projections](generics.md#type-projections).
 * [Ternary-operator `a ? b : c`](control-flow.md#if-expression) is replaced with [if expression](control-flow.md#if-expression). 
 * [Records](https://openjdk.org/jeps/395)
-* [Record Patterns](https://openjdk.org/jeps/440)
-* **Java 22**: [Unnamed Variables & Patterns](https://openjdk.org/jeps/456)
+* [Pattern Matching](https://openjdk.org/projects/amber/design-notes/patterns/pattern-matching-for-java)
+* package-private [visibility modifier](https://kotlinlang.org/docs/visibility-modifiers.html)
 
 ## What Kotlin has that Java does not
 
@@ -49,6 +49,7 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Named parameters](functions.md#named-arguments)
 * [Infix functions](functions.md#infix-notation)
 * [Expect and actual declarations](multiplatform-expect-actual.md)
+* [Explicit API mode](https://kotlinlang.org/docs/whatsnew14.html#explicit-api-mode-for-library-authors) and [better control of API surface](https://kotlinlang.org/docs/opt-in-requirements.html)
 
 ## What's next?
 
