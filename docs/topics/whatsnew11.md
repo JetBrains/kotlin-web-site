@@ -688,7 +688,7 @@ engine.eval("val x = 3")
 println(engine.eval("x + 2"))  // Prints out 5
 ```
 
-See [here](https://github.com/JetBrains/kotlin/tree/master/libraries/examples/kotlin-jsr223-local-example)
+See [here](https://github.com/JetBrains/kotlin/tree/1.1.0/libraries/examples/kotlin-jsr223-local-example)
 for a larger example project using the API.
 
 ### kotlin.reflect.full

@@ -36,7 +36,7 @@ which includes the standard unified set of Java nullness annotations.
 
 With JSpecify, you can provide more detailed nullability information to help Kotlin keep null-safety interoperating with
 Java. You can set default nullability for the declaration, package, or module scope, specify parametric nullability,
-and more. You can find more details about this in the [JSpecify user guide](https://jspecify.dev/user-guide.html).
+and more. You can find more details about this in the [JSpecify user guide](https://jspecify.dev/docs/user-guide).
 
 Here is the example of how Kotlin can handle JSpecify annotations:
 
@@ -85,7 +85,7 @@ The plugin supports the following annotations:
 * `@With`
 * `@Value`
 
-We're continuing to work on this plugin. To find out the detailed current state, visit the [Lombok compiler plugin's README](https://github.com/JetBrains/kotlin/blob/master/plugins/lombok/lombok-compiler-plugin/README.md).
+We're continuing to work on this plugin. To find out the detailed current state, visit the [Lombok compiler plugin's README](https://github.com/JetBrains/kotlin/tree/master/plugins/lombok).
 
 Currently, we don't have plans to support the `@Builder` annotation. However, we can consider this if you vote
 for [`@Builder` in YouTrack](https://youtrack.jetbrains.com/issue/KT-46959).

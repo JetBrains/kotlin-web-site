@@ -638,7 +638,7 @@ The `kotlin.js` Gradle plugin comes with an adjusted Gradle DSL, which provides 
 
 - Explicit toggles for the creation of executable files via `binaries.executable()`. Read more about the [executing Kotlin/JS and its environment here](js-project-setup.md#execution-environments).
 - Configuration of webpack's CSS and style loaders from within the Gradle configuration via `cssSupport`. Read more about [using CSS and style loaders here](js-project-setup.md#css).
-- Improved management for npm dependencies, with mandatory version numbers or [semver](https://docs.npmjs.com/misc/semver#versions) version ranges, as well as support for _development_, _peer_, and _optional_ npm dependencies using `devNpm`, `optionalNpm` and `peerNpm`. [Read more about dependency management for npm packages directly from Gradle here](js-project-setup.md#npm-dependencies).
+- Improved management for npm dependencies, with mandatory version numbers or [semver](https://docs.npmjs.com/about-semantic-versioning) version ranges, as well as support for _development_, _peer_, and _optional_ npm dependencies using `devNpm`, `optionalNpm` and `peerNpm`. [Read more about dependency management for npm packages directly from Gradle here](js-project-setup.md#npm-dependencies).
 - Stronger integrations for [Dukat](https://github.com/Kotlin/dukat), the generator for Kotlin external declarations. External declarations can now be generated at build time, or can be manually generated via a Gradle task.
 
 ### New JS IR backend

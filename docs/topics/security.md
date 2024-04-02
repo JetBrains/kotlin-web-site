@@ -12,7 +12,7 @@ with these PGP keys:
 
 * Use the latest versions of your application's dependencies. If you need to use a specific version of a dependency, 
 periodically check if any new security vulnerabilities have been discovered. You can follow 
-[the guidelines from GitHub](https://help.github.com/en/github/managing-security-vulnerabilities/managing-vulnerabilities-in-your-projects-dependencies) 
+[the guidelines from GitHub](https://docs.github.com/en/code-security) 
 or browse known vulnerabilities in the [CVE base](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kotlin).
 
 We are very eager and grateful to hear about any security issues you find. To report vulnerabilities that you discover in Kotlin,
