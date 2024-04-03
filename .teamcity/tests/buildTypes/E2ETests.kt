@@ -2,6 +2,7 @@ package tests.buildTypes
 
 import builds.apiReferences.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
 import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildApiReference
+import builds.kotlinlang.buidTypes.BuildJsAssets
 import builds.kotlinlang.buidTypes.BuildReferenceDocs
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
@@ -21,6 +22,17 @@ object E2ETests : BuildType({
         artifacts(BuildReferenceDocs) {
             cleanDestination = true
             artifactRules = "+:docs.zip!** => dist/docs/"
+        }
+
+        dependency(BuildJsAssets) {
+            snapshot {
+                onDependencyFailure = FailureAction.FAIL_TO_START
+                onDependencyCancel = FailureAction.CANCEL
+            }
+
+            artifacts {
+                artifactRules = "+:assets.zip!** => _assets/"
+            }
         }
 
         dependency(KotlinxCoroutinesBuildApiReference) {
@@ -47,13 +59,6 @@ object E2ETests : BuildType({
     }
 
   steps {
-      script {
-          name = "Create stub for assets"
-          scriptContent = """
-            mkdir _assets
-        """.trimIndent()
-      }
-
       script {
           scriptContent = "docker compose -f docker-compose-e2e-statics.yml up --exit-code-from playwright"
       }
