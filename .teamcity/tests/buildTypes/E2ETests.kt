@@ -1,7 +1,10 @@
 package tests.buildTypes
 
+import builds.apiReferences.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
+import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildApiReference
 import builds.kotlinlang.buidTypes.BuildReferenceDocs
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildFeatures.PullRequests
 import jetbrains.buildServer.configs.kotlin.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
@@ -19,14 +22,35 @@ object E2ETests : BuildType({
             cleanDestination = true
             artifactRules = "+:docs.zip!** => dist/docs/"
         }
+
+        dependency(KotlinxCoroutinesBuildApiReference) {
+            snapshot {
+                onDependencyFailure = FailureAction.CANCEL
+                onDependencyCancel = FailureAction.CANCEL
+            }
+
+            artifacts {
+                artifactRules = "+:pages.zip!** => libs/kotlinx.coroutines/"
+            }
+        }
+
+        dependency(KotlinxSerializationBuildApiReference) {
+            snapshot {
+                onDependencyFailure = FailureAction.CANCEL
+                onDependencyCancel = FailureAction.CANCEL
+            }
+
+            artifacts {
+                artifactRules = "+:pages.zip!** => libs/kotlinx.serialization/"
+            }
+        }
     }
 
   steps {
       script {
-          name = "Create stubs instead of real assets"
+          name = "Create stub for assets"
           scriptContent = """
             mkdir _assets
-            mkdir libs
         """.trimIndent()
       }
 
