@@ -2,22 +2,24 @@
 
 [Overview here:
 
-The Kotlin Notebook is
-Its main features are (dependencies in maven repo, library integration, rich outputs)]
+* The Kotlin Notebook is
+* Its main features are ]
 
-## Use cases
+## Data analytics and visualization
 
-### Data analytics and visualization
+[The Kotlin Notebook lets you... ]
 
-### Backend development
+## Backend development
 
-### UI Prototyping
+[In the Kotlin Notebook you can... ]
 
-### Code documentation
+## UI prototyping
 
-### Teaching and learning
+## Code documentation
 
-### Sharing code and outputs
+## Teaching and learning
+
+## Sharing code and outputs
 
 ## What's next
 
