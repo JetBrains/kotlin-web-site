@@ -19,10 +19,17 @@ object E2ETests : BuildType({
             cleanDestination = true
             artifactRules = "+:docs.zip!** => dist/docs/"
         }
-
     }
 
   steps {
+      script {
+          name = "Create stubs instead of real assets"
+          scriptContent = """
+            mkdir _assets
+            mkdir libs
+        """.trimIndent()
+      }
+
       script {
           scriptContent = "docker compose -f docker-compose-e2e-statics.yml up --exit-code-from playwright"
       }
