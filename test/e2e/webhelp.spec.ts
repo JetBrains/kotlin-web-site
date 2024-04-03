@@ -9,7 +9,7 @@ test.describe('WebHelp page interactivity', async () => {
         await webHelpPage.init();
     });
 
-    test(`Should open page  item  properly on desktop`, async ({ page }) => {
+    test(`Should open page item properly on desktop`, async ({ page }) => {
         await page.setViewportSize(RESOLUTIONS[0]);
         const element = page.locator('nav').locator('ul.toc').first();
         const tocItem = element.locator(testSelector('toc-item')).filter({ hasText: 'Basics' }).first();
