@@ -1,19 +1,19 @@
-[//]: # (title: Share your Kotlin notebook)
+[//]: # (title: Share your Kotlin Notebook)
 
 <microformat>
-   <p>This is the fourth part of the <strong>Getting started with Kotlin notebooks</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
+   <p>This is the fourth part of the <strong>Getting started with Kotlin Notebook</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="kotlin-notebook-set-up-env.md">Set up an environment</a><br/>
-      <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="kotlin-notebook-create.md">Create a Kotlin notebook</a><br/>
-      <img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="kotlin-notebook-add-dependencies.md">Add dependencies to the Kotlin notebook</a><br/>      
-      <img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Share the Kotlin notebook</strong><br/>
+      <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="kotlin-notebook-create.md">Create a Kotlin Notebook</a><br/>
+      <img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="kotlin-notebook-add-dependencies.md">Add dependencies to a Kotlin Notebook</a><br/>      
+      <img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Share a Kotlin Notebook</strong><br/>
   </p>
 </microformat>
 
-Now that you have created your first Kotlin notebook, you are ready to share your work with others! 
+Now that you have created your first Kotlin Notebook, you are ready to share your work with others! 
 
-## Share a Kotlin notebook
+## Share a Kotlin Notebook
 
-To share a Kotlin notebook, you can simply upload it to any notebook web viewer, since Kotlin notebooks adhere to the 
+To share a Kotlin Notebook, you can simply upload it to any notebook web viewer, since Kotlin notebooks adhere to the 
 universal Jupyter format.
 
 One effective platform is [JetBrains Datalore](https://datalore.jetbrains.com). 

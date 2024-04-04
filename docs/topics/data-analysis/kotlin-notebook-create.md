@@ -1,15 +1,15 @@
-[//]: # (title: Create your first Kotlin notebook)
+[//]: # (title: Create your first Kotlin Notebook)
 
 <microformat>
-   <p>This is the second part of the <strong>Getting started with Kotlin notebooks</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
+   <p>This is the second part of the <strong>Getting started with Kotlin Notebook</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="kotlin-notebook-set-up-env.md">Set up an environment</a><br/>
-      <img src="icon-2.svg" width="20" alt="Second step"/> <strong>Create a Kotlin notebook</strong><br/>
-      <img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies to the Kotlin notebook<br/>      
-      <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Share the Kotlin notebook<br/>
+      <img src="icon-2.svg" width="20" alt="Second step"/> <strong>Create a Kotlin Notebook</strong><br/>
+      <img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies to a Kotlin Notebook<br/>      
+      <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Share a Kotlin Notebook<br/>
   </p>
 </microformat>
 
-Here you will learn how to create your first Kotlin notebook and run a single code cell. 
+Here you will learn how to create your first Kotlin Notebook and run a single code cell. 
 
 ## Create an empty project
 
@@ -36,18 +36,18 @@ Here you will learn how to create your first Kotlin notebook and run a single co
 
 8. Click **Create**.
 
-## Create a Kotlin notebook
+## Create a Kotlin Notebook
 
 1. To create a new notebook, select **File | New | Kotlin Notebook**, or right-click on a folder and select **New | Kotlin Notebook**.
 
-![Create a new Kotlin notebook](new-notebook.png){width=700}
+![Create a new Kotlin Notebook](new-notebook.png){width=700}
 
 2. Set the name of the new notebook, for example, **first-notebook**, and press **Enter**.
-   A new tab with a Kotlin notebook **first-notebook.ipynb** will open.
+   A new tab with a Kotlin Notebook **first-notebook.ipynb** will open.
 3. In the open tab, type the following code in the code cell:
 
    ```kotlin
-   println("Hello, this is a Kotlin notebook!")
+   println("Hello, this is a Kotlin Notebook!")
    ```
 4. To run a code cell click the **Run Cell and Select Below** ![Run Cell and Select Below](run-cell-and-select-below.png){width=30}{type="joined"} button or press **Shift** + **Return**.
 5. Add a markdown cell by clicking on the **Add Markdown Cell** button. 
@@ -64,10 +64,10 @@ Here you will learn how to create your first Kotlin notebook and run a single co
 
 ![First notebook](first-notebook.png){width=700}
 
-Congratulations! You have just created your first Kotlin notebook.
+Congratulations! You have just created your first Kotlin Notebook.
 
 ## Next step
 
-In the next part of the tutorial, you will learn how to add dependencies to a Kotlin notebook.
+In the next part of the tutorial, you will learn how to add dependencies to a Kotlin Notebook.
 
 **[Proceed to the next chapter](kotlin-notebook-add-dependencies.md)**
