@@ -6,7 +6,7 @@ Let's think about analyzing what's actually inside collections when debugging, d
 into memory dumps or databases, working with REST APIs, and receiving JSON files containing large amounts of data. These are examples of typical
 software development duties that require your analytics skills.
 
-With Kotlin's Exploratory Data Analysis (EDA) tools, such as [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted.html), you have at your disposal a rich set of 
+With Kotlin's Exploratory Data Analysis (EDA) tools, such as [Kandy](#kandy), [Kotlin DataFrame](#dataframe), and [Kotlin notebooks](#notebooks), you have at your disposal a rich set of 
 capabilities to enhance your analytics skills and support you in the following scenarios:
 
 * **Load, transform, and visualize data in various formats:** with our EDA tools, you can perform tasks like filtering, sorting, and aggregating data. Our tools can seamlessly
@@ -20,15 +20,15 @@ You can retrieve, manipulate, and visualize data directly from various databases
 * **Fetch and analyze real-time and dynamic datasets from web APIs:** the EDA tools' flexibility allows integration with external APIs via protocols like OpenAPI. 
 This feature helps you fetch data from web APIs, to then clean and transform the data to your needs.
 
-Our Kotlin data analysis tools and Kotlin notebooks let you smoothly handle your data from start to finish. Effortlessly 
-retrieve your data with simple drag-and-drop functionality. Clean, transform, and visualize it with just a few lines of code. 
+Our Kotlin data analysis tools let you smoothly handle your data from start to finish. Effortlessly 
+retrieve your data with simple drag-and-drop functionality in our Kotlin Notebook. Clean, transform, and visualize it with just a few lines of code. 
 Besides, export your output charts in a matter of clicks.
 
 ![Kotlin Notebook](data-analysis-notebook.gif){width=700}
 
 Would you like to try our Kotlin tools for data analysis?
 
-<a href="get-started-with-kotlin-notebooks.md"><img src="kotlin-notebooks-button.svg" width="700" alt="Get started with Kotlin Notebook"/></a>
+<a href="get-started-with-kotlin-notebooks.md"><img src="kotlin-notebooks-button.svg" width="600" alt="Get started with Kotlin Notebook"/></a>
 
 ## Notebooks
 
