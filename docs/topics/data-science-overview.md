@@ -41,6 +41,7 @@ and [Jupyter Notebook](https://jupyter.org/) provide convenient features for dat
 Make the most of interactive editors while leveraging the perks of coding with Kotlin. Kotlin integrates with these notebooks 
 to help you manage data and share your findings with colleagues while building up your data science and machine learning skills.
 
+![Kotlin Notebook](kotlin-notebook.png){width=700}
 
 ### Kotlin Notebook
 
@@ -50,17 +51,15 @@ cells and harnesses the powerful Kotlin IDE support to offer real-time code insi
 
 From our different notebook options, Kotlin Notebook stands out as the preferred choice.
 
-![Kotlin Notebook](kotlin-notebook.png){width=700}
-
 ### Kotlin notebooks in Datalore
 
-With Datalore, you can use Kotlin in the browser straight out of the box without additional installation.
+With [Datalore](https://datalore.jetbrains.com/), you can use Kotlin in the browser straight out of the box without additional installation.
 You can also collaborate with other Kotlin notebooks in real-time,
 receive smart coding assistance as you write code, and share results through interactive or static reports.
 
 ### Jupyter Notebook with Kotlin kernel
 
-Jupyter Notebook is an open-source web application
+[Jupyter Notebook](https://jupyter.org/) is an open-source web application
 that allows you to create and share documents containing code,
 visualizations, and Markdown text. 
 [Kotlin-jupyter](https://github.com/Kotlin/kotlin-jupyter) is an open-source project that brings Kotlin 
@@ -68,19 +67,23 @@ support to Jupyter Notebook to harness Kotlin's power within the Jupyter environ
 
 ## Kandy
 
-Kandy is an open-source Kotlin library that provides a powerful and flexible DSL for plotting charts of various types.
+[Kandy](https://kotlin.github.io/kandy/welcome.html) is an open-source Kotlin library that provides a powerful and flexible DSL for plotting charts of various types.
 This library is your simple, idiomatic, readable, and type-safe tool to visualize data.
 
 Kandy has seamless integration with Kotlin Notebook, Datalore, and Jupyter Notebook. You can also easily use Kandy and 
 Kotlin DataFrame to complete different data tasks.
 
+![Kandy](data-analysis-kandy-example.png){width=700}
+
 ## DataFrame
 
-The Kotlin DataFrame library lets you manipulate structured data in your Kotlin projects. From data creation and 
+The [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted.html) library lets you manipulate structured data in your Kotlin projects. From data creation and 
 cleaning to in-depth analysis and feature engineering, this library has you covered.
 
 With Kotlin DataFrame, you can work with different file formats, including CSV, JSON, and TXT. This library facilitates the data retrieval process 
 with its ability to connect with SQL databases or APIs.
+
+![DataFrame](data-analysis-dataframe-example.png){width=700}
 
 ## What's next
 
