@@ -587,7 +587,7 @@ This change reduces the binary sizes of applications compared to the traditional
 Since the first version, Kotlin has generated lambdas as anonymous classes. However, starting from [Kotlin 1.5](whatsnew15.md#lambdas-via-invokedynamic),
 the option for `invokedynamic` generation was available by using the `-Xlambdas=indy` compiler flag. In Kotlin %kotlinEapVersion%,
 `invokedynamic` has become the default method for lambda generation. This method produces lighter binaries and aligns
-Kotlin with JVM optimizations, ensuring applications benefit from ongoing and future improvements in JVM performance.
+Kotlin with JVM optimizations, ensuring that applications benefit from ongoing and future improvements in JVM performance.
 
 Currently, it has three limitations compared to ordinary lambda compilation:
 
@@ -607,7 +607,7 @@ In %kotlinEapVersion%, the `kotlinx-metadata-jvm` library became [Stable](compon
 Since the library's package and coordinates have changed to `kotlin`, you can now find it under the name
 `kotlin-metadata-jvm` (without the "x").
 
-Before, the `kotlinx-metadata-jvm` library had its own publishing scheme and version. Now, we will build and publish the
+Before, the `kotlinx-metadata-jvm` library had its own publishing scheme and version. Now, we build and publish the
 `kotlin-metadata-jvm` updates as part of the Kotlin release cycle, with the same backward compatibility guarantees as the
 Kotlin standard library.
 
@@ -930,7 +930,7 @@ or "no-jvm".
 Publishing this attribute should make consuming Kotlin Multiplatform libraries with JVM and Android targets more robust
 from non-multiplatform clients as well, such as Java-only projects.
 
-If necessary, you can disable attribute publication. To do that, add the following Gradle option to your `gradle.properties` file:
+If necessary, you can disable publication of this attribute. To do that, add the following Gradle option to your `gradle.properties` file:
 
 ```none
 kotlin.publishJvmEnvironmentAttribute=false
