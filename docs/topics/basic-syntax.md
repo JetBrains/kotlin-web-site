@@ -133,44 +133,85 @@ See [Functions](functions.md).
 
 ## Variables
 
-Read-only local variables are defined using the keyword `val`. They can be assigned a value only once.
+In Kotlin, you declare a variable starting with a keyword, `val` or `var`, followed by the name of the variable.
+
+Use the `val` keyword to declare variables that are assigned a value only once. These are read-only local variables that can’t be reassigned a different value
+after initialization: 
 
 ```kotlin
 fun main() {
 //sampleStart
-    val a: Int = 1  // immediate assignment
-    val b = 2   // `Int` type is inferred
-    val c: Int  // Type required when no initializer is provided
-    c = 3       // deferred assignment
+    val x: Int = 5
+    // 5
 //sampleEnd
-    println("a = $a, b = $b, c = $c")
+    println(x)
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-val"}
 
-Variables that can be reassigned use the `var` keyword.
+Use the `var` keyword to declare variables that can be reassigned. These are mutable variables, and you can assign other values to them after initialization:
 
 ```kotlin
 fun main() {
 //sampleStart
-    var x = 5 // `Int` type is inferred
+    var x: Int = 5
+    // Reassigns a value to x
     x += 1
+    // 6
 //sampleEnd
-    println("x = $x")
+    println(x)
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-var"}
 
-You can declare variables at the top level.
+Kotlin supports type inference and automatically identifies the data type of a declared variable. When declaring a variable, you can omit the type after the variable name:
+
+```kotlin
+fun main() {
+//sampleStart
+    // `Int` type is inferred
+    val x = 5
+    // 5
+//sampleEnd
+    println(x)
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-inference"}
+
+You can use variables only after initializing them. You can either initialize a variable at the moment of declaration or declare a variable first and initialize it later. 
+In the second case, you must specify the data type:
+
+```kotlin
+fun main() {
+//sampleStart
+    // Initializes a variable at the moment of declaration; type is not required
+    val x = 5
+    // Declares a variable without initialization; type is required
+    val c: Int
+    // Initializes a variable after declaration 
+    c = 3
+    // 5 
+    // 3
+//sampleEnd
+    println(x)
+    println(c)
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-initialize"}
+
+You can declare variables at the top level:
 
 ```kotlin
 //sampleStart
 val PI = 3.14
 var x = 0
 
-fun incrementX() { 
-    x += 1 
+fun incrementX() {
+    x += 1
 }
+// x = 0; PI = 3.14
+// incrementX()
+// x = 1; PI = 3.14
 //sampleEnd
 
 fun main() {
@@ -182,7 +223,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-variable-top-level"}
 
-See also [Properties](properties.md).
+For information about declaring properties, see [Properties](properties.md).
 
 ## Creating classes and instances
 
