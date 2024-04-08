@@ -71,7 +71,7 @@ performs an incremental build of the project.
    }
    ```
 
-3. To be able to run this app using Gradle, specify `System.in` as the input to use in the `build.gradle.kts` file
+3. To run this app using Gradle, specify `System.in` as the input to use in the `build.gradle.kts` file
    and load the Gradle changes:
 
    ```kotlin
