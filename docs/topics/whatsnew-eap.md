@@ -930,7 +930,7 @@ or "no-jvm".
 Publishing this attribute should make consuming Kotlin Multiplatform libraries with JVM and Android targets more robust
 from non-multiplatform clients as well, such as Java-only projects.
 
-If necessary, you can disable attribute publication. To do that, add the following Gradle option to your `gradle.properties file`:
+If necessary, you can disable attribute publication. To do that, add the following Gradle option to your `gradle.properties` file:
 
 ```none
 kotlin.publishJvmEnvironmentAttribute=false
