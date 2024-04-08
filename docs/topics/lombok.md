@@ -19,7 +19,6 @@ Learn more about [how to configure the Lombok compiler plugin](#using-the-lombok
 
 The plugin supports the following annotations:
 * `@Getter`, `@Setter`
-* `@Builder`
 * `@NoArgsConstructor`, `@RequiredArgsConstructor`, and `@AllArgsConstructor`
 * `@Data`
 * `@With`
