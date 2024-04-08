@@ -576,8 +576,8 @@ We would appreciate any feedback you may have!
 
 This version brings the following changes:
 
-* [Generate lambda functions using invokedynamic](#generate-lambda-functions-using-invokedynamic)
-* [The kotlinx-metadata-jvm library is now Stable](#the-kotlinx-metadata-jvm-library-is-now-stable)
+* [Generate lambda functions using `invokedynamic`](#generate-lambda-functions-using-invokedynamic)
+* [The `kotlinx-metadata-jvm` library is now Stable](#the-kotlinx-metadata-jvm-library-is-now-stable)
 
 ### Generate lambda functions using invokedynamic
 
@@ -604,7 +604,8 @@ To retain the legacy behavior of generating lambda functions, you can either:
 ### The kotlinx-metadata-jvm library is now Stable
 
 In %kotlinEapVersion%, the `kotlinx-metadata-jvm` library became [Stable](components-stability.md#stability-levels-explained).
-Since the library changed to the `kotlin` package and coordinates, now you can find it as `kotlin-metadata-jvm` (without the "x").
+Since the library's package and coordinates have changed to `kotlin`, you can now find it under the name
+`kotlin-metadata-jvm` (without the "x").
 
 Before, the `kotlinx-metadata-jvm` library had its own publishing scheme and version. Now, we will build and publish the
 `kotlin-metadata-jvm` updates as part of the Kotlin release cycle, with the same backward compatibility guarantees as the
@@ -875,8 +876,8 @@ Prior to Kotlin %kotlinEapVersion%, configuring compiler options in a multiplatf
 at a low level, such as per task, compilation, or source set. To make it easier to configure compiler options more generally
 in your projects, Kotlin %kotlinEapVersion% comes with a new Gradle DSL.
 
-With this new DSL, you can configure compiler options at the extension level for all the targets and shared source sets
-like `commonMain` and at a target level for a specific target:
+With this new DSL, you can configure compiler options at the extension level for all the targets and shared source sets,
+such as `commonMain`, as well as at the target level for a specific target:
 
 ```kotlin
 kotlin {
@@ -908,7 +909,6 @@ The settings at a higher level are used as a convention (defaults) for a lower l
   `compileKotlinJvm` and `compileTestKotlinJvm` tasks.
 
 In turn, the configuration made at a lower level overrides related settings at a higher level:
-
 
 * Task-level compiler options override related configuration at the target or the extension level.
 * Target-level compiler options override related configuration at the extension level.
@@ -1215,7 +1215,7 @@ fun writeBooksTo(writer: XMLWriter) {
 
 ## What to expect from upcoming Kotlin EAP releases
 
-Starting from **Kotlin 2.0.0-RC1**, you can start using the K2 compiler in production.
+Starting from **Kotlin 2.0.0-RC1**, you can use the K2 compiler in production.
 
 The upcoming 2.0.0-RC2 release will further increase the stability of the K2 compiler.
 If you are currently using K2 in your project, 
