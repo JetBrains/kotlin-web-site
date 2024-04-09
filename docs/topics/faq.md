@@ -1,4 +1,5 @@
 [//]: # (title: FAQ)
+[//]: # (description: Kotlin is a concise multiplatform programming language developed by JetBrains.)
 
 ### What is Kotlin?
 
@@ -13,34 +14,35 @@ You can find more information [on GitHub](https://github.com/jetbrains/kotlin).
 
 ### Is Kotlin free?
 
-Yes. Kotlin is free, has been free and will remain free. It is developed under the Apache 2.0 license and the source code
+Yes. Kotlin is free, has been free and will remain free. It is developed under the Apache 2.0 license, and the source code
 is available [on GitHub](https://github.com/jetbrains/kotlin).
 
 ### Is Kotlin an object-oriented language or a functional one?
 
 Kotlin has both object-oriented and functional constructs. You can use it in both OO and FP styles, or mix elements of the two. 
-With first-class support for features such as higher-order functions, function types and lambdas, Kotlin is a great choice
+With first-class support for features such as higher-order functions, function types, and lambdas, Kotlin is a great choice
 if you're doing or exploring functional programming.
 
 ### What advantages does Kotlin give me over the Java programming language?
 
 Kotlin is more concise. Rough estimates indicate approximately a 40% cut in the number of lines of code. 
-It's also more type-safe, for example, support for non-nullable types makes applications less prone to NPE's. 
-Other features including smart casting, higher-order functions, extension functions and lambdas with receivers provide 
+It's also more type-safe – for example, support for non-nullable types makes applications less prone to NPE's. 
+Other features including smart casting, higher-order functions, extension functions, and lambdas with receivers provide 
 the ability to write expressive code as well as facilitating creation of DSL.
  
 ### Is Kotlin compatible with the Java programming language?
 
-Yes. Kotlin is 100% interoperable with the Java programming language and major emphasis has been placed on making sure
+Yes. Kotlin is 100% interoperable with the Java programming language, and major emphasis has been placed on making sure
 that your existing codebase can interact properly with Kotlin. You can easily [call Kotlin code from Java](java-to-kotlin-interop.md) and [Java code
 from Kotlin](java-interop.md). This makes adoption much easier and lower-risk. There's also an automated [Java-to-Kotlin converter built
 into the IDE](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k) that simplifies migration of existing code.
 
 ### What can I use Kotlin for?
 
-Kotlin can be used for any kind of development, be it server-side, client-side web, Android. With Kotlin/Native currently 
-in the works, support for other platforms such as embedded systems, macOS and iOS is coming. People are using Kotlin for mobile 
-and server-side applications, client-side with JavaScript or JavaFX, and data science, just to name a few possibilities.
+Kotlin can be used for any kind of development, be it server-side, client-side web, Android, or multiplatform library.
+With Kotlin/Native currently in the works, support for other platforms such as embedded systems, macOS, and iOS.
+People are using Kotlin for mobile and server-side applications, client-side with JavaScript or JavaFX, and data science,
+just to name a few possibilities.
 
 ### Can I use Kotlin for Android development?
 
@@ -49,8 +51,8 @@ for Android, such as Basecamp, Pinterest and more. For more information, check o
 
 ### Can I use Kotlin for server-side development?
 
-Yes. Kotlin is 100% compatible with the JVM and as such you can use any existing frameworks such as Spring Boot, 
-vert.x or JSF. In addition, there are specific frameworks written in Kotlin such as [Ktor](https://github.com/kotlin/ktor). 
+Yes. Kotlin is 100% compatible with the JVM, and as such you can use any existing frameworks such as Spring Boot, 
+vert.x or JSF. In addition, there are specific frameworks written in Kotlin, such as [Ktor](https://github.com/kotlin/ktor). 
 For more information, check out [the resource on server-side development](server-overview.md).
 
 ### Can I use Kotlin for web development?
@@ -120,13 +122,13 @@ Kotlin, be this via blog posts, GitHub repositories or talks include
  
 ### Who develops Kotlin?
 
-Kotlin is primarily developed by a team of engineers at [JetBrains (current team size is 100+)](https://www.jetbrains.com/).
+Kotlin is developed by a team of engineers at [JetBrains (current team size is 100+)](https://www.jetbrains.com/).
 The lead language designer is Michail Zarečenskij. In addition to the core team, there are also over 250 external contributors on GitHub. 
 
 ### Where can I learn more about Kotlin?
 
-The best place to start is [our website](https://kotlinlang.org). From there you can [download the compiler](command-line.md), 
-[try it online](https://play.kotlinlang.org) as well as get access to resources. 
+The best place to start is [our website](https://kotlinlang.org). 
+To start with Kotlin, you can install one of the [official IDEs](kotlin-ide.md) or [try it online](https://play.kotlinlang.org).
 
 ### Are there any books on Kotlin?
 
