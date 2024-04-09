@@ -173,7 +173,7 @@ class DontCreateMe private constructor() { /*...*/ }
 
 ## Creating instances of classes
 
-To create an instance of a class, call the constructor as if it were a regular function. You can assign the instance to a [variable](basic-syntax.md#variables):
+To create an instance of a class, call the constructor as if it were a regular function. You can assign the created instance to a [variable](basic-syntax.md#variables):
 
 ```kotlin
 val invoice = Invoice()

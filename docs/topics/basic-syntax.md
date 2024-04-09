@@ -141,6 +141,7 @@ after initialization:
 ```kotlin
 fun main() {
 //sampleStart
+    // Declares the variable x and initializes it with the value of 5
     val x: Int = 5
     // 5
 //sampleEnd
@@ -154,8 +155,9 @@ Use the `var` keyword to declare variables that can be reassigned. These are mut
 ```kotlin
 fun main() {
 //sampleStart
+    // Declares the variable x and initializes it with the value of 5
     var x: Int = 5
-    // Reassigns a value to x
+    // Reassigns a new value of 6 to the variable x
     x += 1
     // 6
 //sampleEnd
@@ -169,7 +171,7 @@ Kotlin supports type inference and automatically identifies the data type of a d
 ```kotlin
 fun main() {
 //sampleStart
-    // `Int` type is inferred
+    // Declares the variable x with the value of 5;`Int` type is inferred
     val x = 5
     // 5
 //sampleEnd
@@ -184,11 +186,11 @@ In the second case, you must specify the data type:
 ```kotlin
 fun main() {
 //sampleStart
-    // Initializes a variable at the moment of declaration; type is not required
+    // Initializes the variable x at the moment of declaration; type is not required
     val x = 5
-    // Declares a variable without initialization; type is required
+    // Declares the variable c without initialization; type is required
     val c: Int
-    // Initializes a variable after declaration 
+    // Initializes the variable c after declaration 
     c = 3
     // 5 
     // 3
