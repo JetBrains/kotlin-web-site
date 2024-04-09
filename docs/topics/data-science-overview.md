@@ -35,8 +35,8 @@ Additionally, export your output charts in a matter of clicks.
 _Notebooks_ are interactive editors that integrate code, graphics, and text in a single environment. When using a notebook, 
 you can run code cells and immediately see the output. 
 
-Notebooks such as [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](http://jetbrains.com/datalore), 
-and [Jupyter Notebook](https://jupyter.org/) provide convenient features for data retrieving, transformation, exploration, modeling, and more. 
+Kotlin offers different notebook solutions, such as [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](http://jetbrains.com/datalore), 
+and [Jupyter Notebook](https://jupyter.org/), to provide convenient features for data retrieving, transformation, exploration, modeling, and more. 
 
 Make the most of interactive editors while leveraging the perks of coding with Kotlin. Kotlin integrates with these notebooks 
 to help you manage data and share your findings with colleagues while building up your data science and machine learning skills.
@@ -46,10 +46,10 @@ to help you manage data and share your findings with colleagues while building u
 ### Kotlin Notebook
 
 The [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook) is a plugin for IntelliJ IDEA that
-allows you to create notebooks in Kotlin. It uses the [Kotlin kernel](#jupyter-notebook-with-kotlin-kernel) to execute the
+allows you to create notebooks in Kotlin. It uses the [Kotlin Kernel](#jupyter-notebook-with-kotlin-kernel) to execute the
 cells and harnesses the powerful Kotlin IDE support to offer real-time code insights. 
 
-From our different notebook options, Kotlin Notebook stands out as the preferred choice.
+From our different notebook solutions, Kotlin Notebook stands out as the preferred choice.
 
 ### Kotlin notebooks in Datalore
 
@@ -57,12 +57,12 @@ With [Datalore](https://datalore.jetbrains.com/), you can use Kotlin in the brow
 You can also collaborate with other Kotlin notebooks in real-time,
 receive smart coding assistance as you write code, and share results through interactive or static reports.
 
-### Jupyter Notebook with Kotlin kernel
+### Jupyter Notebook with Kotlin Kernel
 
 [Jupyter Notebook](https://jupyter.org/) is an open-source web application
 that allows you to create and share documents containing code,
 visualizations, and Markdown text. 
-[Kotlin-jupyter](https://github.com/Kotlin/kotlin-jupyter) is an open-source project that brings Kotlin 
+[Kotlin-Jupyter](https://github.com/Kotlin/kotlin-jupyter) is an open-source project that brings Kotlin 
 support to Jupyter Notebook to harness Kotlin's power within the Jupyter environment.
 
 ## Kandy

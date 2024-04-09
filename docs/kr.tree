@@ -167,7 +167,7 @@
         <toc-element toc-title="Working with data sources">
             <toc-element id="data-analysis-work-with-data-sources.md" toc-title="Retrieve data from files"/>
             <toc-element id="data-analysis-work-with-api.md" toc-title="Retrieve data from web sources and APIs"/>
-            <toc-element id="data-analysis-connect-to-db.md" toc-title="Connect and retrieve to databases"/>
+            <toc-element id="data-analysis-connect-to-db.md" toc-title="Connect and retrieve from databases"/>
         </toc-element>
         <toc-element id="data-analysis-visualization.md" toc-title="Data visualization in Kotlin Notebook"/>
         <toc-element id="data-science-libraries.md" toc-title="Libraries for data analysis"/>
