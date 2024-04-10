@@ -156,12 +156,14 @@
     </toc-element>
 
     <toc-element toc-title="Data analysis">
-        <toc-element id="get-started-with-kotlin-notebooks.md" toc-title="Get started with Kotlin notebooks"/>
-        <toc-element id="kotlin-notebook-set-up-env.md" toc-title="1. Set up an environment"/>
-        <toc-element id="kotlin-notebook-create.md" toc-title="2. Create your first Kotlin notebook"/>
-        <toc-element id="kotlin-notebook-add-dependencies.md" toc-title="3. Add dependencies to the Kotlin notebook"/>
-        <toc-element id="kotlin-notebook-share.md" toc-title="4. Share the Kotlin notebook"/>
-        <toc-element id="data-analysis-notebooks-output-formats.md" toc-title="Output formats in Kotlin Notebook"/>
+        <toc-element toc-title="Get started with Kotlin Notebook">
+            <toc-element id="get-started-with-kotlin-notebooks.md" toc-title="Introduction to Kotlin Notebook"/>
+            <toc-element id="kotlin-notebook-set-up-env.md" toc-title="1. Set up an environment"/>
+            <toc-element id="kotlin-notebook-create.md" toc-title="2. Create your first Kotlin Notebook"/>
+            <toc-element id="kotlin-notebook-add-dependencies.md" toc-title="3. Add dependencies to a Kotlin Notebook"/>
+            <toc-element id="kotlin-notebook-share.md" toc-title="4. Share a Kotlin Notebook"/>
+        </toc-element>
+        <toc-element id="data-analysis-notebooks-output-formats.md" toc-title="Output formats in Kotlin notebooks"/>
         <toc-element toc-title="Working with data sources">
             <toc-element id="data-analysis-work-with-data-sources.md" toc-title="Retrieve data from files"/>
             <toc-element id="data-analysis-work-with-api.md" toc-title="Retrieve data from web sources and APIs"/>
