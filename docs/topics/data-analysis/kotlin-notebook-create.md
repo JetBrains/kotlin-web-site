@@ -49,10 +49,10 @@ Here you will learn how to create your first Kotlin Notebook and run a single co
    ```kotlin
    println("Hello, this is a Kotlin Notebook!")
    ```
-4. To run a code cell click the **Run Cell and Select Below** ![Run Cell and Select Below](run-cell-and-select-below.png){width=30}{type="joined"} button or press **Shift** + **Return**.
+4. To run a code cell, click the **Run Cell and Select Below** ![Run Cell and Select Below](run-cell-and-select-below.png){width=30}{type="joined"} button or press **Shift** + **Return**.
 5. Add a markdown cell by clicking on the **Add Markdown Cell** button. 
 6. Type `# Example operations` in the cell, and run it the same way you run code cells to render it.
-7. In a new code cell type `10 + 10`, and run it.
+7. In a new code cell, type `10 + 10` and run it.
 8. Define a variable in a code cell. For example, `val a = 100`. 
 
 > Once you run a code cell with defined variables, those variables become accessible in all other code cells.
