@@ -60,7 +60,12 @@ object E2ETests : BuildType({
 
   steps {
       script {
-          scriptContent = "docker compose -f docker-compose-e2e-statics.yml up --exit-code-from playwright"
+          name = "Set execute permissions"
+          scriptContent = "chmod +x ./scripts/test/run-e2e-tests.sh"
+      }
+      script {
+          name = "Run E2E tests"
+          scriptContent = "./scripts/test/run-e2e-tests.sh"
       }
   }
 
