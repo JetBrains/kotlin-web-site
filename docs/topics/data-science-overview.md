@@ -35,20 +35,20 @@ _Notebooks_ are interactive editors that integrate code, graphics, and text in a
 you can run code cells and immediately see the output. 
 
 Kotlin offers different notebook solutions, such as [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](http://jetbrains.com/datalore), 
-and [Jupyter Notebook](https://jupyter.org/), to provide convenient features for data retrieving, transformation, exploration, modeling, and more. 
+and [Jupyter Notebook](https://jupyter.org/), to provide convenient features for data retrieving, transformation, exploration, modeling, and more.
+These Kotlin notebook solutions are based on our [Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter).
 
-With our Kotlin notebooks, you can benefit from the features of a powerful interactive editor and the perks of coding with Kotlin. Kotlin integrates with these notebooks 
+You can benefit from the features of our powerful Kotlin notebooks and the perks of coding with Kotlin. Kotlin integrates with these notebooks 
 to help you manage data and share your findings with colleagues while building up your data science and machine learning skills.
+
+Discover the features of our different Kotlin notebook solutions and choose the one that best aligns with your project requirements. 
 
 ![Kotlin Notebook](kotlin-notebook.png){width=700}
 
 ### Kotlin Notebook
 
-The [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook) is a plugin for IntelliJ IDEA that
-allows you to create notebooks in Kotlin. It uses the [Kotlin Kernel](#jupyter-notebook-with-kotlin-kernel) to execute the
-cells and harnesses the powerful Kotlin IDE support to offer real-time code insights. 
-
-From our different notebook solutions, Kotlin Notebook stands out as the preferred choice.
+The [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook) is a plugin for IntelliJ IDEA that allows you to create notebooks in Kotlin. It provides our IDE experience with all common IDE features,
+offering real-time code insights and project integration.
 
 ### Kotlin notebooks in Datalore
 
@@ -87,6 +87,6 @@ Kotlin DataFrame libraries to complete different data-related tasks.
 ## What's next
 
 * [Get started with Kotlin Notebook.](get-started-with-kotlin-notebooks.md)
-* [Retrieve and transform data using the DataFrame library.](data-analysis-work-with-data-sources.md)
+* [Retrieve and transform data using the Kotlin DataFrame library.](data-analysis-work-with-data-sources.md)
 * [Visualize data using the Kandy library.](data-analysis-visualization.md)
 * [Learn more about Kotlin and Java libraries for data analysis.](data-science-libraries.md)
