@@ -35,10 +35,13 @@ _Notebooks_ are interactive editors that integrate code, graphics, and text in a
 you can run code cells and immediately see the output. 
 
 Kotlin offers different notebook solutions, such as [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](http://jetbrains.com/datalore), 
-and [Jupyter Notebook](https://jupyter.org/), to provide convenient features for data retrieving, transformation, exploration, modeling, and more.
+and [Kotlin-Jupyter Notebook](https://jupyter.org/), providing convenient features for data retrieving, transformation, exploration, modeling, and more.
 These Kotlin notebook solutions are based on our [Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter).
 
-You can benefit from the features of our powerful Kotlin notebooks and the perks of coding with Kotlin. Kotlin integrates with these notebooks 
+You can seamlessly share your code among Kotlin Notebook, Datalore, and Kotlin-Jupyter Notebook. Create a project in one of our Kotlin notebooks
+and continue working in another notebook without compatibility issues.
+
+Benefit from the features of our powerful Kotlin notebooks and the perks of coding with Kotlin. Kotlin integrates with these notebooks 
 to help you manage data and share your findings with colleagues while building up your data science and machine learning skills.
 
 Discover the features of our different Kotlin notebook solutions and choose the one that best aligns with your project requirements. 
@@ -53,8 +56,8 @@ offering real-time code insights and project integration.
 ### Kotlin notebooks in Datalore
 
 With [Datalore](https://datalore.jetbrains.com/), you can use Kotlin in the browser straight out of the box without additional installation.
-You can also collaborate with other Kotlin notebooks in real-time,
-receive smart coding assistance as you write code, and share results through interactive or static reports.
+You can also share your notebooks and run them remotely, collaborate with other Kotlin notebooks in real-time,
+receive smart coding assistance as you write code, and export results through interactive or static reports.
 
 ### Jupyter Notebook with Kotlin Kernel
 
