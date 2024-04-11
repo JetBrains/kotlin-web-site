@@ -223,7 +223,7 @@ sealed class UIState {
     data class Error(val exception: Exception) : UIState()
 }
 
-fun updateUI(state: UiState) { 
+fun updateUI(state: UIState) { 
     when (state) {
         is UIState.Loading -> showLoadingIndicator()
         is UIState.Success -> showData(state.data)
