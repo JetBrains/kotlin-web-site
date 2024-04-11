@@ -2,7 +2,7 @@
 
 Exploring and analyzing data is something you may not do every day, but it's a crucial skill you need as a software developer. 
 
-Let's think about some software development duties where data analysis is key: analyzing what's actually inside collections when debugging, 
+Let's think about software development duties where data analysis is key: analyzing what's actually inside collections when debugging, 
 digging into memory dumps or databases, or receiving JSON files with large amounts of data when working with REST APIs, to mention some.
 
 With Kotlin's Exploratory Data Analysis (EDA) tools, such as [Kotlin notebooks](#notebooks), [Kotlin DataFrame](#kotlin-dataframe), and [Kandy](#kandy), you
@@ -35,7 +35,7 @@ _Notebooks_ are interactive editors that integrate code, graphics, and text in a
 you can run code cells and immediately see the output. 
 
 Kotlin offers different notebook solutions, such as [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](http://jetbrains.com/datalore), 
-and [Kotlin-Jupyter Notebook](https://jupyter.org/), providing convenient features for data retrieving, transformation, exploration, modeling, and more.
+and [Kotlin-Jupyter Notebook](https://github.com/Kotlin/kotlin-jupyter), providing convenient features for data retrieving, transformation, exploration, modeling, and more.
 These Kotlin notebook solutions are based on our [Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter).
 
 You can seamlessly share your code among Kotlin Notebook, Datalore, and Kotlin-Jupyter Notebook. Create a project in one of our Kotlin notebooks
@@ -82,7 +82,7 @@ with its ability to connect with SQL databases or APIs.
 [Kandy](https://kotlin.github.io/kandy/welcome.html) is an open-source Kotlin library that provides a powerful and flexible DSL for plotting charts of various types.
 This library is a simple, idiomatic, readable, and type-safe tool to visualize data.
 
-Kandy has seamless integration with Kotlin Notebook, Datalore, and Jupyter Notebook. You can also easily combine the Kandy and 
+Kandy has seamless integration with Kotlin Notebook, Datalore, and Kotlin-Jupyter Notebook. You can also easily combine the Kandy and 
 Kotlin DataFrame libraries to complete different data-related tasks.
 
 ![Kandy](data-analysis-kandy-example.png){width=700}
