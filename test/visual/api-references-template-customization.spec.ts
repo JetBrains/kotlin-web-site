@@ -1,6 +1,5 @@
 import { expect, test } from '@playwright/test';
 import { ApiReferencePage } from '../page/api-reference-page';
-import { testSelector } from '../utils';
 
 const pagesWithCustomizedTemplates = [
     {
@@ -27,7 +26,8 @@ test.describe('Check api references template customization', async () => {
             const currentPage = pageWithCustomizedTemplate.getInstance(page);
             await currentPage.init();
 
-            expect(await page.locator(testSelector('footer')).screenshot()).toMatchSnapshot(
+            const screenshot = await page.locator('footer').screenshot();
+            expect(screenshot).toMatchSnapshot(
                 `${pageWithCustomizedTemplate.name}.footer.png`
             );
         });

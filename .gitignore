@@ -43,6 +43,7 @@ assets/externals
 pages/docs/tutorials/kotlin-for-py/
 _teamcity
 dist
+libs
 generated
 .next
 .teamcity/*.iml
