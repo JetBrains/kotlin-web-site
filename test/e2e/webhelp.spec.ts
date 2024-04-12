@@ -3,7 +3,7 @@ import { testSelector } from '../utils';
 import { WebHelpPage } from '../page/webhelp-page';
 import {  RESOLUTIONS } from '../visual/visual-constants';
 
-test.describe('WebHelp page interactivity', async () => {
+test.describe.only('WebHelp page interactivity', async () => {
     test.beforeEach(async ({ page }) => {
         const webHelpPage = new WebHelpPage(page, '/docs/test-page.html');
         await webHelpPage.init();
@@ -22,7 +22,7 @@ test.describe('WebHelp page interactivity', async () => {
 
     test(`Should copy codeblock content when copy button clicked`, async ({ page }) => {
         const EXPECTED_CODEBLOCK_CONTENT = `plugins {
-kotlin("kapt") version "1.9.22"
+    kotlin("kapt") version "1.9.23"
 }`;
         const codeBlock = page.locator(testSelector('code-block')).first();
         await codeBlock.hover();
