@@ -28,7 +28,7 @@
         <toc-element id="wasm-overview.md"/>
         <toc-element id="native-overview.md"/>
         <toc-element id="js-overview.md"/>
-        <toc-element id="data-science-overview.md"/>
+        <toc-element id="data-analysis-overview.md"/>
         <toc-element id="competitive-programming.md"/>
     </toc-element>
 
@@ -170,7 +170,7 @@
             <toc-element id="data-analysis-connect-to-db.md" toc-title="Connect and retrieve data from databases"/>
         </toc-element>
         <toc-element id="data-analysis-visualization.md" toc-title="Data visualization in Kotlin Notebook"/>
-        <toc-element id="data-science-libraries.md" toc-title="Libraries for data analysis"/>
+        <toc-element id="data-analysis-libraries.md" toc-title="Libraries for data analysis"/>
 
     </toc-element>
 

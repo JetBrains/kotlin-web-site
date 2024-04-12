@@ -34,8 +34,8 @@ Additionally, export your output charts in a matter of clicks.
 _Notebooks_ are interactive editors that integrate code, graphics, and text in a single environment. When using a notebook, 
 you can run code cells and immediately see the output. 
 
-Kotlin offers different notebook solutions, such as [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), [Datalore](http://jetbrains.com/datalore), 
-and [Kotlin-Jupyter Notebook](https://github.com/Kotlin/kotlin-jupyter), providing convenient features for data retrieving, transformation, exploration, modeling, and more.
+Kotlin offers different notebook solutions, such as [Kotlin Notebook](#kotlin-notebook), [Datalore](#kotlin-notebooks-in-datalore), 
+and [Kotlin-Jupyter Notebook](#jupyter-notebook-with-kotlin-kernel), providing convenient features for data retrieving, transformation, exploration, modeling, and more.
 These Kotlin notebook solutions are based on our [Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter).
 
 You can seamlessly share your code among Kotlin Notebook, Datalore, and Kotlin-Jupyter Notebook. Create a project in one of our Kotlin notebooks
@@ -69,7 +69,7 @@ support to Jupyter Notebook to harness Kotlin's power within the Jupyter environ
 
 ## Kotlin DataFrame
 
-The [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted.html) library lets you manipulate structured data in your Kotlin projects. From data creation and
+The [Kotlin DataFrame](https://kotlin.github.io/dataframe/overview.html) library lets you manipulate structured data in your Kotlin projects. From data creation and
 cleaning to in-depth analysis and feature engineering, this library has you covered.
 
 With the Kotlin DataFrame library, you can work with different file formats, including CSV, JSON, XLS, and XLSX. This library also facilitates the data retrieval process
@@ -92,4 +92,4 @@ Kotlin DataFrame libraries to complete different data-related tasks.
 * [Get started with Kotlin Notebook.](get-started-with-kotlin-notebooks.md)
 * [Retrieve and transform data using the Kotlin DataFrame library.](data-analysis-work-with-data-sources.md)
 * [Visualize data using the Kandy library.](data-analysis-visualization.md)
-* [Learn more about Kotlin and Java libraries for data analysis.](data-science-libraries.md)
+* [Learn more about Kotlin and Java libraries for data analysis.](data-analysis-libraries.md)

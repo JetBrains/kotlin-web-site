@@ -9,7 +9,7 @@
   </p>
 </microformat>
 
-Here you will learn how to create your first Kotlin Notebook and run a single code cell. 
+Here, you will learn how to create your first Kotlin Notebook, perform simple operations, and run code cells. 
 
 ## Create an empty project
 
@@ -17,22 +17,22 @@ Here you will learn how to create your first Kotlin Notebook and run a single co
 2. In the panel on the left, select **New Project**. 
 3. Name the new project and change its location if necessary.
 
-> Select the **Create Git repository** checkbox to place the new project under version control. 
-> You will be able to do it later at any time.
-> 
-{type="tip"}
+   > Select the **Create Git repository** checkbox to place the new project under version control. 
+   > You will be able to do it later at any time.
+   > 
+   {type="tip"}
 
 4. From the **Language** list, select **Kotlin**.
 
-![Create a new Kotlin Notebook project](new-notebook-project.png){width=700}
+   ![Create a new Kotlin Notebook project](new-notebook-project.png){width=700}
 
 5. Select the **IntelliJ** build system.
 6. From the **JDK list**, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in your project.
 7. Enable the **Add sample code** option to create a file with a sample `"Hello World!"` application.
 
-> You can also enable the **Generate code with onboarding tips** option to add some additional useful comments to your sample code.
-> 
-{type="tip"}
+   > You can also enable the **Generate code with onboarding tips** option to add some additional useful comments to your sample code.
+   > 
+   {type="tip"}
 
 8. Click **Create**.
 
@@ -40,7 +40,7 @@ Here you will learn how to create your first Kotlin Notebook and run a single co
 
 1. To create a new notebook, select **File | New | Kotlin Notebook**, or right-click on a folder and select **New | Kotlin Notebook**.
 
-![Create a new Kotlin Notebook](new-notebook.png){width=700}
+   ![Create a new Kotlin Notebook](new-notebook.png){width=700}
 
 2. Set the name of the new notebook, for example, **first-notebook**, and press **Enter**.
    A new tab with a Kotlin Notebook **first-notebook.ipynb** will open.
@@ -55,9 +55,9 @@ Here you will learn how to create your first Kotlin Notebook and run a single co
 7. In a new code cell, type `10 + 10` and run it.
 8. Define a variable in a code cell. For example, `val a = 100`. 
 
-> Once you run a code cell with defined variables, those variables become accessible in all other code cells.
-> 
-{type="tip"}
+   > Once you run a code cell with defined variables, those variables become accessible in all other code cells.
+   > 
+   {type="tip"}
 
 9. Create a new code cell and add `println(a * a)`.
 10. Run all code and markdown cells in the notebook using the **Run All** ![Run all button](run-all-button.png){width=30}{type="joined"} button.

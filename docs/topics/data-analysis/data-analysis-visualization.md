@@ -3,7 +3,7 @@
 Kotlin offers an all-in-one-place solution for powerful and flexible data visualization, providing an intuitive way to present and explore data 
 before diving into complex models.
 
-This tutorial demonstrates how to create different chart types in IntelliJ IDEA using the Kotlin Notebook plugin with
+This tutorial demonstrates how to create different chart types in IntelliJ IDEA using [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook) with
 the [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted.html) libraries.
 
 ## Before you start
@@ -11,7 +11,7 @@ the [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](
 1. Download and install the latest version of [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/?section=mac).
 2. Install the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook) in IntelliJ IDEA.
    
-    > Alternatively, access the Kotlin Notebook plugin from **Settings/Preferences** | **Plugins** | **Marketplace** within IntelliJ IDEA.
+    > Alternatively, access the Kotlin Notebook plugin from **Settings** | **Plugins** | **Marketplace** within IntelliJ IDEA.
     >
     {type="tip"}
 
@@ -74,7 +74,7 @@ The first four rows of the DataFrame contain records of the temperature in Berli
 
 ## Create a line chart
 
-Let's create a line chart with the `df` DataFrame in Kotlin Notebook.
+Let's create a line chart in Kotlin Notebook using the `df` DataFrame from the previous section.
 
 Use the `plot()` function from the Kandy library. Within the `plot()` function, specify the type of chart (in this case, it's `line`) 
 and the values for the X and Y axes. You can customize colors and sizes:
@@ -162,7 +162,7 @@ Here's the result:
 
 ## What's next
 
-* Explore more chart examples in the [Kandy documentation](https://kotlin.github.io/kandy/examples.html).
+* Explore more chart examples in the [Kandy library documentation](https://kotlin.github.io/kandy/examples.html).
 * Find additional information about creating, exploring, and managing data frames in the [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/info.html).
 * Learn about retrieving data from files, web sources, or databases in [Working with data sources](data-analysis-work-with-data-sources.md).
 * Learn more about data visualization in Kotlin Notebook in this [YouTube video]( https://www.youtube.com/watch?v=m4Cqz2_P9rI&t=4s).

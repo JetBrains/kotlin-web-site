@@ -12,7 +12,7 @@
 You've already created your first Kotlin Notebook! Now let's learn how to add dependencies to libraries, which
 is necessary to unlock advanced features.
 
-> The Kotlin Standard Library can be used out of the box, so you don't have to import it.
+> The Kotlin standard library can be used out of the box, so you don't have to import it.
 > 
 {type="note"}
 
@@ -25,7 +25,8 @@ However, Kotlin Notebook has a simplified method to load popular libraries in th
 %use libraryName
 ```
 
-You can also use the autocompletion feature in Kotlin Notebook to quickly access available libraries.
+You can also use the autocompletion feature in Kotlin Notebook to quickly access available libraries:
+
 ![Autocompletion feature in Kotlin Notebook](autocompletion-feature-notebook.png){width=700}
 
 ## Add Kotlin DataFrame and Kandy libraries to your Kotlin Notebook
@@ -40,72 +41,73 @@ To add these libraries:
 1. Click **Add Code Cell** to create a new code cell.
 2. Enter the following code in the code cell:
 
-```kotlin
-// Ensures that we use the latest available versions of libraries
-%useLatestDescriptors 
-
-// Imports the Kotlin DataFrame library
-%use dataframe
-
-// Imports the Kotlin Kandy library
-%use kandy
-```
+    ```kotlin
+    // Ensures that the latest available library versions are used
+    %useLatestDescriptors
+    
+    // Imports the Kotlin DataFrame library
+    %use dataframe
+    
+    // Imports the Kotlin Kandy library
+    %use kandy
+    ```
 
 3. Run the code cell.
 
-When a `%use` statement is executed, it downloads the library dependencies and adds the default imports to your notebook.
+    When a `%use` statement is executed, it downloads the library dependencies and adds the default imports to your notebook.
 
-> Make sure to run the code cell with the `%use libraryName` line before you run any other code cells that rely on the 
-> library.
-> 
-{type="note"}
+    > Make sure to run the code cell with the `%use libraryName` line before you run any other code cells that rely on the 
+    > library.
+    >
+    {type="note"}
 
 4. To import data from a CSV file using the Kotlin DataFrame library, use the `.read()` function in a new code cell:
 
-```kotlin
-// Creates a DataFrame by importing data from the "netflix_titles.csv" file.
-val rawDf = DataFrame.read("netflix_titles.csv")
+    ```kotlin
+    // Creates a DataFrame by importing data from the "netflix_titles.csv" file.
+    val rawDf = DataFrame.read("netflix_titles.csv")
+    
+    // Displays the raw DataFrame data
+    rawDf
+    ```
 
-// Displays the raw DataFrame data
-rawDf
-```
+    > You can download this example CSV from the [Kotlin DataFrame examples GitHub repository](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/netflix/netflix_titles.csv).
+    > Add it to your project directory.
+    > 
+    {type="tip"}
 
-> You can download and add this example CSV to your project from the [Kotlin DataFrame examples GitHub repository](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/netflix/netflix_titles.csv).
-> 
-{type="tip"}
-
-![Using DataFrame to display data](add-dataframe-dependency.png){width=700}
+    ![Using DataFrame to display data](add-dataframe-dependency.png){width=700}
 
 5. In a new code cell, use the `.plot` method to visually represent the distribution of TV shows and Movies in your DataFrame.:
 
-```kotlin
-rawDf
-    // Counts the occurrences of each unique value in the column named "type"
-    .valueCounts(sort = false) { type }
-    // Visualizes data in a bar chart specifying the colors
-    .plot {
-        bars {
-            x(type)
-            y("count")
-            fillColor(type) {
-                scale = categorical(range = listOf(Color.hex("#00BCD4"), Color.hex("#009688")))
+    ```kotlin
+    rawDf
+        // Counts the occurrences of each unique value in the column named "type"
+        .valueCounts(sort = false) { type }
+        // Visualizes data in a bar chart specifying the colors
+        .plot {
+            bars {
+                x(type)
+                y("count")
+                fillColor(type) {
+                    scale = categorical(range = listOf(Color.hex("#00BCD4"), Color.hex("#009688")))
+                }
+            }
+    
+            // Configures the layout of the chart and sets the title
+            layout {
+                title = "Count of TV Shows and Movies"
+                size = 900 to 550
             }
         }
-
-        // Configures the layout of the chart and sets the title
-        layout {
-            title = "Count of TV Shows and Movies"
-            size = 900 to 550
-        }
-    }
-```
+    ```
 
 The resulting chart:
 
 ![Visualization using the Kandy library](kandy-library.png){width=700}
 
 Congratulations on adding and utilizing these libraries in your Kotlin Notebook!
-This is just a glimpse into what you can achieve with Kotlin Notebook and its [supported libraries](data-science-libraries.md).
+This is just a glimpse into what you can achieve with Kotlin Notebook and its [supported libraries](data-analysis-libraries.md).
 
 For a more extensive guide using the Kotlin DataFrame library, see 
 [Retrieve data from files](data-analysis-work-with-data-sources.md), and explore [Data visualization in Kotlin Notebook with Kandy](data-analysis-visualization.md) for advanced data visualization.

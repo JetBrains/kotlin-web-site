@@ -187,7 +187,7 @@ You can render mathematical formulas and equations using the LaTeX format, a typ
    LATEX("c^2 = a^2 + b^2 - 2 a b \\cos\\alpha")
    ```
 
-![Using LaTeX to render mathematical formulas](latex-output.png){width=300}
+   ![Using LaTeX to render mathematical formulas](latex-output.png){width=300}
 
 ## Data frames
 
@@ -279,7 +279,7 @@ You can create various charts directly in your Kotlin Notebook to visualize your
 
    ![Using Kandy to render visualize data](kandy-output.png){width=700}
 
-3. You can also export your plot in `.png`, `jpeg`, or `.hml` format:
+3. You can also export your plot in the `.png`, `jpeg`, `.html`, or `.svg` format:
 
    ```kotlin
    // Specify the output format for the plot file:
@@ -290,4 +290,4 @@ You can create various charts directly in your Kotlin Notebook to visualize your
 
 * [Visualize data using the DataFrame and Kandy libraries](data-analysis-visualization.md)
 * [Retrieve data from the CSV and JSON files](data-analysis-work-with-data-sources.md)
-* [Check out the list of recommended libraries](data-science-libraries.md)
+* [Check out the list of recommended libraries](data-analysis-libraries.md)
