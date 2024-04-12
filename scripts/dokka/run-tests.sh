@@ -8,4 +8,4 @@ echo "Waiting for the $BASE_URL response"
 
 ./scripts/test/wait-for-endpoint.sh "$BASE_URL"
 
-yarn run test:visual:ci
+yarn run test:e2e:ci

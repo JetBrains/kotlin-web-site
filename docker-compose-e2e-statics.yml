@@ -18,7 +18,7 @@ services:
     build:
       context: .
       dockerfile: ./dockerfiles/playwright/Dockerfile
-    command: yarn run test:visual:ci
+    command: yarn run test:e2e:ci
     environment:
       BASE_URL: "http://nginx-server"
     volumes:

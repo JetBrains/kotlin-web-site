@@ -117,15 +117,15 @@
     "next-build-static": "next build && next export",
     "lint": "next lint",
     "test": "playwright test test",
-    "test:e2e:ci": "CI=true playwright test test/e2e",
+    "test:production": "playwright test test/production",
+    "test:production:сi": "CI=true BASE_URL=https://kotlinlang.org playwright test test/production",
+    "test:production:headed": "playwright test test/production --headed --project=chromium",
+    "test:production:debug": "PWDEBUG=1 playwright test test/production --project=chromium",
     "test:e2e": "playwright test test/e2e",
-    "test:e2e:headed": "playwright test test/e2e --headed --project=chromium",
-    "test:e2e:debug": "PWDEBUG=1 playwright test test/e2e --project=chromium",
-    "test:e2e:new": "playwright codegen localhost:9001",
-    "test:visual": "playwright test test/visual",
-    "test:visual:headed": "playwright test test/visual --headed",
-    "test:visual:update": "playwright test test/visual --update-snapshots",
-    "test:visual:ci": "CI=true playwright test test/visual",
-    "сi:e2e:prod": "CI=true BASE_URL=https://kotlinlang.org playwright test test/e2e"
+    "test:e2e:ci": "CI=true playwright test test/e2e",
+    "test:e2e:headed": "playwright test test/e2e --headed",
+    "test:e2e:debug": "PWDEBUG=1 playwright test test/e2e  --project=chromium",
+    "test:e2e:update": "playwright test test/e2e --update-snapshots",
+    "test:e2e:new": "playwright codegen localhost:9000"
   }
 }
