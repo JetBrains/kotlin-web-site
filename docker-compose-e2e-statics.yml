@@ -8,6 +8,11 @@ services:
       - 8081:80
     networks:
       - network1
+    healthcheck:
+        test: [ "CMD", "curl", "-f", "http://localhost" ]
+        interval: 30s
+        timeout: 10s
+        retries: 3
 
   playwright:
     build:
@@ -20,7 +25,8 @@ services:
       - ./test/snapshots:/var/www/test/snapshots
       - ./test-results:/var/www/test-results
     depends_on:
-      - nginx-server
+      nginx-server:
+        condition: service_healthy
     networks:
       - network1
 
