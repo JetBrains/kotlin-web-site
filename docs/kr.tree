@@ -28,7 +28,7 @@
         <toc-element id="wasm-overview.md"/>
         <toc-element id="native-overview.md"/>
         <toc-element id="js-overview.md"/>
-        <toc-element id="data-science-overview.md"/>
+        <toc-element id="data-analysis-overview.md"/>
         <toc-element id="competitive-programming.md"/>
     </toc-element>
 
@@ -153,6 +153,25 @@
             <toc-element id="multiplatform-compatibility-guide.md" toc-title="Compatibility guide"/>
             <toc-element id="multiplatform-plugin-releases.md"/>
         </toc-element>
+    </toc-element>
+
+    <toc-element toc-title="Data analysis">
+        <toc-element toc-title="Get started with Kotlin Notebook">
+            <toc-element id="get-started-with-kotlin-notebooks.md" toc-title="Introduction to Kotlin Notebook"/>
+            <toc-element id="kotlin-notebook-set-up-env.md" toc-title="1. Set up an environment"/>
+            <toc-element id="kotlin-notebook-create.md" toc-title="2. Create your first Kotlin Notebook"/>
+            <toc-element id="kotlin-notebook-add-dependencies.md" toc-title="3. Add dependencies to a Kotlin Notebook"/>
+            <toc-element id="kotlin-notebook-share.md" toc-title="4. Share a Kotlin Notebook"/>
+        </toc-element>
+        <toc-element id="data-analysis-notebooks-output-formats.md" toc-title="Output formats in Kotlin notebooks"/>
+        <toc-element toc-title="Working with data sources">
+            <toc-element id="data-analysis-work-with-data-sources.md" toc-title="Retrieve data from files"/>
+            <toc-element id="data-analysis-work-with-api.md" toc-title="Retrieve data from web sources and APIs"/>
+            <toc-element id="data-analysis-connect-to-db.md" toc-title="Connect and retrieve data from databases"/>
+        </toc-element>
+        <toc-element id="data-analysis-visualization.md" toc-title="Data visualization in Kotlin Notebook"/>
+        <toc-element id="data-analysis-libraries.md" toc-title="Libraries for data analysis"/>
+
     </toc-element>
 
     <toc-element toc-title="Platforms">
