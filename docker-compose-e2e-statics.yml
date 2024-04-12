@@ -16,7 +16,6 @@ services:
     command: yarn run test:visual:ci
     environment:
       BASE_URL: "http://nginx-server"
-      ipc: host
     volumes:
       - ./test/snapshots:/var/www/test/snapshots
       - ./test-results:/var/www/test-results
