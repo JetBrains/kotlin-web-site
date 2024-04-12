@@ -35,7 +35,7 @@
     <toc-element toc-title="What's new in Kotlin">
         <toc-element id="whatsnew1920.md" toc-title="Kotlin 1.9.20" accepts-web-file-names="whatsnew.html"/>
         <toc-element id="whatsnew19.md" toc-title="Kotlin 1.9.0"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 2.0.0-Beta5"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 2.0.0-RC1"/>
         <toc-element toc-title="Earlier versions">
             <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20"/>
             <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
@@ -209,6 +209,7 @@
                 <toc-element id="native-cocoapods-xcode.md"/>
                 <toc-element id="native-cocoapods-dsl-reference.md"/>
             </toc-element>
+            <toc-element id="native-spm.md"/>
             <toc-element id="native-libraries.md"/>
             <toc-element id="native-platform-libs.md"/>
             <toc-element id="native-dynamic-libraries.md"/>

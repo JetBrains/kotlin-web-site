@@ -24,7 +24,7 @@
         <config-feedback-enabled>true</config-feedback-enabled>
         <config-feedback-widget>true</config-feedback-widget>
         <config-feedback-support>https://kotl.in/issue</config-feedback-support>
-        <config-feedback-url>https://data.services.jetbrains.com/feedback</config-feedback-url>
+        <config-feedback-url>https://forms-service.jetbrains.com/feedback</config-feedback-url>
         <config-webmaster>doc-feedback@kotlinlang.org</config-webmaster>
         <config-sideblocks>true</config-sideblocks>
         <config-algolia-api-key>1bfad5fdbae302b33d844ed1b43ec4d5</config-algolia-api-key>

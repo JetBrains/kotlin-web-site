@@ -26,10 +26,6 @@ const items = [
         url: '/community/user-groups/',
         title: 'Kotlin User Groups',
     },
-    {
-        url: '/community/events/',
-        title: 'Events',
-    },
 ];
 
 interface CommunityLayoutProps {
