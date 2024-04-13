@@ -87,7 +87,7 @@ fun main() {
 ## Use safe calls
 
 To safely access properties of an object that might contain a `null` value, use the safe call operator `?.`. The safe call
-operator returns `null` if the object is `null`. This is useful if you want to avoid the presence of `null`
+operator returns `null` if either the object or one of its accessed properties is `null`. This is useful if you want to avoid the presence of `null`
 values triggering errors in your code.
 
 In the following example, the `lengthString()` function uses a safe call to return either the length of the string or `null`:
