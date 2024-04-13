@@ -340,12 +340,19 @@ The most common use case for declaring definitely non-nullable types is when you
 contains `@NotNull` as an argument. For example, consider the `load()` method:
 
 ```java
-import org.jetbrains.annotations.*;
+import org.jetbrains.annotations.NotNull;
 
 public interface Game<T> {
-    public T save(T x) {}
+    default T save(T x) {
+        // Both x and the returned value could be null.
+        return x;
+    }
+
     @NotNull
-    public T load(@NotNull T x) {}
+    default T load(@NotNull T x) {
+        // Both x and the returned value are non-nullable.
+        return x;
+    }
 }
 ```
 
