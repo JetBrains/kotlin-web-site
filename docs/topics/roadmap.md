@@ -11,7 +11,7 @@
     </tr>
 </table>
 
-Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the Kotlin Team.
+Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the JetBrains Team.
 
 ## Key priorities
 

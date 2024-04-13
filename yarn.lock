@@ -1430,10 +1430,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@4.8.0-alpha.16":
-  version "4.8.0-alpha.16"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.8.0-alpha.16.tgz#c8e6148e54055634bec8274df695ab69c213b4ca"
-  integrity sha512-tZpjHv8/LFSoRW5cdjWR9Mejy8mgP15ylBQhQRNT4/JQN6yZi1mD7rE49YpxBGrWKkQNS6rOdH7rX4JTnY5gBg==
+"@jetbrains/kotlin-web-site-ui@4.8.1":
+  version "4.8.1"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.8.1.tgz#147f2a0a14687b2240436f6d3800fc52fb68748e"
+  integrity sha512-jmGZVbUHL+lEeiJDkHgmt6mlhntfbF7xWXFehVOBainmNvX3LMUpXf+HrPTt6JhQ31hAiqYWKXNNTKSg2NCjtg==
 
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
@@ -8939,9 +8939,9 @@ webpack-cli@^5.1.4:
     webpack-merge "^5.7.3"
 
 webpack-dev-middleware@^5.2.1:
-  version "5.3.3"
-  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-5.3.3.tgz#efae67c2793908e7311f1d9b06f2a08dcc97e51f"
-  integrity sha512-hj5CYrY0bZLB+eTO+x/j67Pkrquiy7kWepMHmUMoPsmcUaeEnQJqFzHJOyxgWlq746/wUuA64p9ta34Kyb01pA==
+  version "5.3.4"
+  resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-5.3.4.tgz#eb7b39281cbce10e104eb2b8bf2b63fce49a3517"
+  integrity sha512-BVdTqhhs+0IfoeAf7EoH5WE+exCmqGerHfDM0IL096Px60Tq2Mn9MAbnaGUe6HiMa41KMCYF19gyzZmBcq/o4Q==
   dependencies:
     colorette "^2.0.10"
     memfs "^3.4.3"

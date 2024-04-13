@@ -222,11 +222,6 @@ def grammar():
     return render_template('pages/grammar.html', kotlinGrammar=grammar)
 
 
-@app.route('/docs/videos.html')
-def videos_page():
-    return render_template('pages/videos.html', videos=process_video_nav(site_data['videos']))
-
-
 @app.route('/docs/kotlin-reference.pdf')
 def kotlin_reference_pdf():
     return send_file(path.join(root_folder, "assets", "kotlin-reference.pdf"))
