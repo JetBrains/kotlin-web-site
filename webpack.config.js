@@ -21,7 +21,6 @@ module.exports = (params = {}) => {
       //shared
       'common': './static/js/page/common.js',
       'index': './static/js/page/index/index.js',
-      'videos': './static/js/page/videos.js',
       'grammar': './static/js/page/grammar.js',
       'api': './static/js/page/api/api.js',
       'reference': './static/js/page/reference.js',
