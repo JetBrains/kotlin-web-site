@@ -37,7 +37,7 @@ Consider a general example with Kotlin source sets `A` and `B`. The expression `
 2. `A` can provide actual implementations for expected declarations from `B`. This is a necessary and sufficient condition,
    as `A` can provide `actuals` for `B` if and only if `A.dependsOn(B)` either directly or indirectly.
 3. `B` should compile to all the targets that `A` compiles to, in addition to its own targets.
-4. `B` inherits all the regular dependencies of `A`.
+4. `A` inherits all the regular dependencies of `B`.
 
 The `dependsOn` relation creates a tree-like structure known as a source set hierarchy. Here's an example of a
 typical project for mobile development with `androidTarget`, `iosArm64` (iPhone devices), and `iosSimulatorArm64`

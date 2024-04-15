@@ -144,7 +144,7 @@ See how Kotlin types are mapped to JavaScript ones:
 | Nullable `Type?`                                                            | `Type \| null \| undefined` |                                                                                            |
 | All other Kotlin types (except for those marked with `JsExport` annotation) | Not supported               | Includes Kotlin's collections (`List`, `Set`, `Map`, etc.), and unsigned variants.         |
 
-Additionaly, it is important to know that:
+Additionally, it is important to know that:
 
 * Kotlin preserves overflow semantics for `kotlin.Int`, `kotlin.Byte`, `kotlin.Short`, `kotlin.Char` and `kotlin.Long`.
 * Kotlin cannot distinguish between numeric types at runtime (except for `kotlin.Long`), so the following code works:

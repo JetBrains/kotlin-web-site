@@ -153,7 +153,7 @@ for example, the source files are expected to be in the `src/nativeMain/kotlin` 
 By default, all the symbols from C are imported to the `interop` package,
 you may want to import the whole package in our `.kt` files.
 Check out the [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md)
-plugin documentation to learn about all the different ways you could configure it.
+to learn about all the different ways you could configure it.
 
 Create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
 to see how C struct and union declarations are visible from Kotlin:

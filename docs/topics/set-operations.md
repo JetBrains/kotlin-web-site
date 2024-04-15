@@ -73,7 +73,7 @@ fun main() {
 
     // result of intersecting two lists is a Set
     println(list1 intersect list2)
-    //[1, 2, 3, 5]
+    // [1, 2, 3, 5]
 
     // equal elements are merged into one
     println(list1 union list2)

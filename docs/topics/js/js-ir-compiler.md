@@ -40,10 +40,10 @@ the application loads without initializing all the top-level properties used in 
 only the ones needed at startup; other properties receive their values later when the code that uses them actually runs.
 
 ```kotlin
-val a = run { 
+val a = run {
     val result = // intensive computations
     println(result)
-    result 
+    result
 } // value is computed upon the first usage
 ```
 
@@ -153,12 +153,12 @@ For example:
 
 ```kotlin
 kotlin {
-   js {
-       binaries.executable()
-       browser {
-       }
-       generateTypeScriptDefinitions()
-   }
+    js {
+        binaries.executable()
+        browser {
+        }
+        generateTypeScriptDefinitions()
+    }
 }
 ```
 
