@@ -28,7 +28,7 @@
         <toc-element id="wasm-overview.md"/>
         <toc-element id="native-overview.md"/>
         <toc-element id="js-overview.md"/>
-        <toc-element id="data-analysis-overview.md"/>
+        <toc-element id="data-analysis-overview.md" accepts-web-file-names="data-science-overview.html"/>
         <toc-element id="competitive-programming.md"/>
     </toc-element>
 
