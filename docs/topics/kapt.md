@@ -381,7 +381,7 @@ Here is a list of the available options:
     * `stubs` – only generate stubs needed for annotation processing.
     * `apt` – only run annotation processing.
     * `stubsAndApt` – generate stubs and run annotation processing.
-* `correctErrorTypes`: See [below](#use-in-gradle). Disabled by default.
+* `correctErrorTypes`: For more information, see [Non-existent type correction](#non-existent-type-correction). Disabled by default.
 * `dumpFileReadHistory`: An output path to dump for each file a list of classes used during annotation processing.
 
 The plugin option format is: `-P plugin:<plugin id>:<key>=<value>`. Options can be repeated.

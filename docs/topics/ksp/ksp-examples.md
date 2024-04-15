@@ -37,7 +37,7 @@ fun KSFile.suppressedNames(): Sequence<String> = annotations
         it.annotationType.resolve().declaration.qualifiedName?.asString() == "kotlin.Suppress"
     }.flatMap {
         it.arguments.flatMap {
-            (it.value  as Array<String>).toList() 
+            (it.value as Array<String>).toList()
         }
     }
 ```

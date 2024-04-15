@@ -34,7 +34,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    >
    {type="tip"}
 
-10. Click **Create**.
+9. Click **Create**.
 
 You have successfully created a project with Gradle.
 
