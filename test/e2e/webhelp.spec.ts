@@ -87,6 +87,8 @@ test.describe('WebHelp page appearance', async () => {
         await element.locator('button').first().click();
         const lightbox = page.locator('div.light-box').first();
         expect(await lightbox.count()).toBe(1);
+        const image = lightbox.locator('img').first();
+        expect(await image.isVisible()).toBeTruthy();
     });
 
     test(`Should close zoomable image when close button clicked`, async ({ page }) => {
