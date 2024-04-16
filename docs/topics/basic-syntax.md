@@ -245,14 +245,12 @@ class Rectangle(val height: Double, val length: Double) {
 The default constructor with parameters listed in the class declaration is available automatically:
 
 ```kotlin
-//sampleStart
 class Rectangle(val height: Double, val length: Double) {
     val perimeter = (height + length) * 2 
 }
 fun main() {
     val rectangle = Rectangle(5.0, 2.0)
     println("The perimeter is ${rectangle.perimeter}")
-//sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-class-constructor"}
