@@ -6,8 +6,6 @@ import builds.kotlinlang.buidTypes.BuildJsAssets
 import builds.kotlinlang.buidTypes.BuildReferenceDocs
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
-import jetbrains.buildServer.configs.kotlin.buildFeatures.PullRequests
-import jetbrains.buildServer.configs.kotlin.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 
@@ -76,17 +74,5 @@ object E2ETests : BuildType({
   requirements {
     exists("docker.server.version")
     contains("docker.server.osType", "linux")
-  }
-
-  features {
-    pullRequests {
-      vcsRootExtId = "${vcsRoots.KotlinLangOrg.id}"
-      provider = github {
-        authType = token {
-          token = "%github.oauth%"
-        }
-        filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER_OR_COLLABORATOR
-      }
-    }
   }
 })
