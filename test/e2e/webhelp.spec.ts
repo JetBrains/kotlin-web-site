@@ -82,20 +82,13 @@ test.describe('WebHelp page appearance', async () => {
         expect(clipboardContent).toEqual(EXPECTED_CODEBLOCK_CONTENT);
     });
 
-    test(`Should zoom zoomable image when clicked`, async ({ page }) => {
+    test(`Should zoom zoomable image in and out`, async ({ page }) => {
         const element = page.locator('figure').filter({ has: page.locator('a[href="images/ksp-class-diagram.svg"]') }).first();
         await element.locator('button').first().click();
         const lightbox = page.locator('div.light-box').first();
         expect(await lightbox.count()).toBe(1);
         const image = lightbox.locator('img').first();
         expect(await image.isVisible()).toBeTruthy();
-    });
-
-    test(`Should close zoomable image when close button clicked`, async ({ page }) => {
-        const element = page.locator('figure').filter({ has: page.locator('a[href="images/ksp-class-diagram.svg"]') }).first();
-        await element.locator('button').first().click();
-        const lightbox = page.locator('div.light-box').first();
-        expect(await lightbox.count()).toBe(1);
         await lightbox.locator('button').first().click();
         expect(await lightbox.count()).toBe(0);
     });
