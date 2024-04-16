@@ -2,6 +2,106 @@
 
 For a quick start, you can create your own processor or get a [sample one](https://github.com/google/ksp/tree/main/examples/playground).
 
+## Adding a processor
+
+To add a processor you will need to add the KSP Gradle Plugin and add a dependency on the processor.
+
+1. Add the KSP Gradle Plugin (`com.google.devtools.ksp`)
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    id("com.google.devtools.ksp") version "%kspSupportedKotlinVersion%-%kspVersion%"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'com.google.devtools.ksp' version '%kspSupportedKotlinVersion%-%kspVersion%'
+}
+```
+
+</tab>
+</tabs>
+
+2. Add a dependency on the processor
+Here we use [Dagger](https://dagger.dev/dev-guide/ksp.html) as an example. You'd use the processor you want to add instead.
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+dependencies {
+    implementation("com.google.dagger:dagger-compiler:2.51.1")
+    ksp("com.google.dagger:dagger-compiler:2.51.1")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    implementation 'com.google.dagger:dagger-compiler:2.51.1'
+    ksp 'com.google.dagger:dagger-compiler:2.51.1'
+}
+```
+
+</tab>
+</tabs>
+
+3. Run `./gradlew build`. You can find the generated code under `build/generated/ksp`.
+
+Here's a full example
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    id("com.google.devtools.ksp") version "%kspSupportedKotlinVersion%-%kspVersion%"
+    kotlin("jvm")
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(kotlin("stdlib-jdk8"))
+    implementation("com.google.dagger:dagger-compiler:2.51.1")
+    ksp("com.google.dagger:dagger-compiler:2.51.1")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'com.google.devtools.ksp' version '%kspSupportedKotlinVersion%-%kspVersion%'
+    id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:%kotlinVersion%'
+    implementation 'com.google.dagger:dagger-compiler:2.51.1'
+    ksp 'com.google.dagger:dagger-compiler:2.51.1'
+}
+```
+
+</tab>
+</tabs>
+
 ## Create a processor of your own
 
 1. Create an empty gradle project.
@@ -166,7 +266,7 @@ dependencies {
 </tabs>
 
 3. Run `./gradlew build`. You can find the generated code under
-   `build/generated/source/ksp`.
+   `build/generated/ksp`.
 
 Here's a sample build script to apply the KSP plugin to a workload:
 
