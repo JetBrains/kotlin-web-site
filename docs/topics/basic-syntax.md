@@ -135,7 +135,7 @@ See [Functions](functions.md).
 
 In Kotlin, you declare a variable starting with a keyword, `val` or `var`, followed by the name of the variable.
 
-Use the `val` keyword to declare variables that are assigned a value only once. These are read-only local variables that can’t be reassigned a different value
+Use the `val` keyword to declare variables that are assigned a value only once. These are immutable, read-only local variables that can’t be reassigned a different value
 after initialization: 
 
 ```kotlin
@@ -150,7 +150,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-val"}
 
-Use the `var` keyword to declare variables that can be reassigned. These are mutable variables, and you can assign other values to them after initialization:
+Use the `var` keyword to declare variables that can be reassigned. These are mutable variables, and you can change their values after initialization:
 
 ```kotlin
 fun main() {
@@ -245,11 +245,11 @@ class Rectangle(val height: Double, val length: Double) {
 The default constructor with parameters listed in the class declaration is available automatically:
 
 ```kotlin
+//sampleStart
 class Rectangle(val height: Double, val length: Double) {
     val perimeter = (height + length) * 2 
 }
 fun main() {
-//sampleStart
     val rectangle = Rectangle(5.0, 2.0)
     println("The perimeter is ${rectangle.perimeter}")
 //sampleEnd
@@ -257,7 +257,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-class-constructor"}
 
-Inheritance between classes is declared by a colon (`:`). Classes are final by default; to make a class inheritable, 
+Inheritance between classes is declared by a colon (`:`). Classes are `final` by default; to make a class inheritable, 
 mark it as `open`:
 
 ```kotlin
@@ -268,7 +268,7 @@ class Rectangle(val height: Double, val length: Double): Shape() {
 }
 ```
 
-See [classes](classes.md) and [objects and instances](object-declarations.md).
+For more information about constructors and inheritance, see [Classes](classes.md) and [Objects and instances](object-declarations.md).
 
 ## Comments
 
