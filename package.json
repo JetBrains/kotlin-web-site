@@ -118,7 +118,7 @@
     "lint": "next lint",
     "test": "playwright test test",
     "test:production": "playwright test test/production",
-    "test:production:сi": "CI=true BASE_URL=https://kotlinlang.org playwright test test/production",
+    "test:production:ci": "CI=true BASE_URL=https://kotlinlang.org playwright test test/production",
     "test:production:headed": "playwright test test/production --headed --project=chromium",
     "test:production:debug": "PWDEBUG=1 playwright test test/production --project=chromium",
     "test:e2e": "playwright test test/e2e",
