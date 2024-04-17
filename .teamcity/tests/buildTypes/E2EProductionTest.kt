@@ -34,7 +34,7 @@ object E2EProductionTest : BuildType({
     script {
       scriptContent = """
                 yarn install --immutable
-                yarn сi:e2e:prod
+                yarn test:production:ci
             """.trimIndent()
       dockerImage = "mcr.microsoft.com/playwright:v1.22.2-focal"
       dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux

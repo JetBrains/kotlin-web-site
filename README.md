@@ -197,15 +197,31 @@ To run tests locally:
 ## Run Tests
 
 - `yarn test` to run all tests in headless mode locally.
-- `yarn test:e2e` to run e2e tests.
-- `yarn test:e2e:headed` to run e2e tests in headed mode.
-- `yarn test:e2e:debug` to run e2e tests in headed mode with debug.
+- `yarn test:e2e` to run e2e tests locally, visual tests are also included.
+- `yarn test:e2e:skip-visual` to run e2e tests without visual tests locally.
+- `yarn test:production` to run the subset of e2e tests that are meant to check the production locally.
+
+There are also additional options to run tests:
+- `yarn run test:e2e:ci` or `yarn test:production:ci` to run tests in CI environments.
+- `yarn test:e2e:headed` or `yarn test:production:headed` to run tests in headed mode locally.
+- `yarn test:e2e:debug` or `yarn test:production:debug` to run e2e tests in headed mode with debug locally.
+
+To ease the process of adding and maintaining e2e tests:
 - `yarn test:e2e:new` to generate the test for the user interactions.
-- `yarn ci:e2e` to run e2e test in CI environments.
+- `yarn test:e2e:update`  to update screenshots when something on page has changed intentionally.
 
 ## Write Tests
 
 To write e2e test, create spec file `/test/e2e/*your-page*.spec.js`.
+
+## WebHelp tests
+Some e2e tests focus on preventing regressions in the WebHelp components used to build documentation in the /docs section of kotlinlang.org.
+To run these tests locally, follow the next steps:
+1. Create the `dist` folder in the project.
+2. Open the last successful build of [Reference Docs](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildReferenceDocs?branch=&mode=builds#all-projects) on TeamCity.
+3. Download the artifacts of this build and place them in the `dist` folder.
+4. Run the tests locally with the following command `yarn run test:e2e`
+5. Run the tests in docker container with the following command `docker compose -f docker-compose-e2e-statics.yml up --build  --exit-code-from playwright`
 
 ## API references tests
 
@@ -216,9 +232,3 @@ To run these tests locally, follow the next steps:
 3. Download the artifacts of these builds and place them in the `libs` folder by their name, for example, `kotlinx.coroutines`.
 4. Up containers `./scripts/dokka/up.sh`.
 5. Run test inside container `./scripts/dokka/run.sh` or on the host with one of the scripts below.
-
-To run visual testing, apply one of the next scripts:  
-- `yarn test:visual` to compare pages with base screenshots. Base screenshots are in `test/visual`.
-- `yarn test:visual:headed` to run visual test in headed mode.
-- `yarn test:visual:update` to update all screenshots, for example, when the page has been changed.
-- `yarn ci:visual` to run visual test in CI environments. 
