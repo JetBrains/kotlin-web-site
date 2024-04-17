@@ -1,52 +1,58 @@
 [//]: # (title: K2 compiler migration guide)
 
-As the Kotlin language and ecosystem have continued to evolve, so has the Kotlin compiler. Firstly, by introducing new 
-JVM and JS IR (Intermediate Representation) backends that share logic, simplifying code generation for targets on different
-platforms. Now, the next stage of its evolution introduces a new frontend known as K2.
+As the Kotlin language and ecosystem have continued to evolve, so has the Kotlin compiler. The first step was the
+introduction of the new JVM and JS IR (Intermediate Representation) backends that share logic, simplifying code generation
+for targets on different platforms. Now, the next stage of its evolution brings a new frontend known as K2.
 
-![Kotlin K2 compiler architectre](k2-compiler-architecture.svg){width=700}
+![Kotlin K2 compiler architecture](k2-compiler-architecture.svg){width=700}
 
-The K2 compiler frontend has been completely rewritten, featuring a new, more efficient architecture. The fundamental 
-change in the frontend is the use of one unified data structure that contains more semantic information. The frontend 
-is responsible for performing semantic analysis, call resolution, and type inference. The new architecture and enriched 
-data structure enables the K2 compiler to provide the following benefits:
+With the arrival of the K2 compiler, the Kotlin frontend has been completely rewritten and features a new,
+more efficient architecture. The fundamental change the new compiler brings is the use of one unified data structure that
+contains more semantic information. This frontend is responsible for performing semantic analysis, call resolution,
+and type inference.
 
-* **Offers improved and optimized call resolution and type inference.** The compiler behaves more consistently and understands your code better.
-* **Facilitates introduction of new syntactic sugar for new language features.** In the future, you'll be able to use more concise, readable code when new features are introduced.
-* **Reduces compilation times.** Compilation times can be decreased significantly.
-* **Enhances IDE performance.** If you enable K2 mode in IntelliJ IDEA, then IntelliJ IDEA will use the K2 compiler frontend to analyze your Kotlin code,
-  bringing stability and performance improvements. For more information, see [Support in IntelliJ IDEA](#support-in-intellij-idea).
+The new architecture and enriched data structure enables the K2 compiler to provide the following benefits:
+
+* **Improved call resolution and type inference**. The compiler behaves more consistently and understands your code better.
+* **Easier introduction of syntactic sugar for new language features**. In the future, you'll be able to use more concise,
+  readable code when new features are introduced.
+* **Reduced compilation times**. Compilation times can be significantly decreased.
+* **Enhanced IDE performance**. If you enable K2 mode in IntelliJ IDEA, then IntelliJ IDEA will use the K2 compiler
+  frontend to analyze your Kotlin code, bringing stability and performance improvements. For more information,
+  see [Support in IntelliJ IDEA](#support-in-intellij-idea).
 
   > The K2 Kotlin mode is in Alpha. The performance and stability of code highlighting and code completion have been improved,
   > but not all IDE features are supported yet.
-  > 
+  >
   {type="warning"}
 
 As a result, we've already made improvements to some [language features](#language-feature-improvements).
 
 This guide:
+
 * Explains the benefits of the new K2 compiler.
 * Highlights changes you might encounter during migration and how to adapt your code accordingly.
 * Describes how you can roll back to the previous version.
 
-> The new K2 compiler is enabled by default from Kotlin 2.0.0. For more information on the new features provided in Kotlin
-> 2.0.0 as well as the new K2 compiler, see [What's new in Kotlin %kotlinEapVersion%](whatsnew-eap.md).
-> 
+> The new K2 compiler is enabled by default starting with Kotlin 2.0.0. For more information on the new features provided
+> in Kotlin 2.0.0, as well as the new K2 compiler, see [What's new in Kotlin %kotlinEapVersion%](whatsnew-eap.md).
+>
 {type="note"}
 
 ## Language feature improvements
 
-The Kotlin K2 compiler improves language features related to [smart casting](#smart-casts) and [Kotlin Multiplatform](#kotlin-multiplatform).
+The Kotlin K2 compiler improves language features related to [smart-casting](#smart-casts) and [Kotlin Multiplatform](#kotlin-multiplatform).
 
 ### Smart casts
 
 The Kotlin compiler can automatically cast an object to a type in specific cases,
-saving you the trouble of having to explicitly specify it yourself. This is called [smart casting](typecasts.md#smart-casts).
+saving you the trouble of having to explicitly specify it yourself. This is called [smart-casting](typecasts.md#smart-casts).
 The Kotlin K2 compiler now performs smart casts in even more scenarios than before.
 
 In Kotlin 2.0.0, we've made improvements related to smart casts in the following areas:
+
 * [Local variables and further scopes](#local-variables-and-further-scopes)
-* [Type checks with logical `or` operator](#type-checks-with-logical-or-operator)
+* [Type checks with the logical `or` operator](#type-checks-with-the-logical-or-operator)
 * [Inline functions](#inline-functions)
 * [Properties with function types](#properties-with-function-types)
 * [Exception handling](#exception-handling)
@@ -54,17 +60,19 @@ In Kotlin 2.0.0, we've made improvements related to smart casts in the following
 
 #### Local variables and further scopes
 
-Previously, if a variable was evaluated as not `null` within an `if` condition,
-the variable was smart cast, and information about this variable was shared further within the scope of the `if` block.
-However, if you declared the variable **outside** the `if` condition, no information about the variable was available
-within the `if` condition, so it couldn't be smart cast. This behavior was also seen with `when` expressions and `while` loops.
+Previously, if a variable was evaluated as not `null` within an `if` condition, the variable would be smart-cast,
+and information about this variable would be shared further within the scope of the `if` block.
 
-From Kotlin 2.0.0, if you declare a variable before using it in your `if`, `when`, or `while` condition
-then any information collected by the compiler about the variable is accessible in the condition statement and its block for smart casting.
+However, if you declared the variable **outside** the `if` condition, no information about the variable would be available
+within the `if` condition, so it couldn't be smart-cast. This behavior was also seen with `when` expressions and `while` loops.
 
-This can be useful when you want to do things like extract boolean conditions into variables.
-Then, you can give the variable a meaningful name, which makes your code easier to read, and easily reuse the variable later in your code.
-For example:
+From Kotlin 2.0.0, if you declare a variable before using it in your `if`, `when`, or `while` condition, then any
+information collected by the compiler about the variable will be accessible in the condition statement and its block for
+smart-casting.
+
+This can be useful when you want to do things like extract boolean conditions into variables. Then, you can give the
+variable a meaningful name, which will improve your code readability and make it possible to reuse the variable later
+in your code. For example:
 
 ```kotlin
 class Cat {
@@ -78,7 +86,7 @@ fun petAnimal(animal: Any) {
     if (isCat) {
         // In Kotlin 2.0.0, the compiler can access
         // information about isCat, so it knows that
-        // animal was smart cast to type Cat.
+        // animal was smart-cast to the type Cat.
         // Therefore, the purr() function is successfully called.
         // In Kotlin 1.9.20, the compiler doesn't know
         // about the smart cast, so calling the purr()
@@ -93,16 +101,15 @@ fun main(){
     // Purr purr
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-k2-local-variables-guide" validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-k2-local-variables" validate="false"}
 
-#### Type checks with logical `or` operator
+#### Type checks with the logical `or` operator
 
 In Kotlin 2.0.0, if you combine type checks for objects with an `or` operator (`||`), a smart cast
 is made to their closest common supertype. Before this change, a smart cast was always made to the `Any` type.
 
-In this case, you still had to manually check the object type afterward before you could access any of its properties or call its functions.
-
-For example:
+In this case, you still had to manually check the object type afterward before you could access any of its properties or
+call its functions. For example:
 
 ```kotlin
 interface Status {
@@ -115,9 +122,9 @@ interface Declined : Status
 
 fun signalCheck(signalStatus: Any) {
     if (signalStatus is Postponed || signalStatus is Declined) {
-        // signalStatus is smart cast to a common supertype Status
+        // signalStatus is smart-cast to a common supertype Status
         signalStatus.signal()
-        // Prior to Kotlin 2.0.0, signalStatus is smart cast 
+        // Prior to Kotlin %kotlinEapVersion%, signalStatus is smart cast 
         // to type Any, so calling the signal() function triggered an
         // Unresolved reference error. The signal() function can only 
         // be called successfully after another type check:
@@ -129,21 +136,22 @@ fun signalCheck(signalStatus: Any) {
 ```
 
 > The common supertype is an **approximation** of a [union type](https://en.wikipedia.org/wiki/Union_type). Union types
-> are not supported in Kotlin.
+> are [not currently supported in Kotlin](https://youtrack.jetbrains.com/issue/KT-13108/Denotable-union-and-intersection-types).
 >
 {type="note"}
 
 #### Inline functions
 
 In Kotlin 2.0.0, the K2 compiler treats inline functions differently,
-allowing it to determine in combination with other compiler analyses whether it's safe to smart cast.
+allowing it to determine in combination with other compiler analyses whether it's safe to smart-cast.
 
-Specifically, inline functions are now treated as having an implicit
-[`callsInPlace`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.contracts/-contract-builder/calls-in-place.html) contract.
-So, any lambda functions passed to an inline function are called "in place". Since lambda functions are called in place,
-the compiler knows that a lambda function can't leak references to any variables contained within its function body.
-The compiler uses this knowledge along with other compiler analyses to decide if it's safe to smart cast any of the captured variables.
-For example:
+Specifically, inline functions are now treated as having an implicit [`callsInPlace`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.contracts/-contract-builder/calls-in-place.html)
+contract. This means that any lambda functions passed to an inline function are called in place. Since lambda functions
+are called in place, the compiler knows that a lambda function can't leak references to any variables contained within
+its function body.
+
+The compiler uses this knowledge along with other compiler analyses to decide whether it's safe to smart-cast any of the
+captured variables. For example:
 
 ```kotlin
 interface Processor {
@@ -158,11 +166,11 @@ fun runProcessor(): Processor? {
     var processor: Processor? = null
     inlineAction {
         // In Kotlin 2.0.0, the compiler knows that processor 
-        // is a local variable, and inlineAction() is an inline function, so 
+        // is a local variable and inlineAction() is an inline function, so 
         // references to processor can't be leaked. Therefore, it's safe 
-        // to smart cast processor.
+        // to smart-cast processor.
       
-        // If processor isn't null, processor is smart cast
+        // If processor isn't null, processor is smart-cast
         if (processor != null) {
             // The compiler knows that processor isn't null, so no safe call 
             // is needed
@@ -178,18 +186,17 @@ fun runProcessor(): Processor? {
     return processor
 }
 ```
+
 #### Properties with function types
 
-In previous versions of Kotlin, it was a bug that class properties with a function type weren't smart cast.
-
-We fixed this behavior in the K2 compiler in Kotlin 2.0.0.
-For example:
+In previous versions of Kotlin, there was a bug that meant that class properties with a function type weren't smart-cast.
+We fixed this behavior in Kotlin 2.0.0 and the K2 compiler. For example:
 
 ```kotlin
 class Holder(val provider: (() -> Unit)?) {
     fun process() {
         // In Kotlin 2.0.0, if provider isn't null,
-        // it is smart cast
+        // it is smart-cast
         if (provider != null) {
             // The compiler knows that provider isn't null
             provider()
@@ -221,19 +228,18 @@ class Holder(val provider: Provider?, val processor: Processor?) {
     }
 }
 ```
+
 #### Exception handling
 
 In Kotlin 2.0.0, we've made improvements to exception handling so that smart cast information can be passed
 on to `catch` and `finally` blocks. This change makes your code safer as the compiler keeps track of whether
-your object has a nullable type.
-
-For example:
+your object has a nullable type. For example:
 
 ```kotlin
 //sampleStart
 fun testString() {
     var stringInput: String? = null
-    // stringInput is smart cast to String type
+    // stringInput is smart-cast to String type
     stringInput = ""
     try {
         // The compiler knows that stringInput isn't null
@@ -262,13 +268,13 @@ fun main() {
     testString()
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-k2-exception-handling-guide"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-k2-exception-handling"}
 
 #### Increment and decrement operators
 
 Prior to Kotlin 2.0.0, the compiler didn't understand that the type of an object can change after using
 an increment or decrement operator. As the compiler couldn't accurately track the object type,
-your code could lead to unresolved reference errors. In Kotlin 2.0.0, this is fixed:
+your code could lead to unresolved reference errors. In Kotlin 2.0.0, this has been fixed:
 
 ```kotlin
 interface Rho {
@@ -290,7 +296,7 @@ fun main(input: Rho) {
     if (unknownObject is Tau) {
 
         // Use the overloaded inc() operator from interface Rho,
-        // which smart casts the type of unknownObject to Sigma.
+        // which smart-casts the type of unknownObject to Sigma.
         ++unknownObject
 
         // In Kotlin 2.0.0, the compiler knows unknownObject has type
@@ -311,22 +317,23 @@ fun main(input: Rho) {
     }
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-k2-increment-decrement-operators-guide" validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-k2-increment-decrement-operators" validate="false"}
 
 ### Kotlin Multiplatform
 
 There are improvements in the K2 compiler related to Kotlin Multiplatform in the following areas:
+
 * [Separation of common and platform sources during compilation](#separation-of-common-and-platform-sources-during-compilation)
 * [Different visibility levels of expected and actual declarations](#different-visibility-levels-of-expected-and-actual-declarations)
 
 #### Separation of common and platform sources during compilation
 
-Previously, due to its design, the Kotlin compiler couldn't keep common and platform source sets separate at compile time.
-This means that common code could access platform code, which resulted in different behavior between platforms. In addition,
-some compiler settings and dependencies from common code were leaked into platform code.
+Previously, the design of the Kotlin compiler prevented it from keeping common and platform source sets separate
+at compile time. As a consequence of this, common code could access platform code, which resulted in different behavior
+between platforms. In addition, some compiler settings and dependencies from common code used to leak into platform code.
 
-In Kotlin 2.0.0, we redesigned the compilation scheme as part of the new Kotlin K2 compiler so that there is a strict
-separation between common and platform source sets. The most noticeable change is when you use [expected and actual functions](multiplatform-expect-actual.md#expected-and-actual-functions).
+In Kotlin 2.0.0, our implementation of the new Kotlin K2 compiler included a redesign of the compilation scheme to ensure
+strict separation between common and platform source sets. This change is most noticeable when you use [expected and actual functions](multiplatform-expect-actual.md#expected-and-actual-functions).
 Previously, it was possible for a function call in your common code to resolve to a function in platform code. For example:
 
 <table header-style="top">
@@ -341,7 +348,7 @@ Previously, it was possible for a function call in your common code to resolve t
 fun foo(x: Any) = println("common foo")
 
 fun exampleFunction() {
-    foo(42)  
+    foo(42)
 }
 ```
 
@@ -353,8 +360,7 @@ fun exampleFunction() {
 fun foo(x: Int) = println("platform foo")
 
 // JavaScript
-// There is no foo() function overload
-// on the JavaScript platform
+// There is no foo() function overload on the JavaScript platform
 ```
 
 </td>
@@ -363,17 +369,17 @@ fun foo(x: Int) = println("platform foo")
 
 In this example, the common code has different behavior depending on which platform it is run on:
 
-* On the JVM platform, calling the `foo()` function in common code results in the `foo()` function from platform code
-  being called: `platform foo`
-
-* On the JavaScript platform, calling the `foo()` function in common code results in the `foo()` function from common
-  code being called: `common foo`, since there is none available in platform code.
+* On the JVM platform, calling the `foo()` function in the common code results in the `foo()` function from the platform code
+  being called as `platform foo`.
+* On the JavaScript platform, calling the `foo()` function in the common code results in the `foo()` function from the
+  common code being called as `common foo`, as there is no such function available in the platform code.
 
 In Kotlin 2.0.0, common code doesn't have access to platform code, so both platforms successfully resolve the `foo()`
-function to the `foo()` function in common code: `common foo`
+function to the `foo()` function in the common code: `common foo`.
 
 In addition to the improved consistency of behavior across platforms, we also worked hard to fix cases where there was
-conflicting behavior between IntelliJ IDEA or Android Studio and the compiler. For example, if you used [expected and actual classes](multiplatform-expect-actual.md#expected-and-actual-classes):
+conflicting behavior between IntelliJ IDEA or Android Studio and the compiler. For instance, when you used [expected and actual classes](multiplatform-expect-actual.md#expected-and-actual-classes),
+the following would happen:
 
 <table header-style="top">
    <tr>
@@ -389,13 +395,10 @@ expect class Identity {
 }
 
 fun common() {
-    // Before Kotlin 2.0.0,
-    // it triggers an IDE-only error
+    // Before 2.0.0, it triggers an IDE-only error
     Identity().confirmIdentity()
-    // RESOLUTION_TO_CLASSIFIER : Expected class
-    // Identity has no default constructor.
+    // RESOLUTION_TO_CLASSIFIER : Expected class Identity has no default constructor.
 }
-
 ```
 
 </td>
@@ -412,8 +415,8 @@ actual class Identity {
 </table>
 
 In this example, the expected class `Identity` has no default constructor, so it can't be called successfully in common code.
-Previously, only an IDE error was reported, but the code still compiled successfully on the JVM. However, now the compiler
-correctly reports an error:
+Previously, an error was only reported by the IDE, but the code still compiled successfully on the JVM. However, now the
+compiler correctly reports an error:
 
 ```none
 Expected class 'expect class Identity : Any' does not have default constructor
@@ -421,11 +424,11 @@ Expected class 'expect class Identity : Any' does not have default constructor
 
 ##### When resolution behavior doesn't change
 
-We are still in the process of migrating to the new compilation scheme, so the resolution behavior is still the same when
-you call functions that aren't within the same source set. You will notice this difference mainly when you use overloads
+We're still in the process of migrating to the new compilation scheme, so the resolution behavior is still the same when
+you call functions that aren't within the same source set. You'll notice this difference mainly when you use overloads
 from a multiplatform library in your common code.
 
-For example, if you have this library, which has two `whichFun()` functions with different signatures:
+Suppose you have this library, which has two `whichFun()` functions with different signatures:
 
 ```kotlin
 // Example library
@@ -438,7 +441,7 @@ fun whichFun(x: Int) = println("platform function")
 ```
 
 If you call the `whichFun()` function in your common code, the function that has the most relevant argument type in the
-library is resolved:
+library will be resolved:
 
 ```kotlin
 // A project that uses the example library for the JVM target
@@ -449,8 +452,9 @@ fun main(){
     // platform function
 }
 ```
-In comparison, if you declare the overloads for `whichFun()` within the same source set, the function from common code
-is resolved because your code doesn't have access to the platform-specific version:
+
+In comparison, if you declare the overloads for `whichFun()` within the same source set, the function from the common
+code will be resolved because your code doesn't have access to the platform-specific version:
 
 ```kotlin
 // Example library isn't used
@@ -468,77 +472,75 @@ fun whichFun(x: Int) = println("platform function")
 ```
 
 Similar to multiplatform libraries, since the `commonTest` module is in a separate source set, it also still has access
-to platform-specific code. Therefore, the resolution of calls to functions in the `commonTest` module has the same behavior
-as in the old compilation scheme.
+to platform-specific code. Therefore, the resolution of calls to functions in the `commonTest` module exhibits the same
+behavior as in the old compilation scheme.
 
 In the future, these remaining cases will be more consistent with the new compilation scheme.
 
 #### Different visibility levels of expected and actual declarations
 
-Before Kotlin 2.0.0, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your
-Kotlin Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md).
-Kotlin 2.0.0 supports different visibility levels **only** if the actual declaration is _less_ strict than
-the expected declaration. For example:
+Before Kotlin 2.0.0, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your Kotlin
+Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md). Kotlin 2.0.0 supports
+different visibility levels _only_ if the actual declaration is _less_ strict than the expected declaration. For example:
 
 ```kotlin
 expect internal class Attribute // Visibility is internal
-actual class Attribute          // Visibility is public by default,
-                                // which is less strict
+actual class Attribute          // Visibility is public by default, which is less strict
 ```
 
 If you are using a [type alias](type-aliases.md) in your actual declaration, the visibility of the type **must** be less
 strict. Any visibility modifiers for `actual typealias` are ignored. For example:
 
 ```kotlin
-expect internal class Attribute                 // Visibility is internal
-internal actual typealias Attribute = Expanded  // The internal visibility 
-                                                // modifier is ignored
-class Expanded                                  // Visibility is public by default,
-                                                // which is less strict
+expect internal class Attribute                // Visibility is internal
+internal actual typealias Attribute = Expanded // The internal visibility modifier is ignored
+class Expanded                                 // Visibility is public by default, which is less strict
 ```
 
 ## How to enable the Kotlin K2 compiler
 
-From Kotlin 2.0.0, the Kotlin K2 compiler is enabled by default.
+Starting with Kotlin 2.0.0, the Kotlin K2 compiler is enabled by default.
 
-To update the Kotlin version, change it to 2.0.0 in your [Gradle](gradle-configure-project.md#apply-the-plugin)
-and [Maven](maven.md#configure-and-enable-the-plugin) build scripts.
+To upgrade the Kotlin version, change it to 2.0.0 in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
+[Maven](maven.md#configure-and-enable-the-plugin) build scripts.
 
 ### Use Kotlin build reports with Gradle
 
-Kotlin [build reports](gradle-compilation-and-caches.md#build-reports) provide information about the time spent in different
-compilation phases for Kotlin compiler tasks, as well as which compiler and Kotlin version were used, and whether the compilation
-was incremental. They are a useful tool for assessing your build performance. Build reports give you more insight into the
-Kotlin compilation pipeline than [Gradle build scans](https://scans.gradle.com/) because they give you an overview of the
-performance of all Gradle tasks.
+Kotlin [build reports](gradle-compilation-and-caches.md#build-reports) provide information about the time spent in
+different compilation phases for Kotlin compiler tasks, as well as which compiler and Kotlin version were used,
+and whether the compilation was incremental. They are a useful tool for assessing your build performance. Build reports
+give you more insight into the Kotlin compilation pipeline than [Gradle build scans](https://scans.gradle.com/) do
+because they give you an overview of the performance of all Gradle tasks.
 
 #### How to enable build reports
 
-To enable build reports, declare where to save the build report output in your `gradle.properties` file:
+To enable build reports, declare where you'd like to save the build report output in your `gradle.properties` file:
 
 ```none
 kotlin.build.report.output=file
 ```
 
-| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`        | Saves build reports in a human-readable format to a local file. By default, it's `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt`                                                                                                                                                                                                                                                                                                                                             |
-| `json`        | Saves build reports in JSON format as `${project_name}-date-time.json` to the directory that you specify in `kotlin.build.report.json.directory="my/dir/path"`                                                                                                                                                                                                                                                                                                                                            |
-| `single_file` | Saves build reports in a format of an object to a specified local file                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| `build_scan`  | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost                                                                                                                                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                               |
-| `http`        | Posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt). You can find samples of HTTP endpoints in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports) |
+The following values and their combinations are available for the output:
+
+| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `file`        | This option saves build reports in a human-readable format to a local file. By default, this is `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt`.                                                                                                                                                                                                                                                                                                                                           |
+| `json`        | This option saves build reports in JSON format as `${project_name}-date-time.json` to the directory that you specify in `kotlin.build.report.json.directory="my/dir/path"`.                                                                                                                                                                                                                                                                                                                                             |   
+| `single_file` | This option saves build reports to a specified local file in a format of an object.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `build_scan`  | This option saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost.                                                                                                                                                                                                                                                                  |
+| `http`        | This option posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt). Examples of HTTP endpoints can be found in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports). |
 
 For more information on what is possible with build reports, see [Build reports](gradle-compilation-and-caches.md#build-reports).
 
-## Try the Kotlin K2 compiler in Kotlin Playground
+## Try the Kotlin K2 compiler in the Kotlin Playground
 
-Kotlin Playground supports the %kotlinEapVersion% release. [Check it out!](https://pl.kotl.in/czuoQprce)
+The Kotlin Playground supports the %kotlinEapVersion% release. [Check it out!](https://pl.kotl.in/czuoQprce)
 
 ## Support in IntelliJ IDEA
 
 IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 Kotlin mode from [IntelliJ IDEA 2024.1](https://blog.jetbrains.com/idea/2024/03/k2-kotlin-mode-alpha-in-intellij-idea/).
 
-> The K2 Kotlin mode is in Alpha. The performance and stability of code highlighting and code completion have been improved,
+> K2 Kotlin mode is in Alpha. The performance and stability of code highlighting and code completion have been improved,
 > but not all IDE features are supported yet.
 >
 {type="warning"}
@@ -554,25 +556,26 @@ To use the previous compiler in Kotlin 2.0.0, either:
 
 ## Changes
 
-As a result of the new frontend, the Kotlin compiler has undergone some changes. We first highlight the most noticeable 
-changes affecting your code, explaining what has changed and the best practices going forward. We have organized all changes
-into [subject areas](#per-subject-area) for further reading, should you want to learn more.
+With the introduction of the new frontend, the Kotlin compiler has undergone several changes. Let's start by highlighting
+the most significant modifications affecting your code, explaining what has changed and detailing best practices going
+forward. If you'd like to learn more, we've organized these changes into [subject areas](#per-subject-area) to facilitate
+your further reading.
 
-This section highlights the following changes:
+This section highlights the following modifications:
+
 * [Immediate initialization of open properties with backing fields](#immediate-initialization-of-open-properties-with-backing-fields)
-* [Deprecated synthetic setters on a projected receiver](#deprecated-synthetic-setters-on-a-projected-receiver)
+* [Deprecated synthetic setters on a projected receiver](#deprecated-synthetics-setter-on-a-projected-receiver)
 * [Forbidden function calls with inaccessible types](#forbidden-function-calls-with-inaccessible-types)
 * [Consistent resolution order of Kotlin properties and Java fields with the same name](#consistent-resolution-order-of-kotlin-properties-and-java-fields-with-the-same-name)
-* [Improved nullability safety for Java primitive arrays](#improved-nullability-safety-for-java-primitive-arrays)
-
+* [Improved null safety for Java primitive arrays](#improved-null-safety-for-java-primitive-arrays)
 
 ### Immediate initialization of open properties with backing fields
 
 **What's changed?**
 
-In Kotlin 2.0, all `open` properties with backing fields must be immediately initialized, otherwise, you'll get a compilation
-error. Previously, only `open var` properties needed to be initialized right away, now this extends to `open val`s with 
-backing fields as well:
+In Kotlin 2.0, all `open` properties with backing fields must be immediately initialized; otherwise, you'll get a
+compilation error. Previously, only `open var` properties needed to be initialized right away, but now this extends
+to `open val` properties with backing fields too:
 
 ```kotlin
 open class Base {
@@ -590,30 +593,32 @@ class Derived : Base() {
     override var b = 2
 }
 ```
-This change makes the compiler behavior more predictable. Consider an example when the  `open val` property is overridden
-by the `var` with a custom setter.
 
-If the custom setter is presented, deferred initialization is confusing because it's unclear whether you want to initialize
-the backing field or to invoke the setter. In case you wanted to invoke the setter, the compiler couldn't guarantee that
-the setter would initialize the backing field.
+This change makes the compiler's behavior more predictable. Consider an example where an `open val` property is overridden
+by a `var` property with a custom setter.
+
+If a custom setter is used, deferred initialization can lead to confusion because it's unclear whether you want to
+initialize the backing field or to invoke the setter. In the past, if you wanted to invoke the setter, the old compiler
+couldn't guarantee that the setter would then initialize the backing field.
 
 **What's the best practice now?**
 
-We encourage you to always initialize open properties with backing fields, as we believe it's a better, less error-prone
-code practice.
+We encourage you to always initialize open properties with backing fields, as we believe this practice is both more
+efficient and less error-prone.
 
 However, if you don't want to immediately initialize a property, you can:
 
 * Make the property `final`.
 * Use a private backing property whose initialization can be deferred.
 
-### Deprecated synthetic setters on a projected receiver
+### Deprecated synthetics setter on a projected receiver
 
 **What's changed?**
 
-If you use the synthetic setter of a Java class to assign a type that conflicts with the class's projected type, an error is triggered.
+If you use the synthetic setter of a Java class to assign a type that conflicts with the class's projected type,
+an error is triggered.
 
-For example, if you have a Java class named `Container` that contains `getFoo()` and `setFoo()` methods:
+Suppose you have a Java class named `Container` that contains the `getFoo()` and `setFoo()` methods:
 
 ```java
 public class Container<E> {
@@ -624,8 +629,8 @@ public class Container<E> {
 }
 ```
 
-And if you have the following Kotlin code, where instances of the `Container` class have projected types, using the 
-`setFoo()` method always generates an error. However, only from Kotlin 2.0.0, does the synthetic `foo` property trigger an error:
+If you have the following Kotlin code, where instances of the `Container` class have projected types, using the `setFoo()`
+method will always generate an error. However, only from Kotlin 2.0.0 will the synthetic `foo` property trigger an error:
 
 ```kotlin
 fun exampleFunction(firstContainer: Container<*>, secondContainer: Container<in Number>, sampleString: String) {
@@ -648,8 +653,9 @@ fun exampleFunction(firstContainer: Container<*>, secondContainer: Container<in 
 
 **What's the best practice now?**
 
-If you see that this change introduces errors in your code, reconsider your type declarations. Either you don't need to 
-use type projections or you need to remove the assignment in your code.
+If you see that this change introduces errors in your code, you might wish to reconsider how you structure your type
+declarations. It could be that you don't need to use type projections, or perhaps you need to remove any assignments
+from your code.
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-54309).
 
@@ -658,17 +664,17 @@ For more information, see the [corresponding issue in YouTrack](https://youtrack
 **What's changed?**
 
 Before Kotlin 2.0.0, if you declared or called a function that had lambda parameters with an inaccessible type, your code
-could compile, but you might encounter compiler crashes later. In Kotlin 2.0.0, it is forbidden to declare or call a 
+could compile, but you might encounter compiler crashes later. In Kotlin 2.0.0, it is forbidden to declare or call a
 function that has an inaccessible type.
 
-For example, let’s say that you declared a class in one module:
+For example, let's say that you declared a class in one module:
 
 ```kotlin
 // Module one
 class Some(val x: Int)
 ```
 
-If you had another module (module two) that has a dependency configured on module one, your code can access the `Some` 
+If you have another module (module two) that has a dependency configured on module one, your code can access the `Some`
 class and use it as a type in lambda expressions:
 
 ```kotlin
@@ -678,10 +684,10 @@ fun bar(f: (Some) -> Unit) {}
 // Both functions compile successfully
 ```
 
-However, if you have a third module (module three) that depends only on module two, the third module isn’t able to 
-access the `Some` class in module **one**. Thus the dependency isn’t transitive between modules. Any functions in module
-three that have lambda parameters with the `Some` type trigger errors in Kotlin 2.0.0, thus preventing crashes later in
-your code:
+However, if you have a third module (module three) that depends only on module two, the third module won't be able to
+access the `Some` class in module **one**. As a result, the dependency won't be transitive between modules. Now, any
+functions in module three that have lambda parameters with the `Some` type will trigger errors in Kotlin 2.0.0, thus
+preventing crashes later in your code:
 
 ```kotlin
 // Module three
@@ -690,13 +696,13 @@ fun test() {
     // parameters (_) resolve to Some, which is inaccessible
     foo { _, _ -> }
 
-    // Triggers a warning in Kotlin 2.0.0, as using an instance
-    // of Some isn’t possible because Some is inaccessible
+    // Triggers a warning in Kotlin 2.0.0, as using an instance of Some
+    // isn't possible because Some is inaccessible
     foo { some, str -> }
 }
 ```
 
-Errors are also introduced in Kotlin 2.0.0 for some scenarios involving generic classes. For example, consider the same
+Errors are also introduced in Kotlin 2.0.0 for some scenarios involving generic classes. Consider, for example, the same
 arrangement of three modules but with generic classes:
 
 <table header-style="top">
@@ -721,8 +727,7 @@ fun foo(f: (Some<String>, String) -> Unit) {}
 
 class Generic<T>
 
-// Creates an instance of Generic class with
-// type Some<String>
+// Creates an instance of Generic class with type Some<String>
 fun gen() = Generic<Some<String>>()
 ```
 
@@ -730,10 +735,12 @@ fun gen() = Generic<Some<String>>()
 </tr>
 </table>
 
-In the third module, if you use the `gen()` function from module two to create an instance of `Generic` class with type
-`Some<String>` and then assign it to a variable `z`, this operation is successful because the `gen()` function has access
-to the `Some<T>` class in module one. **However**, if you try to pass the variable `z` to a function declared in module
-three, an error is triggered because functions declared in module three don’t have access to the `Some<T>` class in module one:
+
+In the third module, if you use the `gen()` function from module two to create an instance of the `Generic` class with
+the type `Some<String>` and then assign it to a variable `z`, this operation is successful because the `gen()` function
+has access to the `Some<T>` class in module one. **However**, if you try to pass the variable `z` to a function declared
+in module three, an error is triggered because functions declared in module three don't have access to the `Some<T>` class
+in module one:
 
 ```kotlin
 // Module three
@@ -760,11 +767,12 @@ For more information, see the [corresponding issue in YouTrack](https://youtrack
 
 **What's changed?**
 
-Before Kotlin 2.0.0, if you worked with Java and Kotlin classes that inherited from each other and contained Kotlin 
+Before Kotlin 2.0.0, if you worked with Java and Kotlin classes that inherited from each other and contained Kotlin
 properties and Java fields with the same name, the resolution behavior of the duplicated name was inconsistent. There was
-also conflicting behavior between IntelliJ IDEA and the compiler.
+also conflicting behavior between IntelliJ IDEA and the compiler. For the latest version of Kotlin, when developing
+the new resolution behavior we aimed to cause the least impact to users.
 
-For example, previously, if there was a Java class `Base`:
+For example, suppose there was a Java class `Base`:
 
 ```java
 public class Base {
@@ -773,47 +781,48 @@ public class Base {
     public String b = "b";
 }
 ```
-And there was a Kotlin class `Derived` that inherits from the `Base` class:
+
+Let's say there was also a Kotlin class `Derived` that inherits from the aforementioned `Base` class:
 
 ```kotlin
 class Derived : Base() {
-  val a = "aa"
+    val a = "aa"
 
-  // Declare custom get() function
-  val b get() = "bb"
+    // Declare custom get() function
+    val b get() = "bb"
 }
 
 fun main() {
-  // Resolves Derived.a
-  println(a)
-  // aa
+    // Resolves Derived.a
+    println(a)
+    // aa
 
-  // Resolves Base.b
-  println(b)
-  // b
+    // Resolves Base.b
+    println(b)
+    // b
 }
 ```
 
-`a` was resolved to the Kotlin property within the `Derived` Kotlin class. Whereas `b` was resolved to the Java field in
-the `Base` Java class.
+Given the above, `a` was resolved to the Kotlin property within the `Derived` Kotlin class, whereas `b` was resolved to
+the Java field in the `Base` Java class.
 
-In Kotlin 2.0.0, the resolution behavior in the example is consistent, so that the Kotlin property supersedes the 
-Java field of the same name. `b` now resolves to: `Derived.b`.
+In Kotlin 2.0.0, the resolution behavior in the example is consistent, ensuring that the Kotlin property supersedes the
+Java field of the same name. Now, `b` resolves to: `Derived.b`.
 
-> Prior to Kotlin 2.0.0, if you used IntelliJ IDEA to go to the declaration or usage of `a`, the IntelliJ IDEA incorrectly
-> navigated to the Java field when it should have navigated to the Kotlin property. 
+> Prior to Kotlin 2.0.0, if you used IntelliJ IDEA to go to the declaration or usage of `a`, it would incorrectly
+> navigate to the Java field when it should have navigated to the Kotlin property.
 > 
 > From Kotlin 2.0.0, IntelliJ IDEA correctly navigates to the same location as the compiler.
 >
 {type ="note"}
 
-The general rule is that the subclass takes precedence. The previous example demonstrates this as the Kotlin property `a`
-from the `Derived` class is resolved because `Derived` is a subclass of the `Base` Java class.
+The general rule is that the subclass takes precedence. The previous example demonstrates this, as the Kotlin property
+`a` from the `Derived` class is resolved because `Derived` is a subclass of the `Base` Java class.
 
-In the scenario where inheritance is reversed, and a Java class inherits from a Kotlin class, the Java field in the 
+In the event that the inheritance is reversed and a Java class inherits from a Kotlin class, the Java field in the
 subclass takes precedence over the Kotlin property with the same name.
 
-For example:
+Consider this example:
 
 <table header-style="top">
    <tr>
@@ -842,7 +851,7 @@ public class Derived extends Base {
 </tr>
 </table>
 
-In the following code:
+Now in the following code:
 
 ```kotlin
 fun main() {
@@ -888,17 +897,17 @@ fun main() {
 
 **What's the best practice now?**
 
-If this change affects your code, consider whether you really need to use duplicate names. If you want to have Java or 
-Kotlin classes that inherit from each other that also contain a field or property each that has the same name, keep in 
+If this change affects your code, consider whether you really need to use duplicate names. If you want to have Java or
+Kotlin classes that each contain a field or property with the same name and that each inherit from one another, keep in
 mind that the field or property in the subclass will take precedence.
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-55017).
 
-### Improved nullability safety for Java primitive arrays
+### Improved null safety for Java primitive arrays
 
 **What's changed?**
 
-Starting with Kotlin 2.0.0, the compiler correctly infers nullability of the Java primitive arrays imported to Kotlin. 
+Starting with Kotlin 2.0.0, the compiler correctly infers the nullability of Java primitive arrays imported to Kotlin.
 Now, it retains native nullability from the `TYPE_USE` annotations used with Java primitive arrays and emits errors when
 their values are not used according to annotations.
 
@@ -915,8 +924,8 @@ val dataService: DataService = ...
 dataService.fetchData() // -> ResultContainer<String?>
 ```
 
-Previously, however, when the Java primitive arrays were imported to Kotlin, all `TYPE_USE` annotations were lost, causing
-platform nullability and possibly unsafe code:
+Previously, however, when Java primitive arrays were imported to Kotlin, all `TYPE_USE` annotations were lost, resulting
+in platform nullability and possibly unsafe code:
 
 ```java
 interface DataProvider {
@@ -925,7 +934,7 @@ interface DataProvider {
 ```
 
 ```kotlin
-val dataService: DataProvider = …
+val dataService: DataProvider = ...
 dataService.fetchData() // -> IntArray .. IntArray?
 // No error, even though `dataService.fetchData()` might be `null` according to annotations
 // This might result in the NullPointerException
@@ -935,13 +944,13 @@ Note that this issue never affected nullability annotations on the declaration i
 
 **What's the best practice now?**
 
-In Kotlin 2.0.0, the nullability safety of Java primitive arrays is now standard for Kotlin, so check your code for new 
-warnings and errors if you use them:
+In Kotlin 2.0.0, null safety for Java primitive arrays is now standard in Kotlin, so check your code for new warnings
+and errors if you use them:
 
 * Any code that uses a `@Nullable` Java primitive array without an explicit nullability check or attempts to pass `null`
-to a Java method expecting a non-nullable primitive array now fails to compile.
-* Using a `@NotNull` primitive array with a nullability check now emits "Unnecessary safe call" or "Comparison with
-null always false" warnings.
+  to a Java method expecting a non-nullable primitive array will now fail to compile.
+* Using a `@NotNull` primitive array with a nullability check now emits "Unnecessary safe call" or "Comparison with null
+  always false" warnings.
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-54521).
 
@@ -975,7 +984,7 @@ for further reading. Changes that are listed with an asterisk (*) are explained 
 
 | Issue ID                                                   | Title                                                                                                                                                 |
 |------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [KT-54309](https://youtrack.jetbrains.com/issue/KT-54309)* | [Deprecate use of a synthetic setter on a projected receiver](#deprecated-synthetic-setters-on-a-projected-receiver)                                  |
+| [KT-54309](https://youtrack.jetbrains.com/issue/KT-54309)* | [Deprecate use of a synthetic setter on a projected receiver](#deprecated-synthetics-setter-on-a-projected-receiver)                                  |
 | [KT-57600](https://youtrack.jetbrains.com/issue/KT-57600)  | Forbid overriding of Java method with raw-typed parameter with generic typed parameter                                                                |
 | [KT-54663](https://youtrack.jetbrains.com/issue/KT-54663)  | Forbid passing possibly nullable type parameter to \`in\` projected DNN parameter                                                                     |
 | [KT-54066](https://youtrack.jetbrains.com/issue/KT-54066)  | Deprecate upper bound violation in typealias constructors                                                                                             |
@@ -1036,19 +1045,19 @@ for further reading. Changes that are listed with an asterisk (*) are explained 
 
 #### Null safety {initial-collapse-state="collapsed"}
 
-| Issue ID                                                   | Title                                                                                                                          |
-|------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| [KT-54521](https://youtrack.jetbrains.com/issue/KT-54521)* | [Deprecate unsafe usages of array types annotated as Nullable in Java](#improved-nullability-safety-for-java-primitive-arrays) |
-| [KT-41034](https://youtrack.jetbrains.com/issue/KT-41034)  | K2: Change evaluation semantics for combination of safe calls and convention operators                                         |
-| [KT-50850](https://youtrack.jetbrains.com/issue/KT-50850)  | Order of supertypes defines nullability parameters of inherited functions                                                      |
-| [KT-53982](https://youtrack.jetbrains.com/issue/KT-53982)  | Keep nullability when approximating local types in public signatures                                                           |
-| [KT-62998](https://youtrack.jetbrains.com/issue/KT-62998)  | Forbid assignment of a nullable to a not-null Java field as a selector of unsafe assignment                                    |
-| [KT-63209](https://youtrack.jetbrains.com/issue/KT-63209)  | Report missing errors for error-level nullable arguments of warning-level Java types                                           |
+| Issue ID                                                   | Title                                                                                                                   |
+|------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| [KT-54521](https://youtrack.jetbrains.com/issue/KT-54521)* | [Deprecate unsafe usages of array types annotated as Nullable in Java](#improved-null-safety-for-java-primitive-arrays) |
+| [KT-41034](https://youtrack.jetbrains.com/issue/KT-41034)  | K2: Change evaluation semantics for combination of safe calls and convention operators                                  |
+| [KT-50850](https://youtrack.jetbrains.com/issue/KT-50850)  | Order of supertypes defines nullability parameters of inherited functions                                               |
+| [KT-53982](https://youtrack.jetbrains.com/issue/KT-53982)  | Keep nullability when approximating local types in public signatures                                                    |
+| [KT-62998](https://youtrack.jetbrains.com/issue/KT-62998)  | Forbid assignment of a nullable to a not-null Java field as a selector of unsafe assignment                             |
+| [KT-63209](https://youtrack.jetbrains.com/issue/KT-63209)  | Report missing errors for error-level nullable arguments of warning-level Java types                                    |
 
 #### Java interoperability {initial-collapse-state="collapsed"}
 
-| Issue ID | Title                                                                                                      |
-|----------|------------------------------------------------------------------------------------------------------------|
+| Issue ID                                                  | Title                                                                                                      |
+|-----------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
 | [KT-53061](https://youtrack.jetbrains.com/issue/KT-53061) | Forbid Java and Kotlin classes with the same FQ name in sources                                            |
 | [KT-49882](https://youtrack.jetbrains.com/issue/KT-49882) | Classes inherited from Java collections have inconsistent behavior depending on order of supertypes        |
 | [KT-66324](https://youtrack.jetbrains.com/issue/KT-66324) | K2: unspecified behavior in case of Java class inheritance from a Kotlin private class                     |
@@ -1138,22 +1147,20 @@ Currently, the Kotlin K2 compiler supports the following Kotlin compiler plugins
 * [Serialization](serialization.md)
 
 In addition, the Kotlin K2 compiler supports:
-* the [Jetpack Compose](https://developer.android.com/jetpack/compose) 1.5.0 compiler plugin and later versions.
-* the [Kotlin Symbol Processing (KSP) plugin](ksp-overview.md)
-  since [KSP2](https://android-developers.googleblog.com/2023/12/ksp2-preview-kotlin-k2-standalone.html).
+
+* The [Jetpack Compose](https://developer.android.com/jetpack/compose) 1.5.0 compiler plugin and later versions.
+* The [Kotlin Symbol Processing (KSP) plugin](ksp-overview.md) since [KSP2](https://android-developers.googleblog.com/2023/12/ksp2-preview-kotlin-k2-standalone.html).
 
 > If you use any additional compiler plugins, check their documentation to see if they are compatible with K2.
 >
 {type="tip"}
 
-## Leave your feedback on the new K2 compiler
+## Share your feedback on the new K2 compiler
 
 We would appreciate any feedback you may have!
 
-* Provide your feedback directly to K2 developers on Kotlin
-  Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
+* Provide your feedback directly to K2 developers in the Kotlin Slack workspace – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
   and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel.
-* Report any problems you face migrating to the new K2 compiler
-  in [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&summary=K2+release+migration+issue&description=Describe+the+problem+you+encountered+here.&c=tag+k2-release-migration).
+* Report any problems you face migrating to the new K2 compiler in [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&summary=K2+release+migration+issue&description=Describe+the+problem+you+encountered+here.&c=tag+k2-release-migration).
 * [Enable the Send usage statistics option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
   allow JetBrains to collect anonymous data about K2 usage.
