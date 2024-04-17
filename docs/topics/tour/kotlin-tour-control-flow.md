@@ -46,8 +46,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-if"}
 
-There is no ternary operator `condition ? then : else` in Kotlin. Instead, `if` can be used as an expression. When using
-`if` as an expression, there are no curly braces `{}`:
+There is no ternary operator `condition ? then : else` in Kotlin. Instead, `if` can be used as an expression. If there is
+only one line of code per action, the curly braces `{}` are optional:
 
 ```kotlin
 fun main() { 
