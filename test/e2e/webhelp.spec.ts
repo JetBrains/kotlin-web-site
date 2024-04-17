@@ -8,6 +8,7 @@ import {
     RESOLUTIONS
 } from './visual-constants';
 import { getElementScreenshotWithPadding } from './utils';
+import os from 'os';
 
 const MAX_DIFF_PIXEL_RATIO = 0.011;
 
@@ -77,7 +78,11 @@ test.describe('WebHelp page appearance', async () => {
             }
         );
         await page.click('#clipboardTextarea');
-        await page.keyboard.press('Meta+V');
+        if (os.platform() === 'darwin') {
+            await page.keyboard.press('Meta+V');
+        } else {
+            await page.keyboard.press('Control+V');
+        }
         const clipboardContent = await page.$eval('#clipboardTextarea', (textAreaElement: HTMLTextAreaElement) => textAreaElement.value);
         expect(clipboardContent).toEqual(EXPECTED_CODEBLOCK_CONTENT);
     });
