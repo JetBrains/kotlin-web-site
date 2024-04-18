@@ -17,11 +17,11 @@ The new architecture and enriched data structure enables the K2 compiler to prov
 * **Easier introduction of syntactic sugar for new language features**. In the future, you'll be able to use more concise,
   readable code when new features are introduced.
 * **Faster compilation times**. Compilation times can be significantly faster.
-* **Enhanced IDE performance**. If you enable K2 mode in IntelliJ IDEA, then IntelliJ IDEA will use the K2 compiler
+* **Enhanced IDE performance**. If you enable K2 Kotlin mode in IntelliJ IDEA, then IntelliJ IDEA will use the K2 compiler
   frontend to analyze your Kotlin code, bringing stability and performance improvements. For more information,
   see [Support in IntelliJ IDEA](#support-in-intellij-idea).
 
-  > The Kotlin K2 mode is in Alpha. The performance and stability of code highlighting and code completion have been improved,
+  > The K2 Kotlin mode is in Alpha. The performance and stability of code highlighting and code completion have been improved,
   > but not all IDE features are supported yet.
   >
   {type="warning"}
