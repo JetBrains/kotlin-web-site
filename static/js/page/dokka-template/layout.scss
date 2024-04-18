@@ -36,9 +36,3 @@ header ul {
 .main-content {
   flex-grow: 1;
 }
-
-/* KTL-1420 Drop-down menu for the changing version is under the TOC */
-.navigation {
-  position: relative;
-  z-index: 10;
-}
