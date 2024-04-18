@@ -16,12 +16,12 @@ The new architecture and enriched data structure enables the K2 compiler to prov
 * **Improved call resolution and type inference**. The compiler behaves more consistently and understands your code better.
 * **Easier introduction of syntactic sugar for new language features**. In the future, you'll be able to use more concise,
   readable code when new features are introduced.
-* **Reduced compilation times**. Compilation times can be significantly decreased.
+* **Faster compilation times**. Compilation times can be significantly faster.
 * **Enhanced IDE performance**. If you enable K2 mode in IntelliJ IDEA, then IntelliJ IDEA will use the K2 compiler
   frontend to analyze your Kotlin code, bringing stability and performance improvements. For more information,
   see [Support in IntelliJ IDEA](#support-in-intellij-idea).
 
-  > The K2 Kotlin mode is in Alpha. The performance and stability of code highlighting and code completion have been improved,
+  > The Kotlin K2 mode is in Alpha. The performance and stability of code highlighting and code completion have been improved,
   > but not all IDE features are supported yet.
   >
   {type="warning"}
@@ -60,8 +60,8 @@ In Kotlin 2.0.0, we've made improvements related to smart casts in the following
 
 #### Local variables and further scopes
 
-Previously, if a variable was evaluated as not `null` within an `if` condition, the variable would be smart-cast,
-and information about this variable would be shared further within the scope of the `if` block.
+Previously, if a variable was evaluated as not `null` within an `if` condition, the variable would be smart-cast.
+Information about this variable would then be shared further within the scope of the `if` block.
 
 However, if you declared the variable **outside** the `if` condition, no information about the variable would be available
 within the `if` condition, so it couldn't be smart-cast. This behavior was also seen with `when` expressions and `while` loops.
@@ -329,7 +329,7 @@ There are improvements in the K2 compiler related to Kotlin Multiplatform in the
 #### Separation of common and platform sources during compilation
 
 Previously, the design of the Kotlin compiler prevented it from keeping common and platform source sets separate
-at compile time. As a consequence of this, common code could access platform code, which resulted in different behavior
+at compile time. As a consequence, common code could access platform code, which resulted in different behavior
 between platforms. In addition, some compiler settings and dependencies from common code used to leak into platform code.
 
 In Kotlin 2.0.0, our implementation of the new Kotlin K2 compiler included a redesign of the compilation scheme to ensure
@@ -428,7 +428,7 @@ We're still in the process of migrating to the new compilation scheme, so the re
 you call functions that aren't within the same source set. You'll notice this difference mainly when you use overloads
 from a multiplatform library in your common code.
 
-Suppose you have this library, which has two `whichFun()` functions with different signatures:
+Suppose you have a library, which has two `whichFun()` functions with different signatures:
 
 ```kotlin
 // Example library
@@ -508,8 +508,8 @@ To upgrade the Kotlin version, change it to 2.0.0 in your [Gradle](gradle-config
 
 Kotlin [build reports](gradle-compilation-and-caches.md#build-reports) provide information about the time spent in
 different compilation phases for Kotlin compiler tasks, as well as which compiler and Kotlin version were used,
-and whether the compilation was incremental. They are a useful tool for assessing your build performance. Build reports
-give you more insight into the Kotlin compilation pipeline than [Gradle build scans](https://scans.gradle.com/) do
+and whether the compilation was incremental. These build reports are useful for assessing your build performance. They
+offer more insight into the Kotlin compilation pipeline than [Gradle build scans](https://scans.gradle.com/) do
 because they give you an overview of the performance of all Gradle tasks.
 
 #### How to enable build reports
@@ -525,8 +525,8 @@ The following values and their combinations are available for the output:
 | Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `file`        | This option saves build reports in a human-readable format to a local file. By default, this is `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt`.                                                                                                                                                                                                                                                                                                                                           |
-| `json`        | This option saves build reports in JSON format as `${project_name}-date-time.json` to the directory that you specify in `kotlin.build.report.json.directory="my/dir/path"`.                                                                                                                                                                                                                                                                                                                                             |   
-| `single_file` | This option saves build reports to a specified local file in a format of an object.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `json`        | This option saves build reports in JSON format as `${project_name}-date-time.json` in the directory specified in `kotlin.build.report.json.directory="my/dir/path"`.                                                                                                                                                                                                                                                                                                                                             |   
+| `single_file` | This option saves build reports in a specified local file in the format of an object.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `build_scan`  | This option saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost.                                                                                                                                                                                                                                                                  |
 | `http`        | This option posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt). Examples of HTTP endpoints can be found in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports). |
 
@@ -609,7 +609,7 @@ efficient and less error-prone.
 However, if you don't want to immediately initialize a property, you can:
 
 * Make the property `final`.
-* Use a private backing property whose initialization can be deferred.
+* Use a private backing property that allows for deferred initialization.
 
 ### Deprecated synthetics setter on a projected receiver
 
@@ -685,7 +685,7 @@ fun bar(f: (Some) -> Unit) {}
 ```
 
 However, if you have a third module (module three) that depends only on module two, the third module won't be able to
-access the `Some` class in module **one**. As a result, the dependency won't be transitive between modules. Now, any
+access the `Some` class in **module one**. As a result, the dependency won't be transitive between modules. Now, any
 functions in module three that have lambda parameters with the `Some` type will trigger errors in Kotlin 2.0.0, thus
 preventing crashes later in your code:
 
@@ -772,7 +772,7 @@ properties and Java fields with the same name, the resolution behavior of the du
 also conflicting behavior between IntelliJ IDEA and the compiler. For the latest version of Kotlin, when developing
 the new resolution behavior we aimed to cause the least impact to users.
 
-For example, suppose there was a Java class `Base`:
+For example, suppose there is a Java class `Base`:
 
 ```java
 public class Base {
@@ -782,13 +782,13 @@ public class Base {
 }
 ```
 
-Let's say there was also a Kotlin class `Derived` that inherits from the aforementioned `Base` class:
+Let's say there is also a Kotlin class `Derived` that inherits from the aforementioned `Base` class:
 
 ```kotlin
 class Derived : Base() {
     val a = "aa"
 
-    // Declare custom get() function
+    // Declares custom get() function
     val b get() = "bb"
 }
 
@@ -803,7 +803,7 @@ fun main() {
 }
 ```
 
-Given the above, `a` was resolved to the Kotlin property within the `Derived` Kotlin class, whereas `b` was resolved to
+Given the above, `a` resolves to the Kotlin property within the `Derived` Kotlin class, whereas `b` resolves to
 the Java field in the `Base` Java class.
 
 In Kotlin 2.0.0, the resolution behavior in the example is consistent, ensuring that the Kotlin property supersedes the
@@ -937,7 +937,7 @@ interface DataProvider {
 val dataService: DataProvider = ...
 dataService.fetchData() // -> IntArray .. IntArray?
 // No error, even though `dataService.fetchData()` might be `null` according to annotations
-// This might result in the NullPointerException
+// This might result in a NullPointerException
 dataService.fetchData()[0]
 ```
 Note that this issue never affected nullability annotations on the declaration itself, only the `TYPE_USE` ones.
@@ -957,7 +957,7 @@ For more information, see the [corresponding issue in YouTrack](https://youtrack
 ### Per subject area
 
 These subject areas list changes that are unlikely to affect your code but provide links to the relevant YouTrack issues
-for further reading. Changes that are listed with an asterisk (*) are explained at the beginning of the section.
+for further reading. Changes listed with an asterisk (*) next to the Issue ID are explained at the beginning of the section.
 
 #### Type inference {initial-collapse-state="collapsed"}
 
