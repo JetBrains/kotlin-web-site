@@ -29,6 +29,11 @@ class LinksProcessor {
         return this;
     }
 
+    replaceAllTypes() {
+        this.value = this.value.replace(/\/alltypes\/index\.html/g, '/all-types.html');
+        return this;
+    }
+
     replaceKotlinJvmOptionals() {
         return this.replaceAtStart(
             STDLIB_MODULE_DIR + '/kotlin.jvm.optionals/java.util.-optional/',

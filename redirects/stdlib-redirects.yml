@@ -1,5 +1,5 @@
 - from: /api/latest/jvm/stdlib/alltypes/index.html
-  to: /api/core/kotlin-stdlib/
+  to: /api/core/kotlin-stdlib/all-types.html
 - from: /api/latest/jvm/stdlib/index.html
   to: /api/core/kotlin-stdlib/
 - from: /api/latest/jvm/stdlib/kotlin.annotation/-annotation-retention/-b-i-n-a-r-y.html
@@ -178,6 +178,8 @@
   to: /api/core/kotlin-stdlib/kotlin.collections/-abstract-mutable-collection/retain-all.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-abstract-mutable-collection/size.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-abstract-mutable-collection/size.html
+- from: /api/latest/jvm/stdlib/kotlin.collections/-abstract-mutable-collection/to-j-s-o-n.html
+  to: /api/core/kotlin-stdlib/kotlin.collections/-abstract-mutable-collection/
 - from: /api/latest/jvm/stdlib/kotlin.collections/-abstract-mutable-list/-init-.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-abstract-mutable-list/-abstract-mutable-list.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-abstract-mutable-list/add-all.html
@@ -2454,6 +2456,8 @@
   to: /api/core/kotlin-stdlib/kotlin.js/
 - from: /api/latest/jvm/stdlib/kotlin.js/iterator.html
   to: /api/core/kotlin-stdlib/kotlin.js/iterator.html
+- from: /api/latest/jvm/stdlib/kotlin.js/js-type-of.html
+  to: /api/core/kotlin-stdlib/kotlin.js/js-type-of.html
 - from: /api/latest/jvm/stdlib/kotlin.js/js.html
   to: /api/core/kotlin-stdlib/kotlin.js/js.html
 - from: /api/latest/jvm/stdlib/kotlin.js/json.html
@@ -3295,7 +3299,7 @@
 - from: /api/latest/jvm/stdlib/kotlin.native/as-u-c-pointer.html
   to: /api/core/kotlin-stdlib/kotlin.native/as-u-c-pointer.html
 - from: /api/latest/jvm/stdlib/kotlin.native/deinit-runtime-if-needed.html
-  to: /api/core/kotlin-stdlib/kotlin.native/deinit-runtime-if-needed.html
+  to: /api/core/older/1.9/kotlin-stdlib/kotlin.native/deinit-runtime-if-needed.html
 - from: /api/latest/jvm/stdlib/kotlin.native/get-char-at.html
   to: /api/core/kotlin-stdlib/kotlin.native/get-char-at.html
 - from: /api/latest/jvm/stdlib/kotlin.native/get-double-at.html
@@ -5788,8 +5792,14 @@
   to: /api/core/kotlin-stdlib/kotlin/-annotation/
 - from: /api/latest/jvm/stdlib/kotlin/-any/-init-.html
   to: /api/core/kotlin-stdlib/kotlin/-any/-any.html
+- from: /api/latest/jvm/stdlib/kotlin/-any/equals.html
+  to: /api/core/kotlin-stdlib/kotlin/-any/equals.html
+- from: /api/latest/jvm/stdlib/kotlin/-any/hash-code.html
+  to: /api/core/kotlin-stdlib/kotlin/-any/hash-code.html
 - from: /api/latest/jvm/stdlib/kotlin/-any/index.html
   to: /api/core/kotlin-stdlib/kotlin/-any/
+- from: /api/latest/jvm/stdlib/kotlin/-any/to-string.html
+  to: /api/core/kotlin-stdlib/kotlin/-any/to-string.html
 - from: /api/latest/jvm/stdlib/kotlin/-arithmetic-exception/-init-.html
   to: /api/core/kotlin-stdlib/kotlin/-arithmetic-exception/-arithmetic-exception.html
 - from: /api/latest/jvm/stdlib/kotlin/-arithmetic-exception/index.html
@@ -6140,12 +6150,22 @@
   to: /api/core/kotlin-stdlib/kotlin/-dsl-marker/
 - from: /api/latest/jvm/stdlib/kotlin/-enum/-init-.html
   to: /api/core/kotlin-stdlib/kotlin/-enum/-enum.html
+- from: /api/latest/jvm/stdlib/kotlin/-enum/clone.html
+  to: /api/core/kotlin-stdlib/kotlin/-enum/clone.html
+- from: /api/latest/jvm/stdlib/kotlin/-enum/compare-to.html
+  to: /api/core/kotlin-stdlib/kotlin/-enum/compare-to.html
+- from: /api/latest/jvm/stdlib/kotlin/-enum/equals.html
+  to: /api/core/kotlin-stdlib/kotlin/-enum/equals.html
+- from: /api/latest/jvm/stdlib/kotlin/-enum/hash-code.html
+  to: /api/core/kotlin-stdlib/kotlin/-enum/hash-code.html
 - from: /api/latest/jvm/stdlib/kotlin/-enum/index.html
   to: /api/core/kotlin-stdlib/kotlin/-enum/
 - from: /api/latest/jvm/stdlib/kotlin/-enum/name.html
   to: /api/core/kotlin-stdlib/kotlin/-enum/name.html
 - from: /api/latest/jvm/stdlib/kotlin/-enum/ordinal.html
   to: /api/core/kotlin-stdlib/kotlin/-enum/ordinal.html
+- from: /api/latest/jvm/stdlib/kotlin/-enum/to-string.html
+  to: /api/core/kotlin-stdlib/kotlin/-enum/to-string.html
 - from: /api/latest/jvm/stdlib/kotlin/-error/-init-.html
   to: /api/core/kotlin-stdlib/kotlin/-error/-error.html
 - from: /api/latest/jvm/stdlib/kotlin/-error/index.html
@@ -24567,7 +24587,7 @@
 - from: /api/latest/jvm/stdlib/org.w3c.xhr/index.html
   to: /api/core/kotlin-stdlib/org.w3c.xhr/
 - from: /api/latest/kotlin.test/alltypes/index.html
-  to: /api/core/kotlin-test/
+  to: /api/core/kotlin-test/all-types.html
 - from: /api/latest/kotlin.test/index.html
   to: /api/core/kotlin-test/
 - from: /api/latest/kotlin.test/kotlin.test.junit/-j-unit-asserter/assert-equals.html

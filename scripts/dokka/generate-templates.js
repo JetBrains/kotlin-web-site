@@ -14,7 +14,7 @@ function isFreemakerTemplate(item) {
 function replaceEnv(value) {
     let matched;
 
-    while (matched = value.match(/\$\{process\.env\.([^}]+)\}/)) {
+    while (matched = value.match(/\$\{process\.env\.([^}]+)}/)) {
         const { 0: token, 1: variable, index } = matched;
         const envValue = process.env[variable] || '';
         value = value.substring(0, index) + envValue + value.substring(index + token.length);
@@ -39,7 +39,6 @@ function parseFreemakerContent(originalContent) {
         .then(entries => entries
             .reduce((text, [definition, componentName, props]) => {
                 const rendered = compileComponent(componentName, props);
-                console.log(rendered);
                 return text.replace(definition, rendered);
             }, content)
         )
