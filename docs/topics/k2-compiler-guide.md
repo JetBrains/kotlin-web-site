@@ -26,7 +26,7 @@ The new architecture and enriched data structure enables the K2 compiler to prov
   >
   {type="warning"}
 
-As a result, we've already made improvements to some [language features](#language-feature-improvements).
+Thanks to the new K2 compiler, we've already made improvements to some [language features](#language-feature-improvements).
 
 This guide:
 
@@ -525,8 +525,8 @@ The following values and their combinations are available for the output:
 | Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `file`        | This option saves build reports in a human-readable format to a local file. By default, this is `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt`.                                                                                                                                                                                                                                                                                                                                           |
-| `json`        | This option saves build reports in JSON format as `${project_name}-date-time.json` in the directory specified in `kotlin.build.report.json.directory="my/dir/path"`.                                                                                                                                                                                                                                                                                                                                             |   
-| `single_file` | This option saves build reports in a specified local file in the format of an object.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `json`        | This option saves build reports in JSON format as `${project_name}-date-time.json` in the directory specified in `kotlin.build.report.json.directory="my/dir/path"`.                                                                                                                                                                                                                                                                                                                                                    |   
+| `single_file` | This option saves build reports in a specified local file in the format of an object.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `build_scan`  | This option saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost.                                                                                                                                                                                                                                                                  |
 | `http`        | This option posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt). Examples of HTTP endpoints can be found in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports). |
 
@@ -583,7 +583,9 @@ open class Base {
     open var b: Int
     
     init {
-        this.a = 1 // Error in Kotlin 2.0 that compiled successfully in earlier versions
+        // Error starting with Kotlin 2.0 that earlier compiled successfully 
+        this.a = 1 //Error: open val must have initializer
+        // Always an error
         this.b = 1 // Error: open var must have initializer
     }
 }
@@ -769,8 +771,8 @@ For more information, see the [corresponding issue in YouTrack](https://youtrack
 
 Before Kotlin 2.0.0, if you worked with Java and Kotlin classes that inherited from each other and contained Kotlin
 properties and Java fields with the same name, the resolution behavior of the duplicated name was inconsistent. There was
-also conflicting behavior between IntelliJ IDEA and the compiler. For the latest version of Kotlin, when developing
-the new resolution behavior we aimed to cause the least impact to users.
+also conflicting behavior between IntelliJ IDEA and the compiler. When developing
+the new resolution behavior for Kotlin 2.0.0, we aimed to cause the least impact to users.
 
 For example, suppose there is a Java class `Base`:
 
