@@ -29,20 +29,21 @@ import { StickyHeader } from '../components/sticky-header/sticky-header';
 import MultiplatformPreviewImage from '../public/images/main/multiplatform-preview.svg';
 
 import GradleLogo from '../public/images/companies/gradle.svg';
-import CordaLogo from '../public/images/companies/corda.svg';
-import EvernoteLogo from '../public/images/companies/evernote.svg';
-import CourseraLogo from '../public/images/companies/coursera.svg';
-import SpringLogo from '../public/images/companies/spring.svg';
 import AtlassianLogo from '../public/images/companies/atlassian.svg';
 import GoogleLogo from '../public/images/companies/google.svg';
 import JetbrainsLogo from '../public/images/companies/jetbrains.svg';
 import ShopifyLogo from '../public/images/companies/shopify.svg';
 import TouchlabLogo from '../public/images/companies/touchlab.svg';
 
+import McDonaldsLogo from '../public/images/companies/mcdonalds.svg';
+import AWSLogo from '../public/images/companies/aws.svg';
+import PhilipsLogo from '../public/images/companies/philips.svg';
+import AdobeLogo from '../public/images/companies/adobe.svg';
+import ForbesLogo from '../public/images/companies/forbes.svg';
+
 import styles from './index.module.css';
 
 import searchConfig from '../search-config.json';
-
 
 
 import releasesDataRaw from '../data/releases.yml';
@@ -50,72 +51,77 @@ import releasesDataRaw from '../data/releases.yml';
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
 
-
 const kotlinUsageHighlightsCases = [
     {
-        company: 'Gradle',
-        url: 'https://blog.gradle.org/kotlin-meets-gradle',
-        text: 'Gradle is introducing Kotlin as a language for writing build scripts',
-        logo: GradleLogo,
+        company: 'McDonald\'s',
+        url: 'https://medium.com/mcdonalds-technical-blog/mobile-multiplatform-development-at-mcdonalds-3b72c8d44ebc',
+        text: 'McDonald\'s leverages Kotlin Multiplatform (KMP) for their global mobile app, enabling them to build a codebase that can be shared across platforms, removing the need for codebase redundancies.',
+        tag: 'Kotlin Multiplatform',
+        logo: McDonaldsLogo
     },
     {
-        company: 'Corda',
-        url: 'https://www.corda.net/2017/01/10/kotlin/',
-        text: 'Corda is an open-source distributed ledger platform, supported by major banks, and built entirely in Kotlin',
-        logo: CordaLogo,
+        company: 'AWS',
+        url: 'https://talkingkotlin.com/qldb/',
+        text: 'AWS opted for Kotlin over Java for Amazon Quantum Ledger Database (QLDB) thanks to its expressiveness and structured concurrency. They rewrote QLDB in Kotlin, enhancing the user experience, benefiting from its development workflow, and adopting it fully for server-side development.',
+        tag: 'Server-side',
+        logo: AWSLogo
     },
     {
-        company: 'Evernote',
-        url: 'https://blog.evernote.com/tech/2017/01/26/android-state-library/',
-        text: 'Evernote recently integrated Kotlin into their Android client',
-        logo: EvernoteLogo,
+        company: 'Philips',
+        url: 'https://www.youtube.com/watch?v=hZPL8QqiLi8&ab_channel=Touchlab',
+        text: 'Philips utilizes Kotlin Multiplatform in its HealthSuite digital platform mobile SDK. With KMP, they accelerated the implementation of new features and fostered increased collaboration between Android and iOS developers.',
+        tag: 'Kotlin Multiplatform',
+        logo: PhilipsLogo
     },
     {
-        company: 'Coursera',
-        url: 'https://building.coursera.org/blog/2016/03/16/becoming-bilingual-coursera/',
-        text: 'Coursera Android app is partially written in Kotlin',
-        logo: CourseraLogo,
+        company: 'Adobe',
+        url: 'https://blog.developer.adobe.com/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a',
+        text: 'Adobe Experience Platform chose Kotlin for server-side development because of its concise syntax, async capabilities, and interoperability with Java. This shift boosted productivity and improved the developer experience, replacing Java for real-time services.',
+        tag: 'Server-side',
+        logo: AdobeLogo
     },
     {
-        company: 'Spring',
-        url: 'https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0',
-        text: "Spring makes use of Kotlin's language features to offer more concise APIs",
-        logo: SpringLogo,
+        company: 'Forbes',
+        url: 'https://www.forbes.com/sites/forbes-engineering/2023/11/13/forbes-mobile-app-shifts-to-kotlin-multiplatform/',
+        text: 'By sharing over 80% of logic across iOS and Android, Forbes now rolls out new features simultaneously on both platforms, keeping the flexibility to withhold or customize features based on the specific platform.',
+        tag: 'Kotlin Multiplatform',
+        logo: ForbesLogo
     },
     {
         company: 'Atlassian',
-        url: 'https://twitter.com/danlew42/status/809065097339564032',
-        text: 'All new code in the Trello Android app is in Kotlin',
-        logo: AtlassianLogo,
-    },
+        url: 'https://www.youtube.com/watch?v=4GkoB4hZUnw',
+        text: 'Atlassian adopted Kotlin for the Jira Software cloud, leveraging its Java compatibility for seamless integration and minimizing migration challenges. Kotlin\'s ease of use improved developer productivity and boosted team satisfaction and efficiency.',
+        tag: 'Server-side',
+        logo: AtlassianLogo
+    }
 ];
 
 const kotlinFoundationCompanies = [
     {
         name: 'JetBrains',
         logo: JetbrainsLogo,
-        link: 'https://www.jetbrains.com/',
+        link: 'https://www.jetbrains.com/'
     },
     {
         name: 'Google',
         logo: GoogleLogo,
-        link: 'https://about.google/',
+        link: 'https://about.google/'
     },
     {
         name: 'Gradle',
         logo: GradleLogo,
-        link: 'https://gradle.org/',
+        link: 'https://gradle.org/'
     },
     {
         name: 'Shopify',
         logo: ShopifyLogo,
-        link: 'https://shopify.engineering/',
+        link: 'https://shopify.engineering/'
     },
     {
         name: 'Touchlab',
         logo: TouchlabLogo,
-        link: 'https://touchlab.co/',
-    },
+        link: 'https://touchlab.co/'
+    }
 ];
 
 export async function getStaticProps() {
@@ -155,6 +161,11 @@ function Index() {
             <ThemeProvider theme="light">
                 <div className={styles.evenSection}>
                     <div className={'ktl-layout ktl-layout--center'}>
+
+                        <KotlinUsageHighlights title="Kotlin in action" items={kotlinUsageHighlightsCases} />
+
+                        <DividerLine />
+
                         <InfoBlock
                             title={<>Share code on&nbsp;your terms and&nbsp;for different platforms</>}
                             text={
@@ -219,10 +230,6 @@ function Index() {
                             }
                             companies={kotlinFoundationCompanies}
                         />
-
-                        {/*<DividerLine />*/}
-
-                        {/*<KotlinUsageHighlights title="Kotlin usage highlights" items={kotlinUsageHighlightsCases} />*/}
                     </div>
 
                     <CtaBlock

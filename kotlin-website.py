@@ -232,6 +232,11 @@ def kotlin_docs_pdf():
     return send_file(path.join(root_folder, "assets", "kotlin-reference.pdf"))
 
 
+@app.route('/docs/<path:path>')
+def docs(path):
+    return send_from_directory('dist/docs/', path)
+
+
 @app.route('/_next/<path:path>')
 def static_file(path):
     return send_from_directory('out/_next/', path)

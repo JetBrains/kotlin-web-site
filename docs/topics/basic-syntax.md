@@ -8,7 +8,7 @@ by JetBrains Academy.
 
 ## Package definition and imports
 
-Package specification should be at the top of the source file.
+Package specification should be at the top of the source file:
 
 ```kotlin
 package my.demo
@@ -24,7 +24,7 @@ See [Packages](packages.md).
 
 ## Program entry point
 
-An entry point of a Kotlin application is the `main` function.
+An entry point of a Kotlin application is the `main` function:
 
 ```kotlin
 fun main() {
@@ -33,7 +33,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-hello-world"}
 
-Another form of `main` accepts a variable number of `String` arguments. 
+Another form of `main` accepts a variable number of `String` arguments: 
 
 ```kotlin
 fun main(args: Array<String>) {
@@ -44,7 +44,7 @@ fun main(args: Array<String>) {
 
 ## Print to the standard output
 
-`print` prints its argument to the standard output.
+`print` prints its argument to the standard output:
 
 ```kotlin
 fun main() {
@@ -56,7 +56,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-print"}
 
-`println` prints its arguments and adds a line break, so that the next thing you print appears on the next line.
+`println` prints its arguments and adds a line break, so that the next thing you print appears on the next line:
 
 ```kotlin
 fun main() {
@@ -70,7 +70,7 @@ fun main() {
 
 ## Functions
 
-A function with two `Int` parameters and `Int` return type.
+A function with two `Int` parameters and `Int` return type:
 
 ```kotlin
 //sampleStart
@@ -86,7 +86,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-return-int"}
 
-A function body can be an expression. Its return type is inferred.
+A function body can be an expression. Its return type is inferred:
 
 ```kotlin
 //sampleStart
@@ -99,7 +99,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-function-expression"}
 
-A function that returns no meaningful value.
+A function that returns no meaningful value:
 
 ```kotlin
 //sampleStart
@@ -114,7 +114,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-return-unit"}
 
-`Unit` return type can be omitted.
+`Unit` return type can be omitted:
 
 ```kotlin
 //sampleStart
@@ -133,44 +133,87 @@ See [Functions](functions.md).
 
 ## Variables
 
-Read-only local variables are defined using the keyword `val`. They can be assigned a value only once.
+In Kotlin, you declare a variable starting with a keyword, `val` or `var`, followed by the name of the variable.
+
+Use the `val` keyword to declare variables that are assigned a value only once. These are immutable, read-only local variables that can’t be reassigned a different value
+after initialization: 
 
 ```kotlin
 fun main() {
 //sampleStart
-    val a: Int = 1  // immediate assignment
-    val b = 2   // `Int` type is inferred
-    val c: Int  // Type required when no initializer is provided
-    c = 3       // deferred assignment
+    // Declares the variable x and initializes it with the value of 5
+    val x: Int = 5
+    // 5
 //sampleEnd
-    println("a = $a, b = $b, c = $c")
+    println(x)
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-val"}
 
-Variables that can be reassigned use the `var` keyword.
+Use the `var` keyword to declare variables that can be reassigned. These are mutable variables, and you can change their values after initialization:
 
 ```kotlin
 fun main() {
 //sampleStart
-    var x = 5 // `Int` type is inferred
+    // Declares the variable x and initializes it with the value of 5
+    var x: Int = 5
+    // Reassigns a new value of 6 to the variable x
     x += 1
+    // 6
 //sampleEnd
-    println("x = $x")
+    println(x)
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-var"}
 
-You can declare variables at the top level.
+Kotlin supports type inference and automatically identifies the data type of a declared variable. When declaring a variable, you can omit the type after the variable name:
+
+```kotlin
+fun main() {
+//sampleStart
+    // Declares the variable x with the value of 5;`Int` type is inferred
+    val x = 5
+    // 5
+//sampleEnd
+    println(x)
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-inference"}
+
+You can use variables only after initializing them. You can either initialize a variable at the moment of declaration or declare a variable first and initialize it later. 
+In the second case, you must specify the data type:
+
+```kotlin
+fun main() {
+//sampleStart
+    // Initializes the variable x at the moment of declaration; type is not required
+    val x = 5
+    // Declares the variable c without initialization; type is required
+    val c: Int
+    // Initializes the variable c after declaration 
+    c = 3
+    // 5 
+    // 3
+//sampleEnd
+    println(x)
+    println(c)
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-initialize"}
+
+You can declare variables at the top level:
 
 ```kotlin
 //sampleStart
 val PI = 3.14
 var x = 0
 
-fun incrementX() { 
-    x += 1 
+fun incrementX() {
+    x += 1
 }
+// x = 0; PI = 3.14
+// incrementX()
+// x = 1; PI = 3.14
 //sampleEnd
 
 fun main() {
@@ -182,16 +225,16 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-variable-top-level"}
 
-See also [Properties](properties.md).
+For information about declaring properties, see [Properties](properties.md).
 
 ## Creating classes and instances
 
-To define a class, use the `class` keyword.
+To define a class, use the `class` keyword:
 ```kotlin
 class Shape
 ```
 
-Properties of a class can be listed in its declaration or body. 
+Properties of a class can be listed in its declaration or body: 
 
 ```kotlin
 class Rectangle(val height: Double, val length: Double) {
@@ -199,23 +242,21 @@ class Rectangle(val height: Double, val length: Double) {
 }
 ```
 
-The default constructor with parameters listed in the class declaration is available automatically. 
+The default constructor with parameters listed in the class declaration is available automatically:
 
 ```kotlin
 class Rectangle(val height: Double, val length: Double) {
     val perimeter = (height + length) * 2 
 }
 fun main() {
-//sampleStart
     val rectangle = Rectangle(5.0, 2.0)
     println("The perimeter is ${rectangle.perimeter}")
-//sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-class-constructor"}
 
-Inheritance between classes is declared by a colon (`:`). Classes are final by default; to make a class inheritable, 
-mark it as `open`.
+Inheritance between classes is declared by a colon (`:`). Classes are `final` by default; to make a class inheritable, 
+mark it as `open`:
 
 ```kotlin
 open class Shape
@@ -225,11 +266,11 @@ class Rectangle(val height: Double, val length: Double): Shape() {
 }
 ```
 
-See [classes](classes.md) and [objects and instances](object-declarations.md).
+For more information about constructors and inheritance, see [Classes](classes.md) and [Objects and instances](object-declarations.md).
 
 ## Comments
 
-Just like most modern languages, Kotlin supports single-line (or _end-of-line_) and multi-line (_block_) comments.
+Just like most modern languages, Kotlin supports single-line (or _end-of-line_) and multi-line (_block_) comments:
 
 ```kotlin
 // This is an end-of-line comment
@@ -238,7 +279,7 @@ Just like most modern languages, Kotlin supports single-line (or _end-of-line_) 
    on multiple lines. */
 ```
 
-Block comments in Kotlin can be nested.
+Block comments in Kotlin can be nested:
 
 ```kotlin
 /* The comment starts here
@@ -287,7 +328,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-conditional-expressions"}
 
-In Kotlin, `if` can also be used as an expression.
+In Kotlin, `if` can also be used as an expression:
 
 ```kotlin
 //sampleStart
@@ -316,7 +357,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-for-loop"}
 
-or
+or:
 
 ```kotlin
 fun main() {
@@ -378,7 +419,7 @@ See [when expression](control-flow.md#when-expression).
 
 ## Ranges
 
-Check if a number is within a range using `in` operator.
+Check if a number is within a range using `in` operator:
 
 ```kotlin
 fun main() {
@@ -393,7 +434,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-range-in"}
 
-Check if a number is out of range.
+Check if a number is out of range:
 
 ```kotlin
 fun main() {
@@ -411,7 +452,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-out-of-range"}
 
-Iterate over a range.
+Iterate over a range:
 
 ```kotlin
 fun main() {
@@ -424,7 +465,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-iterate-range"}
 
-Or over a progression.
+Or over a progression:
 
 ```kotlin
 fun main() {
@@ -445,7 +486,7 @@ See [Ranges and progressions](ranges.md).
 
 ## Collections
 
-Iterate over a collection.
+Iterate over a collection:
 
 ```kotlin
 fun main() {
@@ -535,7 +576,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-function-nullable-value"}
 
-or
+or:
 
 ```kotlin
 fun parseInt(str: String): Int? {
@@ -601,7 +642,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-is-operator"}
 
-or
+or:
 
 ```kotlin
 //sampleStart
@@ -624,7 +665,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-is-operator-expression"}
 
-or even
+or even:
 
 ```kotlin
 //sampleStart

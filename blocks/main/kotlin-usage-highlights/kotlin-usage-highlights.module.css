@@ -1,14 +1,14 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
 
 .kotlinUsageHighlights {
-    margin-top: 96px;
+    margin-top: var(--ktl-box-page-l);
 }
 
 .container {
     display: grid;
-    gap: 8px;
+    gap: var(--ktl-box-block-m);
     grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 24px;
+    margin-top: var(--ktl-box-section-s);
 }
 
 .title {
@@ -16,23 +16,41 @@
 }
 
 .card {
-    height: 192px;
+    height: 336px;
+}
+
+.cardContent {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.logoWrapper {
+    height: 76px;
 }
 
 .logo {
-    height: 48px;
     display: block;
 }
 
 .text {
-    margin-top: 24px;
     display: block;
 }
 
+.tag {
+    margin-top: auto;
+}
 
-@media (--ktl-tm) {
-    .kotlinUsageHighlights {
-        margin-top: 48px;
+@media (--ktl-ds) {
+    .card {
+        height: 384px;
+    }
+}
+
+@media (--ktl-tl) {
+
+    .card {
+        height: 336px;
     }
 
     .container {
@@ -40,12 +58,32 @@
     }
 }
 
+
+@media (--ktl-tm) {
+
+    .card {
+        height: 336px;
+    }
+
+}
+
 @media (--ktl-ts) {
+
+    .card {
+        height: 264px;
+    }
+
     .kotlinUsageHighlights {
-        margin-top: 72px;
+        margin-top: var(--ktl-box-page-m);
     }
 
     .container {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (--ktl-mm) {
+    .card {
+        height: 312px;
     }
 }

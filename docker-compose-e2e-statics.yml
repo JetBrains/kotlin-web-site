@@ -1,0 +1,34 @@
+version: '3'
+services:
+  nginx-server:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/nginx-server/Dockerfile
+    ports:
+      - 8081:80
+    networks:
+      - network1
+    healthcheck:
+        test: [ "CMD", "curl", "-f", "http://localhost" ]
+        interval: 30s
+        timeout: 10s
+        retries: 3
+
+  playwright:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/playwright/Dockerfile
+    command: yarn run test:e2e:ci
+    environment:
+      BASE_URL: "http://nginx-server"
+    volumes:
+      - ./test/snapshots:/var/www/test/snapshots
+      - ./test-results:/var/www/test-results
+    depends_on:
+      nginx-server:
+        condition: service_healthy
+    networks:
+      - network1
+
+networks:
+  network1:

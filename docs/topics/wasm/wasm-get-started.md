@@ -1,11 +1,13 @@
 [//]: # (title: Get started with Kotlin/Wasm in IntelliJ IDEA)
 
 > Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time.
+> 
+> [Join the Kotlin/Wasm community.](https://slack-chats.kotlinlang.org/c/webassembly)
 >
 {type="note"}
 
 This tutorial demonstrates how to run a [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) 
-app with Kotlin/Wasm in IntelliJ IDEA, and generate artifacts to publish as a site on [GitHub pages](https://pages.github.com/).
+app with [Kotlin/Wasm](wasm-overview.md) in IntelliJ IDEA, and generate artifacts to publish as a site on [GitHub pages](https://pages.github.com/).
 
 ## Before you start
 
