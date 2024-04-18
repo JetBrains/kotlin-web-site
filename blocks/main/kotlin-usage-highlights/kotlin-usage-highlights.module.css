@@ -70,7 +70,7 @@
 @media (--ktl-ts) {
 
     .card {
-        height: 312px;
+        height: 264px;
     }
 
     .kotlinUsageHighlights {
@@ -79,5 +79,11 @@
 
     .container {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (--ktl-mm) {
+    .card {
+        height: 312px;
     }
 }
