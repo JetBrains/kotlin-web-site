@@ -54,3 +54,5 @@ valid values for each field.
 
 > If your privacy manifest still doesn't satisfy App Store requirements, or you cannot figure out how to go through the steps,
 > contact us in this YouTrack issue and share your case: TODO link the issue
+>
+{type="note"}
