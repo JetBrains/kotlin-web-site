@@ -770,7 +770,7 @@
 - from:
     - /docs/multiplatform-mobile-introduce-your-team.html
     - /docs/kmm-introduce-your-team.html
-  to: /docs/multiplatform-introduce-your-team.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatofrm-introduce-your-team.html
 
 - from:
     - /docs/multiplatform-mobile-plugin-releases.html
@@ -780,3 +780,15 @@
 - from:
     - /docs/wasm-libraries.html
   to: /docs/wasm-overview.html
+
+- from:
+    - /docs/cross-platform-mobile-development.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/cross-platform-mobile-development.html
+
+- from:
+    - /docs/native-and-cross-platform.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/native-and-cross-platform.html
+
+- from:
+    - /docs/cross-platform-frameworks.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/cross-platform-frameworks.html

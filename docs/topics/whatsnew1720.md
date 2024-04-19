@@ -740,8 +740,8 @@ Since the previous release, the Kotlin documentation has received some notable c
 
 ### New articles in the Kotlin Multiplatform journal
 
-* [Native and cross-platform app development: how to choose?](native-and-cross-platform.md) – check out our overview and advantages of cross-platform app development and the native approach.
-* [The six best cross-platform app development frameworks](cross-platform-frameworks.md) – read about the key aspects to help you choose the right framework for your cross-platform project.
+* [Native and cross-platform app development: how to choose?](https://www.jetbrains.com/help/kotlin-multiplatform-dev/native-and-cross-platform.html) – check out our overview and advantages of cross-platform app development and the native approach.
+* [The six best cross-platform app development frameworks](https://www.jetbrains.com/help/kotlin-multiplatform-dev/cross-platform-frameworks.html) – read about the key aspects to help you choose the right framework for your cross-platform project.
 
 ### New and updated tutorials
 

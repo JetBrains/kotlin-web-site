@@ -20,9 +20,6 @@
 - from: /docs/mobile/discover-kmm-project.html
   to: /docs/multiplatform-mobile-understand-project-structure.html
 
-- from: /docs/mobile/introduce-your-team-to-kmm.html
-  to: /docs/multiplatform-mobile-introduce-your-team.html
-
 - from: /docs/mobile/connect-to-platform-specific-apis.html
   to: /docs/multiplatform-mobile-connect-to-platform-specific-apis.html
 
