@@ -4,7 +4,7 @@
 
 In 2023, people spent almost [16 billion hours using mobile applications](https://www.statista.com/statistics/1446684/cumulative-time-spent-on-apps/), indicating a sustained demand for them.
 
-Mobile app development is constantly evolving, with new technologies and frameworks emerging every year. With various solutions on the market, it's often difficult to choose between them. You might have heard about the long-standing “cross-platform and native app development” debate.
+Mobile app development is constantly evolving, with new technologies and frameworks emerging every year. With various solutions on the market, it's often difficult to choose between them. You might have heard about the long-standing "cross-platform and native app development" debate.
 
 There are many factors to consider before building an app, such as development cost, time, and app functionality. This is especially true if you want to target both Android and iOS audiences. It may be challenging to decide which mobile development approach will be the best for your particular project. To help you choose between cross-platform and native app development, we've created a list of six essential things to keep in mind.
 
@@ -12,7 +12,7 @@ There are many factors to consider before building an app, such as development c
 
 Native mobile development means that you build an application for a particular mobile operating system – in most cases Android or iOS. While working on native apps, developers use specific programming languages and tools. For example, you can create a native Android application with Kotlin or Java, or build an app for iOS with Objective-C or Swift.
 
-Here are the core benefits and limitations.
+Here are the core benefits and limitations:
 
 | **Benefits**                                                                                                                                                                                                                                                                                                            | **Limitations**                                                                                                                                                                                                  |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -25,7 +25,7 @@ Here are the core benefits and limitations.
 
 Cross-platform app development, also called multiplatform development, is the process of building mobile apps that are compatible with several operating systems. Instead of creating separate applications for iOS and Android, mobile engineers can share some or all of the source code between multiple platforms. This way, the applications will work the same on both iOS and Android.
 
-There are various open-source [frameworks for cross-platform mobile app development](cross-platform-frameworks.md) available today. Some of the most popular are Flutter, React Native, and Kotlin Multiplatform. Below are some of the key pros and cons.
+There are various open-source [frameworks for cross-platform mobile app development](cross-platform-frameworks.md) available today. Some of the most popular are Flutter, React Native, and Kotlin Multiplatform. Here are some of the key pros and cons:
 
 | **Benefits**                                                                                                                                                                                                                                                                                               | **Limitations**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
