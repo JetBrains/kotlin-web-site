@@ -52,5 +52,5 @@ The resulting file is a collection of dictionaries. For each accessed API type, 
 from the provided list. Xcode helps with editing .xcprivacy files by providing a visual layout and dropdown lists with
 valid values for each field.
 
-The Kotlin team is working on automatically analyzing libraries included in your project to help you generate privacy manifests
-for your KMP projects. Stay tuned!
+> If your privacy manifest still doesn't satisfy App Store requirements, or you cannot figure out how to go through the steps,
+> contact us in this YouTrack issue and share your case: TODO link the issue
