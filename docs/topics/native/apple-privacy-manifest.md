@@ -3,7 +3,7 @@
 If your app intended for the Apple App Store uses [required reasons APIs](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api),
 App Store Connect may issue a warning if the app doesn't have the correct privacy manifest.
 
-![Required reasons warning](app-store-required-reasons-warning.png)
+![Required reasons warning](app-store-required-reasons-warning.png){width="700"}
 
 Apps dependent on third-party libraries and SDKs are affected by the API usage within these libraries, which may not be obvious.
 If you are reading this, Kotlin Multiplatform is probably one of the frameworks that uses APIs you're not aware of.
