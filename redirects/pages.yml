@@ -770,6 +770,8 @@
 - from:
     - /docs/multiplatform-mobile-introduce-your-team.html
     - /docs/kmm-introduce-your-team.html
+    - /docs/multiplatform-introduce-your-team.html
+    - /docs/mobile/introduce-your-team-to-kmm.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatofrm-introduce-your-team.html
 
 - from:
