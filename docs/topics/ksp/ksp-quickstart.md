@@ -2,11 +2,11 @@
 
 For a quick start, you can create your own processor or get a [sample one](https://github.com/google/ksp/tree/main/examples/playground).
 
-## Adding a processor
+## Add a processor
 
-To add a processor you will need to add the KSP Gradle Plugin and add a dependency on the processor.
+To add a processor, you need to include the KSP Gradle Plugin and add a dependency on the processor:
 
-1. Add the KSP Gradle Plugin (`com.google.devtools.ksp`)
+1. Add the KSP Gradle Plugin `com.google.devtools.ksp` to your `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -29,8 +29,8 @@ plugins {
 </tab>
 </tabs>
 
-2. Add a dependency on the processor
-Here we use [Dagger](https://dagger.dev/dev-guide/ksp.html) as an example. You'd use the processor you want to add instead.
+2. Add a dependency on the processor.
+This example uses [Dagger](https://dagger.dev/dev-guide/ksp.html). Replace it with the processor you want to add.
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -55,9 +55,9 @@ dependencies {
 </tab>
 </tabs>
 
-3. Run `./gradlew build`. You can find the generated code under `build/generated/ksp`.
+3. Run `./gradlew build`. You can find the generated code in the `build/generated/ksp` directory.
 
-Here's a full example
+Here is a full example:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
