@@ -5,22 +5,22 @@ App Store Connect may issue a warning if the app doesn't have the correct privac
 
 ![Required reasons warning](app-store-required-reasons-warning.png){width="700"}
 
-Apps dependent on third-party libraries and SDKs are affected by the API usage within these libraries, which may not be obvious.
+Your app may be using these APIs through dependencies on third-party libraries and SDKs, which may not be obvious.
 If you are reading this, Kotlin Multiplatform is probably one of the frameworks that uses APIs you're not aware of.
 
-On this page, we overview potential problems and things to do if you encounter them.
+On this page, we overview the problem and recommend an approach to deal with it.
 
-> This page describes the Kotlin team's current understanding of the issue. As more data and knowledge about
-> the accepted approach and workarounds are accumulated, the page will be updated to reflect them.
+> This page reflects the Kotlin team's current understanding of the issue.
+> As more data and knowledge about the accepted approach and workarounds are accumulated, the page will be updated to reflect them.
 >
-{type="note"}
+{type="tip"}
 
 ## The issue
 
 [As announced](https://developer.apple.com/news/?id=r1henawx),
-Apple requirements for App Store submissions are changing in the spring of 2024. Submitting apps that don't specify
-a reason for using a required reason API in their privacy manifest already results in warnings. Starting May 1, 2024,
-such apps will not be accepted by App Store Connect at all.
+Apple requirements for App Store submissions are changing in the spring of 2024. You can already encounter warnings
+if you submit an app that doesn't specify a reason for using a required reason API in its privacy manifest.
+Starting May 1, 2024, such apps will not be accepted by App Store Connect at all.
 
 This is an automatic check, not manual moderation: the code of your app is analyzed, and you receive the list of issues
 in a corresponding email.
@@ -31,8 +31,8 @@ category.
 Ideally, all SDKs that your app uses provide their own privacy manifest, and you don't need to worry about that.
 But if some of your dependencies don't do this, your App Store submission will be flagged.
 
-> As of April 19, App Store does not check API usage in dynamically linked libraries, but this may change in the
-> future.
+> As of April 22, App Store does not check API usage in dynamically linked libraries (only static dependencies affect the check),
+> but this may change in the future.
 >
 {type="note"}
 
@@ -52,7 +52,5 @@ The resulting file is a collection of dictionaries. For each accessed API type, 
 from the provided list. Xcode helps with editing .xcprivacy files by providing a visual layout and dropdown lists with
 valid values for each field.
 
-> If your privacy manifest still doesn't satisfy App Store requirements, or you cannot figure out how to go through the steps,
-> contact us in this YouTrack issue and share your case: TODO link the issue
->
-{type="note"}
+If a privacy manifest doesn't help satisfy App Store requirements, or you cannot figure out how to go through the steps,
+contact us in this YouTrack issue and share your case: [KT-67603](https://youtrack.jetbrains.com/issue/KT-67603)
