@@ -118,7 +118,7 @@ For more information, check out [our learning materials](learning-materials-over
 There are too many companies using Kotlin to list, but some more visible companies that have publicly declared usage of
 Kotlin, be this via blog posts, GitHub repositories or talks include 
 [Square](https://medium.com/square-corner-blog/square-open-source-loves-kotlin-c57c21710a17), [Pinterest](https://www.youtube.com/watch?v=mDpnc45WwlI),
-[Basecamp](https://m.signalvnoise.com/how-we-made-basecamp-3s-android-app-100-kotlin-35e4e1c0ef12), and [Corda](https://docs.corda.net/releases/release-M9.2/further-notes-on-kotlin.html).
+[Basecamp](https://signalvnoise.com/svn3/using-kotlin-to-make-android-apis-fun-again/), and [Corda](https://corda.net/blog/kotlin/).
  
 ### Who develops Kotlin?
 

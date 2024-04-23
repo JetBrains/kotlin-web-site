@@ -802,7 +802,7 @@ The following values (and their combinations) are available:
   {type="note"}
 
 * `http` posts build reports using HTTP(S). The POST method sends metrics in the JSON format. Data may change from version
-  to version. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt).
+  to version. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/report/data/GradleCompileStatisticsData.kt).
 
 There are two common cases that analyzing build reports for long-running compilations can help you resolve:
 

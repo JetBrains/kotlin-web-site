@@ -1121,14 +1121,6 @@
   geo:
     lat: 46.9419964
     lng: 7.440267299999999
-- title: Montgomery College
-  location: Germantown, MD (US)
-  courses:
-  - name: ITI 366 - Android Development with Kotlin
-    url: https://www.montgomerycollege.edu/workforce-development-continuing-education/information-technology/programming-and-software-development/android-development-kotlin.html
-  geo:
-    lat: 39.1853454
-    lng: -77.2474252
 - title: Ammersee-Gymnasium
   location: Munich (Germany)
   courses:

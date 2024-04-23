@@ -202,7 +202,7 @@ The Kotlin Multiplatform Gradle plugin lets you declare npm dependencies in the 
 declare any other dependencies.
 
 To declare an npm dependency, pass its name and version to the `npm()` function inside a dependency declaration.
-You can also specify one or multiple version ranges based on [npm's semver syntax](https://docs.npmjs.com/misc/semver#versions).
+You can also specify one or multiple version ranges based on [npm's semver syntax](https://docs.npmjs.com/about-semantic-versioning).
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
