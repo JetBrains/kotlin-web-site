@@ -2456,8 +2456,6 @@
   to: /api/core/kotlin-stdlib/kotlin.js/
 - from: /api/latest/jvm/stdlib/kotlin.js/iterator.html
   to: /api/core/kotlin-stdlib/kotlin.js/iterator.html
-- from: /api/latest/jvm/stdlib/kotlin.js/js-type-of.html
-  to: /api/core/kotlin-stdlib/kotlin.js/js-type-of.html
 - from: /api/latest/jvm/stdlib/kotlin.js/js.html
   to: /api/core/kotlin-stdlib/kotlin.js/js.html
 - from: /api/latest/jvm/stdlib/kotlin.js/json.html
@@ -3299,7 +3297,7 @@
 - from: /api/latest/jvm/stdlib/kotlin.native/as-u-c-pointer.html
   to: /api/core/kotlin-stdlib/kotlin.native/as-u-c-pointer.html
 - from: /api/latest/jvm/stdlib/kotlin.native/deinit-runtime-if-needed.html
-  to: /api/core/older/1.9/kotlin-stdlib/kotlin.native/deinit-runtime-if-needed.html
+  to: /api/core/kotlin-stdlib/kotlin.native/deinit-runtime-if-needed.html
 - from: /api/latest/jvm/stdlib/kotlin.native/get-char-at.html
   to: /api/core/kotlin-stdlib/kotlin.native/get-char-at.html
 - from: /api/latest/jvm/stdlib/kotlin.native/get-double-at.html
