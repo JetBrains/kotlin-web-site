@@ -2,7 +2,8 @@
 
 # Community events
 /data/events.yml @MKrishtal
-/data/user-groups.yml @MKrishtal
+/data/user-groups.yml @MKrishtal @meilalina
+/data/universities.yml @Belosnegova
 
 # Tech Writers Team
 /docs/ @JetBrains/kotlin-technical-writing
