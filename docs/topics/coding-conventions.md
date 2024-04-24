@@ -181,12 +181,11 @@ class MyTestCase {
 ### Property names
 
 Names of constants (properties marked with `const`, or top-level or object `val` properties with no custom `get` function
-that hold deeply immutable data) should use uppercase underscore-separated ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
-names:
+that hold deeply immutable data) should use upper camel case names:
 
 ```kotlin
-const val MAX_COUNT = 8
-val USER_NAME_FIELD = "UserName"
+const val MaxCount = 8
+val UserNameField = "UserName"
 ```
 
 Names of top-level or object properties which hold objects with behavior or mutable data should use camel case names:
@@ -201,8 +200,11 @@ Names of properties holding references to singleton objects can use the same nam
 val PersonComparator: Comparator<Person> = /*...*/
 ```
 
-For enum constants, it's OK to use either uppercase underscore-separated names ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
-(`enum class Color { RED, GREEN }`) or upper camel case names, depending on the usage. 
+Enum constants should also use upper camel case names: 
+
+```kotlin
+enum class Color { Red, Green }
+```
    
 ### Names for backing properties
 
