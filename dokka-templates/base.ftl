@@ -7,13 +7,13 @@
     <#if "${process.env.DOKKA_NOINDEX}" == "true"><meta name="robots" content="noindex, nofollow"></#if>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <@page_metadata.display/>
-    <link rel="preload" href="/_assets/dokka-template.css" as="style">
-    <link rel="preload" href="${pathToRoot}/navigation.html" as="document"/>
     <@template_cmd name="pathToRoot"><script>var pathToRoot = "${pathToRoot}";</script></@template_cmd>
+    <link rel="preload" href="${pathToRoot!""}navigation.html" as="document" type="text/html"/>
+    <link rel="preload" href="/_assets/dokka-template.css" as="style">
     <script>document.documentElement.classList.replace("no-js","js");</script>
     <#-- This script doesn't need to be there but it is nice to have
     since app in dark mode doesn't 'blink' (class is added before it is rendered) -->
-    <script async>const storage = localStorage.getItem("dokka-dark-mode")
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
       if (storage == null) {
         const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
         if (osDarkSchemePreferred === true) {
