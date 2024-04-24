@@ -16,7 +16,7 @@ Sharing code between mobile platforms is a major Kotlin Multiplatform use case. 
 you can build cross-platform mobile applications that share code between Android and iOS projects to implement networking,
 data storage and data validation, analytics, computations, and other application logic.
 
-Check out the [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html) and
+Check out the [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html) and
 [Create a multiplatform app using Ktor and SQLDelight](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html) tutorials,
 where you will create applications for Android and iOS that include a module with shared code for both platforms.
 
@@ -63,7 +63,7 @@ declarations](multiplatform-expect-actual.md).
 
 ## Get started
 
-* Begin with the [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html) if you want to create iOS and Android applications with shared code
+* Begin with the [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html) if you want to create iOS and Android applications with shared code
 * Explore [sharing code principles and examples](multiplatform-share-on-platforms.md) if you want to create applications or libraries targeting other platforms
 
 > New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).

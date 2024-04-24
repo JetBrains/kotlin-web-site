@@ -41,8 +41,8 @@
                 <title>Kotlin Multiplatform</title>
                 <a href="https://www.jetbrains.com/kotlin-multiplatform/" description="Learn how Kotlin Multiplatform helps you share code between your applications">Why Kotlin Multiplatform</a>
                 <a href="https://kmp.jetbrains.com/" description="Quickly create and download a multiplatform project template">Kotlin Multiplatform Wizard</a>
-                <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html" description="Create a mobile app that works on both Android and iOS">Get started with Kotlin Multiplatform</a>
-                <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html" description="Use Compose Multiplatform to implement one user interface across all platforms">Get started with Compose Multiplatform</a>
+                <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html" description="Create a mobile app that works on both Android and iOS">Get started with Kotlin Multiplatform</a>
+                <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html" description="Use Compose Multiplatform to implement one user interface across all platforms">Get started with Compose Multiplatform</a>
             </group>
         </custom-groups>
     </section-starting-page>
