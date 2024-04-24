@@ -323,3 +323,84 @@ $jvm-enrichment: JRE7, JRE8, JUnit, JUnit5, TestNG;
 .tags__tag.kotlin-version.hidden-version {
   visibility: hidden;
 }
+
+/* ====== */
+#optimize-banner { display: none!important; }
+
+.api-docs-to-core {
+    position: relative;
+    padding: 0;
+}
+
+.api-docs-to-core_closed { display: none; }
+
+.api-docs-to-core__link {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    min-height: 52px;
+
+    background: linear-gradient(90.12deg, #7F52FF 23%, #A952FF 34.23%, #9952FF 44.65%, #8952FF 100%);
+}
+
+.api-docs-to-core__link, .api-docs-to-core__link:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.api-docs-to-core__text {
+    display: inline-flex;
+    align-items: center;
+    background: url("/assets/images/core-launch.png") 24px 2px no-repeat;
+    background-size: 48px;
+    padding: 0 2px 0 calc(24px + 48px + 8px);
+    margin-left: -24px;
+
+    animation-duration: 300ms, 300ms;
+    animation-delay: 0s, 300ms;
+    animation-timing-function: ease-in, ease-out;
+}
+@keyframes rocket-in {
+    from {
+        background-position: 24px 2px;
+    }
+
+    to {
+        background-position: calc(24px + 48px) -52px;
+    }
+}
+@keyframes rocket-out {
+    from {
+        background-position: calc(24px - 48px) 52px;
+    }
+
+    to {
+        background-position: 24px 2px;
+    }
+}
+.api-docs-to-core_hover .api-docs-to-core__text {
+    animation-name: rocket-in, rocket-out;
+}
+.page_js_no .api-docs-to-core__close {
+    display: none;
+}
+
+.api-docs-to-core__close {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    height: 52px;
+    width: 52px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 704px) { .api-docs-to-core { display: none; } }
+@media (min-width: 705px) { .api-docs-to-core-mobile { display: none; } }

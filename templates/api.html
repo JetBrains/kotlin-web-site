@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+{% set docsNavBack={
+    "url": "/docs/home.html",
+    "text": "Kotlin Docs"
+} %}
+
+{% set newDocsLink = site.data["core"].get(request.path) %}
+{% if not newDocsLink %}{% set newDocsLink="/api/core/"%}{% endif %}
+
 {% block scripts %}
     <script src="{{ url_for('static', filename='api.js')|autoversion }}"></script>
 {% endblock %}
@@ -8,14 +16,34 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='api.css')|autoversion }}">
 {% endblock %}
 
-{% set docsNavBack={
-    "url": "/docs/home.html",
-    "text": "Kotlin Docs"
-} %}
+{% block top_banner %}
+    <p class="api-docs-to-core">
+        <a class="api-docs-to-core__link" href="{{ newDocsLink }}" target="_blank">
+            <span class="api-docs-to-core__text">Try docs with the new design →</span>
+        </a>
+        <button type="button" class="api-docs-to-core__close">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.61589 23.0428L14.0137 15.6461L21.4115 23.0428L23.0554 21.399L15.6576 14.0023L23.0554 6.60444L21.4115 4.96061L14.0137 12.3584L6.61589 4.95947L4.97205 6.6033L12.3699 14.0023L4.97322 21.399L6.61589 23.0428Z" fill="white"/>
+            </svg>
+        </button>
+    </p>
+    <script>
+        (function() {
+            document.querySelector('.api-docs-to-core').addEventListener('mouseover', function(e) {
+                e.currentTarget.classList.add('api-docs-to-core_hover');
+            });
+            document.querySelector('.api-docs-to-core__close').addEventListener('click', function(e) {
+                e.currentTarget.parentNode.classList.add('api-docs-to-core_closed');
+                window.localStorage.setItem('api-docs-to-core', 'yes');
+            });
+            if(window.localStorage.getItem('api-docs-to-core') === 'yes') document
+                .querySelector('.api-docs-to-core').classList
+                    .add('api-docs-to-core_closed');
+        })();
+    </script>
+{% endblock %}
 
 {% block content %}
-    {% set newDocsLink = site.data["core"].get(request.path) %}
-    {% if not newDocsLink %}{% set newDocsLink="/api/core/"%}{% endif %}
     <div class="g-grid">
         <div class="api-layout">
             <div class="api-layout_button-box">
