@@ -332,8 +332,6 @@ $jvm-enrichment: JRE7, JRE8, JUnit, JUnit5, TestNG;
     padding: 0;
 }
 
-.api-docs-to-core_closed { display: none; }
-
 .api-docs-to-core__link {
     display: flex;
     align-items: stretch;
@@ -381,9 +379,6 @@ $jvm-enrichment: JRE7, JRE8, JUnit, JUnit5, TestNG;
 .api-docs-to-core_hover .api-docs-to-core__text {
     animation-name: rocket-in, rocket-out;
 }
-.page_js_no .api-docs-to-core__close {
-    display: none;
-}
 
 .api-docs-to-core__close {
     position: absolute;
@@ -400,6 +395,100 @@ $jvm-enrichment: JRE7, JRE8, JUnit, JUnit5, TestNG;
     height: 52px;
     width: 52px;
     box-sizing: border-box;
+}
+
+.api-docs-to-core-mobile {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
+    background: linear-gradient(108.46deg, #7F52FF 0%, #A852FF 10.78%, #7F52FF 100%);
+    border-radius: 8px;
+    width: 456px;
+    z-index: 100;
+    color: #fff;
+}
+
+@media (max-width: 479px) {
+    .api-docs-to-core-mobile {
+        left: 12px;
+        right: 12px;
+        transform: none;
+        width: auto;
+    }
+}
+
+.api-docs-to-core-mobile__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px 12px;
+}
+
+.api-docs-to-core-mobile__text::before {
+    display: block;
+    content: '';
+    background: url("/assets/images/core-launch.png") center center no-repeat;
+    background-size: 48px;
+    height: 48px;
+    width: 48px;
+}
+
+.api-docs-to-core-mobile__controls {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    min-height: 52px;
+}
+
+.api-docs-to-core__text, .api-docs-to-core-mobile__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.0015em;
+    text-align: center;
+}
+
+.api-docs-to-core-mobile__link, .api-docs-to-core-mobile__link:hover,
+.api-docs-to-core-mobile__close, .api-docs-to-core-mobile__close:hover {
+    flex: 1 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px;
+
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.0045em;
+}
+
+.api-docs-to-core, .api-docs-to-core-mobile {
+    font-family: "JetBrains Sans", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Droid Sans", "Helvetica Neue", Arial, sans-serif
+}
+
+.api-docs-to-core-mobile__link:hover, .api-docs-to-core-mobile__close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.api-docs-to-core-mobile__close {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    margin-left: -1px;
+}
+
+.api-docs-to-core-closed {
+    display: none;
 }
 
 @media (max-width: 704px) { .api-docs-to-core { display: none; } }
