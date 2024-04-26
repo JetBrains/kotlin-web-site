@@ -10,6 +10,10 @@ object PrepareDokkaTemplate: Template({
   vcs {
     root(vcsRoots.KotlinLangOrg, """
       -:.
+      ?:.babelrc
+      ?:tsconfig.json
+      ?:search-config.json
+      
       +:package.json
       +:yarn.lock
       
