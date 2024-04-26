@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="/_assets/dokka-template.css">
     <@resources/>
 </head>
-<body>
+<body class="${process.env.DOKKA_CUSTOM_BODY}">
 <div class="root">
     {% ktl_component "header" searchAlgoliaIndexName="${process.env.ALGOLIA_INDEX_NAME}" %}
     <@header.display/>
