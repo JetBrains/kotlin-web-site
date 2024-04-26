@@ -21,7 +21,7 @@ object StdlibBuildSearchIndex : BuildType({
                 onDependencyCancel = FailureAction.CANCEL
             }
             artifacts {
-                artifactRules = "+:latest-version.zip!all-libs/scripts/pages.json => api-references"
+                artifactRules = "+:pages.json => api-references/"
             }
         }
     }
