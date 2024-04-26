@@ -9,9 +9,9 @@ object PrepareDokkaTemplate: Template({
 
   vcs {
     root(vcsRoots.KotlinLangOrg, """
-      ?:.babelrc
-      ?:tsconfig.json
-      ?:search-config.json
+      ?:./.babelrc
+      ?:./tsconfig.json
+      ?:./search-config.json
       
       +:package.json
       +:yarn.lock
@@ -43,6 +43,8 @@ object PrepareDokkaTemplate: Template({
     script {
       name = "Build Templates"
       scriptContent = """
+        ls -la .
+        ls -la scripts/react-renderer/
         node ./scripts/dokka/generate-templates.js
       """.trimIndent()
       dockerImage = "node:16-alpine"
