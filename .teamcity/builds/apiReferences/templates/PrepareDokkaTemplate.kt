@@ -8,22 +8,7 @@ object PrepareDokkaTemplate: Template({
   artifactRules = "dokka-templates/** => dokka-templates"
 
   vcs {
-    root(vcsRoots.KotlinLangOrg, """
-      +:.babelrc => ./
-      +:tsconfig.json => ./
-      +:search-config.json => ./
-      
-      +:package.json
-      +:yarn.lock
-      
-      +:scripts/dokka
-      +:scripts/react-renderer
-      
-      +:dokka-templates
-      
-      +:static/js/ktl-component
-      +:static/js/page/dokka-template
-    """.trimIndent())
+    root(vcsRoots.KotlinLangOrg)
   }
 
   steps {
@@ -43,8 +28,6 @@ object PrepareDokkaTemplate: Template({
     script {
       name = "Build Templates"
       scriptContent = """
-        ls -la .
-        ls -la scripts/react-renderer/
         node ./scripts/dokka/generate-templates.js
       """.trimIndent()
       dockerImage = "node:16-alpine"
