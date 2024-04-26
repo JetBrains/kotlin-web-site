@@ -16,9 +16,6 @@
 {% block content %}
     {% set newDocsLink = site.data["core"].get(request.path) %}
     {% if not newDocsLink %}{% set newDocsLink="/api/core/"%}{% endif %}
-    <p style="background: #f6ca9e; padding: 10px 5px; margin: -20px 0 20px; text-align: center;">
-        Something text for a new docs announcement. Go to new <a href="{{ newDocsLink }}">Kotlin Core docs</a>.
-    </p>
     <div class="g-grid">
         <div class="api-layout">
             <div class="api-layout_button-box">
