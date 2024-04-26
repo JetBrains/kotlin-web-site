@@ -1345,13 +1345,12 @@ advantage of the custom implementations and improve the performance of the list 
 ### Common String.toCharArray(destination) function
 
 This release introduces a common [`String.toCharArray(destination)`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-char-array.html)
-function. Previously, it was only available on the JVM, while a separate `StringBuilder.toCharArray(destination)` already
-existed on all platforms.
+function. Previously, it was only available on the JVM.
 
 Let's compare it with the existing [`String.toCharArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-char-array.html)
 function. It creates a new `CharArray` that contains characters from the specified string. The new common
-`String.toCharArray(destination)` function, however, moves string characters into an existing destination `CharArray`,
-which is useful if you already have a buffer that they want to fill with the characters of the receiver `String`:
+`String.toCharArray(destination)` function, however, moves `String` characters into an existing destination `CharArray`,
+which is useful if you already have a buffer that they want to fill:
 
 ```kotlin
 fun main() {
