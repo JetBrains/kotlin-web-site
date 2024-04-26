@@ -2,7 +2,7 @@
 
 This tutorial will show you how to write a simple unit test and run it with the Gradle build tool.
 
-The example in the tutorial has the [kotlin.test](https://kotlinlang.org/api/latest/kotlin.test/index.html) library under the hood and runs the test using JUnit.
+The example in the tutorial has the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/index.html) library under the hood and runs the test using JUnit.
 
 To get started, first download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
 
@@ -10,11 +10,8 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 1. Open a Kotlin project in IntelliJ IDEA. If you don't already have a project, [create one](jvm-get-started.md#create-an-application).
 
-   > Specify **JUnit 5** as your test framework when creating your project.
-   >
-   {type="note"}
-
-2. Open the `build.gradle(.kts)` file and add the following dependency to the Gradle configuration. This dependency will allow you to work with `kotlin.test` and `JUnit`:
+2. Open the `build.gradle(.kts)` file and add the following dependency to the Gradle configuration.
+   This dependency will allow you to work with `kotlin.test` and `JUnit`:
 
     <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
@@ -62,13 +59,38 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    </tab>
    </tabs>
 
-   > If you created the project using the **New Project** wizard, the task will be added automatically.
-   > 
+   > If you configure the build script with `useJUnitPlatform`, the `kotlin-test` library automatically includes JUnit 5 as a dependency.
+   > This setup enables access to all JUnit 5 APIs, alongside the `kotlin-test` API, in JVM-only projects and JVM tests of Kotlin Multiplatform (KMP) projects.
+   >
    {type="note"}
+
+Here is a complete code of the `build.gradle.kts`:
+
+```kotlin
+plugins {
+    kotlin("jvm") version "%kotlinVersion%"
+}
+
+group = "org.example"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(kotlin("test"))
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+```
+{initial-collapse-state="collapsed"}
 
 ## Add the code to test it
 
-1. Open the `main.kt` file in `src/main/kotlin`.
+1. Open the `Main.kt` file in `src/main/kotlin`.
 
    The `src` directory contains Kotlin source files and resources. The `main.kt` file contains sample code that will print `Hello, World!`.
 
@@ -87,9 +109,11 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 1. In IntelliJ IDEA, select **Code** | **Generate** | **Test...** for the `Sample` class.
 
-   ![Create a test](create-test.png)
+   ![Create a test](generate-test.png)
 
-2. Specify the name of the test class. For example, `SampleTest`.
+2. Specify the name of the test class. For example, `SampleTest`:
+
+   ![Create a test](create-test.png)
 
    IntelliJ IDEA creates the `SampleTest.kt` file in the `test` directory. This directory contains Kotlin test source files and resources.
 
@@ -103,10 +127,11 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    * Check that the `sum()` function returns the expected value by using the [assertEquals()](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/assert-equals.html) function.
 
    ```kotlin
+   import org.example.Sample
+   import org.junit.jupiter.api.Assertions.*
    import kotlin.test.Test
-   import kotlin.test.assertEquals
 
-   internal class SampleTest {
+   class SampleTest {
 
        private val testSample: Sample = Sample()
 
@@ -120,7 +145,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 ## Run a test
 
-1. Run the test using the gutter icon.
+1. Run the test using the gutter icon:
 
    ![Run the test](run-test.png)
 
@@ -130,7 +155,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 2. Check the result in the **Run** tool window:
 
-   ![Check the test result. The test passed successfully](check-the-result.png)
+   ![Check the test result. The test passed successfully](test-successful.png)
 
    The test function was executed successfully.
 
@@ -146,7 +171,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 4. Run the test again and check the result:
 
-   ![Check the test result. The test has been failed](check-the-result-2.png)
+   ![Check the test result. The test has been failed](test-failed.png)
 
    The test execution failed.
 
