@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import './index.scss'
+import './index.scss';
 
 class NavTree {
   constructor(elem) {
@@ -13,49 +13,46 @@ class NavTree {
 
   on(eventName, callback) {
     this._events[eventName] = callback;
-  };
+  }
 
-  fireEvent(eventName) {
+  fireEvent(eventName, ...args) {
     if (eventName in this._events) {
-      const args = Array.prototype.slice.call(arguments, 1);
       return this._events[eventName].apply(this, args);
     }
-  };
+  }
 
   _initEvents() {
-    $(this.elem.querySelectorAll('.js-item-title')).on('click', (e) => {
-      const elem = e.currentTarget,
-        branchElem = e.currentTarget.parentNode,
-        $branch = $(branchElem),
-        itemId = $branch.attr('data-id'),
-        isActive = $(elem).hasClass('is_active'),
-        isLeaf = $branch.hasClass('js-leaf');
+    $(this.elem).on('click', '.js-item-title', (e) => {
+      const elem = e.currentTarget;
+      const branchElem = elem.parentNode;
+      const $branch = $(branchElem);
+      const itemId = $branch.attr('data-id');
+      const isActive = $(elem).hasClass('is_active');
+      const isLeaf = $branch.hasClass('js-leaf');
 
       if (isLeaf) {
-        this._selectLeaf(elem, e);
+        this._selectLeaf(elem, e, branchElem);
         return;
       }
 
       if (isActive) {
         this._closeBranch(elem, e);
-      }
-      else {
+      } else {
         this._openBranch(elem, e);
       }
 
       if (itemId) {
-        let states = this.getItemsStateInfo();
-        states = states === null ? {} : states;
+        const states = this.getItemsStateInfo() || {};
         states[itemId] = !isActive;
         this.setItemsStateInfo(states);
       }
     });
-  };
+  }
 
   _selectLeaf(leafElem, e, branchElem) {
     $(this.elem).find('.js-leaf-title').each((i, elem) => {
-      let $elem = $(elem),
-        isActive = $elem.hasClass('is_active');
+      const $elem = $(elem);
+      const isActive = $elem.hasClass('is_active');
 
       if (elem === leafElem) {
         if (!isActive) {
@@ -66,72 +63,56 @@ class NavTree {
         $elem.removeClass('is_active');
       }
     });
-    return true;
-  };
+  }
 
   getItemsStateInfo() {
-    const storageKey = this.STORAGE_KEY + '_' + this.id;
+    const storageKey = `${this.STORAGE_KEY}_${this.id}`;
     const savedState = JSON.parse(sessionStorage.getItem(storageKey));
-    if (savedState) {
-      return savedState
-    }
     const activeItem = $('.js-leaf-title.is_active').closest('.js-branch').attr('data-id');
-    const defaultState = {};
-    if (activeItem) {
-      defaultState[activeItem] = true;
-    }
-    return defaultState;
-  };
+    const defaultState = activeItem ? { [activeItem]: true } : {};
+    return savedState || defaultState;
+  }
 
   setItemsStateInfo(info) {
-    const storageKey = this.STORAGE_KEY + '_' + this.id;
+    const storageKey = `${this.STORAGE_KEY}_${this.id}`;
     sessionStorage.setItem(storageKey, JSON.stringify(info));
-  };
+  }
 
   restoreItemsState() {
     const states = this.getItemsStateInfo();
-    if (!states) {
-      return;
-    }
 
-    $(this.elem.querySelectorAll('.js-item-title')).each((_, elem) => {
-      const $elem = $(elem),
-        $parent = $elem.parent(),
-        itemId = $parent.attr('data-id');
+    $(this.elem).find('.js-item-title').each((_, elem) => {
+      const $elem = $(elem);
+      const $parent = $elem.parent();
+      const itemId = $parent.attr('data-id');
 
       if (itemId in states) {
-        if (states[itemId] === true)
-          this._openBranch(elem);
-        else
-          this._closeBranch(elem);
+        states[itemId] ? this._openBranch(elem) : this._closeBranch(elem);
       } else {
-        this._closeBranch(elem)
+        this._closeBranch(elem);
       }
-    })
-  };
+    });
+  }
 
   _openBranch(branchTitleElem, e) {
-    const $elem = $(branchTitleElem),
-      $parent = $elem.parent();
+    const $elem = $(branchTitleElem);
+    const $parent = $elem.parent();
 
     $elem.addClass('is_active');
-    $parent.addClass('_opened');
-    $parent.removeClass('_closed');
+    $parent.addClass('_opened').removeClass('_closed');
 
     this.fireEvent('openBranch', e, branchTitleElem.parentNode, branchTitleElem);
-  };
+  }
 
   _closeBranch(branchTitleElem, e) {
-    const $elem = $(branchTitleElem),
-      $parent = $elem.parent();
+    const $elem = $(branchTitleElem);
+    const $parent = $elem.parent();
 
     $elem.removeClass('is_active');
-    $parent.addClass('_closed');
-    $parent.removeClass('_opened');
+    $parent.addClass('_closed').removeClass('_opened');
 
     this.fireEvent('closeBranch', e, branchTitleElem.parentNode, branchTitleElem);
-  };
-
+  }
 }
 
 export default NavTree;

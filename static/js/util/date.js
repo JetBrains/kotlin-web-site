@@ -1,55 +1,28 @@
 export function formatDate(startDate, endDate) {
-  let formatted = '';
-  let year, month, day;
-  const isRange = (startDate.getDate() !== endDate.getDate() ||
-    startDate.getMonth() !== endDate.getMonth() ||
-    startDate.getFullYear() !== endDate.getFullYear()
-  );
-  const nowYear = new Date().getFullYear();
+  const startYear = startDate.getFullYear();
+  const startMonth = startDate.toLocaleString('en-us', { month: 'long' });
+  const startDay = startDate.getDate();
+  const endYear = endDate.getFullYear();
+  const endMonth = endDate.toLocaleString('en-us', { month: 'long' });
+  const endDay = endDate.getDate();
 
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ];
-
-  if (isRange) {
-    month = [
-      months[startDate.getMonth()],
-      months[endDate.getMonth()]
-    ];
-    year = [startDate.getFullYear(), endDate.getFullYear()];
-    day = [startDate.getDate(), endDate.getDate()];
-
-    if (month[0] !== month[1]) {
-      formatted = month[0] + ' ' + day[0] + '-' + month[1] + ' ' + day[1];
-    } else {
-      formatted = month[0] + ' ' + day[0] + '-' + day[1];
+  if (
+    startYear !== endYear ||
+    startMonth !== endMonth ||
+    startDay !== endDay
+  ) {
+    // Format for date range
+    let formatted = `${startMonth} ${startDay}-${endMonth} ${endDay}`;
+    if (startYear !== endYear) {
+      formatted += `, ${endYear}`;
     }
-
-    if (year[0] !== nowYear || year[1] !== nowYear) {
-      formatted += ', ' + year[1];
+    return formatted;
+  } else {
+    // Format for single date
+    let formatted = `${startMonth} ${startDay}`;
+    if (startYear !== new Date().getFullYear()) {
+      formatted += `, ${startYear}`;
     }
+    return formatted;
   }
-  else {
-    year = startDate.getFullYear();
-    month = months[startDate.getMonth()];
-    day = startDate.getDate();
-
-    formatted = month + ' ' + day;
-    if (year !== nowYear) {
-      formatted += ', ' + year;
-    }
-  }
-
-  return formatted;
 }

@@ -1,6 +1,11 @@
-import $ from 'jquery'
-import NavTree from '../com/nav-tree/index'
+import $ from 'jquery';
+import NavTree from '../com/nav-tree/index';
 
-$(document).ready(() => {
-  new NavTree(document.querySelector('.js-side-tree-nav'));
-});
+// Function to initialize NavTree when the document is ready
+function initializeNavTree() {
+  const sideTreeNav = document.querySelector('.js-side-tree-nav');
+  new NavTree(sideTreeNav);
+}
+
+// Using jQuery's document.ready function to initialize NavTree
+$(initializeNavTree);

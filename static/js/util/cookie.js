@@ -1,74 +1,43 @@
-var cookieUtils = {
+const cookieUtils = {
+  isCookiesEnabled: () => navigator.cookieEnabled,
 
-  isCookiesEnabled: function () {
-    return navigator.cookieEnabled;
-  },
-
-  /**
-   * @param name
-   * @returns {string|null}
-   */
-  getCookie: function (name) {
-    var regexp = new RegExp('(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)');
-    var matches = document.cookie.match(regexp);
+  getCookie: name => {
+    const regexp = new RegExp('(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)');
+    const matches = document.cookie.match(regexp);
     return matches ? decodeURIComponent(matches[1]) : null;
   },
 
-  /**
-   * @param {string} name
-   * @returns {boolean}
-   */
-  hasCookie: function (name) {
-    var cookie = this.getCookie(name);
-    return cookie !== null;
-  },
+  hasCookie: name => cookieUtils.getCookie(name) !== null,
 
-  /**
-   * @param {string} name
-   * @param {string} value
-   * @param {object} options
-   *                 options.expires (number (in seconds), Date, null)
-   *                 options.path (string)
-   *                 options.domain (string)
-   *                 options.secure (boolean)
-   * @returns void
-   */
-  setCookie: function (name, value, options) {
-    options = options || {};
-
-    var expires = options.expires;
+  setCookie: (name, value, options = {}) => {
+    let expires = options.expires;
 
     if (typeof expires === 'number' && expires) {
-      var d = new Date();
-      d.setTime(d.getTime() + expires * 1000);
-      expires = options.expires = d;
+      expires = new Date(Date.now() + expires * 1000);
     }
-    if (expires && expires.toUTCString) {
+
+    if (expires instanceof Date) {
       options.expires = expires.toUTCString();
     }
 
     value = encodeURIComponent(value);
 
-    var updatedCookie = name + '=' + value;
+    let updatedCookie = name + '=' + value;
 
-    for (var propName in options) {
-      updatedCookie += '; ' + propName;
-      var propValue = options[propName];
-      if (propValue !== true) {
-        updatedCookie += "=" + propValue;
+    for (const propName in options) {
+      if (options.hasOwnProperty(propName)) {
+        updatedCookie += '; ' + propName;
+        const propValue = options[propName];
+        if (propValue !== true) {
+          updatedCookie += "=" + propValue;
+        }
       }
     }
 
     document.cookie = updatedCookie;
   },
 
-  /**
-   * @param {string} name
-   * @returns void
-   */
-  removeCookie: function (name) {
-    this.setCookie(name, '', {expires: -1});
-  }
+  removeCookie: name => cookieUtils.setCookie(name, '', { expires: -1 })
 };
 
-module.exports = cookieUtils;
+export default cookieUtils;

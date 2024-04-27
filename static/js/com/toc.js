@@ -1,175 +1,91 @@
-import $ from 'jquery';
-
-function Toc(options) {
-  var that = this,
-    option;
-
-  if (typeof options == 'object') {
-    for (option in options) {
-      if (option in that) {
-        that[option] = options[option];
-      }
-    }
+class Toc {
+  constructor(options = {}) {
+    this.selector = options.selector || 'h1,h2,h3,h4,h5,h6';
+    this.scope = options.scope || document.body;
+    this.from = options.from || 1;
+    this.to = options.to || 6;
+    this.createLinks = options.createLinks !== undefined ? options.createLinks : true;
+    this.cssClasses = {
+      tocList: 'toc',
+      tocListItem: 'toc-item_level_#'
+    };
+    this.map = this.get();
   }
 
-  that.scope = document.body;
-  that.init(options);
-}
-
-Toc.prototype = {
-  selector: 'h1,h2,h3,h4,h5,h6',
-
-  scope: null,
-
-  from: 1,
-
-  to: 6,
-
-  map: null,
-
-  createLinks: true,
-
-  cssClasses: {
-    tocList: 'toc',
-    tocListItem: 'toc-item_level_#'
-  },
-
-  init: function (options) {
-    var that = this;
-
-    that.map = that.get();
-  },
-
-  __getMap: function (selector, scope) {
-    var that = this;
-    var sections = [], sectionNode, section;
-    var i, len;
-    var selector = (typeof selector != 'undefined') ? selector : that.selector;
-    var scope = (typeof scope != 'undefined') ? scope : that.scope;
-    var sectionsNodes = ('querySelectorAll' in scope)
-      ? scope.querySelectorAll(selector)
-      : $(selector, scope);
-
-    for (i = 0, len = sectionsNodes.length; i < len; i++) {
-      sectionNode = sectionsNodes[i];
-      section = {
+  getMap(selector, scope) {
+    const sections = [];
+    const sectionsNodes = scope.querySelectorAll(selector);
+    for (const sectionNode of sectionsNodes) {
+      const section = {
         id: sectionNode.id,
         level: parseInt(sectionNode.tagName.substr(1, 1)),
-        title: $(sectionNode).text(),
+        title: sectionNode.textContent,
         node: sectionNode,
         content: []
       };
       sections.push(section);
     }
     return sections;
-  },
+  }
 
-  get: function (options) {
-    var that = this;
-    var selector = (options && typeof options.selector != 'undefined') ? options.selector : that.selector;
-    var scope = (options && typeof options.scope != 'undefined') ? options.scope : that.scope;
-    var sectMap, tocList;
+  get(options) {
+    const selector = options?.selector || this.selector;
+    const scope = options?.scope || this.scope;
+    const sectMap = this.getMap(selector, scope);
+    if (sectMap.length === 0) return [];
+    return this.getBranch(sectMap, sectMap[0].level, 0);
+  }
 
-    sectMap = that.__getMap(selector, scope);
-    if (sectMap.length == 0) {
-      return [];
-    }
-
-    tocList = that.__getBranch(sectMap, sectMap[0].level, 0);
-    return tocList;
-  },
-
-  render: function (opts) {
-    var that = this;
-    var from = (opts && typeof opts.from != 'undefined') ? opts.from : that.from;
-    var to = (opts && typeof opts.to != 'undefined') ? opts.to : that.to;
-    var target = (opts && typeof opts.target != 'undefined') ? opts.target : null;
-    var toc;
-
-    toc = that.__create(that.map, from, to);
-
-    if (target != null) {
-      target.appendChild(toc);
-    }
-
+  render(opts = {}) {
+    const from = opts.from !== undefined ? opts.from : this.from;
+    const to = opts.to !== undefined ? opts.to : this.to;
+    const target = opts.target;
+    const toc = this.create(this.map, from, to);
+    if (target) target.appendChild(toc);
     return toc;
-  },
+  }
 
-  __create: function (list, from, to) {
-    var that = this;
-    var createLinks = that.createLinks;
-    var ul, li, a, title;
-    var section, sectionContent;
-    var css = that.cssClasses;
-    var i, len;
-
-    if (list.length == 0) {
-      return null;
-    }
-
-    ul = document.createElement('ul');
-    ul.className = css.tocList;
-    for (i = 0, len = list.length; i < len; i++) {
-      section = list[i];
-
-      li = document.createElement('li');
-      li.className = css.tocListItem.replace('#', section.level);
-
-      if (createLinks) {
-        title = document.createElement('a');
-        title.href = "#" + section.id;
-        title.appendChild(document.createTextNode(section.title));
+  create(list, from, to) {
+    const ul = document.createElement('ul');
+    ul.className = this.cssClasses.tocList;
+    for (const section of list) {
+      const li = document.createElement('li');
+      li.className = this.cssClasses.tocListItem.replace('#', section.level);
+      const title = this.createLinks ? document.createElement('a') : document.createElement('span');
+      if (this.createLinks) {
+        title.href = `#${section.id}`;
+        title.textContent = section.title;
+      } else {
+        title.textContent = section.title;
       }
-      else {
-        title = document.createTextNode(section.title);
-      }
-
       li.appendChild(title);
-
-      if (section.content.length > 0 &&
-        section.content[0].level >= from &&
-        section.content[0].level <= to) {
-        sectionContent = that.__create(section.content, from, to);
+      if (section.content.length > 0 && section.content[0].level >= from && section.content[0].level <= to) {
+        const sectionContent = this.create(section.content, from, to);
         li.appendChild(sectionContent);
       }
-
       ul.appendChild(li);
     }
     return ul;
-  },
+  }
 
-  __getBranch: function (sections, level, start, firstRun) {
-    var that = this;
-    var firstRun = (typeof firstRun !== 'undefined') ? firstRun : true;
-    var end = sections.length;
-    var tree = [];
-    var section, prevSect;
-
-    for (var i = start; i < end; i++) {
-      section = sections[i];
-      prevSect = (typeof sections[i - 1] !== 'undefined')
-        ? sections[i - 1]
-        : null;
-
-      if (section.level == level) {
-        // siblings
+  getBranch(sections, level, start, firstRun = true) {
+    const end = sections.length;
+    const tree = [];
+    for (let i = start; i < end; i++) {
+      const section = sections[i];
+      const prevSect = sections[i - 1] !== undefined ? sections[i - 1] : null;
+      if (section.level === level) {
         tree.push(section);
-      }
-      else if (section.level > level) {
-        // inner branch
+      } else if (section.level > level) {
         if (prevSect && prevSect.level < section.level) {
-          prevSect.content = this.__getBranch(sections, section.level, i, false);
+          prevSect.content = this.getBranch(sections, section.level, i, false);
         }
-      }
-      else if (section.level < level) {
-        // out of branch
-        if (!firstRun) {
-          break;
-        }
+      } else if (section.level < level) {
+        if (!firstRun) break;
       }
     }
     return tree;
   }
-};
+}
 
 export default Toc;

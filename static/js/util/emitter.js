@@ -1,3 +1,6 @@
-var emitter = require('event-emitter');
+const EventEmitter = require('event-emitter');
 
-module.exports = emitter({});
+// Create and export a new instance of EventEmitter
+const emitter = EventEmitter({});
+
+module.exports = emitter;

@@ -1,22 +1,12 @@
 import $ from 'jquery';
-import './gif-player.scss'
+import './gif-player.scss';
 
-/**
- * List of tags strings.
- * @const
- * @enum {String}
- */
 const TAGS = {
   img: 'img',
   picture: 'picture',
   source: 'source'
 };
 
-/**
- * List of attributes strings.
- * @const
- * @enum {String}
- */
 const ATTRIBUTES = {
   src: 'src',
   srcSet: 'srcset',
@@ -25,11 +15,6 @@ const ATTRIBUTES = {
   media: 'media'
 };
 
-/**
- * List of class-names values.
- * @const
- * @enum {String}
- */
 const CLASSES = {
   player: 'gif-player',
   playerShowMod: '_show-gif',
@@ -39,252 +24,83 @@ const CLASSES = {
   imageLoadingMod: '_loading'
 };
 
-// Empty array for storing instances
-GifPlayer.instances = [];
+class GifPlayer {
+  constructor(element) {
+    if (!(this instanceof GifPlayer))
+      return new GifPlayer(element);
 
-/**
- * Class representing GifPlayer.
- * @param {String|HTMLElement} element Selector or node of the image tag
- *
- * @constructor
- * @property {jQuery} $player
- * @property {jQuery} $image
- * @property {Function} clickHandler
- */
-function GifPlayer(element) {
-  if (!(this instanceof GifPlayer))
-    return new GifPlayer(element);
+    this.$element = $(element);
+    this.elementIsImage = this.$element.is(TAGS.img);
+    if (!this.elementIsImage && !this.$element.is(TAGS.picture)) {
+      throw new Error('Invalid element type. Only img or picture elements supported.');
+    }
 
-  // Search for the element
-  const $element = $(element, 'body');
+    this.$image = this.elementIsImage ? this.$element : this.$element.find(TAGS.img);
 
-  if ($element === 0) throw new Error('Mount node for component not found.');
-  else if ($element.length > 1) throw new Error('Component can be attached only to 1 node. ' + $element.length + ' nodes given.');
+    const gifSrc = this.$element.attr(ATTRIBUTES.gifSrc);
+    if (this.elementIsImage && !gifSrc) {
+      throw new Error(`Gif source attribute (${ATTRIBUTES.gifSrc}) missing.`);
+    }
 
-  //Store element node
-  this.$element = $element;
-  this.elementIsImage = this.$element.is(TAGS.img);
+    this.$player = this._initPlayerWrapper();
 
-  // Get gif source
-  const gifSrc = $element.attr(ATTRIBUTES.gifSrc);
+    this.clickHandler = this._initClickHandler();
+    this.$player.on('click', this.clickHandler);
 
-  if (this.elementIsImage && !gifSrc) throw new Error('Can\'t init Gif-player, please provide ' + ATTRIBUTES.gifSrc + ' attribute for ' + element + '.');
-  // Store image node
-  this.$image = this.elementIsImage ? $element : $(element).find(TAGS.img);
+    GifPlayer._addInstance(this);
+  }
 
-  // Init and store player wrapper
-  this.$player = this._initPlayerWrapper();
+  static _addInstance(instance) {
+    GifPlayer.instances.push(instance);
+  }
 
+  static _removeInstance(instance) {
+    const index = GifPlayer.instances.indexOf(instance);
+    if (index > -1) {
+      GifPlayer.instances.splice(index, 1);
+    }
+  }
 
-  //init breakpoints behavior
-  if (!this.elementIsImage) this._initBreakpointsBehavior();
+  static destroyAll() {
+    GifPlayer.instances.forEach(instance => instance.destroy());
+    GifPlayer.instances = [];
+  }
 
-  // Init and store click handler to be able to remove it on destroy
-  this.clickHandler = this._initClickHandler();
+  _initPlayerWrapper() {
+    const $player = $('<div/>').addClass(CLASSES.player).addClass(CLASSES.playerShowMod);
+    this.$image.wrap($player);
+    return this.$image.parent();
+  }
 
-  // Listen for clicks and call toggle play function
-  this.$player.on('click', this.clickHandler);
+  _initClickHandler() {
+    return () => this.$image.hasClass(CLASSES.imageActiveMod) ? this.stop() : this.play();
+  }
 
-  // Store this instance
-  GifPlayer._addInstance(this);
+  play() {
+    const $player = this.$player;
+    const $image = this.$image;
+    const gifSrc = $image.attr(ATTRIBUTES.gifSrc);
+    const placeholder = $image.attr(ATTRIBUTES.src);
+    $player.addClass(CLASSES.playerActiveMod);
+    $image.addClass(CLASSES.imageActiveMod).addClass(CLASSES.imageLoadingMod);
+    $image.attr(ATTRIBUTES.gifPlaceholder, placeholder).attr(ATTRIBUTES.src, gifSrc).load(() => $image.removeClass(CLASSES.imageLoadingMod));
+  }
+
+  stop() {
+    const $player = this.$player;
+    const $image = this.$image;
+    const placeholder = $image.attr(ATTRIBUTES.gifPlaceholder);
+    $player.removeClass(CLASSES.playerActiveMod);
+    $image.removeClass(CLASSES.imageActiveMod).attr(ATTRIBUTES.src, placeholder);
+  }
+
+  destroy() {
+    this.stop();
+    this.$player.off('click', this.clickHandler);
+    GifPlayer._removeInstance(this);
+  }
 }
 
-/**
- * Add instance of GifPlayer to instances array.
- * @param {GifPlayer} instance
- * @static
- * @private
- */
-GifPlayer._addInstance = function (instance) {
-  GifPlayer.instances.push(instance);
-};
-
-/**
- * Remove instance of GifPlayer from instances array.
- * @param {GifPlayer} instance
- * @static
- */
-GifPlayer._removeInstance = function (instance) {
-  const index = GifPlayer.instances.indexOf(instance);
-
-  if (index > -1) {
-    GifPlayer.instances.splice(index, 1);
-  }
-};
-
-/**
- * Destroy all instances of GifPlayer.
- * @static
- */
-GifPlayer.destroyAll = function () {
-  GifPlayer.instances.forEach(function (instance) {
-    instance.destroy();
-  });
-
-  GifPlayer.instances = [];
-};
-
-/**
- * Wrap an original image with a player node.
- * @private
- * @return {jQuery}
- */
-GifPlayer.prototype._initPlayerWrapper = function () {
-  const $image = this.$image;
-  const $player = $('<div/>');
-
-  // Adding class-names
-  $player
-    .addClass(CLASSES.player)
-    .addClass(CLASSES.playerShowMod);
-
-  // Wrap image with player node
-  $image.wrap($player);
-
-  return $image.parent();
-};
-
-/**
- * Init breapoints behavior for media queries
- */
-
-GifPlayer.prototype._initBreakpointsBehavior = function () {
-  this.defaultSrc = this.$image.attr(ATTRIBUTES.src);
-  this.defaultGifSrc = this.$image.attr(ATTRIBUTES.gifSrc);
-
-  if (this.$element.is(TAGS.picture)) {
-    //find all media queries for this player instance
-    this.mediaQueries = [];
-
-    this.$element.find(TAGS.source).each((idx, source) => {
-      this.mediaQueries.push($(source).attr('media'));
-    });
-
-    //add listeners for media queries
-    this.mediaQueries.forEach((query) => {
-      let currentQuery = window.matchMedia(query);
-
-      this.setImagesForBreakpoint(currentQuery);
-
-      currentQuery.addListener(function (e) {
-        this.setImagesForBreakpoint(e);
-      }.bind(this));
-    });
-  }
-};
-
-/**
- * Init click handler with saved links for the player and for the image node.
- * @private
- * @return {Function}
- */
-GifPlayer.prototype._initClickHandler = function () {
-  const gifPlayer = this;
-  const $image = this.$image;
-
-  return function () {
-    let isActive = $image.hasClass(CLASSES.imageActiveMod);
-
-    if (!isActive) {
-      gifPlayer.play();
-    }
-    else {
-      gifPlayer.stop();
-    }
-  }
-};
-
-/**
- * Start playing the gif.
- */
-GifPlayer.prototype.play = function () {
-  const $player = this.$player;
-  const $image = this.$image;
-
-  const gifSrc = $image.attr(ATTRIBUTES.gifSrc);
-  const placeholder = $image.attr(ATTRIBUTES.src);
-
-  // Set active player class
-  $player.addClass(CLASSES.playerActiveMod);
-
-  // Set image active and loading modifiers
-  $image
-    .addClass(CLASSES.imageActiveMod)
-    .addClass(CLASSES.imageLoadingMod);
-
-  // Store placeholder source in data-attribute
-  $image.attr(ATTRIBUTES.gifPlaceholder, placeholder);
-
-  // Load gif into image
-  $image.attr(ATTRIBUTES.src, gifSrc);
-
-  // Remove loading modifier if gif is loaded
-  $image.load(function () {
-    $image.removeClass(CLASSES.imageLoadingMod);
-  })
-};
-
-/**
- * Stop playing the gif.
- */
-GifPlayer.prototype.stop = function () {
-  const $player = this.$player;
-  const $image = this.$image;
-  const placeholder = $image.attr(ATTRIBUTES.gifPlaceholder);
-
-  // Remove player active modifier
-  $player.removeClass(CLASSES.playerActiveMod);
-
-  // Remove image active modifier
-  $image.removeClass(CLASSES.imageActiveMod);
-
-  // Replace gif source with the placeholder
-  $image.attr(ATTRIBUTES.src, placeholder);
-};
-
-/**
- * Destroy function that removes click event handler from player node.
- */
-GifPlayer.prototype.destroy = function () {
-  this.stop();
-  this.$player.off('click', this.clickHandler);
-
-  GifPlayer._removeInstance(this);
-};
-
-/**
- * Set images for GifPlayer depending on media query
- */
-
-GifPlayer.prototype.setImagesForBreakpoint = function () {
-  const sourceToMatch = this._findSourceMatch();
-
-  const srcToSet = sourceToMatch.length > 0 ? sourceToMatch.attr(ATTRIBUTES.srcSet) : this.defaultSrc;
-  const gifSrcToSet = sourceToMatch.length > 0 ? sourceToMatch.attr(ATTRIBUTES.gifSrc) : this.defaultGifSrc;
-
-  const attrToSetSrc = this.$image.hasClass(CLASSES.imageActiveMod) ? ATTRIBUTES.gifPlaceholder : ATTRIBUTES.src;
-
-  this.$image.attr(ATTRIBUTES.gifSrc, gifSrcToSet);
-  this.$image.attr(attrToSetSrc, srcToSet);
-};
-
-/**
- * Find source tag for matching media query if exists
- * @private
- * @return {Array}
- */
-
-GifPlayer.prototype._findSourceMatch = function () {
-  const currentQuery = this.mediaQueries.map(function (query) {
-    return window.matchMedia(query);
-  }).filter(function (query) {
-    return query.matches === true;
-  });
-
-  return currentQuery.length > 0 ? this.$element.find(TAGS.source).filter(function () {
-    return  $(this).attr(ATTRIBUTES.media) === currentQuery[0].media
-  }) : [];
-};
+GifPlayer.instances = [];
 
 export default GifPlayer;
-

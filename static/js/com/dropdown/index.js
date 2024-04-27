@@ -1,127 +1,105 @@
-var $ = require('jquery');
-var Emitter = require('event-emitter');
+const $ = require('jquery');
+const Emitter = require('event-emitter');
 
 require('./styles.scss');
 
-var CLASSES = {
+const CLASSES = {
   OPENED: '_opened',
   ITEM_SELECTED: '_selected'
 };
 
-var EVENTS = {
+const EVENTS = {
   SELECT: 'select'
 };
 
-/**
- * @param {HTMLElement|string} node
- * @param {Object} config
- * @param {number} [config.selectedIndex=0]
- * @param {string} [config.selected]
- * @param {Function} [config.onSelect]
- * @constructor
- */
-function Dropdown(node, config) {
-  if (!(this instanceof Dropdown))
-    return new Dropdown(node, config);
+class Dropdown {
+  constructor(node, config) {
+    this._emitter = Emitter({});
+    this.config = config;
+    this.$dropdown = this.render();
+    this.selectedIndex = config.selectedIndex || 0;
 
-  this._emitter = Emitter({});
-  var that = this;
-  this.config = config;
-  var $dropdown = this.render();
-  this.$dropdown = $dropdown;
-  var $items = $dropdown.find('.js-item');
-  var selectedValueNode = $dropdown.find('.js-selected-value').get(0);
+    $(document.body).on('click', (event) => {
+      const selectedValueNode = this.$dropdown.find('.js-selected-value').get(0);
+      event.target === selectedValueNode ? this.toggle() : this.close();
+    });
 
-  $(document.body).on('click', function(event) {
-    event.target === selectedValueNode
-      ? that.toggle()
-      : that.close();
-  });
+    this.$dropdown.on('click', '.js-item', (event) => {
+      const index = $(event.currentTarget).index();
+      this.select(index);
+    });
 
-  $items.each(function (i, elem) {
-    const $elem = $(elem);
-    if($elem.attr('data-value') == config.selected){
-      config.selectedIndex = i;
+    $(node).append(this.$dropdown);
+
+    if (config.onSelect) {
+      this.onSelect(config.onSelect);
     }
-    $elem.on('click', that.select.bind(that, i));
-  });
 
-  $(node).append($dropdown);
+    this.select(this.selectedIndex, false);
+  }
 
-  config.onSelect && this.onSelect(config.onSelect);
+  onSelect(callback) {
+    this._emitter.on(EVENTS.SELECT, callback);
+  }
 
-  this.select(config.selectedIndex || 0, false);
+  render() {
+    const { items } = this.config;
+    const data = {
+      items,
+      selectedIndex: this.selectedIndex || 0
+    };
+
+    return $(renderTemplate(data));
+  }
+
+  open() {
+    this.$dropdown.addClass(CLASSES.OPENED);
+  }
+
+  close() {
+    this.$dropdown.removeClass(CLASSES.OPENED);
+  }
+
+  toggle() {
+    this.isOpened() ? this.close() : this.open();
+  }
+
+  isOpened() {
+    return this.$dropdown.hasClass(CLASSES.OPENED);
+  }
+
+  select(index, emit = true) {
+    if (this.selectedIndex === index) {
+      return;
+    }
+    this.selectedIndex = index;
+
+    const $items = this.$dropdown.find('.js-item');
+    const $selectedItem = $items.eq(index);
+    const selectedValue = $selectedItem.attr('data-value');
+    const selectedText = $selectedItem.text();
+
+    $items.removeClass(CLASSES.ITEM_SELECTED);
+    $selectedItem.addClass(CLASSES.ITEM_SELECTED);
+
+    this.$dropdown.find('.js-selected-value').text(selectedText);
+
+    if (emit) {
+      this._emitter.emit(EVENTS.SELECT, selectedValue);
+    }
+  }
 }
 
-Dropdown.prototype.onSelect = function (callback) {
-  this._emitter.on(EVENTS.SELECT, callback);
-};
-
-Dropdown.prototype.render = function () {
-  var config = this.config;
-  var data = $.extend({}, {
-    items: config.items,
-    selectedIndex: config.selectedIndex || 0
-  });
-
-  return $(renderTemplate(data));
-};
-
-Dropdown.prototype.open = function () {
-  this.$dropdown.addClass(CLASSES.OPENED);
-};
-
-Dropdown.prototype.close = function () {
-  this.$dropdown.removeClass(CLASSES.OPENED);
-};
-
-Dropdown.prototype.toggle = function() {
-  this.isOpened() ? this.close() : this.open();
-};
-
-Dropdown.prototype.isOpened = function () {
-  return this.$dropdown.hasClass(CLASSES.OPENED);
-};
-
-Dropdown.prototype.select = function (index, emit) {
-  if (this.selectedIndex == index) {
-    return;
-  }
-  this.selectedIndex = index;
-
-  var emit = typeof emit == 'boolean' ? emit : true;
-  var $dropdown = this.$dropdown;
-  var $items = $dropdown.find('.js-item');
-  var $selectedItem =  $( $items.get(index) );
-  var selectedValue = $selectedItem.attr('data-value');
-  var selectedText = $selectedItem.text();
-
-  $items.each(function (i, elem) {
-    var $item = $(elem);
-
-    if (i === index)
-      $item.addClass(CLASSES.ITEM_SELECTED);
-    else
-      $item.removeClass(CLASSES.ITEM_SELECTED);
-  });
-
-  $dropdown.find('.js-selected-value').text(selectedText);
-
-  emit && this._emitter.emit('select', selectedValue);
-};
-
 function renderTemplate(dropdown) {
-  let items = '';
-
-  for (const [key, value] of Object.entries(dropdown.items)) {
-    items += `<div class="dropdown-item js-item" data-value="${key}">${value}</div>`;
-  }
+  const items = Object.entries(dropdown.items)
+    .map(([key, value]) => `<div class="dropdown-item js-item" data-value="${key}">${value}</div>`)
+    .join('');
 
   return `
-  <div class="dropdown js-dropdown">
-    <div class="dropdown-selected-value js-selected-value">${dropdown.items[dropdown.selectedIndex]}</div>
-    <div class="dropdown-items">${items}</div>
-  </div>
+    <div class="dropdown js-dropdown">
+      <div class="dropdown-selected-value js-selected-value">${dropdown.items[dropdown.selectedIndex]}</div>
+      <div class="dropdown-items">${items}</div>
+    </div>
   `;
 }
 
