@@ -1,6 +1,10 @@
 - section: Virtual
   anchorId: virtual
   groups:
+  - name: Kotlin Devs Brasil
+    country: Brazil
+    url: https://kotlinbr.dev/
+    isVirtual: true
   - name: Virtual KUG
     country: International
     url: https://www.meetup.com/Virtual-Kotlin-User-Group/
