@@ -315,7 +315,7 @@ var readWriteResource: Resource by resourceDelegate()
 
 Under the hood, the Kotlin compiler generates auxiliary properties for some kinds of delegated properties and then delegates to them. 
 
-> For the optimization purposes, the compiler [_does not_ generate auxiliary properties in several cases](#optimized-cases-for-delegated-properties). 
+> For optimization purposes, the compiler [_does not_ generate auxiliary properties in several cases](#optimized-cases-for-delegated-properties). 
 > Learn about the optimization on the example of [delegating to another property](#translation-rules-when-delegating-to-another-property).
 >
 {type="note"}
