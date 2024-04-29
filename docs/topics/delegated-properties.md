@@ -63,7 +63,7 @@ This prints:
 NEW has been assigned to 'p' in Example@33a17727.
 ```
 
-The specification of the requirements to the delegated object can be found [below](#property-delegate-requirements).
+The specification of the requirements for the delegated object can be found [below](#property-delegate-requirements).
 
 You can declare a delegated property inside a function or code block; it doesn't have to be a member of a class.
 Below you can find [an example](#local-delegated-properties).
