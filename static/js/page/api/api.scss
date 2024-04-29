@@ -475,7 +475,8 @@ $jvm-enrichment: JRE7, JRE8, JUnit, JUnit5, TestNG;
 }
 
 .api-docs-to-core, .api-docs-to-core-mobile {
-    font-family: "JetBrains Sans", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Droid Sans", "Helvetica Neue", Arial, sans-serif
+    font-family: "JetBrains Sans", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: 'ss20';
 }
 
 .api-docs-to-core-mobile__link:hover, .api-docs-to-core-mobile__close:hover {
