@@ -598,19 +598,18 @@ fun computeAck(m: Int, n: Int) {
 ## Kotlin/JS
 
 This release introduces updates for Kotlin/JS, including the removal of the old Kotlin/JS compiler, Kotlin/JS Gradle plugin deprecation and Experimental
-support for ES6:
+support for ES2015:
 
 * [Removal of the old Kotlin/JS compiler](#removal-of-the-old-kotlin-js-compiler)
 * [Deprecation of the Kotlin/JS Gradle plugin](#deprecation-of-the-kotlin-js-gradle-plugin)
 * [Deprecation of external enum](#deprecation-of-external-enum)
-* [Experimental support for ES6 classes and modules](#experimental-support-for-es6-classes-and-modules)
+* [Experimental support for ES2015 classes and modules](#experimental-support-for-es2015-classes-and-modules)
 * [Changed default destination of JS production distribution](#changed-default-destination-of-js-production-distribution)
 * [Extract org.w3c declarations from stdlib-js](#extract-org-w3c-declarations-from-stdlib-js)
 
 > Starting from version 1.9.0, [partial library linkage](#library-linkage-in-kotlin-native) is also enabled for Kotlin/JS.
 >
 {type="note"}
-
 
 ### Removal of the old Kotlin/JS compiler
 
@@ -653,9 +652,9 @@ while avoiding the problems associated with default methods.
 Starting from Kotlin 1.9.0, the use of external enums will be marked as deprecated. We encourage you to update your code
 to utilize the suggested external sealed class implementation for compatibility and future maintenance.
 
-### Experimental support for ES6 classes and modules
+### Experimental support for ES2015 classes and modules
 
-This release introduces [Experimental](components-stability.md#stability-levels-explained) support for ES6 modules and generation of ES6 classes:
+This release introduces [Experimental](components-stability.md#stability-levels-explained) support for ES2015 modules and generation of ES2015 classes:
 * Modules offer a way to simplify your codebase and improve maintainability.
 * Classes allow you to incorporate object-oriented programming (OOP) principles, resulting in cleaner and more intuitive code.
 
@@ -665,12 +664,12 @@ To enable these features, update your `build.gradle.kts` file accordingly:
 // build.gradle.kts
 kotlin { 
     js(IR) { 
-        useEsModules() // Enables ES6 modules
+        useEsModules() // Enables ES2015 modules
         browser()
         }
     }
 
-// Enables ES6 classes generation
+// Enables ES2015 classes generation
 tasks.withType<KotlinJsCompile>().configureEach {
     kotlinOptions {
         useEsClasses = true
@@ -679,7 +678,7 @@ tasks.withType<KotlinJsCompile>().configureEach {
 ```
 {validate="false"}
 
-[Learn more about ECMAScript 2015 (ES6) in the official documentation](https://262.ecma-international.org/6.0/).
+[Learn more about ES2015 (ECMAScript 2015, ES6) in the official documentation](https://262.ecma-international.org/6.0/).
 
 ### Changed default destination of JS production distribution
 
