@@ -23,6 +23,7 @@
     {% set headerDropdownTheme = "light" %}
 {% endif %}
 
+{% block top_banner %}{% endblock %}
 <div class="global-layout">
     {% ktl_component "header" productWebUrl=data.releases.latest.url hasSearch=True dropdownTheme=headerDropdownTheme currentUrl=headerCurrentUrl %}
     {% block page_outer_content %}
