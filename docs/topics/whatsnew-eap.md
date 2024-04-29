@@ -1006,9 +1006,9 @@ as we plan to make this DSL the recommended approach for configuring compiler op
 
 ### New Compose compiler Gradle plugin
 
-The Jetpack Compose compiler, which translates composables into Kotlin code, has now been merged into the Kotlin repository.
-This will help transition Compose projects to Kotlin 2.0.0, as the Compose compiler will always ship simultaneously with
-Kotlin. This also bumps the Compose compiler version to 2.0.0.
+The Jetpack Compose compiler, which translates composables into Kotlin code, has been merged into the Kotlin repository.
+This will help with the transition of Compose projects to Kotlin 2.0.0, as the Compose compiler will always be released
+simultaneously with Kotlin. Additionally, this update also bumps the Compose compiler to version 2.0.0.
 
 To use the new Compose compiler in your projects, apply the Gradle plugin in your `build.gradle.kts` file and set its
 version equal to the Kotlin version (2.0.0-RC2 or newer).
@@ -1348,9 +1348,9 @@ This release introduces a common [`String.toCharArray(destination)`](https://kot
 function. Previously, it was only available on the JVM.
 
 Let's compare it with the existing [`String.toCharArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-char-array.html)
-function. It creates a new `CharArray` that contains characters from the specified string. The new common
-`String.toCharArray(destination)` function, however, moves `String` characters into an existing destination `CharArray`,
-which is useful if you already have a buffer that they want to fill:
+function. This function creates a new `CharArray` that contains characters from the specified string. The common
+`String.toCharArray(destination)`, however, moves `String` characters into an existing destination `CharArray`,
+which is useful if you already have a buffer that you want to fill:
 
 ```kotlin
 fun main() {
