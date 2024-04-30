@@ -538,6 +538,20 @@ since [KSP2](https://android-developers.googleblog.com/2023/12/ksp2-preview-kotl
 >
 {type="tip"}
 
+### Tasks error in Gradle configuration cache
+
+Since Kotlin 2.0.0-Beta4, you may encounter a configuration cache error with messages indicating:
+`invocation of Task.project at execution time is unsupported`.
+
+This error appears in tasks such as `NativeDistributionCommonizerTask` and `KotlinNativeCompile`.
+
+However, this is a false-positive error. The underlying issue is the presence of tasks that are not compatible with the
+Gradle configuration cache, like the `publish*` task.
+
+This discrepancy may not be immediately apparent, as the error message suggests a different root cause.
+
+As the precise cause isn't explicitly stated in the error report, [the Gradle team is already addressing the issue to fix reports](https://github.com/gradle/gradle/issues/21290).
+
 ### How to enable the Kotlin K2 compiler
 
 Starting with Kotlin 2.0.0-Beta1, the Kotlin K2 compiler is enabled by default.
@@ -730,10 +744,78 @@ manage dependencies between modules.
 
 ## Kotlin/JS
 
-This version brings the following changes:
+Among other changes, this version brings modern JS compilation to Kotlin, supporting more features from the ES2015 standard:
+
+* [New compilation target](#new-compilation-target)
+* [Suspend functions as ES2015 generators](#suspend-functions-as-es2015-generators)
+* [Passing arguments to the main function](#passing-arguments-to-the-main-function)
 * [Support for type-safe plain JavaScript objects](#support-for-type-safe-plain-javascript-objects)
 * [Support for npm package manager](#support-for-npm-package-manager)
- 
+
+### New compilation target
+
+In Kotlin %kotlinEapVersion%, we're adding a new compilation target to Kotlin/JS, `es2015`. This is a new way for you to
+enable all the ES2015 features supported in Kotlin at once.
+
+You can set it up in your build file like this:
+
+```kotlin
+kotlin {
+    js {
+        compilerOptions {
+            target.set("es2015")
+        }
+    }
+}
+```
+
+The new target automatically turns on [ES classes and modules](whatsnew19.md#experimental-support-for-es2015-classes-and-modules)
+and the newly supported [ES generators](#suspend-functions-as-es2015-generators).
+
+### Suspend functions as ES2015 generators
+
+This release introduces [Experimental](components-stability.md#stability-levels-explained) support for ES2015 generators
+for compiling [suspend functions](composing-suspending-functions.md).
+
+We believe that using generators instead of state machines will improve both the final bundle size and your debugging
+experience.
+
+[Learn more about ES2015 (ECMAScript 2015, ES6) in the official documentation](https://262.ecma-international.org/6.0/).
+
+### Passing arguments to the main function
+
+Starting with Kotlin %kotlinEapVersion%, you can specify a source of your `args` for the `main()` function. This feature
+makes it easier to work with the command line and pass the arguments.
+
+To do this, define the `js` expression with the new `passAsArgumentToMainFunction()` function, which returns an array of
+strings:
+
+```kotlin
+kotlin {
+    js {
+        binary.executable()
+        passAsArgumentToMainFunction("Deno.args")
+    }
+}
+```
+
+The function is executed at runtime. It takes the JS expression and uses it as the `args: Array<String>` argument instead
+of the `main()` function call.
+
+Also, if you use the Node.js runtime, you can take advantage of a special alias. It allows passing `process.argv` to the
+`args` parameter once instead of adding it manually every time:
+
+```kotlin
+kotlin {
+    js {
+        binary.executable()
+        nodejs {
+            passProcessArgvToMainFunction()
+        }
+    }
+}
+```
+
 ### Support for type-safe plain JavaScript objects
 
 > The `js-plain-objects` plugin is [Experimental](components-stability.md#stability-levels-explained).
@@ -861,6 +943,7 @@ keep in mind that you might encounter deprecation warnings or some new Gradle fe
 This version brings the following changes:
 
 * [New Gradle DSL for compiler options in multiplatform projects](#new-gradle-dsl-for-compiler-options-in-multiplatform-projects)
+* [New Compose compiler Gradle plugin](#new-compose-compiler-gradle-plugin)
 * [New attribute to distinguish JVM and Android published libraries](#new-attribute-to-distinguish-jvm-and-android-published-libraries)
 * [Improved Gradle dependency handling for CInteropProcess in Kotlin/Native](#improved-gradle-dependency-handling-for-cinteropprocess-in-kotlin-native)
 * [Visibility changes in Gradle](#visibility-changes-in-gradle)
@@ -920,6 +1003,18 @@ When configuring your project, keep in mind that some old ways of setting up com
 
 We encourage you to try the new DSL out in your multiplatform projects and leave feedback in [YouTrack](https://kotl.in/issue),
 as we plan to make this DSL the recommended approach for configuring compiler options.
+
+### New Compose compiler Gradle plugin
+
+The Jetpack Compose compiler, which translates composables into Kotlin code, has been merged into the Kotlin repository.
+This will help with the transition of Compose projects to Kotlin 2.0.0, as the Compose compiler will always be released
+simultaneously with Kotlin. Additionally, this update also bumps the Compose compiler to version 2.0.0.
+
+To use the new Compose compiler in your projects, apply the Gradle plugin in your `build.gradle.kts` file and set its
+version equal to the Kotlin version (2.0.0-RC2 or newer).
+
+To learn more about this change and see the migration instructions,
+see the [Compose compiler](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compiler.html) documentation.
 
 ### New attribute to distinguish JVM and Android published libraries
 
@@ -1167,7 +1262,16 @@ Since Kotlin %kotlinEapVersion%, the following DSLs for specifying compiler opti
 
 For more information on how to specify compiler options in the Kotlin Gradle plugin, see [How to define options](gradle-compiler-options.md#how-to-define-options).
 
-## Standard library: Stable AutoCloseable interface
+## Standard library
+
+This release brings further stability to the Kotlin standard library and makes even more existing functions common for all platforms:
+
+* [Stable AutoCloseable interface](#stable-autocloseable-interface)
+* [Common protected property AbstractMutableList.modCount](#common-protected-property-abstractmutablelist-modcount)
+* [Common protected function AbstractMutableList.removeRange](#common-protected-function-abstractmutablelist-removerange)
+* [Common String.toCharArray(destination)](#common-string-tochararray-destination-function)
+
+### Stable AutoCloseable interface
 
 In Kotlin %kotlinEapVersion%, the common [`AutoCloseable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-auto-closeable/)
 interface becomes [Stable](components-stability.md#stability-levels-explained). It allows you to easily close resources
@@ -1216,11 +1320,58 @@ fun writeBooksTo(writer: XMLWriter) {
 }
 ```
 
+### Common protected property AbstractMutableList.modCount
+
+The release makes the [`modCount`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-mutable-list/mod-count.html)
+`protected` property of the `AbstractMutableList` interface common. Previously, the `modCount` property was available on
+each platform but not for the common target. Now, you can create custom implementations of `AbstractMutableList` and
+access the property in common code.
+
+The property keeps track of the number of structural modifications made to the collection. This includes operations that
+change the collection's size or alter the list in a way that iterations in progress may return incorrect results.
+
+You can use the `modCount` property to register and detect concurrent modifications when implementing a custom list.
+
+### Common protected function AbstractMutableList.removeRange
+
+The release makes the [`removeRange()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-mutable-list/remove-range.html)
+`protected` function of the `AbstractMutableList` interface common.
+Previously, on each platform but not for the common target. Now, you can create custom implementations of `AbstractMutableList`
+and override the function in common code.
+
+The function removes elements from this list following the specified range. By overriding this function, you can take
+advantage of the custom implementations and improve the performance of the list operation.
+
+### Common String.toCharArray(destination) function
+
+This release introduces a common [`String.toCharArray(destination)`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-char-array.html)
+function. Previously, it was only available on the JVM.
+
+Let's compare it with the existing [`String.toCharArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-char-array.html)
+function. This function creates a new `CharArray` that contains characters from the specified string. The common
+`String.toCharArray(destination)`, however, moves `String` characters into an existing destination `CharArray`,
+which is useful if you already have a buffer that you want to fill:
+
+```kotlin
+fun main() {
+    val myString = "Kotlin is awesome!"
+    val destinationArray = CharArray(myString.length) 
+   
+    // Convert the string and store it in the destinationArray:
+    myString.toCharArray(destinationArray) 
+   
+    for (char in destinationArray) {
+        print("$char ")
+    }
+}
+```
+{kotlin-runnable="true"}
+
 ## What to expect from upcoming Kotlin EAP releases
 
 Starting from **Kotlin 2.0.0-RC1**, you can use the K2 compiler in production.
 
-The upcoming 2.0.0-RC2 release will further increase the stability of the K2 compiler.
+The upcoming release candidates will further increase the stability of the K2 compiler.
 If you are currently using K2 in your project, 
 we encourage you to stay updated on Kotlin releases and experiment with the updated K2 compiler. 
 [Share your feedback on using Kotlin K2](#leave-your-feedback-on-the-new-k2-compiler).
