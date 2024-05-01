@@ -34,7 +34,7 @@ This guide:
 * Highlights changes you might encounter during migration and how to adapt your code accordingly.
 * Describes how you can roll back to the previous version.
 
-> The new K2 compiler is enabled by default starting with Kotlin 2.0.0. For more information on the new features provided
+> The new K2 compiler is enabled by default starting with %kotlinEapVersion%. For more information on the new features provided
 > in Kotlin 2.0.0, as well as the new K2 compiler, see [What's new in Kotlin %kotlinEapVersion%](whatsnew-eap.md).
 >
 {type="note"}
@@ -499,9 +499,9 @@ class Expanded                                 // Visibility is public by defaul
 
 ## How to enable the Kotlin K2 compiler
 
-Starting with Kotlin 2.0.0, the Kotlin K2 compiler is enabled by default.
+Starting with Kotlin %kotlinEapVersion%, the Kotlin K2 compiler is enabled by default.
 
-To upgrade the Kotlin version, change it to 2.0.0 in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
+To upgrade the Kotlin version, change it to %kotlinEapVersion% in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
 [Maven](maven.md#configure-and-enable-the-plugin) build scripts.
 
 ### Use Kotlin build reports with Gradle
@@ -547,7 +547,7 @@ IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 Kotli
 
 ## How to roll back to the previous compiler
 
-To use the previous compiler in Kotlin 2.0.0, either:
+To use the previous compiler in Kotlin %kotlinEapVersion%, either:
 
 * In your `build.gradle.kts` file, [set your language version](gradle-compiler-options.md#example-of-setting-a-languageversion) to `1.9`.
 
@@ -635,21 +635,20 @@ If you have the following Kotlin code, where instances of the `Container` class 
 method will always generate an error. However, only from Kotlin 2.0.0 will the synthetic `foo` property trigger an error:
 
 ```kotlin
-fun exampleFunction(firstContainer: Container<*>, secondContainer: Container<in Number>, sampleString: String) {
-    container.setFoo(sampleString) 
-    // Error since Kotlin 1.0
-    
-    // Synthetic setter `foo` is resolved to the `setFoo()` method
-    container.foo = sampleString
-    // Error since Kotlin 2.0.0
-
-    secondContainer.setFoo(sampleString) 
+fun exampleFunction(starProjected: Container<*>, inProjected: Container<in Number>, sampleString: String) {
+    starProjected.setFoo(sampleString)
     // Error since Kotlin 1.0
 
     // Synthetic setter `foo` is resolved to the `setFoo()` method
-    secondContainer.foo = sampleString
+    starProjected.foo = sampleString
     // Error since Kotlin 2.0.0
-    
+
+    inProjected.setFoo(sampleString)
+    // Error since Kotlin 1.0
+
+    // Synthetic setter `foo` is resolved to the `setFoo()` method
+    inProjected.foo = sampleString
+    // Error since Kotlin 2.0.0
 }
 ```
 
@@ -731,6 +730,8 @@ class Generic<T>
 
 // Creates an instance of Generic class with type Some<String>
 fun gen() = Generic<Some<String>>()
+
+fun takeString(g: Generic<Some<String>>) {}
 ```
 
 </td>
@@ -746,8 +747,6 @@ in module one:
 
 ```kotlin
 // Module three
-fun takeString(g: Generic<Some<String>>) {}
-
 fun test() {
     // Triggers a warning in Kotlin 2.0.0
     val z = gen()
@@ -805,7 +804,7 @@ fun main() {
 }
 ```
 
-Given the above, `a` resolves to the Kotlin property within the `Derived` Kotlin class, whereas `b` resolves to
+Prior to Kotlin 2.0.0, `a` resolves to the Kotlin property within the `Derived` Kotlin class, whereas `b` resolves to
 the Java field in the `Base` Java class.
 
 In Kotlin 2.0.0, the resolution behavior in the example is consistent, ensuring that the Kotlin property supersedes the
@@ -862,40 +861,6 @@ fun main() {
     // a
 }
 ```
-
-In case a Java class contains a field and a synthetic property of the same name, the field supersedes the property. For example:
-
-<table header-style="top">
-   <tr>
-       <td>Java</td>
-       <td>Kotlin</td>
-   </tr>
-   <tr>
-<td>
-
-```java
-public class JavaClass {
-    public final String name;
-
-    public String getName() {
-        return name;
-    }
-}
-```
-
-</td>
-<td>
-
-```kotlin
-fun main() {
-    // Resolves Java field: name
-    JavaClass.name
-}
-```
-
-</td>
-</tr>
-</table>
 
 **What's the best practice now?**
 
