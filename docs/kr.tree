@@ -362,7 +362,7 @@
 
     <toc-element toc-title="Compiler and plugins">
         <toc-element toc-title="Compiler">
-            <toc-element toc-title="K2 compiler migration guide" id="k2-compiler-guide.md"/>
+            <toc-element toc-title="K2 compiler migration guide" id="k2-compiler-migration-guide.md" accepts-web-file-names="k2-compiler-guide.html"/>
             <toc-element toc-title="Command-line compiler" id="command-line.md"/>
             <toc-element toc-title="Compiler options" id="compiler-reference.md"/>
         </toc-element>
