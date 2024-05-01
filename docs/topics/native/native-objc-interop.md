@@ -149,7 +149,7 @@ package my.library
 fun foo() {}
 ```
 
-You can them call the `foo()` function from Swift like this:
+You can then call the `foo()` function from Swift like this:
 
 ```swift
 MyLibraryUtilsKt.foo()
