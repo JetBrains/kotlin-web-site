@@ -96,7 +96,7 @@ As you can see, there are a few Kotlin-specific artifacts added to the Gradle bu
 
    ![Main.kt with main fun](jvm-gradle-view-build.png){width=700}
 
-2. Execute **build** Gradle task in `Tasks\build\`. In the **Build** window, `BUILD SUCCESSFUL` appears.
+2. Execute the **build** Gradle task in `Tasks\build\`. In the **Build** window, `BUILD SUCCESSFUL` appears.
    It means that Gradle built the application successfully.
 
 3. In `src/main/kotlin`, open the `Main.kt` file:
