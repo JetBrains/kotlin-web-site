@@ -53,3 +53,26 @@ valid values for each field.
 
 If a new privacy manifest doesn't help satisfy App Store requirements or you cannot figure out how to go through the steps,
 contact us and share your case in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-67603).
+
+## Tool for searching usages of required reason API in dependencies
+
+In some cases, it may be hard for you to find out from which dependency the required reason API usage comes from. To assist you, we've built a simple tool.
+
+To use it, run the following command in the directory of your project where Kotlin framework declaration (TODO not sure if it's comprehensible) is located
+```python3 -c "$(curl -fsSL https://github.com/JetBrains/kotlin/raw/rrf_v0.0.1/libraries/tools/required-reason-finder/required_reason_finder.py)"```
+You also may download the script separately, inspect it, and run it via `python3`.
+
+### Known usages
+
+#### Compose Multiplatform
+
+Compose Multiplatform rendering engine, Skia, is using `stat` and `fstat` symbols at the moment. Please follow [the issue](https://github.com/JetBrains/compose-multiplatform/issues/4738) for updates.
+
+Currently, we recommend specifying TODO reason in the privacy manifest for this usage.
+
+
+#### Kotlin/Native runtime in versions 1.9.10 or lower
+
+There is a usage of `mach_absolute_time` in `mimalloc` allocator in K/N runtime. This allocator was enabled by default in version 1.9.10 and lower.
+
+We recommend upgrading your Kotlin version or changing the [allocator setting](TODO proper link) if the upgrade is not possible.
