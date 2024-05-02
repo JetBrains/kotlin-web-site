@@ -21,6 +21,10 @@
   background-color: #f4f4f4;
 }
 
+.theme-dark .app-feedback-popup > .feedback__popup {
+  border-color: #d1d1d2;
+}
+
 @media screen and (max-width: 640px) {
   .app-feedback-popup > .feedback__popup {
     top: 0;
