@@ -42,7 +42,7 @@ export function initFeedback() {
         closePopup();
     });
 
-    const form = document.querySelector('.app-feedback-popup > form');
+    const form = document.querySelector('.app-feedback-popup form');
 
     form.addEventListener('input', function() {
         const fields = form.elements;

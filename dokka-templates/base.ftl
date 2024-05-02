@@ -66,7 +66,8 @@
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5P98');</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <#if "${process.env.DOKKA_FEEDBACK}" == "true">
-    <div class="feedback__popup feedback__popup--theme-light app-feedback-popup app-feedback-popup_close" data-test="feedback-popup">
+<div class="feedback__popup-wrapper app-feedback-popup app-feedback-popup_close">
+    <div class="feedback__popup feedback__popup--theme-light" data-test="feedback-popup">
         <form autocomplete="on">
             <div class="feedback__head feedback__head--theme-light" data-test="feedback-head">
                 <legend class="feedback__legend">How can we improve?</legend>
@@ -112,6 +113,7 @@
             </div>
         </form>
     </div>
+</div>
 </#if>
 </body>
 </html>
