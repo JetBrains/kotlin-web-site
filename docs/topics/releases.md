@@ -59,6 +59,16 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>1.9.24</strong>
+            <p>Released: <strong>May 6, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.24" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 1.9.20, 1.9.21, 1.9.22, and 1.9.23.</p>
+            <p>Learn more about Kotlin 1.9.20 in <a href="whatsnew1920.md" target="_blank">What's new in Kotlin 1.9.20</a>.</p>
+        </td>
+    </tr>
+    <tr>
         <td><strong>1.9.23</strong>
             <p>Released: <strong>March 7, 2024</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.23" target="_blank">Release on GitHub</a></p>
