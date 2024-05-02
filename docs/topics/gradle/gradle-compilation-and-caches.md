@@ -5,6 +5,7 @@ On this page, you can learn about the following topics:
 * [Gradle build cache support](#gradle-build-cache-support)
 * [Gradle configuration cache support](#gradle-configuration-cache-support)
 * [The Kotlin daemon and how to use it with Gradle](#the-kotlin-daemon-and-how-to-use-it-with-gradle)
+* [Rolling back to the previous compiler](#rolling-back-to-the-previous-compiler)
 * [Defining Kotlin compiler execution strategy](#defining-kotlin-compiler-execution-strategy)
 * [Kotlin compiler fallback strategy](#kotlin-compiler-fallback-strategy)
 * [Build reports](#build-reports)
@@ -278,25 +279,18 @@ When configuring the Kotlin daemon's JVM arguments, note that:
   {type="note"}
 * If the `Xmx` argument is not specified, the Kotlin daemon will inherit it from the Gradle daemon.
 
-## The new Kotlin compiler
+## Rolling back to the previous compiler
 
-The new Kotlin K2 compiler is in [Beta](components-stability.md#stability-levels-explained).
-It has basic support for Kotlin JVM, Native, Wasm, and JS projects.
+From Kotlin 2.0.0, the K2 compiler is used by default.
 
-The new compiler aims to speed up the development of new language features, unify all of the platforms Kotlin supports,
-bring performance improvements, and provide an API for compiler extensions.
+To use the previous compiler from Kotlin 2.0.0 onwards, either:
 
-The K2 compiler will become the default starting with Kotlin 2.0. To try it in your projects now and check the performance,
-use the `kotlin.experimental.tryK2=true` Gradle property or run the following command:
+* In your `build.gradle.kts` file, [set your language version](gradle-compiler-options.md#example-of-setting-a-languageversion) to `1.9`.
 
-```shell
-./gradlew assemble -Pkotlin.experimental.tryK2=true
-```
+  OR
+* Use the following compiler option: `-language-version 1.9`.
 
-This Gradle property automatically sets the default language version to 2.0 and updates the [build report](#build-reports)
-with the number of Kotlin tasks compiled using the K2 compiler compared to the current compiler.
-
-Learn more about the stabilization of the K2 compiler in our [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/02/k2-kotlin-2-0/)
+To learn more about the benefits of the K2 compiler, see the [K2 compiler migration guide](k2-compiler-migration-guide.md).
 
 ## Defining Kotlin compiler execution strategy
 
@@ -432,7 +426,7 @@ There are two common cases that analyzing build reports for long-running compila
   save separate classes in different files, refactor large classes, declare top-level functions in different files, and so on.
 
 Build reports also show the Kotlin version used in the project. In addition, starting with Kotlin 1.9.0,
-you can see whether the current or the [K2 compiler](#the-new-kotlin-compiler) was used to compile the code in your [Gradle build scans](https://scans.gradle.com/).
+you can see which compiler was used to compile the code in your [Gradle build scans](https://scans.gradle.com/).
 
 Learn [how to read build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_to_read_build_reports) 
 and about [how JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_we_use_build_reports_in_jetbrains).
