@@ -6,7 +6,7 @@
 
 .app-feedback-popup > .feedback__popup {
   position: fixed;
-  z-index: 25;
+  z-index: 910;
   right: 22px;
   bottom: 22px;
   overflow-x: hidden;
@@ -70,7 +70,7 @@
     display: block;
     content: '';
     position: fixed;
-    z-index: 20;
+    z-index: 906;
     top: 0;
     right: 0;
     bottom: 0;
