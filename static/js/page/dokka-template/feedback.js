@@ -61,11 +61,18 @@ export function initFeedback() {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
 
+            const content= document.getElementById('content');
+            const articleId = content && content.getAttribute('pageids');
+            const titleNode = document.querySelector('h1.cover');
+            const title = titleNode && titleNode.textContent;
+
             window.fetch('https://forms-service.jetbrains.com/feedback', {
                 'method': 'POST',
                 'mode': 'cors',
                 'credentials': 'omit',
                 'body': JSON.stringify({
+                    articleId: articleId || 'core-api',
+                    title: title || 'Core API: Untitled',
                     content: fields.content.value || '',
                     name: fields.name.value || '',
                     email: fields.email.value || '',
