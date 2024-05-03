@@ -205,4 +205,21 @@ For fully stable versions of the compiler, the default binary compatibility prot
 
 This protocol is designed for comfortable updates as no project can be blocked from updating its dependencies even if it's using a slightly outdated compiler.
 
-Please note that not all target platforms have reached this level of stability (but Kotlin/JVM has).
+Note that not all target platforms have reached this level of stability, but Kotlin/JVM has.
+
+#### Kotlin klib binaries
+
+Kotlin klib binaries have reached the [Stable](components-stability.md#stability-levels-explained) level in Kotlin 1.9.20.
+However, there are some compatibility specifics you need to keep in mind:
+
+* klib binaries are backwards compatible starting with Kotlin 1.9.20, for example, the 2.0.* compiler can read binaries
+  produced by the 1.9.* compiler.
+* klib binaries are compatible within the same language or feature version, for example, the 2.0.* compiler can read
+  binaries produced by the 2.0.* compiler.
+* Forward compatibility is _not_ guaranteed, for example, the 2.0.* compiler cannot read binaries produced by the 2.1.*
+  compiler.
+
+> The Kotlin cinterop klib binaries are still in [Beta](components-stability.md#stability-levels-explained).
+> Currently, we cannot guarantee exact compatibility between different Kotlin versions for them.
+> 
+{type="note"}
