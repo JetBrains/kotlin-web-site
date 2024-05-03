@@ -26,49 +26,55 @@ function toggleSubmit(val) {
 }
 
 export function initFeedback() {
-    document.querySelector('[data-test="feedback-yes"]').addEventListener('click', function(e) {
-        e.preventDefault();
-        closePopup();
-        showThanks();
-    });
+    const feedback = document.querySelector('.feedback');
 
-    document.querySelector('[data-test="feedback-no"]').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector('.app-feedback-popup').classList.remove('app-feedback-popup_close');
-    });
+    if (feedback) {
+        feedback.querySelector('[data-test="feedback-yes"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            closePopup();
+            showThanks();
+        });
 
-    document.querySelector('[data-test="feedback-close"]').addEventListener('click', function(e) {
-        e.preventDefault();
-        closePopup();
-    });
+        feedback.querySelector('[data-test="feedback-no"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.app-feedback-popup').classList.remove('app-feedback-popup_close');
+        });
+    }
 
     const form = document.querySelector('.app-feedback-popup form');
 
-    form.addEventListener('input', function() {
-        const fields = form.elements;
-        const emailValid = fields.email.value === '' || fields.email.validity.valid;
-
-        toggleEmail(emailValid);
-        toggleSubmit(fields.content.value !== '' && emailValid);
-    });
-
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+    if (form) {
         const fields = form.elements;
 
-        window.fetch('https://forms-service.jetbrains.com/feedback', {
-            'method': 'POST',
-            'mode': 'cors',
-            'credentials': 'omit',
-            'body': JSON.stringify({
-                content: fields.content.value || '',
-                name: fields.name.value || '',
-                email: fields.email.value || '',
-                url: document.location.href || ''
-            })
+        form.querySelector('[data-test="feedback-close"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            closePopup();
         });
 
-        showThanks();
-        closePopup();
-    });
+        form.addEventListener('input', function() {
+            const emailValid = fields.email.value === '' || fields.email.validity.valid;
+
+            toggleEmail(emailValid);
+            toggleSubmit(fields.content.value !== '' && emailValid);
+        });
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            window.fetch('https://forms-service.jetbrains.com/feedback', {
+                'method': 'POST',
+                'mode': 'cors',
+                'credentials': 'omit',
+                'body': JSON.stringify({
+                    content: fields.content.value || '',
+                    name: fields.name.value || '',
+                    email: fields.email.value || '',
+                    url: document.location.href || ''
+                })
+            });
+
+            showThanks();
+            closePopup();
+        });
+    }
 }
