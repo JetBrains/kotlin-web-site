@@ -1,5 +1,7 @@
 [//]: # (title: Adding dependencies on multiplatform libraries)
 
+<meta name=”robots” content=”noindex” />
+
 Every program requires a set of libraries to operate successfully. A Kotlin Multiplatform project can depend on
 multiplatform libraries that work for all target platforms, platform-specific libraries, and other multiplatform projects.
 
