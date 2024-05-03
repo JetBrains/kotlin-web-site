@@ -67,16 +67,19 @@ export function initFeedback() {
             const title = titleNode && titleNode.textContent;
 
             window.fetch('https://forms-service.jetbrains.com/feedback', {
-                'method': 'POST',
-                'mode': 'cors',
-                'credentials': 'omit',
-                'body': JSON.stringify({
-                    articleId: articleId || 'core-api',
-                    title: title || 'Core API: Untitled',
+                method: 'POST',
+                mode: 'cors',
+                credentials: 'omit',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify({
                     content: fields.content.value || '',
                     name: fields.name.value || '',
                     email: fields.email.value || '',
-                    url: document.location.href || ''
+                    url: document.location.href || '',
+                    articleId: articleId || 'core-api',
+                    title: title || 'Core API: Untitled'
                 })
             });
 
