@@ -86,8 +86,7 @@
             </label></div>
             <div class="feedback__field"><div class="feedback__description feedback__description--theme-light">
                     Enter your name and email address if you would like to receive a&nbsp;follow-up message or&nbsp;<a class="link"
-              data-test="feedback-support-link"
-              href="https://intellij-support.jetbrains.com/hc/en-us/?intellij-idea"
+              data-test="feedback-support-link" href="https://kotl.in/issue"
               rel="noreferrer" target="_blank">contact our support</a>.</div></div>
             <div class="feedback__field">
                 <div class="_container_1fowpgw_10 _container_1fowpgw_10 _classic_1fowpgw_44 _sizeM_1fowpgw_125 _enabled_1fowpgw_27" data-test="input"><label>
