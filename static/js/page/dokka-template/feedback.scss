@@ -56,6 +56,9 @@
     display: none
   }
 }
+.no-js .feedback-wrapper {
+  display: none;
+}
 
 @media screen and (max-width: 640px) {
   .feedback {
