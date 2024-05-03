@@ -38,7 +38,6 @@ on macOS/iOS are available this way.
 Install libgit2 and prepare stubs for the git library:
 
 ```bash
-
 cd samples/gitchurn
 ../../dist/bin/cinterop -def src/nativeInterop/cinterop/libgit2.def \
  -compiler-option -I/usr/local/include -o libgit2
@@ -172,9 +171,9 @@ linkerOpts = -lpng
 Target-specific options only applicable to the certain target can be specified as well:
 
 ```c
- compilerOpts = -DBAR=bar
- compilerOpts.linux_x64 = -DFOO=foo1
- compilerOpts.macos_x64 = -DFOO=foo2
+compilerOpts = -DBAR=bar
+compilerOpts.linux_x64 = -DFOO=foo1
+compilerOpts.macos_x64 = -DFOO=foo2
  ```
 
 With such a configuration, C headers will be analyzed with `-DBAR=bar -DFOO=foo1` on Linux and
@@ -270,6 +269,7 @@ type support all the Kotlin operations related to handling `null`, e.g. `?:`, `?
 `!!` etc.:
 
 ```kotlin
+@OptIn(ExperimentalForeignApi::class)
 val path = getenv("PATH")?.toKString() ?: ""
 ```
 
@@ -277,7 +277,8 @@ Since the arrays are also mapped to `CPointer<T>`, it supports the `[]` operator
 for accessing values by index:
 
 ```kotlin
-fun shift(ptr: CPointer<BytePtr>, length: Int) {
+@OptIn(ExperimentalForeignApi::class)
+fun shift(ptr: CPointer<ByteVar>, length: Int) {
     for (index in 0 .. length - 2) {
         ptr[index] = ptr[index + 1]
     }
@@ -339,7 +340,7 @@ It corresponds to allocating native memory with `malloc` and provides an additio
 
 ```kotlin
 val buffer = nativeHeap.allocArray<ByteVar>(size)
-<use buffer>
+// <use buffer>
 nativeHeap.free(buffer)
 ```
 
@@ -353,6 +354,7 @@ For example, the C function returning values through pointer parameters can be
 used like
 
 ```kotlin
+@OptIn(ExperimentalForeignApi::class)
 val fileSize = memScoped {
     val statBuf = alloc<stat>()
     val error = stat("/", statBuf.ptr)
@@ -435,7 +437,7 @@ memScoped {
 ### Scope-local pointers
 
 It is possible to create a scope-stable pointer of C representation of `CValues<T>`
-instance using the `CValues<T>.ptr` extension property, available under `memScoped { ... }`.
+instance using the `CValues<T>.ptr` extension property, available under `memScoped { }`.
 It allows using the APIs which require C pointers with a lifetime bound to a certain `MemScope`. For example:
 
 ```kotlin
@@ -443,7 +445,7 @@ memScoped {
     items = arrayOfNulls<CPointer<ITEM>?>(6)
     arrayOf("one", "two").forEachIndexed { index, value -> items[index] = value.cstr.ptr }
     menu = new_menu("Menu".cstr.ptr, items.toCValues().ptr)
-    ...
+    // ...
 }
 ```
 
@@ -493,6 +495,7 @@ Such wrapping is possible with `StableRef` class.
 To wrap the reference:
 
 ```kotlin
+@OptIn(ExperimentalForeignApi::class)
 val stableRef = StableRef.create(kotlinReference)
 val voidPtr = stableRef.asCPointer()
 ```
@@ -502,6 +505,7 @@ where the `voidPtr` is a `COpaquePointer` and can be passed to the C function.
 To unwrap the reference:
 
 ```kotlin
+@OptIn(ExperimentalForeignApi::class)
 val stableRef = voidPtr.asStableRef<KotlinClass>()
 val kotlinReference = stableRef.get()
 ```
@@ -577,6 +581,7 @@ methods, depending on `type`.
 The example of using `convert`:
 
 ```kotlin
+@OptIn(ExperimentalForeignApi::class)
 fun zeroMemory(buffer: COpaquePointer, size: Int) {
     memset(buffer, 0, size.convert<size_t>())
 }
@@ -591,7 +596,8 @@ Kotlin objects could be pinned, i.e. their position in memory is guaranteed to b
 until unpinned, and pointers to such objects inner data could be passed to the C functions. For example
 
 ```kotlin
-fun readData(fd: Int): String {
+@OptIn(ExperimentalForeignApi::class)
+fun readData(fd: Int) {
     val buffer = ByteArray(1024)
     buffer.usePinned { pinned ->
         while (true) {
