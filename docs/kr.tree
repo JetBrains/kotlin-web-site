@@ -136,7 +136,7 @@
             <toc-element id="multiplatform-hierarchy.md" accepts-web-file-names="migrating-multiplatform-project-to-14.html"/>
         </toc-element>
         <toc-element toc-title="Add dependencies">
-            <toc-element id="multiplatform-add-dependencies.md" toc-title="On multiplatform libraries" accepts-web-file-names="mpp-add-dependencies.html"/>
+            <toc-element id="multiplatform-add-dependencies.md" toc-title="On multiplatform libraries" accepts-web-file-names="mpp-add-dependencies.html" hidden="true"/>
             <toc-element id="multiplatform-android-dependencies.md" toc-title="For Android target platforms"/>
             <toc-element id="multiplatform-ios-dependencies.md" toc-title="For iOS target platforms"/>
         </toc-element>
