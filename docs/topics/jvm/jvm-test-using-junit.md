@@ -92,7 +92,7 @@ tasks.test {
 
 1. Open the `Main.kt` file in `src/main/kotlin`.
 
-   The `src` directory contains Kotlin source files and resources. The `~~Main~~.kt` file contains sample code that will print `Hello, World!`.
+   The `src` directory contains Kotlin source files and resources. The `main.kt` file contains sample code that will print `Hello, World!`.
 
 2. Create the `Sample` class with the `sum()` function that adds two integers together:
 
@@ -107,7 +107,7 @@ tasks.test {
 
 ## Create a test
 
-1. In IntelliJ IDEA, select **Code** | **Generate** | **Test...** for the `Sample` class.
+1. In IntelliJ IDEA, select **Code** | **Generate** | **Test...** for the `Sample` class:
 
    ![Create a test](generate-test.png)
 
