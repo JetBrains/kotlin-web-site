@@ -31,14 +31,14 @@ object BuildStdlibApiReference : BuildType({
 
   dependencies {
       dependency(AbsoluteId("Kotlin_KotlinRelease_1920_LibraryReferenceLatestDocs")) {
-      snapshot {
-        reuseBuilds = ReuseBuilds.SUCCESSFUL
-        onDependencyFailure = FailureAction.FAIL_TO_START
-      }
-      artifacts {
-        cleanDestination = true
-        artifactRules = "+:latest-version.zip!** => content/"
-      }
+          artifacts {
+              buildRule = tag(tag = "publish", branch = """
+                  +:<default>
+                  +:*
+              """.trimIndent())
+              cleanDestination = true
+              artifactRules = "+:latest-version.zip!** => content/"
+          }
     }
   }
 })
