@@ -240,6 +240,25 @@ install the [`cocoapods-generate`](https://github.com/square/cocoapods-generate#
 However, `cocoapods-generate` is not compatible with Ruby 3.0.0 or later. In this case, downgrade Ruby or upgrade Kotlin
 to 1.7.0 or later.
 
+### Build errors when using Xcode {initial-collapse-state="collapsed"}
+
+Some variations of CocoaPods installation can lead to build errors in Xcode.
+Generally, Kotlin Gradle Plugin discovers the `pod` executable in `PATH` but this may be inconsistent depending on
+your environment.
+
+To set the CocoaPods installation path explicitly, you can add it to the `local.properties` file of your project:
+
+* In a code editor:
+
+    ```properties
+    kotlin.apple.cocoapods.bin=/Users/Jane.Doe/.rbenv/shims/pod
+    ```
+* Or in a terminal, running the following command:
+
+    ```shell
+    echo -e "kotlin.apple.cocoapods.bin=$(which pod)" >> local.properties
+    ```
+
 ### Module not found {initial-collapse-state="collapsed"}
 
 You may encounter a `module 'SomeSDK' not found` error that is connected with the [C-interop](native-c-interop.md) issue.
