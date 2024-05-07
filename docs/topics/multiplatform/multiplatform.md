@@ -1,7 +1,7 @@
 [//]: # (title: Kotlin Multiplatform)
 [//]: # (description: Kotlin Multiplatform allows creating cross-platform apps for desktop, web, and mobile devices.
 Share application logic while keeping native user experience.)
-
+⁹
 The Kotlin Multiplatform technology is designed to simplify the development of cross-platform projects. It reduces time
 spent writing and maintaining the same code for [different platforms](#kotlin-multiplatform-use-cases)
 while retaining the flexibility and benefits of native programming.
