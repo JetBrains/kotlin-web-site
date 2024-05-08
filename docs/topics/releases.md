@@ -60,7 +60,7 @@ If you are migrating to the new feature release, Kotlin plugin's migration tools
 
 ## IDE support
 
-Despite the release of the K2 compiler, IntelliJ IDEA and Android Studio still use the K1 compiler by default 
+Even with the release of the K2 compiler, IntelliJ IDEA and Android Studio still use the K1 compiler by default 
 for code analysis, code completion, highlighting, and other IDE-related features.
 
 Starting from 2024.1, IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 Kotlin mode.
