@@ -14,7 +14,7 @@
 
     <var name="kotlinEapReleaseDate" value="May 10, 2024" type="string"/>
 
-    <var name="coroutinesVersion" value="1.7.3" type="string"/>
+    <var name="coroutinesVersion" value="1.8.1" type="string"/>
 
     <var name="coroutinesEapVersion" value="1.7.3" type="string"/>
 
@@ -32,7 +32,7 @@
 
     <var name="gradleApiVersion" value="KOTLIN_2_0" type="string"/>
 
-    <var name="serializationVersion" value="1.6.0" type="string"/>
+    <var name="serializationVersion" value="1.6.3" type="string"/>
 
     <var name="defaultJvmTargetVersion" value="1.8" type="string"/>
 
@@ -44,13 +44,13 @@
 
     <var name="sqlDelightVersion" value="2.0.0" type="string"/>
 
-    <var name="kspSupportedKotlinVersion" value="1.9.23" type="string"/>
+    <var name="kspSupportedKotlinVersion" value="1.9.24" type="string"/>
 
     <var name="kspVersion" value="1.0.20" type="string"/>
 
-    <var name="ktorVersion" value="2.3.5" type="string"/>
+    <var name="ktorVersion" value="2.3.11" type="string"/>
 
-    <var name="dateTimeVersion" value="0.4.0" type="string"/>
+    <var name="dateTimeVersion" value="0.5.0" type="string"/>
 
     <var name="foojayResolver" value="0.5.0" type="string"/>
 
