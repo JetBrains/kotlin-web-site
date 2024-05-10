@@ -784,8 +784,8 @@ Among other changes, this version brings modern JS compilation to Kotlin, suppor
 * [Suspend functions as ES2015 generators](#suspend-functions-as-es2015-generators)
 * [Passing arguments to the main function](#passing-arguments-to-the-main-function)
 * [Per-file compilation for Kotlin/JS projects](#per-file-compilation-for-kotlin-js-projects)
-* [Improved collection interoperability](#improved-collection-interoperablilty)
-* [Support for createInstance()](#support-for-createInstance)
+* [Improved collection interoperability](#improved-collection-interoperability)
+* [Support for createInstance()](#support-for-createinstance)
 * [Support for type-safe plain JavaScript objects](#support-for-type-safe-plain-javascript-objects)
 * [Support for npm package manager](#support-for-npm-package-manager)
 
