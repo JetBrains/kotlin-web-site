@@ -882,10 +882,10 @@ if the file contains exported declarations) JavaScript file per each Kotlin file
 
 2. Apply the `-Xir-per-file` compiler option or update your `gradle.properties` file with:
 
-  ```none
-  # gradle.properties
-  kotlin.js.ir.output.granularity=per-file // `per-module` is the default
-  ```
+   ```none
+   # gradle.properties
+   kotlin.js.ir.output.granularity=per-file // `per-module` is the default
+   ```
 
 ### Improved collection interoperability
 
@@ -898,14 +898,14 @@ To use Kotlin collections in JavaScript, first mark the necessary declarations w
 // Kotlin
 @JsExport
 data class User(
-  val name: String,
-  val friends: List<User> = emptyList()
+    val name: String,
+    val friends: List<User> = emptyList()
 )
 
 @JsExport
 val me = User(
-  name = "Me",
-  firends = listOf(User(name = "Kodee"))
+    name = "Me",
+    firends = listOf(User(name = "Kodee"))
 )
 ```
 
@@ -1364,13 +1364,13 @@ Since Kotlin %kotlinEapVersion%, the following DSLs for specifying compiler opti
   
   ```kotlin
   kotlin {
-     js(IR) {
-         compilations.all {
-             compileTaskProvider.configure {
-                 compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
-             }
-         }
-     }
+      js(IR) {
+          compilations.all {
+              compileTaskProvider.configure {
+                  compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
+              }
+          }
+      }
   }
   ```
 
@@ -1502,7 +1502,7 @@ For example:
 enum class RGB { RED, GREEN, BLUE }
 
 inline fun <reified T : Enum<T>> printAllValues() {
-print(enumEntries<T>().joinToString { it.name })
+    print(enumEntries<T>().joinToString { it.name })
 }
 
 printAllValues<RGB>()
