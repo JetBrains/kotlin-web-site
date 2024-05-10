@@ -64,7 +64,7 @@ interface Base {
     fun print()
 }
 
-class BaseImpl(val x: Int) : Base {
+class BaseImpl(x: Int) : Base {
     override val message = "BaseImpl: x = $x"
     override fun print() { println(message) }
 }
