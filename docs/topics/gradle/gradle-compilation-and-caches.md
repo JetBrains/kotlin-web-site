@@ -419,12 +419,6 @@ If there is insufficient memory to run the compilation, you can see a message ab
 
 ## Build reports
 
-> Build reports are [Experimental](components-stability.md). They may be dropped or changed at any time.
-> Opt-in is required (see details below). Use them only for evaluation purposes. We appreciate your feedback on them
-> in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
->
-{type="warning"}
-
 Build reports contain the durations of different compilation phases and any reasons why compilation couldn't be incremental.
 Use build reports to investigate performance issues when the compilation time is too long or when it differs for the same
 project.
@@ -453,22 +447,26 @@ kotlin.build.report.output=file
 
 The following values and their combinations are available for the output:
 
-| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`        | Saves build reports in a human-readable format to a local file. By default, it's `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt`                                                                                                                                                                                                                                                                                                                                               |
-| `single_file` | Saves build reports in a format of an object to a specified local file                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `build_scan`  | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost                                                                                                                                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                                               |
-| `http`        | Posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/report/data/GradleCompileStatisticsData.kt). You can find samples of HTTP endpoints in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports)   |
+| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `file`        | Saves build reports in a human-readable format to a local file. By default, it's `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt`                                                                                                                                                                                                                                                                                                                                           |
+| `single_file` | Saves build reports in a format of an object to a specified local file                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `build_scan`  | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                               |
+| `http`        | Posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/report/data/GradleCompileStatisticsData.kt). You can find samples of HTTP endpoints in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports) |
+| `json` | Saves build reports in JSON format to a local file. By default, it's `${project_name}-date-time-<sequence_number>.json`                                                                                                                                                                                                                                                                                                                                                       |
 
 Here's a list of available options for `kotlin.build.report`:
 
 ```none
 # Required outputs. Any combination is allowed
-kotlin.build.report.output=file,single_file,http,build_scan
+kotlin.build.report.output=file,single_file,http,build_scan,json
 
 # Mandatory if single_file output is used. Where to put reports 
 # Use instead of the deprecated `kotlin.internal.single.build.metrics.file` property
-kotlin.build.report.single_file=some_filename
+kotlin.build.report.single_file="my/directory/path"
+
+# Mandatory if json output is used. Where to put reports 
+kotlin.build.report.json.directory="my/directory/path"
 
 # Optional. Output directory for file-based reports. Default: build/reports/kotlin-build/
 kotlin.build.report.file.output_dir=kotlin-reports
