@@ -419,6 +419,7 @@
             <toc-element id="components-stability.md"/>
             <toc-element id="components-stability-pre-1.4.md"/>
             <toc-element toc-title="Compatibility">
+                <toc-element id="compatibility-guide-20.md"/>
                 <toc-element id="compatibility-guide-19.md"/>
                 <toc-element id="compatibility-guide-18.md"/>
                 <toc-element id="compatibility-guide-1720.md"/>
