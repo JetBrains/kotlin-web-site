@@ -51,26 +51,26 @@ Kandy's idiomatic, readable, and type-safe features let you visualize data effec
 Kotlin Notebook provides an interactive environment for running code in small chunks and seeing the results in real-time. 
 This hands-on approach enables rapid experimentation and iteration during the prototyping phase.
 
-With the help of Kotlin Notebook, you can test the concept of solutions early in the ideation stage. Additionally, Kotlin Notebook supports both 
-collaborative and reproducible work, making it easy to ideate.
+With the help of Kotlin Notebook, you can test the concepts of solutions early in the ideation stage. Additionally, Kotlin Notebook supports both 
+collaborative and reproducible work, making it easy to generate ideas.
 
 ![kotlin-notebook-prototyping](kotlin-notebook-prototyping.png){width=700}
 
 ## Backend development
 
 Kotlin Notebook offers the ability to call APIs within cells and work with protocols like OpenAPI. Its capability to 
-interact with external services and APIs does make it useful for certain backend development scenarios, such as 
+interact with external services and APIs makes it useful for certain backend development scenarios, such as 
 retrieving information and reading JSON files directly within your notebook environment.
 
 ![kotlin-notebook-backend-development](kotlin-notebook-backend-development.png){width=700}
 
 ## Code documentation
 
-In Kotlin Notebook, you have the flexibility to include inline comments and text annotations within code cells. These annotations serve to 
-provide additional context, explanations, instructions, or any documentation relevant to the code snippets.
+In Kotlin Notebook, you can include inline comments and text annotations within code cells to provide additional context, 
+explanations, and instructions relevant to the code snippets.
 
 You can write text in Markdown cells, which support rich formatting options such as headers, lists, links, images, and more. 
-To render a Markdown cell and see the formatted text, you just have to run it in the same way you run a code cell.
+To render a Markdown cell and see the formatted text, simply run it as you would a code cell.
 
 ![kotlin-notebook-documenting](kotlin-notebook-documentation.png){width=700}
 
@@ -80,13 +80,12 @@ To render a Markdown cell and see the formatted text, you just have to run it in
 Given Kotlin Notebook's adherence to the universal Jupyter format, you can easily share your code and outputs across different notebooks.
 You can open, edit, and run your Kotlin Notebook with any Jupyter client, such as [Jupyter Notebook](https://jupyter.org/) or [Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/). 
 
-You can also distribute your work by sharing the `.ipynb` notebook file with any notebook web viewer. One alternative is [GitHub](https://github.com/), 
-which renders this format out of the box. Another alternative is [JetBrain's Datalore](https://datalore.jetbrains.com/) platform, 
+You can also distribute your work by sharing the `.ipynb` notebook file with any notebook web viewer. One option is [GitHub](https://github.com/), 
+which natively renders this format. Another option is [JetBrain's Datalore](https://datalore.jetbrains.com/) platform, 
 which facilitates sharing, running, and editing notebooks with advanced features like scheduled notebook runs. 
 
 ![kotlin-notebook-sharing-datalore](kotlin-notebook-sharing-datalore.png){width=700}
 
 ## What's next
 * [Try out Kotlin Notebook.](get-started-with-kotlin-notebooks.md)
-* [Deep dive into Kotlin for data analytics.](data-analysis-overview.md)
-
+* [Deep dive into Kotlin for data analysis.](data-analysis-overview.md)
