@@ -246,14 +246,16 @@ Some variations of the CocoaPods installation can lead to build errors in Xcode.
 Generally, the Kotlin Gradle plugin discovers the `pod` executable in `PATH`, but this may be inconsistent depending on
 your environment.
 
-To set the CocoaPods installation path explicitly, you can add it to the `local.properties` file of your project:
+To set the CocoaPods installation path explicitly, you can add it to the `local.properties` file of your project
+manually or using a shell command:
 
-* In a code editor:
+* If using a code editor, add the following line to the `local.properties` file:
 
     ```properties
     kotlin.apple.cocoapods.bin=/Users/Jane.Doe/.rbenv/shims/pod
     ```
-* Or in a terminal, running the following command:
+
+* If using a terminal, run the following command:
 
     ```shell
     echo -e "kotlin.apple.cocoapods.bin=$(which pod)" >> local.properties
