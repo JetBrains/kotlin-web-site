@@ -298,6 +298,9 @@ for `commonMain` and compiles to all of the declared targets, allowing you to wr
 source sets, such as `jvmTest`, are used to write platform-specific tests, for example, JVM-specific tests or tests that
 need JVM APIs.
 
+Main source sets are compiled before test source sets. So dependencies of a test source set can be different from
+dependencies of the corresponding main source set (for example, using a different version of the same library).
+
 Besides having a source set to write your common test, you also need a multiplatform testing framework. Kotlin
 provides a default [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test) library that comes with
 the `@kotlin.Test` annotation and various assertion methods like `assertEquals` and `assertTrue`.
@@ -305,6 +308,7 @@ the `@kotlin.Test` annotation and various assertion methods like `assertEquals` 
 You can write platform-specific tests like regular tests for each platform in their respective source sets. Like with
 the main code, you can have platform-specific dependencies for each source set, such as `JUnit` for JVM and `XCTest` for
 iOS. To run tests for a particular target, use the `<targetName>Test` task.
+
 
 Learn how to create and run multiplatform tests in the [Test your multiplatform app
 tutorial](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-run-tests.html).
