@@ -5,8 +5,8 @@
 >
 {type="note"}
 
-Kotlin/Wasm relies on new [WebAssembly proposals](https://webassembly.org/roadmap/) like garbage collection and 
-exception handling to introduce improvements and new features within WebAssembly. 
+Kotlin/Wasm relies on new [WebAssembly proposals](https://webassembly.org/roadmap/) like [garbage collection](#garbage-collection-proposal) and 
+[exception handling](#exception-handling-proposal) to introduce improvements and new features within WebAssembly. 
 
 However, to ensure these features work properly, you need an environment that supports the new proposals. 
 In some cases, you may need to set up the environment to make it compatible with the proposals.
@@ -66,9 +66,28 @@ Including Chromium-based browsers such as Edge, Brave, Opera, or Samsung Interne
 WebAssembly garbage collection support is currently under
 [active development](https://bugs.webkit.org/show_bug.cgi?id=247394).
 
+## Wasm proposals support
+
+Kotlin/Wasm improvements are based on [WebAssembly proposals](https://webassembly.org/roadmap/). Here you can find details about the support for WebAssembly's 
+garbage collection and exception handling proposals. 
+
+### Garbage collection proposal
+
+Since Kotlin 1.9.20, the Kotlin toolchain uses the latest version of the [Wasm garbage collection](https://github.com/WebAssembly/gc) (WasmGC) proposal. 
+
+For this reason, we strongly recommend that you update your Wasm projects to the latest version of Kotlin. We also recommend you use the latest versions of browsers with the Wasm environment.
+
+### Exception handling proposal
+
+Since Kotlin 2.0.0, we have introduced support for the new version of Wasm [exception handling proposal](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md) within Kotlin/Wasm.
+
+This update ensures the new handling exception proposal aligns with Kotlin requirements, enabling the use of Kotlin/Wasm on virtual machines that only support the latest version of the proposal.
+
+The new exception handling proposal is activated using the `-Xwasm-use-new-exception-proposal` compiler option. It is turned off by default.
+
 <p>&nbsp;</p>
 
-> Learn more about setting up projects, using dependencies, and other tasks with our 
+> Learn more about setting up projects, using dependencies, and other tasks with our
 > [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples#readme).
 >
 {type="tip"}
