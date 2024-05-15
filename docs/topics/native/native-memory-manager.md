@@ -31,14 +31,33 @@ and waits for its completion.
 
 ### Monitor GC performance
 
-No special instruments are currently available to monitor the GC performance. However, it's possible to look through GC
-logs to diagnose issues. To enable logging, set the following compilation flag in the Gradle build script:
+To monitor the GC performance, you can look through its logs and diagnose issues. To enable logging,
+set the following compiler option in the Gradle build script:
 
 ```none
 -Xruntime-logs=gc=info
 ```
 
 Currently, the logs are only printed to `stderr`.
+
+On Apple platforms, you can take advantage of the Xcode Instruments toolkit to debug iOS app performance.
+The garbage collector reports pauses with signposts available in Instruments.
+Signposts allow for custom logging within your app, so you can check if a GC pause corresponds to the application freeze.
+
+To track GC-related pauses in your app:
+
+1. Open Xcode, go to **Product** | **Profile** or press <shortcut>Cmd + I</shortcut>. This will compile your app and
+   launch Instruments.
+2. In the template selection, select **os_signpost**.
+3. Configure it by specifying `org.kotlinlang.native.runtime` as **subsystem** and `safepoint` as **category**.
+4. Click the red record button to run your app and start recording signpost events.
+
+   ![Tracking GC pauses as signposts](native-gc-signposts.png){width=700}
+
+   Here, each blue blob on the lowest graph represents a separate signpost event, which is a GC pause.
+
+The feature is enabled by default. However, you can disable it with the `-Xbinary=enableSafepointSignposts=false`
+compiler option.
 
 ### Disable garbage collection
 
