@@ -328,7 +328,7 @@ fun main() {
     // Note how keys must be unique, so the latest value of "apple"
     // overwrites the first
     println(pairArray.toMap())
-    // {apple=140, banana=150, cherry=90}
+    // {apple=120, banana=150, cherry=90}
 
 //sampleEnd
 }
