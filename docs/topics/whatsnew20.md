@@ -1215,7 +1215,7 @@ This version brings the following changes:
 * [Bumped minimum AGP supported version](#bumped-minimum-supported-agp-version)
 * [New Gradle property to try latest language version](#new-gradle-property-to-try-latest-language-version)
 * [New JSON output format for build reports](#new-json-output-format-for-build-reports)
-* [kapt configurations inherit annotation processors from super configurations](#kapt-configurations-inherit-annotation-processors-from-super-configurations)
+* [kapt configurations inherit annotation processors from superconfigurations](#kapt-configurations-inherit-annotation-processors-from-superconfigurations)
 * [Kotlin Gradle plugin no longer uses deprecated Gradle conventions](#kotlin-gradle-plugin-no-longer-uses-deprecated-gradle-conventions)
 
 ### New Gradle DSL for compiler options in multiplatform projects
@@ -1636,7 +1636,7 @@ metrics:
     }
 ```
 
-### kapt configurations inherit annotation processors from super configurations
+### kapt configurations inherit annotation processors from superconfigurations
 
 Prior to Kotlin 2.0.0, if you wanted to define a common set of annotation processors in a separate Gradle configuration
 and extend this configuration in kapt-specific configurations for your subprojects, kapt would skip annotation
@@ -1658,7 +1658,7 @@ dependencies {
 
 In this example, the `commonAnnotationProcessors` Gradle configuration is your "common" configuration for annotation
 processing that you want to be used for all your projects. You use the [`extendsFrom()`](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html#org.gradle.api.artifacts.Configuration:extendsFrom)
-method to add "commonAnnotationProcessors" as a super configuration. kapt sees that the `commonAnnotationProcessors`
+method to add "commonAnnotationProcessors" as a superconfiguration. kapt sees that the `commonAnnotationProcessors`
 Gradle configuration has a dependency on the Dagger annotation processor and successfully includes it in its
 configuration for annotation processing.
 
