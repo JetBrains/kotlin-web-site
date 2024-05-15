@@ -99,24 +99,24 @@ under the [Kotlin Foundation](https://kotlinfoundation.org/structure/) (currentl
 The Language Committee makes final decisions on what incompatible changes will be made and what exact measures should be taken to make user updates comfortable.
 In doing so, it relies on a set of [Language committee guidelines](https://kotlinfoundation.org/language-committee-guidelines/).
 
-## Feature releases and incremental releases
+## Language and tooling releases
 
-Stable releases with versions, such as 1.9.0, 2.0.0, are usually considered to be _feature releases_ bringing major changes in the language.
-Normally, we publish _tooling releases_, numbered x.x.**20** in between feature releases. 
+Stable releases with versions, such as 2.0.0, are usually considered to be _language releases_ bringing major changes in the language.
+Normally, we publish _tooling releases_, numbered x.x.**20** in between language releases. 
 
 Tooling releases bring updates in the tooling (often including features), performance improvements, and bug fixes.
 We try to keep such versions compatible with each other,
 so changes to the compiler are mostly optimizations and warning additions/removals.
 Pre-stable features may be added, removed, or changed at any time.
 
-Feature releases often add new features and may remove or change previously deprecated ones. 
-Feature graduation from pre-stable to stable also happens in feature releases.
+Language releases often add new features and may remove or change previously deprecated ones. 
+Feature graduation from pre-stable to stable also happens in language releases.
 
 ### EAP builds
 
-Before releasing stable versions of feature and tooling releases, 
+Before releasing stable versions of language and tooling releases, 
 we publish a number of preview builds dubbed EAP (for "Early Access Preview") that let us iterate faster and gather feedback from the community.
-EAPs of feature releases usually produce binaries that will be later rejected by the stable compiler
+EAPs of language releases usually produce binaries that will be later rejected by the stable compiler
 to make sure that possible bugs in the binary format survive no longer than the preview period.
 Final Release Candidates normally do not bear this limitation.
 
@@ -170,7 +170,7 @@ Changes to the contracts for its API undergo the same procedures as changes in t
 ## Compiler options
 
 Command line options accepted by the compiler are also a kind of public API, and they are subject to the same considerations.
-Supported options (those that don't have the "-X" or "-XX" prefix) can be added only in feature releases and should be properly deprecated before removing them.
+Supported options (those that don't have the "-X" or "-XX" prefix) can be added only in language releases and should be properly deprecated before removing them.
 The "-X" and "-XX" options are experimental and can be added and removed at any time.
 
 ## Compatibility tools
@@ -186,7 +186,7 @@ one for compatibility purposes. To give you more time for migration, we [support
 for three previous language and API versions in addition to the latest stable one.
 
 Actively maintained code bases can benefit from getting bug fixes ASAP, without waiting for a full deprecation cycle to complete.
-Currently, such projects can enable the `-progressive` option and get such fixes enabled even in incremental releases.
+Currently, such projects can enable the `-progressive` option and get such fixes enabled even in tooling releases.
 
 All options are available in the command line as well as in [Gradle](gradle-compiler-options.md) and in [Maven](maven.md#specify-compiler-options).
 
@@ -200,7 +200,7 @@ For fully stable versions of the compiler, the default binary compatibility prot
 
 *   All binaries are backwards compatible; that means a newer compiler can read older binaries (for example, 1.3 understands 1.0 through 1.2).
 *   Older compilers reject binaries that rely on new features (for example, the 1.0 compiler rejects binaries that use coroutines).
-*   Preferably (but we can't guarantee it), the binary format is mostly forwards compatible with the next feature release, but not later ones 
+*   Preferably (but we can't guarantee it), the binary format is mostly forwards compatible with the next language release, but not later ones 
     (in the cases when new features are not used, for example, 1.3 can understand most binaries from 1.4, but not 1.5).
 
 This protocol is designed for comfortable updates as no project can be blocked from updating its dependencies even if it's using a slightly outdated compiler.

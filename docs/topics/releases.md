@@ -2,16 +2,18 @@
 
 Since Kotlin 2.0.0, we ship the following types of releases:
 
-* _Language releases_ (2._x_._0_) that bring major changes in the language. Released once in 6 months.
+* _Language releases_ (2._x_._0_) that bring major changes in the language and include tooling updates. Released once in 6 months.
 * _Tooling releases_ (2._x_._20_) that are shipped between language releases and include updates in the tooling,
     performance improvements, and bug fixes.
     Released in 3 months after corresponding _language release_.
 * _Bug fix releases_ (2._x_._yz_) that include bug fixes for _tooling releases_. There is no exact release schedule for these releases.
 
+<!-- TODO: uncomment with 2.1.0 release
 > For example, for the feature release 1.8.0, we had only one tooling release 1.8.20,
 > and several bugfix releases including 1.8.21, 1.8.22.
 >
 {type="tip"}
+-->
 
 For each language and tooling release, we also ship several preview (_EAP_) versions for you to try
 new features before they are released. See [Early Access Preview](eap.md) for details.
@@ -56,7 +58,7 @@ plugins {
 If you have projects created with earlier Kotlin versions, change the Kotlin version in your projects and update kotlinx
 libraries if necessary.
 
-If you are migrating to the new feature release, Kotlin plugin's migration tools will help you with the migration.
+If you are migrating to the new language release, Kotlin plugin's migration tools will help you with the migration.
 
 ## IDE support
 
@@ -76,7 +78,7 @@ Learn how the K2 compiler differs from K1 in the [migration guide](k2-compiler-m
 
 ## Kotlin release compatibility
 
-Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution.md#feature-releases-and-incremental-releases).
+Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution.md#language-and-tooling-releases)
 
 ## Release details
 

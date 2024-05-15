@@ -6,7 +6,7 @@ There can be different modes of stability depending of how quickly a component i
 
 *   **Additions in Incremental Releases (AIR)**: things can be added in an incremental release, removals and changes of behavior should be avoided and announced in a previous incremental release if necessary.
 
-*   **Stable Incremental Releases (SIR)**: incremental releases are fully compatible, only optimizations and bug fixes happen. Any changes can be made in a [feature release](kotlin-evolution.md#feature-releases-and-incremental-releases).
+*   **Stable Incremental Releases (SIR)**: incremental releases are fully compatible, only optimizations and bug fixes happen. Any changes can be made in a [language release](kotlin-evolution.md#language-and-tooling-releases).
 
 <a name="fully-stable"></a>
 *   **Fully Stable (FS)**: incremental releases are fully compatible, only optimizations and bug fixes happen. Feature releases are backwards compatible.
