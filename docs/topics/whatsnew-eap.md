@@ -1142,7 +1142,7 @@ Starting with Kotlin %kotlinEapVersion%, the [`org.gradle.jvm.environment`](http
 Gradle attribute is published by default with all Kotlin variants.
 
 The attribute helps distinguish JVM and Android variants of Kotlin Multiplatform libraries. It indicates that a certain
-library variant is better suited for a certain JVM environment. The target environment could be "android", "stardard-jvm",
+library variant is better suited for a certain JVM environment. The target environment could be "android", "standard-jvm",
 or "no-jvm".
 
 Publishing this attribute should make consuming Kotlin Multiplatform libraries with JVM and Android targets more robust
