@@ -1,8 +1,8 @@
 [//]: # (title: Stability of Kotlin components \(pre 1.4\))
 
-There can be different modes of stability depending of how quickly a component is evolving:
+There can be different modes of stability depending on how quickly a component is evolving:
 <a name="moving-fast"></a>
-*   **Moving fast (MF)**: no compatibility should be expected between even [incremental releases](kotlin-evolution.md#feature-releases-and-incremental-releases), any functionality can be added, removed or changed without warning.
+*   **Moving fast (MF)**: no compatibility should be expected between even [incremental releases](kotlin-evolution.md#language-and-tooling-releases), any functionality can be added, removed or changed without warning.
 
 *   **Additions in Incremental Releases (AIR)**: things can be added in an incremental release, removals and changes of behavior should be avoided and announced in a previous incremental release if necessary.
 
