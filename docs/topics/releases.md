@@ -7,8 +7,8 @@ We ship different types of releases:
   performance improvements, and bug fixes.
 * _Bug fix releases_ (1._x_._yz_) that include bug fixes for incremental releases.
 
-For example, for the feature release 1.3 we had several incremental releases including 1.3.10, 1.3.20, and 1.3.70.
-For 1.3.70, we had 2 bug fix releases – 1.3.71 and 1.3.72.
+For example, for the feature release 1.9 we had several incremental releases including 1.9.10 and 1.9.20.
+For 1.9.20, we had additional bug fix releases – 1.9.22, 1.9.23, and 1.9.24.
 
 For each incremental and feature release, we also ship several preview (_EAP_) versions for you to try
 new features before they are released. See [Early Access Preview](eap.md) for details.
