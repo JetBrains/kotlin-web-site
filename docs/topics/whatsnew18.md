@@ -818,6 +818,6 @@ the upcoming Android Studios updates. The new command-line compiler is available
 
 ## Compatibility guide for Kotlin 1.8.0
 
-Kotlin 1.8.0 is a [feature release](kotlin-evolution.md#feature-releases-and-incremental-releases) and can, therefore,
+Kotlin 1.8.0 is a [feature release](kotlin-evolution.md#language-and-tooling-releases) and can, therefore,
 bring changes that are incompatible with your code written for earlier versions of the language. Find the detailed list
 of these changes in the [Compatibility guide for Kotlin 1.8.0](compatibility-guide-18.md).
