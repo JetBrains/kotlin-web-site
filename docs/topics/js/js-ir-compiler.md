@@ -70,7 +70,7 @@ kotlin.incremental.js.ir=false // true by default
 
 ## Output mode
 
-You can choose how the JS IR compiler outputs `.js` files for your project:
+You can choose how the JS IR compiler outputs `.js` files in your project:
 
 * **One per module**. By default, the JS compiler outputs separate `.js` files for each module of a project as a
   compilation result.

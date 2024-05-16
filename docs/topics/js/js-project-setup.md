@@ -87,9 +87,10 @@ Node.js, there is also an option to use an existing Node.js installation. Learn 
 
 ## Support for ES2015 features
 
-Kotlin provides an [Experimental](components-stability.md#stability-levels-explained) support for some ES2015 features:
+Kotlin provides an [Experimental](components-stability.md#stability-levels-explained) support for the following ES2015
+features:
 
-* Modules that offer a way to simplify your codebase and improve maintainability.
+* Modules that simplify your codebase and improve maintainability.
 * Classes that allow incorporating OOP principles, resulting in cleaner and more intuitive code.
 * Generators for compiling [suspend functions](composing-suspending-functions.md) that improve the final bundle size
   and help with debugging.
