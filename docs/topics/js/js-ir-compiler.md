@@ -68,14 +68,43 @@ kotlin.incremental.js.ir=false // true by default
 >
 {type="note"}
 
-## Output .js files: one per module or one for the whole project
+## Output mode
 
-As a compilation result, the JS IR compiler outputs separate `.js` files for each module of a project. 
-Alternatively, you can compile the whole project into a single `.js` file by adding the following line to `gradle.properties`:
+You can choose how the JS IR compiler outputs `.js` files for your project:
 
-```none
-kotlin.js.ir.output.granularity=whole-program // 'per-module' is the default
-```
+* **One per module**. By default, the JS compiler outputs separate `.js` files for each module of a project as a
+  compilation result.
+* **One per project**. You can compile the whole project into a single `.js` file by adding the following line to
+  `gradle.properties`:
+
+  ```none
+  kotlin.js.ir.output.granularity=whole-program // 'per-module' is the default
+  ```
+  
+* **One per file**. You can set up a more granular output that generates one (or two, if the file contains exported
+  declarations) JavaScript file per each Kotlin file. To enable the per-file compilation mode:
+
+  1. Add the `useEsModules()` function to your build file to support ECMAScript modules:
+
+     ```kotlin
+     // build.gradle.kts
+     kotlin {
+         js(IR) {
+             useEsModules() // Enables ES2015 modules
+             browser()
+         }
+     }
+     ```
+  
+     Alternatively, you can use the `es2015` [compilation target](js-project-setup.md#support-for-es2015-features)
+     to support ES2015 features in your project.
+  
+  2. Apply the `-Xir-per-file` compiler option or update your `gradle.properties` file with:
+  
+     ```none
+     # gradle.properties
+     kotlin.js.ir.output.granularity=per-file // `per-module` is the default
+     ```
 
 ## Ignoring compilation errors
 
