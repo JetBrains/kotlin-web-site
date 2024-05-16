@@ -399,19 +399,16 @@ typically provides an expected `CommonViewModel` class whose actual Android coun
 from the Android framework. See [Use platform-specific APIs](multiplatform-connect-to-apis.md#adapting-to-an-existing-hierarchy-using-expected-actual-classes)
 for a detailed description of this example. -->
 
-#### Limitations of open expected classes
+#### Limitations of expected classes
 
-When actualizing `expect open` classes, you cannot provide a set of `actual` members that are different from the set of
-expected members.
-
-This means that `actual` overrides cannot change:
+When actualizing `expect` classes, you cannot provide a set of `actual` members that are different from the set of
+expected members. This means that `actual` overrides cannot change:
 
 * Modality of a class member (`open`, `sealed`, `abstract`, and `final`).
   An exception to this rule: `expect final` members can be actualized by `actual open` members.
 * Return type of a function (covariant overrides).
 * [Visibility](visibility-modifiers.md) of a member.
   An exception to this rule: visibility of an `actual` member can be more permissive if the corresponding `expect` member is `final`.
-* Visibility of a property setter.
 * Variable keywords (`val` cannot be actualized as `var` and vice versa).
 * The `lateinit` modifier (it cannot be added or removed in override).
 * Type parameter names.
