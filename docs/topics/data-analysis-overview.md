@@ -50,7 +50,7 @@ Discover the features of our different Kotlin notebook solutions and choose the 
 
 ### Kotlin Notebook
 
-The [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook) is a plugin for IntelliJ IDEA that allows you to create notebooks in Kotlin. It provides our IDE experience with all common IDE features,
+The [Kotlin Notebook](kotlin-notebook-overview.md) is a plugin for IntelliJ IDEA that allows you to create notebooks in Kotlin. It provides our IDE experience with all common IDE features,
 offering real-time code insights and project integration.
 
 ### Kotlin notebooks in Datalore

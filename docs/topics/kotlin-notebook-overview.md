@@ -4,7 +4,7 @@
 provides an interactive environment to create and edit notebooks, leveraging the full potential of Kotlin's capabilities.
 
 Get ready for a seamless coding experience where you can develop and experiment with Kotlin code, receive immediate outputs, and integrate code, 
-visuals, and text within a single environment in the IntelliJ IDEA ecosystem.
+visuals, and text within the IntelliJ IDEA ecosystem.
 
 ![Kotlin Notebook](data-analysis-notebook.gif){width=700}
 
@@ -52,7 +52,7 @@ Kotlin Notebook provides an interactive environment for running code in small ch
 This hands-on approach enables rapid experimentation and iteration during the prototyping phase.
 
 With the help of Kotlin Notebook, you can test the concepts of solutions early in the ideation stage. Additionally, Kotlin Notebook supports both 
-collaborative and reproducible work, making it easy to generate ideas.
+collaborative and reproducible work, enabling the generation and assessment of new ideas.
 
 ![kotlin-notebook-prototyping](kotlin-notebook-prototyping.png){width=700}
 
@@ -69,15 +69,14 @@ retrieving information and reading JSON files directly within your notebook envi
 In Kotlin Notebook, you can include inline comments and text annotations within code cells to provide additional context, 
 explanations, and instructions relevant to the code snippets.
 
-You can write text in Markdown cells, which support rich formatting options such as headers, lists, links, images, and more. 
+You can also write text in Markdown cells, which support rich formatting options such as headers, lists, links, images, and more. 
 To render a Markdown cell and see the formatted text, simply run it as you would a code cell.
 
 ![kotlin-notebook-documenting](kotlin-notebook-documentation.png){width=700}
 
-
 ## Sharing code and outputs
 
-Given Kotlin Notebook's adherence to the universal Jupyter format, you can easily share your code and outputs across different notebooks.
+Given Kotlin Notebook's adherence to the universal Jupyter format, it's possible to share your code and outputs across different notebooks.
 You can open, edit, and run your Kotlin Notebook with any Jupyter client, such as [Jupyter Notebook](https://jupyter.org/) or [Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/). 
 
 You can also distribute your work by sharing the `.ipynb` notebook file with any notebook web viewer. One option is [GitHub](https://github.com/), 
@@ -87,5 +86,6 @@ which facilitates sharing, running, and editing notebooks with advanced features
 ![kotlin-notebook-sharing-datalore](kotlin-notebook-sharing-datalore.png){width=700}
 
 ## What's next
+
 * [Try out Kotlin Notebook.](get-started-with-kotlin-notebooks.md)
 * [Deep dive into Kotlin for data analysis.](data-analysis-overview.md)
