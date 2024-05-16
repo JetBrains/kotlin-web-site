@@ -251,7 +251,7 @@ manually or using a shell command:
 
 * If using a code editor, add the following line to the `local.properties` file:
 
-    ```properties
+    ```text
     kotlin.apple.cocoapods.bin=/Users/Jane.Doe/.rbenv/shims/pod
     ```
 
