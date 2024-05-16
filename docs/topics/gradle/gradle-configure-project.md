@@ -71,19 +71,19 @@ methods and properties, and supports all the current Gradle features.
 
 ### Kotlin Gradle plugin data in a project
 
-Kotlin Gradle plugin stores project-specific data (klib files, for example) at the root of the project,
+By default, Kotlin Gradle plugin stores persistent project-specific data at the root of the project,
 in the `.kotlin` directory.
 
 > You may want to add the `.kotlin` directory to your project's `.gitignore` file.
 >
 {type="warning"}
 
-There are properties you can add to the `gradle.properties` file of your project to can configure this directory:
+There are properties you can add to the `gradle.properties` file of your project to configure this behavior:
 
-| Gradle property                                     | Description                                                                                                                                                            |
-|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `kotlin.project.persistent.dir`                     | Configures the location where your project-level data is stored. Default: `<project-root-directory>/.kotlin`                                                           |
-| `kotlin.project.persistent.dir.gradle.disableWrite` | A boolean value that controls whether writing Kotlin data to the `.gradle` directory is disabled (for backward compatibility with older IDEA versions). Default: false |
+| Gradle property                                     | Description                                                                                                                                       |
+|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `kotlin.project.persistent.dir`                     | Configures the location where your project-level data is stored. Default: `<project-root-directory>/.kotlin`                                      |
+| `kotlin.project.persistent.dir.gradle.disableWrite` | Controls whether writing Kotlin data to the `.gradle` directory is disabled (for backward compatibility with older IDEA versions). Default: false |
 
 ## Targeting the JVM
 
