@@ -133,16 +133,19 @@ See how Kotlin types are mapped to JavaScript ones:
 | `ByteArray`                                                                 | `Int8Array`                 |                                                                                            |
 | `ShortArray`                                                                | `Int16Array`                |                                                                                            |
 | `IntArray`                                                                  | `Int32Array`                |                                                                                            |
-| `CharArray`                                                                 | `UInt16Array`               | Carries the property `$type$ == "CharArray"`.                                               |
+| `CharArray`                                                                 | `UInt16Array`               | Carries the property `$type$ == "CharArray"`.                                              |
 | `FloatArray`                                                                | `Float32Array`              |                                                                                            |
 | `DoubleArray`                                                               | `Float64Array`              |                                                                                            |
 | `LongArray`                                                                 | `Array<kotlin.Long>`        | Carries the property `$type$ == "LongArray"`. Also see Kotlin's Long type comment.         |
-| `BooleanArray`                                                              | `Int8Array`                 | Carries the property `$type$ == "BooleanArray"`.                                            |
+| `BooleanArray`                                                              | `Int8Array`                 | Carries the property `$type$ == "BooleanArray"`.                                           |
+| `Set`                                                                       | `Set`                       |                                                                                            |
+| `Map`                                                                       | `Map`                       |                                                                                            |
+| `List`                                                                      | `Array`                     |                                                                                            |
 | `Unit`                                                                      | Undefined                   |                                                                                            |
 | `Any`                                                                       | `Object`                    |                                                                                            |
 | `Throwable`                                                                 | `Error`                     |                                                                                            |
 | Nullable `Type?`                                                            | `Type \| null \| undefined` |                                                                                            |
-| All other Kotlin types (except for those marked with `JsExport` annotation) | Not supported               | Includes Kotlin's collections (`List`, `Set`, `Map`, etc.), and unsigned variants.         |
+| All other Kotlin types (except for those marked with `JsExport` annotation) | Not supported               | Includes Kotlin's [unsigned integer types](unsigned-integer-types.md).                     |
 
 Additionally, it is important to know that:
 
@@ -159,3 +162,4 @@ Additionally, it is important to know that:
 
 * Kotlin preserves lazy object initialization in JavaScript.
 * Kotlin does not implement lazy initialization of top-level properties in JavaScript.
+* Creating Kotlin collections from JavaScript is currently unavailable.
