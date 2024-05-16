@@ -676,18 +676,18 @@ kotlin {
 
 A compilation has the following parameters:
 
-| **Name**                 | **Description**                                                                                                                     | 
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| `defaultSourceSet`       | The compilation's default source set.                                                                                               |
-| `kotlinSourceSets`       | Source sets participating in the compilation.                                                                                       |
-| `allKotlinSourceSets`    | Source sets participating in the compilation and their connections via `dependsOn()`.                                               |
-| `compilerOptions`        | Compiler options applied to the compilation. For the list of available options, see [Compiler options](gradle-compiler-options.md). |
-| `compileKotlinTask`      | Gradle task for compiling Kotlin sources.                                                                                           |
-| `compileKotlinTaskName`  | Name of `compileKotlinTask`.                                                                                                        |
-| `compileAllTaskName`     | Name of the Gradle task for compiling all sources of a compilation.                                                                 |
-| `output`                 | The compilation output.                                                                                                             |
-| `compileDependencyFiles` | Compile-time dependency files (classpath) of the compilation.                                                                       |
-| `runtimeDependencyFiles` | Runtime dependency files (classpath) of the compilation.                                                                            |
+| **Name**                 | **Description**                                                                                                                                                           | 
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `defaultSourceSet`       | The compilation's default source set.                                                                                                                                     |
+| `kotlinSourceSets`       | Source sets participating in the compilation.                                                                                                                             |
+| `allKotlinSourceSets`    | Source sets participating in the compilation and their connections via `dependsOn()`.                                                                                     |
+| `compilerOptions`        | Compiler options applied to the compilation. For the list of available options, see [Compiler options](gradle-compiler-options.md).                                       |
+| `compileKotlinTask`      | Gradle task for compiling Kotlin sources.                                                                                                                                 |
+| `compileKotlinTaskName`  | Name of `compileKotlinTask`.                                                                                                                                              |
+| `compileAllTaskName`     | Name of the Gradle task for compiling all sources of a compilation.                                                                                                       |
+| `output`                 | The compilation output.                                                                                                                                                   |
+| `compileDependencyFiles` | Compile-time dependency files (classpath) of the compilation. For all Kotlin/Native compilations, this automatically includes standard library and platform dependencies. |
+| `runtimeDependencyFiles` | Runtime dependency files (classpath) of the compilation.                                                                                                                  |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
