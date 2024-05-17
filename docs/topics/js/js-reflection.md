@@ -2,8 +2,10 @@
 
 Kotlin/JS provides a limited support for the Kotlin [reflection API](reflection.md). The only supported parts of the API
 are:
-* [class references](reflection.md#class-references) (`::class`).
-* [`KType`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-type/) and [`typeof()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/type-of.html) function.
+
+* [Class references](reflection.md#class-references) (`::class`)
+* [`KType` and `typeof()`](#ktype-and-typeof) function
+* [`KClass` and `createInstance()`](#kclass-and-createinstance) function
 
 ## Class references
 
@@ -25,6 +27,12 @@ This can be used to interoperate with JS functions that expect a reference to a 
 The [`typeof()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/type-of.html) function constructs an instance 
 of [`KType`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-type/) for a given type.
 The `KType` API is fully supported in Kotlin/JS except for Java-specific parts.
+
+## KClass and createInstance()
+
+The [`createInstance()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/create-instance.html) function
+from the [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/) interface creates a new instance
+of the specified class, which is useful for getting the runtime reference to a Kotlin class.
 
 ## Example
 
@@ -52,5 +60,3 @@ fun main() {
     accessReifiedTypeArg<Rectangle>() // Accesses the type via typeOf(). Prints "Rectangle"
 }
 ```
-
-
