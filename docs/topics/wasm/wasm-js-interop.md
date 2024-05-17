@@ -277,18 +277,18 @@ These limitations apply uniformly to declarations with `external`, `= js("code")
 
 See how Kotlin types correspond to Javascript types:
 
-| Kotlin                                                  | JavaScript                        |
-|---------------------------------------------------------|-----------------------------------|
-| `Byte`, `Short`, `Int`, `Char`, `UByte`, `UShort`, `UInt` | `Number`                          |
-| `Float`, `Double`,                                      | `Number`                          |
-| `Long`, `ULong`                                                | `BigInt`                          |
-| `Boolean`,                                              | `Boolean`                         |
-| `String`,                                               | `String`                          |
-| `Unit` in return position                               | `undefined`                       |
-| Function type, for example `(String) -> Int`            | Function                          |
-| `JsAny` and subtypes                                    | Any JavaScript value              |
-| `JsReference`                                           | Opaque reference to Kotlin object |
-| Other types                                             | Not supported                     |
+| Kotlin                                                     | JavaScript                        |
+|------------------------------------------------------------|-----------------------------------|
+| `Byte`, `Short`, `Int`, `Char`, `UByte`, `UShort`, `UInt`, | `Number`                          |
+| `Float`, `Double`,                                         | `Number`                          |
+| `Long`, `ULong`,                                           | `BigInt`                          |
+| `Boolean`,                                                 | `Boolean`                         |
+| `String`,                                                  | `String`                          |
+| `Unit` in return position                                  | `undefined`                       |
+| Function type, for example `(String) -> Int`               | Function                          |
+| `JsAny` and subtypes                                       | Any JavaScript value              |
+| `JsReference`                                              | Opaque reference to Kotlin object |
+| Other types                                                | Not supported                     |
 
 You can use nullable versions of these types as well.
 
