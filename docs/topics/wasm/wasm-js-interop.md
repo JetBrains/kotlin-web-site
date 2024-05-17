@@ -256,12 +256,12 @@ To generate TypeScript definitions, in your `build.gradle.kts` file in the `wasm
 
 ```kotlin
 kotlin {
-  wasmJs {
-    binaries.executable()
-    browser {
+    wasmJs {
+        binaries.executable()
+        browser {
+        }
+        generateTypeScriptDefinitions()
     }
-    generateTypeScriptDefinitions()
-  }
 }
 ```
 
