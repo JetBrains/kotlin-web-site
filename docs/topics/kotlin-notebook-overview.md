@@ -8,7 +8,7 @@ visuals, and text within the IntelliJ IDEA ecosystem.
 
 ![Kotlin Notebook](data-analysis-notebook.gif){width=700}
 
-The Kotlin Notebook plugin comes with various features to boost your development process, such as: 
+The Kotlin Notebook plugin comes with [various features](https://www.jetbrains.com/help/idea/kotlin-notebook.html) to boost your development process, such as: 
 
 * Accessing APIs within cells
 * Importing and exporting files with a few clicks
@@ -87,5 +87,6 @@ which facilitates sharing, running, and editing notebooks with advanced features
 
 ## What's next
 
+* [Learn about the Kotlin Notebook's usage and key features.](https://www.jetbrains.com/help/idea/kotlin-notebook.html)
 * [Try out Kotlin Notebook.](get-started-with-kotlin-notebooks.md)
 * [Deep dive into Kotlin for data analysis.](data-analysis-overview.md)
