@@ -248,11 +248,11 @@ exports.addOne(10)
 ```
 
 The Kotlin/Wasm compiler is capable of generating TypeScript definitions from any `@JsExport` declarations in your Kotlin code. 
-These definitions can be used by IDEs and JavaScript tools to provide code autocompletion, help with type-checks, and make it easier to include Kotlin code in JavaScript.
+These definitions can be used by IDEs and JavaScript tools to provide code autocompletion, help with type-checks, and make it easier to consume Kotlin code from JavaScript and TypeScript.
 
 The Kotlin/Wasm compiler collects any top-level functions marked with the `@JsExport` annotation and automatically generates TypeScript definitions in a `.d.ts` file.
 
-To generate TypeScript definitions, in your `build.gradle.kts` file in the `wasmJs` section, add the `generateTypeScriptDefinitions()` function:
+To generate TypeScript definitions, in your `build.gradle.kts` file in the `wasmJs{}` block, add the `generateTypeScriptDefinitions()` function:
 
 ```kotlin
 kotlin {
@@ -270,7 +270,7 @@ kotlin {
 >
 {type="warning"}
 
-Additionally, the `@JsExport` annotation lets you use unsigned primitive types inside external declarations and functions.
+Additionally, you can use unsigned primitive types inside [exported](js-to-kotlin-interop.md#jsexport-annotation) and [external](js-interop.md#external-modifier) declarations.
 You can export functions with unsigned primitives as a return or parameter type and consume external declarations that return unsigned primitives.
 
 ## Type correspondence
