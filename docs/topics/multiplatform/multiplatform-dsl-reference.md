@@ -331,12 +331,12 @@ Learn more about [building native binaries](multiplatform-build-native-binaries.
 `cinterops` is a collection of descriptions for interop with native libraries.
 To provide an interop with a library, add an entry to `cinterops` and define its parameters:
 
-| **Name**       | **Description**                                       | 
-|----------------|-------------------------------------------------------|
-| `defFile`      | `def` file describing the native API.                 |
-| `packageName`  | Package prefix for the generated Kotlin API.          |
-| `compilerOpts` | Options to pass to the compiler by the cinterop tool. |
-| `includeDirs`  | Directories to look for headers.                      |
+| **Name**         | **Description**                                       | 
+|------------------|-------------------------------------------------------|
+| `definitionFile` | `.def` file describing the native API.                |
+| `packageName`    | Package prefix for the generated Kotlin API.          |
+| `compilerOpts`   | Options to pass to the compiler by the cinterop tool. |
+| `includeDirs`    | Directories to look for headers.                      |
 
 Learn more how to [configure interop with native languages](multiplatform-configure-compilations.md#configure-interop-with-native-languages).
 
@@ -350,7 +350,7 @@ kotlin {
             val myInterop by cinterops.creating {
                 // Def-file describing the native API.
                 // The default path is src/nativeInterop/cinterop/<interop-name>.def
-                defFile(project.file("def-file.def"))
+                definitionFile.set(project.file("def-file.def"))
 
                 // Package to place the Kotlin API generated.
                 packageName("org.sample")
@@ -382,7 +382,7 @@ kotlin {
                 myInterop {
                     // Def-file describing the native API.
                     // The default path is src/nativeInterop/cinterop/<interop-name>.def
-                    defFile project.file("def-file.def")
+                    definitionFile.set(project.file("def-file.def"))
 
                     // Package to place the Kotlin API generated.
                     packageName 'org.sample'
