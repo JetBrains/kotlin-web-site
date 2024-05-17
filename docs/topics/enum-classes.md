@@ -120,24 +120,8 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="rgb-enums-properties-kotlin"}
 
 You can access the constants in an enum class in a generic way using
-the [`enumValues<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-values.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-value-of.html) functions:
-
-```kotlin
-enum class RGB { RED, GREEN, BLUE }
-
-inline fun <reified T : Enum<T>> printAllValues() {
-    println(enumValues<T>().joinToString { it.name })
-}
-
-printAllValues<RGB>() // prints RED, GREEN, BLUE
-```
-
-> For more information about inline functions and reified type parameters, see [Inline functions](inline-functions.md).
->
-> {type="tip"}
- 
-In Kotlin 2.0.0, the [`enumEntries<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.enums/enum-entries.html) function 
-is introduced as a replacement for the [`enumValues<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-values.html)
+the [`enumValues<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-values.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-value-of.html) functions. 
+In Kotlin 2.0.0, the [`enumEntries<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.enums/enum-entries.html) function is introduced as a replacement for the [`enumValues<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-values.html)
 function. The `enumEntries<T>()` function returns a list of all enum entries for the given enum type `T`.
 
 The `enumValues<T>()` function is still supported, but we recommend that you use the `enumEntries<T>()` function instead
@@ -156,3 +140,6 @@ inline fun <reified T : Enum<T>> printAllValues() {
 printAllValues<RGB>() 
 // RED, GREEN, BLUE
 ```
+> For more information about inline functions and reified type parameters, see [Inline functions](inline-functions.md).
+>
+> {type="tip"}
