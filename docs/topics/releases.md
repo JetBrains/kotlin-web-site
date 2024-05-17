@@ -7,8 +7,8 @@ We ship different types of releases:
   performance improvements, and bug fixes.
 * _Bug fix releases_ (1._x_._yz_) that include bug fixes for incremental releases.
 
-For example, for the feature release 1.3 we had several incremental releases including 1.3.10, 1.3.20, and 1.3.70.
-For 1.3.70, we had 2 bug fix releases – 1.3.71 and 1.3.72.
+For example, for the feature release 1.9 we had several incremental releases including 1.9.10 and 1.9.20.
+For 1.9.20, we had additional bug fix releases – 1.9.22, 1.9.23, and 1.9.24.
 
 For each incremental and feature release, we also ship several preview (_EAP_) versions for you to try
 new features before they are released. See [Early Access Preview](eap.md) for details.
@@ -57,6 +57,16 @@ You can also use [preview versions of Kotlin](eap.md#build-details).
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
+    </tr>
+    <tr>
+        <td><strong>1.9.24</strong>
+            <p>Released: <strong>May 7, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.24" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 1.9.20, 1.9.21, 1.9.22, and 1.9.23.</p>
+            <p>Learn more about Kotlin 1.9.20 in <a href="whatsnew1920.md" target="_blank">What's new in Kotlin 1.9.20</a>.</p>
+        </td>
     </tr>
     <tr>
         <td><strong>1.9.23</strong>

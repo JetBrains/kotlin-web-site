@@ -12,11 +12,11 @@ To start, why not take our tour of Kotlin? This tour covers the fundamentals of 
 Kotlin is included in each [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [Android Studio](https://developer.android.com/studio) release.
 Download and install one of these IDEs to start using Kotlin.
 
-## Create your powerful application with Kotlin
+## Choose your Kotlin use case
  
 <tabs>
 
-<tab id="backend" title="Backend app">
+<tab id="backend" title="Backend">
 
 Here is how you can take the first steps in developing Kotlin server-side applications.
 
@@ -71,7 +71,7 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 </tab>
 
-<tab id="cross-platform-mobile" title="Cross-platform app">
+<tab id="cross-platform-mobile" title="Cross-platform">
 
 Here you'll learn how to develop and improve your cross-platform application using [Kotlin Multiplatform](https://kotlinlang.org/lp/multiplatform/).
 
@@ -114,7 +114,7 @@ If you've encountered any difficulties or problems, report an issue to our [issu
 
 </tab>
 
-<tab id="android" title="Android app">
+<tab id="android" title="Android">
 
 * If you want to start using Kotlin for Android development, read [Google's recommendation for getting started with Kotlin on Android](https://developer.android.com/kotlin/get-started).
 

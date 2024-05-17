@@ -670,6 +670,9 @@ Kotlin %kotlinEapVersion% improves performance and interoperability with JavaScr
 * [Binaryen available by default in production builds](#binaryen-available-by-default-in-production-builds)
 * [Generation of TypeScript declaration files in Kotlin/Wasm](#generation-of-typescript-declaration-files-in-kotlin-wasm)
 * [Support for named export](#support-for-named-export)
+* [withWasm() function is split into JS and WASI variants](#withwasm-function-is-split-into-js-and-wasi-variants)
+* [New functionality to catch JavaScript exceptions](#new-functionality-to-catch-javascript-exceptions)
+* [The new exception handling proposal is now supported](#the-new-exception-handling-proposal-is-now-supported)
 
 ### Unsigned primitive types in functions with @JsExport
 
@@ -742,6 +745,37 @@ import { add } from "./index.mjs"
 Named exports make it easier to share code between Kotlin and JavaScript modules. They help improve readability and
 manage dependencies between modules.
 
+### withWasm() function is split into JS and WASI variants
+
+The `withWasm()` function, which used to provide Wasm targets for hierarchy templates, is deprecated in favor of
+specialized `withWasmJs()` and `withWasmWasi()` functions. Now you can separate the WASI and JS targets between different
+groups in the tree definition.
+
+### New functionality to catch JavaScript exceptions
+
+Previously, Kotlin/Wasm code could not catch JavaScript exceptions, making it difficult to handle errors originating from
+the JavaScript side of the program. In %kotlinEapVersion%, we have implemented support for catching JavaScript exceptions
+within Kotlin/Wasm.
+
+This implementation allows you to use `try-catch` blocks, with specific types like `Throwable` or `JsException`,
+to handle these errors properly.
+
+Additionally, `finally` blocks, which help execute code regardless of exceptions, also work correctly.
+
+While we are introducing support for catching JavaScript exceptions, no additional information is provided when a
+JavaScript exception occurs, like a call stack. However, we are working on these implementations.
+
+### The new exception handling proposal is now supported
+
+In this release, we introduce support for the new version of WebAssembly's [exception handling proposal](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md)
+within Kotlin/Wasm. With this update, Kotlin/Wasm gains enhanced capabilities for managing exceptions.
+
+The new exception handling proposal is activated using the `-Xwasm-use-new-exception-proposal` compiler option. It is
+turned off by default.
+
+Additionally, we have ensured compatibility between the new compiler option and existing configurations, such as
+`-Xwasm-use-traps-instead-of-exceptions`.
+
 ## Kotlin/JS
 
 Among other changes, this version brings modern JS compilation to Kotlin, supporting more features from the ES2015 standard:
@@ -749,6 +783,9 @@ Among other changes, this version brings modern JS compilation to Kotlin, suppor
 * [New compilation target](#new-compilation-target)
 * [Suspend functions as ES2015 generators](#suspend-functions-as-es2015-generators)
 * [Passing arguments to the main function](#passing-arguments-to-the-main-function)
+* [Per-file compilation for Kotlin/JS projects](#per-file-compilation-for-kotlin-js-projects)
+* [Improved collection interoperability](#improved-collection-interoperability)
+* [Support for createInstance()](#support-for-createinstance)
 * [Support for type-safe plain JavaScript objects](#support-for-type-safe-plain-javascript-objects)
 * [Support for npm package manager](#support-for-npm-package-manager)
 
@@ -815,6 +852,86 @@ kotlin {
     }
 }
 ```
+
+### Per-file compilation for Kotlin/JS projects
+
+Kotlin 2.0.0 introduces a new granularity option for the Kotlin/JS project output. You can now set up a per-file
+compilation that generates one JavaScript file per each Kotlin file. It helps to significantly optimize the size of the
+final bundle and improve the loading time of the program.
+
+Previously, there were only two output options. The Kotlin/JavaScript compiler could generate a single `.js` file for the
+whole project. However, this file might be too large and inconvenient to use. Whenever you wanted to use a function from your project, you had to include the entire JavaScript file as a dependency. Alternatively, you could configure a compilation of a separate `.js` file for each project module. This is still the default option.
+
+Since module files could also be too large, with Kotlin 2.0.0, we add a more granular output that generates one (or two,
+if the file contains exported declarations) JavaScript file per each Kotlin file. To enable the per-file compilation mode:
+
+1. Add the [`useEsModules()`](whatsnew19.md#experimental-support-for-es2015-classes-and-modules) function to your build
+   file to support ECMAScript modules:
+
+   ```kotlin
+   // build.gradle.kts
+   kotlin {
+       js(IR) {
+           useEsModules() // Enables ES2015 modules
+           browser()
+       }
+   }
+   ```
+
+   You can also use the new `es2015` [compilation target](#new-compilation-target) for that.
+
+2. Apply the `-Xir-per-file` compiler option or update your `gradle.properties` file with:
+
+   ```none
+   # gradle.properties
+   kotlin.js.ir.output.granularity=per-file // `per-module` is the default
+   ```
+
+### Improved collection interoperability
+
+Starting with Kotlin 2.0.0, it's possible to export declarations with a Kotlin collection type inside the signature to
+JavaScript (and TypeScript). This applies to `Set`, `Map`, and `List` collection types and their mutable counterparts.
+
+To use Kotlin collections in JavaScript, first mark the necessary declarations with [`@JsExport`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-js-export/) annotation:
+
+```kotlin
+// Kotlin
+@JsExport
+data class User(
+    val name: String,
+    val friends: List<User> = emptyList()
+)
+
+@JsExport
+val me = User(
+    name = "Me",
+    firends = listOf(User(name = "Kodee"))
+)
+```
+
+You can then consume them from JavaScript as regular JavaScript arrays:
+
+```javascript
+// JavaScript
+import { User, me, KtList } from "my-module"
+
+const allMyFriendNames = me.friends
+  .asJsReadonlyArrayView()
+  .map(x => x.name) // ['Kodee']
+```
+
+> Unfortunately, creating Kotlin collections from JavaScript is still unavailable. We're planning to add this functionality
+> in the next Kotlin release.
+>
+{type="note"}
+
+### Support for createInstance()
+
+Since Kotlin 2.0.0,  you can use the [`createInstance()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/create-instance.html)
+function from the Kotlin/JS target. Previously, it was only available on the JVM.
+
+This function from the [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/) interface creates
+a new instance of the specified class, which is useful for getting the runtime reference to a Kotlin class.
 
 ### Support for type-safe plain JavaScript objects
 
@@ -950,6 +1067,9 @@ This version brings the following changes:
 * [New directory for Kotlin data in Gradle projects](#new-directory-for-kotlin-data-in-gradle-projects)
 * [Kotlin/Native compiler downloaded when needed](#kotlin-native-compiler-downloaded-when-needed)
 * [Deprecating old ways of defining compiler options](#deprecating-old-ways-of-defining-compiler-options)
+* [Bumped minimum AGP supported version](#bumped-minimum-supported-agp-version)
+* [New Gradle property to try latest language version](#new-gradle-property-to-try-latest-language-version)
+* [New JSON output format for build reports](#new-json-output-format-for-build-reports)
 
 ### New Gradle DSL for compiler options in multiplatform projects
 
@@ -1022,7 +1142,7 @@ Starting with Kotlin %kotlinEapVersion%, the [`org.gradle.jvm.environment`](http
 Gradle attribute is published by default with all Kotlin variants.
 
 The attribute helps distinguish JVM and Android variants of Kotlin Multiplatform libraries. It indicates that a certain
-library variant is better suited for a certain JVM environment. The target environment could be "android", "stardard-jvm",
+library variant is better suited for a certain JVM environment. The target environment could be "android", "standard-jvm",
 or "no-jvm".
 
 Publishing this attribute should make consuming Kotlin Multiplatform libraries with JVM and Android targets more robust
@@ -1244,13 +1364,13 @@ Since Kotlin %kotlinEapVersion%, the following DSLs for specifying compiler opti
   
   ```kotlin
   kotlin {
-     js(IR) {
-         compilations.all {
-             compileTaskProvider.configure {
-                 compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
-             }
-         }
-     }
+      js(IR) {
+          compilations.all {
+              compileTaskProvider.configure {
+                  compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
+              }
+          }
+      }
   }
   ```
 
@@ -1262,14 +1382,132 @@ Since Kotlin %kotlinEapVersion%, the following DSLs for specifying compiler opti
 
 For more information on how to specify compiler options in the Kotlin Gradle plugin, see [How to define options](gradle-compiler-options.md#how-to-define-options).
 
+### Bumped minimum supported AGP version
+
+Starting with Kotlin 2.0.0, the minimum supported Android Gradle plugin version is 7.1.3.
+
+### New Gradle property to try latest language version
+
+Prior to Kotlin %kotlinEapVersion%, we had the following Gradle property to try out the new K2 compiler: `kotlin.experimental.tryK2`.
+Now that the K2 compiler is enabled by default in Kotlin %kotlinEapVersion%, we decided to evolve this property into a
+new form that you can use to try the latest language version in your projects: `kotlin.experimental.tryNext`.
+When you use this property in your `gradle.properties` file, the Kotlin Gradle plugin increments the language version to
+one above the default value for your Kotlin version. For example, in Kotlin 2.0.0, the default language version is 2.0,
+so the property configures language version 2.1.
+
+This new Gradle property produces similar metrics in [build reports](gradle-compilation-and-caches.md#build-reports) as
+before with `kotlin.experimental.tryK2`. The language version configured is included in the output. For example:
+
+```none
+##### 'kotlin.experimental.tryNext' results #####
+:app:compileKotlin: 2.1 language version
+:lib:compileKotlin: 2.1 language version
+##### 100% (2/2) tasks have been compiled with Kotlin 2.1 #####
+```
+
+To learn more about how to enable build reports and their content, see [Build reports](gradle-compilation-and-caches.md#build-reports).
+
+### New JSON output format for build reports
+
+In Kotlin 1.7.0, we introduced build reports to help track compiler performance. Over time we've added more metrics to
+make these reports even more detailed and helpful when investigating performance issues. Previously, the only output format
+for a local file was the `*.txt` format. In Kotlin %kotlinEapVersion%, we support the JSON output format to make it even
+easier to analyze using other tools.
+
+To configure JSON output format for your build reports, declare the following properties in your `gradle.properties` file:
+
+```none
+kotlin.build.report.output=json
+
+// The directory to store your build reports
+kotlin.build.report.json.directory="my/directory/path"
+```
+
+Alternatively, you can run the following command:
+
+```shell
+./gradlew assemble -Pkotlin.build.report.output=json -Pkotlin.build.report.json.directory="my/directory/path"
+``` 
+
+Once configured, Gradle generates your build reports in the directory that you specify with the name:
+`${project_name}-date-time-<sequence_number>.json`.
+
+Here's an example snippet from a build report with JSON output format that contains build metrics and aggregated metrics:
+
+```json
+"buildOperationRecord": [
+    {
+     "path": ":lib:compileKotlin",
+      "classFqName": "org.jetbrains.kotlin.gradle.tasks.KotlinCompile_Decorated",
+      "startTimeMs": 1714730820601,
+      "totalTimeMs": 2724,
+      "buildMetrics": {
+        "buildTimes": {
+          "buildTimesNs": {
+            "CLEAR_OUTPUT": 713417,
+            "SHRINK_AND_SAVE_CURRENT_CLASSPATH_SNAPSHOT_AFTER_COMPILATION": 19699333,
+            "IR_TRANSLATION": 281000000,
+            "NON_INCREMENTAL_LOAD_CURRENT_CLASSPATH_SNAPSHOT": 14088042,
+            "CALCULATE_OUTPUT_SIZE": 1301500,
+            "GRADLE_TASK": 2724000000,
+            "COMPILER_INITIALIZATION": 263000000,
+            "IR_GENERATION": 74000000,
+…
+          }
+        }
+…
+ "aggregatedMetrics": {
+    "buildTimes": {
+      "buildTimesNs": {
+        "CLEAR_OUTPUT": 782667,
+        "SHRINK_AND_SAVE_CURRENT_CLASSPATH_SNAPSHOT_AFTER_COMPILATION": 22031833,
+        "IR_TRANSLATION": 333000000,
+        "NON_INCREMENTAL_LOAD_CURRENT_CLASSPATH_SNAPSHOT": 14890292,
+        "CALCULATE_OUTPUT_SIZE": 2370750,
+        "GRADLE_TASK": 3234000000,
+        "COMPILER_INITIALIZATION": 292000000,
+        "IR_GENERATION": 89000000,
+…
+      }
+    }
+```
+
 ## Standard library
 
 This release brings further stability to the Kotlin standard library and makes even more existing functions common for all platforms:
 
+* [Stable replacement of the enum class values generic function](#stable-replacement-of-the-enum-class-values-generic-function)
 * [Stable AutoCloseable interface](#stable-autocloseable-interface)
 * [Common protected property AbstractMutableList.modCount](#common-protected-property-abstractmutablelist-modcount)
 * [Common protected function AbstractMutableList.removeRange](#common-protected-function-abstractmutablelist-removerange)
 * [Common String.toCharArray(destination)](#common-string-tochararray-destination-function)
+
+### Stable replacement of the enum class values generic function
+
+In Kotlin %kotlinEapVersion%, the `enumEntries<T>()` function becomes [Stable](components-stability.md#stability-levels-explained).
+The `enumEntries<T>()` function is a replacement for the generic `enumValues<T>()` function. The new function returns a
+list of all enum entries for the given enum type `T`. The `entries` property for enum classes was previously introduced
+and also stabilized to replace the synthetic `values()` function. For more information about the entries property,
+see [What's new in Kotlin 1.8.20](whatsnew1820.md#a-modern-and-performant-replacement-of-the-enum-class-values-function).
+
+> The `enumValues<T>()` function is still supported, but we recommend that you use the `enumEntries<T>()` function instead
+> because it has less performance impact. Every time you call `enumValues<T>()`, a new array is created, whereas whenever you call `enumEntries<T>()`,
+> the same list is returned each time, which is far more efficient.
+>
+{type="tip"}
+
+For example:
+
+```kotlin
+enum class RGB { RED, GREEN, BLUE }
+
+inline fun <reified T : Enum<T>> printAllValues() {
+    print(enumEntries<T>().joinToString { it.name })
+}
+
+printAllValues<RGB>()
+// RED, GREEN, BLUE
+```
 
 ### Stable AutoCloseable interface
 
@@ -1336,8 +1574,8 @@ You can use the `modCount` property to register and detect concurrent modificati
 
 The release makes the [`removeRange()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-abstract-mutable-list/remove-range.html)
 `protected` function of the `AbstractMutableList` interface common.
-Previously, on each platform but not for the common target. Now, you can create custom implementations of `AbstractMutableList`
-and override the function in common code.
+Previously, it was available on each platform but not for the common target. Now, you can create custom implementations
+of `AbstractMutableList` and override the function in common code.
 
 The function removes elements from this list following the specified range. By overriding this function, you can take
 advantage of the custom implementations and improve the performance of the list operation.

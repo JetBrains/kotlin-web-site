@@ -1094,7 +1094,7 @@ The following Kotlin releases have support for the new K2 compiler:
 | Kotlin release | Stability level |
 |----------------|-----------------|
 | 2.0.0          | Stable          |
-| 1.9.20–1.9.23  | Beta            |
+| 1.9.20–1.9.24  | Beta            |
 | 1.9.0–1.9.10   | JVM is Beta     |
 | 1.7.0–1.8.22   | Alpha           |
 

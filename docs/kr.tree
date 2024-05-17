@@ -35,7 +35,7 @@
     <toc-element toc-title="What's new in Kotlin">
         <toc-element id="whatsnew1920.md" toc-title="Kotlin 1.9.20" accepts-web-file-names="whatsnew.html"/>
         <toc-element id="whatsnew19.md" toc-title="Kotlin 1.9.0"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 2.0.0-RC2"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 2.0.0-RC3"/>
         <toc-element toc-title="Earlier versions">
             <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20"/>
             <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
@@ -354,6 +354,7 @@
         </toc-element>
         <toc-element toc-title="IDE for Kotlin development" id="kotlin-ide.md" accepts-web-file-names="getting-started-eclipse.html,eclipse.html"/>
         <toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA"  id="code-style-migration-guide.md"/>
+        <toc-element toc-title="Kotlin Notebook"  id="kotlin-notebook-overview.md"/>
         <toc-element id="run-code-snippets.md" accepts-web-file-names="quick-run.html"/>
         <toc-element id="kotlin-and-ci.md" toc-title="TeamCity"/>
         <toc-element id="kotlin-doc.md" toc-title="KDoc"/>
