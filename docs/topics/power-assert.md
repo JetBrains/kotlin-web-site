@@ -171,13 +171,18 @@ To get a more complete error message, always inline the variable into the test f
 Consider the following test function:
 
 ```kotlin
-@Test
-    fun testComplexAssertion() {
-        val person = Person("Alice", 30)
-        val isValidName = person.name.startsWith("A") && person.name.length > 3
-        val isValidAge = person.age > 20 && person.age < 29
-        assert(isValidName && isValidAge)
-    }
+class ComplexExampleTest {
+
+   data class Person(val name: String, val age: Int)
+
+   @Test
+   fun testComplexAssertion() {
+       val person = Person("Alice", 30)
+       val isValidName = person.name.startsWith("A") && person.name.length > 3
+       val isValidAge = person.age > 20 && person.age < 29
+       assert(isValidName && isValidAge)
+   }
+}
 ```
 
 The output of the executed code doesn't provide enough information to find the cause of the problem:
@@ -193,11 +198,16 @@ assert(isValidName && isValidAge)
 Inline the variable into the `assert()` function:
 
 ```kotlin
-@Test
+class ComplexExampleTest {
+
+    data class Person(val name: String, val age: Int)
+
+    @Test
     fun testComplexAssertion() {
         val person = Person("Alice", 30)
         assert(person.name.startsWith("A") && person.name.length > 3 && person.age > 20 && person.age < 29)
     }
+}
 ```
 
 After execution, you get more explicit information about what went wrong:
