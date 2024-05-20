@@ -210,16 +210,16 @@ Note that not all target platforms have reached this level of stability, but Kot
 #### Kotlin klib binaries
 
 Kotlin klib binaries have reached the [Stable](components-stability.md#stability-levels-explained) level in Kotlin 1.9.20.
-However, there are some compatibility specifics you need to keep in mind:
+However, there are some compatibility details you need to keep in mind:
 
-* klib binaries are backwards compatible starting with Kotlin 1.9.20, for example, the 2.0.* compiler can read binaries
+* klib binaries are backwards compatible starting with Kotlin 1.9.20. For example, the 2.0.* compiler can read binaries
   produced by the 1.9.* compiler.
-* klib binaries are compatible within the same language or feature version, for example, the 2.0.* compiler can read
+* klib binaries are compatible within the same language or feature version. For example, the 2.0.* compiler can read
   binaries produced by the 2.0.* compiler.
-* Forward compatibility is _not_ guaranteed, for example, the 2.0.* compiler cannot read binaries produced by the 2.1.*
+* Forward compatibility is _not_ guaranteed. For example, the 2.0.* compiler cannot read binaries produced by the 2.1.*
   compiler.
 
 > The Kotlin cinterop klib binaries are still in [Beta](components-stability.md#stability-levels-explained).
-> Currently, we cannot guarantee exact compatibility between different Kotlin versions for them.
+> Currently, we cannot give specific compatibility guarantees between different Kotlin versions for cinterop klib binaries.
 > 
 {type="note"}
