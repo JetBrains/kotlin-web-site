@@ -34,27 +34,4 @@ check [our instructions on how to configure your build to support this version](
 
 ## Build details
 
-<!-- _No preview versions are currently available._ -->
-
-<table>
-    <tr>
-        <th>Build info</th>
-        <th>Build highlights</th>
-    </tr>
-    <tr>
-        <td><strong>2.0.0-RC1</strong>
-            <p>Released: <strong>April 9, 2024</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.0-RC1" target="_blank">Release on GitHub</a></p>
-        </td>
-        <td>
-            <p>A stabilization release for the Kotlin K2 compiler.</p>
-            <p>Includes improvements for the Gradle build tool.</p>
-            <p>Improves Kotlin/Wasm interoperability with JavaScript.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.0-RC1">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.0.0-RC1</a>.</p>
-        </td>
-    </tr>
-</table>
-
-> If the Kotlin EAP plugin can't find the latest EAP build, check that you are using the latest version of [IntelliJ IDEA](https://www.jetbrains.com/help/idea/update.html) or [Android Studio](https://developer.android.com/studio/intro/update).
->
-{type="note"}
+_No preview versions are currently available._

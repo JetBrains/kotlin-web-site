@@ -34,7 +34,7 @@
         <custom-groups>
             <group type="cards" display="wide">
                 <title>What's new</title>
-                <a href="whatsnew1920.md" description="Latest features: Kotlin K2 is in Beta and Stable Kotlin Multiplatform">What's New in Kotlin 1.9.20</a>
+                <a href="whatsnew20.md" description="Latest features: the new Kotlin K2 compiler, improved interoperability of Kotlin/Wasm and Kotlin/JS with JavaScript, new common functionality in the standard library, improved Gradle build tool, and lots more">What's New in Kotlin 2.0.0</a>
                 <a href="roadmap.md" description="Future plans on Kotlin development">Kotlin public roadmap</a>
             </group>
             <group type="cards" display="wide">
