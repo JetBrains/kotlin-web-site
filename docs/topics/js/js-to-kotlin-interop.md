@@ -138,9 +138,9 @@ See how Kotlin types are mapped to JavaScript ones:
 | `DoubleArray`                                                               | `Float64Array`              |                                                                                            |
 | `LongArray`                                                                 | `Array<kotlin.Long>`        | Carries the property `$type$ == "LongArray"`. Also see Kotlin's Long type comment.         |
 | `BooleanArray`                                                              | `Int8Array`                 | Carries the property `$type$ == "BooleanArray"`.                                           |
-| `Set`                                                                       | `Set`                       |                                                                                            |
-| `Map`                                                                       | `Map`                       |                                                                                            |
-| `List`                                                                      | `Array`                     |                                                                                            |
+| `Set`, `MutableSet`                                                         | `Set`                       |                                                                                            |
+| `Map`, `MutableMap`                                                         | `Map`                       |                                                                                            |
+| `List`, `MutableList`                                                       | `Array`                     |                                                                                            |
 | `Unit`                                                                      | Undefined                   |                                                                                            |
 | `Any`                                                                       | `Object`                    |                                                                                            |
 | `Throwable`                                                                 | `Error`                     |                                                                                            |
