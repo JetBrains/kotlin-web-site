@@ -70,8 +70,7 @@ If you encounter any of the problems mentioned above, you can take the following
   ```
 
   > If you configure language and API versions for specific tasks, these values will override the values set by
-  the `compilerOptions` extension.
-  > In this case, language and API versions should not be higher than 1.9.
+  > the `compilerOptions` extension. In this case, language and API versions should not be higher than 1.9.
   >
   {type="note"}
 
@@ -590,7 +589,6 @@ plugins {
     kotlin("plugin.power-assert") version "2.0.0"
 }
 
-
 powerAssert {
     functions = listOf("kotlin.assert", "kotlin.test.assertTrue")
 }
@@ -604,7 +602,6 @@ plugins {
     id 'org.jetbrains.kotlin.multiplatform' version '2.0.0'
     id 'org.jetbrains.kotlin.plugin.power-assert' version '2.0.0'
 }
-
 
 powerAssert {
     functions = ["kotlin.assert", "kotlin.test.assertTrue"]
@@ -837,8 +834,7 @@ For more information on Kotlin/Wasm interoperability with JavaScript, see the [d
 
 ### Generation of TypeScript declaration files in Kotlin/Wasm
 
-> Generating TypeScript declaration files in Kotlin/Wasm
-> is [Experimental](components-stability.md#stability-levels-explained).
+> Generating TypeScript declaration files in Kotlin/Wasm is [Experimental](components-stability.md#stability-levels-explained).
 > It may be dropped or changed at any time.
 >
 {type="warning"}
@@ -1655,7 +1651,7 @@ dependencies {
 
 In this example, the `commonAnnotationProcessors` Gradle configuration is your "common" configuration for annotation
 processing that you want to be used for all your projects. You use the [`extendsFrom()`](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html#org.gradle.api.artifacts.Configuration:extendsFrom)
-method to add"commonAnnotationProcessors" as a super configuration. kapt sees that the `commonAnnotationProcessors`
+method to add "commonAnnotationProcessors" as a super configuration. kapt sees that the `commonAnnotationProcessors`
 Gradle configuration has a dependency on the Dagger annotation processor and successfully includes it in its
 configuration for annotation processing.
 
