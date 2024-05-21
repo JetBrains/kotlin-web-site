@@ -333,7 +333,7 @@ To provide an interop with a library, add an entry to `cinterops` and define its
 
 | **Name**         | **Description**                                       | 
 |------------------|-------------------------------------------------------|
-| `definitionFile` | `.def` file describing the native API.                |
+| `definitionFile` | The `.def` file describing the native API.                |
 | `packageName`    | Package prefix for the generated Kotlin API.          |
 | `compilerOpts`   | Options to pass to the compiler by the cinterop tool. |
 | `includeDirs`    | Directories to look for headers.                      |
