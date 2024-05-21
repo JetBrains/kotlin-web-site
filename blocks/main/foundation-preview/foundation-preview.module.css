@@ -60,7 +60,7 @@
 
     .companies {
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
         margin-top: 48px;
         max-width: 376px;
     }
@@ -141,5 +141,23 @@
         margin-left: -24px;
         margin-right: -24px;
         border-radius: 0;
+    }
+}
+
+.responsiveHidden {
+    @media (--ktl-ds) {
+        display: none;
+    }
+    @media (--ktl-tl) {
+        display: initial;
+    }
+}
+
+.responsiveCapitalized {
+    @media (--ktl-ds) {
+        text-transform: capitalize;
+    }
+    @media (--ktl-tl) {
+        text-transform: none;
     }
 }
