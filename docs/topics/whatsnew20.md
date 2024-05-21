@@ -556,9 +556,8 @@ Currently, the Kotlin K2 compiler supports the following Kotlin compiler plugins
 
 In addition, the Kotlin K2 compiler supports:
 
-* The [Jetpack Compose](https://developer.android.com/jetpack/compose) 2.0.0 compiler plugin, which
-  was [moved into the Kotlin repository](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compiler.html),
-  as well as its earlier versions starting with 1.5.0.
+* The [Jetpack Compose](https://developer.android.com/jetpack/compose) compiler plugin 2.0.0, which
+  was [moved into the Kotlin repository](https://android-developers.googleblog.com/2024/04/jetpack-compose-compiler-moving-to-kotlin-repository.html).
 * The [Kotlin Symbol Processing (KSP) plugin](ksp-overview.md) since [KSP2](https://android-developers.googleblog.com/2023/12/ksp2-preview-kotlin-k2-standalone.html).
 
 > If you use any additional compiler plugins, check their documentation to see if they are compatible with K2.
