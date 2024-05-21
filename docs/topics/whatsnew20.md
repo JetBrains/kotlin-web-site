@@ -552,7 +552,7 @@ Currently, the Kotlin K2 compiler supports the following Kotlin compiler plugins
 * [Parcelize](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize)
 * [SAM with receiver](sam-with-receiver-plugin.md)
 * [serialization](serialization.md)
-<!-- * [Power-assert](power-assert.md) -->
+* [Power-assert](power-assert.md)
 
 In addition, the Kotlin K2 compiler supports:
 
@@ -615,7 +615,7 @@ powerAssert {
 </tab>
 </tabs>
 
-<!-- Learn more about the [Kotlin Power-assert plugin in the documentation](power-assert.md). -->
+Learn more about the [Kotlin Power-assert plugin in the documentation](power-assert.md).
 
 ### How to enable the Kotlin K2 compiler
 
