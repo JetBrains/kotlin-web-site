@@ -7,16 +7,19 @@
 {type="warning"}
 
 The Kotlin Power-assert compiler plugin improves the debugging experience
-by providing detailed and contextual information in assertion failure messages.
-It simplifies the process of writing tests by automatically generating failure messages 
-that include intermediate values of the assertion expression. 
-It helps you quickly understand why a test failed without the need for complex assertion libraries.
+by providing detailed failure messages with contextual information.
+It simplifies the process of writing tests by automatically generating 
+intermediate values in failure messages. 
+It helps you understand why a test failed without needing complex assertion libraries.
 
-Key features:
+The Power-assert plugin key features:
 
-- **Enhanced Error Messages**: The plugin captures and displays the values of variables and sub-expressions within the assertion, making it clear which part of the condition caused the failure.
-- **Simplified Testing**: Automatically generates informative failure messages, reducing the need for complex assertion libraries.
-- **Supports Multiple Functions**: By default, it transforms `assert()` function calls but can also transform other functions like `require()`, `check()`, and `assertTrue()`.
+- **Enhanced error messages**: The plugin captures and displays the values of variables and 
+   sub-expressions within the assertion to clearly identify the cause of failure.
+- **Simplified testing**: Automatically generates informative failure messages,
+   reducing the need for complex assertion libraries.
+- **Supports multiple functions**: By default, it transforms `assert()` function calls but can also transform other functions,
+   such as `require()`, `check()`, and `assertTrue()`.
 
 ## Apply the plugin
 
@@ -26,13 +29,10 @@ To enable the Power-assert plugin, configure your `build.gradle(.kts)` file as f
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
+// build.gradle.kts
 plugins {
     kotlin("multiplatform") version "2.0.0"
     kotlin("plugin.power-assert") version "2.0.0"
-}
-
-powerAssert {
-    functions = listOf("kotlin.assert", "kotlin.test.assertTrue")
 }
 ```
 
@@ -40,46 +40,32 @@ powerAssert {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
+// build.gradle
 plugins {
     id 'org.jetbrains.kotlin.multiplatform' version '2.0.0'
     id 'org.jetbrains.kotlin.plugin.power-assert' version '2.0.0'
-}
-
-powerAssert {
-    functions = ["kotlin.assert", "kotlin.test.assertTrue"]
 }
 ```
 
 </tab>
 </tabs>
 
-Since the plugin is Experimental, you will see warnings every time you build your app. 
-To exclude warnings, add the `@OptIn` annotation before declaring the `powerAssert {}` block:
-
-```kotlin
-@OptIn(ExperimentalKotlinGradlePluginApi::class)
-powerAssert {
-    ...
-}
-```
-
 ## Configure the plugin
 
 The Power-assert plugin provides several options to customize its behavior:
 
-- **`functions`**: A set of fully-qualified function paths whose calls will be transformed by the Power-assert plugin. If empty, only `kotlin.assert()` will be transformed by default.
-- **`includedSourceSets`**: A set of Gradle source sets that will be transformed by the Power-assert plugin. If empty, all _test source sets_ will be transformed by default.
+- **`functions`**: A list of complete function paths that the Power-assert plugin will transform. If empty, only `kotlin.assert()` will be transformed by default.
+- **`includedSourceSets`**: A list of Gradle source sets that the Power-assert plugin will transform. If empty, all _test source sets_ will be transformed by default.
 
-Example configuration:
+To customize the behavior, add the `powerAssert {}` block to you build script file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
+// build.gradle.kts
 powerAssert {
-    // List of functions for the Power-assert plugin
     functions = listOf("kotlin.assert", "kotlin.test.assertTrue", "kotlin.test.assertEquals", "kotlin.test.assertNull")
-    // List of source sets for the Power-assert plugin
     includedSourceSets = listOf("commonMain", "jvmMain", "jsMain", "nativeMain")
 }
 ```
@@ -88,16 +74,27 @@ powerAssert {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
+// build.gradle
 powerAssert {
-    // List of functions for the Power-assert plugin
     functions = ["kotlin.assert", "kotlin.test.assertTrue", "kotlin.test.assertEquals", "kotlin.test.assertNull"]
-    // List of source sets for the Power-assert plugin
     includedSourceSets = ["commonMain", "jvmMain", "jsMain", "nativeMain"]
 }
 ```
 
 </tab>
 </tabs>
+
+Since the plugin is Experimental, you will see warnings every time you build your app.
+To exclude these warnings, add the `@OptIn` annotation before declaring the `powerAssert {}` block:
+
+```kotlin
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
+@OptIn(ExperimentalKotlinGradlePluginApi::class)
+powerAssert {
+    ...
+}
+```
 
 ## Use the plugin
 
@@ -130,7 +127,7 @@ tasks.test {
 
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 powerAssert {
-    functions = listOf("kotlin.assert", "kotlin.test.assertEquals", "kotlin.test.assertTrue", "kotlin.test.assertNull", "kotlin.require")
+    functions = listOf("kotlin.assert", "kotlin.test.assertEquals", "kotlin.test.assertTrue", "kotlin.test.assertNull", "kotlin.require", "org.example.AssertScope.assert", "org.example.assertSoftly")
 }
 ```
 {initial-collapse-state="collapsed"}
@@ -173,15 +170,15 @@ Consider the following test function:
 ```kotlin
 class ComplexExampleTest {
 
-   data class Person(val name: String, val age: Int)
-
-   @Test
-   fun testComplexAssertion() {
-       val person = Person("Alice", 30)
-       val isValidName = person.name.startsWith("A") && person.name.length > 3
-       val isValidAge = person.age > 20 && person.age < 29
-       assert(isValidName && isValidAge)
-   }
+    data class Person(val name: String, val age: Int)
+ 
+    @Test
+    fun testComplexAssertion() {
+        val person = Person("Alice", 10)
+        val isValidName = person.name.startsWith("A") && person.name.length > 3
+        val isValidAge = person.age > 20 && person.age < 29
+        assert(isValidName && isValidAge)
+    }
 }
 ```
 
@@ -204,7 +201,7 @@ class ComplexExampleTest {
 
     @Test
     fun testComplexAssertion() {
-        val person = Person("Alice", 30)
+        val person = Person("Alice", 10)
         assert(person.name.startsWith("A") && person.name.length > 3 && person.age > 20 && person.age < 29)
     }
 }
@@ -215,25 +212,22 @@ After execution, you get more explicit information about what went wrong:
 ```text
 Assertion failed
 assert(person.name.startsWith("A") && person.name.length > 3 && person.age > 20 && person.age < 29)
-       |      |    |                  |      |    |      |      |      |   |       |      |   |
-       |      |    |                  |      |    |      |      |      |   |       |      |   false
-       |      |    |                  |      |    |      |      |      |   |       |      30
-       |      |    |                  |      |    |      |      |      |   |       Person(name=Alice, age=30)
-       |      |    |                  |      |    |      |      |      |   true
-       |      |    |                  |      |    |      |      |      30
-       |      |    |                  |      |    |      |      Person(name=Alice, age=30)
+       |      |    |                  |      |    |      |      |      |   |
+       |      |    |                  |      |    |      |      |      |   false
+       |      |    |                  |      |    |      |      |      10
+       |      |    |                  |      |    |      |      Person(name=Alice, age=10)
        |      |    |                  |      |    |      true
        |      |    |                  |      |    5
        |      |    |                  |      Alice
-       |      |    |                  Person(name=Alice, age=30)
+       |      |    |                  Person(name=Alice, age=10)
        |      |    true
        |      Alice
-       Person(name=Alice, age=30)
+       Person(name=Alice, age=10)
 ```
 
 ### Beyond assert function
 
-The Power-assert plugin can transform various functions beyond `assert`.
+The Power-assert plugin can transform various functions beyond `assert` which is transformed by default.
 Functions like `require()`, `check()`, `assertTrue()`, `assertEqual()` and others can also be transformed,
 if they have a form that allows taking a `String` or `() -> String` value as the last parameter.
 
@@ -242,6 +236,8 @@ For example, the `require()` function:
 
 ```kotlin
 // build.gradle.kts
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 powerAssert {
     functions = listOf("kotlin.assert", "kotlin.require")
@@ -338,6 +334,19 @@ class AssertScopeImpl : AssertScope {
 }
 ```
 
+Add these functions to the `powerAssert {}` block to make them available for the Power-assert plugin:
+
+```kotlin
+@OptIn(ExperimentalKotlinGradlePluginApi::class)
+powerAssert {
+    functions = listOf("kotlin.assert", "kotlin.test.assert", "org.example.AssertScope.assert", "org.example.assertSoftly")
+}
+```
+
+> You should specify the full name of the package where you declare `AssertScope.assert()` and `assertSoftly()` functions.
+>
+{type="tip"}
+
 After that, you could use it in your test code:
 
 ```kotlin
@@ -370,8 +379,18 @@ class SoftAssertExampleTest1 {
 In the output, all the `assert()` function error messages will be printed one after another:
 
 ```text
-Charlie has an invalid salary: 40000
+harlie has an invalid salary: 40000
+assert(employee.salary > 50000) { "${employee.name} has an invalid salary: ${employee.salary}" }
+       |        |      |
+       |        |      false
+       |        40000
+       Employee(name=Charlie, age=55, salary=40000)
 Dave has an invalid age: 150
+assert(employee.age < 100) { "${employee.name} has an invalid age: ${employee.age}" }
+       |        |   |
+       |        |   false
+       |        150
+       Employee(name=Dave, age=150, salary=70000)
 ```
 
 ## What's next
