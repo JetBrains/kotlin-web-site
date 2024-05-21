@@ -201,9 +201,6 @@
                 <toc-element toc-title="Collections" id="java-to-kotlin-collections-guide.md"/>
                 <toc-element toc-title="Nullability" id="java-to-kotlin-nullability-guide.md"/>
             </toc-element>
-            <toc-element toc-title="Library creators' guidelines">
-                <include from="kl" target="api-guidelines" origin="api-guidelines"/>
-            </toc-element>
         </toc-element>
 
         <toc-element toc-title="Native">
@@ -403,6 +400,9 @@
         <toc-element toc-title="Learn in IDE (JetBrains Academy)">
             <toc-element id="edu-tools-learner.md" toc-title="Learn Kotlin"/>
             <toc-element id="edu-tools-educator.md" toc-title="Teach Kotlin"/>
+        </toc-element>
+        <toc-element toc-title="Library creators' guidelines">
+            <include from="kl" target="api-guidelines" origin="api-guidelines"/>
         </toc-element>
     </toc-element>
 
