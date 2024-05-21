@@ -14,11 +14,11 @@ It helps you understand why a test failed without needing complex assertion libr
 
 The Power-assert plugin key features:
 
-- **Enhanced error messages**: The plugin captures and displays the values of variables and 
+* **Enhanced error messages**: The plugin captures and displays the values of variables and 
    sub-expressions within the assertion to clearly identify the cause of failure.
-- **Simplified testing**: Automatically generates informative failure messages,
+* **Simplified testing**: Automatically generates informative failure messages,
    reducing the need for complex assertion libraries.
-- **Supports multiple functions**: By default, it transforms `assert()` function calls but can also transform other functions,
+* **Supports multiple functions**: By default, it transforms `assert()` function calls but can also transform other functions,
    such as `require()`, `check()`, and `assertTrue()`.
 
 ## Apply the plugin
