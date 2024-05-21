@@ -156,7 +156,7 @@ The following table lists details of the latest Kotlin releases:
             </list>
         </td>
     </tr>
-    <tr>g
+    <tr>
         <td><strong>1.9.10</strong>
             <p>Released: <strong>August 23, 2023</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.10" target="_blank">Release on GitHub</a></p>
