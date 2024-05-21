@@ -351,9 +351,8 @@ fun main(input: Rho) {
 
 In Kotlin 2.0.0, we've made improvements in the K2 compiler related to Kotlin Multiplatform in the following areas:
 
-<!--
 * [Separation of common and platform sources during compilation](#separation-of-common-and-platform-sources-during-compilation)
-* [Different visibility levels of expected and actual declarations](#different-visibility-levels-of-expected-and-actual-declarations) -->
+* [Different visibility levels of expected and actual declarations](#different-visibility-levels-of-expected-and-actual-declarations)
 
 #### Separation of common and platform sources during compilation
 
@@ -508,30 +507,29 @@ behavior as in the old compilation scheme.
 
 In the future, these remaining cases will be revised to be more consistent with the new compilation scheme.
 
-<!-- #### Different visibility levels of expected and actual declarations
+#### Different visibility levels of expected and actual declarations
 
 Before Kotlin 2.0.0, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your
 Kotlin Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md). 
-Kotlin 2.0.0 supports different visibility levels **only** if the actual declaration is _less_ strict than 
+Kotlin 2.0.0 now also supports different visibility levels but **only** if the actual declaration is _more_ permissive than 
 the expected declaration. For example:
 
 ```kotlin
 expect internal class Attribute // Visibility is internal
 actual class Attribute          // Visibility is public by default,
-                                // which is less strict
+                                // which is more permissive
 ```
 
-If you are using a [type alias](type-aliases.md) in your actual declaration, the visibility of the type **must** be less
-strict. Any visibility modifiers for `actual typealias` are ignored. For example:
+Similarly, if you are using a [type alias](type-aliases.md) in your actual declaration, the visibility of the **underlying type**
+should be the same or more permissive than the expected declaration. For example:
 
 ```kotlin
 expect internal class Attribute                 // Visibility is internal
-internal actual typealias Attribute = Expanded  // The internal visibility 
-                                                // modifier is ignored
+internal actual typealias Attribute = Expanded
+
 class Expanded                                  // Visibility is public by default,
-                                                // which is less strict
+                                                // which is more permissive
 ```
--->
 
 ### Compiler plugins support
 
