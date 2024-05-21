@@ -2,7 +2,7 @@
 
 > The Power-assert compiler plugin is [Experimental](components-stability.md).
 > It may be changed at any time. Use it only for evaluation purposes.
-> We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
+> We would appreciate your feedback in [YouTrack](https://kotl.in/issue).
 >
 {type="warning"}
 
@@ -18,7 +18,7 @@ The Power-assert plugin key features:
    sub-expressions within the assertion to clearly identify the cause of failure.
 * **Simplified testing**: Automatically generates informative failure messages,
    reducing the need for complex assertion libraries.
-* **Supports multiple functions**: By default, it transforms `assert()` function calls but can also transform other functions,
+* **Support for multiple functions**: By default, it transforms `assert()` function calls but can also transform other functions,
    such as `require()`, `check()`, and `assertTrue()`.
 
 ## Apply the plugin
@@ -54,8 +54,8 @@ plugins {
 
 The Power-assert plugin provides several options to customize its behavior:
 
-* **`functions`**: A list of fully-qualified function paths. The Power-assert plugin will transform the calls to these functions. If empty, only `kotlin.assert()` calls will be transformed by default.
-* **`includedSourceSets`**: A list of Gradle source sets that the Power-assert plugin will transform. If empty, all _test source sets_ will be transformed by default.
+* **`functions`**: A list of fully-qualified function paths. The Power-assert plugin will transform the calls to these functions. If not specified, only `kotlin.assert()` calls will be transformed by default.
+* **`includedSourceSets`**: A list of Gradle source sets that the Power-assert plugin will transform. If not specified, all _test source sets_ will be transformed by default.
 
 To customize the behavior, add the `powerAssert {}` block to you build script file:
 
@@ -85,7 +85,7 @@ powerAssert {
 </tabs>
 
 Since the plugin is Experimental, you will see warnings every time you build your app.
-To exclude these warnings, add the `@OptIn` annotation before declaring the `powerAssert {}` block:
+To exclude these warnings, add this `@OptIn` annotation before declaring the `powerAssert {}` block:
 
 ```kotlin
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
@@ -98,7 +98,7 @@ powerAssert {
 
 ## Use the plugin
 
-This section contains examples of using the Power-assert compiler plugin.
+This section provides examples of using the Power-assert compiler plugin.
 
 See the complete code of the build script file `build.gradle.kts` for all these examples:
 
@@ -231,7 +231,7 @@ The Power-assert plugin can transform various functions beyond `assert` which is
 Functions like `require()`, `check()`, `assertTrue()`, `assertEqual()` and others can also be transformed,
 if they have a form that allows taking a `String` or `() -> String` value as the last parameter.
 
-Before adding a new function in a test, specify the function in the `powerAssert {}` block of your build script file.
+Before using a new function in a test, specify the function in the `powerAssert {}` block of your build script file.
 For example, the `require()` function:
 
 ```kotlin
@@ -397,4 +397,4 @@ assert(employee.age < 100) { "${employee.name} has an invalid age: ${employee.ag
 ## What's next
 
 * Look through a [simple project with the plugin enabled](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-integration-tests/src/test/resources/testProject/powerAssertSimple)
-   and more [complex project with multiple source sets](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-integration-tests/src/test/resources/testProject/powerAssertSourceSets)
+   and a more [complex project with multiple source sets](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-integration-tests/src/test/resources/testProject/powerAssertSourceSets).
