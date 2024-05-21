@@ -87,7 +87,7 @@ fun petAnimal(animal: Any) {
         // In Kotlin 2.0.0, the compiler can access
         // information about isCat, so it knows that
         // animal was smart-cast to the type Cat.
-        // Therefore, the purr() function is successfully called.
+        // Therefore, the purr() function can be called.
         // In Kotlin 1.9.20, the compiler doesn't know
         // about the smart cast, so calling the purr()
         // function triggers an error.
@@ -300,7 +300,7 @@ fun main(input: Rho) {
         ++unknownObject
 
         // In Kotlin 2.0.0, the compiler knows unknownObject has type
-        // Sigma, so the sigma() function is called successfully.
+        // Sigma, so the sigma() function can be called successfully.
         unknownObject.sigma()
 
         // In Kotlin 1.9.20, the compiler thinks unknownObject has type
@@ -312,7 +312,7 @@ fun main(input: Rho) {
         // Unresolved reference 'tau'
 
         // In Kotlin 1.9.20, the compiler mistakenly thinks that 
-        // unknownObject has type Tau, so the tau() function is
+        // unknownObject has type Tau, so the tau() function can be
         // called successfully.
     }
 }
@@ -569,7 +569,7 @@ This section highlights the following modifications:
 
 * [Immediate initialization of open properties with backing fields](#immediate-initialization-of-open-properties-with-backing-fields)
 * [Deprecated synthetic setters on a projected receiver](#deprecated-synthetics-setter-on-a-projected-receiver)
-* [Forbidden function calls with inaccessible types](#forbidden-function-calls-with-inaccessible-types)
+* [Forbidden use of inaccessible generic types](#forbidden-use-of-inaccessible-generic-types)
 * [Consistent resolution order of Kotlin properties and Java fields with the same name](#consistent-resolution-order-of-kotlin-properties-and-java-fields-with-the-same-name)
 * [Improved null safety for Java primitive arrays](#improved-null-safety-for-java-primitive-arrays)
 
@@ -664,51 +664,62 @@ from your code.
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-54309).
 
-### Forbidden function calls with inaccessible types
+### Forbidden use of inaccessible generic types
 
 **What's changed?**
 
-Before Kotlin 2.0.0, if you declared or called a function that had lambda parameters with an inaccessible type, your code
-could compile, but you might encounter compiler crashes later. In Kotlin 2.0.0, it is forbidden to declare or call a
-function that has an inaccessible type.
+Due to the new architecture of our K2 compiler, we've changed how we handle inaccessible generic types. Generally, you 
+should never rely on inaccessible generic types in your code because this indicates a misconfiguration in your project's 
+build configuration, preventing the compiler from accessing the necessary information to compile. In Kotlin 2.0.0, you 
+can't declare or call a function literal with an inaccessible generic type, nor use a generic type with inaccessible generic
+type arguments. This restriction helps you avoid compiler errors later in your code.
 
-For example, let's say that you declared a class in one module:
+For example, let's say that you declared a generic class in one module:
+
 
 ```kotlin
 // Module one
-class Some(val x: Int)
+class Node<V>(val value: V)
 ```
 
-If you have another module (module two) that has a dependency configured on module one, your code can access the `Some`
-class and use it as a type in lambda expressions:
+If you have another module (module two) with a dependency configured on module one, your code can access the `Node<V>` 
+class and use it as a type in function types:
 
 ```kotlin
 // Module two
-fun foo(f: (Some, String) -> Unit) {}
-fun bar(f: (Some) -> Unit) {}
-// Both functions compile successfully
+fun execute(func: (Node<Int>) -> Unit) {}
+// Function compiles successfully
 ```
 
-However, if you have a third module (module three) that depends only on module two, the third module won't be able to
-access the `Some` class in **module one**. As a result, the dependency won't be transitive between modules. Now, any
-functions in module three that have lambda parameters with the `Some` type will trigger errors in Kotlin 2.0.0, thus
-preventing crashes later in your code:
+However, if your project is misconfigured such that you have a third module (module three) that depends only on module 
+two, the Kotlin compiler won't be able to access the `Node<V>` class in **module one** when compiling the third module. 
+Now, any lambdas or anonymous functions in module three that use the `Node<V>` type trigger errors in Kotlin 2.0.0, thus
+preventing avoidable compiler errors, crashes, and run-time exceptions later in your code:
 
 ```kotlin
 // Module three
 fun test() {
-    // Triggers an error in Kotlin 2.0.0, as the unused lambda
-    // parameters (_) resolve to Some, which is inaccessible
-    foo { _, _ -> }
+    // Triggers an error in Kotlin 2.0.0, as the type of the implicit 
+    // lambda parameter (it) resolves to Node, which is inaccessible
+    execute {}
 
-    // Triggers a warning in Kotlin 2.0.0, as using an instance of Some
-    // isn't possible because Some is inaccessible
-    foo { some, str -> }
+    // Triggers an error in Kotlin 2.0.0, as the type of the unused 
+    // lambda parameter (_) resolves to Node, which is inaccessible
+    execute { _ -> }
+
+    // Triggers an error in Kotlin 2.0.0, as the type of the unused
+    // anonymous function parameter (_) resolves to Node, which is inaccessible
+    execute(fun (_) {})
 }
 ```
 
-Errors are also introduced in Kotlin 2.0.0 for some scenarios involving generic classes. Consider, for example, the same
-arrangement of three modules but with generic classes:
+In addition to function literals triggering errors when they contain value parameters of inaccessible generic types, 
+errors also occur when a type has an inaccessible generic type argument.
+
+For example, you have the same generic class declaration in module one. In module two, you declare another generic class:
+`Container<C>`. In addition, you declare functions in module two that use `Container<C>` with generic class `Node<V>` as
+a type argument:
+
 
 <table header-style="top">
    <tr>
@@ -720,7 +731,7 @@ arrangement of three modules but with generic classes:
 
 ```kotlin
 // Module one
-class Some<T>(val x: T)
+class Node<V>(val value: V)
 ```
 
 </td>
@@ -728,14 +739,12 @@ class Some<T>(val x: T)
 
 ```kotlin
 // Module two
-fun foo(f: (Some<String>, String) -> Unit) {}
+class Container<C>(vararg val content: C)
 
-class Generic<T>
-
-// Creates an instance of Generic class with type Some<String>
-fun gen() = Generic<Some<String>>()
-
-fun takeString(g: Generic<Some<String>>) {}
+// Functions with generic class type that
+// also have a generic class type argument
+fun produce(): Container<Node<Int>> = Container(Node(42))
+fun consume(arg: Container<Node<Int>>) {}
 ```
 
 </td>
@@ -743,30 +752,89 @@ fun takeString(g: Generic<Some<String>>) {}
 </table>
 
 
-In the third module, if you use the `gen()` function from module two to create an instance of the `Generic` class with
-the type `Some<String>` and then assign it to a variable `z`, this operation is successful because the `gen()` function
-has access to the `Some<T>` class in module one. **However**, if you try to pass the variable `z` to a function declared
-in module three, an error is triggered because functions declared in module three don't have access to the `Some<T>` class
-in module one:
+If you try to call these functions in module three, an error is triggered in Kotlin 2.0.0 because the generic class 
+`Node<V>` is inaccessible from module three:
 
 ```kotlin
 // Module three
 fun test() {
-    // Triggers a warning in Kotlin 2.0.0
-    val z = gen()
+    // Triggers an error in Kotlin 2.0.0, as generic class Node<V> is 
+    // inaccessible
+    consume(produce())
+}
+```
 
-    // Triggers an error in Kotlin 2.0.0
-    takeString(z)
+In future releases we will continue to deprecate the use of inaccessible types in general. We have already started in 
+Kotlin 2.0.0 by adding warnings for some scenarios with inaccessible types, including non-generic ones.
+
+For example, let's use the same module setup as the previous examples, but turn the generic class `Node<V>` into a 
+non-generic class `IntNode`, with all functions declared in module two:
+
+<table header-style="top">
+   <tr>
+       <td>Module one</td>
+       <td>Module two</td>
+   </tr>
+   <tr>
+<td>
+
+```kotlin
+// Module one
+class IntNode(val value: Int)
+```
+
+</td>
+<td>
+
+```kotlin
+// Module two
+// A function that contains a lambda 
+// parameter with `IntNode` type
+fun execute(func: (IntNode) -> Unit) {}
+
+class Container<C>(vararg val content: C)
+
+// Functions with generic class type
+// that has `IntNode` as a type argument
+fun produce(): Container<IntNode> = Container(IntNode(42))
+fun consume(arg: Container<IntNode>) {}
+```
+
+</td>
+</tr>
+</table>
+
+If you call these functions in module three, some warnings are triggered:
+
+```kotlin
+// Module three
+fun test() {
+    // Triggers warnings in Kotlin 2.0.0, as class IntNode is 
+    // inaccessible.
+
+    execute {}
+    // Class 'IntNode' of the parameter 'it' is inaccessible.
+
+    execute { _ -> }
+    execute(fun (_) {})
+    // Class 'IntNode' of the parameter '_' is inaccessible.
+
+    // Will trigger a warning in future Kotlin releases, as IntNode is
+    // inaccessible.
+    consume(produce())
 }
 ```
 
 **What's the best practice now?**
 
-To avoid these problems, you can configure a direct dependency for module three on module one.
+If you encounter new warnings regarding inaccessible generic types, it's highly likely that there's an issue with your 
+build system configuration. We recommend checking your build scripts and configuration. 
 
-Alternatively, you can adapt your code to make the types accessible within the same module.
+As a last resort, you can configure a direct dependency for module three on module one. Alternatively, you can modify 
+your code to make the types accessible within the same module.
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-64474).
+
 
 ### Consistent resolution order of Kotlin properties and Java fields with the same name
 
@@ -1088,8 +1156,9 @@ for further reading. Changes listed with an asterisk (*) next to the Issue ID ar
 | [KT-55111](https://youtrack.jetbrains.com/issue/KT-55111) | OptIn: forbid constructor calls with default arguments under marker                                        |
 | [KT-61182](https://youtrack.jetbrains.com/issue/KT-61182) | Unit conversion is accidentally allowed to be used for expressions on variables + invoke resolution        |
 | [KT-55199](https://youtrack.jetbrains.com/issue/KT-55199) | Forbid promoting callable references with adaptations to KFunction                                         |
-| [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776) | [LC] K2 breaks \`false && ...\` and \`false \                                                              |\| ...\`                                                     |
+| [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776) | [LC] K2 breaks \`false && ...\` and \`false \|\| ...\`                                                     |
 | [KT-65682](https://youtrack.jetbrains.com/issue/KT-65682) | [LC] Deprecate \`header\`/\`impl\` keywords                                                                |
+| [KT-45375](https://youtrack.jetbrains.com/issue/KT-45375) | Generate all Kotlin lambdas via invokedynamic + LambdaMetafactory by default                               |
 
 ## Compatibility with Kotlin releases
 

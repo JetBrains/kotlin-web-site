@@ -120,7 +120,7 @@ fun petAnimal(animal: Any) {
         // In Kotlin 2.0.0, the compiler can access
         // information about isCat, so it knows that
         // animal was smart-cast to the type Cat.
-        // Therefore, the purr() function is successfully called.
+        // Therefore, the purr() function can be called.
         // In Kotlin 1.9.20, the compiler doesn't know
         // about the smart cast, so calling the purr()
         // function triggers an error.
@@ -334,7 +334,7 @@ fun main(input: Rho) {
         ++unknownObject
 
         // In Kotlin 2.0.0, the compiler knows unknownObject has type
-        // Sigma, so the sigma() function is called successfully.
+        // Sigma, so the sigma() function can be called successfully.
         unknownObject.sigma()
 
         // In Kotlin 1.9.20, the compiler thinks unknownObject has type
@@ -346,8 +346,8 @@ fun main(input: Rho) {
         // Unresolved reference 'tau'
 
         // In Kotlin 1.9.20, the compiler mistakenly thinks that 
-        // unknownObject has type Tau, so calling the tau() function is
-        // allowed.
+        // unknownObject has type Tau, the tau() function can be 
+        // called successfully.
     }
 }
 ```
