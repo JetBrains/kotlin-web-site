@@ -911,11 +911,8 @@ kotlin.stdlib.jdk.variants.version.alignment=false
 
 The [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available for testing Kotlin projects on
 all supported platforms.
-Add the dependency `kotlin-test` to the `commonTest` source set, so that the Gradle plugin can infer the corresponding
-test dependencies for each test source set:
-* `kotlin-test-common` and `kotlin-test-annotations-common` for common source sets
-* `kotlin-test-junit` for JVM source sets
-* `kotlin-test-js` for Kotlin/JS source sets
+Add the `kotlin-test` dependency to the `commonTest` source set, so that the Gradle plugin can infer the corresponding
+test dependencies for each test source set.
 
 Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
 
@@ -957,6 +954,8 @@ kotlin {
 {type="note"}
 
 You can use the `kotlin-test` dependency in any shared or platform-specific source set as well.
+
+#### JVM variants of kotlin-test
 
 For Kotlin/JVM, Gradle uses JUnit 4 by default. Therefore, the `kotlin("test")` dependency resolves to the variant for
 JUnit 4, namely `kotlin-test-junit`.
@@ -1045,9 +1044,12 @@ test {
 
 [Learn how to test code using JUnit on the JVM](jvm-test-using-junit.md).
 
-If you need to use a different JVM test framework, disable automatic testing framework selection by
-adding the line `kotlin.test.infer.jvm.variant=false` to the project's `gradle.properties` file.
-After doing this, add the framework as a Gradle dependency.
+Automatic JVM variant resolution can sometimes cause problems for your configuration. In that case, you can specify
+the necessary framework explicitly and disable the automatic resolution by adding this line to the project `gradle.properties` file:
+
+```text
+kotlin.test.infer.jvm.variant=false
+```
 
 If you have used a variant of `kotlin("test")` in your build script explicitly and your project build stopped working with
 a compatibility conflict,

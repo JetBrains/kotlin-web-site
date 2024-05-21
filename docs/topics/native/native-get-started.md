@@ -17,6 +17,7 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
        kotlin("multiplatform") version "%kotlinVersion%"
    }
    ```
+   
 4. Follow the suggestion to reload Gradle files:
 
    ![Load Gradle changes button](load-gradle-changes.png){width=295}
