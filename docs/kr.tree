@@ -374,6 +374,7 @@
             <toc-element id="sam-with-receiver-plugin.md" toc-title="SAM with receiver"/>
             <toc-element id="kapt.md" toc-title="kapt"/>
             <toc-element id="lombok.md" toc-title="Lombok"/>
+            <toc-element id="power-assert.md" toc-title="Power-assert"/>
         </toc-element>
         <toc-element toc-title="Kotlin Symbol Processing API">
             <toc-element id="ksp-overview.md" toc-title="KSP overview"/>
