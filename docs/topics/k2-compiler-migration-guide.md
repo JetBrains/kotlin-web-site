@@ -285,7 +285,7 @@ interface Sigma : Rho {
     fun sigma() = Unit
 }
 
-interface Tau {
+interface Tau : Rho {
     fun tau() = Unit
 }
 
