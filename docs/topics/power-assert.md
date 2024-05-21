@@ -54,8 +54,8 @@ plugins {
 
 The Power-assert plugin provides several options to customize its behavior:
 
-- **`functions`**: A list of complete function paths that the Power-assert plugin will transform. If empty, only `kotlin.assert()` will be transformed by default.
-- **`includedSourceSets`**: A list of Gradle source sets that the Power-assert plugin will transform. If empty, all _test source sets_ will be transformed by default.
+* **`functions`**: A list of fully-qualified function paths. The Power-assert plugin will transform the calls to these functions. If empty, only `kotlin.assert()` calls will be transformed by default.
+* **`includedSourceSets`**: A list of Gradle source sets that the Power-assert plugin will transform. If empty, all _test source sets_ will be transformed by default.
 
 To customize the behavior, add the `powerAssert {}` block to you build script file:
 
@@ -127,7 +127,7 @@ tasks.test {
 
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 powerAssert {
-    functions = listOf("kotlin.assert", "kotlin.test.assertEquals", "kotlin.test.assertTrue", "kotlin.test.assertNull", "kotlin.require", "org.example.AssertScope.assert", "org.example.assertSoftly")
+    functions = listOf("kotlin.assert", "kotlin.test.assertEquals", "kotlin.test.assertTrue", "kotlin.test.assertNull", "kotlin.require", "org.example.AssertScope.assert")
 }
 ```
 {initial-collapse-state="collapsed"}
@@ -269,7 +269,7 @@ require(value.isNotEmpty()) { "Value should not be empty" }
 
 The message shows the intermediate values that lead to the failure, making it easier to debug.
 
-### Function call tracing
+<!-- ### Function call tracing
 
 The plugin supports function call tracing, which is similar to Rust's `dbg!` macro.
 Use it to trace and print function calls and their results:
@@ -301,6 +301,7 @@ assert(exampleFunction(2, 3) + exampleFunction(1, 2) == 9)
        5
        FunctionTrailingExampleTest@533bda92
 ```
+-->
 
 ### Soft assertions
 
@@ -339,11 +340,11 @@ Add these functions to the `powerAssert {}` block to make them available for the
 ```kotlin
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 powerAssert {
-    functions = listOf("kotlin.assert", "kotlin.test.assert", "org.example.AssertScope.assert", "org.example.assertSoftly")
+    functions = listOf("kotlin.assert", "kotlin.test.assert", "org.example.AssertScope.assert")
 }
 ```
 
-> You should specify the full name of the package where you declare `AssertScope.assert()` and `assertSoftly()` functions.
+> You should specify the full name of the package where you declare the `AssertScope.assert()` function.
 >
 {type="tip"}
 
