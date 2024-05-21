@@ -95,7 +95,7 @@ features:
 * Generators for compiling [suspend functions](composing-suspending-functions.md) that improve the final bundle size
   and help with debugging.
 
-You can enable all the supported ES2015 features at once by adding a special compilation target, `es2015`, to your
+You can enable all the supported ES2015 features at once by adding the `es2015` compilation target to your
 `build.gradle(.kts)` file:
 
 ```kotlin
