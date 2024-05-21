@@ -93,16 +93,19 @@ In Kotlin 2.0.0, we've made improvements related to smart casts in the following
 
 #### Local variables and further scopes
 
-Previously, if a variable was evaluated as not `null` within an `if` condition, the variable was smart cast, and
-information about this variable was shared further within the scope of the `if` block. However, if you declared the
-variable **outside** the `if` condition, no information about the variable was available within the `if` condition,
-so it couldn't be smart cast. This behavior was also seen with `when` expressions and `while` loops.
+Previously, if a variable was evaluated as not `null` within an `if` condition, the variable would be smart-cast.
+Information about this variable would then be shared further within the scope of the `if` block.
+
+However, if you declared the variable **outside** the `if` condition, no information about the variable would be available
+within the `if` condition, so it couldn't be smart-cast. This behavior was also seen with `when` expressions and `while` loops.
 
 From Kotlin 2.0.0, if you declare a variable before using it in your `if`, `when`, or `while` condition, then any
-information collected by the compiler about the variable is accessible in the corresponding block for smart casting.
+information collected by the compiler about the variable will be accessible in the corresponding block for
+smart-casting.
+
 This can be useful when you want to do things like extract boolean conditions into variables. Then, you can give the
-variable a meaningful name, which makes your code easier to read, and easily reuse the variable later in your code.
-For example:
+variable a meaningful name, which will improve your code readability and make it possible to reuse the variable later
+in your code. For example:
 
 ```kotlin
 class Cat {
@@ -116,8 +119,8 @@ fun petAnimal(animal: Any) {
     if (isCat) {
         // In Kotlin 2.0.0, the compiler can access
         // information about isCat, so it knows that
-        // animal was smart cast to type Cat.
-        // Therefore, calling the purr() function is allowed.
+        // animal was smart-cast to the type Cat.
+        // Therefore, the purr() function is successfully called.
         // In Kotlin 1.9.20, the compiler doesn't know
         // about the smart cast, so calling the purr()
         // function triggers an error.
@@ -135,10 +138,11 @@ fun main() {
 
 #### Type checks with logical `or` operator
 
-In Kotlin 2.0.0, if you combine type checks for objects with an `or` operator (`||`), then a smart cast is made to their
-closest common supertype. Before this change, a smart cast wasn't applied at all. In this case, you still had to manually
-check the type of the object afterward before you could access any of its properties or call its functions.
-For example:
+In Kotlin 2.0.0, if you combine type checks for objects with an `or` operator (`||`), a smart cast
+is made to their closest common supertype. Before this change, a smart cast was always made to the `Any` type.
+
+In this case, you still had to manually check the object type afterward before you could access any of its properties or
+call its functions. For example:
 
 ```kotlin
 interface Status {
@@ -151,7 +155,7 @@ interface Declined : Status
 
 fun signalCheck(signalStatus: Any) {
     if (signalStatus is Postponed || signalStatus is Declined) {
-        // signalStatus is smart cast to a common supertype Status
+        // signalStatus is smart-cast to a common supertype Status
         signalStatus.signal()
         // Prior to Kotlin 2.0.0, signalStatus is smart cast 
         // to type Any, so calling the signal() function triggered an
@@ -171,13 +175,15 @@ fun signalCheck(signalStatus: Any) {
 
 #### Inline functions
 
-In Kotlin 2.0.0, the K2 compiler treats inline functions differently, allowing it to determine, in combination with other
-compiler analyses, whether it's safe to smart cast.
+In Kotlin 2.0.0, the K2 compiler treats inline functions differently,
+allowing it to determine in combination with other compiler analyses whether it's safe to smart-cast.
 
 Specifically, inline functions are now treated as having an implicit [`callsInPlace`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.contracts/-contract-builder/calls-in-place.html)
-contract. So any lambda functions passed to an inline function are called "in place". Since lambda functions are called
-in place, the compiler knows that a lambda function can't leak references to any variables contained within its function
-body. The compiler uses this knowledge along with other compiler analyses to decide if it's safe to smart cast any of the
+contract. This means that any lambda functions passed to an inline function are called in place. Since lambda functions
+are called in place, the compiler knows that a lambda function can't leak references to any variables contained within
+its function body.
+
+The compiler uses this knowledge along with other compiler analyses to decide whether it's safe to smart-cast any of the
 captured variables. For example:
 
 ```kotlin
@@ -195,9 +201,9 @@ fun runProcessor(): Processor? {
         // In Kotlin 2.0.0, the compiler knows that processor 
         // is a local variable, and inlineAction() is an inline function, so 
         // references to processor can't be leaked. Therefore, it's safe 
-        // to smart cast processor.
+        // to smart-cast processor.
 
-        // If processor isn't null, processor is smart cast
+        // If processor isn't null, processor is smart-cast
         if (processor != null) {
             // The compiler knows that processor isn't null, so no safe call 
             // is needed
@@ -216,14 +222,14 @@ fun runProcessor(): Processor? {
 
 #### Properties with function types
 
-In previous versions of Kotlin, there was a bug preventing class properties with a function type from being smart cast.
-We fixed this behavior in the K2 compiler in Kotlin 2.0.0. For example:
+In previous versions of Kotlin, there was a bug that meant that class properties with a function type weren't smart-cast.
+We fixed this behavior in Kotlin 2.0.0 and the K2 compiler. For example:
 
 ```kotlin
 class Holder(val provider: (() -> Unit)?) {
     fun process() {
         // In Kotlin 2.0.0, if provider isn't null, then
-        // provider is smart cast
+        // provider is smart-cast
         if (provider != null) {
             // The compiler knows that provider isn't null
             provider()
@@ -260,13 +266,13 @@ class Holder(val provider: Provider?, val processor: Processor?) {
 
 In Kotlin 2.0.0, we've made improvements to exception handling so that smart cast information can be passed on to `catch`
 and `finally` blocks. This change makes your code safer as the compiler keeps track of whether your object has a nullable
-type or not. For example:
+type. For example:
 
 ```kotlin
 //sampleStart
 fun testString() {
     var stringInput: String? = null
-    // stringInput is smart cast to String type
+    // stringInput is smart-cast to String type
     stringInput = ""
     try {
         // The compiler knows that stringInput isn't null
@@ -302,7 +308,7 @@ fun main() {
 
 Prior to Kotlin 2.0.0, the compiler didn't understand that the type of an object can change after using an increment or
 decrement operator. As the compiler couldn't accurately track the object type, your code could lead to unresolved
-reference errors. In Kotlin 2.0.0, this is fixed:
+reference errors. In Kotlin 2.0.0, this has been fixed:
 
 ```kotlin
 interface Rho {
@@ -356,12 +362,12 @@ In Kotlin 2.0.0, we've made improvements in the K2 compiler related to Kotlin Mu
 
 #### Separation of common and platform sources during compilation
 
-Previously, due to its design, the Kotlin compiler couldn't keep common and platform source sets separate at compile
-time. This means that common code could access platform code, which resulted in different behavior between platforms. In
-addition, some compiler settings and dependencies from common code were leaked into platform code.
+Previously, the design of the Kotlin compiler prevented it from keeping common and platform source sets separate
+at compile time. As a consequence, common code could access platform code, which resulted in different behavior
+between platforms. In addition, some compiler settings and dependencies from common code used to leak into platform code.
 
-In Kotlin 2.0.0, we redesigned the compilation scheme as part of the new Kotlin K2 compiler so that there is a strict
-separation between common and platform source sets. The most noticeable change is when you use [expected and actual functions](multiplatform-expect-actual.md#expected-and-actual-functions).
+In Kotlin 2.0.0, our implementation of the new Kotlin K2 compiler included a redesign of the compilation scheme to ensure
+strict separation between common and platform source sets. This change is most noticeable when you use [expected and actual functions](multiplatform-expect-actual.md#expected-and-actual-functions).
 Previously, it was possible for a function call in your common code to resolve to a function in platform code. For example:
 
 <table header-style="top">
@@ -398,16 +404,17 @@ fun foo(x: Int) = println("platform foo")
 
 In this example, the common code has different behavior depending on which platform it is run on:
 
-* On the JVM platform, calling the `foo()` function in common code results in the `foo()` function from platform code
-  being called: `platform foo`.
-* On the JavaScript platform, calling the `foo()` function in common code results in the `foo()` function from common
-  code being called: `common foo`, since there is none available in platform code.
+* On the JVM platform, calling the `foo()` function in the common code results in the `foo()` function from the platform code
+  being called as `platform foo`.
+* On the JavaScript platform, calling the `foo()` function in the common code results in the `foo()` function from the
+  common code being called as `common foo`, as there is no such function available in the platform code.
 
 In Kotlin 2.0.0, common code doesn't have access to platform code, so both platforms successfully resolve the `foo()`
-function to the `foo()` function in common code: `common foo`
+function to the `foo()` function in the common code: `common foo`.
 
 In addition to the improved consistency of behavior across platforms, we also worked hard to fix cases where there was
-conflicting behavior between IntelliJ IDEA or Android Studio and the compiler. For example, if you used [expected and actual classes](multiplatform-expect-actual.md#expected-and-actual-classes):
+conflicting behavior between IntelliJ IDEA or Android Studio and the compiler. For instance, when you used [expected and actual classes](multiplatform-expect-actual.md#expected-and-actual-classes),
+the following would happen:
 
 <table header-style="top">
    <tr>
@@ -444,8 +451,8 @@ actual class Identity {
 </tr>
 </table>
 
-In this example, the expected class `Identity` has no default constructor, so it can't be called successfully in common
-code. Previously, only an IDE error was reported, but the code still compiled successfully on the JVM. However, now the
+In this example, the expected class `Identity` has no default constructor, so it can't be called successfully in common code.
+Previously, an error was only reported by the IDE, but the code still compiled successfully on the JVM. However, now the
 compiler correctly reports an error:
 
 ```none
@@ -454,11 +461,11 @@ Expected class 'expect class Identity : Any' does not have default constructor
 
 ##### When resolution behavior doesn't change
 
-We are still in the process of migrating to the new compilation scheme, so the resolution behavior is still the same
-when you call functions that aren't within the same source set. You will notice this difference mainly when you use
-overloads from a multiplatform library in your common code.
+We're still in the process of migrating to the new compilation scheme, so the resolution behavior is still the same when
+you call functions that aren't within the same source set. You'll notice this difference mainly when you use overloads
+from a multiplatform library in your common code.
 
-For example, if you have this library, which has two `whichFun()` functions with different signatures:
+Suppose you have a library, which has two `whichFun()` functions with different signatures:
 
 ```kotlin
 // Example library
@@ -483,8 +490,8 @@ fun main() {
 }
 ```
 
-In comparison, if you declare the overloads for `whichFun()` within the same source set, the function from common code
-is resolved because your code doesn't have access to the platform-specific version:
+In comparison, if you declare the overloads for `whichFun()` within the same source set, the function from the common
+code will be resolved because your code doesn't have access to the platform-specific version:
 
 ```kotlin
 // Example library isn't used
@@ -502,10 +509,10 @@ fun whichFun(x: Int) = println("platform function")
 ```
 
 Similar to multiplatform libraries, since the `commonTest` module is in a separate source set, it also still has access
-to platform-specific code. Therefore, the resolution of calls to functions in the `commonTest` module has the same
+to platform-specific code. Therefore, the resolution of calls to functions in the `commonTest` module exhibits the same
 behavior as in the old compilation scheme.
 
-In the future, these remaining cases will be revised to be more consistent with the new compilation scheme.
+In the future, these remaining cases will be more consistent with the new compilation scheme.
 
 #### Different visibility levels of expected and actual declarations
 
