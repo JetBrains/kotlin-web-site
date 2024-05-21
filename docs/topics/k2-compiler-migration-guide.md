@@ -1057,7 +1057,7 @@ for further reading. Changes listed with an asterisk (*) next to the Issue ID ar
 
 | Issue ID                                                    | Title                                                                                                                          |
 |-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| [KT-64474](https://youtrack.jetbrains.com/issue/KT-64474/)* | [Declare usages of inaccessible types as unspecified behavior](#forbidden-function-calls-with-inaccessible-types)              |
+| [KT-64474](https://youtrack.jetbrains.com/issue/KT-64474/)* | [Declare usages of inaccessible types as unspecified behavior](#forbidden-use-of-inaccessible-generic-types)                   |
 | [KT-55179](https://youtrack.jetbrains.com/issue/KT-55179)   | False negative PRIVATE_CLASS_MEMBER_FROM_INLINE on calling private class companion object member from internal inline function |
 | [KT-58042](https://youtrack.jetbrains.com/issue/KT-58042)   | Make synthetic property invisible if equivalent getter is invisible even when overridden declaration is visible                |
 | [KT-64255](https://youtrack.jetbrains.com/issue/KT-64255)   | Forbid accessing internal setter from a derived class in another module                                                        |
