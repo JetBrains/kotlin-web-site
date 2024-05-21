@@ -42,15 +42,15 @@ Currently, the logs are only printed to `stderr`.
 
 On Apple platforms, you can take advantage of the Xcode Instruments toolkit to debug iOS app performance.
 The garbage collector reports pauses with signposts available in Instruments.
-Signposts allow for custom logging within your app, so you can check if a GC pause corresponds to the application freeze.
+Signposts enable custom logging within your app, allowing you to check if a GC pause corresponds to an application freeze.
 
 To track GC-related pauses in your app:
 
-1. Open Xcode, go to **Product** | **Profile** or press <shortcut>Cmd + I</shortcut>. This will compile your app and
-   launch Instruments.
+1. Open Xcode, go to **Product** | **Profile** or press <shortcut>Cmd + I</shortcut>. This action compiles your app and
+   launches Instruments.
 2. In the template selection, select **os_signpost**.
 3. Configure it by specifying `org.kotlinlang.native.runtime` as **subsystem** and `safepoint` as **category**.
-4. Click the red record button to run your app and start recording signpost events.
+4. Click the red record button to run your app and start recording signpost events:
 
    ![Tracking GC pauses as signposts](native-gc-signposts.png){width=700}
 
