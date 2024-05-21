@@ -67,7 +67,7 @@ However, if you declared the variable **outside** the `if` condition, no informa
 within the `if` condition, so it couldn't be smart-cast. This behavior was also seen with `when` expressions and `while` loops.
 
 From Kotlin 2.0.0, if you declare a variable before using it in your `if`, `when`, or `while` condition, then any
-information collected by the compiler about the variable will be accessible in the condition statement and its block for
+information collected by the compiler about the variable will be accessible in the corresponding block for
 smart-casting.
 
 This can be useful when you want to do things like extract boolean conditions into variables. Then, you can give the
@@ -479,22 +479,26 @@ In the future, these remaining cases will be more consistent with the new compil
 
 #### Different visibility levels of expected and actual declarations
 
-Before Kotlin 2.0.0, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your Kotlin
-Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md). Kotlin 2.0.0 supports
-different visibility levels _only_ if the actual declaration is _less_ strict than the expected declaration. For example:
+Before Kotlin 2.0.0, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your
+Kotlin Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md).
+Kotlin 2.0.0 now also supports different visibility levels but **only** if the actual declaration is _more_ permissive than
+the expected declaration. For example:
 
 ```kotlin
 expect internal class Attribute // Visibility is internal
-actual class Attribute          // Visibility is public by default, which is less strict
+actual class Attribute          // Visibility is public by default,
+                                // which is more permissive
 ```
 
-If you are using a [type alias](type-aliases.md) in your actual declaration, the visibility of the type **must** be less
-strict. Any visibility modifiers for `actual typealias` are ignored. For example:
+Similarly, if you are using a [type alias](type-aliases.md) in your actual declaration, the visibility of the **underlying type**
+should be the same or more permissive than the expected declaration. For example:
 
 ```kotlin
-expect internal class Attribute                // Visibility is internal
-internal actual typealias Attribute = Expanded // The internal visibility modifier is ignored
-class Expanded                                 // Visibility is public by default, which is less strict
+expect internal class Attribute                 // Visibility is internal
+internal actual typealias Attribute = Expanded
+
+class Expanded                                  // Visibility is public by default,
+                                                // which is more permissive
 ```
 
 ## How to enable the Kotlin K2 compiler
