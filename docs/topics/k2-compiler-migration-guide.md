@@ -34,8 +34,8 @@ This guide:
 * Highlights changes you might encounter during migration and how to adapt your code accordingly.
 * Describes how you can roll back to the previous version.
 
-> The new K2 compiler is enabled by default starting with %kotlinEapVersion%. For more information on the new features provided
-> in Kotlin 2.0.0, as well as the new K2 compiler, see [What's new in Kotlin %kotlinEapVersion%](whatsnew-eap.md).
+> The new K2 compiler is enabled by default starting with 2.0.0. For more information on the new features provided
+> in Kotlin 2.0.0, as well as the new K2 compiler, see [What's new in Kotlin 2.0.0](whatsnew20.md).
 >
 {type="note"}
 
@@ -67,7 +67,7 @@ However, if you declared the variable **outside** the `if` condition, no informa
 within the `if` condition, so it couldn't be smart-cast. This behavior was also seen with `when` expressions and `while` loops.
 
 From Kotlin 2.0.0, if you declare a variable before using it in your `if`, `when`, or `while` condition, then any
-information collected by the compiler about the variable will be accessible in the condition statement and its block for
+information collected by the compiler about the variable will be accessible in the corresponding block for
 smart-casting.
 
 This can be useful when you want to do things like extract boolean conditions into variables. Then, you can give the
@@ -124,7 +124,7 @@ fun signalCheck(signalStatus: Any) {
     if (signalStatus is Postponed || signalStatus is Declined) {
         // signalStatus is smart-cast to a common supertype Status
         signalStatus.signal()
-        // Prior to Kotlin %kotlinEapVersion%, signalStatus is smart cast 
+        // Prior to Kotlin 2.0.0, signalStatus is smart cast 
         // to type Any, so calling the signal() function triggered an
         // Unresolved reference error. The signal() function can only 
         // be called successfully after another type check:
@@ -479,29 +479,33 @@ In the future, these remaining cases will be more consistent with the new compil
 
 #### Different visibility levels of expected and actual declarations
 
-Before Kotlin 2.0.0, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your Kotlin
-Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md). Kotlin 2.0.0 supports
-different visibility levels _only_ if the actual declaration is _less_ strict than the expected declaration. For example:
+Before Kotlin 2.0.0, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your
+Kotlin Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md).
+Kotlin 2.0.0 now also supports different visibility levels but **only** if the actual declaration is _more_ permissive than
+the expected declaration. For example:
 
 ```kotlin
 expect internal class Attribute // Visibility is internal
-actual class Attribute          // Visibility is public by default, which is less strict
+actual class Attribute          // Visibility is public by default,
+                                // which is more permissive
 ```
 
-If you are using a [type alias](type-aliases.md) in your actual declaration, the visibility of the type **must** be less
-strict. Any visibility modifiers for `actual typealias` are ignored. For example:
+Similarly, if you are using a [type alias](type-aliases.md) in your actual declaration, the visibility of the **underlying type**
+should be the same or more permissive than the expected declaration. For example:
 
 ```kotlin
-expect internal class Attribute                // Visibility is internal
-internal actual typealias Attribute = Expanded // The internal visibility modifier is ignored
-class Expanded                                 // Visibility is public by default, which is less strict
+expect internal class Attribute                 // Visibility is internal
+internal actual typealias Attribute = Expanded
+
+class Expanded                                  // Visibility is public by default,
+                                                // which is more permissive
 ```
 
 ## How to enable the Kotlin K2 compiler
 
-Starting with Kotlin %kotlinEapVersion%, the Kotlin K2 compiler is enabled by default.
+Starting with Kotlin 2.0.0, the Kotlin K2 compiler is enabled by default.
 
-To upgrade the Kotlin version, change it to %kotlinEapVersion% in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
+To upgrade the Kotlin version, change it to 2.0.0 in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
 [Maven](maven.md#configure-and-enable-the-plugin) build scripts.
 
 ### Use Kotlin build reports with Gradle
@@ -522,19 +526,19 @@ kotlin.build.report.output=file
 
 The following values and their combinations are available for the output:
 
-| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`        | This option saves build reports in a human-readable format to a local file. By default, this is `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt`.                                                                                                                                                                                                                                                                                                                                           |
-| `json`        | This option saves build reports in JSON format as `${project_name}-date-time.json` in the directory specified in `kotlin.build.report.json.directory="my/dir/path"`.                                                                                                                                                                                                                                                                                                                                                    |   
-| `single_file` | This option saves build reports in a specified local file in the format of an object.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `build_scan`  | This option saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost.                                                                                                                                                                                                                                                                  |
-| `http`        | This option posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt). Examples of HTTP endpoints can be found in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports). |
+| Option | Description |
+|---|---|
+| `file` | Saves build reports in a human-readable format to a local file. By default, it's `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt` |
+| `single_file` | Saves build reports in a format of an object to a specified local file. |
+| `build_scan` | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost. |
+| `http` | Posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/report/data/GradleCompileStatisticsData.kt). You can find samples of HTTP endpoints in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/?_gl=1*1a7pghy*_ga*MTcxMjc1NzE5Ny4xNjY1NDAzNjkz*_ga_9J976DJZ68*MTcxNTA3NjA2NS4zNzcuMS4xNzE1MDc2MDc5LjQ2LjAuMA..&_ga=2.265800911.1124071296.1714976764-1712757197.1665403693#enable_build_reports) |
+| `json` | Saves build reports in JSON format to a local file. Set the location for your build reports in `kotlin.build.report.json.directory`. By default, it's name is `${project_name}-build-<date-time>-<index>.json`. |
 
 For more information on what is possible with build reports, see [Build reports](gradle-compilation-and-caches.md#build-reports).
 
 ## Try the Kotlin K2 compiler in the Kotlin Playground
 
-The Kotlin Playground supports the %kotlinEapVersion% release. [Check it out!](https://pl.kotl.in/czuoQprce)
+The Kotlin Playground supports the 2.0.0 release. [Check it out!](https://pl.kotl.in/czuoQprce)
 
 ## Support in IntelliJ IDEA
 
@@ -547,7 +551,7 @@ IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 Kotli
 
 ## How to roll back to the previous compiler
 
-To use the previous compiler in Kotlin %kotlinEapVersion%, either:
+To use the previous compiler in Kotlin 2.0.0, either:
 
 * In your `build.gradle.kts` file, [set your language version](gradle-compiler-options.md#example-of-setting-a-languageversion) to `1.9`.
 
@@ -1126,8 +1130,6 @@ In addition, the Kotlin K2 compiler supports:
 
 We would appreciate any feedback you may have!
 
-* Provide your feedback directly to K2 developers in the Kotlin Slack workspace – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
-  and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel.
 * Report any problems you face migrating to the new K2 compiler in [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&summary=K2+release+migration+issue&description=Describe+the+problem+you+encountered+here.&c=tag+k2-release-migration).
 * [Enable the Send usage statistics option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
   allow JetBrains to collect anonymous data about K2 usage.

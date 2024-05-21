@@ -1,7 +1,7 @@
 [//]: # (title: Configure a Gradle project)
 
 To build a Kotlin project with [Gradle](https://docs.gradle.org/current/userguide/userguide.html), 
-you need to add the [Kotlin Gradle plugin](#apply-the-plugin) to your build script file `build.gradle(.kts)` 
+you need to [add the Kotlin Gradle plugin](#apply-the-plugin) to your build script file `build.gradle(.kts)` 
 and [configure the project's dependencies](#configure-dependencies) there.
 
 > To learn more about the contents of a build script,
@@ -50,7 +50,8 @@ In the following table, there are the minimum and maximum **fully supported** ve
 
 | KGP version   | Gradle min and max versions           | AGP min and max versions                            |
 |---------------|---------------------------------------|-----------------------------------------------------|
-| 1.9.20–1.9.24 | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 2.0.0         | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 1.9.20–1.9.24 | 6.8.3–8.1.1                           | 4.2.2–8.1.0                                         |
 | 1.9.0–1.9.10  | 6.8.3–7.6.0                           | 4.2.2–7.4.0                                         |
 | 1.8.20–1.8.22 | 6.8.3–7.6.0                           | 4.1.3–7.4.0                                         |      
 | 1.8.0–1.8.11  | 6.8.3–7.3.3                           | 4.1.3–7.2.1                                         |   
@@ -68,6 +69,22 @@ version of %minGradleVersion% for your project to compile.
 
 Similarly, the maximum fully supported version is %maxGradleVersion%. It doesn't have deprecated Gradle
 methods and properties, and supports all the current Gradle features.
+
+### Kotlin Gradle plugin data in a project
+
+By default, the Kotlin Gradle plugin stores persistent project-specific data at the root of the project,
+in the `.kotlin` directory.
+
+> You may want to add the `.kotlin` directory to your project's `.gitignore` file.
+>
+{type="warning"}
+
+There are properties you can add to the `gradle.properties` file of your project to configure this behavior:
+
+| Gradle property                                     | Description                                                                                                                                       |
+|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `kotlin.project.persistent.dir`                     | Configures the location where your project-level data is stored. Default: `<project-root-directory>/.kotlin`                                      |
+| `kotlin.project.persistent.dir.gradle.disableWrite` | Controls whether writing Kotlin data to the `.gradle` directory is disabled (for backward compatibility with older IDEA versions). Default: false |
 
 ## Targeting the JVM
 
@@ -910,11 +927,8 @@ kotlin.stdlib.jdk.variants.version.alignment=false
 
 The [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) API is available for testing Kotlin projects on
 all supported platforms.
-Add the dependency `kotlin-test` to the `commonTest` source set, so that the Gradle plugin can infer the corresponding
-test dependencies for each test source set:
-* `kotlin-test-common` and `kotlin-test-annotations-common` for common source sets
-* `kotlin-test-junit` for JVM source sets
-* `kotlin-test-js` for Kotlin/JS source sets
+Add the `kotlin-test` dependency to the `commonTest` source set, so that the Gradle plugin can infer the corresponding
+test dependencies for each test source set.
 
 Kotlin/Native targets do not require additional test dependencies, and the `kotlin.test` API implementations are built-in.
 
@@ -956,6 +970,8 @@ kotlin {
 {type="note"}
 
 You can use the `kotlin-test` dependency in any shared or platform-specific source set as well.
+
+#### JVM variants of kotlin-test
 
 For Kotlin/JVM, Gradle uses JUnit 4 by default. Therefore, the `kotlin("test")` dependency resolves to the variant for
 JUnit 4, namely `kotlin-test-junit`.
@@ -1044,9 +1060,12 @@ test {
 
 [Learn how to test code using JUnit on the JVM](jvm-test-using-junit.md).
 
-If you need to use a different JVM test framework, disable automatic testing framework selection by
-adding the line `kotlin.test.infer.jvm.variant=false` to the project's `gradle.properties` file.
-After doing this, add the framework as a Gradle dependency.
+Automatic JVM variant resolution can sometimes cause problems for your configuration. In that case, you can specify
+the necessary framework explicitly and disable the automatic resolution by adding this line to the project `gradle.properties` file:
+
+```text
+kotlin.test.infer.jvm.variant=false
+```
 
 If you have used a variant of `kotlin("test")` in your build script explicitly and your project build stopped working with
 a compatibility conflict,

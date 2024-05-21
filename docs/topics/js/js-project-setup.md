@@ -41,6 +41,7 @@ kotlin {
 Inside the `kotlin {}` block, you can manage the following aspects:
 
 * [Target execution environment](#execution-environments): browser or Node.js 
+* [Support for ES2015 features](#support-for-es2015-features): classes, modules, and generators
 * [Project dependencies](#dependencies): Maven and npm
 * [Run configuration](#run-task)
 * [Test configuration](#test-task)
@@ -83,6 +84,29 @@ The Kotlin Multiplatform plugin automatically configures its tasks for working w
 This includes downloading and installing the required environment and dependencies for running and testing the application.
 This allows developers to build, run, and test simple projects without additional configuration. For projects targeting
 Node.js, there is also an option to use an existing Node.js installation. Learn how to [use pre-installed Node.js](#use-pre-installed-node-js).
+
+## Support for ES2015 features
+
+Kotlin provides an [Experimental](components-stability.md#stability-levels-explained) support for the following ES2015
+features:
+
+* Modules that simplify your codebase and improve maintainability.
+* Classes that allow incorporating OOP principles, resulting in cleaner and more intuitive code.
+* Generators for compiling [suspend functions](composing-suspending-functions.md) that improve the final bundle size
+  and help with debugging.
+
+You can enable all the supported ES2015 features at once by adding the `es2015` compilation target to your
+`build.gradle(.kts)` file:
+
+```kotlin
+tasks.withType<KotlinJsCompile>().configureEach {
+    kotlinOptions {
+        target = "es2015"
+    }
+}
+```
+
+[Learn more about ES2015 (ECMAScript 2015, ES6) in the official documentation](https://262.ecma-international.org/6.0/).
 
 ## Dependencies
 
@@ -872,10 +896,3 @@ When you build the project, this code adds the following block to the `package.j
 ```
 
 Learn more about writing `package.json` files for npm registry in the [npm docs](https://docs.npmjs.com/cli/v6/configuring-npm/package-json).
-
-## Troubleshooting
-
-When building a Kotlin/JS project using Kotlin 1.3.xx, you may encounter a Gradle error if one of your dependencies (or
-any transitive dependency) was built using Kotlin 1.4 or higher:
-`Could not determine the dependencies of task ':client:jsTestPackageJson'.` / `Cannot choose between the following variants`.
-This is a known problem, a workaround is provided [here](https://youtrack.jetbrains.com/issue/KT-40226).

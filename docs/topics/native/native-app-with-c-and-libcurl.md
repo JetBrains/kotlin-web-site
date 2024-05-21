@@ -147,7 +147,7 @@ the name of the file is used. You can override this with additional parameters:
 
 ```kotlin
 val libcurl by creating {
-    defFile(project.file("src/nativeInterop/cinterop/libcurl.def"))
+    definitionFile.set(project.file("src/nativeInterop/cinterop/libcurl.def"))
     packageName("com.jetbrains.handson.http")
     compilerOpts("-I/path")
     includeDirs.allHeaders("path")
