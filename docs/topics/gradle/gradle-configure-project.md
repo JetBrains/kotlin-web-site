@@ -1045,9 +1045,9 @@ test {
 [Learn how to test code using JUnit on the JVM](jvm-test-using-junit.md).
 
 Automatic JVM variant resolution can sometimes cause problems for your configuration. In that case, you can specify
-the necessary framework explicitly and disable the automatic resolution by adding this line to the project's `gradle.properties` file:
+the necessary framework explicitly and disable the automatic resolution by adding this line to the project `gradle.properties` file:
 
-```properties
+```text
 kotlin.test.infer.jvm.variant=false
 ```
 
