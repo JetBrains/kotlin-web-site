@@ -214,10 +214,12 @@ However, there are some compatibility details you need to keep in mind:
 
 * klib binaries are backwards compatible starting with Kotlin 1.9.20. For example, the 2.0.* compiler can read binaries
   produced by the 1.9.* compiler.
+* Older compilers reject klib binaries that rely on new features. For example, the 1.9.20 compiler rejects binaries that
+  use 2.0.*-specific language features.
 * klib binaries are compatible within the same language or feature version. For example, the 2.0.* compiler can read
   binaries produced by the 2.0.* compiler.
-* Forward compatibility is _not_ guaranteed. For example, the 2.0.* compiler cannot read binaries produced by the 2.1.*
-  compiler.
+* Forward compatibility is _not_ guaranteed. For example, the 2.0.* compiler is _not_ guaranteed to read binaries produced
+  by the 2.1.* compiler.
 
 > The Kotlin cinterop klib binaries are still in [Beta](components-stability.md#stability-levels-explained).
 > Currently, we cannot give specific compatibility guarantees between different Kotlin versions for cinterop klib binaries.
