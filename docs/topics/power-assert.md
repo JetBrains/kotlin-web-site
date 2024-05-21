@@ -176,7 +176,7 @@ class ComplexExampleTest {
     fun testComplexAssertion() {
         val person = Person("Alice", 10)
         val isValidName = person.name.startsWith("A") && person.name.length > 3
-        val isValidAge = person.age > 20 && person.age < 29
+        val isValidAge = person.age in 21..28
         assert(isValidName && isValidAge)
     }
 }
