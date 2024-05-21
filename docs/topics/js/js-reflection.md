@@ -4,8 +4,8 @@ Kotlin/JS provides a limited support for the Kotlin [reflection API](reflection.
 are:
 
 * [Class references](reflection.md#class-references) (`::class`)
-* [`KType` and `typeof()`](#ktype-and-typeof) function
-* [`KClass` and `createInstance()`](#kclass-and-createinstance) function
+* [`KType` and `typeof()`](#ktype-and-typeof)
+* [`KClass` and `createInstance()`](#kclass-and-createinstance)
 
 ## Class references
 
