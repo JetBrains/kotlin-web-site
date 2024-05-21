@@ -1,7 +1,7 @@
 [//]: # (title: Configure a Gradle project)
 
 To build a Kotlin project with [Gradle](https://docs.gradle.org/current/userguide/userguide.html), 
-you need to add the [Kotlin Gradle plugin](#apply-the-plugin) to your build script file `build.gradle(.kts)` 
+you need to [add the Kotlin Gradle plugin](#apply-the-plugin) to your build script file `build.gradle(.kts)` 
 and [configure the project's dependencies](#configure-dependencies) there.
 
 > To learn more about the contents of a build script,
@@ -69,6 +69,22 @@ version of %minGradleVersion% for your project to compile.
 
 Similarly, the maximum fully supported version is %maxGradleVersion%. It doesn't have deprecated Gradle
 methods and properties, and supports all the current Gradle features.
+
+### Kotlin Gradle plugin data in a project
+
+By default, the Kotlin Gradle plugin stores persistent project-specific data at the root of the project,
+in the `.kotlin` directory.
+
+> You may want to add the `.kotlin` directory to your project's `.gitignore` file.
+>
+{type="warning"}
+
+There are properties you can add to the `gradle.properties` file of your project to configure this behavior:
+
+| Gradle property                                     | Description                                                                                                                                       |
+|-----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| `kotlin.project.persistent.dir`                     | Configures the location where your project-level data is stored. Default: `<project-root-directory>/.kotlin`                                      |
+| `kotlin.project.persistent.dir.gradle.disableWrite` | Controls whether writing Kotlin data to the `.gradle` directory is disabled (for backward compatibility with older IDEA versions). Default: false |
 
 ## Targeting the JVM
 
