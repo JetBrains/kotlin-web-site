@@ -753,7 +753,7 @@ debugging information, including all compiler arguments.
 ### Explicitly added standard library and platform dependencies to Kotlin/Native
 
 The Kotlin/Native compiler used to resolve standard library and platform dependencies implicitly, which caused
-inconsistencies in the way Kotlin Gradle plugin worked across Kotlin targets.
+inconsistencies in the way the Kotlin Gradle plugin worked across Kotlin targets.
 
 Now, each Kotlin/Native Gradle compilation explicitly includes standard library and platform dependencies in its
 compile-time library path via the `compileDependencyFiles` [compilation parameter](multiplatform-dsl-reference.md#compilation-parameters).
@@ -786,8 +786,8 @@ Kotlin 2.0.0 improves performance and interoperability with JavaScript:
 
 ### Optimized production builds by default using Binaryen
 
-Kotlin/Wasm toolchain now applies the [Binaryen](https://github.com/WebAssembly/binaryen) tool during production
-compilation to all the projects, as opposed to the previous manual setup approach. By our estimations, it should
+The Kotlin/Wasm toolchain now applies the [Binaryen](https://github.com/WebAssembly/binaryen) tool during production
+compilation to all projects, as opposed to the previous manual setup approach. By our estimations, it should
 improve runtime performance and the binaries size for your project.
 
 > This change only affects production compilation. The development compilation process stays the same.
@@ -846,7 +846,7 @@ autocompletion, help with type checks, and make it easier to include Kotlin code
 The Kotlin/Wasm compiler collects any [top-level functions](wasm-js-interop.md#functions-with-the-jsexport-annotation)
 marked with `@JsExport` and automatically generates TypeScript definitions in a `.d.ts` file.
 
-To generate TypeScript definitions, in your `build.gradle.kts` file in the `wasmJs {}` block, add
+To generate TypeScript definitions, in your `build.gradle(.kts)` file in the `wasmJs {}` block, add
 the `generateTypeScriptDefinitions()` function:
 
 ```kotlin
@@ -880,7 +880,7 @@ within Kotlin/Wasm.
 This update ensures the new proposal aligns with Kotlin requirements, enabling the use of Kotlin/Wasm on virtual
 machines that only support the latest version of the proposal.
 
-The new exception handling proposal is activated using the `-Xwasm-use-new-exception-proposal` compiler option. It is
+Activate the new exception handling proposal by using the `-Xwasm-use-new-exception-proposal` compiler option. It is
 turned off by default.
 
 ### withWasm() function is split into JS and WASI variants
@@ -911,7 +911,7 @@ standard:
 In Kotlin 2.0.0, we're adding a new compilation target to Kotlin/JS, `es2015`. This is a new way for you to enable all
 the ES2015 features supported in Kotlin at once.
 
-You can set it up in your build file like this:
+You can set it up in your `build.gradle(.kts)` file like this:
 
 ```kotlin
 kotlin {
@@ -1110,7 +1110,7 @@ external interface FetchOptions {
 // A wrapper for Window.fetch
 suspend fun fetch(url: String, options: FetchOptions? = null) = TODO("Add your custom behavior here")
 
-// A compile-time error is triggered as `metod` is not recognized
+// A compile-time error is triggered as "metod" is not recognized
 // as method
 fetch("https://google.com", options = FetchOptions(metod = "POST"))
 // A compile-time error is triggered as method is required
@@ -1123,7 +1123,7 @@ errors are only found at runtime or aren't triggered at all:
 ```kotlin
 suspend fun fetch(url: String, options: FetchOptions? = null) = TODO("Add your custom behavior here")
 
-// No error is triggered. As `metod` is not recognized, the wrong method 
+// No error is triggered. As "metod" is not recognized, the wrong method 
 // (GET) is used.
 fetch("https://google.com", options = js("{ metod: 'POST' }"))
 
@@ -1271,7 +1271,7 @@ repository. This will help transition Compose projects to Kotlin 2.0.0, as the C
 simultaneously with Kotlin. This also bumps the Compose compiler version to 2.0.0.
 
 To use the new Compose compiler in your projects, apply the `org.jetbrains.kotlin.plugin.compose` Gradle plugin in
-your `build.gradle.kts` file and set its version equal to Kotlin 2.0.0.
+your `build.gradle(.kts)` file and set its version equal to Kotlin 2.0.0.
 
 To learn more about this change and see the migration instructions, see the [Compose compiler](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compiler.html) documentation.
 
@@ -1412,7 +1412,7 @@ separated from each other:
 * Kotlin compilation
 * Kotlin compilation task
 
-For most popular cases, we've added compiler warnings with suggestions on how to fix them if your build script is
+For the most popular cases, we've added compiler warnings with suggestions on how to fix them if your build script is
 configured incorrectly. For example:
 
 ```kotlin
@@ -1483,10 +1483,10 @@ kotlin.native.toolchain.enabled=false
 Starting with the version 1.9.20-Beta, the Kotlin/Native distribution is published to [Maven Central](https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-native-prebuilt/)
 along with CDN.
 
-This allowed for changing how Kotlin looks for and downloads the necessary artifacts. Instead of CDN, it now uses by
+This allowed us to change how Kotlin looks for and downloads the necessary artifacts. Instead of the CDN, it now uses by
 default Maven repositories that you specified in the `repositories {}` block of your project.
 
-You can temporarily switch this behavior back by setting the following Gradle property to your `gradle.properties` file:
+You can temporarily switch this behavior back by setting the following Gradle property in your `gradle.properties` file:
 
 ```none
 kotlin.native.distribution.downloadFromMaven=false.
@@ -1792,6 +1792,7 @@ fun main() {
 
     for (char in destinationArray) {
         print("$char ")
+        // K o t l i n   i s   a w e s o m e ! 
     }
 }
 ```
