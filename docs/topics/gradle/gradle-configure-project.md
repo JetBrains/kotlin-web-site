@@ -71,7 +71,7 @@ methods and properties, and supports all the current Gradle features.
 
 ### Kotlin Gradle plugin data in a project
 
-By default, Kotlin Gradle plugin stores persistent project-specific data at the root of the project,
+By default, the Kotlin Gradle plugin stores persistent project-specific data at the root of the project,
 in the `.kotlin` directory.
 
 > You may want to add the `.kotlin` directory to your project's `.gitignore` file.
