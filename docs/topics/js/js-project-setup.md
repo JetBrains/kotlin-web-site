@@ -4,10 +4,10 @@ Kotlin/JS projects use Gradle as a build system. To let developers easily manage
 the `kotlin.multiplatform` Gradle plugin that provides project configuration tools together with helper tasks for automating routines
 typical for JavaScript development.
 
-The plugin uses the [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/) package manager
-to download npm dependencies in background and can build a JavaScript bundle from a Kotlin project
-using [webpack](https://webpack.js.org/). Dependency management and configuration adjustments can be done to a large part
-directly from the Gradle build file, with the option to override automatically generated configurations for full control.
+The plugin downloads npm dependencies in the background using the [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
+package managers and builds a JavaScript bundle from a Kotlin project using [webpack](https://webpack.js.org/).
+Dependency management and configuration adjustments can be done to a large part directly from the Gradle build file,
+with the option to override automatically generated configurations for full control.
 
 You can apply the `org.jetbrains.kotlin.multiplatform` plugin to a Gradle project manually in the `build.gradle(.kts)` file:
 
@@ -251,12 +251,11 @@ dependencies {
 </tab>
 </tabs>
 
-By default, the plugin uses the [Yarn](https://yarnpkg.com/lang/en/) package manager to download and install npm dependencies.
-It works out of the box without additional configuration, but you can [tune it to specific needs](#yarn).
+By default, the plugin uses a separate instance of the [Yarn](https://yarnpkg.com/lang/en/) package manager to download
+and install npm dependencies. It works out of the box without additional configuration, but you can [tune it to specific needs](#yarn).
 
-You can also use [npm](https://www.npmjs.com/) as your package manager instead. This makes the overall setup of your
-project easier, as you have one less tool to manage. To use npm as your package manager, in your `gradle.properties`
-file, set the following property:
+You can also work with npm dependencies directly using the [npm](https://www.npmjs.com/) package manager instead.
+To use npm as your package manager, in your `gradle.properties` file, set the following property:
 
 ```none
 kotlin.js.yarn=false
