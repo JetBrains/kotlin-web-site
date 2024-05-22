@@ -198,11 +198,26 @@ Incompatible changes to binaries can make updates very uncomfortable and thus sh
 
 For fully stable versions of the compiler, the default binary compatibility protocol is the following:
 
-*   All binaries are backwards compatible; that means a newer compiler can read older binaries (for example, 1.3 understands 1.0 through 1.2).
-*   Older compilers reject binaries that rely on new features (for example, the 1.0 compiler rejects binaries that use coroutines).
-*   Preferably (but we can't guarantee it), the binary format is mostly forwards compatible with the next language release, but not later ones 
-    (in the cases when new features are not used, for example, 1.3 can understand most binaries from 1.4, but not 1.5).
+* All binaries are backwards compatible; that means a newer compiler can read older binaries (for example, 1.3 understands 1.0 through 1.2).
+* Older compilers reject binaries that rely on new features (for example, the 1.0 compiler rejects binaries that use coroutines).
+* Preferably (but we can't guarantee it), the binary format is mostly forwards compatible with the next language release, but not later ones 
+  (in the cases when new features are not used, for example, 1.9 can understand most binaries from 2.0, but not 2.1).
 
 This protocol is designed for comfortable updates as no project can be blocked from updating its dependencies even if it's using a slightly outdated compiler.
 
-Please note that not all target platforms have reached this level of stability (but Kotlin/JVM has).
+Note that not all target platforms have reached this level of stability, but Kotlin/JVM has.
+
+#### Kotlin klib binaries
+
+Kotlin klib binaries have reached the [Stable](components-stability.md#stability-levels-explained) level in Kotlin 1.9.20.
+However, there are some compatibility details you need to keep in mind:
+
+* klib binaries are backwards compatible starting with Kotlin 1.9.20. For example, the 2.0.x compiler can read binaries
+  produced by the 1.9.2x compiler.
+* Forward compatibility is _not_ guaranteed. For example, the 2.0.x compiler is _not_ guaranteed to read binaries produced
+  by the 2.1.x compiler.
+
+> The Kotlin cinterop klib binaries are still in [Beta](components-stability.md#stability-levels-explained).
+> Currently, we cannot give specific compatibility guarantees between different Kotlin versions for cinterop klib binaries.
+> 
+{type="note"}
