@@ -88,6 +88,23 @@
         right: -48px;
         top: -6px;
     }
+
+    .companies {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .companyLogo {
+        margin-right: 10px;
+    }
+
+    .companyLogo:nth-child(2) {
+        margin-right: 50%;
+    }
+
+    .buttonWrap {
+        align-self: flex-end;
+    }
 }
 
 @media (--ktl-tl) {
@@ -96,6 +113,14 @@
         right: -120px;
         bottom: -120px;
         transform: rotate(115deg);
+    }
+
+    .buttonWrap {
+        align-self: center;
+    }
+
+    .companyLogo:nth-child(2) {
+        margin-right: 0;
     }
 }
 
