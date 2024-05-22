@@ -1,6 +1,6 @@
 [//]: # (title: Classes)
 
-Classes in Kotlin are declared using the keyword `class`:
+Classes in Kotlin are declared using the keword `class`:
 
 ```kotlin
 class Person { /*...*/ }
