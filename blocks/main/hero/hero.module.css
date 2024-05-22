@@ -117,14 +117,14 @@
 }
 
 .developer {
-    display: flex;
-    align-items: center;
     margin-left: 24px;
     padding-left: 24px;
     border-left: 1px solid rgba(255, 255, 255, 0.20);
 
     @media (--ktl-ts) {
         box-sizing: border-box;
+        display: flex;
+        align-items: center;
         justify-content: center;
         width: 100%;
         border: 0;
@@ -148,10 +148,25 @@
     }
 }
 
+.developerContent {
+    @media (--ktl-ts) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 .developerLogo {
-    margin-right: 12px;
-    height: 52px;
-    width: 52px;
+    margin-bottom: -5px;
+
+    @media (--ktl-ts) {
+        margin-bottom: 0;
+    }
+}
+
+.developerCaption {
+    white-space: nowrap;
+    margin-left: 38px;
 }
 
 .getStartedButton {
