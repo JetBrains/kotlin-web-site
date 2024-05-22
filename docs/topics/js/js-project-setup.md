@@ -2,10 +2,12 @@
 
 Kotlin/JS projects use Gradle as a build system. To let developers easily manage their Kotlin/JS projects, we offer
 the `kotlin.multiplatform` Gradle plugin that provides project configuration tools together with helper tasks for automating routines
-typical for JavaScript development. For example, the plugin downloads the [Yarn](https://yarnpkg.com/) package manager
-for managing [npm](https://www.npmjs.com/) dependencies in background and can build a JavaScript bundle from a Kotlin project
-using [webpack](https://webpack.js.org/). Dependency management and configuration adjustments can be done to a large part
-directly from the Gradle build file, with the option to override automatically generated configurations for full control.
+typical for JavaScript development.
+
+The plugin downloads npm dependencies in the background using the [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
+package managers and builds a JavaScript bundle from a Kotlin project using [webpack](https://webpack.js.org/).
+Dependency management and configuration adjustments can be done to a large part directly from the Gradle build file,
+with the option to override automatically generated configurations for full control.
 
 You can apply the `org.jetbrains.kotlin.multiplatform` plugin to a Gradle project manually in the `build.gradle(.kts)` file:
 
@@ -249,9 +251,15 @@ dependencies {
 </tab>
 </tabs>
 
-The plugin uses the [Yarn](https://yarnpkg.com/lang/en/) package manager to download and install npm dependencies.
-It works out of the box without additional configuration, but you can tune it to specific needs.
-Learn how to [configure Yarn in Kotlin Multiplatform Gradle plugin](#yarn).
+By default, the plugin uses a separate instance of the [Yarn](https://yarnpkg.com/lang/en/) package manager to download
+and install npm dependencies. It works out of the box without additional configuration, but you can [tune it to specific needs](#yarn).
+
+You can also work with npm dependencies directly using the [npm](https://www.npmjs.com/) package manager instead.
+To use npm as your package manager, in your `gradle.properties` file, set the following property:
+
+```none
+kotlin.js.yarn=false
+```
 
 Besides regular dependencies, there are three more types of dependencies that can be used from the Gradle DSL.
 To learn more about when each type of dependency can best be used, have a look at the official documentation linked from npm:
@@ -622,7 +630,7 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJ
 
 ## Yarn
 
-To download and install your declared dependencies at build time, the plugin manages its own instance of the
+By default, to download and install your declared dependencies at build time, the plugin manages its own instance of the
 [Yarn](https://yarnpkg.com/lang/en/) package manager. It works out of the box without additional configuration, but you
 can tune it or use Yarn already installed on your host.
 
