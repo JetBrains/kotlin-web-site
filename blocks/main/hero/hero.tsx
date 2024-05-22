@@ -40,17 +40,19 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
                                     Get started
                                 </Button>
                                 <div className={styles.developer}>
-                                    <img src={JBLogo.src} alt="jetbrains logo" className={styles.developerLogo} />{' '}
-                                    <div className={darkTextCn('rs-text-3', { hardness: 'hard' })}>
-                                        Developed by&nbsp;
-                                        <a
-                                            href="https://www.jetbrains.com/"
-                                            className={darkTextCn('rs-link', { hardness: 'hard' })}
-                                            target={'_blank'}
-                                            rel={'noreferrer noopener'}
-                                        >
-                                            JetBrains
-                                        </a>.
+                                    <div className={styles.developerContent}>
+                                        <img src={JBLogo.src} alt="jetbrains logo" className={styles.developerLogo} />{' '}
+                                        <div className={cn(darkTextCn('rs-text-3', { hardness: 'hard' }), styles.developerCaption)}>
+                                            Kotlin, developed by&nbsp;
+                                            <a
+                                                href="https://www.jetbrains.com/"
+                                                className={darkTextCn('rs-link', { hardness: 'hard' })}
+                                                target={'_blank'}
+                                                rel={'noreferrer noopener'}
+                                            >
+                                                JetBrains
+                                            </a>.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
