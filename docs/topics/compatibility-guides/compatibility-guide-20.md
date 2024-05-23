@@ -104,7 +104,7 @@ perspective
 | [KT-47986](https://youtrack.jetbrains.com/issue/KT-47986) | Forbid implicit inferring a type variable into an upper bound in the builder inference context                                 |
 | [KT-53982](https://youtrack.jetbrains.com/issue/KT-53982) | Keep nullability when approximating local types in public signatures                                                           |
 | [KT-45375](https://youtrack.jetbrains.com/issue/KT-45375) | Generate all Kotlin lambdas via invokedynamic + LambdaMetafactory by default                                                   |
-| [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776) | [LC] K2 breaks `false && ...` and `false ...`                                                                                  |                                                    |
+| [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776) | [LC] K2 breaks \`false && ...\` and \`false \|\| ...\`                                                                         |
 
 ## Tools
 
