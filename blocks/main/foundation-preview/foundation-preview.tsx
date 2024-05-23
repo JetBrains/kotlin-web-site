@@ -1,5 +1,7 @@
 import React, { FC, ReactNode } from "react";
 
+import { ArrowTopRightIcon } from '@rescui/icons';
+import { Button } from '@rescui/button';
 import { useTextStyles } from '@rescui/typography';
 import classNames from 'classnames';
 
@@ -48,3 +50,19 @@ export const FoundationPreview: FC<FoundationPreviewProps> = ({title, descriptio
 		</div>
 	);
 }
+
+export const FoundationLearnMoreButton: FC = () => (
+	<Button
+		href="https://kotlinfoundation.org/"
+		size="l"
+		mode="rock"
+		theme="light"
+		icon={<ArrowTopRightIcon />}
+		iconPosition="right"
+	>
+		<span>
+			<span className={styles.responsiveHidden}>Learn&nbsp;</span>
+			<span className={styles.responsiveCapitalized}>more</span>
+		</span>
+	</Button>
+);
