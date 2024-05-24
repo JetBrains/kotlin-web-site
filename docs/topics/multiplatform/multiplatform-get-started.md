@@ -1,4 +1,4 @@
-[//]: # (title: Get started with Kotlin Multiplatform)
+[//]: # (title: Introduction to Kotlin Multiplatform)
 [//]: # (description: Learn how to create your first Kotlin cross-platform app or library benefiting from Kotlin Multiplatform.)
 
 Support for multiplatform programming is one of Kotlin's key benefits. It reduces time spent writing and maintaining the 

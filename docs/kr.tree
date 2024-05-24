@@ -33,10 +33,11 @@
     </toc-element>
 
     <toc-element toc-title="What's new in Kotlin">
-        <toc-element id="whatsnew1920.md" toc-title="Kotlin 1.9.20" accepts-web-file-names="whatsnew.html"/>
-        <toc-element id="whatsnew19.md" toc-title="Kotlin 1.9.0"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 2.0.0-RC3"/>
+        <toc-element id="whatsnew20.md" toc-title="Kotlin 2.0.0" accepts-web-file-names="whatsnew.html"/>
+        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 2.0.0-RC3" hidden="true"/>
         <toc-element toc-title="Earlier versions">
+            <toc-element id="whatsnew1920.md" toc-title="Kotlin 1.9.20"/>
+            <toc-element id="whatsnew19.md" toc-title="Kotlin 1.9.0"/>
             <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20"/>
             <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
             <toc-element id="whatsnew1720.md" toc-title="Kotlin 1.7.20"/>
@@ -126,7 +127,7 @@
     </toc-element>
 
     <toc-element toc-title="Multiplatform development">
-        <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html"/>
+        <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html" toc-title="Introduction"/>
         <toc-element id="multiplatform-discover-project.md" accepts-web-file-names="mpp-discover-project.html" toc-title="Understand basic project structure"/>
         <toc-element id="multiplatform-advanced-project-structure.md" toc-title="Explore advanced project structure"/>
         <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets" accepts-web-file-names="mpp-set-up-targets.html"/>
@@ -199,9 +200,6 @@
                 <toc-element toc-title="Strings" id="java-to-kotlin-idioms-strings.md"/>
                 <toc-element toc-title="Collections" id="java-to-kotlin-collections-guide.md"/>
                 <toc-element toc-title="Nullability" id="java-to-kotlin-nullability-guide.md"/>
-            </toc-element>
-            <toc-element toc-title="Library creators' guidelines">
-                <include from="kl" target="api-guidelines" origin="api-guidelines"/>
             </toc-element>
         </toc-element>
 
@@ -373,6 +371,7 @@
             <toc-element id="sam-with-receiver-plugin.md" toc-title="SAM with receiver"/>
             <toc-element id="kapt.md" toc-title="kapt"/>
             <toc-element id="lombok.md" toc-title="Lombok"/>
+            <toc-element id="power-assert.md" toc-title="Power-assert"/>
         </toc-element>
         <toc-element toc-title="Kotlin Symbol Processing API">
             <toc-element id="ksp-overview.md" toc-title="KSP overview"/>
@@ -402,6 +401,9 @@
             <toc-element id="edu-tools-learner.md" toc-title="Learn Kotlin"/>
             <toc-element id="edu-tools-educator.md" toc-title="Teach Kotlin"/>
         </toc-element>
+        <toc-element toc-title="Library creators' guidelines">
+            <include from="kl" target="api-guidelines" origin="api-guidelines"/>
+        </toc-element>
     </toc-element>
 
     <toc-element toc-title="Early access preview (EAP)">
@@ -417,6 +419,7 @@
             <toc-element id="components-stability.md"/>
             <toc-element id="components-stability-pre-1.4.md"/>
             <toc-element toc-title="Compatibility">
+                <toc-element id="compatibility-guide-20.md"/>
                 <toc-element id="compatibility-guide-19.md"/>
                 <toc-element id="compatibility-guide-18.md"/>
                 <toc-element id="compatibility-guide-1720.md"/>
