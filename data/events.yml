@@ -8,6 +8,14 @@
   subject: 'Introducing new Kotlin Developers online and learning about their experiences'
   url: https://www.linkedin.com/events/ktaddakickoff-connectingkotlinm7199538006976835586/
 - lang: en
+  startDate: '2024-06-11'
+  endDate: '2024-06-11'
+  location: Vienna, Austria
+  speaker: 'Markus Fischer & Raphael Tarita'
+  title: 'Arrow - upgrade your funcy Kotlin! & Image Processing Done Wrong'
+  subject: 'Kotlin Vienna Meetup'
+  url: https://www.meetup.com/kotlin-vienna/events/295318877/
+- lang: en
   startDate: '2024-06-08'
   endDate: '2024-06-08'
   location: Minna, Nigeria
