@@ -276,8 +276,8 @@ Kotlin allows you to write even more concise code for functions by using lambda 
 For example, the following `uppercaseString()` function:
 
 ```kotlin
-fun uppercaseString(message: String): String {
-    return message.uppercase()
+fun uppercaseString(text: String): String {
+    return text.uppercase()
 }
 fun main() {
     println(uppercaseString("hello"))
@@ -290,7 +290,7 @@ Can also be written as a lambda expression:
 
 ```kotlin
 fun main() {
-    println({ message: String -> message.uppercase() }("hello"))
+    println({ text: String -> text.uppercase() }("hello"))
     // HELLO
 }
 ```
@@ -304,10 +304,10 @@ Within the lambda expression, you write:
 * the function body after the `->`.
 
 In the previous example:
-* `message` is a function parameter.
-* `message` has type `String`.
+* `text` is a function parameter.
+* `text` has type `String`.
 * the function returns the result of the [`.uppercase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/uppercase.html)
-function called on `message`.
+function called on `text`.
 
 > If you declare a lambda without parameters, then there is no need to use `->`. For example:
 > ```kotlin
@@ -328,7 +328,7 @@ To assign a lambda expression to a variable, use the assignment operator `=`:
 
 ```kotlin
 fun main() {
-    val upperCaseString = { message: String -> message.uppercase() }
+    val upperCaseString = { text: String -> text.uppercase() }
     println(upperCaseString("hello"))
     // HELLO
 }
@@ -406,7 +406,7 @@ For example: `(String) -> String` or `(Int, Int) -> Int`.
 This is what a lambda expression looks like if a function type for `upperCaseString()` is defined:
 
 ```kotlin
-val upperCaseString: (String) -> String = { message -> message.uppercase() }
+val upperCaseString: (String) -> String = { text -> text.uppercase() }
 
 fun main() {
     println(upperCaseString("hello"))
@@ -462,7 +462,7 @@ any parameters within the parentheses:
 ```kotlin
 fun main() {
     //sampleStart
-    println({ message: String -> message.uppercase() }("hello"))
+    println({ text: String -> text.uppercase() }("hello"))
     // HELLO
     //sampleEnd
 }
