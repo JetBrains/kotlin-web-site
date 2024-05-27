@@ -77,7 +77,7 @@ fun describeString(maybeString: String?): String {
 }
 
 fun main() {
-    var nullString: String? = null
+    val nullString: String? = null
     println(describeString(nullString))
     // Empty or null string
 }
@@ -96,7 +96,7 @@ In the following example, the `lengthString()` function uses a safe call to retu
 fun lengthString(maybeString: String?): Int? = maybeString?.length
 
 fun main() { 
-    var nullString: String? = null
+    val nullString: String? = null
     println(lengthString(nullString))
     // null
 }
@@ -119,7 +119,7 @@ is skipped and `null` is returned:
 
 ```kotlin
 fun main() {
-    var nullString: String? = null
+    val nullString: String? = null
     println(nullString?.uppercase())
     // null
 }
@@ -138,7 +138,7 @@ As a result, the Elvis operator returns `0`:
 
 ```kotlin
 fun main() {
-    var nullString: String? = null
+    val nullString: String? = null
     println(nullString?.length ?: 0)
     // 0
 }
