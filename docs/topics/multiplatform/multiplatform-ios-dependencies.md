@@ -114,8 +114,8 @@ and [frameworks](#add-a-framework-without-cocoapods), but the idea remains the s
         iosX64() {
             compilations.getByName("main") {
                 val DateTools by cinterops.creating {
-                    // Path to .def file
-                    defFile("src/nativeInterop/cinterop/DateTools.def")
+                    // Path to the .def file
+                    definitionFile.set(project.file("src/nativeInterop/cinterop/DateTools.def"))
 
                     // Directories for header search (an analogue of the -I<path> compiler option)
                     includeDirs("include/this/directory", "path/to/another/directory")
@@ -140,8 +140,8 @@ and [frameworks](#add-a-framework-without-cocoapods), but the idea remains the s
             compilations.main {
                 cinterops {
                     DateTools {
-                        // Path to .def file
-                        defFile("src/nativeInterop/cinterop/DateTools.def")
+                        // Path to the .def file
+                        definitionFile.set(project.file("src/nativeInterop/cinterop/DateTools.def"))
 
                         // Directories for header search (an analogue of the -I<path> compiler option)
                         includeDirs("include/this/directory", "path/to/another/directory")
@@ -206,8 +206,8 @@ import DateTools.*
         iosX64() {
             compilations.getByName("main") {
                 val DateTools by cinterops.creating {
-                    // Path to .def file
-                    defFile("src/nativeInterop/cinterop/DateTools.def")
+                    // Path to the .def file
+                    definitionFile.set(project.file("src/nativeInterop/cinterop/DateTools.def"))
 
                     compilerOpts("-framework", "MyFramework", "-F/path/to/framework/")
                 }
@@ -231,8 +231,8 @@ import DateTools.*
             compilations.main {
                 cinterops {
                     DateTools {
-                        // Path to .def file
-                        defFile("src/nativeInterop/cinterop/MyFramework.def")
+                        // Path to the .def file
+                        definitionFile.set(project.file("src/nativeInterop/cinterop/MyFramework.def"))
 
                         compilerOpts("-framework", "MyFramework", "-F/path/to/framework/")
                     }

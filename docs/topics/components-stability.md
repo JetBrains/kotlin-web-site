@@ -71,9 +71,10 @@ We make sure to document precisely which subcomponents are not stable. We also d
 | Kotlin/JS (IR-based)                                  | Stable       | 1.8                      |                                                                            |
 | Kotlin/Native Runtime                                 | Stable       | 1.9.20                   |                                                                            |
 | Kotlin/Native memory manager                          | Stable       | 1.9.20                   |                                                                            |
-| klib binaries                                         | Stable       | 1.9.20                   |                                                                            |
+| klib binaries                                         | Stable       | 1.9.20                   | Not including cinterop klibs, see below                                    |
 | Kotlin Multiplatform                                  | Stable       | 1.9.20                   |                                                                            |
 | Kotlin/Native interop with C and Objective C          | Beta         | 1.3                      |                                                                            |
+| cinterop klib binaries                                | Beta         | 1.3                      |                                                                            |
 | CocoaPods integration                                 | Stable       | 1.9.20                   |                                                                            |
 | Kotlin Multiplatform Mobile plugin for Android Studio | Beta         | 0.8.0                    | [Versioned separately from the language](multiplatform-plugin-releases.md) |
 | expected and actual functions and properties          | Stable       | 1.9.20                   |                                                                            |

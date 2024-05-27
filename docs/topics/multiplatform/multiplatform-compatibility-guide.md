@@ -13,9 +13,10 @@ developing projects with Kotlin Multiplatform.
 When configuring your project, check the compatibility of a particular Kotlin version (the version of Kotlin Multiplatform Gradle plugin)
 with available Gradle, Xcode, and Android Gradle plugin versions:
 
-| Kotlin version | Gradle        | Android Gradle plugin | Xcode |
-|----------------|---------------|-----------------------|-------|
-| 1.9.20         | 7.5 and later | 7.4.2–8.2             | 15.0  |
+| Kotlin version | Gradle    | Android Gradle plugin | Xcode |
+|----------------|-----------|-----------------------|-------|
+| 2.0.0          | 7.5-8.5   | 7.4.2–8.3             | 15.3  |
+| 1.9.20         | 7.5-8.1.1 | 7.4.2–8.2             | 15.0  |
 
 ## New approach to auto-generated targets
 

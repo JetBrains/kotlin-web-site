@@ -208,3 +208,16 @@ you can configure and disable sources publication with the `withSourcesJar()` AP
       linuxX64()
   }
   ```
+
+## Disable JVM environment attribute publication
+
+Starting with Kotlin 2.0.0, the Gradle attribute [`org.gradle.jvm.environment`](https://docs.gradle.org/current/userguide/variant_attributes.html#sub:jvm_default_attributes)
+is automatically published with all Kotlin variants to help distinguish between JVM and Android variants of Kotlin Multiplatform
+libraries. The attribute indicates which library variant is suited for which JVM environment, and Gradle uses this information to help with 
+dependency resolution in your projects. The target environment can be "android", "standard-jvm", or "no-jvm".
+
+You can disable the publication of this attribute by adding the following Gradle property to your `gradle.properties` file:
+
+```none
+kotlin.publishJvmEnvironmentAttribute=false
+```

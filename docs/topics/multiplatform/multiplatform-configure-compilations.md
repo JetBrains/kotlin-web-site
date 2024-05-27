@@ -239,7 +239,7 @@ kotlin {
             val myInterop by cinterops.creating {
                 // Def-file describing the native API.
                 // The default path is src/nativeInterop/cinterop/<interop-name>.def
-                defFile(project.file("def-file.def"))
+                definitionFile.set(project.file("def-file.def"))
                 
                 // Package to place the Kotlin API generated.
                 packageName("org.sample")
@@ -277,7 +277,7 @@ kotlin {
                 myInterop {
                     // Def-file describing the native API.
                     // The default path is src/nativeInterop/cinterop/<interop-name>.def
-                    defFile project.file("def-file.def")
+                    definitionFile.set(project.file("def-file.def"))
                     
                     // Package to place the Kotlin API generated.
                     packageName 'org.sample'

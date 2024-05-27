@@ -2,10 +2,12 @@
 
 Kotlin/JS projects use Gradle as a build system. To let developers easily manage their Kotlin/JS projects, we offer
 the `kotlin.multiplatform` Gradle plugin that provides project configuration tools together with helper tasks for automating routines
-typical for JavaScript development. For example, the plugin downloads the [Yarn](https://yarnpkg.com/) package manager
-for managing [npm](https://www.npmjs.com/) dependencies in background and can build a JavaScript bundle from a Kotlin project
-using [webpack](https://webpack.js.org/). Dependency management and configuration adjustments can be done to a large part
-directly from the Gradle build file, with the option to override automatically generated configurations for full control.
+typical for JavaScript development.
+
+The plugin downloads npm dependencies in the background using the [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
+package managers and builds a JavaScript bundle from a Kotlin project using [webpack](https://webpack.js.org/).
+Dependency management and configuration adjustments can be done to a large part directly from the Gradle build file,
+with the option to override automatically generated configurations for full control.
 
 You can apply the `org.jetbrains.kotlin.multiplatform` plugin to a Gradle project manually in the `build.gradle(.kts)` file:
 
@@ -41,6 +43,7 @@ kotlin {
 Inside the `kotlin {}` block, you can manage the following aspects:
 
 * [Target execution environment](#execution-environments): browser or Node.js 
+* [Support for ES2015 features](#support-for-es2015-features): classes, modules, and generators
 * [Project dependencies](#dependencies): Maven and npm
 * [Run configuration](#run-task)
 * [Test configuration](#test-task)
@@ -83,6 +86,29 @@ The Kotlin Multiplatform plugin automatically configures its tasks for working w
 This includes downloading and installing the required environment and dependencies for running and testing the application.
 This allows developers to build, run, and test simple projects without additional configuration. For projects targeting
 Node.js, there is also an option to use an existing Node.js installation. Learn how to [use pre-installed Node.js](#use-pre-installed-node-js).
+
+## Support for ES2015 features
+
+Kotlin provides an [Experimental](components-stability.md#stability-levels-explained) support for the following ES2015
+features:
+
+* Modules that simplify your codebase and improve maintainability.
+* Classes that allow incorporating OOP principles, resulting in cleaner and more intuitive code.
+* Generators for compiling [suspend functions](composing-suspending-functions.md) that improve the final bundle size
+  and help with debugging.
+
+You can enable all the supported ES2015 features at once by adding the `es2015` compilation target to your
+`build.gradle(.kts)` file:
+
+```kotlin
+tasks.withType<KotlinJsCompile>().configureEach {
+    kotlinOptions {
+        target = "es2015"
+    }
+}
+```
+
+[Learn more about ES2015 (ECMAScript 2015, ES6) in the official documentation](https://262.ecma-international.org/6.0/).
 
 ## Dependencies
 
@@ -225,9 +251,15 @@ dependencies {
 </tab>
 </tabs>
 
-The plugin uses the [Yarn](https://yarnpkg.com/lang/en/) package manager to download and install npm dependencies.
-It works out of the box without additional configuration, but you can tune it to specific needs.
-Learn how to [configure Yarn in Kotlin Multiplatform Gradle plugin](#yarn).
+By default, the plugin uses a separate instance of the [Yarn](https://yarnpkg.com/lang/en/) package manager to download
+and install npm dependencies. It works out of the box without additional configuration, but you can [tune it to specific needs](#yarn).
+
+You can also work with npm dependencies directly using the [npm](https://www.npmjs.com/) package manager instead.
+To use npm as your package manager, in your `gradle.properties` file, set the following property:
+
+```none
+kotlin.js.yarn=false
+```
 
 Besides regular dependencies, there are three more types of dependencies that can be used from the Gradle DSL.
 To learn more about when each type of dependency can best be used, have a look at the official documentation linked from npm:
@@ -598,7 +630,7 @@ rootProject.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJ
 
 ## Yarn
 
-To download and install your declared dependencies at build time, the plugin manages its own instance of the
+By default, to download and install your declared dependencies at build time, the plugin manages its own instance of the
 [Yarn](https://yarnpkg.com/lang/en/) package manager. It works out of the box without additional configuration, but you
 can tune it or use Yarn already installed on your host.
 
@@ -872,10 +904,3 @@ When you build the project, this code adds the following block to the `package.j
 ```
 
 Learn more about writing `package.json` files for npm registry in the [npm docs](https://docs.npmjs.com/cli/v6/configuring-npm/package-json).
-
-## Troubleshooting
-
-When building a Kotlin/JS project using Kotlin 1.3.xx, you may encounter a Gradle error if one of your dependencies (or
-any transitive dependency) was built using Kotlin 1.4 or higher:
-`Could not determine the dependencies of task ':client:jsTestPackageJson'.` / `Cannot choose between the following variants`.
-This is a known problem, a workaround is provided [here](https://youtrack.jetbrains.com/issue/KT-40226).
