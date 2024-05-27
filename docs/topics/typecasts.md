@@ -262,8 +262,9 @@ val x: String = y as String
 
 If the cast isn't possible, the compiler throws an exception. This is why it's called _unsafe_.
 
-In the previous example, if `y` is `null`, the code above also throws an exception. This is because `null` can't be cast to `String`, as `null` isn't [nullable](null-safety.md).
-To make the example work for possible null values, use a nullable type on the right-hand side of the cast:
+In the previous example, if `y` is `null`, the code above also throws an exception. This is because `null` can't be cast
+to `String`, as `String` isn't [nullable](null-safety.md). To make the example work for possible null values, use a nullable
+type on the right-hand side of the cast:
 
 ```kotlin
 val x: String? = y as String?

@@ -327,6 +327,8 @@ fun main(input: Rho) {
     var unknownObject: Rho = input
 
     // Check if unknownObject inherits from the Tau interface
+    // Note, it's possible that unKnownObject inherits from both
+    // Rho and Tau interfaces.
     if (unknownObject is Tau) {
 
         // Uses the overloaded inc() operator from interface Rho,
