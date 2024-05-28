@@ -41,12 +41,12 @@ Compatible Kotlin version
 
 **0.8.2**
 
-Released: 25 January, 2024
+Released: 16 May, 2024
 
 </td>
 <td>
 
-* Support for the new Canary Android Studio Jellyfish.
+* Support for Android Studio Jellyfish and for the new Canary version, Koala.
 * Added declarations of `sourceCompatibility` and `targetCompatibility` in the shared module.
 
 </td>
