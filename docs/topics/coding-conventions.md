@@ -380,8 +380,8 @@ If a declaration has multiple modifiers, always put them in the following order:
 ```kotlin
 public / protected / private / internal
 expect / actual
-final / open / abstract / sealed / const
 external
+final / open / abstract / sealed / const
 override
 lateinit
 tailrec
