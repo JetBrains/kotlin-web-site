@@ -46,7 +46,7 @@ Released: 16 May, 2024
 </td>
 <td>
 
-* Support for Android Studio Jellyfish as well as for the new Canary version, Koala.
+* Support for Android Studio Jellyfish and for the new Canary version, Koala.
 * Added declarations of `sourceCompatibility` and `targetCompatibility` in the shared module.
 
 </td>
