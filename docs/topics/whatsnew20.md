@@ -656,7 +656,8 @@ We would appreciate any feedback you may have!
 
 ## Kotlin/JVM
 
-This version brings the following changes:
+Starting with version 2.0.0, the compiler can generate classes containing Java 22 bytecode.
+This version also brings the following changes:
 
 * [Generation of lambda functions using invokedynamic](#generation-of-lambda-functions-using-invokedynamic)
 * [The kotlinx-metadata-jvm library is now Stable](#the-kotlinx-metadata-jvm-library-is-stable)
