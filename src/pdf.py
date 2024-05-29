@@ -72,6 +72,10 @@ def transform_book_content(path_file):
             node['src'] = node["src"][7:]
             node['data-dark-src'] = node["data-dark-src"][7:]
 
+        for page in soup.select('[id="test-page.md"], [id="kotlin-brand-assets.md-kotlin-night-brand-assets"]'):
+            print("Drop %s" % page['id'])
+            page.find_parent('section').decompose()
+
         result_file = get_tmp_filename(path_file)
 
         with open(result_file, "w", encoding='utf-8') as output:
