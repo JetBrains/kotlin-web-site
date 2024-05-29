@@ -16,8 +16,8 @@ This section describes the basic types used in Kotlin:
 >
 {type="tip"}
 
-To learn about other Kotlin types, such as `Nothing`, `Any`, and `Unit`, look through the Kotlin specification:
+To learn about other Kotlin types, such as `Nothing`, `Any`, and `Unit`, look through the Kotlin API reference:
 
-* [`Any`](https://kotlinlang.org/spec/built-in-types-and-their-semantics.html#kotlin.any-builtins)
-* [`Nothing`](https://kotlinlang.org/spec/built-in-types-and-their-semantics.html#kotlin.nothing-builtins)
-* [`Unit`](https://kotlinlang.org/spec/built-in-types-and-their-semantics.html#kotlin.unit)
+* [`Any`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/)
+* [`Nothing`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html)
+* [`Unit`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/)
