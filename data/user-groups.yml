@@ -345,6 +345,12 @@
     position:
       lat: 51.1605227
       lng: 71.4703558
+  - name: KUG New Delhi
+    country: India
+    url: https://www.commudle.com/communities/kug-new-delhi
+    position:
+      lat: 28.632713
+      lng: 77.219739  
   - name: Azerbaijan KUG
     country: Azerbaijan
     url: https://www.facebook.com/groups/395337754167951/
