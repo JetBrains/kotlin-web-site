@@ -32,7 +32,7 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a framewor
 * See [Build final native binaries](multiplatform-build-native-binaries.md#declare-binaries) to see how to declare binaries.
 * Check out the [Kotlin Multiplatform sample project](https://github.com/Kotlin/kmm-basic-sample) for an example.
 
-If you don't want to export Kotlin declarations to Objective-C and Swift, you can use special annotations, [`@HiddenFromObjC`](#hiding-kotlin-declarations-from-objective-c-and-swift)
+If you don't want to export Kotlin declarations to Objective-C and Swift, you can use special annotations, [`@HiddenFromObjC`](#hide-kotlin-declarations-from-objective-c-and-swift)
 and [`@ShouldRefineInSwift`](#use-refining-in-swift).
 
 ### Hide Kotlin declarations from Objective-C and Swift
@@ -277,7 +277,7 @@ Here's how the `kotlin.Any` functions are mapped to Swift/Objective-C:
 [See an example with data classes in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/classesandinterfaces/Data%20classes.md).
 
 You can specify a more idiomatic name in Swift or Objective-C, instead of renaming the Kotlin declaration with
-the [`@ObjCName` annotation](#custom-declaration-names).
+the [`@ObjCName` annotation](#change-declaration-names).
 
 ### Errors and exceptions
 
