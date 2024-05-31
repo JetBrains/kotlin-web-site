@@ -855,8 +855,8 @@ The `languageSettings` block of a source set defines certain aspects of project 
 kotlin {
     sourceSets.all {
         languageSettings.apply {
-            languageVersion = "1.8" // possible values: "1.4", "1.5", "1.6", "1.7", "1.8", "1.9"
-            apiVersion = "1.8" // possible values: "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9"
+            languageVersion = "%languageVersion%" // possible values: '1.6', '1.7', '1.8', '1.9', `2.0`
+            apiVersion = "%apiVersion%" // possible values: '1.6', '1.7', '1.8', '1.9', `2.0`
             enableLanguageFeature("InlineClasses") // language feature name
             optIn("kotlin.ExperimentalUnsignedTypes") // annotation FQ-name
             progressiveMode = true // false by default
@@ -872,8 +872,8 @@ kotlin {
 kotlin {
     sourceSets.all {
         languageSettings {
-            languageVersion = '1.8' // possible values: '1.4', '1.5', '1.6', '1.7', '1.8', '1.9'
-            apiVersion = '1.8' // possible values: '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9'
+            languageVersion = '%languageVersion%' // possible values: '1.6', '1.7', '1.8', '1.9', `2.0`
+            apiVersion = '%apiVersion%' // possible values: '1.6', '1.7', '1.8', '1.9', `2.0`
             enableLanguageFeature('InlineClasses') // language feature name
             optIn('kotlin.ExperimentalUnsignedTypes') // annotation FQ-name
             progressiveMode = true // false by default
