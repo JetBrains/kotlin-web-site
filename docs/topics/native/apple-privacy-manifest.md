@@ -43,60 +43,74 @@ The resulting file is a collection of dictionaries. For each accessed API type, 
 from the provided list. Xcode helps edit `.xcprivacy` files by providing a visual layout and dropdown lists with
 valid values for each field.
 
+You can use a [special tool](#find-usages-of-required-reason-apis) to find usages of required reason APIs in the dependencies
+of your Kotlin framework and a [separate plugin](#place-privacyinfo-xcprivacy-in-your-kotlin-artifacts) to bundle
+`.xcprivacy` file with your Kotlin artifacts.
+
 If a new privacy manifest doesn't help satisfy App Store requirements or you cannot figure out how to go through the steps,
 contact us and share your case in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-67603).
 
-## Finding required reason APIs in the dependencies of your Kotlin framework
+## Find usages of required reason APIs
 
-Kotlin code in your app may access required reason APIs from libraries such as `platform.posix`. For example, if your Kotlin code or one the dependencies accesses API such as `fstat`:
+Kotlin code in your app may access required reason APIs from libraries such as `platform.posix`.
+For example, if your Kotlin code or one of the dependencies accesses API such as `fstat`:
+
 ```kotlin
 import platform.posix.fstat
 
 fun useRequiredReasonAPI() {
-  fstat(...)
+    fstat(...)
 }
 ```
 
-In some cases, it may be hard for you to find out from which dependency the required reason API usage comes from. To assist you, we've built a simple tool.
+In some cases, it may be difficult to determine which dependency causes the required reason API usage.
+To help you find it, we've built a simple tool.
 
-To use it, run the following command in the directory of your project where the Kotlin framework is declared:
-```
+To use it, run the following command in the directory where the Kotlin framework is declared in your project:
+
+```shell
 /usr/bin/python3 -c "$(curl -fsSL https://github.com/JetBrains/kotlin/raw/rrf_v0.0.1/libraries/tools/required-reason-finder/required_reason_finder.py)"
 ```
-You may also download the script separately, inspect it, and run it via `python3`.
 
-## Placing PrivacyInfo.xcprivacy in your Kotlin artifacts
+You may also download this script separately, inspect it, and run it using `python3`.
 
-If you need to bundle `PrivacyInfo.xcprivacy` file with your Kotlin artifacts, use `apple-privacy-manifests` plugin:
-```
+## Place the `.xcprivacy` file in your Kotlin artifacts
+
+If you need to bundle the `PrivacyInfo.xcprivacy` file with your Kotlin artifacts, use the `apple-privacy-manifests` plugin:
+
+```kotlin
 plugins {
-  kotlin("multiplatform")
-  kotlin("apple-privacy-manifests") version "1.0.0"
+    kotlin("multiplatform")
+    kotlin("apple-privacy-manifests") version "1.0.0"
 }
 
 kotlin {
-  privacyManifests {
-    embed(
-      privacyManifest = layout.projectDirectory.file("PrivacyInfo.xcprivacy").asFile,
-    )
-  }
+    privacyManifests {
+        embed(
+            privacyManifest = layout.projectDirectory.file("PrivacyInfo.xcprivacy").asFile,
+        )
+    }
 }
 ```
 
-The plugin will copy the privacy manifest file to the [corresponding](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/adding_a_privacy_manifest_to_your_app_or_third-party_sdk?language=objc) output location.
+The plugin will copy the privacy manifest file to the [corresponding output location](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/adding_a_privacy_manifest_to_your_app_or_third-party_sdk?language=objc).
 
-### Known usages
+## Known usages
 
-#### Compose Multiplatform
+### Compose Multiplatform
 
-Using Compose Multiplatform may result in `fstat`, `stat` and `mach_absolute_time` usages in your binary. In Compose Multiplatform these function are not used for tracking or fingerprinting and are not sent off the device. 
+Using Compose Multiplatform may result in `fstat`, `stat` and `mach_absolute_time` usages in your binary.
+Even though these functions are not used for tracking or fingerprinting and are not sent from the device, Apple can still
+flag them as APIs with missing required reasons. 
 
 If you must specify a reason for `stat` and `fstat` usages, use `0A2A.1`. For `mach_absolute_time`, use `35F9.1`.
 
-For further updates on Compose required reasons APIs please follow [this issue](https://github.com/JetBrains/compose-multiplatform/issues/4738).
+For further updates on required reasons APIs used in Compose Multiplatform, follow [this issue](https://github.com/JetBrains/compose-multiplatform/issues/4738).
 
-#### Kotlin/Native runtime in versions 1.9.10 or lower
+### Kotlin/Native runtime in versions 1.9.10 or earlier
 
-There is a usage of `mach_absolute_time` in `mimalloc` allocator in K/N runtime. This allocator was enabled by default in version 1.9.10 and lower.
+The `mach_absolute_time` API is used in the `mimalloc` allocator in the Kotlin/Native runtime. This was the default
+allocator in Kotlin 1.9.10 and earlier versions.
 
-We recommend upgrading your Kotlin version to 1.9.20 or higher, or changing the [allocator setting](https://kotlinlang.org/docs/native-memory-manager.html#adjust-memory-consumption) if the upgrade is not possible.
+We recommend upgrading to Kotlin 1.9.20 or later versions or changing the [allocator settings](native-memory-manager.md#adjust-memory-consumption)
+if the upgrade is impossible.
