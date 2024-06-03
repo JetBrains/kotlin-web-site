@@ -17,6 +17,11 @@ some other highlights:
 * [Stable replacement of the enum class values generic function](#stable-replacement-of-the-enum-class-values-generic-function)
 * [Stable AutoCloseable interface](#stable-autocloseable-interface)
 
+Kotlin 2.0 is a huge milestone for the JetBrains team. This release was the center of KotlinConf 2024. Check out the opening
+keynote, where we announced exciting updates and addressed the recent work on the Kotlin language:
+
+<video href="Ar73Axsz2YA" title="KotlinConf'24 - Keynote"/>
+
 ## IDE support
 
 The Kotlin plugins that support Kotlin 2.0.0 are bundled in the latest IntelliJ IDEA and Android Studio.
@@ -45,6 +50,11 @@ roll back to the previous version if necessary.
 In a [blog post](https://blog.jetbrains.com/kotlin/2024/04/k2-compiler-performance-benchmarks-and-how-to-measure-them-on-your-projects/),
 we explored the performance of the K2 compiler in different projects. Check it out if you'd like to see real data on how
 the K2 compiler performs and find instructions on how to collect performance benchmarks from your own projects.
+
+You can also watch this talk from KotlinConf 2024, where Michail Zarečenskij, the lead language designer, discusses the
+feature evolution in Kotlin and the K2 compiler:
+
+<video href="tAGJ5zJXJ7w" title="Kotlin Language Features in 2.0 and Beyond"/>
 
 ### Current K2 compiler limitations
 
