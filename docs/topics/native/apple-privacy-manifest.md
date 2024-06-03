@@ -44,7 +44,7 @@ from the provided list. Xcode helps edit `.xcprivacy` files by providing a visua
 valid values for each field.
 
 You can use a [special tool](#find-usages-of-required-reason-apis) to find usages of required reason APIs in the dependencies
-of your Kotlin framework and a [separate plugin](#place-privacyinfo-xcprivacy-in-your-kotlin-artifacts) to bundle
+of your Kotlin framework and a [separate plugin](#place-the-xcprivacy-file-in-your-kotlin-artifacts) to bundle
 `.xcprivacy` file with your Kotlin artifacts.
 
 If a new privacy manifest doesn't help satisfy App Store requirements or you cannot figure out how to go through the steps,
