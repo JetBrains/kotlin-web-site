@@ -85,7 +85,7 @@ plugins {
 }
 
 kotlin {
-    privacyManifests {
+    privacyManifest {
         embed(
             privacyManifest = layout.projectDirectory.file("PrivacyInfo.xcprivacy").asFile,
         )
