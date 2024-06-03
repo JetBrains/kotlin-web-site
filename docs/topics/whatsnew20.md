@@ -1496,7 +1496,7 @@ it now uses the Maven repositories that you specified in the `repositories {}` b
 You can temporarily switch this behavior back by setting the following Gradle property in your `gradle.properties` file:
 
 ```none
-kotlin.native.distribution.downloadFromMaven=false.
+kotlin.native.distribution.downloadFromMaven=false
 ```
 
 Please report any problems to our issue tracker [YouTrack](https://kotl.in/issue). Both of these Gradle properties that
