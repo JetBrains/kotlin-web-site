@@ -1,13 +1,13 @@
-[//]: # (title: Kotlin Multiplatform Mobile plugin releases)
+[//]: # (title: Kotlin Multiplatform plugin releases)
 
-We are working on stabilizing the [Kotlin Multiplatform Mobile plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) 
+We are working on stabilizing the [Kotlin Multiplatform plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) 
 and will be regularly releasing new versions that include new features, improvements, and bug fixes. 
 
-Ensure that you have the latest version of the Kotlin Multiplatform Mobile plugin!
+Ensure that you have the latest version of the Kotlin Multiplatform plugin!
 
 ## Update to the new release
 
-Android Studio will suggest updating to a new Kotlin Multiplatform Mobile plugin release as soon as it is available. If you accept the suggestion, it will automatically update the plugin to the latest version. 
+Android Studio will suggest updating to a new Kotlin Multiplatform plugin release as soon as it is available. If you accept the suggestion, it will automatically update the plugin to the latest version. 
 You'll need to restart Android Studio to complete the plugin installation.
 
 You can check the plugin version and update it manually in **Settings/Preferences** | **Plugins**.
@@ -15,14 +15,14 @@ You can check the plugin version and update it manually in **Settings/Preference
 You need a compatible version of Kotlin for the plugin to work correctly. You can find compatible versions in the [release details](#release-details).
 You can check your Kotlin version and update it in **Settings/Preferences** | **Plugins** or in **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates**.
 
->If you do not have a compatible version of Kotlin installed, the Kotlin Multiplatform Mobile plugin will be disabled. You will need to update your Kotlin 
+>If you do not have a compatible version of Kotlin installed, the Kotlin Multiplatform plugin will be disabled. You will need to update your Kotlin 
 >version, and then enable the plugin in **Settings/Preferences** | **Plugins**.
 >
 {type="note"}
 
 ## Release details
 
-The following table lists the details of the latest Kotlin Multiplatform Mobile plugin releases: 
+The following table lists the details of the latest Kotlin Multiplatform plugin releases: 
 
 <table> 
 <tr>
