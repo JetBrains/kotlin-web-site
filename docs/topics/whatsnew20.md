@@ -17,6 +17,11 @@ some other highlights:
 * [Stable replacement of the enum class values generic function](#stable-replacement-of-the-enum-class-values-generic-function)
 * [Stable AutoCloseable interface](#stable-autocloseable-interface)
 
+Kotlin 2.0 is a huge milestone for the JetBrains team. This release was the center of KotlinConf 2024. Check out the opening
+keynote, where we announced exciting updates and addressed the recent work on the Kotlin language:
+
+<video href="Ar73Axsz2YA" title="KotlinConf'24 - Keynote"/>
+
 ## IDE support
 
 The Kotlin plugins that support Kotlin 2.0.0 are bundled in the latest IntelliJ IDEA and Android Studio.
@@ -28,23 +33,28 @@ All you need to do is to [change the Kotlin version](configure-build-for-eap.md)
 
 ## Kotlin K2 compiler
 
-The road to the K2 compiler has been a long one, but now the JetBrains team is ready to announce its stabilization. In
-Kotlin 2.0.0, the new Kotlin K2 compiler is used by default and it is [Stable](components-stability.md) for all target
+The road to the K2 compiler has been a long one, but now the JetBrains team is finally ready to announce its stabilization.
+In Kotlin 2.0.0, the new Kotlin K2 compiler is used by default and it is [Stable](components-stability.md) for all target
 platforms: JVM, Native, Wasm, and JS. The new compiler brings major performance improvements, speeds up new language
 feature development, unifies all platforms that Kotlin supports, and provides a better architecture for multiplatform
 projects.
 
 The JetBrains team has ensured the quality of the new compiler by successfully compiling 10 million lines of code from
-selected user and internal projects. 18,000 developers and 80,000 projects were involved in the stabilization
-process, trying the new K2 compiler in their projects and reporting any problems they found.
+selected user and internal projects. 18,000 developers were involved in the stabilization process, testing the new K2 
+compiler across a total of 80,000 projects and reporting any problems they found.
 
 To help make the migration process to the new compiler as smooth as possible, we've created a [K2 compiler migration guide](k2-compiler-migration-guide.md).
 This guide explains the many benefits of the compiler, highlights any changes you might encounter, and describes how to
 roll back to the previous version if necessary.
 
-We explored the performance of the K2 compiler in different projects in a [blog post](https://blog.jetbrains.com/kotlin/2024/04/k2-compiler-performance-benchmarks-and-how-to-measure-them-on-your-projects/).
-Check it out if you'd like to see real data on how the K2 compiler performs and find instructions on how to collect
-performance benchmarks from your own projects.
+In a [blog post](https://blog.jetbrains.com/kotlin/2024/04/k2-compiler-performance-benchmarks-and-how-to-measure-them-on-your-projects/),
+we explored the performance of the K2 compiler in different projects. Check it out if you'd like to see real data on how
+the K2 compiler performs and find instructions on how to collect performance benchmarks from your own projects.
+
+You can also watch this talk from KotlinConf 2024, where Michail Zarečenskij, the lead language designer, discusses the
+feature evolution in Kotlin and the K2 compiler:
+
+<video href="tAGJ5zJXJ7w" title="Kotlin Language Features in 2.0 and Beyond"/>
 
 ### Current K2 compiler limitations
 
@@ -630,10 +640,10 @@ Kotlin Playground supports the 2.0.0 release. [Check it out!](https://pl.kotl.in
 ### Support in IDEs
 
 By default, IntelliJ IDEA and Android Studio still use the previous compiler for code analysis, code completion,
-highlighting, and other IDE-related features. To get the full Kotlin 2.0 experience in your IDE, enable the K2 Kotlin mode.
+highlighting, and other IDE-related features. To get the full Kotlin 2.0 experience in your IDE, enable K2 Kotlin mode.
 
 In your IDE, go to **Settings** | **Languages & Frameworks** | **Kotlin** and select the **Enable the K2-based Kotlin
-plugin** option. The IDE will analyze your code with its K2 Kotlin mode.
+plugin** option. The IDE will analyze your code using its K2 Kotlin mode.
 
 > The K2 Kotlin mode is in Alpha and is available starting from 2024.1. The performance and stability of code
 > highlighting and code completion have been significantly improved, but not all IDE features are supported yet.
@@ -644,7 +654,7 @@ After enabling K2 mode, you may notice differences in IDE analysis due to change
 new K2 compiler differs from the previous one in our [migration guide](k2-compiler-migration-guide.md).
 
 * Learn more about the K2 Kotlin mode in [our blog](https://blog.jetbrains.com/idea/2024/03/k2-kotlin-mode-alpha-in-intellij-idea/).
-* We are actively collecting feedback about K2 Kotlin mode. Please share your thoughts in our [public Slack channel](https://kotlinlang.slack.com/archives/C0B8H786P).
+* We are actively collecting feedback about K2 Kotlin mode, so please share your thoughts in our [public Slack channel](https://kotlinlang.slack.com/archives/C0B8H786P).
 
 ### Leave your feedback on the new K2 compiler
 
@@ -759,7 +769,7 @@ debugging information, including all compiler arguments.
 
 ### Explicitly added standard library and platform dependencies to Kotlin/Native
 
-The Kotlin/Native compiler used to resolve standard library and platform dependencies implicitly, which caused
+Previously, the Kotlin/Native compiler resolved standard library and platform dependencies implicitly, which caused
 inconsistencies in the way the Kotlin Gradle plugin worked across Kotlin targets.
 
 Now, each Kotlin/Native Gradle compilation explicitly includes standard library and platform dependencies in its
@@ -788,14 +798,14 @@ Kotlin 2.0.0 improves performance and interoperability with JavaScript:
 * [Support for unsigned primitive types in functions with `@JsExport`](#support-for-unsigned-primitive-types-in-functions-with-jsexport)
 * [Generation of TypeScript declaration files in Kotlin/Wasm](#generation-of-typescript-declaration-files-in-kotlin-wasm)
 * [Support for catching JavaScript exceptions](#support-for-catching-javascript-exceptions)
-* [New exception handling proposal is now supported under the option](#new-exception-handling-proposal-is-now-supported-under-the-option)
-* [`withWasm()` function is split into JS and WASI variants](#withwasm-function-is-split-into-js-and-wasi-variants)
+* [New exception handling proposal is now supported as an option](#new-exception-handling-proposal-is-now-supported-as-an-option)
+* [The `withWasm()` function is split into JS and WASI variants](#the-withwasm-function-is-split-into-js-and-wasi-variants)
 
 ### Optimized production builds by default using Binaryen
 
 The Kotlin/Wasm toolchain now applies the [Binaryen](https://github.com/WebAssembly/binaryen) tool during production
 compilation to all projects, as opposed to the previous manual setup approach. By our estimations, it should
-improve runtime performance and the binaries size for your project.
+improve runtime performance and reduce the binary size for your project.
 
 > This change only affects production compilation. The development compilation process stays the same.
 >
@@ -875,11 +885,11 @@ from the JavaScript side of the program.
 In Kotlin 2.0.0, we have implemented support for catching JavaScript exceptions within Kotlin/Wasm. This implementation
 allows you to use `try-catch` blocks, with specific types like `Throwable` or `JsException`, to handle these errors properly.
 
-Additionally, `finally` blocks, which help execute code regardless of exceptions, also work correctly. While we are
-introducing support for catching JavaScript exceptions, no additional information is provided when a JavaScript exception
-occurs, like a call stack. However, [we are working on these implementations](https://youtrack.jetbrains.com/issue/KT-68185/WasmJs-Attach-js-exception-object-to-JsException).
+Additionally, `finally` blocks, which help execute code regardless of exceptions, also work correctly. While we're
+introducing support for catching JavaScript exceptions, no additional information is provided when a JavaScript exception,
+like a call stack, occurs. However, [we are working on these implementations](https://youtrack.jetbrains.com/issue/KT-68185/WasmJs-Attach-js-exception-object-to-JsException).
 
-### New exception handling proposal is now supported under the option
+### New exception handling proposal is now supported as an option
 
 In this release, we introduce support for the new version of WebAssembly's [exception handling proposal](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md)
 within Kotlin/Wasm.
@@ -887,10 +897,10 @@ within Kotlin/Wasm.
 This update ensures the new proposal aligns with Kotlin requirements, enabling the use of Kotlin/Wasm on virtual
 machines that only support the latest version of the proposal.
 
-Activate the new exception handling proposal by using the `-Xwasm-use-new-exception-proposal` compiler option. It is
+Activate the new exception handling proposal by using the `-Xwasm-use-new-exception-proposal` compiler option, which is
 turned off by default.
 
-### withWasm() function is split into JS and WASI variants
+### The withWasm() function is split into JS and WASI variants
 
 The `withWasm()` function, which used to provide Wasm targets for hierarchy templates, is deprecated in favor of
 specialized `withWasmJs()` and `withWasmWasi()` functions.
@@ -980,7 +990,7 @@ kotlin {
 ### Per-file compilation for Kotlin/JS projects
 
 Kotlin 2.0.0 introduces a new granularity option for the Kotlin/JS project output. You can now set up a per-file
-compilation that generates one JavaScript file per each Kotlin file. It helps to significantly optimize the size of the
+compilation that generates one JavaScript file for each Kotlin file. It helps to significantly optimize the size of the
 final bundle and improve the loading time of the program.
 
 Previously, there were only two output options. The Kotlin/JS compiler could generate a single `.js` file for the whole
@@ -1054,7 +1064,7 @@ const allMyFriendNames = me.friends
 
 ### Support for createInstance()
 
-Since Kotlin 2.0.0, you can use the [`createInstance()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/create-instance.html)
+Starting with Kotlin 2.0.0, you can use the [`createInstance()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/create-instance.html)
 function from the Kotlin/JS target. Previously, it was only available on the JVM.
 
 This function from the [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/) interface creates
@@ -1183,16 +1193,16 @@ Previously, the `webpack` and `distributeResources` compilation tasks both targe
 the `distribution` task declared the `dist` as its output directory as well. This resulted in overlapping outputs and
 produced a compilation warning.
 
-So, starting with Kotlin 2.0.0, we implement the following changes:
+So, starting with Kotlin 2.0.0, we've implemented the following changes:
 
 * The `webpack` task now targets a separate folder.
-* The `distributeResources` task is removed completely.
+* The `distributeResources` task has been completely removed.
 * The `distribution` task now has the `Copy` type and targets the `dist` folder.
 
 ### Discontinuing legacy Kotlin/JS JAR artifacts
 
 Starting with Kotlin 2.0.0, the Kotlin distribution no longer contains legacy Kotlin/JS artifacts with the `.jar`
-extension. Legacy artifacts were used in the unsupported old Kotlin/JS compiler and unnecessary for the IR compiler that
+extension. Legacy artifacts were used in the unsupported old Kotlin/JS compiler and unnecessary for the IR compiler, which
 uses the `klib` format.
 
 ## Gradle improvements
@@ -1213,7 +1223,7 @@ This version brings the following changes:
 * [Kotlin/Native compiler downloaded when needed](#kotlin-native-compiler-downloaded-when-needed)
 * [Deprecating old ways of defining compiler options](#deprecated-old-ways-of-defining-compiler-options)
 * [Bumped minimum AGP supported version](#bumped-minimum-supported-agp-version)
-* [New Gradle property to try latest language version](#new-gradle-property-to-try-latest-language-version)
+* [New Gradle property for trying the latest language version](#new-gradle-property-for-trying-the-latest-language-version)
 * [New JSON output format for build reports](#new-json-output-format-for-build-reports)
 * [kapt configurations inherit annotation processors from superconfigurations](#kapt-configurations-inherit-annotation-processors-from-superconfigurations)
 * [Kotlin Gradle plugin no longer uses deprecated Gradle conventions](#kotlin-gradle-plugin-no-longer-uses-deprecated-gradle-conventions)
@@ -1487,16 +1497,16 @@ the following Gradle property to your `gradle.properties` file:
 kotlin.native.toolchain.enabled=false
 ```
 
-Starting with the version 1.9.20-Beta, the Kotlin/Native distribution is published to [Maven Central](https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-native-prebuilt/)
-along with CDN.
+Starting with Kotlin 1.9.20-Beta, the Kotlin/Native distribution is published to [Maven Central](https://repo.maven.apache.org/maven2/org/jetbrains/kotlin/kotlin-native-prebuilt/)
+along with the CDN.
 
-This allowed us to change how Kotlin looks for and downloads the necessary artifacts. Instead of the CDN, it now uses by
-default Maven repositories that you specified in the `repositories {}` block of your project.
+This allowed us to change how Kotlin looks for and downloads the necessary artifacts. Instead of the CDN, by default,
+it now uses the Maven repositories that you specified in the `repositories {}` block of your project.
 
 You can temporarily switch this behavior back by setting the following Gradle property in your `gradle.properties` file:
 
 ```none
-kotlin.native.distribution.downloadFromMaven=false.
+kotlin.native.distribution.downloadFromMaven=false
 ```
 
 Please report any problems to our issue tracker [YouTrack](https://kotl.in/issue). Both of these Gradle properties that
@@ -1549,7 +1559,7 @@ For more information on how to specify compiler options in the Kotlin Gradle plu
 
 Starting with Kotlin 2.0.0, the minimum supported Android Gradle plugin version is 7.1.3.
 
-### New Gradle property to try latest language version
+### New Gradle property for trying the latest language version
 
 Prior to Kotlin 2.0.0, we had the following Gradle property to try out the new K2 compiler: `kotlin.experimental.tryK2`.
 Now that the K2 compiler is enabled by default in Kotlin 2.0.0, we decided to evolve this property into a new form that
@@ -1656,11 +1666,11 @@ dependencies {
 }
 ```
 
-In this example, the `commonAnnotationProcessors` Gradle configuration is your "common" configuration for annotation
+In this example, the `commonAnnotationProcessors` Gradle configuration is your common configuration for annotation
 processing that you want to be used for all your projects. You use the [`extendsFrom()`](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html#org.gradle.api.artifacts.Configuration:extendsFrom)
-method to add "commonAnnotationProcessors" as a superconfiguration. kapt sees that the `commonAnnotationProcessors`
-Gradle configuration has a dependency on the Dagger annotation processor and successfully includes it in its
-configuration for annotation processing.
+method to add "commonAnnotationProcessors" as a superconfiguration. kapt sees that the `commonAnnotationProcessors` 
+Gradle configuration has a dependency on the Dagger annotation processor. Therefore, kapt includes the Dagger annotation
+processor in its configuration for annotation processing.
 
 Thanks to Christoph Loy for the [implementation](https://github.com/JetBrains/kotlin/pull/5198)!
 
@@ -1690,7 +1700,7 @@ and also stabilized to replace the synthetic `values()` function. For more infor
 see [What's new in Kotlin 1.8.20](whatsnew1820.md#a-modern-and-performant-replacement-of-the-enum-class-values-function).
 
 > The `enumValues<T>()` function is still supported, but we recommend that you use the `enumEntries<T>()` function
-> instead because it has less performance impact. Every time you call `enumValues<T>()`, a new array is created, whereas
+> instead because it has less of a performance impact. Every time you call `enumValues<T>()`, a new array is created, whereas
 > whenever you call `enumEntries<T>()`, the same list is returned each time, which is far more efficient.
 >
 {type="tip"}

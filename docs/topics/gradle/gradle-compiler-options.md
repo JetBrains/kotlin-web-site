@@ -235,10 +235,10 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 
 ### Attributes common to JVM and JS
 
-| Name | Description | Possible values |Default value |
-|------|-------------|-----------------|--------------|
-| `apiVersion` | Restrict the use of declarations to those from the specified version of bundled libraries | "1.4" (DEPRECATED), "1.5" (DEPRECATED), "1.6", "1.7", "1.8", "1.9", "2.0" (EXPERIMENTAL), "2.1" (EXPERIMENTAL) |  |
-| `languageVersion` | Provide source compatibility with the specified version of Kotlin | "1.4" (DEPRECATED), "1.5" (DEPRECATED), "1.6", "1.7", "1.8", "1.9", "2.0" (EXPERIMENTAL), "2.1" (EXPERIMENTAL) |  |
+| Name              | Description                                                                               | Possible values                                         | Default value |
+|-------------------|-------------------------------------------------------------------------------------------|---------------------------------------------------------|---------------|
+| `apiVersion`      | Restrict the use of declarations to those from the specified version of bundled libraries | "1.6", "1.7", "1.8", "1.9", "2.0", "2.1" (EXPERIMENTAL) |               |
+| `languageVersion` | Provide source compatibility with the specified version of Kotlin                         | "1.6", "1.7", "1.8", "1.9", "2.0", "2.1" (EXPERIMENTAL) |               |
 
 #### Example of setting a languageVersion
 
