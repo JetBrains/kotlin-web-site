@@ -34,8 +34,8 @@ This guide:
 * Highlights changes you might encounter during migration and how to adapt your code accordingly.
 * Describes how you can roll back to the previous version.
 
-> The new K2 compiler is enabled by default starting with %kotlinEapVersion%. For more information on the new features provided
-> in Kotlin 2.0.0, as well as the new K2 compiler, see [What's new in Kotlin %kotlinEapVersion%](whatsnew-eap.md).
+> The new K2 compiler is enabled by default starting with 2.0.0. For more information on the new features provided
+> in Kotlin 2.0.0, as well as the new K2 compiler, see [What's new in Kotlin 2.0.0](whatsnew20.md).
 >
 {type="note"}
 
@@ -67,7 +67,7 @@ However, if you declared the variable **outside** the `if` condition, no informa
 within the `if` condition, so it couldn't be smart-cast. This behavior was also seen with `when` expressions and `while` loops.
 
 From Kotlin 2.0.0, if you declare a variable before using it in your `if`, `when`, or `while` condition, then any
-information collected by the compiler about the variable will be accessible in the condition statement and its block for
+information collected by the compiler about the variable will be accessible in the corresponding block for
 smart-casting.
 
 This can be useful when you want to do things like extract boolean conditions into variables. Then, you can give the
@@ -87,7 +87,7 @@ fun petAnimal(animal: Any) {
         // In Kotlin 2.0.0, the compiler can access
         // information about isCat, so it knows that
         // animal was smart-cast to the type Cat.
-        // Therefore, the purr() function is successfully called.
+        // Therefore, the purr() function can be called.
         // In Kotlin 1.9.20, the compiler doesn't know
         // about the smart cast, so calling the purr()
         // function triggers an error.
@@ -124,7 +124,7 @@ fun signalCheck(signalStatus: Any) {
     if (signalStatus is Postponed || signalStatus is Declined) {
         // signalStatus is smart-cast to a common supertype Status
         signalStatus.signal()
-        // Prior to Kotlin %kotlinEapVersion%, signalStatus is smart cast 
+        // Prior to Kotlin 2.0.0, signalStatus is smart cast 
         // to type Any, so calling the signal() function triggered an
         // Unresolved reference error. The signal() function can only 
         // be called successfully after another type check:
@@ -293,6 +293,8 @@ fun main(input: Rho) {
     var unknownObject: Rho = input
 
     // Check if unknownObject inherits from the Tau interface
+    // Note, it's possible that unknownObject inherits from both
+    // Rho and Tau interfaces.
     if (unknownObject is Tau) {
 
         // Use the overloaded inc() operator from interface Rho,
@@ -300,7 +302,7 @@ fun main(input: Rho) {
         ++unknownObject
 
         // In Kotlin 2.0.0, the compiler knows unknownObject has type
-        // Sigma, so the sigma() function is called successfully.
+        // Sigma, so the sigma() function can be called successfully.
         unknownObject.sigma()
 
         // In Kotlin 1.9.20, the compiler thinks unknownObject has type
@@ -312,7 +314,7 @@ fun main(input: Rho) {
         // Unresolved reference 'tau'
 
         // In Kotlin 1.9.20, the compiler mistakenly thinks that 
-        // unknownObject has type Tau, so the tau() function is
+        // unknownObject has type Tau, so the tau() function can be
         // called successfully.
     }
 }
@@ -479,29 +481,33 @@ In the future, these remaining cases will be more consistent with the new compil
 
 #### Different visibility levels of expected and actual declarations
 
-Before Kotlin 2.0.0, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your Kotlin
-Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md). Kotlin 2.0.0 supports
-different visibility levels _only_ if the actual declaration is _less_ strict than the expected declaration. For example:
+Before Kotlin 2.0.0, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your
+Kotlin Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md).
+Kotlin 2.0.0 now also supports different visibility levels but **only** if the actual declaration is _more_ permissive than
+the expected declaration. For example:
 
 ```kotlin
 expect internal class Attribute // Visibility is internal
-actual class Attribute          // Visibility is public by default, which is less strict
+actual class Attribute          // Visibility is public by default,
+                                // which is more permissive
 ```
 
-If you are using a [type alias](type-aliases.md) in your actual declaration, the visibility of the type **must** be less
-strict. Any visibility modifiers for `actual typealias` are ignored. For example:
+Similarly, if you are using a [type alias](type-aliases.md) in your actual declaration, the visibility of the **underlying type**
+should be the same or more permissive than the expected declaration. For example:
 
 ```kotlin
-expect internal class Attribute                // Visibility is internal
-internal actual typealias Attribute = Expanded // The internal visibility modifier is ignored
-class Expanded                                 // Visibility is public by default, which is less strict
+expect internal class Attribute                 // Visibility is internal
+internal actual typealias Attribute = Expanded
+
+class Expanded                                  // Visibility is public by default,
+                                                // which is more permissive
 ```
 
 ## How to enable the Kotlin K2 compiler
 
-Starting with Kotlin %kotlinEapVersion%, the Kotlin K2 compiler is enabled by default.
+Starting with Kotlin 2.0.0, the Kotlin K2 compiler is enabled by default.
 
-To upgrade the Kotlin version, change it to %kotlinEapVersion% in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
+To upgrade the Kotlin version, change it to 2.0.0 in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
 [Maven](maven.md#configure-and-enable-the-plugin) build scripts.
 
 ### Use Kotlin build reports with Gradle
@@ -522,19 +528,19 @@ kotlin.build.report.output=file
 
 The following values and their combinations are available for the output:
 
-| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`        | This option saves build reports in a human-readable format to a local file. By default, this is `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt`.                                                                                                                                                                                                                                                                                                                                           |
-| `json`        | This option saves build reports in JSON format as `${project_name}-date-time.json` in the directory specified in `kotlin.build.report.json.directory="my/dir/path"`.                                                                                                                                                                                                                                                                                                                                                    |   
-| `single_file` | This option saves build reports in a specified local file in the format of an object.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `build_scan`  | This option saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost.                                                                                                                                                                                                                                                                  |
-| `http`        | This option posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/plugin/statistics/CompileStatisticsData.kt). Examples of HTTP endpoints can be found in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports). |
+| Option | Description |
+|---|---|
+| `file` | Saves build reports in a human-readable format to a local file. By default, it's `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt` |
+| `single_file` | Saves build reports in a format of an object to a specified local file. |
+| `build_scan` | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost. |
+| `http` | Posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/report/data/GradleCompileStatisticsData.kt). You can find samples of HTTP endpoints in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/?_gl=1*1a7pghy*_ga*MTcxMjc1NzE5Ny4xNjY1NDAzNjkz*_ga_9J976DJZ68*MTcxNTA3NjA2NS4zNzcuMS4xNzE1MDc2MDc5LjQ2LjAuMA..&_ga=2.265800911.1124071296.1714976764-1712757197.1665403693#enable_build_reports) |
+| `json` | Saves build reports in JSON format to a local file. Set the location for your build reports in `kotlin.build.report.json.directory`. By default, it's name is `${project_name}-build-<date-time>-<index>.json`. |
 
 For more information on what is possible with build reports, see [Build reports](gradle-compilation-and-caches.md#build-reports).
 
 ## Try the Kotlin K2 compiler in the Kotlin Playground
 
-The Kotlin Playground supports the %kotlinEapVersion% release. [Check it out!](https://pl.kotl.in/czuoQprce)
+The Kotlin Playground supports the 2.0.0 release. [Check it out!](https://pl.kotl.in/czuoQprce)
 
 ## Support in IntelliJ IDEA
 
@@ -547,7 +553,7 @@ IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 Kotli
 
 ## How to roll back to the previous compiler
 
-To use the previous compiler in Kotlin %kotlinEapVersion%, either:
+To use the previous compiler in Kotlin 2.0.0, either:
 
 * In your `build.gradle.kts` file, [set your language version](gradle-compiler-options.md#example-of-setting-a-languageversion) to `1.9`.
 
@@ -565,7 +571,7 @@ This section highlights the following modifications:
 
 * [Immediate initialization of open properties with backing fields](#immediate-initialization-of-open-properties-with-backing-fields)
 * [Deprecated synthetic setters on a projected receiver](#deprecated-synthetics-setter-on-a-projected-receiver)
-* [Forbidden function calls with inaccessible types](#forbidden-function-calls-with-inaccessible-types)
+* [Forbidden use of inaccessible generic types](#forbidden-use-of-inaccessible-generic-types)
 * [Consistent resolution order of Kotlin properties and Java fields with the same name](#consistent-resolution-order-of-kotlin-properties-and-java-fields-with-the-same-name)
 * [Improved null safety for Java primitive arrays](#improved-null-safety-for-java-primitive-arrays)
 
@@ -660,51 +666,62 @@ from your code.
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-54309).
 
-### Forbidden function calls with inaccessible types
+### Forbidden use of inaccessible generic types
 
 **What's changed?**
 
-Before Kotlin 2.0.0, if you declared or called a function that had lambda parameters with an inaccessible type, your code
-could compile, but you might encounter compiler crashes later. In Kotlin 2.0.0, it is forbidden to declare or call a
-function that has an inaccessible type.
+Due to the new architecture of our K2 compiler, we've changed how we handle inaccessible generic types. Generally, you 
+should never rely on inaccessible generic types in your code because this indicates a misconfiguration in your project's 
+build configuration, preventing the compiler from accessing the necessary information to compile. In Kotlin 2.0.0, you 
+can't declare or call a function literal with an inaccessible generic type, nor use a generic type with inaccessible generic
+type arguments. This restriction helps you avoid compiler errors later in your code.
 
-For example, let's say that you declared a class in one module:
+For example, let's say that you declared a generic class in one module:
+
 
 ```kotlin
 // Module one
-class Some(val x: Int)
+class Node<V>(val value: V)
 ```
 
-If you have another module (module two) that has a dependency configured on module one, your code can access the `Some`
-class and use it as a type in lambda expressions:
+If you have another module (module two) with a dependency configured on module one, your code can access the `Node<V>` 
+class and use it as a type in function types:
 
 ```kotlin
 // Module two
-fun foo(f: (Some, String) -> Unit) {}
-fun bar(f: (Some) -> Unit) {}
-// Both functions compile successfully
+fun execute(func: (Node<Int>) -> Unit) {}
+// Function compiles successfully
 ```
 
-However, if you have a third module (module three) that depends only on module two, the third module won't be able to
-access the `Some` class in **module one**. As a result, the dependency won't be transitive between modules. Now, any
-functions in module three that have lambda parameters with the `Some` type will trigger errors in Kotlin 2.0.0, thus
-preventing crashes later in your code:
+However, if your project is misconfigured such that you have a third module (module three) that depends only on module 
+two, the Kotlin compiler won't be able to access the `Node<V>` class in **module one** when compiling the third module. 
+Now, any lambdas or anonymous functions in module three that use the `Node<V>` type trigger errors in Kotlin 2.0.0, thus
+preventing avoidable compiler errors, crashes, and run-time exceptions later in your code:
 
 ```kotlin
 // Module three
 fun test() {
-    // Triggers an error in Kotlin 2.0.0, as the unused lambda
-    // parameters (_) resolve to Some, which is inaccessible
-    foo { _, _ -> }
+    // Triggers an error in Kotlin 2.0.0, as the type of the implicit 
+    // lambda parameter (it) resolves to Node, which is inaccessible
+    execute {}
 
-    // Triggers a warning in Kotlin 2.0.0, as using an instance of Some
-    // isn't possible because Some is inaccessible
-    foo { some, str -> }
+    // Triggers an error in Kotlin 2.0.0, as the type of the unused 
+    // lambda parameter (_) resolves to Node, which is inaccessible
+    execute { _ -> }
+
+    // Triggers an error in Kotlin 2.0.0, as the type of the unused
+    // anonymous function parameter (_) resolves to Node, which is inaccessible
+    execute(fun (_) {})
 }
 ```
 
-Errors are also introduced in Kotlin 2.0.0 for some scenarios involving generic classes. Consider, for example, the same
-arrangement of three modules but with generic classes:
+In addition to function literals triggering errors when they contain value parameters of inaccessible generic types, 
+errors also occur when a type has an inaccessible generic type argument.
+
+For example, you have the same generic class declaration in module one. In module two, you declare another generic class:
+`Container<C>`. In addition, you declare functions in module two that use `Container<C>` with generic class `Node<V>` as
+a type argument:
+
 
 <table header-style="top">
    <tr>
@@ -716,7 +733,7 @@ arrangement of three modules but with generic classes:
 
 ```kotlin
 // Module one
-class Some<T>(val x: T)
+class Node<V>(val value: V)
 ```
 
 </td>
@@ -724,14 +741,12 @@ class Some<T>(val x: T)
 
 ```kotlin
 // Module two
-fun foo(f: (Some<String>, String) -> Unit) {}
+class Container<C>(vararg val content: C)
 
-class Generic<T>
-
-// Creates an instance of Generic class with type Some<String>
-fun gen() = Generic<Some<String>>()
-
-fun takeString(g: Generic<Some<String>>) {}
+// Functions with generic class type that
+// also have a generic class type argument
+fun produce(): Container<Node<Int>> = Container(Node(42))
+fun consume(arg: Container<Node<Int>>) {}
 ```
 
 </td>
@@ -739,30 +754,89 @@ fun takeString(g: Generic<Some<String>>) {}
 </table>
 
 
-In the third module, if you use the `gen()` function from module two to create an instance of the `Generic` class with
-the type `Some<String>` and then assign it to a variable `z`, this operation is successful because the `gen()` function
-has access to the `Some<T>` class in module one. **However**, if you try to pass the variable `z` to a function declared
-in module three, an error is triggered because functions declared in module three don't have access to the `Some<T>` class
-in module one:
+If you try to call these functions in module three, an error is triggered in Kotlin 2.0.0 because the generic class 
+`Node<V>` is inaccessible from module three:
 
 ```kotlin
 // Module three
 fun test() {
-    // Triggers a warning in Kotlin 2.0.0
-    val z = gen()
+    // Triggers an error in Kotlin 2.0.0, as generic class Node<V> is 
+    // inaccessible
+    consume(produce())
+}
+```
 
-    // Triggers an error in Kotlin 2.0.0
-    takeString(z)
+In future releases we will continue to deprecate the use of inaccessible types in general. We have already started in 
+Kotlin 2.0.0 by adding warnings for some scenarios with inaccessible types, including non-generic ones.
+
+For example, let's use the same module setup as the previous examples, but turn the generic class `Node<V>` into a 
+non-generic class `IntNode`, with all functions declared in module two:
+
+<table header-style="top">
+   <tr>
+       <td>Module one</td>
+       <td>Module two</td>
+   </tr>
+   <tr>
+<td>
+
+```kotlin
+// Module one
+class IntNode(val value: Int)
+```
+
+</td>
+<td>
+
+```kotlin
+// Module two
+// A function that contains a lambda 
+// parameter with `IntNode` type
+fun execute(func: (IntNode) -> Unit) {}
+
+class Container<C>(vararg val content: C)
+
+// Functions with generic class type
+// that has `IntNode` as a type argument
+fun produce(): Container<IntNode> = Container(IntNode(42))
+fun consume(arg: Container<IntNode>) {}
+```
+
+</td>
+</tr>
+</table>
+
+If you call these functions in module three, some warnings are triggered:
+
+```kotlin
+// Module three
+fun test() {
+    // Triggers warnings in Kotlin 2.0.0, as class IntNode is 
+    // inaccessible.
+
+    execute {}
+    // Class 'IntNode' of the parameter 'it' is inaccessible.
+
+    execute { _ -> }
+    execute(fun (_) {})
+    // Class 'IntNode' of the parameter '_' is inaccessible.
+
+    // Will trigger a warning in future Kotlin releases, as IntNode is
+    // inaccessible.
+    consume(produce())
 }
 ```
 
 **What's the best practice now?**
 
-To avoid these problems, you can configure a direct dependency for module three on module one.
+If you encounter new warnings regarding inaccessible generic types, it's highly likely that there's an issue with your 
+build system configuration. We recommend checking your build scripts and configuration. 
 
-Alternatively, you can adapt your code to make the types accessible within the same module.
+As a last resort, you can configure a direct dependency for module three on module one. Alternatively, you can modify 
+your code to make the types accessible within the same module.
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-64474).
+
 
 ### Consistent resolution order of Kotlin properties and Java fields with the same name
 
@@ -985,7 +1059,7 @@ for further reading. Changes listed with an asterisk (*) next to the Issue ID ar
 
 | Issue ID                                                    | Title                                                                                                                          |
 |-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| [KT-64474](https://youtrack.jetbrains.com/issue/KT-64474/)* | [Declare usages of inaccessible types as unspecified behavior](#forbidden-function-calls-with-inaccessible-types)              |
+| [KT-64474](https://youtrack.jetbrains.com/issue/KT-64474/)* | [Declare usages of inaccessible types as unspecified behavior](#forbidden-use-of-inaccessible-generic-types)                   |
 | [KT-55179](https://youtrack.jetbrains.com/issue/KT-55179)   | False negative PRIVATE_CLASS_MEMBER_FROM_INLINE on calling private class companion object member from internal inline function |
 | [KT-58042](https://youtrack.jetbrains.com/issue/KT-58042)   | Make synthetic property invisible if equivalent getter is invisible even when overridden declaration is visible                |
 | [KT-64255](https://youtrack.jetbrains.com/issue/KT-64255)   | Forbid accessing internal setter from a derived class in another module                                                        |
@@ -1084,8 +1158,9 @@ for further reading. Changes listed with an asterisk (*) next to the Issue ID ar
 | [KT-55111](https://youtrack.jetbrains.com/issue/KT-55111) | OptIn: forbid constructor calls with default arguments under marker                                        |
 | [KT-61182](https://youtrack.jetbrains.com/issue/KT-61182) | Unit conversion is accidentally allowed to be used for expressions on variables + invoke resolution        |
 | [KT-55199](https://youtrack.jetbrains.com/issue/KT-55199) | Forbid promoting callable references with adaptations to KFunction                                         |
-| [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776) | [LC] K2 breaks \`false && ...\` and \`false \                                                              |\| ...\`                                                     |
+| [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776) | [LC] K2 breaks \`false && ...\` and \`false \|\| ...\`                                                     |
 | [KT-65682](https://youtrack.jetbrains.com/issue/KT-65682) | [LC] Deprecate \`header\`/\`impl\` keywords                                                                |
+| [KT-45375](https://youtrack.jetbrains.com/issue/KT-45375) | Generate all Kotlin lambdas via invokedynamic + LambdaMetafactory by default                               |
 
 ## Compatibility with Kotlin releases
 
@@ -1126,8 +1201,6 @@ In addition, the Kotlin K2 compiler supports:
 
 We would appreciate any feedback you may have!
 
-* Provide your feedback directly to K2 developers in the Kotlin Slack workspace – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
-  and join the [#k2-early-adopters](https://kotlinlang.slack.com/archives/C03PK0PE257) channel.
 * Report any problems you face migrating to the new K2 compiler in [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&summary=K2+release+migration+issue&description=Describe+the+problem+you+encountered+here.&c=tag+k2-release-migration).
 * [Enable the Send usage statistics option](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) to
   allow JetBrains to collect anonymous data about K2 usage.

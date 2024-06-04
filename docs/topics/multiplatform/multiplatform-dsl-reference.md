@@ -331,12 +331,12 @@ Learn more about [building native binaries](multiplatform-build-native-binaries.
 `cinterops` is a collection of descriptions for interop with native libraries.
 To provide an interop with a library, add an entry to `cinterops` and define its parameters:
 
-| **Name**       | **Description**                                       | 
-|----------------|-------------------------------------------------------|
-| `defFile`      | `def` file describing the native API.                 |
-| `packageName`  | Package prefix for the generated Kotlin API.          |
-| `compilerOpts` | Options to pass to the compiler by the cinterop tool. |
-| `includeDirs`  | Directories to look for headers.                      |
+| **Name**         | **Description**                                       | 
+|------------------|-------------------------------------------------------|
+| `definitionFile` | The `.def` file describing the native API.                |
+| `packageName`    | Package prefix for the generated Kotlin API.          |
+| `compilerOpts`   | Options to pass to the compiler by the cinterop tool. |
+| `includeDirs`    | Directories to look for headers.                      |
 
 Learn more how to [configure interop with native languages](multiplatform-configure-compilations.md#configure-interop-with-native-languages).
 
@@ -350,7 +350,7 @@ kotlin {
             val myInterop by cinterops.creating {
                 // Def-file describing the native API.
                 // The default path is src/nativeInterop/cinterop/<interop-name>.def
-                defFile(project.file("def-file.def"))
+                definitionFile.set(project.file("def-file.def"))
 
                 // Package to place the Kotlin API generated.
                 packageName("org.sample")
@@ -382,7 +382,7 @@ kotlin {
                 myInterop {
                     // Def-file describing the native API.
                     // The default path is src/nativeInterop/cinterop/<interop-name>.def
-                    defFile project.file("def-file.def")
+                    definitionFile.set(project.file("def-file.def"))
 
                     // Package to place the Kotlin API generated.
                     packageName 'org.sample'
@@ -676,18 +676,18 @@ kotlin {
 
 A compilation has the following parameters:
 
-| **Name**                 | **Description**                                                                                                                     | 
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| `defaultSourceSet`       | The compilation's default source set.                                                                                               |
-| `kotlinSourceSets`       | Source sets participating in the compilation.                                                                                       |
-| `allKotlinSourceSets`    | Source sets participating in the compilation and their connections via `dependsOn()`.                                               |
-| `compilerOptions`        | Compiler options applied to the compilation. For the list of available options, see [Compiler options](gradle-compiler-options.md). |
-| `compileKotlinTask`      | Gradle task for compiling Kotlin sources.                                                                                           |
-| `compileKotlinTaskName`  | Name of `compileKotlinTask`.                                                                                                        |
-| `compileAllTaskName`     | Name of the Gradle task for compiling all sources of a compilation.                                                                 |
-| `output`                 | The compilation output.                                                                                                             |
-| `compileDependencyFiles` | Compile-time dependency files (classpath) of the compilation.                                                                       |
-| `runtimeDependencyFiles` | Runtime dependency files (classpath) of the compilation.                                                                            |
+| **Name**                 | **Description**                                                                                                                                                           | 
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `defaultSourceSet`       | The compilation's default source set.                                                                                                                                     |
+| `kotlinSourceSets`       | Source sets participating in the compilation.                                                                                                                             |
+| `allKotlinSourceSets`    | Source sets participating in the compilation and their connections via `dependsOn()`.                                                                                     |
+| `compilerOptions`        | Compiler options applied to the compilation. For the list of available options, see [Compiler options](gradle-compiler-options.md).                                       |
+| `compileKotlinTask`      | Gradle task for compiling Kotlin sources.                                                                                                                                 |
+| `compileKotlinTaskName`  | Name of `compileKotlinTask`.                                                                                                                                              |
+| `compileAllTaskName`     | Name of the Gradle task for compiling all sources of a compilation.                                                                                                       |
+| `output`                 | The compilation output.                                                                                                                                                   |
+| `compileDependencyFiles` | Compile-time dependency files (classpath) of the compilation. For all Kotlin/Native compilations, this automatically includes standard library and platform dependencies. |
+| `runtimeDependencyFiles` | Runtime dependency files (classpath) of the compilation.                                                                                                                  |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -855,8 +855,8 @@ The `languageSettings` block of a source set defines certain aspects of project 
 kotlin {
     sourceSets.all {
         languageSettings.apply {
-            languageVersion = "1.8" // possible values: "1.4", "1.5", "1.6", "1.7", "1.8", "1.9"
-            apiVersion = "1.8" // possible values: "1.3", "1.4", "1.5", "1.6", "1.7", "1.8", "1.9"
+            languageVersion = "%languageVersion%" // possible values: '1.6', '1.7', '1.8', '1.9', `2.0`
+            apiVersion = "%apiVersion%" // possible values: '1.6', '1.7', '1.8', '1.9', `2.0`
             enableLanguageFeature("InlineClasses") // language feature name
             optIn("kotlin.ExperimentalUnsignedTypes") // annotation FQ-name
             progressiveMode = true // false by default
@@ -872,8 +872,8 @@ kotlin {
 kotlin {
     sourceSets.all {
         languageSettings {
-            languageVersion = '1.8' // possible values: '1.4', '1.5', '1.6', '1.7', '1.8', '1.9'
-            apiVersion = '1.8' // possible values: '1.3', '1.4', '1.5', '1.6', '1.7', '1.8', '1.9'
+            languageVersion = '%languageVersion%' // possible values: '1.6', '1.7', '1.8', '1.9', `2.0`
+            apiVersion = '%apiVersion%' // possible values: '1.6', '1.7', '1.8', '1.9', `2.0`
             enableLanguageFeature('InlineClasses') // language feature name
             optIn('kotlin.ExperimentalUnsignedTypes') // annotation FQ-name
             progressiveMode = true // false by default

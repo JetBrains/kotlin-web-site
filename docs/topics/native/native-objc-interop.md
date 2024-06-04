@@ -510,13 +510,9 @@ class ViewController : UIViewController {
 
 The overriding constructor must have the same parameter names and types as the overridden one.
 
-To override different methods with clashing Kotlin signatures, you can add the `@Suppress("CONFLICTING_OVERLOADS")`
-annotation to the class.
-
-> Suppressing an error on clashing Kotlin signatures is a temporary workaround. Stability isn't guaranteed in this case so
-> use it with caution. We're working on fixing this behavior in future Kotlin releases.
-> 
-{type="warning"}
+To override different methods with clashing Kotlin signatures, you can add the `@ObjCSignatureOverride` annotation to the class.
+The annotation instructs the Kotlin compiler to ignore conflicting overloads, in case several functions with the same
+argument types, but different argument names, are inherited from the Objective-C class.
 
 By default, the Kotlin/Native compiler doesn't allow calling a non-designated Objective-C initializer as a `super()`
 constructor. This behaviour can be inconvenient if the designated initializers aren't marked properly in the Objective-C

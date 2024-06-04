@@ -3,13 +3,13 @@
 A Kotlin User Group, or KUG, is a community that is dedicated to Kotlin and that offers you a place to share your
 Kotlin programming experience with like-minded people.
 
-To become an KUG, your community should have some specific features shared by every KUG. It should:
+To become a KUG, your community should have some specific features shared by every KUG. It should:
 * Provide Kotlin-related content, with regular meetups as the main form of activity.
 * Host regular events (at least once every 3 months) with open registration and without any restriction for attendance.
 * Be driven and organized by the community, and it should not use events to earn money or gain any other business
   benefits from members and attendees.
-* Follow and ensure a code of conduct in order to provide a welcoming environment for attendees of any background and
-  experience (check-out our recommended [Code of Conduct](https://confluence.jetbrains.com/display/ALL/JetBrains+Open+Source+and+Community+Code+of+Conduct)).
+* Follow and ensure a code of conduct to provide a welcoming environment for attendees of any background and
+  experience (check out our recommended [Code of Conduct](https://github.com/jetbrains#code-of-conduct)).
 
 There are no limits regarding the format for KUG meetups. They can take place in whatever fashion works best for the
 community, whether that includes presentations, hands-on labs, lectures, hackathons, or informal beer-driven get-togethers.
@@ -20,7 +20,8 @@ community, whether that includes presentations, hands-on labs, lectures, hackath
 
 ## How to run a KUG?
 
-* In order to promote group cohesion and prevent miscommunication, we recommend keeping to a limit of one KUG per city. Check out [the list of KUGs](https://kotlinlang.org/community/user-groups) to see if there is already a KUG in your area.
+* To promote group cohesion and prevent miscommunication, we recommend keeping to a limit of one KUG per city. 
+  Check out [the list of KUGs](https://kotlinlang.org/community/user-groups/) to see if there is already a KUG in your area.
 * Use the official KUG logo and branding. Check out [the branding guidelines](kotlin-brand-assets.md#kotlin-user-group-brand-assets).
 * Keep your user group active. Run meetups regularly, at least once every 3 months.
 * Announce your KUG meetups at least 2 weeks in advance. The announcement should contain a list of talks
