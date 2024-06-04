@@ -1,9 +1,7 @@
 [//]: # (title: Kotlin Multiplatform plugin releases)
 
-We are working on stabilizing the [Kotlin Multiplatform plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) 
-and will be regularly releasing new versions that include new features, improvements, and bug fixes. 
-
-Ensure that you have the latest version of the Kotlin Multiplatform plugin!
+Ensure that you have the latest version of the [Kotlin Multiplatform plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile)
+to continue working with Kotlin Multiplatform projects in Android Studio.
 
 ## Update to the new release
 
