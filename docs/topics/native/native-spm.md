@@ -98,7 +98,7 @@ call to your iOS targets description in the `shared/build.gradle.kts` file:
         .iOS(.v14),
       ],
       products: [
-         .library(name: "Shared", targets: ["shared"])
+         .library(name: "Shared", targets: ["Shared"])
       ],
       targets: [
          .binaryTarget(
