@@ -1,13 +1,15 @@
 [//]: # (title: IDEs for Kotlin development)
-[//]: # (description: JetBrains provides official Kotlin support for IntelliJ IDEA, Fleet, and Android Studio.)
+[//]: # (description: JetBrains provides official Kotlin IDE support for IntelliJ IDEA, Fleet, and Android Studio.)
 
-JetBrains provides the official Kotlin plugin for [IntelliJ IDEA](#intellij-idea), [JetBrains Fleet](#fleet), and [Android Studio](#android-studio).
+JetBrains provides the official Kotlin support for the following IDEs and code editors:
+[IntelliJ IDEA](#intellij-idea), [JetBrains Fleet](#fleet), and [Android Studio](#android-studio).
 
 Other IDEs and code editors only have Kotlin community-supported plugins.
 
 ## IntelliJ IDEA
 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) is an IDE for JVM languages designed to maximize developer productivity.
+[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) is an IDE designed for JVM languages, such as Kotlin and Java,
+to maximize developer productivity.
 It does the routine and repetitive tasks for you by providing clever code completion, static code analysis, and refactorings. 
 It lets you focus on the bright side of software development, making it not only productive but also an enjoyable experience.
 
@@ -47,7 +49,7 @@ Read more about Android Studio in the [official documentation](https://developer
 
 ## Eclipse
 
-[Eclipse](https://eclipseide.org/release/) is an IDE used to develop applications in different programming languages,
+[Eclipse](https://eclipseide.org/release/) allows developers to write their applications in different programming languages,
 including Kotlin. It also has the Kotlin plugin: originally developed by JetBrains,
 now the Kotlin plugin is supported by the Kotlin community contributors.
 
