@@ -52,8 +52,8 @@ contact us and share your case in [this YouTrack issue](https://youtrack.jetbrai
 
 ## Find usages of required reason APIs
 
-Kotlin code in your app may access required reason APIs from libraries such as `platform.posix`.
-For example, if your Kotlin code or one of the dependencies accesses API such as `fstat`:
+Kotlin code in your app or one of the dependencies may access required reason APIs from libraries such as `platform.posix`,
+for example, `fstat`:
 
 ```kotlin
 import platform.posix.fstat
@@ -63,8 +63,8 @@ fun useRequiredReasonAPI() {
 }
 ```
 
-In some cases, it may be difficult to determine which dependency causes the required reason API usage.
-To help you find it, we've built a simple tool.
+In some cases, it may be difficult to determine which dependencies use the required reason API.
+To help you find them, we've built a simple tool.
 
 To use it, run the following command in the directory where the Kotlin framework is declared in your project:
 
@@ -72,7 +72,8 @@ To use it, run the following command in the directory where the Kotlin framework
 /usr/bin/python3 -c "$(curl -fsSL https://github.com/JetBrains/kotlin/raw/rrf_v0.0.1/libraries/tools/required-reason-finder/required_reason_finder.py)"
 ```
 
-You may also download this script separately, inspect it, and run it using `python3`.
+You may also [download this script](https://github.com/JetBrains/kotlin/blob/rrf_v0.0.1/libraries/tools/required-reason-finder/required_reason_finder.py)
+separately, inspect it, and run it using `python3`.
 
 ## Place the `.xcprivacy` file in your Kotlin artifacts
 
@@ -112,5 +113,8 @@ For further updates on required reasons APIs used in Compose Multiplatform, foll
 The `mach_absolute_time` API is used in the `mimalloc` allocator in the Kotlin/Native runtime. This was the default
 allocator in Kotlin 1.9.10 and earlier versions.
 
-We recommend upgrading to Kotlin 1.9.20 or later versions or changing the [allocator settings](native-memory-manager.md#adjust-memory-consumption)
-if the upgrade is impossible.
+We recommend upgrading to Kotlin 1.9.20 or later versions. If the upgrade is impossible, change the memory allocator.
+To do that, set the `-Xallocator=custom` compilation option in your Gradle build script for the current Kotlin allocator
+or `-Xallocator=std` for the system allocator.
+
+For more information, see [Kotlin/Native memory management](native-memory-manager.md).
