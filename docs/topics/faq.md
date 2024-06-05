@@ -76,7 +76,7 @@ Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.
 [Android Studio](https://developer.android.com/kotlin/get-started), and [JetBrains Fleet](https://www.jetbrains.com/help/fleet/getting-started-with-kotlin-in-fleet.html)
 with an official Kotlin plugin developed by JetBrains.
 
-Other IDEs and code editors, such as Eclipse, Visual Studio Code, and Atom, have Kotlin community-supported plugins.
+Other IDEs and code editors only have Kotlin community-supported plugins.
 
 You can also try [Kotlin Playground](https://play.kotlinlang.org) for writing, running, and sharing 
 Kotlin code in your browser.

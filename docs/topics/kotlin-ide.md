@@ -1,23 +1,27 @@
 [//]: # (title: IDEs for Kotlin development)
-[//]: # (description: JetBrains provides Kotlin plugin support for IntelliJ IDEA, Fleet, and Android Studio. Eclipse has the community supported Kotlin plugin.)
+[//]: # (description: JetBrains provides official Kotlin IDE support for IntelliJ IDEA, Fleet, and Android Studio.)
 
-JetBrains provides the official Kotlin plugin for [IntelliJ IDEA](#intellij-idea), [JetBrains Fleet](#fleet), and [Android Studio](#android-studio).
+JetBrains provides the official Kotlin support for the following IDEs and code editors:
+[IntelliJ IDEA](#intellij-idea), [JetBrains Fleet](#fleet), and [Android Studio](#android-studio).
 
-Other IDEs and code editors, such as [Eclipse](#eclipse), Visual Studio Code, and Atom, have Kotlin community-supported plugins.
+Other IDEs and code editors only have Kotlin community-supported plugins.
 
 ## IntelliJ IDEA
 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) is an IDE for JVM languages designed to maximize developer productivity.
-It does the routine and repetitive tasks for you by providing clever code completion, static code analysis, and refactorings,
-and lets you focus on the bright side of software development, making it not only productive but also an enjoyable experience.
+[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) is an IDE designed for JVM languages, such as Kotlin and Java,
+to maximize developer productivity.
+It does the routine and repetitive tasks for you by providing clever code completion, static code analysis, and refactorings. 
+It lets you focus on the bright side of software development, making it not only productive but also an enjoyable experience.
 
-Kotlin plugin is bundled with each IntelliJ IDEA release.
+The Kotlin plugin is bundled with each IntelliJ IDEA release.
+Each IDEA release introduces new features and upgrades that improve the experience for Kotlin developers in the IDE.
+See [What's new in IntelliJ IDEA](https://www.jetbrains.com/idea/whatsnew/) for the latest updates and improvements for Kotlin.
 
 Read more about IntelliJ IDEA in the [official documentation](https://www.jetbrains.com/help/idea/discover-intellij-idea.html).
 
 ## Fleet
 
-> JetBrains Fleet is currently in Public Preview, and at this stage it is free to use.
+> JetBrains Fleet is currently in Public Preview. At this stage it is free to use.
 > 
 {type="note"}
 
@@ -45,13 +49,14 @@ Read more about Android Studio in the [official documentation](https://developer
 
 ## Eclipse
 
-[Eclipse](https://eclipseide.org/release/) is an IDE that is used to develop applications in different programming languages, including Kotlin.
-Eclipse also has the Kotlin plugin: originally developed by JetBrains, now the Kotlin plugin is supported by the Kotlin community contributors.
+[Eclipse](https://eclipseide.org/release/) allows developers to write their applications in different programming languages,
+including Kotlin. It also has the Kotlin plugin: originally developed by JetBrains,
+now the Kotlin plugin is supported by the Kotlin community contributors.
 
-You can install the [Kotlin plugin manually from the Eclipse Marketplace](https://marketplace.eclipse.org/content/kotlin-plugin-eclipse).
+You can install the [Kotlin plugin manually from the Marketplace](https://marketplace.eclipse.org/content/kotlin-plugin-eclipse).
 
 The Kotlin team manages the development and contribution process to the Kotlin plugin for Eclipse.
-If you want to contribute to the plugin, send a pull request to the [Kotlin for Eclipse repository on GitHub](https://github.com/Kotlin/kotlin-eclipse).
+If you want to contribute to the plugin, send a pull request to its [repository on GitHub](https://github.com/Kotlin/kotlin-eclipse).
 
 ## Compatibility with the Kotlin language versions
 
