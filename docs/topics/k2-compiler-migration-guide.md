@@ -16,7 +16,7 @@ The new architecture and enriched data structure enables the K2 compiler to prov
 * **Improved call resolution and type inference**. The compiler behaves more consistently and understands your code better.
 * **Easier introduction of syntactic sugar for new language features**. In the future, you'll be able to use more concise,
   readable code when new features are introduced.
-* **Faster compilation times**. Compilation times can be significantly faster.
+* **Faster compilation times**. Compilation times can be [significantly faster](#performance-improvements).
 * **Enhanced IDE performance**. If you enable K2 Kotlin mode in IntelliJ IDEA, then IntelliJ IDEA will use the K2 compiler
   frontend to analyze your Kotlin code, bringing stability and performance improvements. For more information,
   see [Support in IntelliJ IDEA](#support-in-intellij-idea).
@@ -25,8 +25,6 @@ The new architecture and enriched data structure enables the K2 compiler to prov
   > but not all IDE features are supported yet.
   >
   {type="warning"}
-
-Thanks to the new K2 compiler, we've already made improvements to some [language features](#language-feature-improvements).
 
 This guide:
 
@@ -38,6 +36,22 @@ This guide:
 > in Kotlin 2.0.0, as well as the new K2 compiler, see [What's new in Kotlin 2.0.0](whatsnew20.md).
 >
 {type="note"}
+
+## Performance improvements
+
+To evaluate the performance of the K2 compiler, we ran performance tests on two open-source projects: [Anki-Android](https://github.com/ankidroid/Anki-Android)
+and [Exposed](https://github.com/JetBrains/Exposed). Here are the key performance improvements that we found:
+
+* The K2 compiler brings up to 94% compilation speed gains. For example, in the Anki-Android project, clean build times
+  were reduced from 57.7 seconds in Kotlin 1.9.23 to 29.7 seconds in Kotlin 2.0.0.
+* The initialization phase is up to 488% faster with the K2 compiler. For example, in the Anki-Android project, the
+  initialization phase for incremental builds was cut from 0.126 seconds in Kotlin 1.9.23 to just 0.022 seconds in Kotlin 2.0.0.
+* The Kotlin K2 compiler is up to 376% quicker in the analysis phase compared to the previous compiler. For example,
+  in the Anki-Android project, analysis times for incremental builds were slashed from 0.581 seconds in Kotlin 1.9.23 to
+  only 0.122 seconds in Kotlin 2.0.0.
+
+For more details on these improvements and to learn more about how we analyzed the performance of the K2 compiler, see our
+[blog post](https://blog.jetbrains.com/kotlin/2024/04/k2-compiler-performance-benchmarks-and-how-to-measure-them-on-your-projects/).
 
 ## Language feature improvements
 
