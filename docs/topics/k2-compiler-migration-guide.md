@@ -574,6 +574,7 @@ This section highlights the following modifications:
 * [Forbidden use of inaccessible generic types](#forbidden-use-of-inaccessible-generic-types)
 * [Consistent resolution order of Kotlin properties and Java fields with the same name](#consistent-resolution-order-of-kotlin-properties-and-java-fields-with-the-same-name)
 * [Improved null safety for Java primitive arrays](#improved-null-safety-for-java-primitive-arrays)
+* [Stricter rules for abstract members in expected classes](#stricter-rules-for-abstract-members-in-expected-classes)
 
 ### Immediate initialization of open properties with backing fields
 
@@ -995,6 +996,75 @@ and errors if you use them:
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-54521).
 
+### Stricter rules for abstract members in expected classes
+
+> Expected and actual classes are in [Beta](components-stability.md#stability-levels-explained).
+> They are almost stable, but you may need to perform migration steps in the future.
+> We'll do our best to minimize any further changes for you to make.
+>
+{type="warning"}
+
+**What's changed?**
+
+Due to the separation of common and platform sources during compilation with the K2 compiler, we've implemented stricter
+rules for abstract members in expected classes.
+
+With the previous compiler, it was possible for an expected non-abstract class to inherit an abstract function without 
+[overriding the function](inheritance.md#overriding-rules). Since the compiler could access both common and platform code
+at the same time, the compiler could see whether the abstract function had a corresponding override and definition in the
+actual class.
+
+Now that common and platform sources are compiled separately, the inherited function must be explicitly overridden in the
+expected class so that the compiler knows the function is not abstract. Otherwise, the compiler reports an 
+`ABSTRACT_MEMBER_NOT_IMPLEMENTED` error.
+
+For example, let's say you have a common source set where you declare an abstract class called `FileSystem` that has an 
+abstract function `listFiles()`. You define the `listFiles()` function in the platform source set as part of an actual 
+declaration.
+
+In your common code, if you have an expected non-abstract class called `PlatformFileSystem` that inherits from the 
+`FileSystem` class, the `PlatformFileSystem` class inherits the abstract function `listFiles()`. However, you can't have
+an abstract function in a non-abstract class in Kotlin. To make the `listFiles()` function non-abstract, you must declare
+it as an override without the `abstract` keyword:
+
+<table header-style="top">
+   <tr>
+       <td>Common code</td>
+       <td>Platform code</td>
+   </tr>
+   <tr>
+<td>
+
+```kotlin
+abstract class FileSystem {
+    abstract fun listFiles()
+}
+expect open class PlatformFileSystem() : FileSystem {
+    // In Kotlin 2.0.0, an explicit override is needed
+    expect override fun listFiles()
+    // Before Kotlin 2.0.0, an override wasn't needed
+}
+```
+
+</td>
+<td>
+
+```kotlin
+actual open class PlatformFileSystem : FileSystem {
+    actual override fun listFiles() {}
+}
+```
+
+</td>
+</tr>
+</table>
+
+**What's the best practice now?**
+
+If you inherit abstract functions in an expected non-abstract class, add a non-abstract override.
+
+For more information, see the corresponding issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-59739/K2-MPP-reports-ABSTRACTMEMBERNOTIMPLEMENTED-for-inheritor-in-common-code-when-the-implementation-is-located-in-the-actual).
+
 ### Per subject area
 
 These subject areas list changes that are unlikely to affect your code but provide links to the relevant YouTrack issues
@@ -1150,17 +1220,18 @@ for further reading. Changes listed with an asterisk (*) next to the Issue ID ar
 
 #### Miscellaneous {initial-collapse-state="collapsed"}
 
-| Issue ID                                                  | Title                                                                                                      |
-|-----------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| [KT-49015](https://youtrack.jetbrains.com/issue/KT-49015) | Qualified this: change behavior in case of potential label conflicts                                       |
-| [KT-56545](https://youtrack.jetbrains.com/issue/KT-56545) | Fix incorrect functions mangling in JVM backend in case of accidental clashing overload in a Java subclass |
-| [KT-62019](https://youtrack.jetbrains.com/issue/KT-62019) | [LC issue] Prohibit suspend-marked anonymous function declarations in statement positions                  |
-| [KT-55111](https://youtrack.jetbrains.com/issue/KT-55111) | OptIn: forbid constructor calls with default arguments under marker                                        |
-| [KT-61182](https://youtrack.jetbrains.com/issue/KT-61182) | Unit conversion is accidentally allowed to be used for expressions on variables + invoke resolution        |
-| [KT-55199](https://youtrack.jetbrains.com/issue/KT-55199) | Forbid promoting callable references with adaptations to KFunction                                         |
-| [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776) | [LC] K2 breaks \`false && ...\` and \`false \|\| ...\`                                                     |
-| [KT-65682](https://youtrack.jetbrains.com/issue/KT-65682) | [LC] Deprecate \`header\`/\`impl\` keywords                                                                |
-| [KT-45375](https://youtrack.jetbrains.com/issue/KT-45375) | Generate all Kotlin lambdas via invokedynamic + LambdaMetafactory by default                               |
+| Issue ID                                                   | Title                                                                                                                                      |
+|------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| [KT-59739](https://youtrack.jetbrains.com/issue/KT-59739)* | K2/MPP reports [ABSTRACT_MEMBER_NOT_IMPLEMENTED] for inheritor in common code when the implementation is located in the actual counterpart |
+| [KT-49015](https://youtrack.jetbrains.com/issue/KT-49015)  | Qualified this: change behavior in case of potential label conflicts                                                                       |
+| [KT-56545](https://youtrack.jetbrains.com/issue/KT-56545)  | Fix incorrect functions mangling in JVM backend in case of accidental clashing overload in a Java subclass                                 |
+| [KT-62019](https://youtrack.jetbrains.com/issue/KT-62019)  | [LC issue] Prohibit suspend-marked anonymous function declarations in statement positions                                                  |
+| [KT-55111](https://youtrack.jetbrains.com/issue/KT-55111)  | OptIn: forbid constructor calls with default arguments under marker                                                                        |
+| [KT-61182](https://youtrack.jetbrains.com/issue/KT-61182)  | Unit conversion is accidentally allowed to be used for expressions on variables + invoke resolution                                        |
+| [KT-55199](https://youtrack.jetbrains.com/issue/KT-55199)  | Forbid promoting callable references with adaptations to KFunction                                                                         |
+| [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776)  | [LC] K2 breaks \`false && ...\` and \`false \|\| ...\`                                                                                     |
+| [KT-65682](https://youtrack.jetbrains.com/issue/KT-65682)  | [LC] Deprecate \`header\`/\`impl\` keywords                                                                                                |
+| [KT-45375](https://youtrack.jetbrains.com/issue/KT-45375)  | Generate all Kotlin lambdas via invokedynamic + LambdaMetafactory by default                                                               |
 
 ## Compatibility with Kotlin releases
 
