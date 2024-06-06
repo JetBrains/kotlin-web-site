@@ -6,7 +6,7 @@ Every Kotlin release ships with a standalone version of the compiler. You can do
 > The common approach is to write Kotlin applications using IDEs or code editors with official Kotlin support,
 > such as [IntelliJ IDEA](https://www.jetbrains.com/idea/), [JetBrains Fleet](https://www.jetbrains.com/fleet/),
 > or [Android Studio](https://developer.android.com/studio).
-> These provide full Kotlin support right out of the box, no extra components needed.
+> They provide full Kotlin support right out of the box, no extra components needed.
 > 
 > Learn how to [get started with Kotlin in an IDE](getting-started.md).
 > 
@@ -22,7 +22,7 @@ To install the Kotlin compiler manually:
 2. Unzip the standalone compiler into a directory and optionally add the `bin` directory to the system path.
 The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, macOS, and Linux.
 
-> If you want to use the Kotlin command-line compiler on Windows, we recommend using the manual installation method.
+> If you want to use the Kotlin command-line compiler on Windows, we recommend installing it manually.
 > 
 {type="note"}
 
@@ -138,7 +138,7 @@ kotlinc -script list_folders.kts -- -d <path_to_folder_to_inspect>
 
 Kotlin provides experimental support for script customization, such as adding external properties,
 providing static or dynamic dependencies, and so on.
-Customizations are defined by so-called _Script definitions_ – annotated kotlin classes with the appropriate support code.
+Customizations are defined by so-called _script definitions_ – annotated kotlin classes with the appropriate support code.
 The script filename extension is used to select the appropriate definition.
 Learn more about [Kotlin custom scripting](custom-script-deps-tutorial.md).
 
