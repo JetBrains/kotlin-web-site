@@ -1,33 +1,37 @@
 [//]: # (title: Get started with Kotlin/Native using the command-line compiler)
 
-## Obtain the compiler
+## Download and install the compiler
 
-The Kotlin/Native compiler is available for macOS, Linux, and Windows. It is available as a command line tool and ships 
-as part of the standard Kotlin distribution and can be downloaded from [GitHub Releases](%kotlinLatestUrl%). It supports
-different targets including Linux, macOS, iOS, and others. [See the full list of supported targets](native-target-support.md). 
+The Kotlin/Native compiler works on macOS, Linux, and Windows. It's available as a command line tool and ships 
+as part of the standard Kotlin distribution. You can download it from our [GitHub Releases](%kotlinLatestUrl%) page.
+
+The compiler supports different targets including Linux, macOS, iOS, and others. [See the full list of supported targets](native-target-support.md).
 While cross-platform compilation is possible, which means using one platform to compile for a different one, 
-in this %product% case we'll be targeting the same platform we're compiling on.  
+in this case, you'll be targeting the same platform you're compiling on.  
 
-While the output of the compiler does not have any dependencies or virtual machine requirements,
-the compiler itself requires [Java 1.8 or higher runtime](https://jdk.java.net/11/).
+> Although the output of the compiler doesn't have any dependencies or virtual machine requirements, the compiler itself
+> requires Java 1.8 or higher runtime. It's supported by [JDK 8 (JAVA SE 8) or later versions](https://www.oracle.com/java/technologies/downloads/).
+> 
+{type="note"}
 
-Install the compiler by unpacking its archive to a directory of your choice and adding the path to its `/bin` directory
+To install the compiler, unpack its archive to a directory of your choice and add the path to its `/bin` directory
 to the `PATH` environment variable.
 
-## Write "Hello Kotlin/Native" program
+## Write "Hello, Kotlin/Native" program
 
-The application will print "Hello Kotlin/Native" on the standard output. In a working directory of choice, create a file named
-`hello.kt` and enter the following contents:
+Choose a working directory and create there a file named `hello.kt`. Add the following code:
 
 ```kotlin
 fun main() {
-  println("Hello Kotlin/Native!")
+  println("Hello, Kotlin/Native!")
 }
 ```
 
+The application will print "Hello, Kotlin/Native" to the standard output.
+
 ## Compile the code from the console 
 
-To compile the application use the [downloaded](https://github.com/JetBrains/kotlin/releases)
+To compile the application, use the [downloaded](https://github.com/JetBrains/kotlin/releases)
 compiler to execute the following command:
 
 ```bash
@@ -36,8 +40,8 @@ kotlinc-native hello.kt -o hello
 
 The value of `-o` option specifies the name of the output file, so this call should generate a `hello.kexe` (Linux and macOS)
 or `hello.exe` (Windows) binary file.
-For the full list of available compiler options, see the [compiler options reference](compiler-reference.md).
+For the full list of available options, see [Kotlin compiler options](compiler-reference.md).
 
 While compilation from the console seems to be easy and clear, it
-does not scale well for larger projects with hundreds of files and libraries. For real-world projects, it is recommended
+doesn't scale well for larger projects with hundreds of files and libraries. For real-world projects, it is recommended
 to use a [build system](native-gradle.md) and [IDE](native-get-started.md).
