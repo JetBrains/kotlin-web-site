@@ -68,6 +68,84 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-println"}
 
+## Read from the standard input
+
+Use the function `readln()` to read data from the standard input. It reads the whole line as a string:
+
+```kotlin
+fun main() {
+//sampleStart
+    // Reads and stores the user input in a variable. For example: Hi there!
+    val myInput = readln()
+
+    println(myInput)
+    // Hi there!
+
+    // Reads and prints the user input without storing it in a variable. For example: Hi, Kotlin!
+    println(readln())
+    // Hi, Kotlin!
+
+//sampleEnd
+}
+```
+
+For user interaction, you can use the `pintln()`, `readln()`, and `print()` functions together to print messages requesting 
+and showing user input:
+
+```kotlin
+fun main() {
+//sampleStart
+    // Prints a message to request input
+    println("Enter any word: ")
+    // Reads and stores the user input. For example: Happiness
+    val yourWord = readln()
+    // Prints a message with the input
+    print("You entered the word: ")
+    print(yourWord)
+    // You entered the word: Happiness
+//sampleEnd
+}
+```
+
+To work with data types other than strings, you can convert the input using conversion functions like `toInt()`, `toLong()`, `toDouble()`, `toFloat()`, and `toBoolean()` with dot syntax.
+It is possible to read multiple inputs of different data types by storing each input in a variable:
+
+```kotlin
+fun main() {
+//sampleStart
+    // Converts the input from a string to an integer value. For example: 12
+    val myNumber = readln().toInt()
+    print(myNumber)
+    // 12
+
+    // Converts the input from a string to a long value. For example: 10000000000
+    val myLong = readln().toLong()
+    print(myLong)
+    // 10000000000
+
+    // Converts the input from a string to a double value. For example: 345 
+    val myDouble = readln().toDouble()
+    print(myDouble)
+    // 345.0
+
+    // Converts the input from a string to a float value. For example: 879
+    val myFloat = readln().toFloat()
+    print(myFloat)
+    // 879.0
+
+    // Converts the input from a string to a boolean value. For example: true
+    val myBoolean = readln().toBoolean()
+    print(myBoolean)
+    // true
+//sampleEnd
+}
+```
+
+These conversion functions assume the user enters a valid representation of the target data type. For example, converting 
+"hello" to an integer using `toInt()` would result in an error as the function expects a digit in the string input.
+
+For an alternative way to read user input, see [Standard input with Java Scanner](java-read-scanner.md).
+
 ## Functions
 
 A function with two `Int` parameters and `Int` return type:

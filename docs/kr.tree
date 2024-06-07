@@ -197,6 +197,7 @@
             <toc-element id="mixing-java-kotlin-intellij.md"/>
             <toc-element id="jvm-records.md"/>
             <toc-element toc-title="Java to Kotlin migration guides">
+                <toc-element toc-title="Standard input" id="java-read-scanner.md"/>
                 <toc-element toc-title="Strings" id="java-to-kotlin-idioms-strings.md"/>
                 <toc-element toc-title="Collections" id="java-to-kotlin-collections-guide.md"/>
                 <toc-element toc-title="Nullability" id="java-to-kotlin-nullability-guide.md"/>
