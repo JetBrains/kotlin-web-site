@@ -852,3 +852,29 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
 
 Starting with Kotlin 1.9.20, you need to explicitly make a cast to and from the corresponding C and Objective-C forward
 declarations. Also, it's now only possible to import forward declarations by using special packages.
+
+## Incorrect version of iOS framework during Kotlin upgrade
+
+**What's the issue?**
+
+If you use direct integration through the `embedAndSignAppleFrameworkForXcode` task, which connects the iOS framework
+from your multiplatform project to the iOS app in Xcode, you might encounter an issue when changing the Kotlin version.
+
+If you upgrade the Kotlin version from 1.9.2x to 2.0.0 in your multiplatform project (or downgrade it from 2.0.0 to 1.9.2x),
+then make changes in Kotlin files and try building the app, Xcode may incorrectly use the previous version of the iOS
+framework. So, the changes won't be visible in the iOS app in Xcode.
+
+**What's the workaround?**
+
+1. In Xcode, clean build directories using **Product** | **Clean Build Folder** or by running the following command:
+
+   ```none
+   ./gradlew clean
+   ```
+
+2. Build the app again to ensure that the updated iOS framework is used. 
+
+**When will the issue be fixed?**
+
+We're planning to fix this issue in Kotlin 2.0.10 and later versions. You can check if any preview versions of
+Kotlin 2.0.10 are already available in the [Participate in the Kotlin Early Access Preview](eap.md) section.
