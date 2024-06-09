@@ -580,14 +580,15 @@ This section highlights the following modifications:
 
 **What's changed?**
 
-In Kotlin 2.0, all `open` properties with backing fields must be immediately initialized; otherwise, you'll get a
-compilation error. Previously, only `open var` properties needed to be initialized right away, but now this extends
-to `open val` properties with backing fields too:
+In Kotlin 2.0, all `open` properties with backing fields must be immediately initialized (with the exception of `lateinit var` 
+properties); otherwise, you'll get a compilation error. Previously, only `open var` properties needed to be initialized
+right away, but now this extends to `open val` properties with backing fields too:
 
 ```kotlin
 open class Base {
     open val a: Int
     open var b: Int
+    open lateinit var updatedAt: Instant // That still compiles
     
     init {
         // Error starting with Kotlin 2.0 that earlier compiled successfully 
