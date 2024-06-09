@@ -1,6 +1,6 @@
 package builds.apiReferences.kotlinx.metadataJvm
 
-import BuildParams.KOTLINX_METADATA_JVM_RELEASE_TAG
+import BuildParams.KOTLIN_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
 import builds.apiReferences.templates.*
 import jetbrains.buildServer.configs.kotlin.BuildType
@@ -16,7 +16,7 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
     artifactRules = "$LIB_DIR/build/dokka/** => pages.zip"
 
     params {
-        param("release.tag", KOTLINX_METADATA_JVM_RELEASE_TAG)
+        param("release.tag", KOTLIN_RELEASE_TAG)
     }
 
     triggers {
@@ -72,7 +72,7 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
         script {
             name = "build api reference"
             scriptContent = """
-                ./gradlew :kotlinx-metadata-jvm:dokkaHtml -PkotlinxMetadataDeployVersion=${KOTLINX_METADATA_JVM_RELEASE_TAG} --no-daemon
+                ./gradlew :kotlinx-metadata-jvm:dokkaHtml -PkotlinxMetadataDeployVersion=${KOTLIN_RELEASE_TAG} --no-daemon
             """.trimIndent()
         }
     }

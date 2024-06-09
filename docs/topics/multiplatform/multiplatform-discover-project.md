@@ -299,7 +299,7 @@ source sets, such as `jvmTest`, are used to write platform-specific tests, for e
 need JVM APIs.
 
 Besides having a source set to write your common test, you also need a multiplatform testing framework. Kotlin
-provides a default [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test) library that comes with
+provides a default [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/) library that comes with
 the `@kotlin.Test` annotation and various assertion methods like `assertEquals` and `assertTrue`.
 
 You can write platform-specific tests like regular tests for each platform in their respective source sets. Like with
