@@ -79,7 +79,7 @@ The complete list of available targets is the following:
     </tr>
     <tr>
         <td><code>wasmWasi</code></td>
-        <td>Use it if you need support for <a href="https://github.com/WebAssembly/WASI">WASI</a> system interface.</td>
+        <td>Use it if you need support for the <a href="https://github.com/WebAssembly/WASI">WASI</a> system interface.</td>
     </tr>
     <tr>
         <td>Kotlin/JS</td>
@@ -176,12 +176,29 @@ The `js {}` block describes the configuration of Kotlin/JS targets, and the `was
 Kotlin/Wasm targets interoperable with JavaScript. They can contain one of two blocks depending on the target execution
 environment:
 
-| **Name**  | **Description**                      | 
-|-----------|--------------------------------------|
-| `browser` | Configuration of the browser target. |
-| `nodejs`  | Configuration of the Node.js target. |
+| **Name**              | **Description**                      | 
+|-----------------------|--------------------------------------|
+| [`browser`](#browser) | Configuration of the browser target. |
+| [`nodejs`](#node-js)  | Configuration of the Node.js target. |
 
 Learn more about [configuring Kotlin/JS projects](js-project-setup.md).
+
+A separate `wasmWasi` block describes the configuration of Kotlin/Wasm targets that support the WASI system interface.
+It can contain the following blocks:
+
+| **Name**             | **Description**                                                                                                                | 
+|----------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| [`nodejs`](#node-js) | Configuration of the Node.js target.                                                                                           |
+| `binaries`           | Configuration of binaries to produce: <list><li>`executable` − product executable</li><li>`test` − test executable</li></list> |
+
+```kotlin
+kotlin {
+    wasmWasi {
+        nodejs()
+        binaries.executable()
+    }
+}
+```
 
 #### Browser
 
