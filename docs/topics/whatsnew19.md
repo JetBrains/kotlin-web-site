@@ -1056,7 +1056,7 @@ To use the remainder of `kotlinx.cinterop`, which covers Objective-C/Swift inter
 `@OptIn(BetaInteropApi)`. If you try to use this API without the opt-in, your code will compile but the compiler will 
 raise warnings that provide a clear explanation of what behavior you can expect.
 
-For more information about these annotations, see our source code for [`Annotations.kt`](https://github.com/JetBrains/kotlin/blob/56b729f1812733cb6a79673684c2fa5c4c6b3475/kotlin-native/Interop/Runtime/src/main/kotlin/kotlinx/cinterop/Annotations.kt).
+For more information about these annotations, see our source code for [`Annotations.kt`](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/Interop/Runtime/src/main/kotlin/kotlinx/cinterop/Annotations.kt).
 
 For more information on **all** of the changes as part of this review, see our [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-55765).
 
