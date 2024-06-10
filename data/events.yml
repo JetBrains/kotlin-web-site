@@ -1,3 +1,12 @@
+- lang: bn
+  startDate: '2024-06-08'
+  endDate: '2024-06-08'
+  location: Dhaka, Bangladesh
+  online: true
+  speaker: 'Mohi Us Sunnat'
+  title: 'KtAdda Kickoff: Connecting Kotlin Minds'
+  subject: 'Introducing new Kotlin Developers online and learning about their experiences'
+  url: https://www.linkedin.com/events/ktaddakickoff-connectingkotlinm7199538006976835586/
 - lang: en
   startDate: '2024-06-08'
   endDate: '2024-06-08'
