@@ -62,6 +62,7 @@
         <toc-element id="evolution.md"/>
         <toc-element toc-title="Language evolution principles" id="kotlin-evolution-principles.md" accepts-web-file-names="kotlin-evolution.html"/>
         <toc-element id="releases.md" accepts-web-file-names="plugin-releases.html"/>
+        <toc-element id="kotlin-evolution.md" hidden="true"/>
     </toc-element>
 
     <toc-element toc-title="Basics">
