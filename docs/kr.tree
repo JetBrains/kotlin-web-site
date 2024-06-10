@@ -57,9 +57,11 @@
         </toc-element>
     </toc-element>
 
-    <toc-element toc-title="Releases and roadmap">
-        <toc-element id="releases.md" accepts-web-file-names="plugin-releases.html"/>
+    <toc-element toc-title="Kotlin evolution and roadmap">
         <toc-element id="roadmap.md"/>
+        <toc-element id="evolution.md"/>
+        <toc-element toc-title="Language evolution principles" id="kotlin-evolution-principles.md" accepts-web-file-names="kotlin-evolution.md"/>
+        <toc-element id="releases.md" accepts-web-file-names="plugin-releases.html"/>
     </toc-element>
 
     <toc-element toc-title="Basics">
@@ -418,10 +420,9 @@
 
     <toc-element toc-title="Other resources">
         <toc-element id="faq.md"/>
-        <toc-element toc-title="Kotlin evolution">
-            <toc-element toc-title="Evolution principles" id="kotlin-evolution.md"/>
-            <toc-element id="components-stability.md"/>
-            <toc-element id="components-stability-pre-1.4.md"/>
+        <toc-element id="components-stability.md"/>
+        <toc-element id="components-stability-pre-1.4.md" hidden="true"/>
+        <toc-element toc-title="Kotlin compatibility guides">
             <toc-element toc-title="Compatibility">
                 <toc-element id="compatibility-guide-20.md"/>
                 <toc-element id="compatibility-guide-19.md"/>

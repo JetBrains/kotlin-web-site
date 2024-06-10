@@ -1,4 +1,4 @@
-[//]: # (title:  Kotlin releases)
+[//]: # (title: Kotlin releases)
 
 Since Kotlin 2.0.0, we ship the following types of releases:
 
