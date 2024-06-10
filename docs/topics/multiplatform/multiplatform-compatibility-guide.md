@@ -866,15 +866,18 @@ framework. So, the changes won't be visible in the iOS app in Xcode.
 
 **What's the workaround?**
 
-1. In Xcode, clean build directories using **Product** | **Clean Build Folder** or by running the following command:
+1. In Xcode, clean build directories using **Product** | **Clean Build Folder**.
+2. In the terminal, run the following command:
 
    ```none
    ./gradlew clean
    ```
 
-2. Build the app again to ensure that the new version of the iOS framework is used. 
+3. Build the app again to ensure that the new version of the iOS framework is used. 
 
 **When will the issue be fixed?**
 
 We're planning to fix this issue in Kotlin 2.0.10 and later versions. You can check if any preview versions of
 Kotlin 2.0.10 are already available in the [Participate in the Kotlin Early Access Preview](eap.md) section.
+
+For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-68257).
