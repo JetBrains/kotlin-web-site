@@ -16,7 +16,7 @@ Description of statuses:
 
 <!-- <include include-id="all-proposals" src="all-proposals.xml"/> -->
 
-<chunk id="all-proposals">
+<chunk id="source">
 <table header-style="left">
 
 <!-- UNDER DISCUSSION -->
@@ -339,31 +339,31 @@ Description of statuses:
 
 <tab id="under-discussion" title="Under discussion">
 
-<include include-id="all-proposals" use-filter="empty,under-discussion" src="evolution.md"/>
+<include include-id="source" use-filter="empty,under-discussion" src="evolution.md"/>
 
 </tab>
 
 <tab id="keep-preparation" title="KEEP preparation">
 
-<include include-id="all-proposals" use-filter="empty,keep" src="evolution.md"/>
+<include include-id="source" use-filter="empty,keep" src="evolution.md"/>
 
 </tab>
 
 <tab id="pilot-version" title="Pilot version">
 
-<include include-id="all-proposals" use-filter="empty,pilot" src="evolution.md"/>
+<include include-id="source" use-filter="empty,pilot" src="evolution.md"/>
 
 </tab>
 
 <tab id="stable" title="Stable">
 
-<include include-id="all-proposals" use-filter="empty,stable" src="evolution.md"/>
+<include include-id="source" use-filter="empty,stable" src="evolution.md"/>
 
 </tab>
 
 <tab id="revoked" title="Revoked">
 
-<include include-id="all-proposals" use-filter="empty,revoked" src="evolution.md"/>
+<include include-id="source" use-filter="empty,revoked" src="evolution.md"/>
 
 </tab>
 </tabs>
