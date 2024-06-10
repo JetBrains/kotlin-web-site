@@ -38,12 +38,12 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a framewor
 >
 {type="warning"}
 
-`@HiddenFromObjC` hides a Kotlin declaration from Objective-C and Swift. The annotation disables a function or property
-export to Objective-C, making your Kotlin code more Objective-C/Swift-friendly.
+To make your Kotlin code more Objective-C/Swift-friendly, you can hide a Kotlin declaration from Objective-C and Swift
+with `@HiddenFromObjC`. The annotation disables a function or property export to Objective-C.
 
-Another alternative is to mark Kotlin declarations with the` internal` modifier, which restricts their access to their
-compilation module. Choose `@HiddenFromObjC` when only wanting to hide the Kotlin declaration from Objective-C and
-Swift, but still be visible from other Kotlin modules.
+Alternatively, you can mark Kotlin declarations with the` internal` modifier to restrict their visibility in the
+compilation module. Choose `@HiddenFromObjC` if you only want to hide the Kotlin declaration from Objective-C and Swift,
+but still keep it visible from other Kotlin modules.
 
 [See an example in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/HiddenFromObjC.md).
 
@@ -70,7 +70,7 @@ the Xcode autocomplete.
 {type="warning"}
 
 To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use
-a custom Objective-C and Swift name for classes, interfaces, and other Kotlin concepts:
+custom Objective-C and Swift names for classes, interfaces, and other Kotlin concepts:
 
 ```kotlin
 @ObjCName(swiftName = "MySwiftArray")
@@ -88,10 +88,10 @@ let index = array.index(of: "element")
 
 ### Provide documentation with KDoc comments
 
-Documentation is essential for understanding the basics and the finer details of any API. Providing documentation for
+Documentation is essential for understanding any API. Providing documentation for
 the shared Kotlin API allows you to communicate with its users on matters of usage, dos and don'ts, and so on.
 
-By default, [KDocs](kotlin-doc.md) documentation comments are not translated into corresponding comments when generating
+By default, [KDocs](kotlin-doc.md) comments are not translated into corresponding comments when generating
 an Objective-C header. For example, the following Kotlin code with KDoc:
 
 ```kotlin
@@ -146,7 +146,7 @@ After that, the Objective-C header will contain a corresponding comment:
 ```
 
 You'll be able to see comments on classes and methods in autocompletion, for example, in Xcode. If you go to the
-definition of functions (in the `.h` file), you can see comments on `@param`, `@return`, and so on.
+definition of functions (in the `.h` file), you'll see comments on `@param`, `@return`, and so on.
 
 Known limitations:
 
