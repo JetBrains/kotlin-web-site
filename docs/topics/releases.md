@@ -78,7 +78,7 @@ Learn how the new K2 compiler differs from the previous one in the [migration gu
 
 ## Kotlin release compatibility
 
-Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution.md#language-and-tooling-releases)
+Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution-principles.md#language-and-tooling-releases)
 
 ## Release details
 

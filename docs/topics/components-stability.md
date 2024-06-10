@@ -1,7 +1,7 @@
 [//]: # (title: Stability of Kotlin components)
 
 The Kotlin language and toolset are divided into many components such as the compilers for the JVM, JS and Native targets, the Standard Library, various accompanying tools and so on.
-Many of these components were officially released as **Stable** which means that they are evolved in the backward-compatible way following the [principles](kotlin-evolution.md) of _Comfortable Updates_ and _Keeping the Language Modern_.
+Many of these components were officially released as **Stable** which means that they are evolved in the backward-compatible way following the [principles](kotlin-evolution-principles.md) of _Comfortable Updates_ and _Keeping the Language Modern_.
 Among such stable components are, for example, the Kotlin compiler for the JVM, the Standard Library, and Coroutines.
 
 Following the _Feedback Loop_ principle we release many things early for the community to try out, so a number of components are not yet released as **Stable**.

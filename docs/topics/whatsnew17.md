@@ -1075,5 +1075,5 @@ project. [Learn how to update to Kotlin 1.7.0](releases.md#update-to-a-new-relea
 
 ### Compatibility guide for Kotlin 1.7.0
 
-Kotlin 1.7.0 is a [feature release](kotlin-evolution.md#language-and-tooling-releases) and can, therefore, bring changes that are incompatible with your code written for earlier versions of the language.
+Kotlin 1.7.0 is a [feature release](kotlin-evolution-principles.md#language-and-tooling-releases) and can, therefore, bring changes that are incompatible with your code written for earlier versions of the language.
 Find the detailed list of such changes in the [Compatibility guide for Kotlin 1.7.0](compatibility-guide-17.md).

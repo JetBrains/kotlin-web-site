@@ -791,5 +791,5 @@ To start a new project with Kotlin 1.5.0, update the Kotlin plugin and run the P
 
 The new command-line compiler is available for downloading on the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.5.0).
 
-Kotlin 1.5.0 is a [feature release](kotlin-evolution.md#language-and-tooling-releases) and therefore can
+Kotlin 1.5.0 is a [feature release](kotlin-evolution-principles.md#language-and-tooling-releases) and therefore can
 bring incompatible changes to the language. Find the detailed list of such changes in the [Compatibility Guide for Kotlin 1.5](compatibility-guide-15.md).
