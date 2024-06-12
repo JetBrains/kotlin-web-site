@@ -401,7 +401,7 @@
             <toc-element id="edu-tools-learner.md" toc-title="Learn Kotlin"/>
             <toc-element id="edu-tools-educator.md" toc-title="Teach Kotlin"/>
         </toc-element>
-        <toc-element toc-title="Library creators' guidelines">
+        <toc-element toc-title="Library authors' guidelines">
             <include from="kl" target="api-guidelines" origin="api-guidelines"/>
         </toc-element>
     </toc-element>
