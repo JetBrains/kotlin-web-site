@@ -1258,6 +1258,13 @@ The following Kotlin releases have support for the new K2 compiler:
 | 1.9.0–1.9.10   | JVM is Beta     |
 | 1.7.0–1.8.22   | Alpha           |
 
+## Compatibility with Kotlin libraries
+
+If you're working with Kotlin/JVM, the K2 compiler works with libraries compiled with any version of Kotlin.
+
+If you're working with Kotlin Multiplatform, the K2 compiler is guaranteed to work with libraries compiled with Kotlin 
+version 1.9.20 and onwards.
+
 ## Compiler plugins support
 
 Currently, the Kotlin K2 compiler supports the following Kotlin compiler plugins:
@@ -1276,11 +1283,35 @@ Currently, the Kotlin K2 compiler supports the following Kotlin compiler plugins
 In addition, the Kotlin K2 compiler supports:
 
 * The [Jetpack Compose](https://developer.android.com/jetpack/compose) 1.5.0 compiler plugin and later versions.
-* The [Kotlin Symbol Processing (KSP) plugin](ksp-overview.md) since [KSP2](https://android-developers.googleblog.com/2023/12/ksp2-preview-kotlin-k2-standalone.html).
+* [Kotlin Symbol Processing (KSP)](ksp-overview.md) since [KSP2](https://android-developers.googleblog.com/2023/12/ksp2-preview-kotlin-k2-standalone.html).
 
 > If you use any additional compiler plugins, check their documentation to see if they are compatible with K2.
 >
 {type="tip"}
+
+### Upgrade your custom compiler plugins
+
+> Custom compiler plugins use the plugin API, which is [Experimental](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained).
+> As a result, the API may change at any time, so we can't guarantee backward compatibility.
+>
+{type="warning"}
+
+The upgrade process has two paths depending on the type of custom plugin you have.
+
+#### Backend-only compiler plugins
+
+If your plugin implements only `IrGenerationExtension` extension points, the process is the same as for any other new 
+compiler release. Check if there are any changes to the API that you use and make changes if necessary.
+
+#### Backend and frontend compiler plugins
+
+If your plugin uses frontend-related extension points, you need to rewrite the plugin using the new K2 compiler API. For
+an introduction to the new API, see [FIR Plugin API](https://github.com/JetBrains/kotlin/blob/master/docs/fir/fir-plugins.md).
+
+> If you have questions about upgrading your custom compiler plugin, join our [#compiler](https://kotlinlang.slack.com/archives/C7L3JB43G)
+> Slack channel, and we will do our best to help you.
+>
+{type="note"}
 
 ## Share your feedback on the new K2 compiler
 
