@@ -10,14 +10,25 @@ You can also call `groupBy()` with a second lambda argument – a value transfor
 In the result map of `groupBy()` with two lambdas, the keys produced by `keySelector` function are mapped to the results
 of the value transformation function instead of the original elements.
 
-```kotlin
+This example illustrates using the `for` operator to iterate through the groups created by the `groupBy()` function on the resulting `Map`:
 
+```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four", "five")
 
-    println(numbers.groupBy { it.first().uppercase() })
-    println(numbers.groupBy(keySelector = { it.first() }, valueTransform = { it.uppercase() }))
+    // Groups the strings by their first letter using groupBy
+    val groupedByFirstLetter = numbers.groupBy { it.first().uppercase() }
+    println(groupedByFirstLetter)
+
+    // Groups the strings by their first letter and transforms the values to uppercase
+    val groupedAndTransformed = numbers.groupBy(keySelector = { it.first() }, valueTransform = { it.uppercase() })
+    println(groupedAndTransformed)
+
+    // Iterates through each group and prints the key and its associated values
+    for ((key, value) in groupedByFirstLetter) {
+        println("Key: $key, Values: $value")
+    }
 //sampleEnd
 }
 ```
@@ -38,29 +49,26 @@ Namely, `Grouping` supports the following operations:
   subsequently to all the elements in each group and returns the result.
   This is the generic way to perform any operations on a `Grouping`. Use it to implement custom operations when fold or reduce are not enough.
 
-To iterate through the groups created by the `groupBy()` function, you can use the [`forEach`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/for-each.html) or the `for` functions on the resulting `Map`.
-This allows you to access each key and the list of elements associated with that key.
+You can use the `for` operator on the resulting `Map` to iterate through the groups created by the `groupingBy()` function.
+This allows you to access each key and the count of elements associated with that key.
 
-Let's look at an example where we group the strings by their first letter, convert it to uppercase,
-and then iterate through each group to print the key and its associated values:
+The following example demonstrates how to group strings by their first letter using the `groupingBy()` function,
+count the elements in each group, and then iterate through each group to print the key and count of elements:
 
 ```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four", "five")
 
-    // Groups the strings by their first letter using groupBy and converts it to uppercase
-    val grouped = numbers.groupBy { it.first().uppercase() }
+    // Groups the strings by their first letter using groupingBy() and counts the elements in each group
+    val grouped = numbers.groupingBy { it.first() }.eachCount()
 
     // Iterates through each group and prints the key and its associated values
-    grouped.forEach { (key, value) -> 
-        println("Key: $key, Values: $value")
+    for ((key, count) in grouped) {
+        println("Key: $key, Count: $count")
     }
-    // Key: the first letter of the strings in uppercase
-    // Values: the list of strings that start with the key letter
-
-    // Groups the strings by their first letter and counts the elements in each group
-    println(numbers.groupingBy { it.first() }.eachCount())
+    // Key: the first letter of the strings
+    // Count: the number of strings that start with the key letter
 //sampleEnd
 }
 ```
