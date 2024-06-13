@@ -61,6 +61,8 @@
         <toc-element id="roadmap.md"/>
         <toc-element id="evolution.md"/>
         <toc-element toc-title="Language evolution principles" id="kotlin-evolution-principles.md"/>
+        <toc-element id="components-stability.md"/>
+        <toc-element id="components-stability-pre-1.4.md" hidden="true"/>
         <toc-element id="releases.md" accepts-web-file-names="plugin-releases.html"/>
         <toc-element id="kotlin-evolution.md" hidden="true"/>
     </toc-element>
@@ -421,8 +423,6 @@
 
     <toc-element toc-title="Other resources">
         <toc-element id="faq.md"/>
-        <toc-element id="components-stability.md"/>
-        <toc-element id="components-stability-pre-1.4.md" hidden="true"/>
         <toc-element toc-title="Kotlin compatibility guides">
             <toc-element toc-title="Compatibility">
                 <toc-element id="compatibility-guide-20.md"/>
