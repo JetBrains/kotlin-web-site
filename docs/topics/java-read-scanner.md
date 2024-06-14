@@ -14,7 +14,7 @@ To use Java's Scanner, you need to first import it by adding the following state
 import java.util.Scanner
 ```
 
-Initialize the scanner by creating a `System.in` object that represents the standard input stream and dictates how to read the data.
+Initialize the scanner by passing a `System.in` object that represents the standard input stream and dictates how to read the data.
 In this example, we assign the object to a variable called `scanner`:
 
 ```Kotlin
@@ -43,9 +43,9 @@ fun main() {
     // Initializes the scanner
     val scanner = Scanner(System.`in`)
 
-    // Reads the first number. For example, 99
+    // Reads the first number. For example: 99
     val firstNumber = scanner.nextInt()
-    // Reads the second number. For example, 100
+    // Reads the second number. For example: 100
     val secondNumber = scanner.nextInt()
 
     print(secondNumber)
