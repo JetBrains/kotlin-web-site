@@ -46,7 +46,7 @@ Each Kotlin project has two GitHub badges describing its stability and support s
 
 * **Support** status. This shows our commitment to maintaining a project and helping users to solve their problems.
   The level of support is unified for all JetBrains products.  
-  [See the JetBrains Confluence document for details](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub).
+  [See the JetBrains Open Source document for details](https://github.com/JetBrains#jetbrains-on-github).
 
 ## Stability of subcomponents
 
@@ -55,18 +55,31 @@ A stable component may have an experimental subcomponent, for example:
 * a stable API may include experimental classes or functions;
 * a stable command-line tool may have experimental options.
 
-We make sure to document precisely which subcomponents are not stable. We also do our best to warn users where possible and ask to opt in explicitly to avoid accidental usages of features that have not been released as stable.
+We make sure to document precisely which subcomponents are not stable.
+We also do our best to warn users where possible and ask to opt in explicitly 
+to avoid accidental usages of features that have not been released as stable.
 
 ## Current stability of Kotlin components
+
+> By default, all new components are in the Experimental status.
+> 
+{type="note"}
+
+### Kotlin Compiler / Backend
+
+### Interoperability
+
+### Scripting
+
 
 | **Component**                                     | **Status**   | **Status since version** | **Comment**                                                                |
 |---------------------------------------------------|--------------|--------------------------|----------------------------------------------------------------------------|
 | Kotlin/JVM                                        | Stable       | 1.0                      |                                                                            |
-| Kotlin K2 (JVM, Native, JS)                       | Stable       | 2.0.0                    |                                                                            |
+| Kotlin K2 (JVM, Native, Wasm, JS)                 | Beta         | 1.9.20                   |                                                                            |
 | kotlin-stdlib (JVM)                               | Stable       | 1.0                      |                                                                            |
 | Coroutines                                        | Stable       | 1.3                      |                                                                            |
 | kotlin-reflect (JVM)                              | Beta         | 1.0                      |                                                                            |
-| Kotlin/JS (Classic backend)                       | Stable       | 1.3                      | Deprecated from 1.8.0, read the [IR migration guide](js-ir-migration.md)   |
+| Kotlin/JS (Classic back-end)                      | Stable       | 1.3                      | Deprecated from 1.8.0, read the [IR migration guide](js-ir-migration.md)   |
 | Kotlin/JVM (IR-based)                             | Stable       | 1.5                      |                                                                            |
 | Kotlin/JS (IR-based)                              | Stable       | 1.8                      |                                                                            |
 | Kotlin/Native Runtime                             | Stable       | 1.9.20                   |                                                                            |
@@ -76,9 +89,9 @@ We make sure to document precisely which subcomponents are not stable. We also d
 | Kotlin/Native interop with C and Objective C      | Beta         | 1.3                      |                                                                            |
 | cinterop klib binaries                            | Beta         | 1.3                      |                                                                            |
 | CocoaPods integration                             | Stable       | 1.9.20                   |                                                                            |
-| Kotlin Multiplatform plugin for Android Studio    | Beta         | 0.8.0                    | [Versioned separately from the language](multiplatform-plugin-releases.md) |
-| expected and actual functions and properties      | Stable       | 1.9.20                   |                                                                            |
-| expected and actual classes                       | Beta         | 1.7.20                   |                                                                            |
+| Kotlin Multiplatform  plugin for Android Studio   | Beta         | 0.8.0                    | [Versioned separately from the language](multiplatform-plugin-releases.md) |
+| `expected` and `actual` functions and properties  | Stable       | 1.9.20                   |                                                                            |
+| `expected` and `actual` classes                   | Beta         | 1.7.20                   |                                                                            |
 | KDoc syntax                                       | Stable       | 1.0                      |                                                                            |
 | Dokka                                             | Beta         | 1.6                      |                                                                            |
 | Scripting syntax and semantics                    | Alpha        | 1.2                      |                                                                            |

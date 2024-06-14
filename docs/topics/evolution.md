@@ -1,4 +1,4 @@
-[//]: # (title: Kotlin language evolution)
+[//]: # (title: Language design evolution and proposals)
 
 JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md).
 Kotlin language development is deeply influenced by the needs of its developer community. 
