@@ -1,15 +1,50 @@
 [//]: # (title: Kotlin language evolution)
 
-The language is evolving according to the [language evolution principles](kotlin-evolution-principles.md)
+JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md).
+Kotlin language development is deeply influenced by the needs of its developer community. 
+We actively consider feedback and value discussions on existing Kotlin Enhancement Proposals (_KEEP_)
+as well as suggestions for new features, especially those supported by compelling use cases.
 
-Description of statuses:
-* Under discussion
-* KEEP preparation
-* Pilot version
-* Stable
-* Revoked
+> We generally discourage contributions of entire KEEPs from individuals outside the Kotlin team,
+> as these often require interaction with internal experts.
+>
+> [Create a YouTrack issue](https://kotl.in/issue) if you have any ideas how to improve the Kotlin language.
+> 
+{type="warning"}
+
+## Kotlin feature development lifecycle
+
+The current lifecycle of language features:
+
+* **Under discussion**: we consider the possibility of the feature introduction to the language.
+  Discuss how it might look and be consistent with other features. Collect use-cases and assess a positive or negative impact.
+  What feedback do we expect from users: use-cases and problems that they would solve by that feature.
+  Any estimation of how frequent these use-cases and problems arise would be beneficial. 
+  Usually, ideas are filed as YouTrack tickets and discussion goes there.
+
+* **KEEP preparation**: we are more or less sure that the feature should be in the language.
+  And we are trying to specify motivation, use-cases, design, and other major information in a document called _KEEP_.
+  What feedback do we expect from users: discussion around all information provided in KEEP.
+
+* **Pilot version**: a prototype is ready, and you can enable it by a feature-specific compiler key.
+  What feedback do we expect from users: describe experience from trying the feature.
+  How easy it was to introduce the codebase, how does it look with existing code, IDE support (issues and suggestions), etc.
+  Further the shape of the feature may vary a lot, or it may be completely revoked.
+  
+* **Stable**: the feature comes with a first-class citizen in the language. 
+  It gets guaranties of backward compatibility, tooling support, etc.
+  
+* **Revoked**: we revoke the proposal and won't implement the feature in the Kotlin language.
 
 ## Language design proposals
+
+Listed below are significant language features currently on our radar.
+These range in status from preliminary discussions to approaching [Stable](components-stability.md#stability-levels-explained) release, 
+focusing on major updates since Kotlin 1.8.
+
+> This table contains Kotlin language features and proposals starting from 1.7.0
+>
+{type="note"}
 
 <tabs>
 <tab id="all-proposals" title="All">
@@ -19,7 +54,7 @@ Description of statuses:
 <chunk id="source">
 <table header-style="left">
 
-<!-- UNDER DISCUSSION -->
+<!-- UNDER DISCUSSION BLOCK -->
 
 <tr filter="under-discussion">
 <td>
@@ -29,11 +64,9 @@ Description of statuses:
 </td>
 <td>
 
-**Research and prototype namespace-based solution for statics and static extensions**
+**Kotlin statics and static extensions**
 
-* Status: Under discussion
-* KEEP proposal: Not defined
-* KEEP discussion: [KEEP-348](https://github.com/Kotlin/KEEP/issues/348)
+* KEEP documents: [proposal: statics.md](https://github.com/Kotlin/KEEP/blob/statics/proposals/statics.md), [discussion: KEEP-348](https://github.com/Kotlin/KEEP/issues/348)
 * YouTrack issue: [KT-11968](https://youtrack.jetbrains.com/issue/KT-11968)
 * Target version: Not defined
 
@@ -50,9 +83,7 @@ Description of statuses:
 
 **Collection literals**
 
-* Status: Under discussion
-* KEEP proposal: [collection-literals.md](https://github.com/KyLeggiero/KEEP/blob/collection-literals/proposals/collection-literals.md)
-* KEEP discussion: [KEEP-112](https://github.com/Kotlin/KEEP/issues/112)
+* KEEP documents: [proposal: collection-literals.md](https://github.com/KyLeggiero/KEEP/blob/collection-literals/proposals/collection-literals.md), [discussion: KEEP-112](https://github.com/Kotlin/KEEP/issues/112)
 * YouTrack issue: [KT-43871](https://youtrack.jetbrains.com/issue/KT-43871)
 * Target version: Not defined
 
@@ -67,30 +98,9 @@ Description of statuses:
 </td>
 <td>
 
-**Denotable union and intersection types**
+**Union types for errors and exceptions**
 
-* Status: Under discussion
-* KEEP proposal: Not defined
-* KEEP discussion: Not defined
-* YouTrack issue: [KT-13108](https://youtrack.jetbrains.com/issue/KT-13108)
-* Target version: Not defined
-
-</td>
-</tr>
-
-<tr filter="under-discussion">
-<td>
-
-**Under discussion**
-
-</td>
-<td>
-
-**Multi catch block**
-
-* Status: Under discussion
-* KEEP proposal: Not defined
-* KEEP discussion: Not defined
+* KEEP documents: Not defined
 * YouTrack issue: [KT-7128](https://youtrack.jetbrains.com/issue/KT-7128)
 * Target version: Not defined
 
@@ -105,11 +115,9 @@ Description of statuses:
 </td>
 <td>
 
-**Object (name-based) destructuring**
+**Name-based destructuring**
 
-* Status: Under discussion
-* KEEP proposal: Not defined
-* KEEP discussion: Not defined
+* KEEP documents: Not defined
 * YouTrack issue: [KT-19627](https://youtrack.jetbrains.com/issue/KT-19627)
 * Target version: Not defined
 
@@ -126,16 +134,50 @@ Description of statuses:
 
 **Support immutability (multifield value classes)**
 
-* Status: Under discussion
-* KEEP proposal: Not defined
-* KEEP discussion: Not defined
+* KEEP documents: Not defined
 * YouTrack issue: [KT-1179](https://youtrack.jetbrains.com/issue/KT-1179)
 * Target version: Not defined
 
 </td>
 </tr>
 
-<!-- KEEP PREPARATION -->
+<!-- END OF UNDER DISCUSSION BLOCK -->
+
+<!-- KEEP PREPARATION BLOCK -->
+
+<tr filter="keep">
+<td>
+
+**KEEP preparation**
+
+</td>
+<td>
+
+**Explicit backing fields: both `public` and `private` type for the same property**
+
+* KEEP documents: [proposal: explicit-backing-fields.md](https://github.com/Kotlin/KEEP/blob/explicit-backing-fields-re/proposals/explicit-backing-fields.md), [discussion: KEEP-278](https://github.com/Kotlin/KEEP/issues/278)
+* YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-14663)
+* Target version: Not defined
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP preparation**
+
+</td>
+<td>
+
+**Context parameters: support for context-dependent declarations**
+
+* KEEP documents: [proposal: context-parameters.md](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md), [discussion: KEEP-278](https://github.com/Kotlin/KEEP/issues/278)
+* YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-10468)
+* Target version: Not defined
+
+</td>
+</tr>
 
 <tr filter="keep">
 <td>
@@ -147,9 +189,7 @@ Description of statuses:
 
 **Guard conditions in when-with-subject**
 
-* Status: KEEP preparation
-* KEEP proposal: [guards.md](https://github.com/Kotlin/KEEP/blob/guards/proposals/guards.md)
-* KEEP discussion: [KEEP-371](https://github.com/Kotlin/KEEP/issues/371)
+* KEEP documents: [proposal: guards.md](https://github.com/Kotlin/KEEP/blob/guards/proposals/guards.md), [discussion: KEEP-371](https://github.com/Kotlin/KEEP/issues/371)
 * YouTrack issue: [KT-13626](https://youtrack.jetbrains.com/issue/KT-13626)
 * Target version: 2.1.0
 
@@ -163,13 +203,11 @@ Description of statuses:
 </td>
 <td>
 
-**Improved exhaustiveness checking**
+**Improved exhaustiveness checking in the `when` block**
 
-* Status: KEEP preparation
-* KEEP proposal: Not defined
-* KEEP discussion: Not defined
+* KEEP documents: [proposal: guards.md](https://github.com/Kotlin/KEEP/blob/guards/proposals/guards.md#exhaustiveness), [discussion: KEEP-371](https://github.com/Kotlin/KEEP/issues/371)
 * YouTrack issue: [KT-63696](https://youtrack.jetbrains.com/issue/KT-63696)
-* Target version: Not defined
+* Target version: 2.1.0
 
 </td>
 </tr>
@@ -181,39 +219,57 @@ Description of statuses:
 </td>
 <td>
 
-**Support non-local break and continue**
+**Stabilized `@SubclassOptInRequired`**
 
-* Status: KEEP preparation
-* KEEP proposal: [break-continue-in-inline-lambdas.md](https://github.com/Kotlin/KEEP/blob/master/proposals/break-continue-in-inline-lambdas.md)
-* KEEP discussion: [KEEP-326](https://github.com/Kotlin/KEEP/issues/326)
+* KEEP documents: [proposal: subclass-opt-in-required.md](https://github.com/Kotlin/KEEP/blob/master/proposals/subclass-opt-in-required.md), [discussion: KEEP-320](https://github.com/Kotlin/KEEP/issues/320)
+* YouTrack issue: [KT-54617](https://youtrack.jetbrains.com/issue/KT-54617)
+* Target version: 2.1.0
+
+</td>
+</tr>
+<tr filter="keep">
+<td>
+
+**KEEP preparation**
+
+</td>
+<td>
+
+**Non-local `break` and `continue`**
+
+* KEEP documents: [proposal: break-continue-in-inline-lambdas.md](https://github.com/Kotlin/KEEP/blob/master/proposals/break-continue-in-inline-lambdas.md), [discussion KEEP-326](https://github.com/Kotlin/KEEP/issues/326)
 * YouTrack issue: [KT-1436](https://youtrack.jetbrains.com/issue/KT-1436)
 * Target version: 2.1.0
 
 </td>
 </tr>
 
-<!-- PILOT VERSION -->
-
-<tr filter="pilot">
+<tr filter="keep">
 <td>
 
-**Pilot version**
+**KEEP preparation**
 
 </td>
 <td>
 
-**Contracts: if a given function parameter is not null, the result is not null**
+**Java synthetic property references**
 
-* Status: Revoked
-* KEEP proposal: Not defined
-* KEEP discussion: Not defined
-* YouTrack issue: [KT-8889](https://youtrack.jetbrains.com/issue/KT-8889)
-* Target version: Not available
+* KEEP documents: [proposal: references-to-java-synthetic-properties.md](https://github.com/Kotlin/KEEP/blob/master/proposals/references-to-java-synthetic-properties.md), [discussion KEEP-328](https://github.com/Kotlin/KEEP/issues/328)
+* YouTrack issue: [KT-8575](https://youtrack.jetbrains.com/issue/KT-8575)
+* Target version: 2.1.0
 
 </td>
 </tr>
 
-<!-- STABLE -->
+<!-- END OF KEEP PREPARATION BLOCK -->
+
+<!-- PILOT VERSION BLOCK -->
+
+
+
+<!-- END OF PILOT VERSION BLOCK -->
+
+<!-- STABLE BLOCK -->
 
 <tr filter="stable">
 <td>
@@ -223,30 +279,9 @@ Description of statuses:
 </td>
 <td>
 
-**Explicit backing fields**
+**`Enum.entries`: performant replacement of the `Enum.values()`**
 
-* Status: Stable
-* KEEP proposal: [explicit-backing-fields.md](https://github.com/Kotlin/KEEP/blob/explicit-backing-fields-re/proposals/explicit-backing-fields.md)
-* KEEP discussion: [KEEP-278](https://github.com/Kotlin/KEEP/issues/278)
-* YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-14663)
-* Target version: 
-
-</td>
-</tr>
-
-<tr filter="stable">
-<td>
-
-**Stable**
-
-</td>
-<td>
-
-**Decommission Enum.values() and replace it with Enum.entries**
-
-* Status: Stable
-* KEEP proposal: [enum-entries.md](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md)
-* KEEP discussion: [KEEP-283](https://github.com/Kotlin/KEEP/issues/283)
+* KEEP documents: [proposal: enum-entries.md](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md), [discussion: KEEP-283](https://github.com/Kotlin/KEEP/issues/283)
 * YouTrack issue: [KT-48872](https://youtrack.jetbrains.com/issue/KT-48872)
 * Target version: 2.0.0
 
@@ -263,9 +298,7 @@ Description of statuses:
 
 **Data objects**
 
-* Status: Stable
-* KEEP proposal: [data-objects.md](https://github.com/Kotlin/KEEP/blob/master/proposals/data-objects.md)
-* KEEP discussion: [KEEP-317](https://github.com/Kotlin/KEEP/issues/317)
+* KEEP documents: [proposal: data-objects.md](https://github.com/Kotlin/KEEP/blob/master/proposals/data-objects.md), [discussion: KEEP-317](https://github.com/Kotlin/KEEP/issues/317)
 * YouTrack issue: [KT-4107](https://youtrack.jetbrains.com/issue/KT-4107)
 * Target version: 1.9.0
 
@@ -280,11 +313,9 @@ Description of statuses:
 </td>
 <td>
 
-**Open-ended ranges and rangeUntil operator**
+**RangeUntil operator `..<`**
 
-* Status: Stable
-* KEEP proposal: [open-ended-ranges.md](https://github.com/kotlin/KEEP/blob/open-ended-ranges/proposals/open-ended-ranges.md)
-* KEEP discussion: [KEEP-314](https://github.com/Kotlin/KEEP/issues/314)
+* KEEP documents: [proposal: open-ended-ranges.md](https://github.com/kotlin/KEEP/blob/open-ended-ranges/proposals/open-ended-ranges.md), [discussion: KEEP-314](https://github.com/Kotlin/KEEP/issues/314)
 * YouTrack issue: [KT-15613](https://youtrack.jetbrains.com/issue/KT-15613)
 * Target version: 1.7.20
 
@@ -301,16 +332,16 @@ Description of statuses:
 
 **Definitely non-nullable types**
 
-* Status: Stable
-* KEEP proposal: [definitely-non-nullable-types.md](https://github.com/Kotlin/KEEP/blob/master/proposals/definitely-non-nullable-types.md)
-* KEEP discussion: [KEEP-268](https://github.com/Kotlin/KEEP/issues/268)
+* KEEP documents: [proposal: definitely-non-nullable-types.md](https://github.com/Kotlin/KEEP/blob/master/proposals/definitely-non-nullable-types.md), [discussion: KEEP-268](https://github.com/Kotlin/KEEP/issues/268)
 * YouTrack issue: [KT-26245](https://youtrack.jetbrains.com/issue/KT-26245)
-* Target version: 
+* Target version: 1.7.0
 
 </td>
 </tr>
 
-<!-- REVOKED -->
+<!-- END OF STABLE BLOCK -->
+
+<!-- REVOKED BLOCK -->
 
 <tr filter="revoked">
 <td>
@@ -322,18 +353,17 @@ Description of statuses:
 
 **Context receivers**
 
-* Status: Revoked
-* KEEP proposal: [context-receivers.md](https://github.com/Kotlin/KEEP/blob/master/proposals/context-receivers.md)
-* KEEP discussion: [KEEP-259](https://github.com/Kotlin/KEEP/issues/259)
+* KEEP documents: [context-receivers.md](https://github.com/Kotlin/KEEP/blob/master/proposals/context-receivers.md), [discussion: KEEP-259](https://github.com/Kotlin/KEEP/issues/259)
 * YouTrack issue: [KT-10468](https://youtrack.jetbrains.com/issue/KT-10468)
 * Target version: Not available
-
 
 </td>
 </tr>
 
 </table>
 </chunk>
+
+<!-- END OF REVOKED BLOCK -->
 
 </tab>
 
