@@ -36,43 +36,14 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
         buildDokkaHTML {
             enabled = false
         }
-        scriptDokkaVersionSync {
-            scriptContent = """
-                #!/bin/bash
-                set -e
-                set +x
-                set -o pipefail
-                set -u
-
-                # update Dokka version
-                sed -i -E "s/dokka ?= ?\"[0-9\.]+\"/dokka = \"1.9.0-dev-218\"/gi" ./gradle/libs.versions.toml
-                
-                # Define the replacement string
-                replacement="maven(url = \"$DOKKA_SPACE_REPO\")\nmavenCentral"
-                
-                # List of kts files to apply the command on
-                files=(
-                  "./build.gradle.kts"
-                  "./repo/gradle-settings-conventions/settings.gradle.kts"
-                  "./repo/gradle-build-conventions/buildsrc-compat/build.gradle.kts"
-                )
-                
-                # Loop through the files and apply the sed command
-                for file in "${'$'}{files[@]}"; do
-                    sed -i -E "s|mavenCentral|${'$'}replacement|" "${'$'}file"
-                done
-                
-                # modify Groovy file
-                sed -i -E "s|mavenCentral|maven \{ url \"$DOKKA_SPACE_REPO\" \}\nmavenCentral|" ./settings.gradle
-                
-                # add Dokka dev artifacts to the list of trusted ones
-                sed -i -E "s|<trusted-artifacts>|<trusted-artifacts>\n<trust group=\"org.jetbrains.dokka\" />\n|" ./gradle/verification-metadata.xml
-            """.trimIndent()
-        }
         script {
             name = "build api reference"
             scriptContent = """
-                ./gradlew :kotlinx-metadata-jvm:dokkaHtml -PkotlinxMetadataDeployVersion=${KOTLIN_RELEASE_TAG} --no-daemon
+                #!/bin/bash
+                
+                 set -e -u
+                
+                ./gradlew :kotlin-metadata-jvm:dokkaHtml -PdefaultSnapshotVersion=${KOTLIN_RELEASE_TAG.startsWith("v")} --no-daemon --no-configuration-cache
             """.trimIndent()
         }
     }
