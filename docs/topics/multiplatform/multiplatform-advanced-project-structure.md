@@ -66,10 +66,10 @@ kotlin {
 * This example shows how `dependsOn` relations can be defined in the build script. However, the Kotlin Gradle plugin creates
   source sets and sets up these relations by default, so you don't need to do so manually.
 * `dependsOn` relations are declared separately from the `dependencies {}` block in build scripts.
-  This is because `dependsOn` is not a regular dependency; instead, it is a specific relation among Kotlin source sets necessary
+  This is because `dependsOn` is not a regular dependency; instead, it is a specific relation between Kotlin source sets necessary
   for sharing code across different targets.
 
-You cannot use `dependsOn` to express regular dependencies on a published library or another Gradle project.
+You cannot use `dependsOn` to declare regular dependencies on a published library or another Gradle project.
 For example, you can't set up `commonMain` to depend on the `commonMain` of the `kotlinx-coroutines-core` library
 or call `commonTest.dependsOn(commonMain)`.
 
@@ -167,6 +167,32 @@ There are three important concepts in dependency resolution:
    The results of the dependency resolution directly affect which of the code in `kotlinx-coroutines-core` is visible:
 
    ![Error on JVM-specific API in common code](dependency-resolution-error.png){width=700}
+
+### Aligning versions of common dependencies across source sets
+
+Common dependencies need to be aligned across source sets to make sure that common code is always compiled against
+the version of a library that satisfies all source sets.
+
+In the example above, imagine that you want to add the `androidx.navigation:navigation-compose:2.7.7` dependency to your
+`androidMain` source set. Your project explicitly declares the `kotlinx-coroutines-core:1.7.3` dependency for the `commonMain`
+source set, but the Compose Navigation library with the version 2.7.7 requires Kotlin coroutines 1.8.0 or newer.
+
+Resolving this, Gradle applies `kotlinx-coroutines-core:1.8.0` to the `commonMain` source set. But to make the common code
+compile consistently across targets, the iOS source sets also need to be constrained to the same dependency version.
+So Kotlin Multiplatform propagates the `kotlinx.coroutines-*:1.8.0` dependency to the `iosMain` source set as well.
+
+TODO: illustration of the Main source set tree showing propagated transitive dependencies
+
+Dependencies are aligned across source sets of each group: the `*Main` source sets and the [`*Test` source sets](multiplatform-discover-project.md#integration-with-tests).
+The Gradle configuration for the group of test source sets includes all dependencies of the main group, but not vice versa.
+So you can test your project with newer library versions without affecting your main code.
+
+For example, you have the Kotlin coroutines 1.7.3 dependency in your main source set group, propagated to every source set
+of the group. But in the `iosTest` source set you decide to up the version to 1.8.0 to test out the new library release.
+According to the same algorithm, this dependency is going to be propagated throughout the tree of test source sets, so
+every `*Test` source set will be compiled with the `kotlinx.coroutines-*:1.8.0` dependency.
+
+TODO: illustration of Test and Main source set trees side by side
 
 ## Declaring custom source sets
 
