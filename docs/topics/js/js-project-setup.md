@@ -512,7 +512,7 @@ browser {
 browser {
     commonWebpackConfig {
         cssSupport {
-            it.enabled.set(true)
+            it.enabled = true
         }
     }
 }
@@ -556,19 +556,19 @@ browser {
 browser {
     webpackTask {
         cssSupport {
-            it.enabled.set(true)
+            it.enabled = true
         }
     }
     runTask {
         cssSupport {
-            it.enabled.set(true)
+            it.enabled = true
         }
     }
     testTask {
         useKarma {
             // ...
             webpackConfig.cssSupport {
-                it.enabled.set(true)
+                it.enabled = true
             }
         }
     }
@@ -845,7 +845,7 @@ kotlin {
     js {
         browser {
             distribution {
-                outputDirectory.set(file("$projectDir/output"))
+                outputDirectory = file("$projectDir/output")
             }
         }
         binaries.executable()

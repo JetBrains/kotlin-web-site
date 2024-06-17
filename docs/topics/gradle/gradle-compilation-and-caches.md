@@ -255,7 +255,7 @@ tasks.withType<CompileUsingKotlinDaemon>().configureEach {
 
 ```groovy
 tasks.withType(CompileUsingKotlinDaemon::class).configureEach { task ->
-    task.kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
+    task.kotlinDaemonJvmArguments = ["-Xmx1g", "-Xms512m"]
 }
 ```
 
@@ -354,7 +354,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 tasks.withType(CompileUsingKotlinDaemon)
     .configureEach {
-        compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
+        compilerExecutionStrategy = KotlinCompilerExecutionStrategy.IN_PROCESS
     }
 ```
 

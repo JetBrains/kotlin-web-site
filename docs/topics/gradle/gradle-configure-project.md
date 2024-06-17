@@ -317,7 +317,7 @@ kotlin {
 ```groovy
 kotlin {
     jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>))
+        languageVersion = JavaLanguageVersion.of(<MAJOR_JDK_VERSION>))
     }
     // Or shorter:
     jvmToolchain(<MAJOR_JDK_VERSION>)
@@ -350,7 +350,7 @@ java {
 ```groovy
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)) 
+        languageVersion = JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)
     }
 }
 ```
@@ -419,7 +419,7 @@ project.tasks.withType<UsesKotlinJavaToolchain>().configureEach {
 ```groovy
 JavaToolchainService service = project.getExtensions().getByType(JavaToolchainService.class)
 Provider<JavaLauncher> customLauncher = service.launcherFor {
-    it.languageVersion.set(JavaLanguageVersion.of(<MAJOR_JDK_VERSION>))
+    it.languageVersion = JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)
 }
 tasks.withType(UsesKotlinJavaToolchain::class).configureEach { task ->
     task.kotlinJavaToolchain.toolchain.use(customLauncher)
