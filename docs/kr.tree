@@ -283,6 +283,8 @@
     </toc-element>
 
     <toc-element toc-title="Standard library">
+
+        <toc-element id="read-standard-input.md" toc-title="Read standard input"/>
         <toc-element  toc-title="Collections">
             <toc-element id="collections-overview.md" toc-title="Overview"/>
             <toc-element id="constructing-collections.md"/>
