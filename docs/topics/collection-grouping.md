@@ -10,25 +10,31 @@ You can also call `groupBy()` with a second lambda argument – a value transfor
 In the result map of `groupBy()` with two lambdas, the keys produced by `keySelector` function are mapped to the results
 of the value transformation function instead of the original elements.
 
-This example illustrates using the `for` operator to iterate through the groups created by the `groupBy()` function on the resulting `Map`:
+This example illustrates using the `groupBy()` function to group the strings by their first letter, iterating through
+the groups on the resulting `Map` with the `for` operator, and then transforming the values to uppercase using the `keySelector` function:
 
 ```kotlin
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four", "five")
 
-    // Groups the strings by their first letter using groupBy
+    // Groups the strings by their first letter using groupBy()
     val groupedByFirstLetter = numbers.groupBy { it.first().uppercase() }
     println(groupedByFirstLetter)
-
-    // Groups the strings by their first letter and transforms the values to uppercase
-    val groupedAndTransformed = numbers.groupBy(keySelector = { it.first() }, valueTransform = { it.uppercase() })
-    println(groupedAndTransformed)
+    // {O=[one], T=[two, three], F=[four, five]}
 
     // Iterates through each group and prints the key and its associated values
     for ((key, value) in groupedByFirstLetter) {
         println("Key: $key, Values: $value")
     }
+    // Key: O, Values: [one]
+    // Key: T, Values: [two, three]
+    // Key: F, Values: [four, five]
+
+    // Groups the strings by their first letter and transforms the values to uppercase
+    val groupedAndTransformed = numbers.groupBy(keySelector = { it.first() }, valueTransform = { it.uppercase() })
+    println(groupedAndTransformed)
+    // {o=[ONE], t=[TWO, THREE], f=[FOUR, FIVE]}
 //sampleEnd
 }
 ```
@@ -66,9 +72,10 @@ fun main() {
     // Iterates through each group and prints the key and its associated values
     for ((key, count) in grouped) {
         println("Key: $key, Count: $count")
+        // Key: o, Count: 1
+        // Key: t, Count: 2
+        // Key: f, Count: 2
     }
-    // Key: the first letter of the strings
-    // Count: the number of strings that start with the key letter
 //sampleEnd
 }
 ```
