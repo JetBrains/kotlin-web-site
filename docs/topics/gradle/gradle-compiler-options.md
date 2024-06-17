@@ -112,7 +112,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 tasks.named('compileKotlin', KotlinCompilationTask) {
     compilerOptions {
-        suppressWarnings.set(true)
+        suppressWarnings = true
     }
 }
 ```
