@@ -36,7 +36,7 @@ Moving what was a top-level dependency in an Android project to a specific sourc
 might be difficult if the top-level dependency had a non-trivial configuration name. For example, to move
 a `debugImplementation` dependency from the top level of an Android project, you'll need to add an implementation
 dependency to the source set named `androidDebug`. To minimize the effort you have to put in to deal with migration
-problems like this, you can add a `dependencies` block inside the `android` block:
+problems like this, you can add a `dependencies {}` block inside the `android {}` block:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -68,7 +68,7 @@ android {
 Dependencies declared here will be treated exactly the same as dependencies from the top-level block, but declaring them
 this way will also separate Android dependencies visually in your build script and make it less confusing.
 
-Putting dependencies into a standalone `dependencies` block at the end of the script, in a way that is idiomatic to
+Putting dependencies into a standalone `dependencies {}` block at the end of the script, in a way that is idiomatic to
 Android projects, is also supported. However, we strongly recommend **against** doing this because configuring a build
 script with Android dependencies in the top-level block and other target dependencies in each source set is likely to
 cause confusion.
