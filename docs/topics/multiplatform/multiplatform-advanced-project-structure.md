@@ -181,7 +181,7 @@ Resolving this, Gradle applies `kotlinx-coroutines-core:1.8.0` to the `commonMai
 compile consistently across targets, the iOS source sets also need to be constrained to the same dependency version.
 So Kotlin Multiplatform propagates the `kotlinx.coroutines-*:1.8.0` dependency to the `iosMain` source set as well.
 
-TODO: illustration of the Main source set tree showing propagated transitive dependencies
+![Alignment of dependencies in a group of source sets](multiplatform-source-set-dependency-alignment.svg){width=700}
 
 Dependencies are aligned across source sets of each group: the `*Main` source sets and the [`*Test` source sets](multiplatform-discover-project.md#integration-with-tests).
 The Gradle configuration for the group of test source sets includes all dependencies of the main group, but not vice versa.
