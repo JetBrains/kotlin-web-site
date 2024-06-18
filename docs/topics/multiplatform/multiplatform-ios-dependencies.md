@@ -141,7 +141,7 @@ and [frameworks](#add-a-framework-without-cocoapods), but the idea remains the s
                 cinterops {
                     DateTools {
                         // Path to the .def file
-                        definitionFile.set(project.file("src/nativeInterop/cinterop/DateTools.def"))
+                        definitionFile = project.file("src/nativeInterop/cinterop/DateTools.def")
 
                         // Directories for header search (an analogue of the -I<path> compiler option)
                         includeDirs("include/this/directory", "path/to/another/directory")
@@ -232,7 +232,7 @@ import DateTools.*
                 cinterops {
                     DateTools {
                         // Path to the .def file
-                        definitionFile.set(project.file("src/nativeInterop/cinterop/MyFramework.def"))
+                        definitionFile = project.file("src/nativeInterop/cinterop/MyFramework.def")
 
                         compilerOpts("-framework", "MyFramework", "-F/path/to/framework/")
                     }

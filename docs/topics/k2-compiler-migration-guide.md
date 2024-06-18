@@ -16,7 +16,7 @@ The new architecture and enriched data structure enables the K2 compiler to prov
 * **Improved call resolution and type inference**. The compiler behaves more consistently and understands your code better.
 * **Easier introduction of syntactic sugar for new language features**. In the future, you'll be able to use more concise,
   readable code when new features are introduced.
-* **Faster compilation times**. Compilation times can be significantly faster.
+* **Faster compilation times**. Compilation times can be [significantly faster](#performance-improvements).
 * **Enhanced IDE performance**. If you enable K2 Kotlin mode in IntelliJ IDEA, then IntelliJ IDEA will use the K2 compiler
   frontend to analyze your Kotlin code, bringing stability and performance improvements. For more information,
   see [Support in IntelliJ IDEA](#support-in-intellij-idea).
@@ -25,8 +25,6 @@ The new architecture and enriched data structure enables the K2 compiler to prov
   > but not all IDE features are supported yet.
   >
   {type="warning"}
-
-Thanks to the new K2 compiler, we've already made improvements to some [language features](#language-feature-improvements).
 
 This guide:
 
@@ -38,6 +36,22 @@ This guide:
 > in Kotlin 2.0.0, as well as the new K2 compiler, see [What's new in Kotlin 2.0.0](whatsnew20.md).
 >
 {type="note"}
+
+## Performance improvements
+
+To evaluate the performance of the K2 compiler, we ran performance tests on two open-source projects: [Anki-Android](https://github.com/ankidroid/Anki-Android)
+and [Exposed](https://github.com/JetBrains/Exposed). Here are the key performance improvements that we found:
+
+* The K2 compiler brings up to 94% compilation speed gains. For example, in the Anki-Android project, clean build times
+  were reduced from 57.7 seconds in Kotlin 1.9.23 to 29.7 seconds in Kotlin 2.0.0.
+* The initialization phase is up to 488% faster with the K2 compiler. For example, in the Anki-Android project, the
+  initialization phase for incremental builds was cut from 0.126 seconds in Kotlin 1.9.23 to just 0.022 seconds in Kotlin 2.0.0.
+* The Kotlin K2 compiler is up to 376% quicker in the analysis phase compared to the previous compiler. For example,
+  in the Anki-Android project, analysis times for incremental builds were slashed from 0.581 seconds in Kotlin 1.9.23 to
+  only 0.122 seconds in Kotlin 2.0.0.
+
+For more details on these improvements and to learn more about how we analyzed the performance of the K2 compiler, see our
+[blog post](https://blog.jetbrains.com/kotlin/2024/04/k2-compiler-performance-benchmarks-and-how-to-measure-them-on-your-projects/).
 
 ## Language feature improvements
 
@@ -574,6 +588,7 @@ This section highlights the following modifications:
 * [Forbidden use of inaccessible generic types](#forbidden-use-of-inaccessible-generic-types)
 * [Consistent resolution order of Kotlin properties and Java fields with the same name](#consistent-resolution-order-of-kotlin-properties-and-java-fields-with-the-same-name)
 * [Improved null safety for Java primitive arrays](#improved-null-safety-for-java-primitive-arrays)
+* [Stricter rules for abstract members in expected classes](#stricter-rules-for-abstract-members-in-expected-classes)
 
 ### Immediate initialization of open properties with backing fields
 
@@ -995,6 +1010,75 @@ and errors if you use them:
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-54521).
 
+### Stricter rules for abstract members in expected classes
+
+> Expected and actual classes are in [Beta](components-stability.md#stability-levels-explained).
+> They are almost stable, but you may need to perform migration steps in the future.
+> We'll do our best to minimize any further changes for you to make.
+>
+{type="warning"}
+
+**What's changed?**
+
+Due to the separation of common and platform sources during compilation with the K2 compiler, we've implemented stricter
+rules for abstract members in expected classes.
+
+With the previous compiler, it was possible for an expected non-abstract class to inherit an abstract function without 
+[overriding the function](inheritance.md#overriding-rules). Since the compiler could access both common and platform code
+at the same time, the compiler could see whether the abstract function had a corresponding override and definition in the
+actual class.
+
+Now that common and platform sources are compiled separately, the inherited function must be explicitly overridden in the
+expected class so that the compiler knows the function is not abstract. Otherwise, the compiler reports an 
+`ABSTRACT_MEMBER_NOT_IMPLEMENTED` error.
+
+For example, let's say you have a common source set where you declare an abstract class called `FileSystem` that has an 
+abstract function `listFiles()`. You define the `listFiles()` function in the platform source set as part of an actual 
+declaration.
+
+In your common code, if you have an expected non-abstract class called `PlatformFileSystem` that inherits from the 
+`FileSystem` class, the `PlatformFileSystem` class inherits the abstract function `listFiles()`. However, you can't have
+an abstract function in a non-abstract class in Kotlin. To make the `listFiles()` function non-abstract, you must declare
+it as an override without the `abstract` keyword:
+
+<table header-style="top">
+   <tr>
+       <td>Common code</td>
+       <td>Platform code</td>
+   </tr>
+   <tr>
+<td>
+
+```kotlin
+abstract class FileSystem {
+    abstract fun listFiles()
+}
+expect open class PlatformFileSystem() : FileSystem {
+    // In Kotlin 2.0.0, an explicit override is needed
+    expect override fun listFiles()
+    // Before Kotlin 2.0.0, an override wasn't needed
+}
+```
+
+</td>
+<td>
+
+```kotlin
+actual open class PlatformFileSystem : FileSystem {
+    actual override fun listFiles() {}
+}
+```
+
+</td>
+</tr>
+</table>
+
+**What's the best practice now?**
+
+If you inherit abstract functions in an expected non-abstract class, add a non-abstract override.
+
+For more information, see the corresponding issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-59739/K2-MPP-reports-ABSTRACTMEMBERNOTIMPLEMENTED-for-inheritor-in-common-code-when-the-implementation-is-located-in-the-actual).
+
 ### Per subject area
 
 These subject areas list changes that are unlikely to affect your code but provide links to the relevant YouTrack issues
@@ -1150,17 +1234,18 @@ for further reading. Changes listed with an asterisk (*) next to the Issue ID ar
 
 #### Miscellaneous {initial-collapse-state="collapsed"}
 
-| Issue ID                                                  | Title                                                                                                      |
-|-----------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| [KT-49015](https://youtrack.jetbrains.com/issue/KT-49015) | Qualified this: change behavior in case of potential label conflicts                                       |
-| [KT-56545](https://youtrack.jetbrains.com/issue/KT-56545) | Fix incorrect functions mangling in JVM backend in case of accidental clashing overload in a Java subclass |
-| [KT-62019](https://youtrack.jetbrains.com/issue/KT-62019) | [LC issue] Prohibit suspend-marked anonymous function declarations in statement positions                  |
-| [KT-55111](https://youtrack.jetbrains.com/issue/KT-55111) | OptIn: forbid constructor calls with default arguments under marker                                        |
-| [KT-61182](https://youtrack.jetbrains.com/issue/KT-61182) | Unit conversion is accidentally allowed to be used for expressions on variables + invoke resolution        |
-| [KT-55199](https://youtrack.jetbrains.com/issue/KT-55199) | Forbid promoting callable references with adaptations to KFunction                                         |
-| [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776) | [LC] K2 breaks \`false && ...\` and \`false \|\| ...\`                                                     |
-| [KT-65682](https://youtrack.jetbrains.com/issue/KT-65682) | [LC] Deprecate \`header\`/\`impl\` keywords                                                                |
-| [KT-45375](https://youtrack.jetbrains.com/issue/KT-45375) | Generate all Kotlin lambdas via invokedynamic + LambdaMetafactory by default                               |
+| Issue ID                                                   | Title                                                                                                                                      |
+|------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| [KT-59739](https://youtrack.jetbrains.com/issue/KT-59739)* | K2/MPP reports [ABSTRACT_MEMBER_NOT_IMPLEMENTED] for inheritor in common code when the implementation is located in the actual counterpart |
+| [KT-49015](https://youtrack.jetbrains.com/issue/KT-49015)  | Qualified this: change behavior in case of potential label conflicts                                                                       |
+| [KT-56545](https://youtrack.jetbrains.com/issue/KT-56545)  | Fix incorrect functions mangling in JVM backend in case of accidental clashing overload in a Java subclass                                 |
+| [KT-62019](https://youtrack.jetbrains.com/issue/KT-62019)  | [LC issue] Prohibit suspend-marked anonymous function declarations in statement positions                                                  |
+| [KT-55111](https://youtrack.jetbrains.com/issue/KT-55111)  | OptIn: forbid constructor calls with default arguments under marker                                                                        |
+| [KT-61182](https://youtrack.jetbrains.com/issue/KT-61182)  | Unit conversion is accidentally allowed to be used for expressions on variables + invoke resolution                                        |
+| [KT-55199](https://youtrack.jetbrains.com/issue/KT-55199)  | Forbid promoting callable references with adaptations to KFunction                                                                         |
+| [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776)  | [LC] K2 breaks \`false && ...\` and \`false \|\| ...\`                                                                                     |
+| [KT-65682](https://youtrack.jetbrains.com/issue/KT-65682)  | [LC] Deprecate \`header\`/\`impl\` keywords                                                                                                |
+| [KT-45375](https://youtrack.jetbrains.com/issue/KT-45375)  | Generate all Kotlin lambdas via invokedynamic + LambdaMetafactory by default                                                               |
 
 ## Compatibility with Kotlin releases
 
@@ -1172,6 +1257,13 @@ The following Kotlin releases have support for the new K2 compiler:
 | 1.9.20–1.9.24  | Beta            |
 | 1.9.0–1.9.10   | JVM is Beta     |
 | 1.7.0–1.8.22   | Alpha           |
+
+## Compatibility with Kotlin libraries
+
+If you're working with Kotlin/JVM, the K2 compiler works with libraries compiled with any version of Kotlin.
+
+If you're working with Kotlin Multiplatform, the K2 compiler is guaranteed to work with libraries compiled with Kotlin 
+version 1.9.20 and onwards.
 
 ## Compiler plugins support
 
@@ -1191,11 +1283,35 @@ Currently, the Kotlin K2 compiler supports the following Kotlin compiler plugins
 In addition, the Kotlin K2 compiler supports:
 
 * The [Jetpack Compose](https://developer.android.com/jetpack/compose) 1.5.0 compiler plugin and later versions.
-* The [Kotlin Symbol Processing (KSP) plugin](ksp-overview.md) since [KSP2](https://android-developers.googleblog.com/2023/12/ksp2-preview-kotlin-k2-standalone.html).
+* [Kotlin Symbol Processing (KSP)](ksp-overview.md) since [KSP2](https://android-developers.googleblog.com/2023/12/ksp2-preview-kotlin-k2-standalone.html).
 
 > If you use any additional compiler plugins, check their documentation to see if they are compatible with K2.
 >
 {type="tip"}
+
+### Upgrade your custom compiler plugins
+
+> Custom compiler plugins use the plugin API, which is [Experimental](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained).
+> As a result, the API may change at any time, so we can't guarantee backward compatibility.
+>
+{type="warning"}
+
+The upgrade process has two paths depending on the type of custom plugin you have.
+
+#### Backend-only compiler plugins
+
+If your plugin implements only `IrGenerationExtension` extension points, the process is the same as for any other new 
+compiler release. Check if there are any changes to the API that you use and make changes if necessary.
+
+#### Backend and frontend compiler plugins
+
+If your plugin uses frontend-related extension points, you need to rewrite the plugin using the new K2 compiler API. For
+an introduction to the new API, see [FIR Plugin API](https://github.com/JetBrains/kotlin/blob/master/docs/fir/fir-plugins.md).
+
+> If you have questions about upgrading your custom compiler plugin, join our [#compiler](https://kotlinlang.slack.com/archives/C7L3JB43G)
+> Slack channel, and we will do our best to help you.
+>
+{type="note"}
 
 ## Share your feedback on the new K2 compiler
 
