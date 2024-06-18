@@ -183,7 +183,7 @@ environment:
 
 Learn more about [configuring Kotlin/JS projects](js-project-setup.md).
 
-A separate `wasmWasi` block describes the configuration of Kotlin/Wasm targets that support the WASI system interface.
+A separate `wasmWasi {}` block describes the configuration of Kotlin/Wasm targets that support the WASI system interface.
 Here, only the [`nodejs`](#node-js) execution environment is available:
 
 ```kotlin
@@ -240,25 +240,6 @@ kotlin {
     js().nodejs {
         runTask { /* ... */ }
         testRuns { /* ... */ }
-    }
-}
-```
-
-#### wasmWasi
-
-A separate `wasmWasi {}` block describes the configuration of Kotlin/Wasm targets that support the WASI system interface.
-It can contain the following blocks:
-
-| **Name**   | **Description**                                                                                                                | 
-|------------|--------------------------------------------------------------------------------------------------------------------------------|
-| `nodejs`   | Configuration of the Node.js target.                                                                                           |
-| `binaries` | Configuration of binaries to produce: <list><li>`executable` − product executable</li><li>`test` − test executable</li></list> |
-
-```kotlin
-kotlin {
-    wasmWasi {
-        nodejs()
-        binaries.executable()
     }
 }
 ```
