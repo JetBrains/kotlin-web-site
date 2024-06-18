@@ -69,8 +69,8 @@ the Xcode autocomplete.
 >
 {type="warning"}
 
-To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use
-custom Objective-C and Swift names for classes, interfaces, and other Kotlin concepts:
+To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use the
+custom Objective-C and Swift name for the annotated class, interface, or another Kotlin entity:
 
 ```kotlin
 @ObjCName(swiftName = "MySwiftArray")
