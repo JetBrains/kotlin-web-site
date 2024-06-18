@@ -19,7 +19,8 @@ to the `PATH` environment variable.
 
 ## Write "Hello, Kotlin/Native" program
 
-Choose a working directory and create there a file named `hello.kt`. Add the following code:
+The application will print "Hello, Kotlin/Native" on the standard output.
+Choose a working directory and create a file there named `hello.kt`. Update it with the following code:
 
 ```kotlin
 fun main() {
@@ -27,21 +28,23 @@ fun main() {
 }
 ```
 
-The application will print "Hello, Kotlin/Native" to the standard output.
-
 ## Compile the code from the console 
 
-To compile the application, use the [downloaded](https://github.com/JetBrains/kotlin/releases)
-compiler to execute the following command:
+To compile the application, execute the following command with the [downloaded](https://github.com/JetBrains/kotlin/releases)
+compiler:
 
 ```bash
 kotlinc-native hello.kt -o hello
 ```
 
 The value of `-o` option specifies the name of the output file, so this call should generate a `hello.kexe` (Linux and macOS)
-or `hello.exe` (Windows) binary file.
-For the full list of available options, see [Kotlin compiler options](compiler-reference.md).
+or `hello.exe` (Windows) binary file. For the full list of available options, see [Kotlin compiler options](compiler-reference.md).
 
 While compilation from the console seems to be easy and clear, it
 doesn't scale well for larger projects with hundreds of files and libraries. For real-world projects, it is recommended
-to use a [build system](native-gradle.md) and [IDE](native-get-started.md).
+to use a [build system](native-gradle.md) and an [IDE](native-get-started.md).
+
+## Run the program
+
+To run the program, in your command line tool, navigate to the directory containing the `hello.kexe` (or `hello.exe`) file
+and run the `./hello.kexe` (or `./hello.exe`) command. The application should print "Hello, Kotlin/Native" on the standard output.
