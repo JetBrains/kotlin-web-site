@@ -13,7 +13,7 @@ The Kotlin %kotlinEapVersion% release is out!
 Here are some details of this EAP release:
 
 * [Language: Data class copy function to have the same visibility as constructor](#language-data-class-copy-function-to-have-the-same-visibility-as-constructor)
-* [Kotlin/Native: support for bitcode embedding removed](#kotlin-native-support-for-bitcode-embedding-removed)
+* [Kotlin/Native: Support for bitcode embedding removed](#kotlin-native-support-for-bitcode-embedding-removed)
 * [Kotlin/Wasm: Error in default export usage](#kotlin-wasm-error-in-default-export-usage)
 
 ## IDE support
@@ -65,7 +65,7 @@ If you want to opt in to the new behavior already in %kotlinEapVersion% for a wh
 you can use the `-Xconsistent-data-class-copy-visibility` compiler option.
 This option has the same effect as adding the '@ConsistentCopyVisibility' annotation to all data classes in a module.
 
-## Kotlin/Native: support for bitcode embedding removed
+## Kotlin/Native: Support for bitcode embedding removed
 
 Starting with Kotlin %kotlinEapVersion%, the Kotlin/Native compiler no longer supports bitcode embedding.
 Bitcode embedding was deprecated in Xcode 14 and removed in Xcode 15 for all Apple targets.
