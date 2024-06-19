@@ -269,7 +269,6 @@ type support all the Kotlin operations related to handling `null`, e.g. `?:`, `?
 `!!` etc.:
 
 ```kotlin
-@OptIn(ExperimentalForeignApi::class)
 val path = getenv("PATH")?.toKString() ?: ""
 ```
 
@@ -277,6 +276,8 @@ Since the arrays are also mapped to `CPointer<T>`, it supports the `[]` operator
 for accessing values by index:
 
 ```kotlin
+import kotlinx.cinterop.*
+
 @OptIn(ExperimentalForeignApi::class)
 fun shift(ptr: CPointer<ByteVar>, length: Int) {
     for (index in 0 .. length - 2) {
@@ -297,12 +298,18 @@ Casting a pointer (including `COpaquePointer`) can be done with
 `.reinterpret<T>`, e.g.:
 
 ```kotlin
+import kotlinx.cinterop.*
+
+@OptIn(ExperimentalForeignApi::class)
 val intPtr = bytePtr.reinterpret<IntVar>()
 ```
 
 or
 
 ```kotlin
+import kotlinx.cinterop.*
+
+@OptIn(ExperimentalForeignApi::class)
 val intPtr: CPointer<IntVar> = bytePtr.reinterpret()
 ```
 
@@ -322,15 +329,21 @@ can be omitted as usual due to the type inference.
 
 ### Memory allocation
 
-The native memory can be allocated using the `NativePlacement` interface, e.g.
+The native memory can be allocated using the `NativePlacement` interface, for example:
 
 ```kotlin
+import kotlinx.cinterop.*
+
+@OptIn(ExperimentalForeignApi::class)
 val byteVar = placement.alloc<ByteVar>()
 ```
 
 or
 
 ```kotlin
+import kotlinx.cinterop.*
+
+@OptIn(ExperimentalForeignApi::class)
 val bytePtr = placement.allocArray<ByteVar>(5)
 ```
 
@@ -339,9 +352,14 @@ It corresponds to allocating native memory with `malloc` and provides an additio
 `.free()` operation to free allocated memory:
 
 ```kotlin
-val buffer = nativeHeap.allocArray<ByteVar>(size)
-// <use buffer>
-nativeHeap.free(buffer)
+import kotlinx.cinterop.*
+
+@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)
+fun main() {
+    val size: Long = 0
+    val buffer = nativeHeap.allocArray<ByteVar>(size)
+    nativeHeap.free(buffer)
+}
 ```
 
 However, the lifetime of allocated memory is often bound to the lexical scope.
@@ -350,10 +368,12 @@ Inside the braces, the temporary placement is available as an implicit receiver,
 so it is possible to allocate native memory with `alloc` and `allocArray`,
 and the allocated memory will be automatically freed after leaving the scope.
 
-For example, the C function returning values through pointer parameters can be
-used like
+For example, the C function returning values through pointer parameters can be used like:
 
 ```kotlin
+import kotlinx.cinterop.*
+import platform.posix.*
+
 @OptIn(ExperimentalForeignApi::class)
 val fileSize = memScoped {
     val statBuf = alloc<stat>()
@@ -376,24 +396,23 @@ C array literals without explicit native memory allocation.
 To construct the immutable self-contained sequence of C values, the following
 methods are provided:
 
-*   `${type}Array.toCValues()`, where `type` is the Kotlin primitive type
-*   `Array<CPointer<T>?>.toCValues()`, `List<CPointer<T>?>.toCValues()`
-*   `cValuesOf(vararg elements: ${type})`, where `type` is a primitive or pointer
+* `${type}Array.toCValues()`, where `type` is the Kotlin primitive type
+* `Array<CPointer<T>?>.toCValues()`, `List<CPointer<T>?>.toCValues()`
+* `cValuesOf(vararg elements: ${type})`, where `type` is a primitive or pointer
 
 For example:
 
-C:
-
 ```c
+// C:
 void foo(int* elements, int count);
 ...
 int elements[] = {1, 2, 3};
 foo(elements, 3);
 ```
 
-Kotlin:
-
 ```kotlin
+// Kotlin:
+
 foo(cValuesOf(1, 2, 3), 3)
 ```
 
@@ -406,19 +425,19 @@ expecting a C string.
 There are also some tools available to convert between Kotlin and C strings
 manually:
 
-*   `fun CPointer<ByteVar>.toKString(): String`
-*   `val String.cstr: CValuesRef<ByteVar>`.
+* `fun CPointer<ByteVar>.toKString(): String`
+* `val String.cstr: CValuesRef<ByteVar>`.
 
-To get the pointer, `.cstr` should be allocated in native memory, e.g.
+To get the pointer, `.cstr` should be allocated in native memory, for example:
 
-```
+```kotlin
 val cString = kotlinString.cstr.getPointer(nativeHeap)
 ```
 
 In all cases, the C string is supposed to be encoded as UTF-8.
 
 To skip automatic conversion and ensure raw pointers are used in the bindings, a `noStringConversion`
-statement in the `.def` file could be used, i.e.
+statement in the `.def` file could be used:
 
 ```c
 noStringConversion = LoadCursorA LoadCursorW
@@ -428,6 +447,9 @@ This way any value of type `CPointer<ByteVar>` can be passed as an argument of `
 If a Kotlin string should be passed, code like this could be used:
 
 ```kotlin
+import kotlinx.cinterop.*
+
+@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)
 memScoped {
     LoadCursorA(null, "cursor.bmp".cstr.ptr)   // for ASCII version
     LoadCursorW(null, "cursor.bmp".wcstr.ptr)  // for Unicode version
@@ -441,6 +463,9 @@ instance using the `CValues<T>.ptr` extension property, available under `memScop
 It allows using the APIs which require C pointers with a lifetime bound to a certain `MemScope`. For example:
 
 ```kotlin
+import kotlinx.cinterop.*
+
+@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)
 memScoped {
     items = arrayOfNulls<CPointer<ITEM>?>(6)
     arrayOf("one", "two").forEachIndexed { index, value -> items[index] = value.cstr.ptr }
@@ -495,6 +520,8 @@ Such wrapping is possible with `StableRef` class.
 To wrap the reference:
 
 ```kotlin
+import kotlinx.cinterop.*
+
 @OptIn(ExperimentalForeignApi::class)
 val stableRef = StableRef.create(kotlinReference)
 val voidPtr = stableRef.asCPointer()
@@ -581,6 +608,9 @@ methods, depending on `type`.
 The example of using `convert`:
 
 ```kotlin
+import kotlinx.cinterop.*
+import platform.posix.*
+
 @OptIn(ExperimentalForeignApi::class)
 fun zeroMemory(buffer: COpaquePointer, size: Int) {
     memset(buffer, 0, size.convert<size_t>())
@@ -596,6 +626,9 @@ Kotlin objects could be pinned, i.e. their position in memory is guaranteed to b
 until unpinned, and pointers to such objects inner data could be passed to the C functions. For example
 
 ```kotlin
+import kotlinx.cinterop.*
+import platform.posix.*
+
 @OptIn(ExperimentalForeignApi::class)
 fun readData(fd: Int) {
     val buffer = ByteArray(1024)
