@@ -6,47 +6,47 @@ Consider a Kotlin Multiplatform project that has an iOS target. You may want to 
 as a dependency to iOS developers working on native Swift projects. Using Kotlin Multiplatform tooling, you can provide
 an artifact that would seamlessly integrate with their Xcode projects.
 
-This guide shows how to do this by building [XCFrameworks](multiplatform-build-native-binaries.md#build-xcframeworks)
+This tutorial shows how to do this by building [XCFrameworks](multiplatform-build-native-binaries.md#build-xcframeworks)
 with the Kotlin Gradle plugin.
 
-## Prepare file locations
+## Set up remote integration
 
-To make your framework consumable, you need to upload two files:
+To make your framework consumable, you'll need to upload two files:
 
-* A ZIP archive of the XCFramework. Upload it to a convenient file storage with direct access (for example,
+* A ZIP archive with the XCFramework. You'll need to upload it to a convenient file storage with direct access (for example,
   creating a GitHub release with the archive attached, using Amazon S3 or Maven).
   Choose the option that is easiest to integrate into your workflow.
-* The `Package.swift` file describing the package. Prepare a Git repository and push it there.
-  To decide how to organize your repositories, see the pros and cons of several options below.
+* The `Package.swift` file describing the package. You'll need to push it to a separate Git repository.
 
-### Swift package distribution
+#### Project configuration options {initial-collapse-state="collapsed"}
 
-Consider the following options for organizing your Git repositories:
+In this tutorial, you'll store your XCFramework and the `Package.swift` file in separate Git repositories.
+However, there can be other project configurations. You can consider the following options for organizing your Git repositories:
 
-* Store the `Package.swift` file and your ZIP archive with the XCFramework in separate repositories. This allows
+* Store the `Package.swift` file and your ZIP archive with the XCFramework in separate Git repositories. This allows
   versioning it separately from the Kotlin Multiplatform project the file describes. This is the recommended approach:
-  it allows scaling and generally easier to maintain.
+  it allows scaling and is generally easier to maintain.
 * Put the `Package.swift` file next to your Kotlin Multiplatform code. This is a more straightforward approach, but
-  keep in mind in this case the Swift package and the code will use the same versioning. SPM uses
-  Git tags for versioning packages, and this can conflict with tags used for the project. 
-* Store the `Package.swift` within the consumer project's repository. This helps to avoid the versioning and maintenance issues.
+  keep in mind that, in this case, the Swift package and the code will use the same versioning. SPM uses
+  Git tags for versioning packages, which can conflict with tags used for the project. 
+* Store the `Package.swift` within the consumer project's repository. This helps to avoid versioning and maintenance issues.
   However, this approach can cause problems with multi-repository SPM setups of the consumer project and further automation:
 
   * In a multi-package project, only one consumer package can depend on the external module (to avoid dependency conflicts
-  within the project). So, all the logic that depends on your Kotlin Multiplatform module should be encapsulated in a particular consumer package.
-  * If you publish the Kotlin Multiplatform project using an automated CI process, this process would need to include publishing the
-  updated `Package.swift` file to the consumer repository. Such a phase in CI can be difficult to maintain as it may lead
-  to conflicting updates of the consumer repository.
+    within the project). So, all the logic that depends on your Kotlin Multiplatform module should be encapsulated in a
+    particular consumer package.
+  * If you publish the Kotlin Multiplatform project using an automated CI process, this process would need to include
+    publishing the updated `Package.swift` file to the consumer repository. Such a phase in CI can be difficult to maintain
+    as it may lead to conflicting updates of the consumer repository.
 
-## Create the XCFramework and the Swift package manifest
+### Configure your multiplatform project
 
 In the following example, the shared code of a Kotlin Multiplatform project is stored locally in the `shared` module.
 If your project is structured differently, substitute "shared" in code and path examples with your module's name.
 
-To provide a Swift package:
+To set up the publishing of an XCFramework:
 
-1. Set up the publishing of an [XCFramework](multiplatform-build-native-binaries.md#build-xcframeworks). To do that,
-   update your `shared/build.gradle.kts` configuration file with the `XCFramework` call in the iOS targets list:
+1. Update your `shared/build.gradle.kts` configuration file with the `XCFramework` call in the iOS targets list:
 
    ```kotlin
    import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
@@ -82,7 +82,7 @@ To provide a Swift package:
   
    The resulting framework will be created as the `shared/build/XCFrameworks/release/Shared.xcframework` folder in your project directory.
 
-   > In case you work with a Compose Multiplatform project, run the following Gradle task:
+   > In case you work with a Compose Multiplatform project, use the following Gradle task:
    >
    > `./gradlew :composeApp:assembleSharedReleaseXCFramework`
    >
@@ -90,12 +90,14 @@ To provide a Swift package:
    >
    {type="tip"}
 
-3. Put the `Shared.xcframework` folder in a ZIP archive and calculate the checksum for the resulting archive, for example:
+### Prepare the XCFramework and the Swift package manifest
+
+1. Put the `Shared.xcframework` folder in a ZIP archive and calculate the checksum for the resulting archive, for example:
    
    `swift package compute-checksum Shared.xcframework.zip`
 
-4. <anchor name="upload"></anchor> Upload the ZIP file to the file storage of your choice.
-5. Choose any directory and locally create a `Package.swift` file with the following code:
+2. <anchor name="upload"></anchor> Upload the ZIP file to the file storage of your choice.
+3. Choose any directory and locally create a `Package.swift` file with the following code:
 
    ```Swift
    // swift-tools-version:5.3
@@ -118,24 +120,24 @@ To provide a Swift package:
    )
    ```
    
-6. In the `url` field, specify the link to your ZIP archive with the XCFramework.
-7. If you'd like to validate the resulting manifest, you can run the following shell command in the directory with
-   the `Package.swift` file:
+4. In the `url` field, specify the link to your ZIP archive with the XCFramework.
+5. [Optional] If you'd like to validate the resulting manifest, you can run the following shell command in the directory
+   with the `Package.swift` file:
 
     ```shell
     swift package reset && swift package show-dependencies --format json
     ```
     
-    The output will describe any found errors, or show the successful download and parsing result if the manifest is correct.
+    The output will describe any errors found or show the successful download and parsing result if the manifest is correct.
 
-8. Push the `Package.swift` file to the repository you settled on earlier. Make sure to create and push a Git tag with the
+6. Push the `Package.swift` file to your remote repository. Make sure to create and push a Git tag with the
    semantic version of the package.
 
-### Test your setup
+### Add the package dependency
 
-Now that both files are accessible, you can test the import in Xcode:
+Now that both files are accessible, you can add the package dependency:
 
-1. Choose **File | Add Package Dependencies**
+1. In Xcode, choose **File | Add Package Dependencies**.
 2. In the search field, enter the URL of the Git repository with the `Package.swift` file inside:
 
    ![Specify repo with the package file](native-spm-url.png)
@@ -145,7 +147,13 @@ Now that both files are accessible, you can test the import in Xcode:
      Paste this line into the [Package.Dependency](https://developer.apple.com/documentation/packagedescription/package/dependency)
      block of your own `Package.swift` file, and add the necessary product to the appropriate `Target.Dependency` block.
    * For other Xcode projects, press the **Add package** button, then select products and corresponding targets for the package.
-4. Navigate to the `ContentView.swift` file and replace the code with the following snippet:
+
+### Check your setup
+
+To check that everything is set up correctly, test the import in Xcode:
+
+1. In your project, navigate to the `ContentView.swift` file.
+2. Replace the code with the following snippet:
    
     ```Swift
     import SwiftUI
@@ -170,7 +178,7 @@ Now that both files are accessible, you can test the import in Xcode:
    
     Here, you import the `Shared` XCFramework and then use it to obtain the platform name in the `Text` field.
 
-5. Ensure that the preview is updated.
+3. Ensure that the preview is updated with the new text.
 
 ## Exporting multiple modules as an XCFramework
 
@@ -238,8 +246,8 @@ For example, you have a `network` and a `database` module, which you combine in 
     ./gradlew :together:assembleTogetherReleaseXCFramework
     ```
 
-5. Follow steps 4–7 from [the previous section](#upload) for `together.xcframework`: archive, calculate the checksum, upload
-the archived XCFramework, create and push a `Package.swift` file.
+5. Follow steps 4–7 from [the previous section](#upload) for `together.xcframework`: archive, calculate the checksum,
+   upload the archived XCFramework, create and push a `Package.swift` file.
 
-Now you can import the dependency into an Xcode project. After adding the `import together` directive,
+Now, you can import the dependency into an Xcode project. After adding the `import together` directive,
 you should have classes from both the `network` and `database` modules available for import in Swift code.
