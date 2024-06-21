@@ -20,24 +20,26 @@ To make your framework consumable, you'll need to upload two files:
 
 #### Project configuration options {initial-collapse-state="collapsed"}
 
-In this tutorial, you'll store your XCFramework and the `Package.swift` file in separate Git repositories.
-However, there can be other project configurations. You can consider the following options for organizing your Git repositories:
+In this tutorial, you'll store your XCFramework as a binary attached to a GitHub release, and the `Package.swift` file
+in a separate Git repository.
 
-* Store the `Package.swift` file and your ZIP archive with the XCFramework in separate Git repositories. This allows
-  versioning it separately from the Kotlin Multiplatform project the file describes. This is the recommended approach:
+However, you can configure your project differently. Consider the following options for organizing Git repositories:
+
+* Store the `Package.swift` file and the code that should be packaged into an XCFramework in separate Git repositories.
+  This allows versioning the Swift manifest separately from the project the file describes. This is the recommended approach:
   it allows scaling and is generally easier to maintain.
 * Put the `Package.swift` file next to your Kotlin Multiplatform code. This is a more straightforward approach, but
   keep in mind that, in this case, the Swift package and the code will use the same versioning. SPM uses
-  Git tags for versioning packages, which can conflict with tags used for the project. 
-* Store the `Package.swift` within the consumer project's repository. This helps to avoid versioning and maintenance issues.
+  Git tags for versioning packages, which can conflict with tags used for your project.
+* Store the `Package.swift` file within the consumer project's repository. This helps to avoid versioning and maintenance issues.
   However, this approach can cause problems with multi-repository SPM setups of the consumer project and further automation:
 
   * In a multi-package project, only one consumer package can depend on the external module (to avoid dependency conflicts
     within the project). So, all the logic that depends on your Kotlin Multiplatform module should be encapsulated in a
     particular consumer package.
   * If you publish the Kotlin Multiplatform project using an automated CI process, this process would need to include
-    publishing the updated `Package.swift` file to the consumer repository. Such a phase in CI can be difficult to maintain
-    as it may lead to conflicting updates of the consumer repository.
+    publishing the updated `Package.swift` file to the consumer repository. This may lead to conflicting updates of the
+    consumer repository and so such a phase in CI can be difficult to maintain.
 
 ### Configure your multiplatform project
 
