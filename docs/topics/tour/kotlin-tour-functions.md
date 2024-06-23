@@ -71,13 +71,13 @@ you can write the parameters in any order.
 {type="tip"}
 
 ```kotlin
-fun printMessageWithPrefix(message: String, prefix: String) {
+fun customPrint(message: String, prefix: String) {
     println("[$prefix] $message")
 }
 
 fun main() {
     // Uses named arguments with swapped parameter order
-    printMessageWithPrefix(prefix = "Log", message = "Hello")
+    customPrint(prefix = "Log", message = "Hello")
     // [Log] Hello
 }
 ```
@@ -89,20 +89,20 @@ You can define default values for your function parameters. Any parameter with a
 calling your function. To declare a default value, use the assignment operator `=` after the type:
 
 ```kotlin
-fun printMessageWithPrefix(message: String, prefix: String = "Info") {
+fun customPrint(message: String, prefix: String = "Info") {
     println("[$prefix] $message")
 }
 
 fun main() {
     // Function called with both parameters
-    printMessageWithPrefix("Hello", "Log") 
+    customPrint("Hello", "Log") 
     // [Log] Hello
     
     // Function called only with message parameter
-    printMessageWithPrefix("Hello")        
+    customPrint("Hello")        
     // [Info] Hello
     
-    printMessageWithPrefix(prefix = "Log", message = "Hello")
+    customPrint(prefix = "Log", message = "Hello")
     // [Log] Hello
 }
 ```
