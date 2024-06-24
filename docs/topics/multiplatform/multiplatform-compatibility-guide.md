@@ -857,7 +857,7 @@ declarations. Also, it's now only possible to import forward declarations by usi
 
 **What's the issue?**
 
-You might encounter an issue when changes in Kotlin code are not reflected in the iOS app in Xcode when direct integration
+Changes in Kotlin code might not be reflected in the iOS app in Xcode when direct integration
 is used. The direct integration is set up with the `embedAndSignAppleFrameworkForXcode` task, which connects the iOS
 framework from your multiplatform project to the iOS app in Xcode.
 
