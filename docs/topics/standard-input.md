@@ -5,7 +5,43 @@
 >
 {type="note"}
 
-In Kotlin, you can use Java Scanner to read data from standard input. Due to Kotlin's interoperability with Java libraries,
+To read from the standard input, Java provides the `Scanner` class. 
+
+Kotlin has two main ways to read from the standard input: 
+the `Scanner` class, similar to Java, and the `readln()` function. 
+
+Read the next sections for more details and examples of reading from the standard input in Java and Kotlin. 
+
+## Read from the standard input with Java Scanner
+
+In Java, the standard input is typically accessed through the `System.in` object. You need to import the `Scanner` class, 
+create an object, and use methods like `nextLine()` and `nextInt()` to read different data types:
+
+```Java
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Reads a single line of input. For example: Hi there!
+        System.out.print("Enter a line: ");
+        String line = scanner.nextLine();
+        System.out.println("You entered: " + line);
+        // You entered: Hi there!
+
+        // Reads an integer. For example: 08081990
+        System.out.print("Enter an integer: ");
+        int number = scanner.nextInt();
+        System.out.println("You entered: " + number);
+        // You entered: 08081990
+
+        scanner.close();
+    }
+}
+```
+
+In Kotlin, you can use Java Scanner to read data from the standard input. Due to Kotlin's interoperability with Java libraries,
 it's possible to access Java Scanner from Kotlin code out of the box.
 
 To use Java's Scanner, you need to first import it by adding the following statement at the top of your source code file:
@@ -33,7 +69,7 @@ val string = scanner.next()
 val num = scanner.nextInt()
 ```
 
-Here's a complete example of a code that reads two numbers and prints them in a single line but in reverse order:
+Here's a complete example of a code that reads two numbers and prints them in separate lines and reverse order:
 
 ```Kotlin
 // Imports Java's Scanner
@@ -48,9 +84,10 @@ fun main() {
     // Reads the second number. For example: 100
     val secondNumber = scanner.nextInt()
 
-    print(secondNumber)
-    print(firstNumber)
-    // 10099
+    println(secondNumber)
+    println(firstNumber)
+    // 100
+    // 99
 }
 ```
 
@@ -68,3 +105,21 @@ The `close()` method closes the input stream associated with the scanner, preven
 > releases the resources it consumes and ensures proper program behavior.
 >
 {type="note"}
+
+## Read from the standard input with readln()
+
+In Kotlin, the `readLine()` function is the most straightforward way to read input in Kotlin. This function reads a line 
+of text from the standard input and returns it as a string:
+
+```Kotlin
+// Reads a string. For example: Charlotte
+val name = readln()
+
+// Reads a string and converts it into an integer. For example: 43
+val age = readln().toInt() 
+
+println("Hello, $name! You are $age years old.")
+// Hello, Charlotte! You are 43 years old.
+```
+
+For more information, see [Read standard input](read-standard-input.md).
