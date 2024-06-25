@@ -79,7 +79,7 @@ For example, `useDelimiter(",")` reads the input elements separated by commas.
 
 The `close()` method closes the input stream associated with the Scanner, preventing further use of the Scanner for reading input.
 
->It's important to use the `close()` method whenever you're finished using Java Scanner. Closing the Java Scanner
+> It's important to use the `close()` method whenever you're finished using Java Scanner. Closing the Java Scanner
 > releases the resources it consumes and ensures proper program behavior.
 >
 {type="note"}

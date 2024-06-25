@@ -52,6 +52,10 @@ print(doubles)
 //[4.0,5.0,6.0]
 ```
 
+> For an alternative way to read user input, see [Standard input with Java Scanner](standard-input.md).
+>
+{type="note"}
+
 ## Handle standard input safely
 
 You can use the `toIntOrNull()` function to safely convert user input from a string to an integer. This function returns an
@@ -71,5 +75,3 @@ print(correctInt)
 
 The `readlnOrNull()` function is also helpful in safely handling the input. The `readlnOrNull()` function reads from the 
 standard input and returns null if the end of the input is reached, whereas `readln()` would throw an exception in such a case.
-
-For an alternative way to read user input, see [Standard input with Java Scanner](standard-input.md).
