@@ -52,6 +52,8 @@ print(doubles)
 //[4.0,5.0,6.0]
 ```
 
+## Handle standard input safely
+
 You can use the `toIntOrNull()` function to safely convert user input from a string to an integer. This function returns an
 integer if the conversion is successful. However, if the input is not a valid representation of an integer, it returns `null`:
 
