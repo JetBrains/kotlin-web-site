@@ -25,12 +25,13 @@ object BuildJsAssets: BuildType({
       scriptContent = """
         #!/bin/bash
         set -e -x -u
+        export NODE_OPTIONS="--no-experimental-fetch"
         
         yarn install --frozen-lockfile
         
         NODE_ENV=production yarn run build
       """.trimIndent()
-      dockerImage = "node:18.0.0"
+      dockerImage = "node:18"
       dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
       dockerPull = true
     }
