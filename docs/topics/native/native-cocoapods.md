@@ -6,7 +6,7 @@ on Pod libraries as well as use a multiplatform project with native targets as a
 You can manage Pod dependencies directly in IntelliJ IDEA or Android Studio and enjoy all the additional features such as
 code highlighting and completion. You can build the whole Kotlin project with Gradle and not ever have to switch to Xcode. 
 
-You'll only need Xcode if you want to change Swift/Objective-C code or run your application on an Apple simulator or device.
+You only need Xcode if you want to change Swift/Objective-C code or run your application on an Apple simulator or device.
 To work correctly with Xcode, you should [update your Podfile](#update-podfile-for-xcode). 
 
 Depending on your project and purposes, you can add dependencies between [a Kotlin project and a Pod library](native-cocoapods-libraries.md)
