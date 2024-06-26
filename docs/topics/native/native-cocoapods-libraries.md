@@ -3,7 +3,7 @@
 To add dependencies between a Kotlin project and a Pod library, [complete the initial configuration](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
 You can then add dependencies on different types of Pod libraries.
 
-When you add a new dependency and re-import the project in IntelliJ IDEA, the new dependency will be added automatically.
+When you add a new dependency and re-import the project in your IDE, the new dependency will be added automatically.
 No additional steps are required.
 
 To use your Kotlin project with Xcode, you should [make changes in your project Podfile](native-cocoapods.md#update-podfile-for-xcode).
@@ -49,7 +49,8 @@ version of the library, you can just omit this parameter altogether.
     }
     ```
 
-3. Re-import the project.
+3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
@@ -101,7 +102,8 @@ import cocoapods.FirebaseAuth.*
    >
    {type="note"}
 
-3. Re-import the project.
+3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
@@ -162,7 +164,8 @@ import cocoapods.FirebaseAuth.*
     }
     ```
 
-3. Re-import the project.
+3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
@@ -198,7 +201,8 @@ import cocoapods.CocoaLumberjack.*
     }
     ```
 
-4. Re-import the project.
+4. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 > To work correctly with Xcode, you should specify the location of specs at the beginning of your Podfile.
 > For example,
@@ -242,7 +246,8 @@ import cocoapods.example.*
     }
     ```
 
-3. Re-import the project.
+3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
    
