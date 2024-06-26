@@ -254,7 +254,7 @@ tasks.withType<CompileUsingKotlinDaemon>().configureEach {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-tasks.withType(CompileUsingKotlinDaemon::class).configureEach { task ->
+tasks.withType(CompileUsingKotlinDaemon).configureEach { task ->
     task.kotlinDaemonJvmArguments = ["-Xmx1g", "-Xms512m"]
 }
 ```

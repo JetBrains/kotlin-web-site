@@ -317,7 +317,7 @@ kotlin {
 ```groovy
 kotlin {
     jvmToolchain {
-        languageVersion = JavaLanguageVersion.of(<MAJOR_JDK_VERSION>))
+        languageVersion = JavaLanguageVersion.of(<MAJOR_JDK_VERSION>)
     }
     // Or shorter:
     jvmToolchain(<MAJOR_JDK_VERSION>)
