@@ -311,25 +311,29 @@ fun main(input: Rho) {
     // Rho and Tau interfaces.
     if (unknownObject is Tau) {
 
-        // Use the overloaded inc() operator from interface Rho,
-        // which smart-casts the type of unknownObject to Sigma.
+        // Use the overloaded inc() operator from interface Rho.
+        // In Kotlin 2.0.0, the type of unknownObject is smart-cast to
+        // Sigma.
         ++unknownObject
 
         // In Kotlin 2.0.0, the compiler knows unknownObject has type
         // Sigma, so the sigma() function can be called successfully.
         unknownObject.sigma()
 
-        // In Kotlin 1.9.20, the compiler thinks unknownObject has type
-        // Tau, so calling the sigma() function throws an error.
-
+        // In Kotlin 1.9.20, the compiler doesn't perform a smart cast
+        // when inc() is called so the compiler still thinks that 
+        // unknownObject has type Tau. Calling the sigma() function 
+        // throws a compile-time error.
+        
         // In Kotlin 2.0.0, the compiler knows unknownObject has type
-        // Sigma, so calling the tau() function throws an error.
+        // Sigma, so calling the tau() function throws a compile-time 
+        // error.
         unknownObject.tau()
         // Unresolved reference 'tau'
 
-        // In Kotlin 1.9.20, the compiler mistakenly thinks that 
-        // unknownObject has type Tau, so the tau() function can be
-        // called successfully.
+        // In Kotlin 1.9.20, since the compiler mistakenly thinks that 
+        // unknownObject has type Tau, the tau() function can be called,
+        // but it throws a ClassCastException.
     }
 }
 ```
@@ -633,6 +637,8 @@ However, if you don't want to immediately initialize a property, you can:
 
 * Make the property `final`.
 * Use a private backing property that allows for deferred initialization.
+
+For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-57555).
 
 ### Deprecated synthetics setter on a projected receiver
 

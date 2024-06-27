@@ -12,6 +12,20 @@ It simplifies the process of writing tests by automatically generating
 intermediate values in failure messages. 
 It helps you understand why a test failed without needing complex assertion libraries.
 
+This is an example message provided by the plugin:
+
+```text
+Incorrect length
+assert(hello.length == world.substring(1, 4).length) { "Incorrect length" }
+       |     |      |  |     |               |
+       |     |      |  |     |               3
+       |     |      |  |     orl
+       |     |      |  world!
+       |     |      false
+       |     5
+       Hello
+```
+
 The Power-assert plugin key features:
 
 * **Enhanced error messages**: The plugin captures and displays the values of variables and 

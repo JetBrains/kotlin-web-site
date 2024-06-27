@@ -59,7 +59,8 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
     end
     ```
 
-6. Re-import the project.
+6. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 ## Xcode project with several targets
 
@@ -108,6 +109,12 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
     end
     ```
 
-6. Re-import the project.
+6. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 You can find a sample project [here](https://github.com/Kotlin/kmm-with-cocoapods-multitarget-xcode-sample).
+
+## What's next
+
+See [Connect the framework to your iOS project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html#connect-the-framework-to-your-ios-project)
+to learn how to add a custom build script to build phases in Xcode projects.

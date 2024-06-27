@@ -58,7 +58,8 @@ have some other strong reason to do so.
     * [From a custom Podspec repository](native-cocoapods-libraries.md#from-a-custom-podspec-repository)
     * [With custom cinterop options](native-cocoapods-libraries.md#with-custom-cinterop-options)
 
-3. Re-import the project.
+3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 To use the dependency in your Kotlin code, import the package `cocoapods.<library-name>`. For the example above, it's:
 
