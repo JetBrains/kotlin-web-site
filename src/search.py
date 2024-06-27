@@ -1,72 +1,24 @@
+import json
 import os
 from typing import Dict, List, Iterator
 
 from algoliasearch import algoliasearch
 from algoliasearch.index import Index
 from bs4 import Tag
-from googleapiclient.discovery import build, Resource
-from oauth2client.service_account import ServiceAccountCredentials
 
 from src.api import get_api_page
 from src.dist import get_dist_page_xml, dist_path
 
 
-def initialize_analyticsreporting() -> Resource:
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(
-        os.environ['KEY_FILE_LOCATION'], scopes='https://www.googleapis.com/auth/analytics.readonly')
-    analytics = build('analyticsreporting', 'v4', credentials=credentials)
-    return analytics
-
-
-def get_report(analytics: Resource) -> Dict:
-    return analytics.reports().batchGet(
-        body={
-            "reportRequests":
-                [
-                    {
-                        "viewId": "85132606",
-                        "samplingLevel": "LARGE",
-                        "filtersExpression": "ga:hostname==kotlinlang.org;ga:pagepath!@?",
-                        "pageSize": 10000,
-                        "orderBys": [
-                            {
-                                "fieldName": "ga:uniquepageviews",
-                                "sortOrder": "DESCENDING"
-                            }
-                        ],
-                        "dateRanges":
-                            [
-                                {
-                                    "startDate": "30daysAgo",
-                                    "endDate": "yesterday"
-                                }
-                            ],
-                        "metrics":
-                            [
-                                {
-                                    "expression": "ga:uniquepageviews",
-                                    "alias": ""
-                                }
-                            ],
-                        "dimensions":
-                            [
-                                {
-                                    "name": "ga:pagePath"
-                                }
-                            ]
-                    }
-                ]
-        }).execute()
-
-
 def get_page_views_statistic() -> Dict[str, int]:
-    print("Acquiring page view statistic from google")
-    page_views = {}
-    analytics = initialize_analyticsreporting()
-    report = get_report(analytics)
-    for row in report["reports"][0]["data"]["rows"]:
-        page_views[row["dimensions"][0]] = int(row['metrics'][0]["values"][0])
+    print("Acquiring page view statistic")
+
+    file = open("page_views_map.json", "r")
+    page_views = json.load(file)
+    file.close()
+
     print("Page view statistic acquired")
+
     return page_views
 
 
@@ -110,7 +62,8 @@ def get_valuable_content(page_path, content: Iterator[Tag]) -> List[str]:
             valuable_content.append(child.text)
         elif child.name in ['ul', 'ol', 'blockquote', 'div', 'section', 'dl']:
             valuable_content += get_valuable_content(page_path, child.children)
-        elif child.name in ['figure', 'iframe', 'pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img', 'object']:
+        elif child.name in ['figure', 'iframe', 'pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img',
+                            'object']:
             continue
         else:
             raise Exception('Unknown tag "' + child.name + '" in ' + page_path)
@@ -243,8 +196,9 @@ def build_search_indices(pages):
         page_path = get_page_path_from_url(url)
         page_views = 0
 
-        if url in page_views_statistic:
-            page_views = page_views_statistic[url]
+        public_url = "https://kotlinlang.org" + url
+        if public_url in page_views_statistic:
+            page_views = page_views_statistic[public_url]
 
         if type == 'Page_Community':
             page_type = 'Community'
