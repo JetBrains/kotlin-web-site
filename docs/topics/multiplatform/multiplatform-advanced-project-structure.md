@@ -196,7 +196,7 @@ of the group. But in the `iosTest` source set you decide to up the version to 1.
 According to the same algorithm, this dependency is going to be propagated throughout the tree of test source sets, so
 every `*Test` source set will be compiled with the `kotlinx.coroutines-*:1.8.0` dependency.
 
-TODO: illustration of Test and Main source set trees side by side
+![Test source sets resolving dependencies separately from the main source sets](test-main-source-set-dependency-alignment.svg)
 
 ## Declaring custom source sets
 
