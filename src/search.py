@@ -13,7 +13,7 @@ from src.dist import get_dist_page_xml, dist_path
 def get_page_views_statistic() -> Dict[str, int]:
     print("Acquiring page view statistic")
 
-    file = open("page_views_map.json", "r")
+    file = open("data/page_views_map.json", "r")
     page_views = json.load(file)
     file.close()
 
