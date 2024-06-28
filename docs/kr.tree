@@ -197,10 +197,10 @@
             <toc-element id="mixing-java-kotlin-intellij.md"/>
             <toc-element id="jvm-records.md"/>
             <toc-element toc-title="Java to Kotlin migration guides">
-                <toc-element toc-title="Standard input" id="standard-input.md"/>
                 <toc-element toc-title="Strings" id="java-to-kotlin-idioms-strings.md"/>
                 <toc-element toc-title="Collections" id="java-to-kotlin-collections-guide.md"/>
                 <toc-element toc-title="Nullability" id="java-to-kotlin-nullability-guide.md"/>
+                <toc-element toc-title="Standard input" id="standard-input.md"/>
             </toc-element>
         </toc-element>
 
@@ -284,7 +284,6 @@
 
     <toc-element toc-title="Standard library">
 
-        <toc-element id="read-standard-input.md" toc-title="Read standard input"/>
         <toc-element  toc-title="Collections">
             <toc-element id="collections-overview.md" toc-title="Overview"/>
             <toc-element id="constructing-collections.md"/>
@@ -305,6 +304,7 @@
             <toc-element id="set-operations.md" toc-title="Set-specific operations"/>
             <toc-element id="map-operations.md" toc-title="Map-specific operations"/>
         </toc-element>
+        <toc-element id="read-standard-input.md" toc-title="Read standard input"/>
         <toc-element id="opt-in-requirements.md"/>
         <toc-element id="scope-functions.md"/>
         <toc-element id="time-measurement.md"/>

@@ -20,17 +20,17 @@ It is possible to read multiple inputs of different data types and store each in
 ```kotlin
 // Converts the input from a string to an integer value. For example: 12
 val myNumber = readln().toInt()
-print(myNumber)
+println(myNumber)
 // 12
 
 // Converts the input from a string to a double value. For example: 345 
 val myDouble = readln().toDouble()
-print(myDouble)
+println(myDouble)
 // 345.0
 
 // Converts the input from a string to a boolean value. For example: true
 val myBoolean = readln().toBoolean()
-print(myBoolean)
+println(myBoolean)
 // true
 ```
 
@@ -43,16 +43,16 @@ reads from the standard input, splits the input into a list of elements based on
 ```kotlin
 // Reads the input, assuming the elements are separated by spaces, and converts them into integers. For example: 1 2 3 
 val numbers = readln().split(' ').map { it.toInt() }
-print(numbers)
+println(numbers)
 //[1 2 3] 
 
 // Reads the input, assuming the elements are separated by commas, and converts them into doubles. For example: 4,5,6
 val doubles = readln().split(',').map { it.toDouble() }
-print(doubles)
+println(doubles)
 //[4.0,5.0,6.0]
 ```
 
-> For an alternative way to read user input, see [Standard input with Java Scanner](standard-input.md).
+> For an alternative way to read user input in Kotlin/JVM, see [Standard input with Java Scanner](standard-input.md).
 >
 {type="note"}
 
@@ -64,12 +64,12 @@ integer if the conversion is successful. However, if the input is not a valid re
 ```Kotlin
 // Returns null if the input is invalid. For example: Hello!
 val wrongInt = readln().toIntOrNull()
-print(wrongInt)
+println(wrongInt)
 // null
 
 // Converts a valid input from a string to an integer. For example: 13
 val correctInt = readln().toIntOrNull()
-print(correctInt)
+println(correctInt)
 // 13
 ```
 
