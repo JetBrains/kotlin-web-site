@@ -10,14 +10,20 @@
         <img src="icon-7.svg" width="20" alt="Final step" /> <strong>Null safety</strong><br /></p>
 </microformat>
 
-In Kotlin, it's possible to have a `null` value. To help prevent issues with `null` values in your programs, Kotlin has 
-null safety in place. Null safety detects potential problems with `null` values at compile time, rather than at run time.
+In Kotlin, it's possible to have a `null` value. Kotlin uses `null` values when something is missing or not yet set.
+You've already seen an example of Kotlin returning a `null` value in the [Collections](kotlin-tour-collections.md#kotlin-tour-map-no-key)
+chapter when you tried to access a key-value pair with a key that doesn't exist in the map. Although it's useful to use
+`null` values in this way, you might run into problems if your code isn't prepared to handle them. 
+
+To help prevent issues with `null` values in your programs, Kotlin has null safety in place. Null safety detects
+potential problems with `null` values at compile time, rather than at run time.
 
 Null safety is a combination of features that allow you to:
-* explicitly declare when `null` values are allowed in your program.
-* check for `null` values.
-* use safe calls to properties or functions that may contain `null` values.
-* declare actions to take if `null` values are detected.
+
+* Explicitly declare when `null` values are allowed in your program.
+* Check for `null` values.
+* Use safe calls to properties or functions that may contain `null` values.
+* Declare actions to take if `null` values are detected.
 
 ## Nullable types
 
@@ -105,11 +111,12 @@ fun main() {
 
 > Safe calls can be chained so that if any property of an object contains a `null` value, then `null` is returned without 
 > an error being thrown. For example:
+> 
 > ```kotlin
 >   person.company?.address?.country
 > ```
 >
-{type="note"}
+{type="tip"}
 
 The safe call operator can also be used to safely call an extension or member function. In this case, a null check is 
 performed before the function is called. If the check detects a `null` value, then the call is skipped and `null` is returned.
@@ -198,5 +205,6 @@ fun main() {
 ## What's next?
 
 Congratulations! Now that you have completed the Kotlin tour, check out our tutorials for popular Kotlin applications:
+
 * [Create a backend application](jvm-create-project-with-spring-boot.md)
 * [Create a cross-platform application for Android and iOS](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html)

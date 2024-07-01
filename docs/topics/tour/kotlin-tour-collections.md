@@ -53,7 +53,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lists-declaration"}
 
-> To prevent unwanted modifications, you can obtain read-only views of mutable lists by assigning them to a `List`:
+> To prevent unwanted modifications, you can create a read-only view of a mutable list by assigning it to a `List`:
+> 
 > ```kotlin
 >     val shapes: MutableList<String> = mutableListOf("triangle", "square", "circle")
 >     val shapesLocked: List<String> = shapes
@@ -176,7 +177,8 @@ fun main() {
 
 You can see in the previous example that because sets only contain unique elements, the duplicate `"cherry"` item is dropped.
 
-> To prevent unwanted modifications, obtain read-only views of mutable sets by casting them to `Set`:
+> To prevent unwanted modifications, you can create a read-only view of a mutable set by assigning it to a `Set`:
+> 
 > ```kotlin
 >     val fruit: MutableSet<String> = mutableSetOf("apple", "banana", "cherry", "cherry")
 >     val fruitLocked: Set<String> = fruit
@@ -273,7 +275,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-maps-declaration"}
 
-> To prevent unwanted modifications, obtain read-only views of mutable maps by casting them to `Map`:
+> To prevent unwanted modifications, you can create a read-only view of a mutable map by assigning it to a `Map`:
+> 
 > ```kotlin
 >     val juiceMenu: MutableMap<String, Int> = mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
 >     val juiceMenuLocked: Map<String, Int> = juiceMenu
@@ -296,6 +299,53 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-access"}
 
+> If you try to access a key-value pair with a key that doesn't exist in a map, you see a `null` value:
+>
+> ```kotlin
+> fun main() {
+> //sampleStart
+>     // Read-only map
+>     val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+>     println("The value of pineapple juice is: ${readOnlyJuiceMenu["pineapple"]}")
+>     // The value of pineapple juice is: null
+> //sampleEnd
+> }
+> ```
+> {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-no-key" validate="false"}
+> 
+> This tour explains null values later in the [Null safety](kotlin-tour-null-safety.md) chapter.
+> 
+{type="note"}
+
+You can also use the [indexed access operator](operator-overloading.md#indexed-access-operator) `[]` to add items to a mutable map:
+
+```kotlin
+fun main() {
+//sampleStart
+    val juiceMenu: MutableMap<String, Int> = mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    juiceMenu["coconut"] = 150 // Add key "coconut" with value 150 to the map
+    println(juiceMenu)
+    // {apple=100, kiwi=190, orange=100, coconut=150}
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-add-item"}
+
+To remove items from a mutable map, use the [`.remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove.html) 
+function:
+
+```kotlin
+fun main() {
+//sampleStart
+    val juiceMenu: MutableMap<String, Int> = mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
+    juiceMenu.remove("orange")    // Remove key "orange" from the map
+    println(juiceMenu)
+    // {apple=100, kiwi=190}
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-put-remove"}
+
 To get the number of items in a map, use the [`.count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html)
 function:
 
@@ -310,25 +360,6 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-count"}
-
-To add or remove items from a mutable map, use [`.put()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-map/put.html)
-and [`.remove()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/remove.html) functions respectively:
-
-```kotlin
-fun main() {
-//sampleStart
-    val juiceMenu: MutableMap<String, Int> = mutableMapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
-    juiceMenu.put("coconut", 150) // Add key "coconut" with value 150 to the map
-    println(juiceMenu)
-    // {apple=100, kiwi=190, orange=100, coconut=150}
-
-    juiceMenu.remove("orange")    // Remove key "orange" from the map
-    println(juiceMenu)
-    // {apple=100, kiwi=190, coconut=150}
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-map-put-remove"}
 
 To check if a specific key is already included in a map, use the [`.containsKey()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/contains-key.html)
 function:
@@ -377,6 +408,11 @@ fun main() {
     val readOnlyJuiceMenu = mapOf("apple" to 100, "kiwi" to 190, "orange" to 100)
     println("orange" in readOnlyJuiceMenu.keys)
     // true
+    
+    // Alternatively, you don't need to use the keys property
+    println("orange" in readOnlyJuiceMenu)
+    // true
+    
     println(200 in readOnlyJuiceMenu.values)
     // false
 //sampleEnd
