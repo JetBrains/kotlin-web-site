@@ -1,13 +1,13 @@
-[//]: # (title: Get started with Kotlin/Wasm in IntelliJ IDEA)
+[//]: # (title: Get started with Kotlin/Wasm in Fleet)
 
 > Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time.
 > 
 > [Join the Kotlin/Wasm community.](https://slack-chats.kotlinlang.org/c/webassembly)
 >
-{style="note"}
+{type="note"}
 
 This tutorial demonstrates how to run a [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) 
-app with [Kotlin/Wasm](wasm-overview.md) in IntelliJ IDEA, and generate artifacts to publish as a site on [GitHub pages](https://pages.github.com/).
+app with [Kotlin/Wasm](wasm-overview.md) in Fleet, and generate artifacts to publish as a site on [GitHub pages](https://pages.github.com/).
 
 ## Before you start
 
@@ -18,61 +18,63 @@ Create a project using the Kotlin Multiplatform wizard:
 
    > These are the name and ID of the project directory. You can also leave them as they are.
    >
-   {style="tip"}
+   {type="tip"}
 
-3. Select the **Web** option. Make sure that no other options are selected.
+3. Select the **Web** option. You don't need to select any other platform options for this tutorial.
 4. Click the **Download** button and unpack the resulting archive.
 
-![Kotlin Multiplatform wizard](wasm-compose-wizard.png){width=600}
+   ![Kotlin Multiplatform wizard](wasm-compose-wizard.png){width=600}
 
-## Open the project in IntelliJ IDEA
+## Open the project in Fleet
 
-1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-2. On the Welcome screen of IntelliJ IDEA, click **Open** or select **File | Open** in the menu bar.
+1. Download and install the latest version of [Fleet](https://www.jetbrains.com/fleet/).
+2. On the Welcome screen of Fleet, click **Open File or Folder** or select **File | Open** in the menu bar.
 3. Navigate to the unpacked "WasmDemo" folder and click **Open**.
 
-## Run the application
+## Run the application in Fleet
 
-1. In IntelliJ IDEA, open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
+You can run your application in Fleet using one of the following approaches:
 
-   > You need at least Java 11 as your Gradle JVM for the tasks to load successfully.
-   >
-   {style="note"}
+* In the top toolbar, click the **Run** button and select **composeApp[WasmJs]** from the run configurations list.
 
-2. In **composeApp** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserRun** task.
+  ![Run configurations](wasm-fleet-run-configurations.png){width=650}
 
-   ![Run the Gradle task](wasm-gradle-task-window.png){width=600}
-
-   Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
+* In the terminal, run the following command from the `WasmDemo` root directory:
 
    ```bash
    ./gradlew wasmJsBrowserRun -t
    ```
+  
+* In the `main.kt` file from the `composeApp/src/wasmJsMain/kotlin` directory, run the `main()` function.
+  Alternatively, use the **Shift + Cmd + R** shortcut to run it.
 
-3. Once the application starts, open the following URL in your browser:
+  ![Main function](wasm-fleet-main-function.png){width=650}
 
-   ```bash
-   http://localhost:8080/
-   ```
+Once the build is complete, the web application opens automatically in the browser. 
 
-   > The port number can vary because the 8080 port may be unavailable. You can find the actual port number printed
-   > in the Gradle build console.
-   >
-   {style="tip"}
+> You can also open the application manually by entering this URL in your browser: `http://localhost:8080/`. The port number 
+> can vary because the 8080 port may be unavailable. You can find the actual port number printed in the Gradle build console.
+>
+{type="tip"}
 
-   You see a "Click me!" button. Click it:
+You see a "Click me!" button. Click it:
 
-   ![Click me](wasm-composeapp-browser-clickme.png){width=650}
+![Click me](wasm-composeapp-browser-clickme.png){width=650}
 
-   Now you see the Compose Multiplatform logo:
+Now you see the Compose Multiplatform logo:
 
-   ![Compose app in browser](wasm-composeapp-browser.png){width=650}
+![Compose app in browser](wasm-composeapp-browser.png){width=650}
 
 ## Generate artifacts
 
-In **composeApp** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDistribution** task.
+1. In the Fleet top toolbar, click the **Run** button and select **Gradle commands** from the run configurations list.
 
-![Run the Gradle task](wasm-gradle-task-window-compose.png){width=600}
+   ![Gradle commands](wasm-fleet-gradle-commands.png){width=600}
+
+2. Select the `wasmJsBrowserDistribution` Gradle command. You can also type the command name in the 
+   text field.
+
+   ![Generate artifacts](wasm-fleet-generate-artifacts.png){width=600}
 
 Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
 
@@ -87,12 +89,12 @@ directory:
 
 ## Publish on GitHub pages
 
-1. Copy all the contents in your `productionExecutable` directory into the repository where you want to create a site.
+1. Copy all the contents from your `productionExecutable` directory into the repository where you want to create your site.
 2. Follow GitHub's instructions for [creating your site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site).
 
    > It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub.
    >
-   {style="note"}
+   {type="note"}
 
 3. In a browser, navigate to your GitHub pages domain.
 
@@ -104,7 +106,7 @@ directory:
 
 Join the Kotlin/Wasm community in Kotlin Slack:
 
-<a href="https://slack-chats.kotlinlang.org/c/webassembly"><img src="join-slack-channel.svg" width="700" alt="Join the Kotlin/Wasm community" style="block"/></a>
+<a href="https://slack-chats.kotlinlang.org/c/webassembly"><img src="join-slack-channel.svg" width="700" alt="Join the Kotlin/Wasm community"/></a>
 
 Try the Kotlin/Wasm examples from the `kotlin-wasm-examples` repository:
 

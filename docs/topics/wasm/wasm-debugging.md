@@ -2,10 +2,11 @@
 
 > Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time.
 >
-{style="note"}
+{type="note"}
 
-This tutorial demonstrates how to use your browser to debug your [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
-application built with Kotlin/Wasm.
+This tutorial demonstrates how to debug your [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
+application built with [Kotlin/Wasm](wasm-overview.md). The tutorial guides you through running your application in Fleet 
+and debugging it in both Fleet and the browser.
 
 ## Before you start
 
@@ -16,71 +17,73 @@ Create a project using the Kotlin Multiplatform wizard:
 
    > These are the name and ID of the project directory. You can also leave them as they are.
    >
-   {style="tip"}
+   {type="tip"}
 
-3. Select the **Web** option. Make sure that no other options are selected.
+3. Select the **Web** option. You don't need to select any other platform options for this tutorial.
 4. Click the **Download** button and unpack the resulting archive.
 
-![Kotlin Multiplatform wizard](wasm-compose-wizard.png){width=600}
+   ![Kotlin Multiplatform wizard](wasm-compose-wizard.png){width=600}
 
-## Open the project in IntelliJ IDEA
+## Open the project in Fleet
 
-1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-2. On the Welcome screen of IntelliJ IDEA, click **Open** or select **File | Open** in the menu bar.
-3. Navigate to the unpacked "WasmDemo" folder and click **Open**.
+1. Download and install the latest version of [Fleet](https://www.jetbrains.com/fleet/).
+2. On the Welcome screen of Fleet, click **Open File or Folder** or select **File | Open** in the menu bar.
+3. Navigate to the unpacked "WasmDemo" folder and click **Open**. 
 
-## Run the application
+## Run and debug your application in Fleet
 
-1. In IntelliJ IDEA, open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
+1. Open the `Greeting.kt` code file from the `composeApp/src/wasmJsMain/kotlin` directory.
+2. Click the line numbers to set breakpoints on the code you want to inspect.
+   In this example, we set the breakpoint on the line **5**. The number turns into a red circle.
 
-   > You need at least Java 11 as your Gradle JVM for the tasks to load successfully.
-   >
-   {style="note"}
+   ![Breakpoints](wasm-fleet-breakpoints.png){width=600}
 
-2. In **composeApp** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserRun** task.
+3. Open the `main.kt` code file from the `composeApp/src/wasmJsMain/kotlin` directory.
+4. Click the **Run** button on the `main()` function line and select **Debug 'main'**.
 
-   ![Run the Gradle task](wasm-gradle-task-window.png){width=600}
+   ![Application main file](wasm-fleet-main-file.png){width=600}
 
-   Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
+    Once the build is complete, the web application opens automatically in the browser.
 
-   ```bash
-   ./gradlew wasmJsBrowserRun
-   ```
+    ![Click me](wasm-composeapp-browser-clickme.png){width=650}
 
-3. Once the application starts, open the following URL in your browser:
+    > You can also open the application manually by entering this URL in your browser: `http://localhost:8080/`. The port number
+    > can vary because the 8080 port may be unavailable. You can find the actual port number printed in the Gradle build console.
+    >
+    {type="tip"}
 
-   ```bash
-   http://localhost:8080/
-   ```
+5. Click on the **Click me!** button to interact with the application. You see the Compose Multiplatform logo.
 
-   > The port number can vary because the 8080 port may be unavailable. You can find the actual port number printed
-   > in the Gradle build console.
-   >
-   {style="tip"}
+   ![Wasm compose app](wasm-composeapp-browser.png){width=650}
+   
+   Interacting with the app triggers the execution of the code and opens the debugging pane in Fleet automatically. Otherwise, click
+   **View | Tools | Debug** in the menu bar to open the debugging pane.
 
-   You see a "Click me!" button. Click it:
+   The debugger pauses when the execution reaches a breakpoint.
 
-   ![Click me](wasm-composeapp-browser-clickme.png){width=650}
+   ![Debug pane](wasm-fleet-debug-pane.png){width=600}
 
-   Now you see the Compose Multiplatform logo:
+6. In the debugging pane, use the debugging control buttons to inspect variables and code execution at the breakpoints:
+    * ![Step into](wasm-debug-step-into.png){width=30}{type="joined"} Step into to investigate a function more deeply.
+    * ![Step into](wasm-debug-step-over.png){width=30}{type="joined"} Step over to execute the current line and pause on the next line.
+    * ![Step out](wasm-debug-step-out.png){width=30}{type="joined"} Step out to execute the code until it exits the current function.
 
-   ![Compose app in browser](wasm-composeapp-browser.png){width=650}
+7. Check the **Threads & Frames** and **Variables** panes to trace the sequence of function calls and pinpoint the location of any errors.
 
-## Debug in your browser
+   ![Debug thread](wasm-fleet-debug-thread.png){width=600}    
 
-> Currently, debugging is only available in your browser. In the future, you will be able to debug your code in 
-> [IntelliJ IDEA](https://youtrack.jetbrains.com/issue/KT-64683/Kotlin-Wasm-debugging-in-IntelliJ-IDEA) and 
-> [Fleet](https://youtrack.jetbrains.com/issue/KT-64684). 
->
-{style="note"}
+8. Make changes to your code and run the application again (see step 4) to verify that everything works as expected.
+9. Click on the line numbers with breakpoints to remove the breakpoints.
+
+## Debug your application in the browser
 
 You can debug this Compose Multiplatform application
-in your browser out of the box, without additional configurations. 
+in your browser out of the box, without additional configurations.
 
-However, for other projects, you may need to configure additional settings in your Gradle 
+However, for other projects, you may need to configure additional settings in your Gradle
 build file. For more information about how to configure your browser for debugging, expand the next section.
 
-### Configure your browser for debugging {initial-collapse-state="collapsed" collapsible="true"}
+### Configure your browser for debugging {initial-collapse-state="collapsed"}
 
 By default, browsers can't access some of the project's sources necessary for debugging. To provide access, you can configure the Webpack DevServer
 to serve these sources. In the `ComposeApp` directory, add the following code snippets to your `build.gradle.kts` file.
@@ -97,8 +100,9 @@ Add this code snippet inside the `commonWebpackConfig{}` block, located in the `
 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
     static = (static ?: mutableListOf()).apply {
         // Serve sources to debug inside browser
-        add(project.rootDir.path)
         add(project.projectDir.path)
+        add(project.projectDir.path + "/commonMain/")
+        add(project.projectDir.path + "/wasmJsMain/")
     }
 }
 ```
@@ -114,57 +118,49 @@ kotlin {
             commonWebpackConfig {
                 outputFileName = "composeApp.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static = (static ?: mutableListOf()).apply { 
-                        // Serve sources to debug inside browser
-                        add(project.rootDir.path)
+                    static = (static ?: mutableListOf()).apply {
+                        // Serve sources to debug inside browser 
                         add(project.projectDir.path)
+                        add(project.projectDir.path + "/commonMain/")
+                        add(project.projectDir.path + "/wasmJsMain/")
                     }
-                } 
+                }
             }
         }
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true"}
+{initial-collapse-state="collapsed"}
 
 > Currently, you can't debug library sources.
 > [We will support this in the future](https://youtrack.jetbrains.com/issue/KT-64685).
 >
-{style="note"}
+{type="note"}
 
-### Debug your Kotlin/Wasm application
+### Debug in your browser
 
 > This tutorial uses the Chrome browser, but you should be able to follow these steps with other browsers. For more information,
 > see [Browser versions](wasm-troubleshooting.md#browser-versions).
-> 
-{style="tip"}
+>
+{type="tip"}
+
+Debugging in the browser is similar to debugging in Fleet, as the debugging pane consists of the same features and controls.
+
+Once your application is [running](wasm-debugging.md#run-and-debug-your-application-in-fleet), open the debugging pane in the browser:
 
 1. In the browser window of the application, right-click and select the **Inspect** action to access developer tools.
    Alternatively, you can use the **F12** shortcut or select **View** | **Developer** | **Developer Tools**.
 
-2. Switch to the **Sources** tab and select the Kotlin file to debug. In this tutorial, we'll work with the `Greeting.kt` file.
+2. In the **Sources** tab, select the `Greeting.kt` code file from the `composeApp/src/wasmJsMain/kotlin`directory. 
+3. Click the line numbers to set breakpoints on the code you want to inspect.
+   In this example, we set the breakpoint on the line **5**.
 
-3. Click on the line numbers to set breakpoints on the code that you want to inspect. Only the lines
-   with darker numbers can have breakpoints.
+   ![Set breakpoints](wasm-breakpoints.png){width=700}
 
-![Set breakpoints](wasm-breakpoints.png){width=700}
+4. Debug the application as explained in steps 5, 6, 7, 8, and 9 from the
+   [Run and debug the application in Fleet](wasm-debugging.md#run-and-debug-your-application-in-fleet) section.
 
-4. Click on the **Click me!** button to interact with the application. This action triggers the execution of the 
-   code, and the debugger pauses when the execution reaches a breakpoint.
-
-5. In the debugging pane, use the debugging control buttons to inspect variables and code execution at the breakpoints:
-   * ![Step into](wasm-step-into.png){width=30}{type="joined"} Step into to investigate a function more deeply.
-   * ![Step over](wasm-step-over.png){width=30}{type="joined"} Step over to execute the current line and pause on the next line.
-   * ![Step out](wasm-step-out.png){width=30}{type="joined"} Step out to execute the code until it exits the current function.
-
-![Debug controls](wasm-debug-controls.png){width=700}
-
-6. Check the **Call stack** and **Scope** panes to trace the sequence of function calls and pinpoint the location of any errors.
-
-![Check call stack](wasm-debug-scope.png){width=700}
-
-7. Make changes to your code and [run the application](#run-the-application) again to verify that everything works as expected.
-8. Click on the line numbers with breakpoints to remove the breakpoints.
+   ![Check call stack](wasm-debug-scope.png){width=700}
 
 ## Leave feedback
 
