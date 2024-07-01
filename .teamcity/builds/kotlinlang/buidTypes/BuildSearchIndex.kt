@@ -11,13 +11,11 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.schedule
 import vcsRoots.KotlinLangOrg
 
-
 object BuildSearchIndex : BuildType({
   name = "Build Site Search Index"
   description = "Build search index for Algolia using Google Analytics data"
 
   params {
-    param("env.KEY_FILE_LOCATION", "/secrets/google-credentials.json")
     param("virtualenv.folder", "_environment")
     param("env.WH_INDEX_NAME", SEARCH_INDEX_NAME)
     param("env.WH_SEARCH_USER", SEARCH_APP_ID)
@@ -33,12 +31,9 @@ object BuildSearchIndex : BuildType({
 
   steps {
     script {
+        name = "Push search index"
       scriptContent = """
-        #!/bin/bash
-        
-        ## refresh packages
-        pip install -r requirements.txt
-        
+        #!/bin/bash 
         python kotlin-website.py index
       """.trimIndent()
       dockerImage = "%dep.Kotlin_KotlinSites_Builds_KotlinlangOrg_BuildPythonContainer.kotlin-website-image%"
@@ -71,6 +66,17 @@ object BuildSearchIndex : BuildType({
       onDependencyFailure = FailureAction.FAIL_TO_START
       onDependencyCancel = FailureAction.CANCEL
     }
+
+    dependency(PageViews) {
+      snapshot {}
+
+      artifacts {
+        artifactRules = """
+          page_views_map.json => data/
+        """.trimIndent()
+      }
+    }
+
     dependency(BuildSitePages) {
       snapshot {}
 
