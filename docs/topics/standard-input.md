@@ -37,15 +37,17 @@ public class Main {
 }
 ```
 
+### Use Java Scanner in Kotlin
+
 Due to Kotlin's interoperability with Java libraries,
 it's possible to access Java Scanner from Kotlin code out of the box.
 
-To use Java's Scanner in Kotlin, you need to import the Scanner and initialize it by passing a `System.in` object that represents the standard input stream and dictates how to read the data.
+To use Java Scanner in Kotlin, you need to import the Scanner and initialize it by passing a `System.in` object that represents the standard input stream and dictates how to read the data.
 You can apply the [available reading methods](https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html) for reading values different from strings,
 such as `.nextLine()`, `.next()`, and `.nextInt()`:
 
 ```Kotlin
-// Imports Java's Scanner
+// Imports Java Scanner
 import java.util.Scanner
 
 fun main() {
