@@ -646,8 +646,8 @@ Kotlin Playground supports the 2.0.0 release. [Check it out!](https://pl.kotl.in
 By default, IntelliJ IDEA and Android Studio still use the previous compiler for code analysis, code completion,
 highlighting, and other IDE-related features. To get the full Kotlin 2.0 experience in your IDE, enable K2 Kotlin mode.
 
-In your IDE, go to **Settings** | **Languages & Frameworks** | **Kotlin** and select the **Enable the K2-based Kotlin
-plugin** option. The IDE will analyze your code using its K2 Kotlin mode.
+In your IDE, go to **Settings** | **Languages & Frameworks** | **Kotlin** and select the **Enable K2 Kotlin Mode** option.
+The IDE will analyze your code using its K2 Kotlin mode.
 
 > The K2 Kotlin mode is in Alpha and is available starting from 2024.1. The performance and stability of code
 > highlighting and code completion have been significantly improved, but not all IDE features are supported yet.
