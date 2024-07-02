@@ -185,15 +185,16 @@ coroutines library and applies `kotlinx-coroutines-core:1.8.0` to the `commonMai
 compile consistently across all configured targets, the iOS source sets also need to be constrained to the same dependency version.
 So Gradle propagates the `kotlinx.coroutines-*:1.8.0` dependency to the `iosMain` source set as well.
 
-![Alignment of dependencies in a group of source sets](multiplatform-source-set-dependency-alignment.svg){width=700}
+![Alignment of dependencies among *Main source sets](multiplatform-source-set-dependency-alignment.svg){width=700}
 
-Dependencies are aligned across source sets of each group: the `*Main` source sets and the [`*Test` source sets](multiplatform-discover-project.md#integration-with-tests).
-The Gradle configuration for the group of test source sets includes all dependencies of the main group, but not vice versa.
+Dependencies are aligned separately across  the `*Main` source sets and the [`*Test` source sets](multiplatform-discover-project.md#integration-with-tests).
+The Gradle configuration for `*Test` source sets includes all dependencies of `*Main` source sets, but not vice versa.
 So you can test your project with newer library versions without affecting your main code.
 
-For example, you have the Kotlin coroutines 1.7.3 dependency in your main source set group, propagated to every source set
-of the group. But in the `iosTest` source set you decide to up the version to 1.8.0 to test out the new library release.
-According to the same algorithm, this dependency is going to be propagated throughout the tree of test source sets, so
+For example, you have the Kotlin coroutines 1.7.3 dependency in your `*Main` source sets, propagated to every source set
+in the project.
+But in the `iosTest` source set you decide to up the version to 1.8.0 to test out the new library release.
+According to the same algorithm, this dependency is going to be propagated through the tree of `*Test` source sets, so
 every `*Test` source set will be compiled with the `kotlinx.coroutines-*:1.8.0` dependency.
 
 ![Test source sets resolving dependencies separately from the main source sets](test-main-source-set-dependency-alignment.svg)
