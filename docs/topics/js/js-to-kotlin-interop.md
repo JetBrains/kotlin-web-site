@@ -138,10 +138,10 @@ See how Kotlin types are mapped to JavaScript ones:
 | `DoubleArray`                                                               | `Float64Array`              |                                                                                            |
 | `LongArray`                                                                 | `Array<kotlin.Long>`        | Carries the property `$type$ == "LongArray"`. Also see Kotlin's Long type comment.         |
 | `BooleanArray`                                                              | `Int8Array`                 | Carries the property `$type$ == "BooleanArray"`.                                           |
-| `Set`, `MutableSet`                                                         | `Set`                       |                                                                                            |
-| `Map`, `MutableMap`                                                         | `Map`                       |                                                                                            |
-| `List`, `MutableList`                                                       | `Array`                     |                                                                                            |
-| `Unit`                                                                      | Undefined                   |                                                                                            |
+| `List`, `MutableList`                                                       | `KtList`, `KtMutableList`   | Exposes an `Array` via `KtList.asJsReadonlyArrayView` or `KtMutableList.asJsArrayView`.    |
+| `Map`, `MutableMap`                                                         | `KtMap`, `KtMutableMap`     | Exposes an ES6 `Map` via `KtMap.asJsReadonlyMapView` or `KtMutableMap.asJsMapView`.        |
+| `Set`, `MutableSet`                                                         | `KtSet`, `KtMutableSet`     | Exposes an ES6 `Set` via `KtSet.asJsReadonlySetView` or `KtMutableSet.asJsSetView`.        |
+| `Unit`                                                                      | Undefined                   | Exportable when used as return type, but not when used as parameter type.                  |
 | `Any`                                                                       | `Object`                    |                                                                                            |
 | `Throwable`                                                                 | `Error`                     |                                                                                            |
 | Nullable `Type?`                                                            | `Type \| null \| undefined` |                                                                                            |
