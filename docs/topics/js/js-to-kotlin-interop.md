@@ -139,8 +139,8 @@ See how Kotlin types are mapped to JavaScript ones:
 | `LongArray`                                                                 | `Array<kotlin.Long>`        | Carries the property `$type$ == "LongArray"`. Also see Kotlin's Long type comment.         |
 | `BooleanArray`                                                              | `Int8Array`                 | Carries the property `$type$ == "BooleanArray"`.                                           |
 | `List`, `MutableList`                                                       | `KtList`, `KtMutableList`   | Exposes an `Array` via `KtList.asJsReadonlyArrayView` or `KtMutableList.asJsArrayView`.    |
-| `Map`, `MutableMap`                                                         | `KtMap`, `KtMutableMap`     | Exposes an ES6 `Map` via `KtMap.asJsReadonlyMapView` or `KtMutableMap.asJsMapView`.        |
-| `Set`, `MutableSet`                                                         | `KtSet`, `KtMutableSet`     | Exposes an ES6 `Set` via `KtSet.asJsReadonlySetView` or `KtMutableSet.asJsSetView`.        |
+| `Map`, `MutableMap`                                                         | `KtMap`, `KtMutableMap`     | Exposes an ES2015 `Map` via `KtMap.asJsReadonlyMapView` or `KtMutableMap.asJsMapView`.     |
+| `Set`, `MutableSet`                                                         | `KtSet`, `KtMutableSet`     | Exposes an ES2015 `Set` via `KtSet.asJsReadonlySetView` or `KtMutableSet.asJsSetView`.     |
 | `Unit`                                                                      | Undefined                   | Exportable when used as return type, but not when used as parameter type.                  |
 | `Any`                                                                       | `Object`                    |                                                                                            |
 | `Throwable`                                                                 | `Error`                     |                                                                                            |
