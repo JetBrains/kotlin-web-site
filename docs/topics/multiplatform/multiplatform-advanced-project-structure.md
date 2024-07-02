@@ -170,19 +170,19 @@ There are three important concepts in dependency resolution:
 
 ### Aligning versions of common dependencies across source sets
 
-In Kotlin Multiplatform projects, the common source set is compiled several times: to produce a klib, and as a part of each
-configured [compilation](multiplatform-configure-compilations.md). To produces consistent binaries, common code
+In Kotlin Multiplatform projects, the common source set is compiled several times to produce a klib and as a part of each
+configured [compilation](multiplatform-configure-compilations.md). To produce consistent binaries, common code
 should be compiled against the same versions of multiplatform dependencies each time.
-Kotlin Gradle plugin helps to align these dependencies, making sure that the effective dependency version
+The Kotlin Gradle plugin helps align these dependencies, ensuring the effective dependency version
 is the same for each source set.
 
 In the example above, imagine that you want to add the `androidx.navigation:navigation-compose:2.7.7` dependency to your
 `androidMain` source set. Your project explicitly declares the `kotlinx-coroutines-core:1.7.3` dependency for the `commonMain`
 source set, but the Compose Navigation library with the version 2.7.7 requires Kotlin coroutines 1.8.0 or newer.
 
-Since `commonMain` and `androidMain` are compiled together, Kotlin Gradle plugin chooses between the two version of the
+Since `commonMain` and `androidMain` are compiled together, the Kotlin Gradle plugin chooses between the two versions of the
 coroutines library and applies `kotlinx-coroutines-core:1.8.0` to the `commonMain` source set. But to make the common code
-compile consistently across all configured targets, the iOS source sets also need to be constrained to the same dependency version.
+compile consistently across all configured targets, iOS source sets also need to be constrained to the same dependency version.
 So Gradle propagates the `kotlinx.coroutines-*:1.8.0` dependency to the `iosMain` source set as well.
 
 ![Alignment of dependencies among *Main source sets](multiplatform-source-set-dependency-alignment.svg){width=700}
@@ -191,10 +191,9 @@ Dependencies are aligned separately across  the `*Main` source sets and the [`*T
 The Gradle configuration for `*Test` source sets includes all dependencies of `*Main` source sets, but not vice versa.
 So you can test your project with newer library versions without affecting your main code.
 
-For example, you have the Kotlin coroutines 1.7.3 dependency in your `*Main` source sets, propagated to every source set
-in the project.
-But in the `iosTest` source set you decide to up the version to 1.8.0 to test out the new library release.
-According to the same algorithm, this dependency is going to be propagated through the tree of `*Test` source sets, so
+For example, you have the Kotlin coroutines 1.7.3 dependency in your main source set group, propagated to every source set
+of the group. However, in the `iosTest` source set, you decide to upgrade the version to 1.8.0 to test out the new library release.
+According to the same algorithm, this dependency is going to be propagated throughout the tree of test source sets, so
 every `*Test` source set will be compiled with the `kotlinx.coroutines-*:1.8.0` dependency.
 
 ![Test source sets resolving dependencies separately from the main source sets](test-main-source-set-dependency-alignment.svg)
