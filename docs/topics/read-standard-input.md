@@ -49,7 +49,7 @@ println(numbers)
 // Reads the input, assuming the elements are separated by commas, and converts them into doubles. For example: 4,5,6
 val doubles = readln().split(',').map { it.toDouble() }
 println(doubles)
-//[4.0,5.0,6.0]
+//[4.0, 5.0, 6.0]
 ```
 
 > For an alternative way to read user input in Kotlin/JVM, see [Standard input with Java Scanner](standard-input.md).
