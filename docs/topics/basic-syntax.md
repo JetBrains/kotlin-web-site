@@ -68,6 +68,28 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-println"}
 
+## Read from the standard input
+
+The `readln()` function reads from the standard input. This function reads the entire line the user enters as a string.
+
+You can use the `println()`, `readln()`, and `print()` functions together to print messages requesting 
+and showing user input:
+
+```kotlin
+// Prints a message to request input
+println("Enter any word: ")
+
+// Reads and stores the user input. For example: Happiness
+val yourWord = readln()
+
+// Prints a message with the input
+print("You entered the word: ")
+print(yourWord)
+// You entered the word: Happiness
+```
+
+For more information, see [Read standard input](read-standard-input.md).
+
 ## Functions
 
 A function with two `Int` parameters and `Int` return type:
