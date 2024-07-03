@@ -14,7 +14,7 @@ println(readln())
 // Hi, Kotlin!
 ```
 
-To work with data types other than strings, you can convert the input using conversion functions like `toInt()`, `toLong()`, `toDouble()`, `toFloat()`, or `toBoolean()` with dot syntax.
+To work with data types other than strings, you can convert the input using conversion functions like `.toInt()`, `.toLong()`, `.toDouble()`, `.toFloat()`, or `.toBoolean()`.
 It is possible to read multiple inputs of different data types and store each input in a variable:
 
 ```kotlin
@@ -35,16 +35,16 @@ println(myBoolean)
 ```
 
 These conversion functions assume the user enters a valid representation of the target data type. For example, converting
-"hello" to an integer using `toInt()` would result in an error as the function expects a digit in the string input.
+"hello" to an integer using `.toInt()` would result in an exception as the function expects a number in the string input.
 
-To read several input elements separated by a delimiter, use the `split()` function specifying the delimiter. The following code sample
+To read several input elements separated by a delimiter, use the `.split()` function specifying the delimiter. The following code sample
 reads from the standard input, splits the input into a list of elements based on the delimiter, and converts each element of the list into a specific type:
 
 ```kotlin
 // Reads the input, assuming the elements are separated by spaces, and converts them into integers. For example: 1 2 3 
 val numbers = readln().split(' ').map { it.toInt() }
 println(numbers)
-//[1 2 3] 
+//[1, 2, 3] 
 
 // Reads the input, assuming the elements are separated by commas, and converts them into doubles. For example: 4,5,6
 val doubles = readln().split(',').map { it.toDouble() }
@@ -58,10 +58,10 @@ println(doubles)
 
 ## Handle standard input safely
 
-You can use the `toIntOrNull()` function to safely convert user input from a string to an integer. This function returns an
+You can use the `.toIntOrNull()` function to safely convert user input from a string to an integer. This function returns an
 integer if the conversion is successful. However, if the input is not a valid representation of an integer, it returns `null`:
 
-```Kotlin
+```kotlin
 // Returns null if the input is invalid. For example: Hello!
 val wrongInt = readln().toIntOrNull()
 println(wrongInt)
@@ -73,5 +73,5 @@ println(correctInt)
 // 13
 ```
 
-The `readlnOrNull()` function is also helpful in safely handling the input. The `readlnOrNull()` function reads from the 
-standard input and returns null if the end of the input is reached, whereas `readln()` would throw an exception in such a case.
+The `readlnOrNull()` function is also helpful in safely handling the user input. The `readlnOrNull()` function reads from the 
+standard input and returns null if the end of the input is reached, whereas `readln()` throws an exception in such a case.
