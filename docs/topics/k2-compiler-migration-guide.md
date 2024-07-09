@@ -19,7 +19,7 @@ The new architecture and enriched data structure enables the K2 compiler to prov
 * **Faster compilation times**. Compilation times can be [significantly faster](#performance-improvements).
 * **Enhanced IDE performance**. If you enable K2 Kotlin mode in IntelliJ IDEA, then IntelliJ IDEA will use the K2 compiler
   frontend to analyze your Kotlin code, bringing stability and performance improvements. For more information,
-  see [Support in IntelliJ IDEA](#support-in-intellij-idea).
+  see [Support in IDEs](#support-in-ides).
 
   > The K2 Kotlin mode is in Alpha. The performance and stability of code highlighting and code completion have been improved,
   > but not all IDE features are supported yet.
@@ -528,6 +528,9 @@ Starting with Kotlin 2.0.0, the Kotlin K2 compiler is enabled by default.
 To upgrade the Kotlin version, change it to 2.0.0 in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
 [Maven](maven.md#configure-and-enable-the-plugin) build scripts.
 
+To have the best experience with IntelliJ IDEA or Android Studio, consider [enabling K2 Kotlin mode](#support-in-ides)
+in your IDE.
+
 ### Use Kotlin build reports with Gradle
 
 Kotlin [build reports](gradle-compilation-and-caches.md#build-reports) provide information about the time spent in
@@ -556,18 +559,40 @@ The following values and their combinations are available for the output:
 
 For more information on what is possible with build reports, see [Build reports](gradle-compilation-and-caches.md#build-reports).
 
+## Support in IDEs
+
+> K2 Kotlin mode is in [Alpha](components-stability.md#stability-levels-explained) and enabling it is optional. The 
+> performance and stability of code highlighting and code completion have been improved, but not all IDE features are 
+> supported yet.
+>
+{type="warning"}
+
+By default, both IntelliJ IDEA and Android Studio 2024.1 use the previous compiler for code analysis, code completion,
+highlighting, and other IDE-related features. This is to ensure performance and stability while we work on integrating 
+the new Kotlin K2 compiler.
+
+If you'd like to try using the same features with the new Kotlin K2 compiler, support is available from IntelliJ IDEA and 
+Android Studio 2024.1. To enable K2 Kotlin mode:
+
+1. In your IDE, go to **Settings** | **Languages & Frameworks** | **Kotlin**.
+2. Select the **Enable K2 Kotlin Mode** option.
+
+Learn more about the K2 Kotlin mode in our [blog](https://blog.jetbrains.com/idea/2024/05/intellij-idea-2024-2-eap-2/#improved-k2-mode).
+
+> We plan to introduce [Stable](components-stability.md#stability-levels-explained) language features after Kotlin 2.1.0.
+> Until then, you can continue to use the previous compiler for code analysis, and you won't encounter any code highlighting
+> issues due to unrecognized language features.
+>
+{type="note"}
+
+It's important to note that regardless of which compiler you use for code analysis in your IDE, the compiler used
+by your build system is **independent** and configured separately in your build script. If you [upgrade your Kotlin version
+to Kotlin 2.0.0 in your build scripts](#how-to-enable-the-kotlin-k2-compiler), the new K2 compiler will be used by default
+by your build system only.
+
 ## Try the Kotlin K2 compiler in the Kotlin Playground
 
 The Kotlin Playground supports the 2.0.0 release. [Check it out!](https://pl.kotl.in/czuoQprce)
-
-## Support in IntelliJ IDEA
-
-IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 Kotlin mode from [IntelliJ IDEA 2024.1](https://blog.jetbrains.com/idea/2024/03/k2-kotlin-mode-alpha-in-intellij-idea/).
-
-> K2 Kotlin mode is in Alpha. The performance and stability of code highlighting and code completion have been improved,
-> but not all IDE features are supported yet.
->
-{type="warning"}
 
 ## How to roll back to the previous compiler
 

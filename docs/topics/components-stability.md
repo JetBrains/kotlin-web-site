@@ -62,11 +62,11 @@ We make sure to document precisely which subcomponents are not stable. We also d
 | **Component**                                     | **Status**   | **Status since version** | **Comment**                                                                |
 |---------------------------------------------------|--------------|--------------------------|----------------------------------------------------------------------------|
 | Kotlin/JVM                                        | Stable       | 1.0                      |                                                                            |
-| Kotlin K2 (JVM, Native, Wasm, JS)                 | Beta         | 1.9.20                   |                                                                            |
+| Kotlin K2 (JVM, Native, JS)                       | Stable       | 2.0.0                    |                                                                            |
 | kotlin-stdlib (JVM)                               | Stable       | 1.0                      |                                                                            |
 | Coroutines                                        | Stable       | 1.3                      |                                                                            |
 | kotlin-reflect (JVM)                              | Beta         | 1.0                      |                                                                            |
-| Kotlin/JS (Classic back-end)                      | Stable       | 1.3                      | Deprecated from 1.8.0, read the [IR migration guide](js-ir-migration.md)   |
+| Kotlin/JS (Classic backend)                       | Stable       | 1.3                      | Deprecated from 1.8.0, read the [IR migration guide](js-ir-migration.md)   |
 | Kotlin/JVM (IR-based)                             | Stable       | 1.5                      |                                                                            |
 | Kotlin/JS (IR-based)                              | Stable       | 1.8                      |                                                                            |
 | Kotlin/Native Runtime                             | Stable       | 1.9.20                   |                                                                            |
@@ -88,7 +88,6 @@ We make sure to document precisely which subcomponents are not stable. We also d
 | Compiler Plugin API                               | Experimental | 1.0                      |                                                                            |
 | Serialization Compiler Plugin                     | Stable       | 1.4                      |                                                                            |
 | Serialization Core Library                        | Stable       | 1.0.0                    | Versioned separately from the language                                     |
-| Inline classes                                    | Stable       | 1.5                      |                                                                            |
 | Unsigned arithmetic                               | Stable       | 1.5                      |                                                                            |
 | Contracts in stdlib                               | Stable       | 1.3                      |                                                                            |
 | User-defined contracts                            | Experimental | 1.3                      |                                                                            |
