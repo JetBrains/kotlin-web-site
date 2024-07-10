@@ -7,7 +7,7 @@
     </tr>
     <tr>
         <td><strong>Next update</strong></td>
-        <td><strong>June 2024</strong></td>
+        <td><strong>August 2024</strong></td>
     </tr>
 </table>
 
