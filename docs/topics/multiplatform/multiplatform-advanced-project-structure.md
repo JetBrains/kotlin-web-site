@@ -5,6 +5,8 @@ implementation.
 
 This information will be useful if you:
 
+* Manage a complicated set of dependencies, especially common (multiplatform) ones, and would like to better understand
+  the dependency resolution mechanism.
 * Have code shared among a specific set of targets for which Kotlin doesn't create such a source set by default.
   In this case, you need a lower-level API that exposes a few new abstractions.
 * Need to work with low-level abstractions of the Gradle build, such as configurations, tasks, publications, and others.
