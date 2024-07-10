@@ -16,17 +16,17 @@ as well as suggestions for new features, especially those supported by compellin
 
 The current lifecycle of language features:
 
-* **Under discussion**: we consider the possibility of the feature introduction to the language.
+* **KEEP discussion**: we are more or less sure that the feature should be in the language.
+  And we are trying to specify motivation, use-cases, design, and other major information in a document called _KEEP_.
+  What feedback do we expect from users: discussion around all information provided in KEEP.
+
+* **Exploration and Design**: we consider the possibility of the feature introduction to the language.
   Discuss how it might look and be consistent with other features. Collect use-cases and assess a positive or negative impact.
   What feedback do we expect from users: use-cases and problems that they would solve by that feature.
   Any estimation of how frequent these use-cases and problems arise would be beneficial. 
   Usually, ideas are filed as YouTrack tickets and discussion goes there.
 
-* **KEEP preparation**: we are more or less sure that the feature should be in the language.
-  And we are trying to specify motivation, use-cases, design, and other major information in a document called _KEEP_.
-  What feedback do we expect from users: discussion around all information provided in KEEP.
-
-* **Pilot version**: a prototype is ready, and you can enable it by a feature-specific compiler key.
+* **Iteration**: a prototype is ready, and you can enable it by a feature-specific compiler key.
   What feedback do we expect from users: describe experience from trying the feature.
   How easy it was to introduce the codebase, how does it look with existing code, IDE support (issues and suggestions), etc.
   Further the shape of the feature may vary a lot, or it may be completely revoked.
@@ -35,6 +35,10 @@ The current lifecycle of language features:
   It gets guaranties of backward compatibility, tooling support, etc.
   
 * **Revoked**: we revoke the proposal and won't implement the feature in the Kotlin language.
+
+Under discussion / Discussion - Exploration and design (Design) - Previewing – Stable - Revoked
+
+Under discussion - Design - In preview - Stable - Revoked
 
 ## Language design proposals
 
