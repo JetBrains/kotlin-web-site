@@ -19,6 +19,7 @@ object SiteProject : Project({
   buildType(FetchBlogNews)
   buildType(PdfGenerator)
   buildType(BuildSearchIndex)
+  buildType(PageViews)
 
   buildTypesOrder = arrayListOf(
     BuildSitePages,
@@ -29,7 +30,8 @@ object SiteProject : Project({
     BuildWebHelpFrontend,
     BuildKotlinGrammar,
     BuildKotlinSpec,
-    BuildJsAssets
+    BuildJsAssets,
+    PageViews,
   )
 
   template(DockerImageBuilder)

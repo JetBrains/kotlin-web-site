@@ -2142,7 +2142,7 @@
   location: Coimbatore (India)
   courses:
   - name: Workshop on Kotlin
-    url: https://www.amrita.edu/event/workshop-kotlin/
+    url:
   geo:
     lat: 10.90287926
     lng: 76.90067081
@@ -2326,7 +2326,7 @@
   location: Jaipur (India)
   courses:
   - name: CA 216 Android Development
-    url: https://drive.google.com/file/d/1LxniQ029VF9BGRY4wsI2GkOiq8XcOQAX/view
+    url:
   geo:
     lat: 26.81023281
     lng: 75.86247691076034

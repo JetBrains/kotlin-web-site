@@ -393,6 +393,12 @@
     position:
       lat: 30.6587488
       lng: 103.9354604
+  - name: Chennai KUG
+    country: India
+    url: https://linktr.ee/kugchennai
+    position:
+      lat: 13.067439
+      lng: 80.237617
   - name: Chongqing KUG
     country: China Mainland
     url: https://www.cqkug.com/

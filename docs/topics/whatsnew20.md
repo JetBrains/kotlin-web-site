@@ -341,25 +341,29 @@ fun main(input: Rho) {
     // Rho and Tau interfaces.
     if (unknownObject is Tau) {
 
-        // Uses the overloaded inc() operator from interface Rho,
-        // which smart casts the type of unknownObject to Sigma.
+        // Use the overloaded inc() operator from interface Rho.
+        // In Kotlin 2.0.0, the type of unknownObject is smart-cast to
+        // Sigma.
         ++unknownObject
 
         // In Kotlin 2.0.0, the compiler knows unknownObject has type
         // Sigma, so the sigma() function can be called successfully.
         unknownObject.sigma()
 
-        // In Kotlin 1.9.20, the compiler thinks unknownObject has type
-        // Tau, so calling the sigma() function is not allowed.
-
+        // In Kotlin 1.9.20, the compiler doesn't perform a smart cast
+        // when inc() is called so the compiler still thinks that 
+        // unknownObject has type Tau. Calling the sigma() function 
+        // throws a compile-time error.
+        
         // In Kotlin 2.0.0, the compiler knows unknownObject has type
-        // Sigma, so calling the tau() function is not allowed.
+        // Sigma, so calling the tau() function throws a compile-time 
+        // error.
         unknownObject.tau()
         // Unresolved reference 'tau'
 
-        // In Kotlin 1.9.20, the compiler mistakenly thinks that 
-        // unknownObject has type Tau, the tau() function can be 
-        // called successfully.
+        // In Kotlin 1.9.20, since the compiler mistakenly thinks that 
+        // unknownObject has type Tau, the tau() function can be called,
+        // but it throws a ClassCastException.
     }
 }
 ```
@@ -642,8 +646,8 @@ Kotlin Playground supports the 2.0.0 release. [Check it out!](https://pl.kotl.in
 By default, IntelliJ IDEA and Android Studio still use the previous compiler for code analysis, code completion,
 highlighting, and other IDE-related features. To get the full Kotlin 2.0 experience in your IDE, enable K2 Kotlin mode.
 
-In your IDE, go to **Settings** | **Languages & Frameworks** | **Kotlin** and select the **Enable the K2-based Kotlin
-plugin** option. The IDE will analyze your code using its K2 Kotlin mode.
+In your IDE, go to **Settings** | **Languages & Frameworks** | **Kotlin** and select the **Enable K2 Kotlin Mode** option.
+The IDE will analyze your code using its K2 Kotlin mode.
 
 > The K2 Kotlin mode is in Alpha and is available starting from 2024.1. The performance and stability of code
 > highlighting and code completion have been significantly improved, but not all IDE features are supported yet.
