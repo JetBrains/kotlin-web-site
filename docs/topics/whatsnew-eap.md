@@ -19,7 +19,9 @@ Here are some details of this EAP release:
 * [Kotlin/Native: Support for bitcode embedding removed](#support-for-bitcode-embedding-removed)
 * [Kotlin/Wasm: Error in default export usage](#error-in-default-export-usage)
 * [Kotlin/Wasm: New location of ExperimentalWasmDsl annotation](#new-location-of-experimentalwasmdsl-annotation)
-* [Gradle improvements: Support for versions 8.6–8.8 and Deprecated incremental compilation based on JVM history files](#gradle-improvements)
+* [Gradle improvements: Support for versions 8.6–8.8](#gradle-support-for-versions-8-6-8-8)
+* [Gradle improvements: Deprecated incremental compilation based on JVM history files](#deprecated-incremental-compilation-based-on-jvm-history-files)
+* [Gradle improvements: Added task dependency for a rare case when compile task is missing one on an artifact](#added-task-dependency-for-a-rare-case-when-compile-task-is-missing-one-on-an-artifact)
 
 ## IDE support
 
@@ -151,19 +153,50 @@ Once you've created a subproject, let's call it `subproject-A`, your parent proj
 
 In your subproject's `build.gradle.kts` file, apply the Application plugin in the `plugins {}` block:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
 plugins {
     id("application")
 }
 ```
 
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id('application')
+}
+```
+
+</tab>
+</tabs>
+
 In your subproject's `build.gradle.kts` file, add a dependency on your parent multiplatform project:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 dependencies {
-    implementation(project("my-main-project")) // The name of your parent multiplatform project
+    implementation(project(":my-main-project")) // The name of your parent multiplatform project
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    implementation project(':my-main-project') // The name of your parent multiplatform project
+}
+```
+
+</tab>
+</tabs>
+
 
 Your parent project is now set up to work with both plugins.
 
@@ -280,6 +313,42 @@ In contrast, the new incremental compilation approach overcomes these limitation
 
 Given that the new incremental compilation approach has been used by default for the last two major Kotlin releases, 
 the `kotlin.incremental.useClasspathSnapshot` Gradle property is deprecated in Kotlin %kotlinEapVersion%, so you can no longer use it to opt out.
+
+### Added task dependency for a rare case when compile task is missing one on an artifact
+
+Prior to %kotlinEapVersion%, 
+we found that there were scenarios where a compile task was missing a task dependency for one of its artifact inputs.
+This meant that the result of the dependent compile task was unstable, as sometimes the artifact had been generated in time,
+but sometimes it hadn't.
+
+To fix this issue, the Kotlin Gradle plugin now automatically adds the required task dependency in these scenarios.
+
+In very rare cases, we've found that this new behavior can cause a circular dependency error.
+For example, if you have multiple compilations where one compilation can see all internal declarations of the other,
+and the generated artifact relies on the output of both compilation tasks, you could see an error like:
+
+```none
+FAILURE: Build failed with an exception.
+
+What went wrong:
+Circular dependency between the following tasks:
+:lib:compileKotlinJvm
+--- :lib:jvmJar
+     \--- :lib:compileKotlinJvm (*)
+(*) - details omitted (listed previously)
+```
+
+To fix this circular dependency error, we've added a Gradle property: `archivesTaskOutputAsFriendModule`.
+
+By default, this property is set to `true` to track the task dependency. 
+To disable the use of the artifact in the compilation task, so that no task dependency is required, 
+add the following in your `gradle.properties` file:
+
+```kotlin
+kotlin.build.archivesTaskOutputAsFriendModule=false
+```
+
+For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-69330).
 
 ## How to update to Kotlin %kotlinEapVersion%
 
