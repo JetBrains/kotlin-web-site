@@ -30,7 +30,7 @@ export async function readDirPages(rootDir, reportUrl) {
 
     function onReady({ type, url, file }) {
         if (reportUrl) reportUrl({ type, url, file });
-        if (type.startsWith('Page_')) result.push({ url, type });
+        if (type.startsWith('Page')) result.push({ url, type });
         updateProgressState();
     }
 
