@@ -5,14 +5,17 @@ implementation. This information will be useful if you need to work with low-lev
 (configurations, tasks, publications, and others) or are creating a Gradle plugin for Kotlin Multiplatform builds.
 
 Under the hood particulars of source set management:
-  * The `dependsOn` relation between source sets enables source set hierarchy that is crucial for multiplatform
-    projects.
-  * You may want to declare custom source sets to share code among a specific subset of targets which is not supported by Kotlin by default.
-    There is a lower-level API that exposes a few abstractions to help with that.
+
+  * The `dependsOn` relation between source sets enables [source set hierarchy](#dependson-source-set-hierarchies-and-custom-source-sets)
+    that is crucial for multiplatform projects.
+  * You may want to [declare custom source sets](#declaring-custom-source-sets) to share code among a specific subset
+    of targets which is not supported by Kotlin by default. There is a lower-level API that exposes a few abstractions to help with that.
+
 Deeper understanding of library dependencies in Kotlin Multiplatform:
-  * To manage dependencies in a multiplatform project, you may need to understand how Gradle dependencies are resolved into
-    granular **source set → source set** dependencies used for compilation.
-  * To make sure that code for every target is compiled with the same dependency versions, dependencies are aligned
+
+  * To manage dependencies in a multiplatform project, you may need to understand [how Gradle dependencies are resolved](#dependencies-on-other-libraries-or-projects)
+    into granular **source set → source set** dependencies used for compilation.
+  * To make sure that code for every target is compiled with the same dependency versions, [dependencies are aligned](#aligning-versions-of-common-dependencies-across-source-sets)
     across `*Main` source sets and, separately, across `*Test` source sets.
 
 > Before diving into advanced concepts, we recommend learning [the basics of the multiplatform project structure](multiplatform-discover-project.md).
