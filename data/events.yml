@@ -1,3 +1,11 @@
+- lang: en
+  startDate: '2024-10-01'
+  endDate: '2024-10-01'
+  location: Vienna, Austria
+  speaker: 'TBD'
+  title: 'Kotlin Beginners Night'
+  subject: 'Kotlin Vienna Meetup'
+  url: https://www.meetup.com/kotlin-vienna/events/295318889/
 - lang: bn
   startDate: '2024-06-08'
   endDate: '2024-06-08'
