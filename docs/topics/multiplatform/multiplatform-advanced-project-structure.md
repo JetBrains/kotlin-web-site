@@ -22,7 +22,7 @@ Deeper understanding of library dependencies in Kotlin Multiplatform:
 >
 {type="tip"}
 
-## dependsOn, source set hierarchies, and custom source sets
+## dependsOn and source set hierarchies
 
 Usually, you'll be working with _dependencies_ and not with the _`dependsOn`_ relation. However, examining `dependsOn`
 is crucial to understanding how Kotlin Multiplatform projects work under the hood.
