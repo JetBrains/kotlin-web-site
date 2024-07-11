@@ -27,15 +27,14 @@ async function getPage(url, file) {
 
         pageType = 'Page';
 
-        if (url.startsWith('community')) pageType = 'Page_Community';
-        if (url.startsWith('docs/reference')) pageType = 'Page_Reference';
-        if (url.startsWith('docs/tutorials')) pageType = 'Page_Tutorial';
-        if (url === '404.html') pageType = 'Page_NotFound';
+        if (url.startsWith('community/')) pageType = 'Page_Community';
+        if (url === 'docs/reference/grammar.html') pageType = 'Page_Grammar';
+        if (url === '404.html' || url === '404/') pageType = 'Page_NotFound';
 
         if (url.startsWith('api/latest/'))
             pageType = url.includes('jvm/stdlib') ? 'Page_API_stdlib' : 'Page_API_test';
 
-        if (url.startsWith('/spec/')) pageType = 'Page_Spec';
+        if (url.startsWith('spec/')) pageType = 'Page_Spec';
 
         if (doc('body[data-article-props]').length)
             pageType = 'Page_Documentation';
@@ -47,8 +46,8 @@ async function getPage(url, file) {
     if (url.endsWith('.pdf')) pageType = 'File_Pdf';
     if (url.endsWith('.zip')) pageType = 'File_Archive';
     if (url.endsWith('.js') || url.endsWith('.css')) pageType = 'File_Asset';
-    if (url.endsWith('.json') || url.endsWith('.xml') || url.endsWith('.txt')) pageType = 'File_Data';
-
+    if (url.endsWith('.json') || url.endsWith('.xml') || url.endsWith('.txt'))
+        pageType = url.toLowerCase().includes('license') && url.endsWith('.txt') ? 'File_License' : 'File_Data';
 
     if (url.endsWith('.woff') || url.endsWith('.woff2') || url.endsWith('.ttf')) pageType = 'File_Font';
 
