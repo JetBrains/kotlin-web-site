@@ -1,33 +1,28 @@
 [//]: # (title: Advanced concepts of the multiplatform project structure)
 
 This article explains advanced concepts of the Kotlin Multiplatform project structure and how they map to the Gradle
-implementation.
+implementation. This information will be useful if you need to work with low-level abstractions of the Gradle build
+(configurations, tasks, publications, and others) or are creating a Gradle plugin for Kotlin Multiplatform builds.
 
-This information will be useful if you:
-
-* Manage a complicated set of dependencies, especially common (multiplatform) ones, and would like to better understand
-  the dependency resolution mechanism.
-* Have code shared among a specific set of targets for which Kotlin doesn't create such a source set by default.
-  In this case, you need a lower-level API that exposes a few new abstractions.
-* Need to work with low-level abstractions of the Gradle build, such as configurations, tasks, publications, and others.
-* Are creating a Gradle plugin for Kotlin Multiplatform builds.
+Under the hood particulars of source set management:
+  * The `dependsOn` relation between source sets enables source set hierarchy that is crucial for multiplatform
+    projects.
+  * You may want to declare custom source sets to share code among a specific subset of targets which is not supported by Kotlin by default.
+    There is a lower-level API that exposes a few abstractions to help with that.
+Deeper understanding of library dependencies in Kotlin Multiplatform:
+  * To manage dependencies in a multiplatform project, you may need to understand how Gradle dependencies are resolved into
+    granular **source set → source set** dependencies used for compilation.
+  * To make sure that code for every target is compiled with the same dependency versions, dependencies are aligned
+    across `*Main` source sets and, separately, across `*Test` source sets.
 
 > Before diving into advanced concepts, we recommend learning [the basics of the multiplatform project structure](multiplatform-discover-project.md).
 >
 {type="tip"}
 
-## Dependencies and dependsOn
-
-This section describes two kinds of dependencies:
-
-* [`dependsOn`](#dependson-and-source-set-hierarchies) – a specific Kotlin Multiplatform relation between two Kotlin source sets.
-* [Regular dependencies](#dependencies-on-other-libraries-or-projects) – dependencies on a published library,
-  such as `kotlinx-coroutines`, or on another Gradle project in your build.
+## dependsOn, source set hierarchies, and custom source sets
 
 Usually, you'll be working with _dependencies_ and not with the _`dependsOn`_ relation. However, examining `dependsOn`
 is crucial to understanding how Kotlin Multiplatform projects work under the hood.
-
-### dependsOn and source set hierarchies
 
 `dependsOn` is a Kotlin-specific relation between two Kotlin source sets. This could be a connection between common
 and platform-specific source sets, for example, when the `jvmMain` source set depends on `commonMain`, `iosArm64Main`
@@ -75,7 +70,74 @@ You cannot use `dependsOn` to declare regular dependencies on a published librar
 For example, you can't set up `commonMain` to depend on the `commonMain` of the `kotlinx-coroutines-core` library
 or call `commonTest.dependsOn(commonMain)`.
 
-### Dependencies on other libraries or projects
+### Declaring custom source sets
+
+In some cases, you might need to have a custom intermediate source set in your project.
+Consider a project that compiles to the JVM, JS, and Linux, and you want to share some sources only between the JVM and JS.
+In this case, you should find a specific source set for this pair of targets,
+as described in [The basics of multiplatform project structure](multiplatform-discover-project.md).
+
+Kotlin doesn't create such a source set automatically. This means you should create it manually with the `by creating` construction:
+
+```kotlin
+kotlin {
+    jvm()
+    js()
+    linuxX64()
+
+    sourceSets {
+        // Create a source set named "jvmAndJs"
+        val jvmAndJsMain by creating {
+            // …
+        }
+    }
+}
+```
+
+However, Kotlin still doesn't know how to treat or compile this source set. If you drew a diagram,
+this source set would be isolated and wouldn't have any target labels:
+
+![Missing dependsOn relation](missing-dependson-diagram.svg){width=700}
+
+To fix this, include `jvmAndJsMain` in the hierarchy by adding several `dependsOn` relations:
+
+```kotlin
+kotlin {
+    jvm()
+    js()
+    linuxX64()
+
+    sourceSets {
+        val jvmAndJsMain by creating {
+            // Don't forget to add dependsOn to commonMain
+            dependsOn(commonMain.get())
+        }
+
+        jvmMain {
+            dependsOn(jvmAndJsMain)
+        }
+
+        jsMain {
+            dependsOn(jvmAndJsMain)
+        }
+    }
+}
+```
+
+Here, `jvmMain.dependsOn(jvmAndJsMain)` adds the JVM target to `jvmAndJsMain`, and `jsMain.dependsOn(jvmAndJsMain)`
+adds the JS target to `jvmAndJsMain`.
+
+The final project structure will look like this:
+
+![Final project structure](final-structure-diagram.svg){width=700}
+
+> Manual configuration of `dependsOn` relations disables automatic application of the default hierarchy template.
+> See [Additional configuration](multiplatform-hierarchy.md#additional-configuration) to learn more about such cases
+> and how to handle them.
+>
+{type="note"}
+
+## Dependencies on other libraries or projects
 
 In multiplatform projects, you can set up regular dependencies either on a published library or on another Gradle project.
 
@@ -200,73 +262,6 @@ According to the same algorithm, this dependency is going to be propagated throu
 every `*Test` source set will be compiled with the `kotlinx.coroutines-*:1.8.0` dependency.
 
 ![Test source sets resolving dependencies separately from the main source sets](test-main-source-set-dependency-alignment.svg)
-
-## Declaring custom source sets
-
-In some cases, you might need to have a custom intermediate source set in your project.
-Consider a project that compiles to the JVM, JS, and Linux, and you want to share some sources only between the JVM and JS.
-In this case, you should find a specific source set for this pair of targets,
-as described in [The basics of multiplatform project structure](multiplatform-discover-project.md).
-
-Kotlin doesn't create such a source set automatically. This means you should create it manually with the `by creating` construction:
-
-```kotlin
-kotlin {
-    jvm()
-    js()
-    linuxX64()
-
-    sourceSets {
-        // Create a source set named "jvmAndJs"
-        val jvmAndJsMain by creating {
-            // …
-        }
-    }
-}
-```
-
-However, Kotlin still doesn't know how to treat or compile this source set. If you drew a diagram,
-this source set would be isolated and wouldn't have any target labels:
-
-![Missing dependsOn relation](missing-dependson-diagram.svg){width=700}
-
-To fix this, include `jvmAndJsMain` in the hierarchy by adding several `dependsOn` relations:
-
-```kotlin
-kotlin {
-    jvm()
-    js()
-    linuxX64()
-
-    sourceSets {
-        val jvmAndJsMain by creating {
-            // Don't forget to add dependsOn to commonMain
-            dependsOn(commonMain.get())
-        }
-
-        jvmMain {
-            dependsOn(jvmAndJsMain)
-        }
-
-        jsMain {
-            dependsOn(jvmAndJsMain)
-        }
-    }
-}
-```
-
-Here, `jvmMain.dependsOn(jvmAndJsMain)` adds the JVM target to `jvmAndJsMain`, and `jsMain.dependsOn(jvmAndJsMain)`
-adds the JS target to `jvmAndJsMain`.
-
-The final project structure will look like this:
-
-![Final project structure](final-structure-diagram.svg){width=700}
-
-> Manual configuration of `dependsOn` relations disables automatic application of the default hierarchy template.
-> See [Additional configuration](multiplatform-hierarchy.md#additional-configuration) to learn more about such cases
-> and how to handle them.
->
-{type="note"}
 
 ## Compilations
 
