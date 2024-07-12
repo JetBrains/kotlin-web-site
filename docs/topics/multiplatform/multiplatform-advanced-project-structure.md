@@ -4,19 +4,21 @@ This article explains advanced concepts of the Kotlin Multiplatform project stru
 implementation. This information will be useful if you need to work with low-level abstractions of the Gradle build
 (configurations, tasks, publications, and others) or are creating a Gradle plugin for Kotlin Multiplatform builds.
 
-Under the hood particulars of source set management:
+This page can be useful if you:
 
-  * The `dependsOn` relation between source sets enables [source set hierarchy](#dependson-source-set-hierarchies-and-custom-source-sets)
-    that is crucial for multiplatform projects.
-  * You may want to [declare custom source sets](#declaring-custom-source-sets) to share code among a specific subset
-    of targets which is not supported by Kotlin by default. There is a lower-level API that exposes a few abstractions to help with that.
+* Need to share code among a set of targets for which Kotlin doesn't create a source set.
+* Want to create a Gradle plugin for Kotlin Multiplatform builds, or need to work with low-level abstractions of the Gradle
+  build, such as configurations, tasks, publications, and others.
 
-Deeper understanding of library dependencies in Kotlin Multiplatform:
+One of the crucial things to understand about dependency management in a multiplatform project is the difference between
+Gradle-style project or library dependencies and the `dependsOn` relation between source sets that is specific to Kotlin:
 
-  * To manage dependencies in a multiplatform project, you may need to understand [how Gradle dependencies are resolved](#dependencies-on-other-libraries-or-projects)
-    into granular **source set → source set** dependencies used for compilation.
-  * To make sure that code for every target is compiled with the same dependency versions, [dependencies are aligned](#aligning-versions-of-common-dependencies-across-source-sets)
-    across `*Main` source sets and, separately, across `*Test` source sets.
+* `dependsOn` is a relation between common and platform-specific source sets that enables [source set hierarchy](#dependson-source-set-hierarchies-and-custom-source-sets)
+  and sharing code in multiplatform projects in general. For default source sets the hierarchy is managed automatically, but you may
+  need to alter it in specific circumstances.
+* Library and project dependencies in general work as usual, but to properly manage them in a multiplatform project
+  you should understand [how Gradle dependencies are resolved](#dependencies-on-other-libraries-or-projects)
+  into granular **source set → source set** dependencies used for compilation.
 
 > Before diving into advanced concepts, we recommend learning [the basics of the multiplatform project structure](multiplatform-discover-project.md).
 >
@@ -220,12 +222,12 @@ There are three important concepts in dependency resolution:
 
    Consider an example where `commonMain` in the sample project compiles to `androidTarget`, `iosX64`, and `iosSimulatorArm64`:
 
-   * First, it resolves a dependency on `kotlinx-coroutines-core.commonMain`. This happens because `kotlinx-coroutines-core`
-     compiles to all possible Kotlin targets. Therefore, its `commonMain` compiles to all possible targets,
-     including the required `androidTarget`, `iosX64`, and `iosSimulatorArm64`.
-   * Second, `commonMain` depends on `kotlinx-coroutines-core.concurrentMain`.
-     Since `concurrentMain` in `kotlinx-coroutines-core` compiles to all the targets except for JS,
-     it matches the targets of the consumer project's `commonMain`.
+    * First, it resolves a dependency on `kotlinx-coroutines-core.commonMain`. This happens because `kotlinx-coroutines-core`
+      compiles to all possible Kotlin targets. Therefore, its `commonMain` compiles to all possible targets,
+      including the required `androidTarget`, `iosX64`, and `iosSimulatorArm64`.
+    * Second, `commonMain` depends on `kotlinx-coroutines-core.concurrentMain`.
+      Since `concurrentMain` in `kotlinx-coroutines-core` compiles to all the targets except for JS,
+      it matches the targets of the consumer project's `commonMain`.
 
    However, source sets like `iosX64Main` from coroutines are incompatible with the consumer's `commonMain`.
    Even though `iosX64Main` compiles to one of the targets of `commonMain`, namely, `iosX64`,
