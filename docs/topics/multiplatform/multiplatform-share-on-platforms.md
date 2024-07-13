@@ -42,6 +42,8 @@ using one of the following ways:
 * [Using default hierarchy template](multiplatform-hierarchy.md#default-hierarchy-template)
 * [Configuring the hierarchical structure manually](multiplatform-hierarchy.md#manual-configuration)
 
+![Code shared across different platforms](kotlin-multiplatform-hierarchical-structure.svg){width=700}
+
 Learn more about [sharing code in libraries](#share-code-in-libraries) and [connecting platform-specific libraries](#connect-platform-specific-libraries).
 
 ## Share code in libraries

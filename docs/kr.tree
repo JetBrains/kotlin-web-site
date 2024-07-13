@@ -13,7 +13,7 @@
 		<toc-element hidden="true" topic="kotlin-tour-null-safety.md"/>
 	</toc-element>
 	<toc-element toc-title="Kotlin overview">
-		<toc-element topic="multiplatform.md"/>
+		<toc-element topic="multiplatform.xml"/>
 		<toc-element accepts-web-file-names="httpservlets.html" topic="server-overview.md"/>
 		<toc-element topic="android-overview.md"/>
 		<toc-element topic="wasm-overview.md"/>
@@ -118,7 +118,7 @@
 		<toc-element topic="reflection.md"/>
 	</toc-element>
 	<toc-element toc-title="Multiplatform development">
-		<toc-element accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html" toc-title="Introduction" topic="multiplatform-get-started.md"/>
+		<toc-element accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html,multiplatform-get-started.html" toc-title="Introduction" topic="multiplatform-intro.md"/>
 		<toc-element accepts-web-file-names="mpp-discover-project.html" toc-title="Understand basic project structure" topic="multiplatform-discover-project.md"/>
 		<toc-element toc-title="Explore advanced project structure" topic="multiplatform-advanced-project-structure.md"/>
 		<toc-element toc-title="Set up targets" accepts-web-file-names="mpp-set-up-targets.html" topic="multiplatform-set-up-targets.md"/>

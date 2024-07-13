@@ -93,7 +93,7 @@ Here you'll learn how to develop and improve your cross-platform application usi
    {style="tip"}
 
 4. **Learn more about Kotlin Multiplatform:**
-   * Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).
+   * Learn more about [Kotlin Multiplatform](multiplatform-intro.md).
    * Look through [samples projects](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-samples.html).
    * [Publish a multiplatform library](multiplatform-publish-lib.md).
    * Learn how Kotlin Multiplatform is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VMware](https://kotlinlang.org/lp/multiplatform/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/multiplatform/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/multiplatform/case-studies/).
