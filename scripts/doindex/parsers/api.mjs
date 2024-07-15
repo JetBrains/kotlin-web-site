@@ -25,7 +25,7 @@ function dropBreadcrumbs(doc, article) {
     return breadcrumbs;
 }
 
-const SIGNATURE_SELECTOR = 'div[data-kotlin-version][data-platform]:has(> a[name] + .signature)';
+const SIGNATURE_SELECTOR = 'div[data-kotlin-version][data-platform]:has(> .signature)';
 
 function isSignatureDescriptionNode(child) {
     return !child.tagName || child.tagName === 'p';
