@@ -1,8 +1,8 @@
 import { readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
-import { createResolve } from './index.mjs';
-import { FixedThreadPool } from './pool.mjs';
+import { createResolve } from './lib/index.mjs';
+import { FixedThreadPool } from './lib/task.mjs';
 
 /**
  * @typedef {object} Page
@@ -30,11 +30,11 @@ export async function readDirPages(rootDir, reportUrl) {
 
     function onReady({ type, url, file }) {
         if (reportUrl) reportUrl({ type, url, file });
-        if (type.startsWith('Page')) result.push({ url, type });
+        if (type.startsWith('Page')) result.push({ url, type, file });
         updateProgressState();
     }
 
-    const pool = new FixedThreadPool('./tasks/type.mjs', onReady);
+    const pool = new FixedThreadPool('./tasks/types.mjs', onReady);
 
     let isPathsWalked = false;
 

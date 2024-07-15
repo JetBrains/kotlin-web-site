@@ -1,12 +1,4 @@
-import { load } from 'cheerio';
-import { readFile } from 'node:fs/promises';
-
-/**
- * @param text
- */
-async function loadText(text) {
-    return load(text, { xml: false });
-}
+import { loadFile } from '../lib/html.mjs';
 
 /**
  * @param url {string}
@@ -17,7 +9,7 @@ async function getPage(url, file) {
     let pageType = 'Unknown';
 
     if (url.endsWith('/') || url.endsWith('.html')) {
-        const doc = await loadText(await readFile(file));
+        const doc = await loadFile(file);
 
         if (doc('meta[http-equiv=refresh]').length)
             return 'Redirect';
@@ -72,4 +64,4 @@ process.on('message',
     }
 );
 
-process.send({ type: 'inited' });
+process.send({ event: 'inited' });
