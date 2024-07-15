@@ -66,8 +66,9 @@ For the latest information about our migration plan,
 see the corresponding issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-11914).
 
 To give you more control over this behavior, in Kotlin %kotlinEapVersion% we’ve introduced two annotations:
-`@ConsistentCopyVisibility` to opt in to the behavior now before we make it the default in a later release.
-`@ExposedCopyVisibility` to opt out of the behavior and suppress warnings at the declaration site. 
+
+* `@ConsistentCopyVisibility` to opt in to the behavior now before we make it the default in a later release.
+* `@ExposedCopyVisibility` to opt out of the behavior and suppress warnings at the declaration site. 
 Note that even with this annotation, the compiler still reports warnings when the `.copy()` function is called.
 
 If you want to opt in to the new behavior already in %kotlinEapVersion% for a whole module rather than in individual classes,
