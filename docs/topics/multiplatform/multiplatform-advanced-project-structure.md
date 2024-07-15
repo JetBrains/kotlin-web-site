@@ -13,7 +13,7 @@ This page can be useful if you:
 One of the crucial things to understand about dependency management in a multiplatform project is the difference between
 Gradle-style project or library dependencies and the `dependsOn` relation between source sets that is specific to Kotlin:
 
-* `dependsOn` is a relation between common and platform-specific source sets that enables [source set hierarchy](#dependson-source-set-hierarchies-and-custom-source-sets)
+* `dependsOn` is a relation between common and platform-specific source sets that enables [source set hierarchy](#dependson-and-source-set-hierarchies)
   and sharing code in multiplatform projects in general. For default source sets the hierarchy is managed automatically, but you may
   need to alter it in specific circumstances.
 * Library and project dependencies in general work as usual, but to properly manage them in a multiplatform project
