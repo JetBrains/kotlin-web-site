@@ -1,7 +1,8 @@
 import { open, readFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 
-import { readDirPages } from './lib/types.mjs';
+import { readDirPages } from './listPages.mjs';
+import { getRecords } from './listRecords.mjs';
 
 const ROOT_DIR = resolve('..', '..');
 const DIST_DIR = join(ROOT_DIR, 'dist/');
@@ -17,7 +18,8 @@ async function readStats() {
 /** @type {Object.<string, number>} */
 const pageTypesReport = {};
 
-const [reportUnknown, reportRedirects, reportTypes, reportSlash] = await Promise.all([
+const [searchIndex, reportUnknown, reportRedirects, reportTypes, reportSlash] = await Promise.all([
+    open(ROOT_DIR + '/index-new.json', 'w'),
     open(ROOT_DIR + '/report.unknown_files.txt', 'w'),
     open(ROOT_DIR + '/report.redirects.txt', 'w'),
     open(ROOT_DIR + '/report.types.txt', 'w')
@@ -48,6 +50,19 @@ function getReport() {
 await Promise.all([
     reportUnknown.close(),
     reportRedirects.close(),
+
+    searchIndex.writeFile(
+        JSON.stringify((await getRecords(pages, stats))
+            .sort((a1, b1) => {
+                const a = JSON.stringify(a1).length;
+                const b = JSON.stringify(b1).length;
+                return a > b ? 1 : a < b ? -1 : 0;
+            })
+        ),
+        { encoding: 'utf8' }
+    )
+        .then(() => searchIndex.close()),
+
     reportTypes.writeFile(getReport(), { encoding: 'utf8' })
         .then(() => reportTypes.close())
 ]);
