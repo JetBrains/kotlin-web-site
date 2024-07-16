@@ -17,7 +17,7 @@ async function parsePage({ url, type, file, ...data }) {
         return [];
     }
 
-    return parser(url, data, await loadFile(file));
+    return await parser(url, data, await loadFile(file));
 }
 
 process.on('message',

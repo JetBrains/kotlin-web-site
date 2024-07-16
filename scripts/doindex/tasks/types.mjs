@@ -17,7 +17,7 @@ async function getPage(url, file) {
         if (doc('meta[name=robots][content=noindex]').length)
             return 'Hidden';
 
-        pageType = 'Page';
+        pageType = 'Page_Undetected';
 
         if (url.startsWith('community/')) pageType = 'Page_Community';
         if (url === 'docs/reference/grammar.html') pageType = 'Page_Grammar';

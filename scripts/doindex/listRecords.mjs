@@ -6,7 +6,10 @@ export function getRecords(pages, stats) {
     const [pool, finish] = newTaskExecutor('records', function onReady(records) {
         records = records.filter(record => {
             const isValid = record?.pageTitle && record?.content;
-            if (!isValid) console.log(`skip: ${record.objectID} with empty content`);
+
+            if (isValid) console.log(`added ${record.objectID}`);
+            else console.log(`skip: ${record.url} with empty content`);
+
             return isValid;
         });
         result = [...result, ...records];
