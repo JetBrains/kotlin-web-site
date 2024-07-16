@@ -313,7 +313,8 @@ and not supporting compilation avoidance.
 In contrast, the new incremental compilation approach overcomes these limitations and has performed well since its introduction.
 
 Given that the new incremental compilation approach has been used by default for the last two major Kotlin releases, 
-the `kotlin.incremental.useClasspathSnapshot` Gradle property is deprecated in Kotlin %kotlinEapVersion%, so you can no longer use it to opt out.
+the `kotlin.incremental.useClasspathSnapshot` Gradle property is deprecated in Kotlin %kotlinEapVersion%.
+Therefore, if you use it to opt out, you will see a deprecation warning.
 
 ### Added task dependency for a rare case when compile task is missing one on an artifact
 
