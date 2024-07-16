@@ -1,6 +1,15 @@
 import { DEFAULT_RECORD, htmlToText } from '../lib/parse.mjs';
-import { findFirstElementWith, nextElement } from '../lib/html.mjs';
+import { findPrevElementWith, nextElement } from '../lib/html.mjs';
 
+/**
+ * @typedef {import('domhandler').Node} Node
+ */
+
+/**
+ * @param {Node} node
+ * @param {number} level
+ * @returns {boolean}
+ */
 function isFinalNode(node, level) {
     return level === 0 && /^h[3-9]$/gi.test(node.tagName);
 }
@@ -27,6 +36,10 @@ function dropBreadcrumbs(doc, article) {
 
 const SIGNATURE_SELECTOR = 'div[data-kotlin-version][data-platform]:has(> .signature)';
 
+/**
+ * @param {Node} child
+ * @returns {boolean}
+ */
 function isSignatureDescriptionNode(child) {
     return !child.tagName || child.tagName === 'p';
 }
@@ -45,9 +58,7 @@ function swapSignatureCodeAndText(doc, article) {
         if (hasDescription) {
             /* if description for more than one signature, we put it before first.
                see: https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/assert-contains.html#kotlin.test$assertContains(kotlin.ranges.IntRange,%20kotlin.Int,%20kotlin.String?) */
-            const firstSignature = findFirstElementWith(nextNode, node =>
-                doc(node).is(SIGNATURE_SELECTOR)
-            );
+            const firstSignature = findPrevElementWith(nextNode, node => doc(node).is(SIGNATURE_SELECTOR));
 
             if (firstSignature) {
                 /* move description before all signatures */
@@ -77,7 +88,7 @@ function findTitleNode(doc, article) {
     return titleNode;
 }
 
-function legacyApi(url, data, doc) {
+async function legacyApi(url, data, doc) {
     let content = null;
 
     const article = doc('.page-content');
@@ -96,7 +107,7 @@ function legacyApi(url, data, doc) {
     const titleNode = findTitleNode(doc, article)[0];
 
     if (titleNode)
-        content = htmlToText(doc, [titleNode.nextSibling], isFinalNode, url);
+        content = await htmlToText(doc, [titleNode.nextSibling], isFinalNode, url);
     else {
         // check extension page like: https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/java.time.-duration/
         const isExtensionPage = article.find('> *:first-child').eq(0).is('h3[id^="extensions-for-"]');
@@ -105,14 +116,12 @@ function legacyApi(url, data, doc) {
         }
     }
 
-    let title =
-        breadcrumbs && breadcrumbs.length ?
-            breadcrumbs.join(' \u203a ') :
-            doc(titleNode).text();
+    let title = breadcrumbs && breadcrumbs.length ?
+        breadcrumbs.join(' \u203a ') :
+        doc(titleNode).text();
 
-    if (url.endsWith('/alltypes/')) {
-        content = `All types for ${breadcrumbs[breadcrumbs.length - 1]}`;
-    }
+    if (url.endsWith('/alltypes/'))
+        content = `All types for ${title}`;
 
     return [
         {

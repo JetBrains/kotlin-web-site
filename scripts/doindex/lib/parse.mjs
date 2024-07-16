@@ -8,11 +8,26 @@ export const DEFAULT_RECORD = Object.freeze({
     content: null
 });
 
+/**
+ * @param {string} text
+ * @returns {string}
+ */
 export function cleanText(text) {
     return text.replace(/\n/g, ' ').trim();
 }
 
-export function htmlToText(doc, list, isFinalNode, url) {
+/**
+ * @typedef {import('cheerio').CheerioAPI} CheerioAPI
+ */
+
+/**
+ * @param {CheerioAPI} doc
+ * @param {Node[]} list
+ * @param {(node: *, [level]: number) => boolean} [isFinalNode]
+ * @param {string} [url]
+ * @returns {Promise<string>}
+ */
+export async function htmlToText(doc, list, isFinalNode, url = '') {
     let nodes = list.map(item => ([item, 0]));
 
     const contentNodes = [];
@@ -21,7 +36,7 @@ export function htmlToText(doc, list, isFinalNode, url) {
         const [node, level] = nodes.pop();
 
         if (!node) continue;
-        if (isFinalNode(node, level)) break;
+        if (isFinalNode && isFinalNode(node, level)) break;
 
         if (!(node instanceof Node)) {
             contentNodes.push(node);
@@ -29,7 +44,7 @@ export function htmlToText(doc, list, isFinalNode, url) {
         }
 
         const tag = node.tagName?.toLowerCase();
-        if (tag === 'script' || tag === 'style') continue;
+        if (tag === 'script' || tag === 'style' || tag === 'th') continue;
 
         let result = [node];
 
