@@ -14,7 +14,7 @@ module.exports = (params = {}) => {
 
   const siteHost = 'localhost:8080';
   const nextJSHost = 'localhost:3000';
-  const indexName = params['index-name'] || process.env.INDEX_NAME || 'dev_KOTLINLANG';
+  const indexName = 'stage_kotlinlang_index';
 
   return {
     entry: {
