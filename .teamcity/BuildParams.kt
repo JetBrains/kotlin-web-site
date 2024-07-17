@@ -7,5 +7,5 @@ object BuildParams {
   const val KOTLIN_RELEASE_TAG = "v2.0.0"
 
   const val SEARCH_APP_ID = "7961PKYRXV"
-  const val SEARCH_INDEX_NAME = "prod_KOTLINLANG_WEBHELP"
+  const val SEARCH_INDEX_NAME = "stage_kotlinlang_index"
 }

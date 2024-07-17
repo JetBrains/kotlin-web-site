@@ -29,7 +29,7 @@
         <config-sideblocks>true</config-sideblocks>
         <config-algolia-api-key>1bfad5fdbae302b33d844ed1b43ec4d5</config-algolia-api-key>
         <config-algolia-id>7961PKYRXV</config-algolia-id>
-        <config-algolia-index>prod_KOTLINLANG_WEBHELP</config-algolia-index>
+        <config-algolia-index>stage_kotlinlang_index</config-algolia-index>
         <noindex-content-in-deprecated>true</noindex-content-in-deprecated>
         <noindex-content-in-eap>false</noindex-content-in-eap>
         <noindex-content-in-release>false</noindex-content-in-release>
