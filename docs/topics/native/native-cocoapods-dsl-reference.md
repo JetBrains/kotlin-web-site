@@ -52,10 +52,13 @@ You can use the following blocks, functions, and properties inside it:
 
 ### Targets
 
-* `ios`
-* `osx`
-* `tvos`
-* `watchos`
+| iOS                 | macOS        | tvOS                 | watchOS                 |
+|---------------------|--------------|----------------------|-------------------------|
+| `iosX64`            | `macosX64`   | `tvosX64`            | `watchosX64`            |
+| `iosArm64`          | `macosArm64` | `tvosArm64`          | `watchosArm64`          |
+| `iosSimulatorArm64` |              | `tvosSimulatorArm64` | `watchosSimulatorArm64` |
+|                     |              |                      | `watchosArm32`          |
+|                     |              |                      | `watchosDeviceArm64`    |
 
 For each target, use the `deploymentTarget` property to specify the minimum target version for the Pod library.
 
@@ -63,7 +66,7 @@ When applied, CocoaPods adds both `debug` and `release` frameworks as output bin
 
 ```kotlin
 kotlin {
-    ios()
+    iosX64()
    
     cocoapods {
         version = "2.0"
@@ -133,13 +136,13 @@ and `source` of the library, in its configuration block:
 
 ```kotlin
 kotlin {
-    ios()
+    iosX64()
    
     cocoapods {
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
-      
-        ios.deploymentTarget = "13.5"
+
+        iosX64.deploymentTarget = "13.5"
       
         pod("pod_dependency") {
             version = "1.0"
