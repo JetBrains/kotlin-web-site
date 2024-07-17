@@ -9,6 +9,12 @@ function log(type, ...args) {
     console[type] = log.bind(console, type);
 });
 
+/**
+ * @param {string} url
+ * @param {string} type
+ * @param {string} file
+ * @param {Object.<string, *>} data
+ */
 async function parsePage({ url, type, file, ...data }) {
     const parser = PARSERS[type];
 
@@ -17,7 +23,7 @@ async function parsePage({ url, type, file, ...data }) {
         return [];
     }
 
-    return await parser(url, data, await loadFile(file));
+    return await parser(await loadFile(file), url, data);
 }
 
 process.on('message',

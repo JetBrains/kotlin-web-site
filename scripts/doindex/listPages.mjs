@@ -12,14 +12,8 @@ import { FixedThreadPool } from './lib/task.mjs';
  */
 
 /**
- * @callback reportUrl
- * @param {Page} page
- * @returns {void}
- */
-
-/**
  * @param {string} rootDir
- * @param {reportUrl} reportUrl
+ * @param {(page: Page) => void} reportUrl
  * @returns {Promise<Page[]>}
  */
 export async function readDirPages(rootDir, reportUrl) {

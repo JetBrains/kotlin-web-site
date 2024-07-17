@@ -2,9 +2,7 @@ import { load } from 'cheerio';
 import { readFile } from 'node:fs/promises';
 import { Element } from 'domhandler';
 
-/**
- * @typedef {import('domhandler').Node} Node
- */
+/** @typedef {import('domhandler').Node} Node */
 
 /**
  * @param {Node} node

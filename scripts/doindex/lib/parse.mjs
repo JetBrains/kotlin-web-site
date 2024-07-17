@@ -16,18 +16,16 @@ export function cleanText(text) {
     return text.replace(/\n/g, ' ').trim();
 }
 
-/**
- * @typedef {import('cheerio').CheerioAPI} CheerioAPI
- */
+/** @typedef {import('cheerio').CheerioAPI} CheerioAPI */
 
 /**
- * @param {CheerioAPI} doc
+ * @param {CheerioAPI} $
  * @param {Node[]} list
  * @param {(node: *, [level]: number) => boolean} [isFinalNode]
  * @param {string} [url]
  * @returns {Promise<string>}
  */
-export async function htmlToText(doc, list, isFinalNode, url = '') {
+export async function htmlToText($, list, isFinalNode, url = '') {
     let nodes = list.map(item => ([item, 0]));
 
     const contentNodes = [];
@@ -55,7 +53,7 @@ export async function htmlToText(doc, list, isFinalNode, url = '') {
         // ) console.log('node: tag:', node.tagName, 'https://kotlinlang.org/' + url);
 
         if (tag === 'code') {
-            const text = doc(node).text();
+            const text = $(node).text();
             if (!text.includes('\n')) {
                 contentNodes.push('`' + cleanText(text) + '`');
                 nodes.push([node.nextSibling, level]);
@@ -66,7 +64,7 @@ export async function htmlToText(doc, list, isFinalNode, url = '') {
         if (tag === 'li')
             result = ['\n  * ', ...result];
 
-        // if (tag === 'a' && doc(node).text().trim())
+        // if (tag === 'a' && $(node).text().trim())
         //     result = ['[', ...result, ']'];
 
         if (tag === 'strong')
@@ -78,7 +76,7 @@ export async function htmlToText(doc, list, isFinalNode, url = '') {
         });
 
         nodes.push([node.nextSibling, level], ...result.reverse().map(item => {
-            if (item instanceof Node) item = cleanText(doc(node).text());
+            if (item instanceof Node) item = cleanText($(node).text());
             return Array.isArray(item) ? item : [item, level];
         }));
     }
