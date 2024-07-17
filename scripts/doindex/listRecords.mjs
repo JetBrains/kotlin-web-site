@@ -37,5 +37,20 @@ export function getRecords(pages, stats) {
 
     pool.pushAll(pages);
 
-    return finish.then(() => result);
+    return finish.then(() => {
+        result.map(r => r.objectID).some((id, i, list) => {
+            if (!id) {
+                console.log(id)
+                throw new Error('Absent in ' + id)
+            }
+            for(let j = i+1, length = list.length; i<length; i++) {
+                if (list[j] === id) {
+                    console.log(id)
+                    throw new Error('Err in ' + id)
+                }
+            }
+        });
+
+        return result
+    });
 }

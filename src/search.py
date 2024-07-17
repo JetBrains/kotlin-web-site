@@ -288,12 +288,6 @@ def build_search_indices(pages):
         else:
             print('skip: ' + url + ' unknown page content in with title: ' + title)
 
-    wh_index = get_wh_index()
-
-    if wh_index:
-        print("Submitting WH index objects to " + wh_index.index_name + " index")
-        # wh_index.replace_all_objects(wh_index_objects)
-
     report_index = {}
 
     for record in wh_index_objects:
@@ -324,14 +318,20 @@ def build_search_indices(pages):
         report_index[type][url].append(record)
 
     for key in report_index.keys():
-        f = codecs.open("index-report-" + key + ".json", "w", "utf-8-sig")
+        f = codecs.open("index-report-" + key + "-old.json", "w", "utf-8-sig")
         f.write(json.dumps(report_index[key], indent=2, ensure_ascii=False))
 
-    f = codecs.open("index.json", "w", "utf-8-sig")
-    f.write(json.dumps(report_index, indent=2))
+    f = codecs.open("index-old.json", "w", "utf-8-sig")
+    f.write(json.dumps(report_index, indent=2, ensure_ascii=False))
 
-    f2 = open("pages.json", "w")
+    f2 = codecs.open("pages-old.json", "w", "utf-8-sig")
     f2.write("\n".join(pages_data))
+
+    wh_index = get_wh_index()
+
+    if wh_index:
+        print("Submitting WH index objects to " + wh_index.index_name + " index")
+        # wh_index.replace_all_objects(wh_index_objects)
 
     print("Index objects successfully built")
 

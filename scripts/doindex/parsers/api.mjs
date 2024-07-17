@@ -155,7 +155,7 @@ async function legacyApi($, url, data) {
         {
             // ...DEFAULT_RECORD,
 
-            objectID: '/' + url,
+            objectID: '/' + url.replace(/\.html$/g, ''),
             headings: title,
             mainTitle: title,
             pageTitle: title,
