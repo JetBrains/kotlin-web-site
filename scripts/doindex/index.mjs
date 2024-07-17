@@ -1,5 +1,8 @@
 import { open, readFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
+import { env } from 'node:process';
+
+import algoliasearch from 'algoliasearch';
 
 import { readDirPages } from './listPages.mjs';
 import { getRecords } from './listRecords.mjs';
@@ -68,5 +71,9 @@ await Promise.all([
         .then(() => searchIndex.close()),
 
     reportTypes.writeFile(getReport(), { encoding: 'utf8' })
-        .then(() => reportTypes.close())
+        .then(() => reportTypes.close()),
+
+    algoliasearch(env['WH_SEARCH_USER'], env['WH_SEARCH_KEY'])
+        .initIndex(env['WH_INDEX_NAME'] || 'stage_kotlinlang_index')
+        .replaceAllObjects(pages).wait()
 ]);
