@@ -152,18 +152,19 @@ async function legacyApi($, url, data) {
 
     return [
         {
-            ...DEFAULT_RECORD,
-            ...data,
+            // ...DEFAULT_RECORD,
 
             objectID: '/' + url,
-            url: 'https://kotlinlang.org/' + url,
-            pageType: 'api',
-
             headings: title,
             mainTitle: title,
             pageTitle: title,
 
-            content
+            content,
+            url: 'https://kotlinlang.org/' + url,
+            type: DEFAULT_RECORD.type,
+            ...data,
+            product: DEFAULT_RECORD.product,
+            pageType: 'api'
         }
     ];
 }

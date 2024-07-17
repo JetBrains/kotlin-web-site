@@ -54,9 +54,46 @@ function getReport() {
         .join('\n');
 }
 
+async function reportByType() {
+    const data = (await getRecords(pages, stats))
+        .sort((a1, b1) => {
+            // const a = JSON.stringify(a1).length;
+            // const b = JSON.stringify(b1).length;
+            const a = `${a1.url}|${a1.objectID}`;
+            const b = `${b1.url}|${b1.objectID}`;
+            return a > b ? 1 : a < b ? -1 : 0;
+        })
+        .reduce((result, p) => {
+            const url = p.url.replace(/#.+$/g, '');
+            let type = 'other';
+
+            if (url.includes('/docs/')) type = 'docs';
+            else if (url.includes('/api/')) type = 'api';
+
+            if (!result[type]) result[type] = {};
+            if (!result[type][url]) result[type][url] = [];
+
+
+            const { pageType, ...fileData } = p;
+            result[type][url].push(fileData);
+
+            return result;
+        }, {});
+
+    await Promise.all(Object.keys(data).map(async key => {
+        const a = await open(`${ROOT_DIR}/index-report-new-${key}.json`, 'w');
+        await a.writeFile(JSON.stringify(data[key], null, 2), { encoding: 'utf8' });
+        await a.close();
+    }));
+
+    return;
+}
+
 await Promise.all([
     reportUnknown.close(),
     reportRedirects.close(),
+
+    reportByType(),
 
     searchIndex.writeFile(
         JSON.stringify((await getRecords(pages, stats))

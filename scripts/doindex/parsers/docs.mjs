@@ -2,6 +2,7 @@ import { DEFAULT_RECORD, htmlToText } from '../lib/parse.mjs';
 import { findNextElementWith } from '../lib/html.mjs';
 
 /** @typedef {import('domhandler').Node} Node */
+
 /** @typedef {import('domhandler').Element} Element */
 
 /**
@@ -144,18 +145,18 @@ async function docs($, url, data) {
         const id = $(titleNode).attr('id');
         const objectID = `/${url}#${id}`;
         return ({
-            ...DEFAULT_RECORD,
-            ...data,
+            // ...DEFAULT_RECORD,
 
             objectID,
-            url: `${protocol}//${hostname}${objectID}`,
-            pageType: 'docs',
-
-            headings: [...breadcrumbs, title].join(' '),
+            headings: [...breadcrumbs, title].join(': '),
             mainTitle: title,
             pageTitle: title,
-
-            content
+            content,
+            url: `${protocol}//${hostname}${objectID}`,
+            type: DEFAULT_RECORD.type,
+            ...data,
+            product: DEFAULT_RECORD.product,
+            pageType: 'docs'
         });
     }));
 
