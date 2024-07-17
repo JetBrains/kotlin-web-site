@@ -1,4 +1,4 @@
-import { availableParallelism, cpus } from 'os';
+import { availableParallelism as cpuSize, cpus } from 'os';
 import { fork } from 'child_process';
 import { createResolve } from './index.mjs';
 
@@ -25,7 +25,7 @@ export class FixedThreadPool {
      * @param {resultCallback} onResult
      * @param {number} [poolSize]
      */
-    constructor(script, onResult, poolSize = availableParallelism() || cpus().length - 2) {
+    constructor(script, onResult, poolSize = (cpuSize && cpuSize()) || cpus().length - 2) {
         this.forks = [...new Array(poolSize)].map(
             /**
              * @param {void} _

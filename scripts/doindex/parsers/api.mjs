@@ -147,9 +147,10 @@ async function legacyApi($, url, data) {
         breadcrumbs.join(' \u203a ') :
         $(titleNode).text();
 
-    if (url.endsWith('/alltypes/'))
+    if (url.endsWith('/alltypes/')) {
         content = `All types for ${title}`;
-
+        title += ' (alltypes)'
+    }
     return [
         {
             ...DEFAULT_RECORD,

@@ -54,26 +54,27 @@ function getReport() {
         .join('\n');
 }
 
+async function writeRecords(pages, stats) {
+    const records = await getRecords(pages, stats);
+
+    await Promise.all([
+        searchIndex.writeFile(JSON.stringify(records.sort((a1, b1) => {
+            const a = JSON.stringify(a1).length;
+            const b = JSON.stringify(b1).length;
+            return a > b ? 1 : a < b ? -1 : 0;
+        }), null, 2), { encoding: 'utf8' })
+            .then(() => searchIndex.close()),
+
+        algoliasearch(env['WH_SEARCH_USER'], env['WH_SEARCH_WRITE_KEY'])
+            .initIndex(env['WH_INDEX_NAME'])
+            .replaceAllObjects(records).wait()
+    ]);
+}
+
 await Promise.all([
     reportUnknown.close(),
     reportRedirects.close(),
-
-    searchIndex.writeFile(
-        JSON.stringify((await getRecords(pages, stats))
-            .sort((a1, b1) => {
-                const a = JSON.stringify(a1).length;
-                const b = JSON.stringify(b1).length;
-                return a > b ? 1 : a < b ? -1 : 0;
-            })
-        ),
-        { encoding: 'utf8' }
-    )
-        .then(() => searchIndex.close()),
-
     reportTypes.writeFile(getReport(), { encoding: 'utf8' })
         .then(() => reportTypes.close()),
-
-    algoliasearch(env['WH_SEARCH_USER'], env['WH_SEARCH_KEY'])
-        .initIndex(env['WH_INDEX_NAME'] || 'stage_kotlinlang_index')
-        .replaceAllObjects(pages).wait()
+    writeRecords(pages, stats)
 ]);
