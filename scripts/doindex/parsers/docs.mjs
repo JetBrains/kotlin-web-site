@@ -31,6 +31,15 @@ function dropMedia(article) {
     article.find('.video-player').remove();
 }
 
+/**
+ * @param {import('cheerio').Cheerio<Element>} article
+ * @returns {void}
+ */
+function dropUiElements(article) {
+    article.find('.last-modified').remove();
+    article.find('.navigation-links').remove();
+}
+
 const TITLE_SELECTOR = '[id]:is(h1, h2, h3, h4)';
 
 /**
@@ -121,6 +130,7 @@ async function docs($, url, data) {
 
     const article = $('article.article');
 
+    dropUiElements(article);
     dropNextSections(article);
     dropMedia(article);
 

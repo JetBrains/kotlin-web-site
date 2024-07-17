@@ -83,8 +83,17 @@ export async function htmlToText($, list, isFinalNode, url = '') {
 
     return contentNodes
         .join(' ')
+        // sample drop
         .replace(/\/\/sampleStart/g, '')
         .replace(/\/\/sampleEnd/g, '')
+        // newlines drop
         .replace(/[^\S\r\n]+/g, ' ')
+        // drop unnesseccery spaces.
+        // ToDO: if you have a more problems with code-snippet context (like with ":" in `class Foo : Bar` case)
+        //  it's better move it to `cleanText` and add to `htmlToText` skipping empty lines for correct working trim.
+        .replace(/ ([;)])/g, '$1')
+        .replace(/ ([,?!:]( |$))/g, '$1') // symbols with space after required. Exclude '?:', '!=' for ex
+        .replace(/( \.{3} )|( (\.( |$)))/g, '$1$3') // space before dot. Exclude ' ... ' or '.method' for ex
+        .replace(/([(]) /g, '$1') // space after (
         .trim();
 }
