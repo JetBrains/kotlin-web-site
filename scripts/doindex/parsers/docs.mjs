@@ -1,10 +1,21 @@
 import { DEFAULT_RECORD, htmlToText } from '../lib/parse.mjs';
 import { findNextElementWith } from '../lib/html.mjs';
 
+/** @typedef {import('domhandler').Node} Node */
+/** @typedef {import('domhandler').Element} Element */
+
+/**
+ * @param {import('cheerio').Cheerio<Element>} article
+ * @returns {string[]}
+ */
 function getBreadcrumbs(article) {
     return article.attr('data-breadcrumbs')?.split('///') || [];
 }
 
+/**
+ * @param {import('cheerio').Cheerio<Element>} article
+ * @returns {void}
+ */
 function dropNextSections(article) {
     article.find([
         '.chapter:has(#what-s-next)', '.chapter:has(#next-step)',
@@ -12,28 +23,40 @@ function dropNextSections(article) {
     ].join(', ')).remove();
 }
 
+/**
+ * @param {import('cheerio').Cheerio<Element>} article
+ * @returns {void}
+ */
 function dropMedia(article) {
     article.find('.video-player').remove();
 }
 
 const TITLE_SELECTOR = '[id]:is(h1, h2, h3, h4)';
 
-async function getIntroduction(doc, article) {
+/**
+ * @param {import('cheerio').CheerioAPI} $
+ * @param {import('cheerio').Cheerio<Element>} article
+ */
+async function getIntroduction($, article) {
     const titleNode = article.find(`> ${TITLE_SELECTOR}`)[0];
 
     return {
         titleNode,
-        title: doc(titleNode).text(),
-        content: await htmlToText(doc, [titleNode.nextSibling], (node, level) =>
-            level === 0 && doc(node).is('section.chapter'))
+        title: $(titleNode).text(),
+        content: await htmlToText($, [titleNode.nextSibling], (node, level) =>
+            level === 0 && $(node).is('section.chapter'))
     };
 }
 
-function getChapters(doc, article) {
+/**
+ * @param {import('cheerio').CheerioAPI} $
+ * @param {import('cheerio').Cheerio<Element>} article
+ */
+function getChapters($, article) {
     const chapters = article.find('> .chapter');
 
     return Promise.all([...chapters].map(async (chapter) => {
-        const title = doc(chapter).find([
+        const title = $(chapter).find([
             `> ${TITLE_SELECTOR}`,
             `> .collapse > .collapse__title > ${TITLE_SELECTOR}`
         ].join(','));
@@ -46,32 +69,36 @@ function getChapters(doc, article) {
     }));
 }
 
-async function splitOnSubArticles(doc, article) {
+/**
+ * @param {import('cheerio').CheerioAPI} $
+ * @param {import('cheerio').Cheerio<Element>} article
+ */
+async function splitOnSubArticles($, article) {
     const [pageIntro, chaptersTop] = await Promise.all([
-        getIntroduction(doc, article),
-        getChapters(doc, article)
+        getIntroduction($, article),
+        getChapters($, article)
     ]);
 
     const chapters = await Promise.all(chaptersTop.map(async ({ titleNode }) => {
-        const chapterNode = doc(titleNode.parentNode);
+        const chapterNode = $(titleNode.parentNode);
 
         const [intro, list] = await Promise.all([
-            getIntroduction(doc, chapterNode),
-            getChapters(doc, chapterNode)
+            getIntroduction($, chapterNode),
+            getChapters($, chapterNode)
         ]);
 
         return [intro].concat(...await Promise.all(list.map(async chapter => {
             const titleNode = chapter.titleNode;
-            const chapterNode = doc(titleNode.parentNode);
+            const chapterNode = $(titleNode.parentNode);
             const contentNode = chapterNode.is('.collapse__title') ?
                 findNextElementWith(chapterNode[0], el =>
-                    doc(el).is('.collapse__content, .collapse__body')) :
+                    $(el).is('.collapse__content, .collapse__body')) :
                 titleNode.nextSibling;
 
             return ({
                 titleNode,
                 title: `${pageIntro.title}: ${chapter.title}`,
-                content: await htmlToText(doc, [contentNode])
+                content: await htmlToText($, [contentNode])
             });
         })));
     }));
@@ -79,8 +106,12 @@ async function splitOnSubArticles(doc, article) {
     return [pageIntro].concat(...chapters);
 }
 
-async function docs(url, data, doc) {
-    const body = doc('body[data-template]');
+/**
+ * @param {import('cheerio').CheerioAPI} $
+ * @param {string} url
+ */
+async function docs($, url, data) {
+    const body = $('body[data-template]');
     const isArtile = body.attr('data-template') === 'article';
 
     if (!isArtile) {
@@ -88,19 +119,19 @@ async function docs(url, data, doc) {
         return [];
     }
 
-    const article = doc('article.article');
+    const article = $('article.article');
 
     dropNextSections(article);
     dropMedia(article);
 
-    const subArticles = await splitOnSubArticles(doc, article);
+    const subArticles = await splitOnSubArticles($, article);
 
-    const { protocol, hostname } = new URL(doc('link[rel="canonical"]').attr('href'));
+    const { protocol, hostname } = new URL($('link[rel="canonical"]').attr('href'));
 
     const breadcrumbs = getBreadcrumbs(body);
 
     const records = await Promise.all(subArticles.map(async ({ title, titleNode, content }) => {
-        const id = doc(titleNode).attr('id');
+        const id = $(titleNode).attr('id');
         const objectID = `/${url}#${id}`;
         return ({
             ...DEFAULT_RECORD,
@@ -117,7 +148,6 @@ async function docs(url, data, doc) {
             content
         });
     }));
-
 
     return records;
 }

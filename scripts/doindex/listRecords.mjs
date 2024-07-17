@@ -1,5 +1,16 @@
 import { newTaskExecutor } from './lib/task.mjs';
 
+/**
+ * @typedef {object} Page
+ * @property {string} url
+ * @property {string} type
+ * @property {string} [file]
+ */
+
+/**
+ * @param {Page[]} pages
+ * @param {Object.<string, number>} stats
+ */
 export function getRecords(pages, stats) {
     let result = [];
 

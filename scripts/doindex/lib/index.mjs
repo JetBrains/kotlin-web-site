@@ -1,3 +1,4 @@
+/**  @returns {[resolve: () => void, promise: Promise<void>]} */
 export function createResolve() {
     /** @type {function():void} */
     let resolve;

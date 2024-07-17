@@ -9,12 +9,12 @@ async function getPage(url, file) {
     let pageType = 'Unknown';
 
     if (url.endsWith('/') || url.endsWith('.html')) {
-        const doc = await loadFile(file);
+        const $ = await loadFile(file);
 
-        if (doc('meta[http-equiv=refresh]').length)
+        if ($('meta[http-equiv=refresh]').length)
             return 'Redirect';
 
-        if (doc('meta[name=robots][content=noindex]').length)
+        if ($('meta[name=robots][content=noindex]').length)
             return 'Hidden';
 
         pageType = 'Page_Undetected';
@@ -28,7 +28,7 @@ async function getPage(url, file) {
 
         if (url.startsWith('spec/')) pageType = 'Page_Spec';
 
-        if (doc('body[data-article-props]').length)
+        if ($('body[data-article-props]').length)
             pageType = 'Page_Documentation';
 
         return pageType;

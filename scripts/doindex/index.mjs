@@ -8,9 +8,7 @@ const ROOT_DIR = resolve('..', '..');
 const DIST_DIR = join(ROOT_DIR, 'dist/');
 const DATA_DIR = join(ROOT_DIR, 'data/');
 
-/**
- * @returns {Promise<Object.<string, number>>}
- */
+/** @returns {Promise<Object.<string, number>>} */
 async function readStats() {
     return JSON.parse(await readFile(DATA_DIR + 'page_views_map.json', { encoding: 'utf8' }));
 }
@@ -25,6 +23,11 @@ const [searchIndex, reportUnknown, reportRedirects, reportTypes, reportSlash] = 
     open(ROOT_DIR + '/report.types.txt', 'w')
 ]);
 
+/**
+ * @param {string} type
+ * @param {string} url
+ * @returns {Promise<void>}
+ */
 async function addFileReports({ type, url }) {
     await Promise.all([
         type === 'Unknown' && reportUnknown.appendFile(url + '\n', { encoding: 'utf8' }),
@@ -40,6 +43,7 @@ const [stats, pages] = await Promise.all([
     readDirPages(DIST_DIR, addFileReports)
 ]);
 
+/** @returns {string} */
 function getReport() {
     return Object.keys(pageTypesReport)
         .sort((a, b) => pageTypesReport[b] - pageTypesReport[a])
