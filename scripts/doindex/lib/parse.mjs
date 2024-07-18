@@ -2,10 +2,16 @@ import { Node } from 'domhandler';
 
 export const DEFAULT_RECORD = Object.freeze({
     objectID: null,
+    headings: null,
+    mainTitle: null,
+    pageTitle: null,
+    content: null,
+    url: null,
     type: 'Documentation',
-    product: 'help/kotlin-reference',
+    parent: null,
     pageViews: 0,
-    content: null
+    product: 'help/kotlin-reference',
+    pageType: null
 });
 
 /**
@@ -21,7 +27,7 @@ export function cleanText(text) {
 /**
  * @param {CheerioAPI} $
  * @param {Node[]} list
- * @param {(node: *, [level]: number) => boolean} [isFinalNode]
+ * @param {(node: *, level?: number) => boolean} [isFinalNode]
  * @param {string} [url]
  * @returns {Promise<string>}
  */
@@ -62,13 +68,18 @@ export async function htmlToText($, list, isFinalNode, url = '') {
         }
 
         if (tag === 'li')
-            result = ['\n  * ', ...result];
+            result = ['\n  • ', ...result];
 
         // if (tag === 'a' && $(node).text().trim())
         //     result = ['[', ...result, ']'];
 
         if (tag === 'strong')
             result = ['*', ...result, '*'];
+
+        if (tag === 'img') {
+            const text = $(node).attr('alt') || $(node).attr('title');
+            result = [text ? `&lt;see ${text}&gt;` : '&lt;image&gt;'];
+        }
 
         if (node.firstChild) result = result.map(item => {
             if (item === node) return [node.firstChild, level + 1];
@@ -88,12 +99,12 @@ export async function htmlToText($, list, isFinalNode, url = '') {
         .replace(/\/\/sampleEnd/g, '')
         // newlines drop
         .replace(/[^\S\r\n]+/g, ' ')
-        // drop unnesseccery spaces.
+        // drop unnecessary spaces.
         // ToDO: if you have a more problems with code-snippet context (like with ":" in `class Foo : Bar` case)
         //  it's better move it to `cleanText` and add to `htmlToText` skipping empty lines for correct working trim.
         .replace(/ ([;)])/g, '$1')
-        .replace(/ ([,?!:]( |$))/g, '$1') // symbols with space after required. Exclude '?:', '!=' for ex
-        .replace(/( \.{3} )|( (\.( |$)))/g, '$1$3') // space before dot. Exclude ' ... ' or '.method' for ex
+        .replace(/ ([,?!:]( |$))/g, '$1') // Symbols with space after required. Exclude '?:', '!=' for ex
+        .replace(/( \.{3} )|( (\.( |$)))/g, '$1$3') // Space before dot. Exclude ' ... ' or '.method' for ex
         .replace(/([(]) /g, '$1') // space after (
         .trim();
 }

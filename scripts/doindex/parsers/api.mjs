@@ -33,15 +33,17 @@ function dropPlatformSwitches(article) {
 /**
  * @param {import('cheerio').CheerioAPI} $
  * @param {import('cheerio').Cheerio<Element>} article
- * @returns {string[]}
+ * @returns {[string, string][]}
  */
 function dropBreadcrumbs($, article) {
     const breadcrumbsNode = article.find('.api-docs-breadcrumbs').remove();
-    const breadcrumbs = [...breadcrumbsNode.find('a').map(
-        (i, el) => $(el).text()
-    )];
+    const breadcrumbs = [...breadcrumbsNode.find('a')].map(
+        (el, i) => [$(el).text(), $(el).attr('href')]
+    );
 
-    if (breadcrumbs[0] === 'kotlin-stdlib' || breadcrumbs[0] === 'kotlin.test')
+    const first = breadcrumbs?.[0]?.[0];
+
+    if (first === 'kotlin-stdlib' || first === 'kotlin.test')
         breadcrumbs.shift();
 
     return breadcrumbs;
@@ -119,6 +121,7 @@ async function legacyApi($, url, data) {
     let content = null;
 
     const article = $('.page-content');
+    const pageUrl = new URL($('meta[property="og:url"][content]').attr('content'));
 
     if (!article.length) {
         console.warn(`skip: /${url} with unexpected page dom!!!`);
@@ -129,7 +132,7 @@ async function legacyApi($, url, data) {
     dropSourceLinks(article);
     swapSignatureCodeAndText($, article);
 
-    const breadcrumbs = dropBreadcrumbs($, article);
+    const levels = dropBreadcrumbs($, article);
 
     const titleNode = findTitleNode($, article)[0];
 
@@ -143,24 +146,29 @@ async function legacyApi($, url, data) {
         }
     }
 
-    let title = breadcrumbs && breadcrumbs.length ?
+    const breadcrumbs = levels.map(([text]) => text);
+
+    let title = levels.length ?
         breadcrumbs.join(' \u203a ') :
         $(titleNode).text();
 
     if (url.endsWith('/alltypes/')) {
         content = `All types for ${title}`;
-        title += ' (alltypes)'
+        title += ' (alltypes)';
     }
+
+    const finalUrl = '/' + url;
+
     return [
         {
             ...DEFAULT_RECORD,
             ...data,
 
-            objectID: '/' + url,
-            url: 'https://kotlinlang.org/' + url,
+            objectID: finalUrl,
             pageType: 'api',
+            url: new URL(finalUrl, pageUrl).toString(),
 
-            headings: title,
+            headings: breadcrumbs.length ? breadcrumbs.reverse().join(' | ') : title,
             mainTitle: title,
             pageTitle: title,
 

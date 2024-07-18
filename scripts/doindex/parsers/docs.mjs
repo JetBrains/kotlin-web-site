@@ -25,10 +25,17 @@ function dropNextSections(article) {
 
 /**
  * @param {import('cheerio').Cheerio<Element>} article
+ * @param {string} pageUrl
  * @returns {void}
  */
-function dropMedia(article) {
-    article.find('.video-player').remove();
+function processMedia(article, pageUrl) {
+    const videos = article.find('.video-player');
+
+    for (let i = 0, length = videos.length; i < length; i++) {
+        const video = videos.eq(i);
+        const url = video.find('object[data]').attr('data');
+        video.replaceWith(url ? `&lt;${new URL(url, pageUrl).hostname}&gt;` : '&lt;video&gt;');
+    }
 }
 
 /**
@@ -38,6 +45,7 @@ function dropMedia(article) {
 function dropUiElements(article) {
     article.find('.last-modified').remove();
     article.find('.navigation-links').remove();
+    article.find('[class*="inline-icon-"]').remove();
 }
 
 const TITLE_SELECTOR = '[id]:is(h1, h2, h3, h4)';
@@ -80,44 +88,8 @@ function getChapters($, article) {
 
 /**
  * @param {import('cheerio').CheerioAPI} $
- * @param {import('cheerio').Cheerio<Element>} article
- */
-async function splitOnSubArticles($, article) {
-    const [pageIntro, chaptersTop] = await Promise.all([
-        getIntroduction($, article),
-        getChapters($, article)
-    ]);
-
-    const chapters = await Promise.all(chaptersTop.map(async ({ titleNode }) => {
-        const chapterNode = $(titleNode.parentNode);
-
-        const [intro, list] = await Promise.all([
-            getIntroduction($, chapterNode),
-            getChapters($, chapterNode)
-        ]);
-
-        return [intro].concat(...await Promise.all(list.map(async chapter => {
-            const titleNode = chapter.titleNode;
-            const chapterNode = $(titleNode.parentNode);
-            const contentNode = chapterNode.is('.collapse__title') ?
-                findNextElementWith(chapterNode[0], el =>
-                    $(el).is('.collapse__content, .collapse__body')) :
-                titleNode.nextSibling;
-
-            return ({
-                titleNode,
-                title: `${pageIntro.title}: ${chapter.title}`,
-                content: await htmlToText($, [contentNode])
-            });
-        })));
-    }));
-
-    return [pageIntro].concat(...chapters);
-}
-
-/**
- * @param {import('cheerio').CheerioAPI} $
  * @param {string} url
+ * @param {Object.<key, *>} data
  */
 async function docs($, url, data) {
     const body = $('body[data-template]');
@@ -129,37 +101,69 @@ async function docs($, url, data) {
     }
 
     const article = $('article.article');
+    const pageUrl = new URL($('link[rel="canonical"]').attr('href'));
 
     dropUiElements(article);
     dropNextSections(article);
-    dropMedia(article);
-
-    const subArticles = await splitOnSubArticles($, article);
-
-    const { protocol, hostname } = new URL($('link[rel="canonical"]').attr('href'));
+    processMedia(article, pageUrl.toString());
 
     const breadcrumbs = getBreadcrumbs(body);
 
-    const records = await Promise.all(subArticles.map(async ({ title, titleNode, content }) => {
+    const [pageIntro, chaptersTopLevel] = await Promise.all([
+        getIntroduction($, article),
+        getChapters($, article)
+    ]);
+
+    const chapters = await Promise.all(
+        chaptersTopLevel.map(async ({ title, titleNode }) => {
+            const chapterNode = $(titleNode.parentNode);
+
+            const [chapterIntro, chaptersSubLevel] = await Promise.all([
+                getIntroduction($, chapterNode),
+                getChapters($, chapterNode)
+            ]);
+
+            const subChapters = [chapterIntro].concat(...await Promise.all(
+                chaptersSubLevel.map(async subChapter => {
+                    const subTitleNode = subChapter.titleNode;
+                    const subChapterNode = $(subTitleNode.parentNode);
+                    const subContentNode = subChapterNode.is('.collapse__title') ?
+                        findNextElementWith(subChapterNode[0], el =>
+                            $(el).is('.collapse__content, .collapse__body')) :
+                        subTitleNode.nextSibling;
+
+                    return {
+                        titleNode: subTitleNode,
+                        title: title ? [title, subChapter.title] : subChapter.title,
+                        content: await htmlToText($, [subContentNode])
+                    };
+                }))
+            );
+
+            return subChapters;
+        })
+    );
+
+    const subArticles = [pageIntro].concat(...chapters);
+
+    return Promise.all(subArticles.map(async ({ title, titleNode, content }) => {
         const id = $(titleNode).attr('id');
-        const objectID = `/${url}#${id}`;
+        const finalUrl = `/${url}#${id}`;
         return ({
             ...DEFAULT_RECORD,
             ...data,
 
-            objectID,
-            url: `${protocol}//${hostname}${objectID}`,
+            objectID: finalUrl,
             pageType: 'docs',
+            url: new URL(finalUrl, pageUrl),
+            parent: '/' + url,
 
-            headings: [...breadcrumbs, title].join(' '),
-            mainTitle: title,
-            pageTitle: title,
-
+            headings: breadcrumbs.concat(title).reverse().join(' | '),
+            mainTitle: pageIntro.title,
+            pageTitle: [].concat(title).join(': '),
             content
         });
     }));
-
-    return records;
 }
 
 export const Page_Documentation = docs;

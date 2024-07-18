@@ -16,10 +16,10 @@ export function getRecords(pages, stats) {
 
     const [pool, finish] = newTaskExecutor('records', function onReady(records) {
         records = records.filter(record => {
-            const isValid = record?.pageTitle && record?.content;
+            const isValid = record?.objectID && record?.url && record?.pageTitle && record?.content;
 
             if (isValid) console.log(`added ${record.objectID}`);
-            else console.log(`skip: ${record.url} with empty content`);
+            else console.log(`skip: ${record.url} has invalid value!`);
 
             return isValid;
         });
@@ -37,5 +37,27 @@ export function getRecords(pages, stats) {
 
     pool.pushAll(pages);
 
-    return finish.then(() => result);
+    return finish.then(() => {
+        // do safe for algolia record.
+        // ToDo: if you want use tags in algolia drop it,
+        //  but remember **ALL** key and values should be escaped in-place.
+        for (const record of result) {
+            for (const [key, val] of Object.entries(record)) {
+                if (typeof val === 'string') {
+                    record[key] = val
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;');
+                }
+            }
+        }
+
+        result.forEach((r, i, list) => {
+            const id = r.objectID;
+            for (let j = i + 1, length = list.length; j < length; j++) {
+                if (list[j].objectID === id) throw new Error(`Object ${id} isn't uniq`);
+            }
+        });
+
+        return result;
+    });
 }

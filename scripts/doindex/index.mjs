@@ -1,4 +1,4 @@
-import { open, readFile } from 'node:fs/promises';
+import { mkdir, open, readFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { env } from 'node:process';
 
@@ -46,9 +46,12 @@ const [stats, pages] = await Promise.all([
     readDirPages(DIST_DIR, addFileReports)
 ]);
 
-/** @returns {string} */
-function getReport() {
-    return Object.keys(pageTypesReport)
+/**
+ * @param {Object.<string, number>} types
+ * @returns {Promise<string>}
+ */
+async function getReportTypes(types) {
+    return Object.keys(types)
         .sort((a, b) => pageTypesReport[b] - pageTypesReport[a])
         .map(key => `${key}: ${pageTypesReport[key]}`)
         .join('\n');
@@ -74,7 +77,7 @@ async function writeRecords(pages, stats) {
 await Promise.all([
     reportUnknown.close(),
     reportRedirects.close(),
-    reportTypes.writeFile(getReport(), { encoding: 'utf8' })
+    reportTypes.writeFile(await getReportTypes(pageTypesReport), { encoding: 'utf8' })
         .then(() => reportTypes.close()),
     writeRecords(pages, stats)
 ]);
