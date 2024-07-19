@@ -269,7 +269,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-As demonstrated in the example above, When you have multiple `catch` blocks, it's important to order them from the most
+As demonstrated in the example above, when you have multiple `catch` blocks, it's important to order them from the most
 specific to the least specific exception, following a top-to-bottom order in your code.
 This ordering aligns with the program's execution flow.
 A general catch block, such as `WithdrawalException`, catches all exceptions, including specific ones like `InsufficientFundsException`,
