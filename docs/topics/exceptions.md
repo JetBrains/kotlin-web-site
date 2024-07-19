@@ -272,8 +272,8 @@ fun main() {
 As demonstrated in the example above, when you have multiple `catch` blocks, it's important to order them from the most
 specific to the least specific exception, following a top-to-bottom order in your code.
 This ordering aligns with the program's execution flow.
-A general catch block, such as `WithdrawalException`, catches all exceptions, including specific ones like `InsufficientFundsException`,
-and prevents them from being handled individually.
+A general catch block handling `WithdrawalException`, catches all exceptions of its type, including specific ones like `InsufficientFundsException`,
+unless they are caught earlier by a more specific catch block.
 
 ### The finally block
 
