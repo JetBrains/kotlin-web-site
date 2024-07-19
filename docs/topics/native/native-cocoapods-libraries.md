@@ -34,10 +34,10 @@ version of the library, you can just omit this parameter altogether.
 
     ```kotlin
     kotlin {
-        iosX64()
+        iosArm64()
 
         cocoapods {
-            iosX64.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "13.5"
 
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
@@ -74,13 +74,13 @@ import cocoapods.FirebaseAuth.*
 
     ```kotlin
     kotlin {
-        iosX64()
+        iosArm64()
 
         cocoapods {
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            iosX64.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "13.5"
 
             pod("pod_dependency") {
                 version = "1.0"
@@ -135,13 +135,13 @@ import cocoapods.FirebaseAuth.*
 
     ```kotlin
     kotlin {
-        iosX64()
+        iosArm64()
 
         cocoapods {
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            iosX64.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "13.5"
 
             pod("FirebaseAuth") {
                 source = git("https://github.com/firebase/firebase-ios-sdk") {
@@ -183,13 +183,13 @@ import cocoapods.CocoaLumberjack.*
 
     ```kotlin
     kotlin {
-        iosX64()
+        iosArm64()
 
         cocoapods {
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            iosX64.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "13.5"
 
             specRepos {
                 url("https://github.com/Kotlin/kotlin-cocoapods-spec.git")
@@ -229,13 +229,13 @@ import cocoapods.example.*
 
     ```kotlin
     kotlin {
-        iosX64()
+        iosArm64()
 
         cocoapods {
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            iosX64.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "13.5"
 
             pod("YandexMapKit") {
                 packageName = "YandexMK"
@@ -275,13 +275,13 @@ To enable support for `@import` directives, specify the `-fmodules` option in th
 
 ```kotlin
 kotlin {
-   iosX64()
+    iosArm64()
 
     cocoapods {
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
 
-       iosX64.deploymentTarget = "13.5"
+        iosArm64.deploymentTarget = "13.5"
 
         pod("PodName") {
             extraOpts = listOf("-compiler-option", "-fmodules")

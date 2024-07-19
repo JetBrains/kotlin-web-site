@@ -33,12 +33,12 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
 
     ```kotlin
     kotlin {
-        iosX64()
+        iosArm64()
 
         cocoapods {
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
-            iosX64.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "13.5"
             pod("FirebaseAuth") {
                 version = "10.16.0"
             }
@@ -73,14 +73,14 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
 
     ```kotlin
     kotlin {
-        iosX64()
-        tvosX64()
+        iosArm64()
+        tvosArm64()
 
         cocoapods {
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
-            iosX64.deploymentTarget = "13.5"
-            tvosX64.deploymentTarget = "13.4"
+            iosArm64.deploymentTarget = "13.5"
+            tvosArm64.deploymentTarget = "13.4"
 
             pod("FirebaseAuth") {
                 version = "10.16.0"

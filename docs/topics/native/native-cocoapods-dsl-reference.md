@@ -66,7 +66,7 @@ When applied, CocoaPods adds both `debug` and `release` frameworks as output bin
 
 ```kotlin
 kotlin {
-    iosX64()
+    iosArm64()
    
     cocoapods {
         version = "2.0"
@@ -136,13 +136,13 @@ and `source` of the library, in its configuration block:
 
 ```kotlin
 kotlin {
-    iosX64()
+    iosArm64()
    
     cocoapods {
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
 
-        iosX64.deploymentTarget = "13.5"
+        iosArm64.deploymentTarget = "13.5"
       
         pod("pod_dependency") {
             version = "1.0"

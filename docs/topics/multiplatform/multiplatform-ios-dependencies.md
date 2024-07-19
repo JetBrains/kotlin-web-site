@@ -112,7 +112,7 @@ and [frameworks](#add-a-framework-without-cocoapods), but the idea remains the s
 
     ```kotlin
     kotlin {
-        iosX64() {
+        iosArm64() {
             compilations.getByName("main") {
                 val DateTools by cinterops.creating {
                     // Path to the .def file
@@ -137,7 +137,7 @@ and [frameworks](#add-a-framework-without-cocoapods), but the idea remains the s
 
     ```groovy
     kotlin {
-        iosX64 {
+        iosArm64 {
             compilations.main {
                 cinterops {
                     DateTools {
@@ -204,7 +204,7 @@ import DateTools.*
 
     ```kotlin
     kotlin {
-        iosX64() {
+        iosArm64() {
             compilations.getByName("main") {
                 val DateTools by cinterops.creating {
                     // Path to the .def file
@@ -228,7 +228,7 @@ import DateTools.*
 
     ```groovy
     kotlin {
-        iosX64 {
+         iosArm64 {
             compilations.main {
                 cinterops {
                     DateTools {
