@@ -30,7 +30,12 @@ object BuildSearchIndex : BuildType({
   steps {
     script {
       name = "Build and push search index"
-      scriptContent = "node index.mjs"
+      scriptContent = """
+        #!/bin/sh
+        set -e
+        npm install
+        node index.mjs
+      """.trimIndent()
       dockerImage = "node:22-alpine"
       workingDir = "scripts/doindex/"
       dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
