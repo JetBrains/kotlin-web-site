@@ -25,7 +25,7 @@ export class FixedThreadPool {
      * @param {resultCallback} onResult
      * @param {number} [poolSize]
      */
-    constructor(script, onResult, poolSize = (cpuSize && cpuSize()) || cpus().length - 2) {
+    constructor(script, onResult, poolSize = (cpuSize && cpuSize()) || cpus().length) {
         this.forks = [...new Array(poolSize)].map(
             /**
              * @param {void} _
