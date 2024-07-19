@@ -1,4 +1,4 @@
-import { Node } from 'domhandler';
+import { CDATA, Element, Node, Text } from 'domhandler';
 
 export const DEFAULT_RECORD = Object.freeze({
     objectID: null,
@@ -46,32 +46,36 @@ export async function htmlToText($, list, isFinalNode) {
             continue;
         }
 
-        const tag = node.tagName?.toLowerCase();
-        if (tag === 'script' || tag === 'style' || tag === 'th') continue;
-
         let result = [node];
 
-        if (tag === 'code') {
-            const text = $(node).text();
-            if (!text.includes('\n')) {
-                contentNodes.push('`' + cleanText(text) + '`');
-                nodes.push([node.nextSibling, level]);
+        if (node instanceof Element) {
+            const tag = node.tagName.toLowerCase();
+
+            if (tag === 'script' || tag === 'style' || tag === 'th')
                 continue;
+
+            if (tag === 'code') {
+                const text = $(node).text();
+                if (!text.includes('\n')) {
+                    contentNodes.push('`' + cleanText(text) + '`');
+                    nodes.push([node.nextSibling, level]);
+                    continue;
+                }
             }
-        }
 
-        if (tag === 'li')
-            result = ['\n  • ', ...result];
+            if (tag === 'li')
+                result = ['\n  • ', ...result];
 
-        // if (tag === 'a' && $(node).text().trim())
-        //     result = ['[', ...result, ']'];
+            // if (tag === 'a' && $(node).text().trim())
+            //     result = ['[', ...result, ']'];
 
-        if (tag === 'strong')
-            result = ['*', ...result, '*'];
+            if (tag === 'strong' || tag === 'b')
+                result = ['*', ...result, '*'];
 
-        if (tag === 'img') {
-            const text = $(node).attr('alt') || $(node).attr('title');
-            result = [text ? `&lt;see ${text}&gt;` : '&lt;image&gt;'];
+            if (tag === 'img') {
+                const text = $(node).attr('alt') || $(node).attr('title');
+                result = [text ? `&lt;see ${text}&gt;` : '&lt;image&gt;'];
+            }
         }
 
         if (node.firstChild) result = result.map(item => {
@@ -80,18 +84,24 @@ export async function htmlToText($, list, isFinalNode) {
         });
 
         nodes.push([node.nextSibling, level], ...result.reverse().map(item => {
-            if (item instanceof Node) item = cleanText($(node).text());
+            if (item instanceof Node) {
+                if (node instanceof Element || node instanceof Text || node instanceof CDATA)
+                    item = cleanText($(node).text());
+            }
             return Array.isArray(item) ? item : [item, level];
         }));
     }
 
     return contentNodes
         .join(' ')
+
         // sample drop
         .replace(/\/\/sampleStart/g, '')
         .replace(/\/\/sampleEnd/g, '')
+
         // newlines drop
         .replace(/[^\S\r\n]+/g, ' ')
+
         // drop unnecessary spaces.
         // ToDO: if you have a more problems with code-snippet context (like with ":" in `class Foo : Bar` case)
         //  it's better move it to `cleanText` and add to `htmlToText` skipping empty lines for correct working trim.
