@@ -3,19 +3,19 @@ import { loadFile } from '../lib/html.mjs';
 /**
  * @param url {string}
  * @param file {string}
- * @returns {Promise<string>}
+ * @returns {Promise<[string, import('cheerio').CheerioAPI|null]>}
  */
-async function getPage(url, file) {
+export async function getType(url, file) {
     let pageType = 'Unknown';
 
     if (url.endsWith('/') || url.endsWith('.html')) {
         const $ = await loadFile(file);
 
         if ($('meta[http-equiv=refresh]').length)
-            return 'Redirect';
+            return ['Redirect', $];
 
         if ($('meta[name=robots][content=noindex]').length)
-            return 'Hidden';
+            return ['Hidden', $];
 
         pageType = 'Page_Undetected';
 
@@ -31,7 +31,7 @@ async function getPage(url, file) {
         if ($('body[data-article-props]').length)
             pageType = 'Page_Documentation';
 
-        return pageType;
+        return [pageType, $];
     }
 
     if (url.endsWith('/package-list') || url.endsWith('index.yml')) pageType = 'File_Text';
@@ -48,20 +48,5 @@ async function getPage(url, file) {
         url.endsWith('.svg') || url.endsWith('.ico') || url.endsWith('.gif')
     ) pageType = 'File_Image';
 
-    return pageType;
+    return [pageType, null];
 }
-
-
-process.on('message',
-    /**
-     * @param {[string, string]} args
-     * @returns {Promise<void>}
-     */
-    async function([url, file]) {
-        process.send({
-            event: 'result', data: { url, file, type: await getPage(url, file) }
-        });
-    }
-);
-
-process.send({ event: 'inited' });

@@ -40,14 +40,25 @@ export class FixedThreadPool {
                 forked.waits = false;
 
                 forked.on('message', msg => {
-                    if (msg?.event === 'log') {
-                        console[msg.type](...msg.data);
-                        return;
-                    }
+                    switch (msg?.event) {
+                        case 'inited':
+                            forked.waits = true;
+                            this.update();
+                            break;
 
-                    forked.waits = true;
-                    if (msg?.event === 'result') onResult(msg?.data);
-                    this.update();
+                        case 'log':
+                            console[msg.type || 'log'](...(msg.data || []));
+                            break;
+
+                        case 'result':
+                            forked.waits = true;
+                            onResult(msg?.data);
+                            this.update();
+                            break;
+
+                        default:
+                            console.warn('warn: unexpected message: ', JSON.stringify(msg));
+                    }
                 });
 
                 forked.on('exit', (code) => {
@@ -99,10 +110,10 @@ export class FixedThreadPool {
     }
 }
 
-export function newTaskExecutor(taskName, onReady, isFinished = () => true) {
+export function newTaskExecutor(scriptPath, onReady, isFinished = () => true) {
     const [resolve, promise] = createResolve();
 
-    const pool = new FixedThreadPool(`./tasks/${taskName}.mjs`, function onMessage(data) {
+    const pool = new FixedThreadPool(scriptPath, function onTaskReady(data) {
         onReady(data);
         updateProgressState();
     });

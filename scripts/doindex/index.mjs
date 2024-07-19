@@ -1,11 +1,9 @@
-import { env } from 'node:process';
 import { join, resolve } from 'node:path';
 import { mkdir, open, readFile } from 'node:fs/promises';
 
-import algoliasearch from 'algoliasearch';
+import { readPagesIndex } from './task/index.mjs';
 
-import { readDirPages } from './listPages.mjs';
-import { getRecords } from './listRecords.mjs';
+console.time('done in');
 
 const ROOT_DIR = resolve('..', '..');
 const DIST_DIR = join(ROOT_DIR, 'dist/');
@@ -44,10 +42,8 @@ async function addFileReports({ type, url }) {
     pageTypesReport[type]++;
 }
 
-const [stats, pages] = await Promise.all([
-    readStats(),
-    readDirPages(DIST_DIR, addFileReports)
-]);
+const stats = await readStats();
+const records = await readPagesIndex(DIST_DIR, stats, addFileReports);
 
 /**
  * @param {Object.<string, number>} types
@@ -60,29 +56,33 @@ async function getReportTypes(types) {
         .join('\n');
 }
 
-async function writeRecords(pages, stats) {
-    const records = await getRecords(pages, stats);
+/**
+ * @param {Object.<string, number>} types
+ */
+async function reportFileTypes(types) {
+    await reportTypes.writeFile(await getReportTypes(types), { encoding: 'utf8' });
+}
+
+async function reportRecords(records) {
+    const data = records
+        .sort((a, b) => JSON.stringify(a).length - JSON.stringify(b).length);
 
     await Promise.all([
         searchIndex
-            .writeFile(
-                JSON.stringify(records
-                    .sort((a, b) => JSON.stringify(a).length - JSON.stringify(b).length), null, 2),
-                { encoding: 'utf8' }
-            )
-            .then(() => searchIndex.close()),
+            .writeFile(JSON.stringify(data, null, 2), { encoding: 'utf8' })
 
-        algoliasearch(env['WH_SEARCH_USER'], env['WH_SEARCH_WRITE_KEY'])
-            .initIndex(env['WH_INDEX_NAME'])
-            .replaceAllObjects(records)
-            .wait()
+        // algoliasearch(env['WH_SEARCH_USER'], env['WH_SEARCH_WRITE_KEY'])
+        //     .initIndex(env['WH_INDEX_NAME'])
+        //     .replaceAllObjects(records)
+        //     .wait()
     ]);
 }
 
 await Promise.all([
+    reportRecords(records).then(() => searchIndex.close()),
+    reportFileTypes(pageTypesReport).then(() => reportTypes.close()),
     reportUnknown.close(),
-    reportRedirects.close(),
-    reportTypes.writeFile(await getReportTypes(pageTypesReport), { encoding: 'utf8' })
-        .then(() => reportTypes.close()),
-    writeRecords(pages, stats)
+    reportRedirects.close()
 ]);
+
+console.timeEnd('done in');

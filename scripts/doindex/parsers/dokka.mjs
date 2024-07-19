@@ -1,4 +1,4 @@
-import { DEFAULT_RECORD, htmlToText } from '../lib/parse.mjs';
+import { DEFAULT_RECORD, htmlToText } from '../lib/parser.mjs';
 import { findPrevElementWith, nextElement } from '../lib/html.mjs';
 
 /** @typedef {import('domhandler').Node} Node */
