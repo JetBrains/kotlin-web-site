@@ -130,14 +130,15 @@ async function legacyApi($, url, data) {
 
     dropPlatformSwitches(article);
     dropSourceLinks(article);
-    swapSignatureCodeAndText($, article);
+    // ToDo: enable when filters with api to be in search UI
+    // swapSignatureCodeAndText($, article);
 
     const levels = dropBreadcrumbs($, article);
 
     const titleNode = findTitleNode($, article)[0];
 
     if (titleNode)
-        content = await htmlToText($, [titleNode.nextSibling], isFinalNode, url);
+        content = await htmlToText($, [titleNode.nextSibling], isFinalNode);
     else {
         // check extension page like: https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/java.time.-duration/
         const isExtensionPage = article.find('> *:first-child').eq(0).is('h3[id^="extensions-for-"]');

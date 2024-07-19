@@ -1,6 +1,6 @@
-import { mkdir, open, readFile } from 'node:fs/promises';
-import { join, resolve } from 'node:path';
 import { env } from 'node:process';
+import { join, resolve } from 'node:path';
+import { mkdir, open, readFile } from 'node:fs/promises';
 
 import algoliasearch from 'algoliasearch';
 
@@ -10,6 +10,9 @@ import { getRecords } from './listRecords.mjs';
 const ROOT_DIR = resolve('..', '..');
 const DIST_DIR = join(ROOT_DIR, 'dist/');
 const DATA_DIR = join(ROOT_DIR, 'data/');
+const REPORT_DIR = join(ROOT_DIR, 'search-report/');
+
+await mkdir(REPORT_DIR, { recursive: true });
 
 /** @returns {Promise<Object.<string, number>>} */
 async function readStats() {
@@ -19,11 +22,11 @@ async function readStats() {
 /** @type {Object.<string, number>} */
 const pageTypesReport = {};
 
-const [searchIndex, reportUnknown, reportRedirects, reportTypes, reportSlash] = await Promise.all([
-    open(ROOT_DIR + '/index-new.json', 'w'),
-    open(ROOT_DIR + '/report.unknown_files.txt', 'w'),
-    open(ROOT_DIR + '/report.redirects.txt', 'w'),
-    open(ROOT_DIR + '/report.types.txt', 'w')
+const [searchIndex, reportUnknown, reportRedirects, reportTypes] = await Promise.all([
+    open(REPORT_DIR + 'index.json', 'w'),
+    open(REPORT_DIR + 'report-files-unknown.txt', 'w'),
+    open(REPORT_DIR + 'report-redirects.txt', 'w'),
+    open(REPORT_DIR + 'report-types.txt', 'w')
 ]);
 
 /**
@@ -61,16 +64,18 @@ async function writeRecords(pages, stats) {
     const records = await getRecords(pages, stats);
 
     await Promise.all([
-        searchIndex.writeFile(JSON.stringify(records.sort((a1, b1) => {
-            const a = JSON.stringify(a1).length;
-            const b = JSON.stringify(b1).length;
-            return a > b ? 1 : a < b ? -1 : 0;
-        }), null, 2), { encoding: 'utf8' })
+        searchIndex
+            .writeFile(
+                JSON.stringify(records
+                    .sort((a, b) => JSON.stringify(a).length - JSON.stringify(b).length), null, 2),
+                { encoding: 'utf8' }
+            )
             .then(() => searchIndex.close()),
 
         algoliasearch(env['WH_SEARCH_USER'], env['WH_SEARCH_WRITE_KEY'])
             .initIndex(env['WH_INDEX_NAME'])
-            .replaceAllObjects(records).wait()
+            .replaceAllObjects(records)
+            .wait()
     ]);
 }
 

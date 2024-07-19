@@ -28,7 +28,7 @@ function dropNextSections(article) {
  * @param {string} pageUrl
  * @returns {void}
  */
-function processMedia(article, pageUrl) {
+function replaceMedia(article, pageUrl) {
     const videos = article.find('.video-player');
 
     for (let i = 0, length = videos.length; i < length; i++) {
@@ -105,7 +105,7 @@ async function docs($, url, data) {
 
     dropUiElements(article);
     dropNextSections(article);
-    processMedia(article, pageUrl.toString());
+    replaceMedia(article, pageUrl.toString());
 
     const breadcrumbs = getBreadcrumbs(body);
 

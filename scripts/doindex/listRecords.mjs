@@ -51,6 +51,8 @@ export function getRecords(pages, stats) {
             }
         }
 
+        // `objectID` should be uniq for any record
+        // if it isn't, it will be failed in push to algolia without extra description
         result.forEach((r, i, list) => {
             const id = r.objectID;
             for (let j = i + 1, length = list.length; j < length; j++) {

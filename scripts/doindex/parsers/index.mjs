@@ -1,5 +1,5 @@
-export * from './api.mjs';
-export * from './docs.mjs';
+export * from './dokka.mjs';
+export * from './writerside.mjs';
 
 /**
  * @param {string} name

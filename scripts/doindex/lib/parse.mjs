@@ -31,7 +31,7 @@ export function cleanText(text) {
  * @param {string} [url]
  * @returns {Promise<string>}
  */
-export async function htmlToText($, list, isFinalNode, url = '') {
+export async function htmlToText($, list, isFinalNode) {
     let nodes = list.map(item => ([item, 0]));
 
     const contentNodes = [];
@@ -51,12 +51,6 @@ export async function htmlToText($, list, isFinalNode, url = '') {
         if (tag === 'script' || tag === 'style' || tag === 'th') continue;
 
         let result = [node];
-
-        // if (
-        //     tag && tag !== 'p' && tag !== 'div' && tag !== 'li' && tag !== 'a' && tag !== 'br' && tag !== 'code' &&
-        //     tag !== 'strong' && tag !== 'h3' && tag !== 'h4' && tag !== 'h5' && tag !== 'em' && tag !== 'ul' &&
-        //     tag !== 'ol'
-        // ) console.log('node: tag:', node.tagName, 'https://kotlinlang.org/' + url);
 
         if (tag === 'code') {
             const text = $(node).text();
