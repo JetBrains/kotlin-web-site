@@ -26,7 +26,9 @@ object BuildSearchIndex : BuildType({
   }
 
   vcs {
-    root(KotlinLangOrg)
+    root(KotlinLangOrg, """
+        scripts/doindex
+    """.trimIndent())
     cleanCheckout = true
     showDependenciesChanges = true
   }
