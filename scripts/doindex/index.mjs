@@ -1,9 +1,12 @@
+import { env } from 'node:process';
 import { join, resolve } from 'node:path';
 import { mkdir, open, readFile } from 'node:fs/promises';
 
+import algoliasearch from 'algoliasearch';
+
 import { readPagesIndex } from './task/index.mjs';
 
-console.time('done in');
+console.time('Index objects successfully built');
 
 const ROOT_DIR = resolve('..', '..');
 const DIST_DIR = join(ROOT_DIR, 'dist/');
@@ -68,13 +71,18 @@ async function reportRecords(records) {
         .sort((a, b) => JSON.stringify(a).length - JSON.stringify(b).length);
 
     await Promise.all([
-        searchIndex
-            .writeFile(JSON.stringify(data, null, 2), { encoding: 'utf8' })
+        searchIndex.writeFile(
+            JSON.stringify(
+                records.sort((a, b) => JSON.stringify(a).length - JSON.stringify(b).length), null, 2),
+            { encoding: 'utf8' }
+        ),
 
-        // algoliasearch(env['WH_SEARCH_USER'], env['WH_SEARCH_WRITE_KEY'])
-        //     .initIndex(env['WH_INDEX_NAME'])
-        //     .replaceAllObjects(records)
-        //     .wait()
+        env['WH_INDEX_NAME'] && algoliasearch(env['WH_SEARCH_USER'], env['WH_SEARCH_WRITE_KEY'])
+            .initIndex(env['WH_INDEX_NAME'])
+            .replaceAllObjects(records)
+            .wait()
+            .then(() =>
+                console.log(`Submitting WH index objects to ${env['WH_INDEX_NAME']} index`))
     ]);
 }
 
@@ -85,4 +93,4 @@ await Promise.all([
     reportRedirects.close()
 ]);
 
-console.timeEnd('done in');
+console.timeEnd('Index objects successfully built');
