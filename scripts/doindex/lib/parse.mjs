@@ -28,7 +28,6 @@ export function cleanText(text) {
  * @param {CheerioAPI} $
  * @param {Node[]} list
  * @param {(node: *, level?: number) => boolean} [isFinalNode]
- * @param {string} [url]
  * @returns {Promise<string>}
  */
 export async function htmlToText($, list, isFinalNode) {
