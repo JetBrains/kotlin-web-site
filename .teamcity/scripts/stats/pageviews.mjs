@@ -11,7 +11,7 @@ async function openReportFile(name) {
 
 const [listViews, mapViews] = await Promise.all([
     openReportFile('page_views_list.json'),
-    openReportFile('page_views_map.json'),
+    openReportFile('page_views_map.json')
 ]);
 
 try {
@@ -26,11 +26,16 @@ try {
         }
 
         if (pageviews < 1) return;
-        if (!(new URL(url).host.includes('kotlinlang.org'))) return;
+        try {
+            if (!(new URL(url).host.includes('kotlinlang.org'))) return;
+        } catch (e) {
+            console.error('Error in', line, 'line');
+            return;
+        }
 
         await Promise.all([
             listViews.appendFile(JSON.stringify({ url, pageviews }) + ','),
-            mapViews.appendFile(`${JSON.stringify(url)}: ${pageviews},`),
+            mapViews.appendFile(`${JSON.stringify(url)}: ${pageviews},`)
         ]);
     }
 
@@ -38,7 +43,7 @@ try {
 
     await Promise.all([
         listViews.write('['),
-        mapViews.write('{'),
+        mapViews.write('{')
     ]);
 
     const readlineInterface = input.readLines();
@@ -63,12 +68,12 @@ try {
 
     await Promise.all([
         replaceLastCharacter(listViews, ']'),
-        replaceLastCharacter(mapViews, '}'),
+        replaceLastCharacter(mapViews, '}')
     ]);
 } finally {
     await Promise.all([
         input.close(),
         listViews.close(),
-        mapViews.close(),
+        mapViews.close()
     ]);
 }
