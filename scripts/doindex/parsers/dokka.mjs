@@ -116,6 +116,7 @@ function findTitleNode($, article) {
 /**
  * @param {import('cheerio').CheerioAPI} $
  * @param {string} url
+ * @param {Object.<string, *>} data
  */
 async function legacyApi($, url, data) {
     let content = null;

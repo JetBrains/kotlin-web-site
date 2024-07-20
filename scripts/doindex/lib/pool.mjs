@@ -61,11 +61,11 @@ export class FixedThreadPool {
                     }
                 });
 
-                forked.on('exit', (code) => {
+                forked.on('exit', function forkExit(code) {
                     code && process.exit(code);
                 });
 
-                forked.on('error', err => {
+                forked.on('error', function forkError(err) {
                     console.error(err);
                     process.exit(1);
                 });

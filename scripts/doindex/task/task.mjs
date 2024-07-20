@@ -28,7 +28,7 @@ async function getResult(url, file, data) {
 }
 
 /**
- * @param {[string, string, Object.<string, *>]} args
+ * @param {[url: string, file: string, opts: Object.<string, *>]} args
  * @returns {Promise<void>}
  */
 async function onMessage([url, file, opts]) {

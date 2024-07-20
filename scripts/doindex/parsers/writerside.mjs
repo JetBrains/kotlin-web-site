@@ -88,6 +88,17 @@ function getChapters($, article) {
 }
 
 /**
+ * @param {string[]} headings
+ * @returns {string|void}
+ */
+function myMainTitle(headings) {
+    return headings.find((title, i, list) => i !== list.length - 1 && (
+        title.endsWith('– tutorial') ||
+        /advent of code 20\d{2}/i.test(title)
+    ));
+}
+
+/**
  * @param {import('cheerio').CheerioAPI} $
  * @param {string} url
  * @param {Object.<key, *>} data
@@ -124,7 +135,7 @@ async function docs($, url, data) {
                 getChapters($, chapterNode)
             ]);
 
-            const subChapters = [chapterIntro].concat(...await Promise.all(
+            const subChapters = await Promise.all(
                 chaptersSubLevel.map(async subChapter => {
                     const subTitleNode = subChapter.titleNode;
                     const subChapterNode = $(subTitleNode.parentNode);
@@ -138,10 +149,10 @@ async function docs($, url, data) {
                         title: title ? [title, subChapter.title] : subChapter.title,
                         content: await htmlToText($, [subContentNode])
                     };
-                }))
+                })
             );
 
-            return subChapters;
+            return [chapterIntro].concat(...subChapters);
         })
     );
 
@@ -150,18 +161,39 @@ async function docs($, url, data) {
     return Promise.all(subArticles.map(async ({ title, titleNode, content }) => {
         const id = $(titleNode).attr('id');
         const finalUrl = `/${url}#${id}`;
+
+        const pageTitles = [pageIntro.title].concat(title);
+        const headings = [...breadcrumbs, ...pageTitles];
+
+        let mainTitle = myMainTitle(headings);
+        let pageTitle = pageTitles.pop();
+
+        if (!mainTitle) {
+            // random length, formally depends from UI
+            if (pageTitles.join(' ').length < 65) {
+                mainTitle = pageIntro.title;
+                pageTitle = [].concat(title).join(': ');
+            } else {
+                mainTitle = pageTitles.pop();
+                const top = pageTitles.pop();
+
+                if (top && mainTitle.length > top.length)
+                    mainTitle = top;
+            }
+        }
+
         return ({
             ...DEFAULT_RECORD,
             ...data,
 
             objectID: finalUrl,
             pageType: 'docs',
-            url: new URL(finalUrl, pageUrl),
+            url: new URL(finalUrl, pageUrl).toString(),
             parent: '/' + url,
 
-            headings: breadcrumbs.concat(title).reverse().join(' | '),
-            mainTitle: pageIntro.title,
-            pageTitle: [].concat(title).join(': '),
+            headings: headings.reverse().join(' | '),
+            mainTitle,
+            pageTitle,
             content
         });
     }));

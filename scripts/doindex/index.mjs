@@ -59,17 +59,22 @@ async function getReportTypes(types) {
         .join('\n');
 }
 
-/**
- * @param {Object.<string, number>} types
- */
+/** @param {Object.<string, number>} types */
 async function reportFileTypes(types) {
     await reportTypes.writeFile(await getReportTypes(types), { encoding: 'utf8' });
 }
 
-async function reportRecords(records) {
-    const data = records
-        .sort((a, b) => JSON.stringify(a).length - JSON.stringify(b).length);
+/**
+ * @typedef {Object.<string, *>} IndexRecord
+ * @property {string} url
+ * @property {string} objectID
+ */
 
+/**
+ * @param {IndexRecord[]} records
+ * @returns {Promise<void>}
+ */
+async function reportRecords(records) {
     await Promise.all([
         searchIndex.writeFile(
             JSON.stringify(
