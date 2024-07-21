@@ -27,7 +27,6 @@ export async function readPagesIndex(rootDir, stats, reportUrl) {
     /** @type {IndexRecord[]}*/
     let result = [];
 
-    const folders = [rootDir];
     let isPathsWalked = false;
 
     /**
@@ -60,6 +59,8 @@ export async function readPagesIndex(rootDir, stats, reportUrl) {
     const [pool, finish, updatePoolState] = newTaskExecutor(
         import.meta.dirname + '/task.mjs', onReady, isFinished
     );
+
+    const folders = [rootDir];
 
     while (folders.length > 0) {
         const folder = folders.pop();

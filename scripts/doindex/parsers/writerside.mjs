@@ -17,7 +17,7 @@ function getBreadcrumbs(article) {
  * @param {import('cheerio').Cheerio} article
  * @returns {void}
  */
-function dropNextSections(article) {
+function dropUselessSections(article) {
     article.find([
         '.chapter:has(#what-s-next)', '.chapter:has(#next-step)',
         '.chapter:has(#learn-more)', '.chapter:has(#leave-feedback)'
@@ -64,16 +64,34 @@ const TITLE_SELECTOR = '[id]:is(h1, h2, h3, h4)';
 
 /**
  * @param {import('cheerio').CheerioAPI} $
+ * @template {Node} TNode
+ * @param {TNode} titleNode
+ * @returns {Node}
+ */
+function pairTitleContent($, titleNode) {
+    let contentNode;
+
+    /* check title inside collapse */
+    const chapterNode = titleNode.parentNode;
+    if ($(chapterNode).is('.collapse__title'))
+        contentNode = findNextElementWith(chapterNode, el => $(el).is('.collapse__content, .collapse__body'));
+
+    return contentNode || titleNode.nextSibling;
+}
+
+/**
+ * @param {import('cheerio').CheerioAPI} $
  * @param {import('cheerio').Cheerio} article
  * @returns {Promise<Chapter<Element, string>>}
  */
 async function getIntroduction($, article) {
     const titleNode = article.find(`> ${TITLE_SELECTOR}`)[0];
+    const contentNode = pairTitleContent($, titleNode);
 
     return {
         titleNode,
         title: $(titleNode).text(),
-        content: await htmlToText($, [titleNode.nextSibling], (node, level) =>
+        content: await htmlToText($, [contentNode], (node, level) =>
             level === 0 && $(node).is('section.chapter'))
     };
 }
@@ -143,7 +161,7 @@ async function docs($, url, data) {
     const pageUrl = new URL($('link[rel="canonical"]').attr('href'));
 
     dropUiElements($article);
-    dropNextSections($article);
+    dropUselessSections($article);
     replaceMedia($article, pageUrl.toString());
 
     const breadcrumbs = getBreadcrumbs($body);
@@ -160,13 +178,7 @@ async function docs($, url, data) {
                 const subChapters = await Promise.all(
                     chaptersSubLevel.map(
                         async function toSubChapter({ title: subTitle, titleNode: subTitleNode }) {
-                            /** @type {import('cheerio').Cheerio} */
-                            const $subChapterNode = $(subTitleNode.parentNode);
-                            const subContentNode = $subChapterNode.is('.collapse__title') ?
-                                findNextElementWith($subChapterNode[0], el =>
-                                    $(el).is('.collapse__content, .collapse__body')) :
-                                subTitleNode.nextSibling;
-
+                            const subContentNode = pairTitleContent($, subTitleNode);
                             return {
                                 titleNode: subTitleNode,
                                 title: title ? [title, subTitle] : subTitle,
