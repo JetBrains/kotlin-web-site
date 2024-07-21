@@ -3,7 +3,7 @@ export * from './writerside.mjs';
 
 /**
  * @param {string} name
- * @returns {($: void, url: string) => []}
+ * @returns {($: import('cheerio').Cheerio, url: string) => []}
  */
 function reportSkipParser(name) {
     return function reportFirstPage($, url) {

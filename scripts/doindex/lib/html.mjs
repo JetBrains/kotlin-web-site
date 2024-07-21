@@ -5,7 +5,8 @@ import { Element } from 'domhandler';
 /** @typedef {import('domhandler').Node} Node */
 
 /**
- * @param {Node} node
+ * @template {Node} TNode
+ * @param {TNode} [node]
  * @returns {Element|null}
  */
 export function nextElement(node) {
@@ -18,7 +19,8 @@ export function nextElement(node) {
 }
 
 /**
- * @param {Node} node
+ * @template {Node} TNode
+ * @param {TNode} node
  * @param {(el: Element) => boolean} test
  * @param {'previous' | 'next'} direction
  * @returns {Element|null}
@@ -37,7 +39,8 @@ function findElementWith(direction, node, test) {
 }
 
 /**
- * @param {Node} node
+ * @template {Node} TNode
+ * @param {TNode} node
  * @param {(el: Element) => boolean} test
  * @returns {Element|null}
  */
@@ -46,7 +49,8 @@ export function findPrevElementWith(node, test) {
 }
 
 /**
- * @param {Node} node
+ * @template {Node} TNode
+ * @param {TNode} node
  * @param {(el: Element) => boolean} test
  * @returns {Element|null}
  */

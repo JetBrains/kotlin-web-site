@@ -6,7 +6,8 @@ import { findPrevElementWith, nextElement } from '../lib/html.mjs';
 /** @typedef {import('domhandler').Element} Element */
 
 /**
- * @param {Node} node
+ * @template {Node} TNode
+ * @param {TNode} node
  * @param {number} level
  * @returns {boolean}
  */
@@ -15,7 +16,7 @@ function isFinalNode(node, level) {
 }
 
 /**
- * @param {import('cheerio').Cheerio<Element>} article
+ * @param {import('cheerio').Cheerio} article
  * @returns {void}
  */
 function dropSourceLinks(article) {
@@ -23,7 +24,7 @@ function dropSourceLinks(article) {
 }
 
 /**
- * @param {import('cheerio').Cheerio<Element>} article
+ * @param {import('cheerio').Cheerio} article
  * @returns {void}
  */
 function dropPlatformSwitches(article) {
@@ -32,14 +33,17 @@ function dropPlatformSwitches(article) {
 
 /**
  * @param {import('cheerio').CheerioAPI} $
- * @param {import('cheerio').Cheerio<Element>} article
- * @returns {[string, string][]}
+ * @param {import('cheerio').Cheerio} article
+ * @returns {[text: string, url: string][]}
  */
 function dropBreadcrumbs($, article) {
     const breadcrumbsNode = article.find('.api-docs-breadcrumbs').remove();
-    const breadcrumbs = [...breadcrumbsNode.find('a')].map(
-        (el, i) => [$(el).text(), $(el).attr('href')]
-    );
+
+    const breadcrumbs = [...breadcrumbsNode.find('a')]
+        .map(function mapBreadcrumbs(el, i) {
+            const $el = $(el);
+            return [$el.text(), $el.attr('href')];
+        });
 
     const first = breadcrumbs?.[0]?.[0];
 
@@ -52,7 +56,8 @@ function dropBreadcrumbs($, article) {
 const SIGNATURE_SELECTOR = 'div[data-kotlin-version][data-platform]:has(> .signature)';
 
 /**
- * @param {Node} child
+ * @template {Node} TNode
+ * @param {TNode} child
  * @returns {boolean}
  */
 function isSignatureDescriptionNode(child) {
@@ -61,7 +66,7 @@ function isSignatureDescriptionNode(child) {
 
 /**
  * @param {import('cheerio').CheerioAPI} $
- * @param {import('cheerio').Cheerio<Element>} article
+ * @param {import('cheerio').Cheerio} article
  * @returns {void}
  */
 function swapSignatureCodeAndText($, article) {
@@ -73,7 +78,7 @@ function swapSignatureCodeAndText($, article) {
         /* Filter empty and description with code samples.
            Cause code samples less interesting than signature? */
         const hasDescription = Boolean(nextNode && $(nextNode).is('div[data-kotlin-version][data-platform]:has(> p)') &&
-            nextNode.childNodes?.every(isSignatureDescriptionNode));
+            nextNode.childNodes.every(isSignatureDescriptionNode));
 
         if (hasDescription) {
             /* if description for more than one signature, we put it before first.
@@ -91,8 +96,7 @@ function swapSignatureCodeAndText($, article) {
 
 /**
  * @param {import('cheerio').CheerioAPI} $
- * @param {import('cheerio').Cheerio<Element>} article
- * @returns {import('cheerio').Cheerio<Element>}
+ * @param {import('cheerio').Cheerio} article
  */
 function findTitleNode($, article) {
     let titleNode = article.find('h1[id]');
@@ -119,30 +123,32 @@ function findTitleNode($, article) {
  * @param {Object.<string, *>} data
  */
 async function legacyApi($, url, data) {
+    /** @type {string|null} */
     let content = null;
 
-    const article = $('.page-content');
+    /** @type {import('cheerio').Cheerio} */
+    const $article = $('.page-content');
     const pageUrl = new URL($('meta[property="og:url"][content]').attr('content'));
 
-    if (!article.length) {
+    if (!$article.length) {
         console.warn(`skip: /${url} with unexpected page dom!!!`);
         return [];
     }
 
-    dropPlatformSwitches(article);
-    dropSourceLinks(article);
+    dropPlatformSwitches($article);
+    dropSourceLinks($article);
     // ToDo: enable when filters with api to be in search UI
     // swapSignatureCodeAndText($, article);
 
-    const levels = dropBreadcrumbs($, article);
+    const levels = dropBreadcrumbs($, $article);
 
-    const titleNode = findTitleNode($, article)[0];
+    const $titleNode = findTitleNode($, $article);
 
-    if (titleNode)
-        content = await htmlToText($, [titleNode.nextSibling], isFinalNode);
+    if ($titleNode.length)
+        content = await htmlToText($, [$titleNode[0].nextSibling], isFinalNode);
     else {
         // check extension page like: https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/java.time.-duration/
-        const isExtensionPage = article.find('> *:first-child').eq(0).is('h3[id^="extensions-for-"]');
+        const isExtensionPage = $article.find('> *:first-child').eq(0).is('h3[id^="extensions-for-"]');
         if (!isExtensionPage) {
             throw new Error(`Title for ${url} not found!`);
         }
@@ -152,7 +158,7 @@ async function legacyApi($, url, data) {
 
     let title = levels.length ?
         breadcrumbs.join(' \u203a ') :
-        $(titleNode).text();
+        $titleNode.text();
 
     if (url.endsWith('/alltypes/')) {
         content = `All types for ${title}`;

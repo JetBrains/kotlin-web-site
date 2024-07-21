@@ -25,8 +25,9 @@ export function cleanText(text) {
 /** @typedef {import('cheerio').CheerioAPI} CheerioAPI */
 
 /**
+ * @template {Node} TNode
  * @param {CheerioAPI} $
- * @param {Node[]} list
+ * @param {TNode[]} list
  * @param {(node: *, level?: number) => boolean} [isFinalNode]
  * @returns {Promise<string>}
  */

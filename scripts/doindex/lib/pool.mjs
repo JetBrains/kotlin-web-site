@@ -8,21 +8,18 @@ import { createResolve } from './index.mjs';
  * @property {boolean} [waits]
  */
 
+/**
+ * @template Message
+ */
 export class FixedThreadPool {
     /** @type {Fork[]} */
     forks = [];
-    /** @type {T[]} */
+    /** @type {Message[]} */
     messages = [];
 
     /**
-     * @callback resultCallback
-     * @param {T} result
-     * @returns {void}
-     */
-
-    /**
      * @param {string} script
-     * @param {resultCallback} onResult
+     * @param {(result: *) => void} onResult
      * @param {number} [poolSize]
      */
     constructor(script, onResult, poolSize = (cpuSize && cpuSize()) || cpus().length) {
@@ -39,27 +36,34 @@ export class FixedThreadPool {
                 forked.id = i;
                 forked.waits = false;
 
-                forked.on('message', msg => {
-                    switch (msg?.event) {
-                        case 'inited':
-                            forked.waits = true;
-                            this.update();
-                            break;
+                forked.on('message',
+                    /** @param {
+                     *    {event: 'inited'} |
+                     *    {event: 'log', type: string, data?: *[]} |
+                     *    {event: 'result', data?: *}
+                     * } [msg] */
+                    msg => {
+                        switch (msg?.event) {
+                            case 'inited':
+                                forked.waits = true;
+                                this.update();
+                                break;
 
-                        case 'log':
-                            console[msg.type || 'log'](...(msg.data || []));
-                            break;
+                            case 'log':
+                                console[msg.type || 'log'](...(msg.data || []));
+                                break;
 
-                        case 'result':
-                            forked.waits = true;
-                            onResult(msg?.data);
-                            this.update();
-                            break;
+                            case 'result':
+                                forked.waits = true;
+                                onResult(msg.data);
+                                this.update();
+                                break;
 
-                        default:
-                            console.warn('warn: unexpected message: ', JSON.stringify(msg));
+                            default:
+                                console.warn('warn: unexpected message: ', JSON.stringify(msg));
+                        }
                     }
-                });
+                );
 
                 forked.on('exit', function forkExit(code) {
                     code && process.exit(code);
@@ -75,16 +79,22 @@ export class FixedThreadPool {
         );
     }
 
+    /**
+     * @private
+     * @returns {Fork|void}
+     */
     _thread() {
         return this.forks.find(forked => forked.waits);
     }
 
+    /** @param {Message} msg */
     push(msg) {
         this.messages.push(msg);
         this.update();
         return this;
     }
 
+    /** @param {Message[]} list */
     pushAll(list) {
         this.messages = [...this.messages, ...list];
         this.update();
@@ -92,7 +102,7 @@ export class FixedThreadPool {
     }
 
     isIdle() {
-        return !this.messages.length && this.forks.every(forked => forked.waits);
+        return Boolean(!this.messages.length && this.forks.every(forked => forked.waits));
     }
 
     shutdown() {
