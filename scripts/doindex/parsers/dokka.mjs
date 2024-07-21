@@ -40,7 +40,7 @@ function dropBreadcrumbs($, article) {
     const breadcrumbsNode = article.find('.api-docs-breadcrumbs').remove();
 
     const breadcrumbs = [...breadcrumbsNode.find('a')]
-        .map(function mapBreadcrumbs(el, i) {
+        .map(function mapBreadcrumbs(el) {
             const $el = $(el);
             return [$el.text(), $el.attr('href')];
         });
@@ -83,7 +83,9 @@ function swapSignatureCodeAndText($, article) {
         if (hasDescription) {
             /* if description for more than one signature, we put it before first.
                see: https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/assert-contains.html#kotlin.test$assertContains(kotlin.ranges.IntRange,%20kotlin.Int,%20kotlin.String?) */
-            const firstSignature = findPrevElementWith(nextNode, node => $(node).is(SIGNATURE_SELECTOR));
+
+            const node = findPrevElementWith(nextNode, node => !$(node).is(SIGNATURE_SELECTOR))?.nextSibling;
+            const firstSignature = (node && node !== nextNode && $(node).is(SIGNATURE_SELECTOR) && node) || null;
 
             if (firstSignature) {
                 /* move description before all signatures */
@@ -138,7 +140,7 @@ async function legacyApi($, url, data) {
     dropPlatformSwitches($article);
     dropSourceLinks($article);
     // ToDo: enable when filters with api to be in search UI
-    // swapSignatureCodeAndText($, article);
+    // swapSignatureCodeAndText($, $article);
 
     const levels = dropBreadcrumbs($, $article);
 

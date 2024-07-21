@@ -78,7 +78,7 @@ async function reportRecords(records) {
     await Promise.all([
         searchIndex.writeFile(
             JSON.stringify(
-                records.sort((a, b) => JSON.stringify(a).length - JSON.stringify(b).length), null, 2),
+                records.sort((a, b) => a.objectID.localeCompare(b.objectID)), null, 2),
             { encoding: 'utf8' }
         ),
 

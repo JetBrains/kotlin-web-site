@@ -1,5 +1,6 @@
 export * from './dokka.mjs';
 export * from './writerside.mjs';
+export * from './markdown.mjs';
 
 /**
  * @param {string} name

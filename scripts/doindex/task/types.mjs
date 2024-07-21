@@ -31,6 +31,9 @@ export async function getType(url, file) {
         if ($('body[data-article-props]').length)
             pageType = 'Page_Documentation';
 
+        if ($('.global-content > article.page-content[role="main"]').length)
+            pageType = 'Page_LegacyDocumentation';
+
         return [pageType, $];
     }
 

@@ -106,7 +106,12 @@ export class FixedThreadPool {
     }
 
     shutdown() {
-        this.forks.forEach(forked => forked.kill());
+        this.forks.forEach(forked => {
+            forked.kill();
+            forked.waits = false;
+        });
+        this.forks = [];
+        return this;
     }
 
     update() {
@@ -117,6 +122,8 @@ export class FixedThreadPool {
             thread.waits = false;
             thread.send(next);
         }
+
+        return this;
     }
 }
 

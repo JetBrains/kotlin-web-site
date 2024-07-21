@@ -26,16 +26,19 @@ export function nextElement(node) {
  * @returns {Element|null}
  */
 function findElementWith(direction, node, test) {
-    let result = node;
     const prop = direction + 'Sibling';
-    while (result[prop]) {
-        const candidate = result[prop];
-        if (candidate instanceof Element && !test(candidate))
+    let result = null;
+
+    let candidate = node;
+    while (candidate[prop]) {
+        candidate = candidate[prop];
+        if (candidate instanceof Element && test(candidate)) {
+            result = candidate;
             break;
-        result = candidate;
+        }
     }
 
-    return result instanceof Element && result !== node ? result : null;
+    return result;
 }
 
 /**
