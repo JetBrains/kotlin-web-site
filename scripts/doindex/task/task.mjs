@@ -2,14 +2,6 @@ import { loadFile } from '../lib/html.mjs';
 import { getType } from './types.mjs';
 import { getRecords } from './records.mjs';
 
-function log(type, ...args) {
-    process.send({ event: 'log', type, data: args });
-}
-
-['log', 'warn', 'error'].forEach((type) => {
-    console[type] = log.bind(console, type);
-});
-
 /**
  * @param {string} url
  * @param {string} file
