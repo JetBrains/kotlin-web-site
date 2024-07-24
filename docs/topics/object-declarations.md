@@ -9,7 +9,7 @@ Object expressions and object declarations are best used for scenarios when:
 such as for event listeners or callbacks. This ensures only one instance exists throughout the application.
 * **Type-safe design is required:** You require one-time implementations of interfaces or abstract classes using object expressions.
 This can be useful for scenarios like a button click handler.
-* **Extending existing classes dynamically:** You want to modify the behavior of an existing class without creating a new subclass.
+* **Modifying existing class behavior temporarily:** You want to modify the behavior of an existing class without creating a new subclass.
 For example, adding temporary functionality to an object for a specific operation.
 * **Using singletons for shared resources:** You need to ensure that only one instance of a class exists throughout the application.
 For example, managing a database connection pool.
