@@ -175,6 +175,7 @@ async function legacyApi($, url, data) {
             ...data,
 
             objectID: finalUrl,
+            parent: finalUrl,
             pageType: 'api',
             url: new URL(finalUrl, pageUrl).toString(),
 
