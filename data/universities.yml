@@ -202,7 +202,7 @@
   location: Leeds (UK)
   courses:
   - name: COMP3222 Mobile Application Development
-    url: https://comp3222.info/lectures/index.html
+    url:
   geo:
     lat: 53.807488
     lng: -1.534502
@@ -234,7 +234,7 @@
   location: New Brunswick, NJ (US)
   courses:
   - name: 14:332:453 Mobile App Engineering and User Experience
-    url: https://www.ece.rutgers.edu/14332453-mobile-app-engineering-and-user-experience
+    url:
   geo:
     lat: 40.489596
     lng: -74.413887
@@ -732,7 +732,7 @@
   location: Hong Kong (China)
   courses:
   - name: EE5415 Mobile Applications Design and Development
-    url: http://www.ee.cityu.edu.hk/~lmpo/ee5415/schedule.html
+    url:
   geo:
     lat: 22.3366793
     lng: 114.1724234
@@ -1846,7 +1846,7 @@
   location: Rostov-on-Don (Russia)
   courses:
   - name: Программирование мобильных устройств (Android, Kotlin)
-    url: https://donstu.ru/applicants/napravleniya/programmnoe-obespechenie-vychislitelnoy-tekhniki-i-avtomatizirovannykh-sistem/
+    url:
   geo:
     lat: 47.23735605
     lng: 39.71203625

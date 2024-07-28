@@ -176,7 +176,7 @@
       lng: 19.9449799
   - name: Leeds KUG
     country: United Kingdom
-    url: https://leedskotlinusergroup.netlify.com/published/2020/1/6/our-first-meetup/
+    url: https://leedskotlinusergroup.netlify.app/published/2020/1/6/our-first-meetup/
     position:
       lat: 53.8007554
       lng: -1.5490774
