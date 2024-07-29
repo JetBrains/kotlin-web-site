@@ -56,13 +56,13 @@ check [our instructions on how to configure your build to support this version](
         </td>
     </tr>
     <tr>
-        <td><strong>2.0.10-RC</strong>
-            <p>Released: <strong>July 11, 2024</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.10-RC" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.0.10-RC2</strong>
+            <p>Released: <strong>July 29, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.10-RC2" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <p>A bug fix release for Kotlin 2.0.0</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.10-RC">changelog</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.10-RC2">changelog</a>.</p>
         </td>
     </tr>
 </table>
