@@ -17,7 +17,7 @@ function getBreadcrumbs(article) {
  * @param {import('cheerio').Cheerio} article
  * @returns {void}
  */
-function dropUselessSections(article) {
+function dropIrrelevantSections(article) {
     article.find([
         '.chapter:has(#what-s-next)', '.chapter:has(#next-step)',
         '.chapter:has(#learn-more)', '.chapter:has(#leave-feedback)'
