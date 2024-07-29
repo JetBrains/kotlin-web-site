@@ -28,7 +28,7 @@ function dropSourceLinks(article) {
  * @returns {void}
  */
 function dropPlatformSwitches(article) {
-    article.find('div[data-kotlin-version][data-platform]> .tags').remove();
+    article.find('div[data-kotlin-version][data-platform] > .tags').remove();
 }
 
 /**
