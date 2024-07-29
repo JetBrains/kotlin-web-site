@@ -57,7 +57,7 @@ check [our instructions on how to configure your build to support this version](
     </tr>
     <tr>
         <td><strong>2.0.10-RC2</strong>
-            <p>Released: <strong>July 23, 2024</strong></p>
+            <p>Released: <strong>July 29, 2024</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.10-RC2" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
