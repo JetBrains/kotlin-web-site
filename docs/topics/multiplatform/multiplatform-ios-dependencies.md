@@ -228,7 +228,7 @@ import DateTools.*
 
     ```groovy
     kotlin {
-         iosArm64 {
+        iosArm64 {
             compilations.main {
                 cinterops {
                     DateTools {
