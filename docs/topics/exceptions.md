@@ -4,15 +4,15 @@ Exceptions help your code run more predictably, even when runtime errors occur t
 Kotlin treats all exceptions as _unchecked_ by default.
 Unchecked exceptions simplify the exception handling process: you can catch exceptions, but you don't need to explicitly handle or [declare](java-to-kotlin-interop.md#checked-exceptions) them. 
 
-> For more information about how Kotlin handles exceptions when interacting with Java, Swift, and Objective-C, see 
-> [Exception interoperability with Java, Swift, and Objective-C](#exception-interoperability-with-java-swift-and-objective-c).
+> Learn more about how Kotlin handles exceptions when interacting with Java, Swift, and Objective-C in the
+> [Exception interoperability with Java, Swift, and Objective-C](#exception-interoperability-with-java-swift-and-objective-c) section.
 > 
 {type="tip"}
 
 Working with exceptions consists of two primary actions:
 
-* **Throwing exceptions:** Indicate when a problem occurs.
-* **Catching exceptions:** Handle the unexpected exception manually by resolving the issue or notifying the developer or application user.
+* **Throwing exceptions:** indicate when a problem occurs.
+* **Catching exceptions:** handle the unexpected exception manually by resolving the issue or notifying the developer or application user.
 
 Exceptions are represented by subclasses of the 
 [`Exception`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/) class, which is a subclass of the 
@@ -20,7 +20,7 @@ Exceptions are represented by subclasses of the
 hierarchy, see the [Exception hierarchy](#exception-hierarchy) section. Since `Exception` is an [`open 
 class`](inheritance.md), you can create [custom exceptions](#creating-custom-exceptions) to suit your application's specific needs.
 
-## Throwing exceptions
+## Throw exceptions
 
 You can manually throw exceptions with the `throw` keyword.
 Throwing an exception indicates that an unexpected runtime error has occurred in the code.
@@ -50,30 +50,31 @@ which will be included in the [stack trace](#stack-trace).
 
 ### Throw exceptions with precondition functions
 
-Kotlin offers additional idiomatic ways to automatically throw exceptions using precondition functions. 
+Kotlin offers additional ways to automatically throw exceptions using precondition functions. 
 Precondition functions include:
 
-| Precondition function                | Use case                                 | Exception thrown                                                                                               |
-|--------------------------------------|------------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| [`require()`](#the-require-function) | Checks user input validity               | [`IllegalArgumentException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/) |
-| [`check()`](#the-check-function)     | Checks object or variable state validity | [`IllegalStateException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/)       |
-| [`error()`](#the-error-function)     | Signals an illegal state or condition    | [`IllegalStateException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/)       |
+| Precondition function            | Use case                                 | Exception thrown                                                                                                 |
+|----------------------------------|------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| [`require()`](#require-function) | Checks user input validity               | [`IllegalArgumentException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/)   |
+| [`check()`](#check-function)     | Checks object or variable state validity | [`IllegalStateException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/)         |
+| [`error()`](#error-function)     | Indicates an illegal state or condition  | [`IllegalStateException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/)         |
 
-These functions are most suitable for situations where the program's flow cannot continue if specific conditions aren't met.
+These functions are suitable for situations where the program's flow cannot continue if specific conditions aren't met.
 This streamlines your code and makes handling these checks efficient.
 
-#### The require() function
+#### require() function
 
-Use the [`require()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) function to validate input arguments when it is crucial for the function's operation, 
-and there's no sensible way for the function to proceed if these arguments are invalid.
+Use the [`require()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html) function to validate input arguments when they are crucial for the function's operation,
+and the function can't proceed if these arguments are invalid.
 
-If the condition specified in `require()` is not met, an [`IllegalArgumentException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/) is thrown:
+If the condition in `require()` is not met, it throws an [`IllegalArgumentException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-argument-exception/):
 
 ```kotlin
 fun getIndices(count: Int): List<Int> {
     require(count >= 0) { "Count must be non-negative. You set count to $count." }
     return List(count) { it + 1 }
 }
+
 fun main() {
     // This fails with an IllegalArgumentException
     println(getIndices(-1))
@@ -101,10 +102,10 @@ fun main() {
 >
 {type="note"}
 
-#### The check() function
+#### check() function
 
-Use the [`check()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/check.html) function to validate the state of an object or variable, 
-where failing the check indicates a logic error that needs to be addressed.
+Use the [`check()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/check.html) function to validate the state of an object or variable.
+If the check fails, it indicates a logic error that needs to be addressed.
 
 If the condition specified in the `check()` function is `false`, it throws an [`IllegalStateException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-illegal-state-exception/):
 
@@ -149,7 +150,7 @@ fun main() {
 >
 {type="note"}
 
-#### The error() function
+#### error() function
 
 The [`error()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/error.html) function is used to signal an illegal state or a condition in the code that logically should not occur.
 It's suitable for scenarios when you want to throw an exception intentionally in your code, such as when the code encounters 
@@ -184,10 +185,10 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-## Handling exceptions using try-catch blocks
+## Handle exceptions using try-catch blocks
 
 When an exception is thrown, it interrupts the normal execution of the program.
-You can handle exceptions gracefully using the `try` and `catch` keywords to maintain the stability of your program.
+You can handle exceptions gracefully with the `try` and `catch` keywords to keep your program stable.
 The `try` block contains the code that might throw an exception, while the `catch` block catches and handles the exception if it occurs.
 The exception is caught by the first `catch` block that matches its specific type or a [superclass](inheritance.md) of the exception.
 
@@ -201,8 +202,8 @@ try {
 }
 ```
 
-It's a common idiomatic approach to use `try-catch` as an expression, so it can return a value from either
-the `try` block or the `catch` block, as demonstrated in the example below:
+It's a common approach to use `try-catch` as an expression, so it can return a value from either
+the `try` block or the `catch` block:
 
 ```kotlin
 fun main() {
@@ -213,7 +214,8 @@ fun main() {
         
     } catch (e: ArithmeticException) {
         
-        // If count() throws an exception, the catch block returns -1, which is assigned to num
+        // If count() throws an exception, the catch block returns -1, 
+        // which is assigned to num
         -1
     }
     println("Result: $num")
@@ -233,6 +235,9 @@ fun count(): Int {
 
 You can use multiple `catch` handlers for the same `try` block.
 You can add as many `catch` blocks as needed to handle different exceptions distinctively.
+When you have multiple `catch` blocks, it's important to order them from the most
+specific to the least specific exception, following a top-to-bottom order in your code.
+This ordering aligns with the program's execution flow.
 
 Consider this example with [custom exceptions](#creating-custom-exceptions):
 
@@ -269,9 +274,6 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-As demonstrated in the example above, when you have multiple `catch` blocks, it's important to order them from the most
-specific to the least specific exception, following a top-to-bottom order in your code.
-This ordering aligns with the program's execution flow.
 A general catch block handling `WithdrawalException`, catches all exceptions of its type, including specific ones like `InsufficientFundsException`,
 unless they are caught earlier by a more specific catch block.
 
@@ -332,7 +334,7 @@ fun main() {
 {kotlin-runnable="true"}
 
 > In Kotlin, the idiomatic way to manage resources that implement the [AutoClosable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-auto-closeable/) interface,
-> such as file streams like `FileInputStream` or `FileOutputStream`, is to use the [`.use`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/use.html) function. 
+> such as file streams like `FileInputStream` or `FileOutputStream`, is to use the [`.use()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/use.html) function. 
 > This function automatically closes the resource when the block of code completes, regardless of whether
 > an exception is thrown, thereby eliminating the need for a `finally` block. 
 > Consequently, Kotlin does not require a special syntax like [Java's try-with-resources](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) for resource management.
@@ -391,10 +393,10 @@ As you can see, the `finally` block guarantees that the resource is closed, rega
 In Kotlin, you have the flexibility to use only a `catch` block, only a `finally` block, or both, depending on your 
 specific needs, but a `try` block must always be accompanied by at least one `catch` block or a `finally` block.
 
-## Creating custom exceptions
+## Create custom exceptions
 
-In Kotlin, you can define custom exceptions by creating classes that extend the built-in `Exception` class, allowing you
-to create more specific error types tailored to the unique needs of your application.
+In Kotlin, you can define custom exceptions by creating classes that extend the built-in `Exception` class. 
+This allows you to create more specific error types tailored to your application's needs.
 
 To create one, you can define a class that extends `Exception`:
 
@@ -404,26 +406,26 @@ class MyException: Exception("My message")
 
 In this example, there is a default error message, "My message", but you can leave it blank if you want.
 
+> Exceptions in Kotlin are stateful objects, carrying information specific to the context of their creation, referred to as the [stack trace](#stack-trace).
+> Avoid creating exceptions using [object declarations](object-declarations.md#object-declarations-overview).
+> Instead, create a new instance of the exception every time you need one.
+> This way, you can ensure the exception's state accurately reflects the specific context.
+>
+{type="tip"}
+
 Custom exceptions can also be a subclass of any pre-existent exception subclass, like the `ArithmeticException` subclass:
 
 ```kotlin
 class NumberTooLargeException: ArithmeticException("My message")
 ```
 
-> Exceptions in Kotlin are stateful objects, carrying information specific to the context of their creation, referred to as the [stack trace](#stack-trace).
-> Avoid creating exceptions using `object` declarations. 
-> Instead, create a new instance of the exception every time you need one. 
-> This way, you can ensure the exception's state accurately reflects the specific context.
-> 
-{type="tip"}
-
-> In Kotlin, [classes are final by default](inheritance.md) and cannot be subclassed unless the parent
-> class is declared as `open`.
+> If you want to create subclasses of custom exceptions, you must declare the parent class as `open`
+> because [classes are final by default](inheritance.md) and cannot be subclassed otherwise.
 > 
 > For example:
 >
 > ```kotlin
-> // Declares a custom exception as an open class making it subclassable
+> // Declares a custom exception as an open class, making it subclassable
 > open class MyCustomException(message: String): Exception(message)
 >
 > // Creates a subclass of the custom exception
@@ -432,7 +434,7 @@ class NumberTooLargeException: ArithmeticException("My message")
 >
 {type="note"}
 
-Custom exceptions function just like built-in exceptions. You can throw them using the `throw` keyword, 
+Custom exceptions behave just like built-in exceptions. You can throw them using the `throw` keyword, 
 and handle them with `try-catch-finally` blocks. Let's look at an example to demonstrate:
 
 ```kotlin
@@ -452,16 +454,16 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-In complex applications with diverse error scenarios,
+In applications with diverse error scenarios,
 creating a hierarchy of exceptions can help making the code clearer and more specific.
-This can be achieved by employing an [`abstract class`](classes.md#abstract-classes) or a
-[`sealed class`](sealed-classes.md#constructors) as a base for common exception features,
-with specific subclasses to define detailed exception types.
+You can achieve this by using an [abstract class](classes.md#abstract-classes) or a
+[sealed class](sealed-classes.md#constructors) as a base for common exception features and creating specific 
+subclasses for detailed exception types.
 Additionally, custom exceptions with optional parameters offer flexibility, allowing initialization with varied messages,
 which enables more granular error handling.
 
-Let's look at an example using `sealed class AccountException` as the base for an exception hierarchy, 
-and `class APIKeyExpiredException`, a subclass, which showcases the use of optional parameters for improved exception detail:
+Let's look at an example using the sealed class `AccountException` as the base for an exception hierarchy, 
+and class `APIKeyExpiredException`, a subclass, which showcases the use of optional parameters for improved exception detail:
 
 ```kotlin
 //sampleStart
@@ -504,17 +506,17 @@ fun main() {
 
 ## The Nothing type
 
-Every expression in Kotlin has a type. So what is the type of the expression `throw IllegalArgumentException()`? 
-The answer is [Nothing](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html), a built-in type, 
+In Kotlin, every expression has a type.
+The type of the expression `throw IllegalArgumentException()` is [Nothing](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html), a built-in type that is
 a subtype of all other types, also known as [the bottom type](https://en.wikipedia.org/wiki/Bottom_type). 
-Meaning `Nothing` can appear as a return type or generic type where any other type is expected without causing type errors.
+This means `Nothing` can be used as a return type or generic type where any other type is expected, without causing type errors.
 
-`Nothing` is a unique type used to represent a function or expression that never successfully completes,
-either due to always throwing an exception or leading to an endless execution path, like an infinite loop.
-It is useful for marking functions that either aren't implemented yet or are intentionally designed to result in an exception,
-thereby clearly communicating your intentions to both the compiler and readers of the code.
-In fact, the compiler warns you if it infers a `Nothing` type in a function signature; 
-explicitly defining `Nothing` as the return type in the function signature can get rid of this warning.
+`Nothing` is a special type in Kotlin used to represent functions or expressions that never complete successfully,
+either because they always throw an exception or enter an endless execution path like an infinite loop.
+You can use `Nothing` to mark functions that are not yet implemented or are designed to always throw an exception,
+clearly indicating your intentions to both the compiler and code readers.
+If the compiler infers a `Nothing` type in a function signature, it will warn you.
+Explicitly defining `Nothing` as the return type can eliminate this warning.
 
 This Kotlin code demonstrates the use of the `Nothing` type, where the compiler marks the code following the function
 call as unreachable:
@@ -524,7 +526,8 @@ class Person(val name: String?)
 
 fun fail(message: String): Nothing {
     throw IllegalArgumentException(message)
-    // This function will never return successfully; it will always throw an exception.
+    // This function will never return successfully.
+    // It will always throw an exception.
 }
 
 fun main() {
@@ -561,89 +564,90 @@ As you can see, the `TODO` function always throws a [NotImplementedError](https:
 
 Let's explore some common exception types found in Kotlin, which are all subclasses of the [RuntimeException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/) class:
 
-**[ArithmeticException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-arithmetic-exception/)**: This exception occurs when an arithmetic operation is impossible to perform, like division by zero.
+* **[ArithmeticException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-arithmetic-exception/)**: This exception occurs when an arithmetic operation is impossible to perform, like division by zero.
 
-```kotlin
-val example = 2 / 0 // throws ArithmeticException
-```
+    ```kotlin
+    val example = 2 / 0 // throws ArithmeticException
+    ```
 
-**[IndexOutOfBoundsException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-index-out-of-bounds-exception/)**: This exception is thrown to indicate that an index of some sort, such as an array or string is out of range.
+* **[IndexOutOfBoundsException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-index-out-of-bounds-exception/)**: This exception is thrown to indicate that an index of some sort, such as an array or string is out of range.
 
-```kotlin
-val myList = mutableListOf(1, 2, 3)
-myList.removeAt(3)  // throws IndexOutOfBoundsException
-```
+    ```kotlin
+    val myList = mutableListOf(1, 2, 3)
+    myList.removeAt(3)  // throws IndexOutOfBoundsException
+    ```
 
-> The idiomatic way to avoid this exception is to use a safer alternative, the [`getOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-null.html) function:
-> 
-> ```kotlin
-> val myList = listOf(1, 2, 3)
-> // Returns null, instead of IndexOutOfBoundsException
-> val element = myList.getOrNull(3)
-> println("Element at index 3: $element")
-> ```
-> 
-{type="note"}
+    > To avoid this exception, use a safer alternative, such as the [`getOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-null.html) function:
+    > 
+    > ```kotlin
+    > val myList = listOf(1, 2, 3)
+    > // Returns null, instead of IndexOutOfBoundsException
+    > val element = myList.getOrNull(3)
+    > println("Element at index 3: $element")
+    > ```
+    > 
+    {type="note"}
 
-**[NoSuchElementException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-no-such-element-exception/)**: This exception is thrown when an element that does not exist in a
+* **[NoSuchElementException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-no-such-element-exception/)**: This exception is thrown when an element that does not exist in a
 particular collection is accessed. It occurs when using methods that expect a specific element,
 such as [`first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html), [`last()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html), or [`elementAt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/element-at.html).
 
-```kotlin
-val emptyList = listOf<Int>()
-val firstElement = emptyList.first()  // throws NoSuchElementException
-```
+    ```kotlin
+    val emptyList = listOf<Int>()
+    val firstElement = emptyList.first()  // throws NoSuchElementException
+    ```
 
-> The idiomatic way to avoid this exception is to use a safer alternative, for example the [`firstOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-or-null.html) function:
->
-> ```kotlin
-> val emptyList = listOf<Int>()
-> // Returns null, instead of NoSuchElementException
-> val firstElement = emptyList.firstOrNull()
-> println("First element in empty list: $firstElement")
-> ```
->
-{type="note"}
+    > To avoid this exception is to use a safer alternative, for example the [`firstOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-or-null.html) function:
+    >
+    > ```kotlin
+    > val emptyList = listOf<Int>()
+    > // Returns null, instead of NoSuchElementException
+    > val firstElement = emptyList.firstOrNull()
+    > println("First element in empty list: $firstElement")
+    > ```
+    >
+    {type="note"}
 
-**[NumberFormatException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number-format-exception/)**: This exception occurs when attempting to convert a string to a numeric type, 
+* **[NumberFormatException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number-format-exception/)**: This exception occurs when attempting to convert a string to a numeric type, 
 but the string doesn't have an appropriate format.
 
-```kotlin
-val string = "This is not a number"
-val number = string.toInt() // throws NumberFormatException
-```
+    ```kotlin
+    val string = "This is not a number"
+    val number = string.toInt() // throws NumberFormatException
+    ```
+    
+    > To avoid this exception, use a safer alternative, such as the [`toIntOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-int-or-null.html) function:
+    >
+    > ```kotlin
+    > val nonNumericString = "not a number"
+    > // Returns null, instead of NumberFormatException
+    > val number = nonNumericString.toIntOrNull()
+    > println("Converted number: $number")
+    > ```
+    >
+    {type="note"}
 
-> The idiomatic way to avoid this exception is to use a safer alternative, the [`toIntOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-int-or-null.html) function:
->
-> ```kotlin
-> val nonNumericString = "not a number"
-> // Returns null, instead of NumberFormatException
-> val number = nonNumericString.toIntOrNull()
-> println("Converted number: $number")
-> ```
->
-{type="note"}
-
-**[NullPointerException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-null-pointer-exception/)**: This exception is thrown when an application attempts to use an object reference that has the `null` value.
+* **[NullPointerException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-null-pointer-exception/)**: This exception is thrown when an application attempts to use an object reference that has the `null` value.
 Even though Kotlin's null safety features significantly reduce the risk of NullPointerExceptions, 
 they can still occur either through deliberate use of the `!!` operator or when interacting with Java, which lacks 
 Kotlin's null safety.
 
-```kotlin
-val text: String? = null
-println(text!!.length)  // throws a NullPointerException
-```
+    ```kotlin
+    val text: String? = null
+    println(text!!.length)  // throws a NullPointerException
+    ```
 
 While all exceptions are unchecked in Kotlin, and you don't have to catch them explicitly, you still have the flexibility to catch them if desired.
 
 ### Exception hierarchy
 
-The root of the Kotlin exception hierarchy is the [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/) class. It has two direct subclasses, [Error](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-error/) and [Exception](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/).
+The root of the Kotlin exception hierarchy is the [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/) class.
+It has two direct subclasses, [Error](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-error/) and [Exception](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/):
 
-The `Error` subclass represents serious fundamental problems that an application might not be able to recover from by itself. 
-These are problems that you generally would not attempt to handle, such as [OutOfMemoryError](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-out-of-memory-error/) or `StackOverflowError`.
+* The `Error` subclass represents serious fundamental problems that an application might not be able to recover from by itself. 
+These are problems that you generally would not attempt to handle, such as [`OutOfMemoryError`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-out-of-memory-error/) or `StackOverflowError`.
 
-On the other hand, the `Exception` subclass is used for conditions that you might want to handle. Subtypes of 
+* The `Exception` subclass is used for conditions that you might want to handle. Subtypes of 
 the `Exception` type, such as the [RuntimeException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/) and `IOException` (Input/Output Exception), 
 deal with exceptional events in applications.
 
@@ -659,8 +663,6 @@ such as division by zero. The following picture demonstrates a hierarchy of subt
 
 The _stack trace_ is a report generated by the runtime environment, used for debugging.
 It shows the sequence of function calls leading to a specific point in the program, especially where an error or exception occurred.
-The stack trace is a report generated by the runtime environment used for debugging that shows a sequence of 
-function calls that have led to a point in the program, particularly to a point where an error or an exception occurred.
 
 Let's see an example where the stack trace is automatically printed because of an exception in a JVM environment:
 
@@ -681,16 +683,13 @@ Exception in thread "main" java.lang.ArithmeticException: This is an arithmetic 
     at MainKt.main(Main.kt)
 ```
 
-The first line is the exception description:
-`Exception in thread "main" java.lang.ArithmeticException: This is an arithmetic exception!`
-
-It includes:
+The first line is the exception description, which includes:
 
 * Exception type: `java.lang.ArithmeticException`
 * Thread: `main` 
 * Exception message: `"This is an arithmetic exception!"`
 
-Each line that starts with an `at` after the exception description is the stack trace. A single line is called a _stack trace element_ or a _stack frame_:
+Each other line that starts with an `at` after the exception description is the stack trace. A single line is called a _stack trace element_ or a _stack frame_:
 
 * `at MainKt.main (Main.kt:3)`: This shows the method name (`MainKt.main`) and the source file and line number where the method was called (`Main.kt:3`).
 * `at MainKt.main (Main.kt)`: This shows that the exception occurs in the `main()` function of the `Main.kt` file.
