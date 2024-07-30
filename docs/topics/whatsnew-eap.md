@@ -325,7 +325,7 @@ disable bitcode embedding in your Xcode projects.
 
 ### Changes to monitoring GC performance with signposts
 
-Kotlin %kotlinEapVersion% makes it possible to monitor the performance of Kotlin/Native garbage collector 
+Kotlin 2.0.0 made it possible to monitor the performance of Kotlin/Native garbage collector 
 (GC) through Xcode Instruments. Instruments include the signposts tool, which can show GC pauses as events. 
 This comes in handy when checking GC-related freezes in your iOS apps.
 
@@ -336,6 +336,9 @@ Starting with %kotlinEapVersion%, it requires an explicit opt-in with the follow
 ```none
 -Xbinary=enableSafepointSignposts=true
 ```
+
+<!-- Uncomment for the final release
+Learn more about GC performance analysis in the [documentation](native-memory-manager.md#monitor-gc-performance). -->
 
 ## Kotlin/Wasm
 
