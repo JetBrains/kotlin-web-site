@@ -10,18 +10,7 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 {type="note"}
 
 The Kotlin %kotlinEapVersion% release is out!
-Here are some details of this EAP release:
-
-* [Language: Data class copy function to have the same visibility as constructor](#data-class-copy-function-to-have-the-same-visibility-as-constructor)
-* [Kotlin Multiplatform: Static accessors for source sets from the default target hierarchy](#static-accessors-for-source-sets-from-the-default-target-hierarchy)
-* [Kotlin Multiplatform: Deprecated compatibility with Gradle Java plugins](#deprecated-compatibility-with-gradle-java-plugins)
-* [Kotlin/Native: Concurrent marking in garbage collector](#concurrent-marking-in-garbage-collector)
-* [Kotlin/Native: Support for bitcode embedding removed](#support-for-bitcode-embedding-removed)
-* [Kotlin/Wasm: Error in default export usage](#error-in-default-export-usage)
-* [Kotlin/Wasm: New location of ExperimentalWasmDsl annotation](#new-location-of-experimentalwasmdsl-annotation)
-* [Gradle improvements: Support for versions 8.6–8.8](#gradle-support-for-versions-8-6-8-8)
-* [Gradle improvements: Deprecated incremental compilation based on JVM history files](#deprecated-incremental-compilation-based-on-jvm-history-files)
-* [Gradle improvements: Added task dependency for a rare case when compile task is missing one on an artifact](#added-task-dependency-for-a-rare-case-when-compile-task-is-missing-one-on-an-artifact)
+This document contains some details of this EAP release.
 
 ## IDE support
 
@@ -336,7 +325,7 @@ disable bitcode embedding in your Xcode projects.
 
 ### Changes to monitoring GC performance with signposts
 
-Kotlin %kotlinEapVersion% made it possible to monitor the performance of Kotlin/Native garbage collector 
+Kotlin %kotlinEapVersion% makes it possible to monitor the performance of Kotlin/Native garbage collector 
 (GC) through Xcode Instruments. Instruments include the signposts tool, which can show GC pauses as events. 
 This comes in handy when checking GC-related freezes in your iOS apps.
 
@@ -463,15 +452,25 @@ kotlin.build.archivesTaskOutputAsFriendModule=false
 For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-69330).
 
 ### Option to share JVM artifacts between projects as class files
-> This feature is Experimental. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack]()https://youtrack.jetbrains.com/issue/KT-61861/Gradle-Kotlin-compilations-depend-on-packed-artifacts. Opt-in is required (see details below).
+
+> This feature is [Experimental](components-stability.md#stability-levels-explained). 
+> It may be dropped or changed at any time. Use it only for evaluation purposes. 
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-61861/Gradle-Kotlin-compilations-depend-on-packed-artifacts). 
+> Opt-in is required (see details below).
 >
 {type="warning"}
 
-In Kotlin %kotlinEapVersion%, we introduce a new approach that changes the way the outputs of Kotlin/JVM compilations, such as JAR files, are shared between projects. With this approach, Gradle’s `apiElements` configuration now has a secondary variant that provides access to the directory containing compiled `.class` files. When configured, your project uses this directory instead of requesting the compressed JAR artifact during compilation. This reduces the number of times JAR files are compressed and decompressed, especially for incremental builds.
+In Kotlin %kotlinEapVersion%, we introduce a new approach that changes the way the outputs of Kotlin/JVM compilations, 
+such as JAR files, are shared between projects. 
+With this approach, Gradle's `apiElements` configuration now has a secondary variant 
+that provides access to the directory containing compiled `.class` files. 
+When configured, your project uses this directory instead of requesting the compressed JAR artifact during compilation. 
+This reduces the number of times JAR files are compressed and decompressed, especially for incremental builds.
 
-Our testing shows that this new approach can provide build performance improvements for Linux and macOS hosts. However, on Windows hosts, we have seen a degradation in performance due to how Windows handles I/O operations when working with files.
+Our testing shows that this new approach can provide build performance improvements for Linux and macOS hosts. 
+However, on Windows hosts, we have seen a degradation in performance due to how Windows handles I/O operations when working with files.
 
-To try this new approach, add the following Gradle property to your `gradle.properties` file:
+To try this new approach, add the following property to your `gradle.properties` file:
 
 ```none
 kotlin.jvm.addClassesVariant=true
@@ -487,26 +486,29 @@ By default, this property is set to false and the `apiElements` variant in Gradl
 > org.gradle.java.compile-classpath-packaging=true
 > ```
 >
-> For more information on this property and its purpose, see Gradle’s documentation on [Significant build performance drop on Windows for huge multi-projects](https://docs.gradle.org/current/userguide/java_library_plugin.html#sub:java_library_known_issues_windows_performance).
+> For more information on this property and its purpose, 
+> see Gradle's documentation on [Significant build performance drop on Windows for huge multi-projects](https://docs.gradle.org/current/userguide/java_library_plugin.html#sub:java_library_known_issues_windows_performance).
 >
 {type="note"}
 
-We would appreciate your feedback on this new approach. Do you also see performance improvements? Let us know by adding a comment in [YouTrack](https://youtrack.jetbrains.com/issue/KT-61861/Gradle-Kotlin-compilations-depend-on-packed-artifacts).
+We would appreciate your feedback on this new approach. Do you also see performance improvements? 
+Let us know by adding a comment in [YouTrack](https://youtrack.jetbrains.com/issue/KT-61861/Gradle-Kotlin-compilations-depend-on-packed-artifacts).
 
-### Compose compiler plugin updates ✅
+### Compose compiler plugin updates
 
 In %kotlinEapVersion%, the Compose compiler Gradle plugin gets a few improvements.
 
 #### New way to configure compiler options
 
 We have introduced a new option configuration mechanism to avoid churn of top-level parameters: 
-it’s harder for the Compose compiler team to test things out 
+it's harder for the Compose compiler team to test things out 
 by creating or removing top-level entries for the `composeCompiler {}` block. 
 So options such as strong skipping mode and non-skipping group optimizations are now enabled through the `featureFlags` property.
 
 This property will be used to test new Compose compiler options that will eventually become default.
 
-This change has also been applied to the Compose compiler Gradle plugin. To configure feature flags going forward, use the following syntax (this code will flip all of the default values):
+This change has also been applied to the Compose compiler Gradle plugin. To configure feature flags going forward, 
+use the following syntax (this code will flip all of the default values):
 
 ```kotlin
 composeCompiler {
