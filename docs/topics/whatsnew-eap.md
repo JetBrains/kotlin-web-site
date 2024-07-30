@@ -10,18 +10,7 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 {type="note"}
 
 The Kotlin %kotlinEapVersion% release is out!
-Here are some details of this EAP release:
-
-* [Language: Data class copy function to have the same visibility as constructor](#data-class-copy-function-to-have-the-same-visibility-as-constructor)
-* [Kotlin Multiplatform: Static accessors for source sets from the default target hierarchy](#static-accessors-for-source-sets-from-the-default-target-hierarchy)
-* [Kotlin Multiplatform: Deprecated compatibility with Gradle Java plugins](#deprecated-compatibility-with-gradle-java-plugins)
-* [Kotlin/Native: Concurrent marking in garbage collector](#concurrent-marking-in-garbage-collector)
-* [Kotlin/Native: Support for bitcode embedding removed](#support-for-bitcode-embedding-removed)
-* [Kotlin/Wasm: Error in default export usage](#error-in-default-export-usage)
-* [Kotlin/Wasm: New location of ExperimentalWasmDsl annotation](#new-location-of-experimentalwasmdsl-annotation)
-* [Gradle improvements: Support for versions 8.6–8.8](#gradle-support-for-versions-8-6-8-8)
-* [Gradle improvements: Deprecated incremental compilation based on JVM history files](#deprecated-incremental-compilation-based-on-jvm-history-files)
-* [Gradle improvements: Added task dependency for a rare case when compile task is missing one on an artifact](#added-task-dependency-for-a-rare-case-when-compile-task-is-missing-one-on-an-artifact)
+This document contains some details of this EAP release.
 
 ## IDE support
 
@@ -74,6 +63,102 @@ Note that even with this annotation, the compiler still reports warnings when th
 If you want to opt in to the new behavior already in %kotlinEapVersion% for a whole module rather than in individual classes,
 you can use the `-Xconsistent-data-class-copy-visibility` compiler option.
 This option has the same effect as adding the `@ConsistentCopyVisibility` annotation to all data classes in a module.
+
+### Phased removal of context receivers feature
+
+In Kotlin 1.6.20, we introduced [context receivers](whatsnew1620.md#prototype-of-context-receivers-for-kotlin-jvm) 
+as an [Experimental](components-stability.md#stability-levels-explained) feature.
+After listening to community feedback, we've decided not to continue with it.
+Instead, we plan to introduce a replacement in future Kotlin releases: context parameters.
+You can find the proposal for context parameters in the [KEEP](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md).
+
+Although context receivers have always been an Experimental feature, 
+we know they are already used by a large number of developers. So we will remove support for context receivers gradually.
+
+Our migration plan starts with Kotlin %kotlinEapVersion%, 
+where we issue warnings in your code where context receivers are used when you use the `-Xcontext-receivers` compiler option. 
+For example:
+
+```kotlin
+class MyContext
+
+context(MyContext)
+// warning: experimental context receivers are deprecated and will be superseded by context parameters. 
+// Please don't use context receivers. You can either pass parameters explicitly or use members with extensions.
+fun someFunction() {
+}
+```
+
+This warning will become an error in future Kotlin releases.
+
+If you use context receivers in your code, we recommend that you migrate your code to use either:
+
+* Explicit parameters.
+
+   <table header-style="top">
+      <tr>
+          <td>Before</td>
+          <td>After</td>
+      </tr>
+      <tr>
+   <td>
+
+   ```kotlin
+   context(ContextReceiverType)
+   fun someFunction() {
+       contextReceiverMember()
+   }
+   ```
+   
+   </td>
+   <td>
+   
+   ```kotlin
+   fun someFunction(explicitContext: ContextReceiverType) {
+       explicitContext.contextReceiverMember()
+   }
+   ```
+   
+   </td>
+   </tr>
+   </table>
+
+* Extension member functions, if possible.
+
+   <table header-style="top">
+      <tr>
+          <td>Before</td>
+          <td>After</td>
+      </tr>
+      <tr>
+   <td>
+   
+   ```kotlin
+   context(ContextReceiverType)
+   fun contextReceiverMember() = TODO()
+   
+   context(ContextReceiverType)
+   fun someFunction() {
+       contextReceiverMember()
+   }
+   ```
+   
+   </td>
+   <td>
+   
+   ```kotlin
+   class ContextReceiverType {
+       fun contextReceiverMember() = TODO()
+   }
+   
+   fun ContextReceiverType.someFunction() {
+       contextReceiverMember()
+   }
+   ```
+   
+   </td>
+   </tr>
+   </table>
 
 ## Kotlin Multiplatform
 
@@ -238,6 +323,20 @@ as well as the `-Xembed-bitcode` and `-Xembed-bitcode-marker` command line argum
 If you still use earlier versions of Xcode but want to upgrade to %kotlinEapVersion%, 
 disable bitcode embedding in your Xcode projects.
 
+### Changes to monitoring GC performance with signposts
+
+Kotlin %kotlinEapVersion% makes it possible to monitor the performance of Kotlin/Native garbage collector 
+(GC) through Xcode Instruments. Instruments include the signposts tool, which can show GC pauses as events. 
+This comes in handy when checking GC-related freezes in your iOS apps.
+
+The feature was enabled by default, but unfortunately, 
+it sometimes led to crashes when the application was run simultaneously with Xcode Instruments. 
+Starting with %kotlinEapVersion%, it requires an explicit opt-in with the following compilation option:
+
+```none
+-Xbinary=enableSafepointSignposts=true
+```
+
 ## Kotlin/Wasm
 
 ### Error in default export usage
@@ -351,6 +450,134 @@ kotlin.build.archivesTaskOutputAsFriendModule=false
 ```
 
 For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-69330).
+
+### Option to share JVM artifacts between projects as class files
+
+> This feature is [Experimental](components-stability.md#stability-levels-explained). 
+> It may be dropped or changed at any time. Use it only for evaluation purposes. 
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-61861/Gradle-Kotlin-compilations-depend-on-packed-artifacts). 
+> Opt-in is required (see details below).
+>
+{type="warning"}
+
+In Kotlin %kotlinEapVersion%, we introduce a new approach that changes the way the outputs of Kotlin/JVM compilations, 
+such as JAR files, are shared between projects. 
+With this approach, Gradle's `apiElements` configuration now has a secondary variant 
+that provides access to the directory containing compiled `.class` files. 
+When configured, your project uses this directory instead of requesting the compressed JAR artifact during compilation. 
+This reduces the number of times JAR files are compressed and decompressed, especially for incremental builds.
+
+Our testing shows that this new approach can provide build performance improvements for Linux and macOS hosts. 
+However, on Windows hosts, we have seen a degradation in performance due to how Windows handles I/O operations when working with files.
+
+To try this new approach, add the following property to your `gradle.properties` file:
+
+```none
+kotlin.jvm.addClassesVariant=true
+```
+
+By default, this property is set to false and the `apiElements` variant in Gradle requests the compressed JAR artifact.
+
+> Gradle has a related property that you can use in your Java-only projects to only expose the  
+> compressed JAR artifact during compilation **instead** of the directories containing compiled
+> `.class` files:
+>
+> ```none
+> org.gradle.java.compile-classpath-packaging=true
+> ```
+>
+> For more information on this property and its purpose, 
+> see Gradle's documentation on [Significant build performance drop on Windows for huge multi-projects](https://docs.gradle.org/current/userguide/java_library_plugin.html#sub:java_library_known_issues_windows_performance).
+>
+{type="note"}
+
+We would appreciate your feedback on this new approach. Do you also see performance improvements? 
+Let us know by adding a comment in [YouTrack](https://youtrack.jetbrains.com/issue/KT-61861/Gradle-Kotlin-compilations-depend-on-packed-artifacts).
+
+### Compose compiler plugin updates
+
+In %kotlinEapVersion%, the Compose compiler Gradle plugin gets a few improvements.
+
+#### New way to configure compiler options
+
+We have introduced a new option configuration mechanism to avoid churn of top-level parameters: 
+it's harder for the Compose compiler team to test things out 
+by creating or removing top-level entries for the `composeCompiler {}` block. 
+So options such as strong skipping mode and non-skipping group optimizations are now enabled through the `featureFlags` property.
+
+This property will be used to test new Compose compiler options that will eventually become default.
+
+This change has also been applied to the Compose compiler Gradle plugin. To configure feature flags going forward, 
+use the following syntax (this code will flip all of the default values):
+
+```kotlin
+composeCompiler {
+         featureFlags = setOf(
+               ComposeFeatureFlag.IntrinsicRemember.disabled(),
+               ComposeFeatureFlag.OptimizeNonSkippingGroups,
+               ComposeFeatureFlag.StrongSkipping.disabled()
+         )
+}
+```
+
+Or, if you are configuring the Compose compiler directly, use the following syntax:
+
+```text
+-P plugin:androidx.compose.compiler.plugins.kotlin:featureFlag=IntrinsicRemember
+```
+
+The `enableIntrinsicRemember`, `enableNonSkippingGroupOptimization`, and `enableStrongSkippingMode` properties have been therefore deprecated.
+
+We would appreciate any feedback 
+you have on this new approach in [YouTrack](https://youtrack.jetbrains.com/issue/KT-68651/Compose-provide-a-single-place-in-extension-to-configure-all-compose-flags).
+
+#### strongSkipping mode enabled by default
+
+Strong skipping mode for the Compose compiler is now enabled by default.
+
+Strong skipping mode is a Compose compiler configuration option that changes the rules for what composables can be skipped. 
+With strong skipping mode enabled, composables with unstable parameters can now also be skipped. 
+Strong skipping mode also automatically remembers lambdas used in composable functions, 
+so you should no longer need to wrap your lambdas with `remember` to avoid recomposition.
+
+For more details, see the [strong skipping mode documentation](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping).
+
+#### Non-skipping group optimizations
+
+This release includes a new compiler option: when enabled, 
+non-skippable and non-restartable composable functions will no longer generate a group around the body of the composable. 
+This leads to less allocations and thus to improved performance.
+This option is experimental and disabled by default but can be enabled with the feature flag `OptimizeNonSkippingGroups` 
+as shown [above](#new-way-to-configure-compiler-options).
+
+This feature flag is now ready for wider testing. 
+Any issues found when enabling the feature can be filed on the [Google issue tracker](https://goo.gle/compose-feedback).
+
+#### open and abstract Composable functions support default parameters
+
+You can now add default parameters to open and abstract Composable functions.
+
+Previously, the Compose compiler would report an error when attempting to do this even though it is valid Kotlin. 
+We have now added support for this in the Compose compiler, and the restriction has been removed.
+This is especially useful for including default `Modifier` values:
+
+```kotlin
+abstract class Composables {
+    @Composable
+    abstract fun Composable(modifier: Modifier = Modifier)
+}
+```
+
+## Compose compiler
+
+### Fixed the unnecessary recompositions issue introduced in 2.0.0
+
+Compose compiler 2.0.0 has an issue with unnecessary (or even endless) recomposition issues on non-JVM targets.
+It is strongly recommended to update your Compose apps made for Kotlin 2.0.0 to the 2.0.10 version or newer.
+
+If your app is built with Compose compiler 2.0.10 or newer but uses dependencies built with Compose compiler 2.0.0,
+these older dependencies may still cause recomposition issues.
+To prevent this, update your dependencies to versions built with the same Compose compiler as your app.
 
 ## How to update to Kotlin %kotlinEapVersion%
 
