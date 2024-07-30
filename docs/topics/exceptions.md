@@ -18,7 +18,7 @@ Exceptions are represented by subclasses of the
 [`Exception`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/) class, which is a subclass of the 
 [`Throwable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/) class. For more information about the 
 hierarchy, see the [Exception hierarchy](#exception-hierarchy) section. Since `Exception` is an [`open 
-class`](inheritance.md), you can create [custom exceptions](#creating-custom-exceptions) to suit your application's specific needs.
+class`](inheritance.md), you can create [custom exceptions](#create-custom-exceptions) to suit your application's specific needs.
 
 ## Throw exceptions
 
@@ -239,7 +239,7 @@ When you have multiple `catch` blocks, it's important to order them from the mos
 specific to the least specific exception, following a top-to-bottom order in your code.
 This ordering aligns with the program's execution flow.
 
-Consider this example with [custom exceptions](#creating-custom-exceptions):
+Consider this example with [custom exceptions](#create-custom-exceptions):
 
 ```kotlin
 open class WithdrawalException(message: String) : Exception(message)
