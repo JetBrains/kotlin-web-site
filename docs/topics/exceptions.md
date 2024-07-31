@@ -542,7 +542,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-Kotlin's [TODO](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-t-o-d-o.html) function also uses the `Nothing` type, used as a placeholder to highlight areas of the code that
+Kotlin's [TODO](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-t-o-d-o.html) function, which also uses the `Nothing` type, serves as a placeholder to highlight areas of the code that
 need future implementation:
 
 ```kotlin
