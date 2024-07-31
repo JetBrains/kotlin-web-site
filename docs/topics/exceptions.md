@@ -92,11 +92,11 @@ fun main() {
 >
 > ```kotlin
 > fun printNonNullString(str: String?) {
->    // Nullability check
->    require(str != null) 
->    // After this successful check, 'str' is guaranteed to be 
->    // non-null and is automatically smart cast to non-nullable String
->    println(str.length)
+>     // Nullability check
+>     require(str != null) 
+>     // After this successful check, 'str' is guaranteed to be 
+>     // non-null and is automatically smart cast to non-nullable String
+>     println(str.length)
 > }
 > ```
 >
@@ -140,11 +140,11 @@ fun main() {
 >
 > ```kotlin
 > fun printNonNullString(str: String?) {
->    // Nullability check
->    check(str != null) 
->    // After this successful check, 'str' is guaranteed to be 
->    // non-null and is automatically smart cast to non-nullable String
->    println(str.length)
+>     // Nullability check
+>     check(str != null) 
+>     // After this successful check, 'str' is guaranteed to be 
+>     // non-null and is automatically smart cast to non-nullable String
+>     println(str.length)
 > }
 > ```
 >
@@ -333,7 +333,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-> In Kotlin, the idiomatic way to manage resources that implement the [AutoClosable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-auto-closeable/) interface,
+> In Kotlin, the idiomatic way to manage resources that implement the [`AutoClosable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-auto-closeable/) interface,
 > such as file streams like `FileInputStream` or `FileOutputStream`, is to use the [`.use()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/use.html) function. 
 > This function automatically closes the resource when the block of code completes, regardless of whether
 > an exception is thrown, thereby eliminating the need for a `finally` block. 
@@ -507,7 +507,7 @@ fun main() {
 ## The Nothing type
 
 In Kotlin, every expression has a type.
-The type of the expression `throw IllegalArgumentException()` is [Nothing](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html), a built-in type that is
+The type of the expression `throw IllegalArgumentException()` is [`Nothing`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-nothing.html), a built-in type that is
 a subtype of all other types, also known as [the bottom type](https://en.wikipedia.org/wiki/Bottom_type). 
 This means `Nothing` can be used as a return type or generic type where any other type is expected, without causing type errors.
 
@@ -542,7 +542,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-Kotlin's [TODO](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-t-o-d-o.html) function, which also uses the `Nothing` type, serves as a placeholder to highlight areas of the code that
+Kotlin's [`TODO()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-t-o-d-o.html) function, which also uses the `Nothing` type, serves as a placeholder to highlight areas of the code that
 need future implementation:
 
 ```kotlin
@@ -558,19 +558,19 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-As you can see, the `TODO` function always throws a [NotImplementedError](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-not-implemented-error/).
+As you can see, the `TODO()` function always throws a [`NotImplementedError`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-not-implemented-error/) exception.
 
 ## Exception classes
 
-Let's explore some common exception types found in Kotlin, which are all subclasses of the [RuntimeException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/) class:
+Let's explore some common exception types found in Kotlin, which are all subclasses of the [`RuntimeException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/) class:
 
-* **[ArithmeticException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-arithmetic-exception/)**: This exception occurs when an arithmetic operation is impossible to perform, like division by zero.
+* [`ArithmeticException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-arithmetic-exception/): This exception occurs when an arithmetic operation is impossible to perform, like division by zero.
 
     ```kotlin
     val example = 2 / 0 // throws ArithmeticException
     ```
 
-* **[IndexOutOfBoundsException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-index-out-of-bounds-exception/)**: This exception is thrown to indicate that an index of some sort, such as an array or string is out of range.
+* [`IndexOutOfBoundsException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-index-out-of-bounds-exception/): This exception is thrown to indicate that an index of some sort, such as an array or string is out of range.
 
     ```kotlin
     val myList = mutableListOf(1, 2, 3)
@@ -588,7 +588,7 @@ Let's explore some common exception types found in Kotlin, which are all subclas
     > 
     {type="note"}
 
-* **[NoSuchElementException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-no-such-element-exception/)**: This exception is thrown when an element that does not exist in a
+* [`NoSuchElementException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-no-such-element-exception/): This exception is thrown when an element that does not exist in a
 particular collection is accessed. It occurs when using methods that expect a specific element,
 such as [`first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html), [`last()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html), or [`elementAt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/element-at.html).
 
@@ -608,7 +608,7 @@ such as [`first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collecti
     >
     {type="note"}
 
-* **[NumberFormatException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number-format-exception/)**: This exception occurs when attempting to convert a string to a numeric type, 
+* [`NumberFormatException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number-format-exception/): This exception occurs when attempting to convert a string to a numeric type, 
 but the string doesn't have an appropriate format.
 
     ```kotlin
@@ -627,7 +627,7 @@ but the string doesn't have an appropriate format.
     >
     {type="note"}
 
-* **[NullPointerException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-null-pointer-exception/)**: This exception is thrown when an application attempts to use an object reference that has the `null` value.
+* [`NullPointerException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-null-pointer-exception/): This exception is thrown when an application attempts to use an object reference that has the `null` value.
 Even though Kotlin's null safety features significantly reduce the risk of NullPointerExceptions, 
 they can still occur either through deliberate use of the `!!` operator or when interacting with Java, which lacks 
 Kotlin's null safety.
@@ -641,14 +641,14 @@ While all exceptions are unchecked in Kotlin, and you don't have to catch them e
 
 ### Exception hierarchy
 
-The root of the Kotlin exception hierarchy is the [Throwable](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/) class.
-It has two direct subclasses, [Error](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-error/) and [Exception](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/):
+The root of the Kotlin exception hierarchy is the [`Throwable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/) class.
+It has two direct subclasses, [`Error`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-error/) and [`Exception`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-exception/):
 
 * The `Error` subclass represents serious fundamental problems that an application might not be able to recover from by itself. 
 These are problems that you generally would not attempt to handle, such as [`OutOfMemoryError`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-out-of-memory-error/) or `StackOverflowError`.
 
 * The `Exception` subclass is used for conditions that you might want to handle. Subtypes of 
-the `Exception` type, such as the [RuntimeException](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/) and `IOException` (Input/Output Exception), 
+the `Exception` type, such as the [`RuntimeException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-runtime-exception/) and `IOException` (Input/Output Exception), 
 deal with exceptional events in applications.
 
 ![Exception hierarchy - the Throwable class](throwable.svg){width=700}
