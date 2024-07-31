@@ -127,8 +127,8 @@ tasks.test {
 
 3. Add the test code for the `sum()` function in `SampleTest.kt`:
 
-   * Define the test `testSum()` function using the [@Test annotation](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/-test/index.html).
-   * Check that the `sum()` function returns the expected value by using the [assertEquals()](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/assert-equals.html) function.
+   * Define the test `testSum()` function using the [`@Test` annotation](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/-test/index.html).
+   * Check that the `sum()` function returns the expected value by using the [`assertEquals()`](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/assert-equals.html) function.
 
    ```kotlin
    import org.example.Sample
