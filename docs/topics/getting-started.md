@@ -1,3 +1,4 @@
+![IMG-20240721-WA0011](https://github.com/user-attachments/assets/d2229736-8c17-467a-a06e-d846c18acdbb)
 [//]: # (title: Get started with Kotlin)
 
 Kotlin is a modern but already mature programming language designed to make developers happier.
