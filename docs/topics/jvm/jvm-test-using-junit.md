@@ -95,7 +95,7 @@ tasks.test {
 1. Open the `Main.kt` file in `src/main/kotlin`.
 
    The `src` directory contains Kotlin source files and resources. 
-   The `main.kt` file contains sample code that prints `Hello, World!`.
+   The `Main.kt` file contains sample code that prints `Hello, World!`.
 
 2. Create the `Sample` class with the `sum()` function that adds two integers together:
 
