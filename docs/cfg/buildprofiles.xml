@@ -42,6 +42,7 @@
 <link rel="apple-touch-icon" sizes="72x72" href="https://kotlinlang.org/assets/images/apple-touch-icon-72x72.png?v2"/>
 <link rel="apple-touch-icon" sizes="114x114" href="https://kotlinlang.org/assets/images/apple-touch-icon-114x114.png?v2"/>
 <link rel="apple-touch-icon" sizes="144x144" href="https://kotlinlang.org/assets/images/apple-touch-icon-144x144.png?v2"/>
+<style>a[href="test-page.html"] { visibility: hidden; }</style>
         ]]>
         </custom-favicons>
         <generate-canonicals>true</generate-canonicals>
