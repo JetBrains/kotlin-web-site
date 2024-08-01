@@ -575,8 +575,9 @@ abstract class Composables {
 
 ### Fixed the unnecessary recompositions issue introduced in 2.0.0
 
-Compose compiler 2.0.0 has an issue with unnecessary (or even endless) recomposition issues on non-JVM targets.
-It is strongly recommended to update your Compose apps made for Kotlin 2.0.0 to the 2.0.10 version or newer.
+Compose compiler 2.0.0 has an issue where it sometimes incorrectly infers the stability of types in multiplatform projects
+with non-JVM targets. This can lead to unnecessary (or even endless) recompositions. It is strongly recommended to update
+your Compose apps made for Kotlin 2.0.0 to the 2.0.10 version or newer.
 
 If your app is built with Compose compiler 2.0.10 or newer but uses dependencies built with Compose compiler 2.0.0,
 these older dependencies may still cause recomposition issues.
