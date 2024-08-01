@@ -37,6 +37,25 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.8.3**
+
+Released: 23 July, 2024
+
+</td>
+<td>
+
+* Fixes for Xcode compatibility issues.
+
+</td>
+<td>
+
+* [Any of Kotlin plugin versions](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<td>
+
 **0.8.2**
 
 Released: 16 May, 2024
