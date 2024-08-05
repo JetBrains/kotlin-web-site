@@ -497,20 +497,30 @@ By default, this property is set to false and the `apiElements` variant in Gradl
 We would appreciate your feedback on this new approach. Do you also see performance improvements? 
 Let us know by adding a comment in [YouTrack](https://youtrack.jetbrains.com/issue/KT-61861/Gradle-Kotlin-compilations-depend-on-packed-artifacts).
 
-### Compose compiler plugin updates
+## Compose compiler
 
-In %kotlinEapVersion%, the Compose compiler Gradle plugin gets a few improvements.
+In %kotlinEapVersion%, the Compose compiler gets a few improvements.
 
-#### New way to configure compiler options
+### Fixed the unnecessary recompositions issue introduced in 2.0.0
 
-We have introduced a new option configuration mechanism to avoid churn of top-level parameters: 
-it's harder for the Compose compiler team to test things out 
-by creating or removing top-level entries for the `composeCompiler {}` block. 
+Compose compiler 2.0.0 has an issue where it sometimes incorrectly infers the stability of types in multiplatform projects
+with non-JVM targets. This can lead to unnecessary (or even endless) recompositions. It is strongly recommended to update
+your Compose apps made for Kotlin 2.0.0 to the 2.0.10 version or newer.
+
+If your app is built with Compose compiler 2.0.10 or newer but uses dependencies built with Compose compiler 2.0.0,
+these older dependencies may still cause recomposition issues.
+To prevent this, update your dependencies to versions built with the same Compose compiler as your app.
+
+### New way to configure compiler options
+
+We have introduced a new option configuration mechanism to avoid churn of top-level parameters:
+it's harder for the Compose compiler team to test things out
+by creating or removing top-level entries for the `composeCompiler {}` block.
 So options such as strong skipping mode and non-skipping group optimizations are now enabled through the `featureFlags` property.
 
 This property will be used to test new Compose compiler options that will eventually become default.
 
-This change has also been applied to the Compose compiler Gradle plugin. To configure feature flags going forward, 
+This change has also been applied to the Compose compiler Gradle plugin. To configure feature flags going forward,
 use the following syntax (this code will flip all of the default values):
 
 ```kotlin
@@ -531,36 +541,36 @@ Or, if you are configuring the Compose compiler directly, use the following synt
 
 The `enableIntrinsicRemember`, `enableNonSkippingGroupOptimization`, and `enableStrongSkippingMode` properties have been therefore deprecated.
 
-We would appreciate any feedback 
+We would appreciate any feedback
 you have on this new approach in [YouTrack](https://youtrack.jetbrains.com/issue/KT-68651/Compose-provide-a-single-place-in-extension-to-configure-all-compose-flags).
 
-#### strongSkipping mode enabled by default
+### strongSkipping mode enabled by default
 
 Strong skipping mode for the Compose compiler is now enabled by default.
 
-Strong skipping mode is a Compose compiler configuration option that changes the rules for what composables can be skipped. 
-With strong skipping mode enabled, composables with unstable parameters can now also be skipped. 
-Strong skipping mode also automatically remembers lambdas used in composable functions, 
+Strong skipping mode is a Compose compiler configuration option that changes the rules for what composables can be skipped.
+With strong skipping mode enabled, composables with unstable parameters can now also be skipped.
+Strong skipping mode also automatically remembers lambdas used in composable functions,
 so you should no longer need to wrap your lambdas with `remember` to avoid recomposition.
 
 For more details, see the [strong skipping mode documentation](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping).
 
-#### Non-skipping group optimizations
+### Non-skipping group optimizations
 
-This release includes a new compiler option: when enabled, 
-non-skippable and non-restartable composable functions will no longer generate a group around the body of the composable. 
+This release includes a new compiler option: when enabled,
+non-skippable and non-restartable composable functions will no longer generate a group around the body of the composable.
 This leads to less allocations and thus to improved performance.
-This option is experimental and disabled by default but can be enabled with the feature flag `OptimizeNonSkippingGroups` 
+This option is experimental and disabled by default but can be enabled with the feature flag `OptimizeNonSkippingGroups`
 as shown [above](#new-way-to-configure-compiler-options).
 
-This feature flag is now ready for wider testing. 
+This feature flag is now ready for wider testing.
 Any issues found when enabling the feature can be filed on the [Google issue tracker](https://goo.gle/compose-feedback).
 
-#### open and abstract Composable functions support default parameters
+### open and abstract Composable functions support default parameters
 
 You can now add default parameters to open and abstract Composable functions.
 
-Previously, the Compose compiler would report an error when attempting to do this even though it is valid Kotlin. 
+Previously, the Compose compiler would report an error when attempting to do this even though it is valid Kotlin.
 We have now added support for this in the Compose compiler, and the restriction has been removed.
 This is especially useful for including default `Modifier` values:
 
@@ -570,18 +580,6 @@ abstract class Composables {
     abstract fun Composable(modifier: Modifier = Modifier)
 }
 ```
-
-## Compose compiler
-
-### Fixed the unnecessary recompositions issue introduced in 2.0.0
-
-Compose compiler 2.0.0 has an issue where it sometimes incorrectly infers the stability of types in multiplatform projects
-with non-JVM targets. This can lead to unnecessary (or even endless) recompositions. It is strongly recommended to update
-your Compose apps made for Kotlin 2.0.0 to the 2.0.10 version or newer.
-
-If your app is built with Compose compiler 2.0.10 or newer but uses dependencies built with Compose compiler 2.0.0,
-these older dependencies may still cause recomposition issues.
-To prevent this, update your dependencies to versions built with the same Compose compiler as your app.
 
 ## How to update to Kotlin %kotlinEapVersion%
 
