@@ -181,4 +181,3 @@ We would appreciate any feedback you may have on your debugging experience!
    * [Jetsnack application](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-jetsnack)
    * [Node.js example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/nodejs-example)
    * [WASI example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example)
-   * [Compose example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-example)
