@@ -1,11 +1,15 @@
 [//]: # (title: Stability of Kotlin components)
 
-The Kotlin language and toolset are divided into many components such as the compilers for the JVM, JS and Native targets, the Standard Library, various accompanying tools and so on.
-Many of these components were officially released as **Stable** which means that they are evolved in the backward-compatible way following the [principles](kotlin-evolution-principles.md) of _Comfortable Updates_ and _Keeping the Language Modern_.
-Among such stable components are, for example, the Kotlin compiler for the JVM, the Standard Library, and Coroutines.
+The Kotlin language and toolset are divided into many components such as the compilers for the JVM, JS and Native targets,
+the Standard Library, various accompanying tools and so on.
+Many of these components were officially released as **Stable**, which means that they are evolved 
+in the backward-compatible way following the [principles of _Comfortable Updates_ and _Keeping the Language Modern_](kotlin-evolution-principles.md).
 
-Following the _Feedback Loop_ principle we release many things early for the community to try out, so a number of components are not yet released as **Stable**.
-Some of them are very early stage, some are more mature. We mark them as **Experimental**, **Alpha** or **Beta** depending on how quickly each component is evolving and how much risk the users are taking when adopting it. 
+Following the _Feedback Loop_ principle, we release many things early for the community to try out, 
+so a number of components are not yet released as **Stable**.
+Some of them are very early stage, some are more mature. 
+We mark them as **Experimental**, **Alpha** or **Beta** depending on how quickly each component is evolving
+and how much risk the users are taking when adopting it.
 
 ## Stability levels explained
 
@@ -65,30 +69,40 @@ to avoid accidental usages of features that have not been released as stable.
 > 
 {type="note"}
 
-### Kotlin compiler (backend)
+### Kotlin compiler
 
-| **Component**                     | **Status** | **Status since version** | **Comment**                                                              |
-|-----------------------------------|------------|--------------------------|--------------------------------------------------------------------------|
-| Kotlin K2 (JVM, Native, Wasm, JS) | Stable     | 2.0.0                    |                                                                          |
-| Kotlin K1 (JVM)                   | Stable     | 1.0                      |                                                                          |
-| Kotlin K1 (JVM) (IR-based)        | Stable     | 1.5                      |                                                                          |
-| Kotlin K1 (JS)                    | Stable     | 1.3                      | Deprecated from 1.8.0, read the [IR migration guide](js-ir-migration.md) |
-| Kotlin K1 (JS) (IR-based)         | Stable     | 1.8                      |                                                                          |
+| **Component**               | **Status** | **Status since version** | **Comment**                                                              |
+|-----------------------------|------------|--------------------------|--------------------------------------------------------------------------|
+| Kotlin K2 (JVM, Native, JS) | Stable     | 2.0.0                    |                                                                          |
+| Kotlin K2 (Wasm)            | Alpha      | 1.9.20                   |                                                                          |
+| Kotlin K1 (JVM) (IR-based)  | Stable     | 1.5                      |                                                                          |
+| Kotlin K1 (JS) (IR-based)   | Stable     | 1.8                      |                                                                          |
+| Kotlin K1 (JVM)             | Stable     | 1.0                      |                                                                          |
+| Kotlin K1 (JS)              | Stable     | 1.3                      | Deprecated from 1.8.0, read the [IR migration guide](js-ir-migration.md) |
 
-## Compiler plugins
+### Compiler plugins
 
-| **Component**                 | **Status** | **Status since version** | **Comment** |
-|-------------------------------|------------|--------------------------|-------------|
-| Serialization Compiler Plugin | Stable     | 1.4                      |             |
+> The table contains only non-Stable compiler plugins.
+>
+{type="note"}
+
+| **Component**                 | **Status**   | **Status since version** | **Comment** |
+|-------------------------------|--------------|--------------------------|-------------|
+| Lombok compiler plugin        | Experimental | 1.5.20                   |             |
+| Power-assert compiler plugin  | Experimental | 2.0.0                    |             |
 
 ### Kotlin libraries
 
+> The table contains only libraries that included in Kotlin by default.
+> For `kotlinx.*` libraries, such as kotlinx.coroutines, kotlinx.serialization, see corresponding GitHub repositories.
+>
+{type="note"}
+
 | **Component**         | **Status** | **Status since version** | **Comment**                            |
 |-----------------------|------------|--------------------------|----------------------------------------|
-| kotlin-stdlib (JVM)   | Stable     | 1.0                      |                                        |
+| kotlin-stdlib         | Stable     | 1.0                      |                                        |
 | kotlin.reflect (JVM)  | Beta       | 1.0                      |                                        |
-| kotlinx.coroutines    | Stable     | 1.3                      |                                        |
-| kotlinx.serialization | Stable     | 1.0.0                    | Versioned separately from the language |
+| kotlin-metadata-jvm   | Stable     | 2.0.0                    |                                        |
 
 ### Kotlin Multiplatform and Kotlin Native
 
@@ -105,10 +119,9 @@ to avoid accidental usages of features that have not been released as stable.
 | `expected` and `actual` functions and properties | Stable       | 1.9.20                   |                                                                            |
 | `expected` and `actual` classes                  | Beta         | 1.7.20                   |                                                                            |
 
+> For details about Kotlin/Native targets, refer to [](native-target-support.md).
 
-### Interoperability
-
-### Scripting
+### Kotlin scripting
 
 | **Component**                         | **Status**   | **Status since version** | **Comment**                                    |
 |---------------------------------------|--------------|--------------------------|------------------------------------------------|
@@ -119,15 +132,13 @@ to avoid accidental usages of features that have not been released as stable.
 
 ### Other components
 
-| **Component**                                     | **Status**   | **Status since version** | **Comment**                                                                |
-|---------------------------------------------------|--------------|--------------------------|----------------------------------------------------------------------------|
-| KDoc syntax                                       | Stable       | 1.0                      |                                                                            |
-| Dokka                                             | Beta         | 1.6                      |                                                                            |
-| Compiler Plugin API                               | Experimental | 1.0                      |                                                                            |
-| Unsigned arithmetic                               | Stable       | 1.5                      |                                                                            |
-| Contracts in stdlib                               | Stable       | 1.3                      |                                                                            |
-| User-defined contracts                            | Experimental | 1.3                      |                                                                            |
+| **Component**                 | **Status**   | **Status since version** | **Comment** |
+|-------------------------------|--------------|--------------------------|-------------|
+| KDoc syntax                   | Stable       | 1.0                      |             |
+| Dokka                         | Beta         | 1.6                      |             |
+| Compiler plugin API           | Experimental | 1.0                      |             |
+| User-defined contracts        | Experimental | 1.3                      |             |
 
-> [Look at the pre-Kotlin 1.4 version of this page](components-stability-pre-1.4.md).
->
-{type="tip"}
+## Language features and design proposals
+
+For language features and new design proposals, see [](kotlin-language-features-and-proposals.md).

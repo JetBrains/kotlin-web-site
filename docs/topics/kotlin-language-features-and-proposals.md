@@ -1,4 +1,4 @@
-[//]: # (title: Language design features and proposals)
+[//]: # (title: Kotlin language features and proposals)
 [//]: # (description: Kotlin language features and design proposals.)
 
 JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md).
