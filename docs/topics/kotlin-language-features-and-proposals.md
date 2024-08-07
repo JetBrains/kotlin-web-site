@@ -1,5 +1,6 @@
 [//]: # (title: Kotlin language features and proposals)
-[//]: # (description: Kotlin language features and design proposals.)
+[//]: # (description: Learn about Kotlin features lifecycle. 
+The page contains the full list of Kotlin language features and design proposals.)
 
 JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md).
 The evolution of Kotlin is driven by the pragmatic principles of language design. 
@@ -32,7 +33,7 @@ The Kotlin language feature can have one of the following statuses:
 * **Revoked**. We have revoked the proposal and will not implement the feature in the Kotlin language.
   We may revoke a feature that is _in preview_ if it does not fit the language.
 
-## Kotlin language features and design proposals
+## List of Kotlin language features and design proposals
 
 > This table contains Kotlin language features and proposals starting from 1.7.0.
 >
