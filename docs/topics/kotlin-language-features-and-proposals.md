@@ -252,7 +252,7 @@ The Kotlin language feature can have one of the following statuses:
 
 <!-- IN PREVIEW BLOCK -->
 
-
+_There are no features in preview._
 
 <!-- END OF IN PREVIEW BLOCK -->
 
