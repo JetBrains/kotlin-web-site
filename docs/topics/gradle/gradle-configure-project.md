@@ -541,6 +541,37 @@ Learn more about:
 
 Learn more about [Kotlin/JVM](jvm-get-started.md).
 
+#### Disable use of artifact in compilation task
+
+In some rare scenarios, you can experience a build failure caused by a circular dependency error. For example, when you 
+have multiple compilations where one compilation can see all internal declarations of another, and the generated artifact
+relies on the output of both compilation tasks:
+
+```none
+FAILURE: Build failed with an exception.
+
+What went wrong:
+Circular dependency between the following tasks:
+:lib:compileKotlinJvm
+--- :lib:jvmJar
+     \--- :lib:compileKotlinJvm (*)
+(*) - details omitted (listed previously)
+```
+
+To fix this circular dependency error, we've added a Gradle property: `archivesTaskOutputAsFriendModule`.
+This property controls the use of artifact inputs in the compilation task and determines if a task dependency is created
+as a result.
+
+By default, this property is set to `true` to track the task dependency. If you encounter a circular dependency error,
+you can disable the use of the artifact in the compilation task to remove the task dependency and avoid the circular 
+dependency error.
+
+To disable the use of the artifact in the compilation task, add the following to your `gradle.properties` file:
+
+```kotlin
+kotlin.build.archivesTaskOutputAsFriendModule=false
+```
+
 #### Lazy Kotlin/JVM task creation
 
 Starting from Kotlin 1.8.20, the Kotlin Gradle plugin registers all tasks and doesn't configure them on a dry run.
