@@ -1,52 +1,40 @@
 [//]: # (title: Language design features and proposals)
+[//]: # (description: Kotlin language features and design proposals.)
 
 JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md).
-Kotlin language development is deeply influenced by the needs of its developer community. 
-We actively consider feedback and value discussions on existing Kotlin Enhancement Proposals (_KEEP_)
-as well as suggestions for new features, especially those supported by compelling use cases.
+The evolution of Kotlin is driven by the pragmatic principles of language design. 
+You can find the list of language feature proposals and their statuses.
 
-> We generally discourage contributions of entire KEEPs from individuals outside the Kotlin team,
-> as these often require interaction with internal experts.
->
-> [Create a YouTrack issue](https://kotl.in/issue) if you have any ideas how to improve the Kotlin language.
-> 
-{type="warning"}
+## Kotlin language features lifecycle
 
-## Kotlin feature development lifecycle
+The Kotlin language feature can have one of the following statuses:
 
-The current lifecycle of language features:
+* **Exploration and design**. We are considering the introduction of a new feature to the language.
+  This involves discussing how it would integrate with existing features, gathering use cases, 
+  and assessing its potential impact.
+  We need feedback from users on the problems this feature would solve and the use cases it addresses.
+  Estimating how often these use cases and problems occur would also be beneficial.
+  Typically, ideas are documented as YouTrack issues, where the discussion continues.
 
-* **KEEP discussion**: we are more or less sure that the feature should be in the language.
-  And we are trying to specify motivation, use-cases, design, and other major information in a document called _KEEP_.
-  What feedback do we expect from users: discussion around all information provided in KEEP.
+* **KEEP discussion**. We are fairly certain that the feature should be added to the language.
+  We aim to specify motivation, use-cases, design, and other important details in a document called _KEEP_. 
+  We expect feedback from users to focus on discussing all the information provided in the KEEP.
 
-* **Exploration and Design**: we consider the possibility of the feature introduction to the language.
-  Discuss how it might look and be consistent with other features. Collect use-cases and assess a positive or negative impact.
-  What feedback do we expect from users: use-cases and problems that they would solve by that feature.
-  Any estimation of how frequent these use-cases and problems arise would be beneficial. 
-  Usually, ideas are filed as YouTrack tickets and discussion goes there.
+* **In preview**. A feature prototype is ready, and you can enable it using a feature-specific compiler option.
+  We seek feedback on your experience with the feature, including how easily it integrates into your codebase,
+  how it interacts with existing code, and any IDE support issues or suggestions.
+  The feature's design may change significantly, or it could be completely revoked based on feedback. When feature is 
+  _in preview_, it has one of the [stability levels](components-stability.md#stability-levels-explained).
 
-* **Iteration**: a prototype is ready, and you can enable it by a feature-specific compiler key.
-  What feedback do we expect from users: describe experience from trying the feature.
-  How easy it was to introduce the codebase, how does it look with existing code, IDE support (issues and suggestions), etc.
-  Further the shape of the feature may vary a lot, or it may be completely revoked.
-  
-* **Stable**: the feature comes with a first-class citizen in the language. 
-  It gets guaranties of backward compatibility, tooling support, etc.
-  
-* **Revoked**: we revoke the proposal and won't implement the feature in the Kotlin language.
+* **Stable**. The language feature is now a first-class citizen in the Kotlin language.
+  We guarantee its backward compatibility and tooling support.
 
-Under discussion / Discussion - Exploration and design (Design) - Previewing – Stable - Revoked
+* **Revoked**. We have revoked the proposal and will not implement the feature in the Kotlin language.
+  We may revoke a feature that is _in preview_ if it does not fit the language.
 
-Under discussion - Design - In preview - Stable - Revoked
+## Kotlin language features and design proposals
 
-## Language design proposals
-
-Listed below are significant language features currently on our radar.
-These range in status from preliminary discussions to approaching [Stable](components-stability.md#stability-levels-explained) release, 
-focusing on major updates since Kotlin 1.8.
-
-> This table contains Kotlin language features and proposals starting from 1.7.0
+> This table contains Kotlin language features and proposals starting from 1.7.0.
 >
 {type="note"}
 
@@ -58,12 +46,12 @@ focusing on major updates since Kotlin 1.8.
 <chunk id="source">
 <table header-style="left">
 
-<!-- UNDER DISCUSSION BLOCK -->
+<!-- EXPLORATION AND DESIGN BLOCK -->
 
-<tr filter="under-discussion">
+<tr filter="exploration-and-design">
 <td>
 
-**Under discussion**
+**Exploration and design**
 
 </td>
 <td>
@@ -72,15 +60,14 @@ focusing on major updates since Kotlin 1.8.
 
 * KEEP documents: [proposal: statics.md](https://github.com/Kotlin/KEEP/blob/statics/proposals/statics.md), [discussion: KEEP-348](https://github.com/Kotlin/KEEP/issues/348)
 * YouTrack issue: [KT-11968](https://youtrack.jetbrains.com/issue/KT-11968)
-* Target version: Not defined
 
 </td>
 </tr>
 
-<tr filter="under-discussion">
+<tr filter="exploration-and-design">
 <td>
 
-**Under discussion**
+**Exploration and design**
 
 </td>
 <td>
@@ -89,15 +76,14 @@ focusing on major updates since Kotlin 1.8.
 
 * KEEP documents: [proposal: collection-literals.md](https://github.com/KyLeggiero/KEEP/blob/collection-literals/proposals/collection-literals.md), [discussion: KEEP-112](https://github.com/Kotlin/KEEP/issues/112)
 * YouTrack issue: [KT-43871](https://youtrack.jetbrains.com/issue/KT-43871)
-* Target version: Not defined
 
 </td>
 </tr>
 
-<tr filter="under-discussion">
+<tr filter="exploration-and-design">
 <td>
 
-**Under discussion**
+**Exploration and design**
 
 </td>
 <td>
@@ -106,15 +92,14 @@ focusing on major updates since Kotlin 1.8.
 
 * KEEP documents: Not defined
 * YouTrack issue: [KT-7128](https://youtrack.jetbrains.com/issue/KT-7128)
-* Target version: Not defined
 
 </td>
 </tr>
 
-<tr filter="under-discussion">
+<tr filter="exploration-and-design">
 <td>
 
-**Under discussion**
+**Exploration and design**
 
 </td>
 <td>
@@ -123,15 +108,14 @@ focusing on major updates since Kotlin 1.8.
 
 * KEEP documents: Not defined
 * YouTrack issue: [KT-19627](https://youtrack.jetbrains.com/issue/KT-19627)
-* Target version: Not defined
 
 </td>
 </tr>
 
-<tr filter="under-discussion">
+<tr filter="exploration-and-design">
 <td>
 
-**Under discussion**
+**Exploration and design**
 
 </td>
 <td>
@@ -140,19 +124,18 @@ focusing on major updates since Kotlin 1.8.
 
 * KEEP documents: Not defined
 * YouTrack issue: [KT-1179](https://youtrack.jetbrains.com/issue/KT-1179)
-* Target version: Not defined
 
 </td>
 </tr>
 
-<!-- END OF UNDER DISCUSSION BLOCK -->
+<!-- END OF EXPLORATION AND DESIGN BLOCK -->
 
-<!-- KEEP PREPARATION BLOCK -->
+<!-- KEEP DISCUSSION BLOCK -->
 
 <tr filter="keep">
 <td>
 
-**KEEP preparation**
+**KEEP discussion**
 
 </td>
 <td>
@@ -169,7 +152,7 @@ focusing on major updates since Kotlin 1.8.
 <tr filter="keep">
 <td>
 
-**KEEP preparation**
+**KEEP discussion**
 
 </td>
 <td>
@@ -186,7 +169,7 @@ focusing on major updates since Kotlin 1.8.
 <tr filter="keep">
 <td>
 
-**KEEP preparation**
+**KEEP discussion**
 
 </td>
 <td>
@@ -202,7 +185,7 @@ focusing on major updates since Kotlin 1.8.
 <tr filter="keep">
 <td>
 
-**KEEP preparation**
+**KEEP discussion**
 
 </td>
 <td>
@@ -218,7 +201,7 @@ focusing on major updates since Kotlin 1.8.
 <tr filter="keep">
 <td>
 
-**KEEP preparation**
+**KEEP discussion**
 
 </td>
 <td>
@@ -234,7 +217,7 @@ focusing on major updates since Kotlin 1.8.
 <tr filter="keep">
 <td>
 
-**KEEP preparation**
+**KEEP discussion**
 
 </td>
 <td>
@@ -251,7 +234,7 @@ focusing on major updates since Kotlin 1.8.
 <tr filter="keep">
 <td>
 
-**KEEP preparation**
+**KEEP discussion**
 
 </td>
 <td>
@@ -265,13 +248,13 @@ focusing on major updates since Kotlin 1.8.
 </td>
 </tr>
 
-<!-- END OF KEEP PREPARATION BLOCK -->
+<!-- END OF KEEP DISCUSSION BLOCK -->
 
-<!-- PILOT VERSION BLOCK -->
+<!-- IN PREVIEW BLOCK -->
 
 
 
-<!-- END OF PILOT VERSION BLOCK -->
+<!-- END OF IN PREVIEW BLOCK -->
 
 <!-- STABLE BLOCK -->
 
@@ -359,7 +342,6 @@ focusing on major updates since Kotlin 1.8.
 
 * KEEP documents: [context-receivers.md](https://github.com/Kotlin/KEEP/blob/master/proposals/context-receivers.md), [discussion: KEEP-259](https://github.com/Kotlin/KEEP/issues/259)
 * YouTrack issue: [KT-10468](https://youtrack.jetbrains.com/issue/KT-10468)
-* Target version: Not available
 
 </td>
 </tr>
@@ -371,19 +353,19 @@ focusing on major updates since Kotlin 1.8.
 
 </tab>
 
-<tab id="under-discussion" title="Under discussion">
+<tab id="exploration-and-design" title="Exploration and design">
 
-<include include-id="source" use-filter="empty,under-discussion" src="evolution.md"/>
+<include include-id="source" use-filter="empty,exploration-and-design" src="evolution.md"/>
 
 </tab>
 
-<tab id="keep-preparation" title="KEEP preparation">
+<tab id="keep-preparation" title="KEEP discussion">
 
 <include include-id="source" use-filter="empty,keep" src="evolution.md"/>
 
 </tab>
 
-<tab id="pilot-version" title="Pilot version">
+<tab id="pilot-version" title="In preview">
 
 <include include-id="source" use-filter="empty,pilot" src="evolution.md"/>
 
