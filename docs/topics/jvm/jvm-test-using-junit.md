@@ -11,7 +11,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 1. Open a Kotlin project in IntelliJ IDEA. If you don't have a project,
    [create one](https://www.jetbrains.com/help/idea/create-your-first-kotlin-app.html#create-project).
 
-2. Open the `build.gradle(.kts)` file and check that `testImplementation(kotlin("test"))` is present.
+2. Open the `build.gradle(.kts)` file and check that the `testImplementation` dependency is present.
    This dependency allows you to work with `kotlin.test` and `JUnit`:
 
     <tabs group="build-script">
