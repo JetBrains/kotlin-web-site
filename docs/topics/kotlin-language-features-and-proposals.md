@@ -355,31 +355,31 @@ _There are no features in preview._
 
 <tab id="exploration-and-design" title="Exploration and design">
 
-<include include-id="source" use-filter="empty,exploration-and-design" src="evolution.md"/>
+<include include-id="source" use-filter="empty,exploration-and-design" src="kotlin-language-features-and-proposals.md"/>
 
 </tab>
 
 <tab id="keep-preparation" title="KEEP discussion">
 
-<include include-id="source" use-filter="empty,keep" src="evolution.md"/>
+<include include-id="source" use-filter="empty,keep" src="kotlin-language-features-and-proposals.md"/>
 
 </tab>
 
 <tab id="pilot-version" title="In preview">
 
-<include include-id="source" use-filter="empty,pilot" src="evolution.md"/>
+<include include-id="source" use-filter="empty,pilot" src="kotlin-language-features-and-proposals.md"/>
 
 </tab>
 
 <tab id="stable" title="Stable">
 
-<include include-id="source" use-filter="empty,stable" src="evolution.md"/>
+<include include-id="source" use-filter="empty,stable" src="kotlin-language-features-and-proposals.md"/>
 
 </tab>
 
 <tab id="revoked" title="Revoked">
 
-<include include-id="source" use-filter="empty,revoked" src="evolution.md"/>
+<include include-id="source" use-filter="empty,revoked" src="kotlin-language-features-and-proposals.md"/>
 
 </tab>
 </tabs>
