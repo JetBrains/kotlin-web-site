@@ -1,20 +1,22 @@
 [//]: # (title: Object expressions and declarations)
 
-Sometimes you need to create an object that is a slight modification of some class, without explicitly declaring a new
-subclass for it. Kotlin can handle this with _object expressions_ and _object declarations_.
+Sometimes you need to use singletons for shared resources,
+create factory methods to efficiently instantiate objects,
+or modify the behavior of an existing class without explicitly declaring a new subclass.
+Kotlin handles these needs with _object expressions_ and _object declarations_.
 
 Object expressions and object declarations are best used for scenarios when:
 
-* **Limited class inheritance is desired:** You need to create single instances of classes without creating subclasses,
-such as for event listeners or callbacks. This ensures only one instance exists throughout the application.
-* **Type-safe design is required:** You require one-time implementations of interfaces or abstract classes using object expressions.
-This can be useful for scenarios like a button click handler.
-* **Modifying existing class behavior temporarily:** You want to modify the behavior of an existing class without creating a new subclass.
-For example, adding temporary functionality to an object for a specific operation.
 * **Using singletons for shared resources:** You need to ensure that only one instance of a class exists throughout the application.
 For example, managing a database connection pool.
 * **Creating factory methods:** You need a convenient way to create instances efficiently.
 [Companion objects](#companion-objects) allow you to define class-level methods and properties tied to a class, simplifying the creation and management of these instances.
+* **Modifying existing class behavior temporarily:** You want to modify the behavior of an existing class without creating a new subclass.
+For example, adding temporary functionality to an object for a specific operation.
+* **Limited class inheritance is desired:** You need to create single instances of classes without creating subclasses,
+such as for event listeners or callbacks. This ensures only one instance exists throughout the application.
+* **Type-safe design is required:** You require one-time implementations of interfaces or abstract classes using object expressions.
+This can be useful for scenarios like a button click handler.
 
 ## Object expressions
 
@@ -23,7 +25,7 @@ declaration. Such classes are useful for one-time use. You can define them from 
 or implement interfaces. Instances of anonymous classes are also called _anonymous objects_ because they are defined by
 an expression, not a name.
 
-### Creating anonymous objects from scratch
+### Create anonymous objects from scratch
 
 Object expressions start with the `object` keyword.
 
@@ -46,7 +48,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-### Inheriting anonymous objects from supertypes
+### Inherit anonymous objects from supertypes
 
 To create an object of an anonymous class that inherits from some type (or types), specify this type after `object` and a
 colon (`:`). Then implement or override the members of this class as if you were [inheriting](inheritance.md) from it:
@@ -80,12 +82,12 @@ fun specialTransaction(account: BankAccount) {
     // The balance of the provided account is passed to the BankAccount superclass constructor
     val temporaryAccount = object : BankAccount(account.balance), Transaction {
 
-    override val balance = account.balance + 500  // Temporary bonus
+        override val balance = account.balance + 500  // Temporary bonus
 
-    // Implements the execute() method from the Transaction interface
-    override fun execute() {
-        println("Executing special transaction. New balance is $balance.")
-    }
+        // Implements the execute() method from the Transaction interface
+        override fun execute() {
+            println("Executing special transaction. New balance is $balance.")
+        }
     }
     // Executes the transaction
     temporaryAccount.execute()
@@ -101,7 +103,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-### Using anonymous objects as return and value types
+### Use anonymous objects as return and value types
 
 When you use an anonymous object as the type for a local or [private](visibility-modifiers.md#packages) function or property (but not an [inline function](inline-functions.md)),
 all its members are accessible through that function or property:
@@ -157,7 +159,7 @@ class NotificationManager {
     // The message property is not accessible because it is not declared in the Notification interface
     fun getEmailNotification() = object : Notification {
         override fun notifyUser() {
-        println("Sending email notification")
+            println("Sending email notification")
         }
         val message: String = "You've got mail!"
     }
@@ -166,7 +168,7 @@ class NotificationManager {
     // Only members declared in the DetailedNotification interface are accessible
     fun getDetailedNotification(): DetailedNotification = object : Notification, DetailedNotification {
         override fun notifyUser() {
-        println("Sending detailed notification")
+            println("Sending detailed notification")
         }
         val message: String = "Detailed message content"
     }
@@ -193,7 +195,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-### Accessing variables from anonymous objects
+### Access variables from anonymous objects
 
 The code in object expressions can access variables from the enclosing scope:
 
@@ -383,7 +385,7 @@ functions that are not generated for a `data object`:
 * No `componentN()` function. Unlike a `data class`, a `data object` does not have any data properties. 
   Since attempting to destructure such an object without data properties would not make sense, no `componentN()` functions are generated.
 
-#### Using data objects with sealed hierarchies
+#### Use data objects with sealed hierarchies
 
 Data object declarations are particularly useful for sealed hierarchies like 
 [sealed classes or sealed interfaces](sealed-classes.md).
@@ -458,15 +460,15 @@ Class members can access `private` members of their corresponding `companion obj
 ```kotlin
 class User(val name: String) {
     companion object {
-        private val defaultName = "Unknown user"
+        private val defaultGreeting = "Hello"
+    }
 
-        fun createDefault(): User = User(defaultName)
+    fun sayHi() {
+        println(defaultGreeting)
     }
 }
-
-val defaultUser = User.createDefault()
-println(defaultUser.name) 
-// Unknown user
+User("Nick").sayHi()
+// Hello
 ```
 
 When a class name is used by itself, it acts as a reference to the companion object of the class,
@@ -507,7 +509,8 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-Companion objects are instance members of their class, which allows them to implement interfaces:
+Although members of companion objects in Kotlin look like static members from other languages,
+they are actually instance members of the companion object. This allows companion objects to implement interfaces:
 
 ```kotlin
 interface Factory<T> {
@@ -537,7 +540,7 @@ for more detail.
 
 ### Semantic difference between object expressions and declarations
 
-There is one important semantic difference between object expressions and object declarations:
+There are differences in initialization behavior between object expressions and object declarations:
 
 * Object expressions are executed (and initialized) _immediately_, where they are used.
 * Object declarations are initialized _lazily_, when accessed for the first time.
