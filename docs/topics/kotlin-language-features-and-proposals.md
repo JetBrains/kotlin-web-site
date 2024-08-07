@@ -252,8 +252,6 @@ The Kotlin language feature can have one of the following statuses:
 
 <!-- IN PREVIEW BLOCK -->
 
-_There are no features in preview._
-
 <!-- END OF IN PREVIEW BLOCK -->
 
 <!-- STABLE BLOCK -->
@@ -365,9 +363,9 @@ _There are no features in preview._
 
 </tab>
 
-<tab id="pilot-version" title="In preview">
+<tab id="in-preview" title="In preview">
 
-<include include-id="source" use-filter="empty,pilot" src="kotlin-language-features-and-proposals.md"/>
+<include include-id="source" use-filter="empty,in-preview" src="kotlin-language-features-and-proposals.md"/>
 
 </tab>
 
