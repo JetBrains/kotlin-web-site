@@ -1068,7 +1068,7 @@ The new command-line compiler is available for download on the [GitHub release p
 ### Migrate existing or start a new project with Kotlin 1.7.0
 
 * To migrate existing projects to Kotlin 1.7.0, change the Kotlin version to `1.7.0` and reimport your Gradle or Maven
-project. [Learn how to update to Kotlin 1.7.0](releases.md#update-to-a-new-release).
+project. [Learn how to update to Kotlin 1.7.0](releases.md#update-to-a-new-kotlin-version).
 
 * To start a new project with Kotlin 1.7.0, update the Kotlin plugin and run the Project Wizard from **File** \| **New** \|
 **Project**.
