@@ -8,9 +8,10 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 ## Add dependencies
 
-1. Open a Kotlin project in IntelliJ IDEA. If you don't have a project, [create one](jvm-get-started.md#create-an-application).
+1. Open a Kotlin project in IntelliJ IDEA. If you don't have a project,
+   [create one](https://www.jetbrains.com/help/idea/create-your-first-kotlin-app.html#create-project).
 
-2. Open the `build.gradle(.kts)` file and add the following dependency to the Gradle configuration.
+2. Open the `build.gradle(.kts)` file and check that `testImplementation(kotlin("test"))` is present.
    This dependency allows you to work with `kotlin.test` and `JUnit`:
 
     <tabs group="build-script">
@@ -59,14 +60,14 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    </tab>
    </tabs>
 
-   > If you configure the build script with `useJUnitPlatform()`, 
+   > If you use the `useJUnitPlatform()`function in your build script, 
    > the `kotlin-test` library automatically includes JUnit 5 as a dependency.
-   > This setup enables access to all JUnit 5 APIs, alongside the `kotlin-test` API,
+   > This setup enables access to all JUnit 5 APIs, along with the `kotlin-test` API,
    > in JVM-only projects and JVM tests of Kotlin Multiplatform (KMP) projects.
    >
    {type="note"}
 
-Here is a complete code of the `build.gradle.kts`:
+Here's a complete code for the `build.gradle.kts`:
 
 ```kotlin
 plugins {
@@ -175,7 +176,7 @@ tasks.test {
 
 4. Run the test again and check the result:
 
-   ![Check the test result. The test has been failed](test-failed.png)
+   ![Check the test result. The test has failed](test-failed.png)
 
    The test execution failed.
 
@@ -183,7 +184,7 @@ tasks.test {
 
 Once you've finished your first test, you can:
 
-* Try to write another test using other [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/) functions.
+* Write more tests using other [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/) functions.
    For example, use the [`assertNotEquals()`](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/assert-not-equals.html) function.
 * Improve your test output with the [Kotlin Power-assert compiler plugin](power-assert.md).
    The plugin enriches the test output with contextual information.
