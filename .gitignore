@@ -47,3 +47,7 @@ libs
 generated
 .next
 .teamcity/*.iml
+
+scripts/doindex/package-lock.json
+search-report*
+data/page_views_map.json
