@@ -13,8 +13,6 @@ For example, managing a database connection pool.
 [Companion objects](#companion-objects) allow you to define class-level methods and properties tied to a class, simplifying the creation and management of these instances.
 * **Modifying existing class behavior temporarily:** You want to modify the behavior of an existing class without creating a new subclass.
 For example, adding temporary functionality to an object for a specific operation.
-* **Limited class inheritance is desired:** You need to create single instances of classes without creating subclasses,
-such as for event listeners or callbacks. This ensures only one instance exists throughout the application.
 * **Type-safe design is required:** You require one-time implementations of interfaces or abstract classes using object expressions.
 This can be useful for scenarios like a button click handler.
 
