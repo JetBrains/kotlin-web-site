@@ -46,7 +46,7 @@ Signposts enable custom logging within your app, allowing you to check if a GC p
 
 To track GC-related pauses in your app:
 
-1. To enable the feature, pass the following compiler option:
+1. To enable the feature, set the following compiler option in your Gradle build script:
   
    ```none
    -Xbinary=enableSafepointSignposts=true
