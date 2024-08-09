@@ -38,10 +38,11 @@ object BuildReferenceDocs : BuildType({
   }
 
   dependencies {
-    dependency(AbsoluteId("Documentation_TransitioningProducts_KotlinReferenceWithCoroutines")) {
+    dependency(AbsoluteId("Documentation_TransitioningProducts_KotlinReferenceWithCoroutinesWrs")) {
       snapshot {}
 
       artifacts {
+        buildRule = build("62")
         cleanDestination = true
         artifactRules = """
             +:webHelpImages.zip!** => images/
