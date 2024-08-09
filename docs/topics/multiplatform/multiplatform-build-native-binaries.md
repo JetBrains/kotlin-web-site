@@ -461,6 +461,8 @@ When you declare XCFrameworks, Kotlin Gradle plugin will register three Gradle t
 * `assembleDebugXCFramework` (additionally debug artifact that contains [dSYMs](native-ios-symbolication.md))
 * `assembleReleaseXCFramework`
 
+<anchor name="build-frameworks"></anchor>
+
 If you're using [CocoaPods integration](native-cocoapods.md) in your projects, you can build XCFrameworks with the Kotlin
 CocoaPods Gradle plugin. It includes the following tasks that build XCFrameworks with all the registered targets and
 generate podspec files:
