@@ -15,8 +15,97 @@ with available Gradle, Xcode, and Android Gradle plugin versions:
 
 | Kotlin version | Gradle    | Android Gradle plugin | Xcode |
 |----------------|-----------|-----------------------|-------|
+| 2.0.20         | 7.5-8.8   | 7.4.2–8.5             | 15.3  |
 | 2.0.0          | 7.5-8.5   | 7.4.2–8.3             | 15.3  |
 | 1.9.20         | 7.5-8.1.1 | 7.4.2–8.2             | 15.0  |
+
+## Deprecated compatibility with Gradle Java plugins
+
+**What's changed?**
+
+Due to compatibility issues between the Kotlin Multiplatform Gradle plugin and the Gradle plugins
+[Java](https://docs.gradle.org/current/userguide/java_plugin.html),
+[Java Library](https://docs.gradle.org/current/userguide/java_library_plugin.html),
+and [Application](https://docs.gradle.org/current/userguide/application_plugin.html),
+there is now a deprecation warning when you apply these plugins in the same project.
+In future Kotlin releases, the warning will be increased to an error.
+
+**What's the best practice now?**
+
+If you want to use both the Kotlin Multiplatform Gradle plugin in combination with these Gradle plugins for Java in your multiplatform project,
+we recommend that you:
+
+1. Create a separate subproject in your multiplatform project.
+2. In your subproject, apply the Gradle plugin for Java.
+3. In your subproject, add a dependency on your parent multiplatform project.
+
+> Your subproject must **not** be a multiplatform project, and you must only use it to set up a dependency on your multiplatform project.
+>
+{type="warning"}
+
+For example, you have a multiplatform project called `my-main-project` and you want
+to use the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) Gradle plugin to run a JVM application.
+
+Once you've created a subproject, let's call it `subproject-A`, your parent project structure should look like this:
+
+```text
+.
+├── build.gradle
+├── settings.gradle
+├── subproject-A
+    └── build.gradle
+    └── src
+        └── Main.java
+```
+
+In your subproject's `build.gradle.kts` file, apply the Application plugin in the `plugins {}` block:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    id("application")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id('application')
+}
+```
+
+</tab>
+</tabs>
+
+In your subproject's `build.gradle.kts` file, add a dependency on your parent multiplatform project:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+dependencies {
+    implementation(project(":my-main-project")) // The name of your parent multiplatform project
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    implementation project(':my-main-project') // The name of your parent multiplatform project
+}
+```
+
+</tab>
+</tabs>
+
+
+Your parent project is now set up to work with both plugins.
 
 ## New approach to auto-generated targets
 
