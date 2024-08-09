@@ -101,30 +101,11 @@ kotlin {
 
 ## How do I enable bitcode for my Kotlin framework?
 
-By default gradle plugin adds it on iOS target.
- * For debug build it embeds placeholder LLVM IR data as a marker.
- * For release build it embeds bitcode as data.
+Bitcode embedding was deprecated in Xcode 14 and removed in Xcode 15 for all Apple targets.
+The Kotlin/Native compiler does not support bitcode embedding since Kotlin 2.0.20.
 
-Or commandline arguments: `-Xembed-bitcode` (for release) and `-Xembed-bitcode-marker` (debug)
-
-Setting this in a Gradle DSL: 
-
-```kotlin
-kotlin {
-    iosArm64("myapp") {
-        binaries {
-            framework {
-                // Use "marker" to embed the bitcode marker (for debug builds).
-                // Use "disable" to disable embedding.
-                embedBitcode("bitcode") // for release binaries.
-            }
-        }
-    }
-}
-```
-
-These options have nearly the same effect as clang's `-fembed-bitcode`/`-fembed-bitcode-marker`
-and swiftc's `-embed-bitcode`/`-embed-bitcode-marker`.
+If you're using earlier versions of Xcode but want to upgrade to Kotlin 2.0.20 or later versions, disable bitcode
+embedding in your Xcode projects.
 
 ## Why do I see `InvalidMutabilityException`?
 
