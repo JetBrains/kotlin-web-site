@@ -76,7 +76,9 @@ The `else` branch is evaluated if none of the other branch conditions are satisf
 
 If `when` is used as an _expression_, the `else` branch is mandatory,
 unless the compiler can prove that all possible cases are covered with branch conditions,
-for example, with [`enum` class](enum-classes.md) entries and [`sealed` class](sealed-classes.md) subtypes).
+for example, with [`enum` class](enum-classes.md) entries and [`sealed` class](sealed-classes.md) subtypes). The resulting type of `when`
+expression is the [least upper bound](https://kotlinlang.org/spec/type-system.html#least-upper-bound) of the types of 
+all its entries.
 
 ```kotlin
 enum class Bit {
