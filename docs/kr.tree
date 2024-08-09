@@ -451,6 +451,7 @@
             <toc-element id="contribute.md"/>
             <toc-element id="kug-guidelines.md" accepts-web-file-names="kug-branding.html"/>
             <toc-element id="kotlin-night-guidelines.md" accepts-web-file-names="kotlin-nights-branding.html"/>
+            <toc-element id="slack-code-of-conduct.md"/>
         </toc-element>
         <toc-element id="kotlin-brand-assets.md" accepts-web-file-names="kotlin-logo.html"/>
         <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
