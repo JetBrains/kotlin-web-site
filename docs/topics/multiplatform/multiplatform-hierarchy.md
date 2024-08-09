@@ -21,7 +21,7 @@ This is a more low-level approach: it's more flexible but requires more effort a
 
 ## Default hierarchy template
 
-Starting with Kotlin 1.9.20, the Kotlin Gradle plugin has a built-in default [hierarchy template](#see-the-full-hierarchy-template).
+The Kotlin Gradle plugin has a built-in default [hierarchy template](#see-the-full-hierarchy-template).
 It contains predefined intermediate source sets for some popular use cases.
 The plugin sets up those source sets automatically based on the targets specified in your project.
 
@@ -64,8 +64,10 @@ are no watchOS targets in the project.
 If you add a watchOS target, like `watchosArm64`, the `watchos` source set is created, and the code
 from the `apple`, `native`, and `common` source sets is compiled to `watchosArm64` as well.
 
-The Kotlin Gradle plugin creates type-safe accessors for all of the source sets from the default hierarchy template,
-so you can reference them without `by getting` or `by creating` constructions compared to the [manual configuration](#manual-configuration):
+The Kotlin Gradle plugin provides both type-safe and static accessors for all of the source sets from the default hierarchy
+template, so you can reference them without `by getting` or `by creating` constructions compared to the [manual configuration](#manual-configuration).
+
+If you try to access the source set without declaring the corresponding target first, you'll see a warning:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -80,6 +82,8 @@ kotlin {
         iosMain.dependencies {
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
+        linuxX64Main { } // Warning: accessing source set
+                         // without declaring the target
     }
 }
 ```
@@ -99,6 +103,8 @@ kotlin {
                 implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
             }
         }
+        linuxX64Main { } // Warning: accessing source set
+                         // without registering the target
     }
 }
 ```
