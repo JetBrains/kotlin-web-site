@@ -2,8 +2,8 @@
 [//]: # (description: Learn about Kotlin features lifecycle. 
 The page contains the full list of Kotlin language features and design proposals.)
 
-JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md).
-The evolution of Kotlin is driven by the pragmatic principles of language design. 
+JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md),
+driven by the pragmatic principles of language design. 
 You can find the list of language feature proposals and their statuses.
 
 ## Kotlin language features lifecycle
@@ -59,7 +59,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Kotlin statics and static extensions**
 
-* KEEP documents: [proposal: statics.md](https://github.com/Kotlin/KEEP/blob/statics/proposals/statics.md), [discussion: KEEP-348](https://github.com/Kotlin/KEEP/issues/348)
+* KEEP proposal: [statics.md](https://github.com/Kotlin/KEEP/blob/statics/proposals/statics.md)
 * YouTrack issue: [KT-11968](https://youtrack.jetbrains.com/issue/KT-11968)
 
 </td>
@@ -75,7 +75,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Collection literals**
 
-* KEEP documents: [proposal: collection-literals.md](https://github.com/KyLeggiero/KEEP/blob/collection-literals/proposals/collection-literals.md), [discussion: KEEP-112](https://github.com/Kotlin/KEEP/issues/112)
+* KEEP proposal: [collection-literals.md](https://github.com/KyLeggiero/KEEP/blob/collection-literals/proposals/collection-literals.md)
 * YouTrack issue: [KT-43871](https://youtrack.jetbrains.com/issue/KT-43871)
 
 </td>
@@ -91,7 +91,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Union types for errors and exceptions**
 
-* KEEP documents: Not defined
+* KEEP proposal: Not defined
 * YouTrack issue: [KT-7128](https://youtrack.jetbrains.com/issue/KT-7128)
 
 </td>
@@ -107,7 +107,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Name-based destructuring**
 
-* KEEP documents: Not defined
+* KEEP proposal: Not defined
 * YouTrack issue: [KT-19627](https://youtrack.jetbrains.com/issue/KT-19627)
 
 </td>
@@ -123,7 +123,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Support immutability (multifield value classes)**
 
-* KEEP documents: Not defined
+* KEEP proposal: Not defined
 * YouTrack issue: [KT-1179](https://youtrack.jetbrains.com/issue/KT-1179)
 
 </td>
@@ -143,7 +143,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Explicit backing fields: both `public` and `private` type for the same property**
 
-* KEEP documents: [proposal: explicit-backing-fields.md](https://github.com/Kotlin/KEEP/blob/explicit-backing-fields-re/proposals/explicit-backing-fields.md), [discussion: KEEP-278](https://github.com/Kotlin/KEEP/issues/278)
+* KEEP proposal: [explicit-backing-fields.md](https://github.com/Kotlin/KEEP/blob/explicit-backing-fields-re/proposals/explicit-backing-fields.md)
 * YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-14663)
 * Target version: Not defined
 
@@ -160,7 +160,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Context parameters: support for context-dependent declarations**
 
-* KEEP documents: [proposal: context-parameters.md](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md), [discussion: KEEP-278](https://github.com/Kotlin/KEEP/issues/278)
+* KEEP proposal: [context-parameters.md](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md)
 * YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-10468)
 * Target version: Not defined
 
@@ -177,7 +177,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Guard conditions in when-with-subject**
 
-* KEEP documents: [proposal: guards.md](https://github.com/Kotlin/KEEP/blob/guards/proposals/guards.md), [discussion: KEEP-371](https://github.com/Kotlin/KEEP/issues/371)
+* KEEP proposal: [guards.md](https://github.com/Kotlin/KEEP/blob/guards/proposals/guards.md)
 * YouTrack issue: [KT-13626](https://youtrack.jetbrains.com/issue/KT-13626)
 * Target version: 2.1.0
 
@@ -193,7 +193,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Improved exhaustiveness checking in the `when` block**
 
-* KEEP documents: [proposal: guards.md](https://github.com/Kotlin/KEEP/blob/guards/proposals/guards.md#exhaustiveness), [discussion: KEEP-371](https://github.com/Kotlin/KEEP/issues/371)
+* KEEP proposal: [guards.md#exhaustiveness](https://github.com/Kotlin/KEEP/blob/guards/proposals/guards.md#exhaustiveness)
 * YouTrack issue: [KT-63696](https://youtrack.jetbrains.com/issue/KT-63696)
 * Target version: 2.1.0
 
@@ -209,7 +209,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Stabilized `@SubclassOptInRequired`**
 
-* KEEP documents: [proposal: subclass-opt-in-required.md](https://github.com/Kotlin/KEEP/blob/master/proposals/subclass-opt-in-required.md), [discussion: KEEP-320](https://github.com/Kotlin/KEEP/issues/320)
+* KEEP proposal: [subclass-opt-in-required.md](https://github.com/Kotlin/KEEP/blob/master/proposals/subclass-opt-in-required.md)
 * YouTrack issue: [KT-54617](https://youtrack.jetbrains.com/issue/KT-54617)
 * Target version: 2.1.0
 
@@ -225,7 +225,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Non-local `break` and `continue`**
 
-* KEEP documents: [proposal: break-continue-in-inline-lambdas.md](https://github.com/Kotlin/KEEP/blob/master/proposals/break-continue-in-inline-lambdas.md), [discussion KEEP-326](https://github.com/Kotlin/KEEP/issues/326)
+* KEEP proposal: [break-continue-in-inline-lambdas.md](https://github.com/Kotlin/KEEP/blob/master/proposals/break-continue-in-inline-lambdas.md)
 * YouTrack issue: [KT-1436](https://youtrack.jetbrains.com/issue/KT-1436)
 * Target version: 2.1.0
 
@@ -242,7 +242,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Java synthetic property references**
 
-* KEEP documents: [proposal: references-to-java-synthetic-properties.md](https://github.com/Kotlin/KEEP/blob/master/proposals/references-to-java-synthetic-properties.md), [discussion KEEP-328](https://github.com/Kotlin/KEEP/issues/328)
+* KEEP proposal: [references-to-java-synthetic-properties.md](https://github.com/Kotlin/KEEP/blob/master/proposals/references-to-java-synthetic-properties.md)
 * YouTrack issue: [KT-8575](https://youtrack.jetbrains.com/issue/KT-8575)
 * Target version: 2.1.0
 
@@ -267,7 +267,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **`Enum.entries`: performant replacement of the `Enum.values()`**
 
-* KEEP documents: [proposal: enum-entries.md](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md), [discussion: KEEP-283](https://github.com/Kotlin/KEEP/issues/283)
+* KEEP proposal: [enum-entries.md](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md)
 * YouTrack issue: [KT-48872](https://youtrack.jetbrains.com/issue/KT-48872)
 * Target version: 2.0.0
 
@@ -284,7 +284,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Data objects**
 
-* KEEP documents: [proposal: data-objects.md](https://github.com/Kotlin/KEEP/blob/master/proposals/data-objects.md), [discussion: KEEP-317](https://github.com/Kotlin/KEEP/issues/317)
+* KEEP proposal: [data-objects.md](https://github.com/Kotlin/KEEP/blob/master/proposals/data-objects.md)
 * YouTrack issue: [KT-4107](https://youtrack.jetbrains.com/issue/KT-4107)
 * Target version: 1.9.0
 
@@ -301,7 +301,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **RangeUntil operator `..<`**
 
-* KEEP documents: [proposal: open-ended-ranges.md](https://github.com/kotlin/KEEP/blob/open-ended-ranges/proposals/open-ended-ranges.md), [discussion: KEEP-314](https://github.com/Kotlin/KEEP/issues/314)
+* KEEP proposal: [open-ended-ranges.md](https://github.com/kotlin/KEEP/blob/open-ended-ranges/proposals/open-ended-ranges.md)
 * YouTrack issue: [KT-15613](https://youtrack.jetbrains.com/issue/KT-15613)
 * Target version: 1.7.20
 
@@ -318,7 +318,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Definitely non-nullable types**
 
-* KEEP documents: [proposal: definitely-non-nullable-types.md](https://github.com/Kotlin/KEEP/blob/master/proposals/definitely-non-nullable-types.md), [discussion: KEEP-268](https://github.com/Kotlin/KEEP/issues/268)
+* KEEP proposal: [definitely-non-nullable-types.md](https://github.com/Kotlin/KEEP/blob/master/proposals/definitely-non-nullable-types.md)
 * YouTrack issue: [KT-26245](https://youtrack.jetbrains.com/issue/KT-26245)
 * Target version: 1.7.0
 
@@ -339,7 +339,7 @@ The Kotlin language feature can have one of the following statuses:
 
 **Context receivers**
 
-* KEEP documents: [context-receivers.md](https://github.com/Kotlin/KEEP/blob/master/proposals/context-receivers.md), [discussion: KEEP-259](https://github.com/Kotlin/KEEP/issues/259)
+* KEEP proposal: [context-receivers.md](https://github.com/Kotlin/KEEP/blob/master/proposals/context-receivers.md)
 * YouTrack issue: [KT-10468](https://youtrack.jetbrains.com/issue/KT-10468)
 
 </td>
