@@ -166,7 +166,7 @@ is automatically applied to all Kotlin Multiplatform projects.
 And for all of the source sets from the default hierarchy template, the Kotlin Gradle plugin provided type-safe accessors.
 That way, you could finally access source sets for all the specified targets without having to use `by getting` or `by creating` constructions.
 
-Kotlin 2.0.20 aims to improve your IDE experience even further. It now provides static assessors in 
+Kotlin 2.0.20 aims to improve your IDE experience even further. It now provides static accessors in 
 the `sourceSets {}` block for all the source sets from the default hierarchy template. 
 We believe this change will make accessing source sets by name easier and more predictable.
 
@@ -316,18 +316,18 @@ Bitcode embedding was deprecated in Xcode 14 and removed in Xcode 15 for all App
 Now, the `embedBitcode` parameter for the framework configuration, 
 as well as the `-Xembed-bitcode` and `-Xembed-bitcode-marker` command line arguments are deprecated.
 
-If you still use earlier versions of Xcode but want to upgrade to %kotlinEapVersion%, 
+If you still use earlier versions of Xcode but want to upgrade to Kotlin %kotlinEapVersion%, 
 disable bitcode embedding in your Xcode projects.
 
 ### Changes to monitoring GC performance with signposts
 
-Kotlin 2.0.0 made it possible to monitor the performance of Kotlin/Native garbage collector 
+Kotlin 2.0.0 has made it possible to monitor the performance of Kotlin/Native garbage collector 
 (GC) through Xcode Instruments. Instruments include the signposts tool, which can show GC pauses as events. 
 This comes in handy when checking GC-related freezes in your iOS apps.
 
 The feature was enabled by default, but unfortunately, 
 it sometimes led to crashes when the application was run simultaneously with Xcode Instruments. 
-Starting with %kotlinEapVersion%, it requires an explicit opt-in with the following compilation option:
+Starting with %kotlinEapVersion%, it requires an explicit opt-in with the following compiler option:
 
 ```none
 -Xbinary=enableSafepointSignposts=true
@@ -336,7 +336,7 @@ Starting with %kotlinEapVersion%, it requires an explicit opt-in with the follow
 <!-- Uncomment for the final release
 Learn more about GC performance analysis in the [documentation](native-memory-manager.md#monitor-gc-performance). -->
 
-### Calling Kotlin suspending function from Swift/Objective-C on non-main threads
+### Calling Kotlin suspending functions from Swift/Objective-C on non-main threads
 
 Previously, Kotlin/Native had a default restriction, limiting the ability to call Kotlin suspending functions from Swift
 and Objective-C to only the main thread. Kotlin %kotlinEapVersion% lifts that limitation, allowing you to run Kotlin 
@@ -558,9 +558,8 @@ kotlin.jvm.addClassesVariant=true
 
 By default, this property is set to false and the `apiElements` variant in Gradle requests the compressed JAR artifact.
 
-> Gradle has a related property that you can use in your Java-only projects to only expose the  
-> compressed JAR artifact during compilation **instead** of the directories containing compiled
-> `.class` files:
+> Gradle has a related property that you can use in your Java-only projects to only expose the compressed JAR artifact 
+> during compilation **instead** of the directories containing compiled `.class` files:
 >
 > ```none
 > org.gradle.java.compile-classpath-packaging=true
