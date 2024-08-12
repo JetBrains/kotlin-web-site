@@ -12,9 +12,8 @@ It's here for a reason and also contains practical information.
 * [How to behave](#how-to-behave)
 * [How not to behave](#how-not-to-behave)
 * [How to report issues](#how-to-report-issues)
-* [Basic Usage Guidelines](#basic-usage-guidelines)
+* [Basic usage guidelines](#basic-usage-guidelines)
 * [Moderators](#moderators)
-* [Common Channels](#common-channels)
 * [Copyright](#copyright)
 
 ## How to behave
@@ -149,35 +148,6 @@ or they can post a message in #meta.
 * Youssef Shoaib	(@Youssef Shoaib)  – #getting-started, #feed, #language-evolution, #language-proposals
 * Zach Klippenstein	(@Zach Klippenstein) – #coroutines, #compose, #compose-desktop, #compose-web, #squarelibraries, 
   #library-development
-
-## Common channels
-
-There is a list of some of the most popular channels, as well as a sample of the types of channels available:
-
-* #android. Using Kotlin for Android development (consider to use StackOverflow or other communities for generic Android question not directly related to Kotlin, even if you use Kotlin for Android development).
-* #getting-started. For more beginner questions. Better ask here than in #general if you're new to Kotlin
-* #communities. A place to discuss physical communities. Also search for cities/countries as there are often channels with these names (#australia), as well as languages (i.e. #spanish).
-* #coroutines. Questions about coroutines and async programming in Kotlin
-* #dagger. About the Dagger framework. 
-* #datascience. Using Kotlin for Data Science. 
-* #functional. Functional programming topics with Kotlin
-* #gradle. Working with Gradle and Kotlin Script Gradle
-* #intellij. Question regarding the Kotlin plugin for IntelliJ IDEA
-* #javafx. Working with JavaFX
-* #javascript. When targeting JavaScript
-* #koans. Have questions about the Kotlin Koans?
-* #kobalt. Working with Kobalt builds
-* #kontributors. Contributing to Kotlin
-* #language-proposals. Discussions around new language proposals
-* #native. For questions about Kotlin/Native
-* #nodejs. When targeting JavaScript and node.js
-* #random. For random things.
-* #reflect. For topics around reflection. 
-* #scripting. For Kotlin Scripting
-* #server. For server-side Kotlin
-* #speaking. Want to speak or find a speaker?
-* #spring. Questions about the Spring framework
-* #vertx. Working with Vert.x
 
 ## Copyright
 
