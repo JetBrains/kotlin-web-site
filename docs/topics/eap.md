@@ -1,8 +1,12 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
+<microformat>
+    <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
+</microformat>
+
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
 
-We ship a few Beta (_Beta_) and Release Candidate (_RC_) builds before every feature (_1.x_) and incremental (_1.x.y_) release. 
+We ship a few Beta (_Beta_) and Release Candidate (_RC_) builds before every language (_2.x.0_) and tooling (_2.x.20_) release. 
 
 We'll be very thankful if you find and report bugs to our issue tracker [YouTrack](https://kotl.in/issue). 
 It is very likely that we'll be able to fix them before the final release, which means you won't need to wait until the next Kotlin release for your issues to be addressed. 
@@ -42,19 +46,13 @@ check [our instructions on how to configure your build to support this version](
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.0.0-RC1</strong>
-            <p>Released: <strong>April 9, 2024</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.0-RC1" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.0.20-RC</strong>
+            <p>Released: <strong>July 30, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.20-RC" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A stabilization release for the Kotlin K2 compiler.</p>
-            <p>Includes improvements for the Gradle build tool.</p>
-            <p>Improves Kotlin/Wasm interoperability with JavaScript.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.0-RC1">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.0.0-RC1</a>.</p>
+            <p>A tooling release for Kotlin 2.0.0</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.20-RC">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.0.20-RC</a>.</p>
         </td>
     </tr>
 </table>
-
-> If the Kotlin EAP plugin can't find the latest EAP build, check that you are using the latest version of [IntelliJ IDEA](https://www.jetbrains.com/help/idea/update.html) or [Android Studio](https://developer.android.com/studio/intro/update).
->
-{type="note"}

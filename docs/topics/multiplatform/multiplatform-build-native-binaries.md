@@ -345,8 +345,8 @@ import org.jetbrains.kotlin.gradle.tasks.FatFrameworkTask
 
 kotlin {
     // Create and configure the targets.
-    val ios32 = watchosArm32("watchos32")
-    val ios64 = watchosArm64("watchos64")
+    val watchos32 = watchosArm32("watchos32")
+    val watchos64 = watchosArm64("watchos64")
     configure(listOf(watchos32, watchos64)) {
         binaries.framework {
             baseName = "my_framework"
@@ -360,8 +360,8 @@ kotlin {
         destinationDir = buildDir.resolve("fat-framework/debug")
         // Specify the frameworks to be merged.
         from(
-            ios32.binaries.getFramework("DEBUG"),
-            ios64.binaries.getFramework("DEBUG")
+            watchos32.binaries.getFramework("DEBUG"),
+            watchos64.binaries.getFramework("DEBUG")
         )
     }
 }
@@ -392,8 +392,8 @@ kotlin {
         destinationDir = file("$buildDir/fat-framework/debug")
         // Specify the frameworks to be merged.
         from(
-            targets.ios32.binaries.getFramework("DEBUG"),
-            targets.ios64.binaries.getFramework("DEBUG")
+            targets.watchos32.binaries.getFramework("DEBUG"),
+            targets.watchos64.binaries.getFramework("DEBUG")
         )
     }
 }

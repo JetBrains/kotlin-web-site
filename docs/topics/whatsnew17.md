@@ -186,7 +186,7 @@ fun main() {
 ```
 
 Learn more about definitely non-nullable types
-in [this KEEP](https://github.com/Kotlin/KEEP/blob/c72601cf35c1e95a541bb4b230edb474a6d1d1a8/proposals/definitely-non-nullable-types.md).
+in [this KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/definitely-non-nullable-types.md).
 
 ## Kotlin/JVM
 
@@ -1075,5 +1075,5 @@ project. [Learn how to update to Kotlin 1.7.0](releases.md#update-to-a-new-relea
 
 ### Compatibility guide for Kotlin 1.7.0
 
-Kotlin 1.7.0 is a [feature release](kotlin-evolution.md#feature-releases-and-incremental-releases) and can, therefore, bring changes that are incompatible with your code written for earlier versions of the language.
+Kotlin 1.7.0 is a [feature release](kotlin-evolution.md#language-and-tooling-releases) and can, therefore, bring changes that are incompatible with your code written for earlier versions of the language.
 Find the detailed list of such changes in the [Compatibility guide for Kotlin 1.7.0](compatibility-guide-17.md).

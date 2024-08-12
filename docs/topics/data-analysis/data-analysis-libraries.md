@@ -354,7 +354,7 @@ Here are some examples of such libraries:
   </tr>
   <tr>
     <td>
-      <a href="https://www.optaplanner.org/"><strong>OptaPlanner</strong></a>
+      <a href="https://github.com/TimefoldAI/"><strong>Timefold</strong></a>
     </td>
     <td>
       <list>

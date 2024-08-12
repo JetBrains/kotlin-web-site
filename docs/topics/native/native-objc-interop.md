@@ -32,27 +32,134 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a framewor
 * See [Build final native binaries](multiplatform-build-native-binaries.md#declare-binaries) to see how to declare binaries.
 * Check out the [Kotlin Multiplatform sample project](https://github.com/Kotlin/kmm-basic-sample) for an example.
 
-### Hiding Kotlin declarations
+### Hide Kotlin declarations from Objective-C and Swift
 
-> `@HiddenFromObjC` and `@ShouldRefineInSwift` annotations are [Experimental](components-stability.md#stability-levels-explained) and require [opt-in](opt-in-requirements.md).
+> The `@HiddenFromObjC` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
 >
 {type="warning"}
 
-If you don't want to export Kotlin declarations to Objective-C and Swift, use special annotations:
+To make your Kotlin code more Objective-C/Swift-friendly, you can hide a Kotlin declaration from Objective-C and Swift
+with `@HiddenFromObjC`. The annotation disables a function or property export to Objective-C.
 
-* `@HiddenFromObjC` hides a Kotlin declaration from Objective-C and Swift. The annotation disables a function or property
-  export to Objective-C, making your Kotlin code more Objective-C/Swift-friendly.
+Alternatively, you can mark Kotlin declarations with the` internal` modifier to restrict their visibility in the
+compilation module. Choose `@HiddenFromObjC` if you only want to hide the Kotlin declaration from Objective-C and Swift,
+but still keep it visible from other Kotlin modules.
 
-  [See an example in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/HiddenFromObjC.md).
-* `@ShouldRefineInSwift` helps to replace a Kotlin declaration with a wrapper written in Swift. The annotation marks a
-  function or property as `swift_private` in the generated Objective-C API. Such declarations get the `__` prefix,
-  which makes them invisible from Swift.
+[See an example in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/HiddenFromObjC.md).
 
-  You can still use these declarations in your Swift code to create a Swift-friendly API, but they won't be suggested in
-  the Xcode autocomplete.
+### Use refining in Swift
 
-  * For more information on refining Objective-C declarations in Swift, see the [official Apple documentation](https://developer.apple.com/documentation/swift/improving-objective-c-api-declarations-for-swift).
-  * For an example on how to use the `@ShouldRefineInSwift` annotation, see the [Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/ShouldRefineInSwift.md).
+> The `@ShouldRefineInSwift` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
+>
+{type="warning"}
+
+`@ShouldRefineInSwift` helps to replace a Kotlin declaration with a wrapper written in Swift. The annotation marks a
+function or property as `swift_private` in the generated Objective-C API. Such declarations get the `__` prefix,
+which makes them invisible from Swift.
+
+You can still use these declarations in your Swift code to create a Swift-friendly API, but they won't be suggested in
+the Xcode autocomplete.
+
+* For more information on refining Objective-C declarations in Swift, see the [official Apple documentation](https://developer.apple.com/documentation/swift/improving-objective-c-api-declarations-for-swift).
+* For an example on how to use the `@ShouldRefineInSwift` annotation, see the [Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/ShouldRefineInSwift.md).
+
+### Change declaration names
+
+> The `@ObjCName` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
+>
+{type="warning"}
+
+To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use the
+custom Objective-C and Swift name for the annotated class, interface, or another Kotlin entity:
+
+```kotlin
+@ObjCName(swiftName = "MySwiftArray")
+class MyKotlinArray {
+    @ObjCName("index")
+    fun indexOf(@ObjCName("of") element: String): Int = TODO()
+}
+
+// Usage with the ObjCName annotations
+let array = MySwiftArray()
+let index = array.index(of: "element")
+```
+
+[See another example in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/ObjCName.md).
+
+### Provide documentation with KDoc comments
+
+Documentation is essential for understanding any API. Providing documentation for
+the shared Kotlin API allows you to communicate with its users on matters of usage, dos and don'ts, and so on.
+
+By default, [KDocs](kotlin-doc.md) comments are not translated into corresponding comments when generating
+an Objective-C header. For example, the following Kotlin code with KDoc:
+
+```kotlin
+/**
+ * Prints the sum of the arguments.
+ * Properly handles the case when the sum doesn't fit in 32-bit integer.
+ */
+fun printSum(a: Int, b: Int) = println(a.toLong() + b)
+```
+
+Will produce an Objective-C declaration without any comments:
+
+```objc
++ (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
+```
+
+To enable export of KDoc comments, add the following compiler option to your `build.gradle(.kts)`:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
+        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
+    }
+}
+```
+
+</tab>
+</tabs>
+
+After that, the Objective-C header will contain a corresponding comment:
+
+```objc
+/**
+ * Prints the sum of the arguments.
+ * Properly handles the case when the sum doesn't fit in 32-bit integer.
+ */
++ (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
+```
+
+You'll be able to see comments on classes and methods in autocompletion, for example, in Xcode. If you go to the
+definition of functions (in the `.h` file), you'll see comments on `@param`, `@return`, and so on.
+
+Known limitations:
+
+> The ability to export KDoc comments to generated Objective-C headers is [Experimental](components-stability.md).
+> It may be dropped or changed at any time.
+> Opt-in is required (see the details below), and you should use it only for evaluation purposes.
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-38600).
+>
+{type="warning"}
+
+* Dependency documentation is not exported unless it is compiled with `-Xexport-kdoc` itself. The feature is Experimental,
+  so libraries compiled with this option might be incompatible with other compiler versions.
+* KDoc comments are mostly exported as is. Many KDoc features, for example `@property`, are not supported.
 
 ## Mappings
 
@@ -101,29 +208,6 @@ Objective-C does not support packages in a framework. If the Kotlin compiler fin
 which have the same name but different packages, it renames them. This algorithm is not stable yet and can change between
 Kotlin releases. To work around this, you can rename the conflicting Kotlin classes in the framework.
 
-### Custom declaration names
-
-> The `@ObjCName` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
->
-{type="warning"}
-
-To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use
-a custom Objective-C and Swift name for classes, interfaces, and other Kotlin concepts:
-
-```kotlin
-@ObjCName(swiftName = "MySwiftArray")
-class MyKotlinArray {
-    @ObjCName("index")
-    fun indexOf(@ObjCName("of") element: String): Int = TODO()
-}
-
-// Usage with the ObjCName annotations
-let array = MySwiftArray()
-let index = array.index(of: "element")
-```
-
-[See another example in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/ObjCName.md).
-
 ### Initializers
 
 A Swift/Objective-C initializer is imported to Kotlin as constructors or as factory methods named `create`.
@@ -149,7 +233,7 @@ package my.library
 fun foo() {}
 ```
 
-You can them call the `foo()` function from Swift like this:
+You can then call the `foo()` function from Swift like this:
 
 ```swift
 MyLibraryUtilsKt.foo()
@@ -190,7 +274,7 @@ Here's how the `kotlin.Any` functions are mapped to Swift/Objective-C:
 [See an example with data classes in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/classesandinterfaces/Data%20classes.md).
 
 You can specify a more idiomatic name in Swift or Objective-C, instead of renaming the Kotlin declaration with
-the [`@ObjCName` annotation](#custom-declaration-names).
+the [`@ObjCName` annotation](#change-declaration-names).
 
 ### Errors and exceptions
 
@@ -510,13 +594,9 @@ class ViewController : UIViewController {
 
 The overriding constructor must have the same parameter names and types as the overridden one.
 
-To override different methods with clashing Kotlin signatures, you can add the `@Suppress("CONFLICTING_OVERLOADS")`
-annotation to the class.
-
-> Suppressing an error on clashing Kotlin signatures is a temporary workaround. Stability isn't guaranteed in this case so
-> use it with caution. We're working on fixing this behavior in future Kotlin releases.
-> 
-{type="warning"}
+To override different methods with clashing Kotlin signatures, you can add the `@ObjCSignatureOverride` annotation to the class.
+The annotation instructs the Kotlin compiler to ignore conflicting overloads, in case several functions with the same
+argument types, but different argument names, are inherited from the Objective-C class.
 
 By default, the Kotlin/Native compiler doesn't allow calling a non-designated Objective-C initializer as a `super()`
 constructor. This behaviour can be inconvenient if the designated initializers aren't marked properly in the Objective-C
@@ -526,75 +606,6 @@ library. To disable these compiler checks, add the `disableDesignatedInitializer
 
 See [Interoperability with C](native-c-interop.md) for an example case where the library uses some plain C features,
 such as unsafe pointers, structs, and so on.
-
-## Export of KDoc comments to generated Objective-C headers
-
-> The ability to export KDoc comments to generated Objective-C headers is [Experimental](components-stability.md).
-> It may be dropped or changed at any time.
-> Opt-in is required (see the details below), and you should use it only for evaluation purposes.
-> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-38600).
->
-{type="warning"}
-
-By default, [KDocs](kotlin-doc.md) documentation comments are not translated into corresponding comments when generating
-an Objective-C header. For example, the following Kotlin code with KDoc:
-
-```kotlin
-/**
- * Prints the sum of the arguments.
- * Properly handles the case when the sum doesn't fit in 32-bit integer.
- */
-fun printSum(a: Int, b: Int) = println(a.toLong() + b)
-```
-
-Will produce an Objective-C declaration without any comments:
-
-```objc
-+ (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
-```
-
-To enable export of KDoc comments, add the following compiler option to your `build.gradle(.kts)`:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
-        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
-        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
-    }
-}
-```
-
-</tab>
-</tabs>
-
-After that, the Objective-C header will contain a corresponding comment:
-
-```objc
-/**
- * Prints the sum of the arguments.
- * Properly handles the case when the sum doesn't fit in 32-bit integer.
- */
-+ (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
-```
-
-Known limitations:
-
-* Dependency documentation is not exported unless it is compiled with `-Xexport-kdoc` itself. The feature is Experimental, 
-  so libraries compiled with this option might be incompatible with other compiler versions.
-* KDoc comments are mostly exported as is. Many KDoc features, for example `@property`, are not supported.
 
 ## Unsupported
 

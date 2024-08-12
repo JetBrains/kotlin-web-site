@@ -5,12 +5,11 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object PrepareDokkaTemplate: Template({
   name = "Build Custom HTML Template"
+  artifactRules = "dokka-templates/** => dokka-templates"
 
   vcs {
     root(vcsRoots.KotlinLangOrg)
   }
-
-  artifactRules = "dokka-templates/** => dokka-templates"
 
   steps {
     script {

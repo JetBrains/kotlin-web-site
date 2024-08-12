@@ -198,7 +198,7 @@ dependencies {
         * `src/main/kotlin/BuilderProcessor.kt`
         * `src/main/kotlin/TestProcessor.kt`
     * After writing your own processor, register your processor provider to the package by including its fully-qualified
-      name in `resources/META-INF/services/com.google.devtools.ksp.processing.SymbolProcessorProvider`.
+      name in `src/main/resources/META-INF/services/com.google.devtools.ksp.processing.SymbolProcessorProvider`.
 
 ## Use your own processor in a project
 

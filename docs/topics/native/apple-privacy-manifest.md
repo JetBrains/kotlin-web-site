@@ -28,17 +28,9 @@ app that fall under the [required reasons](https://developer.apple.com/documenta
 category.
 
 Ideally, all SDKs that your app uses provide their own privacy manifest, and you don't need to worry about that.
-But if some of your dependencies don't do this, your App Store submission will be flagged.
-
-> As of April 22, the App Store does not check API usage in dynamically linked libraries, so only static dependencies affect the check;
-> however, this may change in the future.
->
-{type="note"}
+But if some of your dependencies don't do this, your App Store submission may be flagged.
 
 ## How to resolve
-
-To ensure that your Kotlin Multiplatform app meets the App Store requirements, you can list all of the required reason
-APIs in the app's privacy manifest.
 
 After you have tried to submit your app and received a detailed issue list from the App Store, you can build your manifest
 following the Apple documentation:
@@ -51,5 +43,78 @@ The resulting file is a collection of dictionaries. For each accessed API type, 
 from the provided list. Xcode helps edit `.xcprivacy` files by providing a visual layout and dropdown lists with
 valid values for each field.
 
+You can use a [special tool](#find-usages-of-required-reason-apis) to find usages of required reason APIs in the dependencies
+of your Kotlin framework and a [separate plugin](#place-the-xcprivacy-file-in-your-kotlin-artifacts) to bundle
+`.xcprivacy` file with your Kotlin artifacts.
+
 If a new privacy manifest doesn't help satisfy App Store requirements or you cannot figure out how to go through the steps,
 contact us and share your case in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-67603).
+
+## Find usages of required reason APIs
+
+Kotlin code in your app or one of the dependencies may access required reason APIs from libraries such as `platform.posix`,
+for example, `fstat`:
+
+```kotlin
+import platform.posix.fstat
+
+fun useRequiredReasonAPI() {
+    fstat(...)
+}
+```
+
+In some cases, it may be difficult to determine which dependencies use the required reason API.
+To help you find them, we've built a simple tool.
+
+To use it, run the following command in the directory where the Kotlin framework is declared in your project:
+
+```shell
+/usr/bin/python3 -c "$(curl -fsSL https://github.com/JetBrains/kotlin/raw/rrf_v0.0.1/libraries/tools/required-reason-finder/required_reason_finder.py)"
+```
+
+You may also [download this script](https://github.com/JetBrains/kotlin/blob/rrf_v0.0.1/libraries/tools/required-reason-finder/required_reason_finder.py)
+separately, inspect it, and run it using `python3`.
+
+## Place the `.xcprivacy` file in your Kotlin artifacts
+
+If you need to bundle the `PrivacyInfo.xcprivacy` file with your Kotlin artifacts, use the `apple-privacy-manifests` plugin:
+
+```kotlin
+plugins {
+    kotlin("multiplatform")
+    kotlin("apple-privacy-manifests") version "1.0.0"
+}
+
+kotlin {
+    privacyManifest {
+        embed(
+            privacyManifest = layout.projectDirectory.file("PrivacyInfo.xcprivacy").asFile,
+        )
+    }
+}
+```
+
+The plugin will copy the privacy manifest file to the [corresponding output location](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/adding_a_privacy_manifest_to_your_app_or_third-party_sdk?language=objc).
+
+## Known usages
+
+### Compose Multiplatform
+
+Using Compose Multiplatform may result in `fstat`, `stat` and `mach_absolute_time` usages in your binary.
+Even though these functions are not used for tracking or fingerprinting and are not sent from the device, Apple can still
+flag them as APIs with missing required reasons. 
+
+If you must specify a reason for `stat` and `fstat` usages, use `0A2A.1`. For `mach_absolute_time`, use `35F9.1`.
+
+For further updates on required reasons APIs used in Compose Multiplatform, follow [this issue](https://github.com/JetBrains/compose-multiplatform/issues/4738).
+
+### Kotlin/Native runtime in versions 1.9.10 or earlier
+
+The `mach_absolute_time` API is used in the `mimalloc` allocator in the Kotlin/Native runtime. This was the default
+allocator in Kotlin 1.9.10 and earlier versions.
+
+We recommend upgrading to Kotlin 1.9.20 or later versions. If the upgrade is impossible, change the memory allocator.
+To do that, set the `-Xallocator=custom` compilation option in your Gradle build script for the current Kotlin allocator
+or `-Xallocator=std` for the system allocator.
+
+For more information, see [Kotlin/Native memory management](native-memory-manager.md).

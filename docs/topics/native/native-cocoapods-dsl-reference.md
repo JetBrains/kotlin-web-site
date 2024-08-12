@@ -52,10 +52,13 @@ You can use the following blocks, functions, and properties inside it:
 
 ### Targets
 
-* `ios`
-* `osx`
-* `tvos`
-* `watchos`
+| iOS                 | macOS        | tvOS                 | watchOS                 |
+|---------------------|--------------|----------------------|-------------------------|
+| `iosArm64`          | `macosArm64` | `tvosArm64`          | `watchosArm64`          |
+| `iosX64`            | `macosX64`   | `tvosX64`            | `watchosX64`            |
+| `iosSimulatorArm64` |              | `tvosSimulatorArm64` | `watchosSimulatorArm64` |
+|                     |              |                      | `watchosArm32`          |
+|                     |              |                      | `watchosDeviceArm64`    |
 
 For each target, use the `deploymentTarget` property to specify the minimum target version for the Pod library.
 
@@ -63,7 +66,7 @@ When applied, CocoaPods adds both `debug` and `release` frameworks as output bin
 
 ```kotlin
 kotlin {
-    ios()
+    iosArm64()
    
     cocoapods {
         version = "2.0"
@@ -124,7 +127,7 @@ and `source` of the library, in its configuration block:
 | **Name**                     | **Description**                                                                                                                                                                                                                                                                                                                                                 | 
 |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `version`                    | The library version. To use the latest version of the library, omit the parameter.                                                                                                                                                                                                                                                                              |
-| `source`                     | Configures the Pod from: <list><li>The Git repository using `git()`. In the block after `git()`, you can specify `commit` to use a specific commit, `tag` to use a specific tag, and `branch` to use a specific branch from the repository</li><li>The local repository using `path()`</li><li>An archived (tar, jar, zip) Pod folder using `url()`</li></list> |
+| `source`                     | Configures the Pod from: <list><li>The Git repository using `git()`. In the block after `git()`, you can specify `commit` to use a specific commit, `tag` to use a specific tag, and `branch` to use a specific branch from the repository</li><li>The local repository using `path()`</li></list> |
 | `packageName`                | Specifies the package name.                                                                                                                                                                                                                                                                                                                                     |
 | `extraOpts`                  | Specifies the list of options for a Pod library. For example, specific flags: <code style="block" lang="Kotlin">extraOpts = listOf("-compiler-option")</code>                                                                                                                                                                                                   |
 | `linkOnly`                   | Instructs the CocoaPods plugin to use Pod dependencies with dynamic frameworks without generating cinterop bindings. If used with static frameworks, the option will remove the Pod dependency entirely.                                                                                                                                                        |
@@ -133,13 +136,13 @@ and `source` of the library, in its configuration block:
 
 ```kotlin
 kotlin {
-    ios()
+    iosArm64()
    
     cocoapods {
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
-      
-        ios.deploymentTarget = "13.5"
+
+        iosArm64.deploymentTarget = "13.5"
       
         pod("pod_dependency") {
             version = "1.0"

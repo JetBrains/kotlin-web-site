@@ -10,7 +10,7 @@
     "@babel/core": "^7.22.10",
     "@babel/register": "7.15.3",
     "@jetbrains/babel-preset-jetbrains": "^2.3.1",
-    "@jetbrains/kotlin-web-site-ui": "4.8.1",
+    "@jetbrains/kotlin-web-site-ui": "4.8.3",
     "@react-hook/resize-observer": "1.2.5",
     "@rescui/button": "^0.10.0",
     "@rescui/card": "^0.8.1",
@@ -80,7 +80,6 @@
     "use-match-media-hook": "1.0.1",
     "validator": "13.7.0",
     "webpack": "5.76.0",
-    "webpack-cli": "^5.1.4",
     "whatwg-fetch": "2.0.2"
   },
   "devDependencies": {
@@ -89,7 +88,7 @@
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "8.5.0",
-    "next": "^13.4.15",
+    "next": "^13.5.6",
     "next-compose-plugins": "^2.2.1",
     "next-global-css": "^1.3.1",
     "next-optimized-images": "3.0.0-canary.10",

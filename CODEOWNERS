@@ -1,7 +1,7 @@
 * @zoobestik @nikpachoo @krutilov
 
 # Community events
-/data/events.yml @MKrishtal
+/data/events.yml @MKrishtal @meilalina
 /data/user-groups.yml @MKrishtal @meilalina
 /data/universities.yml @Belosnegova
 
@@ -10,3 +10,4 @@
 /assets/kotlin-reference.pdf @JetBrains/kotlin-technical-writing
 /static/js/page/api/api.js @JetBrains/kotlin-technical-writing
 /data/releases.yml @JetBrains/kotlin-technical-writing
+/redirects/ @JetBrains/kotlin-technical-writing

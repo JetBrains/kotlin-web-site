@@ -1,6 +1,10 @@
 - section: Virtual
   anchorId: virtual
   groups:
+  - name: Kotlin Devs Brasil
+    country: Brazil
+    url: https://kotlinbr.dev/
+    isVirtual: true
   - name: Virtual KUG
     country: International
     url: https://www.meetup.com/Virtual-Kotlin-User-Group/
@@ -172,7 +176,7 @@
       lng: 19.9449799
   - name: Leeds KUG
     country: United Kingdom
-    url: https://leedskotlinusergroup.netlify.com/published/2020/1/6/our-first-meetup/
+    url: https://leedskotlinusergroup.netlify.app/published/2020/1/6/our-first-meetup/
     position:
       lat: 53.8007554
       lng: -1.5490774
@@ -341,6 +345,18 @@
     position:
       lat: 51.1605227
       lng: 71.4703558
+  - name: Islamabad Kotlin User Group
+    country: Pakistan
+    url: https://linktr.ee/IslamabadKUG
+    position:
+      lat: 33.6422
+      lng: 72.9903
+  - name: KUG New Delhi
+    country: India
+    url: https://www.commudle.com/communities/kug-new-delhi
+    position:
+      lat: 28.632713
+      lng: 77.219739  
   - name: Azerbaijan KUG
     country: Azerbaijan
     url: https://www.facebook.com/groups/395337754167951/
@@ -377,6 +393,12 @@
     position:
       lat: 30.6587488
       lng: 103.9354604
+  - name: Chennai KUG
+    country: India
+    url: https://linktr.ee/kugchennai
+    position:
+      lat: 13.067439
+      lng: 80.237617
   - name: Chongqing KUG
     country: China Mainland
     url: https://www.cqkug.com/

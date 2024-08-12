@@ -1,38 +1,39 @@
-/* Fix global dokka styles */
-header ul {
-  position: inherit;
-}
-/* / Fix global dokka styles */
-
 .root {
   display: flex;
   flex-direction: column;
-}
 
-#sideMenu {
-  @media (min-width: 760px) {
-    padding-left: 16px;
+  /* Fix global dokka styles */
+  .ktl-dokka-header nav > ul {
+    position: inherit;
   }
-}
 
-@media (max-width: 759px) {
-  #leftColumn.open ~ #ktl-main #searchBar {
-    display: none;
-  }
-}
+  /* / Fix global dokka styles */
 
-#main {
-  box-sizing: border-box;
-
-  @media (max-width: 759px) {
-    padding-left: 24px;
+  #sideMenu {
+    @media (min-width: 760px) {
+      padding-left: 16px;
+    }
   }
 
   @media (max-width: 759px) {
-    padding-left: 8px;
+    #leftColumn.open ~ #ktl-main #searchBar {
+      display: none;
+    }
   }
-}
 
-.main-content {
-  flex-grow: 1;
+  #main {
+    box-sizing: border-box;
+
+    @media (max-width: 759px) {
+      padding-left: 24px;
+    }
+
+    @media (max-width: 759px) {
+      padding-left: 8px;
+    }
+  }
+
+  .main-content {
+    flex-grow: 1;
+  }
 }

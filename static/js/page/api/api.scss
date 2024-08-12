@@ -323,3 +323,174 @@ $jvm-enrichment: JRE7, JRE8, JUnit, JUnit5, TestNG;
 .tags__tag.kotlin-version.hidden-version {
   visibility: hidden;
 }
+
+/* ====== */
+#optimize-banner { display: none!important; }
+
+.api-docs-to-core {
+    position: relative;
+    padding: 0;
+}
+
+.api-docs-to-core__link {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    min-height: 52px;
+
+    background: linear-gradient(90.12deg, #7F52FF 23%, #A952FF 34.23%, #9952FF 44.65%, #8952FF 100%);
+}
+
+.api-docs-to-core__link, .api-docs-to-core__link:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.api-docs-to-core__text {
+    display: inline-flex;
+    align-items: center;
+    background: url("/assets/images/core-launch.png") 24px 2px no-repeat;
+    background-size: 48px;
+    padding: 0 2px 0 calc(24px + 48px + 8px);
+    margin-left: -24px;
+
+    animation-duration: 300ms, 300ms;
+    animation-delay: 0s, 300ms;
+    animation-timing-function: ease-in, ease-out;
+}
+@keyframes rocket-in {
+    from {
+        background-position: 24px 2px;
+    }
+
+    to {
+        background-position: calc(24px + 48px) -52px;
+    }
+}
+@keyframes rocket-out {
+    from {
+        background-position: calc(24px - 48px) 52px;
+    }
+
+    to {
+        background-position: 24px 2px;
+    }
+}
+.api-docs-to-core_hover .api-docs-to-core__text {
+    animation-name: rocket-in, rocket-out;
+}
+
+.api-docs-to-core__close {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    height: 52px;
+    width: 52px;
+    box-sizing: border-box;
+}
+
+.api-docs-to-core-mobile {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
+    background: linear-gradient(108.46deg, #7F52FF 0%, #A852FF 10.78%, #7F52FF 100%);
+    border-radius: 8px;
+    width: 456px;
+    z-index: 100;
+    color: #fff;
+}
+
+@media (max-width: 479px) {
+    .api-docs-to-core-mobile {
+        left: 12px;
+        right: 12px;
+        transform: none;
+        width: auto;
+    }
+}
+
+.api-docs-to-core-mobile__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px 12px;
+}
+
+.api-docs-to-core-mobile__text::before {
+    display: block;
+    content: '';
+    background: url("/assets/images/core-launch.png") center center no-repeat;
+    background-size: 48px;
+    height: 48px;
+    width: 48px;
+}
+
+.api-docs-to-core-mobile__controls {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    min-height: 52px;
+}
+
+.api-docs-to-core__text, .api-docs-to-core-mobile__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.0015em;
+    text-align: center;
+}
+
+.api-docs-to-core-mobile__link, .api-docs-to-core-mobile__link:hover,
+.api-docs-to-core-mobile__close, .api-docs-to-core-mobile__close:hover {
+    flex: 1 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8px;
+
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.0045em;
+}
+
+.api-docs-to-core, .api-docs-to-core-mobile {
+    font-family: "JetBrains Sans", Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: 'ss20';
+}
+
+.api-docs-to-core-mobile__link:hover, .api-docs-to-core-mobile__close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.api-docs-to-core-mobile__close {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    margin-left: -1px;
+}
+
+.api-docs-to-core-closed {
+    display: none;
+}
+
+@media (max-width: 704px) { .api-docs-to-core { display: none; } }
+@media (min-width: 705px) { .api-docs-to-core-mobile { display: none; } }

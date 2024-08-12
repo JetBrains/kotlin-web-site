@@ -2,13 +2,15 @@
 
 ## Kotlin Logo
 
-Our logo consists of a mark and a typeface. The full-color version is the main one and should be used in the vast majority of cases.
+Our logo consists of a mark and a typeface. 
+The full-color version is the main one and should be used in the vast majority of cases.
 
 [Download all versions](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
 
 ![Kotlin logo](kotlin-logo.png){width=700}
 
-Our logo and mark have a protective field. Please position the logo so that other design elements do not come into the box. The minimum size of the protective field is half the height of the mark.
+Our logo and mark have a protective field. Please position the logo so that other design elements do not come into the box.
+The minimum size of the protective field is half the height of the mark.
 
 ![Kotlin logo proportions](kotlin-logo-guidelines.png){width=700}
 
@@ -23,12 +25,14 @@ Pay special attention to the following restrictions concerning the use of the lo
 
 ## Kotlin mascot
 
-Kodee is Kotlin's reimagined mascot. More than just a symbol, Kodee is your friendly companion who’s there to encourage and inspire you to express your creativity.
+Kodee is Kotlin's reimagined mascot. More than just a symbol, Kodee is your friendly companion who’s there to encourage 
+and inspire you to express your creativity.
 When using it, we ask you to follow these [simple guidelines](https://resources.jetbrains.com/storage/products/kotlin/docs/Kotlin_Mascot_Guidelines.pdf).
 
 ![Kotlin mascot Kodee proportions](mascot-body-proportions.png){width=700}
 
-You can use Kodee in your digital and print materials. For this purpose, we have prepared a variety of Kotlin mascot assets for you to download and explore.
+You can use Kodee in your digital and print materials. For this purpose, we have prepared a variety of 
+Kotlin mascot assets for you to download and explore.
 
 [Download all assets](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_mascot_2.zip){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
 
@@ -38,7 +42,8 @@ You can use Kodee in your digital and print materials. For this purpose, we have
 
 We provide Kotlin user groups with a logo that is specifically designed to be recognizable and convey a reference to Kotlin.
 
-* The official Kotlin logo is associated with the language itself. It should not be used otherwise in different scopes, as this could cause confusion. The same applies to its close derivatives.
+* The official Kotlin logo is associated with the language itself. It should not be used otherwise in different scopes, 
+   as this could cause confusion. The same applies to its close derivatives.
 * User groups logo also means that the opinions and actions of the community are independent of the Kotlin team.
 * Your opinions don't have to agree with ours, and we think this is the most beneficial model for a creative and strong community.
 
@@ -46,7 +51,9 @@ We provide Kotlin user groups with a logo that is specifically designed to be re
 
 ### Style for user groups
 
-Since the launch of the Kotlin community support program at the beginning of 2017, the number of user groups has multiplied, with around 2-4 new user groups joining us every month. Please check out the complete list of groups in the **Kotlin User Groups** section to find one in your area.
+Since the launch of the Kotlin community support program at the beginning of 2017, the number of user groups has multiplied,
+with around 2–4 new user groups joining us every month. Please check out the complete list of groups in 
+the **Kotlin User Groups** section to find one in your area.
 
 We provide new Kotlin user groups with a user group logo and a profile picture.
 
@@ -54,8 +61,10 @@ We provide new Kotlin user groups with a user group logo and a profile picture.
 
 There are two main reasons why we are doing it:
 
-* Firstly, we received numerous requests from the community asking for special Kotlin style branded materials to help them be recognized as officially dedicated user groups.
-* Secondly, we wanted to provide a distinct style for the user group and community content to make it clear which Kotlin-related materials are from the official team and which are created by the community.
+* Firstly, we received many requests from the community asking for special Kotlin style branded materials 
+   to help them be recognized as officially dedicated user groups.
+* Secondly, we wanted to provide a distinct style for the user group and community content to make it clear 
+   which Kotlin-related materials are from the official team and which are created by the community.
 
 ### Create the logo of your user group
 
@@ -82,7 +91,8 @@ To create your group's profile picture:
 To create a cover photo with a group's logo for meetup.com:
 1. Make a copy of the [picture file](https://drive.google.com/file/d/1g_0Plf_do6vrXvy1R-Hx430vfV2CPVKN/view) to your Google
    Drive (you have to be signed in to your Google account).
-2. Add a shortened name of the user group's location to the logo on the right upper corner of the picture. If you want to replace the general pattern with a custom picture, click on
+2. Add a shortened name of the user group's location to the logo on the right upper corner of the picture. 
+   If you want to replace the general pattern with a custom picture, click on
    the background pattern-picture, choose 'Replace Image', then 'Upload from Computer' or any other source.
 3. Download the picture and use it for your profile on [meetup.com](https://meetup.com).
 
@@ -90,13 +100,16 @@ To create a cover photo with a group's logo for meetup.com:
 
 ## Kotlin Night brand assets
 
-JetBrains provides branding and materials for Kotlin Night events. Our team will prepare digital assets for the event promotion and ship your merchandise pack containing stickers and t-shirts. Check out what we have to make your Kotlin Night fun!
+JetBrains provides branding and materials for Kotlin Night events. 
+Our team will prepare digital assets for the event promotion and ship your merchandise pack containing stickers and t-shirts. 
+Check out what we have to make your Kotlin Night fun!
 
 [Download all assets](https://drive.google.com/drive/folders/1wTJ-PiO6VvbY6XdACGLsWZ_N8KHI0Nvr){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
 
 ### Social media
 
-Stickers can be used to brand any media necessary for a Kotlin Night. Just stick them on anything you can get your hands on. It's fun!
+Stickers can be used to brand any media necessary for a Kotlin Night. Just stick them on anything you can get your hands on. 
+It's fun!
 
 ![Cover/Logo](kotlin-night-cover.svg){width=700}
 
@@ -104,7 +117,8 @@ Stickers can be used to brand any media necessary for a Kotlin Night. Just stick
 
 ### Branding stickers
 
-Stickers can be used to brand assets for a Kotlin Night. Just stick them on anything you can get your hands on. It is funny!
+Stickers can be used to brand assets for a Kotlin Night. Just stick them on anything you can get your hands on. 
+It is funny!
 
 ![Stickers](kotlin-night-stickers.svg){width=700}
 
@@ -128,6 +142,7 @@ Or you can provide a board where your guests can paste stickers with their impre
 
 ### T-shirts
 
-Guests of the event are offered to paste stickers on the board with their impressions of the meeting. What does it mean for you?
+Guests of the event are offered to paste stickers on the board with their impressions of the meeting. 
+What does it mean to you?
 
 ![Sticker pack](kotlin-night-t-shirt.svg){width=700}
