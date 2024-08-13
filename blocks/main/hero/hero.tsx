@@ -26,7 +26,7 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
 
     return (
         <ThemeProvider theme={'dark'}>
-            <section className={styles.heroSection}>
+            <section className={cn(styles.heroSection, styles.heroSectionAb)}>
                 <div className={cn('ktl-layout', 'ktl-layout--center')}>
                     <div className={styles.grid}>
                         <div className={styles.content}>
@@ -41,6 +41,7 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
                                 </Button>
                                 <div className={styles.developer}>
                                     <div className={styles.developerContent}>
+                                        <div className={cn(darkTextCn('rs-text-2', { hardness: 'hard' }), styles.developerCaptionAb)}>Developed by</div>
                                         <img src={JBLogo.src} alt="jetbrains logo" className={styles.developerLogo} />{' '}
                                         <div className={cn(darkTextCn('rs-text-3', { hardness: 'hard' }), styles.developerCaption)}>
                                             Kotlin, developed by&nbsp;
