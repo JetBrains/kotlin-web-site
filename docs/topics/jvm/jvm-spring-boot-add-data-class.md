@@ -11,7 +11,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
 
 ## Update your application
 
-1. In the `DemoApplication.kt` file, create a `Message` data class with two properties: `id` and `text`:
+1. In the same package, create a `Message` data class with two properties: `id` and `text`:
 
     ```kotlin
     data class Message(val id: String?, val text: String)
@@ -47,13 +47,14 @@ It requires changing the `MessageController` class to respond with a JSON docume
           </code>
        </def>
    </deflist>
-2. In the same file, amend the `index()` function of a `MessageController` class to return a list of `Message` objects:
+2. In the same file, instead of the `index()` function, let's create add `listMessages()` function returning a list of `Message` objects:
 
     ```kotlin
     @RestController
+    @RequestMapping("/")
     class MessageController {
-        @GetMapping("/")
-        fun index() = listOf(
+        @GetMapping
+        fun listMessages() = listOf(
             Message("1", "Hello!"),
             Message("2", "Bonjour!"),
             Message("3", "Privet!"),
@@ -95,33 +96,45 @@ The response from `MessageController` will now be a JSON document containing a c
 >
 {type="note"}
 
-Here is a complete code of the `DemoApplication.kt`:
+Here is the complete code of your application:
 
 ```kotlin
-package com.example.demo
+package demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.data.annotation.Id
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RestController
 
 @SpringBootApplication
 class DemoApplication
 
 fun main(args: Array<String>) {
-    runApplication<DemoApplication>(*args)
+   runApplication<DemoApplication>(*args)
 }
+```
+{initial-collapse-state="collapsed"}
+
+```kotlin
+package demo
+
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
+@RequestMapping("/")
 class MessageController {
-    @GetMapping("/")
-    fun index() = listOf(
-        Message("1", "Hello!"),
-        Message("2", "Bonjour!"),
-        Message("3", "Privet!"),
-    )
+   @GetMapping
+   fun listMessages() = listOf(
+      Message("1", "Hello!"),
+      Message("2", "Bonjour!"),
+      Message("3", "Privet!"),
+   )
 }
+```
+{initial-collapse-state="collapsed"}
+
+```kotlin
+package demo
 
 data class Message(val id: String?, val text: String)
 ```

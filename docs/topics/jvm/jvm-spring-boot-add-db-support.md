@@ -15,35 +15,40 @@ The common practice in Spring Framework based applications is to implement the d
 In Spring, you should mark classes with the `@Service` annotation to imply that the class belongs to the service layer of the application.
 In this application, you will create the `MessageService` class for this purpose.
 
-In the `DemoApplication.kt` file, create the `MessageService` class as follows:
+In the same package file, create the `MessageService` class as follows:
 
 ```kotlin
+package demo
+
 import org.springframework.stereotype.Service
 import org.springframework.jdbc.core.JdbcTemplate
+import java.util.*
 
 @Service
-class MessageService(val db: JdbcTemplate) {
-    fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
-        Message(response.getString("id"), response.getString("text"))
-    }
+class MessageService(private val db: JdbcTemplate) {
+   fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
+      Message(response.getString("id"), response.getString("text"))
+   }
 
-    fun save(message: Message) {
-        db.update(
-            "insert into messages values ( ?, ? )",
-            message.id, message.text
-        )
-    }
+   fun save(message: Message): Message {
+      val id = message.id ?: UUID.randomUUID().toString() // generate new id if it is null
+      db.update(
+         "insert into messages values ( ?, ? )",
+         id, message.text
+      )
+      return message.copy(id = id) // return a copy of the message with the new id
+   }
 }
 ```
 
 <deflist collapsible="true">
-   <def title="Constructor argument and dependency injection – (val db: JdbcTemplate)">
+   <def title="Constructor argument and dependency injection – (private val db: JdbcTemplate)">
       <p>A class in Kotlin has a primary constructor. It can also have one or more <a href="classes.md#secondary-constructors">secondary constructors</a>.
       The <i>primary constructor</i> is a part of the class header, and it goes after the class name and optional type parameters. In our case, the constructor is <code>(val db: JdbcTemplate)</code>.</p>
       <p><code>val db: JdbcTemplate</code> is the constructor's argument:</p>
       <code style="block" lang="kotlin">
       @Service
-      class MessageService(val db: JdbcTemplate)
+      class MessageService(private val db: JdbcTemplate)
       </code>
   </def>
    <def title="Trailing lambda and SAM conversion">
@@ -71,34 +76,7 @@ class MessageService(val db: JdbcTemplate) {
    </def>
 </deflist>
 
-## Update the MessageController class
-
-Update `MessageController` to use the new `MessageService` class:
-
-```kotlin
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.PostMapping
-
-@RestController
-class MessageController(val service: MessageService) {
-    @GetMapping("/")
-    fun index(): List<Message> = service.findMessages()
-
-    @PostMapping("/")
-    fun post(@RequestBody message: Message) {
-       service.save(message)
-    }
-}
-
-```
-
-<deflist collapsible="true">
-   <def title="@PostMapping annotation">
-      <p>The method responsible for handling HTTP POST requests needs to be annotated with <code>@PostMapping</code> annotation. To be able to convert the JSON sent as HTTP Body content into an object, you need to use the <code>@RequestBody</code> annotation for the method argument. Thanks to having Jackson library in the classpath of the application, the conversion happens automatically.</p>
-   </def>
-</deflist>
-
-## Update the MessageService class
+The `save` method of `MessageService` implements the logic of storing a message instance to the database using `JdbcTemplate`. 
 
 The `id` for `Message` class was declared as a nullable String:
 
@@ -106,32 +84,50 @@ The `id` for `Message` class was declared as a nullable String:
 data class Message(val id: String?, val text: String)
 ```
 
-It would not be correct to store the `null` as an `id` value in the database though: you need to handle this situation gracefully.  
-
-Update your code to generate a new value when the `id` is `null` while storing the messages in the database:
-
-```kotlin
-import java.util.UUID
-
-@Service
-class MessageService(val db: JdbcTemplate) {
-    fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
-        Message(response.getString("id"), response.getString("text"))
-    }
-
-    fun save(message: Message) {
-        val id = message.id ?: UUID.randomUUID().toString()
-        db.update(
-            "insert into messages values ( ?, ? )",
-            id, message.text
-        )
-    } 
-}
-```
+It would not be correct to store the `null` as an `id` value in the database though: you need to handle this situation gracefully.
+If the `id` is `null` while storing the messages in the database, the `id` value will be generated using `java.util.UUID` class. 
 
 <deflist collapsible="true">
    <def title="Elvis operator – ?:">
       <p>The code <code>message.id ?: UUID.randomUUID().toString()</code> uses the <a href="null-safety.md#elvis-operator">Elvis operator (if-not-null-else shorthand) <code>?:</code></a>. If the expression to the left of <code>?:</code> is not <code>null</code>, the Elvis operator returns it; otherwise, it returns the expression to the right. Note that the expression on the right-hand side is evaluated only if the left-hand side is <code>null</code>.</p>
+   </def>
+</deflist>
+
+## Update the MessageController class
+
+Update `MessageController` to use the new `MessageService` class:
+
+```kotlin
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+import java.net.URI
+
+
+@RestController
+@RequestMapping("/")
+class MessageController(private val service: MessageService) {
+   @GetMapping
+   fun listMessages() = service.findMessages()
+
+   @PostMapping
+   fun post(@RequestBody message: Message): ResponseEntity<Message> {
+      val savedMessage = service.save(message)
+      return ResponseEntity.created(URI("/${savedMessage.id}")).body(savedMessage)
+   }
+}
+```
+
+<deflist collapsible="true">
+   <def title="@PostMapping annotation">
+      <p>The method responsible for handling HTTP POST requests needs to be annotated with <code>@PostMapping</code> annotation. To be able to convert the JSON sent as HTTP Body content into an object, you need to use the <code>@RequestBody</code> annotation for the method argument. Thanks to having Jackson library in the classpath of the application, the conversion happens automatically.</p>
+   </def>
+   <def title="ResponseEntity">
+      <p>ResponseEntity represents the whole HTTP response: status code, headers, and body.</p>
+      <p> Using the <code>created</code> method we configure the response status code (201) and set the location header indicating the context path for the created resource.</p>
    </def>
 </deflist>
 
@@ -159,6 +155,7 @@ Configure the database in the application:
 3. Open the `application.properties` file located in the `src/main/resources` folder and add the following application properties:
 
    ```none
+   spring.application.name=demo
    spring.datasource.driver-class-name=org.h2.Driver
    spring.datasource.url=jdbc:h2:file:./data/testdb
    spring.datasource.username=name
@@ -175,7 +172,7 @@ Configure the database in the application:
 You should use an HTTP client to work with previously created endpoints. In IntelliJ IDEA, use the embedded HTTP client:
 
 1. Run the application. Once the application is up and running, you can execute POST requests to store messages in the database.
-   Create the `requests.http` file in the `src/main/resources` folder and add the following HTTP requests:
+   Create the `requests.http` file in the project root folder and add the following HTTP requests:
 
    ```http request
    ### Post "Hello!"
@@ -239,25 +236,31 @@ Extend the functionality of the application to retrieve the individual messages 
 1. In the `MessageService` class, add the new function `findMessageById(id: String)` to retrieve the individual messages by id:
 
     ```kotlin
+    package demo
+
+    import org.springframework.stereotype.Service
+    import org.springframework.jdbc.core.JdbcTemplate
     import org.springframework.jdbc.core.query
+    import java.util.*
     
     @Service
-    class MessageService(val db: JdbcTemplate) {
+    class MessageService(private val db: JdbcTemplate) {
     
         fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
             Message(response.getString("id"), response.getString("text"))
         }
     
-        fun findMessageById(id: String): List<Message> = db.query("select * from messages where id = ?", id) { response, _ ->
+        fun findMessageById(id: String): Message? = db.query("select * from messages where id = ?", id) { response, _ ->
             Message(response.getString("id"), response.getString("text"))
-        }
+        }.singleOrNull()
     
-        fun save(message: Message) {
+        fun save(message: Message): Message {
             val id = message.id ?: UUID.randomUUID().toString()
             db.update(
-                "insert into messages values ( ?, ? )", 
+                "insert into messages values ( ?, ? )",
                 id, message.text
             )
+            return message.copy(id = id)
         }
     }
     ```
@@ -270,21 +273,36 @@ Extend the functionality of the application to retrieve the individual messages 
 2. Add the new `index(...)` function with the `id` parameter to the `MessageController` class:
 
     ```kotlin
-    import org.springframework.web.bind.annotation.*
+    package demo
+
+    import org.springframework.http.ResponseEntity
+    import org.springframework.web.bind.annotation.GetMapping
+    import org.springframework.web.bind.annotation.PathVariable
+    import org.springframework.web.bind.annotation.PostMapping
+    import org.springframework.web.bind.annotation.RequestBody
+    import org.springframework.web.bind.annotation.RequestMapping
+    import org.springframework.web.bind.annotation.RestController
+    import java.net.URI
     
     @RestController
-    class MessageController(val service: MessageService) {
-        @GetMapping("/")
-        fun index(): List<Message> = service.findMessages()
-    
-        @GetMapping("/{id}")
-        fun index(@PathVariable id: String): List<Message> =
-            service.findMessageById(id)
-    
-        @PostMapping("/")
-        fun post(@RequestBody message: Message) {
-            service.save(message)
+    @RequestMapping("/")
+    class MessageController(private val service: MessageService) {
+        @GetMapping
+        fun listMessages() = service.findMessages()
+        
+        @PostMapping
+        fun post(@RequestBody message: Message): ResponseEntity<Message> {
+            val savedMessage = service.save(message)
+            return ResponseEntity.created(URI("/${savedMessage.id}")).body(savedMessage)
         }
+        
+        @GetMapping("/{id}")
+        fun getMessage(@PathVariable id: String): ResponseEntity<Message> =
+            service.findMessageById(id).toResponseEntity()
+        
+        private fun Message?.toResponseEntity(): ResponseEntity<Message> =
+            // if the message is null (not found), set response code to 404
+            this?.let { ResponseEntity.ok(it) } ?: ResponseEntity.notFound().build() 
     }
     ```
 
@@ -301,63 +319,99 @@ Extend the functionality of the application to retrieve the individual messages 
         </list>
         <p>The second parameter for the <code>query()</code> function is declared as a <i>variable argument</i> (<code>vararg</code>). In Kotlin, the position of the variable arguments parameter is not required to be the last in the parameters list.</p>
     </def>
+    <def title="Extension function with nullable receiver">
+         <p>Extensions can be defined with a nullable receiver type. If the receiver is <code>null</code>, then <code>this</code> is also <code>null</code>. So when defining an extension with a nullable receiver type, we recommend performing a <code>this == null</code> check inside the function body.</p>
+         <p>We can also use the null-safe invocation operator (<code>?.</code>) to perform the null check as in the <code>toResponseBody</code> function above:</p>
+         <code style="block" lang="kotlin">
+            this?.let { ResponseEntity.ok(it) }
+         </code>
+    </def>
     </deflist>
 
-Here is a complete code of the `DemoApplication.kt`:
+Here is a complete code of the application:
 
 ```kotlin
-package com.example.demo
+package demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
-import org.springframework.stereotype.Service
-import org.springframework.jdbc.core.JdbcTemplate
-import java.util.UUID
-import org.springframework.jdbc.core.query
-import org.springframework.web.bind.annotation.*
-
 
 @SpringBootApplication
 class DemoApplication
 
 fun main(args: Array<String>) {
-    runApplication<DemoApplication>(*args)
+   runApplication<DemoApplication>(*args)
 }
+```
+{initial-collapse-state="collapsed"}
 
-@RestController
-class MessageController(val service: MessageService) {
-    @GetMapping("/")
-    fun index(): List<Message> = service.findMessages()
-
-    @GetMapping("/{id}")
-    fun index(@PathVariable id: String): List<Message> =
-        service.findMessageById(id)
-
-    @PostMapping("/")
-    fun post(@RequestBody message: Message) {
-        service.save(message)
-    }
-}
+```kotlin
+package demo
 
 data class Message(val id: String?, val text: String)
+```
+{initial-collapse-state="collapsed"}
+
+```kotlin
+package demo
+
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+import java.net.URI
+
+
+@RestController
+@RequestMapping("/")
+class MessageController(private val service: MessageService) {
+    @GetMapping
+    fun listMessages() = service.findMessages()
+
+    @PostMapping
+    fun post(@RequestBody message: Message): ResponseEntity<Message> {
+        val savedMessage = service.save(message)
+        return ResponseEntity.created(URI("/${savedMessage.id}")).body(savedMessage)
+    }
+
+    @GetMapping("/{id}")
+    fun getMessage(@PathVariable id: String): ResponseEntity<Message> =
+        service.findMessageById(id).toResponseEntity()
+
+    private fun Message?.toResponseEntity(): ResponseEntity<Message> =
+        this?.let { ResponseEntity.ok(it) } ?: ResponseEntity.notFound().build()
+}
+```
+{initial-collapse-state="collapsed"}
+
+```kotlin
+package demo
+
+import org.springframework.stereotype.Service
+import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.jdbc.core.query
+import java.util.*
 
 @Service
-class MessageService(val db: JdbcTemplate) {
-
+class MessageService(private val db: JdbcTemplate) {
     fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
         Message(response.getString("id"), response.getString("text"))
     }
 
-    fun findMessageById(id: String): List<Message> = db.query("select * from messages where id = ?", id) { response, _ ->
+    fun findMessageById(id: String): Message? = db.query("select * from messages where id = ?", id) { response, _ ->
         Message(response.getString("id"), response.getString("text"))
-    }
+    }.singleOrNull()
 
-    fun save(message: Message) {
+    fun save(message: Message): Message {
         val id = message.id ?: UUID.randomUUID().toString()
         db.update(
             "insert into messages values ( ?, ? )",
             id, message.text
         )
+        return message.copy(id = id)
     }
 }
 ```
