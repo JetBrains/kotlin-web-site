@@ -17,7 +17,8 @@ Currently, there are the following variants of the Kotlin Gradle plugin:
 |----------------|-------------------------------|
 | `main`         | 6.8.3–6.9.3                   |
 | `gradle70`     | 7.0                           |
-| `gradle71`     | 7.1-7.4                       |
+| `gradle71`     | 7.1-7.3                       |
+| `gradle74`     | 7.4                           |
 | `gradle75`     | 7.5                           |
 | `gradle76`     | 7.6                           |
 | `gradle80`     | 8.0                           |
