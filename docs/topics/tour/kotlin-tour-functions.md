@@ -345,7 +345,7 @@ within curly braces `{}`.
 
 Within the lambda expression, you write:
 
-* The parameters followed by an `->`.
+* The parameters followed by an `:`.
 * The function body after the `->`.
 
 In the previous example:
