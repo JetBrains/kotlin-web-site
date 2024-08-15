@@ -99,12 +99,13 @@ To [import Kotlin/Wasm code into Javascript](wasm-js-interop.md), we have introd
 If you still want to use a default import, you can generate a new JavaScript wrapper module. Create a `.mjs` file with the following snippet:
 
 ```Javascript
-import * as moduleExports from "./wasm-test.mjs"; // path to main mjs file
+// Specifies the path to the main .mjs file
+import * as moduleExports from "./wasm-test.mjs";
 
 export { moduleExports as default };
 ```
 
-You can place this `.mjs` file in the resources folder, and it will automatically be placed next to your main `.mjs` file during the build process.
+You can place your new `.mjs` file in the resources folder, and it will automatically be placed next to the main `.mjs` file during the build process.
 
-You can also place this `.mjs` file in a custom location. In this case, you need to either manually move it next to the main `.mjs` file or 
-adjust the relative path in the import statement to match its location.
+You can also place your `.mjs` file in a custom location. In this case, you need to either manually move it next to the main `.mjs` file or 
+adjust the path in the import statement to match its location.
