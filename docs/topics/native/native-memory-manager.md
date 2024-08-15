@@ -12,19 +12,20 @@ the following features:
 Kotlin/Native's garbage collector (GC) algorithm is constantly evolving. Currently, it functions as a stop-the-world mark
 and concurrent sweep collector that does not separate the heap into generations.
 
-The GC is executed on a separate thread and started based on the timer
-and memory pressure heuristics. Alternatively, it can be [called manually](#enable-garbage-collection-manually).
+The GC is executed on a separate thread and started based on the memory pressure heuristics or by a timer. Alternatively,
+it can be [called manually](#enable-garbage-collection-manually).
 
-To process the mark queue, the GC uses a full parallel mark that combines application threads, the GC thread,
+The GC processes the mark queue on several (execution) threads in parallel, including application threads, the GC thread,
 and optional marker threads. Application threads and at least one GC thread participate in the marking process.
 By default, application threads must be paused when the GC is marking objects in the heap.
 
-> You can disable the full parallel mark with the `-Xbinary=gcMarkSingleThreaded=true` compiler option.
-> However, this may increase the garbage collector's pause time.
+> You can disable the parallelization of the mark phase with the `kotlin.native.binary.gcMarkSingleThreaded=true` compiler option.
+> However, this may increase the garbage collector's pause time on large heaps.
 >
 {type="tip"}
 
 When the marking phase is completed, the GC processes weak references and nullifies reference points to an unmarked object.
+By default, weak references are processed concurrently to decrease the GC pause time.
 
 See how to [monitor](#monitor-gc-performance) and [optimize](#optimize-gc-performance) garbage collection.
 
@@ -36,10 +37,10 @@ and waits for its completion.
 ### Monitor GC performance
 
 To monitor the GC performance, you can look through its logs and diagnose issues. To enable logging,
-set the following compiler option in the Gradle build script:
+set the following compiler option in your `gradle.properties` file:
 
 ```none
--Xruntime-logs=gc=info
+kotlin.native.runtimeLogs.gc=info
 ```
 
 Currently, the logs are only printed to `stderr`.
@@ -50,10 +51,10 @@ Signposts enable custom logging within your app, allowing you to check if a GC p
 
 To track GC-related pauses in your app:
 
-1. To enable the feature, set the following compiler option in your Gradle build script:
+1. To enable the feature, set the following compiler option in your `gradle.properties` file:
   
    ```none
-   -Xbinary=enableSafepointSignposts=true
+   kotlin.native.binary.enableSafepointSignposts=true
    ```
 
 2. Open Xcode, go to **Product** | **Profile** or press <shortcut>Cmd + I</shortcut>. This action compiles your app and
@@ -68,29 +69,24 @@ To track GC-related pauses in your app:
 
 ### Optimize GC performance
 
-To improve GC performance, you can try a couple of options aimed at decreasing the GC pause time:  
+To improve GC performance, you can enable concurrent marking to decrease the GC pause time. It allows to run the marking
+phase of the garbage collection simultaneously with application threads.
 
-* For the marking phase, you can use concurrent marking. It allows to run the marking phase of the garbage collection
-  simultaneously with application threads.
-
-  The feature is currently [Experimental](components-stability.md#stability-levels-explained). To enable it, set the
-  following option in your `gradle.properties` file:
+The feature is currently [Experimental](components-stability.md#stability-levels-explained). To enable it, set the
+following compiler option in your `gradle.properties` file:
   
-  ```properties
-  kotlin.native.binary.gc=cms
-  ```
-
-* For the next phase of handling weak references, you can enable concurrent processing by using the
-  `-Xbinary=concurrentWeakSweep=true` compiler option.
+```none
+kotlin.native.binary.gc=cms
+```
 
 ### Disable garbage collection
 
 It's recommended to keep the GC enabled. However, you can disable it in certain cases, such as for testing purposes or
-if you encounter issues and have a short-lived program. To do so, set the following compiler option in the Gradle
-build script:
+if you encounter issues and have a short-lived program. To do so, set the following compiler option in your
+`gradle.properties` file:
 
 ```none
--Xgc=noop
+kotlin.native.gc=noop
 ```
 
 > With this option enabled, the GC doesn't collect Kotlin objects, so memory consumption will keep rising as long as the
@@ -162,10 +158,10 @@ update might improve memory consumption.
 
 If you continue to experience high memory consumption after updating, several options are available:
 
-* Switch to a different memory allocator by using one of the following compiler option in your Gradle build script:
+* Switch to a different memory allocator by using one of the following compiler option in your `gradle.properties` file:
 
-  * `-Xallocator=mimalloc` for the [mimalloc](https://github.com/microsoft/mimalloc) allocator.
-  * `-Xallocator=std` for the system allocator.
+  * `kotlin.native.allocator=std` for the system allocator.  
+  * `kotlin.native.allocator=mimalloc` for the [mimalloc](https://github.com/microsoft/mimalloc) allocator.
 
 * If you use the mimalloc allocator, you can instruct it to promptly release memory back to the system.
   To do so, enable the following binary option in your `gradle.properties` file:
@@ -206,7 +202,7 @@ fun mainBackground(args: Array<String>) {
 ```
 {initial-collapse-state="collapsed"}
 
-Then, compile the test binary with the `-e testlauncher.mainBackground` compiler flag.
+Then, compile the test binary with the `-e testlauncher.mainBackground` compiler option.
 
 ## What's next
 
