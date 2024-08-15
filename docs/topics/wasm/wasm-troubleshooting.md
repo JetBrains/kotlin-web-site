@@ -94,9 +94,9 @@ The new exception handling proposal is activated using the `-Xwasm-use-new-excep
 
 ## Use default import
 
-To [import Kotlin/Wasm code into Javascript](wasm-js-interop.md), we have introduced named exports while moving away from default exports.
+[Importing Kotlin/Wasm code into Javascript](wasm-js-interop.md) has shifted to named exports, moving away from default exports.
 
-If you still want to use a default import, you can generate a new JavaScript wrapper module. Create a `.mjs` file with the following snippet:
+If you still want to use a default import, generate a new JavaScript wrapper module. Create a `.mjs` file with the following snippet:
 
 ```Javascript
 // Specifies the path to the main .mjs file
