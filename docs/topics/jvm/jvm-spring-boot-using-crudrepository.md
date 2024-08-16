@@ -26,10 +26,19 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     import org.springframework.data.relational.core.mapping.Table
     
     @Table("MESSAGES")
-    data class Message(@Id var id: String?, val text: String)
+    data class Message(@Id val id: String?, val text: String)
     ```
-    
-    Besides adding the annotations, you also need to make the `id` mutable (`var`) for the reasons of how `CrudRepository` works when inserting the new objects to the database.
+    In addition, to make the use of the `Message` class more idiomatic, we can set the default value for `id` property to null and flip the order of the data class properties: 
+
+    ```kotlin
+    @Table("MESSAGES")
+    data class Message(val text: String, @Id val id: String? = null)
+    ```
+    Now if we need to create a new instance of the `Message` class we can only specify the `text` property as a parameter:
+
+    ```kotlin
+    val message = Message("Hello") // id is null
+    ```
 
 2. Declare an interface for the `CrudRepository` that will work with the `Message` data class:
 
@@ -42,27 +51,24 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
 3. Update the `MessageService` class. It will now call to the `MessageRepository` instead of executing SQL queries:
 
     ```kotlin
-    import java.util.*
+    package demo
+
+    import org.springframework.data.repository.findByIdOrNull
+    import org.springframework.stereotype.Service
     
     @Service
-    class MessageService(val db: MessageRepository) {
-        fun findMessages(): List<Message> = db.findAll().toList()
+    class MessageService(private val db: MessageRepository) {
+    fun findMessages(): List<Message> = db.findAll().toList()
     
-        fun findMessageById(id: String): List<Message> = db.findById(id).toList()
+        fun findMessageById(id: String): Message? = db.findByIdOrNull(id)
     
-        fun save(message: Message) {
-            db.save(message)
-        }
-    
-        fun <T : Any> Optional<out T>.toList(): List<T> =
-            if (isPresent) listOf(get()) else emptyList()
+        fun save(message: Message): Message = db.save(message)
     }
     ```
 
     <deflist collapsible="true">
        <def title="Extension functions">
-          <p>The return type of the <code>findById()</code> function in the <code>CrudRepository</code> interface is an instance of the <code>Optional</code> class. However, it would be convenient to return a <code>List</code> with a single message for consistency. For that, you need to unwrap the <code>Optional</code> value if it’s present, and return a list with the value. This can be implemented as an <a href="extensions.md#extension-functions">extension function</a> to the <code>Optional</code> type.</p>
-          <p>In the code, <code>Optional&lt;out T&gt;.toList()</code>, <code>.toList()</code> is the extension function for <code>Optional</code>. Extension functions allow you to write additional functions to any classes, which is especially useful when you want to extend functionality of some library class.</p>
+          <p>The return type of the <code>findByIdOrNull()</code> function is an <a href="extensions.md#extension-functions">extension function</a> for <code>CrudRepository</code> interface in Spring Data JDBC.</p>
        </def>
        <def title="CrudRepository save() function">
           <p><a href="https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.entity-persistence">This function works</a> with an assumption that the new object doesn’t have an id in the database. Hence, the id <b>should be null</b> for insertion.</p>
@@ -83,6 +89,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
 5. Update the name of the database in the `application.properties` file located in the `src/main/resources` folder:
 
    ```none
+   spring.application.name=demo
    spring.datasource.driver-class-name=org.h2.Driver
    spring.datasource.url=jdbc:h2:file:./data/testdb2
    spring.datasource.username=name
@@ -90,64 +97,6 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
    spring.sql.init.schema-locations=classpath:schema.sql
    spring.sql.init.mode=always
    ```
-
-Here is the complete code for `DemoApplication.kt`:
-
-```kotlin
-package com.example.demo
-
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
-import org.springframework.data.annotation.Id
-import org.springframework.data.relational.core.mapping.Table
-import org.springframework.data.repository.CrudRepository
-import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.*
-import java.util.*
-
-
-@SpringBootApplication
-class DemoApplication
-
-fun main(args: Array<String>) {
-    runApplication<DemoApplication>(*args)
-}
-
-@RestController
-class MessageController(val service: MessageService) {
-    @GetMapping("/")
-    fun index(): List<Message> = service.findMessages()
-
-    @GetMapping("/{id}")
-    fun index(@PathVariable id: String): List<Message> =
-        service.findMessageById(id)
-
-    @PostMapping("/")
-    fun post(@RequestBody message: Message) {
-        service.save(message)
-    }
-}
-
-interface MessageRepository : CrudRepository<Message, String>
-
-@Table("MESSAGES")
-data class Message(@Id var id: String?, val text: String)
-
-@Service
-class MessageService(val db: MessageRepository) {
-    fun findMessages(): List<Message> = db.findAll().toList()
-
-    fun findMessageById(id: String): List<Message> = db.findById(id).toList()
-
-    fun save(message: Message) {
-        db.save(message)
-    }
-
-    fun <T : Any> Optional<out T>.toList(): List<T> =
-        if (isPresent) listOf(get()) else emptyList()
-}
-```
-{initial-collapse-state="collapsed"}
 
 ## Run the application
 
