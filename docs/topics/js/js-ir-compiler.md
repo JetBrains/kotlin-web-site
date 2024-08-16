@@ -106,43 +106,6 @@ You can choose how the JS IR compiler outputs `.js` files in your project:
      kotlin.js.ir.output.granularity=per-file // `per-module` is the default
      ```
 
-## Ignoring compilation errors
-
-> _Ignore compilation errors_ mode is [Experimental](components-stability.md). It may be dropped or changed at any time.
-> Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
->
-{type="warning"}
-
-Kotlin/JS IR compiler provides a new compilation mode unavailable in the default backend – _ignoring compilation errors_.
-In this mode, you can try out your application even while its code contains errors.
-For example, when you're doing a complex refactoring or working on a part of the system that is completely unrelated to
-a compilation error in another part.
-
-With this new compiler mode, the compiler ignores all broken code. Thus, you can run the application and try its parts
-that don't use the broken code. If you try to run the code that was broken during compilation, you'll get a
-runtime exception.
-
-Choose between two tolerance policies for ignoring compilation errors in your code:
-- `SEMANTIC`. The compiler will accept code that is syntactically correct but doesn't make sense semantically.
-  For example, assigning a number to a string variable (type mismatch).
-- `SYNTAX`. The compiler will accept any code, even if it contains syntax errors. Regardless of what you write, the
-  compiler will still try to generate a runnable executable.
-
-As an experimental feature, ignoring compilation errors requires an opt-in.
-To enable this mode, add the `-Xerror-tolerance-policy={SEMANTIC|SYNTAX}` compiler option:
-
-```kotlin
-kotlin {
-    js(IR) {
-        compilations.all {
-            compileTaskProvider.configure {
-                compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
-            }
-        }
-    }
-}
-```
-
 ## Minification of member names in production
 
 The Kotlin/JS IR compiler uses its internal information about the relationships of your Kotlin classes and functions to apply more efficient minification, shortening the names of functions, properties, and classes. This reduces the size of resulting bundled applications.

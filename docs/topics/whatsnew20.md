@@ -1545,7 +1545,7 @@ Since Kotlin 2.0.0, the following DSLs for specifying compiler options are depre
       js(IR) {
           compilations.all {
               compileTaskProvider.configure {
-                  compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
+                  compilerOptions.freeCompilerArgs.add("-Xir-minimized-member-names=false")
               }
           }
       }
