@@ -16,7 +16,7 @@ Some other resources you might find useful:
 
 * The [Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia), a collection of examples
   on how to use Kotlin declarations in Swift code. 
-* The [iOS integration](native-ios-memory-management) section, covering specifics of memory management between iOS and Kotlin. 
+* The [Specifics of iOS memory management](native-ios-memory-management.md) section, covering details of memory management between iOS and Kotlin. 
 
 ## Usage
 

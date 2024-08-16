@@ -80,5 +80,5 @@ To support the new memory manager, remove usages of the affected API:
 
 ## What's next
 
-* [Learn about the new memory manager](native-memory-manager.md)
-* [Configure integration with iOS](native-ios-memory-management)
+* [Read more about the new memory manager](native-memory-manager.md)
+* [Learn about the specifics of iOS memory management](native-ios-memory-management.md)
