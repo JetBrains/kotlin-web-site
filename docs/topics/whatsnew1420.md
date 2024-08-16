@@ -166,7 +166,7 @@ There are two tolerance policies for this mode:
 
 To allow compilation with errors, add the `-Xerror-tolerance-policy=` compiler option with one of the values listed above.
 
-Learn more about [ignoring compilation errors](js-ir-compiler.md#ignoring-compilation-errors) with Kotlin/JS IR compiler.
+[Learn more about Kotlin/JS IR compiler](js-ir-compiler.md).
 
 ## Kotlin/Native
 
