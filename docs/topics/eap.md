@@ -46,23 +46,13 @@ check [our instructions on how to configure your build to support this version](
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.0.20-Beta2</strong>
-            <p>Released: <strong>July 10, 2024</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.20-Beta2" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.0.20-RC2</strong>
+            <p>Released: <strong>August 13, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.20-RC2" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <p>A tooling release for Kotlin 2.0.0</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.20-Beta2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.0.20-Beta2</a>.</p>
-        </td>
-    </tr>
-    <tr>
-        <td><strong>2.0.10-RC</strong>
-            <p>Released: <strong>July 11, 2024</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.10-RC" target="_blank">Release on GitHub</a></p>
-        </td>
-        <td>
-            <p>A bug fix release for Kotlin 2.0.0</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.10-RC">changelog</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.20-RC2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.0.20-RC2</a>.</p>
         </td>
     </tr>
 </table>

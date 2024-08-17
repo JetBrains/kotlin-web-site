@@ -43,7 +43,7 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
                 
                  set -e -u
                 
-                ./gradlew :kotlin-metadata-jvm:dokkaHtml -PdefaultSnapshotVersion=${KOTLIN_RELEASE_TAG.startsWith("v")} --no-daemon --no-configuration-cache
+                ./gradlew :kotlin-metadata-jvm:dokkaHtml -PdeployVersion=${KOTLIN_RELEASE_TAG.removePrefix("v")} --no-daemon --no-configuration-cache
             """.trimIndent()
         }
     }

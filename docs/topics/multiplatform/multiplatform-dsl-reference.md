@@ -117,7 +117,7 @@ The complete list of available targets is the following:
 ```groovy
 kotlin {
     jvm()
-    iosX64()
+    iosArm64()
     macosX64()
     js().browser()
 }

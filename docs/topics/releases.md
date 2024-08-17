@@ -65,11 +65,11 @@ If you are migrating to the new language release, Kotlin plugin's migration tool
 Even with the release of the K2 compiler, IntelliJ IDEA and Android Studio still use the previous compiler by default 
 for code analysis, code completion, highlighting, and other IDE-related features.
 
-Starting from 2024.1, IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 Kotlin mode.
-To enable it, go to **Settings** | **Languages & Frameworks** | **Kotlin** and select the **Enable K2 Kotlin Mode** option.
+Starting from 2024.1, IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 mode.
+To enable it, go to **Settings** | **Languages & Frameworks** | **Kotlin** and select the **Enable K2 mode** option.
 
-> The K2 Kotlin mode is in Alpha. The performance and stability of code highlighting and code completion have been significantly improved,
-> but not all IDE features are supported yet.
+> The K2 mode is in Beta from 2024.2. We are working on stability and code analysis improvements, but not all IDE features
+> are supported yet.
 >
 {type="warning"}
 
@@ -94,6 +94,16 @@ The following table lists details of the latest Kotlin releases:
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>2.0.10</strong>
+            <p>Released: <strong>August 6, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.10" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 2.0.0.</p>
+            <p>Learn more about Kotlin 2.0.0 in <a href="whatsnew20.md" target="_blank">What's new in Kotlin 2.0.0</a>.</p>
+        </td>
+    </tr>
+    <tr>
         <td><strong>2.0.0</strong>
             <p>Released: <strong>May 21, 2024</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.0" target="_blank">Release on GitHub</a></p>
@@ -109,7 +119,7 @@ The following table lists details of the latest Kotlin releases:
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.9.25" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A bug fix release for Kotlin 1.9.20, 1.9.21, 1.9.22, 1.9.23, and 1.9.24</p>
+            <p>A bug fix release for Kotlin 1.9.20, 1.9.21, 1.9.22, 1.9.23, and 1.9.24.</p>
             <p>Learn more about Kotlin 1.9.20 in <a href="whatsnew1920.md" target="_blank">What's new in Kotlin 1.9.20</a>.</p>
         </td>
     </tr>

@@ -23,10 +23,12 @@ class Customer
 ## Properties
 
 Characteristics of a class's object can be declared in properties. You can declare properties for a class:
+
 * Within parentheses `()` after the class name.
 ```kotlin
 class Contact(val id: Int, var email: String)
 ```
+
 * Within the class body defined by curly braces `{}`.
 ```kotlin
 class Contact(val id: Int, var email: String) {
@@ -69,6 +71,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-class-create-instance"}
 
 In the example:
+
 * `Contact` is a class.
 * `contact` is an instance of the `Contact` class.
 * `id` and `email` are properties.
@@ -141,6 +144,7 @@ the instance to readable output, compare instances of a class, copy instances, a
 automatically available, you don't have to spend time writing the same boilerplate code for each of your classes.
 
 To declare a data class, use the keyword `data`:
+
 ```kotlin
 data class User(val name: String, val id: Int)
 ```
@@ -154,6 +158,7 @@ The most useful predefined member functions of data classes are:
 | `.copy()`           | Creates a class instance by copying another, potentially with some different properties.                       |
 
 See the following sections for examples of how to use each function:
+
 * [Print as string](#print-as-string)
 * [Compare instances](#compare-instances)
 * [Copy instance](#copy-instance)
@@ -282,19 +287,62 @@ fun main() {
 
 ### Exercise 2 {initial-collapse-state="collapsed"}
 
-To test your code, you need a generator that can create random employees. Define a class with a fixed list of potential 
-names (inside the class body), and that is configured by a minimum and maximum salary (inside the class header). Once 
-again, the main function demonstrates how you can use this class.
+Declare the additional data classes that are needed for this code to compile.
 
-<deflist collapsible="true" id="kotlin-tour-classes-exercise-2-hint-1">
-    <def title="Hint">
+|---|---|
+```kotlin
+data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
+// Write your code here
+// data class Name(...)
+
+fun main() {
+    val person = Person(
+        Name("John", "Smith"),
+        Address("123 Fake Street", City("Springfield", "US")),
+        ownsAPet = false
+    )
+}
+```
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-2"}
+
+|---|---|
+```kotlin
+data class Person(val name: Name, val address: Address, val ownsAPet: Boolean = true)
+data class Name(val first: String, val last: String)
+data class Address(val street: String, val city: City)
+data class City(val name: String, val countryCode: String)
+
+fun main() {
+    val person = Person(
+        Name("John", "Smith"),
+        Address("123 Fake Street", City("Springfield", "US")),
+        ownsAPet = false
+    )
+}
+```
+{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
+
+### Exercise 3 {initial-collapse-state="collapsed"}
+
+To test your code, you need a generator that can create random employees. Define a `RandomEmployeeGenerator` class with 
+a fixed list of potential names (inside the class body). Configure the class with a minimum and maximum salary (inside 
+the class header). In the class body, define the `generateEmployee()` function. Once again, the main function demonstrates
+how you can use this class.
+
+> In this exercise, you import a package so that you can use the `Random.nextInt()` function.
+> For more information about importing packages, see [Packages and imports](packages.md).
+>
+{type = "tip"}
+
+<deflist collapsible="true" id="kotlin-tour-classes-exercise-3-hint-1">
+    <def title="Hint 1">
         Lists have an extension function called <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/random.html"><code>.random()</code></a>
         that returns a random item within a list.
     </def>
 </deflist>
 
-<deflist collapsible="true" id="kotlin-tour-classes-exercise-2-hint-2">
-    <def title="Hint">
+<deflist collapsible="true" id="kotlin-tour-classes-exercise-3-hint-2">
+    <def title="Hint 2">
         <code>Random.nextInt(from = ..., until = ...)</code> gives you a random <code>Int</code> number within specified limits.
     </def>
 </deflist>
@@ -317,7 +365,7 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-2"}
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-exercise-3"}
 
 |---|---|
 ```kotlin
@@ -342,7 +390,7 @@ fun main() {
     println(empGen.generateEmployee())
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-classes-solution-2"}
+{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
 
 ## Next step
 

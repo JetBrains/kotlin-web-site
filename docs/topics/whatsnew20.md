@@ -644,21 +644,21 @@ Kotlin Playground supports the 2.0.0 release. [Check it out!](https://pl.kotl.in
 ### Support in IDEs
 
 By default, IntelliJ IDEA and Android Studio still use the previous compiler for code analysis, code completion,
-highlighting, and other IDE-related features. To get the full Kotlin 2.0 experience in your IDE, enable K2 Kotlin mode.
+highlighting, and other IDE-related features. To get the full Kotlin 2.0 experience in your IDE, enable K2 mode.
 
-In your IDE, go to **Settings** | **Languages & Frameworks** | **Kotlin** and select the **Enable K2 Kotlin Mode** option.
-The IDE will analyze your code using its K2 Kotlin mode.
+In your IDE, go to **Settings** | **Languages & Frameworks** | **Kotlin** and select the **Enable K2 mode** option.
+The IDE will analyze your code using its K2 mode.
 
-> The K2 Kotlin mode is in Alpha and is available starting from 2024.1. The performance and stability of code
-> highlighting and code completion have been significantly improved, but not all IDE features are supported yet.
+> The K2 mode is in Beta from 2024.2. We are working on stability and code analysis improvements, but not all IDE features
+> are supported yet.
 >
 {type="warning"}
 
 After enabling K2 mode, you may notice differences in IDE analysis due to changes in compiler behavior. Learn how the
 new K2 compiler differs from the previous one in our [migration guide](k2-compiler-migration-guide.md).
 
-* Learn more about the K2 Kotlin mode in [our blog](https://blog.jetbrains.com/idea/2024/03/k2-kotlin-mode-alpha-in-intellij-idea/).
-* We are actively collecting feedback about K2 Kotlin mode, so please share your thoughts in our [public Slack channel](https://kotlinlang.slack.com/archives/C0B8H786P).
+* Learn more about the K2 mode in [our blog](https://blog.jetbrains.com/idea/2024/08/meet-the-renovated-kotlin-support-k2-mode/).
+* We are actively collecting feedback about K2 mode, so please share your thoughts in our [public Slack channel](https://kotlinlang.slack.com/archives/C0B8H786P).
 
 ### Leave your feedback on the new K2 compiler
 
