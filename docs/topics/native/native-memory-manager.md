@@ -37,10 +37,10 @@ and waits for its completion.
 ### Monitor GC performance
 
 To monitor the GC performance, you can look through its logs and diagnose issues. To enable logging,
-set the following compiler option in your `gradle.properties` file:
+set the following compiler option in your Gradle build script:
 
 ```none
-kotlin.native.runtimeLogs.gc=info
+-Xruntime-logs=gc=info
 ```
 
 Currently, the logs are only printed to `stderr`.
@@ -83,10 +83,10 @@ kotlin.native.binary.gc=cms
 
 It's recommended to keep the GC enabled. However, you can disable it in certain cases, such as for testing purposes or
 if you encounter issues and have a short-lived program. To do so, set the following compiler option in your
-`gradle.properties` file:
+Gradle build script:
 
 ```none
-kotlin.native.gc=noop
+-Xgc=noop
 ```
 
 > With this option enabled, the GC doesn't collect Kotlin objects, so memory consumption will keep rising as long as the
@@ -158,10 +158,10 @@ update might improve memory consumption.
 
 If you continue to experience high memory consumption after updating, several options are available:
 
-* Switch to a different memory allocator by using one of the following compiler option in your `gradle.properties` file:
+* Switch to a different memory allocator by using one of the following compiler option in your Gradle build script:
 
-  * `kotlin.native.allocator=std` for the system allocator.  
-  * `kotlin.native.allocator=mimalloc` for the [mimalloc](https://github.com/microsoft/mimalloc) allocator.
+  * `-Xallocator=std` for the system allocator.
+  * `-Xallocator=mimalloc` for the [mimalloc](https://github.com/microsoft/mimalloc) allocator.
 
 * If you use the mimalloc allocator, you can instruct it to promptly release memory back to the system.
   To do so, enable the following binary option in your `gradle.properties` file:
