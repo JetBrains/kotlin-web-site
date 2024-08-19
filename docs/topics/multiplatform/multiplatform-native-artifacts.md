@@ -115,13 +115,14 @@ produces the `mylib.dll` file.
 
 For the binary configuration, the following common parameters are available:
 
-| **Name**        | **Description**                                                                                                                 |
-|-----------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `isStatic`      | Optional linking type that defines the library type. By default, it's `false` and the library is dynamic.                       |
-| `modes`         | Optional build types, `DEBUG` and `RELEASE`.                                                                                    |
-| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle-compiler-options.md). |
-| `addModule`     | In addition to the current module, you can add other modules to the resulting artifact.                                         |
-| `setModules`    | You can override the list of all modules that will be added to the resulting artifact.                                          |
+| **Name**        | **Description**                                                                                                                                        |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `isStatic`      | Optional linking type that defines the library type. By default, it's `false` and the library is dynamic.                                              |
+| `modes`         | Optional build types, `DEBUG` and `RELEASE`.                                                                                                           |
+| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle-compiler-options.md).                        |
+| `addModule`     | In addition to the current module, you can add other modules to the resulting artifact.                                                                |
+| `setModules`    | You can override the list of all modules that will be added to the resulting artifact.                                                                 |
+| `target`        | Declares a particular target of a project. The names of available targets are listed in the [Targets](multiplatform-dsl-reference.md#targets) section. |
 
 ### Libraries and frameworks
 
@@ -130,12 +131,6 @@ of the current project but also the classes of any other multiplatform module in
 modules to it.
 
 #### Library
-
-For the library configuration, the additional `target` parameter is available:
-
-| **Name**        | **Description**                                                                                                                                        |
-|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `target`        | Declares a particular target of a project. The names of available targets are listed in the [Targets](multiplatform-dsl-reference.md#targets) section. |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -180,13 +175,6 @@ The registered Gradle task is `assembleMyslibSharedLibrary` that assembles all t
 
 #### Framework
 
-For the framework configuration, the following additional parameters are available:
-
-| **Name**       | **Description**                                                                                                                                                                                   |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `target`       | Declares a particular target of a project. The names of available targets are listed in the [Targets](multiplatform-dsl-reference.md#targets) section.                                            |
-| `embedBitcode` | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. Bitcode embedding is not required for Xcode 14 and later. |
-
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
@@ -196,7 +184,6 @@ kotlinArtifacts {
         modes(DEBUG, RELEASE)
         target = iosArm64
         isStatic = false
-        embedBitcode = EmbedBitcodeMode.MARKER
         kotlinOptions {
             verbose = false
         }
@@ -213,7 +200,6 @@ kotlinArtifacts {
         modes(DEBUG, RELEASE)
         target = iosArm64
         it.static = false
-        embedBitcode = EmbedBitcodeMode.MARKER
         kotlinOptions {
             verbose = false
         }
@@ -237,13 +223,6 @@ By default, an Objective-C framework produced by Kotlin/Native supports only one
 frameworks into a single universal (fat) binary. This especially makes sense for 32-bit and 64-bit iOS frameworks.
 In this case, you can use the resulting universal framework on both 32-bit and 64-bit devices.
 
-For the fat framework configuration, the following additional parameters are available:
-
-| **Name**       | **Description**                                                                                                                                                                                   |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `targets`      | Declares all targets of the project.                                                                                                                                                              |
-| `embedBitcode` | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. Bitcode embedding is not required for Xcode 14 and later. |
-
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
@@ -251,7 +230,6 @@ For the fat framework configuration, the following additional parameters are ava
 kotlinArtifacts {
     Native.FatFramework("myfatframe") {
         targets(iosX32, iosX64)
-        embedBitcode = EmbedBitcodeMode.DISABLE
         kotlinOptions {
             suppressWarnings = false
         }
@@ -266,7 +244,6 @@ kotlinArtifacts {
 kotlinArtifacts {
     it.native.FatFramework("myfatframe") {
         targets(iosX32, iosX64)
-        embedBitcode = EmbedBitcodeMode.DISABLE
         kotlinOptions {
             suppressWarnings = false
         }
@@ -289,13 +266,6 @@ The registered Gradle task is `assembleMyfatframeFatFramework` that assembles al
 All Kotlin Multiplatform projects can use XCFrameworks as an output to gather logic for all the target platforms and
 architectures in a single bundle. Unlike [universal (fat) frameworks](#fat-frameworks), you don't need to
 remove all unnecessary architectures before publishing the application to the App Store.
-
-For the XCFrameworks configuration, the following additional parameters are available:
-
-| **Name**       | **Description**                                                                                                                                                                                   |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `targets`      | Declares all targets of the project.                                                                                                                                                              |
-| `embedBitcode` | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. Bitcode embedding is not required for Xcode 14 and later. |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
