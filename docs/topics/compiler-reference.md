@@ -285,7 +285,7 @@ Enable runtime assertions in the generated code.
 
 ### -g
 
-Enable emitting debug information. This option lowers the optimization level and, therefore, should not be combined with
+Enable emitting debug information. This option lowers the optimization level and should not be combined with
 the [`-opt`](#opt) option.
     
 ### -generate-test-runner (-tr)
