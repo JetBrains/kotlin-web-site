@@ -65,7 +65,7 @@ If you add a watchOS target, like `watchosArm64`, the `watchos` source set is cr
 from the `apple`, `native`, and `common` source sets is compiled to `watchosArm64` as well.
 
 The Kotlin Gradle plugin provides both type-safe and static accessors for all of the source sets from the default hierarchy
-template, so you can reference them without `by getting` or `by creating` constructions compared to the [manual configuration](#manual-configuration).
+template, so you can reference them without `by getting` or `by creating` constructs compared to the [manual configuration](#manual-configuration).
 
 If you try to access the source set without declaring the corresponding target first, you'll see a warning:
 
@@ -82,8 +82,8 @@ kotlin {
         iosMain.dependencies {
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
-        linuxX64Main { } // Warning: accessing source set
-                         // without declaring the target
+        // Warning: accessing source set without declaring the target
+        linuxX64Main { }
     }
 }
 ```
@@ -103,8 +103,8 @@ kotlin {
                 implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
             }
         }
-        linuxX64Main { } // Warning: accessing source set
-                         // without registering the target
+        // Warning: accessing source set without declaring the target
+        linuxX64Main { }
     }
 }
 ```
