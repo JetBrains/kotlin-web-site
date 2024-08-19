@@ -113,7 +113,7 @@ To resolve ambiguities in exports (like overloads for functions with the same na
 annotation together with `@JsName` to specify the names for the generated and exported functions.
 
 In the current [IR compiler backend](js-ir-compiler.md), the `@JsExport` annotation is the only way to make your functions
-visible from Kotlin in the first place.
+visible from Kotlin.
 
 For multiplatform projects, `@JsExport` is available in common code as well. It only has an effect when compiling for
 the JavaScript target, and allows you to also export Kotlin declarations that are not platform specific.
@@ -129,20 +129,21 @@ The `@JsStatic` annotation instructs the compiler to generate additional static 
 This helps you use static members from your Kotlin code directly in JavaScript.
 
 You can apply the `@JsStatic` annotation to functions defined in named objects, as well as in companion objects declared
-inside classes and interfaces. The compiler generates both a static method of the object and an instance method in the
-object itself. For example:
+inside classes and interfaces. If you use this annotation, the compiler will generate both a static method of the object
+and an instance method in the object itself. For example:
 
 ```kotlin
 // Kotlin
 class C {
     companion object {
-        @JsStatic fun callStatic() {}
+        @JsStatic
+        fun callStatic() {}
         fun callNonStatic() {}
     }
 }
 ```
 
-Now, `callStatic()` is static in JavaScript while `callNonStatic()` is not:
+Now, the `callStatic()` function is static in JavaScript while the `callNonStatic()` function is not:
 
 ```javascript
 // JavaScript
@@ -152,7 +153,7 @@ C.Companion.callStatic();    // Instance method remains
 C.Companion.callNonStatic(); // The only way it works
 ```
 
-It's also possible to apply the `@JsStatic` annotation on a property of an object or a companion object, making its getter
+It's also possible to apply the `@JsStatic` annotation to a property of an object or a companion object, making its getter
 and setter methods static members in that object or the class containing the companion object.
 
 ## Kotlin types in JavaScript
