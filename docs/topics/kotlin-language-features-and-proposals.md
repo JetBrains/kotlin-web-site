@@ -3,7 +3,7 @@
 The page contains the full list of Kotlin language features and design proposals.)
 
 JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md),
-driven by the pragmatic principles of language design. 
+driven by the pragmatic design. 
 You can find the list of language feature proposals and their statuses.
 
 ## Kotlin language features lifecycle

@@ -71,57 +71,57 @@ to avoid accidental usages of features that have not been released as stable.
 
 ### Kotlin compiler
 
-| **Component**               | **Status** | **Status since version** | **Comment**                                                              |
-|-----------------------------|------------|--------------------------|--------------------------------------------------------------------------|
-| Kotlin K2 (JVM, Native, JS) | Stable     | 2.0.0                    |                                                                          |
-| Kotlin K2 (Wasm)            | Alpha      | 1.9.20                   |                                                                          |
-| Kotlin K1 (JVM) (IR-based)  | Stable     | 1.5                      |                                                                          |
-| Kotlin K1 (JS) (IR-based)   | Stable     | 1.8                      |                                                                          |
-| Kotlin K1 (JVM)             | Stable     | 1.0                      |                                                                          |
-| Kotlin K1 (JS)              | Stable     | 1.3                      | Deprecated from 1.8.0, read the [IR migration guide](js-ir-migration.md) |
+| **Component**                                                       | **Status** | **Status since version** | **Comment** |
+|---------------------------------------------------------------------|------------|--------------------------|-------------|
+| Kotlin/JVM                                                          | Stable     | 2.0.0                    |             |
+| Kotlin/Native                                                       | Stable     | 2.0.0                    |             |
+| Kotlin/JS                                                           | Stable     | 2.0.0                    |             |
+| Kotlin/Wasm                                                         | Alpha      | 1.9.20                   |             |
+| [Analysis API](https://kotlin.github.io/analysis-api/index_md.html) | Stable     |                          |             |
 
-### Compiler plugins
+### Core compiler plugins
 
-> The table contains only non-Stable compiler plugins.
->
-{type="note"}
-
-| **Component**                 | **Status**   | **Status since version** | **Comment** |
-|-------------------------------|--------------|--------------------------|-------------|
-| Lombok compiler plugin        | Experimental | 1.5.20                   |             |
-| Power-assert compiler plugin  | Experimental | 2.0.0                    |             |
+| **Component**                                    | **Status**   | **Status since version** | **Comment** |
+|--------------------------------------------------|--------------|--------------------------|-------------|
+| [All-open](all-open-plugin.md)                   | Stable       |                          |             |
+| [No-arg](no-arg-plugin.md)                       | Stable       |                          |             |
+| [SAM-with-receiver](sam-with-receiver-plugin.md) | Stable       |                          |             |
+| [kapt](kapt.md)                                  | Stable       |                          |             |
+| [Lombok](lombok.md)                              | Experimental | 1.5.20                   |             |
+| [Power-assert](power-assert.md)                  | Experimental | 2.0.0                    |             |
 
 ### Kotlin libraries
 
-> The table contains only libraries that included in Kotlin by default.
-> For `kotlinx.*` libraries, such as kotlinx.coroutines, kotlinx.serialization, see corresponding GitHub repositories.
->
-{type="note"}
+| **Component**         | **Status** | **Status since version** | **Comment** |
+|-----------------------|------------|--------------------------|-------------|
+| kotlin-stdlib         | Stable     | 1.0                      |             |
+| kotlinx-coroutines    | Stable     |                          |             |
+| kotlinx-serialization | Stable     |                          |             |
+| kotlin-reflect (JVM)  | Beta       | 1.0                      |             |
+| kotlinx-datetime      | Alpha      |                          |             |
+| kotlinx-io            | Alpha      |                          |             |
 
-| **Component**         | **Status** | **Status since version** | **Comment**                            |
-|-----------------------|------------|--------------------------|----------------------------------------|
-| kotlin-stdlib         | Stable     | 1.0                      |                                        |
-| kotlin.reflect (JVM)  | Beta       | 1.0                      |                                        |
-| kotlin-metadata-jvm   | Stable     | 2.0.0                    |                                        |
-
-### Kotlin Multiplatform and Kotlin Native
+### Kotlin Multiplatform 
 
 | **Component**                                    | **Status**   | **Status since version** | **Comment**                                                                |
 |--------------------------------------------------|--------------|--------------------------|----------------------------------------------------------------------------|
-| Kotlin/Native Runtime                            | Stable       | 1.9.20                   |                                                                            |
-| Kotlin/Native memory manager                     | Stable       | 1.9.20                   |                                                                            |
-| klib binaries                                    | Stable       | 1.9.20                   | Not including cinterop klibs, see below                                    |
 | Kotlin Multiplatform                             | Stable       | 1.9.20                   |                                                                            |
-| Kotlin/Native interop with C and Objective C     | Beta         | 1.3                      |                                                                            |
 | cinterop klib binaries                           | Beta         | 1.3                      |                                                                            |
-| CocoaPods integration                            | Stable       | 1.9.20                   |                                                                            |
 | Kotlin Multiplatform plugin for Android Studio   | Beta         | 0.8.0                    | [Versioned separately from the language](multiplatform-plugin-releases.md) |
-| `expected` and `actual` functions and properties | Stable       | 1.9.20                   |                                                                            |
-| `expected` and `actual` classes                  | Beta         | 1.7.20                   |                                                                            |
 
-> For details about Kotlin/Native targets, refer to [](native-target-support.md).
+### Kotlin/Native
 
-### Kotlin scripting
+| **Component**                                | **Status**   | **Status since version** | **Comment**                                                                |
+|----------------------------------------------|--------------|--------------------------|----------------------------------------------------------------------------|
+| Kotlin/Native Runtime                        | Stable       | 1.9.20                   |                                                                            |
+| Kotlin/Native memory manager                 | Stable       | 1.9.20                   |                                                                            |
+| Kotlin/Native interop with C and Objective-C | Beta         | 1.3                      |                                                                            |
+| klib binaries                                | Stable       | 1.9.20                   | Not including cinterop klibs, see below                                    |
+| CocoaPods integration                        | Stable       | 1.9.20                   |                                                                            |
+
+> For details about Kotlin/Native targets support, refer to [](native-target-support.md).
+
+### Language tools
 
 | **Component**                         | **Status**   | **Status since version** | **Comment**                                    |
 |---------------------------------------|--------------|--------------------------|------------------------------------------------|
@@ -129,15 +129,6 @@ to avoid accidental usages of features that have not been released as stable.
 | Scripting embedding and extension API | Beta         | 1.5                      |                                                |
 | Scripting IDE support                 | Beta         |                          | Available since IntelliJ IDEA 2023.1 and later |
 | CLI scripting                         | Alpha        | 1.2                      |                                                |
-
-### Other components
-
-| **Component**                 | **Status**   | **Status since version** | **Comment** |
-|-------------------------------|--------------|--------------------------|-------------|
-| KDoc syntax                   | Stable       | 1.0                      |             |
-| Dokka                         | Beta         | 1.6                      |             |
-| Compiler plugin API           | Experimental | 1.0                      |             |
-| User-defined contracts        | Experimental | 1.3                      |             |
 
 ## Language features and design proposals
 
