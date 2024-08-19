@@ -15,7 +15,7 @@ and concurrent sweep collector that does not separate the heap into generations.
 The GC is executed on a separate thread and started based on the memory pressure heuristics or by a timer. Alternatively,
 it can be [called manually](#enable-garbage-collection-manually).
 
-The GC processes the mark queue on several (execution) threads in parallel, including application threads, the GC thread,
+The GC processes the mark queue on several threads in parallel, including application threads, the GC thread,
 and optional marker threads. Application threads and at least one GC thread participate in the marking process.
 By default, application threads must be paused when the GC is marking objects in the heap.
 
