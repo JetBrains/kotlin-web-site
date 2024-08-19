@@ -285,7 +285,7 @@ Enable runtime assertions in the generated code.
 
 ### -g
 
-Enable emitting debug information. This option lowers the optimization level and, therefore, cannot be combined with
+Enable emitting debug information. This option lowers the optimization level and, therefore, should not be combined with
 the [`-opt`](#opt) option.
     
 ### -generate-test-runner (-tr)
@@ -353,8 +353,8 @@ Don't link with stdlib.
 
 ### -opt
 
-Enable compilation optimizations and produce a binary with better runtime performance. It cannot be combined with
-the [`-g`](#g) option, which lowers the optimization level.
+Enable compilation optimizations and produce a binary with better runtime performance. It's not recommended to combine it
+with the [`-g`](#g) option, which lowers the optimization level.
 
 ### -output _name_ (-o _name_)
 
