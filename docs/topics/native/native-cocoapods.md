@@ -140,8 +140,6 @@ If you want to configure your project manually:
                 // Dependency export
                 export(project(":anotherKMMModule"))
                 transitiveExport = false // This is default.
-                // Bitcode embedding
-                embedBitcode(BITCODE)
             }
 
             // Maps custom Xcode configuration to NativeBuildType
