@@ -69,8 +69,7 @@ To track GC-related pauses in your app:
 
 ### Optimize GC performance
 
-To improve GC performance, you can enable concurrent marking to decrease the GC pause time. It allows to run the marking
-phase of the garbage collection simultaneously with application threads.
+To improve GC performance, you can enable concurrent marking to decrease the GC pause time. This allows the marking phase of garbage collection to run simultaneously with application threads.
 
 The feature is currently [Experimental](components-stability.md#stability-levels-explained). To enable it, set the
 following compiler option in your `gradle.properties` file:
@@ -158,7 +157,7 @@ update might improve memory consumption.
 
 If you continue to experience high memory consumption after updating, several options are available:
 
-* Switch to a different memory allocator by using one of the following compiler option in your Gradle build script:
+* Switch to a different memory allocator by using one of the following compiler options in your Gradle build script:
 
   * `-Xallocator=std` for the system allocator.
   * `-Xallocator=mimalloc` for the [mimalloc](https://github.com/microsoft/mimalloc) allocator.
