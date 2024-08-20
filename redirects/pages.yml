@@ -683,7 +683,7 @@
 - from:
     - /docs/multiplatform-mobile-getting-started.html
     - /docs/kmm-getting-started.html
-  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html
 
 - from:
     - /docs/multiplatform-mobile-setup.html
