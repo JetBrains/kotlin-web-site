@@ -26,7 +26,7 @@ you can also share UIs across Android and iOS to create fully cross-platform app
 
 ![Sharing different levels and UI](multiplatform-compose.svg){width=600}
 
-Check out the [Create a Compose Multiplatform app](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html)
+Check out the [Create a Compose Multiplatform app](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html)
 tutorial to create your own mobile application with UIs shared between both platforms.
 
 ### Multiplatform libraries

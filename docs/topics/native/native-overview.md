@@ -76,7 +76,7 @@ Recommended documentation:
 Recommended tutorials:
 
 * [Get started with Kotlin/Native](native-get-started.md)
-* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)
+* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)
 * [Mapping primitive data types from C](mapping-primitive-data-types-from-c.md)
 * [Kotlin/Native as a dynamic Library](native-dynamic-libraries.md)
 * [Kotlin/Native as an Apple framework](apple-framework.md)
