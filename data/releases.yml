@@ -1,6 +1,5 @@
 url: https://github.com/JetBrains/kotlin/releases
 
 latest:
-  version: 1.9.23
-  url: https://github.com/JetBrains/kotlin/releases/tag/v1.9.23
-
+  version: 2.0.10
+  url: https://github.com/JetBrains/kotlin/releases/tag/v2.0.10

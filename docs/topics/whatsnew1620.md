@@ -119,7 +119,7 @@ kotlin {
 </tab>
 </tabs>
 
-Learn more about definitely non-nullable types in [the KEEP](https://github.com/Kotlin/KEEP/blob/c72601cf35c1e95a541bb4b230edb474a6d1d1a8/proposals/definitely-non-nullable-types.md).
+Learn more about definitely non-nullable types in [the KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/definitely-non-nullable-types.md).
 
 ## Kotlin/JVM
 

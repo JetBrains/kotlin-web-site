@@ -3,7 +3,7 @@
 To add dependencies between a Kotlin project and a Pod library, [complete the initial configuration](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
 You can then add dependencies on different types of Pod libraries.
 
-When you add a new dependency and re-import the project in IntelliJ IDEA, the new dependency will be added automatically.
+When you add a new dependency and re-import the project in your IDE, the new dependency will be added automatically.
 No additional steps are required.
 
 To use your Kotlin project with Xcode, you should [make changes in your project Podfile](native-cocoapods.md#update-podfile-for-xcode).
@@ -34,10 +34,10 @@ version of the library, you can just omit this parameter altogether.
 
     ```kotlin
     kotlin {
-        ios()
+        iosArm64()
 
         cocoapods {
-            ios.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "13.5"
 
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
@@ -49,7 +49,8 @@ version of the library, you can just omit this parameter altogether.
     }
     ```
 
-3. Re-import the project.
+3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
@@ -73,13 +74,13 @@ import cocoapods.FirebaseAuth.*
 
     ```kotlin
     kotlin {
-        ios()
+        iosArm64()
 
         cocoapods {
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            ios.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "13.5"
 
             pod("pod_dependency") {
                 version = "1.0"
@@ -101,7 +102,8 @@ import cocoapods.FirebaseAuth.*
    >
    {type="note"}
 
-3. Re-import the project.
+3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
@@ -133,13 +135,13 @@ import cocoapods.FirebaseAuth.*
 
     ```kotlin
     kotlin {
-        ios()
+        iosArm64()
 
         cocoapods {
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            ios.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "13.5"
 
             pod("FirebaseAuth") {
                 source = git("https://github.com/firebase/firebase-ios-sdk") {
@@ -162,7 +164,8 @@ import cocoapods.FirebaseAuth.*
     }
     ```
 
-3. Re-import the project.
+3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
@@ -175,20 +178,18 @@ import cocoapods.CocoaLumberjack.*
 ## From a custom Podspec repository
 
 1. Specify the HTTP address to the custom Podspec repository using the `url()` inside the `specRepos` block.
-
 2. Specify the name of a Pod library in the `pod()` function.
-
 3. Specify the minimum deployment target version for the Pod library.
 
     ```kotlin
     kotlin {
-        ios()
+        iosArm64()
 
         cocoapods {
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            ios.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "13.5"
 
             specRepos {
                 url("https://github.com/Kotlin/kotlin-cocoapods-spec.git")
@@ -198,7 +199,8 @@ import cocoapods.CocoaLumberjack.*
     }
     ```
 
-4. Re-import the project.
+4. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 > To work correctly with Xcode, you should specify the location of specs at the beginning of your Podfile.
 > For example,
@@ -227,13 +229,13 @@ import cocoapods.example.*
 
     ```kotlin
     kotlin {
-        ios()
+        iosArm64()
 
         cocoapods {
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            ios.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "13.5"
 
             pod("YandexMapKit") {
                 packageName = "YandexMK"
@@ -242,7 +244,8 @@ import cocoapods.example.*
     }
     ```
 
-3. Re-import the project.
+3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
    
@@ -272,13 +275,13 @@ To enable support for `@import` directives, specify the `-fmodules` option in th
 
 ```kotlin
 kotlin {
-    ios()
+    iosArm64()
 
     cocoapods {
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
 
-        ios.deploymentTarget = "13.5"
+        iosArm64.deploymentTarget = "13.5"
 
         pod("PodName") {
             extraOpts = listOf("-compiler-option", "-fmodules")

@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 
 import { ThemeProvider } from '@rescui/ui-contexts';
-import { ArrowTopRightIcon } from '@rescui/icons';
 import { Button } from '@rescui/button';
 
 import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
@@ -21,7 +20,7 @@ import { LatestNews } from '../blocks/main/latest-news';
 import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/kotlin-usage-highlights';
 import { InfoBlock } from '../blocks/main/info-block/info-block';
 import { DividerLine } from '../blocks/main/divider-line/divider-line';
-import { FoundationPreview } from '../blocks/main/foundation-preview/foundation-preview';
+import { FoundationLearnMoreButton, FoundationPreview } from '../blocks/main/foundation-preview/foundation-preview';
 import { WhyKotlin } from '../blocks/main/why-kotlin/why-kotlin';
 
 import { StickyHeader } from '../components/sticky-header/sticky-header';
@@ -29,6 +28,7 @@ import { StickyHeader } from '../components/sticky-header/sticky-header';
 import MultiplatformPreviewImage from '../public/images/main/multiplatform-preview.svg';
 
 import GradleLogo from '../public/images/companies/gradle.svg';
+import UberLogo from '../public/images/companies/uber.svg';
 import AtlassianLogo from '../public/images/companies/atlassian.svg';
 import GoogleLogo from '../public/images/companies/google.svg';
 import JetbrainsLogo from '../public/images/companies/jetbrains.svg';
@@ -111,6 +111,11 @@ const kotlinFoundationCompanies = [
         name: 'Gradle',
         logo: GradleLogo,
         link: 'https://gradle.org/'
+    },
+    {
+        name: 'Uber',
+        logo: UberLogo,
+        link: 'https://www.uber.com/'
     },
     {
         name: 'Shopify',
@@ -216,18 +221,7 @@ function Index() {
                         <FoundationPreview
                             title={'Kotlin Foundation'}
                             description={'Actively supports community efforts in developing the Kotlin ecosystem.'}
-                            button={
-                                <Button
-                                    href="https://kotlinfoundation.org/"
-                                    size="l"
-                                    mode="rock"
-                                    theme="light"
-                                    icon={<ArrowTopRightIcon />}
-                                    iconPosition="right"
-                                >
-                                    Learn&nbsp;more
-                                </Button>
-                            }
+                            button={<FoundationLearnMoreButton />}
                             companies={kotlinFoundationCompanies}
                         />
                     </div>

@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+{% set docsNavBack={
+    "url": "/docs/home.html",
+    "text": "Kotlin Docs"
+} %}
+
+{% set newDocsLink = site.data["core"].get(request.path) %}
+{% if not newDocsLink %}{% set newDocsLink="/api/core/"%}{% endif %}
+
 {% block scripts %}
     <script src="{{ url_for('static', filename='api.js')|autoversion }}"></script>
 {% endblock %}
@@ -8,10 +16,52 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='api.css')|autoversion }}">
 {% endblock %}
 
-{% set docsNavBack={
-    "url": "/docs/home.html",
-    "text": "Kotlin Docs"
-} %}
+{% block top_banner %}
+    <p class="api-docs-to-core">
+        <a class="api-docs-to-core__link" href="{{ newDocsLink }}" target="_blank">
+            <span class="api-docs-to-core__text">Try the revamped Kotlin docs design&nbsp;→</span>
+        </a>
+        <button type="button" class="api-docs-to-core__close api-docs-to-core-close">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.61589 23.0428L14.0137 15.6461L21.4115 23.0428L23.0554 21.399L15.6576 14.0023L23.0554 6.60444L21.4115 4.96061L14.0137 12.3584L6.61589 4.95947L4.97205 6.6033L12.3699 14.0023L4.97322 21.399L6.61589 23.0428Z" fill="white"/>
+            </svg>
+        </button>
+    </p>
+    <div class="api-docs-to-core-mobile">
+        <p class="api-docs-to-core-mobile__text">Try the revamped Kotlin docs design!</p>
+        <div class="api-docs-to-core-mobile__controls">
+            <a class="api-docs-to-core-mobile__link" href="{{ newDocsLink }}" target="_blank">Let’s&nbsp;go</a>
+            <button type="button" class="api-docs-to-core-mobile__close api-docs-to-core-close">No&nbsp;thanks</button>
+        </div>
+    </div>
+    <script>
+        (function() {
+            document.querySelectorAll('.api-docs-to-core').forEach(function(node) {
+                node.addEventListener('mouseover', function(e) {
+                    e.currentTarget.classList.add('api-docs-to-core_hover');
+                })
+            });
+            document.querySelectorAll('.api-docs-to-core-close').forEach(function(node) {
+                node.addEventListener('click', function(e) {
+                    var node = e.currentTarget;
+
+                    while (node && !(node.classList.contains('api-docs-to-core') || node.classList.contains('api-docs-to-core-mobile'))) {
+                        node = node.parentNode;
+                    }
+
+                    if (node) {
+                        node.classList.add('api-docs-to-core-closed');
+                        window.localStorage.setItem('api-docs-to-core', 'yes');
+                    }
+                });
+            });
+            if(window.localStorage.getItem('api-docs-to-core') === 'yes') document
+                .querySelectorAll('.api-docs-to-core,.api-docs-to-core-mobile').forEach(function(node) {
+                    node.classList.add('api-docs-to-core-closed');
+                });
+        })();
+    </script>
+{% endblock %}
 
 {% block content %}
     <div class="g-grid">

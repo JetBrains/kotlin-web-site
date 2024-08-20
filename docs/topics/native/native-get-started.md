@@ -2,7 +2,14 @@
 
 This tutorial demonstrates how to use IntelliJ IDEA for creating a Kotlin/Native application.
 
-To get started, install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html). The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultimate Edition.
+To get started, install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
+The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultimate Edition.
+
+> If you have a Mac with macOS and want to create and run iOS or desktop applications, you also need to
+> [install Xcode Command Line Tools](https://developer.apple.com/download/). For more information,
+> see [Set up an environment](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html).
+> 
+{type="note"}
 
 ## Before you start
 
@@ -17,6 +24,7 @@ To get started, install the latest version of [IntelliJ IDEA](https://www.jetbra
        kotlin("multiplatform") version "%kotlinVersion%"
    }
    ```
+   
 4. Follow the suggestion to reload Gradle files:
 
    ![Load Gradle changes button](load-gradle-changes.png){width=295}

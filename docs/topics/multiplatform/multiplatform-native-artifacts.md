@@ -25,8 +25,8 @@ artifact with new DSL.
 
 ## Declare binaries
 
-The `kotlinArtifacts` element is the top-level block for artifact configuration in the Gradle build script. Use
-the following kinds of binaries to declare elements of the `kotlinArtifacts` DSL: 
+`kotlinArtifacts {}` is the top-level block for artifact configuration in the Gradle build script. Use
+the following kinds of binaries to declare elements of the `kotlinArtifacts {}` DSL: 
 
 | Factory method | Binary kind                                                                               | Available for                                |
 |----------------|-------------------------------------------------------------------------------------------|----------------------------------------------|
