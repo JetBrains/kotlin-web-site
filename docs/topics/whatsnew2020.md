@@ -68,19 +68,20 @@ This option has the same effect as adding the `@ConsistentCopyVisibility` annota
 
 ### Phased replacement of context receivers with context parameters
 
-In Kotlin 1.6.20, we introduced [context receivers](whatsnew1620.md#prototype-of-context-receivers-for-kotlin-jvm)
-as an [Experimental](components-stability.md#stability-levels-explained) feature.
-After listening to community feedback, we've decided not to continue with it.
-Instead, we plan to introduce a replacement in future Kotlin releases: context parameters.
-You can find the proposal for context parameters in the [KEEP](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md).
+In Kotlin 1.6.20, we introduced [context receivers](whatsnew1620.md#prototype-of-context-receivers-for-kotlin-jvm) as an
+[Experimental](components-stability.md#stability-levels-explained) feature. After listening to community feedback, we've
+decided not to continue with this approach and will take a different direction.
 
-Although context receivers have always been an Experimental feature,
-we know they are already used by a large number of developers. With this in mind, we will remove support for context 
-receivers gradually.
+In future Kotlin releases, context receivers will be replaced by context parameters. Context parameters are still in the
+design phase, and you can find the proposal in the [KEEP](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md).
 
-Our migration plan starts with Kotlin 2.0.20, which issues warnings in your code where context receivers are used when 
-you use the `-Xcontext-receivers` compiler option.
-For example:
+Since the implementation of context parameters requires significant changes to the compiler, we've decided not to support
+context receivers and context parameters simultaneously. This decision greatly simplifies the implementation and minimizes
+the risk of unstable behavior.
+
+We understand that context receivers are already being used by a large number of developers. Therefore, we will begin 
+gradually removing support for context receivers. Our migration plan starts with Kotlin 2.0.20, where warnings are issued
+in your code when context receivers are used with the `-Xcontext-receivers` compiler option. For example:
 
 ```kotlin
 class MyContext
@@ -163,6 +164,9 @@ If you use context receivers in your code, we recommend that you migrate your co
    </tr>
    </table>
 
+Alternatively, you can wait until the Kotlin release where context parameters are supported in the compiler. Note that 
+context parameters will initially be introduced as an Experimental feature.
+
 ## Kotlin Multiplatform
 
 Kotlin 2.0.20 brings improvements to source set management in multiplatform projects as well as deprecates compatibility
@@ -173,7 +177,7 @@ with some Gradle Java plugins due to recent changes in Gradle.
 Since Kotlin 1.9.20, the [default hierarchy template](multiplatform-hierarchy.md#default-hierarchy-template)
 is automatically applied to all Kotlin Multiplatform projects.
 And for all of the source sets from the default hierarchy template, the Kotlin Gradle plugin provided type-safe accessors.
-That way, you could finally access source sets for all the specified targets without having to use `by getting` or `by creating` constructions.
+That way, you could finally access source sets for all the specified targets without having to use `by getting` or `by creating` constructs.
 
 Kotlin 2.0.20 aims to improve your IDE experience even further. It now provides static accessors in
 the `sourceSets {}` block for all the source sets from the default hierarchy template.
@@ -563,7 +567,7 @@ To try this new approach, add the following property to your `gradle.properties`
 kotlin.jvm.addClassesVariant=true
 ```
 
-By default, this property is set to false and the `apiElements` variant in Gradle requests the compressed JAR artifact.
+By default, this property is set to `false` and the `apiElements` variant in Gradle requests the compressed JAR artifact.
 
 > Gradle has a related property that you can use in your Java-only projects to only expose the compressed JAR artifact
 > during compilation **instead** of the directories containing compiled `.class` files:
@@ -673,7 +677,7 @@ For more details, see the [strong skipping mode documentation](https://developer
 
 The `includeTraceMarkers` option is now set to `true` by default in the Compose compiler Gradle plugin to match the default value
 in the compiler plugin. This allows you to see composable functions in the Android Studio system trace profiler. For details
-about composition tracing, see this (Android Developers blog post)[https://medium.com/androiddevelopers/jetpack-compose-composition-tracing-9ec2b3aea535].
+about composition tracing, see this [Android Developers blog post](https://medium.com/androiddevelopers/jetpack-compose-composition-tracing-9ec2b3aea535).
 
 ### Non-skipping group optimizations
 
