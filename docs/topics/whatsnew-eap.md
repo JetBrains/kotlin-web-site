@@ -510,8 +510,7 @@ For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com
 ### Deprecated incremental compilation based on JVM history files
 
 In Kotlin %kotlinEapVersion%, the incremental compilation approach based on JVM history files is deprecated in favor of 
-the [new incremental compilation approach](gradle-compilation-and-caches.md#a-new-approach-to-incremental-compilation) 
-that has been enabled by default since Kotlin 1.8.20.
+the new incremental compilation approach that has been enabled by default since Kotlin 1.8.20.
 
 The incremental compilation approach based on JVM history files suffered from limitations, 
 such as not working with [Gradle's build cache](https://docs.gradle.org/current/userguide/build_cache.html) 
