@@ -588,7 +588,7 @@ plugins {
 </tabs>
 
 Learn more about [Kotlin Multiplatform for different platforms](multiplatform-get-started.md) and 
-[Kotlin Multiplatform for iOS and Android](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html).
+[Kotlin Multiplatform for iOS and Android](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html).
 
 ## Targeting Android
 
