@@ -73,9 +73,9 @@ to avoid accidental usages of features that have not been released as stable.
 
 | **Component**                                                       | **Status** | **Status since version** | **Comment** |
 |---------------------------------------------------------------------|------------|--------------------------|-------------|
-| Kotlin/JVM                                                          | Stable     | 2.0.0                    |             |
-| Kotlin/Native                                                       | Stable     | 2.0.0                    |             |
-| Kotlin/JS                                                           | Stable     | 2.0.0                    |             |
+| Kotlin/JVM                                                          | Stable     | 1.0.0                    |             |
+| Kotlin/Native                                                       | Stable     | 1.9.0                    |             |
+| Kotlin/JS                                                           | Stable     | 1.3.0                    |             |
 | Kotlin/Wasm                                                         | Alpha      | 1.9.20                   |             |
 | [Analysis API](https://kotlin.github.io/analysis-api/index_md.html) | Stable     |                          |             |
 
@@ -95,29 +95,29 @@ to avoid accidental usages of features that have not been released as stable.
 | **Component**         | **Status** | **Status since version** | **Comment** |
 |-----------------------|------------|--------------------------|-------------|
 | kotlin-stdlib         | Stable     | 1.0                      |             |
-| kotlinx-coroutines    | Stable     |                          |             |
-| kotlinx-serialization | Stable     |                          |             |
+| kotlinx-coroutines    | Stable     | 1.3.0                    |             |
+| kotlinx-serialization | Stable     | 1.0.0                    |             |
 | kotlin-reflect (JVM)  | Beta       | 1.0                      |             |
-| kotlinx-datetime      | Alpha      |                          |             |
-| kotlinx-io            | Alpha      |                          |             |
+| kotlinx-datetime      | Alpha      | 0.2.0                    |             |
+| kotlinx-io            | Alpha      | 0.2.0                    |             |
 
 ### Kotlin Multiplatform 
 
 | **Component**                                    | **Status**   | **Status since version** | **Comment**                                                                |
 |--------------------------------------------------|--------------|--------------------------|----------------------------------------------------------------------------|
 | Kotlin Multiplatform                             | Stable       | 1.9.20                   |                                                                            |
-| cinterop klib binaries                           | Beta         | 1.3                      |                                                                            |
 | Kotlin Multiplatform plugin for Android Studio   | Beta         | 0.8.0                    | [Versioned separately from the language](multiplatform-plugin-releases.md) |
 
 ### Kotlin/Native
 
-| **Component**                                | **Status**   | **Status since version** | **Comment**                                                                |
-|----------------------------------------------|--------------|--------------------------|----------------------------------------------------------------------------|
-| Kotlin/Native Runtime                        | Stable       | 1.9.20                   |                                                                            |
-| Kotlin/Native memory manager                 | Stable       | 1.9.20                   |                                                                            |
-| Kotlin/Native interop with C and Objective-C | Beta         | 1.3                      |                                                                            |
-| klib binaries                                | Stable       | 1.9.20                   | Not including cinterop klibs, see below                                    |
-| CocoaPods integration                        | Stable       | 1.9.20                   |                                                                            |
+| **Component**                                | **Status** | **Status since version** | **Comment**                             |
+|----------------------------------------------|------------|--------------------------|-----------------------------------------|
+| Kotlin/Native Runtime                        | Stable     | 1.9.20                   |                                         |
+| Kotlin/Native memory manager                 | Stable     | 1.9.20                   |                                         |
+| Kotlin/Native interop with C and Objective-C | Beta       | 1.3                      |                                         |
+| klib binaries                                | Stable     | 1.9.20                   | Not including cinterop klibs, see below |
+| cinterop klib binaries                       | Beta       | 1.3                      |                                         |
+| CocoaPods integration                        | Stable     | 1.9.20                   |                                         |
 
 > For details about Kotlin/Native targets support, refer to [](native-target-support.md).
 
