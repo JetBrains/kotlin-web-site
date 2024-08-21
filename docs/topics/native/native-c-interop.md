@@ -647,3 +647,54 @@ fun readData(fd: Int) {
 
 Here we use service function `usePinned`, which pins an object, executes block and unpins it on normal and
 exception paths.
+
+### Forward declarations
+
+To import forward declarations, use the `cnames` package. For example, to import a `cstructName` forward declaration
+declared in a C library with a `library.package`, use a special forward declaration package:
+`import cnames.structs.cstructName`.
+
+To transfer objects between libraries, you need to make an explicit `as` cast to and from the corresponding C
+forward declaration. Consider two cinterop libraries, one that has a forward declaration of a struct and the other
+with an actual implementation:
+
+```C
+// First C library
+#include <stdio.h>
+
+typedef struct ForwardDeclaredStruct ForwardDeclaredStruct;
+
+void consumeStruct(ForwardDeclaredStruct* s) {
+    printf("Struct consumed\n");
+}
+```
+
+```C
+// Second C library
+// Header:
+#include <stdlib.h>
+
+typedef struct {
+    int data;
+} ForwardDeclaredStruct;
+
+// Implementation:
+ForwardDeclaredStruct* produceStruct() {
+    ForwardDeclaredStruct* s = malloc(sizeof(ForwardDeclaredStruct));
+    s->data = 42;
+    return s;
+}
+```
+
+To transfer objects between them, make the `as` cast in you Kotlin code:
+
+```kotlin
+// Kotlin code:
+fun test() {
+    consumeStruct(produceStruct() as cnames.structs.ForwardDeclaredStruct)
+}
+```
+
+> Casting is only allowed from the corresponding real class. Otherwise, you'll get an error.
+>
+{type="note"}

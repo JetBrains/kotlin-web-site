@@ -914,7 +914,7 @@ Here's the planned deprecation cycle:
 **What's changed?**
 
 The JetBrains team has revamped the approach to forward declarations in Kotlin to make their behavior more predictable
-and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
+and prepare this functionality for the Kotlin 2.0.0 release. From now on:
 
 * You can only import forward declarations using the `cnames` or ` objcnames` packages.
 * You need to explicitly make a cast to and from the corresponding C and Objective-C forward declaration.
@@ -926,48 +926,49 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
   Now, you can only use a special forward declaration package for that: `import cnames.structs.cstructName`.
   The same is true for `objcnames`.
 
-*  Consider two objcinterop libraries, one that uses `objcnames.protocols.ForwardDeclaredProtocolProtocol` and the other that has an actual definition:
+* Consider two objcinterop libraries, one that uses `objcnames.protocols.ForwardDeclaredProtocolProtocol` and the other
+  that has an actual definition:
 
-    ```ObjC
-    // First objcinterop library
-    #import <Foundation/Foundation.h>
-    
-    @protocol ForwardDeclaredProtocol;
-    
-    NSString* consumeProtocol(id<ForwardDeclaredProtocol> s) {
-        return [NSString stringWithUTF8String:"Protocol"];
-    }
-    ```
-    
-    ```ObjC
-    // Second objcinterop library
-    // Header:
-    #import <Foundation/Foundation.h>
-    @protocol ForwardDeclaredProtocol
-    @end
-    // Implementation:
-    @implementation ForwardDeclaredProtocolImpl : NSObject
-    @end;
-    
-    id<ForwardDeclaredProtocol> produceProtocol() {
-        return [ForwardDeclaredProtocolImpl new];
-    }
-    ```
-    
-    Previously, it was possible to transfer objects between them seamlessly. Now, an explicit `as`  cast is required
-    for the forward declaration:
-    
-    ```kotlin
-    // Kotlin code:
-    fun test() {
-        consumeProtocol(produceProtocol() as objcnames.protocols.ForwardDeclaredProtocolProtocol)
-    }
-    ```
-    
-    > The casting to `objcnames.protocols.ForwardDeclaredProtocolProtocol` is only allowed from the corresponding real class.
-    > Otherwise, you'll get an error.
-    >
-    {style="note"}
+  ```ObjC
+  // First objcinterop library
+  #import <Foundation/Foundation.h>
+  
+  @protocol ForwardDeclaredProtocol;
+  
+  NSString* consumeProtocol(id<ForwardDeclaredProtocol> s) {
+      return [NSString stringWithUTF8String:"Protocol"];
+  }
+  ```
+
+  ```ObjC
+  // Second objcinterop library
+  // Header:
+  #import <Foundation/Foundation.h>
+  @protocol ForwardDeclaredProtocol
+  @end
+  // Implementation:
+  @implementation ForwardDeclaredProtocolImpl : NSObject
+  @end;
+
+  id<ForwardDeclaredProtocol> produceProtocol() {
+      return [ForwardDeclaredProtocolImpl new];
+  }
+  ```
+
+  Previously, it was possible to transfer objects between them seamlessly. Now, an explicit `as` cast is required
+  for the forward declaration:
+
+  ```kotlin
+  // Kotlin code:
+  fun test() {
+      consumeProtocol(produceProtocol() as objcnames.protocols.ForwardDeclaredProtocolProtocol)
+  }
+  ```
+
+  > The casting to `objcnames.protocols.ForwardDeclaredProtocolProtocol` is only allowed from the corresponding real class.
+  > Otherwise, you'll get an error.
+  >
+  {style="note"}
 
 **When do the changes take effect?**
 

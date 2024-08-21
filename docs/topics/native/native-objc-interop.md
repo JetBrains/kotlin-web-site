@@ -228,7 +228,11 @@ A Swift/Objective-C initializer is imported to Kotlin as constructors or as fact
 The latter happens with initializers declared in the Objective-C category or as a Swift extension,
 because Kotlin has no concept of extension constructors.
 
-Kotlin constructors are imported as initializers to Swift/Objective-C. 
+> Remember to expose Swift methods with `@objc` before importing Swift initializers to Kotlin.
+>
+{type="tip"}
+
+Kotlin constructors are imported as initializers to Swift/Objective-C.
 
 ### Setters
 
@@ -568,6 +572,56 @@ binaries.framework {
     freeCompilerArgs += "-Xno-objc-generics"
 }
 ```
+
+### Forward declarations
+
+To import forward declarations, use the `objcnames` package. For example, to import a `objcstructName` forward declaration
+declared in an Objective-C library with a `library.package`, use a special forward declaration package:
+`import objcnames.structs.objcstructName`.
+
+To transfer objects between libraries, you need to make an explicit `as` cast to and from the corresponding Objective-C
+forward declaration. Consider two objcinterop libraries, one that uses `objcnames.protocols.ForwardDeclaredProtocolProtocol`
+and the other that has an actual definition:
+
+```ObjC
+// First objcinterop library
+#import <Foundation/Foundation.h>
+
+@protocol ForwardDeclaredProtocol;
+
+NSString* consumeProtocol(id<ForwardDeclaredProtocol> s) {
+    return [NSString stringWithUTF8String:"Protocol"];
+}
+```
+
+```ObjC
+// Second objcinterop library
+// Header:
+#import <Foundation/Foundation.h>
+@protocol ForwardDeclaredProtocol
+@end
+// Implementation:
+@implementation ForwardDeclaredProtocolImpl : NSObject
+@end;
+
+id<ForwardDeclaredProtocol> produceProtocol() {
+    return [ForwardDeclaredProtocolImpl new];
+}
+```
+
+To transfer objects between them, make the `as` cast in you Kotlin code:
+
+```kotlin
+// Kotlin code:
+fun test() {
+    consumeStruct(produceStruct() as cnames.structs.ForwardDeclaredStruct)
+}
+```
+
+> The casting to `objcnames.protocols.ForwardDeclaredProtocolProtocol` is only allowed from the corresponding real class.
+> Otherwise, you'll get an error.
+>
+{type="note"}
 
 ## Casting between mapped types
 
