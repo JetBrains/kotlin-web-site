@@ -545,7 +545,7 @@ for more detail.
 
 ### Semantic difference between object expressions and declarations
 
-There are differences in initialization behavior between object expressions and object declarations:
+There are differences in the initialization behavior between object expressions and object declarations:
 
 * Object expressions are executed (and initialized) _immediately_, where they are used.
 * Object declarations are initialized _lazily_, when accessed for the first time.
