@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 2.0.20)
 
-_[Released: August 20, 2024](releases.md#release-details)_
+_[Released: August 22, 2024](releases.md#release-details)_
 
 The Kotlin 2.0.20 release is out! This version includes performance improvements and bug fixes for Kotlin 2.0.0, where we
 announced the Kotlin K2 compiler as Stable. Here are some additional highlights from this release:
