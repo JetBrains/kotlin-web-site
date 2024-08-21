@@ -3,7 +3,7 @@
   endDate: '2024-11-19'
   location: Vienna, Austria
   speaker: 'TBD'
-  title: 'Going Full Platform Specific'
+  title: 'Going Fully Platform Specific'
   subject: 'Kotlin Vienna Meetup'
   url: https://www.meetup.com/kotlin-vienna/events/295318907/
 - lang: en
@@ -11,7 +11,7 @@
   endDate: '2024-10-01'
   location: Vienna, Austria
   speaker: 'TBD'
-  title: 'Kotlin Beginners Night'
+  title: 'When is Kotlin the Right Choice?; Kotlin 101; Multiplatform at Stable and Beyond'
   subject: 'Kotlin Vienna Meetup'
   url: https://www.meetup.com/kotlin-vienna/events/295318889/
 - lang: bn
