@@ -3,7 +3,7 @@
 Sometimes you need to use singletons for shared resources,
 create factory methods to efficiently instantiate objects,
 or modify the behavior of an existing class without explicitly declaring a new subclass.
-Kotlin handles these needs with _object expressions_ and _object declarations_.
+Kotlin offers _object expressions_ and _object declarations_ to address these needs.
 
 Object expressions and object declarations are best used for scenarios when:
 
@@ -18,8 +18,8 @@ This can be useful for scenarios like a button click handler.
 
 ## Object expressions
 
-_Object expressions_ create objects of anonymous classes, which are classes not explicitly declared with the `class`
-declaration. Such classes are useful for one-time use. You can define them from scratch, inherit from existing classes,
+_Object expressions_ create objects of anonymous classes, which are classes not explicitly declared with the [`class`](classes.md)
+declaration. These anonymous classes are useful for one-time use. They can be created from scratch, inherit from existing classes,
 or implement interfaces. Instances of anonymous classes are also called _anonymous objects_ because they are defined by
 an expression, not a name.
 
@@ -60,7 +60,7 @@ window.addMouseListener(object : MouseAdapter() {
 ```
 
 If a supertype has a constructor, pass appropriate constructor parameters to it.
-Multiple supertypes can be specified as a comma-delimited list after the colon:
+Multiple supertypes can be specified, separated by commas, after the colon:
 
 ```kotlin
 //sampleStart
@@ -128,7 +128,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-If this function or property is `public` or `private` inline, its actual type is:
+If a function or property that returns an anonymous object is `public` or `private`, its actual type is:
 
 * `Any` if the anonymous object doesn't have a declared supertype
 * The declared supertype of the anonymous object, if there is exactly one such type
@@ -153,7 +153,8 @@ class NotificationManager {
         val message: String = "General notification"
     }
 
-    // The return type is Notification; notifyUser() is accessible because it's declared in Notification
+    // The return type is Notification because the anonymous object implements only one interface
+    // notifyUser() is accessible because it is part of Notification
     // The message property is not accessible because it is not declared in the Notification interface
     fun getEmailNotification() = object : Notification {
         override fun notifyUser() {
@@ -218,8 +219,8 @@ fun countClicks(window: JComponent) {
 ## Object declarations
 {id="object-declarations-overview"}
 
-The [Singleton](https://en.wikipedia.org/wiki/Singleton_pattern) pattern can be useful in several cases,
-and Kotlin makes it easy to declare singletons:
+You can create single instances of objects in Kotlin using _object declarations_, which always have a name following the `object` keyword.
+This allows you to define a class and create an instance of it in a single step, which is useful for implementing [Singleton patterns](https://en.wikipedia.org/wiki/Singleton_pattern).
 
 ```kotlin
 //sampleStart
@@ -263,17 +264,20 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-This is called an _object declaration_, and it always has a name following the `object` keyword.
-Just like a variable declaration, an object declaration is not an expression, and it cannot be used on the right-hand side
-of an assignment statement.
+> Like variable declarations, object declarations, are not expressions, and they cannot be used on the right-hand side
+> of an assignment statement.
+> 
+{type="note"}
 
-The initialization of an object declaration is thread-safe and done on first access.
-
-To refer to the object, use its name directly:
+To refer to the `object`, use its name directly:
 
 ```kotlin
 DataProviderManager.registerDataProvider(exampleProvider)
 ```
+
+> The initialization of an object declaration is thread-safe and done on first access.
+> 
+{type="tip"}
 
 Object declarations can also have supertypes,
 similar to how [anonymous classes can inherit from existing classes or implement interfaces](#inheriting-anonymous-objects-from-supertypes):
@@ -293,7 +297,7 @@ object DefaultListener : MouseAdapter() {
 
 ### Data objects
 
-When printing a plain object declaration in Kotlin, the string representation contains both its name and the hash of the object:
+When printing a plain object declaration in Kotlin, the string representation contains both its name and the hash of the `object`:
 
 ```kotlin
 object MyObject
@@ -306,16 +310,16 @@ fun main() {
 {kotlin-runnable="true"}
 
 Just like [data classes](data-classes.md), you can mark an `object` declaration with the `data` modifier. 
-This instructs the compiler to generate a number of functions for your object:
+This instructs the compiler to generate a number of functions for your `object`:
 
-* `toString()` returns the name of the data object
-* `equals()`/`hashCode()` pair
+* `.toString()` returns the name of the data object
+* `.equals()`/`.hashCode()` enables equality checks and hash-based collections
 
   > You can't provide a custom `equals` or `hashCode` implementation for a `data object`.
   >
   {type="note"}
 
-The `toString()` function of a data object returns the name of the object:
+The `.toString()` function of a `data object` returns the name of the `object`:
 
 ```kotlin
 data object MyDataObject {
@@ -329,8 +333,8 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-The `equals()` function for a `data object` ensures that all objects that have the type of your `data object` are considered equal.
-In most cases, you will only have a single instance of your data object at runtime (after all, a `data object` declares a singleton).
+The `.equals()` function for a `data object` ensures that all objects that have the type of your `data object` are considered equal.
+In most cases, you will only have a single instance of your `data object` at runtime (after all, a `data object` declares a singleton).
 However, in the edge case where another object of the same type is generated at runtime (for example, by using platform 
 reflection with `java.lang.reflect` or a JVM serialization library that uses this API under the hood), this ensures that 
 the objects are treated as being equal.
@@ -372,7 +376,7 @@ fun createInstanceViaReflection(): MySingleton {
 }
 ```
 
-The generated `hashCode()` function has behavior that is consistent with the `equals()` function, so that all runtime 
+The generated `.hashCode()` function has behavior that is consistent with the `.equals()` function, so that all runtime 
 instances of a `data object` have the same hash code.
 
 #### Differences between data objects and data classes
@@ -380,11 +384,11 @@ instances of a `data object` have the same hash code.
 While `data object` and `data class` declarations are often used together and have some similarities, there are some 
 functions that are not generated for a `data object`:
 
-* No `copy()` function. Because a `data object` declaration is intended to be used as singleton objects, no `copy()` 
+* No `.copy()` function. Because a `data object` declaration is intended to be used as singleton objects, no `.copy()` 
   function is generated. The singleton pattern restricts the instantiation of a class to a single instance, which would 
   be violated by allowing copies of the instance to be created.
-* No `componentN()` function. Unlike a `data class`, a `data object` does not have any data properties. 
-  Since attempting to destructure such an object without data properties would not make sense, no `componentN()` functions are generated.
+* No `.componentN()` function. Unlike a `data class`, a `data object` does not have any data properties. 
+  Since attempting to destructure such an object without data properties would not make sense, no `.componentN()` functions are generated.
 
 #### Use data objects with sealed hierarchies
 
@@ -393,7 +397,7 @@ Data object declarations are particularly useful for sealed hierarchies like
 They allow you to maintain symmetry with any data classes you may have defined alongside the object.
 
 In this example, declaring `EndOfFile` as a `data object` instead of a plain `object` 
-means that it will get the `toString()` function without the need to override it manually:
+means that it will get the `.toString()` function without the need to override it manually:
 
 ```kotlin
 sealed interface ReadResult
@@ -410,7 +414,7 @@ fun main() {
 
 ### Companion objects
 
-Companion objects allow you to define class-level methods and properties. 
+_Companion objects_ allow you to define class-level methods and properties. 
 This makes it easy to create factory methods, hold constants, and access shared utilities.
 
 An object declaration inside a class can be marked with the `companion` keyword:
@@ -423,7 +427,7 @@ class MyClass {
 }
 ```
 
-Members of the companion object can be called simply by using the class name as the qualifier:
+Members of the `companion object` can be called simply by using the class name as the qualifier:
 
 
 ```kotlin
@@ -444,7 +448,7 @@ fun main(){
 ```
 {kotlin-runnable="true"}
 
-The name of the companion object can be omitted, in which case the name `Companion` will be used:
+The name of the `companion object` can be omitted, in which case the name `Companion` will be used:
 
 ```kotlin
 class User(val name: String) {
@@ -535,7 +539,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-However, on the JVM you can have members of companion objects generated as real static methods and fields if you use
+However, on the JVM, you can have members of companion objects generated as real static methods and fields if you use
 the `@JvmStatic` annotation. See the [Java interoperability](java-to-kotlin-interop.md#static-fields) section
 for more detail.
 
