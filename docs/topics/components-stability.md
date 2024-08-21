@@ -113,7 +113,6 @@ to avoid accidental usages of features that have not been released as stable.
 | **Component**                                | **Status** | **Status since version** | **Comment**                             |
 |----------------------------------------------|------------|--------------------------|-----------------------------------------|
 | Kotlin/Native Runtime                        | Stable     | 1.9.20                   |                                         |
-| Kotlin/Native memory manager                 | Stable     | 1.9.20                   |                                         |
 | Kotlin/Native interop with C and Objective-C | Beta       | 1.3                      |                                         |
 | klib binaries                                | Stable     | 1.9.20                   | Not including cinterop klibs, see below |
 | cinterop klib binaries                       | Beta       | 1.3                      |                                         |
