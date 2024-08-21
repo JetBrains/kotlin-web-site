@@ -280,7 +280,7 @@ DataProviderManager.registerDataProvider(exampleProvider)
 {type="tip"}
 
 Object declarations can also have supertypes,
-similar to how [anonymous classes can inherit from existing classes or implement interfaces](#inheriting-anonymous-objects-from-supertypes):
+similar to how [anonymous classes can inherit from existing classes or implement interfaces](#inherit-anonymous-objects-from-supertypes):
 
 ```kotlin
 object DefaultListener : MouseAdapter() {
