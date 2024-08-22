@@ -94,22 +94,6 @@ World!
 Running completion handler on <NSThread: 0x600001b45bc0>{number = 7, name = (null)}
 ```
 
-### Calling Kotlin suspending functions 
-
-The Kotlin/Native memory manager has a restriction on calling Kotlin suspending functions from Swift and Objective-C from
-threads other than the main one.
-
-This restriction was originally introduced in the legacy memory manager due to cases when the code dispatched a
-continuation to be resumed on the original thread. If this thread didn't have a supported event loop, the task would
-never run, and the coroutine would never be resumed.
-
-In certain cases, this restriction is not required anymore. You can lift it by adding the following option to your
-`gradle.properties`:
-
-```none
-kotlin.native.binary.objcExportSuspendFunctionLaunchThreadRestriction=none
-```
-
 ## Garbage collection and lifecycle
 
 ### Object reclamation

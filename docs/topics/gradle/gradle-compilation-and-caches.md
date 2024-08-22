@@ -13,10 +13,15 @@ On this page, you can learn about the following topics:
 
 ## Incremental compilation
 
-The Kotlin Gradle plugin supports incremental compilation. Incremental compilation tracks changes to source files between
-builds so that only the files affected by these changes are compiled.
+The Kotlin Gradle plugin supports incremental compilation. Incremental compilation tracks changes to files in the classpath
+between builds so that only the files affected by these changes are compiled. Incremental compilation works with [Gradle's
+build cache](#gradle-build-cache-support) and supports [compilation avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance).
 
 Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects, and is enabled by default.
+
+> Kotlin/JS projects use a different incremental compilation approach based on history files. 
+>
+{type="note"}
 
 There are several ways to disable incremental compilation:
 
@@ -33,26 +38,8 @@ Note: Any build with incremental compilation disabled invalidates incremental ca
 >
 {type="tip"}
 
-### A new approach to incremental compilation
-
-The new approach to incremental compilation is available since Kotlin 1.7.0 for the JVM backend in the Gradle build system only. 
-Starting from Kotlin 1.8.20, this is enabled by default. This approach supports changes made inside dependent non-Kotlin modules, 
-includes an improved compilation avoidance, and is compatible with the [Gradle build cache](#gradle-build-cache-support).
-
-All of these enhancements decrease the number of non-incremental builds, making the overall compilation time faster. 
-You will receive the most benefit if you use the build cache, or, frequently make changes in non-Kotlin
-Gradle modules.
-
-To opt out from this new approach, set the following option in your `gradle.properties`:
-
-```none
-kotlin.incremental.useClasspathSnapshot=false
-```
-
-We would appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-49682).
-
-Learn how the new approach to incremental compilation is implemented under the hood in
-[this blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/).
+If you'd like to learn more about how our current incremental compilation approach works and compares to the previous one,
+see our [blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/).
 
 ### Precise backup of compilation tasks' outputs
 

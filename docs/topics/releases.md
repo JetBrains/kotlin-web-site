@@ -94,6 +94,19 @@ The following table lists details of the latest Kotlin releases:
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>2.0.20</strong>
+            <p>Released: <strong>August 22, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.20" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+           <p>A tooling release for Kotlin 2.0.0 containing performance improvements and bug fixes. Features also include
+              concurrent marking in Kotlin/Native's garbage collector, UUID support in Kotlin common standard library,
+              Compose compiler updates, and support up to Gradle 8.8.
+            </p>
+            <p>Learn more about Kotlin 2.0.20 in <a href="whatsnew2020.md" target="_blank">What's new in Kotlin 2.0.20</a>.</p>
+        </td>
+    </tr>
+    <tr>
         <td><strong>2.0.10</strong>
             <p>Released: <strong>August 6, 2024</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.10" target="_blank">Release on GitHub</a></p>
