@@ -148,8 +148,8 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-Note that the example above only works where `b` is immutable (meaning it is a local variable that is not modified between the check and its
-usage, or it is a member `val` with a backing field and is not overridable). Otherwise, `b` can change to `null` after the check.
+Note that the example above only works when the compiler can guarantee that `b` won't change between the check and its usage, same as 
+the [smart cast prerequisites](typecasts.md#smart-cast-prerequisites).
 
 ## Safe call operator (`?.`)
 
@@ -174,6 +174,11 @@ fun main() {
 {kotlin-runnable="true"}
 
 The `b?.length` expression checks for nullability and returns `b.length` if `b` is not null or `null` otherwise. The type of this expression is `Int?`.
+
+You can use `?.` with both [`var` and `val` variables](basic-syntax.md#variables) in Kotlin:
+
+* **`var`:** If you declare it as nullable (for example, `var nullableValue: String?`), it can hold a null or non-null value, and you can change it to `null` at any point.
+* **`val`:** If you declare it as nullable (for example, `val nullableValue: String?`), it can hold a null or non-null value, but you can't change it subsequently.
 
 Safe calls are useful in chains. For example, Bob is an employee who may be assigned to a department (or not). That department
 may, in turn, have another employee as a department head. To obtain the name of Bob's department head (if there is one),
