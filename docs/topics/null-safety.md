@@ -99,7 +99,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" validate="false"}
 
 In the code above, the compiler requires you to use safe calls to check for nullability and then access properties or 
 perform operations. There are a few ways to check for nullability.
@@ -293,7 +293,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" validate="false"}
 
 Thus, if you want an NPE, you can have `!!`, but you have to ask for it explicitly.
 
