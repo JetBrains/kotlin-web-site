@@ -1,229 +1,421 @@
 [//]: # (title: Null safety)
 
-## Nullable types and non-nullable types
-
-Kotlin's type system is aimed at eliminating the danger of null references, also known as [The Billion Dollar Mistake](https://en.wikipedia.org/wiki/Null_pointer#History).
+Null safety is a Kotlin feature designed to eliminate the danger of null references, also known as [The Billion-Dollar Mistake](https://en.wikipedia.org/wiki/Null_pointer#History).
 
 One of the most common pitfalls in many programming languages, including Java, is that accessing a member of a null
-reference will result in a null reference exception. In Java this would be the equivalent of a `NullPointerException`,
+reference will result in a null reference exception. In Java, this would be the equivalent of a `NullPointerException`,
 or an _NPE_ for short.
 
-The only possible causes of an NPE in Kotlin are:
+Kotlin explicitly supports nullability as part of its type system, meaning you can explicitly declare 
+which variables or properties are allowed to be null. Also, when you declare non-null variables, the compiler 
+enforces that these variables cannot hold a `null` value,
+preventing an NPE. 
 
-* An explicit call to `throw NullPointerException()`.
-* Usage of the `!!` operator that is described below.
-* Data inconsistency with regard to initialization, such as when:
-  * An uninitialized `this` available in a constructor is passed and used somewhere (a "leaking `this`").
+Kotlin's null safety ensures safer code by catching potential null-related issues at compile time rather than runtime. 
+This feature enhances code robustness, readability, and maintainability by explicitly expressing null values, making the code easier to understand and manage.
+
+Thanks to null safety, the only possible causes of an NPE in Kotlin are:
+
+* An explicit call to `throw NullPointerException()`
+* Usage of the [`!!` operator](#not-null-assertion-operator)
+* Data inconsistency concerning initialization, such as when:
+  * An uninitialized `this` available in a constructor is passed and used somewhere (a "leaking `this`")
   * A [superclass constructor calls an open member](inheritance.md#derived-class-initialization-order) whose implementation
-  in the derived class uses an uninitialized state.
+    in the derived class uses an uninitialized state
 * Java interoperation:
-  * Attempts to access a member of a `null` reference of a [platform type](java-interop.md#null-safety-and-platform-types);
-  * Nullability issues with generic types being used for Java interoperation. For example, a piece of Java code might add
-  `null` into a Kotlin `MutableList<String>`, therefore requiring a `MutableList<String?>` for working with it.
-  * Other issues caused by external Java code.
+  * Attempts to access a member of a `null` reference of a [platform type](java-interop.md#null-safety-and-platform-types)
+  * Nullability issues with generic types for Java interoperation. For example, a piece of Java code might add
+    `null` into a Kotlin `MutableList<String>`, therefore requiring a `MutableList<String?>` for working with it
+  * Other issues caused by external Java code
 
-In Kotlin, the type system distinguishes between references that can hold `null` (nullable references) and those that
-cannot (non-nullable references).
-For example, a regular variable of type `String` cannot hold `null`:
+## Nullable types and non-nullable types
+
+In Kotlin, the type system distinguishes between types that can hold `null` (nullable types) and those that
+cannot (non-nullable types). For example, a regular variable of type `String` cannot hold `null`:
 
 ```kotlin
 fun main() {
 //sampleStart
-    var a: String = "abc" // Regular initialization means non-nullable by default
-    a = null // compilation error
+    // Assigns a non-null string to a variable
+    var a: String = "abc"
+    // Re-assigns null to the non-nullable variable
+    a = null
+    print(a)
+    // Null can not be a value of a non-null type String
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" validate="false"}
 
-To allow nulls, you can declare a variable as a nullable string by writing `String?`:
+You can safely call a method or access a property on `a`. It's guaranteed not to cause an NPE because `a` is a non-nullable variable.
+The compiler ensures that `a` always holds a valid `String` value, and there's no risk of accessing its properties or methods when it's `null`.
 
 ```kotlin
 fun main() {
 //sampleStart
-    var b: String? = "abc" // can be set to null
-    b = null // ok
+    // Assigns a non-null string to a variable
+    val a: String = "abc"
+    // Returns the length of a non-nullable variable
+    val l = a.length
+    print(l)
+    // 3
+//sampleEnd
+}
+```
+{kotlin-runnable="true" validate="false"}
+
+To allow nulls, declare a variable with a `?` sign right after the variable type. For example, 
+declare a nullable string by writing `String?`. This expression makes `String` a type that
+can accept nullables:
+
+```kotlin
+fun main() {
+//sampleStart
+    // Assigns a nullable string to a variable
+    var b: String? = "abc"
+    // Re-assigns null to the nullable variable
+    b = null
     print(b)
+    // null
 //sampleEnd
 }
 ```
 {kotlin-runnable="true"}
 
-Now, if you call a method or access a property on `a`, it's guaranteed not to cause an NPE, so you can safely say:
+If you want to access `length` on `b`, the compiler reports an error. This is because `b` is declared as a nullable
+variable and can hold `null` values. Trying to directly access properties on nullables leads to an NPE:
 
 ```kotlin
-val l = a.length
+fun main() {
+//sampleStart
+    // Assigns a nullable string to a variable  
+    var b: String? = "abc"
+    // Re-assigns null to the nullable variable
+    b = null
+    // Tries to directly return the length of a nullable variable
+    val l = b.length
+    print(l)
+    // Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type String? 
+//sampleEnd
+}
 ```
+{kotlin-runnable="true"}
 
-But if you want to access the same property on `b`, that would not be safe, and the compiler reports an error:
+In the code above, the compiler requires you to use safe calls to check for nullability and then access properties or 
+perform operations. There are a few ways to check for nullability.
+
+## Checking for `null` with the `if` conditional
+
+When working with nullable types, you need to handle nullability safely to avoid an NPE. One alternative is to 
+check for nullability explicitly with the `if` conditional expression. 
+
+For example, check whether `b` is `null` and then access `b.length`:
 
 ```kotlin
-val l = b.length // error: variable 'b' can be null
+fun main() {
+//sampleStart
+    // Assigns null to a nullable variable
+    val b: String? = null
+    // Checks for nullability first and then accesses length
+    val l = if (b != null) b.length else -1
+    print(l)
+    // -1
+//sampleEnd
+}
 ```
+{kotlin-runnable="true"}
 
-But you still need to access that property, right? There are a few ways to do so.
+The compiler tracks the information about the check you performed and allows the call to `length` inside the `if`.
 
-## Checking for `null` in conditions
-
-First, you can explicitly check whether `b` is `null`, and handle the two options separately:
-
-```kotlin
-val l = if (b != null) b.length else -1
-```
-
-The compiler tracks the information about the check you performed, and allows the call to `length` inside the `if`.
 More complex conditions are supported as well:
 
 ```kotlin
 fun main() {
 //sampleStart
+    // Assigns a nullable string to a variable  
     val b: String? = "Kotlin"
+
+    // Checks for nullability first and then accesses length
     if (b != null && b.length > 0) {
         print("String of length ${b.length}")
+        // Provides alternative if the condition is not met  
     } else {
         print("Empty string")
     }
+    // String of length 6
 //sampleEnd
 }
 ```
 {kotlin-runnable="true"}
 
-Note that this only works where `b` is immutable (meaning it is a local variable that is not modified between the check and its
-usage or it is a member `val` that has a backing field and is not overridable), because otherwise it could be the case
-that `b` changes to `null` after the check.
+Note that the example above only works where `b` is immutable (meaning it is a local variable that is not modified between the check and its
+usage, or it is a member `val` with a backing field and is not overridable). Otherwise, `b` can change to `null` after the check.
 
-## Safe calls
+## Safe call operator (`?.`)
 
-Your second option for accessing a property on a nullable variable is using the safe call operator `?.`:
+The safe call operator (`?.`) allows you to handle nullability safely in a shorter form. Instead of throwing an NPE, 
+if the object is `null`, the `?` operator simply returns `null`:
 
 ```kotlin
 fun main() {
 //sampleStart
-    val a = "Kotlin"
+    // Assigns a nullable string to a variable  
+    val a: String? = "Kotlin"
+    // Assigns null to a nullable variable
     val b: String? = null
+    // Checks for nullability and returns length or null
+    println(a?.length)
+    // 6
     println(b?.length)
-    println(a?.length) // Unnecessary safe call
+    // null
 //sampleEnd
 }
 ```
 {kotlin-runnable="true"}
 
-This returns `b.length` if `b` is not null, and `null` otherwise. The type of this expression is `Int?`.
+The `b?.length` expression checks for nullability and returns `b.length` if `b` is not null or `null` otherwise. The type of this expression is `Int?`.
 
 Safe calls are useful in chains. For example, Bob is an employee who may be assigned to a department (or not). That department
-may in turn have another employee as a department head. To obtain the name of Bob's department head (if there is one),
+may, in turn, have another employee as a department head. To obtain the name of Bob's department head (if there is one),
 you write the following:
 
 ```kotlin
 bob?.department?.head?.name
 ```
 
-Such a chain returns `null` if any of the properties in it is `null`.
+Such a chain returns `null` if any of its properties are `null`. Here's the equivalent of the same safe call but with the `if` conditional:
 
-To perform a certain operation only for non-null values, you can use the safe call operator together with
-[`let`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/let.html):
+```kotlin
+if (person != null && person.department != null) {
+    person.department.head = managersPool.getManager()
+}
+```
+
+You can also place a safe call on the left side of an assignment. Then, if one of the receivers in the safe calls chain
+is `null`, the assignment is skipped, and the expression on the right is not evaluated at all. For example, if either 
+`person` or `person.department` is null, the function is not called:
+
+```kotlin
+person?.department?.head = managersPool.getManager()
+```
+
+## Elvis operator (`?:`)
+
+When you have a nullable type, you can check for `null` and provide an alternative value. For example, if `b` is not `null`,
+access `b.length`. Otherwise, use some non-null value:
 
 ```kotlin
 fun main() {
 //sampleStart
-    val listWithNulls: List<String?> = listOf("Kotlin", null)
-    for (item in listWithNulls) {
-         item?.let { println(it) } // prints Kotlin and ignores null
-    }
+    // Assigns null to a nullable variable  
+    val b: String? = null
+    // Checks for nullability. If not null, returns length. If null, returns a non-null value
+    val l: Int = if (b != null) b.length else 0
+    println(l)
+    // 0
 //sampleEnd
 }
 ```
 {kotlin-runnable="true"}
 
-A safe call can also be placed on the left side of an assignment. Then, if one of the receivers in the safe calls chain
-is `null`, the assignment is skipped and the expression on the right is not evaluated at all:
+Instead of writing the complete `if` expression, you can also express this in a shorter manner with the Elvis operator `?:`:
 
 ```kotlin
-// If either `person` or `person.department` is null, the function is not called:
-person?.department?.head = managersPool.getManager()
-```
-
-## Nullable receiver
-
-Extension functions can be defined on a [nullable receiver](extensions.md#nullable-receiver).
-This way you can specify behaviour for null values without the need to use null-checking logic at each call-site. 
-
-For example, the [`toString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html) function is defined on a nullable receiver. It returns the String "null" (as opposed to a `null` value). This can be helpful in certain situations, for example, logging:
-
-```kotlin
-val person: Person? = null
-logger.debug(person.toString()) // Logs "null", does not throw an exception
-```
-
-If you want your `toString()` invocation to return a nullable string, use the [safe-call operator `?.`](#safe-calls):
-
-```kotlin
-var timestamp: Instant? = null
-val isoTimestamp = timestamp?.toString() // Returns a String? object which is `null`
-if (isoTimestamp == null) {
-   // Handle the case where timestamp was `null`
+fun main() {
+//sampleStart
+    // Assigns null to a nullable variable  
+    val b: String? = null
+    // Checks for nullability. If not null, returns length. If null, returns a non-null value
+    val l = b?.length ?: 0
+    println(l)
+    // 0
+//sampleEnd
 }
 ```
+{kotlin-runnable="true"}
 
-## Elvis operator
+If the expression to the left of `?:` is not `null`, the Elvis operator returns it. Otherwise, the Elvis operator returns the expression
+to the right. The expression on the right-hand side is evaluated only if the left-hand side is `null`.
 
-When you have a nullable reference, `b`, you can say "if `b` is not `null`, use it, otherwise use some non-null value":
-
-```kotlin
-val l: Int = if (b != null) b.length else -1
-```
-
-Instead of writing the complete `if` expression, you can also express this with the Elvis operator `?:`:
-
-```kotlin
-val l = b?.length ?: -1
-```
-
-If the expression to the left of `?:` is not `null`, the Elvis operator returns it, otherwise it returns the expression
-to the right.
-Note that the expression on the right-hand side is evaluated only if the left-hand side is `null`.
-
-Since `throw` and `return` are expressions in Kotlin, they can also be used on
+Since `throw` and `return` are expressions in Kotlin, you can also use them on
 the right-hand side of the Elvis operator. This can be handy, for example, when checking function arguments:
 
 ```kotlin
 fun foo(node: Node): String? {
+    // Checks for getParent(). If not null, it's assigned to parent. If null, returns null
     val parent = node.getParent() ?: return null
+    // Checks for getName(). If not null, it's assigned to name. If null, throws exception
     val name = node.getName() ?: throw IllegalArgumentException("name expected")
     // ...
 }
 ```
 
-## The `!!` operator
+## Not-null assertion operator (`!!`)
 
-The third option is for NPE-lovers: the not-null assertion operator (`!!`) converts any value to a non-nullable
-type and throws an exception if the value is `null`. You can write `b!!`, and this will return a non-null value of `b`
-(for example, a `String` in our example) or throw an NPE if `b` is `null`:
+The not-null assertion operator (`!!`) converts any value to a non-nullable type.
 
-```kotlin
-val l = b!!.length
-```
+When you apply `!!` to a variable whose value is not `null`, it's safely handled as a non-nullable type, 
+and the code executes normally. However, if the value is `null`, the `!!` operator forces it to be treated as non-nullable, 
+which results in an exception.
 
-Thus, if you want an NPE, you can have it, but you have to ask for it explicitly and it won't appear out of the blue.
-
-## Safe casts
-
-Regular casts may result in a `ClassCastException` if the object is not of the target type.
-Another option is to use safe casts that return `null` if the attempt was not successful:
+When `b` is not null and `!!` makes it return its non-null value (which is a `String` in this example), it accesses `length` correctly:
 
 ```kotlin
-val aInt: Int? = a as? Int
+fun main() {
+//sampleStart
+    // Assigns a nullable string to a variable  
+    val b: String? = "Kotlin"
+    // Treats b as non-null and accesses its length
+    val l = b!!.length
+    println(l)
+    // 6
+//sampleEnd
+}
 ```
+{kotlin-runnable="true"}
+
+When `b` is null and `!!` makes it return its non-null value, and an NPE occurs:
+
+```kotlin
+fun main() {
+//sampleStart
+    // Assigns null to a nullable variable  
+    val b: String? = null
+    // Treats b as non-null and tries to access its length
+    val l = b!!.length
+    println(l) 
+    // Exception in thread "main" java.lang.NullPointerException
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+Thus, if you want an NPE, you can have `!!`, but you have to ask for it explicitly.
+
+## Nullable receiver
+
+You can use extension functions with a [nullable receiver type](extensions.md#nullable-receiver). This means the 
+function can be called on variables that might be null.
+
+By defining an extension function on a nullable receiver type, you can handle null values within the function itself 
+instead of checking for null at every place where you call the function.
+
+For example, the [`toString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to-string.html) extension function 
+can be called on a nullable receiver. When invoked on a null value, it safely returns the string "null" without throwing an exception:
+
+```kotlin
+// SampleStart
+fun main() {
+    // Assigns null to a nullable Person object stored in the person variable
+    val person: Person? = null
+
+    // Applies toString to the nullable person variable and prints a string
+    println(person.toString())
+    // null
+}
+
+// Defines a simple Person class
+data class Person(val name: String)
+// SampleEnd
+```
+{kotlin-runnable="true"}
+
+In the example above, even though `person` is `null`, `toString()` safely returns the string "null". This can be helpful in situations like debugging and logging.
+
+If you want your `toString()` invocation to return a nullable string (either a string representation or null), use the [safe-call operator `?.`](#safe-call-operator).
+This operator checks if the receiver is `null`. If so, the code returns `null`, preventing exceptions. Otherwise, the code prints the result of `person.toString()`.
+
+```kotlin
+// SampleStart
+fun main() {
+    // Assigns a nullable Person object to a variable
+    val person1: Person? = null
+    val person2: Person? = Person("Alice")
+
+    // Prints "null" if person is null; otherwise prints the result of person.toString()
+    println(person1?.toString())
+    // null
+    println(person2?.toString())
+    // Person(name=Alice)
+}
+
+// Defines a Person class
+data class Person(val name: String)
+// SampleEnd
+```
+{kotlin-runnable="true"}
+
+The `?.` operator allows you to safely handle potential null values while still accessing properties or methods of objects that might be null.
+
+## Let function
+
+To handle null values and perform operations only on non-null types, you can use the safe call operator `?` together with the
+[`let` function](scope-functions.md#let). 
+
+They are useful to evaluate an expression, check the result for null, and execute code only if it's not null, avoiding manual null checks:
+
+```kotlin
+fun main() {
+//sampleStart
+    // Declares a list of nullable strings
+    val listWithNulls: List<String?> = listOf("Kotlin", null)
+
+    // Iterates over each item in the list
+    for (item in listWithNulls) {
+        // Checks if the item is null and only prints non-null values
+        item?.let { println(it) }
+    }
+    //Kotlin 
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+## Safe casts (`as?`)
+
+The regular Kotlin operator for [type casts](typecasts.md#unsafe-cast-operator) is the `as` operator. However, regular casts may result in an exception
+if the object is not of the target type. 
+
+The `as?` operator is the option to use safe casts. It tries to cast a value to the specified type and returns `null` if the value doesn't have the proper type:
+
+```kotlin
+fun main() {
+// SampleStart
+    // Declares a variable of type Any, which can hold any type of value
+    val a: Any = "Hello, Kotlin!"
+
+    // Safe casts to Int using 'as?' operator
+    val aInt: Int? = a as? Int
+
+    println(aInt)
+    // null
+// SampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+The code above prints `null` because `a` is not an `Int`, so the cast fails safely.
 
 ## Collections of a nullable type
 
 If you have a collection of elements of a nullable type and want to filter non-nullable elements, you can do so by using
-`filterNotNull`:
+the `filterNotNull()` function:
 
 ```kotlin
-val nullableList: List<Int?> = listOf(1, 2, null, 4)
-val intList: List<Int> = nullableList.filterNotNull()
+fun main() {
+    // SampleStart
+    // Declares a list containing some null and non-null integer values
+    val nullableList: List<Int?> = listOf(1, 2, null, 4)
+
+    // Filters out null values, resulting in a list of non-null integers
+    val intList: List<Int> = nullableList.filterNotNull()
+  
+    println(intList)
+    // [1, 2, 4]
+    // SampleEnd
+}
 ```
+{kotlin-runnable="true"}
 
 ## What's next?
 
