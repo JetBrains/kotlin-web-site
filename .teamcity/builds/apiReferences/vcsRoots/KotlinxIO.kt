@@ -6,7 +6,7 @@ import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 object KotlinxIO : GitVcsRoot({
   name = "kotlinx-io vcs root"
   url = "git@github.com:Kotlin/kotlinx-io.git"
-  branch = "refs/tags/$KOTLINX_IO_RELEASE_TAG"
+  branch = "refs/heads/ktl-1576-kotlinlang-api-ref"
   branchSpec = """
         +:refs/heads/(*)
         +:refs/tags/(*)
