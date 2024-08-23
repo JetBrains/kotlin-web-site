@@ -31,13 +31,13 @@ The new way of applying dead code elimination that works with the IR compiler is
   * `nodeDevelopmentRun`
   * `compileDevelopmentExecutableKotlinJs`
   * `compileDevelopmentLibraryKotlinJs`
-  * Other development tasks you recognize for the word "development" in their name
+  * Other Gradle tasks including "development" in their name
 * DCE is enabled when compiling for production, which corresponds to the following Gradle tasks:
   * `browserProductionRun`
   * `browserProductionWebpack`
   * `compileProductionExecutableKotlinJs`
   * `compileProductionLibraryKotlinJs`
-  * Other production tasks you recognize for the word "production" in their name
+  * Other Gradle tasks including "production" in their name
 
 With the @JsExport annotation, you can specify the declarations you want DCE to treat as roots.
 
