@@ -469,7 +469,7 @@ and `browserProductionWebpack` Gradle tasks.
 * `browserDevelopmentWebpack` creates development artifacts, which are larger in size, but take little time to create.
 As such, use the `browserDevelopmentWebpack` tasks during active development.
 
-* `browserProductionWebpack` applies [dead code elimination](javascript-dce.md) to the generated artifacts and minifies
+* `browserProductionWebpack` applies dead code elimination to the generated artifacts and minifies
 the resulting JavaScript file, which takes more time, but generates executables that are smaller in size. As such, use
 the `browserProductionWebpack` task when preparing your project for production use.
  

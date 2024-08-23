@@ -1,5 +1,11 @@
 [//]: # (title: Kotlin/JS dead code elimination)
 
+> The DCE tool is deprecated. The DCE tool was designed for the legacy JS backend, which is now obsolete. The current 
+> [JS IR backend](#dce-and-javascript-ir-compiler) supports dead code elimination out of the box, and the @JsExport feature allows specifying which Kotlin 
+> functions and classes to retain during tree shaking.
+>
+{type="warning"}
+
 The Kotlin Multiplatform Gradle plugin includes a _[dead code elimination](https://wikipedia.org/wiki/Dead_code_elimination)_ (_DCE_) tool.
 Dead code elimination is often also called _tree shaking_. It reduces the size or the resulting JavaScript code by
 removing unused properties, functions, and classes.
@@ -14,6 +20,26 @@ Unused declarations can appear in cases like:
 
 The Kotlin Multiplatform Gradle plugin handles DCE automatically when you build a **production bundle**, for example by using the
 `browserProductionWebpack` task. **Development bundling** tasks (like `browserDevelopmentWebpack`) don't include DCE.
+
+## DCE and JavaScript IR compiler
+
+The new way of applying dead code elimination that works with the IR compiler is:
+
+* DCE is disabled when compiling for development, which corresponds to the following Gradle tasks:
+  * `browserDevelopmentRun`
+  * `browserDevelopmentWebpack`
+  * `nodeDevelopmentRun`
+  * `compileDevelopmentExecutableKotlinJs`
+  * `compileDevelopmentLibraryKotlinJs`
+  * Other development tasks you recognize for the word "development" in their name
+* DCE is enabled when compiling for production, which corresponds to the following Gradle tasks:
+  * `browserProductionRun`
+  * `browserProductionWebpack`
+  * `compileProductionExecutableKotlinJs`
+  * `compileProductionLibraryKotlinJs`
+  * Other production tasks you recognize for the word "production" in their name
+
+With the @JsExport annotation, you can specify the declarations you want DCE to treat as roots.
 
 ## Exclude declarations from DCE
 
