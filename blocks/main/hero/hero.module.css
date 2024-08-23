@@ -71,10 +71,12 @@
     }
 
     .subtitle {
-        text-wrap: nowrap;
         @media (--ktl-tm) {
             text-align: center;
             margin-bottom: 32px;
+        }
+        @media (--ktl-tm-min) {
+            text-wrap: nowrap;
         }
     }
 
@@ -258,6 +260,9 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+    }
+    @media (--ktl-ms) {
+        transform: scale(0.95);
     }
 }
 
