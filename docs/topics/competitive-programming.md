@@ -101,7 +101,7 @@ fun main() {
 ```
 
 Note the use of Kotlin's
-[null-assertion operator](null-safety.md#the-operator) `!!`
+[null-assertion operator](null-safety.md#not-null-assertion-operator) `!!`
 after the [readLine()](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/read-line.html) function call.
 Kotlin's `readLine()` function is defined to return a
 [nullable type](null-safety.md#nullable-types-and-non-nullable-types)
