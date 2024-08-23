@@ -207,6 +207,7 @@
 			<toc-element accepts-web-file-names="basic-kotlin-native-app.html,kotlin-native-with-clion.html,targeting-multiple-platforms.html" topic="native-get-started.md"/>
 			<toc-element topic="native-gradle.md"/>
 			<toc-element topic="native-command-line-compiler.md"/>
+			<toc-element id="native-definition-file.md"/>
 			<toc-element toc-title="C interop">
 				<toc-element topic="native-c-interop.md"/>
 				<toc-element topic="mapping-primitive-data-types-from-c.md"/>

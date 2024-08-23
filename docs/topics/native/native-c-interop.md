@@ -58,177 +58,7 @@ Run the client:
 
 ## Create bindings for a new library
 
-To create bindings for a new library, start from creating a `.def` file.
-Structurally it's a simple property file, which looks like this:
-
-```c
-headers = png.h
-headerFilter = png.h
-package = png
-```
-
-Then run the `cinterop` tool with something like this (note that for host libraries that are not included
-in the sysroot search paths, headers may be needed):
-
-```bash
-cinterop -def png.def -compiler-option -I/usr/local/include -o png
-```
-
-This command will produce a `png.klib` compiled library and
-`png-build/kotlin` directory containing Kotlin source code for the library.
-
-If the behavior for a certain platform needs to be modified, you can use a format like
-`compilerOpts.osx` or `compilerOpts.linux` to provide platform-specific values
-to the options.
-
-Note that the generated bindings are generally platform-specific, so if you are developing for
-multiple targets, the bindings need to be regenerated.
-
-After the generation of bindings, they can be used by the IDE as a proxy view of the
-native library.
-
-For a typical Unix library with a config script, the `compilerOpts` will likely contain
-the output of a config script with the `--cflags` flag (maybe without exact paths).
-
-The output of a config script with `--libs` will be passed as a `-linkedArgs`  `kotlinc`
-flag value (quoted) when compiling.
-
-### Select library headers
-
-When library headers are imported to a C program with the `#include` directive,
-all of the headers included by these headers are also included in the program.
-So all header dependencies are included in generated stubs as well.
-
-This behavior is correct but it can be very inconvenient for some libraries. So
-it is possible to specify in the `.def` file which of the included headers are to
-be imported. The separate declarations from other headers can also be imported
-in case of direct dependencies.
-
-#### Filter headers by globs
-
-It is possible to filter headers by globs using filter properties from the `.def` file.
-They are treated as a space-separated list of globs.
-
-* To include declarations from headers, use the `headerFilter` property. If the included header matches any of the globs,
-  the declarations are included in the bindings.
-
-  The globs are applied to the header paths relative to the appropriate include path elements,
-  for example, `time.h` or `curl/curl.h`. So if the library is usually included with `#include <SomeLibrary/Header.h>`,
-  it would probably be correct to filter headers with the following filter:
-    
-  ```none
-  headerFilter = SomeLibrary/**
-  ```
-    
-  If `headerFilter` is not provided, all the headers are included. However, we encourage you to use `headerFilter`
-  and specify the glob as precisely as possible. In this case, the generated library contains only the necessary
-  declarations. It can help avoid various issues when upgrading Kotlin or tools in your development environment.
-
-* To exclude specific headers, use the `excludeFilter` property.
-  
-  It can be helpful to remove redundant or problematic headers and optimize compilation,
-  as declarations from the specified headers are not included into the bindings.
-
-  ```none
-  excludeFilter = SomeLibrary/time.h
-  ```
-  
-> If the same header is both included with `headerFilter`, and excluded with `excludeFilter`, the latter will have a higher
-> priority. The specified header will not be included into the bindings.
-> 
-{style="note"}
-
-#### Filter headers by module maps
-
-Some libraries have proper `module.modulemap` or `module.map` files in their
-headers. For example, macOS and iOS system libraries and frameworks do.
-The [module map file](https://clang.llvm.org/docs/Modules.html#module-map-language)
-describes the correspondence between header files and modules. When the module
-maps are available, the headers from the modules that are not included directly
-can be filtered out using the experimental `excludeDependentModules` option of the
-`.def` file:
-
-```c
-headers = OpenGL/gl.h OpenGL/glu.h GLUT/glut.h
-compilerOpts = -framework OpenGL -framework GLUT
-excludeDependentModules = true
-```
-
-When both `excludeDependentModules` and `headerFilter` are used, they are
-applied as an intersection.
-
-### C compiler and linker options
-
-Options passed to the C compiler (used to analyze headers, such as preprocessor definitions) and the linker
-(used to link final executables) can be passed in the definition file as `compilerOpts` and `linkerOpts`
-respectively. For example:
-
-```c
-compilerOpts = -DFOO=bar
-linkerOpts = -lpng
-```
-
-Target-specific options only applicable to the certain target can be specified as well:
-
-```c
-compilerOpts = -DBAR=bar
-compilerOpts.linux_x64 = -DFOO=foo1
-compilerOpts.macos_x64 = -DFOO=foo2
- ```
-
-With such a configuration, C headers will be analyzed with `-DBAR=bar -DFOO=foo1` on Linux and
-with `-DBAR=bar -DFOO=foo2` on macOS .
-Note that any definition file option can have both common and the platform-specific part.
-
-#### Linker errors
-
-Linker errors might occur when a Kotlin library depends on C or Objective-C libraries, for example, using the [CocoaPods integration](native-cocoapods.md).
-If dependent libraries aren't installed locally on the machine or configured explicitly in the project build script,
-the "Framework not found" error occurs.
-
-If you're a library author, you can help your users resolve linker errors with custom messages.
-To do that, add a `userSetupHint=message` property to your `.def` file or pass the `-Xuser-setup-hint` compiler option to `cinterop`.
-
-### Add custom declarations
-
-Sometimes it is required to add custom C declarations to the library before
-generating bindings (e.g., for [macros](#macros)). Instead of creating an
-additional header file with these declarations, you can include them directly
-to the end of the `.def` file, after a separating line, containing only the
-separator sequence `---`:
-
-```c
-headers = errno.h
-
----
-
-static inline int getErrno() {
-    return errno;
-}
-```
-
-Note that this part of the `.def` file is treated as part of the header file, so
-functions with the body should be declared as `static`.
-The declarations are parsed after including the files from the `headers` list.
-
-### Include a static library in your klib
-
-Sometimes it is more convenient to ship a static library with your product,
-rather than assume it is available within the user's environment.
-To include a static library into `.klib` use `staticLibrary` and `libraryPaths`
-clauses. For example:
-
-```c
-headers = foo.h
-staticLibraries = libfoo.a 
-libraryPaths = /opt/local/lib /usr/local/opt/curl/lib
-```
-
-When given the above snippet the `cinterop` tool will search `libfoo.a` in 
-`/opt/local/lib` and `/usr/local/opt/curl/lib`, and if it is found include the 
-library binary into `klib`. 
-
-When using such `klib` in your program, the library is linked automatically.
+To create bindings for a new library, first create and configure a [definition file](native-definition-file.md).
 
 ## Bindings
 
@@ -240,7 +70,7 @@ All the supported C types have corresponding representations in Kotlin:
     Kotlin counterpart with the same width.
 *   Pointers and arrays are mapped to `CPointer<T>?`.
 *   Enums can be mapped to either Kotlin enum or integral values, depending on
-    heuristics and the [definition file hints](#definition-file-hints).
+    heuristics and the [definition file settings](native-definition-file.md#configure-enums-generation).
 *   Structs and unions are mapped to types having fields available via the dot notation,
     i.e. `someStructInstance.field1`.
 *   `typedef` are represented as `typealias`.
@@ -556,7 +386,7 @@ Every C macro that expands to a constant is represented as a Kotlin property.
 Other macros are not supported. However, they can be exposed manually by
 wrapping them with supported declarations. E.g. function-like macro `FOO` can be
 exposed as function `foo` by
-[adding the custom declaration](#add-custom-declarations) to the library:
+[adding the custom declaration](native-definition-file.md#add-custom-declarations) to the library:
 
 ```c
 headers = library/base.h
@@ -567,24 +397,6 @@ static inline int foo(int arg) {
     return FOO(arg);
 }
 ```
-
-### Definition file hints
-
-The `.def` file supports several options for adjusting the generated bindings.
-
-*   `excludedFunctions` property value specifies a space-separated list of the names
-    of functions that should be ignored. This may be required because a function
-    declared in the C header is not generally guaranteed to be really callable, and
-    it is often hard or impossible to figure this out automatically. This option
-    can also be used to workaround a bug in the interop itself.
-
-*   `strictEnums` and `nonStrictEnums` properties values are space-separated
-    lists of the enums that should be generated as a Kotlin enum or as integral
-    values correspondingly. If the enum is not included into any of these lists,
-    then it is generated according to the heuristics.
-
-*    `noStringConversion` property value is space-separated lists of the functions whose
-     `const char*` parameters shall not be auto-converted as Kotlin string
 
 ### Portability
 

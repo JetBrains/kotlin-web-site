@@ -368,14 +368,14 @@ Learn more about [building native binaries](multiplatform-build-native-binaries.
 `cinterops` is a collection of descriptions for interop with native libraries.
 To provide an interop with a library, add an entry to `cinterops` and define its parameters:
 
-| **Name**         | **Description**                                       | 
-|------------------|-------------------------------------------------------|
-| `definitionFile` | The `.def` file describing the native API.                |
-| `packageName`    | Package prefix for the generated Kotlin API.          |
-| `compilerOpts`   | Options to pass to the compiler by the cinterop tool. |
-| `includeDirs`    | Directories to look for headers.                      |
-
-Learn more how to [configure interop with native languages](multiplatform-configure-compilations.md#configure-interop-with-native-languages).
+| **Name**         | **Description**                                                    | 
+|------------------|--------------------------------------------------------------------|
+| `definitionFile` | The `.def` file describing the native API.                         |
+| `packageName`    | Package prefix for the generated Kotlin API.                       |
+| `compilerOpts`   | Options to pass to the compiler by the cinterop tool.              |
+| `includeDirs`    | Directories to look for headers.                                   |
+| `header`         | Header to be included for the cinterop tool arguments              |
+| `headers`        | The list of headers to be included for the cinterop tool arguments |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -400,6 +400,11 @@ kotlin {
 
                 // A shortcut for includeDirs.allHeaders.
                 includeDirs("include/directory", "another/directory")
+
+                // Header files to be included for Cinterop tool arguments
+                // Usually should be the same as defined in '.def' file
+                header("path/to/header.h")
+                headers("path/to/header1.h", "path/to/header2.h")
             }
 
             val anotherInterop by cinterops.creating { /* ... */ }
@@ -432,6 +437,11 @@ kotlin {
 
                     // A shortcut for includeDirs.allHeaders.
                     includeDirs("include/directory", "another/directory")
+
+                    // Header files to be included for Cinterop tool arguments
+                    // Usually should be the same as defined in '.def' file
+                    header("path/to/header.h")
+                    headers("path/to/header1.h", "path/to/header2.h")
                 }
 
                 anotherInterop { /* ... */ }
@@ -443,6 +453,8 @@ kotlin {
 
 </tab>
 </tabs>
+
+For more cinterop properties, see [Definition file](native-definition-file.md#properties).
 
 ### Android targets
 

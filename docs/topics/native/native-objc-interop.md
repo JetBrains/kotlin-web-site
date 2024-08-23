@@ -33,6 +33,10 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a framewor
 * See [Build final native binaries](multiplatform-build-native-binaries.md#declare-binaries) to see how to declare binaries.
 * Check out the [Kotlin Multiplatform sample project](https://github.com/Kotlin/kmm-basic-sample) for an example.
 
+### Create bindings for a new library
+
+To create bindings for a new library, first create and configure a [definition file](native-definition-file.md).
+
 ### Hide Kotlin declarations from Objective-C and Swift
 
 > The `@HiddenFromObjC` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
