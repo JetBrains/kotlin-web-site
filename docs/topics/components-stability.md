@@ -2,14 +2,14 @@
 
 The Kotlin language and toolset are divided into many components such as the compilers for the JVM, JS and Native targets,
 the Standard Library, various accompanying tools and so on.
-Many of these components were officially released as **Stable**, which means that they are evolved 
-in the backward-compatible way following the [principles of _Comfortable Updates_ and _Keeping the Language Modern_](kotlin-evolution-principles.md).
+Many of these components were officially released as **Stable**, which means that they were evolved 
+in a backward-compatible way following the [principles of _Comfortable Updates_ and _Keeping the Language Modern_](kotlin-evolution-principles.md).
 
 Following the _Feedback Loop_ principle, we release many things early for the community to try out, 
 so a number of components are not yet released as **Stable**.
-Some of them are very early stage, some are more mature. 
-We mark them as **Experimental**, **Alpha** or **Beta** depending on how quickly each component is evolving
-and how much risk the users are taking when adopting it.
+Some of them are at a very early stage, some are more mature. 
+We mark them as **Experimental**, **Alpha** or **Beta** depending on how quickly each component evolves
+and the level of risk users take on when adopting it.
 
 ## Stability levels explained
 
@@ -59,58 +59,58 @@ A stable component may have an experimental subcomponent, for example:
 * a stable API may include experimental classes or functions;
 * a stable command-line tool may have experimental options.
 
-We make sure to document precisely which subcomponents are not stable.
+We make sure to document precisely which subcomponents are not **Stable**.
 We also do our best to warn users where possible and ask to opt in explicitly 
-to avoid accidental usages of features that have not been released as stable.
+to avoid the accidental use of features that have not been released as stable.
 
 ## Current stability of Kotlin components
 
-> By default, all new components are in the Experimental status.
+> By default, all new components have Experimental status.
 > 
 {type="note"}
 
 ### Kotlin compiler
 
-| **Component**                                                       | **Status** | **Status since version** | **Comment** |
-|---------------------------------------------------------------------|------------|--------------------------|-------------|
-| Kotlin/JVM                                                          | Stable     | 1.0.0                    |             |
-| Kotlin/Native                                                       | Stable     | 1.9.0                    |             |
-| Kotlin/JS                                                           | Stable     | 1.3.0                    |             |
-| Kotlin/Wasm                                                         | Alpha      | 1.9.20                   |             |
-| [Analysis API](https://kotlin.github.io/analysis-api/index_md.html) | Stable     |                          |             |
+| **Component**                                                       | **Status** | **Status since version** | **Comments** |
+|---------------------------------------------------------------------|------------|--------------------------|--------------|
+| Kotlin/JVM                                                          | Stable     | 1.0.0                    |              |
+| Kotlin/Native                                                       | Stable     | 1.9.0                    |              |
+| Kotlin/JS                                                           | Stable     | 1.3.0                    |              |
+| Kotlin/Wasm                                                         | Alpha      | 1.9.20                   |              |
+| [Analysis API](https://kotlin.github.io/analysis-api/index_md.html) | Stable     |                          |              |
 
 ### Core compiler plugins
 
-| **Component**                                    | **Status**   | **Status since version** | **Comment** |
-|--------------------------------------------------|--------------|--------------------------|-------------|
-| [All-open](all-open-plugin.md)                   | Stable       |                          |             |
-| [No-arg](no-arg-plugin.md)                       | Stable       |                          |             |
-| [SAM-with-receiver](sam-with-receiver-plugin.md) | Stable       |                          |             |
-| [kapt](kapt.md)                                  | Stable       |                          |             |
-| [Lombok](lombok.md)                              | Experimental | 1.5.20                   |             |
-| [Power-assert](power-assert.md)                  | Experimental | 2.0.0                    |             |
+| **Component**                                    | **Status**   | **Status since version** | **Comments** |
+|--------------------------------------------------|--------------|--------------------------|--------------|
+| [All-open](all-open-plugin.md)                   | Stable       |                          |              |
+| [No-arg](no-arg-plugin.md)                       | Stable       |                          |              |
+| [SAM-with-receiver](sam-with-receiver-plugin.md) | Stable       |                          |              |
+| [kapt](kapt.md)                                  | Stable       |                          |              |
+| [Lombok](lombok.md)                              | Experimental | 1.5.20                   |              |
+| [Power-assert](power-assert.md)                  | Experimental | 2.0.0                    |              |
 
 ### Kotlin libraries
 
-| **Component**         | **Status** | **Status since version** | **Comment** |
-|-----------------------|------------|--------------------------|-------------|
-| kotlin-stdlib         | Stable     | 1.0                      |             |
-| kotlinx-coroutines    | Stable     | 1.3.0                    |             |
-| kotlinx-serialization | Stable     | 1.0.0                    |             |
-| kotlin-reflect (JVM)  | Beta       | 1.0                      |             |
-| kotlinx-datetime      | Alpha      | 0.2.0                    |             |
-| kotlinx-io            | Alpha      | 0.2.0                    |             |
+| **Component**         | **Status** | **Status since version** | **Comments** |
+|-----------------------|------------|--------------------------|--------------|
+| kotlin-stdlib         | Stable     | 1.0                      |              |
+| kotlinx-coroutines    | Stable     | 1.3.0                    |              |
+| kotlinx-serialization | Stable     | 1.0.0                    |              |
+| kotlin-reflect (JVM)  | Beta       | 1.0                      |              |
+| kotlinx-datetime      | Alpha      | 0.2.0                    |              |
+| kotlinx-io            | Alpha      | 0.2.0                    |              |
 
 ### Kotlin Multiplatform 
 
-| **Component**                                    | **Status**   | **Status since version** | **Comment**                                                                |
+| **Component**                                    | **Status**   | **Status since version** | **Comments**                                                               |
 |--------------------------------------------------|--------------|--------------------------|----------------------------------------------------------------------------|
 | Kotlin Multiplatform                             | Stable       | 1.9.20                   |                                                                            |
 | Kotlin Multiplatform plugin for Android Studio   | Beta         | 0.8.0                    | [Versioned separately from the language](multiplatform-plugin-releases.md) |
 
 ### Kotlin/Native
 
-| **Component**                                | **Status** | **Status since version** | **Comment**                             |
+| **Component**                                | **Status** | **Status since version** | **Comments**                            |
 |----------------------------------------------|------------|--------------------------|-----------------------------------------|
 | Kotlin/Native Runtime                        | Stable     | 1.9.20                   |                                         |
 | Kotlin/Native interop with C and Objective-C | Beta       | 1.3                      |                                         |
@@ -118,11 +118,11 @@ to avoid accidental usages of features that have not been released as stable.
 | cinterop klib binaries                       | Beta       | 1.3                      |                                         |
 | CocoaPods integration                        | Stable     | 1.9.20                   |                                         |
 
-> For details about Kotlin/Native targets support, refer to [](native-target-support.md).
+> For details about Kotlin/Native targets support, see [](native-target-support.md).
 
 ### Language tools
 
-| **Component**                         | **Status**   | **Status since version** | **Comment**                                    |
+| **Component**                         | **Status**   | **Status since version** | **Comments**                                   |
 |---------------------------------------|--------------|--------------------------|------------------------------------------------|
 | Scripting syntax and semantics        | Alpha        | 1.2                      |                                                |
 | Scripting embedding and extension API | Beta         | 1.5                      |                                                |

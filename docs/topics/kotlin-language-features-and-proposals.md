@@ -1,14 +1,14 @@
 [//]: # (title: Kotlin language features and proposals)
-[//]: # (description: Learn about Kotlin features lifecycle. 
+[//]: # (description: Learn about the lifecycle of Kotlin features. 
 The page contains the full list of Kotlin language features and design proposals.)
 
 JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md),
-driven by the pragmatic design. 
+guided by pragmatic design. 
 You can find the list of language feature proposals and their statuses.
 
 ## Kotlin language features lifecycle
 
-The Kotlin language feature can have one of the following statuses:
+A Kotlin language feature can have one of the following statuses:
 
 * **Exploration and design**. We are considering the introduction of a new feature to the language.
   This involves discussing how it would integrate with existing features, gathering use cases, 
@@ -18,24 +18,24 @@ The Kotlin language feature can have one of the following statuses:
   Typically, ideas are documented as YouTrack issues, where the discussion continues.
 
 * **KEEP discussion**. We are fairly certain that the feature should be added to the language.
-  We aim to specify motivation, use-cases, design, and other important details in a document called _KEEP_. 
+  We aim to provide a motivation, use-cases, design, and other important details in a document called a _KEEP_. 
   We expect feedback from users to focus on discussing all the information provided in the KEEP.
 
 * **In preview**. A feature prototype is ready, and you can enable it using a feature-specific compiler option.
   We seek feedback on your experience with the feature, including how easily it integrates into your codebase,
   how it interacts with existing code, and any IDE support issues or suggestions.
-  The feature's design may change significantly, or it could be completely revoked based on feedback. When feature is 
-  _in preview_, it has one of the [stability levels](components-stability.md#stability-levels-explained).
+  The feature's design may change significantly, or it could be completely revoked based on feedback. When a feature is 
+  _in preview_, it has a [stability level](components-stability.md#stability-levels-explained).
 
 * **Stable**. The language feature is now a first-class citizen in the Kotlin language.
-  We guarantee its backward compatibility and tooling support.
+  We guarantee its backward compatibility and that we'll provide tooling support.
 
 * **Revoked**. We have revoked the proposal and will not implement the feature in the Kotlin language.
-  We may revoke a feature that is _in preview_ if it does not fit the language.
+  We may revoke a feature that is _in preview_ if it is not a good fit for Kotlin.
 
 ## List of Kotlin language features and design proposals
 
-> This table contains Kotlin language features and proposals starting from 1.7.0.
+> This table contains Kotlin language features and proposals starting from Kotlin 1.7.0.
 >
 {type="note"}
 

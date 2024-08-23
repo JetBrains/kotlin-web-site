@@ -423,18 +423,16 @@
     <toc-element toc-title="Other resources">
         <toc-element id="faq.md"/>
         <toc-element toc-title="Kotlin compatibility guides">
-            <toc-element toc-title="Compatibility">
-                <toc-element id="compatibility-guide-20.md"/>
-                <toc-element id="compatibility-guide-19.md"/>
-                <toc-element id="compatibility-guide-18.md"/>
-                <toc-element id="compatibility-guide-1720.md"/>
-                <toc-element id="compatibility-guide-17.md"/>
-                <toc-element id="compatibility-guide-16.md"/>
-                <toc-element id="compatibility-guide-15.md"/>
-                <toc-element id="compatibility-guide-14.md"/>
-                <toc-element id="compatibility-guide-13.md" />
-                <toc-element id="compatibility-modes.md"/>
-            </toc-element>
+            <toc-element id="compatibility-guide-20.md"/>
+            <toc-element id="compatibility-guide-19.md"/>
+            <toc-element id="compatibility-guide-18.md"/>
+            <toc-element id="compatibility-guide-1720.md"/>
+            <toc-element id="compatibility-guide-17.md"/>
+            <toc-element id="compatibility-guide-16.md"/>
+            <toc-element id="compatibility-guide-15.md"/>
+            <toc-element id="compatibility-guide-14.md"/>
+            <toc-element id="compatibility-guide-13.md" />
+            <toc-element id="compatibility-modes.md"/>
         </toc-element>
         <toc-element toc-title="Kotlin Foundation">
             <toc-element toc-title="Kotlin Foundation" href="https://kotlinfoundation.org/"/>

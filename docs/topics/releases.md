@@ -33,7 +33,7 @@ plugins {
     kotlin("<...>") version "%kotlinVersion%"
     // For example, if your target environment is JVM:
     // kotlin("jvm") version "%kotlinVersion%"
-    // If you target is Kotlin Multiplatform:
+    // If your target is Kotlin Multiplatform:
     // kotlin("multiplatform") version "%kotlinVersion%"
 }
 ```
@@ -47,7 +47,7 @@ plugins {
     id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
     // For example, if your target environment is JVM: 
     // id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
-    // If you target is Kotlin Multiplatform:
+    // If your target is Kotlin Multiplatform:
     // id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
 }
 ```
