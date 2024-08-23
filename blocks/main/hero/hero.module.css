@@ -40,12 +40,14 @@
         border-left: 0px;
         margin-left: 0;
         padding-right: 0;
+        padding-left: 0;
         margin-top: 120px;
     }
     .developerContent {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: row;
     }
     .developerLogo {
         margin: 0;
@@ -58,6 +60,63 @@
         margin-right: 8px;
     }
 
+    .grid {
+        display: block;
+        position: relative;
+        @media (--ktl-tm-min) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    .subtitle {
+        text-wrap: nowrap;
+        @media (--ktl-tm) {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+    }
+
+    .imageMobile {
+        display: none;
+        @media (--ktl-tm) {
+            display: block;
+            width: 100%;
+            max-width: 260px;
+            margin: 0 auto;
+            height: auto;
+        }
+    }
+
+    .imageDesktop {
+        display: block;
+        @media (--ktl-tm) {
+            display: none;
+            width: 100%;
+        }
+        @media screen and (--ktl-tm) and (orientation: landscape) {
+            display: none;
+            width: 100%;
+        }
+    }
+
+    .developer {
+        @media (--ktl-tm) {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.20);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+            padding: 24px 0;
+            margin-left: 0;
+            margin-top: 72px;
+        }
+
+    }
 }
 
 .heroText {
