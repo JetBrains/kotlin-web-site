@@ -26,8 +26,8 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
 
     return (
         <ThemeProvider theme={'dark'}>
-            <section className={cn(styles.heroSection, styles.heroSectionAb)}>
-                <div className={cn('ktl-layout', 'ktl-layout--center')}>
+            <section className={cn(styles.heroSection)}>
+                <div className={cn('ktl-layout', 'ktl-layout--center', 'hero-b')}>
                     <div className={styles.grid}>
                         <div className={styles.content}>
                             <h1 className={cn(darkTextCn('rs-hero'), styles.heroText)}>{title}</h1>

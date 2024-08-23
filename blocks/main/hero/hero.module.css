@@ -12,9 +12,10 @@
     @media (--ktl-ds-min) {
         padding: 96px 0;
     }
+
 }
 
-.heroSectionAb {
+.heroSection[data-optimizely-id='hero-ab'] {
     text-align: center;
     @media (--ktl-ts-min) {
         .content {
