@@ -183,6 +183,9 @@ Here is a complete list of options for Gradle tasks:
 | `suppressWarnings` | Don't generate warnings |  | false |
 | `verbose` | Enable verbose logging output. Works only when the [Gradle debug log level enabled](https://docs.gradle.org/current/userguide/logging.html) |  | false |
 | `freeCompilerArgs` | A list of additional compiler arguments. You can use experimental `-X` arguments here too. See an [example](#example-of-additional-arguments-usage-via-freecompilerargs) |  | [] |
+| `apiVersion`      | Restrict the use of declarations to those from the specified version of bundled libraries | "1.6", "1.7", "1.8", "1.9", "2.0", "2.1" (EXPERIMENTAL) |               |
+| `languageVersion` | Provide source compatibility with the specified version of Kotlin                         | "1.6", "1.7", "1.8", "1.9", "2.0", "2.1" (EXPERIMENTAL) |               |
+
 
 > We are going to deprecate the attribute `freeCompilerArgs` in future releases. If you miss some option in the Kotlin Gradle DSL,
 > please, [file an issue](https://youtrack.jetbrains.com/newissue?project=kt).
@@ -232,13 +235,6 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 
 </tab>
 </tabs>
-
-### Attributes common to JVM and JS
-
-| Name              | Description                                                                               | Possible values                                         | Default value |
-|-------------------|-------------------------------------------------------------------------------------------|---------------------------------------------------------|---------------|
-| `apiVersion`      | Restrict the use of declarations to those from the specified version of bundled libraries | "1.6", "1.7", "1.8", "1.9", "2.0", "2.1" (EXPERIMENTAL) |               |
-| `languageVersion` | Provide source compatibility with the specified version of Kotlin                         | "1.6", "1.7", "1.8", "1.9", "2.0", "2.1" (EXPERIMENTAL) |               |
 
 #### Example of setting a languageVersion
 
