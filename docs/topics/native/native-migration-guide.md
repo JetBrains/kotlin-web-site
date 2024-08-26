@@ -1,5 +1,10 @@
 [//]: # (title: Migrate to the new memory manager)
 
+> Support for the legacy memory manager has been completely removed in Kotlin 1.9.20. Migrate your projects to 
+> the current memory model enabled by default since Kotlin 1.7.20.
+>
+{type="note"}
+
 This guide compares the new [Kotlin/Native memory manager](native-memory-manager.md) with the legacy one and
 describes how to migrate your projects.
 
@@ -73,19 +78,6 @@ To support the new memory manager, remove usages of the affected API:
 | [The `MutableData` class](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-mutable-data/)                                 | Use any regular collection instead.                                                                                                                               |
 | [The `WorkerBoundReference<out T : Any>` class](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-worker-bound-reference/) | Use `T` directly.                                                                                                                                                 |
 | [The `DetachedObjectGraph<T>` class](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-detached-object-graph/)             | Use `T` directly. To pass the value through the C interop, use [the StableRef class](https://kotlinlang.org/api/latest/jvm/stdlib/kotlinx.cinterop/-stable-ref/). |
-
-## Support both new and legacy memory managers
-
-If you're a library author and need to maintain support for the legacy memory manager or want to have a fallback in case of
-issues with the new memory manager, you can temporarily support code for both new and legacy memory managers.
-
-To ignore deprecation warnings, do one of the following:
-
-* Annotate usages of the deprecated API with `@OptIn(FreezingIsDeprecated::class)`.
-* Apply `languageSettings.optIn("kotlin.native.FreezingIsDeprecated")` to all the Kotlin source sets in Gradle.
-* Pass the compiler flag `-opt-in=kotlin.native.FreezingIsDeprecated`.
-
-See [Opt-in requirements](opt-in-requirements.md) for more details.
 
 ## What's next
 
