@@ -100,9 +100,10 @@ external fun newC()
 
 ### @JsExport annotation
 
-> The `@JsExport` annotation is currently marked as experimental. Its design may change in future versions.
+> This feature is [Experimental](components-stability.md#stability-levels-explained).
+> Its design may change in future versions.
 >
-{type="note"} 
+{type="warning"} 
 
 By applying the `@JsExport` annotation to a top-level declaration (like a class or function), you make the Kotlin
 declaration available from JavaScript. The annotation exports all nested declarations with the name given in Kotlin.
@@ -111,12 +112,49 @@ It can also be applied on file-level using `@file:JsExport`.
 To resolve ambiguities in exports (like overloads for functions with the same name), you can use the `@JsExport`
 annotation together with `@JsName` to specify the names for the generated and exported functions.
 
-The `@JsExport` annotation is available in the current default compiler backend and the new [IR compiler backend](js-ir-compiler.md).
-If you are targeting the IR compiler backend, you **must** use the `@JsExport` annotation to make your functions visible
-from Kotlin in the first place.
+In the current [IR compiler backend](js-ir-compiler.md), the `@JsExport` annotation is the only way to make your functions
+visible from Kotlin.
 
 For multiplatform projects, `@JsExport` is available in common code as well. It only has an effect when compiling for
 the JavaScript target, and allows you to also export Kotlin declarations that are not platform specific.
+
+### @JsStatic
+
+> This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
+> Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-18891/JS-provide-a-way-to-declare-static-members-JsStatic).
+>
+{type="warning"}
+
+The `@JsStatic` annotation instructs the compiler to generate additional static methods for the target declaration.
+This helps you use static members from your Kotlin code directly in JavaScript.
+
+You can apply the `@JsStatic` annotation to functions defined in named objects, as well as in companion objects declared
+inside classes and interfaces. If you use this annotation, the compiler will generate both a static method of the object
+and an instance method in the object itself. For example:
+
+```kotlin
+// Kotlin
+class C {
+    companion object {
+        @JsStatic
+        fun callStatic() {}
+        fun callNonStatic() {}
+    }
+}
+```
+
+Now, the `callStatic()` function is static in JavaScript while the `callNonStatic()` function is not:
+
+```javascript
+// JavaScript
+C.callStatic();              // Works, accessing the static function
+C.callNonStatic();           // Error, not a static function in the generated JavaScript
+C.Companion.callStatic();    // Instance method remains
+C.Companion.callNonStatic(); // The only way it works
+```
+
+It's also possible to apply the `@JsStatic` annotation to a property of an object or a companion object, making its getter
+and setter methods static members in that object or the class containing the companion object.
 
 ## Kotlin types in JavaScript
 
@@ -162,4 +200,3 @@ Additionally, it is important to know that:
 
 * Kotlin preserves lazy object initialization in JavaScript.
 * Kotlin does not implement lazy initialization of top-level properties in JavaScript.
-* Creating Kotlin collections from JavaScript is currently unavailable.

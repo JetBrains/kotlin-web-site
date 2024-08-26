@@ -1,8 +1,10 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
+<!--
 <microformat>
     <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
 </microformat>
+-->
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
 
@@ -38,8 +40,9 @@ check [our instructions on how to configure your build to support this version](
 
 ## Build details
 
-<!-- _No preview versions are currently available._ -->
+ _No preview versions are currently available._ 
 
+<!--
 <table>
     <tr>
         <th>Build info</th>
@@ -56,3 +59,4 @@ check [our instructions on how to configure your build to support this version](
         </td>
     </tr>
 </table>
+-->

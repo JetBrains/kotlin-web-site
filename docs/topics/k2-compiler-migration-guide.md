@@ -525,7 +525,7 @@ class Expanded                                  // Visibility is public by defau
 
 Starting with Kotlin 2.0.0, the Kotlin K2 compiler is enabled by default.
 
-To upgrade the Kotlin version, change it to 2.0.0 in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
+To upgrade the Kotlin version, change it to 2.0.0 or a later release in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
 [Maven](maven.md#configure-and-enable-the-plugin) build scripts.
 
 To have the best experience with IntelliJ IDEA or Android Studio, consider [enabling K2 mode](#support-in-ides)
@@ -592,11 +592,11 @@ by your build system only.
 
 ## Try the Kotlin K2 compiler in the Kotlin Playground
 
-The Kotlin Playground supports the 2.0.0 release. [Check it out!](https://pl.kotl.in/czuoQprce)
+The Kotlin Playground supports Kotlin 2.0.0 and later releases. [Check it out!](https://pl.kotl.in/czuoQprce)
 
 ## How to roll back to the previous compiler
 
-To use the previous compiler in Kotlin 2.0.0, either:
+To use the previous compiler in Kotlin 2.0.0 and later releases, either:
 
 * In your `build.gradle.kts` file, [set your language version](gradle-compiler-options.md#example-of-setting-a-languageversion) to `1.9`.
 
@@ -1282,12 +1282,12 @@ for further reading. Changes listed with an asterisk (*) next to the Issue ID ar
 
 The following Kotlin releases have support for the new K2 compiler:
 
-| Kotlin release | Stability level |
-|----------------|-----------------|
-| 2.0.0          | Stable          |
-| 1.9.20–1.9.25  | Beta            |
-| 1.9.0–1.9.10   | JVM is Beta     |
-| 1.7.0–1.8.22   | Alpha           |
+| Kotlin release        | Stability level |
+|-----------------------|-----------------|
+| 2.0.0–%kotlinVersion% | Stable          |
+| 1.9.20–1.9.25         | Beta            |
+| 1.9.0–1.9.10          | JVM is Beta     |
+| 1.7.0–1.8.22          | Alpha           |
 
 ## Compatibility with Kotlin libraries
 
