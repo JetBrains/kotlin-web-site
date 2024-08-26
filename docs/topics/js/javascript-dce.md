@@ -1,8 +1,8 @@
 [//]: # (title: Kotlin/JS dead code elimination)
 
 > The DCE tool is deprecated. The DCE tool was designed for the legacy JS backend, which is now obsolete. The current 
-> [JS IR backend](#dce-and-javascript-ir-compiler) supports dead code elimination out of the box, and the @JsExport feature allows specifying which Kotlin 
-> functions and classes to retain during tree shaking.
+> [JS IR backend](#dce-and-javascript-ir-compiler) supports dead code elimination out of the box, and the @JsExport annotation allows specifying which Kotlin 
+> functions and classes to retain during DCE.
 >
 {type="warning"}
 
