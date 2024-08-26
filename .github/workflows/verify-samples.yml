@@ -2,9 +2,7 @@ name: Verify samples
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches: [ dkrasnov/fix-branch ]
 jobs:
   verify_samples:
     runs-on: ubuntu-latest
@@ -15,7 +13,7 @@ jobs:
           java-version: '17'
           distribution: 'zulu'
       - name: Run a verifier
-        uses: zoobestik/kotlin-samples-verifier@master
+        uses: dkrasnoff/kotlin-samples-verifier@master
         with:
           push-repository: 'https://github.com/JetBrains/kotlin-compiler-server'
           tag-filter: '#tag="code" & kotlin-runnable="true" & !validate="false"'
