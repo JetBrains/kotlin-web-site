@@ -28,7 +28,7 @@ An entry point of a Kotlin application is the `main` function:
 
 ```kotlin
 fun main() {
-    println("Hello world!")
+    println("Hello world from Dima!")
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-hello-world"}
