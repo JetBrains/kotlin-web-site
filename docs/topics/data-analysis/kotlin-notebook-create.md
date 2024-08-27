@@ -70,7 +70,7 @@ Congratulations! You have just created your first Kotlin Notebook.
 
 Starting from IntelliJ IDEA 2024.1.1, you can also create a Kotlin Notebook as a scratch file.
 
-[Scratch files](https://www.jetbrains.com/help/idea/scratches.html#create-scratch-file) are temporary files that allow 
+[Scratch files](https://www.jetbrains.com/help/idea/scratches.html#create-scratch-file) allow 
 you to test small pieces of code without creating a new project or modifying an existing one.
 
 To create a scratch Kotlin Notebook:
