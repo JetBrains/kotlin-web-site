@@ -66,6 +66,20 @@ Here, you will learn how to create your first Kotlin Notebook, perform simple op
 
 Congratulations! You have just created your first Kotlin Notebook.
 
+## Create a scratch Kotlin Notebook
+
+Starting from IntelliJ IDEA 2024.1.1, you can also create a Kotlin Notebook as a scratch file.
+
+[Scratch files](https://www.jetbrains.com/help/idea/scratches.html#create-scratch-file) are temporary files that allow 
+you to test small pieces of code without creating a new project or modifying an existing one.
+
+To create a scratch Kotlin Notebook:
+
+1. Click **File | New | Scratch File**.
+2. Select **Kotlin Notebook** from the **New Scratch File** list.
+
+![Scratch notebook](kotlin-notebook-scratch-file.png){width=400}
+
 ## Next step
 
 In the next part of the tutorial, you will learn how to add dependencies to a Kotlin Notebook.
