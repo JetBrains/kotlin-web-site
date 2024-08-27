@@ -25,7 +25,7 @@ object KotlinxIOBuildApiReference : BuildType({
     }
 
     dependencies {
-        dependsOnDokkaTemplate(KotlinxIOPrepareDokkaTemplates, "core/dokka-templates")
+        dependsOnDokkaTemplate(KotlinxIOPrepareDokkaTemplates)
     }
 
     steps {
