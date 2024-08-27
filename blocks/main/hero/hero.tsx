@@ -42,7 +42,13 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
                                 <div className={styles.developer}>
                                     <div className={styles.developerContent}>
                                         <div className={cn(darkTextCn('rs-text-2', { hardness: 'hard' }), styles.developerCaptionAb)}>Developed by</div>
-                                        <img src={JBLogo.src} alt="jetbrains logo" className={styles.developerLogo} />{' '}
+                                        <a
+                                            href="https://www.jetbrains.com/"
+                                            target={'_blank'}
+                                            rel={'noreferrer noopener'}
+                                        >
+                                            <img src={JBLogo.src} alt="jetbrains logo" className={styles.developerLogo} />{' '}
+                                        </a>
                                         <div className={cn(darkTextCn('rs-text-3', { hardness: 'hard' }), styles.developerCaption)}>
                                             Kotlin, developed by&nbsp;
                                             <a
