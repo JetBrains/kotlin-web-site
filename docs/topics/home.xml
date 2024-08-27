@@ -19,8 +19,6 @@
             <title>First steps</title>
             <a href="basic-syntax.md" description="A quick introduction to Kotlin syntax: keywords, operators, program structure">Basic syntax</a>
             <a href="kotlin-tour-welcome.md" description="Take a tour of the fundamentals of the Kotlin programming language">Kotlin tour</a>
-            <a href="koans.md" description="Programming exercises to get you familiar with Kotlin">Koans</a>
-            <a href="command-line.md" description="Download and install the Kotlin compiler">Command-line compiler</a>
         </main-group>
         <highlighted-group>
             <title>Kotlin Multiplatform</title>
