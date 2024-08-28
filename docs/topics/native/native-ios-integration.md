@@ -252,10 +252,10 @@ In a _retain cycle_, a number of objects refer each other using strong reference
 ![Retain cycles](native-retain-cycle.png){height=200}
 
 Kotlin's tracing GC and Objective-C's ARC handle retain cycles differently. When objects become unreachable, tracing GC
-can properly reclaim such cycles, while Objective-C's ARC cannot Therefore, retain cycles of Kotlin objects can be reclaimed,
+can properly reclaim such cycles, while Objective-C's ARC cannot. Therefore, retain cycles of Kotlin objects can be reclaimed,
 while [retain cycles of Swift/Objective-C objects cannot](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting/#Strong-Reference-Cycles-Between-Class-Instances).
 
-Consider the case when a retain cycles contains both Objective-C and Kotlin objects:
+Consider the case when a retain cycle contains both Objective-C and Kotlin objects:
 
 ![Retain cycles with Objective-C and Kotlin objects](native-objc-kotlin-retain-cycles.png){height=150}
 
