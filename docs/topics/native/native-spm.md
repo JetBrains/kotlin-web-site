@@ -167,9 +167,10 @@ To set up the publishing of an XCFramework:
 7. Push the `Package.swift` file to your remote repository. Make sure to create and push a Git tag with the
    semantic version of the package.
 
-### Add the package dependency
+### Add a package dependency
 
-Now that both files are accessible, you can add the package dependency:
+Now that both files are accessible, you can add a package dependency to an existing client iOS project or create a new
+project. To add a package dependency:
 
 1. In Xcode, choose **File | Add Package Dependencies**.
 2. In the search field, enter the URL of the Git repository with the `Package.swift` file inside:
@@ -188,7 +189,7 @@ Now that both files are accessible, you can add the package dependency:
 
 To check that everything is set up correctly, test the import in Xcode:
 
-1. In your project, navigate to the `ContentView.swift` file.
+1. In your project, navigate to your UI view file, for example, `ContentView.swift`.
 2. Replace the code with the following snippet:
    
     ```Swift
