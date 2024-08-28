@@ -206,4 +206,4 @@ Then, compile the test binary with the `-e testlauncher.mainBackground` compiler
 ## What's next
 
 * [Migrate from the legacy memory manager](native-migration-guide.md)
-* [Learn about the specifics of iOS memory management](native-ios-memory-management.md)
+* [Check the specifics of integration with Swift/Objective-C ARC](native-arc-integration.md)

@@ -16,7 +16,8 @@ Some other resources you might find useful:
 
 * The [Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia), a collection of examples
   on how to use Kotlin declarations in Swift code. 
-* The [Specifics of iOS memory management](native-ios-memory-management.md) section, covering details of memory management between iOS and Kotlin. 
+* The [Integration with Swift/Objective-C ARC](native-arc-integration.md) section, covering the details of integration
+  between Kotlin's tracing GC and Objective-C's ARC.
 
 ## Usage
 

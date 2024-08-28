@@ -147,7 +147,7 @@
             <toc-element id="multiplatform-ios-dependencies.md" toc-title="For iOS target platforms"/>
         </toc-element>
         <toc-element toc-title="Set up iOS integration">
-            <toc-element id="multiplatform-ios-integration-overview.md" toc-title="Choose integration method" />
+            <toc-element id="multiplatform-ios-integration-overview.md" toc-title="Choose integration method"/>
             <toc-element id="multiplatform-direct-integration.md"/>
             <toc-element toc-title="SPM export" id="native-spm.md"/>
             <toc-element toc-title="CocoaPods integration">
@@ -241,7 +241,7 @@
             <toc-element id="native-dynamic-libraries.md"/>
             <toc-element toc-title="Memory manager">
                 <toc-element id="native-memory-manager.md"/>
-                <toc-element id="native-ios-memory-management.md" toc-title="Integration with ARC" accepts-web-file-names="native-ios-integration.html"/>
+                <toc-element id="native-arc-integration.md" toc-title="Integration with ARC" accepts-web-file-names="native-ios-integration.html"/>
                 <toc-element id="native-migration-guide.md" toc-title="Migration guide"/>
             </toc-element>
             <toc-element id="native-debugging.md"/>
