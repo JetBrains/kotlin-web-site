@@ -3,6 +3,7 @@ package builds.kotlinlang.buidTypes
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.CheckoutMode
+import jetbrains.buildServer.configs.kotlin.buildFeatures.notifications
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.triggers.schedule
 
@@ -72,6 +73,21 @@ object FetchBlogNews : BuildType({
                 echo "##teamcity[setParameter name='env.UPDATE_TIME' value='${'$'}UPDATE_TIME']"
                 node ./$SCRIPT_PATH/index.js
             """.trimIndent()
+        }
+    }
+
+    features {
+        notifications {
+            notifierSettings = slackNotifier {
+                connection = "PROJECT_EXT_486"
+                sendTo = "#kotlin-web-site-e2e-tests"
+                messageFormat = simpleMessageFormat()
+            }
+            branchFilter = "+:<default>"
+            buildFailedToStart = true
+            buildFailed = true
+            firstFailureAfterSuccess = true
+            buildProbablyHanging = true
         }
     }
 })

@@ -745,7 +745,7 @@ Since the previous release, the Kotlin documentation has received some notable c
 
 ### New and updated tutorials
 
-* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html) – learn about cross-platform mobile development with Kotlin and create an app that works on both Android and iOS.
+* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html) – learn about cross-platform mobile development with Kotlin and create an app that works on both Android and iOS.
 * [Build a web application with React and Kotlin/JS](js-react.md) – create a browser app exploring Kotlin's DSLs and features of a typical React program.
 
 ### Changes in release documentation

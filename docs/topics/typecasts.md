@@ -174,7 +174,7 @@ fun runProcessor(): Processor? {
 
 ### Exception handling
 
-Smart cast information is passed on to `catch` and `finally` blocks. This change makes your code safer
+Smart cast information is passed on to `catch` and `finally` blocks. This makes your code safer
 as the compiler tracks whether your object has a nullable type. For example:
 
 ```kotlin

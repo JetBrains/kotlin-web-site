@@ -15,8 +15,129 @@ with available Gradle, Xcode, and Android Gradle plugin versions:
 
 | Kotlin version | Gradle    | Android Gradle plugin | Xcode |
 |----------------|-----------|-----------------------|-------|
+| 2.0.20         | 7.5-8.8*  | 7.4.2–8.5             | 15.3  |
 | 2.0.0          | 7.5-8.5   | 7.4.2–8.3             | 15.3  |
 | 1.9.20         | 7.5-8.1.1 | 7.4.2–8.2             | 15.0  |
+
+> Kotlin 2.0.20 is fully compatible with Gradle 6.8.3 through 8.6.
+> Gradle 8.7 and 8.8 are also supported, but you may see deprecation warnings in your multiplatform projects
+> calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets). 
+> For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
+> 
+{type="warning"}
+
+## Deprecated compatibility with Kotlin Multiplatform Gradle plugin and Gradle Java plugins
+
+**What's changed?**
+
+Due to compatibility issues between the Kotlin Multiplatform Gradle plugin and the Gradle plugins
+[Java](https://docs.gradle.org/current/userguide/java_plugin.html),
+[Java Library](https://docs.gradle.org/current/userguide/java_library_plugin.html),
+and [Application](https://docs.gradle.org/current/userguide/application_plugin.html),
+there is now a deprecation warning when you apply these plugins to the same project. The warning also appears when another
+Gradle plugin in your multiplatform project applies a Gradle Java plugin. For example, the [Spring Boot Gradle Plugin](https://docs.spring.io/spring-boot/gradle-plugin/index.html)
+automatically applies the Application plugin.
+In future Kotlin releases, the warning will be increased to an error.
+
+We've added this deprecation warning due to fundamental compatibility issues between Kotlin Multiplatform's project model
+and Gradle's Java ecosystem plugins. Gradle's Java ecosystem plugins currently don't take into account that other plugins may:
+
+* Also publish or compile for the JVM target in a different way than the Java ecosystem plugins.
+* Have two different JVM targets in the same project, such as JVM and Android.
+* Have a complex multiplatform project structure with potentially multiple non-JVM targets.
+
+Unfortunately, Gradle doesn't currently provide any API to address these issues.
+
+We previously used some workarounds in Kotlin Multiplatform to help with the integration of Java ecosystem plugins.
+However, these workarounds never truly solved the compatibility issues, and since the release of Gradle 8.8, these workarounds
+are no longer possible. For more information, see our [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
+
+While we don't yet know exactly how to resolve this compatibility problem, we are committed to continuing support for
+some form of Java source compilation in your Kotlin Multiplatform projects. At a minimum, we will support the compilation
+of Java sources and using Gradle's [`java-base`](https://docs.gradle.org/current/javadoc/org/gradle/api/plugins/JavaBasePlugin.html) plugin within your multiplatform projects.
+
+**What's the best practice now?**
+
+If you see this deprecation warning in your multiplatform project, we recommend that you:
+1. Determine whether you actually need the Gradle Java plugin in your project. If not, consider removing it.
+2. Check if the Gradle Java plugin is only used for a single task. If so, you might be able to remove the plugin without
+   much effort. For example, if the task uses a Gradle Java plugin to create a Javadoc JAR file, you can define the Javadoc
+   task manually instead.
+
+Otherwise, if you want to use both the Kotlin Multiplatform Gradle plugin and these Gradle plugins for Java in your multiplatform
+project, we recommend that you:
+
+1. Create a separate subproject in your multiplatform project.
+2. In the separate subproject, apply the Gradle plugin for Java.
+3. In the separate subproject, add a dependency on your parent multiplatform project.
+
+> The separate subproject must **not** be a multiplatform project, and you must only use it to set up a dependency on your multiplatform project.
+>
+{type="warning"}
+
+For example, you have a multiplatform project called `my-main-project` and you want
+to use the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) Gradle plugin to run a JVM application.
+
+Once you've created a subproject, let's call it `subproject-A`, your parent project structure should look like this:
+
+```text
+.
+├── build.gradle
+├── settings.gradle.kts
+├── subproject-A
+    └── build.gradle.kts
+    └── src
+        └── Main.java
+```
+
+In your subproject's `build.gradle.kts` file, apply the Application plugin in the `plugins {}` block:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    id("application")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id('application')
+}
+```
+
+</tab>
+</tabs>
+
+In your subproject's `build.gradle.kts` file, add a dependency on your parent multiplatform project:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+dependencies {
+    implementation(project(":my-main-project")) // The name of your parent multiplatform project
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    implementation project(':my-main-project') // The name of your parent multiplatform project
+}
+```
+
+</tab>
+</tabs>
+
+
+Your parent project is now set up to work with both plugins.
 
 ## New approach to auto-generated targets
 

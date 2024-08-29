@@ -31,6 +31,7 @@ Mind the following terms used in tier tables:
 | `macosArm64`            | `aarch64-apple-macos`         | ✅             | Apple macOS on Apple Silicon platforms         |
 | `iosSimulatorArm64`     | `aarch64-apple-ios-simulator` | ✅             | Apple iOS simulator on Apple Silicon platforms |
 | `iosX64`                | `x86_64-apple-ios-simulator`  | ✅             | Apple iOS simulator on x86-64 platforms        |
+| `iosArm64`              | `aarch64-apple-ios`           |               | Apple iOS and iPadOS on ARM64 platforms        |
 
 ## Tier 2
 
@@ -49,16 +50,6 @@ Mind the following terms used in tier tables:
 | `tvosSimulatorArm64`    | `aarch64-apple-tvos-simulator`    | ✅             | Apple tvOS simulator on Apple Silicon platforms    |
 | `tvosX64`               | `x86_64-apple-tvos-simulator`     | ✅             | Apple tvOS simulator on x86_64 platforms           |
 | `tvosArm64`             | `aarch64-apple-tvos`              |               | Apple tvOS on ARM64 platforms                      |
-| `iosArm64`              | `aarch64-apple-ios`               |               | Apple iOS and iPadOS on ARM64 platforms            |
-
-> We're doing our best to move `iosArm64` to Tier 1, as it's a crucial target for [Kotlin Multiplatform](multiplatform-get-started.md).
-> To do that, we need first to create a dedicated testing infrastructure because platform limitations make it difficult
-> to run compiler tests on Apple devices.
-> 
-> Meanwhile, we sometimes run tests manually on iOS devices and rely on testing
-> similar targets, like `iosSimulatorArm64`, which should be sufficient in most cases.
-> 
-{type="tip"}
 
 ## Tier 3
 

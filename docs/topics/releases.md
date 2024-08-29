@@ -65,11 +65,11 @@ If you are migrating to the new language release, Kotlin plugin's migration tool
 Even with the release of the K2 compiler, IntelliJ IDEA and Android Studio still use the previous compiler by default 
 for code analysis, code completion, highlighting, and other IDE-related features.
 
-Starting from 2024.1, IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 Kotlin mode.
-To enable it, go to **Settings** | **Languages & Frameworks** | **Kotlin** and select the **Enable K2 Kotlin Mode** option.
+Starting from 2024.1, IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 mode.
+To enable it, go to **Settings** | **Languages & Frameworks** | **Kotlin** and select the **Enable K2 mode** option.
 
-> The K2 Kotlin mode is in Alpha. The performance and stability of code highlighting and code completion have been significantly improved,
-> but not all IDE features are supported yet.
+> The K2 mode is in Beta from 2024.2. We are working on stability and code analysis improvements, but not all IDE features
+> are supported yet.
 >
 {type="warning"}
 
@@ -92,6 +92,19 @@ The following table lists details of the latest Kotlin releases:
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
+    </tr>
+    <tr>
+        <td><strong>2.0.20</strong>
+            <p>Released: <strong>August 22, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.20" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+           <p>A tooling release for Kotlin 2.0.0 containing performance improvements and bug fixes. Features also include
+              concurrent marking in Kotlin/Native's garbage collector, UUID support in Kotlin common standard library,
+              Compose compiler updates, and support up to Gradle 8.8.
+            </p>
+            <p>Learn more about Kotlin 2.0.20 in <a href="whatsnew2020.md" target="_blank">What's new in Kotlin 2.0.20</a>.</p>
+        </td>
     </tr>
     <tr>
         <td><strong>2.0.10</strong>
