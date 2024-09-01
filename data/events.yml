@@ -1,4 +1,12 @@
 - lang: en
+  startDate: '2024-09-21'
+  endDate: '2024-09-21'
+  location: Chennai, India
+  speaker: 'TBD'
+  title: 'Ko-Hacks'
+  subject: 'A diverse Kotlin Hackathon by KUG Chennai'
+  url: https://lu.ma/rbofnzaf
+- lang: en
   startDate: '2024-11-19'
   endDate: '2024-11-19'
   location: Vienna, Austria
