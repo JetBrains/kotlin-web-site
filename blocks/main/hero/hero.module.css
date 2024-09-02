@@ -12,6 +12,114 @@
     @media (--ktl-ds-min) {
         padding: 96px 0;
     }
+
+}
+
+.heroSection[data-optimizely-id='hero-ab'] {
+    text-align: center;
+    @media (--ktl-ts-min) {
+        .content {
+            margin-left: 38px;
+        }
+    }
+    @media (--ktl-ds-min) {
+        .content {
+            margin-left: 90px;
+        }
+    }
+    .info {
+        margin-top: 32px;
+        display: block;
+    }
+    .heroText {
+        margin-left: 0;
+    }
+    .getStartedButton {
+        width: auto;
+    }
+    .developer {
+        border-left: 0px;
+        margin-left: 0;
+        padding-right: 0;
+        padding-left: 0;
+        margin-top: 120px;
+    }
+    .developerContent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+    .developerLogo {
+        margin: 0;
+    }
+    .developerCaption {
+        display: none;
+    }
+    .developerCaptionAb {
+        display: block;
+        margin-right: 8px;
+    }
+
+    .grid {
+        display: block;
+        position: relative;
+        @media (--ktl-tm-min) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    .subtitle {
+        @media (--ktl-tm) {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        @media (--ktl-tm-min) {
+            text-wrap: nowrap;
+        }
+    }
+
+    .imageMobile {
+        display: none;
+        @media (--ktl-tm) {
+            display: block;
+            width: 100%;
+            max-width: 260px;
+            margin: 0 auto;
+            height: auto;
+        }
+    }
+
+    .imageDesktop {
+        display: block;
+        @media (--ktl-tm) {
+            display: none;
+            width: 100%;
+        }
+        @media screen and (--ktl-tm) and (orientation: landscape) {
+            display: none;
+            width: 100%;
+        }
+    }
+
+    .developer {
+        @media (--ktl-tm) {
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.20);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.20);
+            padding: 24px 0;
+            margin-left: 0;
+            margin-top: 72px;
+        }
+
+    }
 }
 
 .heroText {
@@ -154,6 +262,9 @@
         flex-direction: column;
         align-items: flex-start;
     }
+    @media (--ktl-ms) {
+        transform: scale(0.95);
+    }
 }
 
 .developerLogo {
@@ -167,6 +278,10 @@
 .developerCaption {
     white-space: nowrap;
     margin-left: 38px;
+}
+
+.developerCaptionAb {
+    display: none;
 }
 
 .getStartedButton {
