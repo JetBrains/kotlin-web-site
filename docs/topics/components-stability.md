@@ -83,10 +83,10 @@ to avoid the accidental use of features that have not been released as stable.
 
 | **Component**                                    | **Status**   | **Status since version** | **Comments** |
 |--------------------------------------------------|--------------|--------------------------|--------------|
-| [All-open](all-open-plugin.md)                   | Stable       |                          |              |
-| [No-arg](no-arg-plugin.md)                       | Stable       |                          |              |
-| [SAM-with-receiver](sam-with-receiver-plugin.md) | Stable       |                          |              |
-| [kapt](kapt.md)                                  | Stable       |                          |              |
+| [All-open](all-open-plugin.md)                   | Stable       | 1.3.0                    |              |
+| [No-arg](no-arg-plugin.md)                       | Stable       | 1.3.0                    |              |
+| [SAM-with-receiver](sam-with-receiver-plugin.md) | Stable       | 1.3.0                    |              |
+| [kapt](kapt.md)                                  | Stable       | 1.3.0                    |              |
 | [Lombok](lombok.md)                              | Experimental | 1.5.20                   |              |
 | [Power-assert](power-assert.md)                  | Experimental | 2.0.0                    |              |
 
