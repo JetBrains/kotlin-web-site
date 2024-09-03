@@ -60,7 +60,7 @@
     <toc-element toc-title="Kotlin evolution and roadmap">
         <toc-element id="roadmap.md"/>
         <toc-element id="kotlin-language-features-and-proposals.md" toc-title="Language features and proposals"/>
-        <toc-element id="kotlin-evolution-principles.md" toc-title="Language evolution principles" accepts-web-file-names="kotlin-evolution.html"/>
+        <toc-element id="kotlin-evolution-principles.md" toc-title="Language evolution principles"/>
         <toc-element id="components-stability.md"/>
         <toc-element id="components-stability-pre-1.4.md" hidden="true"/>
         <toc-element id="releases.md" accepts-web-file-names="plugin-releases.html"/>
