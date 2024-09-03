@@ -1,7 +1,7 @@
 [//]: # (title: Migrate to the new memory manager)
 
 > Support for the legacy memory manager has been completely removed in Kotlin 1.9.20. Migrate your projects to 
-> the current memory model enabled by default since Kotlin 1.7.20.
+> the current memory model, enabled by default since Kotlin 1.7.20.
 >
 {type="note"}
 
