@@ -128,7 +128,32 @@ Such features can be added, changed or removed at any point and without warning.
 We do our best to ensure that pre-stable features can't be used accidentally by an unsuspecting user. 
 Such features usually require some sort of explicit opt-in either in the code or in the project configuration.
 
-Pre-stable features usually graduate to the stable status after some iterations.
+A Kotlin language feature can have one of the following statuses:
+
+* **Exploration and design**. We are considering the introduction of a new feature to the language.
+  This involves discussing how it would integrate with existing features, gathering use cases,
+  and assessing its potential impact.
+  We need feedback from users on the problems this feature would solve and the use cases it addresses.
+  Estimating how often these use cases and problems occur would also be beneficial.
+  Typically, ideas are documented as YouTrack issues, where the discussion continues.
+
+* **KEEP discussion**. We are fairly certain that the feature should be added to the language.
+  We aim to provide a motivation, use-cases, design, and other important details in a document called a _KEEP_.
+  We expect feedback from users to focus on discussing all the information provided in the KEEP.
+
+* **In preview**. A feature prototype is ready, and you can enable it using a feature-specific compiler option.
+  We seek feedback on your experience with the feature, including how easily it integrates into your codebase,
+  how it interacts with existing code, and any IDE support issues or suggestions.
+  The feature's design may change significantly, or it could be completely revoked based on feedback. When a feature is
+  _in preview_, it has a [stability level](components-stability.md#stability-levels-explained).
+
+* **Stable**. The language feature is now a first-class citizen in the Kotlin language.
+  We guarantee its backward compatibility and that we'll provide tooling support.
+
+* **Revoked**. We have revoked the proposal and will not implement the feature in the Kotlin language.
+  We may revoke a feature that is _in preview_ if it is not a good fit for Kotlin.
+
+[See the full list of Kotlin language proposals and their statuses](kotlin-language-features-and-proposals.md).
 
 ### Status of different components
 

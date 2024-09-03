@@ -3,40 +3,14 @@
 The page contains the full list of Kotlin language features and design proposals.)
 
 JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md),
-guided by pragmatic design. 
-You can find the list of language feature proposals and their statuses.
-
-## Kotlin language features lifecycle
-
-A Kotlin language feature can have one of the following statuses:
-
-* **Exploration and design**. We are considering the introduction of a new feature to the language.
-  This involves discussing how it would integrate with existing features, gathering use cases, 
-  and assessing its potential impact.
-  We need feedback from users on the problems this feature would solve and the use cases it addresses.
-  Estimating how often these use cases and problems occur would also be beneficial.
-  Typically, ideas are documented as YouTrack issues, where the discussion continues.
-
-* **KEEP discussion**. We are fairly certain that the feature should be added to the language.
-  We aim to provide a motivation, use-cases, design, and other important details in a document called a _KEEP_. 
-  We expect feedback from users to focus on discussing all the information provided in the KEEP.
-
-* **In preview**. A feature prototype is ready, and you can enable it using a feature-specific compiler option.
-  We seek feedback on your experience with the feature, including how easily it integrates into your codebase,
-  how it interacts with existing code, and any IDE support issues or suggestions.
-  The feature's design may change significantly, or it could be completely revoked based on feedback. When a feature is 
-  _in preview_, it has a [stability level](components-stability.md#stability-levels-explained).
-
-* **Stable**. The language feature is now a first-class citizen in the Kotlin language.
-  We guarantee its backward compatibility and that we'll provide tooling support.
-
-* **Revoked**. We have revoked the proposal and will not implement the feature in the Kotlin language.
-  We may revoke a feature that is _in preview_ if it is not a good fit for Kotlin.
+guided by pragmatic design.  
+You can find the list of language feature proposals and their statuses starting from Kotlin 1.7.0.
 
 ## List of Kotlin language features and design proposals
 
-> This table contains Kotlin language features and proposals starting from Kotlin 1.7.0.
->
+> See the explanation of language feature statues in the 
+> [Kotlin evolution principles documentation](kotlin-evolution-principles.md#pre-stable-features).
+> 
 {type="note"}
 
 <tabs>
@@ -75,7 +49,7 @@ A Kotlin language feature can have one of the following statuses:
 
 **Collection literals**
 
-* KEEP proposal: [collection-literals.md](https://github.com/KyLeggiero/KEEP/blob/collection-literals/proposals/collection-literals.md)
+* KEEP proposal: Not defined
 * YouTrack issue: [KT-43871](https://youtrack.jetbrains.com/issue/KT-43871)
 
 </td>
@@ -92,7 +66,7 @@ A Kotlin language feature can have one of the following statuses:
 **Union types for errors and exceptions**
 
 * KEEP proposal: Not defined
-* YouTrack issue: [KT-7128](https://youtrack.jetbrains.com/issue/KT-7128)
+* YouTrack issue: [KT-68296](https://youtrack.jetbrains.com/issue/KT-68296)
 
 </td>
 </tr>
@@ -121,9 +95,9 @@ A Kotlin language feature can have one of the following statuses:
 </td>
 <td>
 
-**Support immutability (multifield value classes)**
+**Support immutability**
 
-* KEEP proposal: Not defined
+* KEEP notes: [immutability](https://github.com/Kotlin/KEEP/blob/master/notes/value-classes.md#immutability-and-value-classes)
 * YouTrack issue: [KT-1179](https://youtrack.jetbrains.com/issue/KT-1179)
 
 </td>
@@ -132,6 +106,86 @@ A Kotlin language feature can have one of the following statuses:
 <!-- END OF EXPLORATION AND DESIGN BLOCK -->
 
 <!-- KEEP DISCUSSION BLOCK -->
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**KMP Kotlin-to-Java direct actualization**
+
+* KEEP proposal: [kmp-kotlin-to-java-direct-actualization.md](https://github.com/Kotlin/KEEP/blob/kotlin-to-java-direct-actualization/proposals/kmp-kotlin-to-java-direct-actualization.md)
+* YouTrack issue: [KT-67202](https://youtrack.jetbrains.com/issue/KT-67202)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Streamline KDoc ambiguity links**
+
+* KEEP proposal: [streamline-KDoc-ambiguity-references.md](https://github.com/Kotlin/KEEP/blob/kdoc/Streamline-KDoc-ambiguity-references/proposals/kdoc/streamline-KDoc-ambiguity-references.md)
+* GitHub issues: [dokka/#3451](https://github.com/Kotlin/dokka/issues/3451), [dokka/#3179](https://github.com/Kotlin/dokka/issues/3179), [dokka/#3334](https://github.com/Kotlin/dokka/issues/3334)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Resolution of links to extensions in KDoc**
+
+* KEEP proposal: [links-to-extensions.md](https://github.com/Kotlin/KEEP/blob/kdoc/extension-links/proposals/kdoc/links-to-extensions.md)
+* GitHub issue: [dokka/#3555](https://github.com/Kotlin/dokka/issues/3555)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Uuid**
+
+* KEEP proposal: [uuid.md](https://github.com/Kotlin/KEEP/blob/uuid/proposals/stdlib/uuid.md)
+* YouTrack issue: [KT-31880](https://youtrack.jetbrains.com/issue/KT-31880)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Improve resolution using expected type**
+
+* KEEP proposal: [improved-resolution-expected-type.md](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/improved-resolution-expected-type.md)
+* YouTrack issue: [KT-16768](https://youtrack.jetbrains.com/issue/KT-16768)
+
+</td>
+</tr>
 
 <tr filter="keep">
 <td>
@@ -183,22 +237,7 @@ A Kotlin language feature can have one of the following statuses:
 
 </td>
 </tr>
-<tr filter="keep">
-<td>
 
-**KEEP discussion**
-
-</td>
-<td>
-
-**Improved exhaustiveness checking in the `when` block**
-
-* KEEP proposal: [guards.md#exhaustiveness](https://github.com/Kotlin/KEEP/blob/guards/proposals/guards.md#exhaustiveness)
-* YouTrack issue: [KT-63696](https://youtrack.jetbrains.com/issue/KT-63696)
-* Target version: 2.1.0
-
-</td>
-</tr>
 <tr filter="keep">
 <td>
 
