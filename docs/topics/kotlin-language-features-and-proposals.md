@@ -6,8 +6,6 @@ JetBrains evolves the Kotlin language according to the [Kotlin language evolutio
 guided by pragmatic design.  
 You can find the list of language feature proposals and their statuses starting from Kotlin 1.7.0.
 
-## List of Kotlin language features and design proposals
-
 > See the explanation of language feature statues in the 
 > [Kotlin evolution principles documentation](kotlin-evolution-principles.md#pre-stable-features).
 > 
@@ -24,7 +22,7 @@ You can find the list of language feature proposals and their statuses starting 
 <!-- EXPLORATION AND DESIGN BLOCK -->
 
 <tr filter="exploration-and-design">
-<td>
+<td width="250">
 
 **Exploration and design**
 
@@ -108,7 +106,7 @@ You can find the list of language feature proposals and their statuses starting 
 <!-- KEEP DISCUSSION BLOCK -->
 
 <tr filter="keep">
-<td>
+<td width="250">
 
 **KEEP discussion**
 
@@ -292,12 +290,14 @@ You can find the list of language feature proposals and their statuses starting 
 
 <!-- IN PREVIEW BLOCK -->
 
+<!-- the first td element should have the width="250" attribute -->
+
 <!-- END OF IN PREVIEW BLOCK -->
 
 <!-- STABLE BLOCK -->
 
 <tr filter="stable">
-<td>
+<td width="250">
 
 **Stable**
 
@@ -369,7 +369,7 @@ You can find the list of language feature proposals and their statuses starting 
 <!-- REVOKED BLOCK -->
 
 <tr filter="revoked">
-<td>
+<td width="250">
 
 **Revoked**
 
