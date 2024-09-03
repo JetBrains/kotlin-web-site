@@ -5,9 +5,9 @@ The page contains the full list of Kotlin language features and design proposals
 JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md),
 guided by pragmatic design.
 
-> Language feature proposals and statuses are listed from Kotlin 1.7.0. 
+> Language feature proposals are listed from Kotlin 1.7.0. 
 > 
-> See the explanation of language feature statues in the 
+> See the explanation of language feature statuses in the 
 > [Kotlin evolution principles documentation](kotlin-evolution-principles.md#pre-stable-features).
 > 
 {type="note"}
