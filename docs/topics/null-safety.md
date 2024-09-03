@@ -1,9 +1,9 @@
 [//]: # (title: Null safety)
 
-Null safety is a Kotlin feature designed to eliminate the danger of null references, also known as [The Billion-Dollar Mistake](https://en.wikipedia.org/wiki/Null_pointer#History).
+Null safety is a Kotlin feature designed to eliminate the risk of null references, also known as [The Billion-Dollar Mistake](https://en.wikipedia.org/wiki/Null_pointer#History).
 
 One of the most common pitfalls in many programming languages, including Java, is that accessing a member of a null
-reference will result in a null reference exception. In Java, this would be the equivalent of a `NullPointerException`,
+reference results in a null reference exception. In Java, this would be the equivalent of a `NullPointerException`,
 or an _NPE_ for short.
 
 Kotlin explicitly supports nullability as part of its type system, meaning you can explicitly declare 
@@ -20,7 +20,7 @@ Thanks to null safety, the only possible causes of an NPE in Kotlin are:
 * Usage of the [`!!` operator](#not-null-assertion-operator)
 * Data inconsistency concerning initialization, such as when:
   * An uninitialized `this` available in a constructor is passed and used somewhere ([a "leaking `this`"](https://youtrack.jetbrains.com/issue/KTIJ-9751))
-  * A [superclass constructor calls an open member](inheritance.md#derived-class-initialization-order) whose implementation
+  * A [superclass constructor calling an open member](inheritance.md#derived-class-initialization-order) whose implementation
     in the derived class uses an uninitialized state
 * Java interoperation:
   * Attempts to access a member of a `null` reference of a [platform type](java-interop.md#null-safety-and-platform-types)
@@ -44,7 +44,7 @@ fun main() {
 //sampleStart
     // Assigns a non-null string to a variable
     var a: String = "abc"
-    // Re-assigns null to the non-nullable variable
+    // Attempts to re-assigns null to the non-nullable variable
     a = null
     print(a)
     // Null can not be a value of a non-null type String
@@ -79,7 +79,7 @@ fun main() {
 //sampleStart
     // Assigns a nullable string to a variable
     var b: String? = "abc"
-    // Re-assigns null to the nullable variable
+    // Successfully re-assigns null to the nullable variable
     b = null
     print(b)
     // null
@@ -131,7 +131,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-The compiler performs [smart casts](typecasts.md#smart-casts) to change the type from `String?` to `String`. It also tracks the information about 
+In the code above, the compiler performs [smart casts](typecasts.md#smart-casts) to change the type from nullable `String?` to non-nullable `String`. It also tracks the information about 
 the check you performed and allows the call to `length` inside the `if` conditional.
 
 More complex conditions are supported as well:
@@ -170,6 +170,7 @@ fun main() {
     val a: String? = "Kotlin"
     // Assigns null to a nullable variable
     val b: String? = null
+    
     // Checks for nullability and returns length or null
     println(a?.length)
     // 6
@@ -221,7 +222,7 @@ fun main() {
 //sampleStart
     // Assigns null to a nullable variable  
     val b: String? = null
-    // Checks for nullability. If not null, returns length. If null, returns a non-null value
+    // Checks for nullability. If not null, returns length. If null, returns 0
     val l: Int = if (b != null) b.length else 0
     println(l)
     // 0
@@ -361,7 +362,7 @@ The `?.` operator allows you to safely handle potential null values while still 
 
 ## Let function
 
-To handle null values and perform operations only on non-null types, you can use the safe call operator (`?`) together with the
+To handle null values and perform operations only on non-null types, you can use the safe call operator (`?.`) together with the
 [`let` function](scope-functions.md#let). 
 
 They are useful to evaluate an expression, check the result for null, and execute code only if it's not null, avoiding manual null checks:
@@ -388,7 +389,7 @@ fun main() {
 The regular Kotlin operator for [type casts](typecasts.md#unsafe-cast-operator) is the `as` operator. However, regular casts may result in an exception
 if the object is not of the target type. 
 
-The `as?` operator is the option to use safe casts. It tries to cast a value to the specified type and returns `null` if the value doesn't have the proper type:
+The `as?` operator is the option to use safe casts. It tries to cast a value to the specified type and returns `null` if the value doesn't have the target type:
 
 ```kotlin
 fun main() {
