@@ -113,12 +113,12 @@ To set up the publishing of an XCFramework:
                <li>In the <b>Releases</b> section on the right, click the <b>Create a new release</b> link.</li>
                <li>Fill in the release information, add or create a new tag, specify the release title and write a description.</li>
                <li>
-                   <p>Upload the ZIP file with the XCFramework through the <b>Attach binaries by dropping them here or selecting them</b> option at the bottom:</p>
+                   <p>Upload the ZIP file with the XCFramework through the <b>Attach binaries by dropping them here or selecting them</b> field at the bottom:</p>
                    <img src="github-release-description.png" alt="Fill in the release information" width="700"/>
                </li>
                <li>Click <b>Publish release</b>.</li>
                <li>
-                   <p>Under the <b>Assets</b> section of the release, right-click on the ZIP file and select <b>Copy link address</b> or use a similar option in your browser:</p>
+                   <p>Under the <b>Assets</b> section of the release, right-click on the ZIP file and select <b>Copy link address</b> or a similar option in your browser:</p>
                    <img src="github-release-link.png" alt="Copy the link to the uploaded file" width="500"/>
                </li>
          </list>
@@ -127,7 +127,7 @@ To set up the publishing of an XCFramework:
 
 3. [Recommended] Check that the link works and that the file can be downloaded. In the terminal, run the following command:
 
-    ```shell
+    ```none
     curl <downloadable link to the uploaded XCFramework ZIP file>
     ```
 
@@ -167,10 +167,10 @@ To set up the publishing of an XCFramework:
 7. Push the `Package.swift` file to your remote repository. Make sure to create and push a Git tag with the
    semantic version of the package.
 
-### Add a package dependency
+### Add the package dependency
 
-Now that both files are accessible, you can add a package dependency to an existing client iOS project or create a new
-project. To add a package dependency:
+Now that both files are accessible, you can add the dependency on the package you created to an existing client iOS
+project or create a new project. To add the package dependency:
 
 1. In Xcode, choose **File | Add Package Dependencies**.
 2. In the search field, enter the URL of the Git repository with the `Package.swift` file inside:
