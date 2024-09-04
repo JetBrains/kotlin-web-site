@@ -27,8 +27,7 @@ Apart from easy object sharing, the new memory manager also brings other major c
 * Exceptions that escape `operation` in `Worker.executeAfter` are processed like in other runtime parts, by trying to
   execute a user-defined unhandled exception hook or terminating the program if the hook was not found or failed with
   an exception itself.
-* Freezing is deprecated, disabled by default, and will be removed in future releases.
-  Do not use freezing if you don't need your code to work with the [legacy memory manager](#support-both-new-and-legacy-memory-managers).
+* Freezing is deprecated and always disabled.
 
 Follow these guidelines to migrate your projects from the legacy memory manager:
 
