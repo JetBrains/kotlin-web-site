@@ -41,8 +41,8 @@ files in `org.example.kotlin.network.socket` should be in the `network/socket` s
 If a Kotlin file contains a single class or interface (potentially with related top-level declarations), its name should be the same
 as the name of the class, with the `.kt` extension appended. It applies to all types of classes and interfaces.
 If a file contains multiple classes, or only top-level declarations, choose a name describing what the file contains, and name the file accordingly.
-Use [an upper camel case](https://en.wikipedia.org/wiki/Camel_case) with an uppercase first letter (also known as Pascal case),
-for example, `ProcessDeclarations.kt`.
+Use [upper camel case](https://en.wikipedia.org/wiki/Camel_case), where the first letter of each word is capitalized.
+For example, `ProcessDeclarations.kt`.
 
 The name of the file should describe what the code in the file does. Therefore, you should avoid using meaningless
 words such as `Util` in file names.
@@ -81,7 +81,7 @@ have FQN `myPackage.PlatformKt`. This produces the "Duplicate JVM classes" error
 The simplest way to avoid that is renaming one of the files according to the guideline above. This naming scheme helps
 avoid clashes while retaining code readability.
 
-> There are two cases when these recommendations may seem redundant, but we still advise to follow them:
+> There are two scenarios where these recommendations may seem redundant, but we still advise to follow them:
 > 
 > * Non-JVM platforms don't have issues with duplicating file facades. However, this naming scheme can help you keep
 > file naming consistent.
@@ -135,9 +135,9 @@ Package and class naming rules in Kotlin are quite simple:
 
 * Names of packages are always lowercase and do not use underscores (`org.example.project`). Using multi-word
 names is generally discouraged, but if you do need to use multiple words, you can either just concatenate them together
-or use the camel case (`org.example.myProject`).
+or use camel case (`org.example.myProject`).
 
-* Names of classes and objects start with an uppercase letter and use the camel case:
+* Names of classes and objects use upper camel case:
 
 ```kotlin
 open class DeclarationProcessor { /*...*/ }
@@ -147,7 +147,7 @@ object EmptyDeclarationProcessor : DeclarationProcessor() { /*...*/ }
 
 ### Function names
  
-Names of functions, properties and local variables start with a lowercase letter and use the camel case and no underscores:
+Names of functions, properties and local variables start with a lowercase letter and use camel case with no underscores:
 
 ```kotlin
 fun processDeclarations() { /*...*/ }
@@ -181,8 +181,8 @@ class MyTestCase {
 ### Property names
 
 Names of constants (properties marked with `const`, or top-level or object `val` properties with no custom `get` function
-that hold deeply immutable data) should use uppercase underscore-separated ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
-names:
+that hold deeply immutable data) should use all uppercase, underscore-separated names following the ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
+convention:
 
 ```kotlin
 const val MAX_COUNT = 8
@@ -201,7 +201,7 @@ Names of properties holding references to singleton objects can use the same nam
 val PersonComparator: Comparator<Person> = /*...*/
 ```
 
-For enum constants, it's OK to use either uppercase underscore-separated names ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case))
+For enum constants, it's OK to use either all uppercase, underscore-separated ([screaming snake case](https://en.wikipedia.org/wiki/Snake_case)) names
 (`enum class Color { RED, GREEN }`) or upper camel case names, depending on the usage. 
    
 ### Names for backing properties
@@ -257,11 +257,8 @@ if (elements != null) {
 ### Horizontal whitespace
 
 * Put spaces around binary operators (`a + b`). Exception: don't put spaces around the "range to" operator (`0..i`).
-
 * Do not put spaces around unary operators (`a++`).
-
 * Put spaces between control flow keywords (`if`, `when`, `for`, and `while`) and the corresponding opening parenthesis.
-
 * Do not put a space before an opening parenthesis in a primary constructor declaration, method declaration or method call.
 
 ```kotlin
@@ -274,28 +271,23 @@ fun bar() {
 }
 ```
 
-* Never put a space after `(`, `[`, or before `]`, `)`
-
-* Never put a space around `.` or `?.`: `foo.bar().filter { it > 2 }.joinToString()`, `foo?.bar()`
-
-* Put a space after `//`: `// This is a comment`
-
-* Do not put spaces around angle brackets used to specify type parameters: `class Map<K, V> { ... }`
-
-* Do not put spaces around `::`: `Foo::class`, `String::length`
-
-* Do not put a space before `?` used to mark a nullable type: `String?`
+* Never put a space after `(`, `[`, or before `]`, `)`.
+* Never put a space around `.` or `?.`: `foo.bar().filter { it > 2 }.joinToString()`, `foo?.bar()`.
+* Put a space after `//`: `// This is a comment`.
+* Do not put spaces around angle brackets used to specify type parameters: `class Map<K, V> { ... }`.
+* Do not put spaces around `::`: `Foo::class`, `String::length`.
+* Do not put a space before `?` used to mark a nullable type: `String?`.
 
 As a general rule, avoid horizontal alignment of any kind. Renaming an identifier to a name with a different length
 should not affect the formatting of either the declaration or any of the usages.
 
 ### Colon
 
-Put a space before `:` in the following cases:
+Put a space before `:` in the following scenarios:
 
-* when it's used to separate a type and a supertype
-* when delegating to a superclass constructor or a different constructor of the same class
-* after the `object` keyword
+* When it's used to separate a type and a supertype.
+* When delegating to a superclass constructor or a different constructor of the same class.
+* After the `object` keyword.
     
 Don't put a space before `:` when it separates a declaration and its type.
  
@@ -1062,14 +1054,14 @@ Learn the difference between [Java and Kotlin multiline strings](java-to-kotlin-
 
 ### Functions vs properties
 
-In some cases, functions with no arguments might be interchangeable with read-only properties. 
+In some scenarios, functions with no arguments might be interchangeable with read-only properties. 
 Although the semantics are similar, there are some stylistic conventions on when to prefer one to another.
 
 Prefer a property over a function when the underlying algorithm:
 
-* does not throw
-* is cheap to calculate (or cached on the first run)
-* returns the same result over invocations if the object state hasn't changed
+* Does not throw.
+* Is cheap to calculate (or cached on the first run).
+* Returns the same result over invocations if the object state hasn't changed.
 
 ### Extension functions
 
@@ -1137,10 +1129,10 @@ For the guidance on choosing the right scope function for your case, refer to [S
 
 When writing libraries, it's recommended to follow an additional set of rules to ensure API stability:
 
- * Always explicitly specify member visibility (to avoid accidentally exposing declarations as public API)
+ * Always explicitly specify member visibility (to avoid accidentally exposing declarations as public API).
  * Always explicitly specify function return types and property types (to avoid accidentally changing the return type
-   when the implementation changes)
+   when the implementation changes).
  * Provide [KDoc](kotlin-doc.md) comments for all public members, except for overrides that do not require any new documentation
-   (to support generating documentation for the library)
+   (to support generating documentation for the library).
 
 Learn more about best practices and ideas to consider when writing an API for your library in the [Library authors' guidelines](api-guidelines-introduction.md).
