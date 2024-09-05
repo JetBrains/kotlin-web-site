@@ -1,9 +1,12 @@
-[//]: # (title: Object expressions and declarations)
+[//]: # (title: Object declarations and expressions)
 
-Sometimes you need to use singletons for shared resources,
-create factory methods to efficiently instantiate objects,
-or modify the behavior of an existing class without explicitly declaring a new subclass.
-Kotlin offers _object expressions_ and _object declarations_ to address these needs.
+In Kotlin, objects allow you to define a class and create an instance of it in a single step.
+This is useful when you need either a reusable singleton instance or a one-time object.
+To handle these scenarios, Kotlin provides two key approaches: _object declarations_ for creating singletons and _object expressions_ for creating anonymous, one-time objects.
+
+> A singleton ensures that a class has only one instance and provides a global point of access to it.
+> 
+{type="tip"}
 
 Object expressions and object declarations are best used for scenarios when:
 
@@ -11,216 +14,16 @@ Object expressions and object declarations are best used for scenarios when:
 For example, managing a database connection pool.
 * **Creating factory methods:** You need a convenient way to create instances efficiently.
 [Companion objects](#companion-objects) allow you to define class-level methods and properties tied to a class, simplifying the creation and management of these instances.
-* **Modifying existing class behavior temporarily:** You want to modify the behavior of an existing class without creating a new subclass.
+* **Modifying existing class behavior temporarily:** You want to modify the behavior of an existing class without the need to create a new subclass.
 For example, adding temporary functionality to an object for a specific operation.
-* **Type-safe design is required:** You require one-time implementations of interfaces or abstract classes using object expressions.
+* **Type-safe design is required:** You require one-time implementations of interfaces or [abstract classes](classes.md#abstract-classes) using object expressions.
 This can be useful for scenarios like a button click handler.
-
-## Object expressions
-
-_Object expressions_ create objects of anonymous classes, which are classes not explicitly declared with the [`class`](classes.md)
-declaration. These anonymous classes are useful for one-time use. They can be created from scratch, inherit from existing classes,
-or implement interfaces. Instances of anonymous classes are also called _anonymous objects_ because they are defined by
-an expression, not a name.
-
-### Create anonymous objects from scratch
-
-Object expressions start with the `object` keyword.
-
-If you just need an object that doesn't have any nontrivial supertypes, write its members in curly braces after `object`:
-
-```kotlin
-fun main() {
-//sampleStart
-    val helloWorld = object {
-        val hello = "Hello"
-        val world = "World"
-        // object expressions extend Any, so `override` is required on `toString()`
-        override fun toString() = "$hello $world"
-    }
-
-    print(helloWorld)
-    // Hello World
-//sampleEnd
-}
-```
-{kotlin-runnable="true"}
-
-### Inherit anonymous objects from supertypes
-
-To create an object of an anonymous class that inherits from some type (or types), specify this type after `object` and a
-colon (`:`). Then implement or override the members of this class as if you were [inheriting](inheritance.md) from it:
-
-```kotlin
-window.addMouseListener(object : MouseAdapter() {
-    override fun mouseClicked(e: MouseEvent) { /*...*/ }
-
-    override fun mouseEntered(e: MouseEvent) { /*...*/ }
-})
-```
-
-If a supertype has a constructor, pass appropriate constructor parameters to it.
-Multiple supertypes can be specified, separated by commas, after the colon:
-
-```kotlin
-//sampleStart
-// Creates an open class BankAccount with a balance property
-open class BankAccount(initialBalance: Int) {
-    open val balance: Int = initialBalance
-}
-
-// Defines an interface Transaction with an execute() method
-interface Transaction {
-    fun execute()
-}
-
-// Function to perform a special transaction on a BankAccount
-fun specialTransaction(account: BankAccount) {
-    // Creates an anonymous class inheriting from BankAccount and implementing Transaction
-    // The balance of the provided account is passed to the BankAccount superclass constructor
-    val temporaryAccount = object : BankAccount(account.balance), Transaction {
-
-        override val balance = account.balance + 500  // Temporary bonus
-
-        // Implements the execute() method from the Transaction interface
-        override fun execute() {
-            println("Executing special transaction. New balance is $balance.")
-        }
-    }
-    // Executes the transaction
-    temporaryAccount.execute()
-}
-//sampleEnd
-fun main() {
-    // Creates a BankAccount with an initial balance of 1000
-    val myAccount = BankAccount(1000)
-    // Performs a special transaction on the created account
-    specialTransaction(myAccount)
-    // 1500
-}
-```
-{kotlin-runnable="true"}
-
-### Use anonymous objects as return and value types
-
-When you use an anonymous object as the type for a local or [private](visibility-modifiers.md#packages) function or property (but not an [inline function](inline-functions.md)),
-all its members are accessible through that function or property:
-
-```kotlin
-//sampleStart
-class UserPreferences {
-    private fun getPreferences() = object {
-        val theme: String = "Dark"
-        val fontSize: Int = 14
-    }
-
-    fun printPreferences() {
-        val preferences = getPreferences()
-        println("Theme: ${preferences.theme}, Font Size: ${preferences.fontSize}")
-    }
-}
-//sampleEnd
-
-fun main() {
-    val userPreferences = UserPreferences()
-    userPreferences.printPreferences()
-}
-```
-{kotlin-runnable="true"}
-
-If a function or property that returns an anonymous object is `public` or `private`, its actual type is:
-
-* `Any` if the anonymous object doesn't have a declared supertype
-* The declared supertype of the anonymous object, if there is exactly one such type
-* The explicitly declared type if there is more than one declared supertype
-
-In all these cases, members added in the anonymous object are not accessible. Overridden members are accessible if they
-are declared in the actual type of the function or property:
-
-```kotlin
-//sampleStart
-interface Notification {
-    // Declares notifyUser() in the Notification interface
-    fun notifyUser()
-}
-
-interface DetailedNotification
-
-class NotificationManager {
-    // The return type is Any; message is not accessible
-    // When the return type is Any, only members of Any are accessible.
-    fun getNotification() = object {
-        val message: String = "General notification"
-    }
-
-    // The return type is Notification because the anonymous object implements only one interface
-    // notifyUser() is accessible because it is part of Notification
-    // The message property is not accessible because it is not declared in the Notification interface
-    fun getEmailNotification() = object : Notification {
-        override fun notifyUser() {
-            println("Sending email notification")
-        }
-        val message: String = "You've got mail!"
-    }
-
-    // The return type is DetailedNotification; notifyUser() and message are not accessible
-    // Only members declared in the DetailedNotification interface are accessible
-    fun getDetailedNotification(): DetailedNotification = object : Notification, DetailedNotification {
-        override fun notifyUser() {
-            println("Sending detailed notification")
-        }
-        val message: String = "Detailed message content"
-    }
-}
-//sampleEnd
-fun main() {
-    val notificationManager = NotificationManager()
-    // No output
-
-    // The message property is not accessible here because the return type is Any
-    val notification = notificationManager.getNotification()
-    // No output
-
-    // The notifyUser() is accessible
-    // The message property is not accessible here because the return type is Notification
-    val emailNotification = notificationManager.getEmailNotification()
-    emailNotification.notifyUser()
-    // Sending email notification
-
-    // The notifyUser() method and message property are not accessible here because the return type is DetailedNotification
-    val detailedNotification = notificationManager.getDetailedNotification()
-    // No output
-}
-```
-{kotlin-runnable="true"}
-
-### Access variables from anonymous objects
-
-The code in object expressions can access variables from the enclosing scope:
-
-```kotlin
-fun countClicks(window: JComponent) {
-    var clickCount = 0
-    var enterCount = 0
-
-    window.addMouseListener(object : MouseAdapter() {
-        override fun mouseClicked(e: MouseEvent) {
-            clickCount++
-        }
-
-        override fun mouseEntered(e: MouseEvent) {
-            enterCount++
-        }
-    })
-    // The clickCount and enterCount variables are accessible within the object expression
-}
-```
 
 ## Object declarations
 {id="object-declarations-overview"}
 
-You can create single instances of objects in Kotlin using _object declarations_, which always have a name following the `object` keyword.
-This allows you to define a class and create an instance of it in a single step, which is useful for implementing [Singleton patterns](https://en.wikipedia.org/wiki/Singleton_pattern).
+You can create single instances of objects in Kotlin using object declarations, which always have a name following the `object` keyword.
+This allows you to define a class and create an instance of it in a single step, which is useful for implementing singletons:
 
 ```kotlin
 //sampleStart
@@ -260,13 +63,20 @@ fun main() {
 
     // Retrieves and prints all data providers
     println(DataProviderManager.allDataProviders.map { it.provideData() })
+    // [Example data]
 }
 ```
 {kotlin-runnable="true"}
 
-> Like variable declarations, object declarations, are not expressions, and they cannot be used on the right-hand side
+> Like variable declarations, object declarations are not expressions, so they cannot be used on the right-hand side
 > of an assignment statement.
-> 
+> ```kotlin
+> // Syntax error: An object expression cannot bind a name.
+> val myObject = object MySingleton {
+> val name = "Singleton"
+> }
+> ```
+>
 {type="note"}
 
 To refer to the `object`, use its name directly:
@@ -276,11 +86,11 @@ DataProviderManager.registerDataProvider(exampleProvider)
 ```
 
 > The initialization of an object declaration is thread-safe and done on first access.
-> 
+>
 {type="tip"}
 
 Object declarations can also have supertypes,
-similar to how [anonymous classes can inherit from existing classes or implement interfaces](#inherit-anonymous-objects-from-supertypes):
+similar to how [anonymous objects can inherit from existing classes or implement interfaces](#inherit-anonymous-objects-from-supertypes):
 
 ```kotlin
 object DefaultListener : MouseAdapter() {
@@ -290,7 +100,7 @@ object DefaultListener : MouseAdapter() {
 }
 ```
 
-> Object declarations cannot be local, which means they cannot be nested directly inside a function. 
+> Object declarations cannot be local, which means they cannot be nested directly inside a function.
 > However, they can be nested within other object declarations or non-inner classes.
 >
 {type="note"}
@@ -309,17 +119,8 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-Just like [data classes](data-classes.md), you can mark an `object` declaration with the `data` modifier. 
-This instructs the compiler to generate a number of functions for your `object`:
-
-* `.toString()` returns the name of the data object
-* `.equals()`/`.hashCode()` enables equality checks and hash-based collections
-
-  > You can't provide a custom `equals` or `hashCode` implementation for a `data object`.
-  >
-  {type="note"}
-
-The `.toString()` function of a `data object` returns the name of the `object`:
+However, by marking an object declaration with the `data` modifier,
+you can instruct the compiler to return the actual name of the object when calling `.toString()`, the same way it works for [data classes](data-classes.md):
 
 ```kotlin
 data object MyDataObject {
@@ -333,10 +134,19 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
+Additionally, the compiler generates several functions for your `data object`:
+
+* `.toString()` returns the name of the data object
+* `.equals()`/`.hashCode()` enables equality checks and hash-based collections
+
+  > You can't provide a custom `equals` or `hashCode` implementation for a `data object`.
+  >
+  {type="note"}
+
 The `.equals()` function for a `data object` ensures that all objects that have the type of your `data object` are considered equal.
-In most cases, you will only have a single instance of your `data object` at runtime (after all, a `data object` declares a singleton).
-However, in the edge case where another object of the same type is generated at runtime (for example, by using platform 
-reflection with `java.lang.reflect` or a JVM serialization library that uses this API under the hood), this ensures that 
+In most cases, you will only have a single instance of your `data object` at runtime, since a `data object` declares a singleton.
+However, in the edge case where another object of the same type is generated at runtime (for example, by using platform
+reflection with `java.lang.reflect` or a JVM serialization library that uses this API under the hood), this ensures that
 the objects are treated as being equal.
 
 > Make sure that you only compare `data objects` structurally (using the `==` operator) and never by reference (using the `===` operator).
@@ -359,7 +169,7 @@ fun main() {
     // MySingleton
 
     // Even when a library forcefully creates a second instance of MySingleton, 
-    // its `equals` method returns true:
+    // its `.equals()` function returns true:
     println(MySingleton == evilTwin) 
     // true
 
@@ -376,27 +186,27 @@ fun createInstanceViaReflection(): MySingleton {
 }
 ```
 
-The generated `.hashCode()` function has behavior that is consistent with the `.equals()` function, so that all runtime 
+The generated `.hashCode()` function has a behavior that is consistent with the `.equals()` function, so that all runtime
 instances of a `data object` have the same hash code.
 
 #### Differences between data objects and data classes
 
-While `data object` and `data class` declarations are often used together and have some similarities, there are some 
+While `data object` and `data class` declarations are often used together and have some similarities, there are some
 functions that are not generated for a `data object`:
 
-* No `.copy()` function. Because a `data object` declaration is intended to be used as singleton objects, no `.copy()` 
-  function is generated. The singleton pattern restricts the instantiation of a class to a single instance, which would 
+* No `.copy()` function. Because a `data object` declaration is intended to be used as singletons, no `.copy()`
+  function is generated. Singletons restrict the instantiation of a class to a single instance, which would
   be violated by allowing copies of the instance to be created.
-* No `.componentN()` function. Unlike a `data class`, a `data object` does not have any data properties. 
+* No `.componentN()` function. Unlike a `data class`, a `data object` does not have any data properties.
   Since attempting to destructure such an object without data properties would not make sense, no `.componentN()` functions are generated.
 
 #### Use data objects with sealed hierarchies
 
-Data object declarations are particularly useful for sealed hierarchies like 
+Data object declarations are particularly useful for sealed hierarchies like
 [sealed classes or sealed interfaces](sealed-classes.md).
 They allow you to maintain symmetry with any data classes you may have defined alongside the object.
 
-In this example, declaring `EndOfFile` as a `data object` instead of a plain `object` 
+In this example, declaring `EndOfFile` as a `data object` instead of a plain `object`
 means that it will get the `.toString()` function without the need to override it manually:
 
 ```kotlin
@@ -414,7 +224,7 @@ fun main() {
 
 ### Companion objects
 
-_Companion objects_ allow you to define class-level methods and properties. 
+_Companion objects_ allow you to define class-level functions and properties.
 This makes it easy to create factory methods, hold constants, and access shared utilities.
 
 An object declaration inside a class can be marked with the `companion` keyword:
@@ -448,7 +258,7 @@ fun main(){
 ```
 {kotlin-runnable="true"}
 
-The name of the `companion object` can be omitted, in which case the name `Companion` will be used:
+The name of the `companion object` can be omitted, in which case the name `Companion` is used:
 
 ```kotlin
 class User(val name: String) {
@@ -503,11 +313,11 @@ val reference2 = User2
 //sampleEnd
 
 fun main() {
-    // Calls the show method from the companion object of User1
+    // Calls the show() function from the companion object of User1
     println(reference1.show()) 
     // User1's Named Companion Object
 
-    // Calls the show method from the companion object of User2
+    // Calls the show() function from the companion object of User2
     println(reference2.show()) 
     // User2's Companion Object
 }
@@ -515,7 +325,8 @@ fun main() {
 {kotlin-runnable="true"}
 
 Although members of companion objects in Kotlin look like static members from other languages,
-they are actually instance members of the companion object. This allows companion objects to implement interfaces:
+they are actually instance members of the companion object, meaning they belong to the object itself.
+This allows companion objects to implement interfaces:
 
 ```kotlin
 interface Factory<T> {
@@ -543,7 +354,218 @@ However, on the JVM, you can have members of companion objects generated as real
 the `@JvmStatic` annotation. See the [Java interoperability](java-to-kotlin-interop.md#static-fields) section
 for more detail.
 
-### Semantic difference between object expressions and declarations
+
+## Object expressions
+
+Object expressions declare a class and create an instance of that class, but without naming either of them.
+These classes are useful for one-time use. They can either be created from scratch, inherit from existing classes,
+or implement interfaces. Instances of these classes are also called _anonymous objects_ because they are defined by
+an expression, not a name.
+
+### Create anonymous objects from scratch
+
+Object expressions start with the `object` keyword.
+
+If the object doesn't extend any classes or implement interfaces, you can define an object's members directly inside curly braces after the `object` keyword:
+
+```kotlin
+fun main() {
+//sampleStart
+    val helloWorld = object {
+        val hello = "Hello"
+        val world = "World"
+        // Object expressions extend the Any class, which already has a `toString()` function,
+        // so it must be overridden
+        override fun toString() = "$hello $world"
+    }
+
+    print(helloWorld)
+    // Hello World
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+### Inherit anonymous objects from supertypes
+
+To create an anonymous object that inherits from some type (or types), specify this type after `object` and a
+colon `:`. Then implement or override the members of this class as if you were [inheriting](inheritance.md) from it:
+
+```kotlin
+window.addMouseListener(object : MouseAdapter() {
+    override fun mouseClicked(e: MouseEvent) { /*...*/ }
+
+    override fun mouseEntered(e: MouseEvent) { /*...*/ }
+})
+```
+
+If a supertype has a constructor, pass the appropriate constructor parameters to it.
+Multiple supertypes can be specified, separated by commas, after the colon:
+
+```kotlin
+//sampleStart
+// Creates an open class BankAccount with a balance property
+open class BankAccount(initialBalance: Int) {
+    open val balance: Int = initialBalance
+}
+
+// Defines an interface Transaction with an execute() function
+interface Transaction {
+    fun execute()
+}
+
+// A function to perform a special transaction on a BankAccount
+fun specialTransaction(account: BankAccount) {
+    // Creates an anonymous object that inherits from the BankAccount class and implements the Transaction interface
+    // The balance of the provided account is passed to the BankAccount superclass constructor
+    val temporaryAccount = object : BankAccount(account.balance), Transaction {
+
+        override val balance = account.balance + 500  // Temporary bonus
+
+        // Implements the .execute() function from the Transaction interface
+        override fun execute() {
+            println("Executing special transaction. New balance is $balance.")
+        }
+    }
+    // Executes the transaction
+    temporaryAccount.execute()
+}
+//sampleEnd
+fun main() {
+    // Creates a BankAccount with an initial balance of 1000
+    val myAccount = BankAccount(1000)
+    // Performs a special transaction on the created account
+    specialTransaction(myAccount)
+    // Executing special transaction. New balance is 1500.
+}
+```
+{kotlin-runnable="true"}
+
+### Use anonymous objects as return and value types
+
+When you return an anonymous object from a local or [private](visibility-modifiers.md#packages) function or property (but not an [inline function](inline-functions.md)),
+all the members of that anonymous object are accessible through that function or property:
+
+```kotlin
+//sampleStart
+class UserPreferences {
+    private fun getPreferences() = object {
+        val theme: String = "Dark"
+        val fontSize: Int = 14
+    }
+
+    fun printPreferences() {
+        val preferences = getPreferences()
+        println("Theme: ${preferences.theme}, Font Size: ${preferences.fontSize}")
+    }
+}
+//sampleEnd
+
+fun main() {
+    val userPreferences = UserPreferences()
+    userPreferences.printPreferences()
+    // Theme: Dark, Font Size: 14
+}
+```
+{kotlin-runnable="true"}
+
+This allows you to return an anonymous object with specific properties,
+offering a simple way to encapsulate data or behavior without creating a separate class.
+
+If a function or property that returns an anonymous object is `public` or `private`, its actual type is:
+
+* `Any` if the anonymous object doesn't have a declared supertype.
+* The declared supertype of the anonymous object, if there is exactly one such type.
+* The explicitly declared type if there is more than one declared supertype.
+
+In all these cases, members added in the anonymous object are not accessible. Overridden members are accessible if they
+are declared in the actual type of the function or property:
+
+```kotlin
+//sampleStart
+interface Notification {
+    // Declares notifyUser() in the Notification interface
+    fun notifyUser()
+}
+
+interface DetailedNotification
+
+class NotificationManager {
+    // The return type is Any. The message property is not accessible.
+    // When the return type is Any, only members of the Any class are accessible.
+    fun getNotification() = object {
+        val message: String = "General notification"
+    }
+
+    // The return type is Notification because the anonymous object implements only one interface
+    // The notifyUser() function is accessible because it is part of the Notification interface
+    // The message property is not accessible because it is not declared in the Notification interface
+    fun getEmailNotification() = object : Notification {
+        override fun notifyUser() {
+            println("Sending email notification")
+        }
+        val message: String = "You've got mail!"
+    }
+
+    // The return type is DetailedNotification. The notifyUser() function and the message property are not accessible
+    // Only members declared in the DetailedNotification interface are accessible
+    fun getDetailedNotification(): DetailedNotification = object : Notification, DetailedNotification {
+        override fun notifyUser() {
+            println("Sending detailed notification")
+        }
+        val message: String = "Detailed message content"
+    }
+}
+//sampleEnd
+fun main() {
+    // This produces no output
+    val notificationManager = NotificationManager()
+
+    // The message property is not accessible here because the return type is Any
+    // This produces no output
+    val notification = notificationManager.getNotification()
+
+    // The notifyUser() is accessible
+    // The message property is not accessible here because the return type is Notification
+    val emailNotification = notificationManager.getEmailNotification()
+    emailNotification.notifyUser()
+    // Sending email notification
+
+    // The notifyUser() function and message property are not accessible here because the return type is DetailedNotification
+    // This produces no output
+    val detailedNotification = notificationManager.getDetailedNotification()
+}
+```
+{kotlin-runnable="true"}
+
+### Access variables from anonymous objects
+
+Code within the body of object expressions can access variables from the enclosing scope:
+
+```kotlin
+import java.awt.event.MouseAdapter
+import java.awt.event.MouseEvent
+
+fun countClicks(window: JComponent) {
+    var clickCount = 0
+    var enterCount = 0
+
+    // MouseAdapter provides default implementations for mouse event functions
+    // Simulates MouseAdapter handling mouse events
+    window.addMouseListener(object : MouseAdapter() {
+        override fun mouseClicked(e: MouseEvent) {
+            clickCount++
+        }
+
+        override fun mouseEntered(e: MouseEvent) {
+            enterCount++
+        }
+    })
+    // The clickCount and enterCount variables are accessible within the object expression
+}
+```
+
+## Semantic difference between object expressions and declarations
 
 There are differences in the initialization behavior between object expressions and object declarations:
 
