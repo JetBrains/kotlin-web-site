@@ -19,19 +19,16 @@ you have Pod dependencies in your Kotlin Multiplatform project, take the CocoaPo
 
 ### Direct integration
 
-You can connect the iOS framework directly from the Kotlin Multiplatform project by adding a special script to the build
-settings of your Xcode project.
+You can connect the iOS framework directly from the Kotlin Multiplatform project by adding a special script to your Xcode
+project. The `embedAndSignAppleFrameworkForXcode` script is integrated into the build phase of your project's build settings.
 
 This integration method works for you if:
 
 * You do **not** import CocoaPods dependencies in your Kotlin Multiplatform project
 
 If you create a project in Android Studio, choose the **Regular framework** option to have this setup generated
-automatically. If you use the Kotlin Multiplatform [web wizard](https://kmp.jetbrains.com/), direct integration
+automatically. If you use the [Kotlin Multiplatform web wizard](https://kmp.jetbrains.com/), direct integration
 is applied by default.
-
-You can integrate the `embedAndSignAppleFrameworkForXcode` script into the build phase or, in case you have local SPM
-packages, as a pre-action in your project's build settings.
 
 For more information, see [Direct integration](multiplatform-direct-integration.md).
 

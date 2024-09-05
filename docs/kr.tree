@@ -149,7 +149,8 @@
         <toc-element toc-title="Set up iOS integration">
             <toc-element id="multiplatform-ios-integration-overview.md" toc-title="Choose integration method"/>
             <toc-element id="multiplatform-direct-integration.md"/>
-            <toc-element toc-title="SPM export" id="native-spm.md"/>
+            <toc-element id="multiplatform-spm-local-integration.md" toc-title="Local integration with SPM"/>
+            <toc-element toc-title="Remote SPM export" id="native-spm.md"/>
             <toc-element toc-title="CocoaPods integration">
                 <toc-element id="native-cocoapods.md"/>
                 <toc-element id="native-cocoapods-libraries.md"/>
