@@ -169,7 +169,7 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 
 | Kotlin                 | Swift                            | Objective-C                      | Notes                                                                              |
 |------------------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------|
-| `class`                | `class`                          | `@interface`                     | [note](#name-translation)                                                          |
+| `class`                | `class`                          | `@interface`                     | [note](#classes)                                                                   |
 | `interface`            | `protocol`                       | `@protocol`                      |                                                                                    |
 | `constructor`/`create` | Initializer                      | Initializer                      | [note](#initializers)                                                              |
 | Property               | Property                         | Property                         | [note 1](#top-level-functions-and-properties), [note 2](#setters)                  |
@@ -194,7 +194,9 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 | Function type          | Function type                    | Block pointer type               | [note](#function-types)                                                            |
 | Inline classes         | Unsupported                      | Unsupported                      | [note](#unsupported)                                                               |
 
-### Name translation
+### Classes
+
+#### Name translation
 
 Objective-C classes are imported into Kotlin with their original names.
 Protocols are imported as interfaces with a `Protocol` name suffix, for example, `@protocol Foo` -> `interface FooProtocol`.
@@ -207,6 +209,17 @@ The prefix is derived from the framework name.
 Objective-C does not support packages in a framework. If the Kotlin compiler finds Kotlin classes in the same framework
 which have the same name but different packages, it renames them. This algorithm is not stable yet and can change between
 Kotlin releases. To work around this, you can rename the conflicting Kotlin classes in the framework.
+
+#### Strong linking
+
+Whenever you use an Objective-C class in the Kotlin source, it's marked as a strongly linked symbol. The resulting build
+artifact mentions related symbols as strong external references.
+
+This means that the app tries to link symbols during the launch dynamically, and if they are unavailable, the app crashes.
+Symbols might not be available on a particular device or OS version. It happens even if symbols were never used.
+
+To work around this issue and avoid "Class not found" errors, use a Swift or Objective-C wrapper that checks
+if the class is actually available. [See how this workaround was implemented in the Compose Multiplatform framework](https://github.com/JetBrains/compose-multiplatform-core/pull/1278/files).
 
 ### Initializers
 
