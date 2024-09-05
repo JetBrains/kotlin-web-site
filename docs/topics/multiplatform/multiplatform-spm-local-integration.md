@@ -18,8 +18,8 @@ This way, you can easily use Kotlin code in local Swift packages, compared to a 
 that adds the script to the build phase and requires rebuilding both the Kotlin Multiplatform and the iOS project to get
 the changes from the common code.
 
-> If you aren't familiar with Kotlin Multiplatform, learn how to [set up the environment](multiplatform-setup.md)
-> and [create a cross-platform application from scratch](multiplatform-create-first-app.md) first.
+> If you aren't familiar with Kotlin Multiplatform, learn how to [set up the environment](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html)
+> and [create a cross-platform application from scratch](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html) first.
 >
 {type="tip"}
 
@@ -34,7 +34,7 @@ The feature is available starting with Kotlin 2.0.0.
 > 
 {type="tip"}
 
-The tutorial assumes that your project is using [direct integration](multiplatform-project-configuration.md#connect-a-kotlin-multiplatform-module-to-an-ios-app)
+The tutorial assumes that your project is using [direct integration](multiplatform-direct-integration.md)
 approach with the `embedAndSignAppleFrameworkForXcode` task in the project's build phase. If you're connecting a Kotlin framework through CocoaPods
 plugin or through Swift package with `binaryTarget`, migrate first.
 
@@ -144,5 +144,5 @@ There are a couple more factors worth considering:
 
 ## What's next
 
-* [Choose your project configuration](multiplatform-project-configuration.md)
+* [Choose your integration method](multiplatform-ios-integration-overview.md)
 * [Learn how to set up Swift package export](native-spm.md)
