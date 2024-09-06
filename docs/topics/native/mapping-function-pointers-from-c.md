@@ -209,9 +209,10 @@ fun myFun() {
 
 This call uses the `staticCFunction{..}` helper function from Kotlin/Native to wrap a Kotlin lambda function into a C function pointer.
 It only allows having unbound and non-capturing lambda functions. For example, it is not able
-to use a local variable from the function. You may only use globally visible declarations. Throwing exceptions
-from a `staticCFunction{..}` will end up in non-deterministic side-effects. It is vital to make sure that you code is not 
-throwing any sudden exceptions from it.
+to use a local variable from the function. You may only use globally visible declarations.
+
+It is vital to make sure that the function does not throw any exceptions.
+Throwing exceptions from a `staticCFunction{..}` will end up in non-deterministic side-effects.
 
 ## Use the C function pointer from Kotlin
 

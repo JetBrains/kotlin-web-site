@@ -334,6 +334,8 @@
   to: /api/core/kotlin-stdlib/kotlin.collections/-array-deque/remove-last-or-null.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-array-deque/remove-last.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-array-deque/remove-last.html
+- from: /api/latest/jvm/stdlib/kotlin.collections/-array-deque/remove-range.html
+  to: /api/core/kotlin-stdlib/kotlin.collections/-array-deque/remove-range.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-array-deque/remove.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-array-deque/remove.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-array-deque/retain-all.html
@@ -350,6 +352,8 @@
   to: /api/core/kotlin-stdlib/kotlin.collections/-array-list/add-all.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-array-list/add.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-array-list/add.html
+- from: /api/latest/jvm/stdlib/kotlin.collections/-array-list/as-js-array-view.html
+  to: /api/core/kotlin-stdlib/kotlin.collections/-array-list/as-js-array-view.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-array-list/clear.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-array-list/clear.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-array-list/contains-all.html
@@ -616,6 +620,8 @@
   to: /api/core/kotlin-stdlib/kotlin.collections/-list-iterator/previous.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-list.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-list.html
+- from: /api/latest/jvm/stdlib/kotlin.collections/-list/as-js-readonly-array-view.html
+  to: /api/core/kotlin-stdlib/kotlin.collections/-list/as-js-readonly-array-view.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-list/contains-all.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-list/contains-all.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-list/contains.html
@@ -652,6 +658,8 @@
   to: /api/core/kotlin-stdlib/kotlin.collections/-map/-entry/key.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-map/-entry/value.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-map/-entry/value.html
+- from: /api/latest/jvm/stdlib/kotlin.collections/-map/as-js-readonly-map-view.html
+  to: /api/core/kotlin-stdlib/kotlin.collections/-map/as-js-readonly-map-view.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-map/contains-key.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-map/contains-key.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-map/contains-value.html
@@ -714,6 +722,8 @@
   to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-list/add-all.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-mutable-list/add.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-list/add.html
+- from: /api/latest/jvm/stdlib/kotlin.collections/-mutable-list/as-js-array-view.html
+  to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-list/as-js-array-view.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-mutable-list/clear.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-list/clear.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-mutable-list/index.html
@@ -736,6 +746,8 @@
   to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-map/-mutable-entry/
 - from: /api/latest/jvm/stdlib/kotlin.collections/-mutable-map/-mutable-entry/set-value.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-map/-mutable-entry/set-value.html
+- from: /api/latest/jvm/stdlib/kotlin.collections/-mutable-map/as-js-map-view.html
+  to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-map/as-js-map-view.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-mutable-map/clear.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-map/clear.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-mutable-map/entries.html
@@ -756,6 +768,8 @@
   to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-set/add-all.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-mutable-set/add.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-set/add.html
+- from: /api/latest/jvm/stdlib/kotlin.collections/-mutable-set/as-js-set-view.html
+  to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-set/as-js-set-view.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-mutable-set/clear.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-set/clear.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html
@@ -770,6 +784,8 @@
   to: /api/core/kotlin-stdlib/kotlin.collections/-mutable-set/retain-all.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-random-access.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-random-access/
+- from: /api/latest/jvm/stdlib/kotlin.collections/-set/as-js-readonly-set-view.html
+  to: /api/core/kotlin-stdlib/kotlin.collections/-set/as-js-readonly-set-view.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-set/contains-all.html
   to: /api/core/kotlin-stdlib/kotlin.collections/-set/contains-all.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/-set/contains.html
@@ -1188,8 +1204,6 @@
   to: /api/core/kotlin-stdlib/kotlin.collections/remove-last.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/remove.html
   to: /api/core/kotlin-stdlib/kotlin.collections/remove.html
-- from: /api/latest/jvm/stdlib/kotlin.collections/replace-all.html
-  to: /api/core/kotlin-stdlib/kotlin.collections/replace-all.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/require-no-nulls.html
   to: /api/core/kotlin-stdlib/kotlin.collections/require-no-nulls.html
 - from: /api/latest/jvm/stdlib/kotlin.collections/retain-all.html
@@ -1532,20 +1546,6 @@
   to: /api/core/kotlin-stdlib/kotlin.concurrent/-atomic-native-ptr/to-string.html
 - from: /api/latest/jvm/stdlib/kotlin.concurrent/-atomic-native-ptr/value.html
   to: /api/core/kotlin-stdlib/kotlin.concurrent/-atomic-native-ptr/value.html
-- from: /api/latest/jvm/stdlib/kotlin.concurrent/-atomic-reference/-init-.html
-  to: /api/core/kotlin-stdlib/kotlin.concurrent/-atomic-reference/-atomic-reference.html
-- from: /api/latest/jvm/stdlib/kotlin.concurrent/-atomic-reference/compare-and-exchange.html
-  to: /api/core/kotlin-stdlib/kotlin.concurrent/-atomic-reference/compare-and-exchange.html
-- from: /api/latest/jvm/stdlib/kotlin.concurrent/-atomic-reference/compare-and-set.html
-  to: /api/core/kotlin-stdlib/kotlin.concurrent/-atomic-reference/compare-and-set.html
-- from: /api/latest/jvm/stdlib/kotlin.concurrent/-atomic-reference/get-and-set.html
-  to: /api/core/kotlin-stdlib/kotlin.concurrent/-atomic-reference/get-and-set.html
-- from: /api/latest/jvm/stdlib/kotlin.concurrent/-atomic-reference/index.html
-  to: /api/core/kotlin-stdlib/kotlin.concurrent/-atomic-reference/
-- from: /api/latest/jvm/stdlib/kotlin.concurrent/-atomic-reference/to-string.html
-  to: /api/core/kotlin-stdlib/kotlin.concurrent/-atomic-reference/to-string.html
-- from: /api/latest/jvm/stdlib/kotlin.concurrent/-atomic-reference/value.html
-  to: /api/core/kotlin-stdlib/kotlin.concurrent/-atomic-reference/value.html
 - from: /api/latest/jvm/stdlib/kotlin.concurrent/-volatile/-init-.html
   to: /api/core/kotlin-stdlib/kotlin.concurrent/-volatile/
 - from: /api/latest/jvm/stdlib/kotlin.concurrent/-volatile/index.html
@@ -1790,6 +1790,16 @@
   to: /api/core/kotlin-stdlib/kotlin.io.encoding/-base64/-default/
 - from: /api/latest/jvm/stdlib/kotlin.io.encoding/-base64/-mime.html
   to: /api/core/kotlin-stdlib/kotlin.io.encoding/-base64/-default/-mime.html
+- from: /api/latest/jvm/stdlib/kotlin.io.encoding/-base64/-padding-option/-a-b-s-e-n-t.html
+  to: /api/core/kotlin-stdlib/kotlin.io.encoding/-base64/-padding-option/-a-b-s-e-n-t/
+- from: /api/latest/jvm/stdlib/kotlin.io.encoding/-base64/-padding-option/-a-b-s-e-n-t_-o-p-t-i-o-n-a-l.html
+  to: /api/core/kotlin-stdlib/kotlin.io.encoding/-base64/-padding-option/-a-b-s-e-n-t_-o-p-t-i-o-n-a-l/
+- from: /api/latest/jvm/stdlib/kotlin.io.encoding/-base64/-padding-option/-p-r-e-s-e-n-t.html
+  to: /api/core/kotlin-stdlib/kotlin.io.encoding/-base64/-padding-option/-p-r-e-s-e-n-t/
+- from: /api/latest/jvm/stdlib/kotlin.io.encoding/-base64/-padding-option/-p-r-e-s-e-n-t_-o-p-t-i-o-n-a-l.html
+  to: /api/core/kotlin-stdlib/kotlin.io.encoding/-base64/-padding-option/-p-r-e-s-e-n-t_-o-p-t-i-o-n-a-l/
+- from: /api/latest/jvm/stdlib/kotlin.io.encoding/-base64/-padding-option/index.html
+  to: /api/core/kotlin-stdlib/kotlin.io.encoding/-base64/-padding-option/
 - from: /api/latest/jvm/stdlib/kotlin.io.encoding/-base64/-url-safe.html
   to: /api/core/kotlin-stdlib/kotlin.io.encoding/-base64/-default/-url-safe.html
 - from: /api/latest/jvm/stdlib/kotlin.io.encoding/-base64/decode-into-byte-array.html
@@ -1806,6 +1816,8 @@
   to: /api/core/kotlin-stdlib/kotlin.io.encoding/-base64/encode.html
 - from: /api/latest/jvm/stdlib/kotlin.io.encoding/-base64/index.html
   to: /api/core/kotlin-stdlib/kotlin.io.encoding/-base64/
+- from: /api/latest/jvm/stdlib/kotlin.io.encoding/-base64/with-padding.html
+  to: /api/core/kotlin-stdlib/kotlin.io.encoding/-base64/with-padding.html
 - from: /api/latest/jvm/stdlib/kotlin.io.encoding/-experimental-encoding-api/-init-.html
   to: /api/core/kotlin-stdlib/kotlin.io.encoding/-experimental-encoding-api/
 - from: /api/latest/jvm/stdlib/kotlin.io.encoding/-experimental-encoding-api/index.html
@@ -2214,6 +2226,38 @@
   to: /api/core/kotlin-stdlib/kotlin.io/readln.html
 - from: /api/latest/jvm/stdlib/kotlin.io/use.html
   to: /api/core/kotlin-stdlib/kotlin.io/use.html
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/-js-array/-init-.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/-js-array/-js-array.html
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/-js-array/index.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/-js-array/
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/-js-map/-init-.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/-js-map/-js-map.html
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/-js-map/index.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/-js-map/
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/-js-readonly-array.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/-js-readonly-array/
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/-js-readonly-map.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/-js-readonly-map/
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/-js-readonly-set.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/-js-readonly-set/
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/-js-set/-init-.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/-js-set/-js-set.html
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/-js-set/index.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/-js-set/
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/index.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/to-list.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/to-list.html
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/to-map.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/to-map.html
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/to-mutable-list.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/to-mutable-list.html
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/to-mutable-map.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/to-mutable-map.html
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/to-mutable-set.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/to-mutable-set.html
+- from: /api/latest/jvm/stdlib/kotlin.js.collections/to-set.html
+  to: /api/core/kotlin-stdlib/kotlin.js.collections/to-set.html
 - from: /api/latest/jvm/stdlib/kotlin.js/-console/dir.html
   to: /api/core/kotlin-stdlib/kotlin.js/-console/dir.html
 - from: /api/latest/jvm/stdlib/kotlin.js/-console/error.html
@@ -2320,6 +2364,10 @@
   to: /api/core/kotlin-stdlib/kotlin.js/-eager-initialization/
 - from: /api/latest/jvm/stdlib/kotlin.js/-eager-initialization/index.html
   to: /api/core/kotlin-stdlib/kotlin.js/-eager-initialization/
+- from: /api/latest/jvm/stdlib/kotlin.js/-experimental-js-collections-api/-init-.html
+  to: /api/core/kotlin-stdlib/kotlin.js/-experimental-js-collections-api/
+- from: /api/latest/jvm/stdlib/kotlin.js/-experimental-js-collections-api/index.html
+  to: /api/core/kotlin-stdlib/kotlin.js/-experimental-js-collections-api/
 - from: /api/latest/jvm/stdlib/kotlin.js/-experimental-js-export/-init-.html
   to: /api/core/kotlin-stdlib/kotlin.js/-experimental-js-export/
 - from: /api/latest/jvm/stdlib/kotlin.js/-experimental-js-export/index.html
@@ -2332,6 +2380,10 @@
   to: /api/core/kotlin-stdlib/kotlin.js/-experimental-js-reflection-create-instance/
 - from: /api/latest/jvm/stdlib/kotlin.js/-experimental-js-reflection-create-instance/index.html
   to: /api/core/kotlin-stdlib/kotlin.js/-experimental-js-reflection-create-instance/
+- from: /api/latest/jvm/stdlib/kotlin.js/-experimental-js-static/-init-.html
+  to: /api/core/kotlin-stdlib/kotlin.js/-experimental-js-static/
+- from: /api/latest/jvm/stdlib/kotlin.js/-experimental-js-static/index.html
+  to: /api/core/kotlin-stdlib/kotlin.js/-experimental-js-static/
 - from: /api/latest/jvm/stdlib/kotlin.js/-j-s-o-n/index.html
   to: /api/core/kotlin-stdlib/kotlin.js/-j-s-o-n/
 - from: /api/latest/jvm/stdlib/kotlin.js/-j-s-o-n/parse.html
@@ -2386,6 +2438,10 @@
   to: /api/core/kotlin-stdlib/kotlin.js/-js-qualifier/
 - from: /api/latest/jvm/stdlib/kotlin.js/-js-qualifier/value.html
   to: /api/core/kotlin-stdlib/kotlin.js/-js-qualifier/value.html
+- from: /api/latest/jvm/stdlib/kotlin.js/-js-static/-init-.html
+  to: /api/core/kotlin-stdlib/kotlin.js/-js-static/
+- from: /api/latest/jvm/stdlib/kotlin.js/-js-static/index.html
+  to: /api/core/kotlin-stdlib/kotlin.js/-js-static/
 - from: /api/latest/jvm/stdlib/kotlin.js/-json/get.html
   to: /api/core/kotlin-stdlib/kotlin.js/-json/get.html
 - from: /api/latest/jvm/stdlib/kotlin.js/-json/index.html
@@ -2456,6 +2512,8 @@
   to: /api/core/kotlin-stdlib/kotlin.js/
 - from: /api/latest/jvm/stdlib/kotlin.js/iterator.html
   to: /api/core/kotlin-stdlib/kotlin.js/iterator.html
+- from: /api/latest/jvm/stdlib/kotlin.js/js-type-of.html
+  to: /api/core/kotlin-stdlib/kotlin.js/js-type-of.html
 - from: /api/latest/jvm/stdlib/kotlin.js/js.html
   to: /api/core/kotlin-stdlib/kotlin.js/js.html
 - from: /api/latest/jvm/stdlib/kotlin.js/json.html
@@ -2663,6 +2721,10 @@
 - from: /api/latest/jvm/stdlib/kotlin.math/hypot.html
   to: /api/core/kotlin-stdlib/kotlin.math/hypot.html
 - from: /api/latest/jvm/stdlib/kotlin.math/index.html
+  to: /api/core/kotlin-stdlib/kotlin.math/
+- from: /api/latest/jvm/stdlib/kotlin.math/java.math.-big-decimal/index.html
+  to: /api/core/kotlin-stdlib/kotlin.math/
+- from: /api/latest/jvm/stdlib/kotlin.math/java.math.-big-integer/index.html
   to: /api/core/kotlin-stdlib/kotlin.math/
 - from: /api/latest/jvm/stdlib/kotlin.math/ln.html
   to: /api/core/kotlin-stdlib/kotlin.math/ln.html
@@ -2964,12 +3026,8 @@
   to: /api/core/kotlin-stdlib/kotlin.native.concurrent/call-continuation2.html
 - from: /api/latest/jvm/stdlib/kotlin.native.concurrent/ensure-never-frozen.html
   to: /api/core/kotlin-stdlib/kotlin.native.concurrent/ensure-never-frozen.html
-- from: /api/latest/jvm/stdlib/kotlin.native.concurrent/freeze.html
-  to: /api/core/kotlin-stdlib/kotlin.native.concurrent/freeze.html
 - from: /api/latest/jvm/stdlib/kotlin.native.concurrent/index.html
   to: /api/core/kotlin-stdlib/kotlin.native.concurrent/
-- from: /api/latest/jvm/stdlib/kotlin.native.concurrent/is-frozen.html
-  to: /api/core/kotlin-stdlib/kotlin.native.concurrent/is-frozen.html
 - from: /api/latest/jvm/stdlib/kotlin.native.concurrent/wait-for-multiple-futures.html
   to: /api/core/kotlin-stdlib/kotlin.native.concurrent/wait-for-multiple-futures.html
 - from: /api/latest/jvm/stdlib/kotlin.native.concurrent/wait-worker-termination.html
@@ -3032,6 +3090,16 @@
   to: /api/core/kotlin-stdlib/kotlin.native.runtime/-g-c-info/start-time-ns.html
 - from: /api/latest/jvm/stdlib/kotlin.native.runtime/-g-c-info/sweep-statistics.html
   to: /api/core/kotlin-stdlib/kotlin.native.runtime/-g-c-info/sweep-statistics.html
+- from: /api/latest/jvm/stdlib/kotlin.native.runtime/-g-c/-main-thread-finalizer-processor/available.html
+  to: /api/core/kotlin-stdlib/kotlin.native.runtime/-g-c/-main-thread-finalizer-processor/available.html
+- from: /api/latest/jvm/stdlib/kotlin.native.runtime/-g-c/-main-thread-finalizer-processor/batch-size.html
+  to: /api/core/kotlin-stdlib/kotlin.native.runtime/-g-c/-main-thread-finalizer-processor/batch-size.html
+- from: /api/latest/jvm/stdlib/kotlin.native.runtime/-g-c/-main-thread-finalizer-processor/index.html
+  to: /api/core/kotlin-stdlib/kotlin.native.runtime/-g-c/-main-thread-finalizer-processor/
+- from: /api/latest/jvm/stdlib/kotlin.native.runtime/-g-c/-main-thread-finalizer-processor/max-time-in-task.html
+  to: /api/core/kotlin-stdlib/kotlin.native.runtime/-g-c/-main-thread-finalizer-processor/max-time-in-task.html
+- from: /api/latest/jvm/stdlib/kotlin.native.runtime/-g-c/-main-thread-finalizer-processor/min-time-between-tasks.html
+  to: /api/core/kotlin-stdlib/kotlin.native.runtime/-g-c/-main-thread-finalizer-processor/min-time-between-tasks.html
 - from: /api/latest/jvm/stdlib/kotlin.native.runtime/-g-c/autotune.html
   to: /api/core/kotlin-stdlib/kotlin.native.runtime/-g-c/autotune.html
 - from: /api/latest/jvm/stdlib/kotlin.native.runtime/-g-c/collect-cycles-threshold.html
@@ -3110,50 +3178,6 @@
   to: /api/core/kotlin-stdlib/kotlin.native.runtime/-sweep-statistics/swept-count.html
 - from: /api/latest/jvm/stdlib/kotlin.native.runtime/index.html
   to: /api/core/kotlin-stdlib/kotlin.native.runtime/
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/-init-.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/-bit-set.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/and-not.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/and-not.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/and.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/and.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/clear.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/clear.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/equals.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/equals.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/flip.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/flip.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/get.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/get.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/hash-code.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/hash-code.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/index.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/intersects.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/intersects.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/is-empty.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/is-empty.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/last-true-index.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/last-true-index.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/next-clear-bit.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/next-clear-bit.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/next-set-bit.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/next-set-bit.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/or.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/or.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/previous-bit.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/previous-bit.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/previous-clear-bit.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/previous-clear-bit.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/previous-set-bit.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/previous-set-bit.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/set.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/set.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/size.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/size.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/to-string.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/to-string.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-bit-set/xor.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-bit-set/xor.html
 - from: /api/latest/jvm/stdlib/kotlin.native/-c-name/-init-.html
   to: /api/core/kotlin-stdlib/kotlin.native/-c-name/
 - from: /api/latest/jvm/stdlib/kotlin.native/-c-name/extern-name.html
@@ -3228,10 +3252,6 @@
   to: /api/core/kotlin-stdlib/kotlin.native/-obj-c-name/name.html
 - from: /api/latest/jvm/stdlib/kotlin.native/-obj-c-name/swift-name.html
   to: /api/core/kotlin-stdlib/kotlin.native/-obj-c-name/swift-name.html
-- from: /api/latest/jvm/stdlib/kotlin.native/-obsolete-native-api/-init-.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-obsolete-native-api/
-- from: /api/latest/jvm/stdlib/kotlin.native/-obsolete-native-api/index.html
-  to: /api/core/kotlin-stdlib/kotlin.native/-obsolete-native-api/
 - from: /api/latest/jvm/stdlib/kotlin.native/-os-family/-a-n-d-r-o-i-d.html
   to: /api/core/kotlin-stdlib/kotlin.native/-os-family/-a-n-d-r-o-i-d/
 - from: /api/latest/jvm/stdlib/kotlin.native/-os-family/-i-o-s.html
@@ -3296,8 +3316,6 @@
   to: /api/core/kotlin-stdlib/kotlin.native/as-c-pointer.html
 - from: /api/latest/jvm/stdlib/kotlin.native/as-u-c-pointer.html
   to: /api/core/kotlin-stdlib/kotlin.native/as-u-c-pointer.html
-- from: /api/latest/jvm/stdlib/kotlin.native/deinit-runtime-if-needed.html
-  to: /api/core/kotlin-stdlib/kotlin.native/deinit-runtime-if-needed.html
 - from: /api/latest/jvm/stdlib/kotlin.native/get-char-at.html
   to: /api/core/kotlin-stdlib/kotlin.native/get-char-at.html
 - from: /api/latest/jvm/stdlib/kotlin.native/get-double-at.html
@@ -4118,6 +4136,8 @@
   to: /api/core/kotlin-stdlib/kotlin.reflect/-k-visibility/
 - from: /api/latest/jvm/stdlib/kotlin.reflect/cast.html
   to: /api/core/kotlin-stdlib/kotlin.reflect/cast.html
+- from: /api/latest/jvm/stdlib/kotlin.reflect/create-instance.html
+  to: /api/core/kotlin-stdlib/kotlin.reflect/create-instance.html
 - from: /api/latest/jvm/stdlib/kotlin.reflect/find-associated-object.html
   to: /api/core/kotlin-stdlib/kotlin.reflect/find-associated-object.html
 - from: /api/latest/jvm/stdlib/kotlin.reflect/index.html
@@ -4658,6 +4678,8 @@
   to: /api/core/kotlin-stdlib/kotlin.text/-hex-format/-companion/-default.html
 - from: /api/latest/jvm/stdlib/kotlin.text/-hex-format/-number-hex-format/-builder/index.html
   to: /api/core/kotlin-stdlib/kotlin.text/-hex-format/-number-hex-format/-builder/
+- from: /api/latest/jvm/stdlib/kotlin.text/-hex-format/-number-hex-format/-builder/min-length.html
+  to: /api/core/kotlin-stdlib/kotlin.text/-hex-format/-number-hex-format/-builder/min-length.html
 - from: /api/latest/jvm/stdlib/kotlin.text/-hex-format/-number-hex-format/-builder/prefix.html
   to: /api/core/kotlin-stdlib/kotlin.text/-hex-format/-number-hex-format/-builder/prefix.html
 - from: /api/latest/jvm/stdlib/kotlin.text/-hex-format/-number-hex-format/-builder/remove-leading-zeros.html
@@ -4666,6 +4688,8 @@
   to: /api/core/kotlin-stdlib/kotlin.text/-hex-format/-number-hex-format/-builder/suffix.html
 - from: /api/latest/jvm/stdlib/kotlin.text/-hex-format/-number-hex-format/index.html
   to: /api/core/kotlin-stdlib/kotlin.text/-hex-format/-number-hex-format/
+- from: /api/latest/jvm/stdlib/kotlin.text/-hex-format/-number-hex-format/min-length.html
+  to: /api/core/kotlin-stdlib/kotlin.text/-hex-format/-number-hex-format/min-length.html
 - from: /api/latest/jvm/stdlib/kotlin.text/-hex-format/-number-hex-format/prefix.html
   to: /api/core/kotlin-stdlib/kotlin.text/-hex-format/-number-hex-format/prefix.html
 - from: /api/latest/jvm/stdlib/kotlin.text/-hex-format/-number-hex-format/remove-leading-zeros.html
@@ -5178,10 +5202,6 @@
   to: /api/core/kotlin-stdlib/kotlin.text/is-null-or-blank.html
 - from: /api/latest/jvm/stdlib/kotlin.text/is-null-or-empty.html
   to: /api/core/kotlin-stdlib/kotlin.text/is-null-or-empty.html
-- from: /api/latest/jvm/stdlib/kotlin.text/is-supplementary-code-point.html
-  to: /api/core/kotlin-stdlib/kotlin.text/is-supplementary-code-point.html
-- from: /api/latest/jvm/stdlib/kotlin.text/is-surrogate-pair.html
-  to: /api/core/kotlin-stdlib/kotlin.text/is-surrogate-pair.html
 - from: /api/latest/jvm/stdlib/kotlin.text/is-surrogate.html
   to: /api/core/kotlin-stdlib/kotlin.text/is-surrogate.html
 - from: /api/latest/jvm/stdlib/kotlin.text/is-title-case.html
@@ -5200,6 +5220,8 @@
   to: /api/core/kotlin-stdlib/kotlin.text/append-line.html
 - from: /api/latest/jvm/stdlib/kotlin.text/java.lang.-string-builder/append-range.html
   to: /api/core/kotlin-stdlib/kotlin.text/append-range.html
+- from: /api/latest/jvm/stdlib/kotlin.text/java.lang.-string-builder/append.html
+  to: /api/core/kotlin-stdlib/kotlin.text/append.html
 - from: /api/latest/jvm/stdlib/kotlin.text/java.lang.-string-builder/appendln.html
   to: /api/core/kotlin-stdlib/kotlin.text/appendln.html
 - from: /api/latest/jvm/stdlib/kotlin.text/java.lang.-string-builder/clear.html
@@ -5212,6 +5234,8 @@
   to: /api/core/kotlin-stdlib/kotlin.text/
 - from: /api/latest/jvm/stdlib/kotlin.text/java.lang.-string-builder/insert-range.html
   to: /api/core/kotlin-stdlib/kotlin.text/insert-range.html
+- from: /api/latest/jvm/stdlib/kotlin.text/java.lang.-string-builder/insert.html
+  to: /api/core/kotlin-stdlib/kotlin.text/insert.html
 - from: /api/latest/jvm/stdlib/kotlin.text/java.lang.-string-builder/set-range.html
   to: /api/core/kotlin-stdlib/kotlin.text/set-range.html
 - from: /api/latest/jvm/stdlib/kotlin.text/java.lang.-string-builder/set.html
@@ -5456,10 +5480,6 @@
   to: /api/core/kotlin-stdlib/kotlin.text/to-byte.html
 - from: /api/latest/jvm/stdlib/kotlin.text/to-char-array.html
   to: /api/core/kotlin-stdlib/kotlin.text/to-char-array.html
-- from: /api/latest/jvm/stdlib/kotlin.text/to-chars.html
-  to: /api/core/kotlin-stdlib/kotlin.text/to-chars.html
-- from: /api/latest/jvm/stdlib/kotlin.text/to-code-point.html
-  to: /api/core/kotlin-stdlib/kotlin.text/to-code-point.html
 - from: /api/latest/jvm/stdlib/kotlin.text/to-collection.html
   to: /api/core/kotlin-stdlib/kotlin.text/to-collection.html
 - from: /api/latest/jvm/stdlib/kotlin.text/to-double-or-null.html
@@ -5786,6 +5806,60 @@
   to: /api/core/kotlin-stdlib/kotlin.time/to-java-duration.html
 - from: /api/latest/jvm/stdlib/kotlin.time/to-time-unit.html
   to: /api/core/kotlin-stdlib/kotlin.time/to-time-unit.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-experimental-uuid-api/-init-.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-experimental-uuid-api/
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-experimental-uuid-api/index.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-experimental-uuid-api/
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/-l-e-x-i-c-a-l_-o-r-d-e-r.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/-l-e-x-i-c-a-l_-o-r-d-e-r.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/-n-i-l.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/-n-i-l.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/-s-i-z-e_-b-i-t-s.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/-s-i-z-e_-b-i-t-s.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/-s-i-z-e_-b-y-t-e-s.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/-s-i-z-e_-b-y-t-e-s.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/equals.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/equals.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/from-byte-array.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/from-byte-array.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/from-longs.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/from-longs.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/from-u-longs.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/from-u-longs.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/hash-code.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/hash-code.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/index.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/parse-hex.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/parse.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/random.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/random.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/to-byte-array.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-byte-array.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/to-hex-string.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-hex-string.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/to-longs.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-longs.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/to-string.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-string.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/-uuid/to-u-longs.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-u-longs.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/index.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/
+- from: /api/latest/jvm/stdlib/kotlin.uuid/java.nio.-byte-buffer/get-uuid.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/get-uuid.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/java.nio.-byte-buffer/index.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/
+- from: /api/latest/jvm/stdlib/kotlin.uuid/java.nio.-byte-buffer/put-uuid.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/put-uuid.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/java.util.-u-u-i-d/index.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/
+- from: /api/latest/jvm/stdlib/kotlin.uuid/java.util.-u-u-i-d/to-kotlin-uuid.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/to-kotlin-uuid.html
+- from: /api/latest/jvm/stdlib/kotlin.uuid/to-java-uuid.html
+  to: /api/core/kotlin-stdlib/kotlin.uuid/to-java-uuid.html
 - from: /api/latest/jvm/stdlib/kotlin/-annotation.html
   to: /api/core/kotlin-stdlib/kotlin/-annotation/
 - from: /api/latest/jvm/stdlib/kotlin/-any/-init-.html
@@ -5822,6 +5896,8 @@
   to: /api/core/kotlin-stdlib/kotlin/-assertion-error/-assertion-error.html
 - from: /api/latest/jvm/stdlib/kotlin/-assertion-error/index.html
   to: /api/core/kotlin-stdlib/kotlin/-assertion-error/
+- from: /api/latest/jvm/stdlib/kotlin/-auto-closeable.html
+  to: /api/core/kotlin-stdlib/kotlin/-auto-closeable.html
 - from: /api/latest/jvm/stdlib/kotlin/-auto-closeable/close.html
   to: /api/core/kotlin-stdlib/kotlin/-auto-closeable/close.html
 - from: /api/latest/jvm/stdlib/kotlin/-auto-closeable/index.html
@@ -5948,6 +6024,8 @@
   to: /api/core/kotlin-stdlib/kotlin/-char-sequence/sub-sequence.html
 - from: /api/latest/jvm/stdlib/kotlin/-char.html
   to: /api/core/kotlin-stdlib/kotlin/-char.html
+- from: /api/latest/jvm/stdlib/kotlin/-char/-init-.html
+  to: /api/core/kotlin-stdlib/kotlin/-char/-char.html
 - from: /api/latest/jvm/stdlib/kotlin/-char/-m-a-x_-c-o-d-e_-p-o-i-n-t.html
   to: /api/core/kotlin-stdlib/kotlin/-char/-companion/-m-a-x_-c-o-d-e_-p-o-i-n-t.html
 - from: /api/latest/jvm/stdlib/kotlin/-char/-m-a-x_-h-i-g-h_-s-u-r-r-o-g-a-t-e.html
@@ -6030,6 +6108,10 @@
   to: /api/core/kotlin-stdlib/kotlin/-concurrent-modification-exception/-concurrent-modification-exception.html
 - from: /api/latest/jvm/stdlib/kotlin/-concurrent-modification-exception/index.html
   to: /api/core/kotlin-stdlib/kotlin/-concurrent-modification-exception/
+- from: /api/latest/jvm/stdlib/kotlin/-consistent-copy-visibility/-init-.html
+  to: /api/core/kotlin-stdlib/kotlin/-consistent-copy-visibility/
+- from: /api/latest/jvm/stdlib/kotlin/-consistent-copy-visibility/index.html
+  to: /api/core/kotlin-stdlib/kotlin/-consistent-copy-visibility/
 - from: /api/latest/jvm/stdlib/kotlin/-context-function-type-params/-init-.html
   to: /api/core/kotlin-stdlib/kotlin/-context-function-type-params/
 - from: /api/latest/jvm/stdlib/kotlin/-context-function-type-params/count.html
@@ -6188,6 +6270,10 @@
   to: /api/core/kotlin-stdlib/kotlin/-experimental-unsigned-types/
 - from: /api/latest/jvm/stdlib/kotlin/-experimental-unsigned-types/index.html
   to: /api/core/kotlin-stdlib/kotlin/-experimental-unsigned-types/
+- from: /api/latest/jvm/stdlib/kotlin/-exposed-copy-visibility/-init-.html
+  to: /api/core/kotlin-stdlib/kotlin/-exposed-copy-visibility/
+- from: /api/latest/jvm/stdlib/kotlin/-exposed-copy-visibility/index.html
+  to: /api/core/kotlin-stdlib/kotlin/-exposed-copy-visibility/
 - from: /api/latest/jvm/stdlib/kotlin/-extension-function-type/-init-.html
   to: /api/core/kotlin-stdlib/kotlin/-extension-function-type/
 - from: /api/latest/jvm/stdlib/kotlin/-extension-function-type/index.html
@@ -6688,6 +6774,8 @@
   to: /api/core/kotlin-stdlib/kotlin/-since-kotlin/
 - from: /api/latest/jvm/stdlib/kotlin/-since-kotlin/version.html
   to: /api/core/kotlin-stdlib/kotlin/-since-kotlin/version.html
+- from: /api/latest/jvm/stdlib/kotlin/-string.html
+  to: /api/core/kotlin-stdlib/kotlin/-string/
 - from: /api/latest/jvm/stdlib/kotlin/-string/-init-.html
   to: /api/core/kotlin-stdlib/kotlin/-string/-string.html
 - from: /api/latest/jvm/stdlib/kotlin/-string/compare-to.html
@@ -7188,6 +7276,12 @@
   to: /api/core/kotlin-stdlib/kotlin/is-initialized.html
 - from: /api/latest/jvm/stdlib/kotlin/is-na-n.html
   to: /api/core/kotlin-stdlib/kotlin/is-na-n.html
+- from: /api/latest/jvm/stdlib/kotlin/java.lang.-appendable/index.html
+  to: /api/core/kotlin-stdlib/kotlin/
+- from: /api/latest/jvm/stdlib/kotlin/java.lang.-string-builder/index.html
+  to: /api/core/kotlin-stdlib/kotlin/
+- from: /api/latest/jvm/stdlib/kotlin/java.lang.reflect.-method/index.html
+  to: /api/core/kotlin-stdlib/kotlin/
 - from: /api/latest/jvm/stdlib/kotlin/java.math.-big-decimal/dec.html
   to: /api/core/kotlin-stdlib/kotlin/dec.html
 - from: /api/latest/jvm/stdlib/kotlin/java.math.-big-decimal/div.html
@@ -7238,6 +7332,16 @@
   to: /api/core/kotlin-stdlib/kotlin/unary-minus.html
 - from: /api/latest/jvm/stdlib/kotlin/java.math.-big-integer/xor.html
   to: /api/core/kotlin-stdlib/kotlin/xor.html
+- from: /api/latest/jvm/stdlib/kotlin/java.util.-comparator/index.html
+  to: /api/core/kotlin-stdlib/kotlin/
+- from: /api/latest/jvm/stdlib/kotlin/java.util.-enumeration/index.html
+  to: /api/core/kotlin-stdlib/kotlin/
+- from: /api/latest/jvm/stdlib/kotlin/java.util.-enumeration/to-list.html
+  to: /api/core/kotlin-stdlib/kotlin/to-list.html
+- from: /api/latest/jvm/stdlib/kotlin/java.util.concurrent.-concurrent-map/index.html
+  to: /api/core/kotlin-stdlib/kotlin/
+- from: /api/latest/jvm/stdlib/kotlin/java.util.regex.-pattern/index.html
+  to: /api/core/kotlin-stdlib/kotlin/
 - from: /api/latest/jvm/stdlib/kotlin/lazy-of.html
   to: /api/core/kotlin-stdlib/kotlin/lazy-of.html
 - from: /api/latest/jvm/stdlib/kotlin/lazy.html
@@ -7250,6 +7354,8 @@
   to: /api/core/kotlin-stdlib/kotlin/map-catching.html
 - from: /api/latest/jvm/stdlib/kotlin/map.html
   to: /api/core/kotlin-stdlib/kotlin/map.html
+- from: /api/latest/jvm/stdlib/kotlin/minus.html
+  to: /api/core/kotlin-stdlib/kotlin/minus.html
 - from: /api/latest/jvm/stdlib/kotlin/mod.html
   to: /api/core/kotlin-stdlib/kotlin/mod.html
 - from: /api/latest/jvm/stdlib/kotlin/on-failure.html
@@ -7816,6 +7922,10 @@
   to: /api/core/kotlin-stdlib/kotlinx.cinterop/-obj-c-outlet/
 - from: /api/latest/jvm/stdlib/kotlinx.cinterop/-obj-c-protocol.html
   to: /api/core/kotlin-stdlib/kotlinx.cinterop/-obj-c-protocol/
+- from: /api/latest/jvm/stdlib/kotlinx.cinterop/-obj-c-signature-override/-init-.html
+  to: /api/core/kotlin-stdlib/kotlinx.cinterop/-obj-c-signature-override/
+- from: /api/latest/jvm/stdlib/kotlinx.cinterop/-obj-c-signature-override/index.html
+  to: /api/core/kotlin-stdlib/kotlinx.cinterop/-obj-c-signature-override/
 - from: /api/latest/jvm/stdlib/kotlinx.cinterop/-obj-c-string-var-of.html
   to: /api/core/kotlin-stdlib/kotlinx.cinterop/-obj-c-string-var-of/
 - from: /api/latest/jvm/stdlib/kotlinx.cinterop/-pinned/get.html

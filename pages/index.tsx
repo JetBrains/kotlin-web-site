@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import Link from 'next/link';
 
@@ -47,9 +47,9 @@ import searchConfig from '../search-config.json';
 
 
 import releasesDataRaw from '../data/releases.yml';
+import Script from 'next/script';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
-
 
 const kotlinUsageHighlightsCases = [
     {
@@ -241,6 +241,8 @@ function Index() {
             <ThemeProvider theme={'dark'}>
                 <GlobalFooter />
             </ThemeProvider>
+
+            <Script src={'https://cdn.optimizely.com/js/26633200186.js'} strategy={"beforeInteractive"}/>
         </Layout>
     );
 }
