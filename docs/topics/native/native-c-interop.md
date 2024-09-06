@@ -7,7 +7,7 @@
 > Native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),
 > require opt-in only for some APIs. In such cases, you get an IDE warning.
 > 
-{type="warning"}
+{style="warning"}
 
 Kotlin/Native follows the general tradition of Kotlin to provide excellent
 existing platform software interoperability. In the case of a native platform,
@@ -136,7 +136,7 @@ They are treated as a space-separated list of globs.
 > If the same header is both included with `headerFilter`, and excluded with `excludeFilter`, the latter will have a higher
 > priority. The specified header will not be included into the bindings.
 > 
-{type="note"}
+{style="note"}
 
 #### Filter headers by module maps
 

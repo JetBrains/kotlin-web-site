@@ -16,7 +16,7 @@ via dead code elimination and provides smoother interoperability with the JavaSc
 
 > The old compiler has been deprecated since the Kotlin 1.8.0 release.
 > 
-{type="note"}
+{style="note"}
 
 By generating TypeScript declaration files (`d.ts`) from Kotlin code, the IR compiler makes it easier to create "hybrid"
 applications that mix TypeScript and Kotlin code and to leverage code-sharing functionality using Kotlin Multiplatform.

@@ -6,7 +6,7 @@ developing projects with Kotlin Multiplatform.
 > Mind the deprecation cycle of a specific change in relation to the Kotlin version you have in your projects. The current
 > Stable version of Kotlin is %kotlinVersion%.
 >
-{type="note"}
+{style="note"}
 
 ## Version compatibility
 
@@ -24,7 +24,7 @@ with available Gradle, Xcode, and Android Gradle plugin versions:
 > calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets). 
 > For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
 > 
-{type="warning"}
+{style="warning"}
 
 ## Deprecated compatibility with Kotlin Multiplatform Gradle plugin and Gradle Java plugins
 
@@ -73,7 +73,7 @@ project, we recommend that you:
 
 > The separate subproject must **not** be a multiplatform project, and you must only use it to set up a dependency on your multiplatform project.
 >
-{type="warning"}
+{style="warning"}
 
 For example, you have a multiplatform project called `my-main-project` and you want
 to use the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) Gradle plugin to run a JVM application.
@@ -150,7 +150,7 @@ Note that such accessors are still available in the `kotlin.targets {}` case, fo
 
 **What's the best practice now?**
 
-<table header-style="top">
+<table>
     <tr>
         <td>Before</td>
         <td>Now</td>
@@ -233,7 +233,7 @@ Configuration names for dependencies on the corresponding source set stay the sa
 
 **What's the best practice now?**
 
-<table header-style="top">
+<table>
     <tr>
         <td></td>
         <td>Before</td>
@@ -325,7 +325,7 @@ In Kotlin 1.8.0, an error is introduced when using old configuration names in ha
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-35916/).
 
-<anchor name="deprecate-hmpp-properties"></anchor>
+<anchor name="deprecate-hmpp-properties"/>
 
 ## Deprecated Gradle properties for hierarchical structure support
 
@@ -372,7 +372,7 @@ Here's the planned deprecation cycle:
 
 In the unlikely case you face some problems after removing these properties, create an [issue in YouTrack](https://kotl.in/issue).
 
-<anchor name="deprecate-pre-hmpp-dependencies"></anchor>
+<anchor name="deprecate-pre-hmpp-dependencies"/>
 ## Deprecated support of multiplatform libraries published in the legacy mode
 
 **What's changed?**
@@ -408,7 +408,7 @@ Here's the planned deprecation cycle:
 * 2.0: raise the warning for dependencies on legacy libraries to an error
 * \>2.0: remove support for dependencies on legacy libraries; using such dependencies can cause build failures
 
-<anchor name="compilation-source-deprecation"></anchor>
+<anchor name="compilation-source-deprecation"/>
 ## Deprecated API for adding Kotlin source sets directly to the Kotlin compilation
 
 **What's changed?**
@@ -475,7 +475,7 @@ Here's the planned deprecation cycle:
 * \>1.9.20: remove `KotlinComplation.source` from the Kotlin Gradle plugin, attempts to use it lead to "unresolved
   reference" errors during the buildscript compilation
 
-<anchor name="kotlin-js-plugin-deprecation"></anchor>
+<anchor name="kotlin-js-plugin-deprecation"/>
 ## Migration from kotlin-js Gradle plugin to kotlin-multiplatform Gradle plugin
 
 **What's changed?**
@@ -541,7 +541,7 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
 
      > In this case, make sure that the top-level `dependencies {}` block comes **after** the `kotlin {}` block. Otherwise, you'll get an error "Configuration not found".
      >
-     {type="note"}
+     {style="note"}
 
    You can change the code in your `build.gradle.kts` file in one of the following ways:
 
@@ -608,7 +608,7 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
 
 In 1.9.0, the use of the `kotlin-js` Gradle plugin produces a deprecation warning.
 
-<anchor name="android-target-rename"></anchor>
+<anchor name="android-target-rename"/>
 ## Rename of android target to androidTarget
 
 **What's changed?**
@@ -631,7 +631,7 @@ projects.
 
 In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects.
 
-<anchor name="declaring-multiple-targets"></anchor>
+<anchor name="declaring-multiple-targets"/>
 ## Declaring several similar targets
 
 **What's changed?**
@@ -753,7 +753,7 @@ the Kotlin Gradle plugin, making it easier to use and maintain the resulting bui
 > Unfortunately, we can't provide detailed migration steps for each case. If the instructions above don't work
 > for you, describe your use case in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-59316).
 >
-{type="tip"}
+{style="tip"}
 
 **When do the changes take effect?**
 
@@ -762,7 +762,7 @@ Here's the planned deprecation cycle:
 * 1.9.20: introduce a deprecation warning when multiple similar targets are used in Kotlin Multiplatform projects
 * 2.0: report an error in such cases, causing the build to fail
 
-<anchor name="jvmWithJava-preset-deprecation"></anchor>
+<anchor name="jvmWithJava-preset-deprecation"/>
 ## Deprecated jvmWithJava preset
 
 **What's changed?**
@@ -791,9 +791,9 @@ Here's the planned deprecation cycle:
 
 > Even though the whole `targetPresets` API is deprecated, the `jvmWithJava` preset has a different deprecation timeline.
 >
-{type="note"}
+{style="note"}
 
-<anchor name="android-sourceset-layout-v1-deprecation"></anchor>
+<anchor name="android-sourceset-layout-v1-deprecation"/>
 ## Deprecated legacy Android source set layout
 
 **What's changed?**
@@ -811,7 +811,7 @@ Here's the planned deprecation cycle:
 * 1.9.20: raise this warning to an error; the error **cannot** be suppressed
 * \>1.9.20: remove support for `kotlin.mpp.androidSourceSetLayoutVersion=1`; the Kotlin Gradle plugin ignores the property
 
-<anchor name="common-sourceset-with-dependson-deprecation"></anchor>
+<anchor name="common-sourceset-with-dependson-deprecation"/>
 ## Deprecated commonMain and commonTest with custom dependsOn
 
 **What's changed?**
@@ -849,7 +849,7 @@ Here's the planned deprecation cycle:
 * 1.9.0: report a warning when `dependsOn` is used in `commonMain`
 * \>=1.9.20: report an error when `dependsOn` is used in `commonMain` or `commonTest`
 
-<anchor name="target-presets-deprecation"></anchor>
+<anchor name="target-presets-deprecation"/>
 ## Deprecated target presets API
 
 **What's changed?**
@@ -870,7 +870,7 @@ removed from the public API of the Kotlin Gradle plugin in future releases. This
 
 Use respective [Kotlin targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) instead, for example:
 
-<table header-style="top">
+<table>
     <tr>
         <td>Before</td>
         <td>Now</td>
@@ -967,7 +967,7 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
     > The casting to `objcnames.protocols.ForwardDeclaredProtocolProtocol` is only allowed from the corresponding real class.
     > Otherwise, you'll get an error.
     >
-    {type="note"}
+    {style="note"}
 
 **When do the changes take effect?**
 

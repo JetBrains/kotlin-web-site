@@ -53,7 +53,7 @@ Here are some recommendations for configuring Gradle for better compilation perf
       > Remember that in this case, you will need to clean the build using `./gradlew clean` after switching between the
       > device and the simulator. See [this issue](https://youtrack.jetbrains.com/issue/KT-40907) for details.
       > 
-      {type="note"}
+      {style="note"}
 
 
 * **Don't disable the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html)** without having a

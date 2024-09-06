@@ -7,7 +7,7 @@ and [configure the project's dependencies](#configure-dependencies) there.
 > To learn more about the contents of a build script,
 > visit the [Explore the build script](get-started-with-jvm-gradle-project.md#explore-the-build-script) section.
 >
-{type="note"}
+{style="note"}
 
 ## Apply the plugin
 
@@ -43,7 +43,7 @@ plugins {
 
 > The Kotlin Gradle plugin (KGP) and Kotlin share the same version numbering.
 >
-{type="note"}
+{style="note"}
 
 When configuring your project, check the Kotlin Gradle plugin (KGP) compatibility with available Gradle versions. 
 In the following table, there are the minimum and maximum **fully supported** versions of Gradle and Android Gradle plugin (AGP):
@@ -65,7 +65,7 @@ In the following table, there are the minimum and maximum **fully supported** ve
 > you may see deprecation warnings in your multiplatform projects calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets).
 > For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
 >
-{type="warning"}
+{style="warning"}
 
 You can also use Gradle and AGP versions up to the latest releases, but if you do, keep in mind that you might encounter 
 deprecation warnings or some new features might not work.
@@ -83,7 +83,7 @@ in the `.kotlin` directory.
 
 > You may want to add the `.kotlin` directory to your project's `.gitignore` file.
 >
-{type="warning"}
+{style="warning"}
 
 There are properties you can add to the `gradle.properties` file of your project to configure this behavior:
 
@@ -137,7 +137,7 @@ project
 > 
 > Instead, you can use `src/main/java`.
 >
-{type="warning"} 
+{style="warning"} 
 
 The corresponding `sourceSets` property should be updated if you are not using the default convention:
 
@@ -173,7 +173,7 @@ In the build module, you may have related compile tasks, for example:
 
 > `main` and `test` source set compile tasks are not related.
 >
-{type="note"}
+{style="note"}
 
 For related tasks like these, the Kotlin Gradle plugin checks for JVM target compatibility. Different values of 
 the [`jvmTarget` attribute](gradle-compiler-options.md#attributes-specific-to-jvm) in the `kotlin` extension or task 
@@ -214,7 +214,7 @@ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile.class).configu
 
 To avoid JVM target incompatibility, [configure a toolchain](#gradle-java-toolchains-support) or align JVM versions manually.
 
-#### What can go wrong if targets are incompatible {initial-collapse-state="collapsed"}
+#### What can go wrong if targets are incompatible {initial-collapse-state="collapsed" collapsible="true"}
 
 There are two ways of manually setting JVM targets for Kotlin and Java source sets:
 * The implicit way via [setting up a Java toolchain](#gradle-java-toolchains-support).
@@ -278,7 +278,7 @@ to solve this issue.
 > }
 > ```
 >
-{type="warning"} 
+{style="warning"} 
 
 Gradle 6.7 introduced [Java toolchains support](https://docs.gradle.org/current/userguide/toolchains.html).
 Using this feature, you can:
@@ -394,7 +394,7 @@ Check that the version of `foojay-resolver-convention` corresponds to your Gradl
 > and find a string in the output starting with `[KOTLIN] Kotlin compilation 'jdkHome' argument:`.
 > The part after the colon will be the JDK version from the toolchain.
 >
-{type="note"}
+{style="note"}
 
 To set any JDK (even local) for a specific task, use the [Task DSL](#set-jdk-version-with-the-task-dsl).
 
@@ -535,7 +535,7 @@ tasks.named("compileJava", JavaCompile.class) {
 > For a module, a package name in Kotlin files should be equal to the package name from `module-info.java` to avoid a 
 > "package is empty or does not exist" build failure. 
 >
-{type="note"}
+{style="note"}
 
 Learn more about:
 * [Building modules for the Java Module System](https://docs.gradle.org/current/userguide/java_library_plugin.html#sec:java_library_modular)
@@ -601,7 +601,7 @@ require the `kotlin-multiplatform` plugin.
 
 >The `kotlin-multiplatform` plugin works with Gradle %minGradleVersion% or later.
 >
-{type="note"}
+{style="note"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -832,7 +832,7 @@ file:
 kotlin.stdlib.jdk.variants.version.alignment=false
 ```
 
-##### Other ways to align versions {initial-collapse-state="collapsed"}
+##### Other ways to align versions {initial-collapse-state="collapsed" collapsible="true"}
 
 * If you have issues with version alignment, you can align all versions via the Kotlin [BOM](https://docs.gradle.org/current/userguide/platforms.html#sub:bom_import). 
   Declare a platform dependency on `kotlin-bom` in your build script:
@@ -1004,7 +1004,7 @@ kotlin {
 
 > You can use shorthand for a dependency on a Kotlin module, for example, kotlin("test") for "org.jetbrains.kotlin:kotlin-test".
 >
-{type="note"}
+{style="note"}
 
 You can use the `kotlin-test` dependency in any shared or platform-specific source set as well.
 
@@ -1241,7 +1241,7 @@ Popular repositories are [Maven Central](https://central.sonatype.com/) and [Goo
 > add it as the last repository in your `repositories{}` block. For more information, see
 > [The case for mavenLocal()](https://docs.gradle.org/current/userguide/declaring_repositories.html#sec:case-for-maven-local).
 > 
-{type="warning"}
+{style="warning"}
 
 If you need to declare the same repositories in more than one subproject, declare the repositories centrally in the
 `dependencyResolutionManagement{}` block in your `settings.gradle(.kts)` file:

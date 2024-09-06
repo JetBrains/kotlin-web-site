@@ -52,7 +52,7 @@ specify the ID and URL of each repository in the `<repositories>` element:
 > If you declare `mavenLocal()` as a repository in a Gradle project, you may experience problems when switching 
 > between Gradle and Maven projects. For more information, see [Declare repositories](gradle-configure-project.md#declare-repositories).
 >
-{type="note"}
+{style="note"}
 
 ## Set dependencies
 
@@ -73,7 +73,7 @@ To use the standard library in your project, add the following dependency to you
 > * 1.8, use `kotlin-stdlib-jdk7` or `kotlin-stdlib-jdk8`, respectively.
 > * 1.2, use `kotlin-stdlib-jre7` or `kotlin-stdlib-jre8`, respectively.
 >
-{type="note"} 
+{style="note"} 
 
 If your project uses [Kotlin reflection](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/index.html)
 or testing facilities, you need to add the corresponding dependencies as well.
@@ -129,7 +129,7 @@ If you need to configure an execution, you need to specify its ID. You can find 
 > If several build plugins overwrite the default lifecycle and you have also enabled the `extensions` option, the last plugin in 
 > the `<build>` section has priority in terms of lifecycle settings. All earlier changes to lifecycle settings are ignored.
 > 
-{type="note"}
+{style="note"}
 
 <!-- The following header is used in the Mari link service. If you wish to change it here, change the link there too -->
 

@@ -68,7 +68,7 @@ declarations](multiplatform-expect-actual.md).
 
 > New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).
 >
-{type="tip"}
+{style="tip"}
 
 ### Sample projects
 

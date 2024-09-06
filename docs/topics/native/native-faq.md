@@ -112,7 +112,7 @@ embedding in your Xcode projects.
 > This issue is relevant for the legacy memory manager only. Check out [Kotlin/Native memory management](native-memory-manager.md)
 > to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
 >
-{type="note"}
+{style="note"}
 
 It likely happens, because you are trying to mutate a frozen object. An object can transfer to the
 frozen state either explicitly, as objects reachable from objects on which the `kotlin.native.concurrent.freeze` is called,
@@ -123,7 +123,7 @@ or implicitly (i.e. reachable from `enum` or global singleton object - see the n
 > This issue is relevant for the legacy memory manager only. Check out [Kotlin/Native memory management](native-memory-manager.md)
 > to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
 >
-{type="note"}
+{style="note"}
 
 Currently, singleton objects are immutable (i.e. frozen after creation), and it's generally considered
 good practise to have the global state immutable. If for some reason you need a mutable state inside such an

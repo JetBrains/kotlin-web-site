@@ -7,7 +7,7 @@ inline markup.
 > Kotlin's documentation engine: Dokka, understands KDoc and can be used to generate documentation in various formats.
 > For more information, read our [Dokka documentation](dokka-introduction.md).
 >
-{type="note"}
+{style="note"}
 
 ## KDoc syntax
 
@@ -103,7 +103,7 @@ API of a module but still have to be visible externally.
 
 > KDoc does not support the `@deprecated` tag. Instead, please use the `@Deprecated` annotation.
 >
-{type="note"}
+{style="note"}
 
 ## Inline markup
 

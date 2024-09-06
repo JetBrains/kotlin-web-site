@@ -6,7 +6,7 @@ tiers depending on how well the compiler supports them.
 
 > We can adjust the number of tiers, the list of supported targets, and their features as we go.
 > 
-{type="tip"}
+{style="tip"}
 
 Mind the following terms used in tier tables:
 
@@ -69,7 +69,7 @@ Mind the following terms used in tier tables:
 
 > The `linuxArm32Hfp` target is deprecated and will be removed in future releases.
 > 
-{type="note"}
+{style="note"}
 
 ## For library authors
 

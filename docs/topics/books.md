@@ -6,7 +6,7 @@ appreciate all their efforts in helping us increase a number of professional Kot
 Here are just a few books we've reviewed and recommend you for learning Kotlin. You can find more books on [our 
 community website](https://kotlin.link/).
 
-<table header-style="none">
+<table style="none">
 <tr>
 <td>
 <img src="atomic-kotlin.png" alt="Atomic Kotlin" width="250"/>

@@ -18,7 +18,7 @@ To make your framework consumable, you'll need to upload two files:
   Choose the option that is easiest to integrate into your workflow.
 * The `Package.swift` file describing the package. You'll need to push it to a separate Git repository.
 
-#### Project configuration options {initial-collapse-state="collapsed"}
+#### Project configuration options {initial-collapse-state="collapsed" collapsible="true"}
 
 In this tutorial, you'll store your XCFramework as a binary in your preferred file storage, and the `Package.swift` file
 in a separate Git repository.
@@ -90,7 +90,7 @@ To set up the publishing of an XCFramework:
    >
    > You can then find the resulting framework in the `composeApp/build/XCFrameworks/release/Shared.xcframework` folder.
    >
-   {type="tip"}
+   {style="tip"}
 
 ### Prepare the XCFramework and the Swift package manifest
 
@@ -98,7 +98,7 @@ To set up the publishing of an XCFramework:
    
    `swift package compute-checksum Shared.xcframework.zip`
 
-2. <anchor name="upload"></anchor> Upload the ZIP file to the file storage of your choice.
+2. <anchor name="upload"/> Upload the ZIP file to the file storage of your choice.
 3. Choose any directory and locally create a `Package.swift` file with the following code:
 
    ```Swift

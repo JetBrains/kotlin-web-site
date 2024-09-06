@@ -9,7 +9,7 @@ once a module with a sealed interface is compiled, no new implementations can be
 > 
 > Indirect subclasses are classes that inherit from more than one level down from their superclass.
 >
-{type="note"}
+{style="note"}
 
 When you combine sealed classes and interfaces with the `when` expression, you can cover the behavior of all possible 
 subclasses and ensure that no new subclasses are created to affect your code adversely.
@@ -25,7 +25,7 @@ For more detailed practical applications, see [Use case scenarios](#use-case-sce
 > Java 15 introduced [a similar concept](https://docs.oracle.com/en/java/javase/15/language/sealed-classes-and-interfaces.html#GUID-0C709461-CC33-419A-82BF-61461336E65F), 
 > where sealed classes use the `sealed` keyword along with the `permits` clause to define restricted hierarchies.
 >
-{type="tip"}
+{style="tip"}
 
 ## Declare a sealed class or interface
 
@@ -134,7 +134,7 @@ Subclasses of sealed classes must have a properly qualified name. They can't be 
 >
 > ```
 > 
-{type="note"}
+{style="note"}
 
 These restrictions don't apply to indirect subclasses. If a direct subclass of a sealed class is not marked as sealed,
 it can be extended in any way that its modifiers allow:
@@ -204,7 +204,7 @@ fun main() {
 > This is because subclasses of `actual` platform implementations may extend sealed classes that 
 > aren't known in the common code.
 >
-{type="note"}
+{style="note"}
 
 ## Use case scenarios
 

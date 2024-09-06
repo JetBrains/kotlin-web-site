@@ -144,7 +144,7 @@ public val table: Map<String, Int>
 
 > On the JVM: Access to private properties with default getters and setters is optimized to avoid function call overhead.
 >
-{type="note"}
+{style="note"}
 
 ## Compile-time constants
 

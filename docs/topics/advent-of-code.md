@@ -147,7 +147,7 @@ Use queues, `ArrayDeque`, function references, and the `tailrec` modifier to sol
 
 > Read our [blog post about Advent of Code 2021](https://blog.jetbrains.com/kotlin/2021/11/advent-of-code-2021-in-kotlin/)
 > 
-{type="tip"}
+{style="tip"}
 
 ### Day 1: Sonar sweep
 
@@ -193,7 +193,7 @@ Learn how to parse the input and introduce some domain classes for more convenie
 
 > You can find all the solutions for the Advent of Code 2020 puzzles in our [GitHub repository](https://github.com/kotlin-hands-on/advent-of-code-2020/).
 >
-{type="tip"}
+{style="tip"}
 
 ### Day 1: Report repair
 

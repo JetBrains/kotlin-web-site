@@ -17,7 +17,7 @@ The Kotlin 1.9.0 release is out and the K2 compiler for the JVM is now in **Beta
 
 You can also find a short overview of the updates in this video:
 
-<video href="fvwTZc-dxsM" title="What's new in Kotlin 1.9.0"/>
+<video src="https://youtu.be/fvwTZc-dxsM" title="What's new in Kotlin 1.9.0"/>
 
 ## IDE support
 
@@ -34,7 +34,7 @@ The Kotlin 1.9.0 plugin will be included with IntelliJ IDEA 2023.2 in the upcomi
 
 > To download Kotlin artifacts and dependencies, [configure your Gradle settings](#configure-gradle-settings) to use the Maven Central Repository.
 >
-{type="warning"}
+{style="warning"}
 
 ## New Kotlin K2 compiler updates
 
@@ -96,7 +96,7 @@ Task info:
 > If you use Gradle 8.0, you might come across some problems with build reports, especially when Gradle configuration 
 > caching is enabled. This is a known issue, fixed in Gradle 8.1 and later.
 >
-{type="note"}
+{style="note"}
 
 ### Current K2 compiler limitations
 
@@ -147,7 +147,7 @@ a modern and performant replacement for the synthetic `values()` function. In 1.
 > The `values()` function is still supported, but we recommend that you use the `entries`
 > property instead.
 >
-{type="tip"}
+{style="tip"}
 
 ```kotlin
 enum class Color(val colorName: String, val rgb: String) {
@@ -498,7 +498,7 @@ The new layout requires the Android Gradle plugin version 7.0 or later and is su
 
 ### Preview of the Gradle configuration cache
 
-<anchor name="preview-of-gradle-configuration-cache"></anchor>
+<anchor name="preview-of-gradle-configuration-cache"/>
 
 Kotlin 1.9.0 comes with support for the [Gradle configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html)
 in multiplatform libraries. If you're a library author, you can already benefit from the improved build performance.
@@ -509,7 +509,7 @@ builds. The feature has become Stable since Gradle 8.1. To enable it, follow the
 > The Kotlin Multiplatform plugin still doesn't support the Gradle configuration cache with Xcode integration tasks or the
 > [Kotlin CocoaPods Gradle plugin](native-cocoapods-dsl-reference.md). We expect to add this feature in future Kotlin releases.
 >
-{type="note"}
+{style="note"}
 
 ## Kotlin/Wasm
 
@@ -566,7 +566,7 @@ You can write, run, and share your Kotlin code that targets the Kotlin/Wasm. [Ch
 >
 > [Learn more about how to enable these features](wasm-troubleshooting.md).
 >
-{type="note"}
+{style="note"}
 
 ```kotlin
 import kotlin.time.*
@@ -609,7 +609,7 @@ support for ES2015:
 
 > Starting from version 1.9.0, [partial library linkage](#library-linkage-in-kotlin-native) is also enabled for Kotlin/JS.
 >
-{type="note"}
+{style="note"}
 
 ### Removal of the old Kotlin/JS compiler
 
@@ -690,7 +690,7 @@ For example, `productionExecutable` was in `build/distributions`. In Kotlin 1.9.
 
 > If you have a pipeline in place that uses the results of these builds, make sure to update the directory.
 >
-{type="warning"}
+{style="warning"}
 
 ### Extract org.w3c declarations from stdlib-js
 
@@ -843,7 +843,7 @@ the Kotlin compilation task. This behavior has been fixed in Kotlin 1.9.0. If yo
 >```
 > {validate="false"}
 > 
-{type="warning"}
+{style="warning"}
 
 For more information, see our [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-54468/KAPT-Gradle-plugin-causes-eager-task-creation).
 
@@ -910,7 +910,7 @@ fun main() {
 > From IntelliJ IDEA version 2023.1.1, a new code inspection is available that highlights when you
 > can use the `..<` operator.
 >
-{type="note"}
+{style="note"}
 
 For more information about what you can do with this operator, see [What's new in Kotlin 1.7.20](whatsnew1720.md#preview-of-the-operator-for-creating-open-ended-ranges).
 
@@ -1032,7 +1032,7 @@ Based on these considerations, we made one of the following decisions:
 > * Deprecated, then it's been deprecated with deprecation level: `WARNING`.
 > * Marked as obsolete, then you can keep using it, but it will be replaced in future.
 >
-{type="note"}
+{style="note"}
 
 We won't list all of the results of the review here, but here are some of the highlights:
 * We stabilized the Atomics API.
@@ -1130,7 +1130,7 @@ sourcePath.copyToRecursively(
 > and to use them, you can opt in with `@OptIn(ExperimentalStdlibApi::class)` or the compiler argument
 > `-opt-in=kotlin.ExperimentalStdlibApi`.
 >
-{type="warning"}
+{style="warning"}
 
 In 1.9.0, the [`HexFormat`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-hex-format/) class and its related 
 extension functions are provided as an Experimental feature that allows you to convert between numerical values and 

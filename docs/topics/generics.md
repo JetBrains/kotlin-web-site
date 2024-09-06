@@ -111,7 +111,7 @@ He then proposes the following mnemonic: _PECS_ stands for _Producer-Extends, Co
 >
 > The only thing guaranteed by wildcards (or other types of variance) is _type safety_. Immutability is a completely different story.
 >
-{type="note"}
+{style="note"}
 
 ### Declaration-site variance
 
@@ -266,7 +266,7 @@ For example, if the type is declared as `interface Function<in T, out U>` you co
 
 > Star-projections are very much like Java's raw types, but safe.
 >
-{type="note"}
+{style="note"}
 
 ## Generic functions
 
@@ -474,7 +474,7 @@ inline fun <reified T> List<*>.asListOfType(): List<T>? =
 >nullability and actual type arguments of the element type are still erased. For example,
 >the cast `foo as Array<List<String>?>` will succeed if `foo` is an array holding any `List<*>`, whether it is nullable or not.
 >
-{type="note"}
+{style="note"}
 
 ## Underscore operator for type arguments
 

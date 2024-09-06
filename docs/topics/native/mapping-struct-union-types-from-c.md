@@ -7,7 +7,7 @@
 > Native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),
 > require opt-in only for some APIs. In such cases, you get an IDE warning.
 >
-{type="warning"}
+{style="warning"}
 
 This is the second post in the series. The very first tutorial 
 of the series is [Mapping primitive data types from C](mapping-primitive-data-types-from-c.md).

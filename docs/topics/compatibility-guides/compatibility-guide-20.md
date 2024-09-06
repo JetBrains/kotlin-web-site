@@ -10,7 +10,7 @@ warnings, this document provides a complete reference for migration from Kotlin 
 > The Kotlin K2 compiler is introduced as part of Kotlin 2.0. For information on the benefits of the new compiler, changes
 > you might encounter during migration, and how to roll back to the previous compiler, see [K2 compiler migration guide](k2-compiler-migration-guide.md).
 >
-{type="note"}
+{style="note"}
 
 ## Basic terms
 

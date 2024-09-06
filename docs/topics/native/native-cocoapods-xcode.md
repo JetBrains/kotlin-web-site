@@ -17,7 +17,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
 > * If you don't specify the minimum deployment target version and a dependency Pod requires a higher deployment target,
 >   you will get an error.
 >
-{type="note"}
+{style="note"}
 
 ## Xcode project with one target
 

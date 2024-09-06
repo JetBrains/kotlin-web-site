@@ -103,7 +103,7 @@ external fun newC()
 > This feature is [Experimental](components-stability.md#stability-levels-explained).
 > Its design may change in future versions.
 >
-{type="warning"} 
+{style="warning"} 
 
 By applying the `@JsExport` annotation to a top-level declaration (like a class or function), you make the Kotlin
 declaration available from JavaScript. The annotation exports all nested declarations with the name given in Kotlin.
@@ -123,7 +123,7 @@ the JavaScript target, and allows you to also export Kotlin declarations that ar
 > This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-18891/JS-provide-a-way-to-declare-static-members-JsStatic).
 >
-{type="warning"}
+{style="warning"}
 
 The `@JsStatic` annotation instructs the compiler to generate additional static methods for the target declaration.
 This helps you use static members from your Kotlin code directly in JavaScript.

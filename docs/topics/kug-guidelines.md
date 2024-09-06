@@ -16,7 +16,7 @@ community, whether that includes presentations, hands-on labs, lectures, hackath
 
 > For Kotlin User Group brand assets, see [Kotlin brand assets documentation](kotlin-brand-assets.md#kotlin-user-group-brand-assets).
 >
-{type="note"}
+{style="note"}
 
 ## How to run a KUG?
 

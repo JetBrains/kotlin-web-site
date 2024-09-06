@@ -14,7 +14,7 @@ On this page, you'll find a detailed description of the problem and a recommenda
 > This page reflects the Kotlin team's current understanding of the issue.
 > As we have more data and knowledge about the accepted approach and workarounds, we'll update the page to reflect them.
 >
-{type="tip"}
+{style="tip"}
 
 ## What's the issue
 

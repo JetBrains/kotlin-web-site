@@ -176,7 +176,7 @@ object DefaultListener : MouseAdapter() {
 > Object declarations can't be local (that is, they can't be nested directly inside a function), but they can be nested
 > into other object declarations or non-inner classes.
 >
-{type="note"}
+{style="note"}
 
 ### Data objects
 
@@ -198,7 +198,7 @@ This instructs the compiler to generate a number of functions for your object:
 
   > You can't provide a custom `equals` or `hashCode` implementation for a `data object`.
   >
-  {type="note"}
+  {style="note"}
 
 The `toString()` function of a data object returns the name of the object:
 ```kotlin
@@ -220,7 +220,7 @@ the objects are treated as being equal.
 > Make sure that you only compare `data objects` structurally (using the `==` operator) and never by reference (using the `===` operator).
 > This helps you to avoid pitfalls when more than one instance of a data object exists at runtime.
 >
-{type="warning"}
+{style="warning"}
 
 ```kotlin
 import java.lang.reflect.Constructor

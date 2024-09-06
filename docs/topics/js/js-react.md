@@ -16,7 +16,7 @@ concepts behind React may help you understand some sample code, but it is not st
 
 > You can get the final application [here](https://github.com/kotlin-hands-on/web-app-react-kotlin-js-gradle/tree/finished).
 >
-{type="note"}
+{style="note"}
 
 ## Before you start
 
@@ -128,7 +128,7 @@ rebuild and reload the page when you make changes.
 
 > You can find this state of the project on the `master` branch [here](https://github.com/kotlin-hands-on/web-app-react-kotlin-js-gradle/tree/master).
 >
-{type="note"}
+{style="note"}
 
 ## Create a web app draft
 
@@ -546,7 +546,7 @@ window like this:
 > to pass click handlers. If you want to optimize rendering performance, consider storing your functions in a variable
 > and passing them.
 >
-{type="tip"}
+{style="tip"}
 
 ### Add state to keep values
 
@@ -1249,7 +1249,7 @@ sufficient for development purposes.
 
 > If you're pushing from a non-main branch, adjust the command to push to the `main` remote, for example, `git push heroku feature-branch:main`.
 >
-{type="tip"}
+{style="tip"}
 
 If the deployment is successful, you will see the URL people can use to reach the application on the internet.
 
@@ -1257,11 +1257,11 @@ If the deployment is successful, you will see the URL people can use to reach th
 
 > You can find this state of the project on the `finished` branch [here](https://github.com/kotlin-hands-on/web-app-react-kotlin-js-gradle/tree/finished).
 >
-{type="note"}
+{style="note"}
 
 ## What's next
 
-### Add more features {initial-collapse-state="collapsed"}
+### Add more features {initial-collapse-state="collapsed" collapsible="true"}
 
 You can use the resulting app as a jumping-off point to explore more advanced topics in the realm of React, Kotlin/JS, and more.
 
@@ -1273,22 +1273,22 @@ You can use the resulting app as a jumping-off point to explore more advanced to
 * **Complex APIs**. Lots of datasets and APIs are available. You can pull all sorts of data into your application. For example,
   you can build a visualizer for [cat photos](https://thecatapi.com/) or a [royalty-free stock photo API](https://unsplash.com/developers).
 
-### Improve the style: responsiveness and grids {initial-collapse-state="collapsed"}
+### Improve the style: responsiveness and grids {initial-collapse-state="collapsed" collapsible="true"}
 
 The application design is still very simple and won't look great on mobile devices or in narrow windows. Explore
 more of the CSS DSL to make the app more accessible.
 
-### Join the community and get help {initial-collapse-state="collapsed"}
+### Join the community and get help {initial-collapse-state="collapsed" collapsible="true"}
 
 The best way to report problems and get help is the [kotlin-wrappers issue tracker](https://github.com/JetBrains/kotlin-wrappers/issues).
 If you can't find a ticket for your issue, feel free to file a new one. You can also join the official [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 There are channels for `#javascript` and `#react`.
 
-### Learn more about coroutines {initial-collapse-state="collapsed"}
+### Learn more about coroutines {initial-collapse-state="collapsed" collapsible="true"}
 
 If you're interested in finding out more about how you can write concurrent code, check out the tutorial on [coroutines](coroutines-and-channels.md).
 
-### Learn more about React {initial-collapse-state="collapsed"}
+### Learn more about React {initial-collapse-state="collapsed" collapsible="true"}
 
 Now that you know the basic React concepts and how they translate to Kotlin, you can convert some other concepts outlined
 in [React's documentation](https://react.dev/learn) into Kotlin.

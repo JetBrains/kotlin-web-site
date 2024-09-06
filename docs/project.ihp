@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE ihp SYSTEM "https://resources.jetbrains.com/stardust/ihp.dtd">
-
 <ihp version="2.0">
     <categories src="c.list"/>
     <topics dir="topics"/>
@@ -8,7 +7,6 @@
     <snippets src="snippets"/>
     <images dir="images" web-path="images/"/>
     <vars src="v.list"/>
-    <product id="help/kotlin-reference" src="kr.tree" web-path="/" />
     <settings>
         <default-property element-name="toc-element" property-name="show-structure-depth" value="2"/>
     </settings>

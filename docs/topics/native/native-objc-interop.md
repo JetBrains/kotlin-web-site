@@ -7,7 +7,7 @@
 > Native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),
 > require opt-in only for some APIs. In such cases, you get an IDE warning.
 >
-{type="warning"}
+{style="warning"}
 
 This document covers some aspects of Kotlin/Native interoperability with Swift/Objective-C: how you can use Kotlin
 declarations in Swift/Objective-C code and Objective-C declarations in Kotlin code.
@@ -36,7 +36,7 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a framewor
 
 > The `@HiddenFromObjC` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
 >
-{type="warning"}
+{style="warning"}
 
 To make your Kotlin code more Objective-C/Swift-friendly, you can hide a Kotlin declaration from Objective-C and Swift
 with `@HiddenFromObjC`. The annotation disables a function or property export to Objective-C.
@@ -51,7 +51,7 @@ but still keep it visible from other Kotlin modules.
 
 > The `@ShouldRefineInSwift` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
 >
-{type="warning"}
+{style="warning"}
 
 `@ShouldRefineInSwift` helps to replace a Kotlin declaration with a wrapper written in Swift. The annotation marks a
 function or property as `swift_private` in the generated Objective-C API. Such declarations get the `__` prefix,
@@ -67,7 +67,7 @@ the Xcode autocomplete.
 
 > The `@ObjCName` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
 >
-{type="warning"}
+{style="warning"}
 
 To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use the
 custom Objective-C and Swift name for the annotated class, interface, or another Kotlin entity:
@@ -155,7 +155,7 @@ Known limitations:
 > Opt-in is required (see the details below), and you should use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-38600).
 >
-{type="warning"}
+{style="warning"}
 
 * Dependency documentation is not exported unless it is compiled with `-Xexport-kdoc` itself. The feature is Experimental,
   so libraries compiled with this option might be incompatible with other compiler versions.
@@ -338,7 +338,7 @@ switch color {
 > It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47610).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin's [suspending functions](coroutines-basics.md) (`suspend`) are presented in the generated Objective-C headers as
 functions with callbacks, or [completion handlers](https://developer.apple.com/documentation/swift/calling_objective-c_apis_asynchronously)
@@ -360,7 +360,7 @@ these declarations can't be overridden in Kotlin, and the extension initializers
 > in the same headers as the NSView class (from the AppKit framework) or UIView classes (from the UIKit framework) are
 > imported as members of these classes. This means that you can override methods that subclass from NSView or UIView.
 >
-{type="note"}
+{style="note"}
 
 Kotlin extensions to "regular" Kotlin classes are imported to Swift and Objective-C as extensions and category members,
 respectively. Kotlin extensions to other types are treated as [top-level declarations](#top-level-functions-and-properties)
@@ -409,7 +409,7 @@ MyClass.Companion.shared
 
 > Access objects through `[MySingleton mySingleton]` in Objective-C and `MySingleton()` in Swift has been deprecated.
 > 
-{type="note"}
+{style="note"}
 
 See more examples in the Kotlin-Swift interopedia:
 

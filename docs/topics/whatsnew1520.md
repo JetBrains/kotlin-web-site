@@ -7,7 +7,7 @@ Kotlin 1.5.20 has fixes for issues discovered in the new features of 1.5.0, and 
 You can find an overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/06/kotlin-1-5-20-released/)
 and this video:
 
-<video href="SV8CgSXQe44" title="Kotlin 1.5.20"/>
+<video src="https://youtu.be/SV8CgSXQe44" title="Kotlin 1.5.20"/>
 
 ## Kotlin/JVM
 
@@ -72,7 +72,7 @@ Please note that the JSpecify project is under active development. Its API and i
 > It may be dropped or changed at any time. Use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-7112).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.5.20 introduces an experimental [Lombok compiler plugin](lombok.md). This plugin makes it possible to generate
 and use Java's [Lombok](https://projectlombok.org/) declarations within modules that have Kotlin and Java code. Lombok
@@ -107,7 +107,7 @@ Kotlin/Native 1.5.20 offers a preview of the new feature and the tooling improve
 > Opt-in is required (see the details below), and you should use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-38600).
 >
-{type="warning"}
+{style="warning"}
 
 You can now set the Kotlin/Native compiler to export the [documentation comments (KDoc)](kotlin-doc.md) from Kotlin code
 to the Objective-C frameworks generated from it, making them visible to the frameworks' consumers.
@@ -203,7 +203,7 @@ Kotlin 1.5.20 introduces the following features that can improve the Gradle expe
 > It may be dropped or changed at any time. Use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-28901).
 >
-{type="warning"}
+{style="warning"}
 
 There is now a new experimental feature that makes it possible to cache the classloaders of annotation processors in [kapt](kapt.md).
 This feature can increase the speed of kapt for consecutive Gradle runs.

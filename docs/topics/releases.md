@@ -12,7 +12,7 @@ Since Kotlin 2.0.0, we ship the following types of releases:
 > For example, for the feature release 1.8.0, we had only one tooling release 1.8.20,
 > and several bugfix releases including 1.8.21, 1.8.22.
 >
-{type="tip"}
+{style="tip"}
 -->
 
 For each language and tooling release, we also ship several preview (_EAP_) versions for you to try
@@ -71,7 +71,7 @@ To enable it, go to **Settings** | **Languages & Frameworks** | **Kotlin** and s
 > The K2 mode is in Beta from 2024.2. We are working on stability and code analysis improvements, but not all IDE features
 > are supported yet.
 >
-{type="warning"}
+{style="warning"}
 
 After enabling K2 mode, you may notice differences in IDE analysis due to changes in compiler behavior.
 Learn how the new K2 compiler differs from the previous one in the [migration guide](k2-compiler-migration-guide.md).
@@ -86,7 +86,7 @@ The following table lists details of the latest Kotlin releases:
 
 > You can also use [preview versions of Kotlin](eap.md#build-details).
 > 
-{type="tip"}
+{style="tip"}
 
 <table>
     <tr>

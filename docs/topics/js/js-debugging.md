@@ -72,7 +72,7 @@ evaluation, and more. Learn more about [debugging in IntelliJ IDEA](https://www.
 > Because of the limitations of the current JavaScript debugger in IntelliJ IDEA, you may need to rerun the JavaScript
 > debug to make the execution stop on breakpoints.
 >
-{type="note"}
+{style="note"}
 
 ## Debug in Node.js
 

@@ -567,7 +567,7 @@ fun main() {
 > When chaining other functions after `takeIf` and `takeUnless`, don't forget to perform a null check or use a safe call
 > (`?.`) because their return value is nullable.
 >
-{type="tip"}
+{style="tip"}
 
 ```kotlin
 fun main() {

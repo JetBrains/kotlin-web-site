@@ -120,7 +120,7 @@ information on all the options available to `cinterop`, see [the Interop section
 > Windows SDK Commandline tools). For more details, see the [related blog post](https://jonnyzzz.com/blog/2018/10/29/kn-libcurl-windows/).
 > Alternatively, you may want to consider a [MinGW/MSYS2](https://www.msys2.org/) `curl` binary.
 >
-{type="note"}
+{style="note"}
 
 ## Add interoperability to the build process
 
@@ -210,4 +210,4 @@ hide this using `curl_easy_setopt`.
 
 > You can get the full code [here](https://github.com/Kotlin/kotlin-hands-on-intro-kotlin-native).
 >
-{type="note"}
+{style="note"}

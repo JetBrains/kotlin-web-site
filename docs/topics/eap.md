@@ -1,9 +1,9 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
 <!--
-<microformat>
+<tldr>
     <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
-</microformat>
+</tldr>
 -->
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
@@ -25,7 +25,7 @@ In this channel, you can also get notifications about new EAP builds.
 >
 > Please note that we don't provide any guarantees of compatibility between EAP and final versions of the same release. 
 >
-{type="note"}
+{style="note"}
 
 If you have already installed the EAP version and want to work on projects that were created previously, 
 check [our instructions on how to configure your build to support this version](configure-build-for-eap.md). 

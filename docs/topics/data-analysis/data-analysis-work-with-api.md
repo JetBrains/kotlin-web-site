@@ -9,7 +9,7 @@ JSON data from APIs but also assists in reshaping this data for comprehensive an
 
 > For Kotlin Notebook examples, see [DataFrame examples on GitHub](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/youtube/Youtube.ipynb).
 > 
-{type="tip"}
+{style="tip"}
 
 ## Before you start
 
@@ -18,7 +18,7 @@ JSON data from APIs but also assists in reshaping this data for comprehensive an
 
    > Alternatively, access the Kotlin Notebook plugin from **Settings** | **Plugins** | **Marketplace** within IntelliJ IDEA.
    >
-   {type="tip"}
+   {style="tip"}
 
 3. Create a new Kotlin Notebook by selecting **File** | **New** | **Kotlin Notebook**.
 4. In the Kotlin Notebook, import the Kotlin DataFrame library by running the following command:

@@ -7,7 +7,7 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 >
 > See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v%kotlinEapVersion%).
 >
-{type="note"}
+{style="note"}
 
 The Kotlin %kotlinEapVersion% release is out!
 This document contains some details about this EAP release.
@@ -92,7 +92,7 @@ If you use context receivers in your code, we recommend that you migrate your co
 
 * Explicit parameters.
 
-   <table header-style="top">
+   <table>
       <tr>
           <td>Before</td>
           <td>After</td>
@@ -122,7 +122,7 @@ If you use context receivers in your code, we recommend that you migrate your co
 
 * Extension member functions, if possible.
 
-   <table header-style="top">
+   <table>
       <tr>
           <td>Before</td>
           <td>After</td>
@@ -241,7 +241,7 @@ Java in your multiplatform project, we recommend that you:
 
 > The separate subproject must **not** be a multiplatform project, and you must only use it to set up a dependency on your multiplatform project.
 >
-{type="warning"}
+{style="warning"}
 
 For example, you have a multiplatform project called `my-main-project` and you want 
 to use the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) Gradle plugin to run a JVM application.
@@ -426,7 +426,7 @@ import org.jetbrains.kotlin.gradle.targets.js.dsl.*
 > This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-18891/JS-provide-a-way-to-declare-static-members-JsStatic).
 >
-{type="warning"}
+{style="warning"}
 
 Starting with Kotlin %kotlinEapVersion%, you can use the `@JsStatic` annotation. It works similarly to [@JvmStatic](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-static/)
 and instructs the compiler to generate additional static methods for the target declaration. This helps you use static 
@@ -462,7 +462,7 @@ and setter methods static members in that object or the class containing the com
 > This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-69133/Kotlin-JS-Add-support-for-collection-instantiation-in-JavaScript).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 2.0.0 introduced the ability to export Kotlin collections to JavaScript (and TypeScript). Now, the JetBrains team
 is taking another step to improve collection interoperability. Starting with Kotlin %kotlinEapVersion%, it's possible to
@@ -562,7 +562,7 @@ For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-61861/Gradle-Kotlin-compilations-depend-on-packed-artifacts). 
 > Opt-in is required (see details below).
 >
-{type="warning"}
+{style="warning"}
 
 In Kotlin %kotlinEapVersion%, we introduce a new approach that changes the way the outputs of Kotlin/JVM compilations, 
 such as JAR files, are shared between projects. With this approach, Gradle's `apiElements` configuration now has a secondary
@@ -591,7 +591,7 @@ By default, this property is set to false and the `apiElements` variant in Gradl
 > For more information on this property and its purpose, 
 > see Gradle's documentation on [Significant build performance drop on Windows for huge multi-projects](https://docs.gradle.org/current/userguide/java_library_plugin.html#sub:java_library_known_issues_windows_performance).
 >
-{type="note"}
+{style="note"}
 
 We would appreciate your feedback on this new approach. Do you also see performance improvements? 
 Let us know by adding a comment in [YouTrack](https://youtrack.jetbrains.com/issue/KT-61861/Gradle-Kotlin-compilations-depend-on-packed-artifacts).
