@@ -203,22 +203,18 @@ in the Kotlin/JS documentation.
 
 `browser {}` can contain the following configuration blocks:
 
-| **Name**       | **Description**                                                            | 
-|----------------|----------------------------------------------------------------------------|
-| `testRuns`     | Configuration of test execution.                                           |
-| `runTask`      | Configuration of project running.                                          |
+| **Name**       | **Description**                                                         | 
+|----------------|-------------------------------------------------------------------------|
+| `testRuns`     | Configuration of test execution.                                        |
+| `runTask`      | Configuration of project running.                                       |
 | `webpackTask`  | Configuration of project bundling with [Webpack](https://webpack.js.org/). |
-| `dceTask`      | Configuration of [Dead Code Elimination](javascript-dce.md).               |
-| `distribution` | Path to output files.                                                      |
+| `distribution` | Path to output files.                                                   |
 
 ```kotlin
 kotlin {
     js().browser {
         webpackTask { /* ... */ }
         testRuns { /* ... */ }
-        dceTask {
-            keep("myKotlinJsApplication.org.example.keepFromDce")
-        }
         distribution {
             directory = File("$projectDir/customdir/")
         }

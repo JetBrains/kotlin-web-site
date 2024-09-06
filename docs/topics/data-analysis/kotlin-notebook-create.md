@@ -62,9 +62,23 @@ Here, you will learn how to create your first Kotlin Notebook, perform simple op
 9. Create a new code cell and add `println(a * a)`.
 10. Run all code and markdown cells in the notebook using the **Run All** ![Run all button](run-all-button.png){width=30}{type="joined"} button.
 
-![First notebook](first-notebook.png){width=700}
+    ![First notebook](first-notebook.png){width=700}
 
 Congratulations! You have just created your first Kotlin Notebook.
+
+## Create a scratch Kotlin Notebook
+
+Starting from IntelliJ IDEA 2024.1.1, you can also create a Kotlin Notebook as a scratch file.
+
+[Scratch files](https://www.jetbrains.com/help/idea/scratches.html#create-scratch-file) allow 
+you to test small pieces of code without creating a new project or modifying an existing one.
+
+To create a scratch Kotlin Notebook:
+
+1. Click **File | New | Scratch File**.
+2. Select **Kotlin Notebook** from the **New Scratch File** list.
+
+   ![Scratch notebook](kotlin-notebook-scratch-file.png){width=400}
 
 ## Next step
 

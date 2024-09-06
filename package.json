@@ -79,7 +79,7 @@
     "url-loader": "^4.0.0",
     "use-match-media-hook": "1.0.1",
     "validator": "13.7.0",
-    "webpack": "5.76.0",
+    "webpack": "5.94.0",
     "whatwg-fetch": "2.0.2"
   },
   "devDependencies": {
