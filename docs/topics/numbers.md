@@ -5,16 +5,16 @@
 Kotlin provides a set of built-in types that represent numbers.  
 For integer numbers, there are four types with different sizes and, hence, value ranges:
 
-| Type	 |Size (bits)| Min value| Max value|
-|--------|-----------|----------|--------- |
-| `Byte`	 | 8         |-128      |127       |
-| `Short`	 | 16        |-32768    |32767     |
-| `Int`	 | 32        |-2,147,483,648 (-2<sup>31</sup>)| 2,147,483,647 (2<sup>31</sup> - 1)|
-| `Long`	 | 64        |-9,223,372,036,854,775,808 (-2<sup>63</sup>)|9,223,372,036,854,775,807 (2<sup>63</sup> - 1)|
+| Type	    | Size (bits) | Min value                                    | Max value                                      |
+|----------|-------------|----------------------------------------------|------------------------------------------------|
+| `Byte`	  | 8           | -128                                         | 127                                            |
+| `Short`	 | 16          | -32768                                       | 32767                                          |
+| `Int`	   | 32          | -2,147,483,648 (-2<sup>31</sup>)             | 2,147,483,647 (2<sup>31</sup> - 1)             |
+| `Long`	  | 64          | -9,223,372,036,854,775,808 (-2<sup>63</sup>) | 9,223,372,036,854,775,807 (2<sup>63</sup> - 1) |
 
 When you initialize a variable with no explicit type specification, the compiler automatically infers the type with the 
 smallest range enough to represent the value starting from `Int`. If it is not exceeding the range of `Int`, the type is `Int`.
-If it exceeds, the type is `Long`. To specify the `Long` value explicitly, append the suffix `L` to the value. 
+If it does exceed that range, the type is `Long`. To specify the `Long` value explicitly, append the suffix `L` to the value. 
 Explicit type specification triggers the compiler to check the value not to exceed the range of the specified type.
 
 ```kotlin
@@ -24,7 +24,8 @@ val oneLong = 1L // Long
 val oneByte: Byte = 1
 ```
 
-> In addition to integer types, Kotlin also provides unsigned integer types. For more information, see [Unsigned integer types](unsigned-integer-types.md).
+> In addition to these signed integer types, Kotlin also provides unsigned integer types.
+> For more information, see [Unsigned integer types](unsigned-integer-types.md).
 >
 {style="tip"}
 
@@ -35,30 +36,31 @@ For real numbers, Kotlin provides floating-point types `Float` and `Double` that
 
 These types differ in their size and provide storage for floating-point numbers with different precision:
 
-| Type	 |Size (bits)|Significant bits|Exponent bits|Decimal digits|
-|--------|-----------|--------------- |-------------|--------------|
-| `Float`	 | 32        |24              |8            |6-7            |
-| `Double` | 64        |53              |11           |15-16          |    
+| Type	    | Size (bits) | Significant bits | Exponent bits | Decimal digits |
+|----------|-------------|------------------|---------------|----------------|
+| `Float`	 | 32          | 24               | 8             | 6-7            |
+| `Double` | 64          | 53               | 11            | 15-16          |    
 
-You can initialize `Double` and `Float` variables  with numbers having a fractional part.
-It's separated from the integer part by a period (`.`)
+You can initialize `Double` and `Float` variables with numbers that have a fractional part.
+The fractional part is separated from the integer part by a period (`.`)
+
 For variables initialized with fractional numbers, the compiler infers the `Double` type:
 
 ```kotlin
 val pi = 3.14 // Double
-// val one: Double = 1 // Error: type mismatch
+val one: Double = 1 // Error: type mismatch
 val oneDouble = 1.0 // Double
 ```
 
 To explicitly specify the `Float` type for a value, add the suffix `f` or `F`.
-If such a value contains more than 6-7 decimal digits, it will be rounded:
+If the value provided this way contains more than 7 decimal digits, it will be rounded:
 
 ```kotlin
 val e = 2.7182818284 // Double
 val eFloat = 2.7182818284f // Float, actual value is 2.7182817
 ```
 
-Unlike some other languages, there are no implicit widening conversions for numbers in Kotlin.
+Unlike in some other languages, there are no implicit widening conversions for numbers in Kotlin.
 For example, a function with a `Double` parameter can be called only on `Double` values, but not `Float`,
 `Int`, or other numeric values:
 
@@ -71,8 +73,8 @@ fun main() {
     val f = 1.0f 
 
     printDouble(d)
-//    printDouble(i) // Error: Type mismatch
-//    printDouble(f) // Error: Type mismatch
+    printDouble(i) // Error: Type mismatch
+    printDouble(f) // Error: Type mismatch
 }
 ```
 
@@ -80,7 +82,7 @@ To convert numeric values to different types, use [explicit conversions](#explic
 
 ## Literal constants for numbers
 
-There are the following kinds of literal constants for integral values:
+There are several kinds of literal constants for integral values:
 
 * Decimals: `123`
 * Longs are tagged by a capital `L`: `123L`
@@ -111,13 +113,15 @@ val bytes = 0b11010010_01101001_10010100_10010010
 > 
 {style="tip"}
 
-## Numbers representation on the JVM
+## Numbers representation on the Java Virtual Machine
 
 On the JVM platform, numbers are stored as primitive types: `int`, `double`, and so on.
-Exceptions are cases when you create a nullable number reference such as `Int?` or use generics.
-In these cases numbers are boxed in Java classes `Integer`, `Double`, and so on.
+When you use generics, or create a nullable number reference such as `Int?`, numbers are boxed in Java classes
+such as `Integer` or `Double`.
 
-Nullable references to the same number can refer to different objects:
+JVM applies a memory optimization to `Integer` objects that represent numbers between `−128` and `127`:
+all nullable references to such objects are referring to the same object.
+So in this example nullable objects are [referentially equal](equality.md#referential-equality):
 
 ```kotlin
 fun main() {
@@ -126,21 +130,28 @@ fun main() {
     val boxedA: Int? = a
     val anotherBoxedA: Int? = a
     
+    println(boxedA === anotherBoxedA) // true
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+For a number outside of this range the nullable objects are different:
+
+```kotlin
+fun main() {
+//sampleStart
     val b: Int = 10000
     val boxedB: Int? = b
     val anotherBoxedB: Int? = b
     
-    println(boxedA === anotherBoxedA) // true
     println(boxedB === anotherBoxedB) // false
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-All nullable references to `a` are actually the same object because of the memory optimization that JVM applies to `Integer`s
-between `-128` and `127`. It doesn't apply to the `b` references, so they are different objects.
-
-On the other hand, they are still equal:
+At the same time, they are [structurally equal](equality.md#structural-equality):
 
 ```kotlin
 fun main() {
@@ -164,7 +175,7 @@ If they were, we would have troubles of the following sort:
 // Hypothetical code, does not actually compile:
 val a: Int? = 1 // A boxed Int (java.lang.Integer)
 val b: Long? = a // Implicit conversion yields a boxed Long (java.lang.Long)
-print(b == a) // Surprise! This prints "false" as Long's equals() checks whether the other is Long as well
+print(b == a) // Prints "false" as Long.equals() checks not only value but whether the other number is Long as well
 ```
 
 So equality would have been lost silently, not to mention identity.
@@ -211,17 +222,18 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-You can also override these operators for custom classes. See [Operator overloading](operator-overloading.md) for details.
+You can override these operators in custom number classes.
+See [Operator overloading](operator-overloading.md) for details.
 
 ### Division of integers
 
-Division between integers numbers always returns an integer number. Any fractional part is discarded.
+Division between integer numbers always returns an integer number. Any fractional part is discarded.
 
 ```kotlin
 fun main() {
 //sampleStart
     val x = 5 / 2
-    //println(x == 2.5) // ERROR: Operator '==' cannot be applied to 'Int' and 'Double'
+    println(x == 2.5) // ERROR: Operator '==' cannot be applied to 'Int' and 'Double'
     println(x == 2)
 //sampleEnd
 }
