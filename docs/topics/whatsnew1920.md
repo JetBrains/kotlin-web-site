@@ -578,7 +578,7 @@ If you encounter any issues, please report them to [YouTrack](https://kotl.in/is
 with the wizard.
 
 <a href="https://kmp.jetbrains.com">
-   <img src="multiplatform-create-project-button.png" alt="Create a project"/>
+   <img src="multiplatform-create-project-button.png" alt="Create a project" style="block"/>
 </a>
 
 ### Full support for the Gradle configuration cache in Kotlin Multiplatform

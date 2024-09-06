@@ -159,7 +159,7 @@ By replacing the `JdbcTemplate` with `CrudRepository`, the functionality didn't 
 Get your personal language map to help you navigate Kotlin features and track your progress in studying the language:
 
 <a href="https://resources.jetbrains.com/storage/products/kotlin/docs/Kotlin_Language_Features_Map.pdf">
-   <img src="get-kotlin-language-map.png" width="700" alt="Get the Kotlin language map"/>
+   <img src="get-kotlin-language-map.png" width="700" alt="Get the Kotlin language map" style="block"/>
 </a>
 
 * Learn more about [Calling Java from Kotlin code](java-interop.md) and [Calling Kotlin from Java code](java-to-kotlin-interop.md).

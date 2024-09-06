@@ -42,7 +42,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
     <tr>
         <td><strong>Language</strong></td>
         <td>
-            <p><tip><a href="https://youtrack.jetbrains.com/issue/KT-54620" target="_blank">List of all upcoming language features</a></tip></p>
+            <tip><a href="https://youtrack.jetbrains.com/issue/KT-54620" target="_blank">List of all upcoming language features</a></tip>
         </td>
     </tr>
     <tr>

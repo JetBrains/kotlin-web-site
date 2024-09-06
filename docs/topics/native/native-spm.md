@@ -98,7 +98,9 @@ To set up the publishing of an XCFramework:
    
    `swift package compute-checksum Shared.xcframework.zip`
 
-2. <anchor name="upload"/> Upload the ZIP file to the file storage of your choice.
+<anchor name="upload"/>
+
+2. Upload the ZIP file to the file storage of your choice.
 3. Choose any directory and locally create a `Package.swift` file with the following code:
 
    ```Swift

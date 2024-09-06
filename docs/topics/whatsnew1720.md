@@ -120,7 +120,7 @@ when (value) {
 The following new types and operations will be introduced in the `kotlin.ranges` packages in the common Kotlin standard
 library:
 
-##### New OpenEndRange<T> interface
+##### New OpenEndRange&lt;T&gt; interface
 
 The new interface to represent open-ended ranges is very similar to the existing `ClosedRange<T>` interface:
 
