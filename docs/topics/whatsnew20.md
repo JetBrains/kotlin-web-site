@@ -1457,7 +1457,8 @@ our [#gradle Slack channel](https://kotlinlang.slack.com/archives/C19FD9681). [G
 
 ### New directory for Kotlin data in Gradle projects
 
-> With this change, you may need to add the `.kotlin` directory to your project's `.gitignore` file.
+> Do not commit the `.kotlin` directory to version control.
+> For example, if you are using Git, add `.kotlin` to your project's `.gitignore` file.
 >
 {type="warning"}
 
