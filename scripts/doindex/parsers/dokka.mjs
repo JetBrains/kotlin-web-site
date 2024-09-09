@@ -174,7 +174,7 @@ async function legacyApi($, url, data) {
             ...DEFAULT_RECORD,
             ...data,
 
-            objectID: finalUrl,
+            objectID: finalUrl.replace(/\.html$/g, ''),
             parent: finalUrl,
             pageType: 'api',
             url: new URL(finalUrl, pageUrl).toString(),
