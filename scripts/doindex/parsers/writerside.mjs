@@ -161,7 +161,7 @@ async function docs($, url, data) {
     const pageUrl = new URL($('link[rel="canonical"]').attr('href'));
 
     dropUiElements($article);
-    dropUselessSections($article);
+    dropIrrelevantSections($article);
     replaceMedia($article, pageUrl.toString());
 
     const breadcrumbs = getBreadcrumbs($body);
