@@ -1,8 +1,9 @@
-[//]: # (title: iOS integration)
+[//]: # (title: Integration with Swift/Objective-C ARC)
 
-Integration of Kotlin/Native garbage collector with Swift/Objective-C ARC is seamless and generally requires no additional
-work to be done. Learn more about [Swift/Objective-C interoperability](native-objc-interop.md).
+Kotlin and Objective-C use different memory management strategies. Kotlin has a tracing garbage collector,
+while Objective-C relies on automatic reference counting (ARC).
 
+The integration between these strategies is usually seamless and generally requires no additional work.
 However, there are some specifics you should keep in mind:
 
 ## Threads
@@ -244,6 +245,27 @@ It requires two GC cycles to collect these four objects because deinitialization
 after the GC cycle. The limitation stems from `deinit`, which can call arbitrary code, including the Kotlin code that
 cannot be run during the GC pause.
 
+### Retain cycles
+
+In a _retain cycle_, a number of objects refer each other using strong references cyclically:
+
+![Retain cycles](native-retain-cycle.png){height=200}
+
+Kotlin's tracing GC and Objective-C's ARC handle retain cycles differently. When objects become unreachable, Kotlin's GC
+can properly reclaim such cycles, while Objective-C's ARC cannot. Therefore, retain cycles of Kotlin objects can be reclaimed,
+while [retain cycles of Swift/Objective-C objects cannot](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting/#Strong-Reference-Cycles-Between-Class-Instances).
+
+Consider the case when a retain cycle contains both Objective-C and Kotlin objects:
+
+![Retain cycles with Objective-C and Kotlin objects](native-objc-kotlin-retain-cycles.png){height=150}
+
+This involves combining Kotlin's and Objective-C's memory management models that cannot handle (reclaim) retain cycles
+together. That means if at least one Objective-C object is present, the retain cycle of a whole graph of objects
+cannot be reclaimed, and it's impossible to break the cycle from the Kotlin side.
+
+Unfortunately, no special instruments are currently available to automatically detect retain cycles in Kotlin/Native code.
+To avoid retain cycles, use [weak or unowned references](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting/#Resolving-Strong-Reference-Cycles-Between-Class-Instances).
+
 ## Support for background state and App Extensions
 
 The current memory manager does not track application state by default and does not integrate
@@ -258,3 +280,7 @@ kotlin.native.binary.appStateTracking=enabled
 
 It turns off a timer-based invocation of the garbage collector when the application is in the background, so GC is called
 only when memory consumption becomes too high.
+
+## What's next
+
+Learn more about [Swift/Objective-C interoperability](native-objc-interop.md).

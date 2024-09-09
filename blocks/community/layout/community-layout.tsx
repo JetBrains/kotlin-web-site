@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo, useState } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 
 import Head from 'next/head';
 
@@ -10,22 +10,22 @@ import Button from '@rescui/button';
 import { ThemeProvider } from '@rescui/ui-contexts';
 import { useRouter } from 'next/router';
 import { StickyHeader } from '../../../components/sticky-header/sticky-header';
-import styles from "./community-layout.module.css";
+import styles from './community-layout.module.css';
 import releasesDataRaw from '../../../data/releases.yml';
 import searchConfig from '../../../search-config.json';
-import {CommunityAddEvent} from "../event-list/event-list";
+import { CommunityAddEvent } from '../event-list/event-list';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
-const items = [
+const TOP_MENU_ITEMS = [
     {
         url: '/community/',
-        title: 'Overview',
+        title: 'Overview'
     },
     {
         url: '/community/user-groups/',
-        title: 'Kotlin User Groups',
-    },
+        title: 'Kotlin User Groups'
+    }
 ];
 
 interface CommunityLayoutProps {
@@ -39,10 +39,14 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
     const theme = 'dark';
     const router = useRouter();
     const pathname = addTrailingSlash(router.pathname);
-    const activeIndex = useMemo(
+
+    let items = TOP_MENU_ITEMS;
+
+    let activeIndex = useMemo(
         () => items.map((item) => item.url).indexOf(pathname),
-        [router.pathname]
+        [pathname, items]
     );
+
     const linkHandler = useCallback(
         (event, url) => {
             event.preventDefault();
@@ -60,6 +64,14 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
         () => (ogImageName ? ogImagePath : 'https://kotlinlang.org/assets/images/twitter/general.png'),
         [ogImageName, ogImagePath]
     );
+
+    if (activeIndex === -1) {
+        activeIndex = items.length;
+        items = [...items, {
+            url: router.pathname + '/',
+            title,
+        }];
+    }
 
     return (
         <>
@@ -122,11 +134,11 @@ export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, 
                     </Button>
                 }
                 mainTitle={
-                <>
-                    Give us your feedback or ask any questions
-                    <br />
-                    you have about the Kotlin community
-                </>
+                    <>
+                        Give us your feedback or ask any questions
+                        <br />
+                        you have about the Kotlin community
+                    </>
                 }
             />
 

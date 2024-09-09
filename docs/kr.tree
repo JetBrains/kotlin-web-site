@@ -233,7 +233,7 @@
             <toc-element id="native-dynamic-libraries.md"/>
             <toc-element toc-title="Memory manager">
                 <toc-element id="native-memory-manager.md"/>
-                <toc-element id="native-ios-integration.md"/>
+                <toc-element id="native-ios-integration.md" toc-title="Integration with ARC"/>
                 <toc-element id="native-migration-guide.md" toc-title="Migration guide"/>
             </toc-element>
             <toc-element id="native-debugging.md"/>
