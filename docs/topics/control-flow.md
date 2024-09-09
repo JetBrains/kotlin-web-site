@@ -188,12 +188,12 @@ Starting from Kotlin 2.1, you can use guard conditions in `when` expressions or 
 
 Guard conditions allow you to include more than one condition to the branches of a `when` expression, making complex control flow more explicit and concise.
 
-To include a guard condition in a branch, place the guard condition together with the `if` keyword after the primary condition:
+To include a guard condition in a branch, place the guard condition after the primary condition, separated by `if`:
 
 ```kotlin
 sealed interface Animal {
     class Cat(val mouseHunter: Boolean) : Animal
-    data object Dog : Animal
+    data class Dog(val breed: String) : Animal
 }
 
 fun feedAnimal(animal: Animal) {
@@ -208,8 +208,8 @@ fun feedAnimal(animal: Animal) {
 }
 ```
 
-In a single `when` expression, you can combine both branches with and without a guard condition. 
-The code in the branches with a guard condition runs only if the primary condition and the guard condition evaluate to true.
+In a single `when` expression, you can combine branches with and without guard conditions. 
+The code in a branch with a guard condition runs only if both the primary condition and the guard condition evaluate to true.
 If the primary condition does not match, the guard condition is not evaluated. 
 
 If you use guard conditions in `when` statements without an `else` branch, if none of the conditions matches, none of the branches is executed. 

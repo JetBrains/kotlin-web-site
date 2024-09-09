@@ -997,7 +997,7 @@ Prefer using parentheses when combining multiple boolean expressions in `when` e
 
 ```kotlin
 when (status) {
-    is Status.Ok if (status.info.isEmpty() || status is Status.Error) -> "no information"
+    is Status.Ok if (status.info.isEmpty() || status.info.id == null) -> "no information"
 }
 ```
 
@@ -1005,7 +1005,7 @@ Instead of:
 
 ```kotlin
 when (status) {
-    is Status.Ok if status.info.isEmpty() || status is Status.Error -> "no information"
+    is Status.Ok if status.info.isEmpty() || status.info.id == null -> "no information"
 }
 ```
 
