@@ -113,7 +113,7 @@ async function reportRecords(records) {
             { encoding: 'utf8' }
         ),
 
-        env['WH_INDEX_NAME'] && algoliasearch(env['WH_SEARCH_USER'], env['WH_SEARCH_WRITE_KEY'])
+        env['WH_INDEX_NAME'] && algoliasearch(env['WH_SEARCH_USER'], env['WH_SEARCH_KEY'])
             .initIndex(env['WH_INDEX_NAME'])
             .replaceAllObjects(records)
             .wait()
