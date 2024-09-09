@@ -2,10 +2,7 @@ package builds.kotlinlang.buidTypes
 
 import BuildParams.SEARCH_APP_ID
 import BuildParams.SEARCH_INDEX_NAME
-import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.BuildType
-import jetbrains.buildServer.configs.kotlin.FailureAction
-import jetbrains.buildServer.configs.kotlin.buildFeatures.dockerSupport
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.schedule
@@ -20,7 +17,7 @@ object BuildSearchIndex : BuildType({
   """.trimIndent()
 
   params {
-//    param("env.WH_INDEX_NAME", SEARCH_INDEX_NAME)
+    param("env.WH_INDEX_NAME", SEARCH_INDEX_NAME)
     param("env.WH_SEARCH_USER", SEARCH_APP_ID)
     param("env.WH_SEARCH_KEY", "%ALGOLIA_WRITE_API_KEY%")
   }

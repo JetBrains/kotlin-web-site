@@ -5,7 +5,6 @@ import { createResolve } from './index.mjs';
 
 /**
  * @typedef {ChildProcess} Fork
- * @property {number} [id]
  * @property {boolean} [waits]
  */
 
@@ -25,19 +24,14 @@ export class FixedThreadPool {
      */
     constructor(script, onResult, poolSize = (cpuSize && cpuSize()) || cpus().length) {
         this.forks = [...new Array(poolSize)].map(
-            /**
-             * @param {void} _
-             * @param {number} i
-             * @returns {Fork}
-             */
-            (_, i) => {
+            /** @returns {Fork} */
+            () => {
                 /** @type Fork */
                 const forked = fork(script, { stdio: 'pipe' });
 
                 forked.stdout.pipe(stdout);
                 forked.stderr.pipe(stderr);
 
-                forked.id = i;
                 forked.waits = false;
 
                 forked
@@ -82,7 +76,7 @@ export class FixedThreadPool {
      * @private
      * @returns {Fork|void}
      */
-    _thread() {
+    _idleThread() {
         return this.forks.find(forked => forked.waits);
     }
 
@@ -114,7 +108,7 @@ export class FixedThreadPool {
     }
 
     update() {
-        const thread = this._thread();
+        const thread = this._idleThread();
 
         if (thread && this.messages.length) {
             const next = this.messages.pop();
