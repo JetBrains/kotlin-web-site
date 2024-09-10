@@ -80,13 +80,17 @@ To set up the publishing of an XCFramework:
    
 2. Run the Gradle task to create the framework:
    
-   `./gradlew :shared:assembleSharedReleaseXCFramework`
+   ```shell
+   ./gradlew :shared:assembleSharedXCFramework
+   ```
   
    The resulting framework will be created as the `shared/build/XCFrameworks/release/Shared.xcframework` folder in your project directory.
 
    > In case you work with a Compose Multiplatform project, use the following Gradle task:
    >
-   > `./gradlew :composeApp:assembleSharedReleaseXCFramework`
+   > ```shell
+   > ./gradlew :composeApp:assembleSharedXCFramework
+   > ```
    >
    > You can then find the resulting framework in the `composeApp/build/XCFrameworks/release/Shared.xcframework` folder.
    >
@@ -94,12 +98,40 @@ To set up the publishing of an XCFramework:
 
 ### Prepare the XCFramework and the Swift package manifest
 
-1. Put the `Shared.xcframework` folder in a ZIP archive and calculate the checksum for the resulting archive, for example:
+1. Compress the `Shared.xcframework` folder in a ZIP file and calculate the checksum for the resulting archive, for example:
    
    `swift package compute-checksum Shared.xcframework.zip`
 
-2. <anchor name="upload"></anchor> Upload the ZIP file to the file storage of your choice.
-3. Choose any directory and locally create a `Package.swift` file with the following code:
+2. <anchor name="upload"></anchor> Upload the ZIP file to the file storage of your choice. The file should be accessible
+   by a direct link. For example, here's how you can do it using releases in GitHub:
+   
+   <deflist collapsible="true">
+       <def title="Upload to a GitHub release">
+           <list type="decimal">
+               <li>Go to <a href="https://github.com">GitHub</a> and log in to your account.</li>
+               <li>Navigate to the repository where you want to create a release.</li>
+               <li>In the <b>Releases</b> section on the right, click the <b>Create a new release</b> link.</li>
+               <li>Fill in the release information, add or create a new tag, specify the release title and write a description.</li>
+               <li>
+                   <p>Upload the ZIP file with the XCFramework through the <b>Attach binaries by dropping them here or selecting them</b> field at the bottom:</p>
+                   <img src="github-release-description.png" alt="Fill in the release information" width="700"/>
+               </li>
+               <li>Click <b>Publish release</b>.</li>
+               <li>
+                   <p>Under the <b>Assets</b> section of the release, right-click on the ZIP file and select <b>Copy link address</b> or a similar option in your browser:</p>
+                   <img src="github-release-link.png" alt="Copy the link to the uploaded file" width="500"/>
+               </li>
+         </list>
+       </def>
+   </deflist>
+
+3. [Recommended] Check that the link works and that the file can be downloaded. In the terminal, run the following command:
+
+    ```none
+    curl <downloadable link to the uploaded XCFramework ZIP file>
+    ```
+
+4. Choose any directory and locally create a `Package.swift` file with the following code:
 
    ```Swift
    // swift-tools-version:5.3
@@ -122,8 +154,8 @@ To set up the publishing of an XCFramework:
    )
    ```
    
-4. In the `url` field, specify the link to your ZIP archive with the XCFramework.
-5. [Optional] If you'd like to validate the resulting manifest, you can run the following shell command in the directory
+5. In the `url` field, specify the link to your ZIP archive with the XCFramework.
+6. [Recommended] To validate the resulting manifest, you can run the following shell command in the directory
    with the `Package.swift` file:
 
     ```shell
@@ -132,29 +164,32 @@ To set up the publishing of an XCFramework:
     
     The output will describe any errors found or show the successful download and parsing result if the manifest is correct.
 
-6. Push the `Package.swift` file to your remote repository. Make sure to create and push a Git tag with the
+7. Push the `Package.swift` file to your remote repository. Make sure to create and push a Git tag with the
    semantic version of the package.
 
 ### Add the package dependency
 
-Now that both files are accessible, you can add the package dependency:
+Now that both files are accessible, you can add the dependency on the package you created to an existing client iOS
+project or create a new project. To add the package dependency:
 
 1. In Xcode, choose **File | Add Package Dependencies**.
 2. In the search field, enter the URL of the Git repository with the `Package.swift` file inside:
 
    ![Specify repo with the package file](native-spm-url.png)
 
-3. Depending on the type of your project, the dialog will vary:
-   * If you're making a Swift package, press the **Copy package** button. This will put a `.package` line in your clipboard.
-     Paste this line into the [Package.Dependency](https://developer.apple.com/documentation/packagedescription/package/dependency)
-     block of your own `Package.swift` file, and add the necessary product to the appropriate `Target.Dependency` block.
-   * For other Xcode projects, press the **Add package** button, then select products and corresponding targets for the package.
+3. Press the **Add package** button, then select products and corresponding targets for the package.
+
+   > If you're making a Swift package, the dialog will be different. In this case, press the **Copy package** button.
+   > This will put a `.package` line in your clipboard. Paste this line into the [Package.Dependency](https://developer.apple.com/documentation/packagedescription/package/dependency)
+   > block of your own `Package.swift` file, and add the necessary product to the appropriate `Target.Dependency` block.
+   >
+   {type="tip"}
 
 ### Check your setup
 
 To check that everything is set up correctly, test the import in Xcode:
 
-1. In your project, navigate to the `ContentView.swift` file.
+1. In your project, navigate to your UI view file, for example, `ContentView.swift`.
 2. Replace the code with the following snippet:
    
     ```Swift
