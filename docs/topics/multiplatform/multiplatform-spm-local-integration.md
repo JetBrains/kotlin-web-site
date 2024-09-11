@@ -6,6 +6,7 @@ package using the Swift package manager (SPM).
 This is a local integration method that can work for you if:
 
 * You have an iOS app with local SPM modules.
+* Your existing iOS project has a static linking type.
 * You've already set up a Kotlin Multiplatform project targeting iOS on your local machine.
 
 ![Direct integration diagram](direct-integration-scheme.svg){width=700}
