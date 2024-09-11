@@ -60,7 +60,7 @@ A stable component may have an experimental subcomponent, for example:
 * a stable command-line tool may have experimental options.
 
 We make sure to document precisely which subcomponents are not **Stable**.
-We also do our best to warn users where possible and ask to opt in explicitly 
+We also do our best to warn users where possible and ask to opt them in explicitly 
 to avoid the accidental use of features that have not been released as stable.
 
 ## Current stability of Kotlin components
