@@ -116,7 +116,7 @@ performing operations. There are several ways to handle nullables:
 * [Not-null assertion operator `!!`](#not-null-assertion-operator)
 * [Nullable receiver](#nullable-receiver)
 * [`let` function](#let-function)
-* [Safe casts `as?`](#safe-casts-as)
+* [Safe casts `as?`](#safe-casts)
 * [Collections of a nullable type](#collections-of-a-nullable-type)
 
 Read the next sections for details and examples of `null` handling tools and techniques.
