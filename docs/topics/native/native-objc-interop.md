@@ -216,9 +216,9 @@ Whenever you use an Objective-C class in the Kotlin source, it's marked as a str
 artifact mentions related symbols as strong external references.
 
 This means that the app tries to link symbols during the launch dynamically, and if they are unavailable, the app crashes.
-Symbols might not be available on a particular device or OS version. It happens even if symbols were never used.
+The crash happens even if symbols were never used. Symbols might be unavailable on a particular device or OS version.
 
-To work around this issue and avoid "Class not found" errors, use a Swift or Objective-C wrapper that checks
+To work around this issue and avoid "Symbol not found" errors, use a Swift or Objective-C wrapper that checks
 if the class is actually available. [See how this workaround was implemented in the Compose Multiplatform framework](https://github.com/JetBrains/compose-multiplatform-core/pull/1278/files).
 
 ### Initializers
