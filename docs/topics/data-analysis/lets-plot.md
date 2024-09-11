@@ -66,7 +66,7 @@ contain records of the temperature in Berlin from January to April:
 
 ![Dataframe exploration](visualization-dataframe-temperature.png){width=600}
 
-To create a plot using the LPK library, you need to convert your data (`df`) into a `Map` type that stores
+To create a plot using the LPK library, you need to convert your data (`df`) into a `Map` type that stores the
 data in key-value pairs. You can easily convert a DataFrame into a `Map` using the `.toMap()` function:
 
 ```kotlin
@@ -78,8 +78,8 @@ val data = df.toMap()
 Let's create a scatter plot in Kotlin Notebook with the LPK library. 
 
 Once you have your data in the `Map` format, use the `letsPlot()` function from the LPK library to generate the scatter plot. 
-You can specify the values for the X and Y axes, as well as define categories with color. Additionally, 
-you can customize the plot's size and point shapes to suit your needs:
+You can specify the values for the X and Y axes, as well as define categories with colors. Additionally, 
+you can [customize](https://lets-plot.org/kotlin/aesthetics.html#point-shapes) the plot's size and point shapes to suit your needs:
 
 ```kotlin
 // Specifies X and Y axes, categories with colors, plot size, and plot type
@@ -94,7 +94,7 @@ Here's the result:
 
 ## Create a box plot
 
-Let's visualize the [data](#prepare-the-data) in a box plot. Use the `boxPlot()` function from the LPK library to generate the plot and customize colors with the `scaleFillManual()`
+Let's visualize the [data](#prepare-the-data) in a box plot. Use the `boxPlot()` function from the LPK library to generate the plot and [customize](https://lets-plot.org/kotlin/aesthetics.html#point-shapes) colors with the `scaleFillManual()`
 function:
 
 ```kotlin
@@ -160,7 +160,7 @@ val xy1 = MultivariateNormalDistribution(means1, cov1).sample(n)
 val xy2 = MultivariateNormalDistribution(means2, cov2).sample(n)
 ```
 
-With the code above, the `xy0`, `xy1`, and `xy2` variables store arrays with 2D (`x, y`) data points.
+From the code above, the `xy0`, `xy1`, and `xy2` variables store arrays with 2D (`x, y`) data points.
 
 As in the previous plot examples, to create a plot using the LPK library, you need to convert your data into a `Map` type:
 
@@ -193,7 +193,8 @@ Here's the result:
 ## What's next
 
 * Explore more plot examples in the [Lets-Plot for Kotlin's documentation](https://lets-plot.org/kotlin/charts.html).
-* Check Lets-Plot for Kotlin's [API reference](https://lets-plot.org/kotlin/api-reference/). 
-* Find additional information about creating, exploring, and managing data frames in the [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/info.html).
+* Check the Lets-Plot for Kotlin's [API reference](https://lets-plot.org/kotlin/api-reference/). 
+* Learn about transforming and visualizing data with Kotlin in the [Kotlin DataFrame](https://kotlin.github.io/dataframe/info.html) and [Kandy](https://kotlin.github.io/kandy/welcome.html) library documentation.
+* Find additional information about the [Kotlin Notebook's usage and key features](https://www.jetbrains.com/help/idea/kotlin-notebook.html).
 
 
