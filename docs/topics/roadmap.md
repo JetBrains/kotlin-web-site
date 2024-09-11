@@ -100,6 +100,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71298">New multiplatform API for the standard library: Support for Unicode and codepoints</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71299">Expand Library authors’ guidelines</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71300">Stabilize the <code>kotlinx-io</code> library</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71292">Kotlin Ecosystem Plugin supporting Declarative Gradle</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71297">Kotlin distribution UX: Code coverage and Binary compatibility validator – Phase 1</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64578" target="_blank">Promote <code>kotlinx-datetime</code> to Beta</a></li>
             </list>
@@ -159,6 +160,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Library ecosystem: [New multiplatform API for the standard library: Support for Unicode and codepoints](https://youtrack.jetbrains.com/issue/KT-71298)
 * 🆕 Library ecosystem: [Expand Library authors’ guidelines](https://youtrack.jetbrains.com/issue/KT-71299)
 * 🆕 Library ecosystem: [Stabilize the kotlinx-io library](https://youtrack.jetbrains.com/issue/KT-71300)
+* 🆕 Library ecosystem: [Kotlin Ecosystem Plugin supporting Declarative Gradle](https://youtrack.jetbrains.com/issue/KT-71292)
 * 🆕 Library ecosystem: [Kotlin distribution UX: Code coverage and Binary compatibility validator – Phase 1](https://youtrack.jetbrains.com/issue/KT-71297)
 
 ### Removed items
