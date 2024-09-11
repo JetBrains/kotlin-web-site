@@ -18,7 +18,7 @@ Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the JetBr
 The goal of this roadmap is to give you a big picture. Here's a list of our key projects – the most important things we focus on delivering:
 
 * **Language evolution**: more efficient data handling, increased abstraction, enhanced performance with clear code.
-* **K2-based IntelliJ plugin**: faster code completion, highlighting, and search, along with more stable code analysis.
+* **K2-based IntelliJ IDEA plugin**: faster code completion, highlighting, and search, along with more stable code analysis.
 * **Kotlin Multiplatform**: release direct Kotlin to Swift Export, streamlined build setup, and simplified creation of multiplatform libraries.
 * **Experience of third-party ecosystem authors**: simplified development and publication process for Kotlin libraries, tools, and frameworks.
 
@@ -131,7 +131,7 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Multiplatform: [Improve the new Kotlin/Native memory manager’s robustness and performance, and deprecate the old one](https://youtrack.jetbrains.com/issue/KT-55512)
 * ✅ Multiplatform: [Stabilize klib: make binary compatibility easier for library authors](https://youtrack.jetbrains.com/issue/KT-52600)
 * ✅ Multiplatform: [Improve Kotlin/Native compilation time](https://youtrack.jetbrains.com/issue/KT-42294) 
-* ✅ Tooling: [First public release of the K2-based IntelliJ plugin](https://youtrack.jetbrains.com/issue/KTIJ-23988)
+* ✅ Tooling: [First public release of the K2-based IntelliJ IDEA plugin](https://youtrack.jetbrains.com/issue/KTIJ-23988)
 * ✅ Tooling: [Improve the performance and code analysis stability of the current IDE plugin](https://youtrack.jetbrains.com/issue/KTIJ-23989)
 * ✅ Library ecosystem: [Provide an initial series of kotlinx-io releases](https://youtrack.jetbrains.com/issue/KT-60280)
 * ✅ Library ecosystem: [Release kotlinx-metadata-jvm as Stable](https://youtrack.jetbrains.com/issue/KT-48011)
