@@ -394,7 +394,7 @@ class SoftAssertExampleTest1 {
 In the output, all the `assert()` function error messages will be printed one after another:
 
 ```text
-harlie has an invalid salary: 40000
+Charlie has an invalid salary: 40000
 assert(employee.salary > 50000) { "${employee.name} has an invalid salary: ${employee.salary}" }
        |        |      |
        |        |      false
