@@ -39,6 +39,9 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
             iosArm64.deploymentTarget = "13.5"
+            pod("FirebaseAuth") {
+                 version = "10.16.0"
+             }
             podfile = project.file("../ios-app/Podfile")
         }
     }
@@ -53,7 +56,6 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
 
     target 'ios-app' do
             pod 'kotlin_library', :path => '../kotlin-library'
-            pod 'FirebaseAuth', '~> 10.16.0'
     end
     ```
     
