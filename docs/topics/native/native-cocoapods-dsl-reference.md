@@ -6,8 +6,7 @@ project with the [CocoaPods dependency manager](https://cocoapods.org/).
 This reference contains the complete list of blocks, functions, and properties for the Kotlin CocoaPods Gradle plugin that
 you can use when working with the [CocoaPods integration](native-cocoapods.md).
 
-* Learn how to [set up the environment](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods) and
-[configure the Kotlin CocoaPods Gradle plugin](native-cocoapods.md#add-and-configure-kotlin-cocoapods-gradle-plugin).
+* Learn how to [set up the environment and configure the Kotlin CocoaPods Gradle plugin](native-cocoapods.md).
 * Depending on your project and purposes, you can add dependencies between [a Kotlin project and a Pod library](native-cocoapods-libraries.md)
 as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode.md).
 
