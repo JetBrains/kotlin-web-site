@@ -3,7 +3,7 @@
 <table>
     <tr>
         <td><strong>Last modified on</strong></td>
-        <td><strong>August 2024</strong></td>
+        <td><strong>September 2024</strong></td>
     </tr>
     <tr>
         <td><strong>Next update</strong></td>
@@ -61,10 +61,13 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Multiplatform</strong></td>
         <td>
             <list>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64572">The first public release of Swift Export</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71278">Enable Concurrent Mark and Sweep (CMS) GC by default</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71279">Enable incremental compilation of klib artifacts by default</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64572">The first public release of Swift Export</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71290">Stabilize klib cross-compilation on different platforms</a></li> 
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71281">Implement the next generation distribution format of multiplatform libraries</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71289">Support declaring Kotlin Multiplatform dependencies at project-level</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71287">Support Xcode 16 in Kotlin</a></li> 
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64570" target="_blank">Unify inline semantics between all Kotlin targets</a></li>
             </list>
             <tip><p><a href="https://blog.jetbrains.com/kotlin/2023/11/kotlin-multiplatform-development-roadmap-for-2024/" target="_blank">Kotlin Multiplatform development roadmap for 2024</a></p></tip>
@@ -74,11 +77,8 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Tooling</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71286">Design for Build Tools API</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71287">Support Xcode 16 in Kotlin</a></li> 
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71286">Design the Build Tools API</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71288">Publish publicly available API reference for Kotlin Gradle Plugin</a></li> 
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71289">Support declaring Kotlin Multiplatform dependencies at project-level</a></li> 
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71290">Stabilize klib cross-compilation on different platforms</a></li> 
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71276">Provide out-of-the-box debugging experience for Kotlin/Wasm targets</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64575" target="_blank">Support Gradle project isolation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64577" target="_blank">Improve integration of Kotlin/Native toolchain into Gradle</a></li>
@@ -143,15 +143,15 @@ We've **added** the following items to the roadmap:
 
 * 🆕 Compiler: [Improve the quality of compiler diagnostics](https://youtrack.jetbrains.com/issue/KT-71275)
 * 🆕 Compiler: [Generate JVM default methods](https://youtrack.jetbrains.com/issue/KT-71283)
+* 🆕 Multiplatform: [The first public release of Swift Export](https://youtrack.jetbrains.com/issue/KT-64572)
 * 🆕 Multiplatform: [Enable Concurrent Mark and Sweep (CMS) GC by default](https://youtrack.jetbrains.com/issue/KT-71278)
 * 🆕 Multiplatform: [Enable incremental compilation of klib artifacts by default](https://youtrack.jetbrains.com/issue/KT-71279)
-* 🆕 Multiplatform: [The first public release of Swift Export](https://youtrack.jetbrains.com/issue/KT-64572)
+* 🆕 Multiplatform: [Stabilize klib cross-compilation on different platforms](https://youtrack.jetbrains.com/issue/KT-71290)
 * 🆕 Multiplatform: [Implement the next generation distribution format of multiplatform libraries](https://youtrack.jetbrains.com/issue/KT-71281)
-* 🆕 Tooling: [Design for Build Tools API](https://youtrack.jetbrains.com/issue/KT-71286)
-* 🆕 Tooling: [Support Xcode 16 in Kotlin](https://youtrack.jetbrains.com/issue/KT-71287)
+* 🆕 Multiplatform: [Support declaring Kotlin Multiplatform dependencies at project-level](https://youtrack.jetbrains.com/issue/KT-71289)
+* 🆕 Multiplatform: [Support Xcode 16 in Kotlin](https://youtrack.jetbrains.com/issue/KT-71287)
+* 🆕 Tooling: [Design the Build Tools API](https://youtrack.jetbrains.com/issue/KT-71286)
 * 🆕 Tooling: [Publish publicly available API reference for Kotlin Gradle Plugin](https://youtrack.jetbrains.com/issue/KT-71288)
-* 🆕 Tooling: [Support declaring Kotlin Multiplatform dependencies at project-level](https://youtrack.jetbrains.com/issue/KT-71289)
-* 🆕 Tooling: [Stabilize klib cross-compilation on different platforms](https://youtrack.jetbrains.com/issue/KT-71290)
 * 🆕 Tooling: [Provide out-of-the-box debugging experience for Kotlin/Wasm targets](https://youtrack.jetbrains.com/issue/KT-71276)
 * 🆕 Library ecosystem: [Implement new Dokka Gradle plugin based on Dokkatoo](https://youtrack.jetbrains.com/issue/KT-71293)
 * 🆕 Library ecosystem: [Refine the Dokka HTML output UI](https://youtrack.jetbrains.com/issue/KT-71295)
