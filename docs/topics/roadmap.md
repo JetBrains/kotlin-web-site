@@ -41,8 +41,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
     <tr>
         <td><strong>Language</strong></td>
         <td>
-            <p><a href="kotlin-language-features-and-proposals.md">See the full list of Kotlin language features and proposals</a></p>
-            <p><tip><a href="https://youtrack.jetbrains.com/issue/KT-54620" target="_blank">Follow the YouTrack issue for upcoming language features</a></tip></p>
+            <p><a href="kotlin-language-features-and-proposals.md">See the full list</a> of Kotlin language features and proposals or follow the <a href="https://youtrack.jetbrains.com/issue/KT-54620">YouTrack issue for upcoming language features</a></p>
         </td>
     </tr>
     <tr>

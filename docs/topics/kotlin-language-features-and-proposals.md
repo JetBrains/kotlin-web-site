@@ -198,7 +198,6 @@ guided by pragmatic design.
 
 * KEEP proposal: [explicit-backing-fields.md](https://github.com/Kotlin/KEEP/blob/explicit-backing-fields-re/proposals/explicit-backing-fields.md)
 * YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-14663)
-* Target version: Not defined
 
 </td>
 </tr>
@@ -215,7 +214,6 @@ guided by pragmatic design.
 
 * KEEP proposal: [context-parameters.md](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md)
 * YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-10468)
-* Target version: Not defined
 
 </td>
 </tr>
