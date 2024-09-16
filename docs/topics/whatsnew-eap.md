@@ -133,7 +133,7 @@ but if you do, keep in mind that you might encounter deprecation warnings or som
 
 ### Bumped the minimum supported AGP version to 7.3.1
 
-Starting with Kotlin %kotlinEapVersion%, the minimum supported Android Gradle plugin version is 7.1.3.
+Starting with Kotlin %kotlinEapVersion%, the minimum supported Android Gradle plugin version is 7.3.1.
 
 ### Bumped the minimum supported Gradle version to 7.6.3
 
