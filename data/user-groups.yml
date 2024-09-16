@@ -246,6 +246,12 @@
     position:
       lat: 48.856614
       lng: 2.3522219
+  - name: BordeauxKt
+    country: France
+    url: https://bordeauxkt.io/
+    position:
+      lat: 44.845576
+      lng: -0.572983
   - name: Rhein-Main Kotlin
     country: Germany
     url: https://www.meetup.com/de-DE/Kotlin-Rhein-Main/
