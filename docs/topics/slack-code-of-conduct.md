@@ -12,6 +12,7 @@ It's here for a reason and also contains practical information.
 * [How to behave](#how-to-behave)
 * [How not to behave](#how-not-to-behave)
 * [How to report issues](#how-to-report-issues)
+* [Moderators](#moderators)
 * [Basic usage guidelines](#basic-usage-guidelines)
 * [Moderators](#moderators)
 * [Copyright](#copyright)
