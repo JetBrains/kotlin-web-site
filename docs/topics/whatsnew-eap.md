@@ -78,7 +78,7 @@ These features are available in preview, and we encourage you to try them and sh
 > 
 {type="tip"}
 
-<!-- [See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md). -->
+[See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
 
 ## Improved K2 kapt implementation
 
