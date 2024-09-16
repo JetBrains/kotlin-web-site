@@ -357,6 +357,12 @@
     position:
       lat: 33.6422
       lng: 72.9903
+  - name: KUG Sambhajinagar (Aurangabad) 
+    country: India
+    url: https://www.commudle.com/communities/kug-sambhajinagar/
+    position:
+      lat: 19.876165
+      lng: 75.343315
   - name: KUG New Delhi
     country: India
     url: https://www.commudle.com/communities/kug-new-delhi
