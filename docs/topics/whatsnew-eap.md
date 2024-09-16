@@ -22,14 +22,14 @@ See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for de
 
 ## Support for requiring opt-in to extend APIs
 
-Kotlin %kotlinEapVersion% introduces the `@SubclassOptInRequired` annotation.
+Kotlin %kotlinEapVersion% introduces the [`@SubclassOptInRequired`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-subclass-opt-in-required/) annotation. 
 This annotation allows library authors 
 to require explicit opt-in before users can implement experimental interfaces or extend experimental classes.
 
-This feature can be useful when a library API is stable for use but may evolve with additional abstract functions,
+This feature can be useful when a library API is stable enough to use but might evolve with new abstract functions, 
 making it unstable for inheritance.
 
-To add the opt-in requirement to an API element, 
+To add the opt-in requirement to an API element,
 use the `@SubclassOptInRequired` annotation with a reference to the annotation class:
 
 ```kotlin
