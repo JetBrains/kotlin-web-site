@@ -57,9 +57,13 @@
         </toc-element>
     </toc-element>
 
-    <toc-element toc-title="Releases and roadmap">
-        <toc-element id="releases.md" accepts-web-file-names="plugin-releases.html"/>
+    <toc-element toc-title="Kotlin evolution and roadmap">
         <toc-element id="roadmap.md"/>
+        <toc-element id="kotlin-language-features-and-proposals.md" toc-title="Language features and proposals"/>
+        <toc-element id="kotlin-evolution-principles.md" toc-title="Language evolution principles" accepts-web-file-names="kotlin-evolution.html"/>
+        <toc-element id="components-stability.md"/>
+        <toc-element id="components-stability-pre-1.4.md" hidden="true"/>
+        <toc-element id="releases.md" accepts-web-file-names="plugin-releases.html"/>
     </toc-element>
 
     <toc-element toc-title="Basics">
@@ -418,22 +422,17 @@
 
     <toc-element toc-title="Other resources">
         <toc-element id="faq.md"/>
-        <toc-element toc-title="Kotlin evolution">
-            <toc-element toc-title="Evolution principles" id="kotlin-evolution.md"/>
-            <toc-element id="components-stability.md"/>
-            <toc-element id="components-stability-pre-1.4.md"/>
-            <toc-element toc-title="Compatibility">
-                <toc-element id="compatibility-guide-20.md"/>
-                <toc-element id="compatibility-guide-19.md"/>
-                <toc-element id="compatibility-guide-18.md"/>
-                <toc-element id="compatibility-guide-1720.md"/>
-                <toc-element id="compatibility-guide-17.md"/>
-                <toc-element id="compatibility-guide-16.md"/>
-                <toc-element id="compatibility-guide-15.md"/>
-                <toc-element id="compatibility-guide-14.md"/>
-                <toc-element id="compatibility-guide-13.md" />
-                <toc-element id="compatibility-modes.md"/>
-            </toc-element>
+        <toc-element toc-title="Kotlin compatibility guides">
+            <toc-element id="compatibility-guide-20.md"/>
+            <toc-element id="compatibility-guide-19.md"/>
+            <toc-element id="compatibility-guide-18.md"/>
+            <toc-element id="compatibility-guide-1720.md"/>
+            <toc-element id="compatibility-guide-17.md"/>
+            <toc-element id="compatibility-guide-16.md"/>
+            <toc-element id="compatibility-guide-15.md"/>
+            <toc-element id="compatibility-guide-14.md"/>
+            <toc-element id="compatibility-guide-13.md" />
+            <toc-element id="compatibility-modes.md"/>
         </toc-element>
         <toc-element toc-title="Kotlin Foundation">
             <toc-element toc-title="Kotlin Foundation" href="https://kotlinfoundation.org/"/>

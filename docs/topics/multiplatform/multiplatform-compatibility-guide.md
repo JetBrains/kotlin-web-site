@@ -1,6 +1,6 @@
 [//]: # (title: Compatibility guide for Kotlin Multiplatform)
 
-This guide summarizes [incompatible changes](kotlin-evolution.md#incompatible-changes) you might encounter while
+This guide summarizes [incompatible changes](kotlin-evolution-principles.md#incompatible-changes) you might encounter while
 developing projects with Kotlin Multiplatform.
 
 > Mind the deprecation cycle of a specific change in relation to the Kotlin version you have in your projects. The current
