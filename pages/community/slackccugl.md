@@ -9,6 +9,7 @@ title: Code of Conduct and Guidelines for Kotlin Slack
 * [How not to behave](#how-not-to-behave)
 * [How to report issues](#how-to-report-issues)
 * [Basic Usage Guidelines](#basic-usage-guidelines)
+* [Moderators](#moderators)
 * [Common Channels](#common-channels)
 * [Copyright](#copyright)
 
@@ -98,7 +99,6 @@ At the moment we have 17 confirmed moderators, and they will be responsible for 
 * Andrey Mischenko	(@gildor) – #coroutines, #android, #gradle, #multiplatform, #getting-started, #kotlin-asia, #singapore
 * Eric Ampire	(@Eric Ampire) – #events
 * Holger Steinhauer	(@Holger Steinhauer) – #fosdem, #berlin, #vkug, #german-lang, #server
-* Imran Settuba	(@Imran/Malic) – #munich, #arrow
 * Louis CAD	(@louiscad) – #coroutines, #android
 * Magda Miu (@Magda Miu) – #android, #100daysofkotlin
 * Maryam Alhuthayfi (@Maryam Alhuthayfi) – #compose, #books, #ksp, #eap, #dagger, and #kontributors.
