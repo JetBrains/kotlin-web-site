@@ -76,7 +76,7 @@ as identifiers in other contexts:
  * `init` begins an [initializer block](classes.md#constructors).
  * `param` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `property` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
- * `receiver`is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
+ * `receiver` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `set`
      - declares the [setter of a property](properties.md#getters-and-setters).
      - is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
