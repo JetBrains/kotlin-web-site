@@ -76,6 +76,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Tooling</strong></td>
         <td>
             <list>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTIJ-31316">IntelliJ IDEA K2 mode complete release</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71286">Design the Build Tools API</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71288">Publish publicly available API reference for Kotlin Gradle Plugin</a></li> 
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71276">Provide out-of-the-box debugging experience for Kotlin/Wasm targets</a></li>
@@ -100,7 +101,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71299">Expand Library authors’ guidelines</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71300">Stabilize the <code>kotlinx-io</code> library</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71292">Kotlin Ecosystem Plugin supporting Declarative Gradle</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71297">Kotlin distribution UX: Code coverage and Binary compatibility validator – Phase 1</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71297">Improve Kotlin distribution UX: add code coverage and binary compatibility validation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64578" target="_blank">Promote <code>kotlinx-datetime</code> to Beta</a></li>
             </list>
             <tip><p>Ktor and Exposed roadmaps:</p>
@@ -149,6 +150,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Multiplatform: [Implement the next generation distribution format of multiplatform libraries](https://youtrack.jetbrains.com/issue/KT-71281)
 * 🆕 Multiplatform: [Support declaring Kotlin Multiplatform dependencies at project-level](https://youtrack.jetbrains.com/issue/KT-71289)
 * 🆕 Multiplatform: [Support Xcode 16 in Kotlin](https://youtrack.jetbrains.com/issue/KT-71287)
+* 🆕 Tooling: [IntelliJ IDEA K2 mode complete release](https://youtrack.jetbrains.com/issue/KTIJ-31316)
 * 🆕 Tooling: [Design the Build Tools API](https://youtrack.jetbrains.com/issue/KT-71286)
 * 🆕 Tooling: [Publish publicly available API reference for Kotlin Gradle Plugin](https://youtrack.jetbrains.com/issue/KT-71288)
 * 🆕 Tooling: [Provide out-of-the-box debugging experience for Kotlin/Wasm targets](https://youtrack.jetbrains.com/issue/KT-71276)
@@ -160,7 +162,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Library ecosystem: [Expand Library authors’ guidelines](https://youtrack.jetbrains.com/issue/KT-71299)
 * 🆕 Library ecosystem: [Stabilize the kotlinx-io library](https://youtrack.jetbrains.com/issue/KT-71300)
 * 🆕 Library ecosystem: [Kotlin Ecosystem Plugin supporting Declarative Gradle](https://youtrack.jetbrains.com/issue/KT-71292)
-* 🆕 Library ecosystem: [Kotlin distribution UX: Code coverage and Binary compatibility validator – Phase 1](https://youtrack.jetbrains.com/issue/KT-71297)
+* 🆕 Library ecosystem: [Improve Kotlin distribution UX: add code coverage and binary compatibility validation](https://youtrack.jetbrains.com/issue/KT-71297)
 
 ### Removed items
 
