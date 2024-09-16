@@ -95,7 +95,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71293">Implement new Dokka Gradle plugin based on Dokkatoo</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71295">Refine the Dokka HTML output UI</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-62423">New multiplatform API for the standard library</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-62423">New multiplatform API for the standard library: Atomics</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-12719">Introduce default warnings/errors for Kotlin functions that return non-unit values that are unused</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71298">New multiplatform API for the standard library: Support for Unicode and codepoints</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71299">Expand Library authors’ guidelines</a></li>
@@ -156,7 +156,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Tooling: [Provide out-of-the-box debugging experience for Kotlin/Wasm targets](https://youtrack.jetbrains.com/issue/KT-71276)
 * 🆕 Library ecosystem: [Implement new Dokka Gradle plugin based on Dokkatoo](https://youtrack.jetbrains.com/issue/KT-71293)
 * 🆕 Library ecosystem: [Refine the Dokka HTML output UI](https://youtrack.jetbrains.com/issue/KT-71295)
-* 🆕 Library ecosystem: [New multiplatform API for the standard library](https://youtrack.jetbrains.com/issue/KT-62423)
+* 🆕 Library ecosystem: [New multiplatform API for the standard library: Atomics](https://youtrack.jetbrains.com/issue/KT-62423)
 * 🆕 Library ecosystem: [Introduce default warnings/errors for Kotlin functions that return non-unit values that are unused](https://youtrack.jetbrains.com/issue/KT-12719)
 * 🆕 Library ecosystem: [New multiplatform API for the standard library: Support for Unicode and codepoints](https://youtrack.jetbrains.com/issue/KT-71298)
 * 🆕 Library ecosystem: [Expand Library authors’ guidelines](https://youtrack.jetbrains.com/issue/KT-71299)
