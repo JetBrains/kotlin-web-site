@@ -78,7 +78,8 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTIJ-31316">IntelliJ IDEA K2 mode complete release</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71286">Design the Build Tools API</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71288">Publish publicly available API reference for Kotlin Gradle Plugin</a></li> 
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71288">Publish publicly available API reference for Kotlin Gradle Plugin</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71292">Kotlin Ecosystem Plugin supporting Declarative Gradle</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71276">Provide out-of-the-box debugging experience for Kotlin/Wasm targets</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64575" target="_blank">Support Gradle project isolation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64577" target="_blank">Improve integration of Kotlin/Native toolchain into Gradle</a></li>
@@ -95,12 +96,11 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71293">Implement new Dokka Gradle plugin based on Dokkatoo</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71295">Refine the Dokka HTML output UI</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-62423">New multiplatform API for the standard library</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-62423">New multiplatform API for the standard library: Atomics</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-12719">Introduce default warnings/errors for Kotlin functions that return non-unit values that are unused</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71298">New multiplatform API for the standard library: Support for Unicode and codepoints</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71299">Expand Library authors’ guidelines</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71300">Stabilize the <code>kotlinx-io</code> library</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71292">Kotlin Ecosystem Plugin supporting Declarative Gradle</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71297">Improve Kotlin distribution UX: add code coverage and binary compatibility validation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64578" target="_blank">Promote <code>kotlinx-datetime</code> to Beta</a></li>
             </list>
@@ -154,14 +154,14 @@ We've **added** the following items to the roadmap:
 * 🆕 Tooling: [Design the Build Tools API](https://youtrack.jetbrains.com/issue/KT-71286)
 * 🆕 Tooling: [Publish publicly available API reference for Kotlin Gradle Plugin](https://youtrack.jetbrains.com/issue/KT-71288)
 * 🆕 Tooling: [Provide out-of-the-box debugging experience for Kotlin/Wasm targets](https://youtrack.jetbrains.com/issue/KT-71276)
+* 🆕 Tooling: [Kotlin Ecosystem Plugin supporting Declarative Gradle](https://youtrack.jetbrains.com/issue/KT-71292)
 * 🆕 Library ecosystem: [Implement new Dokka Gradle plugin based on Dokkatoo](https://youtrack.jetbrains.com/issue/KT-71293)
 * 🆕 Library ecosystem: [Refine the Dokka HTML output UI](https://youtrack.jetbrains.com/issue/KT-71295)
-* 🆕 Library ecosystem: [New multiplatform API for the standard library](https://youtrack.jetbrains.com/issue/KT-62423)
+* 🆕 Library ecosystem: [New multiplatform API for the standard library: Atomics](https://youtrack.jetbrains.com/issue/KT-62423)
 * 🆕 Library ecosystem: [Introduce default warnings/errors for Kotlin functions that return non-unit values that are unused](https://youtrack.jetbrains.com/issue/KT-12719)
 * 🆕 Library ecosystem: [New multiplatform API for the standard library: Support for Unicode and codepoints](https://youtrack.jetbrains.com/issue/KT-71298)
 * 🆕 Library ecosystem: [Expand Library authors’ guidelines](https://youtrack.jetbrains.com/issue/KT-71299)
 * 🆕 Library ecosystem: [Stabilize the kotlinx-io library](https://youtrack.jetbrains.com/issue/KT-71300)
-* 🆕 Library ecosystem: [Kotlin Ecosystem Plugin supporting Declarative Gradle](https://youtrack.jetbrains.com/issue/KT-71292)
 * 🆕 Library ecosystem: [Improve Kotlin distribution UX: add code coverage and binary compatibility validation](https://youtrack.jetbrains.com/issue/KT-71297)
 
 ### Removed items
