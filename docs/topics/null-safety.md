@@ -331,7 +331,7 @@ For example, the [`.toString()`](https://kotlinlang.org/api/latest/jvm/stdlib/ko
 can be called on a nullable receiver. When invoked on a `null` value, it safely returns the string `"null"` without throwing an exception:
 
 ```kotlin
-// SampleStart
+//sampleStart
 fun main() {
     // Assigns null to a nullable Person object stored in the person variable
     val person: Person? = null
@@ -343,7 +343,7 @@ fun main() {
 
 // Defines a simple Person class
 data class Person(val name: String)
-// SampleEnd
+//sampleEnd
 ```
 {kotlin-runnable="true"}
 
@@ -353,7 +353,7 @@ If you expect the `.toString()` function to return a nullable string (either a s
 The `?.` operator calls `.toString()` only if the object is not `null`, otherwise it returns `null`:
 
 ```kotlin
-// SampleStart
+//sampleStart
 fun main() {
     // Assigns a nullable Person object to a variable
     val person1: Person? = null
@@ -368,7 +368,7 @@ fun main() {
 
 // Defines a Person class
 data class Person(val name: String)
-// SampleEnd
+//sampleEnd
 ```
 {kotlin-runnable="true"}
 
@@ -407,7 +407,7 @@ You can use the `as?` operator for safe casts. It tries to cast a value to the s
 
 ```kotlin
 fun main() {
-// SampleStart
+//sampleStart
     // Declares a variable of type Any, which can hold any type of value
     val a: Any = "Hello, Kotlin!"
 
@@ -420,7 +420,7 @@ fun main() {
     // null
     println(aString)
     // "Hello, Kotlin!"
-// SampleEnd
+//sampleEnd
 }
 ```
 {kotlin-runnable="true"}
@@ -435,7 +435,7 @@ the `filterNotNull()` function:
 
 ```kotlin
 fun main() {
-    // SampleStart
+//sampleStart
     // Declares a list containing some null and non-null integer values
     val nullableList: List<Int?> = listOf(1, 2, null, 4)
 
@@ -444,7 +444,7 @@ fun main() {
   
     println(intList)
     // [1, 2, 4]
-    // SampleEnd
+//sampleEnd
 }
 ```
 {kotlin-runnable="true"}
