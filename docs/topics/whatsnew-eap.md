@@ -34,8 +34,8 @@ use the `@SubclassOptInRequired` annotation with a reference to the annotation c
 
 ```kotlin
 @RequiresOptIn(
-level = RequiresOptIn.Level.WARNING,
-message = "Interfaces in this library are experimental"
+    level = RequiresOptIn.Level.WARNING,
+    message = "Interfaces in this library are experimental"
 )
 annotation class UnstableApi()
 
@@ -107,7 +107,7 @@ kapt.use.k2=true
 In upcoming releases, the K2 kapt implementation will be enabled by default instead of K1 kapt, 
 so you won't longer need to enable it manually.
 
-When using the K2 kapt plugin, you might encounter a compilation error during the `kaptGenerateStubs*` tasks,
+When using the K2 kapt plugin, you may encounter a compilation error during the `kaptGenerateStubs*` tasks,
 even though the actual error details are missing from the Gradle log.
 This is a [known issue](https://youtrack.jetbrains.com/issue/KT-71431) that occurs when kapt is enabled in a module, 
 but no annotation processors are present. The workaround is to disable the kapt plugin in the module.
@@ -118,18 +118,18 @@ before the new implementation is stabilized.
 ## Update LLVM version to 16.0.0 for Kotlin/Native
 
 In Kotlin %kotlinEapVersion%, we updated LLVM from version 11.1.0 to 16.0.0. 
-In certain cases, the new version offers compiler optimizations, faster compilation. 
+In certain cases, the new version offers compiler optimizations and faster compilation. 
 It includes LLVM bug fixes and security updates as well.  
 This update shouldn’t affect your code, but if you run into any issues, 
 please create [an issue in our tracker](https://kotl.in/issue).
 
 ## Gradle improvements
 
-Kotlin %kotlinEapVersion% is fully compatible with Gradle 7.6.3 through 8.9. 
+Kotlin %kotlinEapVersion% is fully compatible with Gradle 7.6.3 through Gradle 8.9. 
 For more details, see [Gradle 8.9 release notes](https://docs.gradle.org/8.9/release-notes.html).
 
 You can also use Gradle versions up to the latest Gradle release, 
-but if you do, keep in mind that you might encounter deprecation warnings or some new Gradle features might not work.
+but if you do, keep in mind that you may encounter deprecation warnings or some new Gradle features might not work.
 
 ### Bumped the minimum supported AGP version to 7.3.1
 
@@ -144,9 +144,9 @@ Starting with Kotlin %kotlinEapVersion%, the minimum supported Gradle version is
 ### Support for multiple stability configuration files
 
 Compose compiler is able to interpret multiple stability configuration files,
-but the `stabilityConfigurationFile` option of the Compose Compiler Gradle plugin only allowed for a single file to be specified.
+but the `stabilityConfigurationFile` option of the Compose Compiler Gradle plugin is only allowed for a single file to be specified.
 
-In Kotlin %kotlinEapVersion% this functionality was reworked to allow you to use several stability configuration files 
+In Kotlin %kotlinEapVersion%, this functionality was reworked to allow you to use several stability configuration files 
 for a single module:
 
 * The `stabilityConfigurationFile` option is deprecated.
