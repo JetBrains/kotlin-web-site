@@ -34,6 +34,9 @@
    - /community/kotlin-nights/branding.html
   to: /docs/kotlin-night-guidelines.html
 
+- from: /community/slackccugl.html
+  to: /docs/slack-code-of-conduct.html
+
 - from: /docs/reference/compatibility.html
   to: /docs/reference/evolution/components-stability.html
 
