@@ -56,7 +56,6 @@ If we all follow a set of guidelines, it can help make things more useful and be
   of the JetBrains and Kotlin team (suffix [JetBrains]).
 * This Slack is not the best place for reporting bugs. For this, please use [YouTrack](https://youtrack.jetbrains.com/issues/kt).  
 * Find the right channel to ask your question. There are channels for pretty much every topic. 
-  [See the list of common channels](#common-channels).
 * New channels should be focused around a well-known technology or area of interest. Create them sparingly. 
   And before requesting for a new channel, make sure it doesn't exist in any other shape or form. 
   Ask an administrator to create a new channel on the #meta channel. 
