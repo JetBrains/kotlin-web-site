@@ -1,4 +1,4 @@
-[//]: # (title:  Kotlin releases)
+[//]: # (title: Kotlin releases)
 
 Since Kotlin 2.0.0, we ship the following types of releases:
 
@@ -18,7 +18,7 @@ Since Kotlin 2.0.0, we ship the following types of releases:
 For each language and tooling release, we also ship several preview (_EAP_) versions for you to try
 new features before they are released. See [Early Access Preview](eap.md) for details.
 
-## Update to a new release
+## Update to a new Kotlin version
 
 To upgrade your project to a new release, you need to update your build script file.
 For example, to update to Kotlin %kotlinVersion%, change the version of the Kotlin Gradle plugin in your
@@ -33,7 +33,7 @@ plugins {
     kotlin("<...>") version "%kotlinVersion%"
     // For example, if your target environment is JVM:
     // kotlin("jvm") version "%kotlinVersion%"
-    // If you target is Kotlin Multiplatform
+    // If your target is Kotlin Multiplatform:
     // kotlin("multiplatform") version "%kotlinVersion%"
 }
 ```
@@ -47,7 +47,7 @@ plugins {
     id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
     // For example, if your target environment is JVM: 
     // id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
-    // If you target is Kotlin Multiplatform
+    // If your target is Kotlin Multiplatform:
     // id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
 }
 ```
@@ -78,13 +78,13 @@ Learn how the new K2 compiler differs from the previous one in the [migration gu
 
 ## Kotlin release compatibility
 
-Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution.md#language-and-tooling-releases)
+Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution-principles.md#language-and-tooling-releases)
 
 ## Release details
 
 The following table lists details of the latest Kotlin releases:
 
-> You can also use [preview versions of Kotlin](eap.md#build-details).
+> You can also try [Early Access Preview (EAP) versions of Kotlin](eap.md#build-details).
 > 
 {type="tip"}
 

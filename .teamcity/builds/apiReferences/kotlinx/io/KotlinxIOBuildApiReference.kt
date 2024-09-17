@@ -29,9 +29,7 @@ object KotlinxIOBuildApiReference : BuildType({
     }
 
     steps {
-        scriptDropSnapshot {
-          enabled = false // TODO readme, and disable this step for other libs too
-        }
+        scriptDropSnapshot {}
         scriptDokkaVersionSync {
             enabled = false // TODO readme, and disable this step for other libs too
         }

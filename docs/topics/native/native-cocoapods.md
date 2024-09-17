@@ -81,7 +81,6 @@ sudo gem install cocoapods
 {type="warning"}
 
 1. Install [Homebrew](https://brew.sh/) in case you don't have it yet.
-
 2. Install CocoaPods:
 
     ```bash
@@ -93,12 +92,60 @@ sudo gem install cocoapods
 
 If you encounter problems during the installation, check the [Possible issues and solutions](#possible-issues-and-solutions) section.
 
-## Add and configure Kotlin CocoaPods Gradle plugin
+## Create a project
 
-If your environment is set up correctly, you can [create a new Kotlin Multiplatform project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)
-and choose **CocoaPods Dependency Manager** as the iOS framework distribution option. The plugin will automatically generate the project for you.
+When your environment is set up, you can create a new Kotlin Multiplatform project. For that, use the
+Kotlin Multiplatform web wizard or the Kotlin Multiplatform plugin for Android Studio.
 
-If you want to configure your project manually:
+### Using web wizard
+
+To create a project using the web wizard and configure the CocoaPods integration:
+
+1. Open the [Kotlin Multiplatform wizard](https://kmp.jetbrains.com) and select target platforms for your project.
+2. Click the **Download** button and unpack the downloaded archive.
+3. In Android Studio, select **File | Open** in the menu.
+4. Navigate to the unpacked project folder and then click **Open**.
+5. Add the Kotlin CocoaPods Gradle plugin to the version catalog. In the `gradle/libs.versions.toml` file,
+   add the following declaration to the `[plugins]` block:
+ 
+   ```toml
+   kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+   ```
+   
+6. Navigate to the root `build.gradle.kts` file of your project and add the following alias to the `plugins {}` block:
+
+   ```kotlin
+   alias(libs.plugins.kotlinCocoapods) apply false
+   ```
+
+7. Open the module where you want to integrate CocoaPods, for example the `composeApp` module, and add the following alias
+   to the `plugins {}` block:
+
+   ```kotlin
+   alias(libs.plugins.kotlinCocoapods)
+   ```
+
+Now you are ready to use CocoaPods in your Kotlin Multiplatform project.
+
+### In Android Studio
+
+To create a project in Android Studio with the CocoaPods integration:
+
+1. Install the [Kotlin Multiplatform plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform) to Android Studio.
+2. In Android Studio, select  **File** | **New** | **New Project** in the menu.
+3. In the list of project templates, select **Kotlin Multiplatform App** and then click **Next**.
+4. Name your application and click **Next**.
+5. Choose **CocoaPods Dependency Manager** as the iOS framework distribution option.
+
+   ![Android Studio wizard with the Kotlin Multiplatform plugin](as-project-wizard.png){width=700}
+
+6. Keep all other options default. Click **Finish**.
+
+   The plugin will automatically generate the project with the CocoaPods integration set up.
+
+## Configure existing project
+
+If you already have a project, you can add and configure the Kotlin CocoaPods Gradle plugin manually:
 
 1. In `build.gradle(.kts)` of your project, apply the CocoaPods plugin as well as the Kotlin Multiplatform plugin:
     

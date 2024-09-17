@@ -1230,6 +1230,6 @@ If the repository is not specified, Gradle uses the sunset JCenter repository, w
 
 ## Compatibility guide for Kotlin 1.9.0
 
-Kotlin 1.9.0 is a [feature release](kotlin-evolution.md#language-and-tooling-releases) and can, therefore, 
+Kotlin 1.9.0 is a [feature release](kotlin-evolution-principles.md#language-and-tooling-releases) and can, therefore, 
 bring changes that are incompatible with your code written for earlier versions of the language. Find the detailed list 
 of these changes in the [Compatibility guide for Kotlin 1.9.0](compatibility-guide-19.md).

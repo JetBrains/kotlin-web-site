@@ -18,7 +18,7 @@ The Kotlin plugins that support %kotlinEapVersion% are bundled in the latest Int
 You don't need to update the Kotlin plugin in your IDE. 
 All you need to do is to [change the Kotlin version](configure-build-for-eap.md) to %kotlinEapVersion% in your build scripts.
 
-See [Update to a new release](releases.md#update-to-a-new-release) for details.
+See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for details.
 
 ## Language
 
