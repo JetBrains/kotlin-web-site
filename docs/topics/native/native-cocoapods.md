@@ -108,7 +108,7 @@ To create a project using the web wizard and configure the CocoaPods integration
 5. Add the Kotlin CocoaPods Gradle plugin to the version catalog. In the `gradle/libs.versions.toml` file,
    add the following declaration to the `[plugins]` block:
  
-   ```toml
+   ```text
    kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
    ```
    
