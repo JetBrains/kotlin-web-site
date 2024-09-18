@@ -251,6 +251,24 @@ guided by pragmatic design.
 
 </td>
 </tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Multidollar interpolation: improved handling of `$` in string literals**
+
+* KEEP proposal: [dollar-escape.md](https://github.com/Kotlin/KEEP/blob/master/proposals/dollar-escape.md)
+* YouTrack issue: [KT-2425](https://youtrack.jetbrains.com/issue/KT-2425)
+* Target version: 2.1.0
+
+</td>
+</tr>
+
 <tr filter="keep">
 <td>
 
