@@ -435,6 +435,12 @@
     position:
       lat: 28.644800
       lng: 77.216721
+  - name: Noida Kotlin User Group
+    country: India
+    url: https://www.commudle.com/communities/noida-kotlin-user-group
+    position:
+      lat: 28.535556
+      lng: 77.390986
   - name: Dubai KUG
     country: United Arab Emirates
     url: https://www.facebook.com/kotlindubai/
