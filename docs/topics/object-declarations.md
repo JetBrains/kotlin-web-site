@@ -66,28 +66,17 @@ fun main() {
     // [Example data]
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="object-declaration-register-provider"}
 
-> Like variable declarations, object declarations are not expressions, so they cannot be used on the right-hand side
-> of an assignment statement.
-> ```kotlin
-> // Syntax error: An object expression cannot bind a name.
-> val myObject = object MySingleton {
-> val name = "Singleton"
-> }
-> ```
+> The initialization of an object declaration is thread-safe and done on first access.
 >
-{type="note"}
+{type="tip"}
 
 To refer to the `object`, use its name directly:
 
 ```kotlin
 DataProviderManager.registerDataProvider(exampleProvider)
 ```
-
-> The initialization of an object declaration is thread-safe and done on first access.
->
-{type="tip"}
 
 Object declarations can also have supertypes,
 similar to how [anonymous objects can inherit from existing classes or implement interfaces](#inherit-anonymous-objects-from-supertypes):
@@ -100,6 +89,14 @@ object DefaultListener : MouseAdapter() {
 }
 ```
 
+> Like variable declarations, object declarations are not expressions, so they cannot be used on the right-hand side
+> of an assignment statement.
+> ```kotlin
+> // Syntax error: An object expression cannot bind a name.
+> val myObject = object MySingleton {
+> val name = "Singleton"
+> }
+> ```
 > Object declarations cannot be local, which means they cannot be nested directly inside a function.
 > However, they can be nested within other object declarations or non-inner classes.
 >
@@ -120,7 +117,7 @@ fun main() {
 {kotlin-runnable="true"}
 
 However, by marking an object declaration with the `data` modifier,
-you can instruct the compiler to return the actual name of the object when calling `.toString()`, the same way it works for [data classes](data-classes.md):
+you can instruct the compiler to return the actual name of the object when calling `toString()`, the same way it works for [data classes](data-classes.md):
 
 ```kotlin
 data object MyDataObject {
@@ -132,18 +129,18 @@ fun main() {
     // MyDataObject
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="object-declaration-dataobject"}
 
 Additionally, the compiler generates several functions for your `data object`:
 
-* `.toString()` returns the name of the data object
-* `.equals()`/`.hashCode()` enables equality checks and hash-based collections
+* `toString()` returns the name of the data object
+* `equals()`/`hashCode()` enables equality checks and hash-based collections
 
   > You can't provide a custom `equals` or `hashCode` implementation for a `data object`.
   >
   {type="note"}
 
-The `.equals()` function for a `data object` ensures that all objects that have the type of your `data object` are considered equal.
+The `equals()` function for a `data object` ensures that all objects that have the type of your `data object` are considered equal.
 In most cases, you will only have a single instance of your `data object` at runtime, since a `data object` declares a singleton.
 However, in the edge case where another object of the same type is generated at runtime (for example, by using platform
 reflection with `java.lang.reflect` or a JVM serialization library that uses this API under the hood), this ensures that
@@ -169,11 +166,11 @@ fun main() {
     // MySingleton
 
     // Even when a library forcefully creates a second instance of MySingleton, 
-    // its `.equals()` function returns true:
+    // its equals() function returns true:
     println(MySingleton == evilTwin) 
     // true
 
-    // Do not compare data objects using ===
+    // Don't compare data objects using ===
     println(MySingleton === evilTwin) 
     // false
 }
@@ -186,7 +183,7 @@ fun createInstanceViaReflection(): MySingleton {
 }
 ```
 
-The generated `.hashCode()` function has a behavior that is consistent with the `.equals()` function, so that all runtime
+The generated `hashCode()` function has a behavior that is consistent with the `equals()` function, so that all runtime
 instances of a `data object` have the same hash code.
 
 #### Differences between data objects and data classes
@@ -194,11 +191,11 @@ instances of a `data object` have the same hash code.
 While `data object` and `data class` declarations are often used together and have some similarities, there are some
 functions that are not generated for a `data object`:
 
-* No `.copy()` function. Because a `data object` declaration is intended to be used as singletons, no `.copy()`
+* No `copy()` function. Because a `data object` declaration is intended to be used as singletons, no `copy()`
   function is generated. Singletons restrict the instantiation of a class to a single instance, which would
   be violated by allowing copies of the instance to be created.
-* No `.componentN()` function. Unlike a `data class`, a `data object` does not have any data properties.
-  Since attempting to destructure such an object without data properties would not make sense, no `.componentN()` functions are generated.
+* No `componentN()` function. Unlike a `data class`, a `data object` does not have any data properties.
+  Since attempting to destructure such an object without data properties wouldn't make sense, no `componentN()` functions are generated.
 
 #### Use data objects with sealed hierarchies
 
@@ -207,7 +204,7 @@ Data object declarations are particularly useful for sealed hierarchies like
 They allow you to maintain symmetry with any data classes you may have defined alongside the object.
 
 In this example, declaring `EndOfFile` as a `data object` instead of a plain `object`
-means that it will get the `.toString()` function without the need to override it manually:
+means that it will get the `toString()` function without the need to override it manually:
 
 ```kotlin
 sealed interface ReadResult
@@ -239,7 +236,6 @@ class MyClass {
 
 Members of the `companion object` can be called simply by using the class name as the qualifier:
 
-
 ```kotlin
 class User(val name: String) {
     // Defines a companion object that acts as a factory for creating User instances
@@ -256,7 +252,7 @@ fun main(){
     // John Doe
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="object-expression-companion-object"}
 
 The name of the `companion object` can be omitted, in which case the name `Companion` is used:
 
@@ -322,7 +318,7 @@ fun main() {
     // User2's Companion Object
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="object-expression-companion-object-names"}
 
 Although members of companion objects in Kotlin look like static members from other languages,
 they are actually instance members of the companion object, meaning they belong to the object itself.
@@ -348,7 +344,7 @@ fun main() {
     // Example User
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="object-expression-factory"}
 
 However, on the JVM, you can have members of companion objects generated as real static methods and fields if you use
 the `@JvmStatic` annotation. See the [Java interoperability](java-to-kotlin-interop.md#static-fields) section
@@ -374,7 +370,7 @@ fun main() {
     val helloWorld = object {
         val hello = "Hello"
         val world = "World"
-        // Object expressions extend the Any class, which already has a `toString()` function,
+        // Object expressions extend the Any class, which already has a toString() function,
         // so it must be overridden
         override fun toString() = "$hello $world"
     }
@@ -384,7 +380,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="object-expression-object"}
 
 ### Inherit anonymous objects from supertypes
 
@@ -422,7 +418,7 @@ fun specialTransaction(account: BankAccount) {
 
         override val balance = account.balance + 500  // Temporary bonus
 
-        // Implements the .execute() function from the Transaction interface
+        // Implements the execute() function from the Transaction interface
         override fun execute() {
             println("Executing special transaction. New balance is $balance.")
         }
@@ -439,7 +435,7 @@ fun main() {
     // Executing special transaction. New balance is 1500.
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="object-expression-anonymous-object"}
 
 ### Use anonymous objects as return and value types
 
@@ -467,7 +463,7 @@ fun main() {
     // Theme: Dark, Font Size: 14
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="object-expression-object-return"}
 
 This allows you to return an anonymous object with specific properties,
 offering a simple way to encapsulate data or behavior without creating a separate class.
@@ -479,7 +475,7 @@ If a function or property that returns an anonymous object is `public` or `priva
 * The explicitly declared type if there is more than one declared supertype.
 
 In all these cases, members added in the anonymous object are not accessible. Overridden members are accessible if they
-are declared in the actual type of the function or property:
+are declared in the actual type of the function or property. For example:
 
 ```kotlin
 //sampleStart
@@ -525,7 +521,7 @@ fun main() {
     // This produces no output
     val notification = notificationManager.getNotification()
 
-    // The notifyUser() is accessible
+    // The notifyUser() function is accessible
     // The message property is not accessible here because the return type is Notification
     val emailNotification = notificationManager.getEmailNotification()
     emailNotification.notifyUser()
@@ -536,7 +532,7 @@ fun main() {
     val detailedNotification = notificationManager.getDetailedNotification()
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="object-expression-object-override"}
 
 ### Access variables from anonymous objects
 
@@ -565,7 +561,7 @@ fun countClicks(window: JComponent) {
 }
 ```
 
-## Semantic difference between object expressions and declarations
+## Behavior difference between object expressions and declarations
 
 There are differences in the initialization behavior between object expressions and object declarations:
 
