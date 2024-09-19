@@ -151,11 +151,11 @@ data class User(val name: String, val id: Int)
 
 The most useful predefined member functions of data classes are:
 
-| **Function**        | **Description**                                                                                                |
-|---------------------|----------------------------------------------------------------------------------------------------------------|
-| `.toString()`       | Prints a readable string of the class instance and its properties.                                             |
-| `.equals()` or `==` | Compares instances of a class.                                                                                 |
-| `.copy()`           | Creates a class instance by copying another, potentially with some different properties.                       |
+| **Function**       | **Description**                                                                          |
+|--------------------|------------------------------------------------------------------------------------------|
+| `toString()`       | Prints a readable string of the class instance and its properties.                       |
+| `equals()` or `==` | Compares instances of a class.                                                           |
+| `copy()`           | Creates a class instance by copying another, potentially with some different properties. |
 
 See the following sections for examples of how to use each function:
 
@@ -165,8 +165,8 @@ See the following sections for examples of how to use each function:
 
 ### Print as string
 
-To print a readable string of a class instance, you can explicitly call the `.toString()` function, or use print functions 
-(`println()` and `print()`) which automatically call `.toString()` for you:
+To print a readable string of a class instance, you can explicitly call the `toString()` function, or use print functions 
+(`println()` and `print()`) which automatically call `toString()` for you:
 
 ```kotlin
 data class User(val name: String, val id: Int)
@@ -212,9 +212,9 @@ fun main() {
 
 ### Copy instance
 
-To create an exact copy of a data class instance, call the `.copy()` function on the instance.
+To create an exact copy of a data class instance, call the `copy()` function on the instance.
 
-To create a copy of a data class instance **and** change some properties, call the `.copy()` function on the instance 
+To create a copy of a data class instance **and** change some properties, call the `copy()` function on the instance 
 **and** add replacement values for properties as function parameters.
 
 For example:
@@ -329,7 +329,7 @@ a fixed list of potential names (inside the class body). Configure the class wit
 the class header). In the class body, define the `generateEmployee()` function. Once again, the main function demonstrates
 how you can use this class.
 
-> In this exercise, you import a package so that you can use the `Random.nextInt()` function.
+> In this exercise, you import a package so that you can use the [`Random.nextInt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.random/-random/next-int.html) function.
 > For more information about importing packages, see [Packages and imports](packages.md).
 >
 {type = "tip"}
