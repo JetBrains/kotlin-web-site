@@ -8,12 +8,12 @@ To handle these scenarios, Kotlin provides two key approaches: _object declarati
 > 
 {type="tip"}
 
-Object expressions and object declarations are best used for scenarios when:
+Object declarations and object expressions are best used for scenarios when:
 
 * **Using singletons for shared resources:** You need to ensure that only one instance of a class exists throughout the application.
 For example, managing a database connection pool.
 * **Creating factory methods:** You need a convenient way to create instances efficiently.
-[Companion objects](#companion-objects) allow you to define class-level methods and properties tied to a class, simplifying the creation and management of these instances.
+[Companion objects](#companion-objects) allow you to define class-level functions and properties tied to a class, simplifying the creation and management of these instances.
 * **Modifying existing class behavior temporarily:** You want to modify the behavior of an existing class without the need to create a new subclass.
 For example, adding temporary functionality to an object for a specific operation.
 * **Type-safe design is required:** You require one-time implementations of interfaces or [abstract classes](classes.md#abstract-classes) using object expressions.
@@ -113,7 +113,7 @@ fun main() {
     // MyObject@1f32e575
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="object-declaration-plain"}
 
 However, by marking an object declaration with the `data` modifier,
 you can instruct the compiler to return the actual name of the object when calling `toString()`, the same way it works for [data classes](data-classes.md):
@@ -438,7 +438,7 @@ fun main() {
 
 ### Use anonymous objects as return and value types
 
-When you return an anonymous object from a local or [private](visibility-modifiers.md#packages) function or property (but not an [inline function](inline-functions.md)),
+When you return an anonymous object from a local or [`private`](visibility-modifiers.md#packages) function or property (but not an [inline function](inline-functions.md)),
 all the members of that anonymous object are accessible through that function or property:
 
 ```kotlin
@@ -560,9 +560,9 @@ fun countClicks(window: JComponent) {
 }
 ```
 
-## Behavior difference between object expressions and declarations
+## Behavior difference between declarations and object expressions
 
-There are differences in the initialization behavior between object expressions and object declarations:
+There are differences in the initialization behavior between object declarations and object expressions:
 
 * Object expressions are executed (and initialized) _immediately_, where they are used.
 * Object declarations are initialized _lazily_, when accessed for the first time.
