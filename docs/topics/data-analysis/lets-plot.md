@@ -118,59 +118,59 @@ Now, let's create a 2D density plot to visualize the distribution and concentrat
 
 1. Import the dependencies to process the data and generate the plot:
 
-```kotlin
-%use lets-plot
+   ```kotlin
+   %use lets-plot
 
-@file:DependsOn("org.apache.commons:commons-math3:3.6.1")
-import org.apache.commons.math3.distribution.MultivariateNormalDistribution
-```
+   @file:DependsOn("org.apache.commons:commons-math3:3.6.1")
+   import org.apache.commons.math3.distribution.MultivariateNormalDistribution
+   ```
 
-> For more information about importing dependencies to Kotlin Notebook, see the [Kotlin Notebook documentation](https://www.jetbrains.com/help/idea/kotlin-notebook.html#add-dependencies).
-> {type="tip"}
+   > For more information about importing dependencies to Kotlin Notebook, see the [Kotlin Notebook documentation](https://www.jetbrains.com/help/idea/kotlin-notebook.html#add-dependencies).
+   > {type="tip"}
 
 2. Paste and run the following code snippet in your Kotlin Notebook to create sets of 2D data points:
 
-```kotlin
-// Defines covariance matrices for three distributions
-val cov0: Array<DoubleArray> = arrayOf(
-    doubleArrayOf(1.0, -.8),
-    doubleArrayOf(-.8, 1.0)
-)
+   ```kotlin
+   // Defines covariance matrices for three distributions
+   val cov0: Array<DoubleArray> = arrayOf(
+       doubleArrayOf(1.0, -.8),
+       doubleArrayOf(-.8, 1.0)
+   )
+   
+   val cov1: Array<DoubleArray> = arrayOf(
+       doubleArrayOf(1.0, .8),
+       doubleArrayOf(.8, 1.0)
+   )
+   
+   val cov2: Array<DoubleArray> = arrayOf(
+       doubleArrayOf(10.0, .1),
+       doubleArrayOf(.1, .1)
+   )
+   
+   // Defines the number of samples
+   val n = 400
+   
+   // Defines means for three distributions
+   val means0: DoubleArray = doubleArrayOf(-2.0, 0.0)
+   val means1: DoubleArray = doubleArrayOf(2.0, 0.0)
+   val means2: DoubleArray = doubleArrayOf(0.0, 1.0)
+   
+   // Generates random samples from three multivariate normal distributions
+   val xy0 = MultivariateNormalDistribution(means0, cov0).sample(n)
+   val xy1 = MultivariateNormalDistribution(means1, cov1).sample(n)
+   val xy2 = MultivariateNormalDistribution(means2, cov2).sample(n)
+   ```
 
-val cov1: Array<DoubleArray> = arrayOf(
-    doubleArrayOf(1.0, .8),
-    doubleArrayOf(.8, 1.0)
-)
-
-val cov2: Array<DoubleArray> = arrayOf(
-    doubleArrayOf(10.0, .1),
-    doubleArrayOf(.1, .1)
-)
-
-// Defines the number of samples
-val n = 400
-
-// Defines means for three distributions
-val means0: DoubleArray = doubleArrayOf(-2.0, 0.0)
-val means1: DoubleArray = doubleArrayOf(2.0, 0.0)
-val means2: DoubleArray = doubleArrayOf(0.0, 1.0)
-
-// Generates random samples from three multivariate normal distributions
-val xy0 = MultivariateNormalDistribution(means0, cov0).sample(n)
-val xy1 = MultivariateNormalDistribution(means1, cov1).sample(n)
-val xy2 = MultivariateNormalDistribution(means2, cov2).sample(n)
-```
-
-From the code above, the `xy0`, `xy1`, and `xy2` variables store arrays with 2D (`x, y`) data points.
+   From the code above, the `xy0`, `xy1`, and `xy2` variables store arrays with 2D (`x, y`) data points.
 
 3. Convert your data into a `Map` type:
 
-```kotlin
-val data = mapOf(
-    "x" to (xy0.map { it[0] } + xy1.map { it[0] } + xy2.map { it[0] }).toList(),
-    "y" to (xy0.map { it[1] } + xy1.map { it[1] } + xy2.map { it[1] }).toList()
-)
-```
+   ```kotlin
+   val data = mapOf(
+       "x" to (xy0.map { it[0] } + xy1.map { it[0] } + xy2.map { it[0] }).toList(),
+       "y" to (xy0.map { it[1] } + xy1.map { it[1] } + xy2.map { it[1] }).toList()
+   )
+   ```
 
 ### Generate the 2D density plot
 
