@@ -83,7 +83,7 @@
     }
 }
 
-@media (--ktl-ds) {
+@media (--ktl-tl-min) {
     .foundationPreviewImage {
         right: -48px;
         top: -6px;
@@ -91,15 +91,14 @@
 
     .companies {
         flex-wrap: wrap;
+        align-items: center;
         gap: 8px;
+        max-width: 684px;
     }
 
     .companyLogo {
         margin-right: 10px;
-    }
-
-    .companyLogo:nth-child(2) {
-        margin-right: 50%;
+        display: flex;
     }
 
     .buttonWrap {
