@@ -89,18 +89,17 @@ object DefaultListener : MouseAdapter() {
 }
 ```
 
-> Like variable declarations, object declarations are not expressions, so they cannot be used on the right-hand side
-> of an assignment statement.
-> ```kotlin
-> // Syntax error: An object expression cannot bind a name.
-> val myObject = object MySingleton {
-> val name = "Singleton"
-> }
-> ```
-> Object declarations cannot be local, which means they cannot be nested directly inside a function.
-> However, they can be nested within other object declarations or non-inner classes.
->
-{type="note"}
+Like variable declarations, object declarations are not expressions, so they cannot be used on the right-hand side
+of an assignment statement:
+
+```kotlin
+// Syntax error: An object expression cannot bind a name.
+val myObject = object MySingleton {
+val name = "Singleton"
+}
+```
+Object declarations cannot be local, which means they cannot be nested directly inside a function.
+However, they can be nested within other object declarations or non-inner classes.
 
 ### Data objects
 
