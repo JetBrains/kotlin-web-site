@@ -238,8 +238,8 @@ fun main() {
 
 ### Exercise 2 {initial-collapse-state="collapsed" id="conditional-expressions-exercise-2"}
 
-Using a `when` expression, update the following program so that when you input the names of GameBoy buttons, the actions
-are printed as output.
+Using a `when` expression, update the following program so that it prints the corresponding actions when you input the 
+names of game console buttons.
 
 | **Button** | **Action**             |
 |------------|------------------------|
