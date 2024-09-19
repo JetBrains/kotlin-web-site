@@ -560,7 +560,7 @@ fun countClicks(window: JComponent) {
 }
 ```
 
-## Behavior difference between declarations and object expressions
+## Behavior difference between object declarations and expressions
 
 There are differences in the initialization behavior between object declarations and object expressions:
 
