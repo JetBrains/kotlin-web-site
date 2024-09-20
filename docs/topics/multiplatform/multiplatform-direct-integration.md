@@ -1,7 +1,7 @@
 [//]: # (title: Direct integration)
 
-If you already have a Kotlin Multiplatform and an iOS project and want to develop them simultaneously to share code, you
-can set up direct integration through a special `embedAndSignAppleFrameworkForXcode` script.
+If you want to develop a Kotlin Multiplatform project and an iOS project simultaneously by sharing code between them, you
+can set up direct integration using a special `embedAndSignAppleFrameworkForXcode` script.
 
 This script automates the process of connecting the Kotlin framework to iOS projects in Xcode. It's designed
 specifically for the Xcode environment.
@@ -28,7 +28,7 @@ To migrate from the CocoaPods plugin:
 
 1. In Xcode, clean build directories using **Product** | **Clean Build Folder** or with the
    <shortcut>Cmd + Shift + K</shortcut> shortcut.
-2. In the directory with `Podfile`, run the following command:
+2. In the directory with the `Podfile` file, run the following command:
 
     ```none
    pod deintegrate
@@ -44,11 +44,11 @@ To connect the Kotlin framework generated from the multiplatform project to your
 1. The `embedAndSignAppleFrameworkForXcode` task only registers if the `binaries.framework` configuration option is
    declared. In your Kotlin Multiplatform project, check the iOS target declaration in the `build.gradle.kts` file.
 2. In Xcode, open the iOS project settings by double-clicking the project name.
-3. On the **Build Phases** tab of the project settings, click the **+** and add **New Run Script Phase**.
+3. On the **Build Phases** tab of the project settings, click **+** and select **New Run Script Phase**.
 
    ![Add run script phase](xcode-run-script-phase-1.png){width=700}
 
-4. Adjust the following script and add it in the run script phase:
+4. Adjust the following script and copy the result to the run script phase:
 
    ```bash
    cd "<Path to the root of the multiplatform project>"
@@ -60,11 +60,11 @@ To connect the Kotlin framework generated from the multiplatform project to your
 
    ![Add the script](xcode-run-script-phase-2.png){width=700}
 
-5. Move the **Run Script** phase before the **Compile Sources** phase.
+5. Drag the **Run Script** phase before the **Compile Sources** phase.
 
    ![Move the Run Script phase](xcode-run-script-phase-3.png){width=700}
 
-6. On the **Build Settings** tab, disable the **User Script Sandboxing** under **Build Options**:
+6. On the **Build Settings** tab, disable the **User Script Sandboxing** option under **Build Options**:
 
    ![User Script Sandboxing](disable-sandboxing-in-xcode-project-settings.png){width=700}
 
