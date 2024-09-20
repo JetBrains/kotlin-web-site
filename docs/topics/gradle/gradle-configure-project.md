@@ -60,7 +60,7 @@ In the following table, there are the minimum and maximum **fully supported** ve
 | 1.7.0–1.7.10  | 6.7.1–7.0.2                            | 3.4.3–7.0.2                                         |
 | 1.6.20–1.6.21 | 6.1.1–7.0.2                            | 3.4.3–7.0.2                                         |
 
-> Kotlin 2.0.20 is fully compatible with Gradle 6.8.3 through 8.6.
+> *Kotlin 2.0.20 is fully compatible with Gradle 6.8.3 through 8.6.
 > Gradle 8.7 and 8.8 are also supported, with only one exception: If you use the Kotlin Multiplatform Gradle plugin,
 > you may see deprecation warnings in your multiplatform projects calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets).
 > For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).

@@ -29,9 +29,9 @@ receivers feature.
 
 ### Data class copy function to have the same visibility as constructor
 
-Currently, if you create a data class using a `private` constructor, the automatically generated `.copy()` function doesn't
+Currently, if you create a data class using a `private` constructor, the automatically generated `copy()` function doesn't
 have the same visibility. This can cause problems later in your code. In future Kotlin releases, we will introduce the
-behavior that the default visibility of the `.copy()` function is the same as the constructor. This change will be
+behavior that the default visibility of the `copy()` function is the same as the constructor. This change will be
 introduced gradually to help you migrate your code as smoothly as possible.
 
 Our migration plan starts with Kotlin 2.0.20, which issues warnings in your code where the visibility will
@@ -60,7 +60,7 @@ To give you more control over this behavior, in Kotlin 2.0.20 we've introduced t
 
 * `@ConsistentCopyVisibility` to opt in to the behavior now before we make it the default in a later release.
 * `@ExposedCopyVisibility` to opt out of the behavior and suppress warnings at the declaration site.
-  Note that even with this annotation, the compiler still reports warnings when the `.copy()` function is called.
+  Note that even with this annotation, the compiler still reports warnings when the `copy()` function is called.
 
 If you want to opt in to the new behavior already in 2.0.20 for a whole module rather than in individual classes,
 you can use the `-Xconsistent-data-class-copy-visibility` compiler option.

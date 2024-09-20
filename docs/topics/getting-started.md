@@ -3,7 +3,8 @@
 Kotlin is a modern but already mature programming language designed to make developers happier.
 It's concise, safe, interoperable with Java and other languages, and provides many ways to reuse code between multiple platforms for productive programming.
 
-To start, why not take our tour of Kotlin? This tour covers the fundamentals of the Kotlin programming language.
+To start, why not take our tour of Kotlin? This tour covers the fundamentals of the Kotlin programming language and can
+be completed entirely within your browser.
 
 <a href="kotlin-tour-welcome.md"><img src="start-kotlin-tour.svg" width="700" alt="Start the Kotlin tour"/></a>
 
@@ -16,58 +17,52 @@ Download and install one of these IDEs to start using Kotlin.
  
 <tabs>
 
+<tab id="console" title="Console">
+
+Here you'll learn how to develop a console application and create unit tests with Kotlin.
+
+1. **[Create a basic JVM application with the IntelliJ IDEA project wizard](jvm-get-started.md).**
+
+2. **[Write your first unit test](jvm-test-using-junit.md).**
+
+3. **Join the Kotlin community:**
+
+   * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+   * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: subscribe to the ["kotlin"](https://stackoverflow.com/questions/tagged/kotlin) tag.
+
+4. **Follow Kotlin** on:
+
+   * ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin)
+   * ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/)
+   * ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
+
+If you encounter any difficulties or problems, report an issue in our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
+
+</tab>
+
 <tab id="backend" title="Backend">
 
-Here is how you can take the first steps in developing Kotlin server-side applications.
+Here you'll learn how to develop a backend application with Kotlin server-side.
 
 1. **Create your first backend application:**
-   
-   * To start from scratch, [create a basic JVM application with the IntelliJ IDEA project wizard](jvm-get-started.md).
-   * If you prefer more robust examples, choose one of the frameworks below and create a project:
 
-   <table width="100%" >
-   <tr>
-      <th>Spring</th>
-      <th>Ktor</th>
-   </tr>
-   <tr>
-   <td width="50%">
-     A mature family of frameworks with an established ecosystem that is used by millions of developers worldwide.
-   <br/>
-   <list>
-      <li><a href="jvm-get-started-spring-boot.md">Create a RESTful web service with Spring Boot</a>.</li>
-      <li><a href="https://spring.io/guides/tutorials/spring-boot-kotlin/">Build web applications with Spring Boot and Kotlin</a>.</li>
-      <li><a href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/">Use Spring Boot with Kotlin and RSocket</a>.</li>
-   </list>
-   </td>
-   <td width="50%">
-      A lightweight framework for those who value freedom in making architectural decisions.
-   <list>
-      <li><a href="https://ktor.io/docs/creating-http-apis.html">Create HTTP APIs with Ktor</a>.</li>
-      <li><a href="https://ktor.io/docs/creating-web-socket-chat.html">Create a WebSocket chat with Ktor</a>.</li>
-      <li><a href="https://ktor.io/docs/creating-interactive-website.html">Create an interactive website with Ktor</a>.</li>
-      <li><a href="https://ktor.io/docs/heroku.html">Publish server-side Kotlin applications: Ktor on Heroku</a>.</li>
-   </list>
-   
-   </td>
-   </tr>
-   </table>
+     * [Create a RESTful web service with Spring Boot](jvm-get-started-spring-boot.md).
+     * [Create HTTP APIs with Ktor](https://ktor.io/docs/creating-http-apis.html).
 
-2. **Use Kotlin and third-party libraries in your application**. Learn more about [adding library and tool dependencies to your project](gradle-configure-project.md#configure-dependencies).
-   * The [Kotlin standard library](https://kotlinlang.org/api/latest/jvm/stdlib/) offers a lot of useful things such as [collections](collections-overview.md) or [coroutines](coroutines-guide.md).
-   * Take a look at the following [third-party frameworks, libs and tools for Kotlin](https://blog.jetbrains.com/kotlin/2020/11/server-side-development-with-kotlin-frameworks-and-libraries/).
+2. **[Learn how to mix Kotlin and Java code in your application](mixing-java-kotlin-intellij.md).**
 
-3. **Learn more about Kotlin for server-side:**
-   * [How to write your first unit test](jvm-test-using-junit.md).
-   * [How to mix Kotlin and Java code in your application](mixing-java-kotlin-intellij.md).
+3. **Join the Kotlin server-side community:**
 
-4. **Join the Kotlin server-side community:**
-   * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA), [#server](https://kotlinlang.slack.com/archives/C0B8RC352), [#spring](https://kotlinlang.slack.com/archives/C0B8ZTWE4), or [#ktor](https://kotlinlang.slack.com/archives/C0A974TJ9) channels.
-   * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: subscribe to the ["kotlin"](https://stackoverflow.com/questions/tagged/kotlin), ["spring-kotlin"](https://stackoverflow.com/questions/tagged/spring-kotlin), or ["ktor"](https://stackoverflow.com/questions/tagged/ktor) tags.
+   * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+   * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: subscribe to the ["kotlin"](https://stackoverflow.com/questions/tagged/kotlin) tag.
 
-5. **Follow Kotlin** on ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
+4. **Follow Kotlin** on:
 
-If you've encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
+   * ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin)
+   * ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/)
+   * ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
+
+If you encounter any difficulties or problems, report an issue in our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
 </tab>
 
@@ -85,16 +80,16 @@ Here you'll learn how to develop and improve your cross-platform application usi
 
 3. **Use a wide set of multiplatform libraries** to implement the required business logic only once in the shared module. Learn more about [adding dependencies](multiplatform-add-dependencies.md).
 
-   |Library| Details                                                                                                                                                            |
-   |-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-   | Ktor | [Docs](https://ktor.io/docs/client.html)                                                                                                                           | 
+   | Library       | Details                                                                                                                                                            |
+   |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
+   | Ktor          | [Docs](https://ktor.io/docs/client.html)                                                                                                                           | 
    | Serialization | [Docs](serialization.md) and [sample](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html#create-an-application-data-model) |
-   | Coroutines | [Docs](coroutines-guide.md) and [sample](coroutines-and-channels.md)                                                                                               |
-   | DateTime | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme)                                                                                                          |
-   | SQLDelight | Third-party library. [Docs](https://cashapp.github.io/sqldelight/)                                                                                                 |
-   
+   | Coroutines    | [Docs](coroutines-guide.md) and [sample](coroutines-and-channels.md)                                                                                               |
+   | DateTime      | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme)                                                                                                          |
+   | SQLDelight    | Third-party library. [Docs](https://cashapp.github.io/sqldelight/)                                                                                                 |
+
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
-   > 
+   >
    {type="tip"}
 
 4. **Learn more about Kotlin Multiplatform:**
@@ -108,9 +103,13 @@ Here you'll learn how to develop and improve your cross-platform application usi
    * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channels.
    * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: Subscribe to the ["kotlin-multiplatform" tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform).
 
-6. **Follow Kotlin** on ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
+6. **Follow Kotlin** on:
 
-If you've encountered any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
+   * ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin)
+   * ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/)
+   * ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
+
+If you encounter any difficulties or problems, report an issue to our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
 </tab>
 
@@ -138,9 +137,12 @@ From building data pipelines to productionizing machine learning models, Kotlin 
 3. **Get the latest updates about Kotlin for Data Analysis:**
 
    * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#datascience](https://kotlinlang.slack.com/archives/C4W52CFEZ) channel.
-   * ![Twitter](twitter.svg){width=25}{type="joined"} Twitter: follow [KotlinForData](http://twitter.com/KotlinForData).
+   * ![Twitter](twitter.svg){width=18}{type="joined"} Twitter: follow [KotlinForData](http://twitter.com/KotlinForData).
 
-4. **Follow Kotlin** on ![Twitter](twitter.svg){width=25}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
+4. **Follow Kotlin** on:
+   * ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin)
+   * ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/)
+   * ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
 
 </tab>
 
