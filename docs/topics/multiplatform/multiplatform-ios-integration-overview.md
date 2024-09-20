@@ -1,7 +1,7 @@
 [//]: # (title: iOS integration methods)
 
-You can integrate a Kotlin Multiplatform shared module into your iOS app. For that, an [iOS framework](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html)
-is generated from the shared module. Then, you should add it as a dependency to the iOS project:
+You can integrate a Kotlin Multiplatform shared module into your iOS app. For that, you generate an [iOS framework](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html)
+from the shared module and then add it as a dependency to the iOS project:
 
 ![iOS integration scheme](ios-integration-scheme.svg)
 
@@ -14,17 +14,17 @@ dependency.
 
 ## Local integration
 
-In a local setup, there are two main integration options. You can use direct integration through a special script or, if
-you have Pod dependencies in your Kotlin Multiplatform project, take the CocoaPods integration approach.
+In a local setup, there are two main integration options. You can use direct integration through a special script, which
+makes the Kotlin build a part of the iOS build. If you have Pod dependencies in your Kotlin Multiplatform project,
+take the CocoaPods integration approach.
 
 ### Direct integration
 
 You can connect the iOS framework directly from the Kotlin Multiplatform project by adding a special script to your Xcode
-project. The `embedAndSignAppleFrameworkForXcode` script is integrated into the build phase of your project's build settings.
+project. The script is integrated into the build phase of your project's build settings.
 
-This integration method can work for you if:
-
-* You do **not** import CocoaPods dependencies in your Kotlin Multiplatform project
+This integration method can work for you if you do **not** import CocoaPods dependencies in your Kotlin Multiplatform
+project.
 
 If you create a project in Android Studio, choose the **Regular framework** option to have this setup generated
 automatically. If you use the [Kotlin Multiplatform web wizard](https://kmp.jetbrains.com/), direct integration
@@ -52,7 +52,7 @@ For more information, see [CocoaPods overview and setup](native-cocoapods.md).
 For remote integration, your project might use the Swift Package Manager (SPM) or the CocoaPods dependency manager to
 connect the iOS framework from a Kotlin Multiplatform project.
 
-### SPM with XCFrameworks
+### Swift package manager with XCFrameworks
 
 You can set up a Swift package manager (SPM) dependency using XCFrameworks to connect the iOS framework from the Kotlin
 Multiplatform project.

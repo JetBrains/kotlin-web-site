@@ -1,16 +1,15 @@
 [//]: # (title: Direct integration)
 
-If you want to develop a Kotlin Multiplatform project and an iOS project simultaneously by sharing code between them, you
-can set up direct integration using a special `embedAndSignAppleFrameworkForXcode` script.
+If you want to develop your Kotlin Multiplatform project and an iOS project simultaneously by sharing code between them,
+you can set up direct integration using a special script.
 
-This script automates the process of connecting the Kotlin framework to iOS projects in Xcode. It's designed
-specifically for the Xcode environment.
+This script automates the process of connecting the Kotlin framework to iOS projects in Xcode:
 
 ![Direct integration diagram](direct-integration-scheme.svg){width="700"}
 
-The idea of direct integration is to make the Kotlin build a part of the iOS build.
-The script is added to the run script phase of the iOS app build so that the Kotlin artifact is built and included in
-the derived data before running the iOS app build.
+The script uses the `embedAndSignAppleFrameworkForXcode` Gradle task designed specifically for the Xcode environment.
+During the setup, you add it to the run script phase of the iOS app build. In this case, the Kotlin artifact
+is built and included in the derived data before running the iOS app build.
 
 In general, the script:
 
@@ -62,7 +61,7 @@ To connect the Kotlin framework generated from the multiplatform project to your
 
 5. Drag the **Run Script** phase before the **Compile Sources** phase.
 
-   ![Move the Run Script phase](xcode-run-script-phase-3.png){width=700}
+   ![Drag the Run Script phase](xcode-run-script-phase-3.png){width=700}
 
 6. On the **Build Settings** tab, disable the **User Script Sandboxing** option under **Build Options**:
 

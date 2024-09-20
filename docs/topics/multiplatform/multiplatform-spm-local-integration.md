@@ -11,9 +11,9 @@ This is a local integration method that can work for you if:
 
 ![Direct integration diagram](direct-integration-scheme.svg){width=700}
 
-To set up the integration, you'll add the `embedAndSignAppleFrameworkForXcode` script as a pre-action in your project's
-build settings. To see the changes made in common code reflected in your Xcode project, you'll only need to rebuild the
-Kotlin Multiplatform project.
+To set up the integration, you'll add a special script that uses the `embedAndSignAppleFrameworkForXcode` Gradle task
+as a pre-action in your project's build settings. To see the changes made in common code reflected in your Xcode project,
+you'll only need to rebuild the Kotlin Multiplatform project.
 
 This way, you can easily use Kotlin code in local Swift packages, compared to a regular direct integration method,
 that adds the script to the build phase and requires rebuilding both the Kotlin Multiplatform and the iOS project to get
@@ -36,8 +36,8 @@ The feature is available starting with Kotlin 2.0.0.
 {type="tip"}
 
 The tutorial assumes that your project is using [direct integration](multiplatform-direct-integration.md)
-approach with the `embedAndSignAppleFrameworkForXcode` task in the project's build phase. If you're connecting a Kotlin framework through CocoaPods
-plugin or through Swift package with `binaryTarget`, migrate first.
+approach with the `embedAndSignAppleFrameworkForXcode` task in the project's build phase. If you're connecting a Kotlin
+framework through CocoaPods plugin or through Swift package with `binaryTarget`, migrate first.
 
 ### Migrate from SPM binaryTarget integration to local direct integration {initial-collapse-state="collapsed"}
 
