@@ -8,7 +8,7 @@ This script automates the process of connecting the Kotlin framework to iOS proj
 ![Direct integration diagram](direct-integration-scheme.svg){width="700"}
 
 The script uses the `embedAndSignAppleFrameworkForXcode` Gradle task designed specifically for the Xcode environment.
-During the setup, you add it to the run script phase of the iOS app build. In this case, the Kotlin artifact
+During the setup, you add it to the run script phase of the iOS app build. After that, the Kotlin artifact
 is built and included in the derived data before running the iOS app build.
 
 In general, the script:
