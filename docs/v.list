@@ -58,5 +58,15 @@
 
     <var name="apiVersion" value="2.0" type="string"/>
 
+    <var name="lincheckVersion" value="2.34" type="string"/>
+    <var name="jctoolsVersion" value="3.3.0" type="string"/>
+
+    <var name="dokkaVersion"
+         value="1.9.20"
+         type="string"/>
+    <var name="kotlinVersion"
+         value="1.9.22"
+         type="string"/>
+
 
 </vars>
