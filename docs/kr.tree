@@ -146,6 +146,18 @@
             <toc-element id="multiplatform-android-dependencies.md" toc-title="For Android target platforms"/>
             <toc-element id="multiplatform-ios-dependencies.md" toc-title="For iOS target platforms"/>
         </toc-element>
+        <toc-element toc-title="Set up iOS integration">
+            <toc-element id="multiplatform-ios-integration-overview.md" toc-title="Choose integration method"/>
+            <toc-element id="multiplatform-direct-integration.md"/>
+            <toc-element toc-title="Remote SPM export" id="native-spm.md"/>
+            <toc-element toc-title="CocoaPods integration">
+                <toc-element id="native-cocoapods.md"/>
+                <toc-element id="native-cocoapods-libraries.md"/>
+                <toc-element id="native-cocoapods-xcode.md"/>
+                <toc-element id="native-cocoapods-dsl-reference.md"/>
+            </toc-element>
+            <toc-element id="multiplatform-spm-local-integration.md" toc-title="Local integration with SPM"/>
+        </toc-element>
         <toc-element toc-title="Compile artifacts">
             <toc-element id="multiplatform-configure-compilations.md" accepts-web-file-names="mpp-configure-compilations.html"/>
             <toc-element toc-title="[Experimental DSL] Build final native binaries" id="multiplatform-native-artifacts.md" hidden="true"/>
@@ -225,19 +237,12 @@
                 <toc-element id="native-objc-interop.md"/>
                 <toc-element id="apple-framework.md"/>
             </toc-element>
-            <toc-element toc-title="CocoaPods integration">
-                <toc-element id="native-cocoapods.md"/>
-                <toc-element id="native-cocoapods-libraries.md"/>
-                <toc-element id="native-cocoapods-xcode.md"/>
-                <toc-element id="native-cocoapods-dsl-reference.md"/>
-            </toc-element>
-            <toc-element id="native-spm.md"/>
             <toc-element id="native-libraries.md"/>
             <toc-element id="native-platform-libs.md"/>
             <toc-element id="native-dynamic-libraries.md"/>
             <toc-element toc-title="Memory manager">
                 <toc-element id="native-memory-manager.md"/>
-                <toc-element id="native-ios-integration.md" toc-title="Integration with ARC"/>
+                <toc-element id="native-arc-integration.md" toc-title="Integration with ARC" accepts-web-file-names="native-ios-integration.html"/>
                 <toc-element id="native-migration-guide.md" toc-title="Migration guide"/>
             </toc-element>
             <toc-element id="native-debugging.md"/>
