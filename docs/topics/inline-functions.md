@@ -52,7 +52,7 @@ however, can be manipulated in any way you like, including being stored in field
 > is very unlikely to be beneficial (you can use the `@Suppress("NOTHING_TO_INLINE")` annotation to suppress the warning
 > if you are sure the inlining is needed).
 >
-{type="note"}
+{style="note"}
 
 ## Non-local returns
 
@@ -124,7 +124,7 @@ inline fun f(crossinline body: () -> Unit) {
 
 > `break` and `continue` are not yet available in inlined lambdas, but we are planning to support them, too.
 >
-{type="note"}
+{style="note"}
 
 ## Reified type parameters
 

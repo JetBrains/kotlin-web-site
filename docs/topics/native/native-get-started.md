@@ -9,7 +9,7 @@ The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultim
 > [install Xcode Command Line Tools](https://developer.apple.com/download/). For more information,
 > see [Set up an environment](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html).
 > 
-{type="note"}
+{style="note"}
 
 ## Before you start
 
@@ -32,7 +32,7 @@ The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultim
 > * Read more about these settings in the [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md).
 > * Read more about the Gradle build system in the [documentation](gradle.md).
 >
-{type="tip"}
+{style="tip"}
 
 ## Build and run the application
 
@@ -96,7 +96,7 @@ performs an incremental build of the project.
        //...
    }
    ```
-   {initial-collapse-state="collapsed" collapsed-title="runTask?.standardInput = System.`in`"}
+   {initial-collapse-state="collapsed" collapsible="true" collapsed-title="runTask?.standardInput = System.`in`"}
 
 4. Eliminate the whitespaces and count the letters:
    * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to remove the empty spaces in the name.

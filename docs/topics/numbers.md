@@ -26,7 +26,7 @@ val oneByte: Byte = 1
 
 > In addition to integer types, Kotlin also provides unsigned integer types. For more information, see [Unsigned integer types](unsigned-integer-types.md).
 >
-{type="tip"}
+{style="tip"}
 
 ## Floating-point types
 
@@ -89,7 +89,7 @@ There are the following kinds of literal constants for integral values:
 
 > Octal literals are not supported in Kotlin.
 >
-{type="note"}
+{style="note"}
 
 Kotlin also supports a conventional notation for floating-point numbers:
 
@@ -109,7 +109,7 @@ val bytes = 0b11010010_01101001_10010100_10010010
 > There are also special tags for unsigned integer literals.  
 > Read more about [literals for unsigned integer types](unsigned-integer-types.md).
 > 
-{type="tip"}
+{style="tip"}
 
 ## Numbers representation on the JVM
 

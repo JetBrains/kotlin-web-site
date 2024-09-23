@@ -208,7 +208,7 @@ ksClassDeclaration.superTypes
 
 > A `KSType` for a function is just a signature represented by the `FunctionN<R, T1, T2, ..., TN>` family.
 >
-{type="note"}
+{style="note"}
 
 | **Java** | **KSP equivalent** |
 | -------- | ------------------ |

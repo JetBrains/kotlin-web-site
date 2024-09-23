@@ -124,7 +124,7 @@ Their responsibilities and the guidelines they follow are described below.
   * A moderator ignores their responsibilities, which leads to issues in a channel.
   * A moderator violates these guidelines.   
 
-### The list of moderators {initial-collapse-state="collapsed"}
+### The list of moderators {initial-collapse-state="collapsed" collapsible="true"}
 
 At the moment we have 17 confirmed moderators, and they will be responsible for observing a total of 64 channels.
 For all other channels, if any issues arise, members can ping any of the moderators or admins directly,

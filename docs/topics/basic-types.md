@@ -14,7 +14,7 @@ This section describes the basic types used in Kotlin:
 
 > [Learn how to perform type checks and casts in Kotlin](typecasts.md).
 >
-{type="tip"}
+{style="tip"}
 
 To learn about other Kotlin types, such as `Nothing`, `Any`, and `Unit`, look through the Kotlin API reference:
 

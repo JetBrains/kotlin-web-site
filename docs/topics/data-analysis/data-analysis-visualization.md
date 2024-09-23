@@ -13,7 +13,7 @@ the [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](
    
     > Alternatively, access the Kotlin Notebook plugin from **Settings** | **Plugins** | **Marketplace** within IntelliJ IDEA.
     >
-    {type="tip"}
+    {style="tip"}
 
 3. Create a new notebook by selecting **File** | **New** | **Kotlin Notebook**.
 4. In your notebook, import the Kandy and Kotlin DataFrame libraries by running the following command:
@@ -70,7 +70,7 @@ The first four rows of the DataFrame contain records of the temperature in Berli
 > There are different options to access a column's records that can help you increase type safety when working with the Kandy and Kotlin DataFrame libraries together.
 > For more information, see [Access APIs](https://kotlin.github.io/dataframe/apilevels.html).
 >
-{type="tip"}
+{style="tip"}
 
 ## Create a line chart
 

@@ -109,7 +109,7 @@ fun main() {
 
 > In Java, if you want spaces between your delimiters and following items, you need to add a space to the delimiter explicitly.
 >
-{type="note"}
+{style="note"}
 
 Learn more about [joinToString()](collection-transformations.md#string-representation) usage.
 

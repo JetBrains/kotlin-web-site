@@ -252,7 +252,7 @@ latest language versions quickly.
 > We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 > See details in the [reference](inline-classes.md).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.3 introduces a new kind of declaration — `inline class`. Inline classes can be viewed as a restricted version
 of the usual classes, in particular, inline classes must have exactly one property:
@@ -286,7 +286,7 @@ See [reference](inline-classes.md) for inline classes for details.
 > Their implementation is almost stable, but migration steps may be required in the future.
 > We'll do our best to minimize any changes you will have to make.
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.3 introduces unsigned integer types:
 
@@ -329,7 +329,7 @@ See [reference](unsigned-integer-types.md) for details.
 >`@JvmDefault` is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin targets a wide range of the Java versions, including Java 6 and Java 7, where default methods in the interfaces are not allowed.
 For your convenience, the Kotlin compiler works around that limitation, but this workaround isn't compatible with the `default` methods, introduced in Java 8. 
@@ -348,7 +348,7 @@ interface Foo {
 > Warning! Annotating your API with `@JvmDefault` has serious implications on binary compatibility.
 Make sure to carefully read the [reference page](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default/index.html) before using `@JvmDefault` in production.
 >
-{type="warning"}
+{style="warning"}
 
 ## Standard library
 
@@ -476,14 +476,14 @@ See here for [details](https://github.com/Kotlin/kotlinx.serialization#current-p
 
 > Even though kotlinx.serialization now ships with the Kotlin Compiler distribution, it is still considered to be an experimental feature in Kotlin 1.3. 
 >
-{type="warning"}
+{style="warning"}
 
 ### Scripting update
 
 >Scripting is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.3 continues to evolve and improve scripting API, introducing some experimental support for scripts customization,
 such as adding external properties, providing static or dynamic dependencies, and so on. 

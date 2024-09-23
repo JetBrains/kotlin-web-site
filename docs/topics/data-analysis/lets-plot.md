@@ -19,7 +19,7 @@ the LPK and [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted
 
    > Alternatively, access the Kotlin Notebook plugin from **Settings** | **Plugins** | **Marketplace** within IntelliJ IDEA.
    >
-   {type="tip"}
+   {style="tip"}
 
 3. Create a new notebook by selecting **File** | **New** | **Kotlin Notebook**.
 4. In your notebook, import the LPK and Kotlin DataFrame libraries by running the following command:
@@ -126,7 +126,7 @@ Now, let's create a 2D density plot to visualize the distribution and concentrat
    ```
 
    > For more information about importing dependencies to Kotlin Notebook, see the [Kotlin Notebook documentation](https://www.jetbrains.com/help/idea/kotlin-notebook.html#add-dependencies).
-   > {type="tip"}
+   > {style="tip"}
 
 2. Paste and run the following code snippet in your Kotlin Notebook to create sets of 2D data points:
 

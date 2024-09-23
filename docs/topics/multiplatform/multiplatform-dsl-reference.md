@@ -48,7 +48,7 @@ Inside `kotlin {}`, you can write the following blocks:
 > and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
 > your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 ## Targets
 
@@ -112,7 +112,7 @@ The complete list of available targets is the following:
 
 > A target that is not supported by the current host is ignored during building and, therefore, not published.
 >
-{type="note"}
+{style="note"}
 
 ```groovy
 kotlin {
@@ -147,7 +147,7 @@ In any target block, you can use the following declarations:
 > and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
 > your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 ### JVM targets
 
@@ -467,7 +467,7 @@ Learn more about [compilation for Android](multiplatform-configure-compilations.
 > The `android` configuration inside `kotlin` doesn't replace the build configuration of any Android project.
 > Learn more about writing build scripts for Android projects in [Android developer documentation](https://developer.android.com/studio/build).
 >
-{type="note"}
+{style="note"}
 
 ## Source sets
 
@@ -822,7 +822,7 @@ kotlin {
 > and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
 > your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 
 ## Dependencies

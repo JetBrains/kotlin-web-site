@@ -318,7 +318,7 @@ Under the hood, the Kotlin compiler generates auxiliary properties for some kind
 > For optimization purposes, the compiler [_does not_ generate auxiliary properties in several cases](#optimized-cases-for-delegated-properties). 
 > Learn about the optimization on the example of [delegating to another property](#translation-rules-when-delegating-to-another-property).
 >
-{type="note"}
+{style="note"}
 
 For example, for the property `prop` it generates the hidden property `prop$delegate`, and the code of the accessors
 simply delegates to this additional property:

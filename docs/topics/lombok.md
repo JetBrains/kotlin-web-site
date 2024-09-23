@@ -4,7 +4,7 @@
 > It may be dropped or changed at any time. Use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-7112).
 >
-{type="warning"}
+{style="warning"}
 
 The Kotlin Lombok compiler plugin allows the generation and use of Java's Lombok declarations by Kotlin code 
 in the same mixed Java/Kotlin module.
@@ -33,7 +33,7 @@ for [@SuperBuilder](https://youtrack.jetbrains.com/issue/KT-53563/Kotlin-Lombok-
 
 > Kotlin compiler ignores Lombok annotations if you use them in Kotlin code.
 >
-{type="note"}
+{style="note"}
 
 ## Gradle
 

@@ -34,7 +34,7 @@ To declare a record class in Kotlin, use the `@JvmRecord` annotation:
 
 > Applying `@JvmRecord` to an existing class is not a binary compatible change. It alters the naming convention of the class property accessors.
 >
-{type="note"}
+{style="note"}
 
 ```kotlin
 @JvmRecord

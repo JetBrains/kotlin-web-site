@@ -67,7 +67,7 @@ to avoid the accidental use of features that have not been released as stable.
 
 > By default, all new components have Experimental status.
 > 
-{type="note"}
+{style="note"}
 
 ### Kotlin compiler
 

@@ -13,7 +13,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    > Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do
    > it later at any time.
    >
-   {type="tip"}
+   {style="tip"}
 
    ![Create a console application](jvm-new-gradle-project.png){width=700}
 
@@ -30,13 +30,13 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    > You can also enable the **Generate code with onboarding tips** option to add some additional useful comments to your
    > sample code.
    >
-   {type="tip"}
+   {style="tip"}
 
 8. Click **Create**.
 
 You have successfully created a project with Gradle!
 
-#### Specify a Gradle version for your project {initial-collapse-state="collapsed"}
+#### Specify a Gradle version for your project {initial-collapse-state="collapsed" collapsible="true"}
 
 You can explicitly specify a Gradle version for your project under the **Advanced Settings** section, 
 either by using the Gradle Wrapper or a local installation of Gradle:

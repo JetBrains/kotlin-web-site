@@ -36,7 +36,7 @@ $ kotlinc hello.kt -include-runtime -d hello.jar
 >```
 >$ kotlinc.bat hello.kt -include-runtime -d "My Folder\hello.jar"
 >```
-{type="note"}
+{style="note"}
 
 ## Common options
 
@@ -166,7 +166,7 @@ Possible values are `1.8`, `9`, `10`, ..., `21`.
 
 > This option is [not guaranteed](https://youtrack.jetbrains.com/issue/KT-29974) to be effective for each JDK distribution.
 >
-{type="note"}
+{style="note"}
 
 ### -jvm-target _version_
 

@@ -30,7 +30,7 @@ Builder inference allows to omit type arguments while using generic builders.
 > Before Kotlin 1.7.0, enabling builder inference for a builder function required `-Xenable-builder-inference` compiler option. 
 > In 1.7.0 the option is enabled by default.
 >
-{type="note"}
+{style="note"}
 
 To let builder inference work for your own builder, make sure its declaration has a builder lambda parameter of a
 function type with a receiver. There are also two requirements for the receiver type:
@@ -42,7 +42,7 @@ function type with a receiver. There are also two requirements for the receiver 
    
    > Note that passing the type parameter's type directly like `fun <T> myBuilder(builder: T.() -> Unit)` is not yet supported.
    > 
-   {type="note"}
+   {style="note"}
 
 2. It should provide public members or extensions that contain the corresponding type parameters in their signature. 
    For example:

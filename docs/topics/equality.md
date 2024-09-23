@@ -69,7 +69,7 @@ class Point(val x: Int, val y: Int) {
 > When overriding the equals() function, you should also override the [hashCode() function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/hash-code.html) 
 > to keep consistency between equality and hashing and ensure a proper behavior of these functions.
 >
-{type="note"}
+{style="note"}
 
 Functions with the same name and other signatures (like `equals(other: Foo)`) don't affect equality checks with
 the operators `==` and `!=`.
@@ -107,7 +107,7 @@ For values represented by primitive types at runtime
 
 > The referential equality is implemented differently in Kotlin/JS. For more information about equality, see the [Kotlin/JS](js-interop.md#equality) documentation.
 >
-{type="tip"}
+{style="tip"}
 
 ## Floating-point numbers equality
 

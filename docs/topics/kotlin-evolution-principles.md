@@ -248,4 +248,4 @@ However, there are some compatibility details you need to keep in mind:
 > The Kotlin cinterop klib binaries are still in [Beta](components-stability.md#stability-levels-explained).
 > Currently, we cannot give specific compatibility guarantees between different Kotlin versions for cinterop klib binaries.
 > 
-{type="note"}
+{style="note"}

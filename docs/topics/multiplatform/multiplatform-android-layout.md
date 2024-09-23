@@ -5,7 +5,7 @@ understand the key differences between the deprecated and the new layouts, as we
 
 > You don't need to implement all the suggestions, only those that are applicable to your particular projects.
 >
-{type="tip"}
+{style="tip"}
 
 ## Check the compatibility
 

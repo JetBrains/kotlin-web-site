@@ -1,20 +1,20 @@
 [//]: # (title: Add dependencies to your Kotlin Notebook)
 
-<microformat>
+<tldr>
    <p>This is the third part of the <strong>Getting started with Kotlin Notebook</strong> tutorial. Before proceeding, make sure you've completed the previous steps.</p>
    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="kotlin-notebook-set-up-env.md">Set up an environment</a><br/>
       <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="kotlin-notebook-create.md">Create a Kotlin Notebook</a><br/>
       <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Add dependencies to a Kotlin Notebook</strong><br/>      
       <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Share a Kotlin Notebook<br/>
   </p>
-</microformat>
+</tldr>
 
 You've already created your first Kotlin Notebook! Now let's learn how to add dependencies to libraries, which
 is necessary to unlock advanced features.
 
 > The Kotlin standard library can be used out of the box, so you don't have to import it.
 > 
-{type="note"}
+{style="note"}
 
 You can load any library from the Maven repository by specifying its coordinates using Gradle-style
 syntax in any code cell. 
@@ -59,7 +59,7 @@ To add these libraries:
     > Make sure to run the code cell with the `%use libraryName` line before you run any other code cells that rely on the 
     > library.
     >
-    {type="note"}
+    {style="note"}
 
 4. To import data from a CSV file using the Kotlin DataFrame library, use the `.read()` function in a new code cell:
 
@@ -74,7 +74,7 @@ To add these libraries:
     > You can download this example CSV from the [Kotlin DataFrame examples GitHub repository](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/netflix/netflix_titles.csv).
     > Add it to your project directory.
     > 
-    {type="tip"}
+    {style="tip"}
 
     ![Using DataFrame to display data](add-dataframe-dependency.png){width=700}
 

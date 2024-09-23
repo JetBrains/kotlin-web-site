@@ -22,7 +22,7 @@ the changes from the common code.
 > If you aren't familiar with Kotlin Multiplatform, learn how to [set up the environment](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html)
 > and [create a cross-platform application from scratch](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html) first.
 >
-{type="tip"}
+{style="tip"}
 
 ## Set up the project
 
@@ -33,13 +33,13 @@ The feature is available starting with Kotlin 2.0.0.
 > 
 > Alternatively, check the version catalog in the `gradle/libs.versions.toml` file.
 > 
-{type="tip"}
+{style="tip"}
 
 The tutorial assumes that your project is using [direct integration](multiplatform-direct-integration.md)
 approach with the `embedAndSignAppleFrameworkForXcode` task in the project's build phase. If you're connecting a Kotlin
 framework through CocoaPods plugin or through Swift package with `binaryTarget`, migrate first.
 
-### Migrate from SPM binaryTarget integration to local direct integration {initial-collapse-state="collapsed"}
+### Migrate from SPM binaryTarget integration to local direct integration {initial-collapse-state="collapsed" collapsible="true"}
 
 To migrate from the SPM integration with `binaryTarget`:
 
@@ -48,12 +48,12 @@ To migrate from the SPM integration with `binaryTarget`:
 2. In every `Package.swift` file, remove both dependencies to the package with a Kotlin framework inside and target
    dependencies to the products.
 
-### Migrate from CocoaPods plugin to direct integration {initial-collapse-state="collapsed"}
+### Migrate from CocoaPods plugin to direct integration {initial-collapse-state="collapsed" collapsible="true"}
 
 > If you have dependencies on other Pods in the `cocoapods {}` block, you have to resort to the CocoaPods integration approach.
 > Currently, it's impossible to both have dependencies on Pods and on the Kotlin framework in a multimodal SPM project. 
 >
-{type="warning"}
+{style="warning"}
 
 To migrate from the CocoaPods plugin:
 
@@ -72,7 +72,7 @@ To migrate from the CocoaPods plugin:
 
 > The integration into `swift build` is currently not supported.
 >
-{type="note"}
+{style="note"}
 
 To be able to use Kotlin code in a local Swift package, connect the Kotlin framework generated from the multiplatform
 project to your Xcode project:

@@ -21,7 +21,7 @@ In general, the script:
 
 If you're currently using the CocoaPods plugin to connect your Kotlin framework, migrate first.
 
-### Migrate from CocoaPods plugin to direct integration {initial-collapse-state="collapsed"}
+### Migrate from CocoaPods plugin to direct integration {initial-collapse-state="collapsed" collapsible="true"}
 
 To migrate from the CocoaPods plugin:
 
@@ -73,14 +73,14 @@ To connect the Kotlin framework generated from the multiplatform project to your
    > ./gradlew --stop
    > ```
    >
-   > {type="tip"}
+   > {style="tip"}
 
 7. Build the project in Xcode. If everything is set up correctly, the project will successfully build.
 
 > If you have a custom build configuration different from the default `Debug` or `Release`, on the **Build Settings**
 > tab, add the `KOTLIN_FRAMEWORK_BUILD_TYPE` setting under **User-Defined** and set it to `Debug` or `Release`.
 >
-{type="note"}
+{style="note"}
 
 ## What's next?
 

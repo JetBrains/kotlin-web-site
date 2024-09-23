@@ -140,7 +140,7 @@ val <T> List<T>.lastIndex: Int
 > property to have a [backing field](properties.md#backing-fields). This is why _initializers are not allowed for
 > extension properties_. Their behavior can only be defined by explicitly providing getters/setters.
 >
-{type="note"}
+{style="note"}
 
 Example:
 

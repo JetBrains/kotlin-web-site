@@ -1,14 +1,14 @@
 [//]: # (title: Testing page)
 [//]: # (description: This page is for testing purposes only.)
 
-<microformat>
+<tldr>
    <p>This is a microformat block with images (taken from <strong>Getting started with Compose Multiplatform</strong> tutorial).</p>
    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/>
       <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/>
       <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Add database support for Spring Boot project</strong><br/>
       <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access><br/>
     </p>
-</microformat>
+</tldr>
 
 ## Synchronized tabs
 
@@ -56,7 +56,7 @@ plugins {
 
 ## Sections
 
-### Collapsed section {initial-collapse-state="collapsed"}
+### Collapsed section {initial-collapse-state="collapsed" collapsible="true"}
 
 Some text here and a codeblock:
 
@@ -112,7 +112,7 @@ class MessageController {
     fun index(@RequestParam("name") name: String) = "Hello, $name!"
 }
 ```
-{initial-collapse-state="collapsed"}
+{initial-collapse-state="collapsed" collapsible="true"}
 
 ### Runnable codeblock
 
@@ -163,7 +163,7 @@ fun main() {
 
 Simple table:
 
-<table header-style="top">
+<table>
     <tr>
         <td>Before</td>
         <td>Now</td>
@@ -200,7 +200,7 @@ kotlin {
 
 More complex table:
 
-<table header-style="top">
+<table>
     <tr>
         <td></td>
         <td>Before</td>
@@ -346,7 +346,7 @@ jvmTest<Scope>
 
 ### Video from YouTube
 
-<video href="Ol_96CHKqg8" title="What's new in Kotlin 1.9.20"/>
+<video src="https://youtu.be/Ol_96CHKqg8" title="What's new in Kotlin 1.9.20"/>
 
 ### Pictures
 
@@ -379,18 +379,18 @@ Warning:
 > Support for K2 in the kapt compiler plugin is [Experimental](components-stability.md).
 > Opt-in is required (see details below), and you should use it only for evaluation purposes.
 >
-{type="warning"}
+{style="warning"}
 
 Note:
 
 > As for native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),  only some of their
 > APIs need an opt-in with `@ExperimentalForeignApi`. In such cases, you get a warning with an opt-in requirement.
 >
-{type="note"}
+{style="note"}
 
 Tip:
 
 > As for native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),  only some of their
 > APIs need an opt-in with `@ExperimentalForeignApi`. In such cases, you get a warning with an opt-in requirement.
 >
-{type="tip"}
+{style="tip"}

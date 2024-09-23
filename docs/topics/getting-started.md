@@ -90,7 +90,7 @@ Here you'll learn how to develop and improve your cross-platform application usi
 
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    >
-   {type="tip"}
+   {style="tip"}
 
 4. **Learn more about Kotlin Multiplatform:**
    * Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).

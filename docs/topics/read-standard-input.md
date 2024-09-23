@@ -54,7 +54,7 @@ println(doubles)
 
 > For an alternative way to read user input in Kotlin/JVM, see [Standard input with Java Scanner](standard-input.md).
 >
-{type="note"}
+{style="note"}
 
 ## Handle standard input safely
 
