@@ -690,7 +690,7 @@ IntelliJ IDEA and Android Studio will suggest updating the Kotlin plugin to 1.6.
 To migrate existing projects to Kotlin 1.6.0, change the Kotlin version to `1.6.0` and reimport your Gradle or Maven
 project. [Learn how to update to Kotlin 1.6.0](releases.md#update-to-a-new-kotlin-version).
 
-To start a new project with Kotlin 1.6.0, update the Kotlin plugin and run the Project Wizard from **File** \| **New** \|
+To start a new project with Kotlin 1.6.0, update the Kotlin plugin and run the Project Wizard from **File** | **New** |
 **Project**.
 
 The new command-line compiler is available for download on the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.6.0).
