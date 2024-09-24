@@ -35,7 +35,7 @@ into the call site.
 Inlining may cause the generated code to grow. However, if you do it in a reasonable way (avoiding inlining large
 functions), it will pay off in performance, especially at "megamorphic" call-sites inside loops.
 
-## `noinline`
+## noinline
 
 If you don't want all of the lambdas passed to an inline function to be inlined, mark some of your function
 parameters with the `noinline` modifier:

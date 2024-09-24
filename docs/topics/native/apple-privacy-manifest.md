@@ -75,7 +75,7 @@ To use it, run the following command in the directory where the Kotlin framework
 You may also [download this script](https://github.com/JetBrains/kotlin/blob/rrf_v0.0.1/libraries/tools/required-reason-finder/required_reason_finder.py)
 separately, inspect it, and run it using `python3`.
 
-## Place the `.xcprivacy` file in your Kotlin artifacts
+## Place the .xcprivacy file in your Kotlin artifacts
 
 If you need to bundle the `PrivacyInfo.xcprivacy` file with your Kotlin artifacts, use the `apple-privacy-manifests` plugin:
 

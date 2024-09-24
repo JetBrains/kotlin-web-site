@@ -107,7 +107,7 @@ The Kotlin/Native compiler does not support bitcode embedding since Kotlin 2.0.2
 If you're using earlier versions of Xcode but want to upgrade to Kotlin 2.0.20 or later versions, disable bitcode
 embedding in your Xcode projects.
 
-## Why do I see `InvalidMutabilityException`?
+## Why do I see InvalidMutabilityException?
 
 > This issue is relevant for the legacy memory manager only. Check out [Kotlin/Native memory management](native-memory-manager.md)
 > to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.

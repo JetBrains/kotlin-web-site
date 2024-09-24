@@ -133,7 +133,7 @@ fun String?.isNullOrEmpty(): Boolean {
 
 See the details on the syntax as well as the compatibility notice in the [KEEP](https://github.com/Kotlin/KEEP/blob/master/proposals/kotlin-contracts.md).
 
-## Capturing `when` subject in a variable
+## Capturing when subject in a variable
 
 In Kotlin 1.3, it is now possible to capture the `when` subject into a variable:
 
@@ -197,7 +197,7 @@ annotation class Foo {
 }
 ```
 
-## Parameterless `main`
+## Parameterless main
 
 By convention, the entry point of a Kotlin program is a function with a signature like `main(args: Array<String>)`,
 where `args` represent the command-line arguments passed to the program. However, not every application supports command-line arguments,

@@ -87,7 +87,7 @@ KSFile
 
 This view lists common things that are declared in the file: classes, functions, properties, and so on.
 
-## `SymbolProcessorProvider`: the entry point
+## SymbolProcessorProvider: the entry point
 
 KSP expects an implementation of the `SymbolProcessorProvider` interface to instantiate `SymbolProcessor`:
 

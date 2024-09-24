@@ -23,7 +23,7 @@ plugins {
 
 The plugin versions match the [Kotlin release versions](releases.md). The latest stable version is %kotlinVersion%.
 
-## `cocoapods` block
+## cocoapods block
 
 The `cocoapods` block is the top-level block for the CocoaPods configuration. It contains general information on the Pod,
 including required information like the Pod version, summary, and homepage, as well as optional features.
@@ -115,7 +115,7 @@ kotlin {
 }
 ```
 
-## `pod()` function
+## pod() function
 
 The `pod()` function call adds a CocoaPods dependency to the Pod built from this project. Each dependency requires
 a separate function call.
