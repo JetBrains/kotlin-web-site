@@ -192,7 +192,7 @@ To include a guard condition in a branch, place the guard condition after the pr
 
 ```kotlin
 sealed interface Animal {
-    class Cat(val mouseHunter: Boolean) : Animal
+    data class Cat(val mouseHunter: Boolean) : Animal
     data class Dog(val breed: String) : Animal
 }
 
