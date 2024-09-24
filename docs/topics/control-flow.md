@@ -199,7 +199,7 @@ sealed interface Animal {
 fun feedAnimal(animal: Animal) {
     when (animal) {
         // Branch with only primary condition. Returns `feedDog()` when `Animal` is `Dog`
-        Animal.Dog -> feedDog()
+        is Animal.Dog -> feedDog()
         // Branch with both primary and guard conditions. Returns `feedCat()` when `Animal` is `Cat` and is not `mouseHunter`
         is Animal.Cat if !animal.mouseHunter -> feedCat()
         // Returns "Unknown animal" if none of the above conditions match
