@@ -33,7 +33,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: introduce warning for problematic operators at call-site
-> - \>= 1.4: raise this warning to an error,
+> - &gt;= 1.4: raise this warning to an error,
 >  `-XXLanguage:-ProhibitConcurrentHashMapContains` can be used to temporarily revert to pre-1.4 behavior
 
 ### Prohibit access to protected members inside public inline members
@@ -65,7 +65,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**: 
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 >  `-XXLanguage:-ContractsOnCallsWithImplicitReceiver` can be used to temporarily revert to pre-1.4 behavior
 
 ### Inconsistent behavior of floating-point number comparisons
@@ -81,7 +81,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 >  `-XXLanguage:-ProperIeee754Comparisons` can be used to temporarily revert to pre-1.4 behavior
 
 ### No smart cast on the last expression in a generic lambda
@@ -97,7 +97,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features. 
 
@@ -114,7 +114,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features. 
 
@@ -131,7 +131,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features. 
 
@@ -148,7 +148,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
@@ -165,7 +165,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
@@ -182,7 +182,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
@@ -199,7 +199,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
@@ -216,7 +216,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
@@ -233,7 +233,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
@@ -250,7 +250,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
@@ -268,7 +268,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
@@ -285,7 +285,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
@@ -303,7 +303,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
@@ -321,7 +321,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
@@ -339,7 +339,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
@@ -356,7 +356,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: report a warning on functions that have `open` and `tailrec` modifiers together (error in the progressive mode).
-> - \>= 1.4: raise this warning to an error.
+> - &gt;= 1.4: raise this warning to an error.
 
 ### The INSTANCE field of a companion object more visible than the companion object class itself
 
@@ -371,7 +371,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: the compiler generates object `INSTANCE` with a deprecated flag
-> - \>= 1.4: companion object `INSTANCE` field has proper visibility
+> - &gt;= 1.4: companion object `INSTANCE` field has proper visibility
 
 ### Outer finally block inserted before return is not excluded from the catch interval of the inner try block without finally
 
@@ -386,7 +386,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 >  `-XXLanguage:-ProperFinally` can be used to temporarily revert to pre-1.4 behavior
 
 ### Use the boxed version of an inline class in return type position for covariant and generic-specialized overrides
@@ -402,7 +402,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed 
+> - &gt;= 1.4: behavior changed 
 
 ### Do not declare checked exceptions in JVM bytecode when using delegation to Kotlin interfaces
 
@@ -417,7 +417,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 >  `-XXLanguage:-DoNotGenerateThrowsForDelegatedKotlinMembers` can be used to temporarily revert to pre-1.4 behavior
 
 ### Changed behavior of signature-polymorphic calls to methods with a single vararg parameter to avoid wrapping the argument into another array
@@ -433,7 +433,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed
+> - &gt;= 1.4: behavior changed
 
 ### Incorrect generic signature in annotations when KClass is used as a generic parameter
 
@@ -448,7 +448,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed
+> - &gt;= 1.4: behavior changed
 
 ### Forbid spread operator in signature-polymorphic calls
 
@@ -463,7 +463,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: report a warning on the use of a spread operator in signature-polymorphic calls
-> - \>= 1.5: raise this warning to an error,
+> - &gt;= 1.5: raise this warning to an error,
 > `-XXLanguage:-ProhibitSpreadOnSignaturePolymorphicCall` can be used to temporarily revert to pre-1.4 behavior
 
 ### Change initialization order of default values for tail-recursive optimized functions
@@ -479,7 +479,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: report a warning at declaration-site for problematic functions
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 >  `-XXLanguage:-ProperComputationOrderOfTailrecDefaultParameters` can be used to temporarily revert to pre-1.4 behavior
 
 ### Do not generate ConstantValue attribute for non-const vals
@@ -495,7 +495,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: report a warning through an IntelliJ IDEA inspection
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 >  `-XXLanguage:-NoConstantValueAttributeForNonConstVals` can be used to temporarily revert to pre-1.4 behavior
 
 ### Generated overloads for @JvmOverloads on open methods should be final
@@ -511,7 +511,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed,
+> - &gt;= 1.4: behavior changed,
 >  `-XXLanguage:-GenerateJvmOverloadsAsFinal` can be used to temporarily revert to pre-1.4 behavior
 
 ### Lambdas returning kotlin.Result now return boxed value instead of unboxed
@@ -527,7 +527,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed
+> - &gt;= 1.4: behavior changed
 
 ### Unify exceptions from null checks
 
@@ -543,7 +543,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > 
 > - < 1.4: runtime null checks throw different exceptions, such as `KotlinNullPointerException`, `IllegalStateException`, 
 > `IllegalArgumentException`, and `TypeCastException`
-> - \>= 1.4: all runtime null checks throw a `java.lang.NullPointerException`.
+> - &gt;= 1.4: all runtime null checks throw a `java.lang.NullPointerException`.
 >   `-Xno-unified-null-checks` can be used to temporarily revert to pre-1.4 behavior
 
 ### Comparing floating-point values in array/list operations contains, indexOf, lastIndexOf: IEEE 754 or total order
@@ -559,7 +559,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**: 
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed
+> - &gt;= 1.4: behavior changed
 
 ### Gradually change the return type of collection min and max functions to non-nullable
 
@@ -575,7 +575,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > 
 > - 1.4: introduce `...OrNull` functions as synonyms and deprecate the affected API (see details in the issue)
 > - 1.5.x: raise the deprecation level of the affected API to error
-> - \>=1.6: reintroduce the affected API but with non-nullable return type
+> - &gt;=1.6: reintroduce the affected API but with non-nullable return type
 
 ### Deprecate appendln in favor of appendLine
 
@@ -590,7 +590,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - 1.4: introduce `appendLine` function as a replacement for `appendln` and deprecate `appendln`
-> - \>=1.5: raise the deprecation level to error
+> - &gt;=1.5: raise the deprecation level to error
 
 ### Deprecate conversions of floating-point types to Short and Byte
 
@@ -605,7 +605,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - 1.4: deprecate `Double.toShort()/toByte()` and `Float.toShort()/toByte()` and propose replacement
-> - \>=1.5: raise the deprecation level to error
+> - &gt;=1.5: raise the deprecation level to error
 
 ### Fail fast in Regex.findAll on an invalid startIndex
 
@@ -620,7 +620,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed
+> - &gt;= 1.4: behavior changed
 
 ### Remove deprecated kotlin.coroutines.experimental
 
@@ -635,7 +635,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: `kotlin.coroutines.experimental` is deprecated with the `ERROR` level
-> - \>= 1.4: `kotlin.coroutines.experimental` is removed from stdlib. On the JVM, a separate compatibility artifact is provided (see details in the issue).
+> - &gt;= 1.4: `kotlin.coroutines.experimental` is removed from stdlib. On the JVM, a separate compatibility artifact is provided (see details in the issue).
 
 ### Remove deprecated mod operator
 
@@ -650,7 +650,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: `mod` is deprecated with the `ERROR` level
-> - \>= 1.4: `mod` is removed from stdlib
+> - &gt;= 1.4: `mod` is removed from stdlib
 
 ### Hide Throwable.addSuppressed member and prefer extension instead
 
@@ -665,7 +665,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: old behavior (see details in the issue)
-> - \>= 1.4: behavior changed
+> - &gt;= 1.4: behavior changed
 
 ### capitalize should convert digraphs to title case
 
@@ -681,7 +681,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: digraphs are capitalized in the upper case (`Ǆ`)
-> - \>= 1.4: digraphs are capitalized in the title case (`ǅ`)
+> - &gt;= 1.4: digraphs are capitalized in the title case (`ǅ`)
 
 ## Tools
 
@@ -699,7 +699,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: all compiler arguments are passed without quotes
-> - \>= 1.4: compiler arguments that contain delimiter characters (whitespace, `=`, `;`, `,`) require double quotes (`"`)
+> - &gt;= 1.4: compiler arguments that contain delimiter characters (whitespace, `=`, `;`, `,`) require double quotes (`"`)
 
 ### KAPT: Names of synthetic $annotations() methods for properties have changed
 
@@ -714,4 +714,4 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > **Deprecation cycle**:
 > 
 > - < 1.4: names of synthetic `$annotations()` methods for properties follow the template `<propertyName>@annotations()`
-> - \>= 1.4: names of synthetic `$annotations()` methods for properties include the `get` prefix: `get<PropertyName>@annotations()`
+> - &gt;= 1.4: names of synthetic `$annotations()` methods for properties include the `get` prefix: `get<PropertyName>@annotations()`

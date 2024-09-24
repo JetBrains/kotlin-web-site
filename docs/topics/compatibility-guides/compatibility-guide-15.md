@@ -37,7 +37,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5: introduce warning for the problematic operator at call-site
-> - \>= 1.5: raise this warning to an error,
+> - &gt;= 1.5: raise this warning to an error,
 >  `-XXLanguage:-ProhibitSpreadOnSignaturePolymorphicCall` can be used to temporarily revert to pre-1.5 behavior
 
 ### Forbid non-abstract classes containing abstract members invisible from that classes (internal/package-private)
@@ -53,7 +53,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5: introduce warning for the problematic classes
-> - \>= 1.5: raise this warning to an error,
+> - &gt;= 1.5: raise this warning to an error,
 >  `-XXLanguage:-ProhibitInvisibleAbstractMethodsInSuperclasses` can be used to temporarily revert to pre-1.5 behavior
 
 ### Forbid using array based on non-reified type parameters as reified type arguments on JVM
@@ -69,7 +69,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5: introduce warning for the problematic calls
-> - \>= 1.5: raise this warning to an error,
+> - &gt;= 1.5: raise this warning to an error,
 >  `-XXLanguage:-ProhibitNonReifiedArraysAsReifiedTypeArguments` can be used to temporarily revert to pre-1.5 behavior
 
 ### Forbid secondary enum class constructors which do not delegate to the primary constructor
@@ -85,7 +85,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5: introduce warning for the problematic constructors
-> - \>= 1.5: raise this warning to an error,
+> - &gt;= 1.5: raise this warning to an error,
 >  `-XXLanguage:-RequiredPrimaryConstructorDelegationCallInEnums` can be used to temporarily revert to pre-1.5 behavior
 
 ### Forbid exposing anonymous types from private inline functions
@@ -101,7 +101,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5: introduce warning for the problematic constructors
-> - \>= 1.5: raise this warning to an error,
+> - &gt;= 1.5: raise this warning to an error,
 >  `-XXLanguage:-ApproximateAnonymousReturnTypesInPrivateInlineFunctions` can be used to temporarily revert to pre-1.5 behavior
 
 ### Forbid passing non-spread arrays after arguments with SAM-conversion
@@ -117,7 +117,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.3.70: introduce warning for the problematic calls
-> - \>= 1.5: raise this warning to an error,
+> - &gt;= 1.5: raise this warning to an error,
 >  `-XXLanguage:-ProhibitVarargAsArrayAfterSamArgument` can be used to temporarily revert to pre-1.5 behavior
 
 ### Support special semantics for underscore-named catch block parameters
@@ -133,7 +133,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.4.20: introduce warning for the problematic references
-> - \>= 1.5: raise this warning to an error,
+> - &gt;= 1.5: raise this warning to an error,
 >  `-XXLanguage:-ForbidReferencingToUnderscoreNamedParameterOfCatchBlock` can be used to temporarily revert to pre-1.5 behavior
 
 ### Change implementation strategy of SAM conversion from anonymous class-based to invokedynamic
@@ -168,7 +168,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5: by default, the old JVM backend is used
-> - \>= 1.5: by default, the IR-based backend is used. If you need to use the old backend in Kotlin 1.5,
+> - &gt;= 1.5: by default, the IR-based backend is used. If you need to use the old backend in Kotlin 1.5,
 > add the following lines to the project's configuration file to temporarily revert to pre-1.5 behavior:
 >
 > In Gradle:
@@ -218,7 +218,7 @@ perspective
 >
 > - < 1.5: by default, the old JVM backend is used. It has fields declared in the body before fields declared
 > in the constructor.
-> - \>= 1.5: by default, the new IR-based backend is used. Fields declared in the constructor are generated before fields
+> - &gt;= 1.5: by default, the new IR-based backend is used. Fields declared in the constructor are generated before fields
 > declared in the body. As a workaround, you can temporarily switch to the old backend in Kotlin 1.5. To do that,
 > add the following lines to the project's configuration file:
 >
@@ -280,7 +280,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.4.0: introduce warning for the problematic constructors
-> - \>= 1.5: raise this warning to an error,
+> - &gt;= 1.5: raise this warning to an error,
 >  `-XXLanguage:-StrictOnlyInputTypesChecks` can be used to temporarily revert to pre-1.5 behavior
 
 ### Use the correct order of arguments execution in calls with named vararg
@@ -296,7 +296,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5: introduce warning for the problematic constructors
-> - \>= 1.5: raise this warning to an error,
+> - &gt;= 1.5: raise this warning to an error,
 >  `-XXLanguage:-UseCorrectExecutionOrderForVarargArguments` can be used to temporarily revert to pre-1.5 behavior
 
 ### Use default value of the parameter in operator functional calls
@@ -312,7 +312,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5: old behavior (see details in the issue)
-> - \>= 1.5: behavior changed,
+> - &gt;= 1.5: behavior changed,
 >  `-XXLanguage:-JvmIrEnabledByDefault` can be used to temporarily revert to pre-1.5 behavior
 
 ### Produce empty reversed progressions in for loops if regular progression is also empty 
@@ -328,7 +328,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5: old behavior (see details in the issue)
-> - \>= 1.5: behavior changed,
+> - &gt;= 1.5: behavior changed,
 >  `-XXLanguage:-JvmIrEnabledByDefault` can be used to temporarily revert to pre-1.5 behavior
 
 ### Straighten Char-to-code and Char-to-digit conversions out
@@ -388,7 +388,7 @@ perspective
 >
 > - 1.4: introduce `...OrNull` functions as synonyms and deprecate the affected API (see details in the issue)
 > - 1.5.0: raise the deprecation level of the affected API to error
-> - \>=1.6: reintroduce the affected API but with non-nullable return type
+> - &gt;=1.6: reintroduce the affected API but with non-nullable return type
 
 ### Raise the deprecation level of conversions of floating-point types to Short and Byte
 
@@ -423,7 +423,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - < 1.5: having several mutually exclusive `kotlin-test` variants for different testing frameworks is allowed
-> - \>= 1.5: behavior changed,  
+> - &gt;= 1.5: behavior changed,  
 > Gradle throws an exception like "Cannot select module with conflict on capability...". Possible solutions:
 >    * use the same `kotlin-test` variant and the corresponding testing framework as the transitive dependency brings.
 >    * find another variant of the dependency that doesn't bring the `kotlin-test` variant transitively, so you can use the testing framework you would like to use.

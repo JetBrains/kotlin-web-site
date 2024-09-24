@@ -165,7 +165,7 @@ perspective
 > - 1.6.20: introduce a deprecation warning on the affected expressions
 > - 1.8.0: raise this warning to an error,
 >   `-XXLanguage:-ProhibitConfusingSyntaxInWhenBranches` can be used to temporarily revert to the pre-1.8 behavior
-> - \>= 2.1: repurpose some deprecated constructs for new language features
+> - &gt;= 2.1: repurpose some deprecated constructs for new language features
 
 ### Prevent implicit coercions between different numeric types
 
@@ -182,7 +182,7 @@ perspective
 > - < 1.5.30: the old behavior in all affected cases
 > - 1.5.30: fix the downcast behavior in generated property delegate accessors,
 >   `-Xuse-old-backend` can be used to temporarily revert to the pre-1.5.30 fix behavior
-> - \>= 2.0: fix the downcast behavior in other affected cases
+> - &gt;= 2.0: fix the downcast behavior in other affected cases
 
 ### Prohibit upper bound violation in a generic type alias usage (a type parameter used in a generic type argument of a type argument of the aliased type)
 
@@ -470,7 +470,7 @@ perspective
 > - 1.4.0: deprecate the API in `kotlin.dom` and `kotlin.browser` packages and propose the new API above as a replacement
 > - 1.6.0: raise the deprecation level to an error
 > - 1.8.20: remove the deprecated functions from stdlib for JS-IR target
-> - \>= 2.0: move the API in kotlinx.* packages to a separate library
+> - &gt;= 2.0: move the API in kotlinx.* packages to a separate library
 
 ### Deprecate some JS-only API
 
@@ -486,7 +486,7 @@ perspective
 >
 > - 1.6.0: deprecate the affected functions with a warning
 > - 1.9.0: raise the deprecation level to an error
-> - \>=2.0: remove the deprecated functions from the public API
+> - &gt;=2.0: remove the deprecated functions from the public API
 
 ## Tools
 

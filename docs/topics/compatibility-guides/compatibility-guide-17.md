@@ -53,7 +53,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - \<1.3: report a warning on an unnecessary safe call on non-nullable receivers
+> - &lt;1.3: report a warning on an unnecessary safe call on non-nullable receivers
 > - 1.6.20: warn additionally that the result of an unnecessary safe call will change its type in the next version
 > - 1.7.0: change the type of safe call result to nullable,  
 > `-XXLanguage:-SafeCallsAreAlwaysNullable` can be used to temporarily revert to the pre-1.7 behavior
@@ -75,7 +75,7 @@ perspective
 > - 1.7.0: report an error if a super call, in fact, accesses an abstract member from a superclass
 > - 1.7.0: report an error if the `-Xjvm-default=all` or `-Xjvm-default=all-compatibility` compatibility modes are enabled;
 >   report an error in the progressive mode
-> - \>=1.8.0: report an error in all cases
+> - &gt;=1.8.0: report an error in all cases
 
 ### Prohibit exposing non-public types through public properties declared in a non-public primary constructor
 
@@ -155,7 +155,7 @@ perspective
 >
 > - 1.6.20: introduce a deprecation warning on the affected expressions
 > - 1.8.0: raise this warning to an error
-> - \>= 1.8: repurpose some deprecated constructs for new language features
+> - &gt;= 1.8: repurpose some deprecated constructs for new language features
 
 ### Type nullability enhancement improvements
 
@@ -188,7 +188,7 @@ perspective
 > - < 1.5.30: the old behavior in all affected cases
 > - 1.5.30: fix the downcast behavior in generated property delegate accessors,
 >   `-Xuse-old-backend` can be used to temporarily revert to the pre-1.5.30 fix behavior
-> - \>= 1.7.20: fix the downcast behavior in other affected cases
+> - &gt;= 1.7.20: fix the downcast behavior in other affected cases
 
 ### Deprecate the enable and the compatibility modes of the compiler option -Xjvm-default
 
@@ -203,7 +203,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: introduce a warning on the `enable` and `compatibility` modes of the `-Xjvm-default` compiler option
-> - \>= 1.8.0: raise this warning to an error
+> - &gt;= 1.8.0: raise this warning to an error
 
 ### Prohibit calls to functions named suspend with a trailing lambda
 
@@ -307,8 +307,8 @@ perspective
 > - 1.4.0: introduce the replacement API in `kotlinx.dom` and `kotlinx.browser` packages
 > - 1.4.0: deprecate the API in `kotlin.dom` and `kotlin.browser` packages and propose the new API above as a replacement
 > - 1.6.0: raise the deprecation level to an error
-> - \>= 1.8: remove the deprecated functions from stdlib
-> - \>= 1.8: move the API in kotlinx.* packages to a separate library
+> - &gt;= 1.8: remove the deprecated functions from stdlib
+> - &gt;= 1.8: move the API in kotlinx.* packages to a separate library
 
 
 ### Deprecate some JS-only API
@@ -374,7 +374,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: raise the deprecation level to a warning
-> - \>= 1.8.0: remove this property
+> - &gt;= 1.8.0: remove this property
 
 ### Remove kotlin.experimental.coroutines Gradle DSL option and kotlin.coroutines Gradle property
 

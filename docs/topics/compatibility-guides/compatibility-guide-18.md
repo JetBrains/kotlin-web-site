@@ -79,7 +79,7 @@ perspective
 > - 1.6.20: introduce a deprecation warning on the affected expressions
 > - 1.8.0: raise this warning to an error,
 >   `-XXLanguage:-ProhibitConfusingSyntaxInWhenBranches` can be used to temporarily revert to the pre-1.8 behavior
-> - \>= 1.9: repurpose some deprecated constructs for new language features
+> - &gt;= 1.9: repurpose some deprecated constructs for new language features
 
 
 ### Prevent implicit coercions between different numeric types
@@ -97,7 +97,7 @@ perspective
 > - < 1.5.30: the old behavior in all affected cases
 > - 1.5.30: fix the downcast behavior in generated property delegate accessors,
 >   `-Xuse-old-backend` can be used to temporarily revert to the pre-1.5.30 fix behavior
-> - \>= 1.9: fix the downcast behavior in other affected cases
+> - &gt;= 1.9: fix the downcast behavior in other affected cases
 
 ### Make private constructors of sealed classes really private
 
@@ -189,7 +189,7 @@ perspective
 >
 > - 1.8.0: report a warning when a generic typealias usage has type arguments violating upper bound constraints of
 >   the corresponding type parameters of the aliased type
-> - \>=1.10: raise the warning to an error
+> - &gt;=1.10: raise the warning to an error
 
 ### Prohibit using a type parameter declared for an extension property inside delegate
 
@@ -387,7 +387,7 @@ perspective
 > - 1.7.20: report a warning on suspend infix calls with an anonymous function literal
 > - 1.9.0: raise the warning to an error,
 >   `-XXLanguage:-ModifierNonBuiltinSuspendFunError` can be used to temporarily revert to the pre-1.9 behavior
-> - \>=1.10: Change how the `suspend fun` token sequence is interpreted by the parser
+> - &gt;=1.10: Change how the `suspend fun` token sequence is interpreted by the parser
 
 ### Prohibit using captured type parameters in inner classes against their variance
 
@@ -475,7 +475,7 @@ perspective
 >   propose the migration to `declaringJavaClass` extension
 > - 1.9.0: raise the warning to an error,
 >   `-XXLanguage:-ProhibitEnumDeclaringClass` can be used to temporarily revert to the pre-1.9 behavior
-> - \>=1.10: remove `declaringClass` synthetic property
+> - &gt;=1.10: remove `declaringClass` synthetic property
 
 ### Deprecate the enable and the compatibility modes of the compiler option -Xjvm-default
 
@@ -490,7 +490,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: introduce a warning on the `enable` and `compatibility` modes of the `-Xjvm-default` compiler option
-> - \>= 1.9: raise this warning to an error
+> - &gt;= 1.9: raise this warning to an error
 
 ## Standard library
 
@@ -532,7 +532,7 @@ perspective
 > - 1.4.0: deprecate the API in `kotlin.dom` and `kotlin.browser` packages and propose the new API above as a replacement
 > - 1.6.0: raise the deprecation level to an error
 > - 1.8.20: remove the deprecated functions from stdlib for JS-IR target
-> - \>= 1.9: move the API in kotlinx.* packages to a separate library
+> - &gt;= 1.9: move the API in kotlinx.* packages to a separate library
 
 ### Deprecate some JS-only API
 
@@ -548,7 +548,7 @@ perspective
 >
 > - 1.6.0: deprecate the affected functions with a warning
 > - 1.9.0: raise the deprecation level to an error
-> - \>=1.10.0: remove the deprecated functions from the public API
+> - &gt;=1.10.0: remove the deprecated functions from the public API
 
 ## Tools
 
@@ -566,7 +566,7 @@ perspective
 >
 > - 1.7.0: the `classpath` property is deprecated
 > - 1.8.0: raise the deprecation level to an error
-> - \>=1.9.0: remove the deprecated functions from the public API
+> - &gt;=1.9.0: remove the deprecated functions from the public API
 
 ### Remove kapt.use.worker.api Gradle property
 

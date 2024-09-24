@@ -53,7 +53,7 @@ perspective
 >
 > - 1.6.20: introduce a deprecation warning on the affected expressions
 > - 1.8.0: raise this warning to an error
-> - \>= 1.8: repurpose some deprecated constructs for new language features
+> - &gt;= 1.8: repurpose some deprecated constructs for new language features
 
 ### Prohibit access to class members in the super constructor call of its companion and nested objects
 
@@ -102,7 +102,7 @@ perspective
 > - < 1.5.30: the old behavior in all affected cases
 > - 1.5.30: fix the downcast behavior in generated property delegate accessors,
 >   `-Xuse-old-backend` can be used to temporarily revert to the pre-1.5.30 fix behavior
-> - \>= 1.6.20: fix the downcast behavior in other affected cases
+> - &gt;= 1.6.20: fix the downcast behavior in other affected cases
 
 ### Prohibit declarations of repeatable annotation classes whose container annotation violates JLS
 
@@ -165,7 +165,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: introduce a warning on the `enable` and `compatibility` modes of the `-Xjvm-default` compiler option
-> - \>= 1.8.0: raise this warning to an error
+> - &gt;= 1.8.0: raise this warning to an error
 
 ### Prohibit super calls from public-abi inline functions
 
@@ -245,7 +245,7 @@ perspective
 >
 > - 1.3.0: introduce a warning on such function calls
 > - 1.6.0: raise this warning to an error
-> - \>= 1.7.0: introduce changes to the language grammar, so that `suspend` before `{` is parsed as a keyword
+> - &gt;= 1.7.0: introduce changes to the language grammar, so that `suspend` before `{` is parsed as a keyword
 
 ## Standard library
 
@@ -264,7 +264,7 @@ perspective
 > - < 1.6: the old behavior: the argument is converted to set in some cases
 > - 1.6.0: if the function argument is a collection, it's no longer converted to `Set`. If it's not a collection, it can be converted to `List` instead.  
 > The old behavior can be temporarily turned back on JVM by setting the system property `kotlin.collections.convert_arg_to_set_in_removeAll=true`
-> - \>= 1.7: the system property above will no longer have an effect
+> - &gt;= 1.7: the system property above will no longer have an effect
 
 ### Change value generation algorithm in Random.nextLong
 
@@ -295,7 +295,7 @@ perspective
 > - 1.4.0: introduce `...OrNull` functions as synonyms and deprecate the affected API (see details in the issue)
 > - 1.5.0: raise the deprecation level of the affected API to an error
 > - 1.6.0: hide the deprecated functions from the public API
-> - \>= 1.7: reintroduce the affected API but with non-nullable return type
+> - &gt;= 1.7: reintroduce the affected API but with non-nullable return type
 
 ### Deprecate floating-point array functions: contains, indexOf, lastIndexOf
 
@@ -311,7 +311,7 @@ perspective
 >
 > - 1.4.0: deprecate the affected functions with a warning
 > - 1.6.0: raise the deprecation level to an error
-> - \>= 1.7: hide the deprecated functions from the public API
+> - &gt;= 1.7: hide the deprecated functions from the public API
 
 ### Migrate declarations from kotlin.dom and kotlin.browser packages to kotlinx.*
 
@@ -328,8 +328,8 @@ perspective
 > - 1.4.0: introduce the replacement API in `kotlinx.dom` and `kotlinx.browser` packages
 > - 1.4.0: deprecate the API in `kotlin.dom` and `kotlin.browser` packages and propose the new API above as a replacement
 > - 1.6.0: raise the deprecation level to an error
-> - \>= 1.7: remove the deprecated functions from stdlib
-> - \>= 1.7: move the API in kotlinx.* packages to a separate library
+> - &gt;= 1.7: remove the deprecated functions from stdlib
+> - &gt;= 1.7: move the API in kotlinx.* packages to a separate library
 
 ### Make Regex.replace function not inline in Kotlin/JS
 
@@ -420,7 +420,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.0: raise the deprecation level to an error
-> - \>= 1.7.0: remove the deprecated class
+> - &gt;= 1.7.0: remove the deprecated class
 
 ### Remove kotlin.useFallbackCompilerSearch build option
 
@@ -466,7 +466,7 @@ perspective
 >
 > - 1.5.0: raise the deprecation level to a warning
 > - 1.6.0: hide the option
-> - \>= 1.7.0: remove the deprecated option
+> - &gt;= 1.7.0: remove the deprecated option
 
 ### Deprecate kapt.use.worker.api Gradle property
 
@@ -481,7 +481,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: raise the deprecation level to a warning
-> - \>= 1.8.0: remove this property
+> - &gt;= 1.8.0: remove this property
 
 ### Remove kotlin.parallel.tasks.in.project Gradle property
 
@@ -511,4 +511,4 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: raise the deprecation level to a warning
-> - \>= 1.7.0: remove the DSL option and the property
+> - &gt;= 1.7.0: remove the DSL option and the property
