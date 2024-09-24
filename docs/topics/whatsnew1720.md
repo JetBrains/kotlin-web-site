@@ -158,7 +158,7 @@ The `rangeUntil` operators will be provided for the same types and combinations 
 We provide them as extension functions for prototype purposes, but for consistency, we plan to make them members later
 before stabilizing the open-ended ranges API.
 
-#### How to enable the `..<` operator
+#### How to enable the ..&lt; operator
 
 To use the `..<` operator or to implement that operator convention for your own types, enable the `-language-version 1.8`
 compiler option.

@@ -210,7 +210,7 @@ Here are some of the key differences between the two layouts:
 | test        | src/androidTest/kotlin, src/test/kotlin, src/test/java     | src/android<b>Unit</b>Test/kotlin, src/test/kotlin, src/test/java                              |
 | androidTest | src/android<b>Android</b>Test/kotlin, src/androidTest/java | src/android<b>Instrumented</b>Test/kotlin, src/androidTest/java, <b>src/androidTest/kotlin</b> |
 
-#### The location of the `AndroidManifest.xml` file
+#### The location of the AndroidManifest.xml file
 
 | Current source set layout                              | New source set layout                                 |
 |--------------------------------------------------------|-------------------------------------------------------|

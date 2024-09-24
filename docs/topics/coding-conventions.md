@@ -738,7 +738,7 @@ fun main() {
 }
 ```
 
-#### `when` entry {initial-collapse-state="collapsed" collapsible="true"}
+#### when entry {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 fun isReferenceApplicable(myReference: KClass<*>) = when (myReference) {

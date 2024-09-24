@@ -117,7 +117,7 @@ fun main(){
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-k2-local-variables" validate="false"}
 
-#### Type checks with the logical `or` operator
+#### Type checks with the logical or operator
 
 In Kotlin 2.0.0, if you combine type checks for objects with an `or` operator (`||`), a smart cast
 is made to their closest common supertype. Before this change, a smart cast was always made to the `Any` type.
