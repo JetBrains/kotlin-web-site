@@ -314,7 +314,7 @@ sort(listOf(HashMap<Int, String>())) // Error: HashMap<Int, String> is not a sub
 ```
 
 The default upper bound (if there was none specified) is `Any?`. Only one upper bound can be specified inside the angle brackets.
-If the same type parameter needs more than one upper bound, you need a separate _where_\-clause:
+If the same type parameter needs more than one upper bound, you need a separate _where_-clause:
 
 ```kotlin
 fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>
