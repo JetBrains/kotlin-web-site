@@ -88,7 +88,7 @@
 			<toc-element topic="visibility-modifiers.md"/>
 			<toc-element topic="extensions.md"/>
 			<toc-element topic="data-classes.md"/>
-			<toc-element toc-title="Sealed classes and interfaces" topic="sealed-classes.md"/>
+			<toc-element topic="sealed-classes.md"/>
 			<toc-element topic="generics.md"/>
 			<toc-element topic="nested-classes.md"/>
 			<toc-element topic="enum-classes.md"/>
@@ -167,9 +167,9 @@
 		</toc-element>
 		<toc-element toc-title="Output formats in Kotlin notebooks" topic="data-analysis-notebooks-output-formats.md"/>
 		<toc-element toc-title="Working with data sources">
-			<toc-element toc-title="Retrieve data from files" topic="data-analysis-work-with-data-sources.md"/>
-			<toc-element toc-title="Retrieve data from web sources and APIs" topic="data-analysis-work-with-api.md"/>
-			<toc-element toc-title="Connect and retrieve data from databases" topic="data-analysis-connect-to-db.md"/>
+			<toc-element topic="data-analysis-work-with-data-sources.md"/>
+			<toc-element topic="data-analysis-work-with-api.md"/>
+			<toc-element topic="data-analysis-connect-to-db.md"/>
 		</toc-element>
 		<toc-element toc-title="Data visualization in Kotlin Notebook" topic="data-analysis-visualization.md"/>
 		<toc-element toc-title="Libraries for data analysis" topic="data-analysis-libraries.md"/>
@@ -182,10 +182,10 @@
 			<toc-element topic="java-to-kotlin-interop.md"/>
 			<toc-element toc-title="Spring">
 				<toc-element toc-title="Create a RESTful web service with a database using Spring Boot">
-					<toc-element toc-title="Get started with Spring Boot and Kotlin" accepts-web-file-names="jvm-spring-boot-restful.html,spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html" topic="jvm-get-started-spring-boot.md"/>
+					<toc-element accepts-web-file-names="jvm-spring-boot-restful.html,spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html" topic="jvm-get-started-spring-boot.md"/>
 					<toc-element toc-title="Create a Spring Boot project" topic="jvm-create-project-with-spring-boot.md"/>
 					<toc-element toc-title="Upgrade your project with data classes" topic="jvm-spring-boot-add-data-class.md"/>
-					<toc-element toc-title="Add database support for Spring Boot project" topic="jvm-spring-boot-add-db-support.md"/>
+					<toc-element topic="jvm-spring-boot-add-db-support.md"/>
 					<toc-element toc-title="Use Spring Data CrudRepository" topic="jvm-spring-boot-using-crudrepository.md"/>
 				</toc-element>
 				<!-- <toc-element id="jvm-spring-boot-restful.md" accepts-web-file-names="spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html,jvm-get-started-spring-boot.html,jvm-create-project-with-spring-boot.html,jvm-spring-boot-add-data-class.html,jvm-spring-boot-add-db-support.html,jvm-spring-boot-using-crudrepository.html"/>-->
@@ -200,7 +200,7 @@
 				<toc-element toc-title="Strings" topic="java-to-kotlin-idioms-strings.md"/>
 				<toc-element toc-title="Collections" topic="java-to-kotlin-collections-guide.md"/>
 				<toc-element toc-title="Nullability" topic="java-to-kotlin-nullability-guide.md"/>
-				<toc-element toc-title="Standard input" topic="standard-input.md"/>
+				<toc-element topic="standard-input.md"/>
 			</toc-element>
 		</toc-element>
 		<toc-element toc-title="Native">
@@ -279,18 +279,18 @@
 			<toc-element toc-title="Operations overview" topic="collection-operations.md"/>
 			<toc-element toc-title="Transformations" topic="collection-transformations.md"/>
 			<toc-element toc-title="Filter" topic="collection-filtering.md"/>
-			<toc-element toc-title="Plus and minus operators" topic="collection-plus-minus.md"/>
+			<toc-element topic="collection-plus-minus.md"/>
 			<toc-element toc-title="Group elements" topic="collection-grouping.md"/>
-			<toc-element toc-title="Retrieve collection parts" topic="collection-parts.md"/>
-			<toc-element toc-title="Retrieve single elements" topic="collection-elements.md"/>
+			<toc-element topic="collection-parts.md"/>
+			<toc-element topic="collection-elements.md"/>
 			<toc-element topic="collection-ordering.md"/>
-			<toc-element toc-title="Aggregate operations" topic="collection-aggregate.md"/>
+			<toc-element topic="collection-aggregate.md"/>
 			<toc-element toc-title="Write operations" topic="collection-write.md"/>
-			<toc-element toc-title="List-specific operations" topic="list-operations.md"/>
-			<toc-element toc-title="Set-specific operations" topic="set-operations.md"/>
-			<toc-element toc-title="Map-specific operations" topic="map-operations.md"/>
+			<toc-element topic="list-operations.md"/>
+			<toc-element topic="set-operations.md"/>
+			<toc-element topic="map-operations.md"/>
 		</toc-element>
-		<toc-element toc-title="Read standard input" topic="read-standard-input.md"/>
+		<toc-element topic="read-standard-input.md"/>
 		<toc-element topic="opt-in-requirements.md"/>
 		<toc-element topic="scope-functions.md"/>
 		<toc-element topic="time-measurement.md"/>
@@ -324,10 +324,10 @@
 			<toc-element toc-title="Gradle">
 				<toc-element accepts-web-file-names="using-gradle.html" toc-title="Overview" topic="gradle.md"/>
 				<toc-element toc-title="Get started with Gradle – tutorial" topic="get-started-with-jvm-gradle-project.md"/>
-				<toc-element toc-title="Configure a Gradle project" topic="gradle-configure-project.md"/>
+				<toc-element topic="gradle-configure-project.md"/>
 				<toc-element toc-title="Compiler options in KGP" topic="gradle-compiler-options.md"/>
 				<toc-element toc-title="Compilation and caches in KGP" topic="gradle-compilation-and-caches.md"/>
-				<toc-element toc-title="Support for Gradle plugin variants" topic="gradle-plugin-variants.md"/>
+				<toc-element topic="gradle-plugin-variants.md"/>
 			</toc-element>
 			<toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
 			<toc-element accepts-web-file-names="using-ant.html" topic="ant.md"/>
@@ -337,7 +337,7 @@
 		</toc-element>
 		<toc-element toc-title="IDE for Kotlin development" accepts-web-file-names="getting-started-eclipse.html,eclipse.html" topic="kotlin-ide.md"/>
 		<toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA" topic="code-style-migration-guide.md"/>
-		<toc-element toc-title="Kotlin Notebook" topic="kotlin-notebook-overview.md"/>
+		<toc-element topic="kotlin-notebook-overview.md"/>
 		<toc-element toc-title="Lets-Plot for Kotlin" topic="lets-plot.md"/>
 		<toc-element accepts-web-file-names="quick-run.html" topic="run-code-snippets.md"/>
 		<toc-element toc-title="TeamCity" topic="kotlin-and-ci.md"/>
@@ -346,7 +346,7 @@
 	</toc-element>
 	<toc-element toc-title="Compiler and plugins">
 		<toc-element toc-title="Compiler">
-			<toc-element toc-title="K2 compiler migration guide" accepts-web-file-names="k2-compiler-guide.html" topic="k2-compiler-migration-guide.md"/>
+			<toc-element accepts-web-file-names="k2-compiler-guide.html" topic="k2-compiler-migration-guide.md"/>
 			<toc-element toc-title="Command-line compiler" topic="command-line.md"/>
 			<toc-element toc-title="Compiler options" topic="compiler-reference.md"/>
 		</toc-element>
@@ -361,14 +361,14 @@
 		<toc-element toc-title="Kotlin Symbol Processing API">
 			<toc-element toc-title="KSP overview" topic="ksp-overview.md"/>
 			<toc-element toc-title="Quickstart" topic="ksp-quickstart.md"/>
-			<toc-element toc-title="Why KSP" topic="ksp-why-ksp.md"/>
+			<toc-element topic="ksp-why-ksp.md"/>
 			<toc-element toc-title="Examples" topic="ksp-examples.md"/>
-			<toc-element toc-title="How KSP models Kotlin code" topic="ksp-additional-details.md"/>
+			<toc-element topic="ksp-additional-details.md"/>
 			<toc-element toc-title="Reference for Java annotation processor authors" topic="ksp-reference.md"/>
-			<toc-element toc-title="Incremental processing" topic="ksp-incremental.md"/>
-			<toc-element toc-title="Multiple round processing" topic="ksp-multi-round.md"/>
-			<toc-element toc-title="KSP with Kotlin Multiplatform" topic="ksp-multiplatform.md"/>
-			<toc-element toc-title="Running KSP from command line" topic="ksp-command-line.md"/>
+			<toc-element topic="ksp-incremental.md"/>
+			<toc-element topic="ksp-multi-round.md"/>
+			<toc-element topic="ksp-multiplatform.md"/>
+			<toc-element topic="ksp-command-line.md"/>
 			<toc-element toc-title="FAQ" topic="ksp-faq.md"/>
 		</toc-element>
 	</toc-element>
@@ -377,7 +377,7 @@
 		<toc-element href="https://play.kotlinlang.org/byExample/overview" toc-title="Kotlin by example"/>
 		<toc-element topic="koans.md"/>
 		<toc-element href="https://hyperskill.org/tracks?category=4&amp;utm_source=jbkotlin_hs&amp;utm_medium=referral&amp;utm_campaign=kotlinlang-docs&amp;utm_content=button_1&amp;utm_term=22.03.23" toc-title="Kotlin Core track"/>
-		<toc-element toc-title="Kotlin hands-on" topic="kotlin-hands-on.md"/>
+		<toc-element topic="kotlin-hands-on.md"/>
 		<toc-element topic="kotlin-tips.md"/>
 		<toc-element topic="books.md"/>
 		<toc-element toc-title="Advent of Code puzzles" topic="advent-of-code.md"/>
@@ -416,8 +416,8 @@
 			<toc-element toc-title="Kotlin Foundation FAQ" href="https://kotlinfoundation.org/faq/"/>
 		</toc-element>
 		<toc-element toc-title="Google Summer of Code">
-			<toc-element toc-title="Google Summer of Code with Kotlin 2024" topic="gsoc-2024.md"/>
-			<toc-element toc-title="Google Summer of Code with Kotlin 2023" topic="gsoc-2023.md"/>
+			<toc-element topic="gsoc-2024.md"/>
+			<toc-element topic="gsoc-2023.md"/>
 		</toc-element>
 		<toc-element topic="security.md"/>
 		<toc-element topic="kotlin-pdf.md"/>
