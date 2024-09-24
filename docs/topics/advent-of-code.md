@@ -16,7 +16,7 @@ We'll take you through the basic tips on how to get up and running with solving 
 * Use [this GitHub template](https://github.com/kotlin-hands-on/advent-of-code-kotlin-template) to create projects
 * Check out the welcome video by Kotlin Developer Advocate, Sebastian Aigner:
 
-<video width="560" height="315" src="6-XSehwRgSY" title="Get Ready for Advent of Code 2021"/>
+<video width="560" height="315" src="https://www.youtube.com/6-XSehwRgSY" title="Get Ready for Advent of Code 2021"/>
 
 ## Advent of Code 2022
 
