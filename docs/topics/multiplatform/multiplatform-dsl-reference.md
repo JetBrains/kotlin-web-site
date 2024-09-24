@@ -36,13 +36,13 @@ plugins {
 `kotlin {}` is the top-level block for multiplatform project configuration in the Gradle build script.
 Inside `kotlin {}`, you can write the following blocks:
 
-| **Block**         | **Description**                                                                                                                                                                                                                 |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| _\<targetName\>_  | Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.                                                                                                        |
-| `targets`         | All targets of the project.                                                                                                                                                                                                     |
-| `presets`         | All predefined targets. Use this for [configuring multiple predefined targets](#targets) at once.                                                                                                                               |
-| `sourceSets`      | Configures predefined and declares custom [source sets](#source-sets) of the project.                                                                                                                                           |
-| `compilerOptions` | Extension-level common [compiler options](gradle-compiler-options.md) that are used as defaults for all targets and shared source sets. To use it, add the following opt-in: `@OptIn(ExperimentalKotlinGradlePluginApi::class)` |
+| **Block**            | **Description**                                                                                                                                                                                                                 |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| _&lt;targetName&gt;_ | Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.                                                                                                        |
+| `targets`            | All targets of the project.                                                                                                                                                                                                     |
+| `presets`            | All predefined targets. Use this for [configuring multiple predefined targets](#targets) at once.                                                                                                                               |
+| `sourceSets`         | Configures predefined and declares custom [source sets](#source-sets) of the project.                                                                                                                                           |
+| `compilerOptions`    | Extension-level common [compiler options](gradle-compiler-options.md) that are used as defaults for all targets and shared source sets. To use it, add the following opt-in: `@OptIn(ExperimentalKotlinGradlePluginApi::class)` |
 
 > The support for `compilerOptions {}` as a top-level block is [Experimental](components-stability.md#stability-levels-explained)
 > and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
@@ -482,11 +482,11 @@ developers can also create [custom](#custom-source-sets) source sets for their n
 Predefined source sets are set up automatically upon creation of a multiplatform project.
 Available predefined source sets are the following:
 
-| **Name**                            | **Description**                                                                                                                                                                                       | 
-|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `commonMain`                        | Code and resources shared between all platforms. Available in all multiplatform projects. Used in all main [compilations](#compilations) of a project.                                                |
-| `commonTest`                        | Test code and resources shared between all platforms. Available in all multiplatform projects. Used in all test compilations of a project.                                                            |
-| _\<targetName\>\<compilationName\>_ | Target-specific sources for a compilation. _\<targetName\>_ is the name of a predefined target and _\<compilationName\>_ is the name of a compilation for this target. Examples: `jsTest`, `jvmMain`. |
+| **Name**                                    | **Description**                                                                                                                                                                                               | 
+|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `commonMain`                                | Code and resources shared between all platforms. Available in all multiplatform projects. Used in all main [compilations](#compilations) of a project.                                                        |
+| `commonTest`                                | Test code and resources shared between all platforms. Available in all multiplatform projects. Used in all test compilations of a project.                                                                    |
+| _&lt;targetName&gt;&lt;compilationName&gt;_ | Target-specific sources for a compilation. _&lt;targetName&gt;_ is the name of a predefined target and _&lt;compilationName&gt;_ is the name of a compilation for this target. Examples: `jsTest`, `jvmMain`. |
 
 With Kotlin Gradle DSL, the sections of predefined source sets should be marked `by getting`.
 
