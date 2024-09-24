@@ -19,7 +19,7 @@ function getBreadcrumbs(article) {
  */
 function dropIrrelevantSections(article) {
     article.find([
-        '.chapter:has(#what-s-next)', '.chapter:has(#next-step)',
+        '.chapter:has(#what-s-next)', '.chapter:has(#next-step)', '.chapter:has(#next-steps)',
         '.chapter:has(#learn-more)', '.chapter:has(#leave-feedback)'
     ].join(', ')).remove();
 }
@@ -36,6 +36,41 @@ function replaceMedia(article, pageUrl) {
         const video = videos.eq(i);
         const url = video.find('object[data]').attr('data');
         video.replaceWith(url ? `&lt;${new URL(url, pageUrl).hostname}&gt;` : '&lt;video&gt;');
+    }
+}
+
+/**
+ * @param {import('cheerio').Element} node
+ */
+function cloneAttrsString(node) {
+    return Object.entries((node.attribs || {})).map(([key, value]) => {
+        const val = typeof value === 'string' ? `="${value}"` : '';
+        return `${key}${val}`;
+    }).join(' ');
+}
+
+/**
+ * @param {import('cheerio').Cheerio} article
+ * @returns {void}
+ */
+function replaceWRSSemantic(article) {
+    const listStrong = article.find('span.control');
+
+    for (let i = 0, length = listStrong.length; i < length; i++) {
+        const strong = listStrong.eq(i);
+        const node = listStrong[i];
+        const newNode = `<b ${cloneAttrsString(node)}>${strong.html()}</b>`;
+        strong.replaceWith(newNode);
+    }
+
+
+    const listCode = article.find('div.code-block');
+
+    for (let i = 0, length = listCode.length; i < length; i++) {
+        const code = listCode.eq(i);
+        const node = listStrong[i];
+        const newNode = `<code ${cloneAttrsString(node)}>${code.html()}</code>`;
+        code.replaceWith(newNode).addClass('code');
     }
 }
 
@@ -162,6 +197,7 @@ async function docs($, url, data) {
 
     dropUiElements($article);
     dropIrrelevantSections($article);
+    replaceWRSSemantic($article);
     replaceMedia($article, pageUrl.toString());
 
     const breadcrumbs = getBreadcrumbs($body);
