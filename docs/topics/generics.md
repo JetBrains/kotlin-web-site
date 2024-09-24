@@ -183,7 +183,7 @@ fun demo(x: Comparable<Number>) {
 The words _in_ and _out_ seem to be self-explanatory (as they've already been used successfully in C# for quite some time),
 and so the mnemonic mentioned above is not really needed.  It can in fact be rephrased at a higher level of abstraction:
 
-**[The Existential](https://en.wikipedia.org/wiki/Existentialism) Transformation: Consumer in, Producer out\!** :-)
+**[The Existential](https://en.wikipedia.org/wiki/Existentialism) Transformation: Consumer in, Producer out!** :-)
 
 ## Type projections
 
