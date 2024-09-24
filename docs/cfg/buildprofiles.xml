@@ -11,20 +11,16 @@
 		<automaticLinskSummaries>false</automaticLinskSummaries>
 		<kotlin-latest-url>%kotlinLatestUrl%</kotlin-latest-url>
 		<product-web-url>%kotlinLatestUrl%</product-web-url>
-		<generate-only-default-anchors>true</generate-only-default-anchors>
 		<web-root>https://kotlinlang.org/docs/</web-root>
 		<og-image>https://kotlinlang.org/assets/images/open-graph/docs.png</og-image>
 		<og-twitter>@kotlin</og-twitter>
-		<web-community-path>Kotlin Community:https://kotlinlang.org/community/</web-community-path>
 		<download-page/>
-		<help-app-version>3</help-app-version>
 		<productid>help/kotlin-reference</productid>
 		<feedback-enabled>true</feedback-enabled>
 		<feedback-widget>true</feedback-widget>
 		<feedback-support>https://kotl.in/issue</feedback-support>
 		<feedback-url>https://forms-service.jetbrains.com/feedback</feedback-url>
 		<webmaster>doc-feedback@kotlinlang.org</webmaster>
-		<sideblocks>true</sideblocks>
 		<algolia-api-key>1bfad5fdbae302b33d844ed1b43ec4d5</algolia-api-key>
 		<algolia-id>7961PKYRXV</algolia-id>
 		<algolia-index>prod_KOTLINLANG_WEBHELP</algolia-index>
