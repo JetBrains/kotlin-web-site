@@ -421,7 +421,7 @@ perspective
 > **Deprecation cycle:**
 >
 > - 1.7.0: raise the deprecation level to a warning
-> - \> 1.7.0: remove the property
+> - &gt; 1.7.0: remove the property
 
 ### Remove kotlinOptions.jdkHome compiler option
 
@@ -437,7 +437,7 @@ perspective
 > **Deprecation cycle:**
 >
 > - 1.5.30: raise the deprecation level to a warning
-> - \> 1.7.0: remove the option
+> - &gt; 1.7.0: remove the option
 
 ### Remove noStdlib compiler option
 
