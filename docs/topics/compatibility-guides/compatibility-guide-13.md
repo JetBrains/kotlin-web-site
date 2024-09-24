@@ -19,7 +19,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 
 ## Incompatible changes
 
-### Evaluation order of constructor arguments regarding `<clinit>` call
+### Evaluation order of constructor arguments regarding &lt;clinit&gt; call
 
 > **Issue**: [KT-19532](https://youtrack.jetbrains.com/issue/KT-19532)
 >
@@ -50,7 +50,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - <1.3: getter-target annotations on annotation constructor parameters are not applied
 > - \>=1.3: getter-target annotations on annotation constructor parameters are properly applied and written to the generated code 
 
-### Missing errors in class constructor's `@get:` annotations
+### Missing errors in class constructor's @get: annotations
 
 > **Issue**: [KT-19628](https://youtrack.jetbrains.com/issue/KT-19628)
 >
@@ -66,7 +66,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - 1.2.x: errors reported only by tooling, the compiler still compiles such code without any warnings
 > - \>=1.3: errors reported by the compiler too, causing erroneous code to be rejected
 
-### Nullability assertions on access to Java types annotated with `@NotNull`
+### Nullability assertions on access to Java types annotated with @NotNull
 
 > **Issue**: [KT-20830](https://youtrack.jetbrains.com/issue/KT-20830)
 >
@@ -98,7 +98,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - \>=1.3: smartcast will be properly applied only to the member of one enum entry.   
 `-XXLanguage:-SoundSmartcastForEnumEntries` will temporarily return old behavior. Support for this flag will be removed in the next major release.
 
-### `val` backing field reassignment in getter
+### val backing field reassignment in getter
 
 > **Issue**: [KT-16681](https://youtrack.jetbrains.com/issue/KT-16681)
 >
@@ -114,7 +114,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - 1.2.X: deprecation warning is reported on code which reassigns backing field of `val`
 > - \>=1.3: deprecation warnings are elevated to errors 
 
-### Array capturing before the `for`-loop where it is iterated
+### Array capturing before the for-loop where it is iterated
 
 > **Issue**: [KT-21354](https://youtrack.jetbrains.com/issue/KT-21354)
 >
@@ -146,7 +146,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - 1.2.X: deprecation warnings reported on the nested classifiers
 > - \>=1.3: deprecation warnings elevated to errors
 
-### Data class overriding `copy`
+### Data class overriding copy
 
 > **Issue**: [KT-19618](https://youtrack.jetbrains.com/issue/KT-19618)
 >
@@ -162,7 +162,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - 1.2.X: deprecation warnings reported on data classes overriding `copy()`
 > - \>=1.3: deprecation warnings elevated to errors
 
-### Inner classes inheriting `Throwable` that capture generic parameters from the outer class
+### Inner classes inheriting Throwable that capture generic parameters from the outer class
 
 > **Issue**: [KT-17981](https://youtrack.jetbrains.com/issue/KT-17981)
 >
@@ -242,7 +242,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - 1.2.X: smartcasts on local delegated properries are reported as deprecated (the compiler issues warnings)
 > - \>=1.3: deprecation warnings elevated to errors
 
-### `mod` operator convention
+### mod operator convention
 
 > **Issues**: [KT-24197](https://youtrack.jetbrains.com/issue/KT-24197)
 >
@@ -275,7 +275,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - 1.3.X: warnings are elevated to errors
 > - \>= 1.4: change semantic of assigning single element to vararg, making assignment of array equivalent to the assignment of a spread of an array 
 
-### Retention of annotations with target `EXPRESSION`
+### Retention of annotations with target EXPRESSION
 
 > **Issue**: [KT-13762](https://youtrack.jetbrains.com/issue/KT-13762)
 >
@@ -291,7 +291,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - 1.2.X: deprecation warnings are reported on declarations of such annotations 
 > - \>=1.3: warnings are elevated to errors
 
-### Annotations with target `PARAMETER` shouldn't be applicable to parameter's type
+### Annotations with target PARAMETER shouldn't be applicable to parameter's type
 
 > **Issue**: [KT-9580](https://youtrack.jetbrains.com/issue/KT-9580)
 >
@@ -307,7 +307,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - 1.2.X: deprecation warnings are reported on such usages
 > - \>=1.3: warnings are elevated to errors
 
-###  `Array.copyOfRange` throws an exception when indices are out of bounds instead of enlarging the returned array
+###  Array.copyOfRange throws an exception when indices are out of bounds instead of enlarging the returned array
 
 > **Issue**: [KT-19489](https://youtrack.jetbrains.com/issue/KT-19489)
 >
@@ -322,7 +322,7 @@ Compatibility of Kotlin code from the other languages perspective (e.g. from Jav
 > - <1.3: in case `toIndex` in the invocation of `Array.copyOfRange` is greater than the array size, the missing elements in range fill be filled with `null`s, violating soundness of the Kotlin type system. 
 > - \>=1.3: check that `toIndex` is in the array bounds, and throw exception if it isn't
 
-### Progressions of ints and longs with a step of `Int.MIN_VALUE` and `Long.MIN_VALUE` are outlawed and won't be allowed to be instantiated
+### Progressions of ints and longs with a step of Int.MIN_VALUE and Long.MIN_VALUE are outlawed and won't be allowed to be instantiated
 
 > **Issue**: [KT-17176](https://youtrack.jetbrains.com/issue/KT-17176)
 >

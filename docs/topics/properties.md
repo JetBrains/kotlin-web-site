@@ -195,7 +195,7 @@ The type of the property or variable must be non-nullable, and it must not be a 
 Accessing a `lateinit` property before it has been initialized throws a special exception that clearly identifies the property
 being accessed and the fact that it hasn't been initialized.
 
-### Checking whether a `lateinit var` is initialized
+### Checking whether a lateinit var is initialized
 
 To check whether a `lateinit var` has already been initialized, use `.isInitialized` on the [reference to that property](reflection.md#property-references):
 

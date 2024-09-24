@@ -109,7 +109,7 @@ perspective
 >
 > - 1.7.0: report an error when uninitialized enum entries are accessed from the enum static initializer block
 
-### Prohibit computing constant values of complex boolean expressions in `when` condition branches and conditions of loops
+### Prohibit computing constant values of complex boolean expressions in when condition branches and conditions of loops
 
 > **Issue**: [KT-39883](https://youtrack.jetbrains.com/issue/KT-39883)
 >
@@ -126,7 +126,7 @@ perspective
 >   is determined based on a complex constant boolean expression in `when` branch or loop condition 
 > - 1.7.0: raise this warning to an error
 
-### Make `when` statements with enum, sealed, and Boolean subjects exhaustive by default
+### Make when statements with enum, sealed, and Boolean subjects exhaustive by default
 
 > **Issue**: [KT-47709](https://youtrack.jetbrains.com/issue/KT-47709)
 >
@@ -141,7 +141,7 @@ perspective
 > - 1.6.0: introduce a warning when the `when` statement with an enum, sealed, or Boolean subject is non-exhaustive (error in the progressive mode)
 > - 1.7.0: raise this warning to an error
 
-### Deprecate confusing grammar in `when-with-subject`
+### Deprecate confusing grammar in when-with-subject
 
 > **Issue**: [KT-48385](https://youtrack.jetbrains.com/issue/KT-48385)
 >
@@ -190,7 +190,7 @@ perspective
 >   `-Xuse-old-backend` can be used to temporarily revert to the pre-1.5.30 fix behavior
 > - \>= 1.7.20: fix the downcast behavior in other affected cases
 
-### Deprecate the `enable` and the `compatibility` modes of the compiler option -Xjvm-default
+### Deprecate the enable and the compatibility modes of the compiler option -Xjvm-default
 
 > **Issue**: [KT-46329](https://youtrack.jetbrains.com/issue/KT-46329)
 >
@@ -205,7 +205,7 @@ perspective
 > - 1.6.20: introduce a warning on the `enable` and `compatibility` modes of the `-Xjvm-default` compiler option
 > - \>= 1.8.0: raise this warning to an error
 
-### Prohibit calls to functions named `suspend` with a trailing lambda
+### Prohibit calls to functions named suspend with a trailing lambda
 
 > **Issue**: [KT-22562](https://youtrack.jetbrains.com/issue/KT-22562)
 >
@@ -259,7 +259,7 @@ perspective
 
 ## Standard library
 
-### Gradually change the return type of collection `min` and `max` functions to non-nullable
+### Gradually change the return type of collection min and max functions to non-nullable
 
 > **Issue**: [KT-38854](https://youtrack.jetbrains.com/issue/KT-38854)
 >
@@ -276,7 +276,7 @@ perspective
 > - 1.6.0: hide the deprecated functions from the public API
 > - 1.7.0: reintroduce the affected API but with non-nullable return type
 
-### Deprecate floating-point array functions: `contains`, `indexOf`, `lastIndexOf`
+### Deprecate floating-point array functions: contains, indexOf, lastIndexOf
 
 > **Issue**: [KT-28753](https://youtrack.jetbrains.com/issue/KT-28753)
 >
@@ -292,7 +292,7 @@ perspective
 > - 1.6.0: raise the deprecation level to an error
 > - 1.7.0: hide the deprecated functions from the public API
 
-### Migrate declarations from `kotlin.dom` and `kotlin.browser` packages to `kotlinx.*`
+### Migrate declarations from kotlin.dom and kotlin.browser packages to kotlinx.*
 
 > **Issue**: [KT-39330](https://youtrack.jetbrains.com/issue/KT-39330)
 >

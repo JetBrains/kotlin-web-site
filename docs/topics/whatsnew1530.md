@@ -431,7 +431,7 @@ Please share your thoughts and concerns about the transition to the LLD linker i
 * [Support for XCFrameworks](#support-for-xcframeworks)
 * [New default publishing setup for Android artifacts](#new-default-publishing-setup-for-android-artifacts)
 
-### Ability to use custom `cinterop` libraries in shared native code
+### Ability to use custom cinterop libraries in shared native code
 
 Kotlin Multiplatform gives you an [option](multiplatform-share-on-platforms.md#connect-platform-specific-libraries) to use platform-dependent interop libraries in shared source sets. Before 1.5.30, this worked only with [platform libraries](native-platform-libs.md) shipped with Kotlin/Native distribution. Starting from 1.5.30, you can use it with your custom `cinterop` libraries. To enable this feature, add the `kotlin.mpp.enableCInteropCommonization=true` property in your `gradle.properties`:
 

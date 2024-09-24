@@ -607,7 +607,7 @@ fun unboxBase(box: Box<@JvmSuppressWildcards Base>): Base = box.value
 >
 {style="note"}
 
-### Translation of type `Nothing`
+### Translation of type Nothing
  
 The type [`Nothing`](exceptions.md#the-nothing-type) is special, because it has no natural counterpart in Java. Indeed, every Java reference type, including
 `java.lang.Void`, accepts `null` as a value, and `Nothing` doesn't accept even that. So, this type cannot be accurately

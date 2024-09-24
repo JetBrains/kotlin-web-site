@@ -473,7 +473,7 @@ IDE inspections will also recommend using new functions instead of the legacy `r
 
 We're planning to gradually deprecate the `readLine()` function in future releases.
 
-### Stable `typeOf()`
+### Stable typeOf()
 
 Version 1.6.0 brings a [Stable](components-stability.md) [`typeOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/type-of.html) function, closing one of the [major roadmap items](https://youtrack.jetbrains.com/issue/KT-45396).
 

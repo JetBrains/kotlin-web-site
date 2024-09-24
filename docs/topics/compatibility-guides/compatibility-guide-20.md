@@ -555,7 +555,7 @@ perspective
 >   a non-nullable type that should be nullable, prompting to specify the type explicitly to avoid NPEs
 > - 2.0.0: nullable types are approximated by nullable supertypes
 
-### Remove special handling for `false && ...` and `false || ...` for the purposes of smart-casting
+### Remove special handling for false && ... and false || ... for the purposes of smart-casting
 
 > **Issue**: [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776)
 >

@@ -723,7 +723,7 @@ We also recommend using the latest versions of browsers with the Wasm environmen
 * Version 119 or newer for Chrome and Chromium–based browsers.
 * Version 119 or newer for Firefox. Note that in Firefox 119, you need to [turn on Wasm GC manually](wasm-troubleshooting.md).
 
-### New `wasm-wasi` target, and the renaming of the `wasm` target to `wasm-js`
+### New wasm-wasi target, and the renaming of the wasm target to wasm-js
 
 In this release, we're introducing a new target for Kotlin/Wasm – `wasm-wasi`. We're also renaming the `wasm` target to `wasm-js`.
 In the Gradle DSL, these targets are available as `wasmWasi {}` and `wasmJs {}`, respectively.

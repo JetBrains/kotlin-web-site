@@ -20,7 +20,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 
 ## Language and stdlib 
 
-### Unexpected behavior with `in` infix operator and `ConcurrentHashMap`
+### Unexpected behavior with in infix operator and ConcurrentHashMap
 
 > **Issue**: [KT-18053](https://youtrack.jetbrains.com/issue/KT-18053)
 > 
@@ -101,7 +101,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features. 
 
-### Do not depend on the order of lambda arguments to coerce result to `Unit`
+### Do not depend on the order of lambda arguments to coerce result to Unit
 
 > **Issue**: [KT-36045](https://youtrack.jetbrains.com/issue/KT-36045)
 > 
@@ -169,7 +169,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
-### No type mismatch with an empty `when` expression inside lambda
+### No type mismatch with an empty when expression inside lambda
 
 > **Issue**: [KT-17995](https://youtrack.jetbrains.com/issue/KT-17995)
 > 
@@ -186,7 +186,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
-### Return type `Any` inferred for lambda with early return with integer literal in one of possible return values
+### Return type Any inferred for lambda with early return with integer literal in one of possible return values
 
 > **Issue**: [KT-20226](https://youtrack.jetbrains.com/issue/KT-20226)
 > 
@@ -272,7 +272,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
-### Type variable leaks from builder inference because of using `this` expression
+### Type variable leaks from builder inference because of using this expression
  
 > **Issue**: [KT-32126](https://youtrack.jetbrains.com/issue/KT-32126)
 > 
@@ -343,7 +343,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > `-XXLanguage:-NewInference` can be used to temporarily revert to pre-1.4 behavior. Note that this flag will also
 > disable several new language features.
 
-### Prohibit `tailrec` modifier on `open` functions
+### Prohibit tailrec modifier on open functions
 
 > **Issue**: [KT-18541](https://youtrack.jetbrains.com/issue/KT-18541)
 > 
@@ -358,7 +358,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - < 1.4: report a warning on functions that have `open` and `tailrec` modifiers together (error in the progressive mode).
 > - \>= 1.4: raise this warning to an error.
 
-### The `INSTANCE` field of a companion object more visible than the companion object class itself
+### The INSTANCE field of a companion object more visible than the companion object class itself
 
 > **Issue**: [KT-11567](https://youtrack.jetbrains.com/issue/KT-11567)
 > 
@@ -373,7 +373,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - < 1.4: the compiler generates object `INSTANCE` with a deprecated flag
 > - \>= 1.4: companion object `INSTANCE` field has proper visibility
 
-### Outer `finally` block inserted before `return` is not excluded from the`catch` interval of the inner `try` block without `finally`
+### Outer finally block inserted before return is not excluded from the catch interval of the inner try block without finally
 
 > **Issue**: [KT-31923](https://youtrack.jetbrains.com/issue/KT-31923)
 > 
@@ -482,7 +482,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - \>= 1.4: behavior changed,
 >  `-XXLanguage:-ProperComputationOrderOfTailrecDefaultParameters` can be used to temporarily revert to pre-1.4 behavior
 
-### Do not generate `ConstantValue` attribute for non-`const` `val`s
+### Do not generate ConstantValue attribute for non-const vals
 
 > **Issue**: [KT-16615](https://youtrack.jetbrains.com/issue/KT-16615)
 > 
@@ -498,7 +498,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - \>= 1.4: behavior changed,
 >  `-XXLanguage:-NoConstantValueAttributeForNonConstVals` can be used to temporarily revert to pre-1.4 behavior
 
-### Generated overloads for `@JvmOverloads` on `open` methods should be `final`
+### Generated overloads for @JvmOverloads on open methods should be final
 
 > **Issue**: [KT-33240](https://youtrack.jetbrains.com/issue/KT-33240)
 > 
@@ -514,7 +514,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - \>= 1.4: behavior changed,
 >  `-XXLanguage:-GenerateJvmOverloadsAsFinal` can be used to temporarily revert to pre-1.4 behavior
 
-### Lambdas returning `kotlin.Result` now return boxed value instead of unboxed
+### Lambdas returning kotlin.Result now return boxed value instead of unboxed
 
 > **Issue**: [KT-39198](https://youtrack.jetbrains.com/issue/KT-39198)
 > 
@@ -546,7 +546,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - \>= 1.4: all runtime null checks throw a `java.lang.NullPointerException`.
 >   `-Xno-unified-null-checks` can be used to temporarily revert to pre-1.4 behavior
 
-### Comparing floating-point values in array/list operations `contains`, `indexOf`, `lastIndexOf`: IEEE 754 or total order
+### Comparing floating-point values in array/list operations contains, indexOf, lastIndexOf: IEEE 754 or total order
 
 > **Issue**: [KT-28753](https://youtrack.jetbrains.com/issue/KT-28753)
 > 
@@ -561,7 +561,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - < 1.4: old behavior (see details in the issue)
 > - \>= 1.4: behavior changed
 
-### Gradually change the return type of collection `min` and `max` functions to non-nullable
+### Gradually change the return type of collection min and max functions to non-nullable
 
 > **Issue**: [KT-38854](https://youtrack.jetbrains.com/issue/KT-38854)
 > 
@@ -577,7 +577,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - 1.5.x: raise the deprecation level of the affected API to error
 > - \>=1.6: reintroduce the affected API but with non-nullable return type
 
-### Deprecate `appendln` in favor of `appendLine`
+### Deprecate appendln in favor of appendLine
 
 > **Issue**: [KT-38754](https://youtrack.jetbrains.com/issue/KT-38754)
 > 
@@ -592,7 +592,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - 1.4: introduce `appendLine` function as a replacement for `appendln` and deprecate `appendln`
 > - \>=1.5: raise the deprecation level to error
 
-### Deprecate conversions of floating-point types to `Short` and `Byte`
+### Deprecate conversions of floating-point types to Short and Byte
 
 > **Issue**: [KT-30360](https://youtrack.jetbrains.com/issue/KT-30360)
 > 
@@ -607,7 +607,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - 1.4: deprecate `Double.toShort()/toByte()` and `Float.toShort()/toByte()` and propose replacement
 > - \>=1.5: raise the deprecation level to error
 
-### Fail fast in `Regex.findAll` on an invalid `startIndex`
+### Fail fast in Regex.findAll on an invalid startIndex
 
 > **Issue**: [KT-28356](https://youtrack.jetbrains.com/issue/KT-28356)
 > 
@@ -622,7 +622,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - < 1.4: old behavior (see details in the issue)
 > - \>= 1.4: behavior changed
 
-### Remove deprecated `kotlin.coroutines.experimental`
+### Remove deprecated kotlin.coroutines.experimental
 
 > **Issue**: [KT-36083](https://youtrack.jetbrains.com/issue/KT-36083)
 > 
@@ -637,7 +637,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - < 1.4: `kotlin.coroutines.experimental` is deprecated with the `ERROR` level
 > - \>= 1.4: `kotlin.coroutines.experimental` is removed from stdlib. On the JVM, a separate compatibility artifact is provided (see details in the issue).
 
-### Remove deprecated `mod` operator
+### Remove deprecated mod operator
 
 > **Issue**: [KT-26654](https://youtrack.jetbrains.com/issue/KT-26654)
 > 
@@ -652,7 +652,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - < 1.4: `mod` is deprecated with the `ERROR` level
 > - \>= 1.4: `mod` is removed from stdlib
 
-### Hide `Throwable.addSuppressed` member and prefer extension instead
+### Hide Throwable.addSuppressed member and prefer extension instead
 
 > **Issue**: [KT-38777](https://youtrack.jetbrains.com/issue/KT-38777)
 > 
@@ -667,7 +667,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - < 1.4: old behavior (see details in the issue)
 > - \>= 1.4: behavior changed
 
-### `capitalize` should convert digraphs to title case
+### capitalize should convert digraphs to title case
 
 > **Issue**: [KT-38817](https://youtrack.jetbrains.com/issue/KT-38817)
 > 
@@ -701,7 +701,7 @@ Remember that those definitions are given only for pure Kotlin. Compatibility of
 > - < 1.4: all compiler arguments are passed without quotes
 > - \>= 1.4: compiler arguments that contain delimiter characters (whitespace, `=`, `;`, `,`) require double quotes (`"`)
 
-### KAPT: Names of synthetic `$annotations()` methods for properties have changed
+### KAPT: Names of synthetic $annotations() methods for properties have changed
 
 > **Issue**: [KT-36926](https://youtrack.jetbrains.com/issue/KT-36926)
 > 

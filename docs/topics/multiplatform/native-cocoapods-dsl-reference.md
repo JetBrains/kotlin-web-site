@@ -88,7 +88,7 @@ kotlin {
 }
 ```
 
-### `framework` block
+### framework block
 
 The `framework` block is nested inside `cocoapods` and configures the framework properties of the Pod built from the project.
 

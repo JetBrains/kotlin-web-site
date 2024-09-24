@@ -229,7 +229,7 @@ by-value parameters are represented as `kotlinx.cinterop.CValue<T>`. And for typ
 see `kotlinx.cinterop.CValuesRef<T>`.
 Kotlin provides us with an API to deal with both types easily, let's try it and see.
 
-### Create a `CValue<T>`
+### Create a CValue&lt;T&gt;
 
 `CValue<T>` type is used to pass by-value parameters to a C function call.
 Use `cValue` function to create `CValue<T>` object instance. The function requires a
@@ -260,7 +260,7 @@ fun callValue() {
 }
 ```
 
-### Create struct and union as `CValuesRef<T>`
+### Create struct and union as CValuesRef&lt;T&gt;
 
 `CValuesRef<T>` type is used in Kotlin to pass a typed pointer parameter of a C 
 function. First, you need an instance of 
@@ -316,7 +316,7 @@ when a `memScoped` function ends, which is equal to the end of its `block`. Make
 pointer is not used outside of the `memScoped` call. You may use `Arena()` or `nativeHeap` for pointers that 
 should be available longer, or are cached inside a C library.  
 
-### Conversion between `CValue<T>` and `CValuesRef<T>`
+### Conversion between CValue&lt;T&gt; and CValuesRef&lt;T&gt;
 
 Of course, there are use cases when you need to pass a struct as a value to one call, and then, to 
 pass the same struct as a reference to another call. This is possible in Kotlin/Native too. A 

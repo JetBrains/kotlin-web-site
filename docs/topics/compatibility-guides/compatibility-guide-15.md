@@ -374,7 +374,7 @@ perspective
 >
 > - 1.5: deprecate case conversions functions with the default locale (see details in the issue), and propose replacement 
 
-### Gradually change the return type of collection `min` and `max` functions to non-nullable
+### Gradually change the return type of collection min and max functions to non-nullable
 
 > **Issue**: [KT-38854](https://youtrack.jetbrains.com/issue/KT-38854)
 >
@@ -390,7 +390,7 @@ perspective
 > - 1.5.0: raise the deprecation level of the affected API to error
 > - \>=1.6: reintroduce the affected API but with non-nullable return type
 
-### Raise the deprecation level of conversions of floating-point types to `Short` and `Byte`
+### Raise the deprecation level of conversions of floating-point types to Short and Byte
 
 > **Issue**: [KT-30360](https://youtrack.jetbrains.com/issue/KT-30360)
 >

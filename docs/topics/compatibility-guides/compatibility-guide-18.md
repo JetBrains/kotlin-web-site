@@ -64,7 +64,7 @@ perspective
 > - 1.9.0: report an error in all affected cases, including explicit super calls to an abstract method from the super class
 
 
-### Deprecate confusing grammar in `when-with-subject`
+### Deprecate confusing grammar in when-with-subject
 
 > **Issue**: [KT-48385](https://youtrack.jetbrains.com/issue/KT-48385)
 >
@@ -119,7 +119,7 @@ perspective
 >   the old behavior can be brought back temporarily by specifying the `-XXLanguage:-UseConsistentRulesForPrivateConstructorsOfSealedClasses`
 >   compiler argument
 
-### Prohibit using operator `==` on incompatible numeric types in builder inference context
+### Prohibit using operator == on incompatible numeric types in builder inference context
 
 > **Issue**: [KT-45508](https://youtrack.jetbrains.com/issue/KT-45508)
 >
@@ -136,7 +136,7 @@ perspective
 > - 1.8.0: raise the warning to an error,
 >   `-XXLanguage:-ProperEqualityChecksInBuilderInferenceCalls` can be used to temporarily revert to the pre-1.8 behavior
 
-### Prohibit `if` without `else` and non-exhaustive `when` in right hand side of elvis operator
+### Prohibit if without else and non-exhaustive when in right hand side of elvis operator
 
 > **Issue**: [KT-44705](https://youtrack.jetbrains.com/issue/KT-44705)
 >
@@ -209,7 +209,7 @@ perspective
 > - 1.8.0: raise the warning to an error,
 >  `-XXLanguage:-ForbidUsingExtensionPropertyTypeParameterInDelegate` can be used to temporarily revert to the pre-1.8 behavior
 
-### Forbid `@Synchronized` annotation on suspend functions
+### Forbid @Synchronized annotation on suspend functions
 
 > **Issue**: [KT-48516](https://youtrack.jetbrains.com/issue/KT-48516)
 >
@@ -371,7 +371,7 @@ perspective
 > - 1.7.20: report a warning (or an error in the progressive mode) for inline extension calls on inline functional parameters
 > - 1.9.0: raise the warning to an error
 
-### Prohibit calls to infix functions named `suspend` with an anonymous function argument
+### Prohibit calls to infix functions named suspend with an anonymous function argument
 
 > **Issue**: [KT-49264](https://youtrack.jetbrains.com/issue/KT-49264)
 >
@@ -423,7 +423,7 @@ perspective
 >   called recursively in that function's body in a compound assignment operator argument
 > - 1.9.0: raise the warning to an error
 
-### Prohibit unsound calls with expected `@NotNull T` and given Kotlin generic parameter with nullable bound
+### Prohibit unsound calls with expected @NotNull T and given Kotlin generic parameter with nullable bound
 
 > **Issue**: [KT-36770](https://youtrack.jetbrains.com/issue/KT-36770)
 >
@@ -456,7 +456,7 @@ perspective
 > - 1.9.0: raise the warning to an error,
 >   `-XXLanguage:-ProhibitAccessToEnumCompanionMembersInEnumConstructorCall` can be used to temporarily revert to the pre-1.8 behavior
 
-### Deprecate and remove `Enum.declaringClass` synthetic property
+### Deprecate and remove Enum.declaringClass synthetic property
 
 > **Issue**: [KT-49653](https://youtrack.jetbrains.com/issue/KT-49653)
 >
@@ -477,7 +477,7 @@ perspective
 >   `-XXLanguage:-ProhibitEnumDeclaringClass` can be used to temporarily revert to the pre-1.9 behavior
 > - \>=1.10: remove `declaringClass` synthetic property
 
-### Deprecate the `enable` and the `compatibility` modes of the compiler option -Xjvm-default
+### Deprecate the enable and the compatibility modes of the compiler option -Xjvm-default
 
 > **Issue**: [KT-46329](https://youtrack.jetbrains.com/issue/KT-46329)
 >
@@ -494,7 +494,7 @@ perspective
 
 ## Standard library
 
-### Warn about potential overload resolution change when `Range`/`Progression` starts implementing `Collection`
+### Warn about potential overload resolution change when Range/Progression starts implementing Collection
 
 > **Issue**: [KT-49276](https://youtrack.jetbrains.com/issue/KT-49276)
 >
@@ -516,7 +516,7 @@ perspective
 > - 1.9.0: stop reporting the error, implement `Collection` interface in progressions thus changing
 >   the overload resolution result in the affected cases
 
-### Migrate declarations from `kotlin.dom` and `kotlin.browser` packages to `kotlinx.*`
+### Migrate declarations from kotlin.dom and kotlin.browser packages to kotlinx.*
 
 > **Issue**: [KT-39330](https://youtrack.jetbrains.com/issue/KT-39330)
 >
@@ -552,7 +552,7 @@ perspective
 
 ## Tools
 
-### Raise deprecation level of `classpath` property of `KotlinCompile` task
+### Raise deprecation level of classpath property of KotlinCompile task
 
 > **Issue**: [KT-51679](https://youtrack.jetbrains.com/issue/KT-51679)
 >

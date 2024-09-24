@@ -24,7 +24,7 @@ perspective
 
 ## Language
 
-### Make `when` statements with enum, sealed, and Boolean subjects exhaustive by default
+### Make when statements with enum, sealed, and Boolean subjects exhaustive by default
 
 > **Issue**: [KT-47709](https://youtrack.jetbrains.com/issue/KT-47709)
 >
@@ -39,7 +39,7 @@ perspective
 > - 1.6.0: introduce a warning when the `when` statement with an enum, sealed, or Boolean subject is non-exhaustive (error in the progressive mode)
 > - 1.7.0: raise this warning to an error
 
-### Deprecate confusing grammar in `when-with-subject`
+### Deprecate confusing grammar in when-with-subject
 
 > **Issue**: [KT-48385](https://youtrack.jetbrains.com/issue/KT-48385)
 >
@@ -120,7 +120,7 @@ perspective
 > - 1.6.0: raise this warning to an error,
 >   `-XXLanguage:-RepeatableAnnotationContainerConstraints` can be used to temporarily disable the error reporting
 
-### Prohibit declaring a nested class named `Container` in a repeatable annotation class
+### Prohibit declaring a nested class named Container in a repeatable annotation class
 
 > **Issue**: [KT-47971](https://youtrack.jetbrains.com/issue/KT-47971)
 >
@@ -152,7 +152,7 @@ perspective
 > - 1.6.0: raise this warning to an error,
 >   `-XXLanguage:-ProhibitJvmFieldOnOverrideFromInterfaceInPrimaryConstructor` can be used to temporarily disable the error reporting
 
-### Deprecate the `enable` and the `compatibility` modes of the compiler option -Xjvm-default
+### Deprecate the enable and the compatibility modes of the compiler option -Xjvm-default
 
 > **Issue**: [KT-46329](https://youtrack.jetbrains.com/issue/KT-46329)
 >
@@ -231,7 +231,7 @@ perspective
 > - 1.6.0: introduce an error,
 >   `-XXLanguage:-ProperCheckAnnotationsTargetInTypeUsePositions` can be used to temporarily disable the error reporting
 
-### Prohibit calls to functions named `suspend` with a trailing lambda
+### Prohibit calls to functions named suspend with a trailing lambda
 
 > **Issue**: [KT-22562](https://youtrack.jetbrains.com/issue/KT-22562)
 >
@@ -249,7 +249,7 @@ perspective
 
 ## Standard library
 
-### Remove brittle `contains` optimization in minus/removeAll/retainAll
+### Remove brittle contains optimization in minus/removeAll/retainAll
 
 > **Issue**: [KT-45438](https://youtrack.jetbrains.com/issue/KT-45438)
 >
@@ -266,7 +266,7 @@ perspective
 > The old behavior can be temporarily turned back on JVM by setting the system property `kotlin.collections.convert_arg_to_set_in_removeAll=true`
 > - \>= 1.7: the system property above will no longer have an effect
 
-### Change value generation algorithm in `Random.nextLong`
+### Change value generation algorithm in Random.nextLong
 
 > **Issue**: [KT-47304](https://youtrack.jetbrains.com/issue/KT-47304)
 >
@@ -280,7 +280,7 @@ perspective
 >
 > - 1.6.0: the behavior is fixed immediately
 
-### Gradually change the return type of collection `min` and `max` functions to non-nullable
+### Gradually change the return type of collection min and max functions to non-nullable
 
 > **Issue**: [KT-38854](https://youtrack.jetbrains.com/issue/KT-38854)
 >
@@ -297,7 +297,7 @@ perspective
 > - 1.6.0: hide the deprecated functions from the public API
 > - \>= 1.7: reintroduce the affected API but with non-nullable return type
 
-### Deprecate floating-point array functions: `contains`, `indexOf`, `lastIndexOf`
+### Deprecate floating-point array functions: contains, indexOf, lastIndexOf
 
 > **Issue**: [KT-28753](https://youtrack.jetbrains.com/issue/KT-28753)
 >
@@ -313,7 +313,7 @@ perspective
 > - 1.6.0: raise the deprecation level to an error
 > - \>= 1.7: hide the deprecated functions from the public API
 
-### Migrate declarations from `kotlin.dom` and `kotlin.browser` packages to `kotlinx.*`
+### Migrate declarations from kotlin.dom and kotlin.browser packages to kotlinx.*
 
 > **Issue**: [KT-39330](https://youtrack.jetbrains.com/issue/KT-39330)
 >
@@ -331,7 +331,7 @@ perspective
 > - \>= 1.7: remove the deprecated functions from stdlib
 > - \>= 1.7: move the API in kotlinx.* packages to a separate library
 
-### Make `Regex.replace` function not inline in Kotlin/JS
+### Make Regex.replace function not inline in Kotlin/JS
 
 > **Issue**: [KT-27738](https://youtrack.jetbrains.com/issue/KT-27738)
 >
@@ -345,7 +345,7 @@ perspective
 >
 > - 1.6.0: remove the `inline` modifier from the affected function
 
-### Different behavior of the `Regex.replace` function in JVM and JS when replacement string contains group reference
+### Different behavior of the Regex.replace function in JVM and JS when replacement string contains group reference
 
 > **Issue**: [KT-28378](https://youtrack.jetbrains.com/issue/KT-28378)
 >

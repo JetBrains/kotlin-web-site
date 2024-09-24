@@ -246,7 +246,7 @@ If the lambda is the only argument in that call, the parentheses can be omitted 
 run { println("...") }
 ```
 
-### `it`: implicit name of a single parameter
+### it: implicit name of a single parameter
 
 It's very common for a lambda expression to have only one parameter.
 

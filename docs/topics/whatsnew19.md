@@ -223,7 +223,7 @@ development of Kotlin inline classes in [this KEEP](https://github.com/Kotlin/KE
 Starting with version 1.9.0, the compiler can generate classes with a bytecode version corresponding to JVM 20. In addition,
 the deprecation of the `JvmDefault` annotation and legacy `-Xjvm-default` modes continues.
 
-### Deprecation of `JvmDefault` annotation and legacy `-Xjvm-default` modes
+### Deprecation of JvmDefault annotation and legacy -Xjvm-default modes
 
 Starting from Kotlin 1.5, the usage of the `JvmDefault` annotation has been deprecated in favor of the newer `-Xjvm-default`
 modes: `all` and `all-compatibility`. With the introduction of `JvmDefaultWithoutCompatibility` in Kotlin 1.4 and 
