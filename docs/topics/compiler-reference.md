@@ -99,7 +99,7 @@ instead of going through a graceful migration cycle.
 Code written in the progressive mode is backwards compatible; however, code written in
 a non-progressive mode may cause compilation errors in the progressive mode.
 
-### @_argfile_
+### @argfile
 
 Read the compiler options from the given file. Such a file can contain compiler options with values 
 and paths to the source files. Options and paths should be separated by whitespaces. For example:
