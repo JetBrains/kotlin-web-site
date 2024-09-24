@@ -59,6 +59,7 @@ dfJson
 ```
 
 This code displays the data from the file of your choice, such as CSV, JSON, XLS, XLSX, or Apache Arrow.
+
 ![Display data](display-data.png){width=700}
 
 To gain insights into the structure or schema of your data, apply the `.schema()` function on your DataFrame variable. 

@@ -38,7 +38,7 @@ see [Adding dependencies on multiplatform libraries](multiplatform-add-dependenc
 
 Would you like to try it yourself?
 
-<a href="wasm-get-started.md"><img src="wasm-get-started-button.svg" width="700" alt="Get started with Kotlin/Wasm"/></a>
+<a href="wasm-get-started.md"><img src="wasm-get-started-button.svg" width="700" alt="Get started with Kotlin/Wasm" style="block"/></a>
 
 ## Kotlin/Wasm performance
 

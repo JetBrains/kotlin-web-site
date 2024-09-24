@@ -54,6 +54,7 @@ However, with a **sealed** hierarchy of error classes, library authors can be su
 types and that other error types can't appear later.
 
 The hierarchy of the example looks like this:
+
 ![Hierarchy illustration of sealed classes and interfaces](sealed-classes-interfaces.svg){width=700}
 
 ### Constructors

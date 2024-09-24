@@ -41,9 +41,11 @@ Open the `Main.kt` file in the `src/nativeMain/kotlin/` directory, then press th
 ![Run the application](native-run-gutter.png){width=478}
 
 IntelliJ IDEA runs the code using the Gradle task. You will see the result in the **Run** tab:
+
 ![Application output](native-output-gutter-1.png){width=331}
 
 After the first run, you will see the corresponding run configuration on the top bar in the IDE:
+
 ![Gradle run configuration](native-run-config.png){width=503}
 
 > IntelliJ IDEA Ultimate users can install the [Native Debugging Support](https://plugins.jetbrains.com/plugin/12775-native-debugging-support)
