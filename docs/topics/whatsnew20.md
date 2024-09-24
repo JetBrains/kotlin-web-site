@@ -20,7 +20,7 @@ some other highlights:
 Kotlin 2.0 is a huge milestone for the JetBrains team. This release was the center of KotlinConf 2024. Check out the opening
 keynote, where we announced exciting updates and addressed the recent work on the Kotlin language:
 
-<video src="https://youtu.be/Ar73Axsz2YA" title="KotlinConf'24 - Keynote"/>
+<video src="https://www.youtube.com/Ar73Axsz2YA" title="KotlinConf'24 - Keynote"/>
 
 ## IDE support
 
@@ -54,7 +54,7 @@ the K2 compiler performs and find instructions on how to collect performance ben
 You can also watch this talk from KotlinConf 2024, where Michail Zarečenskij, the lead language designer, discusses the
 feature evolution in Kotlin and the K2 compiler:
 
-<video src="https://youtu.be/tAGJ5zJXJ7w" title="Kotlin Language Features in 2.0 and Beyond"/>
+<video src="https://www.youtube.com/tAGJ5zJXJ7w" title="Kotlin Language Features in 2.0 and Beyond"/>
 
 ### Current K2 compiler limitations
 

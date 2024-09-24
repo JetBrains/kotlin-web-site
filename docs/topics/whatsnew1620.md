@@ -6,7 +6,7 @@ Kotlin 1.6.20 reveals previews of the future language features, makes the hierar
 
 You can also find a short overview of the changes in this video:
 
-<video src="https://youtu.be/8F19ds109-o" title="What's new in Kotlin 1.6.20"/>
+<video src="https://www.youtube.com/8F19ds109-o" title="What's new in Kotlin 1.6.20"/>
 
 ## Language
 

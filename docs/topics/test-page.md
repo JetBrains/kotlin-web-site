@@ -346,7 +346,7 @@ jvmTest<Scope>
 
 ### Video from YouTube
 
-<video src="https://youtu.be/Ol_96CHKqg8" title="What's new in Kotlin 1.9.20"/>
+<video src="https://www.youtube.com/Ol_96CHKqg8" title="What's new in Kotlin 1.9.20"/>
 
 ### Pictures
 

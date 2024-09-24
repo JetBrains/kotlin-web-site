@@ -7,7 +7,7 @@ Kotlin 1.5.20 has fixes for issues discovered in the new features of 1.5.0, and 
 You can find an overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/06/kotlin-1-5-20-released/)
 and this video:
 
-<video src="https://youtu.be/SV8CgSXQe44" title="Kotlin 1.5.20"/>
+<video src="https://www.youtube.com/SV8CgSXQe44" title="Kotlin 1.5.20"/>
 
 ## Kotlin/JVM
 

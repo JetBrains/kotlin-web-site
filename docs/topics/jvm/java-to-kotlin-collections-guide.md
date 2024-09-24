@@ -100,7 +100,7 @@ To perform all of the operations listed above on maps, you first need to get an 
 If you want to take a deep dive into `zip()`, `chunked()`, `windowed()`, and some other operations, watch this video by Sebastian Aigner 
 about advanced collection operations in Kotlin:
 
-<video src="https://youtu.be/N4CpLxGJlq0" title="Advanced Collection Operations"/>
+<video src="https://www.youtube.com/N4CpLxGJlq0" title="Advanced Collection Operations"/>
 
 ## Mutability
 

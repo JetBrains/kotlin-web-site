@@ -25,6 +25,8 @@
 		<algolia-id>7961PKYRXV</algolia-id>
 		<algolia-index>prod_KOTLINLANG_WEBHELP</algolia-index>
 		<noindex-content>false</noindex-content>
+		<noindex-content status="eap">false</noindex-content>
+		<noindex-content status="deprecated">true</noindex-content>
 		<search-scopes-provider>https://www.jetbrains.com/search/json/</search-scopes-provider>
 		<generate-canonicals>true</generate-canonicals>
 		<custom-favicons>

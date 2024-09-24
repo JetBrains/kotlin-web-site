@@ -15,7 +15,7 @@ The Kotlin 1.7.20 release is out! Here are some highlights from this release:
 
 You can also find a short overview of the changes in this video:
 
-<video src="https://youtu.be/OG9npowJgE8" title="What's new in Kotlin 1.7.20"/>
+<video src="https://www.youtube.com/OG9npowJgE8" title="What's new in Kotlin 1.7.20"/>
 
 ## Support for Kotlin K2 compiler plugins
 
@@ -98,7 +98,7 @@ Kotlin 1.7.20 introduces preview versions for new language features, as well as 
 This release introduces the new `..<` operator. Kotlin has the `..` operator to express a range of values. The new `..<`
 operator acts like the `until` function and helps you define the open-ended range.
 
-<video src="https://youtu.be/v0AHdAIBnbs" title="New operator for open-ended ranges"/>
+<video src="https://www.youtube.com/v0AHdAIBnbs" title="New operator for open-ended ranges"/>
 
 Our research shows that this new operator does a better job at expressing open-ended ranges and making it clear that the
 upper bound is not included.
@@ -178,7 +178,7 @@ the `-opt-in=kotlin.ExperimentalStdlibApi` compiler option.
 This release introduces a new type of `object` declaration for you to use: `data object`. [Data object](https://youtrack.jetbrains.com/issue/KT-4107)
 behaves conceptually identical to a regular `object` declaration but comes with a clean `toString` representation out of the box.
 
-<video src="https://youtu.be/ovAqcwFhEGc" title="Data objects in Kotlin 1.7.20"/>
+<video src="https://www.youtube.com/ovAqcwFhEGc" title="Data objects in Kotlin 1.7.20"/>
 
 ```kotlin
 package org.example
@@ -357,7 +357,7 @@ IR in the kapt stub generating task, making it possible to use all the newest Ko
 Kotlin 1.7.20 allows the underlying type of JVM inline classes to be a type parameter. The compiler maps it to `Any?` or,
 generally, to the upper bound of the type parameter.
 
-<video src="https://youtu.be/0JRPA0tt9og" title="Generic inline classes in Kotlin 1.7.20"/>
+<video src="https://www.youtube.com/0JRPA0tt9og" title="Generic inline classes in Kotlin 1.7.20"/>
 
 Consider the following example:
 

@@ -80,7 +80,7 @@ Let's walk through the interfaces and their implementations. To learn about `Col
 To learn about `List`, `Set`, and `Map`, you can either read the corresponding sections or watch a video 
 by Sebastian Aigner, Kotlin Developer Advocate:
 
-<video src="https://youtu.be/F8jj7e-_jFA" title="Kotlin Collections Overview"/>
+<video src="https://www.youtube.com/F8jj7e-_jFA" title="Kotlin Collections Overview"/>
 
 ### Collection
 
