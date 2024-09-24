@@ -38,17 +38,18 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 8. Click **Create**.
 
-  > If you chose the Gradle build system, you have in your project a build script file: `build.gradle(.kts)`. It includes 
-  > the `kotlin("jvm")` plugin and dependencies required for your console application. Make sure that you use the latest 
-  > version of the plugin:
-  > 
-  > ```kotlin
-  > plugins {
-  >     kotlin("jvm") version "%kotlinVersion%"
-  >     application
-  > }
-  > ```
-  >{type="note"}
+    > If you chose the Gradle build system, you have in your project a build script file: `build.gradle(.kts)`. It includes 
+    > the `kotlin("jvm")` plugin and dependencies required for your console application. Make sure that you use the latest 
+    > version of the plugin:
+    > 
+    > ```kotlin
+    > plugins {
+    >     kotlin("jvm") version "%kotlinVersion%"
+    >     application
+    > }
+    > ```
+    >
+    {type="note"}
 
 ## Create an application
 
