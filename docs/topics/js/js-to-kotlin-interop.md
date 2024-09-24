@@ -182,7 +182,7 @@ See how Kotlin types are mapped to JavaScript ones:
 | `Unit`                                                                      | Undefined                  | Exportable when used as return type, but not when used as parameter type.                 |
 | `Any`                                                                       | `Object`                   |                                                                                           |
 | `Throwable`                                                                 | `Error`                    |                                                                                           |
-| Nullable `Type?`                                                            | `Type | null | undefined` |                                                                                            |
+| Nullable `Type?`                                                            | `Type | null | undefined`  |                                                                                            |
 | All other Kotlin types (except for those marked with `JsExport` annotation) | Not supported              | Includes Kotlin's [unsigned integer types](unsigned-integer-types.md).                    |
 
 Additionally, it is important to know that:
