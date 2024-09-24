@@ -18,7 +18,7 @@ guided by pragmatic design.
 <!-- <include element-id="all-proposals" from="all-proposals.topic"/> -->
 
 <snippet id="source">
-<table style="left">
+<table style="header-column">
 
 <!-- EXPLORATION AND DESIGN BLOCK -->
 

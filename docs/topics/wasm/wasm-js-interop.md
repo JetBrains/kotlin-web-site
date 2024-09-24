@@ -365,7 +365,8 @@ If you try to use a JavaScript `try-catch` expression to catch Kotlin/Wasm excep
 generic `WebAssembly.Exception` without directly accessible messages and data.
 
 ## Kotlin/Wasm and Kotlin/JS interoperability differences
-<a name="differences"></a>
+
+<a name="differences"/>
 
 Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interoperability, there are key differences to consider:
 

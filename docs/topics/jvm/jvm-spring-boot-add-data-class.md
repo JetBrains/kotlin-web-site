@@ -77,11 +77,11 @@ It requires changing the `MessageController` class to respond with a JSON docume
           </p>
        </def>
        <def title="Trailing comma">
-          <p>A <a href="coding-conventions.md#trailing-commas">trailing comma</a> is a comma symbol after the <b>last item</b> of a series of elements:
+          <p>A <a href="coding-conventions.md#trailing-commas">trailing comma</a> is a comma symbol after the <b>last item</b> of a series of elements:</p>
             <code-block lang="kotlin">
             Message("3", "Privet!"),
             </code-block>
-          This is a convenient feature of Kotlin syntax and is entirely optional – your code will still work without them.
+          <p>This is a convenient feature of Kotlin syntax and is entirely optional – your code will still work without them.
           </p>
           <p>In the example above, creating a list of <code>Message</code> objects includes the trailing comma after the last <code>listOf()</code> function argument.</p>
        </def>

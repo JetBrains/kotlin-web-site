@@ -102,7 +102,9 @@ To set up the publishing of an XCFramework:
    
    `swift package compute-checksum Shared.xcframework.zip`
 
-2. <anchor name="upload"/> Upload the ZIP file to the file storage of your choice. The file should be accessible
+<anchor name="upload"/>
+
+2. Upload the ZIP file to the file storage of your choice. The file should be accessible
    by a direct link. For example, here's how you can do it using releases in GitHub:
    
    <deflist collapsible="true">
