@@ -56,7 +56,7 @@ export async function htmlToText($, list, isFinalNode) {
                 continue;
 
             if (tag === 'code') {
-                const text = $(node).text();
+                const text = $(node).text().trim();
                 if (!text.includes('\n')) {
                     contentNodes.push('`' + cleanText(text) + '`');
                     nodes.push([node.nextSibling, level]);

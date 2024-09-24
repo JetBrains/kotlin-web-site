@@ -51,27 +51,31 @@ function cloneAttrsString(node) {
 
 /**
  * @param {import('cheerio').Cheerio} article
+ * @param {string} selector
+ * @param {($node: import('cheerio').Cheerio<Element>, attrs: string, content: string) => string} cb
+ */
+function replaceNode(article, selector, cb) {
+    const listStrong = article.find(selector);
+
+    for (let i = 0, length = listStrong.length; i < length; i++) {
+        const $node = listStrong.eq(i);
+        const newNode = cb($node, cloneAttrsString(listStrong[i]), $node.html());
+        $node.replaceWith(newNode);
+    }
+}
+
+/**
+ * @param {import('cheerio').Cheerio} article
  * @returns {void}
  */
 function replaceWRSSemantic(article) {
-    const listStrong = article.find('span.control');
+    replaceNode(article, 'span.control', ($node, attrs, content) => (
+        `<b ${attrs}>${content}</b>`
+    ));
 
-    for (let i = 0, length = listStrong.length; i < length; i++) {
-        const strong = listStrong.eq(i);
-        const node = listStrong[i];
-        const newNode = `<b ${cloneAttrsString(node)}>${strong.html()}</b>`;
-        strong.replaceWith(newNode);
-    }
-
-
-    const listCode = article.find('div.code-block');
-
-    for (let i = 0, length = listCode.length; i < length; i++) {
-        const code = listCode.eq(i);
-        const node = listStrong[i];
-        const newNode = `<code ${cloneAttrsString(node)}>${code.html()}</code>`;
-        code.replaceWith(newNode).addClass('code');
-    }
+    replaceNode(article, 'div.code-block', ($node, attrs, content) => (
+        `<code ${attrs}>${content}</code>`
+    ));
 }
 
 /**
