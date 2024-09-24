@@ -77,7 +77,7 @@ their names and behavior may be changed without notice.
 
 Specify a custom path to the Kotlin compiler used for the discovery of runtime libraries.
   
-### -P plugin:_pluginId_:_optionName_=_value_
+### -P plugin:pluginId:optionName=value
 
 Pass an option to a Kotlin compiler plugin.
 Available plugins and their options are listed in the **Tools > Compiler plugins** section of the documentation.
