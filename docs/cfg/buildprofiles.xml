@@ -16,7 +16,6 @@
 		<og-twitter>@kotlin</og-twitter>
 		<download-page/>
 		<productid>help/kotlin-reference</productid>
-		<feedback-enabled>true</feedback-enabled>
 		<feedback-widget>true</feedback-widget>
 		<feedback-support>https://kotl.in/issue</feedback-support>
 		<feedback-url>https://forms-service.jetbrains.com/feedback</feedback-url>
