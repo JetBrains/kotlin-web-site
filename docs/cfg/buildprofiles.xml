@@ -19,8 +19,6 @@
 		<download-page/>
 		<help-app-version>3</help-app-version>
 		<productid>help/kotlin-reference</productid>
-		<disqus-id>jetbrains</disqus-id>
-		<disqus-show>true</disqus-show>
 		<feedback-enabled>true</feedback-enabled>
 		<feedback-widget>true</feedback-widget>
 		<feedback-support>https://kotl.in/issue</feedback-support>
