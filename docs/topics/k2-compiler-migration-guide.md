@@ -1274,7 +1274,7 @@ for further reading. Changes listed with an asterisk (*) next to the Issue ID ar
 | [KT-55111](https://youtrack.jetbrains.com/issue/KT-55111)  | OptIn: forbid constructor calls with default arguments under marker                                                                        |
 | [KT-61182](https://youtrack.jetbrains.com/issue/KT-61182)  | Unit conversion is accidentally allowed to be used for expressions on variables + invoke resolution                                        |
 | [KT-55199](https://youtrack.jetbrains.com/issue/KT-55199)  | Forbid promoting callable references with adaptations to KFunction                                                                         |
-| [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776)  | [LC] K2 breaks \`false && ...\` and \`false || ...\`                                                                                     |
+| [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776)  | [LC] K2 breaks \`false && ...\` and \`false &VerticalLine;&VerticalLine; ...\`                                                             |
 | [KT-65682](https://youtrack.jetbrains.com/issue/KT-65682)  | [LC] Deprecate \`header\`/\`impl\` keywords                                                                                                |
 | [KT-45375](https://youtrack.jetbrains.com/issue/KT-45375)  | Generate all Kotlin lambdas via invokedynamic + LambdaMetafactory by default                                                               |
 
