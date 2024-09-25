@@ -8,7 +8,7 @@
 		<include-in-head>thirdparty/custom-settings.html</include-in-head>
 		<analytics-head-script-file>thirdparty/dpk-gtm-analytics.html</analytics-head-script-file>
 		<website-title>%instance% Documentation</website-title>
-		<automaticLinskSummaries>false</automaticLinskSummaries>
+		<automaticLinkSummaries>false</automaticLinkSummaries>
 		<kotlin-latest-url>%kotlinLatestUrl%</kotlin-latest-url>
 		<product-web-url>%kotlinLatestUrl%</product-web-url>
 		<web-root>https://kotlinlang.org/docs/</web-root>
