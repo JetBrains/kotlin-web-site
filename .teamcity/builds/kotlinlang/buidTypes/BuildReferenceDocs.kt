@@ -51,8 +51,6 @@ object BuildReferenceDocs : BuildType({
       name = "Prepare page views"
       scriptContent = """
             #!/usr/bin/env bash
-            npm i cheerio
-            
             ":" //# comment; exec /usr/bin/env node --input-type=module - "${'$'}@" < "${'$'}0"
             
             ${readScript("fix-wrs/index")}
