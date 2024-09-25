@@ -46,7 +46,16 @@ object BuildReferenceDocs : BuildType({
       dockerImage = "alpine"
       dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
     }
-
+    script {
+      name = "Prepare page views"
+      scriptContent = """
+          #!/usr/bin/env bash
+          npm i cheerio
+      """.trimIndent()
+      dockerImage = "node:22-slim"
+      dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
+      dockerPull = true
+    }
     script {
       name = "Prepare page views"
       scriptContent = """
