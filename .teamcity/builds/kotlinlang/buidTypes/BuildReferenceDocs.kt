@@ -30,10 +30,6 @@ object BuildReferenceDocs : BuildType({
     param("WH_PROJECT_NAME", "kotlin-reference")
   }
 
-  vcs { root(vcsRoots.KotlinLangOrg, """
-      docs/kr.tree
-  """.trimIndent()) }
-
   steps {
     script {
       name = "Fix paths"
@@ -45,16 +41,6 @@ object BuildReferenceDocs : BuildType({
       """.trimIndent()
       dockerImage = "alpine"
       dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
-    }
-    script {
-      name = "Install npm packages"
-      scriptContent = """
-          #!/usr/bin/env bash
-          npm i cheerio
-      """.trimIndent()
-      dockerImage = "node:22-slim"
-      dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
-      dockerPull = true
     }
     script {
       name = "Fix WRS-6159"
