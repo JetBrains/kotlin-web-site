@@ -19,7 +19,7 @@ function getBreadcrumbs(article) {
  */
 function dropIrrelevantSections(article) {
     article.find([
-        '.chapter:has(#what-s-next)', '.chapter:has(#next-step)',
+        '.chapter:has(#what-s-next)', '.chapter:has(#next-step)', '.chapter:has(#next-steps)',
         '.chapter:has(#learn-more)', '.chapter:has(#leave-feedback)'
     ].join(', ')).remove();
 }
@@ -37,6 +37,45 @@ function replaceMedia(article, pageUrl) {
         const url = video.find('object[data]').attr('data');
         video.replaceWith(url ? `&lt;${new URL(url, pageUrl).hostname}&gt;` : '&lt;video&gt;');
     }
+}
+
+/**
+ * @param {import('cheerio').Element} node
+ */
+function cloneAttrsString(node) {
+    return Object.entries((node.attribs || {})).map(([key, value]) => {
+        const val = typeof value === 'string' ? `="${value}"` : '';
+        return `${key}${val}`;
+    }).join(' ');
+}
+
+/**
+ * @param {import('cheerio').Cheerio} article
+ * @param {string} selector
+ * @param {($node: import('cheerio').Cheerio<Element>, attrs: string, content: string) => string} cb
+ */
+function replaceNode(article, selector, cb) {
+    const listStrong = article.find(selector);
+
+    for (let i = 0, length = listStrong.length; i < length; i++) {
+        const $node = listStrong.eq(i);
+        const newNode = cb($node, cloneAttrsString(listStrong[i]), $node.html());
+        $node.replaceWith(newNode);
+    }
+}
+
+/**
+ * @param {import('cheerio').Cheerio} article
+ * @returns {void}
+ */
+function replaceWRSSemantic(article) {
+    replaceNode(article, 'span.control', ($node, attrs, content) => (
+        `<b ${attrs}>${content}</b>`
+    ));
+
+    replaceNode(article, 'div.code-block', ($node, attrs, content) => (
+        `<code ${attrs}>${content}</code>`
+    ));
 }
 
 /**
@@ -158,10 +197,11 @@ async function docs($, url, data) {
 
     /** @type {import('cheerio').Cheerio} */
     const $article = $('article.article');
-    const pageUrl = new URL($('link[rel="canonical"]').attr('href'));
+    const pageUrl = new URL($('meta[property="og:url"]').attr('content'));
 
     dropUiElements($article);
     dropIrrelevantSections($article);
+    replaceWRSSemantic($article);
     replaceMedia($article, pageUrl.toString());
 
     const breadcrumbs = getBreadcrumbs($body);
