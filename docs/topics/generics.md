@@ -86,7 +86,7 @@ _or a subtype of_ `E`, not just `E` itself. This means that you can safely _read
 (elements of this collection are instances of a subclass of E), but _cannot write_ to
 it as you don't know what objects comply with that unknown subtype of `E`.
 In return for this limitation, you get the desired behavior: `Collection<String>` _is_ a subtype of `Collection<? extends Object>`.
-In other words, the wildcard with an _extends_\-bound (_upper_ bound) makes the type _covariant_.
+In other words, the wildcard with an _extends_-bound (_upper_ bound) makes the type _covariant_.
 
 The key to understanding why this works is rather simple: if you can only _take_ items from a collection,
 then using a collection of `String`s and reading `Object`s from it is fine. Conversely, if you can only _put_ items
@@ -183,7 +183,7 @@ fun demo(x: Comparable<Number>) {
 The words _in_ and _out_ seem to be self-explanatory (as they've already been used successfully in C# for quite some time),
 and so the mnemonic mentioned above is not really needed.  It can in fact be rephrased at a higher level of abstraction:
 
-**[The Existential](https://en.wikipedia.org/wiki/Existentialism) Transformation: Consumer in, Producer out\!** :-)
+**[The Existential](https://en.wikipedia.org/wiki/Existentialism) Transformation: Consumer in, Producer out!** :-)
 
 ## Type projections
 
@@ -314,7 +314,7 @@ sort(listOf(HashMap<Int, String>())) // Error: HashMap<Int, String> is not a sub
 ```
 
 The default upper bound (if there was none specified) is `Any?`. Only one upper bound can be specified inside the angle brackets.
-If the same type parameter needs more than one upper bound, you need a separate _where_\-clause:
+If the same type parameter needs more than one upper bound, you need a separate _where_-clause:
 
 ```kotlin
 fun <T> copyWhenGreater(list: List<T>, threshold: T): List<String>

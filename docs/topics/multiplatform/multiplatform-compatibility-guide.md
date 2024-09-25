@@ -406,7 +406,7 @@ Here's the planned deprecation cycle:
 
 * 1.9: introduce a deprecation warning for dependencies on legacy libraries
 * 2.0: raise the warning for dependencies on legacy libraries to an error
-* \>2.0: remove support for dependencies on legacy libraries; using such dependencies can cause build failures
+* &gt;2.0: remove support for dependencies on legacy libraries; using such dependencies can cause build failures
 
 <anchor name="compilation-source-deprecation"/>
 ## Deprecated API for adding Kotlin source sets directly to the Kotlin compilation
@@ -472,7 +472,7 @@ Here's the planned deprecation cycle:
 
 * 1.9.0: introduce a deprecation warning when `KotlinComplation.source` is used
 * 1.9.20: raise this warning to an error
-* \>1.9.20: remove `KotlinComplation.source` from the Kotlin Gradle plugin, attempts to use it lead to "unresolved
+* &gt;1.9.20: remove `KotlinComplation.source` from the Kotlin Gradle plugin, attempts to use it lead to "unresolved
   reference" errors during the buildscript compilation
 
 <anchor name="kotlin-js-plugin-deprecation"/>
@@ -787,7 +787,7 @@ Here's the planned deprecation cycle:
 
 * 1.3.40: introduce a warning when `targetPresets.jvmWithJava` is used
 * 1.9.20: raise this warning to an error
-* \>1.9.20: remove `targetPresets.jvmWithJava` API; attempts to use it lead to the buildscript compilation failure
+* &gt;1.9.20: remove `targetPresets.jvmWithJava` API; attempts to use it lead to the buildscript compilation failure
 
 > Even though the whole `targetPresets` API is deprecated, the `jvmWithJava` preset has a different deprecation timeline.
 >
@@ -809,7 +809,7 @@ Here's the planned deprecation cycle:
 * <=1.9.0: report a warning when `kotlin.mpp.androidSourceSetLayoutVersion=1` is used; the warning can be suppressed with
   `kotlin.mpp.androidSourceSetLayoutVersion1.nowarn=true` Gradle property
 * 1.9.20: raise this warning to an error; the error **cannot** be suppressed
-* \>1.9.20: remove support for `kotlin.mpp.androidSourceSetLayoutVersion=1`; the Kotlin Gradle plugin ignores the property
+* &gt;1.9.20: remove support for `kotlin.mpp.androidSourceSetLayoutVersion=1`; the Kotlin Gradle plugin ignores the property
 
 <anchor name="common-sourceset-with-dependson-deprecation"/>
 ## Deprecated commonMain and commonTest with custom dependsOn
@@ -847,7 +847,7 @@ to `commonMain` and vice versa.
 Here's the planned deprecation cycle:
 
 * 1.9.0: report a warning when `dependsOn` is used in `commonMain`
-* \>=1.9.20: report an error when `dependsOn` is used in `commonMain` or `commonTest`
+* &gt;=1.9.20: report an error when `dependsOn` is used in `commonMain` or `commonTest`
 
 <anchor name="target-presets-deprecation"/>
 ## Deprecated target presets API
@@ -905,7 +905,7 @@ Here's the planned deprecation cycle:
 
 * 1.9.20: report a warning on any usages of the presets-related API
 * 2.0: raise this warning to an error
-* \>2.0: remove the presets-related API from the public API of the Kotlin Gradle plugin; sources that still use it fail
+* &gt;2.0: remove the presets-related API from the public API of the Kotlin Gradle plugin; sources that still use it fail
   with "unresolved reference" errors, and binaries (for example, Gradle plugins) might fail with linkage errors
   unless recompiled against the latest versions of the Kotlin Gradle plugin
 
