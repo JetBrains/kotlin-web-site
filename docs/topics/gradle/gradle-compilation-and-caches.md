@@ -177,7 +177,7 @@ would then result in the Kotlin daemon's JVM args being similar to:
 
 > Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemon-s-behavior-with-jvm-arguments).
 >
-{type="note"}
+{style="note"}
 
 #### kotlin.daemon.jvm.options system property
 
@@ -278,7 +278,7 @@ When configuring the Kotlin daemon's JVM arguments, note that:
   > If you are already running a Kotlin daemon that has enough heap size to handle the compilation request,
   > even if other requested JVM arguments are different, this daemon will be reused instead of starting a new one.
   >
-  {type="note"}
+  {style="note"}
 
 If the following arguments are not specified, the Kotlin daemon will inherit them from the Gradle daemon:
 
