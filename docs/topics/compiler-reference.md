@@ -105,8 +105,7 @@ Read the compiler options from the given file. Such a file can contain compiler 
 and paths to the source files. Options and paths should be separated by whitespaces. For example:
 
 ```
--include-runtime -d hello.jar
-hello.kt
+-include-runtime -d hello.jar hello.kt
 ```
 
 To pass values that contain whitespaces, surround them with single (**'**) or double (**"**) quotes. If a value contains 
