@@ -295,7 +295,7 @@ The Kotlin daemon also has a number of defaults:
 * -D{java.servername.property}={localhostip}
 * --add-exports=java.base/sun.nio.ch=ALL-UNNAMED (Only for JDK 16+)
 
-You can use a tool like [VisualVM](https://visualvm.github.io/) to verify what the actual settings of a running JVM process like the Kotlin daemon are.
+The list of defaults is considered an implementation detail of the Kotlin daemon and may vary between versions. You can use a tool like [VisualVM](https://visualvm.github.io/) to verify what the actual settings of a running JVM process like the Kotlin daemon are.
 
 ## Rolling back to the previous compiler
 
