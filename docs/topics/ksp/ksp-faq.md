@@ -39,7 +39,7 @@ ksp-a.b.c is too old for kotlin-x.y.z. Please upgrade ksp or downgrade kotlin-gr
 
 > Users of processors don't need to bump processor's version because processors only depend on API.
 >
-{type="note"}
+{style="note"}
 
 For example, some processor is released and tested with KSP 1.0.1, which depends strictly on Kotlin 1.6.0.
 To make it work with Kotlin 1.6.20, the only thing you need to do is bump KSP to a version (for example, KSP 1.1.0) 

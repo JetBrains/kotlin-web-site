@@ -152,7 +152,7 @@ foo(strings = *arrayOf("a", "b", "c"))
 > When calling Java functions on the JVM, you can't use the named argument syntax because Java bytecode does not
 > always preserve the names of function parameters.
 >
-{type="note"}
+{style="note"}
 
 ### Unit-returning functions
 
@@ -270,7 +270,7 @@ infix fun Int.shl(x: Int): Int { ... }
 > * `a && b xor c` is equivalent to `a && (b xor c)`
 > * `a xor b in c` is equivalent to `(a xor b) in c`
 >
-{type="note"}
+{style="note"}
 
 Note that infix functions always require both the receiver and the parameter to be specified. When you're
 calling a method on the current receiver using the infix notation, use `this` explicitly. This is required to ensure

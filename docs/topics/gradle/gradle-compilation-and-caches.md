@@ -21,7 +21,7 @@ Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects, and 
 
 > Kotlin/JS projects use a different incremental compilation approach based on history files. 
 >
-{type="note"}
+{style="note"}
 
 There are several ways to disable incremental compilation:
 
@@ -36,7 +36,7 @@ Note: Any build with incremental compilation disabled invalidates incremental ca
 > Sometimes problems with incremental compilation become visible several rounds after the failure occurs. Use [build reports](#build-reports)
 > to track the history of changes and compilations. This can help you to provide reproducible bug reports.
 >
-{type="tip"}
+{style="tip"}
 
 If you'd like to learn more about how our current incremental compilation approach works and compares to the previous one,
 see our [blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/).
@@ -46,7 +46,7 @@ see our [blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-
 > Precise backup of compilation tasks' outputs is [Experimental](components-stability.md#stability-levels-explained).
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue/experimental-ic-optimizations).
 >
-{type="warning"}
+{style="warning"}
 
 Starting with Kotlin 1.8.20, you can enable precise backup, whereby only those classes that Kotlin recompiles in 
 the incremental compilation are backed up. Both full and precise backups help to run builds incrementally again 
@@ -61,7 +61,7 @@ the `gradle.properties` file:
 kotlin.compiler.preciseCompilationResultsBackup=true
 ```
 
-#### Example of using precise backup at JetBrains {initial-collapse-state="collapsed"}
+#### Example of using precise backup at JetBrains {initial-collapse-state="collapsed" collapsible="true"}
 
 In the following charts, you can see examples of using precise backup compared to full backup:
 
@@ -85,7 +85,7 @@ different results. The factors affecting performance include but are not limited
 * Which modules are affected by the changes and how big these modules are.
 * Whether the changes are ABI or non-ABI.
 
-#### Evaluating optimizations with build reports {initial-collapse-state="collapsed"}
+#### Evaluating optimizations with build reports {initial-collapse-state="collapsed" collapsible="true"}
 
 To estimate the impact of the optimization on your computer for your project and your scenarios, you can use 
 [Kotlin build reports](#build-reports). Enable reports in text file format by adding the following property 
@@ -189,7 +189,7 @@ When passing arguments, follow these rules:
 >
 > To overcome this, upgrade Gradle to the version 7.2 (or higher) or use the `kotlin.daemon.jvmargs` property – see the following section.
 >
-{type="warning"}
+{style="warning"}
 
 #### kotlin.daemon.jvmargs property
 
@@ -251,7 +251,7 @@ tasks.withType(CompileUsingKotlinDaemon).configureEach { task ->
 
 > In this case a new Kotlin daemon instance can start on task execution. Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemon-s-behavior-with-jvm-arguments).
 >
-{type="note"}
+{style="note"}
 
 ### Kotlin daemon's behavior with JVM arguments
 
@@ -264,7 +264,7 @@ When configuring the Kotlin daemon's JVM arguments, note that:
   > If you are already running a Kotlin daemon that has enough heap size to handle the compilation request,
   > even if other requested JVM arguments are different, this daemon will be reused instead of starting a new one.
   >
-  {type="note"}
+  {style="note"}
 * If the `Xmx` argument is not specified, the Kotlin daemon will inherit it from the Gradle daemon.
 
 ## Rolling back to the previous compiler
@@ -520,7 +520,7 @@ your `gradle.properties`.
 
 > JetBrains doesn't collect these statistics. You choose a place [where to store your reports](#enabling-build-reports).
 > 
-{type="note"}
+{style="note"}
 
 ## What's next?
 

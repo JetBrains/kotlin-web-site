@@ -7,7 +7,7 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 >
 > See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v%kotlinEapVersion%).
 >
-{type="note"}
+{style="note"}
 
 The Kotlin %kotlinEapVersion% release is out!
 This document contains some details about this EAP release.
@@ -54,7 +54,7 @@ interface MyImplementation : CoreLibraryApi
 > When you use the `@SubclassOptInRequired` annotation to require opt-in, 
 > the requirement is not propagated to any [inner or nested classes](nested-classes.md).
 >
-{type="note"}
+{style="note"}
 
 For a real-world example of how to use the `@SubclassOptInRequired` annotation in your API, 
 check out the [`SharedFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-shared-flow/) 
@@ -76,7 +76,7 @@ These features are available in preview, and we encourage you to try them and sh
 > 
 > Learn more in the [IntelliJ IDEA 2024.3 EAP blog post](https://blog.jetbrains.com/idea/2024/09/intellij-idea-2024-3-eap/#k2-mode-enabled-by-default).
 > 
-{type="tip"}
+{style="tip"}
 
 [See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
 
@@ -85,7 +85,7 @@ These features are available in preview, and we encourage you to try them and sh
 > The kapt plugin for the K2 compiler (K2 kapt) is in [Alpha](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained).
 > It may be changed at any time. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-71439/K2-kapt-feedback).
 >
-{type="warning"}
+{style="warning"}
 
 Currently, projects using the [kapt](https://kotlinlang.org/docs/kapt.html) plugin work with the K1 compiler by default, 
 supporting Kotlin versions up to 1.9.

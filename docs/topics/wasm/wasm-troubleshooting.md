@@ -3,7 +3,7 @@
 > Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time. Use it in scenarios before production.
 > We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
 >
-{type="note"}
+{style="note"}
 
 Kotlin/Wasm relies on new [WebAssembly proposals](https://webassembly.org/roadmap/) like [garbage collection](#garbage-collection-proposal) and 
 [exception handling](#exception-handling-proposal) to introduce improvements and new features within WebAssembly. 
@@ -27,7 +27,7 @@ the new WasmGC by default or if you need to make changes to the environment.
 
   > To run applications in an older browser, you need a Kotlin version older than 1.9.20.
   >
-  {type="note"}
+  {style="note"}
 
   1. In your browser, go to `chrome://flags/#enable-webassembly-garbage-collection`.
   2. Enable **WebAssembly Garbage Collection**.
@@ -45,7 +45,7 @@ Including Chromium-based browsers such as Edge, Brave, Opera, or Samsung Interne
 
    > To run applications in an older browser, you need a Kotlin version older than 1.9.20.
    >
-   {type="note"}
+   {style="note"}
 
   Run the application with the `--js-flags=--experimental-wasm-gc` command line argument.
 
@@ -90,7 +90,7 @@ The new exception handling proposal is activated using the `-Xwasm-use-new-excep
 > Learn more about setting up projects, using dependencies, and other tasks with our
 > [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples#readme).
 >
-{type="tip"}
+{style="tip"}
 
 ## Use default import
 

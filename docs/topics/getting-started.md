@@ -6,7 +6,7 @@ It's concise, safe, interoperable with Java and other languages, and provides ma
 To start, why not take our tour of Kotlin? This tour covers the fundamentals of the Kotlin programming language and can
 be completed entirely within your browser.
 
-<a href="kotlin-tour-welcome.md"><img src="start-kotlin-tour.svg" width="700" alt="Start the Kotlin tour"/></a>
+<a href="kotlin-tour-welcome.md"><img src="start-kotlin-tour.svg" width="700" alt="Start the Kotlin tour" style="block"/></a>
 
 ## Install Kotlin
 
@@ -90,7 +90,7 @@ Here you'll learn how to develop and improve your cross-platform application usi
 
    > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
    >
-   {type="tip"}
+   {style="tip"}
 
 4. **Learn more about Kotlin Multiplatform:**
    * Learn more about [Kotlin Multiplatform](multiplatform-get-started.md).

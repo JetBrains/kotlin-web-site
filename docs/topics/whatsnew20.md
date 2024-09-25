@@ -20,7 +20,7 @@ some other highlights:
 Kotlin 2.0 is a huge milestone for the JetBrains team. This release was the center of KotlinConf 2024. Check out the opening
 keynote, where we announced exciting updates and addressed the recent work on the Kotlin language:
 
-<video href="Ar73Axsz2YA" title="KotlinConf'24 - Keynote"/>
+<video src="https://www.youtube.com/v/Ar73Axsz2YA" title="KotlinConf'24 - Keynote"/>
 
 ## IDE support
 
@@ -54,7 +54,7 @@ the K2 compiler performs and find instructions on how to collect performance ben
 You can also watch this talk from KotlinConf 2024, where Michail Zarečenskij, the lead language designer, discusses the
 feature evolution in Kotlin and the K2 compiler:
 
-<video href="tAGJ5zJXJ7w" title="Kotlin Language Features in 2.0 and Beyond"/>
+<video src="https://www.youtube.com/v/tAGJ5zJXJ7w" title="Kotlin Language Features in 2.0 and Beyond"/>
 
 ### Current K2 compiler limitations
 
@@ -82,7 +82,7 @@ If you encounter any of the problems mentioned above, you can take the following
   > If you configure language and API versions for specific tasks, these values will override the values set by
   > the `compilerOptions` extension. In this case, language and API versions should not be higher than 1.9.
   >
-  {type="note"}
+  {style="note"}
 
 * Update the Gradle version in your project to 8.3 or later.
 
@@ -146,7 +146,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-k2-local-variables" validate="false"}
 
-#### Type checks with logical `or` operator
+#### Type checks with logical or operator
 
 In Kotlin 2.0.0, if you combine type checks for objects with an `or` operator (`||`), a smart cast
 is made to their closest common supertype. Before this change, a smart cast was always made to the `Any` type.
@@ -181,7 +181,7 @@ fun signalCheck(signalStatus: Any) {
 > The common supertype is an **approximation** of a union type. [Union types](https://en.wikipedia.org/wiki/Union_type)
 > are not supported in Kotlin.
 >
-{type="note"}
+{style="note"}
 
 #### Inline functions
 
@@ -386,7 +386,7 @@ In Kotlin 2.0.0, our implementation of the new Kotlin K2 compiler included a red
 strict separation between common and platform source sets. This change is most noticeable when you use [expected and actual functions](multiplatform-expect-actual.md#expected-and-actual-functions).
 Previously, it was possible for a function call in your common code to resolve to a function in platform code. For example:
 
-<table header-style="top">
+<table>
    <tr>
        <td>Common code</td>
        <td>Platform code</td>
@@ -432,7 +432,7 @@ In addition to the improved consistency of behavior across platforms, we also wo
 conflicting behavior between IntelliJ IDEA or Android Studio and the compiler. For instance, when you used [expected and actual classes](multiplatform-expect-actual.md#expected-and-actual-classes),
 the following would happen:
 
-<table header-style="top">
+<table>
    <tr>
        <td>Common code</td>
        <td>Platform code</td>
@@ -578,14 +578,14 @@ In addition, the Kotlin K2 compiler supports:
 
 > If you use any additional compiler plugins, check their documentation to see if they are compatible with K2.
 >
-{type="tip"}
+{style="tip"}
 
 ### Experimental Kotlin Power-assert compiler plugin
 
 > The Kotlin Power-assert plugin is [Experimental](components-stability.md#stability-levels-explained).
 > It may be changed at any time.
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 2.0.0 introduces an experimental Power-assert compiler plugin. This plugin improves the experience of writing
 tests by including contextual information in failure messages, making debugging easier and more efficient.
@@ -652,7 +652,7 @@ The IDE will analyze your code using its K2 mode.
 > The K2 mode is in Beta from 2024.2. We are working on stability and code analysis improvements, but not all IDE features
 > are supported yet.
 >
-{type="warning"}
+{style="warning"}
 
 After enabling K2 mode, you may notice differences in IDE analysis due to changes in compiler behavior. Learn how the
 new K2 compiler differs from the previous one in our [migration guide](k2-compiler-migration-guide.md).
@@ -813,7 +813,7 @@ improve runtime performance and reduce the binary size for your project.
 
 > This change only affects production compilation. The development compilation process stays the same.
 >
-{type="note"}
+{style="note"}
 
 ### Support for named export
 
@@ -858,7 +858,7 @@ For more information on Kotlin/Wasm interoperability with JavaScript, see the [d
 > Generating TypeScript declaration files in Kotlin/Wasm is [Experimental](components-stability.md#stability-levels-explained).
 > It may be dropped or changed at any time.
 >
-{type="warning"}
+{style="warning"}
 
 In Kotlin 2.0.0, the Kotlin/Wasm compiler is now capable of generating TypeScript definitions from any `@JsExport`
 declarations in your Kotlin code. These definitions can be used by IDEs and JavaScript tools to provide code
@@ -1064,7 +1064,7 @@ const allMyFriendNames = me.friends
 > Unfortunately, creating Kotlin collections from JavaScript is still unavailable. We're planning to add this
 > functionality in Kotlin 2.0.20.
 >
-{type="note"}
+{style="note"}
 
 ### Support for createInstance()
 
@@ -1079,7 +1079,7 @@ a new instance of the specified class, which is useful for getting the runtime r
 > The `js-plain-objects` plugin is [Experimental](components-stability.md#stability-levels-explained).
 > It may be dropped or changed at any time. The `js-plain-objects` plugin **only** supports the K2 compiler.
 >
-{type="warning"}
+{style="warning"}
 
 To make it easier to work with JavaScript APIs, in Kotlin 2.0.0, we provide a new plugin: [`js-plain-objects`](https://github.com/JetBrains/kotlin/tree/master/plugins/js-plain-objects),
 which you can use to create type-safe plain JavaScript objects. The plugin checks your code for any [external interfaces](wasm-js-interop.md#external-interfaces)
@@ -1237,7 +1237,7 @@ This version brings the following changes:
 > This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at
 > any time. Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 Prior to Kotlin 2.0.0, configuring compiler options in a multiplatform project with Gradle was only possible at a low
 level, such as per task, compilation, or source set. To make it easier to configure compiler options more generally in
@@ -1386,13 +1386,13 @@ kotlin {
 
 > `defFile` and `defFileProperty` parameters are deprecated.
 >
-{type="warning"}
+{style="warning"}
 
 ### Visibility changes in Gradle
 
 > This change impacts only Kotlin DSL users.
 >
-{type="note"}
+{style="note"}
 
 In Kotlin 2.0.0, we've modified the Kotlin Gradle Plugin for better control and safety in your build scripts. Previously,
 certain Kotlin DSL functions and properties intended for a specific DSL context would inadvertently leak into other DSL
@@ -1460,7 +1460,7 @@ our [#gradle Slack channel](https://kotlinlang.slack.com/archives/C19FD9681). [G
 > Do not commit the `.kotlin` directory to version control.
 > For example, if you are using Git, add `.kotlin` to your project's `.gitignore` file.
 >
-{type="warning"}
+{style="warning"}
 
 In Kotlin 1.8.20, the Kotlin Gradle plugin switched to storing its data in the Gradle project cache
 directory: `<project-root-directory>/.gradle/kotlin`. However, the `.gradle` directory is reserved for Gradle only,
@@ -1708,7 +1708,7 @@ see [What's new in Kotlin 1.8.20](whatsnew1820.md#a-modern-and-performant-replac
 > instead because it has less of a performance impact. Every time you call `enumValues<T>()`, a new array is created, whereas
 > whenever you call `enumEntries<T>()`, the same list is returned each time, which is far more efficient.
 >
-{type="tip"}
+{style="tip"}
 
 For example:
 

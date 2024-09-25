@@ -12,7 +12,7 @@ Here are some major improvements:
 
 You can also find a short overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/08/kotlin-1-5-30-released/) and this video:
 
-<video href="rNbb3A9IdOo" title="Kotlin 1.5.30"/>
+<video src="https://www.youtube.com/v/rNbb3A9IdOo" title="Kotlin 1.5.30"/>
 
 ## Language features
 
@@ -30,7 +30,7 @@ and type inference:
 > Support for sealed (exhaustive) when statements is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-12380).
 >
-{type="warning"}
+{style="warning"}
 
 An _exhaustive_ [`when`](control-flow.md#when-expression) statement contains branches for all possible types or values of its subject or for some types plus an `else` branch. In other words, it covers all possible cases.
 
@@ -38,7 +38,7 @@ We're planning to prohibit non-exhaustive `when` statements soon to make the beh
 
 > Enums already get a warning.
 >
-{type="note"}
+{style="note"}
 
 ```kotlin
 sealed class Mode {
@@ -101,7 +101,7 @@ kotlin {
 > Support for suspending functions as supertypes is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-18707).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.5.30 provides a preview of the ability to use a `suspend` functional type as a supertype with some limitations.
 
@@ -152,7 +152,7 @@ The feature has the following restrictions:
 > It may change at any time. [See how to opt-in](opt-in-requirements.md).
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 The author of a library can mark an experimental API as [requiring opt-in](opt-in-requirements.md#create-opt-in-requirement-annotations) to inform users about its experimental state. The compiler raises a warning or error when the API is used and requires [explicit consent](opt-in-requirements.md#opt-in-to-using-api) to suppress it.
 
@@ -188,7 +188,7 @@ Learn more about [opt-in requirements](opt-in-requirements.md).
 > It may change at any time. [See how to opt-in](opt-in-requirements.md).
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.5.30 presents new rules for using and declaring opt-in requirement annotations on different [targets](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/). The compiler now reports an error for use cases that are impractical to handle at compile time. In Kotlin 1.5.30:
 * Marking local variables and value parameters with opt-in requirement annotations is forbidden at the use site.
@@ -264,7 +264,7 @@ See the [Gradle](#gradle) section for Kotlin Gradle plugin updates on the JVM pl
 > Instantiation of annotation classes is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-45395).
 >
-{type="warning"}
+{style="warning"}
 
 With Kotlin 1.5.30 you can now call constructors of [annotation classes](annotations.md) in arbitrary code to obtain a resulting instance. This feature covers the same use cases as the Java convention that allows the implementation of an annotation interface.
 
@@ -374,14 +374,14 @@ This parameter will not appear in the Podspec file. When Xcode runs the Gradle b
 
 > There's no need to declare the `Debug` and `Release` configurations because they are supported by default.
 >
-{type="note"}
+{style="note"}
 
 ### Experimental interoperability with Swift 5.5 async/await
 
 > Concurrency interoperability with Swift async/await is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > You should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47610).
 >
-{type="warning"}
+{style="warning"}
 
 We added [support for calling Kotlin's suspending functions from Objective-C and Swift in 1.4.0](whatsnew14.md#support-for-kotlin-s-suspending-functions-in-swift-and-objective-c), and now we're improving it to keep up with a new Swift 5.5 feature – [concurrency with `async` and `await` modifiers](https://github.com/apple/swift-evolution/blob/main/proposals/0296-async-await.md).
 
@@ -431,7 +431,7 @@ Please share your thoughts and concerns about the transition to the LLD linker i
 * [Support for XCFrameworks](#support-for-xcframeworks)
 * [New default publishing setup for Android artifacts](#new-default-publishing-setup-for-android-artifacts)
 
-### Ability to use custom `cinterop` libraries in shared native code
+### Ability to use custom cinterop libraries in shared native code
 
 Kotlin Multiplatform gives you an [option](multiplatform-share-on-platforms.md#connect-platform-specific-libraries) to use platform-dependent interop libraries in shared source sets. Before 1.5.30, this worked only with [platform libraries](native-platform-libs.md) shipped with Kotlin/Native distribution. Starting from 1.5.30, you can use it with your custom `cinterop` libraries. To enable this feature, add the `kotlin.mpp.enableCInteropCommonization=true` property in your `gradle.properties`:
 
@@ -577,7 +577,7 @@ A Java toolchain:
 * Sets the [`jdkHome` option](gradle-compiler-options.md#attributes-specific-to-jvm) available for JVM targets.
   > [The ability to set the `jdkHome` option directly has been deprecated](https://youtrack.jetbrains.com/issue/KT-46541).
   >
-  {type="warning"}
+  {style="warning"}
 
 * Sets the [`kotlinOptions.jvmTarget`](gradle-compiler-options.md#attributes-specific-to-jvm) to the toolchain's JDK version if the user didn't set the `jvmTarget` option explicitly.
   If the toolchain is not configured, the `jvmTarget` field uses the default value. Learn more about [JVM target compatibility](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks).
@@ -743,7 +743,7 @@ In Kotlin 1.5.30, there's a new logic for the Kotlin daemon's JVM arguments. Eac
 
     > In this case a new Kotlin daemon instance can start on task execution. Learn more about [the Kotlin daemon's interactions with JVM arguments](gradle-compilation-and-caches.md#setting-kotlin-daemon-s-jvm-arguments).
     >
-    {type="note"}
+    {style="note"}
 
 For more information about the Kotlin daemon, see [the Kotlin daemon and using it with Gradle](gradle-compilation-and-caches.md#the-kotlin-daemon-and-how-to-use-it-with-gradle).
 
@@ -760,7 +760,7 @@ Kotlin 1.5.30 is bringing improvements to the standard library's `Duration` and 
 > The Duration API is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We would appreciate hearing your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 Before Kotlin 1.5.30, the [`Duration.toString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/to-string.html) function would return a string representation of its argument expressed in the unit that yielded the most compact and readable number value.
 From now on, it will return a string value expressed as a combination of numeric components, each in its own unit.
@@ -784,14 +784,14 @@ If you want to express duration in a single unit, use the overloaded `Duration.t
 
 > We recommend using [`Duration.toIsoString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/to-iso-string.html) in certain cases, including serialization and interchange. `Duration.toIsoString()` uses the stricter [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format instead of `Duration.toString()`.
 >
-{type="note"}
+{style="note"}
 
 ### Parsing Duration from String
 
 > The Duration API is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We would appreciate hearing your feedback on it in [this issue](https://github.com/Kotlin/KEEP/issues/190).
 >
-{type="warning"}
+{style="warning"}
 
 In Kotlin 1.5.30, there are new functions in the Duration API:
 * [`parse()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/parse.html), which supports parsing the outputs of:
@@ -848,7 +848,7 @@ fun main() {
 > `Regex.matchAt()` and `Regex.matchesAt()` functions are [Experimental](components-stability.md). They may be dropped or changed at any time.
 > Use them only for evaluation purposes. We would appreciate hearing your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issue/KT-34021).
 >
-{type="warning"}
+{style="warning"}
 
 The new `Regex.matchAt()` and `Regex.matchesAt()` functions provide a way to check whether a regex has an exact match at a particular position in a `String` or `CharSequence`.
 
@@ -886,7 +886,7 @@ fun main(){
 > `Regex.splitToSequence()` and `CharSequence.splitToSequence(Regex)` functions are [Experimental](components-stability.md). They may be dropped or changed at any time.
 > Use them only for evaluation purposes. We would appreciate hearing your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issue/KT-23351).
 >
-{type="warning"}
+{style="warning"}
 
 The new `Regex.splitToSequence()` function is a lazy counterpart of [`split()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-regex/split.html). It splits the string around matches of the given regex, but it returns the result as a [Sequence](sequences.md) so that all operations on this result are executed lazily.
 

@@ -27,7 +27,7 @@ That means there's almost no runtime overhead for working with nullable types in
 > We say "almost" because, even though [intrinsic](https://en.wikipedia.org/wiki/Intrinsic_function) checks _are_ generated,
 their overhead is minimal.
 >
-{type="note"}
+{style="note"}
 
 In Java, if you don't write null checks, methods may throw a `NullPointerException`:
 
@@ -335,7 +335,7 @@ To make it return `null`, you can use the [_boxed_ type](https://docs.oracle.com
 However, it's more resource-efficient to make such functions return a negative value and then check the value –
 you would do the check anyway, but no additional boxing is performed this way.
 >
-{type="note"}
+{style="note"}
 
 ## What's next?
 

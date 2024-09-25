@@ -60,7 +60,7 @@ Install the [CocoaPods dependency manager](https://cocoapods.org/) using the ins
 > This way of installation doesn't work on devices with Apple M chips. Use other tools to set up an environment to work
 > with CocoaPods.
 >
-{type="note"}
+{style="note"}
 
 You can install the CocoaPods dependency manager with the default Ruby that should be available on macOS:
 
@@ -78,7 +78,7 @@ sudo gem install cocoapods
 > However, it cannot be updated with Homebrew, and if the installed Xcodeproj doesn't support the newest Xcode version yet,
 > you'll get errors with Pod installation. If this is the case, try other tools to install CocoaPods.
 >
-{type="warning"}
+{style="warning"}
 
 1. Install [Homebrew](https://brew.sh/) in case you don't have it yet.
 2. Install CocoaPods:
@@ -198,7 +198,7 @@ If you already have a project, you can add and configure the Kotlin CocoaPods Gr
 
     > See the full syntax of Kotlin DSL in the [Kotlin Gradle plugin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/targets/native/cocoapods/CocoapodsExtension.kt).
     >
-    {type="note"}
+    {style="note"}
     
 3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
@@ -247,14 +247,14 @@ of specs at the beginning of your Podfile:
 > After making changes in the Podfile, run **Reload All Gradle Projects** in IntelliJ IDEA
 > (or **Sync Project with Gradle Files** in Android Studio) to re-import the project.
 >
-{type="note"}
+{style="note"}
 
 If you don't make these changes to the Podfile, the `podInstall` task will fail, and the CocoaPods plugin will show
 an error message in the log.
 
 ## Possible issues and solutions
 
-### CocoaPods installation {initial-collapse-state="collapsed"}
+### CocoaPods installation {initial-collapse-state="collapsed" collapsible="true"}
 
 #### Ruby installation
 
@@ -272,7 +272,7 @@ install the [`cocoapods-generate`](https://github.com/square/cocoapods-generate#
 However, `cocoapods-generate` is not compatible with Ruby 3.0.0 or later. In this case, downgrade Ruby or upgrade Kotlin
 to 1.7.0 or later.
 
-### Build errors when using Xcode {initial-collapse-state="collapsed"}
+### Build errors when using Xcode {initial-collapse-state="collapsed" collapsible="true"}
 
 Some variations of the CocoaPods installation can lead to build errors in Xcode.
 Generally, the Kotlin Gradle plugin discovers the `pod` executable in `PATH`, but this may be inconsistent depending on
@@ -293,7 +293,7 @@ manually or using a shell command:
     echo -e "kotlin.apple.cocoapods.bin=$(which pod)" >> local.properties
     ```
 
-### Module not found {initial-collapse-state="collapsed"}
+### Module not found {initial-collapse-state="collapsed" collapsible="true"}
 
 You may encounter a `module 'SomeSDK' not found` error that is connected with the [C-interop](native-c-interop.md) issue.
 Try these workarounds to avoid this error:
@@ -324,7 +324,7 @@ pod("NearbyMessages") {
 Check the [CocoaPods documentation](https://guides.cocoapods.org/) for more information. If nothing works, and you still
 encounter this error, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
 
-### Rsync error {initial-collapse-state="collapsed"}
+### Rsync error {initial-collapse-state="collapsed" collapsible="true"}
 
 You might encounter the `rsync error: some files could not be transferred` error. It's a [known issue](https://github.com/CocoaPods/CocoaPods/issues/11946)
 that occurs if the application target in Xcode has sandboxing of the user scripts enabled.

@@ -9,7 +9,7 @@ there are key differences to consider.
 > Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time. Use it in scenarios before production. 
 > We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
 >
-{type="note"}
+{style="note"}
 
 ## Use JavaScript code in Kotlin
 
@@ -186,7 +186,7 @@ If there are JavaScript syntax errors, they are reported when you run your JavaS
 
 > The `@JsFun` annotation has similar functionality and will likely be deprecated.
 >
-{type="note"}
+{style="note"}
 
 ### JavaScript modules
 
@@ -268,7 +268,7 @@ kotlin {
 > Generating TypeScript declaration files in Kotlin/Wasm is [Experimental](components-stability.md#stability-levels-explained).
 > It may be dropped or changed at any time.
 >
-{type="warning"}
+{style="warning"}
 
 ## Type correspondence
 
@@ -365,7 +365,8 @@ If you try to use a JavaScript `try-catch` expression to catch Kotlin/Wasm excep
 generic `WebAssembly.Exception` without directly accessible messages and data.
 
 ## Kotlin/Wasm and Kotlin/JS interoperability differences
-<a name="differences"></a>
+
+<a name="differences"/>
 
 Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interoperability, there are key differences to consider:
 
@@ -405,4 +406,4 @@ Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interop
 > }
 > ```
 >
-{type="note"}
+{style="note"}

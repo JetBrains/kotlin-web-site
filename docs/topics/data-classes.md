@@ -40,7 +40,7 @@ Data classes may extend other classes (see [Sealed classes](sealed-classes.md) f
 > data class User(val name: String = "", val age: Int = 0)
 > ```
 >
-{type="note"}
+{style="note"}
 
 ## Properties declared in the class body
 

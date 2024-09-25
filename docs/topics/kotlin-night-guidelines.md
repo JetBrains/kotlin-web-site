@@ -4,7 +4,7 @@ Kotlin Night is a meetup that includes 3-4 talks on Kotlin or related technologi
 
 > For Kotlin Night brand assets, see [Kotlin brand assets documentation](kotlin-brand-assets.md#kotlin-night-brand-assets).
 > 
-{type="note"}
+{style="note"}
 
 ## Event guidelines
 

@@ -6,7 +6,7 @@ To handle these scenarios, Kotlin provides two key approaches: _object declarati
 
 > A singleton ensures that a class has only one instance and provides a global point of access to it.
 > 
-{type="tip"}
+{style="tip"}
 
 Object declarations and object expressions are best used for scenarios when:
 
@@ -70,7 +70,7 @@ fun main() {
 
 > The initialization of an object declaration is thread-safe and done on first access.
 >
-{type="tip"}
+{style="tip"}
 
 To refer to the `object`, use its name directly:
 
@@ -137,7 +137,7 @@ Additionally, the compiler generates several functions for your `data object`:
 
   > You can't provide a custom `equals` or `hashCode` implementation for a `data object`.
   >
-  {type="note"}
+  {style="note"}
 
 The `equals()` function for a `data object` ensures that all objects that have the type of your `data object` are considered equal.
 In most cases, you will only have a single instance of your `data object` at runtime, since a `data object` declares a singleton.
@@ -148,7 +148,7 @@ the objects are treated as being equal.
 > Make sure that you only compare `data objects` structurally (using the `==` operator) and never by reference (using the `===` operator).
 > This helps you to avoid pitfalls when more than one instance of a data object exists at runtime.
 >
-{type="warning"}
+{style="warning"}
 
 ```kotlin
 import java.lang.reflect.Constructor

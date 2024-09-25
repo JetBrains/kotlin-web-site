@@ -146,7 +146,7 @@ As a result, you get a string containing the state of this object in the JSON fo
 > val jsonList = Json.encodeToString(dataList)
 > ```
 > 
-{type="note"}
+{style="note"}
 
 3. Use the `decodeFromString()` function to deserialize an object from JSON:
 

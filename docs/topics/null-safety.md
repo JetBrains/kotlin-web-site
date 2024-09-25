@@ -32,7 +32,7 @@ The only possible causes of an NPE in Kotlin are:
 > when you try to access a property that has not been initialized, ensuring that non-nullable properties are not used until they are ready. 
 > This typically happens with [`lateinit` properties](properties.md#late-initialized-properties-and-variables).
 >
-{type="tip"}
+{style="tip"}
 
 ## Nullable types and non-nullable types
 
@@ -121,7 +121,7 @@ performing operations. There are several ways to handle nullables:
 
 Read the next sections for details and examples of `null` handling tools and techniques.
 
-## Check for `null` with the `if` conditional
+## Check for null with the if conditional
 
 When working with nullable types, you need to handle nullability safely to avoid an NPE. One way to 
 handle this is checking for nullability explicitly with the `if` conditional expression. 

@@ -4,7 +4,7 @@
 > [JS IR backend](#dce-and-javascript-ir-compiler) supports DCE out of the box, and the [@JsExport annotation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-js-export/) 
 > allows specifying which Kotlin functions and classes to retain during DCE.
 >
-{type="warning"}
+{style="warning"}
 
 The Kotlin Multiplatform Gradle plugin includes a _[dead code elimination](https://wikipedia.org/wiki/Dead_code_elimination)_ (_DCE_) tool.
 Dead code elimination is often also called _tree shaking_. It reduces the size or the resulting JavaScript code by
@@ -54,7 +54,7 @@ with the module name as a prefix: `moduleName.dot.separated.package.name.declara
 >in the generated JavaScript code. To keep such functions from elimination, use the mangled names in the `keep` arguments
 >as they appear in the generated JavaScript code.
 >
-{type="note"}
+{style="note"}
 
 ```groovy
 kotlin {
@@ -75,7 +75,7 @@ generated JavaScript code.
 > Keeping whole packages or modules from elimination can prevent DCE from removing many unused declarations. Because of
 > this, it is preferable to select individual declarations which should be excluded from DCE one by one.
 >
-{type="note"}
+{style="note"}
 
 ## Disable DCE
 

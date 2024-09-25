@@ -110,7 +110,7 @@ HTML("""
 
 > Mark your notebook as **Trusted** at the top of the file to be able to execute scripts.
 >
-{type="note"}
+{style="note"}
 
 ## Images
 

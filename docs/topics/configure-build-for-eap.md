@@ -73,7 +73,7 @@ see [EAP build details](eap.md#build-details).
 > 
 > If there are incompatible changes in next EAP versions, we release a new version of the library.
 >
-{type="note"}
+{style="note"}
 
 Here is an example.
 

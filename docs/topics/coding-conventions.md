@@ -34,7 +34,7 @@ files in `org.example.kotlin.network.socket` should be in the `network/socket` s
 >source root as the Java source files, and follow the same directory structure: each file should be stored in the 
 >directory corresponding to each package statement.
 >
-{type="note"}
+{style="note"}
 
 ### Source file names
 
@@ -58,7 +58,7 @@ associated with the name of the source set. For example:
 
 As for the common source set, files with top-level declarations should not have a suffix. For example, `commonMain/kotlin/Platform.kt`.
 
-##### Technical details {initial-collapse-state="collapsed"}
+##### Technical details {initial-collapse-state="collapsed" collapsible="true"}
 
 We recommend following this file naming scheme in multiplatform projects due to JVM limitations: it doesn't allow
 top-level members (functions, properties).
@@ -91,7 +91,7 @@ avoid clashes while retaining code readability.
 >   However, this naming scheme can help you avoid situations when a simple refactoring
 > or an addition could include a top-level function and result in the same "Duplicate JVM classes" error.
 > 
-{type="tip"}
+{style="tip"}
 
 ### Source file organization
 
@@ -252,7 +252,7 @@ if (elements != null) {
 >In Kotlin, semicolons are optional, and therefore line breaks are significant. The language design assumes 
 >Java-style braces, and you may encounter surprising behavior if you try to use a different formatting style.
 >
-{type="note"}
+{style="note"}
 
 ### Horizontal whitespace
 
@@ -642,7 +642,7 @@ Trailing commas are entirely optional – your code will still work without them
 To enable trailing commas in the IntelliJ IDEA formatter, go to **Settings/Preferences | Editor | Code Style | Kotlin**, 
 open the **Other** tab and select the **Use trailing comma** option.
 
-#### Enumerations {initial-collapse-state="collapsed"}
+#### Enumerations {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 enum class Direction {
@@ -653,7 +653,7 @@ enum class Direction {
 }
 ```
 
-#### Value arguments {initial-collapse-state="collapsed"}
+#### Value arguments {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 fun shift(x: Int, y: Int) { /*...*/ }
@@ -668,7 +668,7 @@ val colors = listOf(
 )
 ```
 
-#### Class properties and parameters {initial-collapse-state="collapsed"}
+#### Class properties and parameters {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 class Customer(
@@ -681,7 +681,7 @@ class Customer(
 )
 ```
 
-#### Function value parameters {initial-collapse-state="collapsed"}
+#### Function value parameters {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 fun powerOf(
@@ -698,7 +698,7 @@ fun print(
 ) {}
 ```
 
-#### Parameters with optional type (including setters) {initial-collapse-state="collapsed"}
+#### Parameters with optional type (including setters) {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 val sum: (Int, Int, Int) -> Int = fun(
@@ -711,7 +711,7 @@ val sum: (Int, Int, Int) -> Int = fun(
 println(sum(8, 8, 8))
 ```
 
-#### Indexing suffix {initial-collapse-state="collapsed"}
+#### Indexing suffix {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 class Surface {
@@ -724,7 +724,7 @@ fun getZValue(mySurface: Surface, xValue: Int, yValue: Int) =
     ]
 ```
 
-#### Parameters in lambdas {initial-collapse-state="collapsed"}
+#### Parameters in lambdas {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 fun main() {
@@ -738,7 +738,7 @@ fun main() {
 }
 ```
 
-#### `when` entry {initial-collapse-state="collapsed"}
+#### when entry {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 fun isReferenceApplicable(myReference: KClass<*>) = when (myReference) {
@@ -750,7 +750,7 @@ fun isReferenceApplicable(myReference: KClass<*>) = when (myReference) {
 }
 ```
 
-#### Collection literals (in annotations) {initial-collapse-state="collapsed"}
+#### Collection literals (in annotations) {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 annotation class ApplicableFor(val services: Array<String>)
@@ -763,7 +763,7 @@ annotation class ApplicableFor(val services: Array<String>)
 fun run() {}
 ```
 
-#### Type arguments {initial-collapse-state="collapsed"}
+#### Type arguments {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 fun <T1, T2> foo() {}
@@ -775,7 +775,7 @@ fun main() {
 }
 ```
 
-#### Type parameters {initial-collapse-state="collapsed"}
+#### Type parameters {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 class MyMap<
@@ -784,7 +784,7 @@ class MyMap<
         > {}
 ```
 
-#### Destructuring declarations {initial-collapse-state="collapsed"}
+#### Destructuring declarations {initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 data class Car(val manufacturer: String, val model: String, val year: Int)

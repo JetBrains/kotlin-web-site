@@ -3,7 +3,7 @@
 > Support for the legacy memory manager has been completely removed in Kotlin 1.9.20. Migrate your projects to 
 > the current memory model, enabled by default since Kotlin 1.7.20.
 >
-{type="note"}
+{style="note"}
 
 This guide compares the new [Kotlin/Native memory manager](native-memory-manager.md) with the legacy one and
 describes how to migrate your projects.

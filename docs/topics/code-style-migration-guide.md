@@ -83,7 +83,7 @@ Add `kotlin.code.style official` property to root `pom.xml` project file.
 >Having the **kotlin.code.style** option set may modify the code style scheme during a project import and may change
 >the code style settings.
 >
-{type="warning"}
+{style="warning"}
 
 After updating your code style settings, activate **Reformat Code** in the project view on the desired scope.
 

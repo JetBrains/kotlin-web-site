@@ -1,6 +1,8 @@
 [//]: # (title: Control flow)
 
-<microformat>
+<no-index/>
+
+<tldr>
     <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-hello-world.md">Hello world</a><br />
         <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />
         <img src="icon-3-done.svg" width="20" alt="Third step" /> <a href="kotlin-tour-collections.md">Collections</a><br />
@@ -8,7 +10,7 @@
         <img src="icon-5-todo.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-functions.md">Functions</a><br />
         <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-classes.md">Classes</a><br />
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
-</microformat>
+</tldr>
 
 Like other programming languages, Kotlin is capable of making decisions based on whether a piece of code is evaluated to
 be true. Such pieces of code are called **conditional expressions**. Kotlin is also able to create and iterate
@@ -24,7 +26,7 @@ Kotlin provides `if` and `when` for checking conditional expressions.
 > * Makes it easier to add another branch.
 > * Leads to fewer mistakes in your code.
 > 
-{type="note"}
+{style="note"}
 
 ### If
 
@@ -102,7 +104,7 @@ fun main() {
 > Note that all branch conditions are checked sequentially until one of them is satisfied. So only the first suitable 
 > branch is executed.
 >
-{type="note"}
+{style="note"}
 
 An **expression** returns a value that can be used later in your code.
 
@@ -193,7 +195,7 @@ You can also do the same with `Char` ranges:
 
 ## Conditional expressions and ranges practice
 
-### Exercise 1 {initial-collapse-state="collapsed" id="conditional-expressions-exercise-1"}
+### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="conditional-expressions-exercise-1"}
 
 Create a simple game where you win if throwing two dice results in the same number. Use `if` to print `You win :)`
 if the dice match or `You lose :(` otherwise.
@@ -234,9 +236,9 @@ fun main() {
         println("You lose :(")
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-1"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" id="conditional-expressions-exercise-2"}
+### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="conditional-expressions-exercise-2"}
 
 Using a `when` expression, update the following program so that it prints the corresponding actions when you input the 
 names of game console buttons.
@@ -277,7 +279,7 @@ fun main() {
     )
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-2"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-conditional-solution-2"}
 
 ## Loops
 
@@ -338,7 +340,7 @@ In the first use case (`while`):
 > The following examples use the [increment operator](operator-overloading.md#increments-and-decrements) `++` to
 > increment the value of the `cakesEaten` variable.
 >
-{type="tip"}
+{style="tip"}
 
 ```kotlin
 fun main() {
@@ -391,7 +393,7 @@ Now that you know the fundamentals of Kotlin control flow, it's time to learn ho
 
 ## Loops practice
 
-### Exercise 1 {initial-collapse-state="collapsed" id="loops-exercise-1"}
+### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="loops-exercise-1"}
 
 You have a program that counts pizza slices until there’s a whole pizza with 8 slices. Refactor this program in two ways:
 
@@ -436,7 +438,7 @@ fun main() {
     println("There are $pizzaSlices slices of pizza. Hooray! We have a whole pizza! :D")
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution 1" id="kotlin-tour-control-flow-loops-exercise-1-solution-1"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-control-flow-loops-exercise-1-solution-1"}
 
 |---|---|
 ```kotlin
@@ -451,9 +453,9 @@ fun main() {
 }
 
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution 2" id="kotlin-tour-control-flow-loops-exercise-1-solution-2"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-control-flow-loops-exercise-1-solution-2"}
 
-### Exercise 2 {initial-collapse-state="collapsed" id="loops-exercise-2"}
+### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="loops-exercise-2"}
 
 Write a program that simulates the [Fizz buzz](https://en.wikipedia.org/wiki/Fizz_buzz) game. Your task is to print 
 numbers from 1 to 100 incrementally, replacing any number divisible by three with the word "fizz", and any number 
@@ -496,9 +498,9 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-2"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" id="loops-exercise-3"}
+### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="loops-exercise-3"}
 
 You have a list of words. Use `for` and `if` to print only the words that start with the letter `l`.
 
@@ -528,7 +530,7 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-3"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-3"}
 
 ## Next step
 

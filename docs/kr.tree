@@ -1,466 +1,434 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE product-profile
-        SYSTEM "https://resources.jetbrains.com/stardust/product-profile.dtd">
-
-<product-profile id="kr"
-                 name="Kotlin"
-                 start-page="home.xml"
-                 status="release">
-
-    <toc-element id="home.xml" toc-title="Home"/>
-
-    <toc-element toc-title="Get started" id="getting-started.md"/>
-
-    <toc-element toc-title="Take Kotlin tour" id="kotlin-tour-welcome.md">
-        <toc-element id="kotlin-tour-hello-world.md" hidden="true"/>
-        <toc-element id="kotlin-tour-basic-types.md" hidden="true"/>
-        <toc-element id="kotlin-tour-collections.md" hidden="true"/>
-        <toc-element id="kotlin-tour-control-flow.md" hidden="true"/>
-        <toc-element id="kotlin-tour-functions.md" hidden="true"/>
-        <toc-element id="kotlin-tour-classes.md" hidden="true"/>
-        <toc-element id="kotlin-tour-null-safety.md" hidden="true"/>
-    </toc-element>
-
-    <toc-element toc-title="Kotlin overview">
-        <toc-element id="multiplatform.md"/>
-        <toc-element id="server-overview.md" accepts-web-file-names="httpservlets.html"/>
-        <toc-element id="android-overview.md"/>
-        <toc-element id="wasm-overview.md"/>
-        <toc-element id="native-overview.md"/>
-        <toc-element id="js-overview.md"/>
-        <toc-element id="data-analysis-overview.md" accepts-web-file-names="data-science-overview.html"/>
-        <toc-element id="competitive-programming.md"/>
-    </toc-element>
-
-    <toc-element toc-title="What's new in Kotlin">
-        <toc-element id="whatsnew2020.md" toc-title="Kotlin 2.0.20" accepts-web-file-names="whatsnew.html"/>
-        <toc-element id="whatsnew20.md" toc-title="Kotlin 2.0.0"/>
-        <toc-element id="whatsnew-eap.md" toc-title="Kotlin 2.1.0-Beta1"/>
-        <toc-element toc-title="Earlier versions">
-            <toc-element id="whatsnew1920.md" toc-title="Kotlin 1.9.20"/>
-            <toc-element id="whatsnew19.md" toc-title="Kotlin 1.9.0"/>
-            <toc-element id="whatsnew1820.md" toc-title="Kotlin 1.8.20"/>
-            <toc-element id="whatsnew18.md" toc-title="Kotlin 1.8.0"/>
-            <toc-element id="whatsnew1720.md" toc-title="Kotlin 1.7.20"/>
-            <toc-element id="whatsnew17.md" toc-title="Kotlin 1.7.0"/>
-            <toc-element id="whatsnew1620.md" toc-title="Kotlin 1.6.20"/>
-            <toc-element id="whatsnew16.md" toc-title="Kotlin 1.6.0"/>
-            <toc-element id="whatsnew1530.md" toc-title="Kotlin 1.5.30"/>
-            <toc-element id="whatsnew1520.md" toc-title="Kotlin 1.5.20"/>
-            <toc-element id="whatsnew15.md" toc-title="Kotlin 1.5.0"/>
-            <toc-element id="whatsnew1430.md" toc-title="Kotlin 1.4.30"/>
-            <toc-element id="whatsnew1420.md" toc-title="Kotlin 1.4.20"/>
-            <toc-element id="whatsnew14.md" toc-title="Kotlin 1.4.0"/>
-            <toc-element id="whatsnew13.md" toc-title="Kotlin 1.3"/>
-            <toc-element id="whatsnew12.md" toc-title="Kotlin 1.2"/>
-            <toc-element id="whatsnew11.md" toc-title="Kotlin 1.1"/>
-        </toc-element>
-    </toc-element>
-
-    <toc-element toc-title="Kotlin evolution and roadmap">
-        <toc-element id="roadmap.md"/>
-        <toc-element id="kotlin-language-features-and-proposals.md" toc-title="Language features and proposals"/>
-        <toc-element id="kotlin-evolution-principles.md" toc-title="Language evolution principles" accepts-web-file-names="kotlin-evolution.html"/>
-        <toc-element id="components-stability.md"/>
-        <toc-element id="components-stability-pre-1.4.md" hidden="true"/>
-        <toc-element id="releases.md" accepts-web-file-names="plugin-releases.html"/>
-    </toc-element>
-
-    <toc-element toc-title="Basics">
-        <toc-element id="basic-syntax.md"/>
-        <toc-element id="idioms.md"/>
-        <toc-element href="https://play.kotlinlang.org/byExample/overview" toc-title="Kotlin by example"/>
-        <toc-element id="coding-conventions.md"/>
-    </toc-element>
-
-    <toc-element toc-title="Concepts">
-        <toc-element toc-title="Types">
-            <toc-element toc-title="Basic types">
-                <toc-element id="basic-types.md" toc-title="Overview"/>
-                <toc-element id="numbers.md"/>
-                <toc-element id="unsigned-integer-types.md"/>
-                <toc-element id="booleans.md"/>
-                <toc-element id="characters.md"/>
-                <toc-element id="strings.md"/>
-                <toc-element id="arrays.md"/>
-            </toc-element>
-            <toc-element id="typecasts.md"/>
-        </toc-element>
-        <toc-element toc-title="Control flow">
-            <toc-element id="control-flow.md"/>
-            <toc-element id="returns.md"/>
-            <toc-element id="exceptions.md"/>
-        </toc-element>
-        <toc-element id="packages.md"/>
-        <toc-element toc-title="Classes and objects">
-            <toc-element id="classes.md"/>
-            <toc-element id="inheritance.md"/>
-            <toc-element id="properties.md"/>
-            <toc-element id="interfaces.md"/>
-            <toc-element id="fun-interfaces.md"/>
-            <toc-element id="visibility-modifiers.md"/>
-            <toc-element id="extensions.md"/>
-            <toc-element id="data-classes.md"/>
-            <toc-element id="sealed-classes.md" toc-title="Sealed classes and interfaces"/>
-            <toc-element id="generics.md"/>
-            <toc-element id="nested-classes.md"/>
-            <toc-element id="enum-classes.md"/>
-            <toc-element id="inline-classes.md"/>
-            <toc-element id="object-declarations.md"/>
-            <toc-element id="delegation.md"/>
-            <toc-element id="delegated-properties.md"/>
-            <toc-element id="type-aliases.md"/>
-        </toc-element>
-        <toc-element toc-title="Functions">
-            <toc-element id="functions.md"/>
-            <toc-element id="lambdas.md" toc-title="Lambdas"/>
-            <toc-element id="inline-functions.md"/>
-            <toc-element id="operator-overloading.md"/>
-            <toc-element toc-title="Builders">
-                <toc-element id="type-safe-builders.md"/>
-                <toc-element id="using-builders-with-builder-inference.md"/>
-            </toc-element>
-        </toc-element>
-        <toc-element id="null-safety.md"/>
-        <toc-element id="equality.md"/>
-        <toc-element id="this-expressions.md"/>
-        <toc-element id="async-programming.md"/>
-        <toc-element id="coroutines-overview.md"/>
-        <toc-element id="annotations.md"/>
-        <toc-element id="destructuring-declarations.md" accepts-web-file-names="multi-declarations.html"/>
-        <toc-element id="reflection.md"/>
-    </toc-element>
-
-    <toc-element toc-title="Multiplatform development">
-        <toc-element id="multiplatform-get-started.md" accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html" toc-title="Introduction"/>
-        <toc-element id="multiplatform-discover-project.md" accepts-web-file-names="mpp-discover-project.html" toc-title="Understand basic project structure"/>
-        <toc-element id="multiplatform-advanced-project-structure.md" toc-title="Explore advanced project structure"/>
-        <toc-element id="multiplatform-set-up-targets.md" toc-title="Set up targets" accepts-web-file-names="mpp-set-up-targets.html"/>
-        <toc-element toc-title="Share code">
-            <toc-element id="multiplatform-share-on-platforms.md" accepts-web-file-names="mpp-share-on-platforms.html"/>
-            <toc-element id="multiplatform-expect-actual.md"/>
-            <toc-element id="multiplatform-hierarchy.md" accepts-web-file-names="migrating-multiplatform-project-to-14.html"/>
-        </toc-element>
-        <toc-element toc-title="Add dependencies">
-            <toc-element id="multiplatform-add-dependencies.md" toc-title="On multiplatform libraries" accepts-web-file-names="mpp-add-dependencies.html"/>
-            <toc-element id="multiplatform-android-dependencies.md" toc-title="For Android target platforms"/>
-            <toc-element id="multiplatform-ios-dependencies.md" toc-title="For iOS target platforms"/>
-        </toc-element>
-        <toc-element toc-title="Set up iOS integration">
-            <toc-element id="multiplatform-ios-integration-overview.md" toc-title="Choose integration method"/>
-            <toc-element id="multiplatform-direct-integration.md"/>
-            <toc-element toc-title="Remote SPM export" id="native-spm.md"/>
-            <toc-element toc-title="CocoaPods integration">
-                <toc-element id="native-cocoapods.md"/>
-                <toc-element id="native-cocoapods-libraries.md"/>
-                <toc-element id="native-cocoapods-xcode.md"/>
-                <toc-element id="native-cocoapods-dsl-reference.md"/>
-            </toc-element>
-            <toc-element id="multiplatform-spm-local-integration.md" toc-title="Local integration with SPM"/>
-        </toc-element>
-        <toc-element toc-title="Compile artifacts">
-            <toc-element id="multiplatform-configure-compilations.md" accepts-web-file-names="mpp-configure-compilations.html"/>
-            <toc-element toc-title="[Experimental DSL] Build final native binaries" id="multiplatform-native-artifacts.md" hidden="true"/>
-            <toc-element id="multiplatform-build-native-binaries.md" accepts-web-file-names="mpp-build-native-binaries.html"/>
-        </toc-element>
-        <toc-element id="multiplatform-publish-lib.md" accepts-web-file-names="mpp-publish-lib.html" toc-title="Publish libraries"/>
-        <toc-element toc-title="Reference">
-            <toc-element id="multiplatform-dsl-reference.md" accepts-web-file-names="mpp-dsl-reference.html,mpp-supported-platforms.html,multiplatform-supported-platforms.html"/>
-            <toc-element id="multiplatform-android-layout.md"/>
-            <toc-element id="multiplatform-compatibility-guide.md" toc-title="Compatibility guide"/>
-            <toc-element id="multiplatform-plugin-releases.md"/>
-        </toc-element>
-    </toc-element>
-
-    <toc-element toc-title="Data analysis">
-        <toc-element toc-title="Get started with Kotlin Notebook">
-            <toc-element id="get-started-with-kotlin-notebooks.md" toc-title="Introduction to Kotlin Notebook"/>
-            <toc-element id="kotlin-notebook-set-up-env.md" toc-title="1. Set up an environment"/>
-            <toc-element id="kotlin-notebook-create.md" toc-title="2. Create your first Kotlin Notebook"/>
-            <toc-element id="kotlin-notebook-add-dependencies.md" toc-title="3. Add dependencies to a Kotlin Notebook"/>
-            <toc-element id="kotlin-notebook-share.md" toc-title="4. Share a Kotlin Notebook"/>
-        </toc-element>
-        <toc-element id="data-analysis-notebooks-output-formats.md" toc-title="Output formats in Kotlin notebooks"/>
-        <toc-element toc-title="Working with data sources">
-            <toc-element id="data-analysis-work-with-data-sources.md" toc-title="Retrieve data from files"/>
-            <toc-element id="data-analysis-work-with-api.md" toc-title="Retrieve data from web sources and APIs"/>
-            <toc-element id="data-analysis-connect-to-db.md" toc-title="Connect and retrieve data from databases"/>
-        </toc-element>
-        <toc-element id="data-analysis-visualization.md" toc-title="Data visualization in Kotlin Notebook"/>
-        <toc-element id="data-analysis-libraries.md" toc-title="Libraries for data analysis"/>
-
-    </toc-element>
-
-    <toc-element toc-title="Platforms">
-        <toc-element toc-title="JVM">
-            <toc-element id="jvm-get-started.md"/>
-            <toc-element id="comparison-to-java.md"/>
-            <toc-element id="java-interop.md"/>
-            <toc-element id="java-to-kotlin-interop.md"/>
-            <toc-element toc-title="Spring">
-                <toc-element toc-title="Create a RESTful web service with a database using Spring Boot">
-                    <toc-element id="jvm-get-started-spring-boot.md" toc-title="Get started with Spring Boot and Kotlin" accepts-web-file-names="jvm-spring-boot-restful.html,spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html"/>
-                    <toc-element id="jvm-create-project-with-spring-boot.md" toc-title="Create a Spring Boot project"/>
-                    <toc-element id="jvm-spring-boot-add-data-class.md" toc-title="Upgrade your project with data classes"/>
-                    <toc-element id="jvm-spring-boot-add-db-support.md" toc-title="Add database support for Spring Boot project"/>
-                    <toc-element id="jvm-spring-boot-using-crudrepository.md" toc-title="Use Spring Data CrudRepository"/>
-                </toc-element>
-                <!-- <toc-element id="jvm-spring-boot-restful.md" accepts-web-file-names="spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html,jvm-get-started-spring-boot.html,jvm-create-project-with-spring-boot.html,jvm-spring-boot-add-data-class.html,jvm-spring-boot-add-db-support.html,jvm-spring-boot-using-crudrepository.html"/>-->
-                <toc-element toc-title="Spring Framework Documentation for Kotlin" href="https://docs.spring.io/spring-framework/docs/current/reference/html/languages.html#languages"/>
-                <toc-element toc-title="Build a web application with Spring Boot and Kotlin – tutorial" href="https://spring.io/guides/tutorials/spring-boot-kotlin/"/>
-                <toc-element toc-title="Create a chat application with Kotlin Coroutines and RSocket – tutorial" href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/"/>
-            </toc-element>
-            <toc-element id="jvm-test-using-junit.md"/>
-            <toc-element id="mixing-java-kotlin-intellij.md"/>
-            <toc-element id="jvm-records.md"/>
-            <toc-element toc-title="Java to Kotlin migration guides">
-                <toc-element toc-title="Strings" id="java-to-kotlin-idioms-strings.md"/>
-                <toc-element toc-title="Collections" id="java-to-kotlin-collections-guide.md"/>
-                <toc-element toc-title="Nullability" id="java-to-kotlin-nullability-guide.md"/>
-                <toc-element toc-title="Standard input" id="standard-input.md"/>
-            </toc-element>
-        </toc-element>
-
-        <toc-element toc-title="Native">
-            <toc-element id="native-get-started.md" accepts-web-file-names="basic-kotlin-native-app.html,kotlin-native-with-clion.html,targeting-multiple-platforms.html"/>
-            <toc-element id="native-gradle.md"/>
-            <toc-element id="native-command-line-compiler.md"/>
-            <toc-element toc-title="C interop">
-                <toc-element id="native-c-interop.md"/>
-                <toc-element id="mapping-primitive-data-types-from-c.md"/>
-                <toc-element id="mapping-struct-union-types-from-c.md"/>
-                <toc-element id="mapping-function-pointers-from-c.md"/>
-                <toc-element id="mapping-strings-from-c.md"/>
-                <toc-element id="native-app-with-c-and-libcurl.md" accepts-web-file-names="curl.html"/>
-            </toc-element>
-            <toc-element toc-title="Objective-C interop">
-                <toc-element id="native-objc-interop.md"/>
-                <toc-element id="apple-framework.md"/>
-            </toc-element>
-            <toc-element id="native-libraries.md"/>
-            <toc-element id="native-platform-libs.md"/>
-            <toc-element id="native-dynamic-libraries.md"/>
-            <toc-element toc-title="Memory manager">
-                <toc-element id="native-memory-manager.md"/>
-                <toc-element id="native-arc-integration.md" toc-title="Integration with ARC" accepts-web-file-names="native-ios-integration.html"/>
-                <toc-element id="native-migration-guide.md" toc-title="Migration guide"/>
-            </toc-element>
-            <toc-element id="native-debugging.md"/>
-            <toc-element id="native-ios-symbolication.md"/>
-            <toc-element toc-title="Reference and tips">
-                <toc-element id="native-target-support.md" toc-title="Target support"/>
-                <toc-element id="apple-privacy-manifest.md" toc-title="App Store privacy manifests"/>
-                <toc-element id="native-improving-compilation-time.md" toc-title="Improving compilation times"/>
-                <toc-element id="native-binary-licenses.md" toc-title="License files"/>
-                <toc-element id="native-faq.md"/>
-            </toc-element>
-        </toc-element>
-        <toc-element toc-title="WebAssembly (Wasm)">
-            <toc-element id="wasm-get-started.md"/>
-            <toc-element id="wasm-debugging.md"/>
-            <toc-element id="wasm-js-interop.md"/>
-            <toc-element id="wasm-troubleshooting.md"/>
-        </toc-element>
-
-        <toc-element toc-title="JavaScript">
-
-            <toc-element id="js-project-setup.md" accepts-web-file-names="command-line-library-js.html,working-with-javascript.html,setting-up.html,kotlin-to-javascript.html,create-library-js.html,getting-started-with-intellij-idea.html,getting-started-with-maven.html"/>
-            <toc-element id="running-kotlin-js.md"/>
-            <toc-element id="dev-server-continuous-compilation.md"/>
-            <toc-element id="js-debugging.md" accepts-web-file-names="debugging-kotlin-in-browser.html"/>
-            <toc-element id="js-running-tests.md" accepts-web-file-names="running-tests.html"/>
-            <toc-element id="javascript-dce.md"/>
-            <!-- The following page is used in the Mari link service. If you wish to change it here, change the link there too -->
-            <toc-element toc-title="IR compiler" id="js-ir-compiler.md"/>
-            <toc-element id="js-ir-migration.md"/>
-
-            <toc-element toc-title="Kotlin for the JS platform">
-                <toc-element id="browser-api-dom.md"/>
-                <toc-element id="js-interop.md" accepts-web-file-names="calling-javascript-from-kotlin.html"/>
-                <toc-element id="dynamic-type.md"/>
-                <toc-element id="using-packages-from-npm.md"/>
-                <toc-element id="js-to-kotlin-interop.md"/>
-                <toc-element id="js-modules.md"/>
-                <toc-element id="js-reflection.md"/>
-                <toc-element id="typesafe-html-dsl.md"/>
-            </toc-element>
-            <toc-element id="js-react.md" hidden="true"/>
-        </toc-element>
-
-        <toc-element toc-title="Scripting">
-            <toc-element id="custom-script-deps-tutorial.md"/>
-        </toc-element>
-    </toc-element>
-
-    <toc-element toc-title="Standard library">
-
-        <toc-element  toc-title="Collections">
-            <toc-element id="collections-overview.md" toc-title="Overview"/>
-            <toc-element id="constructing-collections.md"/>
-            <toc-element id="iterators.md"/>
-            <toc-element id="ranges.md"/>
-            <toc-element id="sequences.md"/>
-            <toc-element id="collection-operations.md" toc-title="Operations overview"/>
-            <toc-element id="collection-transformations.md" toc-title="Transformations"/>
-            <toc-element id="collection-filtering.md" toc-title="Filter"/>
-            <toc-element id="collection-plus-minus.md" toc-title="Plus and minus operators"/>
-            <toc-element id="collection-grouping.md" toc-title="Group elements"/>
-            <toc-element id="collection-parts.md" toc-title="Retrieve collection parts"/>
-            <toc-element id="collection-elements.md" toc-title="Retrieve single elements"/>
-            <toc-element id="collection-ordering.md"/>
-            <toc-element id="collection-aggregate.md" toc-title="Aggregate operations"/>
-            <toc-element id="collection-write.md" toc-title="Write operations"/>
-            <toc-element id="list-operations.md" toc-title="List-specific operations"/>
-            <toc-element id="set-operations.md" toc-title="Set-specific operations"/>
-            <toc-element id="map-operations.md" toc-title="Map-specific operations"/>
-        </toc-element>
-        <toc-element id="read-standard-input.md" toc-title="Read standard input"/>
-        <toc-element id="opt-in-requirements.md"/>
-        <toc-element id="scope-functions.md"/>
-        <toc-element id="time-measurement.md"/>
-    </toc-element>
-
-    <toc-element toc-title="Official libraries">
-        <toc-element toc-title="Coroutines (kotlinx.coroutines)">
-            <include from="kc" target="coroutines" origin="coroutines"/>
-        </toc-element>
-        <toc-element toc-title="Serialization (kotlinx.serialization)" id="serialization.md"/>
-        <toc-element toc-title="Lincheck (kotlinx.lincheck)">
-            <include from="kl" target="lincheck" origin="lincheck"/>
-        </toc-element>
-        <toc-element toc-title="Ktor" href="https://ktor.io/"/>
-    </toc-element>
-
-    <toc-element toc-title="API reference">
-        <toc-element toc-title="Standard library (stdlib)" href="https://kotlinlang.org/api/latest/jvm/stdlib/"/>
-        <toc-element toc-title="Test library (kotlin.test)" href="https://kotlinlang.org/api/latest/kotlin.test/"/>
-        <toc-element toc-title="Coroutines (kotlinx.coroutines)" href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/"/>
-        <toc-element toc-title="Serialization (kotlinx.serialization)" href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/"/>
-        <toc-element toc-title="Date and time (kotlinx-datetime)" href="https://kotlinlang.org/api/kotlinx-datetime/"/>
-        <toc-element toc-title="JVM Metadata (kotlinx-metadata-jvm)" href="https://kotlinlang.org/api/kotlinx-metadata-jvm/"/>
-        <toc-element toc-title="Ktor" href="https://api.ktor.io/"/>
-    </toc-element>
-
-    <toc-element toc-title="Language reference">
-        <toc-element id="keyword-reference.md"/>
-        <toc-element toc-title="Grammar" href="https://kotlinlang.org/docs/reference/grammar.html"/>
-        <toc-element href="https://kotlinlang.org/spec/" toc-title="Language specification"/>
-    </toc-element>
-
-    <toc-element toc-title="Tools">
-        <toc-element toc-title="Build tools">
-            <toc-element toc-title="Gradle">
-                <toc-element id="gradle.md" accepts-web-file-names="using-gradle.html" toc-title="Overview"/>
-                <toc-element id="get-started-with-jvm-gradle-project.md" toc-title="Get started with Gradle – tutorial"/>
-                <toc-element id="gradle-configure-project.md" toc-title="Configure a Gradle project"/>
-                <toc-element id="gradle-compiler-options.md" toc-title="Compiler options in KGP"/>
-                <toc-element id="gradle-compilation-and-caches.md" toc-title="Compilation and caches in KGP"/>
-                <toc-element id="gradle-plugin-variants.md" toc-title="Support for Gradle plugin variants"/>
-            </toc-element>
-            <toc-element id="maven.md" accepts-web-file-names="using-maven.html"/>
-            <toc-element id="ant.md" accepts-web-file-names="using-ant.html"/>
-        </toc-element>
-        <toc-element toc-title="Dokka">
-            <include from="kl" target="dokka" origin="dokka"/>
-        </toc-element>
-        <toc-element toc-title="IDE for Kotlin development" id="kotlin-ide.md" accepts-web-file-names="getting-started-eclipse.html,eclipse.html"/>
-        <toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA"  id="code-style-migration-guide.md"/>
-        <toc-element toc-title="Kotlin Notebook"  id="kotlin-notebook-overview.md"/>
-        <toc-element id="lets-plot.md" toc-title="Lets-Plot for Kotlin"/>
-        <toc-element id="run-code-snippets.md" accepts-web-file-names="quick-run.html"/>
-        <toc-element id="kotlin-and-ci.md" toc-title="TeamCity"/>
-        <toc-element id="kotlin-doc.md" toc-title="KDoc"/>
-        <toc-element id="kotlin-osgi.md" toc-title="OSGi"/>
-    </toc-element>
-
-    <toc-element toc-title="Compiler and plugins">
-        <toc-element toc-title="Compiler">
-            <toc-element toc-title="K2 compiler migration guide" id="k2-compiler-migration-guide.md" accepts-web-file-names="k2-compiler-guide.html"/>
-            <toc-element toc-title="Command-line compiler" id="command-line.md"/>
-            <toc-element toc-title="Compiler options" id="compiler-reference.md"/>
-        </toc-element>
-        <toc-element toc-title="Compiler plugins">
-            <toc-element id="all-open-plugin.md" toc-title="All-open"/>
-            <toc-element id="no-arg-plugin.md" toc-title="No-arg"/>
-            <toc-element id="sam-with-receiver-plugin.md" toc-title="SAM with receiver"/>
-            <toc-element id="kapt.md" toc-title="kapt"/>
-            <toc-element id="lombok.md" toc-title="Lombok"/>
-            <toc-element id="power-assert.md" toc-title="Power-assert"/>
-        </toc-element>
-        <toc-element toc-title="Kotlin Symbol Processing API">
-            <toc-element id="ksp-overview.md" toc-title="KSP overview"/>
-            <toc-element id="ksp-quickstart.md" toc-title="Quickstart"/>
-            <toc-element id="ksp-why-ksp.md" toc-title="Why KSP"/>
-            <toc-element id="ksp-examples.md" toc-title="Examples"/>
-            <toc-element id="ksp-additional-details.md" toc-title="How KSP models Kotlin code"/>
-            <toc-element id="ksp-reference.md" toc-title="Reference for Java annotation processor authors"/>
-            <toc-element id="ksp-incremental.md" toc-title="Incremental processing"/>
-            <toc-element id="ksp-multi-round.md" toc-title="Multiple round processing"/>
-            <toc-element id="ksp-multiplatform.md" toc-title="KSP with Kotlin Multiplatform"/>
-            <toc-element id="ksp-command-line.md" toc-title="Running KSP from command line"/>
-            <toc-element id="ksp-faq.md" toc-title="FAQ"/>
-        </toc-element>
-    </toc-element>
-
-    <toc-element toc-title="Learning materials">
-        <toc-element id="learning-materials-overview.md" toc-title="Overview"/>
-        <toc-element href="https://play.kotlinlang.org/byExample/overview" toc-title="Kotlin by example"/>
-        <toc-element id="koans.md"/>
-        <toc-element href="https://hyperskill.org/tracks?category=4&amp;utm_source=jbkotlin_hs&amp;utm_medium=referral&amp;utm_campaign=kotlinlang-docs&amp;utm_content=button_1&amp;utm_term=22.03.23" toc-title="Kotlin Core track"/>
-        <toc-element id="kotlin-hands-on.md" toc-title="Kotlin hands-on"/>
-        <toc-element id="kotlin-tips.md"/>
-        <toc-element id="books.md"/>
-        <toc-element id="advent-of-code.md" toc-title="Advent of Code puzzles"/>
-        <toc-element toc-title="Learn in IDE (JetBrains Academy)">
-            <toc-element id="edu-tools-learner.md" toc-title="Learn Kotlin"/>
-            <toc-element id="edu-tools-educator.md" toc-title="Teach Kotlin"/>
-        </toc-element>
-        <toc-element toc-title="Library authors' guidelines">
-            <include from="kl" target="api-guidelines" origin="api-guidelines"/>
-        </toc-element>
-    </toc-element>
-
-    <toc-element toc-title="Early access preview (EAP)">
-        <toc-element toc-title="Participate" id="eap.md"/>
-        <toc-element toc-title="Install the Kotlin EAP Plugin" id="install-eap-plugin.md"/>
-        <toc-element id="configure-build-for-eap.md"/>
-    </toc-element>
-
-    <toc-element toc-title="Other resources">
-        <toc-element id="faq.md"/>
-        <toc-element toc-title="Kotlin compatibility guides">
-            <toc-element id="compatibility-guide-20.md"/>
-            <toc-element id="compatibility-guide-19.md"/>
-            <toc-element id="compatibility-guide-18.md"/>
-            <toc-element id="compatibility-guide-1720.md"/>
-            <toc-element id="compatibility-guide-17.md"/>
-            <toc-element id="compatibility-guide-16.md"/>
-            <toc-element id="compatibility-guide-15.md"/>
-            <toc-element id="compatibility-guide-14.md"/>
-            <toc-element id="compatibility-guide-13.md" />
-            <toc-element id="compatibility-modes.md"/>
-        </toc-element>
-        <toc-element toc-title="Kotlin Foundation">
-            <toc-element toc-title="Kotlin Foundation" href="https://kotlinfoundation.org/"/>
-            <toc-element toc-title="Language Committee guidelines" href="https://kotlinfoundation.org/language-committee-guidelines/"/>
-            <toc-element toc-title="Submitting incompatible changes" href="https://kotlinfoundation.org/submitting-incompatible-changes/"/>
-            <toc-element toc-title="Brand usage" href="https://kotlinfoundation.org/guidelines/"/>
-            <toc-element toc-title="Kotlin Foundation FAQ" href="https://kotlinfoundation.org/faq/"/>
-        </toc-element>
-        <toc-element toc-title="Google Summer of Code">
-            <toc-element toc-title="Google Summer of Code with Kotlin 2024" id="gsoc-2024.md"/>
-            <toc-element toc-title="Google Summer of Code with Kotlin 2023" id="gsoc-2023.md"/>
-        </toc-element>
-        <toc-element id="security.md"/>
-        <toc-element id="kotlin-pdf.md"/>
-        <toc-element toc-title="Community">
-            <toc-element id="contribute.md"/>
-            <toc-element id="kug-guidelines.md" accepts-web-file-names="kug-branding.html"/>
-            <toc-element id="kotlin-night-guidelines.md" accepts-web-file-names="kotlin-nights-branding.html"/>
-            <toc-element id="slack-code-of-conduct.md"/>
-        </toc-element>
-        <toc-element id="kotlin-brand-assets.md" accepts-web-file-names="kotlin-logo.html"/>
-        <toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
-        <toc-element id="test-page.md" hidden="true"/>
-    </toc-element>
-</product-profile>
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE instance-profile SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+<instance-profile id="kr" name="Kotlin" start-page="home.topic" status="release">
+	<toc-element toc-title="Home" topic="home.topic"/>
+	<toc-element toc-title="Get started" topic="getting-started.md"/>
+	<toc-element toc-title="Take Kotlin tour" topic="kotlin-tour-welcome.md">
+		<toc-element hidden="true" topic="kotlin-tour-hello-world.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-basic-types.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-collections.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-control-flow.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-functions.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-classes.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-null-safety.md"/>
+	</toc-element>
+	<toc-element toc-title="Kotlin overview">
+		<toc-element topic="multiplatform.md"/>
+		<toc-element accepts-web-file-names="httpservlets.html" topic="server-overview.md"/>
+		<toc-element topic="android-overview.md"/>
+		<toc-element topic="wasm-overview.md"/>
+		<toc-element topic="native-overview.md"/>
+		<toc-element topic="js-overview.md"/>
+		<toc-element accepts-web-file-names="data-science-overview.html" topic="data-analysis-overview.md"/>
+		<toc-element topic="competitive-programming.md"/>
+	</toc-element>
+	<toc-element toc-title="What's new in Kotlin">
+		<toc-element toc-title="Kotlin 2.0.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2020.md"/>
+		<toc-element toc-title="Kotlin 2.0.0" topic="whatsnew20.md"/>
+		<toc-element toc-title="Kotlin 2.1.0-Beta1" topic="whatsnew-eap.md"/>
+		<toc-element toc-title="Earlier versions">
+			<toc-element toc-title="Kotlin 1.9.20" topic="whatsnew1920.md"/>
+			<toc-element toc-title="Kotlin 1.9.0" topic="whatsnew19.md"/>
+			<toc-element toc-title="Kotlin 1.8.20" topic="whatsnew1820.md"/>
+			<toc-element toc-title="Kotlin 1.8.0" topic="whatsnew18.md"/>
+			<toc-element toc-title="Kotlin 1.7.20" topic="whatsnew1720.md"/>
+			<toc-element toc-title="Kotlin 1.7.0" topic="whatsnew17.md"/>
+			<toc-element toc-title="Kotlin 1.6.20" topic="whatsnew1620.md"/>
+			<toc-element toc-title="Kotlin 1.6.0" topic="whatsnew16.md"/>
+			<toc-element toc-title="Kotlin 1.5.30" topic="whatsnew1530.md"/>
+			<toc-element toc-title="Kotlin 1.5.20" topic="whatsnew1520.md"/>
+			<toc-element toc-title="Kotlin 1.5.0" topic="whatsnew15.md"/>
+			<toc-element toc-title="Kotlin 1.4.30" topic="whatsnew1430.md"/>
+			<toc-element toc-title="Kotlin 1.4.20" topic="whatsnew1420.md"/>
+			<toc-element toc-title="Kotlin 1.4.0" topic="whatsnew14.md"/>
+			<toc-element toc-title="Kotlin 1.3" topic="whatsnew13.md"/>
+			<toc-element toc-title="Kotlin 1.2" topic="whatsnew12.md"/>
+			<toc-element toc-title="Kotlin 1.1" topic="whatsnew11.md"/>
+		</toc-element>
+	</toc-element>
+	<toc-element toc-title="Kotlin evolution and roadmap">
+		<toc-element topic="roadmap.md"/>
+		<toc-element toc-title="Language features and proposals" topic="kotlin-language-features-and-proposals.md"/>
+		<toc-element toc-title="Language evolution principles" accepts-web-file-names="kotlin-evolution.html" topic="kotlin-evolution-principles.md"/>
+		<toc-element topic="components-stability.md"/>
+		<toc-element hidden="true" topic="components-stability-pre-1.4.md"/>
+		<toc-element accepts-web-file-names="plugin-releases.html" topic="releases.md"/>
+	</toc-element>
+	<toc-element toc-title="Basics">
+		<toc-element topic="basic-syntax.md"/>
+		<toc-element topic="idioms.md"/>
+		<toc-element href="https://play.kotlinlang.org/byExample/overview" toc-title="Kotlin by example"/>
+		<toc-element topic="coding-conventions.md"/>
+	</toc-element>
+	<toc-element toc-title="Concepts">
+		<toc-element toc-title="Types">
+			<toc-element toc-title="Basic types">
+				<toc-element toc-title="Overview" topic="basic-types.md"/>
+				<toc-element topic="numbers.md"/>
+				<toc-element topic="unsigned-integer-types.md"/>
+				<toc-element topic="booleans.md"/>
+				<toc-element topic="characters.md"/>
+				<toc-element topic="strings.md"/>
+				<toc-element topic="arrays.md"/>
+			</toc-element>
+			<toc-element topic="typecasts.md"/>
+		</toc-element>
+		<toc-element toc-title="Control flow">
+			<toc-element topic="control-flow.md"/>
+			<toc-element topic="returns.md"/>
+			<toc-element topic="exceptions.md"/>
+		</toc-element>
+		<toc-element topic="packages.md"/>
+		<toc-element toc-title="Classes and objects">
+			<toc-element topic="classes.md"/>
+			<toc-element topic="inheritance.md"/>
+			<toc-element topic="properties.md"/>
+			<toc-element topic="interfaces.md"/>
+			<toc-element topic="fun-interfaces.md"/>
+			<toc-element topic="visibility-modifiers.md"/>
+			<toc-element topic="extensions.md"/>
+			<toc-element topic="data-classes.md"/>
+			<toc-element topic="sealed-classes.md"/>
+			<toc-element topic="generics.md"/>
+			<toc-element topic="nested-classes.md"/>
+			<toc-element topic="enum-classes.md"/>
+			<toc-element topic="inline-classes.md"/>
+			<toc-element topic="object-declarations.md"/>
+			<toc-element topic="delegation.md"/>
+			<toc-element topic="delegated-properties.md"/>
+			<toc-element topic="type-aliases.md"/>
+		</toc-element>
+		<toc-element toc-title="Functions">
+			<toc-element topic="functions.md"/>
+			<toc-element toc-title="Lambdas" topic="lambdas.md"/>
+			<toc-element topic="inline-functions.md"/>
+			<toc-element topic="operator-overloading.md"/>
+			<toc-element toc-title="Builders">
+				<toc-element topic="type-safe-builders.md"/>
+				<toc-element topic="using-builders-with-builder-inference.md"/>
+			</toc-element>
+		</toc-element>
+		<toc-element topic="null-safety.md"/>
+		<toc-element topic="equality.md"/>
+		<toc-element topic="this-expressions.md"/>
+		<toc-element topic="async-programming.md"/>
+		<toc-element topic="coroutines-overview.md"/>
+		<toc-element topic="annotations.md"/>
+		<toc-element accepts-web-file-names="multi-declarations.html" topic="destructuring-declarations.md"/>
+		<toc-element topic="reflection.md"/>
+	</toc-element>
+	<toc-element toc-title="Multiplatform development">
+		<toc-element accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html" toc-title="Introduction" topic="multiplatform-get-started.md"/>
+		<toc-element accepts-web-file-names="mpp-discover-project.html" toc-title="Understand basic project structure" topic="multiplatform-discover-project.md"/>
+		<toc-element toc-title="Explore advanced project structure" topic="multiplatform-advanced-project-structure.md"/>
+		<toc-element toc-title="Set up targets" accepts-web-file-names="mpp-set-up-targets.html" topic="multiplatform-set-up-targets.md"/>
+		<toc-element toc-title="Share code">
+			<toc-element accepts-web-file-names="mpp-share-on-platforms.html" topic="multiplatform-share-on-platforms.md"/>
+			<toc-element topic="multiplatform-expect-actual.md"/>
+			<toc-element accepts-web-file-names="migrating-multiplatform-project-to-14.html" topic="multiplatform-hierarchy.md"/>
+		</toc-element>
+		<toc-element toc-title="Add dependencies">
+			<toc-element toc-title="On multiplatform libraries" accepts-web-file-names="mpp-add-dependencies.html" topic="multiplatform-add-dependencies.md"/>
+			<toc-element toc-title="For Android target platforms" topic="multiplatform-android-dependencies.md"/>
+			<toc-element toc-title="For iOS target platforms" topic="multiplatform-ios-dependencies.md"/>
+		</toc-element>
+		<toc-element toc-title="Set up iOS integration">
+			<toc-element toc-title="Choose integration method" topic="multiplatform-ios-integration-overview.md"/>
+			<toc-element topic="multiplatform-direct-integration.md"/>
+			<toc-element toc-title="Remote SPM export" topic="native-spm.md"/>
+			<toc-element toc-title="CocoaPods integration">
+				<toc-element topic="native-cocoapods.md"/>
+				<toc-element topic="native-cocoapods-libraries.md"/>
+				<toc-element topic="native-cocoapods-xcode.md"/>
+				<toc-element topic="native-cocoapods-dsl-reference.md"/>
+			</toc-element>
+			<toc-element toc-title="Local integration with SPM" topic="multiplatform-spm-local-integration.md"/>
+		</toc-element>
+		<toc-element toc-title="Compile artifacts">
+			<toc-element accepts-web-file-names="mpp-configure-compilations.html" topic="multiplatform-configure-compilations.md"/>
+			<toc-element toc-title="[Experimental DSL] Build final native binaries" hidden="true" topic="multiplatform-native-artifacts.md"/>
+			<toc-element accepts-web-file-names="mpp-build-native-binaries.html" topic="multiplatform-build-native-binaries.md"/>
+		</toc-element>
+		<toc-element accepts-web-file-names="mpp-publish-lib.html" toc-title="Publish libraries" topic="multiplatform-publish-lib.md"/>
+		<toc-element toc-title="Reference">
+			<toc-element accepts-web-file-names="mpp-dsl-reference.html,mpp-supported-platforms.html,multiplatform-supported-platforms.html" topic="multiplatform-dsl-reference.md"/>
+			<toc-element topic="multiplatform-android-layout.md"/>
+			<toc-element toc-title="Compatibility guide" topic="multiplatform-compatibility-guide.md"/>
+			<toc-element topic="multiplatform-plugin-releases.md"/>
+		</toc-element>
+	</toc-element>
+	<toc-element toc-title="Data analysis">
+		<toc-element toc-title="Get started with Kotlin Notebook">
+			<toc-element toc-title="Introduction to Kotlin Notebook" topic="get-started-with-kotlin-notebooks.md"/>
+			<toc-element toc-title="1. Set up an environment" topic="kotlin-notebook-set-up-env.md"/>
+			<toc-element toc-title="2. Create your first Kotlin Notebook" topic="kotlin-notebook-create.md"/>
+			<toc-element toc-title="3. Add dependencies to a Kotlin Notebook" topic="kotlin-notebook-add-dependencies.md"/>
+			<toc-element toc-title="4. Share a Kotlin Notebook" topic="kotlin-notebook-share.md"/>
+		</toc-element>
+		<toc-element toc-title="Output formats in Kotlin notebooks" topic="data-analysis-notebooks-output-formats.md"/>
+		<toc-element toc-title="Working with data sources">
+			<toc-element topic="data-analysis-work-with-data-sources.md"/>
+			<toc-element topic="data-analysis-work-with-api.md"/>
+			<toc-element topic="data-analysis-connect-to-db.md"/>
+		</toc-element>
+		<toc-element toc-title="Data visualization in Kotlin Notebook" topic="data-analysis-visualization.md"/>
+		<toc-element toc-title="Libraries for data analysis" topic="data-analysis-libraries.md"/>
+	</toc-element>
+	<toc-element toc-title="Platforms">
+		<toc-element toc-title="JVM">
+			<toc-element topic="jvm-get-started.md"/>
+			<toc-element topic="comparison-to-java.md"/>
+			<toc-element topic="java-interop.md"/>
+			<toc-element topic="java-to-kotlin-interop.md"/>
+			<toc-element toc-title="Spring">
+				<toc-element toc-title="Create a RESTful web service with a database using Spring Boot">
+					<toc-element accepts-web-file-names="jvm-spring-boot-restful.html,spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html" topic="jvm-get-started-spring-boot.md"/>
+					<toc-element toc-title="Create a Spring Boot project" topic="jvm-create-project-with-spring-boot.md"/>
+					<toc-element toc-title="Upgrade your project with data classes" topic="jvm-spring-boot-add-data-class.md"/>
+					<toc-element topic="jvm-spring-boot-add-db-support.md"/>
+					<toc-element toc-title="Use Spring Data CrudRepository" topic="jvm-spring-boot-using-crudrepository.md"/>
+				</toc-element>
+				<!-- <toc-element id="jvm-spring-boot-restful.md" accepts-web-file-names="spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html,jvm-get-started-spring-boot.html,jvm-create-project-with-spring-boot.html,jvm-spring-boot-add-data-class.html,jvm-spring-boot-add-db-support.html,jvm-spring-boot-using-crudrepository.html"/>-->
+				<toc-element toc-title="Spring Framework Documentation for Kotlin" href="https://docs.spring.io/spring-framework/docs/current/reference/html/languages.html#languages"/>
+				<toc-element toc-title="Build a web application with Spring Boot and Kotlin – tutorial" href="https://spring.io/guides/tutorials/spring-boot-kotlin/"/>
+				<toc-element toc-title="Create a chat application with Kotlin Coroutines and RSocket – tutorial" href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/"/>
+			</toc-element>
+			<toc-element topic="jvm-test-using-junit.md"/>
+			<toc-element topic="mixing-java-kotlin-intellij.md"/>
+			<toc-element topic="jvm-records.md"/>
+			<toc-element toc-title="Java to Kotlin migration guides">
+				<toc-element toc-title="Strings" topic="java-to-kotlin-idioms-strings.md"/>
+				<toc-element toc-title="Collections" topic="java-to-kotlin-collections-guide.md"/>
+				<toc-element toc-title="Nullability" topic="java-to-kotlin-nullability-guide.md"/>
+				<toc-element topic="standard-input.md"/>
+			</toc-element>
+		</toc-element>
+		<toc-element toc-title="Native">
+			<toc-element accepts-web-file-names="basic-kotlin-native-app.html,kotlin-native-with-clion.html,targeting-multiple-platforms.html" topic="native-get-started.md"/>
+			<toc-element topic="native-gradle.md"/>
+			<toc-element topic="native-command-line-compiler.md"/>
+			<toc-element toc-title="C interop">
+				<toc-element topic="native-c-interop.md"/>
+				<toc-element topic="mapping-primitive-data-types-from-c.md"/>
+				<toc-element topic="mapping-struct-union-types-from-c.md"/>
+				<toc-element topic="mapping-function-pointers-from-c.md"/>
+				<toc-element topic="mapping-strings-from-c.md"/>
+				<toc-element accepts-web-file-names="curl.html" topic="native-app-with-c-and-libcurl.md"/>
+			</toc-element>
+			<toc-element toc-title="Objective-C interop">
+				<toc-element topic="native-objc-interop.md"/>
+				<toc-element topic="apple-framework.md"/>
+			</toc-element>
+			<toc-element topic="native-libraries.md"/>
+			<toc-element topic="native-platform-libs.md"/>
+			<toc-element topic="native-dynamic-libraries.md"/>
+			<toc-element toc-title="Memory manager">
+				<toc-element topic="native-memory-manager.md"/>
+				<toc-element toc-title="Integration with ARC" accepts-web-file-names="native-ios-integration.html" topic="native-arc-integration.md"/>
+				<toc-element toc-title="Migration guide" topic="native-migration-guide.md"/>
+			</toc-element>
+			<toc-element topic="native-debugging.md"/>
+			<toc-element topic="native-ios-symbolication.md"/>
+			<toc-element toc-title="Reference and tips">
+				<toc-element toc-title="Target support" topic="native-target-support.md"/>
+				<toc-element toc-title="App Store privacy manifests" topic="apple-privacy-manifest.md"/>
+				<toc-element toc-title="Improving compilation times" topic="native-improving-compilation-time.md"/>
+				<toc-element toc-title="License files" topic="native-binary-licenses.md"/>
+				<toc-element topic="native-faq.md"/>
+			</toc-element>
+		</toc-element>
+		<toc-element toc-title="WebAssembly (Wasm)">
+			<toc-element topic="wasm-get-started.md"/>
+			<toc-element topic="wasm-debugging.md"/>
+			<toc-element topic="wasm-js-interop.md"/>
+			<toc-element topic="wasm-troubleshooting.md"/>
+		</toc-element>
+		<toc-element toc-title="JavaScript">
+			<toc-element accepts-web-file-names="command-line-library-js.html,working-with-javascript.html,setting-up.html,kotlin-to-javascript.html,create-library-js.html,getting-started-with-intellij-idea.html,getting-started-with-maven.html" topic="js-project-setup.md"/>
+			<toc-element topic="running-kotlin-js.md"/>
+			<toc-element topic="dev-server-continuous-compilation.md"/>
+			<toc-element accepts-web-file-names="debugging-kotlin-in-browser.html" topic="js-debugging.md"/>
+			<toc-element accepts-web-file-names="running-tests.html" topic="js-running-tests.md"/>
+			<toc-element topic="javascript-dce.md"/>
+			<!-- The following page is used in the Mari link service. If you wish to change it here, change the link there too -->
+			<toc-element toc-title="IR compiler" topic="js-ir-compiler.md"/>
+			<toc-element topic="js-ir-migration.md"/>
+			<toc-element toc-title="Kotlin for the JS platform">
+				<toc-element topic="browser-api-dom.md"/>
+				<toc-element accepts-web-file-names="calling-javascript-from-kotlin.html" topic="js-interop.md"/>
+				<toc-element topic="dynamic-type.md"/>
+				<toc-element topic="using-packages-from-npm.md"/>
+				<toc-element topic="js-to-kotlin-interop.md"/>
+				<toc-element topic="js-modules.md"/>
+				<toc-element topic="js-reflection.md"/>
+				<toc-element topic="typesafe-html-dsl.md"/>
+			</toc-element>
+			<toc-element hidden="true" topic="js-react.md"/>
+		</toc-element>
+		<toc-element toc-title="Scripting">
+			<toc-element topic="custom-script-deps-tutorial.md"/>
+		</toc-element>
+	</toc-element>
+	<toc-element toc-title="Standard library">
+		<toc-element toc-title="Collections">
+			<toc-element toc-title="Overview" topic="collections-overview.md"/>
+			<toc-element topic="constructing-collections.md"/>
+			<toc-element topic="iterators.md"/>
+			<toc-element topic="ranges.md"/>
+			<toc-element topic="sequences.md"/>
+			<toc-element toc-title="Operations overview" topic="collection-operations.md"/>
+			<toc-element toc-title="Transformations" topic="collection-transformations.md"/>
+			<toc-element toc-title="Filter" topic="collection-filtering.md"/>
+			<toc-element topic="collection-plus-minus.md"/>
+			<toc-element toc-title="Group elements" topic="collection-grouping.md"/>
+			<toc-element topic="collection-parts.md"/>
+			<toc-element topic="collection-elements.md"/>
+			<toc-element topic="collection-ordering.md"/>
+			<toc-element topic="collection-aggregate.md"/>
+			<toc-element toc-title="Write operations" topic="collection-write.md"/>
+			<toc-element topic="list-operations.md"/>
+			<toc-element topic="set-operations.md"/>
+			<toc-element topic="map-operations.md"/>
+		</toc-element>
+		<toc-element topic="read-standard-input.md"/>
+		<toc-element topic="opt-in-requirements.md"/>
+		<toc-element topic="scope-functions.md"/>
+		<toc-element topic="time-measurement.md"/>
+	</toc-element>
+	<toc-element toc-title="Official libraries">
+		<toc-element toc-title="Coroutines (kotlinx.coroutines)">
+			<include from="kc.tree" origin="coroutines" element-id="coroutines"/>
+		</toc-element>
+		<toc-element toc-title="Serialization (kotlinx.serialization)" topic="serialization.md"/>
+		<toc-element toc-title="Lincheck (kotlinx.lincheck)">
+			<include from="kl.tree" origin="lincheck" element-id="lincheck"/>
+		</toc-element>
+		<toc-element toc-title="Ktor" href="https://ktor.io/"/>
+	</toc-element>
+	<toc-element toc-title="API reference">
+		<toc-element toc-title="Standard library (stdlib)" href="https://kotlinlang.org/api/latest/jvm/stdlib/"/>
+		<toc-element toc-title="Test library (kotlin.test)" href="https://kotlinlang.org/api/latest/kotlin.test/"/>
+		<toc-element toc-title="Coroutines (kotlinx.coroutines)" href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/"/>
+		<toc-element toc-title="Serialization (kotlinx.serialization)" href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/"/>
+		<toc-element toc-title="Date and time (kotlinx-datetime)" href="https://kotlinlang.org/api/kotlinx-datetime/"/>
+		<toc-element toc-title="JVM Metadata (kotlinx-metadata-jvm)" href="https://kotlinlang.org/api/kotlinx-metadata-jvm/"/>
+		<toc-element toc-title="Ktor" href="https://api.ktor.io/"/>
+	</toc-element>
+	<toc-element toc-title="Language reference">
+		<toc-element topic="keyword-reference.md"/>
+		<toc-element toc-title="Grammar" href="https://kotlinlang.org/docs/reference/grammar.html"/>
+		<toc-element href="https://kotlinlang.org/spec/" toc-title="Language specification"/>
+	</toc-element>
+	<toc-element toc-title="Tools">
+		<toc-element toc-title="Build tools">
+			<toc-element toc-title="Gradle">
+				<toc-element accepts-web-file-names="using-gradle.html" toc-title="Overview" topic="gradle.md"/>
+				<toc-element toc-title="Get started with Gradle – tutorial" topic="get-started-with-jvm-gradle-project.md"/>
+				<toc-element topic="gradle-configure-project.md"/>
+				<toc-element toc-title="Compiler options in KGP" topic="gradle-compiler-options.md"/>
+				<toc-element toc-title="Compilation and caches in KGP" topic="gradle-compilation-and-caches.md"/>
+				<toc-element topic="gradle-plugin-variants.md"/>
+			</toc-element>
+			<toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
+			<toc-element accepts-web-file-names="using-ant.html" topic="ant.md"/>
+		</toc-element>
+		<toc-element toc-title="Dokka">
+			<include from="dokka.tree" origin="dokka" element-id="dokka"/>
+		</toc-element>
+		<toc-element toc-title="IDE for Kotlin development" accepts-web-file-names="getting-started-eclipse.html,eclipse.html" topic="kotlin-ide.md"/>
+		<toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA" topic="code-style-migration-guide.md"/>
+		<toc-element topic="kotlin-notebook-overview.md"/>
+		<toc-element toc-title="Lets-Plot for Kotlin" topic="lets-plot.md"/>
+		<toc-element accepts-web-file-names="quick-run.html" topic="run-code-snippets.md"/>
+		<toc-element toc-title="TeamCity" topic="kotlin-and-ci.md"/>
+		<toc-element toc-title="KDoc" topic="kotlin-doc.md"/>
+		<toc-element toc-title="OSGi" topic="kotlin-osgi.md"/>
+	</toc-element>
+	<toc-element toc-title="Compiler and plugins">
+		<toc-element toc-title="Compiler">
+			<toc-element accepts-web-file-names="k2-compiler-guide.html" topic="k2-compiler-migration-guide.md"/>
+			<toc-element toc-title="Command-line compiler" topic="command-line.md"/>
+			<toc-element toc-title="Compiler options" topic="compiler-reference.md"/>
+		</toc-element>
+		<toc-element toc-title="Compiler plugins">
+			<toc-element toc-title="All-open" topic="all-open-plugin.md"/>
+			<toc-element toc-title="No-arg" topic="no-arg-plugin.md"/>
+			<toc-element toc-title="SAM with receiver" topic="sam-with-receiver-plugin.md"/>
+			<toc-element toc-title="kapt" topic="kapt.md"/>
+			<toc-element toc-title="Lombok" topic="lombok.md"/>
+			<toc-element toc-title="Power-assert" topic="power-assert.md"/>
+		</toc-element>
+		<toc-element toc-title="Kotlin Symbol Processing API">
+			<toc-element toc-title="KSP overview" topic="ksp-overview.md"/>
+			<toc-element toc-title="Quickstart" topic="ksp-quickstart.md"/>
+			<toc-element topic="ksp-why-ksp.md"/>
+			<toc-element toc-title="Examples" topic="ksp-examples.md"/>
+			<toc-element topic="ksp-additional-details.md"/>
+			<toc-element toc-title="Reference for Java annotation processor authors" topic="ksp-reference.md"/>
+			<toc-element topic="ksp-incremental.md"/>
+			<toc-element topic="ksp-multi-round.md"/>
+			<toc-element topic="ksp-multiplatform.md"/>
+			<toc-element topic="ksp-command-line.md"/>
+			<toc-element toc-title="FAQ" topic="ksp-faq.md"/>
+		</toc-element>
+	</toc-element>
+	<toc-element toc-title="Learning materials">
+		<toc-element toc-title="Overview" topic="learning-materials-overview.md"/>
+		<toc-element href="https://play.kotlinlang.org/byExample/overview" toc-title="Kotlin by example"/>
+		<toc-element topic="koans.md"/>
+		<toc-element href="https://hyperskill.org/tracks?category=4&amp;utm_source=jbkotlin_hs&amp;utm_medium=referral&amp;utm_campaign=kotlinlang-docs&amp;utm_content=button_1&amp;utm_term=22.03.23" toc-title="Kotlin Core track"/>
+		<toc-element topic="kotlin-hands-on.md"/>
+		<toc-element topic="kotlin-tips.md"/>
+		<toc-element topic="books.md"/>
+		<toc-element toc-title="Advent of Code puzzles" topic="advent-of-code.md"/>
+		<toc-element toc-title="Learn in IDE (JetBrains Academy)">
+			<toc-element toc-title="Learn Kotlin" topic="edu-tools-learner.md"/>
+			<toc-element toc-title="Teach Kotlin" topic="edu-tools-educator.md"/>
+		</toc-element>
+		<toc-element toc-title="Library authors' guidelines">
+			<include from="api-guidelines.tree" origin="api-guidelines" element-id="api-guidelines"/>
+		</toc-element>
+	</toc-element>
+	<toc-element toc-title="Early access preview (EAP)">
+		<toc-element toc-title="Participate" topic="eap.md"/>
+		<toc-element toc-title="Install the Kotlin EAP Plugin" topic="install-eap-plugin.md"/>
+		<toc-element topic="configure-build-for-eap.md"/>
+	</toc-element>
+	<toc-element toc-title="Other resources">
+		<toc-element topic="faq.md"/>
+		<toc-element toc-title="Kotlin compatibility guides">
+			<toc-element topic="compatibility-guide-20.md"/>
+			<toc-element topic="compatibility-guide-19.md"/>
+			<toc-element topic="compatibility-guide-18.md"/>
+			<toc-element topic="compatibility-guide-1720.md"/>
+			<toc-element topic="compatibility-guide-17.md"/>
+			<toc-element topic="compatibility-guide-16.md"/>
+			<toc-element topic="compatibility-guide-15.md"/>
+			<toc-element topic="compatibility-guide-14.md"/>
+			<toc-element topic="compatibility-guide-13.md"/>
+			<toc-element topic="compatibility-modes.md"/>
+		</toc-element>
+		<toc-element toc-title="Kotlin Foundation">
+			<toc-element toc-title="Kotlin Foundation" href="https://kotlinfoundation.org/"/>
+			<toc-element toc-title="Language Committee guidelines" href="https://kotlinfoundation.org/language-committee-guidelines/"/>
+			<toc-element toc-title="Submitting incompatible changes" href="https://kotlinfoundation.org/submitting-incompatible-changes/"/>
+			<toc-element toc-title="Brand usage" href="https://kotlinfoundation.org/guidelines/"/>
+			<toc-element toc-title="Kotlin Foundation FAQ" href="https://kotlinfoundation.org/faq/"/>
+		</toc-element>
+		<toc-element toc-title="Google Summer of Code">
+			<toc-element topic="gsoc-2024.md"/>
+			<toc-element topic="gsoc-2023.md"/>
+		</toc-element>
+		<toc-element topic="security.md"/>
+		<toc-element topic="kotlin-pdf.md"/>
+		<toc-element toc-title="Community">
+			<toc-element topic="contribute.md"/>
+			<toc-element accepts-web-file-names="kug-branding.html" topic="kug-guidelines.md"/>
+			<toc-element accepts-web-file-names="kotlin-nights-branding.html" topic="kotlin-night-guidelines.md"/>
+			<toc-element topic="slack-code-of-conduct.md"/>
+		</toc-element>
+		<toc-element accepts-web-file-names="kotlin-logo.html" topic="kotlin-brand-assets.md"/>
+		<toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
+		<toc-element hidden="true" topic="test-page.md"/>
+	</toc-element>
+</instance-profile>

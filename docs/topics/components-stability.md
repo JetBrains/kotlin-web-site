@@ -28,7 +28,8 @@ Here's a quick guide to these stability levels and their meaning:
 
 We collectively refer to _Experimental_, _Alpha_ and _Beta_ as **pre-stable** levels.
 
-<a name="stable"></a>
+<a name="stable"/>
+
 **Stable** means "use it even in most conservative scenarios":
   * It's done. We will be evolving it according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
 
@@ -67,7 +68,7 @@ to avoid the accidental use of features that have not been released as stable.
 
 > By default, all new components have Experimental status.
 > 
-{type="note"}
+{style="note"}
 
 ### Kotlin compiler
 

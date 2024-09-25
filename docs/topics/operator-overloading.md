@@ -41,7 +41,7 @@ function or an extension function.
 > These operations, as well as all the others, are optimized for [basic types](basic-types.md) and do not introduce 
 > overhead of function calls for them.
 >
-{type="note"}
+{style="note"}
 
 As an example, here's how you can overload the unary minus operator:
 
@@ -166,7 +166,7 @@ For the assignment operations, for example `a += b`, the compiler performs the f
 
 > Assignments are *NOT* expressions in Kotlin.
 >
-{type="note"}
+{style="note"}
 
 ### Equality and inequality operators
 
@@ -180,7 +180,7 @@ which can be overridden to provide custom equality check implementation. Any oth
 
 > `===` and `!==` (identity checks) are not overloadable, so no conventions exist for them.
 >
-{type="note"}
+{style="note"}
 
 The `==` operation is special: it is translated to a complex expression that screens for `null`'s.
 `null == null` is always true, and `x == null` for a non-null `x` is always false and won't invoke `x.equals()`.

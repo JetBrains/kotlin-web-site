@@ -24,7 +24,7 @@ perspective
 
 ## Language
 
-### Make `when` statements with enum, sealed, and Boolean subjects exhaustive by default
+### Make when statements with enum, sealed, and Boolean subjects exhaustive by default
 
 > **Issue**: [KT-47709](https://youtrack.jetbrains.com/issue/KT-47709)
 >
@@ -39,7 +39,7 @@ perspective
 > - 1.6.0: introduce a warning when the `when` statement with an enum, sealed, or Boolean subject is non-exhaustive (error in the progressive mode)
 > - 1.7.0: raise this warning to an error
 
-### Deprecate confusing grammar in `when-with-subject`
+### Deprecate confusing grammar in when-with-subject
 
 > **Issue**: [KT-48385](https://youtrack.jetbrains.com/issue/KT-48385)
 >
@@ -53,7 +53,7 @@ perspective
 >
 > - 1.6.20: introduce a deprecation warning on the affected expressions
 > - 1.8.0: raise this warning to an error
-> - \>= 1.8: repurpose some deprecated constructs for new language features
+> - &gt;= 1.8: repurpose some deprecated constructs for new language features
 
 ### Prohibit access to class members in the super constructor call of its companion and nested objects
 
@@ -102,7 +102,7 @@ perspective
 > - < 1.5.30: the old behavior in all affected cases
 > - 1.5.30: fix the downcast behavior in generated property delegate accessors,
 >   `-Xuse-old-backend` can be used to temporarily revert to the pre-1.5.30 fix behavior
-> - \>= 1.6.20: fix the downcast behavior in other affected cases
+> - &gt;= 1.6.20: fix the downcast behavior in other affected cases
 
 ### Prohibit declarations of repeatable annotation classes whose container annotation violates JLS
 
@@ -120,7 +120,7 @@ perspective
 > - 1.6.0: raise this warning to an error,
 >   `-XXLanguage:-RepeatableAnnotationContainerConstraints` can be used to temporarily disable the error reporting
 
-### Prohibit declaring a nested class named `Container` in a repeatable annotation class
+### Prohibit declaring a nested class named Container in a repeatable annotation class
 
 > **Issue**: [KT-47971](https://youtrack.jetbrains.com/issue/KT-47971)
 >
@@ -152,7 +152,7 @@ perspective
 > - 1.6.0: raise this warning to an error,
 >   `-XXLanguage:-ProhibitJvmFieldOnOverrideFromInterfaceInPrimaryConstructor` can be used to temporarily disable the error reporting
 
-### Deprecate the `enable` and the `compatibility` modes of the compiler option -Xjvm-default
+### Deprecate the enable and the compatibility modes of the compiler option -Xjvm-default
 
 > **Issue**: [KT-46329](https://youtrack.jetbrains.com/issue/KT-46329)
 >
@@ -165,7 +165,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: introduce a warning on the `enable` and `compatibility` modes of the `-Xjvm-default` compiler option
-> - \>= 1.8.0: raise this warning to an error
+> - &gt;= 1.8.0: raise this warning to an error
 
 ### Prohibit super calls from public-abi inline functions
 
@@ -231,7 +231,7 @@ perspective
 > - 1.6.0: introduce an error,
 >   `-XXLanguage:-ProperCheckAnnotationsTargetInTypeUsePositions` can be used to temporarily disable the error reporting
 
-### Prohibit calls to functions named `suspend` with a trailing lambda
+### Prohibit calls to functions named suspend with a trailing lambda
 
 > **Issue**: [KT-22562](https://youtrack.jetbrains.com/issue/KT-22562)
 >
@@ -245,11 +245,11 @@ perspective
 >
 > - 1.3.0: introduce a warning on such function calls
 > - 1.6.0: raise this warning to an error
-> - \>= 1.7.0: introduce changes to the language grammar, so that `suspend` before `{` is parsed as a keyword
+> - &gt;= 1.7.0: introduce changes to the language grammar, so that `suspend` before `{` is parsed as a keyword
 
 ## Standard library
 
-### Remove brittle `contains` optimization in minus/removeAll/retainAll
+### Remove brittle contains optimization in minus/removeAll/retainAll
 
 > **Issue**: [KT-45438](https://youtrack.jetbrains.com/issue/KT-45438)
 >
@@ -264,9 +264,9 @@ perspective
 > - < 1.6: the old behavior: the argument is converted to set in some cases
 > - 1.6.0: if the function argument is a collection, it's no longer converted to `Set`. If it's not a collection, it can be converted to `List` instead.  
 > The old behavior can be temporarily turned back on JVM by setting the system property `kotlin.collections.convert_arg_to_set_in_removeAll=true`
-> - \>= 1.7: the system property above will no longer have an effect
+> - &gt;= 1.7: the system property above will no longer have an effect
 
-### Change value generation algorithm in `Random.nextLong`
+### Change value generation algorithm in Random.nextLong
 
 > **Issue**: [KT-47304](https://youtrack.jetbrains.com/issue/KT-47304)
 >
@@ -280,7 +280,7 @@ perspective
 >
 > - 1.6.0: the behavior is fixed immediately
 
-### Gradually change the return type of collection `min` and `max` functions to non-nullable
+### Gradually change the return type of collection min and max functions to non-nullable
 
 > **Issue**: [KT-38854](https://youtrack.jetbrains.com/issue/KT-38854)
 >
@@ -295,9 +295,9 @@ perspective
 > - 1.4.0: introduce `...OrNull` functions as synonyms and deprecate the affected API (see details in the issue)
 > - 1.5.0: raise the deprecation level of the affected API to an error
 > - 1.6.0: hide the deprecated functions from the public API
-> - \>= 1.7: reintroduce the affected API but with non-nullable return type
+> - &gt;= 1.7: reintroduce the affected API but with non-nullable return type
 
-### Deprecate floating-point array functions: `contains`, `indexOf`, `lastIndexOf`
+### Deprecate floating-point array functions: contains, indexOf, lastIndexOf
 
 > **Issue**: [KT-28753](https://youtrack.jetbrains.com/issue/KT-28753)
 >
@@ -311,9 +311,9 @@ perspective
 >
 > - 1.4.0: deprecate the affected functions with a warning
 > - 1.6.0: raise the deprecation level to an error
-> - \>= 1.7: hide the deprecated functions from the public API
+> - &gt;= 1.7: hide the deprecated functions from the public API
 
-### Migrate declarations from `kotlin.dom` and `kotlin.browser` packages to `kotlinx.*`
+### Migrate declarations from kotlin.dom and kotlin.browser packages to kotlinx.*
 
 > **Issue**: [KT-39330](https://youtrack.jetbrains.com/issue/KT-39330)
 >
@@ -328,10 +328,10 @@ perspective
 > - 1.4.0: introduce the replacement API in `kotlinx.dom` and `kotlinx.browser` packages
 > - 1.4.0: deprecate the API in `kotlin.dom` and `kotlin.browser` packages and propose the new API above as a replacement
 > - 1.6.0: raise the deprecation level to an error
-> - \>= 1.7: remove the deprecated functions from stdlib
-> - \>= 1.7: move the API in kotlinx.* packages to a separate library
+> - &gt;= 1.7: remove the deprecated functions from stdlib
+> - &gt;= 1.7: move the API in kotlinx.* packages to a separate library
 
-### Make `Regex.replace` function not inline in Kotlin/JS
+### Make Regex.replace function not inline in Kotlin/JS
 
 > **Issue**: [KT-27738](https://youtrack.jetbrains.com/issue/KT-27738)
 >
@@ -345,7 +345,7 @@ perspective
 >
 > - 1.6.0: remove the `inline` modifier from the affected function
 
-### Different behavior of the `Regex.replace` function in JVM and JS when replacement string contains group reference
+### Different behavior of the Regex.replace function in JVM and JS when replacement string contains group reference
 
 > **Issue**: [KT-28378](https://youtrack.jetbrains.com/issue/KT-28378)
 >
@@ -420,7 +420,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.0: raise the deprecation level to an error
-> - \>= 1.7.0: remove the deprecated class
+> - &gt;= 1.7.0: remove the deprecated class
 
 ### Remove kotlin.useFallbackCompilerSearch build option
 
@@ -466,7 +466,7 @@ perspective
 >
 > - 1.5.0: raise the deprecation level to a warning
 > - 1.6.0: hide the option
-> - \>= 1.7.0: remove the deprecated option
+> - &gt;= 1.7.0: remove the deprecated option
 
 ### Deprecate kapt.use.worker.api Gradle property
 
@@ -481,7 +481,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: raise the deprecation level to a warning
-> - \>= 1.8.0: remove this property
+> - &gt;= 1.8.0: remove this property
 
 ### Remove kotlin.parallel.tasks.in.project Gradle property
 
@@ -511,4 +511,4 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.6.20: raise the deprecation level to a warning
-> - \>= 1.7.0: remove the DSL option and the property
+> - &gt;= 1.7.0: remove the DSL option and the property

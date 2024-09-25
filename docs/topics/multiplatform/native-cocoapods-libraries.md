@@ -15,7 +15,7 @@ the configuration block of the function.
 > If you don't specify the minimum deployment target version and a dependency Pod requires a higher deployment target,
 > you will get an error.
 >
-{type="note"}
+{style="note"}
 
 You can find a sample project [here](https://github.com/Kotlin/kmm-with-cocoapods-sample).
 
@@ -28,7 +28,7 @@ version of the library, you can just omit this parameter altogether.
 
    > You can add dependencies on subspecs.
    >
-   {type="note"}
+   {style="note"}
 
 2. Specify the minimum deployment target version for the Pod library.
 
@@ -68,7 +68,7 @@ import cocoapods.FirebaseAuth.*
    > The `cocoapods` block can include dependencies to Pods stored locally and Pods from the CocoaPods repository at
    > the same time.
    >
-   {type="note"}
+   {style="note"}
 
 2. Specify the minimum deployment target version for the Pod library.
 
@@ -100,7 +100,7 @@ import cocoapods.FirebaseAuth.*
    > You can also specify the version of the library using `version` parameter in the configuration block.
    > To use the latest version of the library, omit the parameter.
    >
-   {type="note"}
+   {style="note"}
 
 3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
@@ -129,7 +129,7 @@ import cocoapods.FirebaseAuth.*
 
    > You can combine `branch`, `commit`, and `tag` parameters to get the specific version of a Pod.
    >
-   {type="note"}
+   {style="note"}
 
 2. Specify the minimum deployment target version for the Pod library.
 
@@ -208,7 +208,7 @@ import cocoapods.CocoaLumberjack.*
 > source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'
 > ```
 >
-{type="note"}
+{style="note"}
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
@@ -266,7 +266,7 @@ import YandexMK.YMKDistance
 > It may be dropped or changed at any time. Use it only for evaluation purposes.
 > We'd appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 Some Objective-C libraries, specifically those that serve as wrappers for Swift libraries,
 have `@import` directives in their headers. By default, cinterop doesn't provide support for these directives.

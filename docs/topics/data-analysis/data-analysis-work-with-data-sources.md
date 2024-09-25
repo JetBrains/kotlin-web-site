@@ -18,7 +18,7 @@ In this guide, you can learn how to retrieve, refine, and handle data through mu
 
    > Alternatively, access the Kotlin Notebook plugin from **Settings** | **Plugins** | **Marketplace** within IntelliJ IDEA.
    >
-   {type="tip"}
+   {style="tip"}
 
 3. Create a new Kotlin Notebook by selecting **File** | **New** | **Kotlin Notebook**.
 4. In the Kotlin Notebook, import the Kotlin DataFrame library by running the following command:
@@ -35,7 +35,7 @@ To retrieve data from a file in Kotlin Notebook:
 2. Import the Kotlin DataFrame library by adding `%use dataframe` in a code cell at the start of your notebook.
    > Make sure to run the code cell with the `%use dataframe` line before you run any other code cells that rely on the Kotlin DataFrame library.
    >
-   {type="note"}
+   {style="note"}
 
 3. Use the [`.read()`](https://kotlin.github.io/dataframe/read.html) function from the Kotlin DataFrame library to retrieve data. 
 For example, to read a CSV file, use: `DataFrame.read("example.csv")`.
@@ -46,7 +46,7 @@ You can also add other arguments to customize the function, such as specifying t
 > For a comprehensive overview of additional file formats and a variety of read functions, see the 
 > [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/read.html).
 > 
-{type="tip"}
+{style="tip"}
 
 ## Display data
 
@@ -59,6 +59,7 @@ dfJson
 ```
 
 This code displays the data from the file of your choice, such as CSV, JSON, XLS, XLSX, or Apache Arrow.
+
 ![Display data](display-data.png){width=700}
 
 To gain insights into the structure or schema of your data, apply the `.schema()` function on your DataFrame variable. 
@@ -134,7 +135,7 @@ effectively refine and analyze data in Kotlin.
 
 > For additional use cases and detailed examples, see [Examples of Kotlin Dataframe](https://github.com/Kotlin/dataframe/tree/master/examples).
 > 
-{type="tip"}
+{style="tip"}
 
 ## Save DataFrame
 

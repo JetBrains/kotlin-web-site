@@ -23,7 +23,7 @@ plugins {
 
 The plugin versions match the [Kotlin release versions](releases.md). The latest stable version is %kotlinVersion%.
 
-## `cocoapods` block
+## cocoapods block
 
 The `cocoapods` block is the top-level block for the CocoaPods configuration. It contains general information on the Pod,
 including required information like the Pod version, summary, and homepage, as well as optional features.
@@ -88,13 +88,13 @@ kotlin {
 }
 ```
 
-### `framework` block
+### framework block
 
 The `framework` block is nested inside `cocoapods` and configures the framework properties of the Pod built from the project.
 
 > Note that `baseName` is a required field.
 >
-{type="note"}
+{style="note"}
 
 | **Name**           | **Description**                                                                         | 
 |--------------------|-----------------------------------------------------------------------------------------|
@@ -115,7 +115,7 @@ kotlin {
 }
 ```
 
-## `pod()` function
+## pod() function
 
 The `pod()` function call adds a CocoaPods dependency to the Pod built from this project. Each dependency requires
 a separate function call.
@@ -128,7 +128,7 @@ and `source` of the library, in its configuration block:
 | `version`                    | The library version. To use the latest version of the library, omit the parameter.                                                                                                                                                                                                                                                                              |
 | `source`                     | Configures the Pod from: <list><li>The Git repository using `git()`. In the block after `git()`, you can specify `commit` to use a specific commit, `tag` to use a specific tag, and `branch` to use a specific branch from the repository</li><li>The local repository using `path()`</li></list> |
 | `packageName`                | Specifies the package name.                                                                                                                                                                                                                                                                                                                                     |
-| `extraOpts`                  | Specifies the list of options for a Pod library. For example, specific flags: <code style="block" lang="Kotlin">extraOpts = listOf("-compiler-option")</code>                                                                                                                                                                                                   |
+| `extraOpts`                  | Specifies the list of options for a Pod library. For example, specific flags: <code-block lang="Kotlin">extraOpts = listOf("-compiler-option")</code-block>                                                                                                                                                                                                   |
 | `linkOnly`                   | Instructs the CocoaPods plugin to use Pod dependencies with dynamic frameworks without generating cinterop bindings. If used with static frameworks, the option will remove the Pod dependency entirely.                                                                                                                                                        |
 | `interopBindingDependencies` | Contains a list of dependencies to other Pods. This list is used when building a Kotlin binding for the new Pod.                                                                                                                                                                                                                                                |
 | `useInteropBindingFrom()`    | Specifies the name of the existing Pod that is used as dependency. This Pod should be declared before the function execution. The function instructs the CocoaPods plugin to use a Kotlin binding of the existing Pod when building a binding for the new one.                                                                                                  |

@@ -118,7 +118,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 > * There's no commitment to delivering specific features or fixes in specific versions.
 > * We will adjust our priorities as we go and update the roadmap approximately every six months.
 > 
-{type="note"}
+{style="note"}
 
 ## What's changed since December 2023
 
@@ -175,7 +175,7 @@ We've **removed** the following items from the roadmap:
 > Some items were removed from the roadmap but not dropped completely. In some cases, we've merged previous roadmap items
 > with the current ones.
 >
-{type="note"}
+{style="note"}
 
 ### Items in progress
 

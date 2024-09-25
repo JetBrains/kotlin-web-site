@@ -1,14 +1,19 @@
 [//]: # (title: Stability of Kotlin components \(pre 1.4\))
 
+<no-index/>
+
 There can be different modes of stability depending on how quickly a component is evolving:
-<a name="moving-fast"></a>
+
+<a name="moving-fast"/>
+
 *   **Moving fast (MF)**: no compatibility should be expected between even [incremental releases](kotlin-evolution-principles.md#language-and-tooling-releases), any functionality can be added, removed or changed without warning.
 
 *   **Additions in Incremental Releases (AIR)**: things can be added in an incremental release, removals and changes of behavior should be avoided and announced in a previous incremental release if necessary.
 
 *   **Stable Incremental Releases (SIR)**: incremental releases are fully compatible, only optimizations and bug fixes happen. Any changes can be made in a [language release](kotlin-evolution-principles.md#language-and-tooling-releases).
 
-<a name="fully-stable"></a>
+<a name="fully-stable"/>
+
 *   **Fully Stable (FS)**: incremental releases are fully compatible, only optimizations and bug fixes happen. Feature releases are backwards compatible.
 
 Source and binary compatibility may have different modes for the same component, e.g. the source language can reach full stability before the binary format stabilizes, or vice versa.

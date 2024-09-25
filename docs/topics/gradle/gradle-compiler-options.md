@@ -190,9 +190,9 @@ Here is a complete list of options for Gradle tasks:
 > We are going to deprecate the attribute `freeCompilerArgs` in future releases. If you miss some option in the Kotlin Gradle DSL,
 > please, [file an issue](https://youtrack.jetbrains.com/newissue?project=kt).
 >
-{type="warning"}
+{style="warning"}
 
-#### Example of additional arguments usage via freeCompilerArgs {initial-collapse-state="collapsed"}
+#### Example of additional arguments usage via freeCompilerArgs {initial-collapse-state="collapsed" collapsible="true"}
 
 Use the attribute `freeCompilerArgs` to supply additional (including experimental) compiler arguments. You can add a single
 argument to this attribute or a list of arguments:
