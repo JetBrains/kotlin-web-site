@@ -30,6 +30,10 @@ object BuildReferenceDocs : BuildType({
     param("WH_PROJECT_NAME", "kotlin-reference")
   }
 
+  vcs { root(vcsRoots.KotlinLangOrg, """
+      docs/kr.tree
+  """.trimIndent()) }
+
   steps {
     script {
       name = "Fix paths"

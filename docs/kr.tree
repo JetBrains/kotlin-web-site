@@ -51,7 +51,7 @@
 		<toc-element toc-title="Language features and proposals" topic="kotlin-language-features-and-proposals.md"/>
 		<toc-element toc-title="Language evolution principles" accepts-web-file-names="kotlin-evolution.html" topic="kotlin-evolution-principles.md"/>
 		<toc-element topic="components-stability.md"/>
-		<toc-element hidden="true" topic="components-stability-pre-1-4.md"/>
+		<toc-element hidden="true" topic="components-stability-pre-1.4.md"/>
 		<toc-element accepts-web-file-names="plugin-releases.html" topic="releases.md"/>
 	</toc-element>
 	<toc-element toc-title="Basics">
