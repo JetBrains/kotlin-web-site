@@ -1,6 +1,5 @@
 [//]: # (title: Kotlin language features and proposals)
-[//]: # (description: Learn about the lifecycle of Kotlin features. 
-The page contains the full list of Kotlin language features and design proposals.)
+[//]: # (description: Learn about the lifecycle of Kotlin features. The page contains the full list of Kotlin language features and design proposals.)
 
 JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md),
 guided by pragmatic design.
