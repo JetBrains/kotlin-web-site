@@ -14,7 +14,7 @@ and [Kotlin Multiplatform is now Stable](#kotlin-multiplatform-is-stable). Addit
 
 You can also find a short overview of the updates in this video:
 
-<video src="https://www.youtube.com/Ol_96CHKqg8" title="What's new in Kotlin 1.9.20"/>
+<video src="https://www.youtube.com/v/Ol_96CHKqg8" title="What's new in Kotlin 1.9.20"/>
 
 ## IDE support
 

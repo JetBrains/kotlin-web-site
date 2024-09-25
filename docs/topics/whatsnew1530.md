@@ -12,7 +12,7 @@ Here are some major improvements:
 
 You can also find a short overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/08/kotlin-1-5-30-released/) and this video:
 
-<video src="https://www.youtube.com/rNbb3A9IdOo" title="Kotlin 1.5.30"/>
+<video src="https://www.youtube.com/v/rNbb3A9IdOo" title="Kotlin 1.5.30"/>
 
 ## Language features
 

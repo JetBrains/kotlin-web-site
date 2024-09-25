@@ -34,7 +34,7 @@ KSP avoids that by treating the source programs as read-only.
 
 You can also get an overview of KSP in this video:
 
-<video src="https://www.youtube.com/bv-VyGM3HCY" title="Kotlin Symbol Processing (KSP)"/>
+<video src="https://www.youtube.com/v/bv-VyGM3HCY" title="Kotlin Symbol Processing (KSP)"/>
 
 
 ## How KSP looks at source files

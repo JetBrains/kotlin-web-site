@@ -667,7 +667,7 @@ It works with all language constructs, including inline functions.
 
 Learn more about Kover on its [GitHub repository](https://github.com/Kotlin/kotlinx-kover) or in this video:
 
-<video src="https://www.youtube.com/jNu5LY9HIbw" title="Kover – The Code Coverage Plugin"/>
+<video src="https://www.youtube.com/v/jNu5LY9HIbw" title="Kover – The Code Coverage Plugin"/>
 
 ## Coroutines 1.6.0-RC
 

@@ -24,7 +24,7 @@ Here is a list of the major updates in this version:
 
 You can also find a short overview of the changes in this video:
 
-<video src="https://www.youtube.com/54WEfLKtCGk" title="What's new in Kotlin 1.7.0"/>
+<video src="https://www.youtube.com/v/54WEfLKtCGk" title="What's new in Kotlin 1.7.0"/>
 
 ## New Kotlin K2 compiler for the JVM in Alpha
 
