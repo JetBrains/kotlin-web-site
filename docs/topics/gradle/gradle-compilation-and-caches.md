@@ -290,7 +290,6 @@ The Kotlin daemon also has a number of defaults:
 * -XX:UseParallelGC (if no other garbage collector was set)
 * -ea
 * -XX:+UseCodeCacheFlushing
-* -XX:+HeapDumpOnOutOfMemoryError
 * -Djava.awt.headless=true
 * -D{java.servername.property}={localhostip}
 * --add-exports=java.base/sun.nio.ch=ALL-UNNAMED (Only for JDK 16+)
