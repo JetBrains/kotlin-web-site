@@ -197,7 +197,7 @@ async function docs($, url, data) {
 
     /** @type {import('cheerio').Cheerio} */
     const $article = $('article.article');
-    const pageUrl = new URL($('link[rel="canonical"]').attr('href'));
+    const pageUrl = new URL($('meta[property="og:url"]').attr('content'));
 
     dropUiElements($article);
     dropIrrelevantSections($article);
