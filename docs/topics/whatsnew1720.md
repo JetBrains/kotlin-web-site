@@ -98,7 +98,7 @@ Kotlin 1.7.20 introduces preview versions for new language features, as well as 
 This release introduces the new `..<` operator. Kotlin has the `..` operator to express a range of values. The new `..<`
 operator acts like the `until` function and helps you define the open-ended range.
 
-<video src="https://www.youtube.com/v/v0AHdAIBnbs" title="New operator for open-ended ranges"/>
+<video src="https://www.youtube.com/watch?v=v0AHdAIBnbs" title="New operator for open-ended ranges"/>
 
 Our research shows that this new operator does a better job at expressing open-ended ranges and making it clear that the
 upper bound is not included.
