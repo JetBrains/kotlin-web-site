@@ -169,7 +169,7 @@ The Kotlin daemon inherits a specific set of arguments from the Gradle daemon an
 org.gradle.jvmargs=-Xmx1500m -Xms500m -XX:MaxMetaspaceSize=1g
 ```
 
-would then result in the Kotlin daemon's JVM args being:
+would then result in the Kotlin daemon's JVM args being similar to:
 
 ```none
 -Xmx1500m -XX:ReservedCodeCacheSize=320m -XX:MaxMetaspaceSize=1g -XX:UseParallelGC -ea -XX:+UseCodeCacheFlushing -XX:+HeapDumpOnOutOfMemoryError -Djava.awt.headless=true -Djava.rmi.server.hostname=127.0.0.1 --add-exports=java.base/sun.nio.ch=ALL-UNNAMED
