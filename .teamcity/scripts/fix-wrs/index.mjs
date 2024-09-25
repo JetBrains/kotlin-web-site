@@ -3,7 +3,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 
 
-const ROOT_DIR = resolve('..', '..');
+const ROOT_DIR = resolve('.');
 const DATA_DIR = join(ROOT_DIR, 'docs/kr.tree');
 
 const text = (await readFile(DATA_DIR));
