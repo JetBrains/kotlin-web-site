@@ -12,8 +12,11 @@ const $ = await load(text, { xml: true });
 const ids = (await $('toc-element[hidden="true"]'))
     .map((i, e) => $(e).attr('id')).get();
 
+console.log('total', ids.length);
+
 const dels = ids
     .map(async id => {
+        console.log('process', id);
         const fileName = id.replace(/.md$/g, '').replace(/\./g, '-') + '.html';
         const file = `${ROOT_DIR}/pages/${fileName}`;
         const text = await readFile(file);

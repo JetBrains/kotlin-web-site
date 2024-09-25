@@ -47,7 +47,7 @@ object BuildReferenceDocs : BuildType({
       dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
     }
     script {
-      name = "Prepare page views"
+      name = "Install npm packages"
       scriptContent = """
           #!/usr/bin/env bash
           npm i cheerio
@@ -57,7 +57,7 @@ object BuildReferenceDocs : BuildType({
       dockerPull = true
     }
     script {
-      name = "Prepare page views"
+      name = "Fix WRS-6159"
       scriptContent = """
             #!/usr/bin/env bash
             ":" //# comment; exec /usr/bin/env node --input-type=module - "${'$'}@" < "${'$'}0"
