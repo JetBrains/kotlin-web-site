@@ -5,6 +5,13 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import java.io.File
+import java.nio.file.Paths
+
+private fun readScript(name: String): String {
+    val file = File(Paths.get("scripts/$name.mjs").toAbsolutePath().toString())
+    return file.readText()
+}
 
 object BuildReferenceDocs : BuildType({
   name = "Reference Docs"
@@ -34,6 +41,21 @@ object BuildReferenceDocs : BuildType({
       """.trimIndent()
       dockerImage = "alpine"
       dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
+    }
+
+    script {
+      name = "Prepare page views"
+      scriptContent = """
+            #!/usr/bin/env bash
+            npm i cheerio
+            
+            ":" //# comment; exec /usr/bin/env node --input-type=module - "${'$'}@" < "${'$'}0"
+            
+            ${readScript("fix-wrs/index")}
+        """.trimIndent()
+      dockerImage = "node:22-slim"
+      dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
+      dockerPull = true
     }
   }
 
