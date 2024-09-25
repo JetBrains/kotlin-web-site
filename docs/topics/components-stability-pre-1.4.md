@@ -1,5 +1,7 @@
 [//]: # (title: Stability of Kotlin components \(pre 1.4\))
 
+<no-index/>
+
 There can be different modes of stability depending on how quickly a component is evolving:
 
 <a name="moving-fast"/>

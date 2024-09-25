@@ -1,6 +1,8 @@
 [//]: # (title: Testing page)
 [//]: # (description: This page is for testing purposes only.)
 
+<no-index/>
+
 <tldr>
    <p>This is a  block with images (taken from <strong>Getting started with Compose Multiplatform</strong> tutorial).</p>
    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/>

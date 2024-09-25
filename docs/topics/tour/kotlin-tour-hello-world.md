@@ -1,5 +1,7 @@
 [//]: # (title: Hello world)
 
+<no-index/>
+
 <tldr>
     <p><img src="icon-1.svg" width="20" alt="First step" /> <strong>Hello world</strong><br />
         <img src="icon-2-todo.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />

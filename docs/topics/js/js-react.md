@@ -1,5 +1,7 @@
 [//]: # (title: Build a web application with React and Kotlin/JS — tutorial)
 
+<no-index/>
+
 This tutorial will teach you how to build a browser application with Kotlin/JS and the [React](https://reactjs.org/)
 framework. You will:
 

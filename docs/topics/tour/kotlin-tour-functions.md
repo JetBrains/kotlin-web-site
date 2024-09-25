@@ -1,5 +1,7 @@
 [//]: # (title: Functions)
 
+<no-index/>
+
 <tldr>
     <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-hello-world.md">Hello world</a><br />
         <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />
