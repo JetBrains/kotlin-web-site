@@ -40,8 +40,8 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
             homepage = "https://github.com/JetBrains/kotlin"
             iosArm64.deploymentTarget = "13.5"
             pod("FirebaseAuth") {
-                 version = "10.16.0"
-             }
+                version = "10.16.0"
+            }
             podfile = project.file("../ios-app/Podfile")
         }
     }
@@ -58,14 +58,15 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
             pod 'kotlin_library', :path => '../kotlin-library'
     end
     ```
-    
-6. **Run `pod install`**:
-   - When you run `pod install` for the first time, it will create an `.xcworkspace` file. This file includes your original `.xcodeproj` and a Pods project.
-   - **Important**: Close your `.xcodeproj` and open the newly created `.xcworkspace` instead. This step is crucial to avoid issues with project dependencies.
 
-7. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+6. Run `pod install` in you project directory.
+
+   When you run `pod install` for the first time, it creates the `.xcworkspace` file. This file
+   includes your original `.xcodeproj` and the CocoaPods project.
+7. Close your `.xcodeproj` and open the new `.xcworkspace` file instead. This way you avoid issues with project dependencies.
+8. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
-   
+
 ## Xcode project with several targets
 
 1. Create an Xcode project with a `Podfile` if you haven't done so yet.
