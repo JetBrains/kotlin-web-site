@@ -13,7 +13,7 @@
 		<toc-element hidden="true" topic="kotlin-tour-null-safety.md"/>
 	</toc-element>
 	<toc-element toc-title="Kotlin overview">
-		<toc-element topic="multiplatform.xml"/>
+		<toc-element topic="multiplatform.topic"/>
 		<toc-element accepts-web-file-names="httpservlets.html" topic="server-overview.md"/>
 		<toc-element topic="android-overview.md"/>
 		<toc-element topic="wasm-overview.md"/>
