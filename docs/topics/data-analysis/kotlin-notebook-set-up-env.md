@@ -4,8 +4,7 @@
    <p>This is the first part of the <strong>Getting started with Kotlin Notebook</strong> tutorial:</p>
    <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Set up an environment</strong><br/>
       <img src="icon-2-todo.svg" width="20" alt="Second step"/> Create a Kotlin Notebook<br/>
-      <img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies to a Kotlin Notebook<br/>      
-      <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Share a Kotlin Notebook<br/>
+      <img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies to a Kotlin Notebook<br/>
   </p>
 </tldr>
 

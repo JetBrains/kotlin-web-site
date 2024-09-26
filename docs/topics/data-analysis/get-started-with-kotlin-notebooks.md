@@ -12,8 +12,6 @@ Get to know Kotlin Notebook by completing these steps:
 
 ![Third step](icon-3.svg){width=25}{type="joined"} [Add dependencies to your Kotlin Notebook](kotlin-notebook-add-dependencies.md)
 
-![Fourth step](icon-4.svg){width=25}{type="joined"} [Share your Kotlin Notebook](kotlin-notebook-share.md)
-
 ## Next step
 
 Start by setting up an environment for working with Kotlin Notebook:
