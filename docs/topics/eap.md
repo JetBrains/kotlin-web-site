@@ -63,7 +63,7 @@ check [our instructions on how to configure your build to support this version](
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.21-RC" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A bug fix release for Kotlin 2.0.0</p>
+            <p>A bug fix release for Kotlin 2.0.20</p>
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.21-RC">changelog</a>.</p>
         </td>
     </tr>
