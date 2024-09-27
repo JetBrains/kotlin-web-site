@@ -988,7 +988,7 @@ For example, use this syntax with `if`:
 if (x == null) ... else ...
 ```
 
-instead of this one with `when`:
+Instead of this one with `when`:
 
 ```kotlin
 when (x) {
@@ -998,6 +998,24 @@ when (x) {
 ```
 
 Prefer using `when` if there are three or more options.
+
+### Guard conditions in when expression
+
+Prefer using parentheses when combining multiple boolean expressions in `when` expressions or statements with [guard conditions](control-flow.md#guard-conditions-in-when-expressions):
+
+```kotlin
+when (status) {
+    is Status.Ok if (status.info.isEmpty() || status.info.id == null) -> "no information"
+}
+```
+
+Instead of:
+
+```kotlin
+when (status) {
+    is Status.Ok if status.info.isEmpty() || status.info.id == null -> "no information"
+}
+```
 
 ### Nullable Boolean values in conditions
 
