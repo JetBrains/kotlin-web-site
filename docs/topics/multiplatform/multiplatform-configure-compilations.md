@@ -316,14 +316,15 @@ The publication of this target is handled by the Kotlin plugin and doesn't requi
 Kotlin provides [interoperability with native languages](native-c-interop.md) and DSL to configure this for a specific 
 compilation.
 
-| Native language | Supported platforms | Comments |
-|-----------------|---------------------|----------|
-| C | All platforms, except for WebAssembly | |
-| Objective-C | Apple platforms (macOS, iOS, watchOS, tvOS) | |
+| Native language       | Supported platforms                         | Comments                                                                  |
+|-----------------------|---------------------------------------------|---------------------------------------------------------------------------|
+| C                     | All platforms, except for WebAssembly       |                                                                           |
+| Objective-C           | Apple platforms (macOS, iOS, watchOS, tvOS) |                                                                           |
 | Swift via Objective-C | Apple platforms (macOS, iOS, watchOS, tvOS) | Kotlin can use only Swift declarations marked with the `@objc` attribute. |
 
-A compilation can interact with several native libraries. Configure interoperability in the `cinterops` block of the 
-compilation with [available parameters](multiplatform-dsl-reference.md#cinterops).
+A compilation can interact with several native libraries. Configure interoperability with available properties in the
+[definition file](native-definition-file.md) or in the [`cinterops` block](multiplatform-dsl-reference.md#cinterops) of
+your build file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">

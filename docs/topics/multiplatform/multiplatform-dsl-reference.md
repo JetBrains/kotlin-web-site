@@ -401,8 +401,7 @@ kotlin {
                 // A shortcut for includeDirs.allHeaders.
                 includeDirs("include/directory", "another/directory")
 
-                // Header files to be included for Cinterop tool arguments
-                // Usually should be the same as defined in '.def' file
+                // Header files to be included in the bindings.
                 header("path/to/header.h")
                 headers("path/to/header1.h", "path/to/header2.h")
             }
@@ -438,8 +437,7 @@ kotlin {
                     // A shortcut for includeDirs.allHeaders.
                     includeDirs("include/directory", "another/directory")
 
-                    // Header files to be included for Cinterop tool arguments
-                    // Usually should be the same as defined in '.def' file
+                    // Header files to be included in the bindings.
                     header("path/to/header.h")
                     headers("path/to/header1.h", "path/to/header2.h")
                 }

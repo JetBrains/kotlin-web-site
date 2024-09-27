@@ -19,23 +19,23 @@ Some other resources you might find useful:
 * The [Integration with Swift/Objective-C ARC](native-arc-integration.md) section, covering the details of integration
   between Kotlin's tracing GC and Objective-C's ARC.
 
-## Usage
+## Importing Swift/Objective-C libraries to Kotlin
 
-Kotlin/Native provides bidirectional interoperability with Objective-C. Objective-C frameworks and libraries can be used
-in Kotlin code if properly imported to the build (system frameworks are imported by default).
-See [compilation configurations](multiplatform-configure-compilations.md#configure-interop-with-native-languages) for more details.
+Objective-C frameworks and libraries can be used in Kotlin code if properly imported to the build (system frameworks are imported by default).
+For more details, see:
+
+* [Create and configure a library definition file](native-definition-file.md)
+* [Configure compilation for native libraries](multiplatform-configure-compilations.md#configure-interop-with-native-languages)
 
 A Swift library can be used in Kotlin code if its API is exported to Objective-C with `@objc`.
 Pure Swift modules are not yet supported.
+
+## Using Kotlin in Swift/Objective-C
 
 Kotlin modules can be used in Swift/Objective-C code if compiled into a framework:
 
 * See [Build final native binaries](multiplatform-build-native-binaries.md#declare-binaries) to see how to declare binaries.
 * Check out the [Kotlin Multiplatform sample project](https://github.com/Kotlin/kmm-basic-sample) for an example.
-
-### Create bindings for a new library
-
-To create bindings for a new library, first create and configure a [definition file](native-definition-file.md).
 
 ### Hide Kotlin declarations from Objective-C and Swift
 
@@ -205,7 +205,7 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 
 Objective-C classes are imported into Kotlin with their original names.
 Protocols are imported as interfaces with a `Protocol` name suffix, for example, `@protocol Foo` -> `interface FooProtocol`.
-These classes and interfaces are placed into a package [specified in build configuration](#usage)
+These classes and interfaces are placed into a package [specified in build configuration](#importing-swift-objective-c-libraries-to-kotlin)
 (`platform.*` packages for preconfigured system frameworks).
 
 The names of Kotlin classes and interfaces are prefixed when imported to Objective-C.
@@ -618,7 +618,7 @@ argument types, but different argument names, are inherited from the Objective-C
 
 By default, the Kotlin/Native compiler doesn't allow calling a non-designated Objective-C initializer as a `super()`
 constructor. This behaviour can be inconvenient if the designated initializers aren't marked properly in the Objective-C
-library. To disable these compiler checks, add the `disableDesignatedInitializerChecks = true` to the library's `.def` file.
+library. To disable these compiler checks, add the `disableDesignatedInitializerChecks = true` to the library's [`.def` file](native-definition-file.md).
 
 ## C features
 
