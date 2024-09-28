@@ -74,43 +74,44 @@ The Gradle file is standard for Spring Boot, but it also contains necessary Kotl
 Here is the full script with the explanation of all parts and dependencies:
 
 ```kotlin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile // For `KotlinCompile` task below
-
-plugins { 
-    id("org.springframework.boot") version "3.1.2"
-    id("io.spring.dependency-management") version "1.1.2"
-    kotlin("jvm") version "%kotlinVersion%" // The version of Kotlin to use
-    kotlin("plugin.spring") version "%kotlinVersion%" // The Kotlin Spring plugin
+plugins {
+    kotlin("jvm") version "1.9.25"
+    kotlin("plugin.spring") version "1.9.25"
+    id("org.springframework.boot") version "3.3.4"
+    id("io.spring.dependency-management") version "1.1.6"
 }
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 repositories {
     mavenCentral()
 }
 
-dependencies { 
-    implementation("org.springframework.boot:spring-boot-starter-data-jdbc") 
-    implementation("org.springframework.boot:spring-boot-starter-web") 
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin") // Jackson extensions for Kotlin for working with JSON
-    implementation("org.jetbrains.kotlin:kotlin-reflect") // Kotlin reflection library, required for working with Spring
-    runtimeOnly("com.h2database:h2") 
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("org.jetbrains.kotlin:kotlin-reflect")
+    runtimeOnly("com.h2database:h2")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
-tasks.withType<KotlinCompile> { // Settings for `KotlinCompile` tasks
-    kotlinOptions { // Kotlin compiler options
-        freeCompilerArgs = listOf("-Xjsr305=strict") // `-Xjsr305=strict` enables the strict mode for JSR-305 annotations
-        jvmTarget = "17" // This option specifies the target version of the generated JVM bytecode
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xjsr305=strict")
     }
 }
 
-tasks.withType<Test> { 
+tasks.withType<Test> {
     useJUnitPlatform()
 }
 ```
