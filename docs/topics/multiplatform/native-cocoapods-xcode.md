@@ -114,7 +114,12 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
     end
     ```
 
-6. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+6. Run `pod install` in you project directory.
+
+   When you run `pod install` for the first time, it creates the `.xcworkspace` file. This file
+   includes your original `.xcodeproj` and the CocoaPods project.
+7. Close your `.xcodeproj` and open the new `.xcworkspace` file instead. This way you avoid issues with project dependencies.
+8. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 You can find a sample project [here](https://github.com/Kotlin/kmm-with-cocoapods-multitarget-xcode-sample).
