@@ -15,7 +15,6 @@ with available Gradle, Xcode, and Android Gradle plugin versions:
 
 | Kotlin version | Gradle    | Android Gradle plugin | Xcode |
 |----------------|-----------|-----------------------|-------|
-| 2.0.21         | 7.5-8.8*  | 7.4.2–8.5             | 16.0  |
 | 2.0.20         | 7.5-8.8*  | 7.4.2–8.5             | 15.3  |
 | 2.0.0          | 7.5-8.5   | 7.4.2–8.3             | 15.3  |
 | 1.9.20         | 7.5-8.1.1 | 7.4.2–8.2             | 15.0  |
