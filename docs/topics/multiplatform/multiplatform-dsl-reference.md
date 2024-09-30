@@ -368,14 +368,14 @@ Learn more about [building native binaries](multiplatform-build-native-binaries.
 `cinterops` is a collection of descriptions for interop with native libraries.
 To provide an interop with a library, add an entry to `cinterops` and define its parameters:
 
-| **Name**         | **Description**                                                    | 
-|------------------|--------------------------------------------------------------------|
-| `definitionFile` | The `.def` file describing the native API.                         |
-| `packageName`    | Package prefix for the generated Kotlin API.                       |
-| `compilerOpts`   | Options to pass to the compiler by the cinterop tool.              |
-| `includeDirs`    | Directories to look for headers.                                   |
-| `header`         | Header to be included for the cinterop tool arguments              |
-| `headers`        | The list of headers to be included for the cinterop tool arguments |
+| **Name**         | **Description**                                       | 
+|------------------|-------------------------------------------------------|
+| `definitionFile` | The `.def` file describing the native API.            |
+| `packageName`    | Package prefix for the generated Kotlin API.          |
+| `compilerOpts`   | Options to pass to the compiler by the cinterop tool. |
+| `includeDirs`    | Directories to look for headers.                      |
+| `header`         | Header to be included in the bindings.                |
+| `headers`        | The list of headers to be included in the bindings.   |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
