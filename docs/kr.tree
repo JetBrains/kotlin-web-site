@@ -327,6 +327,7 @@
 				<toc-element accepts-web-file-names="using-gradle.html" toc-title="Overview" topic="gradle.md"/>
 				<toc-element toc-title="Get started with Gradle – tutorial" topic="get-started-with-jvm-gradle-project.md"/>
 				<toc-element topic="gradle-configure-project.md"/>
+				<toc-element topic="gradle-best-practices.md"/>
 				<toc-element toc-title="Compiler options in KGP" topic="gradle-compiler-options.md"/>
 				<toc-element toc-title="Compilation and caches in KGP" topic="gradle-compilation-and-caches.md"/>
 				<toc-element topic="gradle-plugin-variants.md"/>
