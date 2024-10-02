@@ -55,7 +55,7 @@ kotlin {
 When you declare the targets `androidTarget`, `iosArm64`, and `iosSimulatorArm64` in your code, the Kotlin Gradle plugin finds
 suitable shared source sets from the template and creates them for you. The resulting hierarchy looks like this:
 
-![An example of using the default hierarchy template](default-hierarchy-example.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
+![An example of using the default hierarchy template](default-hierarchy-example.svg)
 
 Green source sets are actually created and present in the project, while gray ones from the default template are
 ignored. The Kotlin Gradle plugin hasn't created the `watchos` source set, for example, because there
@@ -316,7 +316,7 @@ kotlin {
 
 The resulting hierarchical structure will look like this:
 
-![Manually configured hierarchical structure](manual-hierarchical-structure.png)
+![Manually configured hierarchical structure](manual-hierarchical-structure.svg)
 
 You can have a shared source set for the following combinations of targets:
 
