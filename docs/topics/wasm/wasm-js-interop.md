@@ -359,7 +359,7 @@ external fun <T : JsAny> processData(data: JsArray<T>): T
 
 ## Exception handling
 
-The Kotlin `try-catch` expression can't catch JavaScript exceptions.
+Since version 2.0.0, the Kotlin `try-catch` expression can catch JavaScript exceptions via the `JsException` and `Throwable` types.
 
 If you try to use a JavaScript `try-catch` expression to catch Kotlin/Wasm exceptions, it looks like a
 generic `WebAssembly.Exception` without directly accessible messages and data.
