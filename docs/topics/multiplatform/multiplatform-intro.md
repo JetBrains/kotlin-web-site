@@ -7,8 +7,8 @@ same code for [different platforms](multiplatform-dsl-reference.md#targets) whil
 
 ## Learn key concepts
 
-Kotlin Multiplatform allows you to share code across different platforms, whether it’s mobile, web, or desktop.
-The platforms to which the code is compiled, are defined by the list of _targets_.
+Kotlin Multiplatform allows you to share code across different platforms, whether it's mobile, web, or desktop.
+The platforms to which the code is compiled are defined by the list of _targets_.
 
 Each target has a corresponding *source set*, which represents a set of source files with its own dependencies and
 compiler options. Platform-specific source sets, for example `jvmMain` for the JVM, can make use of platform-specific
@@ -30,16 +30,15 @@ For more details on this topic, see:
 
 ## Use code sharing mechanisms
 
-It's not always possible or convenient to share code among all platforms. For a more granular approach, use intermediate
-source sets to share code for specific subsets of targets. Kotlin Multiplatform provides a way to simplify their creation
-with a default hierarchy template. It includes a pre-defined list of intermediate source sets that are created based on
-the targets you specified in your project.
+It's sometimes more convenient to share code among a subset of similar targets. Kotlin Multiplatform provides a way to
+simplify their creation with a *default hierarchy template*. It includes a pre-defined list of intermediate source sets
+that are created based on the targets you specified in your project.
 
-Platform-specific APIs cannot usually be accessed from shared code. However, you can work around this by using Kotlin's
-mechanism of expected and actual declarations. This way you can declare that you `expect` a platform-specific API in
-common code but provide a separate `actual` implementation for each target platform. You can use this mechanism with
-different Kotlin concepts, including functions, classes, and interfaces. For example, you can define a function in
-common code, but provide its implementation using a platform-specific library in a corresponding source set.
+To access platform-specific APIs from shared code, you can use another Kotlin mechanism, *expected and actual declarations*.
+This way, you can declare that you `expect` a platform-specific API in common code but provide a separate `actual`
+implementation for each target platform. You can use this mechanism with different Kotlin concepts, including functions,
+classes, and interfaces. For example, you can define a function in common code, but provide its implementation using a
+platform-specific library in a corresponding source set.
 
 For more details on this topic, see:
 
@@ -97,7 +96,7 @@ as a dependency in other cross-platform projects.
 
 For more details on this topic, see [Publish a multiplatform library](multiplatform-publish-lib.md).
 
-## What's next
+## Reference
 
 * [DSL reference for the Kotlin Multiplatform Gradle plugin](multiplatform-dsl-reference.md)
 * [Compatibility guide for Kotlin Multiplatform](multiplatform-compatibility-guide.md)
