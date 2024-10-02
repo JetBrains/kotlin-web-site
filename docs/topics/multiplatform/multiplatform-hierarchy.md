@@ -57,7 +57,7 @@ suitable shared source sets from the template and creates them for you. The resu
 
 ![An example of using the default hierarchy template](default-hierarchy-example.svg)
 
-Green source sets are actually created and present in the project, while gray ones from the default template are
+Colored source sets are actually created and present in the project, while gray ones from the default template are
 ignored. The Kotlin Gradle plugin hasn't created the `watchos` source set, for example, because there
 are no watchOS targets in the project.
 
