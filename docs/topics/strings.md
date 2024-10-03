@@ -4,7 +4,7 @@ Strings in Kotlin are represented by the type [`String`](https://kotlinlang.org/
 
 > On the JVM, an object of `String` type in UTF-16 encoding uses approximately 2 bytes per character.
 > 
-{type="note"}
+{style="note"}
 
 Generally, a string value is a sequence of characters in double quotes (`"`):
 
@@ -63,7 +63,7 @@ fun main() {
 
 > In most cases using [string templates](#string-templates) or [multiline strings](#multiline-strings) is preferable to string concatenation.
 > 
-{type="note"}
+{style="note"}
 
 ## String literals
 
@@ -158,7 +158,7 @@ ${'$'}_9.99
 
 > String formatting with the `String.format()` function is only available in Kotlin/JVM.
 >
-{type="note"}
+{style="note"}
 
 To format a string to your specific requirements, use the [`String.format()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/format.html) 
 function. 
@@ -172,7 +172,7 @@ to reference the same argument multiple times within the format string in differ
 
 > For a detailed understanding and an extensive list of format specifiers, see [Java's Class Formatter documentation](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#summary).
 >
-{type="note"}
+{style="note"}
 
 Let's look at an example:
 

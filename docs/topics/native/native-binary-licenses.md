@@ -9,7 +9,7 @@ Sometimes it is derived work, such as code rewritten from C++ to Kotlin.
 > * [Kotlin compiler](https://github.com/JetBrains/kotlin/tree/master/license/third_party)
 > * [Kotlin/Native](https://github.com/JetBrains/kotlin/tree/master/kotlin-native/licenses/third_party)
 >
-{type="note"}
+{style="note"}
 
 In particular, the Kotlin/Native compiler produces binaries that can include third-party code, data, or derived work.
 This means that the Kotlin/Native-compiled binaries are subject to the terms and conditions of the third-party licenses.
@@ -73,4 +73,4 @@ The `mingwX64` target requires additional license files:
 
 > None of these libraries require the distributed Kotlin/Native binaries to be open-sourced.
 >
-{type="note"}
+{style="note"}

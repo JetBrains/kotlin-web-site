@@ -10,6 +10,7 @@ import NavItem from '@jetbrains/kotlin-web-site-ui/out/components/nav-item';
 import { SidebarMenu, SidebarMenuHeader } from '@jetbrains/kotlin-web-site-ui/out/components/sidebar-menu';
 
 import '@jetbrains/kotlin-web-site-ui/out/components/layout';
+import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
 
 import { CodeBlock } from '../../../components/code-block/code-block';
 
@@ -36,6 +37,9 @@ export const WhyKotlin: FC<Props> = ({}) => {
 
     const textCn = useTextStyles();
     const darkTextCn = createTextCn('dark');
+
+    const isTS = useTS();
+    const headerClass = isTS ? 'rs-h3' : 'rs-h2';
 
     const codeExamplesList = [
         { children: 'Simple', codeExample: simpleExample },
@@ -82,7 +86,7 @@ export const WhyKotlin: FC<Props> = ({}) => {
         <ThemeProvider theme={'dark'}>
             <section className={styles.whyKotlin} data-test={'main-page-why-kotlin'}>
                 <div className={cn('ktl-layout', 'ktl-layout--center')}>
-                    <div className={cn(darkTextCn('rs-h1'), styles.sectionTitle)}>Why Kotlin?</div>
+                    <div className={cn(darkTextCn(headerClass), styles.sectionTitle)}>Why Kotlin?</div>
                 </div>
 
                 <div className={styles.whyKotlinMobileWrapper}>

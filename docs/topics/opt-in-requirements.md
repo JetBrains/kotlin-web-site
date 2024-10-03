@@ -129,7 +129,7 @@ to the top of the file before the package specification and imports.
 
 > The `-opt-in` compiler option is available since Kotlin 1.6.0. For earlier Kotlin versions, use `-Xopt-in`.
 >
-{type="note"}
+{style="note"}
 
 If you don't want to annotate every usage of APIs that require opt-in, you can opt in to them for your whole module.
 To opt in to using an API in a module, compile it with the argument `-opt-in`,

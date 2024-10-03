@@ -7,7 +7,7 @@
 > Native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),
 > require opt-in only for some APIs. In such cases, you get an IDE warning.
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin/Native provides bi-directional interoperability with Objective-C/Swift. 
 Objective-C frameworks and libraries can be used in Kotlin code.
@@ -190,7 +190,7 @@ It contains the definitions for our Kotlin code and a few Kotlin-wide declaratio
 
 >The way Kotlin/Native exports symbols is subject to change without notice.
 
-{type="note"}
+{style="note"}
 
 ### Kotlin/Native runtime declarations
 

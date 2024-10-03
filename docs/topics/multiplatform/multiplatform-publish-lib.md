@@ -24,7 +24,7 @@ publishing {
 
 > You can also publish a multiplatform library to a GitHub repository. For more information, see GitHub's documentation on [GitHub packages](https://docs.github.com/en/packages).
 >
-{type="tip"}
+{style="tip"}
 
 ## Structure of publications
 
@@ -41,7 +41,7 @@ This `kotlinMultiplatform` publication includes metadata artifacts and reference
 > The Kotlin Multiplatform plugin automatically produces the required artifact with the embedded metadata artifacts.  
 > This means you don't have to customize your build by adding an empty artifact to the root module of your library to meet the repository's requirements.
 >
-{type="note"}
+{style="note"}
 
 The `kotlinMultiplatform` publication may also need the sources and documentation artifacts if that is required by the repository. In that case, 
 add those artifacts by using [`artifact(...)`](https://docs.gradle.org/current/javadoc/org/gradle/api/publish/maven/MavenPublication.html#artifact-java.lang.Object-) 
@@ -57,7 +57,7 @@ To avoid any issues during publication:
   
   Maven Central, for example, explicitly forbids duplicate publications and fails the process. <!-- TBD: add the actual error -->
   
-### If you use Kotlin 1.7.0 or earlier {initial-collapse-state="collapsed"}
+### If you use Kotlin 1.7.0 or earlier {initial-collapse-state="collapsed" collapsible="true"}
 
 Before 1.7.20, the Kotlin/Native compiler didn't support all cross-compilation options. If you use earlier versions, you may need
 to publish multiplatform projects from multiple hosts: a Windows host to compile a Windows target, a Linux host to compile a Linux target, and so on.
@@ -165,7 +165,7 @@ kotlin {
 > It is not recommended that you publish variants grouped by the product flavor in case they have different dependencies, 
 > as those will be merged into one dependency list.
 >
-{type="note"}
+{style="note"}
 
 ## Disable sources publication
 
@@ -208,3 +208,16 @@ you can configure and disable sources publication with the `withSourcesJar()` AP
       linuxX64()
   }
   ```
+
+## Disable JVM environment attribute publication
+
+Starting with Kotlin 2.0.0, the Gradle attribute [`org.gradle.jvm.environment`](https://docs.gradle.org/current/userguide/variant_attributes.html#sub:jvm_default_attributes)
+is automatically published with all Kotlin variants to help distinguish between JVM and Android variants of Kotlin Multiplatform
+libraries. The attribute indicates which library variant is suited for which JVM environment, and Gradle uses this information to help with 
+dependency resolution in your projects. The target environment can be "android", "standard-jvm", or "no-jvm".
+
+You can disable the publication of this attribute by adding the following Gradle property to your `gradle.properties` file:
+
+```none
+kotlin.publishJvmEnvironmentAttribute=false
+```

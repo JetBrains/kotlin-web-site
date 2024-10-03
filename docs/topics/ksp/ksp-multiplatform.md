@@ -47,7 +47,7 @@ corresponding `ksp<Target>` or `ksp<SourceSet>` configuration is specified.
 For example, in the above `build.gradle.kts`, there are 4 compilation tasks: common/metadata, JVM main, Linux x64 main, Linux x64 test,
 and 3 symbol processing tasks: common/metadata, JVM main, Linux x64 test.
 
-## Avoid the `ksp(...)` configuration on KSP 1.0.1+
+## Avoid the ksp(...) configuration on KSP 1.0.1+
 
 Before KSP 1.0.1, there is only one, unified `ksp(...)` configuration available. Therefore, processors either applies to all
 compilation targets, or nothing at all. Note that the `ksp(...)` configuration not only applies to the main source set, but also

@@ -1,12 +1,14 @@
 [//]: # (title: Build final native binaries (Experimental DSL))
 
+<no-index/>
+
 > The new DSL described below is [Experimental](components-stability.md). It may be changed at any time.
 > We encourage you to use it for evaluation purposes.
 > 
 > If the new DSL doesn't work for you, see [the previous approach](multiplatform-build-native-binaries.md)
 > to building native binaries.
 > 
-{type="warning"}
+{style="warning"}
 
 [Kotlin/Native targets](multiplatform-dsl-reference.md#native-targets) are compiled to the `*.klib` library artifacts,
 which can be consumed by Kotlin/Native itself as a dependency but cannot be used as a native library.
@@ -17,7 +19,7 @@ of native binaries built for this target in addition to the default `*.klib` art
 > The `kotlin-multiplatform` plugin doesn't create any production binaries by default. The only binary available by default 
 > is a debug test executable that lets you run unit tests from the `test` compilation.
 >
-{type="note"}
+{style="note"}
 
 Kotlin artifact DSL can help you to solve a common issue: when you need to access multiple Kotlin modules from your app.
 Since the usage of several Kotlin/Native artifacts is limited, you can export multiple Kotlin modules into a single
@@ -25,8 +27,8 @@ artifact with new DSL.
 
 ## Declare binaries
 
-The `kotlinArtifacts` element is the top-level block for artifact configuration in the Gradle build script. Use
-the following kinds of binaries to declare elements of the `kotlinArtifacts` DSL: 
+`kotlinArtifacts {}` is the top-level block for artifact configuration in the Gradle build script. Use
+the following kinds of binaries to declare elements of the `kotlinArtifacts {}` DSL: 
 
 | Factory method | Binary kind                                                                               | Available for                                |
 |----------------|-------------------------------------------------------------------------------------------|----------------------------------------------|
@@ -115,13 +117,14 @@ produces the `mylib.dll` file.
 
 For the binary configuration, the following common parameters are available:
 
-| **Name**        | **Description**                                                                                                                 |
-|-----------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `isStatic`      | Optional linking type that defines the library type. By default, it's `false` and the library is dynamic.                       |
-| `modes`         | Optional build types, `DEBUG` and `RELEASE`.                                                                                    |
-| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle-compiler-options.md). |
-| `addModule`     | In addition to the current module, you can add other modules to the resulting artifact.                                         |
-| `setModules`    | You can override the list of all modules that will be added to the resulting artifact.                                          |
+| **Name**        | **Description**                                                                                                                                        |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `isStatic`      | Optional linking type that defines the library type. By default, it's `false` and the library is dynamic.                                              |
+| `modes`         | Optional build types, `DEBUG` and `RELEASE`.                                                                                                           |
+| `kotlinOptions` | Optional compiler options applied to the compilation. See the list of available [compiler options](gradle-compiler-options.md).                        |
+| `addModule`     | In addition to the current module, you can add other modules to the resulting artifact.                                                                |
+| `setModules`    | You can override the list of all modules that will be added to the resulting artifact.                                                                 |
+| `target`        | Declares a particular target of a project. The names of available targets are listed in the [Targets](multiplatform-dsl-reference.md#targets) section. |
 
 ### Libraries and frameworks
 
@@ -130,12 +133,6 @@ of the current project but also the classes of any other multiplatform module in
 modules to it.
 
 #### Library
-
-For the library configuration, the additional `target` parameter is available:
-
-| **Name**        | **Description**                                                                                                                                        |
-|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `target`        | Declares a particular target of a project. The names of available targets are listed in the [Targets](multiplatform-dsl-reference.md#targets) section. |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -180,13 +177,6 @@ The registered Gradle task is `assembleMyslibSharedLibrary` that assembles all t
 
 #### Framework
 
-For the framework configuration, the following additional parameters are available:
-
-| **Name**       | **Description**                                                                                                                                                                                   |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `target`       | Declares a particular target of a project. The names of available targets are listed in the [Targets](multiplatform-dsl-reference.md#targets) section.                                            |
-| `embedBitcode` | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. Bitcode embedding is not required for Xcode 14 and later. |
-
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
@@ -196,7 +186,6 @@ kotlinArtifacts {
         modes(DEBUG, RELEASE)
         target = iosArm64
         isStatic = false
-        embedBitcode = EmbedBitcodeMode.MARKER
         kotlinOptions {
             verbose = false
         }
@@ -213,7 +202,6 @@ kotlinArtifacts {
         modes(DEBUG, RELEASE)
         target = iosArm64
         it.static = false
-        embedBitcode = EmbedBitcodeMode.MARKER
         kotlinOptions {
             verbose = false
         }
@@ -229,20 +217,13 @@ The registered Gradle task is `assembleMyframeFramework` that assembles all type
 > If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#export-dependencies-to-binaries)
 > to export dependencies to binaries.
 >
-{type="tip"}
+{style="tip"}
 
 ### Fat frameworks
 
 By default, an Objective-C framework produced by Kotlin/Native supports only one platform. However, you can merge such
 frameworks into a single universal (fat) binary. This especially makes sense for 32-bit and 64-bit iOS frameworks.
 In this case, you can use the resulting universal framework on both 32-bit and 64-bit devices.
-
-For the fat framework configuration, the following additional parameters are available:
-
-| **Name**       | **Description**                                                                                                                                                                                   |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `targets`      | Declares all targets of the project.                                                                                                                                                              |
-| `embedBitcode` | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. Bitcode embedding is not required for Xcode 14 and later. |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -251,7 +232,6 @@ For the fat framework configuration, the following additional parameters are ava
 kotlinArtifacts {
     Native.FatFramework("myfatframe") {
         targets(iosX32, iosX64)
-        embedBitcode = EmbedBitcodeMode.DISABLE
         kotlinOptions {
             suppressWarnings = false
         }
@@ -266,7 +246,6 @@ kotlinArtifacts {
 kotlinArtifacts {
     it.native.FatFramework("myfatframe") {
         targets(iosX32, iosX64)
-        embedBitcode = EmbedBitcodeMode.DISABLE
         kotlinOptions {
             suppressWarnings = false
         }
@@ -282,20 +261,13 @@ The registered Gradle task is `assembleMyfatframeFatFramework` that assembles al
 > If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#build-universal-frameworks)
 > to build fat frameworks.
 >
-{type="tip"}
+{style="tip"}
 
 ### XCFrameworks
 
 All Kotlin Multiplatform projects can use XCFrameworks as an output to gather logic for all the target platforms and
 architectures in a single bundle. Unlike [universal (fat) frameworks](#fat-frameworks), you don't need to
 remove all unnecessary architectures before publishing the application to the App Store.
-
-For the XCFrameworks configuration, the following additional parameters are available:
-
-| **Name**       | **Description**                                                                                                                                                                                   |
-|----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `targets`      | Declares all targets of the project.                                                                                                                                                              |
-| `embedBitcode` | Declares the mode of bitcode embedding. Use `MARKER` to embed the bitcode marker (for debug builds) or `DISABLE` to turn off embedding. Bitcode embedding is not required for Xcode 14 and later. |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -335,4 +307,4 @@ The registered Gradle task is `assembleSdkXCFramework` that assembles all types 
 > If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#build-xcframeworks)
 > to build XCFrameworks.
 >
-{type="tip"}
+{style="tip"}

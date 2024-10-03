@@ -24,7 +24,7 @@ Use Spring Initializr to create a new project:
 
 > You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html)
 >
-{type="note"}
+{style="note"}
 
 1. Open [Spring Initializr](https://start.spring.io/#!type=gradle-project&language=kotlin&platformVersion=2.7.3&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=demo&dependencies=web,data-jdbc,h2). This link opens the page with the project settings for this tutorial already filled in.
 This project uses **Gradle**, **Kotlin**, **Spring Web**, **Spring Data JDBC**, and **H2 Database**:
@@ -142,7 +142,7 @@ the launch menu in IntelliJ IDEA:
 
    > You can also run the `./gradlew bootRun` command in the terminal.
    >
-   {type="note"}
+   {style="note"}
 
 2. Once the application starts, open the following URL: [http://localhost:8080](http://localhost:8080).
 
@@ -340,7 +340,7 @@ We will also send you language tips and useful materials on using Kotlin with Sp
 
 > You will need to share your email address on the next page to receive the materials.
 >
-{type="note"}
+{style="note"}
 
 ### See also
 

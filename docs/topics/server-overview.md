@@ -44,7 +44,7 @@ Here are some examples of the server-side frameworks for Kotlin:
   
 > You can find more frameworks at [https://kotlin.link/](https://kotlin.link/resources).
 >
-{type="note"}
+{style="note"}
 
 ## Deploying Kotlin server-side applications
 

@@ -27,7 +27,7 @@ That means there's almost no runtime overhead for working with nullable types in
 > We say "almost" because, even though [intrinsic](https://en.wikipedia.org/wiki/Intrinsic_function) checks _are_ generated,
 their overhead is minimal.
 >
-{type="note"}
+{style="note"}
 
 In Java, if you don't write null checks, methods may throw a `NullPointerException`:
 
@@ -85,7 +85,7 @@ After the check is passed successfully, the compiler treats the variable as if i
 in the scope where the compiler performs the check.
 
 If you don't perform this check, the code will fail to compile with the following message:
-"Only [safe (?.)](null-safety.md#safe-calls) or [non-nullable asserted (!!.) calls](null-safety.md#the-operator) are allowed
+"Only [safe (?.)](null-safety.md#safe-call-operator) or [non-nullable asserted (!!.) calls](null-safety.md#not-null-assertion-operator) are allowed
 on a [nullable receiver](extensions.md#nullable-receiver) of type String?".
 
 You can write the same shorter – use the [safe-call operator ?. (If-not-null shorthand)](idioms.md#if-not-null-shorthand), 
@@ -335,7 +335,7 @@ To make it return `null`, you can use the [_boxed_ type](https://docs.oracle.com
 However, it's more resource-efficient to make such functions return a negative value and then check the value –
 you would do the check anyway, but no additional boxing is performed this way.
 >
-{type="note"}
+{style="note"}
 
 ## What's next?
 

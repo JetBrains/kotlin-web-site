@@ -30,7 +30,7 @@ object BuildStdlibApiReference : BuildType({
   }
 
   dependencies {
-      dependency(AbsoluteId("Kotlin_KotlinRelease_1920_LibraryReferenceLatestDocs")) {
+      dependency(AbsoluteId("Kotlin_KotlinRelease_2020_LibraryReferenceLatestDocs")) {
           artifacts {
               buildRule = tag(tag = "publish", branch = """
                   +:<default>

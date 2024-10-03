@@ -33,7 +33,7 @@ data class User(val name: String, val age: Int)
 
 [Learn more about using JVM records in Kotlin](jvm-records.md).
 
-<video href="iyEWXyuuseU" title="Support for JVM Records in Kotlin 1.5.0"/>
+<video src="https://www.youtube.com/v/iyEWXyuuseU" title="Support for JVM Records in Kotlin 1.5.0"/>
 
 ### Sealed interfaces
 
@@ -64,7 +64,7 @@ class FilledRectangle: Polygon, Fillable
 
 [Learn more about sealed interfaces](sealed-classes.md).
 
-<video href="d_Mor21W_60" title="Sealed Interfaces and Sealed Classes Improvements"/>
+<video src="https://www.youtube.com/v/d_Mor21W_60" title="Sealed Interfaces and Sealed Classes Improvements"/>
 
 ### Package-wide sealed class hierarchies
 
@@ -100,7 +100,7 @@ The `inline` modifier is now deprecated with a warning.
 
 [Learn more about inline classes](inline-classes.md).
 
-<video href="LpqvtgibbsQ" title="From Inline to Value Classes"/>
+<video src="https://www.youtube.com/v/LpqvtgibbsQ" title="From Inline to Value Classes"/>
 
 ## Kotlin/JVM
 
@@ -187,7 +187,7 @@ Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Mave
 > Compiling plain Kotlin lambdas into invokedynamic is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Opt-in is required (see details below), and you should use it only for evaluation purposes. We would appreciate hearing your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-45375).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.5.0 is introducing experimental support for compiling plain Kotlin lambdas (which are not converted to an instance
 of a functional interface) into dynamic invocations (`invokedynamic`). The implementation produces lighter binaries by using
@@ -297,7 +297,7 @@ that brings incompatible changes. If you're using a custom webpack configuration
 > The Kotlin/JS IR compiler is in [Alpha](components-stability.md). It may change incompatibly and require manual migration
 >in the future. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 Along with working on the IR-based backend for Kotlin/JS compiler, we encourage and help library authors to build their
 projects in `both` mode. This means they are able to produce artifacts for both Kotlin/JS compilers, therefore growing
@@ -334,7 +334,7 @@ The standard library has received a range of changes and improvements, from stab
 
 You can learn more about the standard library changes in [this blog post](https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-rc-released).
 
-<video href="MyTkiT2I6-8" title="New Standard Library Features"/>
+<video src="https://www.youtube.com/v/MyTkiT2I6-8" title="New Standard Library Features"/>
 
 ### Stable unsigned integer types
 
@@ -371,7 +371,7 @@ Kotlin 1.5.0 provides the following fully [Stable](components-stability.md) alte
 > For Kotlin/JVM, there are also overloaded `uppercase()`, `lowercase()`, and `titlecase()` functions with an explicit
 > `Locale` parameter.
 >
-{type="note"}
+{style="note"}
 
 The old API functions are marked as deprecated and will be removed in a future release.
 
@@ -459,7 +459,7 @@ fun main() {
 > The Duration API is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We would appreciate hearing your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 There is an experimental [Duration](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.time/-duration/) class for representing
 duration amounts in different time units. In 1.5.0, the Duration API has received the following changes:
@@ -754,7 +754,7 @@ are disabled and the `-Xcoroutines=experimental` flag is no longer supported.
 Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.5.0-RC) and the
 [`kotlinx.coroutines` 1.5.0 release blog post](https://blog.jetbrains.com/kotlin/2021/05/kotlin-coroutines-1-5-0-released/).
 
-<video href="EVLnWOcR0is" title="kotlinx.coroutines 1.5.0"/>
+<video src="https://www.youtube.com/v/EVLnWOcR0is" title="kotlinx.coroutines 1.5.0"/>
 
 ### Serialization 1.2.1
 
@@ -767,7 +767,7 @@ Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/relea
 Learn more in the [changelog](https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.2.1) and the
 [`kotlinx.serialization` 1.2.1 release blog post](https://blog.jetbrains.com/kotlin/2021/05/kotlinx-serialization-1-2-released/).
 
-<video href="698I_AH8h6s" title="kotlinx.serialization 1.2.1"/>
+<video src="https://www.youtube.com/v/698I_AH8h6s" title="kotlinx.serialization 1.2.1"/>
 
 ### dateTime 0.2.0
 
@@ -784,12 +784,12 @@ Learn more in the [changelog](https://github.com/Kotlin/kotlinx-datetime/release
 IntelliJ IDEA and Android Studio will suggest updating the Kotlin plugin to 1.5.0 once it is available.
 
 To migrate existing projects to Kotlin 1.5.0, just change the Kotlin version to `1.5.0` and re-import your Gradle or Maven
-project. [Learn how to update to Kotlin 1.5.0](releases.md#update-to-a-new-release).
+project. [Learn how to update to Kotlin 1.5.0](releases.md#update-to-a-new-kotlin-version).
 
-To start a new project with Kotlin 1.5.0, update the Kotlin plugin and run the Project Wizard from **File** \| **New** \|
+To start a new project with Kotlin 1.5.0, update the Kotlin plugin and run the Project Wizard from **File** | **New** |
 **Project**.
 
 The new command-line compiler is available for downloading on the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.5.0).
 
-Kotlin 1.5.0 is a [feature release](kotlin-evolution.md#feature-releases-and-incremental-releases) and therefore can
+Kotlin 1.5.0 is a [feature release](kotlin-evolution-principles.md#language-and-tooling-releases) and therefore can
 bring incompatible changes to the language. Find the detailed list of such changes in the [Compatibility Guide for Kotlin 1.5](compatibility-guide-15.md).

@@ -28,7 +28,7 @@ kotlin {
 
 > The old compiler backend has been deprecated since Kotlin 1.8.0. Starting with Kotlin 1.9.0, using compiler types `LEGACY` or `BOTH` leads to an error.
 >
-{type="warning"}
+{style="warning"}
 
 The compiler type can also be set in the `gradle.properties` file, with the key `kotlin.js.compiler=ir`.
 This behaviour is overwritten by any settings in the `build.gradle(.kts)`, however.
@@ -66,53 +66,45 @@ kotlin.incremental.js.ir=false // true by default
 
 > The clean build in the incremental compilation mode is usually slower because of the need to create and populate the caches.
 >
-{type="note"}
+{style="note"}
 
-## Output .js files: one per module or one for the whole project
+## Output mode
 
-As a compilation result, the JS IR compiler outputs separate `.js` files for each module of a project. 
-Alternatively, you can compile the whole project into a single `.js` file by adding the following line to `gradle.properties`:
+You can choose how the JS IR compiler outputs `.js` files in your project:
 
-```none
-kotlin.js.ir.output.granularity=whole-program // 'per-module' is the default
-```
+* **One per module**. By default, the JS compiler outputs separate `.js` files for each module of a project as a
+  compilation result.
+* **One per project**. You can compile the whole project into a single `.js` file by adding the following line to
+  `gradle.properties`:
 
-## Ignoring compilation errors
+  ```none
+  kotlin.js.ir.output.granularity=whole-program // 'per-module' is the default
+  ```
+  
+* **One per file**. You can set up a more granular output that generates one (or two, if the file contains exported
+  declarations) JavaScript file per each Kotlin file. To enable the per-file compilation mode:
 
-> _Ignore compilation errors_ mode is [Experimental](components-stability.md). It may be dropped or changed at any time.
-> Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
->
-{type="warning"}
+  1. Add the `useEsModules()` function to your build file to support ECMAScript modules:
 
-Kotlin/JS IR compiler provides a new compilation mode unavailable in the default backend – _ignoring compilation errors_.
-In this mode, you can try out your application even while its code contains errors.
-For example, when you're doing a complex refactoring or working on a part of the system that is completely unrelated to
-a compilation error in another part.
-
-With this new compiler mode, the compiler ignores all broken code. Thus, you can run the application and try its parts
-that don't use the broken code. If you try to run the code that was broken during compilation, you'll get a
-runtime exception.
-
-Choose between two tolerance policies for ignoring compilation errors in your code:
-- `SEMANTIC`. The compiler will accept code that is syntactically correct but doesn't make sense semantically.
-  For example, assigning a number to a string variable (type mismatch).
-- `SYNTAX`. The compiler will accept any code, even if it contains syntax errors. Regardless of what you write, the
-  compiler will still try to generate a runnable executable.
-
-As an experimental feature, ignoring compilation errors requires an opt-in.
-To enable this mode, add the `-Xerror-tolerance-policy={SEMANTIC|SYNTAX}` compiler option:
-
-```kotlin
-kotlin {
-    js(IR) {
-        compilations.all {
-            compileTaskProvider.configure {
-                compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
-            }
-        }
-    }
-}
-```
+     ```kotlin
+     // build.gradle.kts
+     kotlin {
+         js(IR) {
+             useEsModules() // Enables ES2015 modules
+             browser()
+         }
+     }
+     ```
+  
+     Alternatively, you can use the `es2015` [compilation target](js-project-setup.md#support-for-es2015-features)
+     to support ES2015 features in your project.
+  
+  2. Apply the `-Xir-per-file` compiler option or update your `gradle.properties` file with:
+  
+     ```none
+     # gradle.properties
+     kotlin.js.ir.output.granularity=per-file // `per-module` is the default
+     ```
 
 ## Minification of member names in production
 
@@ -137,7 +129,7 @@ kotlin {
 > The generation of TypeScript declaration files (`d.ts`) is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues?q=%23%7BKJS:%20d.ts%20generation%7D).
 >
-{type="warning"}
+{style="warning"}
 
 The Kotlin/JS IR compiler is capable of generating TypeScript definitions from your Kotlin code. These definitions can be
 used by JavaScript tools and IDEs when working on hybrid apps to provide autocompletion, support static analyzers, and

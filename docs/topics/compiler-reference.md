@@ -36,7 +36,7 @@ $ kotlinc hello.kt -include-runtime -d hello.jar
 >```
 >$ kotlinc.bat hello.kt -include-runtime -d "My Folder\hello.jar"
 >```
-{type="note"}
+{style="note"}
 
 ## Common options
 
@@ -77,7 +77,7 @@ their names and behavior may be changed without notice.
 
 Specify a custom path to the Kotlin compiler used for the discovery of runtime libraries.
   
-### -P plugin:_pluginId_:_optionName_=_value_
+### -P plugin:pluginId:optionName=value
 
 Pass an option to a Kotlin compiler plugin.
 Available plugins and their options are listed in the **Tools > Compiler plugins** section of the documentation.
@@ -99,14 +99,13 @@ instead of going through a graceful migration cycle.
 Code written in the progressive mode is backwards compatible; however, code written in
 a non-progressive mode may cause compilation errors in the progressive mode.
 
-### @_argfile_
+### @argfile
 
 Read the compiler options from the given file. Such a file can contain compiler options with values 
 and paths to the source files. Options and paths should be separated by whitespaces. For example:
 
 ```
--include-runtime -d hello.jar
-hello.kt
+-include-runtime -d hello.jar hello.kt
 ```
 
 To pass values that contain whitespaces, surround them with single (**'**) or double (**"**) quotes. If a value contains 
@@ -166,7 +165,7 @@ Possible values are `1.8`, `9`, `10`, ..., `21`.
 
 > This option is [not guaranteed](https://youtrack.jetbrains.com/issue/KT-29974) to be effective for each JDK distribution.
 >
-{type="note"}
+{style="note"}
 
 ### -jvm-target _version_
 
@@ -285,7 +284,8 @@ Enable runtime assertions in the generated code.
 
 ### -g
 
-Enable emitting debug information.
+Enable emitting debug information. This option lowers the optimization level and should not be combined with
+the [`-opt`](#opt) option.
     
 ### -generate-test-runner (-tr)
 
@@ -352,7 +352,8 @@ Don't link with stdlib.
 
 ### -opt
 
-Enable compilation optimizations.
+Enable compilation optimizations and produce a binary with better runtime performance. It's not recommended to combine it
+with the [`-g`](#g) option, which lowers the optimization level.
 
 ### -output _name_ (-o _name_)
 

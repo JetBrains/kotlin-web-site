@@ -9,7 +9,7 @@ there are key differences to consider.
 > Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time. Use it in scenarios before production. 
 > We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
 >
-{type="note"}
+{style="note"}
 
 ## Use JavaScript code in Kotlin
 
@@ -186,7 +186,7 @@ If there are JavaScript syntax errors, they are reported when you run your JavaS
 
 > The `@JsFun` annotation has similar functionality and will likely be deprecated.
 >
-{type="note"}
+{style="note"}
 
 ### JavaScript modules
 
@@ -247,6 +247,29 @@ import exports from "./module.mjs"
 exports.addOne(10)
 ```
 
+The Kotlin/Wasm compiler is capable of generating TypeScript definitions from any `@JsExport` declarations in your Kotlin code. 
+These definitions can be used by IDEs and JavaScript tools to provide code autocompletion, help with type-checks, and make it easier to consume Kotlin code from JavaScript and TypeScript.
+
+The Kotlin/Wasm compiler collects any top-level functions marked with the `@JsExport` annotation and automatically generates TypeScript definitions in a `.d.ts` file.
+
+To generate TypeScript definitions, in your `build.gradle.kts` file in the `wasmJs{}` block, add the `generateTypeScriptDefinitions()` function:
+
+```kotlin
+kotlin {
+    wasmJs {
+        binaries.executable()
+        browser {
+        }
+        generateTypeScriptDefinitions()
+    }
+}
+```
+
+> Generating TypeScript declaration files in Kotlin/Wasm is [Experimental](components-stability.md#stability-levels-explained).
+> It may be dropped or changed at any time.
+>
+{style="warning"}
+
 ## Type correspondence
 
 Kotlin/Wasm allows only certain types in signatures of JavaScript interop declarations.
@@ -254,18 +277,18 @@ These limitations apply uniformly to declarations with `external`, `= js("code")
 
 See how Kotlin types correspond to Javascript types:
 
-| Kotlin                                      | JavaScript                        |
-|---------------------------------------------|-----------------------------------|
-| `Byte`, `Short`, `Int`, `Char`              | `Number`                          |
-| `Float`, `Double`,                          | `Number`                          |
-| `Long`,                                     | `BigInt`                          |
-| `Boolean`,                                  | `Boolean`                         |
-| `String`,                                   | `String`                          |
-| `Unit` in return position                   | `undefined`                       |
-| Function type, for example `(String) -> Int` | Function                          |
-| `JsAny` and subtypes                        | Any JavaScript value              |
-| `JsReference`                               | Opaque reference to Kotlin object |
-| Other types                                 | Not supported                     |
+| Kotlin                                                     | JavaScript                        |
+|------------------------------------------------------------|-----------------------------------|
+| `Byte`, `Short`, `Int`, `Char`, `UByte`, `UShort`, `UInt`, | `Number`                          |
+| `Float`, `Double`,                                         | `Number`                          |
+| `Long`, `ULong`,                                           | `BigInt`                          |
+| `Boolean`,                                                 | `Boolean`                         |
+| `String`,                                                  | `String`                          |
+| `Unit` in return position                                  | `undefined`                       |
+| Function type, for example `(String) -> Int`               | Function                          |
+| `JsAny` and subtypes                                       | Any JavaScript value              |
+| `JsReference`                                              | Opaque reference to Kotlin object |
+| Other types                                                | Not supported                     |
 
 You can use nullable versions of these types as well.
 
@@ -342,7 +365,8 @@ If you try to use a JavaScript `try-catch` expression to catch Kotlin/Wasm excep
 generic `WebAssembly.Exception` without directly accessible messages and data.
 
 ## Kotlin/Wasm and Kotlin/JS interoperability differences
-<a name="differences"></a>
+
+<a name="differences"/>
 
 Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interoperability, there are key differences to consider:
 
@@ -357,7 +381,7 @@ Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interop
 | **Long**                | Type corresponds to JavaScript `BigInt`.                                                                                                                                                                            | Visible as a custom class in JavaScript.                                                                                                            |
 | **Arrays**              | Not supported in interop directly yet. You can use the new `JsArray` type instead.                                                                                                                                  | Implemented as JavaScript arrays.                                                                                                                   |
 | **Other types**         | Requires `JsReference<>` to pass Kotlin objects to JavaScript.                                                                                                                                                      | Allows the use of non-external Kotlin class types in external declarations.                                                                         |
-| **Exception handling**  | Can't catch JavaScript exceptions.                                                                                                                                                                                  | Can catch JavaScript `Error` via the `Throwable` type. It can catch any JavaScript exception using the `dynamic` type.                                      |
+| **Exception handling**  | Starting from Kotlin 2.0.0, it can catch any JavaScript exception via the `JsException` and `Throwable` types.                               | Can catch JavaScript `Error` via the `Throwable` type. It can catch any JavaScript exception using the `dynamic` type.                                      |
 | **Dynamic types**       | Does not support the `dynamic` type. Use `JsAny` instead (see sample code below).                                                                                                                                   | Supports the `dynamic` type.                                                                                                                        |
 
 > Kotlin/JS [dynamic type](dynamic-type.md) for interoperability with untyped or loosely typed objects is not
@@ -382,4 +406,4 @@ Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interop
 > }
 > ```
 >
-{type="note"}
+{style="note"}

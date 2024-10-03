@@ -4,7 +4,7 @@
 > but have no plans to implement new features. Please use the [Kotlin Symbol Processing API (KSP)](ksp-overview.md) for annotation processing.
 > [See the list of libraries supported by KSP](ksp-overview.md#supported-libraries).
 >
-{type="warning"}
+{style="warning"}
 
 Annotation processors (see [JSR 269](https://jcp.org/en/jsr/detail?id=269)) are supported in Kotlin with the _kapt_ compiler plugin.
 
@@ -75,19 +75,15 @@ Follow these steps:
 > Support for K2 in the kapt compiler plugin is [Experimental](components-stability.md). Opt-in is required (see details below),
 > and you should use it only for evaluation purposes.
 >
-{type="warning"}
+{style="warning"}
 
 From Kotlin 1.9.20, you can try using the kapt compiler plugin with the [K2 compiler](https://blog.jetbrains.com/kotlin/2021/10/the-road-to-the-k2-compiler/),
 which brings performance improvements and many other benefits. To use the K2 compiler in your project, add the following
 options to your `gradle.properties` file:
 
 ```kotlin
-kotlin.experimental.tryK2=true
 kapt.use.k2=true
 ```
-Alternatively, you can enable K2 for kapt by completing the following steps:
-1. In your `build.gradle.kts` file, [set the language version](gradle-compiler-options.md#example-of-setting-a-languageversion) to `2.0`.
-2. In your `gradle.properties` file, add `kapt.use.k2=true`.
 
 If you encounter any issues when using kapt with the K2 compiler, please report them to our
 [issue tracker](http://kotl.in/issue).
@@ -161,7 +157,7 @@ tasks.withType(org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask.class
 > It may be dropped or changed at any time. Use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-28901).
 >
-{type="warning"}
+{style="warning"}
 
 Caching for annotation processors' classloaders helps kapt perform faster if you run many Gradle tasks consecutively.
 
@@ -233,7 +229,7 @@ Enable the statistics in two steps:
 
 > You can also enable verbose output via the [command line option `verbose`](#use-in-cli).
 >
-> {type="note"}
+> {style="note"}
 
 The statistics will appear in the logs with the `info` level. You'll see the `Annotation processor stats:` line followed by 
 statistics on the execution time of each annotation processor. After these lines, there will be the `Generated files report:` line 
@@ -280,6 +276,29 @@ kapt.incremental.apt=false
 
 Note that incremental annotation processing requires [incremental compilation](gradle-compilation-and-caches.md#incremental-compilation)
 to be enabled as well.
+
+## Inherit annotation processors from superconfigurations
+
+You can define a common set of annotation processors in a separate Gradle configuration as a 
+superconfiguration and extend it further in kapt-specific configurations for your subprojects.
+
+As an example, for a subproject using [Dagger](https://dagger.dev/), in your `build.gradle(.kts)` file, use the following configuration:
+
+```kotlin
+val commonAnnotationProcessors by configurations.creating
+configurations.named("kapt") { extendsFrom(commonAnnotationProcessors) }
+
+dependencies {
+    implementation("com.google.dagger:dagger:2.48.1")
+    commonAnnotationProcessors("com.google.dagger:dagger-compiler:2.48.1")
+}
+```
+
+In this example, the `commonAnnotationProcessors` Gradle configuration is your common superconfiguration for annotation processing
+that you want to be used for all your projects. You use the [`extendsFrom()`](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html#org.gradle.api.artifacts.Configuration:extendsFrom)
+method to add `commonAnnotationProcessors` as a superconfiguration. kapt sees that the `commonAnnotationProcessors` 
+Gradle configuration has a dependency on the Dagger annotation processor. Therefore, kapt includes the Dagger annotation processor
+in its configuration for annotation processing.
  
 ## Java compiler options
 

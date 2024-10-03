@@ -344,9 +344,6 @@ def validate_links_weak(page, page_path):
         if href.scheme != '':
             continue
 
-        if page_path == 'community/slackccugl':
-            continue
-
         endpoint, params = url_adapter.match(href.path, 'GET', query_args={})
         if endpoint != 'page' and endpoint != 'get_index_page':
             response = app.test_client().get(href.path)

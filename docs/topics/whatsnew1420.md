@@ -24,7 +24,7 @@ Now Java 15 is available as a Kotlin/JVM target.
 > `invokedynamic` string concatenation is [Experimental](components-stability.md). It may be dropped or changed at any time. Opt-in is required
 > (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.4.20 can compile string concatenations into [dynamic invocations](https://docs.oracle.com/javase/7/docs/technotes/guides/vm/multiple-language-support.html#invokedynamic)
 on JVM 9+ targets, therefore improving the performance.
@@ -94,7 +94,7 @@ Learn more about [`package.json` customization](js-project-setup.md#package-json
 > Support for selective yarn dependency resolutions is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.4.20 provides a way of configuring Yarn's [selective dependency resolutions](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/) - the
 mechanism for overriding dependencies of the packages you depend on.
@@ -120,7 +120,7 @@ dependency `decamelize` as version `3.0.0`.
 > Disabling granular workspaces is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 To speed up build times, the Kotlin/JS Gradle plugin only installs the dependencies which are required for a particular
 Gradle task. For example, the `webpack-dev-server` package is only installed when you execute one of the `*Run` tasks,
@@ -152,7 +152,7 @@ templates for Kotlin/JS applications:
 > _Ignore compilation errors_ mode is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 The [IR compiler](js-ir-compiler.md) for Kotlin/JS comes with a new experimental mode - _compilation with errors_.
 In this mode, you can run you code even if it contains errors, for example, if you want to try certain things it when 
@@ -166,7 +166,7 @@ There are two tolerance policies for this mode:
 
 To allow compilation with errors, add the `-Xerror-tolerance-policy=` compiler option with one of the values listed above.
 
-Learn more about [ignoring compilation errors](js-ir-compiler.md#ignoring-compilation-errors) with Kotlin/JS IR compiler.
+[Learn more about Kotlin/JS IR compiler](js-ir-compiler.md).
 
 ## Kotlin/Native
 
@@ -183,7 +183,7 @@ Kotlin/Native's priorities in 1.4.20 are performance and polishing existing feat
 > The escape analysis mechanism is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin/Native receives a prototype of the new [escape analysis](https://en.wikipedia.org/wiki/Escape_analysis) mechanism.
 It improves the runtime performance by allocating certain objects on the stack instead of the heap. This mechanism 
@@ -204,7 +204,7 @@ in 1.4.0, for example, the [code sharing mechanism](multiplatform-share-on-platf
 > The Objective-C exception wrapping mechanism is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Opt-in is required (see details below). Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin/Native now can handle exceptions thrown from Objective-C code in runtime to avoid program crashes.
 
@@ -297,7 +297,7 @@ The standard library of Kotlin 1.4.20 offers new extensions for working with fil
 > Extensions for `java.nio.file.Path` are [Experimental](components-stability.md). They may be dropped or changed at any time.
 > Opt-in is required (see details below). Use them only for evaluation purposes. We appreciate your feedback on them in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
 Now the standard library provides experimental extensions for `java.nio.file.Path`.
 Working with the modern JVM file API in an idiomatic Kotlin way is now similar to working with `java.io.File` extensions
@@ -347,7 +347,7 @@ the new `kotlin-parcelize` plugin. Apply this plugin instead of `kotlin-android-
 
 >`kotlin-parcelize` and `kotlin-android-extensions` can't be applied together in one module.
 >
-{type="note"}
+{style="note"}
 
 The `@Parcelize` annotation is moved to the `kotlinx.parcelize` package.
 

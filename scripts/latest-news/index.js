@@ -48,7 +48,10 @@ async function getLatestNewsXML() {
 		hostname: 'blog.jetbrains.com',
 		port: 443,
 		path: '/kotlin/feed/',
-		method: 'GET'
+		method: 'GET',
+		headers: {
+			'User-Agent': 'Kotlin Parser'
+		}
 	});
 }
 

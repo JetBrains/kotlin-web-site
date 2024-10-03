@@ -1,4 +1,4 @@
-[//]: # (title: Get started with Kotlin Multiplatform)
+[//]: # (title: Introduction to Kotlin Multiplatform)
 [//]: # (description: Learn how to create your first Kotlin cross-platform app or library benefiting from Kotlin Multiplatform.)
 
 Support for multiplatform programming is one of Kotlin's key benefits. It reduces time spent writing and maintaining the 
@@ -8,10 +8,10 @@ Learn more about [Kotlin Multiplatform benefits](multiplatform.md).
 
 ## Start from scratch
 
-* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html). Create your first cross-platform 
-  application that works on Android and iOS with the help of the [Kotlin Multiplatform Mobile plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
+* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html). Create your first cross-platform 
+  application that works on Android and iOS with the help of the [Kotlin Multiplatform plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile).
   Learn how to create, run, and add dependencies to multiplatform mobile applications.
-* [Share UIs between iOS and Android](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-getting-started.html).
+* [Share UIs between iOS and Android](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html).
   Create a Kotlin Multiplatform application that uses the [Compose Multiplatform UI framework](https://www.jetbrains.com/lp/compose-multiplatform/)
   for sharing business logic and UIs among the iOS, Android, and desktop platforms.
 

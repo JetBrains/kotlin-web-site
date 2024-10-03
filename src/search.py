@@ -1,72 +1,26 @@
+import codecs
+import json
 import os
+import re
 from typing import Dict, List, Iterator
 
 from algoliasearch import algoliasearch
 from algoliasearch.index import Index
 from bs4 import Tag
-from googleapiclient.discovery import build, Resource
-from oauth2client.service_account import ServiceAccountCredentials
 
 from src.api import get_api_page
 from src.dist import get_dist_page_xml, dist_path
 
 
-def initialize_analyticsreporting() -> Resource:
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(
-        os.environ['KEY_FILE_LOCATION'], scopes='https://www.googleapis.com/auth/analytics.readonly')
-    analytics = build('analyticsreporting', 'v4', credentials=credentials)
-    return analytics
-
-
-def get_report(analytics: Resource) -> Dict:
-    return analytics.reports().batchGet(
-        body={
-            "reportRequests":
-                [
-                    {
-                        "viewId": "85132606",
-                        "samplingLevel": "LARGE",
-                        "filtersExpression": "ga:hostname==kotlinlang.org;ga:pagepath!@?",
-                        "pageSize": 10000,
-                        "orderBys": [
-                            {
-                                "fieldName": "ga:uniquepageviews",
-                                "sortOrder": "DESCENDING"
-                            }
-                        ],
-                        "dateRanges":
-                            [
-                                {
-                                    "startDate": "30daysAgo",
-                                    "endDate": "yesterday"
-                                }
-                            ],
-                        "metrics":
-                            [
-                                {
-                                    "expression": "ga:uniquepageviews",
-                                    "alias": ""
-                                }
-                            ],
-                        "dimensions":
-                            [
-                                {
-                                    "name": "ga:pagePath"
-                                }
-                            ]
-                    }
-                ]
-        }).execute()
-
-
 def get_page_views_statistic() -> Dict[str, int]:
-    print("Acquiring page view statistic from google")
-    page_views = {}
-    analytics = initialize_analyticsreporting()
-    report = get_report(analytics)
-    for row in report["reports"][0]["data"]["rows"]:
-        page_views[row["dimensions"][0]] = int(row['metrics'][0]["values"][0])
+    print("Acquiring page view statistic")
+
+    file = open("data/page_views_map.json", "r")
+    page_views = json.load(file)
+    file.close()
+
     print("Page view statistic acquired")
+
     return page_views
 
 
@@ -110,7 +64,8 @@ def get_valuable_content(page_path, content: Iterator[Tag]) -> List[str]:
             valuable_content.append(child.text)
         elif child.name in ['ul', 'ol', 'blockquote', 'div', 'section', 'dl']:
             valuable_content += get_valuable_content(page_path, child.children)
-        elif child.name in ['figure', 'iframe', 'pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img', 'object']:
+        elif child.name in ['figure', 'iframe', 'pre', 'code', 'hr', 'table', 'script', 'link', 'a', 'br', 'i', 'img',
+                            'object']:
             continue
         else:
             raise Exception('Unknown tag "' + child.name + '" in ' + page_path)
@@ -231,10 +186,12 @@ def to_wh_index(item):
 def build_search_indices(pages):
     page_views_statistic = get_page_views_statistic()
     wh_index_objects = []
+    pages_data = []
 
     print("Start building index")
     for url, type in pages:
         if not (type and type.startswith('Page')): continue
+        pages_data.append(type + ": " + url)
         if url.endswith('/'): url += 'index.html'
 
         title = ''
@@ -243,8 +200,9 @@ def build_search_indices(pages):
         page_path = get_page_path_from_url(url)
         page_views = 0
 
-        if url in page_views_statistic:
-            page_views = page_views_statistic[url]
+        public_url = "https://kotlinlang.org" + url
+        if public_url in page_views_statistic:
+            page_views = page_views_statistic[public_url]
 
         if type == 'Page_Community':
             page_type = 'Community'
@@ -330,10 +288,53 @@ def build_search_indices(pages):
         else:
             print('skip: ' + url + ' unknown page content in with title: ' + title)
 
+    report_index = {}
+
+    for record in wh_index_objects:
+        record["objectID"] = ("/" if record["objectID"][0] != '/' else "") + re.sub(r'#$', "", re.sub(
+            r"\/index(#\d+)?$", r"/\1",
+            re.sub(r'#0$', "", record["objectID"])
+        ))
+        record["url"] = record["url"].replace("/index.html", "/")
+
+        del record["metaDescription"]
+        del record["breadcrumbs"]
+        del record["parent"]
+
+    wh_index_objects.sort(key=sort_index)
+
+    for record in wh_index_objects:
+        url = re.sub(r"#.+$", r"", record["url"])
+        type = "other"
+
+        if "/docs/" in url:
+            type = "docs"
+        elif "/api/" in url:
+            type = "api"
+
+        if type not in report_index: report_index[type] = {}
+        if url not in report_index[type]: report_index[type][url] = []
+
+        report_index[type][url].append(record)
+
+    for key in report_index.keys():
+        f = codecs.open("search-report/only-" + key + "-old.json", "w", "utf-8-sig")
+        f.write(json.dumps(report_index[key], indent=2, ensure_ascii=False))
+
+    f = codecs.open("search-report/index-old.json", "w", "utf-8-sig")
+    f.write(json.dumps(report_index, indent=2, ensure_ascii=False))
+
+    f2 = codecs.open("search-report/pages-old.json", "w", "utf-8-sig")
+    f2.write("\n".join(pages_data))
+
     wh_index = get_wh_index()
 
     if wh_index:
         print("Submitting WH index objects to " + wh_index.index_name + " index")
-        wh_index.replace_all_objects(wh_index_objects)
+        # wh_index.replace_all_objects(wh_index_objects)
 
     print("Index objects successfully built")
+
+
+def sort_index(e):
+    return e["url"] + "|" + e["objectID"]

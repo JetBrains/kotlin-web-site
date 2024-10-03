@@ -137,7 +137,7 @@ We're making multiple changes that are bringing us closer to fully stable builde
 
     > Note that clients of these builders will need to specify the same `-Xenable-builder-inference` compiler option.
     >
-    {type="warning"}
+    {style="warning"}
 
 * With the `-Xenable-builder-inference`, builder inference automatically activates if a regular type inference cannot get enough information about a type.
 
@@ -242,7 +242,7 @@ Kotlin/Native is receiving multiple improvements and component updates, some of 
 > It may be dropped or changed at any time. Opt-in is required (see details below), and you should use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-48525).
 >
-{type="warning"}
+{style="warning"}
 
 With Kotlin 1.6.0, you can try the development preview of the new Kotlin/Native memory manager.
 It moves us closer to eliminating the differences between the JVM and Native platforms to provide a consistent developer experience in multiplatform projects.
@@ -260,7 +260,7 @@ Kotlin/Native 1.6.0 supports Xcode 13 – the latest version of Xcode. Feel free
 
 > New libraries added in Xcode 13 aren't available for use in Kotlin 1.6.0, but we're going to add support for them in upcoming versions.
 >
-{type="note"}
+{style="note"}
 
 ### Compilation of Windows targets on any host
 
@@ -293,7 +293,7 @@ The compiler caches have been available for these targets since Kotlin 1.5.0 wit
 > It may be dropped or changed at any time. Opt-in is required (see details below), and you should use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-48595).
 >
-{type="warning"}
+{style="warning"}
 
 In previous versions, authors of compiler plugins had to provide separate artifacts for Kotlin/Native because of the differences in the ABI.
 
@@ -436,7 +436,7 @@ Kotlin 1.6.0 offers new functions for handling standard input: [`readln()`](http
 
 > For now, new functions are available for the JVM and Native target platforms only.
 >
-{type="note"}
+{style="note"}
 
 |**Earlier versions**|**1.6.0 alternative**|**Usage**|
 | --- | --- | --- |
@@ -473,7 +473,7 @@ IDE inspections will also recommend using new functions instead of the legacy `r
 
 We're planning to gradually deprecate the `readLine()` function in future releases.
 
-### Stable `typeOf()`
+### Stable typeOf()
 
 Version 1.6.0 brings a [Stable](components-stability.md) [`typeOf()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/type-of.html) function, closing one of the [major roadmap items](https://youtrack.jetbrains.com/issue/KT-45396).
 
@@ -548,7 +548,7 @@ duration amounts in different time units has been promoted to [Stable](component
   > Such a replacement may cause ambiguity between old top-level extensions and new companion extensions.
   > Be sure to use the wildcard import of the kotlin.time package – `import kotlin.time.*` – before doing automated migration.
   >
-  {type="note"}
+  {style="note"}
 
 
 ### Splitting Regex into a sequence
@@ -605,7 +605,7 @@ Occurrences of `${name}` or `$index` in the replacement string are substituted w
 
     > Named groups in replacement patterns are currently supported only on the JVM.
     >
-    {type="note"}
+    {style="note"}
 
 * To include the succeeding character as a literal in the replacement string, use the backslash character `\`:
 
@@ -660,14 +660,14 @@ See the [collection ordering](collection-ordering.md) section for reference.
 
 > The Kover Gradle plugin is Experimental. We would appreciate your feedback on it in [GitHub](https://github.com/Kotlin/kotlinx-kover/issues).
 >
-{type="warning"}
+{style="warning"}
 
 With Kotlin 1.6.0, we're introducing Kover – a Gradle plugin for the [IntelliJ](https://github.com/JetBrains/intellij-coverage) and [JaCoCo](https://github.com/jacoco/jacoco) Kotlin code coverage agents.
 It works with all language constructs, including inline functions.
 
 Learn more about Kover on its [GitHub repository](https://github.com/Kotlin/kotlinx-kover) or in this video:
 
-<video href="jNu5LY9HIbw" title="Kover – The Code Coverage Plugin"/>
+<video src="https://www.youtube.com/v/jNu5LY9HIbw" title="Kover – The Code Coverage Plugin"/>
 
 ## Coroutines 1.6.0-RC
 
@@ -688,12 +688,12 @@ Learn more in the [changelog](https://github.com/Kotlin/kotlinx.coroutines/relea
 IntelliJ IDEA and Android Studio will suggest updating the Kotlin plugin to 1.6.0 once it is available.
 
 To migrate existing projects to Kotlin 1.6.0, change the Kotlin version to `1.6.0` and reimport your Gradle or Maven
-project. [Learn how to update to Kotlin 1.6.0](releases.md#update-to-a-new-release).
+project. [Learn how to update to Kotlin 1.6.0](releases.md#update-to-a-new-kotlin-version).
 
-To start a new project with Kotlin 1.6.0, update the Kotlin plugin and run the Project Wizard from **File** \| **New** \|
+To start a new project with Kotlin 1.6.0, update the Kotlin plugin and run the Project Wizard from **File** | **New** |
 **Project**.
 
 The new command-line compiler is available for download on the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.6.0).
 
-Kotlin 1.6.0 is a [feature release](kotlin-evolution.md#feature-releases-and-incremental-releases) and can, therefore, bring changes that are incompatible with your code written for earlier versions of the language.
+Kotlin 1.6.0 is a [feature release](kotlin-evolution-principles.md#language-and-tooling-releases) and can, therefore, bring changes that are incompatible with your code written for earlier versions of the language.
 Find the detailed list of such changes in the [Compatibility Guide for Kotlin 1.6](compatibility-guide-16.md).

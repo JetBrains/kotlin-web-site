@@ -198,7 +198,7 @@ dependencies {
         * `src/main/kotlin/BuilderProcessor.kt`
         * `src/main/kotlin/TestProcessor.kt`
     * After writing your own processor, register your processor provider to the package by including its fully-qualified
-      name in `resources/META-INF/services/com.google.devtools.ksp.processing.SymbolProcessorProvider`.
+      name in `src/main/resources/META-INF/services/com.google.devtools.ksp.processing.SymbolProcessorProvider`.
 
 ## Use your own processor in a project
 
@@ -331,7 +331,7 @@ ksp {
 > If you're using KSP 1.0.9 or newer and don't need to make the IDE aware of generated resources,
 > feel free to skip this section.
 >
-{type="note"}
+{style="note"}
 
 By default, IntelliJ IDEA or other IDEs don't know about the generated code. So it will mark references to generated
 symbols unresolvable. To make an IDE be able to reason about the generated symbols, mark the

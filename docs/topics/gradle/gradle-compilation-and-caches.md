@@ -5,16 +5,23 @@ On this page, you can learn about the following topics:
 * [Gradle build cache support](#gradle-build-cache-support)
 * [Gradle configuration cache support](#gradle-configuration-cache-support)
 * [The Kotlin daemon and how to use it with Gradle](#the-kotlin-daemon-and-how-to-use-it-with-gradle)
+* [Rolling back to the previous compiler](#rolling-back-to-the-previous-compiler)
 * [Defining Kotlin compiler execution strategy](#defining-kotlin-compiler-execution-strategy)
 * [Kotlin compiler fallback strategy](#kotlin-compiler-fallback-strategy)
+* [Trying the latest language version](#trying-the-latest-language-version)
 * [Build reports](#build-reports)
 
 ## Incremental compilation
 
-The Kotlin Gradle plugin supports incremental compilation. Incremental compilation tracks changes to source files between
-builds so that only the files affected by these changes are compiled.
+The Kotlin Gradle plugin supports incremental compilation. Incremental compilation tracks changes to files in the classpath
+between builds so that only the files affected by these changes are compiled. Incremental compilation works with [Gradle's
+build cache](#gradle-build-cache-support) and supports [compilation avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance).
 
 Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects, and is enabled by default.
+
+> Kotlin/JS projects use a different incremental compilation approach based on history files. 
+>
+{style="note"}
 
 There are several ways to disable incremental compilation:
 
@@ -29,35 +36,17 @@ Note: Any build with incremental compilation disabled invalidates incremental ca
 > Sometimes problems with incremental compilation become visible several rounds after the failure occurs. Use [build reports](#build-reports)
 > to track the history of changes and compilations. This can help you to provide reproducible bug reports.
 >
-{type="tip"}
+{style="tip"}
 
-### A new approach to incremental compilation
-
-The new approach to incremental compilation is available since Kotlin 1.7.0 for the JVM backend in the Gradle build system only. 
-Starting from Kotlin 1.8.20, this is enabled by default. This approach supports changes made inside dependent non-Kotlin modules, 
-includes an improved compilation avoidance, and is compatible with the [Gradle build cache](#gradle-build-cache-support).
-
-All of these enhancements decrease the number of non-incremental builds, making the overall compilation time faster. 
-You will receive the most benefit if you use the build cache, or, frequently make changes in non-Kotlin
-Gradle modules.
-
-To opt out from this new approach, set the following option in your `gradle.properties`:
-
-```none
-kotlin.incremental.useClasspathSnapshot=false
-```
-
-We would appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-49682).
-
-Learn how the new approach to incremental compilation is implemented under the hood in
-[this blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/).
+If you'd like to learn more about how our current incremental compilation approach works and compares to the previous one,
+see our [blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/).
 
 ### Precise backup of compilation tasks' outputs
 
 > Precise backup of compilation tasks' outputs is [Experimental](components-stability.md#stability-levels-explained).
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue/experimental-ic-optimizations).
 >
-{type="warning"}
+{style="warning"}
 
 Starting with Kotlin 1.8.20, you can enable precise backup, whereby only those classes that Kotlin recompiles in 
 the incremental compilation are backed up. Both full and precise backups help to run builds incrementally again 
@@ -72,7 +61,7 @@ the `gradle.properties` file:
 kotlin.compiler.preciseCompilationResultsBackup=true
 ```
 
-#### Example of using precise backup at JetBrains {initial-collapse-state="collapsed"}
+#### Example of using precise backup at JetBrains {initial-collapse-state="collapsed" collapsible="true"}
 
 In the following charts, you can see examples of using precise backup compared to full backup:
 
@@ -96,7 +85,7 @@ different results. The factors affecting performance include but are not limited
 * Which modules are affected by the changes and how big these modules are.
 * Whether the changes are ABI or non-ABI.
 
-#### Evaluating optimizations with build reports {initial-collapse-state="collapsed"}
+#### Evaluating optimizations with build reports {initial-collapse-state="collapsed" collapsible="true"}
 
 To estimate the impact of the optimization on your computer for your project and your scenarios, you can use 
 [Kotlin build reports](#build-reports). Enable reports in text file format by adding the following property 
@@ -177,7 +166,7 @@ Each of the following ways to set arguments overrides the ones that came before 
 If nothing is specified, the Kotlin daemon inherits arguments from the Gradle daemon. For example, in the `gradle.properties` file:
 
 ```none
-org.gradle.jvmargs=-Xmx1500m -Xms=500m
+org.gradle.jvmargs=-Xmx1500m -Xms500m
 ```
 
 #### kotlin.daemon.jvm.options system property
@@ -185,7 +174,7 @@ org.gradle.jvmargs=-Xmx1500m -Xms=500m
 If the Gradle daemon's JVM arguments have the `kotlin.daemon.jvm.options` system property – use it in the `gradle.properties` file:
 
 ```none
-org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,Xms=500m
+org.gradle.jvmargs=-Dkotlin.daemon.jvm.options=-Xmx1500m,Xms500m
 ```
 
 When passing arguments, follow these rules:
@@ -200,14 +189,14 @@ When passing arguments, follow these rules:
 >
 > To overcome this, upgrade Gradle to the version 7.2 (or higher) or use the `kotlin.daemon.jvmargs` property – see the following section.
 >
-{type="warning"}
+{style="warning"}
 
 #### kotlin.daemon.jvmargs property
 
 You can add the `kotlin.daemon.jvmargs` property in the `gradle.properties` file:
 
 ```none
-kotlin.daemon.jvmargs=-Xmx1500m -Xms=500m
+kotlin.daemon.jvmargs=-Xmx1500m -Xms500m
 ```
 
 #### kotlin extension
@@ -252,8 +241,8 @@ tasks.withType<CompileUsingKotlinDaemon>().configureEach {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-tasks.withType(CompileUsingKotlinDaemon::class).configureEach { task ->
-    task.kotlinDaemonJvmArguments.set(["-Xmx1g", "-Xms512m"])
+tasks.withType(CompileUsingKotlinDaemon).configureEach { task ->
+    task.kotlinDaemonJvmArguments = ["-Xmx1g", "-Xms512m"]
 }
 ```
 
@@ -262,7 +251,7 @@ tasks.withType(CompileUsingKotlinDaemon::class).configureEach { task ->
 
 > In this case a new Kotlin daemon instance can start on task execution. Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemon-s-behavior-with-jvm-arguments).
 >
-{type="note"}
+{style="note"}
 
 ### Kotlin daemon's behavior with JVM arguments
 
@@ -275,28 +264,21 @@ When configuring the Kotlin daemon's JVM arguments, note that:
   > If you are already running a Kotlin daemon that has enough heap size to handle the compilation request,
   > even if other requested JVM arguments are different, this daemon will be reused instead of starting a new one.
   >
-  {type="note"}
+  {style="note"}
 * If the `Xmx` argument is not specified, the Kotlin daemon will inherit it from the Gradle daemon.
 
-## The new Kotlin compiler
+## Rolling back to the previous compiler
 
-The new Kotlin K2 compiler is in [Beta](components-stability.md#stability-levels-explained).
-It has basic support for Kotlin JVM, Native, Wasm, and JS projects.
+From Kotlin 2.0.0, the K2 compiler is used by default.
 
-The new compiler aims to speed up the development of new language features, unify all of the platforms Kotlin supports,
-bring performance improvements, and provide an API for compiler extensions.
+To use the previous compiler from Kotlin 2.0.0 onwards, either:
 
-The K2 compiler will become the default starting with Kotlin 2.0. To try it in your projects now and check the performance,
-use the `kotlin.experimental.tryK2=true` Gradle property or run the following command:
+* In your `build.gradle.kts` file, [set your language version](gradle-compiler-options.md#example-of-setting-a-languageversion) to `1.9`.
 
-```shell
-./gradlew assemble -Pkotlin.experimental.tryK2=true
-```
+  OR
+* Use the following compiler option: `-language-version 1.9`.
 
-This Gradle property automatically sets the default language version to 2.0 and updates the [build report](#build-reports)
-with the number of Kotlin tasks compiled using the K2 compiler compared to the current compiler.
-
-Learn more about the stabilization of the K2 compiler in our [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/02/k2-kotlin-2-0/)
+To learn more about the benefits of the K2 compiler, see the [K2 compiler migration guide](k2-compiler-migration-guide.md).
 
 ## Defining Kotlin compiler execution strategy
 
@@ -359,7 +341,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy
 
 tasks.withType(CompileUsingKotlinDaemon)
     .configureEach {
-        compilerExecutionStrategy.set(KotlinCompilerExecutionStrategy.IN_PROCESS)
+        compilerExecutionStrategy = KotlinCompilerExecutionStrategy.IN_PROCESS
     }
 ```
 
@@ -417,13 +399,22 @@ tasks.named("compileKotlin").configure {
 
 If there is insufficient memory to run the compilation, you can see a message about it in the logs.
 
-## Build reports
+## Trying the latest language version
 
-> Build reports are [Experimental](components-stability.md). They may be dropped or changed at any time.
-> Opt-in is required (see details below). Use them only for evaluation purposes. We appreciate your feedback on them
-> in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
->
-{type="warning"}
+Starting with Kotlin 2.0.0, to try the latest language version, set the `kotlin.experimental.tryNext` property in your `gradle.properties`
+file. When you use this property, the Kotlin Gradle plugin increments the language version to one above the default value
+for your Kotlin version. For example, in Kotlin 2.0.0, the default language version is 2.0, so the property configures 
+language version 2.1.
+
+Alternatively, you can run the following command:
+
+```shell
+./gradlew assemble -Pkotlin.experimental.tryNext=true
+``` 
+
+In [build reports](#build-reports), you can find the language version used to compile each task.
+
+## Build reports
 
 Build reports contain the durations of different compilation phases and any reasons why compilation couldn't be incremental.
 Use build reports to investigate performance issues when the compilation time is too long or when it differs for the same
@@ -438,7 +429,7 @@ There are two common cases that analyzing build reports for long-running compila
   save separate classes in different files, refactor large classes, declare top-level functions in different files, and so on.
 
 Build reports also show the Kotlin version used in the project. In addition, starting with Kotlin 1.9.0,
-you can see whether the current or the [K2 compiler](#the-new-kotlin-compiler) was used to compile the code in your [Gradle build scans](https://scans.gradle.com/).
+you can see which compiler was used to compile the code in your [Gradle build scans](https://scans.gradle.com/).
 
 Learn [how to read build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_to_read_build_reports) 
 and about [how JetBrains uses build reports](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#how_we_use_build_reports_in_jetbrains).
@@ -453,22 +444,26 @@ kotlin.build.report.output=file
 
 The following values and their combinations are available for the output:
 
-| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`        | Saves build reports in a human-readable format to a local file. By default, it's `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt`                                                                                                                                                                                                                                                                                                                                               |
-| `single_file` | Saves build reports in a format of an object to a specified local file                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `build_scan`  | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost                                                                                                                                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                                               |
-| `http`        | Posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/report/data/GradleCompileStatisticsData.kt). You can find samples of HTTP endpoints in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/#enable_build_reports)   |
+| Option | Description |
+|---|---|
+| `file` | Saves build reports in a human-readable format to a local file. By default, it's `${project_folder}/build/reports/kotlin-build/${project_name}-timestamp.txt` |
+| `single_file` | Saves build reports in a format of an object to a specified local file. |
+| `build_scan` | Saves build reports in the `custom values` section of the [build scan](https://scans.gradle.com/). Note that the Gradle Enterprise plugin limits the number of custom values and their length. In big projects, some values could be lost. |
+| `http` | Posts build reports using HTTP(S). The POST method sends metrics in JSON format. You can see the current version of the sent data in the [Kotlin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/report/data/GradleCompileStatisticsData.kt). You can find samples of HTTP endpoints in [this blog post](https://blog.jetbrains.com/kotlin/2022/06/introducing-kotlin-build-reports/?_gl=1*1a7pghy*_ga*MTcxMjc1NzE5Ny4xNjY1NDAzNjkz*_ga_9J976DJZ68*MTcxNTA3NjA2NS4zNzcuMS4xNzE1MDc2MDc5LjQ2LjAuMA..&_ga=2.265800911.1124071296.1714976764-1712757197.1665403693#enable_build_reports) |
+| `json` | Saves build reports in JSON format to a local file. Set the location for your build reports in `kotlin.build.report.json.directory` (see below). By default, it's name is `${project_name}-build-<date-time>-<index>.json`. |
 
 Here's a list of available options for `kotlin.build.report`:
 
 ```none
 # Required outputs. Any combination is allowed
-kotlin.build.report.output=file,single_file,http,build_scan
+kotlin.build.report.output=file,single_file,http,build_scan,json
 
 # Mandatory if single_file output is used. Where to put reports 
 # Use instead of the deprecated `kotlin.internal.single.build.metrics.file` property
 kotlin.build.report.single_file=some_filename
+
+# Mandatory if json output is used. Where to put reports 
+kotlin.build.report.json.directory="my/directory/path"
 
 # Optional. Output directory for file-based reports. Default: build/reports/kotlin-build/
 kotlin.build.report.file.output_dir=kotlin-reports
@@ -525,7 +520,7 @@ your `gradle.properties`.
 
 > JetBrains doesn't collect these statistics. You choose a place [where to store your reports](#enabling-build-reports).
 > 
-{type="note"}
+{style="note"}
 
 ## What's next?
 

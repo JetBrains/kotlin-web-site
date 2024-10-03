@@ -39,7 +39,7 @@ ksp-a.b.c is too old for kotlin-x.y.z. Please upgrade ksp or downgrade kotlin-gr
 
 > Users of processors don't need to bump processor's version because processors only depend on API.
 >
-{type="note"}
+{style="note"}
 
 For example, some processor is released and tested with KSP 1.0.1, which depends strictly on Kotlin 1.6.0.
 To make it work with Kotlin 1.6.20, the only thing you need to do is bump KSP to a version (for example, KSP 1.1.0) 
@@ -62,11 +62,11 @@ With KSP version `major.minor.patch`,
 Usually a corresponding KSP release is available within a couple of days after a new Kotlin version is released,
 including the [pre-releases (Beta or RC)](eap.md).
 
-### Besides Kotlin, are there other version requirements to libraries?
+### Besides Kotlin, are there other version requirements for libraries?
 
 Here is a list of requirements for libraries/infrastructures:
-* Android Gradle Plugin 4.1.0+
-* Gradle 6.5+
+* Android Gradle Plugin 7.1.3+
+* Gradle 6.8.3+
 
 ### What is KSP's future roadmap?
 

@@ -1,34 +1,156 @@
 [//]: # (title: Compatibility guide for Kotlin Multiplatform)
 
-This guide summarizes [incompatible changes](kotlin-evolution.md#incompatible-changes) you might encounter while
+This guide summarizes [incompatible changes](kotlin-evolution-principles.md#incompatible-changes) you might encounter while
 developing projects with Kotlin Multiplatform.
 
 > Mind the deprecation cycle of a specific change in relation to the Kotlin version you have in your projects. The current
 > Stable version of Kotlin is %kotlinVersion%.
 >
-{type="note"}
+{style="note"}
 
 ## Version compatibility
 
-When configuring your project, check the compatibility of a particular Kotlin version (the version of Kotlin Multiplatform Gradle plugin)
+When configuring your project, check the compatibility of a particular version of the Kotlin Multiplatform Gradle plugin (same as the Kotlin version in your project)
 with available Gradle, Xcode, and Android Gradle plugin versions:
 
-| Kotlin version | Gradle        | Android Gradle plugin | Xcode |
-|----------------|---------------|-----------------------|-------|
-| 1.9.20         | 7.5 and later | 7.4.2–8.2             | 15.0  |
+| Kotlin Multiplatform plugin version | Gradle    | Android Gradle plugin | Xcode |
+|-------------------------------------|-----------|-----------------------|-------|
+| 2.0.20                              | 7.5-8.8*  | 7.4.2–8.5             | 15.3  |
+| 2.0.0                               | 7.5-8.5   | 7.4.2–8.3             | 15.3  |
+| 1.9.20                              | 7.5-8.1.1 | 7.4.2–8.2             | 15.0  |
+
+> Kotlin 2.0.20 is fully compatible with Gradle 6.8.3 through 8.6.
+> Gradle 8.7 and 8.8 are also supported, but you may see deprecation warnings in your multiplatform projects
+> calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets). 
+> For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
+> 
+{style="warning"}
+
+## Deprecated compatibility with Kotlin Multiplatform Gradle plugin and Gradle Java plugins
+
+**What's changed?**
+
+Due to compatibility issues between the Kotlin Multiplatform Gradle plugin and the Gradle plugins
+[Java](https://docs.gradle.org/current/userguide/java_plugin.html),
+[Java Library](https://docs.gradle.org/current/userguide/java_library_plugin.html),
+and [Application](https://docs.gradle.org/current/userguide/application_plugin.html),
+there is now a deprecation warning when you apply these plugins to the same project. The warning also appears when another
+Gradle plugin in your multiplatform project applies a Gradle Java plugin. For example, the [Spring Boot Gradle Plugin](https://docs.spring.io/spring-boot/gradle-plugin/index.html)
+automatically applies the Application plugin.
+In future Kotlin releases, the warning will be increased to an error.
+
+We've added this deprecation warning due to fundamental compatibility issues between Kotlin Multiplatform's project model
+and Gradle's Java ecosystem plugins. Gradle's Java ecosystem plugins currently don't take into account that other plugins may:
+
+* Also publish or compile for the JVM target in a different way than the Java ecosystem plugins.
+* Have two different JVM targets in the same project, such as JVM and Android.
+* Have a complex multiplatform project structure with potentially multiple non-JVM targets.
+
+Unfortunately, Gradle doesn't currently provide any API to address these issues.
+
+We previously used some workarounds in Kotlin Multiplatform to help with the integration of Java ecosystem plugins.
+However, these workarounds never truly solved the compatibility issues, and since the release of Gradle 8.8, these workarounds
+are no longer possible. For more information, see our [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
+
+While we don't yet know exactly how to resolve this compatibility problem, we are committed to continuing support for
+some form of Java source compilation in your Kotlin Multiplatform projects. At a minimum, we will support the compilation
+of Java sources and using Gradle's [`java-base`](https://docs.gradle.org/current/javadoc/org/gradle/api/plugins/JavaBasePlugin.html) plugin within your multiplatform projects.
+
+**What's the best practice now?**
+
+If you see this deprecation warning in your multiplatform project, we recommend that you:
+1. Determine whether you actually need the Gradle Java plugin in your project. If not, consider removing it.
+2. Check if the Gradle Java plugin is only used for a single task. If so, you might be able to remove the plugin without
+   much effort. For example, if the task uses a Gradle Java plugin to create a Javadoc JAR file, you can define the Javadoc
+   task manually instead.
+
+Otherwise, if you want to use both the Kotlin Multiplatform Gradle plugin and these Gradle plugins for Java in your multiplatform
+project, we recommend that you:
+
+1. Create a separate subproject in your multiplatform project.
+2. In the separate subproject, apply the Gradle plugin for Java.
+3. In the separate subproject, add a dependency on your parent multiplatform project.
+
+> The separate subproject must **not** be a multiplatform project, and you must only use it to set up a dependency on your multiplatform project.
+>
+{style="warning"}
+
+For example, you have a multiplatform project called `my-main-project` and you want
+to use the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) Gradle plugin to run a JVM application.
+
+Once you've created a subproject, let's call it `subproject-A`, your parent project structure should look like this:
+
+```text
+.
+├── build.gradle
+├── settings.gradle.kts
+├── subproject-A
+    └── build.gradle.kts
+    └── src
+        └── Main.java
+```
+
+In your subproject's `build.gradle.kts` file, apply the Application plugin in the `plugins {}` block:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    id("application")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id('application')
+}
+```
+
+</tab>
+</tabs>
+
+In your subproject's `build.gradle.kts` file, add a dependency on your parent multiplatform project:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+dependencies {
+    implementation(project(":my-main-project")) // The name of your parent multiplatform project
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+dependencies {
+    implementation project(':my-main-project') // The name of your parent multiplatform project
+}
+```
+
+</tab>
+</tabs>
+
+
+Your parent project is now set up to work with both plugins.
 
 ## New approach to auto-generated targets
 
 **What's changed?**
 
-Target accessors auto-generated by Gradle are no longer available inside the `kotlin.targets` block. Use
+Target accessors auto-generated by Gradle are no longer available inside the `kotlin.targets {}` block. Use
 the `findByName("targetName")` method instead.
 
-Note that such accessors are still available in the `kotlin.targets` case, for example, `kotlin.targets.linuxX64`.
+Note that such accessors are still available in the `kotlin.targets {}` case, for example, `kotlin.targets.linuxX64`.
 
 **What's the best practice now?**
 
-<table header-style="top">
+<table>
     <tr>
         <td>Before</td>
         <td>Now</td>
@@ -65,7 +187,7 @@ kotlin {
 
 **When do the changes take effect?**
 
-In Kotlin 1.7.20, an error is introduced when using target accessors in the `kotlin.targets` block.
+In Kotlin 1.7.20, an error is introduced when using target accessors in the `kotlin.targets {}` block.
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-47047).
 
@@ -111,7 +233,7 @@ Configuration names for dependencies on the corresponding source set stay the sa
 
 **What's the best practice now?**
 
-<table header-style="top">
+<table>
     <tr>
         <td></td>
         <td>Before</td>
@@ -203,7 +325,7 @@ In Kotlin 1.8.0, an error is introduced when using old configuration names in ha
 
 For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-35916/).
 
-<anchor name="deprecate-hmpp-properties"></anchor>
+<anchor name="deprecate-hmpp-properties"/>
 
 ## Deprecated Gradle properties for hierarchical structure support
 
@@ -250,7 +372,7 @@ Here's the planned deprecation cycle:
 
 In the unlikely case you face some problems after removing these properties, create an [issue in YouTrack](https://kotl.in/issue).
 
-<anchor name="deprecate-pre-hmpp-dependencies"></anchor>
+<anchor name="deprecate-pre-hmpp-dependencies"/>
 ## Deprecated support of multiplatform libraries published in the legacy mode
 
 **What's changed?**
@@ -284,9 +406,9 @@ Here's the planned deprecation cycle:
 
 * 1.9: introduce a deprecation warning for dependencies on legacy libraries
 * 2.0: raise the warning for dependencies on legacy libraries to an error
-* \>2.0: remove support for dependencies on legacy libraries; using such dependencies can cause build failures
+* &gt;2.0: remove support for dependencies on legacy libraries; using such dependencies can cause build failures
 
-<anchor name="compilation-source-deprecation"></anchor>
+<anchor name="compilation-source-deprecation"/>
 ## Deprecated API for adding Kotlin source sets directly to the Kotlin compilation
 
 **What's changed?**
@@ -350,10 +472,10 @@ Here's the planned deprecation cycle:
 
 * 1.9.0: introduce a deprecation warning when `KotlinComplation.source` is used
 * 1.9.20: raise this warning to an error
-* \>1.9.20: remove `KotlinComplation.source` from the Kotlin Gradle plugin, attempts to use it lead to "unresolved
+* &gt;1.9.20: remove `KotlinComplation.source` from the Kotlin Gradle plugin, attempts to use it lead to "unresolved
   reference" errors during the buildscript compilation
 
-<anchor name="kotlin-js-plugin-deprecation"></anchor>
+<anchor name="kotlin-js-plugin-deprecation"/>
 ## Migration from kotlin-js Gradle plugin to kotlin-multiplatform Gradle plugin
 
 **What's changed?**
@@ -366,7 +488,7 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
 **What's the best practice now?**
 
 1. Remove the `kotlin-js` Gradle plugin from your project and apply `kotlin-multiplatform` in the `settings.gradle.kts` file
-   if you're using the `pluginManagement` block:
+   if you're using the `pluginManagement {}` block:
 
    <tabs>
    <tab title="kotlin-js">
@@ -411,15 +533,15 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
 2. Move your source files from the `main` and `test` folders to the `jsMain` and `jsTest` folders in the same directory.
 3. Adjust dependency declarations:
 
-   * We recommend using the `sourceSets` block and configuring dependencies of respective source sets,
-     `jsMain` for production dependencies and `jsTest` for test dependencies.
+   * We recommend using the `sourceSets {}` block and configuring dependencies of respective source sets,
+     `jsMain {}` for production dependencies and `jsTest {}` for test dependencies.
      See [Adding dependencies](multiplatform-add-dependencies.md) for more details.
    * However, if you want to declare your dependencies in a top-level block,
      change declarations from `api("group:artifact:1.0")` to `add("jsMainApi", "group:artifact:1.0")` and so on.
 
-     > In this case, make sure that the top-level `dependencies` block comes **after** the `kotlin` block. Otherwise, you'll get an error "Configuration not found".
+     > In this case, make sure that the top-level `dependencies {}` block comes **after** the `kotlin {}` block. Otherwise, you'll get an error "Configuration not found".
      >
-     {type="note"}
+     {style="note"}
 
    You can change the code in your `build.gradle.kts` file in one of the following ways:
 
@@ -458,7 +580,7 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
            // ...
        }
        
-       // Option #1. Declare dependencies in the sourceSets block:
+       // Option #1. Declare dependencies in the sourceSets {} block:
        sourceSets {
            val jsMain by getting {
                dependencies {
@@ -478,7 +600,7 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    </tab>
    </tabs>
 
-4. The DSL provided by the Kotlin Gradle plugin inside the `kotlin` block remains unchanged in most cases. However,
+4. The DSL provided by the Kotlin Gradle plugin inside the `kotlin {}` block remains unchanged in most cases. However,
    if you were referring to low-level Gradle entities, like tasks and configurations, by names, you now need to adjust them,
    usually by adding the `js` prefix. For example, you can find the `browserTest` task under the name `jsBrowserTest`.
 
@@ -486,7 +608,7 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
 
 In 1.9.0, the use of the `kotlin-js` Gradle plugin produces a deprecation warning.
 
-<anchor name="android-target-rename"></anchor>
+<anchor name="android-target-rename"/>
 ## Rename of android target to androidTarget
 
 **What's changed?**
@@ -509,7 +631,7 @@ projects.
 
 In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects.
 
-<anchor name="declaring-multiple-targets"></anchor>
+<anchor name="declaring-multiple-targets"/>
 ## Declaring several similar targets
 
 **What's changed?**
@@ -631,7 +753,7 @@ the Kotlin Gradle plugin, making it easier to use and maintain the resulting bui
 > Unfortunately, we can't provide detailed migration steps for each case. If the instructions above don't work
 > for you, describe your use case in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-59316).
 >
-{type="tip"}
+{style="tip"}
 
 **When do the changes take effect?**
 
@@ -640,7 +762,7 @@ Here's the planned deprecation cycle:
 * 1.9.20: introduce a deprecation warning when multiple similar targets are used in Kotlin Multiplatform projects
 * 2.0: report an error in such cases, causing the build to fail
 
-<anchor name="jvmWithJava-preset-deprecation"></anchor>
+<anchor name="jvmWithJava-preset-deprecation"/>
 ## Deprecated jvmWithJava preset
 
 **What's changed?**
@@ -665,13 +787,13 @@ Here's the planned deprecation cycle:
 
 * 1.3.40: introduce a warning when `targetPresets.jvmWithJava` is used
 * 1.9.20: raise this warning to an error
-* \>1.9.20: remove `targetPresets.jvmWithJava` API; attempts to use it lead to the buildscript compilation failure
+* &gt;1.9.20: remove `targetPresets.jvmWithJava` API; attempts to use it lead to the buildscript compilation failure
 
 > Even though the whole `targetPresets` API is deprecated, the `jvmWithJava` preset has a different deprecation timeline.
 >
-{type="note"}
+{style="note"}
 
-<anchor name="android-sourceset-layout-v1-deprecation"></anchor>
+<anchor name="android-sourceset-layout-v1-deprecation"/>
 ## Deprecated legacy Android source set layout
 
 **What's changed?**
@@ -687,9 +809,9 @@ Here's the planned deprecation cycle:
 * <=1.9.0: report a warning when `kotlin.mpp.androidSourceSetLayoutVersion=1` is used; the warning can be suppressed with
   `kotlin.mpp.androidSourceSetLayoutVersion1.nowarn=true` Gradle property
 * 1.9.20: raise this warning to an error; the error **cannot** be suppressed
-* \>1.9.20: remove support for `kotlin.mpp.androidSourceSetLayoutVersion=1`; the Kotlin Gradle plugin ignores the property
+* &gt;1.9.20: remove support for `kotlin.mpp.androidSourceSetLayoutVersion=1`; the Kotlin Gradle plugin ignores the property
 
-<anchor name="common-sourceset-with-dependson-deprecation"></anchor>
+<anchor name="common-sourceset-with-dependson-deprecation"/>
 ## Deprecated commonMain and commonTest with custom dependsOn
 
 **What's changed?**
@@ -725,9 +847,9 @@ to `commonMain` and vice versa.
 Here's the planned deprecation cycle:
 
 * 1.9.0: report a warning when `dependsOn` is used in `commonMain`
-* \>=1.9.20: report an error when `dependsOn` is used in `commonMain` or `commonTest`
+* &gt;=1.9.20: report an error when `dependsOn` is used in `commonMain` or `commonTest`
 
-<anchor name="target-presets-deprecation"></anchor>
+<anchor name="target-presets-deprecation"/>
 ## Deprecated target presets API
 
 **What's changed?**
@@ -748,7 +870,7 @@ removed from the public API of the Kotlin Gradle plugin in future releases. This
 
 Use respective [Kotlin targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) instead, for example:
 
-<table header-style="top">
+<table>
     <tr>
         <td>Before</td>
         <td>Now</td>
@@ -783,7 +905,7 @@ Here's the planned deprecation cycle:
 
 * 1.9.20: report a warning on any usages of the presets-related API
 * 2.0: raise this warning to an error
-* \>2.0: remove the presets-related API from the public API of the Kotlin Gradle plugin; sources that still use it fail
+* &gt;2.0: remove the presets-related API from the public API of the Kotlin Gradle plugin; sources that still use it fail
   with "unresolved reference" errors, and binaries (for example, Gradle plugins) might fail with linkage errors
   unless recompiled against the latest versions of the Kotlin Gradle plugin
 
@@ -845,9 +967,39 @@ and prepare this functionality for the upcoming Kotlin 2.0 release. From now on:
     > The casting to `objcnames.protocols.ForwardDeclaredProtocolProtocol` is only allowed from the corresponding real class.
     > Otherwise, you'll get an error.
     >
-    {type="note"}
+    {style="note"}
 
 **When do the changes take effect?**
 
 Starting with Kotlin 1.9.20, you need to explicitly make a cast to and from the corresponding C and Objective-C forward
 declarations. Also, it's now only possible to import forward declarations by using special packages.
+
+## Incorrect version of iOS framework after Kotlin upgrade
+
+**What's the issue?**
+
+Changes in Kotlin code might not be reflected in the iOS app in Xcode when direct integration
+is used. The direct integration is set up with the `embedAndSignAppleFrameworkForXcode` task, which connects the iOS
+framework from your multiplatform project to the iOS app in Xcode.
+
+This can happen when you upgrade the Kotlin version from 1.9.2x to 2.0.0 in your multiplatform project (or downgrade it
+from 2.0.0 to 1.9.2x), then make changes in Kotlin files and try building the app, Xcode may incorrectly use the previous
+version of the iOS framework. So, the changes won't be visible in the iOS app in Xcode.
+
+**What's the workaround?**
+
+1. In Xcode, clean build directories using **Product** | **Clean Build Folder**.
+2. In the terminal, run the following command:
+
+   ```none
+   ./gradlew clean
+   ```
+
+3. Build the app again to ensure that the new version of the iOS framework is used. 
+
+**When will the issue be fixed?**
+
+We're planning to fix this issue in Kotlin 2.0.10. You can check if any preview versions of
+Kotlin 2.0.10 are already available in the [Participate in the Kotlin Early Access Preview](eap.md) section.
+
+For more information, see the [corresponding issue in YouTrack](https://youtrack.jetbrains.com/issue/KT-68257).

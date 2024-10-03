@@ -8,7 +8,7 @@ For each target, default compilations include:
 * `main` and `test` compilations for JVM, JS, and Native targets.
 * A [compilation](#compilation-for-android) per [Android build variant](https://developer.android.com/studio/build/build-variants), for Android targets.
 
-![Compilations](compilations.png)
+![Compilations](compilations.svg)
 
 If you need to compile something other than production code and unit tests, for example, integration or performance tests, 
 you can [create a custom compilation](#create-a-custom-compilation).
@@ -24,6 +24,11 @@ available for all or specific targets.
 
 ## Configure all compilations
 
+This example configures a compiler option that is common across all targets:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
 kotlin {
     targets.all {
@@ -35,6 +40,58 @@ kotlin {
     }
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    targets.all {
+        compilations.all {
+            compilerOptions.configure {
+                allWarningsAsErrors = true
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Alternatively, you can use the `compilerOptions {}` [top-level block](multiplatform-dsl-reference.md#top-level-blocks):
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    compilerOptions {
+        allWarningsAsErrors.set(true)
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    compilerOptions {
+        allWarningsAsErrors = true
+    }
+}
+```
+
+</tab>
+</tabs>
+
+> The support for `compilerOptions {}` as a top-level block is [Experimental](components-stability.md#stability-levels-explained)
+> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
+> your feedback on it in [YouTrack](https://kotl.in/issue).
+>
+{style="warning"}
 
 ## Configure compilations for one target
 
@@ -58,7 +115,7 @@ kotlin {
 kotlin {
     jvm().compilations.all {
         compilerOptions.configure {
-            jvmTarget.set(JvmTarget.JVM_1_8)
+            jvmTarget = JvmTarget.JVM_1_8
         }
     }
 }
@@ -66,6 +123,45 @@ kotlin {
 
 </tab>
 </tabs>
+
+Alternatively, you can use the `compilerOptions {}` block at target level:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvm {
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_1_8)
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm {
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_1_8
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+> The support for the `compilerOptions {}` block at target level is [Experimental](components-stability.md#stability-levels-explained)
+> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
+> your feedback on it in [YouTrack](https://kotl.in/issue).
+>
+{style="warning"}
+
 
 ## Configure one compilation
 
@@ -92,7 +188,7 @@ kotlin {
     jvm {
         compilations.main {
             compilerOptions.configure {
-                jvmTarget.set(JvmTarget.JVM_1_8)
+                jvmTarget = JvmTarget.JVM_1_8
             }
         }
     }
@@ -113,7 +209,7 @@ collection.
 > For custom compilations, you need to set up all dependencies manually. The default source set of a custom compilation 
 > does not depend on the `commonMain` and the `commonTest` source sets.
 >
-{type="note"}
+{style="note"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -239,7 +335,7 @@ kotlin {
             val myInterop by cinterops.creating {
                 // Def-file describing the native API.
                 // The default path is src/nativeInterop/cinterop/<interop-name>.def
-                defFile(project.file("def-file.def"))
+                definitionFile.set(project.file("def-file.def"))
                 
                 // Package to place the Kotlin API generated.
                 packageName("org.sample")
@@ -277,7 +373,7 @@ kotlin {
                 myInterop {
                     // Def-file describing the native API.
                     // The default path is src/nativeInterop/cinterop/<interop-name>.def
-                    defFile project.file("def-file.def")
+                    definitionFile = project.file("def-file.def")
                     
                     // Package to place the Kotlin API generated.
                     packageName 'org.sample'
@@ -320,7 +416,7 @@ The default source set `commonMain` is added to each production (application or 
 The `commonTest` source set is similarly added to the compilations of unit test and instrumented test variants.
 
 Annotation processing with [`kapt`](kapt.md) is also supported, but due to current limitations it requires that the Android target 
-is created before the `kapt` dependencies are configured, which needs to be done in a top-level `dependencies` block rather 
+is created before the `kapt` dependencies are configured, which needs to be done in a top-level `dependencies {}` block rather 
 than within Kotlin source set dependencies.
 
 ```kotlin
@@ -337,7 +433,7 @@ dependencies {
 
 Kotlin can build a [source set hierarchy](multiplatform-share-on-platforms.md#share-code-on-similar-platforms) with the `dependsOn` relation.
 
-![Source set hierarchy](jvm-js-main.png){width=400}
+![Source set hierarchy](jvm-js-main.svg)
 
 If the source set `jvmMain` depends on a source set `commonMain` then:
 

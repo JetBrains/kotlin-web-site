@@ -62,11 +62,11 @@ Yes. In addition to using for backend web, you can also use Kotlin/Wasm for clie
 ### Can I use Kotlin for desktop development?
 
 Yes. You can use any Java UI framework such as JavaFx, Swing or other. 
-In addition, there are Kotlin specific frameworks such as [TornadoFX](https://github.com/edvin/tornadofx). 
+In addition, there are Kotlin-specific frameworks such as [TornadoFX](https://github.com/edvin/tornadofx). 
 
 ### Can I use Kotlin for native development?
 
-Yes. Kotlin/Native is available as a part of Kotlin project. It compiles Kotlin to native code that can run without a VM.
+Yes. Kotlin/Native is available as a part of Kotlin. It compiles Kotlin to native code that can run without a VM.
 You can try it on popular desktop and mobile platforms and even some IoT devices.
 For more information, check out the [Kotlin/Native documentation](native-overview.md).
 
@@ -76,7 +76,7 @@ Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.
 [Android Studio](https://developer.android.com/kotlin/get-started), and [JetBrains Fleet](https://www.jetbrains.com/help/fleet/getting-started-with-kotlin-in-fleet.html)
 with an official Kotlin plugin developed by JetBrains.
 
-Other IDEs and source editors, such as Eclipse, Visual Studio Code, and Atom, have Kotlin community-supported plugins.
+Other IDEs and code editors only have Kotlin community-supported plugins.
 
 You can also try [Kotlin Playground](https://play.kotlinlang.org) for writing, running, and sharing 
 Kotlin code in your browser.
@@ -91,7 +91,7 @@ that target client-side JavaScript.
 
 ### What does Kotlin compile down to?
 
-When targeting the JVM, Kotlin produces Java compatible bytecode.
+When targeting the JVM, Kotlin produces Java-compatible bytecode.
 
 When targeting JavaScript, Kotlin transpiles to ES5.1 and generates
 code which is compatible with module systems including AMD and CommonJS. 

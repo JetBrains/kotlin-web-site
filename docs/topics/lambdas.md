@@ -95,7 +95,7 @@ Function types can also be combined using parentheses: `(Int) -> ((Int) -> Unit)
 
 > The arrow notation is right-associative, `(Int) -> (Int) -> Unit` is equivalent to the previous example, but not to `((Int) -> (Int)) -> Unit`.
 >
-{type="note"}
+{style="note"}
 
 You can also give a function type an alternative name by using [a type alias](type-aliases.md):
 
@@ -160,7 +160,7 @@ fun main() {
 > to an extension function.
 > To alter that, specify the variable type explicitly.
 >
-{type="note"}
+{style="note"}
 
 ### Invoking a function type instance
 
@@ -246,7 +246,7 @@ If the lambda is the only argument in that call, the parentheses can be omitted 
 run { println("...") }
 ```
 
-### `it`: implicit name of a single parameter
+### it: implicit name of a single parameter
 
 It's very common for a lambda expression to have only one parameter.
 
@@ -328,7 +328,7 @@ functions with a block body.
 > When passing anonymous functions as parameters, place them inside the parentheses. The shorthand syntax that allows you to leave
 > the function outside the parentheses works only for lambda expressions.
 >
-{type="note"}
+{style="note"}
 
 Another difference between lambda expressions and anonymous functions is the behavior of [non-local returns](inline-functions.md#non-local-returns).
 A `return`  statement without a label always returns from the function declared with the `fun` keyword. This means that

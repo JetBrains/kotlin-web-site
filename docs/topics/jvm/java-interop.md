@@ -54,7 +54,7 @@ set-only properties.
 > This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
 > We recommend that you use it only for evaluation purposes.
 >
-{type="warning"}
+{style="warning"}
 
 Starting from Kotlin 1.8.20, you can create references to Java synthetic properties. Consider the following Java code:
 
@@ -90,7 +90,7 @@ val persons = listOf(Person("Jack", 11), Person("Sofie", 12), Person("Peter", 11
         .forEach { person -> println(person.name) }
 ```
 
-### How to enable Java synthetic property references {initial-collapse-state="collapsed"}
+### How to enable Java synthetic property references {initial-collapse-state="collapsed" collapsible="true"}
 
 To enable this feature, set the `-language-version 2.1` compiler option. In a Gradle project, you can do so 
 by adding the following to your `build.gradle(.kts)`:
@@ -127,7 +127,7 @@ tasks
 
 > Prior to Kotlin 1.9.0, to enable this feature you had to set the `-language-version 1.9` compiler option.
 > 
-{type="note"}
+{style="note"}
 
 ## Methods returning void
 
@@ -223,7 +223,7 @@ You can annotate the type arguments and type parameters of generic types to prov
 
 > All examples in the section use JetBrains nullability annotations from the `org.jetbrains.annotations` package.
 >
-{type="note"}
+{style="note"}
 
 #### Type arguments
 
@@ -312,7 +312,7 @@ nullability which deviates from the nullability annotations from Java.
 > `TYPE_USE` takes priority. For example, if `@Nullable` has both `TYPE_USE` and `METHOD` targets, the Java method
 > signature `@Nullable String[] f()` becomes `fun f(): Array<String?>!` in Kotlin.
 >
-{type="note"}
+{style="note"}
 
 ### JSR-305 support
 
@@ -407,7 +407,7 @@ interface A {
 > The types in this example only take place with the strict mode enabled; otherwise, the platform types remain.
 > See the [`@UnderMigration` annotation](#undermigration-annotation) and [Compiler configuration](#compiler-configuration) sections.
 >
-{type="note"}
+{style="note"}
 
 Package-level default nullability is also supported:
 
@@ -449,7 +449,7 @@ public class Test {}
 > The migration status of a nullability annotation is not inherited by its type qualifier nicknames but is applied
 > to its usages in default type qualifiers.
 >
-{type="note"}
+{style="note"}
 
 If a default type qualifier uses a type qualifier nickname and they are both `@UnderMigration`, the status
 from the default type qualifier is used.
@@ -480,7 +480,7 @@ and only the `strict` mode affects the types in the annotated declarations as th
 >[`@CheckForNull`](https://www.javadoc.io/doc/com.google.code.findbugs/jsr305/latest/javax/annotation/CheckForNull.html) are always enabled and
 >affect the types of the annotated declarations in Kotlin, regardless of compiler configuration with the `-Xjsr305` flag.
 >
-{type="note"}
+{style="note"}
 
 For example, adding `-Xjsr305=ignore -Xjsr305=under-migration:ignore -Xjsr305=@org.library.MyNullable:warn` to the
 compiler arguments makes the compiler generate warnings for inappropriate usages of types annotated by
@@ -552,15 +552,15 @@ Collection types may be read-only or mutable in Kotlin, so Java's collections ar
 
 Java's arrays are mapped as mentioned [below](java-interop.md#java-arrays):
 
-| **Java type** | **Kotlin type**  |
-|---------------|------------------|
-| `int[]`       | `kotlin.IntArray!` |
-| `String[]`    | `kotlin.Array<(out) String>!` |
+| **Java type** | **Kotlin type**                |
+|---------------|--------------------------------|
+| `int[]`       | `kotlin.IntArray!`             |
+| `String[]`    | `kotlin.Array<(out) String!>!` |
 
 >The static members of these Java types are not directly accessible on the [companion objects](object-declarations.md#companion-objects)
 >of the Kotlin types. To call them, use the full qualified names of the Java types, e.g. `java.lang.Integer.toHexString(foo)`.
 >
-{type="note"}
+{style="note"}
 
 ## Java generics in Kotlin
 
@@ -799,7 +799,7 @@ executor.execute(Runnable { println("This runs in a thread pool") })
 > SAM conversions only work for interfaces, not for abstract classes, even if those also have just a single
 abstract method.
 >
-{type="note"}
+{style="note"}
 
 ## Using JNI with Kotlin
 

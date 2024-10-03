@@ -1,6 +1,8 @@
 [//]: # (title: Hello world)
 
-<microformat>
+<no-index/>
+
+<tldr>
     <p><img src="icon-1.svg" width="20" alt="First step" /> <strong>Hello world</strong><br />
         <img src="icon-2-todo.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />
         <img src="icon-3-todo.svg" width="20" alt="Third step" /> <a href="kotlin-tour-collections.md">Collections</a><br />
@@ -8,7 +10,7 @@
         <img src="icon-5-todo.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-functions.md">Functions</a><br />
         <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-classes.md">Classes</a><br />
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
-</microformat>
+</tldr>
 
 Here is a simple program that prints "Hello, world!":
 
@@ -21,20 +23,26 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="hello-world-kotlin"}
 
 In Kotlin:
+
 * `fun` is used to declare a function
-* the `main()` function is where your program starts from
-* the body of a function is written within curly braces `{}`
+* The `main()` function is where your program starts from
+* The body of a function is written within curly braces `{}`
 * [`println()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/println.html) and [`print()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/print.html) functions print their arguments to standard output
 
-> Functions are discussed in more detail in a couple of chapters. Until then, all examples use the `main()` function.
-> 
-{type="note"}
+A function is a set of instructions that performs a specific task. Once you create a function, you can use it whenever 
+you need to perform that task, without having to write the instructions all over again. Functions are discussed in more
+detail in a couple of chapters. Until then, all examples use the `main()` function.
 
 ## Variables
 
 All programs need to be able to store data, and variables help you to do just that. In Kotlin, you can declare:
-* read-only variables with `val`
-* mutable variables with `var`
+
+* Read-only variables with `val`
+* Mutable variables with `var`
+
+> You can't change a read-only variable once you have given it a value.
+> 
+{type ="note"}
 
 To assign a value, use the assignment operator `=`.
 
@@ -59,14 +67,14 @@ fun main() {
 > Variables can be declared outside the `main()` function at the beginning of your program. Variables declared in this way
 > are said to be declared at **top level**.
 > 
-{type="tip"}
+{style="tip"}
 
 As `customers` is a mutable variable, its value can be reassigned after declaration.
 
 > We recommend that you declare all variables as read-only (`val`) by default. Declare mutable variables (`var`) only if 
 > necessary.
 > 
-{type="note"}
+{style="note"}
 
 ## String templates
 
@@ -99,7 +107,7 @@ explains the different Kotlin basic types and how to declare them in the [next c
 
 ## Practice
 
-### Exercise {initial-collapse-state="collapsed"}
+### Exercise {initial-collapse-state="collapsed" collapsible="true"}
 
 Complete the code to make the program print `"Mary is 20 years old"` to standard output:
 
@@ -121,7 +129,7 @@ fun main() {
     println("$name is $age years old")
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution"}
 
 ## Next step
 

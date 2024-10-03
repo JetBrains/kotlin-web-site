@@ -348,7 +348,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 `let` is often used to execute a code block containing non-null values. To perform actions on a non-null object, use
-the [safe call operator `?.`](null-safety.md#safe-calls) on it and call `let` with the actions in its lambda.
+the [safe call operator `?.`](null-safety.md#safe-call-operator) on it and call `let` with the actions in its lambda.
 
 ```kotlin
 fun processNonNullString(str: String) {}
@@ -567,7 +567,7 @@ fun main() {
 > When chaining other functions after `takeIf` and `takeUnless`, don't forget to perform a null check or use a safe call
 > (`?.`) because their return value is nullable.
 >
-{type="tip"}
+{style="tip"}
 
 ```kotlin
 fun main() {

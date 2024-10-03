@@ -63,7 +63,7 @@ This prints:
 NEW has been assigned to 'p' in Example@33a17727.
 ```
 
-The specification of the requirements to the delegated object can be found [below](#property-delegate-requirements).
+The specification of the requirements for the delegated object can be found [below](#property-delegate-requirements).
 
 You can declare a delegated property inside a function or code block; it doesn't have to be a member of a class.
 Below you can find [an example](#local-delegated-properties).
@@ -315,10 +315,10 @@ var readWriteResource: Resource by resourceDelegate()
 
 Under the hood, the Kotlin compiler generates auxiliary properties for some kinds of delegated properties and then delegates to them. 
 
-> For the optimization purposes, the compiler [_does not_ generate auxiliary properties in several cases](#optimized-cases-for-delegated-properties). 
+> For optimization purposes, the compiler [_does not_ generate auxiliary properties in several cases](#optimized-cases-for-delegated-properties). 
 > Learn about the optimization on the example of [delegating to another property](#translation-rules-when-delegating-to-another-property).
 >
-{type="note"}
+{style="note"}
 
 For example, for the property `prop` it generates the hidden property `prop$delegate`, and the code of the accessors
 simply delegates to this additional property:

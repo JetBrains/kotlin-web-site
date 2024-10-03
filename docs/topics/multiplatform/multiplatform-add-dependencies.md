@@ -4,7 +4,7 @@ Every program requires a set of libraries to operate successfully. A Kotlin Mult
 multiplatform libraries that work for all target platforms, platform-specific libraries, and other multiplatform projects.
 
 To add a dependency on a library, update your `build.gradle(.kts)` file in the directory of your project containing shared code. Set a
-dependency of the required [type](gradle-configure-project.md#dependency-types) (for example, `implementation`) in the [`dependencies`](multiplatform-dsl-reference.md#dependencies)
+dependency of the required [type](gradle-configure-project.md#dependency-types) (for example, `implementation`) in the [`dependencies {}`](multiplatform-dsl-reference.md#dependencies)
 block: 
 
 <tabs group="build-script">
@@ -175,7 +175,7 @@ Multiplatform Mobile plugin will automatically add the corresponding parts to an
 
 > You cannot set dependencies on platform-specific libraries in the common source set.
 >
-{type="warning"}
+{style="warning"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -223,7 +223,7 @@ specified library declarations will then be available only in those source sets.
 
 > Use a common library name in such cases, not a platform-specific one. Like with SQLDelight in the example below, use `native-driver`, not `native-driver-iosx64`. Find the exact name in the library's documentation.
 >
-{type="note"}
+{style="note"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">

@@ -1,3 +1,52 @@
+- lang: fr
+  startDate: '2024-10-22'
+  endDate: '2024-10-22'
+  location: Bordeaux, France
+  speaker: Salomon Brys
+  title: 'Bordeaux Kotlin User Group'
+  subject: 'Compose Multiplatform: State of the art, use-cases and limits'
+  url: https://www.eventbrite.fr/e/billets-compose-multiplatform-etat-de-lart-cas-dusages-et-limites-1018664130837
+- lang: en
+  startDate: '2024-09-21'
+  endDate: '2024-09-21'
+  location: Chennai, India
+  speaker: 'TBD'
+  title: 'Ko-Hacks'
+  subject: 'A diverse Kotlin Hackathon by KUG Chennai'
+  url: https://lu.ma/rbofnzaf
+- lang: en
+  startDate: '2024-11-19'
+  endDate: '2024-11-19'
+  location: Vienna, Austria
+  speaker: 'TBD'
+  title: 'Going Fully Platform Specific'
+  subject: 'Kotlin Vienna Meetup'
+  url: https://www.meetup.com/kotlin-vienna/events/295318907/
+- lang: en
+  startDate: '2024-10-01'
+  endDate: '2024-10-01'
+  location: Vienna, Austria
+  speaker: 'TBD'
+  title: 'When is Kotlin the Right Choice?; Kotlin 101; Multiplatform at Stable and Beyond'
+  subject: 'Kotlin Vienna Meetup'
+  url: https://www.meetup.com/kotlin-vienna/events/295318889/
+- lang: bn
+  startDate: '2024-06-08'
+  endDate: '2024-06-08'
+  location: Dhaka, Bangladesh
+  online: true
+  speaker: 'Mohi Us Sunnat'
+  title: 'KtAdda Kickoff: Connecting Kotlin Minds'
+  subject: 'Introducing new Kotlin Developers online and learning about their experiences'
+  url: https://www.linkedin.com/events/ktaddakickoff-connectingkotlinm7199538006976835586/
+- lang: en
+  startDate: '2024-06-11'
+  endDate: '2024-06-11'
+  location: Vienna, Austria
+  speaker: 'Markus Fischer & Raphael Tarita'
+  title: 'Arrow - upgrade your funcy Kotlin! & Image Processing Done Wrong'
+  subject: 'Kotlin Vienna Meetup'
+  url: https://www.meetup.com/kotlin-vienna/events/295318877/
 - lang: en
   startDate: '2024-06-08'
   endDate: '2024-06-08'
