@@ -22,6 +22,9 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     {type="note"}
 
     ```kotlin
+    // Message.kt
+    package demo
+   
     import org.springframework.data.annotation.Id
     import org.springframework.data.relational.core.mapping.Table
     
@@ -43,14 +46,18 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
 2. Declare an interface for the `CrudRepository` that will work with the `Message` data class:
 
     ```kotlin
+    // MessageRepository.kt
+    package demo
+   
     import org.springframework.data.repository.CrudRepository
     
     interface MessageRepository : CrudRepository<Message, String>
     ```
 
-3. Update the `MessageService` class. It will now call to the `MessageRepository` instead of executing SQL queries:
+3. Update the `MessageService` class. It will now use the `MessageRepository` instead of executing SQL queries:
 
     ```kotlin
+    // MessageService.kt
     package demo
 
     import org.springframework.data.repository.findByIdOrNull
@@ -58,7 +65,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     
     @Service
     class MessageService(private val db: MessageRepository) {
-    fun findMessages(): List<Message> = db.findAll().toList()
+        fun findMessages(): List<Message> = db.findAll().toList()
     
         fun findMessageById(id: String): Message? = db.findByIdOrNull(id)
     

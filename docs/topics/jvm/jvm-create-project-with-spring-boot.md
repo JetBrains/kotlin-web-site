@@ -25,7 +25,7 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
 {type="note"}
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**. 
-2. In the panel on the left, select **New Project** | **Spring Initializr**.
+2. In the panel on the left, select **New Project** | **Spring Boot**.
 3. Specify the following fields and options in the Project Wizard window:
    
    * **Name**: demo
@@ -128,7 +128,7 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
    * `com.fasterxml.jackson.module:jackson-module-kotlin` – the module adds support for serialization and deserialization of Kotlin classes and data classes
    * `org.jetbrains.kotlin:kotlin-reflect` – Kotlin reflection library
 
-3. After the dependencies section, you can see the `KotlinCompile` task configuration block.
+3. After the dependencies section, you can see the `kotlin` plugin configuration block.
    This is where you can add extra arguments to the compiler to enable or disable various language features.
 
 ## Explore the generated Spring Boot application
@@ -183,6 +183,7 @@ The application is ready to run, but let's update its logic first.
 In the Spring application, a controller is used to handle the web requests. In the same package with `DemoApplication.kt` file, create the `MessageController` class as follows:
 
 ```kotlin
+// MessageController.kt
 package demo
 
 import org.springframework.web.bind.annotation.GetMapping

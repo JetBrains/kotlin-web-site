@@ -15,9 +15,10 @@ The common practice in Spring Framework based applications is to implement the d
 In Spring, you should mark classes with the `@Service` annotation to imply that the class belongs to the service layer of the application.
 In this application, you will create the `MessageService` class for this purpose.
 
-In the same package file, create the `MessageService` class as follows:
+In the same package, create the `MessageService` class as follows:
 
 ```kotlin
+// MessageService.kt
 package demo
 
 import org.springframework.stereotype.Service
@@ -98,6 +99,7 @@ If the `id` is `null` while storing the messages in the database, the `id` value
 Update `MessageController` to use the new `MessageService` class:
 
 ```kotlin
+// MessageController.kt
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -236,6 +238,7 @@ Extend the functionality of the application to retrieve the individual messages 
 1. In the `MessageService` class, add the new function `findMessageById(id: String)` to retrieve the individual messages by id:
 
     ```kotlin
+    // MessageService.kt
     package demo
 
     import org.springframework.stereotype.Service
@@ -273,6 +276,7 @@ Extend the functionality of the application to retrieve the individual messages 
 2. Add the new `index(...)` function with the `id` parameter to the `MessageController` class:
 
     ```kotlin
+    // MessageController.kt
     package demo
 
     import org.springframework.http.ResponseEntity
@@ -288,7 +292,7 @@ Extend the functionality of the application to retrieve the individual messages 
     @RequestMapping("/")
     class MessageController(private val service: MessageService) {
         @GetMapping
-        fun listMessages() = service.findMessages()
+        fun listMessages() = ResponseEntity.ok(service.findMessages())
         
         @PostMapping
         fun post(@RequestBody message: Message): ResponseEntity<Message> {
@@ -314,7 +318,7 @@ Extend the functionality of the application to retrieve the individual messages 
         <p>The <code>query()</code> function takes three arguments:</p>
         <list>
             <li>SQL query string that requires a parameter to run</li>
-            <li>`id`, which is a parameter of type String</li>
+            <li><code>id</code>, which is a parameter of type String</li>
             <li><code>RowMapper</code> instance is implemented by a lambda expression</li>
         </list>
         <p>The second parameter for the <code>query()</code> function is declared as a <i>variable argument</i> (<code>vararg</code>). In Kotlin, the position of the variable arguments parameter is not required to be the last in the parameters list.</p>
@@ -326,11 +330,15 @@ Extend the functionality of the application to retrieve the individual messages 
             this?.let { ResponseEntity.ok(it) }
          </code>
     </def>
+    <def title="ResponseEntity">
+        <p><code>ResponseEntity</code> represents the HTTP response, including the status code, headers, and body. It is a generic wrapper that allows you to send customized HTTP responses back to the client with more control over the content.</p>
+    </def>
     </deflist>
 
 Here is a complete code of the application:
 
 ```kotlin
+// DemoApplication.kt
 package demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -346,6 +354,7 @@ fun main(args: Array<String>) {
 {initial-collapse-state="collapsed"}
 
 ```kotlin
+// Message.kt
 package demo
 
 data class Message(val id: String?, val text: String)
@@ -353,6 +362,7 @@ data class Message(val id: String?, val text: String)
 {initial-collapse-state="collapsed"}
 
 ```kotlin
+// MessageController.kt
 package demo
 
 import org.springframework.http.ResponseEntity
@@ -369,7 +379,7 @@ import java.net.URI
 @RequestMapping("/")
 class MessageController(private val service: MessageService) {
     @GetMapping
-    fun listMessages() = service.findMessages()
+    fun listMessages() = ResponseEntity.ok(service.findMessages())
 
     @PostMapping
     fun post(@RequestBody message: Message): ResponseEntity<Message> {
@@ -388,6 +398,7 @@ class MessageController(private val service: MessageService) {
 {initial-collapse-state="collapsed"}
 
 ```kotlin
+// MessageService.kt
 package demo
 
 import org.springframework.stereotype.Service

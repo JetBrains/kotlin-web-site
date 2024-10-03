@@ -14,6 +14,9 @@ It requires changing the `MessageController` class to respond with a JSON docume
 1. In the same package, create a `Message` data class with two properties: `id` and `text`:
 
     ```kotlin
+    // Message.kt
+    package demo
+   
     data class Message(val id: String?, val text: String)
     ```
 
@@ -50,6 +53,13 @@ It requires changing the `MessageController` class to respond with a JSON docume
 2. In the same file, instead of the `index()` function, let's create add `listMessages()` function returning a list of `Message` objects:
 
     ```kotlin
+    // MessageController.kt
+    package demo
+   
+    import org.springframework.web.bind.annotation.GetMapping
+    import org.springframework.web.bind.annotation.RequestMapping
+    import org.springframework.web.bind.annotation.RestController
+
     @RestController
     @RequestMapping("/")
     class MessageController {
@@ -99,6 +109,7 @@ The response from `MessageController` will now be a JSON document containing a c
 Here is the complete code of your application:
 
 ```kotlin
+// DemoApplication
 package demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -114,6 +125,7 @@ fun main(args: Array<String>) {
 {initial-collapse-state="collapsed"}
 
 ```kotlin
+// MessageController
 package demo
 
 import org.springframework.web.bind.annotation.GetMapping
@@ -134,6 +146,7 @@ class MessageController {
 {initial-collapse-state="collapsed"}
 
 ```kotlin
+// Message.kt
 package demo
 
 data class Message(val id: String?, val text: String)
