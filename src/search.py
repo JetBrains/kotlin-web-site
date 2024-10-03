@@ -1,5 +1,7 @@
+import codecs
 import json
 import os
+import re
 from typing import Dict, List, Iterator
 
 from algoliasearch import algoliasearch
@@ -184,10 +186,12 @@ def to_wh_index(item):
 def build_search_indices(pages):
     page_views_statistic = get_page_views_statistic()
     wh_index_objects = []
+    pages_data = []
 
     print("Start building index")
     for url, type in pages:
         if not (type and type.startswith('Page')): continue
+        pages_data.append(type + ": " + url)
         if url.endswith('/'): url += 'index.html'
 
         title = ''
@@ -284,10 +288,53 @@ def build_search_indices(pages):
         else:
             print('skip: ' + url + ' unknown page content in with title: ' + title)
 
+    report_index = {}
+
+    for record in wh_index_objects:
+        record["objectID"] = ("/" if record["objectID"][0] != '/' else "") + re.sub(r'#$', "", re.sub(
+            r"\/index(#\d+)?$", r"/\1",
+            re.sub(r'#0$', "", record["objectID"])
+        ))
+        record["url"] = record["url"].replace("/index.html", "/")
+
+        del record["metaDescription"]
+        del record["breadcrumbs"]
+        del record["parent"]
+
+    wh_index_objects.sort(key=sort_index)
+
+    for record in wh_index_objects:
+        url = re.sub(r"#.+$", r"", record["url"])
+        type = "other"
+
+        if "/docs/" in url:
+            type = "docs"
+        elif "/api/" in url:
+            type = "api"
+
+        if type not in report_index: report_index[type] = {}
+        if url not in report_index[type]: report_index[type][url] = []
+
+        report_index[type][url].append(record)
+
+    for key in report_index.keys():
+        f = codecs.open("search-report/only-" + key + "-old.json", "w", "utf-8-sig")
+        f.write(json.dumps(report_index[key], indent=2, ensure_ascii=False))
+
+    f = codecs.open("search-report/index-old.json", "w", "utf-8-sig")
+    f.write(json.dumps(report_index, indent=2, ensure_ascii=False))
+
+    f2 = codecs.open("search-report/pages-old.json", "w", "utf-8-sig")
+    f2.write("\n".join(pages_data))
+
     wh_index = get_wh_index()
 
     if wh_index:
         print("Submitting WH index objects to " + wh_index.index_name + " index")
-        wh_index.replace_all_objects(wh_index_objects)
+        # wh_index.replace_all_objects(wh_index_objects)
 
     print("Index objects successfully built")
+
+
+def sort_index(e):
+    return e["url"] + "|" + e["objectID"]

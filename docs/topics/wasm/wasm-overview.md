@@ -5,7 +5,7 @@
 >
 > [Join the Kotlin/Wasm community](https://slack-chats.kotlinlang.org/c/webassembly).
 >
-{type="note"}
+{style="note"}
 
 With Kotlin, you have the power to build applications and reuse mobile and desktop user interfaces (UIs) in your web projects through
 Compose Multiplatform and Kotlin/Wasm.
@@ -23,7 +23,7 @@ Kotlin/Wasm as its compilation target.
 > and exception handling proposals. To check the browser support status, see the [WebAssembly
 > roadmap](https://webassembly.org/roadmap/).
 >
-{type="tip"}
+{style="tip"}
 
 [WebAssembly (Wasm)](https://webassembly.org/) is a binary instruction format for a stack-based virtual machine. This
 format is platform-independent because it runs on its own virtual machine. Wasm provides Kotlin and other languages with 
@@ -38,7 +38,7 @@ see [Adding dependencies on multiplatform libraries](multiplatform-add-dependenc
 
 Would you like to try it yourself?
 
-<a href="wasm-get-started.md"><img src="wasm-get-started-button.svg" width="700" alt="Get started with Kotlin/Wasm"/></a>
+<a href="wasm-get-started.md"><img src="wasm-get-started-button.svg" width="700" alt="Get started with Kotlin/Wasm" style="block"/></a>
 
 ## Kotlin/Wasm performance
 

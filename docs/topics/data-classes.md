@@ -10,10 +10,10 @@ data class User(val name: String, val age: Int)
 
 The compiler automatically derives the following members from all properties declared in the primary constructor:
 
-* `.equals()`/`.hashCode()` pair.
-* `.toString()` of the form `"User(name=John, age=42)"`.
-* [`.componentN()` functions](destructuring-declarations.md) corresponding to the properties in their order of declaration.
-* `.copy()` function (see below).
+* `equals()`/`hashCode()` pair.
+* `toString()` of the form `"User(name=John, age=42)"`.
+* [`componentN()` functions](destructuring-declarations.md) corresponding to the properties in their order of declaration.
+* `copy()` function (see below).
 
 To ensure consistency and meaningful behavior of the generated code, data classes have to fulfill the following requirements:
 
@@ -23,13 +23,13 @@ To ensure consistency and meaningful behavior of the generated code, data classe
 
 Additionally, the generation of data class members follows these rules with regard to the members' inheritance:
 
-* If there are explicit implementations of `.equals()`, `.hashCode()`, or `.toString()` in the data class body or
+* If there are explicit implementations of `equals()`, `hashCode()`, or `toString()` in the data class body or
   `final` implementations in a superclass, then these functions are not generated, and the existing
   implementations are used.
-* If a supertype has `.componentN()` functions that are `open` and return compatible types, the
+* If a supertype has `componentN()` functions that are `open` and return compatible types, the
   corresponding functions are generated for the data class and override those of the supertype. If the functions of the
   supertype cannot be overridden due to incompatible signatures or due to their being final, an error is reported.
-* Providing explicit implementations for the `.componentN()` and `.copy()` functions is not allowed.
+* Providing explicit implementations for the `componentN()` and `copy()` functions is not allowed.
 
 Data classes may extend other classes (see [Sealed classes](sealed-classes.md) for examples).
 
@@ -40,7 +40,7 @@ Data classes may extend other classes (see [Sealed classes](sealed-classes.md) f
 > data class User(val name: String = "", val age: Int = 0)
 > ```
 >
-{type="note"}
+{style="note"}
 
 ## Properties declared in the class body
 
@@ -53,10 +53,10 @@ data class Person(val name: String) {
 }
 ```
 
-In the example below, only the `name` property is used by default inside the `.toString()`, `.equals()`, `.hashCode()`, 
-and `.copy()` implementations, and there is only one component function, `.component1()`. 
+In the example below, only the `name` property is used by default inside the `toString()`, `equals()`, `hashCode()`, 
+and `copy()` implementations, and there is only one component function, `component1()`. 
 The `age` property is declared inside the class body and is excluded.
-Therefore, two `Person` objects with the same `name` but different `age` values are considered equal since `.equals()` 
+Therefore, two `Person` objects with the same `name` but different `age` values are considered equal since `equals()` 
 only evaluates properties from the primary constructor:
 
 ```kotlin
@@ -85,7 +85,7 @@ fun main() {
 
 ## Copying
 
-Use the `.copy()` function to copy an object, allowing you to alter _some_ of its properties while keeping the rest unchanged.
+Use the `copy()` function to copy an object, allowing you to alter _some_ of its properties while keeping the rest unchanged.
 The implementation of this function for the `User` class above would be as follows:
 
 ```kotlin

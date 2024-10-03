@@ -28,7 +28,7 @@ kotlin {
 
 > The old compiler backend has been deprecated since Kotlin 1.8.0. Starting with Kotlin 1.9.0, using compiler types `LEGACY` or `BOTH` leads to an error.
 >
-{type="warning"}
+{style="warning"}
 
 The compiler type can also be set in the `gradle.properties` file, with the key `kotlin.js.compiler=ir`.
 This behaviour is overwritten by any settings in the `build.gradle(.kts)`, however.
@@ -66,7 +66,7 @@ kotlin.incremental.js.ir=false // true by default
 
 > The clean build in the incremental compilation mode is usually slower because of the need to create and populate the caches.
 >
-{type="note"}
+{style="note"}
 
 ## Output mode
 
@@ -106,43 +106,6 @@ You can choose how the JS IR compiler outputs `.js` files in your project:
      kotlin.js.ir.output.granularity=per-file // `per-module` is the default
      ```
 
-## Ignoring compilation errors
-
-> _Ignore compilation errors_ mode is [Experimental](components-stability.md). It may be dropped or changed at any time.
-> Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
->
-{type="warning"}
-
-Kotlin/JS IR compiler provides a new compilation mode unavailable in the default backend – _ignoring compilation errors_.
-In this mode, you can try out your application even while its code contains errors.
-For example, when you're doing a complex refactoring or working on a part of the system that is completely unrelated to
-a compilation error in another part.
-
-With this new compiler mode, the compiler ignores all broken code. Thus, you can run the application and try its parts
-that don't use the broken code. If you try to run the code that was broken during compilation, you'll get a
-runtime exception.
-
-Choose between two tolerance policies for ignoring compilation errors in your code:
-- `SEMANTIC`. The compiler will accept code that is syntactically correct but doesn't make sense semantically.
-  For example, assigning a number to a string variable (type mismatch).
-- `SYNTAX`. The compiler will accept any code, even if it contains syntax errors. Regardless of what you write, the
-  compiler will still try to generate a runnable executable.
-
-As an experimental feature, ignoring compilation errors requires an opt-in.
-To enable this mode, add the `-Xerror-tolerance-policy={SEMANTIC|SYNTAX}` compiler option:
-
-```kotlin
-kotlin {
-    js(IR) {
-        compilations.all {
-            compileTaskProvider.configure {
-                compilerOptions.freeCompilerArgs.add("-Xerror-tolerance-policy=SYNTAX")
-            }
-        }
-    }
-}
-```
-
 ## Minification of member names in production
 
 The Kotlin/JS IR compiler uses its internal information about the relationships of your Kotlin classes and functions to apply more efficient minification, shortening the names of functions, properties, and classes. This reduces the size of resulting bundled applications.
@@ -166,7 +129,7 @@ kotlin {
 > The generation of TypeScript declaration files (`d.ts`) is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues?q=%23%7BKJS:%20d.ts%20generation%7D).
 >
-{type="warning"}
+{style="warning"}
 
 The Kotlin/JS IR compiler is capable of generating TypeScript definitions from your Kotlin code. These definitions can be
 used by JavaScript tools and IDEs when working on hybrid apps to provide autocompletion, support static analyzers, and

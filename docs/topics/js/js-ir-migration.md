@@ -12,7 +12,7 @@ may require adjusting your code. On this page, we've compiled a list of known mi
 > Install the [Kotlin/JS Inspection pack](https://plugins.jetbrains.com/plugin/17183-kotlin-js-inspection-pack/) plugin 
 > to get valuable tips on how to fix some of the issues that occur during migration.
 >
-{type="tip"}
+{style="tip"}
 
 Note that this guide may change over time as we fix issues and find new ones. Please help us keep it complete –
 report any issues you encounter when switching to the IR compiler by submitting them to our issue tracker [YouTrack](https://kotl.in/issue)

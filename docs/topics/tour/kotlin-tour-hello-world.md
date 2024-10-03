@@ -1,6 +1,8 @@
 [//]: # (title: Hello world)
 
-<microformat>
+<no-index/>
+
+<tldr>
     <p><img src="icon-1.svg" width="20" alt="First step" /> <strong>Hello world</strong><br />
         <img src="icon-2-todo.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />
         <img src="icon-3-todo.svg" width="20" alt="Third step" /> <a href="kotlin-tour-collections.md">Collections</a><br />
@@ -8,7 +10,7 @@
         <img src="icon-5-todo.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-functions.md">Functions</a><br />
         <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-classes.md">Classes</a><br />
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
-</microformat>
+</tldr>
 
 Here is a simple program that prints "Hello, world!":
 
@@ -65,14 +67,14 @@ fun main() {
 > Variables can be declared outside the `main()` function at the beginning of your program. Variables declared in this way
 > are said to be declared at **top level**.
 > 
-{type="tip"}
+{style="tip"}
 
 As `customers` is a mutable variable, its value can be reassigned after declaration.
 
 > We recommend that you declare all variables as read-only (`val`) by default. Declare mutable variables (`var`) only if 
 > necessary.
 > 
-{type="note"}
+{style="note"}
 
 ## String templates
 
@@ -105,7 +107,7 @@ explains the different Kotlin basic types and how to declare them in the [next c
 
 ## Practice
 
-### Exercise {initial-collapse-state="collapsed"}
+### Exercise {initial-collapse-state="collapsed" collapsible="true"}
 
 Complete the code to make the program print `"Mary is 20 years old"` to standard output:
 
@@ -127,7 +129,7 @@ fun main() {
     println("$name is $age years old")
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-hello-world-solution"}
 
 ## Next step
 

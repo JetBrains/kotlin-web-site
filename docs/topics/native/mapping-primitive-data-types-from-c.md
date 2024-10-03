@@ -7,7 +7,7 @@
 > Native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),
 > require opt-in only for some APIs. In such cases, you get an IDE warning.
 >
-{type="warning"}
+{style="warning"}
 
 In this tutorial, you will learn what C data types are visible in Kotlin/Native and vice versa. You will: 
 - See what [Data types are in C language](#types-in-c-language).

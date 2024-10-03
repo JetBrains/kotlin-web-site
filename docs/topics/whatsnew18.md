@@ -25,7 +25,7 @@ The Kotlin plugin that supports 1.8.0 is available for:
 > To migrate existing projects to Kotlin 1.8.0 in IntelliJ IDEA 2022.3, change the Kotlin version to `1.8.0` and reimport
 > your Gradle or Maven project.
 >
-{type="note"}
+{style="note"}
 
 ## Kotlin/JVM
 
@@ -59,7 +59,7 @@ with optimized variables because you don't see their values.
 > **Never use this option in production**: Disabling this feature via `-Xdebug` can
 > [cause memory leaks](https://youtrack.jetbrains.com/issue/KT-48678/Coroutine-debugger-disable-was-optimised-out-compiler-feature#focus=Comments-27-6015585.0-0).
 >
-{type="warning"}
+{style="warning"}
 
 ### Removal of the old backend
 
@@ -137,7 +137,7 @@ To make Kotlin more interoperable with Objective-C and Swift, three new annotati
 
 > The new annotations require [opt-in](opt-in-requirements.md).
 >
-{type="note"}
+{style="note"}
 
 The Kotlin team is very grateful to [Rick Clephas](https://github.com/rickclephas) for implementing these annotations.
 
@@ -210,7 +210,7 @@ Here are some of the key differences between the two layouts:
 | test        | src/androidTest/kotlin, src/test/kotlin, src/test/java     | src/android<b>Unit</b>Test/kotlin, src/test/kotlin, src/test/java                              |
 | androidTest | src/android<b>Android</b>Test/kotlin, src/androidTest/java | src/android<b>Instrumented</b>Test/kotlin, src/androidTest/java, <b>src/androidTest/kotlin</b> |
 
-#### The location of the `AndroidManifest.xml` file
+#### The location of the AndroidManifest.xml file
 
 | Current source set layout                              | New source set layout                                 |
 |--------------------------------------------------------|-------------------------------------------------------|
@@ -279,7 +279,7 @@ kotlin.mpp.androidSourceSetLayoutVersion=2
 
 > The new layout requires Android Gradle plugin 7.0 or later and is supported in Android Studio 2022.3 and later.
 >
-{type="note"}
+{style="note"}
 
 The usage of the previous Android-style directories is now discouraged. Kotlin 1.8.0 marks the start of the deprecation
 cycle, introducing a warning for the current layout. You can suppress the warning with the following Gradle property:
@@ -452,14 +452,14 @@ and to integrate them better into the Kotlin tasks, we made lots of changes:
 > This will be changed in the scope of [this issue](https://youtrack.jetbrains.com/issue/KT-15370/Gradle-DSL-add-module-level-kotlin-options),
 > when the `compilerOptions` DSL will be added to a module level.
 >
-{type="note"}
+{style="note"}
 
 #### Limitations
 
 > The `kotlinOptions` task input and the `kotlinOptions{...}` task DSL are in support mode and will be deprecated in
 > upcoming releases. Improvements will be made only to `compilerOptions` and `toolOptions`.
 >
-{type="warning"}
+{style="warning"}
 
 Calling any setter or getter on `kotlinOptions` delegates to the related property in the `compilerOptions`.
 This introduces the following limitations:
@@ -524,7 +524,7 @@ Learn about other cases and our suggested solutions in [the documentation](gradl
 
 > This section applies to your JVM project even if your source files are only in Kotlin and you don't use Java.
 >
-{type="note"}
+{style="note"}
 
 [Starting from this release](https://youtrack.jetbrains.com/issue/KT-54993/Raise-kotlin.jvm.target.validation.mode-check-default-level-to-error-when-build-is-running-on-Gradle-8),
 the default value for the [`kotlin.jvm.target.validation.mode` property](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks)
@@ -599,7 +599,7 @@ and `kotlin-stdlib-jdk8` separately in build scripts because the contents of the
 > If you have explicitly declared `kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` as dependencies in your build scripts,
 > then you should replace them with `kotlin-stdlib`.
 >
-{type="note"}
+{style="note"}
 
 Note that mixing different versions of stdlib artifacts could lead to class duplication or to missing classes.
 To avoid that, the Kotlin Gradle plugin can help you [align stdlib versions](#usage-of-the-latest-kotlin-stdlib-version-in-transitive-dependencies).
@@ -644,7 +644,7 @@ fun wait(timeout: Long, unit: TimeUnit) {
 > The new functionality of `TimeMarks` is [Experimental](components-stability.md#stability-levels-explained), and to use it
 > you need to opt in by using `@OptIn(ExperimentalTime::class)` or `@ExperimentalTime`.
 >
-{type="warning"}
+{style="warning"}
 
 Before Kotlin 1.8.0, if you wanted to calculate the time difference between multiple `TimeMarks` and **now**, you could
 only call `elapsedNow()` on one `TimeMark` at a time. This made it difficult to compare the results because the
@@ -704,7 +704,7 @@ or compare, multiple `TimeMarks` representing different frames.
 > To use them, you need to opt in with `@OptIn(kotlin.io.path.ExperimentalPathApi::class)` or `@kotlin.io.path.ExperimentalPathApi`.
 > Alternatively, you can use the compiler option `-opt-in=kotlin.io.path.ExperimentalPathApi`.
 >
-{type="warning"}
+{style="warning"}
 
 We have introduced two new extension functions for `java.nio.file.Path`, `copyToRecursively()` and `deleteRecursively()`,
 which allow you to recursively:
@@ -799,7 +799,7 @@ The Kotlin documentation has received some notable changes:
   IntelliJ IDEA and Gradle.
 * [Create a multiplatform app using Ktor and SQLDelight](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html) – create a mobile
   application for iOS and Android using Kotlin Multiplatform Mobile.
-* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html) – learn about cross-platform
+* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html) – learn about cross-platform
   mobile development with Kotlin and create an app that works on both Android and iOS.
 
 ## Install Kotlin 1.8.0
@@ -811,13 +811,13 @@ an upcoming minor update.
 > To migrate existing projects to Kotlin 1.8.0 in IntelliJ IDEA 2022.3, change the Kotlin version to `1.8.0` and reimport
 > your Gradle or Maven project.
 >
-{type="note"}
+{style="note"}
 
 For Android Studio Electric Eel (221) and Flamingo (222), version 1.8.0 of the Kotlin plugin will be delivered with
 the upcoming Android Studios updates. The new command-line compiler is available for download on the [GitHub release page](https://github.com/JetBrains/kotlin/releases/tag/v1.8.0).
 
 ## Compatibility guide for Kotlin 1.8.0
 
-Kotlin 1.8.0 is a [feature release](kotlin-evolution.md#language-and-tooling-releases) and can, therefore,
+Kotlin 1.8.0 is a [feature release](kotlin-evolution-principles.md#language-and-tooling-releases) and can, therefore,
 bring changes that are incompatible with your code written for earlier versions of the language. Find the detailed list
 of these changes in the [Compatibility guide for Kotlin 1.8.0](compatibility-guide-18.md).

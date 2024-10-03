@@ -5,7 +5,7 @@ The type `Boolean` represents boolean objects that can have two values: `true` a
 
 > On the JVM, booleans stored as the primitive `boolean` type typically use 8 bits.
 >
-{type="note"}
+{style="note"}
 
 Built-in operations on booleans include:
 
@@ -42,4 +42,4 @@ The `||` and `&&` operators work lazily, which means:
 
 > On the JVM, nullable references to boolean objects are boxed in Java classes, just like with [numbers](numbers.md#numbers-representation-on-the-jvm).
 >
-{type="note"}
+{style="note"}

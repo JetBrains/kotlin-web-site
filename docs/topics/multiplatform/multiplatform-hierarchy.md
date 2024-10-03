@@ -21,7 +21,7 @@ This is a more low-level approach: it's more flexible but requires more effort a
 
 ## Default hierarchy template
 
-Starting with Kotlin 1.9.20, the Kotlin Gradle plugin has a built-in default [hierarchy template](#see-the-full-hierarchy-template).
+The Kotlin Gradle plugin has a built-in default [hierarchy template](#see-the-full-hierarchy-template).
 It contains predefined intermediate source sets for some popular use cases.
 The plugin sets up those source sets automatically based on the targets specified in your project.
 
@@ -55,17 +55,19 @@ kotlin {
 When you declare the targets `androidTarget`, `iosArm64`, and `iosSimulatorArm64` in your code, the Kotlin Gradle plugin finds
 suitable shared source sets from the template and creates them for you. The resulting hierarchy looks like this:
 
-![An example of using the default hierarchy template](default-hierarchy-example.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
+![An example of using the default hierarchy template](default-hierarchy-example.svg)
 
-Green source sets are actually created and present in the project, while gray ones from the default template are
+Colored source sets are actually created and present in the project, while gray ones from the default template are
 ignored. The Kotlin Gradle plugin hasn't created the `watchos` source set, for example, because there
 are no watchOS targets in the project.
 
 If you add a watchOS target, like `watchosArm64`, the `watchos` source set is created, and the code
 from the `apple`, `native`, and `common` source sets is compiled to `watchosArm64` as well.
 
-The Kotlin Gradle plugin creates type-safe accessors for all of the source sets from the default hierarchy template,
-so you can reference them without `by getting` or `by creating` constructions compared to the [manual configuration](#manual-configuration):
+The Kotlin Gradle plugin provides both type-safe and static accessors for all of the source sets from the default hierarchy
+template, so you can reference them without `by getting` or `by creating` constructs compared to the [manual configuration](#manual-configuration).
+
+If you try to access the source set without declaring the corresponding target first, you'll see a warning:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -80,6 +82,8 @@ kotlin {
         iosMain.dependencies {
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
+        // Warning: accessing source set without declaring the target
+        linuxX64Main { }
     }
 }
 ```
@@ -99,6 +103,8 @@ kotlin {
                 implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
             }
         }
+        // Warning: accessing source set without declaring the target
+        linuxX64Main { }
     }
 }
 ```
@@ -111,7 +117,7 @@ kotlin {
 > This can be counter-intuitive for source sets like `native`, as you might expect that only APIs available on all
 > native targets are accessible in this source set. This behavior may change in the future.
 >
-{type="note"}
+{style="note"}
 
 ### Additional configuration
 
@@ -233,9 +239,9 @@ However, you still can do one of the following:
 > look into the `applyHierarchyTemplate {}` block and the declaration of `KotlinHierarchyTemplate.default` as an example.
 > Keep in mind that this API is still in development. It might not be tested and can change in further releases.
 >
-{type="tip"}
+{style="tip"}
 
-#### See the full hierarchy template {initial-collapse-state="collapsed"}
+#### See the full hierarchy template {initial-collapse-state="collapsed" collapsible="true"}
 
 When you declare the targets to which your project compiles,
 the plugin picks the shared source sets based on the specified targets from the template and creates them in your project.
@@ -245,7 +251,7 @@ the plugin picks the shared source sets based on the specified targets from the 
 > This example only shows the production part of the project, omitting the `Main` suffix
 > (for example, using `common` instead of `commonMain`). However, everything is the same for `*Test` sources as well.
 >
-{type="tip"}
+{style="tip"}
 
 ## Manual configuration
 
@@ -310,7 +316,7 @@ kotlin {
 
 The resulting hierarchical structure will look like this:
 
-![Manually configured hierarchical structure](manual-hierarchical-structure.png)
+![Manually configured hierarchical structure](manual-hierarchical-structure.svg)
 
 You can have a shared source set for the following combinations of targets:
 

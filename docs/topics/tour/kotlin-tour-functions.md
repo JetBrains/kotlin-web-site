@@ -1,6 +1,8 @@
 [//]: # (title: Functions)
 
-<microformat>
+<no-index/>
+
+<tldr>
     <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-hello-world.md">Hello world</a><br />
         <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />
         <img src="icon-3-done.svg" width="20" alt="Third step" /> <a href="kotlin-tour-collections.md">Collections</a><br />
@@ -8,7 +10,7 @@
         <img src="icon-5.svg" width="20" alt="Fifth step" /> <strong>Functions</strong><br />
         <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-classes.md">Classes</a><br />
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
-</microformat>
+</tldr>
 
 You can declare your own functions in Kotlin using the `fun` keyword.
 
@@ -35,7 +37,7 @@ In Kotlin:
 > If a function doesn't return anything useful, the return type and `return` keyword can be omitted. Learn more about
 > this in [Functions without return](#functions-without-return).
 >
-{type="note"}
+{style="note"}
 
 In the following example:
 
@@ -59,7 +61,7 @@ fun main() {
 > We recommend in our [coding conventions](coding-conventions.md#function-names) that you name functions starting with 
 > a lowercase letter and use camel case with no underscores.
 > 
-{type="note"}
+{style="note"}
 
 ## Named arguments
 
@@ -70,7 +72,7 @@ you can write the parameters in any order.
 > In the following example, [string templates](strings.md#string-templates) (`$`) are used to access
 > the parameter values, convert them to `String` type, and then concatenate them into a string for printing.
 > 
-{type="tip"}
+{style="tip"}
 
 ```kotlin
 fun printMessageWithPrefix(message: String, prefix: String) {
@@ -113,7 +115,7 @@ fun main() {
 > You can skip specific parameters with default values, rather than omitting them all. However, after the 
 > first skipped parameter, you must name all subsequent parameters.
 >
-{type="note"}
+{style="note"}
 
 ## Functions without return
 
@@ -168,7 +170,7 @@ return type even when using the assignment operator `=`.
 
 > If you use `{}` curly braces to declare your function body, you must declare the return type unless it is the `Unit` type.
 > 
-{type="note"}
+{style="note"}
 
 ## Early returns in functions
 
@@ -211,7 +213,7 @@ fun main() {
 
 ## Functions practice
 
-### Exercise 1 {initial-collapse-state="collapsed" id="functions-exercise-1"}
+### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-1"}
 
 Write a function called `circleArea` that takes the radius of a circle in integer format as a parameter and outputs the
 area of that circle.
@@ -246,9 +248,9 @@ fun main() {
     println(circleArea(2)) // 12.566370614359172
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-functions-solution-1"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" id="functions-exercise-2"}
+### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-2"}
 
 Rewrite the `circleArea` function from the previous exercise as a single-expression function.
 
@@ -274,9 +276,9 @@ fun main() {
     println(circleArea(2)) // 12.566370614359172
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-functions-solution-2"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-2"}
 
-### Exercise 3 {initial-collapse-state="collapsed" id="functions-exercise-3"}
+### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="functions-exercise-3"}
 
 You have a function that translates a time interval given in hours, minutes, and seconds into seconds. In most cases,
 you need to pass only one or two function parameters while the rest are equal to 0. Improve the function and the code that
@@ -310,7 +312,7 @@ fun main() {
     println(intervalInSeconds(hours = 1, seconds = 1))
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-functions-solution-3"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-functions-solution-3"}
 
 ## Lambda expressions
 
@@ -363,7 +365,7 @@ function called on `text`.
 > { println("Log message") }
 > ```
 >
-{type="note"}
+{style="note"}
 
 Lambda expressions can be used in a number of ways. You can:
 
@@ -483,7 +485,7 @@ If your lambda expression has no parameters then the parentheses `()` are left e
 > 
 > `val upperCaseString = { str -> str.uppercase() }`
 >
-{type="note"}
+{style="note"}
 
 ### Return from a function
 
@@ -557,7 +559,7 @@ The next step in our tour is to learn about [classes](kotlin-tour-classes.md) in
 
 ## Lambda expressions practice
 
-### Exercise 1 {initial-collapse-state="collapsed" id="lambdas-exercise-1"}
+### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="lambdas-exercise-1"}
 
 You have a list of actions supported by a web service, a common prefix for all requests, and an ID of a particular resource.
 To request an action `title` over the resource with ID: 5, you need to create the following URL: `https://example.com/book-info/5/title`.
@@ -585,9 +587,9 @@ fun main() {
     println(urls)
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-1"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-1"}
 
-### Exercise 2 {initial-collapse-state="collapsed" id="lambdas-exercise-2"}
+### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="lambdas-exercise-2"}
 
 Write a function that takes an `Int` value and an action (a function with type `() -> Unit`) which then repeats the 
 action the given number of times. Then use this function to print “Hello” 5 times.
@@ -618,7 +620,7 @@ fun main() {
     }
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-2"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-lambdas-solution-2"}
 
 ## Next step
 

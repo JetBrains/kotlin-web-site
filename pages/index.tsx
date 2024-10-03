@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import Link from 'next/link';
 
@@ -31,9 +31,10 @@ import GradleLogo from '../public/images/companies/gradle.svg';
 import UberLogo from '../public/images/companies/uber.svg';
 import AtlassianLogo from '../public/images/companies/atlassian.svg';
 import GoogleLogo from '../public/images/companies/google.svg';
-import JetbrainsLogo from '../public/images/companies/jetbrains.svg';
+import JetbrainsLogoSquare from '../public/images/companies/jetbrains-logo-square.svg';
 import ShopifyLogo from '../public/images/companies/shopify.svg';
 import TouchlabLogo from '../public/images/companies/touchlab.svg';
+import KotzillaLogo from '../public/images/companies/kotzilla-logo.svg'
 
 import McDonaldsLogo from '../public/images/companies/mcdonalds.svg';
 import AWSLogo from '../public/images/companies/aws.svg';
@@ -47,9 +48,9 @@ import searchConfig from '../search-config.json';
 
 
 import releasesDataRaw from '../data/releases.yml';
+import Script from 'next/script';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
-
 
 const kotlinUsageHighlightsCases = [
     {
@@ -99,7 +100,7 @@ const kotlinUsageHighlightsCases = [
 const kotlinFoundationCompanies = [
     {
         name: 'JetBrains',
-        logo: JetbrainsLogo,
+        logo: JetbrainsLogoSquare,
         link: 'https://www.jetbrains.com/'
     },
     {
@@ -126,7 +127,13 @@ const kotlinFoundationCompanies = [
         name: 'Touchlab',
         logo: TouchlabLogo,
         link: 'https://touchlab.co/'
-    }
+    },
+    {
+        name: 'Kotzilla',
+        logo: KotzillaLogo,
+        link: 'https://kotzilla.io/'
+    },
+
 ];
 
 export async function getStaticProps() {
@@ -241,6 +248,8 @@ function Index() {
             <ThemeProvider theme={'dark'}>
                 <GlobalFooter />
             </ThemeProvider>
+
+            <Script src={'https://cdn.optimizely.com/js/26633200186.js'} strategy={"beforeInteractive"}/>
         </Layout>
     );
 }

@@ -3,7 +3,7 @@
 > Java Scanner is a slow tool. Use it only when you need the specific functionalities it offers.
 > Otherwise, it's generally preferable to use Kotlin's `readln()` function to [read standard input](basic-syntax.md#read-from-the-standard-input).
 >
-{type="note"}
+{style="note"}
 
 To read from the standard input, Java provides the `Scanner` class. Kotlin offers two main ways to read from the standard input: 
 the `Scanner` class, similar to Java, and the `readln()` function.
@@ -85,7 +85,7 @@ Other useful methods for reading input with Java Scanner are `.hasNext()`, `.use
 > Always use the `.close()` method when you're finished using Java Scanner. Closing the Java Scanner
 > releases the resources it consumes and ensures proper program behavior.
 >
-{type="note"}
+{style="note"}
 
 ## Read from the standard input with readln()
 

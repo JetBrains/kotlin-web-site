@@ -1,6 +1,8 @@
 [//]: # (title: Null safety)
 
-<microformat>
+<no-index/>
+
+<tldr>
     <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-hello-world.md">Hello world</a><br />
         <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-basic-types.md">Basic types</a><br />
         <img src="icon-3-done.svg" width="20" alt="Third step" /> <a href="kotlin-tour-collections.md">Collections</a><br />
@@ -8,7 +10,7 @@
         <img src="icon-5-done.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-functions.md">Functions</a><br />
         <img src="icon-6-done.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-classes.md">Classes</a><br />
         <img src="icon-7.svg" width="20" alt="Final step" /> <strong>Null safety</strong><br /></p>
-</microformat>
+</tldr>
 
 In Kotlin, it's possible to have a `null` value. Kotlin uses `null` values when something is missing or not yet set.
 You've already seen an example of Kotlin returning a `null` value in the [Collections](kotlin-tour-collections.md#kotlin-tour-map-no-key)
@@ -66,7 +68,7 @@ fun main() {
 > `length` is a property of the [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/) class that 
 > contains the number of characters within a string.
 >
-{type="tip"}
+{style="tip"}
 
 ## Check for null values
 
@@ -116,7 +118,7 @@ fun main() {
 >   person.company?.address?.country
 > ```
 >
-{type="tip"}
+{style="tip"}
 
 The safe call operator can also be used to safely call an extension or member function. In this case, a null check is 
 performed before the function is called. If the check detects a `null` value, then the call is skipped and `null` is returned.
@@ -156,7 +158,7 @@ For more information about null safety in Kotlin, see [Null safety](null-safety.
 
 ## Practice
 
-### Exercise {initial-collapse-state="collapsed"}
+### Exercise {initial-collapse-state="collapsed" collapsible="true"}
 
 You have the `employeeById` function that gives you access to a database of employees of a company. Unfortunately, this 
 function returns a value of the `Employee?` type, so the result can be `null`. Your goal is to write a function that 
@@ -200,11 +202,11 @@ fun main() {
     println((1..5).sumOf { id -> salaryById(id) })
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution"}
 
 ## What's next?
 
 Congratulations! Now that you have completed the Kotlin tour, check out our tutorials for popular Kotlin applications:
 
 * [Create a backend application](jvm-create-project-with-spring-boot.md)
-* [Create a cross-platform application for Android and iOS](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html)
+* [Create a cross-platform application for Android and iOS](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)

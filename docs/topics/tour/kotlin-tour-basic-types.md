@@ -1,6 +1,8 @@
 [//]: # (title: Basic types)
 
-<microformat>
+<no-index/>
+
+<tldr>
     <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-hello-world.md">Hello world</a><br />
         <img src="icon-2.svg" width="20" alt="Second step" /> <strong>Basic types</strong><br />
         <img src="icon-3-todo.svg" width="20" alt="Third step" /> <a href="kotlin-tour-collections.md">Collections</a><br />
@@ -8,7 +10,7 @@
         <img src="icon-5-todo.svg" width="20" alt="Fifth step" /> <a href="kotlin-tour-functions.md">Functions</a><br />
         <img src="icon-6-todo.svg" width="20" alt="Sixth step" /> <a href="kotlin-tour-classes.md">Classes</a><br />
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
-</microformat>
+</tldr>
 
 Every variable and data structure in Kotlin has a type. Types are important because they tell the compiler what you are allowed to 
 do with that variable or data structure. In other words, what functions and properties it has.
@@ -40,7 +42,7 @@ fun main() {
 
 > `+=`, `-=`, `*=`, `/=`, and `%=` are augmented assignment operators. For more information, see [Augmented assignments](operator-overloading.md#augmented-assignments).
 > 
-{type="tip"}
+{style="tip"}
 
 In total, Kotlin has the following basic types:
 
@@ -99,7 +101,7 @@ Now that you know how to declare basic types, it's time to learn about [collecti
 
 ## Practice
 
-### Exercise {initial-collapse-state="collapsed"}
+### Exercise {initial-collapse-state="collapsed" collapsible="true"}
 
 Explicitly declare the correct type for each variable:
 
@@ -127,7 +129,7 @@ fun main() {
     val f: Char = '\n'
 }
 ```
-{initial-collapse-state="collapsed" collapsed-title="Example solution" id="kotlin-tour-basic-types-solution"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-basic-types-solution"}
 
 ## Next step
 

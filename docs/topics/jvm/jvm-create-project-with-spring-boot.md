@@ -65,7 +65,7 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
    * There are packages and classes under the `main/kotlin` folder that belong to the application.
    * The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
 
-## Explore the project Gradle build file {initial-collapse-state="collapsed"}
+## Explore the project Gradle build file {initial-collapse-state="collapsed" collapsible="true"}
 
 Open the `build.gradle.kts` file: it is the Gradle Kotlin build script, which contains a list of the dependencies required for the application.
 

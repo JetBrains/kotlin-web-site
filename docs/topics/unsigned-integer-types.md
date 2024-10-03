@@ -16,14 +16,14 @@ Unsigned types support most of the operations of their signed counterparts.
 > signed counterpart type of the same width. If you want to convert between unsigned and signed integer types, 
 > make sure you update your code so that any function calls and operations support the new type.
 >
-{type="note"}
+{style="note"}
 
 ## Unsigned arrays and ranges
 
 > Unsigned arrays and operations on them are in [Beta](components-stability.md). They can be changed incompatibly at any time.
 > Opt-in is required (see the details below).
 >
-{type="warning"}
+{style="warning"}
 
 Same as for primitives, each unsigned type has a corresponding type that represents arrays of that type:
 

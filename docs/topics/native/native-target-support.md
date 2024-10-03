@@ -6,7 +6,7 @@ tiers depending on how well the compiler supports them.
 
 > We can adjust the number of tiers, the list of supported targets, and their features as we go.
 > 
-{type="tip"}
+{style="tip"}
 
 Mind the following terms used in tier tables:
 
@@ -31,6 +31,7 @@ Mind the following terms used in tier tables:
 | `macosArm64`            | `aarch64-apple-macos`         | ✅             | Apple macOS on Apple Silicon platforms         |
 | `iosSimulatorArm64`     | `aarch64-apple-ios-simulator` | ✅             | Apple iOS simulator on Apple Silicon platforms |
 | `iosX64`                | `x86_64-apple-ios-simulator`  | ✅             | Apple iOS simulator on x86-64 platforms        |
+| `iosArm64`              | `aarch64-apple-ios`           |               | Apple iOS and iPadOS on ARM64 platforms        |
 
 ## Tier 2
 
@@ -49,16 +50,6 @@ Mind the following terms used in tier tables:
 | `tvosSimulatorArm64`    | `aarch64-apple-tvos-simulator`    | ✅             | Apple tvOS simulator on Apple Silicon platforms    |
 | `tvosX64`               | `x86_64-apple-tvos-simulator`     | ✅             | Apple tvOS simulator on x86_64 platforms           |
 | `tvosArm64`             | `aarch64-apple-tvos`              |               | Apple tvOS on ARM64 platforms                      |
-| `iosArm64`              | `aarch64-apple-ios`               |               | Apple iOS and iPadOS on ARM64 platforms            |
-
-> We're doing our best to move `iosArm64` to Tier 1, as it's a crucial target for [Kotlin Multiplatform](multiplatform-get-started.md).
-> To do that, we need first to create a dedicated testing infrastructure because platform limitations make it difficult
-> to run compiler tests on Apple devices.
-> 
-> Meanwhile, we sometimes run tests manually on iOS devices and rely on testing
-> similar targets, like `iosSimulatorArm64`, which should be sufficient in most cases.
-> 
-{type="tip"}
 
 ## Tier 3
 
@@ -66,19 +57,19 @@ Mind the following terms used in tier tables:
 * We can't promise a source and binary compatibility between different compiler releases, though such changes for these
   targets are quite rare.
 
-| Gradle target name      | Target triple                   | Running tests | Description                                                          |
-|-------------------------|---------------------------------|---------------|----------------------------------------------------------------------|
-| `androidNativeArm32`    | `arm-unknown-linux-androideabi` |               | [Android NDK](https://developer.android.com/ndk) on ARM32 platforms  |
-| `androidNativeArm64`    | `aarch64-unknown-linux-android` |               | [Android NDK](https://developer.android.com/ndk) on ARM64 platforms  |
-| `androidNativeX86`      | `i686-unknown-linux-android`    |               | [Android NDK](https://developer.android.com/ndk) on x86 platforms    |
-| `androidNativeX64`      | `x86_64-unknown-linux-android`  |               | [Android NDK](https://developer.android.com/ndk) on x86_64 platforms |
-| `mingwX64`              | `x86_64-pc-windows-gnu`         | ✅             | 64-bit [MinGW](https://www.mingw-w64.org) on Windows 7 and later     |
-| Apple macOS hosts only: |                                 |               |                                                                      |
-| `watchosDeviceArm64`    | `aarch64-apple-watchos`         |               | Apple watchOS on ARM64 platforms                                     |
+| Gradle target name      | Target triple                   | Running tests | Description                                                                             |
+|-------------------------|---------------------------------|---------------|-----------------------------------------------------------------------------------------|
+| `androidNativeArm32`    | `arm-unknown-linux-androideabi` |               | [Android NDK](https://developer.android.com/ndk) on ARM32 platforms                     |
+| `androidNativeArm64`    | `aarch64-unknown-linux-android` |               | [Android NDK](https://developer.android.com/ndk) on ARM64 platforms                     |
+| `androidNativeX86`      | `i686-unknown-linux-android`    |               | [Android NDK](https://developer.android.com/ndk) on x86 platforms                       |
+| `androidNativeX64`      | `x86_64-unknown-linux-android`  |               | [Android NDK](https://developer.android.com/ndk) on x86_64 platforms                    |
+| `mingwX64`              | `x86_64-pc-windows-gnu`         | ✅             | 64-bit Windows 7 and later using [MinGW](https://www.mingw-w64.org) compatibility layer |
+| Apple macOS hosts only: |                                 |               |                                                                                         |
+| `watchosDeviceArm64`    | `aarch64-apple-watchos`         |               | Apple watchOS on ARM64 platforms                                                        |
 
 > The `linuxArm32Hfp` target is deprecated and will be removed in future releases.
 > 
-{type="note"}
+{style="note"}
 
 ## For library authors
 

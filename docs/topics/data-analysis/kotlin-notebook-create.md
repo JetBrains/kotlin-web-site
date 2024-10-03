@@ -1,13 +1,13 @@
 [//]: # (title: Create your first Kotlin Notebook)
 
-<microformat>
+<tldr>
    <p>This is the second part of the <strong>Getting started with Kotlin Notebook</strong> tutorial. Before proceeding, make sure you've completed the previous step.</p>
    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="kotlin-notebook-set-up-env.md">Set up an environment</a><br/>
       <img src="icon-2.svg" width="20" alt="Second step"/> <strong>Create a Kotlin Notebook</strong><br/>
       <img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies to a Kotlin Notebook<br/>      
       <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Share a Kotlin Notebook<br/>
   </p>
-</microformat>
+</tldr>
 
 Here, you will learn how to create your first Kotlin Notebook, perform simple operations, and run code cells. 
 
@@ -20,7 +20,7 @@ Here, you will learn how to create your first Kotlin Notebook, perform simple op
    > Select the **Create Git repository** checkbox to place the new project under version control. 
    > You will be able to do it later at any time.
    > 
-   {type="tip"}
+   {style="tip"}
 
 4. From the **Language** list, select **Kotlin**.
 
@@ -32,7 +32,7 @@ Here, you will learn how to create your first Kotlin Notebook, perform simple op
 
    > You can also enable the **Generate code with onboarding tips** option to add some additional useful comments to your sample code.
    > 
-   {type="tip"}
+   {style="tip"}
 
 8. Click **Create**.
 
@@ -57,14 +57,28 @@ Here, you will learn how to create your first Kotlin Notebook, perform simple op
 
    > Once you run a code cell with defined variables, those variables become accessible in all other code cells.
    > 
-   {type="tip"}
+   {style="tip"}
 
 9. Create a new code cell and add `println(a * a)`.
 10. Run all code and markdown cells in the notebook using the **Run All** ![Run all button](run-all-button.png){width=30}{type="joined"} button.
 
-![First notebook](first-notebook.png){width=700}
+    ![First notebook](first-notebook.png){width=700}
 
 Congratulations! You have just created your first Kotlin Notebook.
+
+## Create a scratch Kotlin Notebook
+
+Starting from IntelliJ IDEA 2024.1.1, you can also create a Kotlin Notebook as a scratch file.
+
+[Scratch files](https://www.jetbrains.com/help/idea/scratches.html#create-scratch-file) allow 
+you to test small pieces of code without creating a new project or modifying an existing one.
+
+To create a scratch Kotlin Notebook:
+
+1. Click **File | New | Scratch File**.
+2. Select **Kotlin Notebook** from the **New Scratch File** list.
+
+   ![Scratch notebook](kotlin-notebook-scratch-file.png){width=400}
 
 ## Next step
 

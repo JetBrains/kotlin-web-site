@@ -142,4 +142,4 @@ printAllValues<RGB>()
 ```
 > For more information about inline functions and reified type parameters, see [Inline functions](inline-functions.md).
 >
-> {type="tip"}
+> {style="tip"}

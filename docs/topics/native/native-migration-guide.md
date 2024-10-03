@@ -1,5 +1,10 @@
 [//]: # (title: Migrate to the new memory manager)
 
+> Support for the legacy memory manager has been completely removed in Kotlin 1.9.20. Migrate your projects to 
+> the current memory model, enabled by default since Kotlin 1.7.20.
+>
+{style="note"}
+
 This guide compares the new [Kotlin/Native memory manager](native-memory-manager.md) with the legacy one and
 describes how to migrate your projects.
 
@@ -22,15 +27,14 @@ Apart from easy object sharing, the new memory manager also brings other major c
 * Exceptions that escape `operation` in `Worker.executeAfter` are processed like in other runtime parts, by trying to
   execute a user-defined unhandled exception hook or terminating the program if the hook was not found or failed with
   an exception itself.
-* Freezing is deprecated, disabled by default, and will be removed in future releases.
-  Do not use freezing if you don't need your code to work with the [legacy memory manager](#support-both-new-and-legacy-memory-managers).
+* Freezing is deprecated and always disabled.
 
 Follow these guidelines to migrate your projects from the legacy memory manager:
 
 ## Update Kotlin
 
 The new Kotlin/Native memory manager has been enabled by default since Kotlin 1.7.20. Check the Kotlin version and [update
-to the latest one](releases.md#update-to-a-new-release) if necessary.
+to the latest one](releases.md#update-to-a-new-kotlin-version) if necessary.
 
 ## Update dependencies
 
@@ -74,20 +78,7 @@ To support the new memory manager, remove usages of the affected API:
 | [The `WorkerBoundReference<out T : Any>` class](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-worker-bound-reference/) | Use `T` directly.                                                                                                                                                 |
 | [The `DetachedObjectGraph<T>` class](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.native.concurrent/-detached-object-graph/)             | Use `T` directly. To pass the value through the C interop, use [the StableRef class](https://kotlinlang.org/api/latest/jvm/stdlib/kotlinx.cinterop/-stable-ref/). |
 
-## Support both new and legacy memory managers
-
-If you're a library author and need to maintain support for the legacy memory manager or want to have a fallback in case of
-issues with the new memory manager, you can temporarily support code for both new and legacy memory managers.
-
-To ignore deprecation warnings, do one of the following:
-
-* Annotate usages of the deprecated API with `@OptIn(FreezingIsDeprecated::class)`.
-* Apply `languageSettings.optIn("kotlin.native.FreezingIsDeprecated")` to all the Kotlin source sets in Gradle.
-* Pass the compiler flag `-opt-in=kotlin.native.FreezingIsDeprecated`.
-
-See [Opt-in requirements](opt-in-requirements.md) for more details.
-
 ## What's next
 
-* [Learn about the new memory manager](native-memory-manager.md)
-* [Configure integration with iOS](native-ios-integration.md)
+* [Learn more about the new memory manager](native-memory-manager.md)
+* [Check the specifics of integration with Swift/Objective-C ARC](native-arc-integration.md)

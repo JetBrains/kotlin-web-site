@@ -1,4 +1,4 @@
-[//]: # (title:  Kotlin releases)
+[//]: # (title: Kotlin releases)
 
 Since Kotlin 2.0.0, we ship the following types of releases:
 
@@ -12,13 +12,13 @@ Since Kotlin 2.0.0, we ship the following types of releases:
 > For example, for the feature release 1.8.0, we had only one tooling release 1.8.20,
 > and several bugfix releases including 1.8.21, 1.8.22.
 >
-{type="tip"}
+{style="tip"}
 -->
 
 For each language and tooling release, we also ship several preview (_EAP_) versions for you to try
 new features before they are released. See [Early Access Preview](eap.md) for details.
 
-## Update to a new release
+## Update to a new Kotlin version
 
 To upgrade your project to a new release, you need to update your build script file.
 For example, to update to Kotlin %kotlinVersion%, change the version of the Kotlin Gradle plugin in your
@@ -33,7 +33,7 @@ plugins {
     kotlin("<...>") version "%kotlinVersion%"
     // For example, if your target environment is JVM:
     // kotlin("jvm") version "%kotlinVersion%"
-    // If you target is Kotlin Multiplatform
+    // If your target is Kotlin Multiplatform:
     // kotlin("multiplatform") version "%kotlinVersion%"
 }
 ```
@@ -47,7 +47,7 @@ plugins {
     id 'org.jetbrains.kotlin.<...>' version '%kotlinVersion%'
     // For example, if your target environment is JVM: 
     // id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
-    // If you target is Kotlin Multiplatform
+    // If your target is Kotlin Multiplatform:
     // id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
 }
 ```
@@ -71,27 +71,40 @@ To enable it, go to **Settings** | **Languages & Frameworks** | **Kotlin** and s
 > The K2 mode is in Beta from 2024.2. We are working on stability and code analysis improvements, but not all IDE features
 > are supported yet.
 >
-{type="warning"}
+{style="warning"}
 
 After enabling K2 mode, you may notice differences in IDE analysis due to changes in compiler behavior.
 Learn how the new K2 compiler differs from the previous one in the [migration guide](k2-compiler-migration-guide.md).
 
 ## Kotlin release compatibility
 
-Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution.md#language-and-tooling-releases)
+Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution-principles.md#language-and-tooling-releases)
 
 ## Release details
 
 The following table lists details of the latest Kotlin releases:
 
-> You can also use [preview versions of Kotlin](eap.md#build-details).
+> You can also try [Early Access Preview (EAP) versions of Kotlin](eap.md#build-details).
 > 
-{type="tip"}
+{style="tip"}
 
 <table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
+    </tr>
+    <tr>
+        <td><strong>2.0.20</strong>
+            <p>Released: <strong>August 22, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.20" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+           <p>A tooling release for Kotlin 2.0.0 containing performance improvements and bug fixes. Features also include
+              concurrent marking in Kotlin/Native's garbage collector, UUID support in Kotlin common standard library,
+              Compose compiler updates, and support up to Gradle 8.8.
+            </p>
+            <p>Learn more about Kotlin 2.0.20 in <a href="whatsnew2020.md" target="_blank">What's new in Kotlin 2.0.20</a>.</p>
+        </td>
     </tr>
     <tr>
         <td><strong>2.0.10</strong>

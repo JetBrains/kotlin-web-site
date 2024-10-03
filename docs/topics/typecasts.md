@@ -5,7 +5,7 @@ different type.
 
 > To learn specifically about **generics** type checks and casts, for example `List<T>`, `Map<K,V>`, see [Generics type checks and casts](generics.md#generics-type-checks-and-casts).
 >
-{type="tip"}
+{style="tip"}
 
 ## is and !is operators
 
@@ -128,7 +128,7 @@ fun signalCheck(signalStatus: Any) {
 > The common supertype is an **approximation** of a [union type](https://en.wikipedia.org/wiki/Union_type). Union types
 > are [not currently supported in Kotlin](https://youtrack.jetbrains.com/issue/KT-13108/Denotable-union-and-intersection-types).
 >
-{type="note"}
+{style="note"}
 
 ### Inline functions
 
@@ -174,7 +174,7 @@ fun runProcessor(): Processor? {
 
 ### Exception handling
 
-Smart cast information is passed on to `catch` and `finally` blocks. This change makes your code safer
+Smart cast information is passed on to `catch` and `finally` blocks. This makes your code safer
 as the compiler tracks whether your object has a nullable type. For example:
 
 ```kotlin
@@ -213,11 +213,11 @@ fun main() {
 
 > Note that smart casts work only when the compiler can guarantee that the variable won't change between the check and its usage.
 >
-{type="warning"}
+{style="warning"}
 
 Smart casts can be used in the following conditions:
 
-<table header-style="none">
+<table style="none">
     <tr>
         <td>
             <code>val</code> local variables

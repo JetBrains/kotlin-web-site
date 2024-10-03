@@ -26,8 +26,8 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
 
     return (
         <ThemeProvider theme={'dark'}>
-            <section className={styles.heroSection}>
-                <div className={cn('ktl-layout', 'ktl-layout--center')}>
+            <section className={cn(styles.heroSection)}>
+                <div className={cn('ktl-layout', 'ktl-layout--center', 'hero-b')}>
                     <div className={styles.grid}>
                         <div className={styles.content}>
                             <h1 className={cn(darkTextCn('rs-hero'), styles.heroText)}>{title}</h1>
@@ -41,7 +41,14 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
                                 </Button>
                                 <div className={styles.developer}>
                                     <div className={styles.developerContent}>
-                                        <img src={JBLogo.src} alt="jetbrains logo" className={styles.developerLogo} />{' '}
+                                        <div className={cn(darkTextCn('rs-text-2', { hardness: 'hard' }), styles.developerCaptionAb)}>Developed by</div>
+                                        <a
+                                            href="https://www.jetbrains.com/"
+                                            target={'_blank'}
+                                            rel={'noreferrer noopener'}
+                                        >
+                                            <img src={JBLogo.src} alt="jetbrains logo" className={styles.developerLogo} />{' '}
+                                        </a>
                                         <div className={cn(darkTextCn('rs-text-3', { hardness: 'hard' }), styles.developerCaption)}>
                                             Kotlin, developed by&nbsp;
                                             <a

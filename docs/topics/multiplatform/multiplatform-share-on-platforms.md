@@ -15,7 +15,7 @@ declarations](multiplatform-expect-actual.md).
 If you have business logic that is common for all platforms, you don't need to write the same code for each platform – 
 just share it in the common source set.
 
-![Code shared for all platforms](flat-structure.png)
+![Code shared for all platforms](flat-structure.svg)
 
 Some dependencies for source sets are set by default. You don't need to specify any `dependsOn` relations manually:
 * For all platform-specific source sets that depend on the common source set, such as `jvmMain`, `macosX64Main`, and others. 
@@ -53,7 +53,7 @@ the library which are available to the targets of each source set.
 
 For example, check out the following source set hierarchy from the `kotlinx.coroutines` repository:
 
-![Library hierarchical structure](lib-hierarchical-structure.png)
+![Library hierarchical structure](lib-hierarchical-structure.svg)
 
 The `concurrent` source set declares the function runBlocking and is compiled for the JVM and the native targets. 
 Once the `kotlinx.coroutines` library is updated and published with the hierarchical project structure, you can depend on 

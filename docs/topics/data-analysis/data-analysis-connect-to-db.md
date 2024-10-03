@@ -14,7 +14,7 @@ For a detailed example, see the [Notebook in the KotlinDataFrame SQL Examples Gi
 
    > Alternatively, access the Kotlin Notebook plugin from **Settings** | **Plugins** | **Marketplace** within IntelliJ IDEA.
    >
-   {type="tip"}
+   {style="tip"}
 
 3. Create a new Kotlin Notebook by selecting **File** | **New** | **Kotlin Notebook**.
 4. Ensure you have access to an SQL database, such as MariaDB or MySQL.
@@ -73,7 +73,7 @@ schema information for each table in the database:
 
    > For more information on connecting to SQL databases, see [Read from SQL databases in the Kotlin DataFrame documentation](https://kotlin.github.io/dataframe/readsqldatabases.html).
    > 
-   {type="tip"}
+   {style="tip"}
 
 ## Retrieve and manipulate data
 

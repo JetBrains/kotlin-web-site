@@ -182,7 +182,7 @@ Let's discuss the code in parts to make it easier to understand.
 
 >The way Kotlin/Native exports symbols is subject to change without notice.
 
-{type="note"}
+{style="note"}
 
 The very first part contains the standard C/C++ header and footer:
 
@@ -388,7 +388,7 @@ library name is used as a prefix for the function name.
 Hosting the returned `libnative_ExportedSymbols*` pointer
 per thread might be necessary.
 
-{type="note"}
+{style="note"}
 
 ## Use generated headers from C
 
