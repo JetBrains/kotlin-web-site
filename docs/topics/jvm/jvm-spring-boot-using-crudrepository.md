@@ -121,6 +121,7 @@ fun main(args: Array<String>) {
 	runApplication<DemoApplication>(*args)
 }
 ```
+{initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 // Message.kt
@@ -141,6 +142,7 @@ import org.springframework.data.repository.CrudRepository
 
 interface MessageRepository : CrudRepository<Message, String>
 ```
+{initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 // MessageService.kt
@@ -158,6 +160,7 @@ class MessageService(private val db: MessageRepository) {
    fun save(message: Message): Message = db.save(message)
 }
 ```
+{initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 // MessageController.kt

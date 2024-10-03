@@ -49,7 +49,7 @@ class MessageService(private val db: JdbcTemplate) {
       <p><code>val db: JdbcTemplate</code> is the constructor's argument:</p>
       <code-block lang="kotlin">
       @Service
-      class MessageService(val db: JdbcTemplate)
+      class MessageService(private val db: JdbcTemplate)
       </code-block>
   </def>
    <def title="Trailing lambda and SAM conversion">
@@ -383,7 +383,38 @@ package demo
 
 data class Message(val id: String?, val text: String)
 ```
-{initial-collapse-state="collapsed"}
+{initial-collapse-state="collapsed" collapsible="true"}
+
+```kotlin
+// MessageService.kt
+package demo
+
+import org.springframework.stereotype.Service
+import org.springframework.jdbc.core.JdbcTemplate
+import org.springframework.jdbc.core.query
+import java.util.*
+
+@Service
+class MessageService(private val db: JdbcTemplate) {
+    fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
+        Message(response.getString("id"), response.getString("text"))
+    }
+
+    fun findMessageById(id: String): Message? = db.query("select * from messages where id = ?", id) { response, _ ->
+        Message(response.getString("id"), response.getString("text"))
+    }.singleOrNull()
+
+    fun save(message: Message): Message {
+        val id = message.id ?: UUID.randomUUID().toString()
+        db.update(
+            "insert into messages values ( ?, ? )",
+            id, message.text
+        )
+        return message.copy(id = id)
+    }
+}
+```
+{initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 // MessageController.kt
@@ -417,37 +448,6 @@ class MessageController(private val service: MessageService) {
 
     private fun Message?.toResponseEntity(): ResponseEntity<Message> =
         this?.let { ResponseEntity.ok(it) } ?: ResponseEntity.notFound().build()
-}
-```
-{initial-collapse-state="collapsed"}
-
-```kotlin
-// MessageService.kt
-package demo
-
-import org.springframework.stereotype.Service
-import org.springframework.jdbc.core.JdbcTemplate
-import org.springframework.jdbc.core.query
-import java.util.*
-
-@Service
-class MessageService(private val db: JdbcTemplate) {
-    fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
-        Message(response.getString("id"), response.getString("text"))
-    }
-
-    fun findMessageById(id: String): Message? = db.query("select * from messages where id = ?", id) { response, _ ->
-        Message(response.getString("id"), response.getString("text"))
-    }.singleOrNull()
-
-    fun save(message: Message): Message {
-        val id = message.id ?: UUID.randomUUID().toString()
-        db.update(
-            "insert into messages values ( ?, ? )",
-            id, message.text
-        )
-        return message.copy(id = id)
-    }
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true"}
