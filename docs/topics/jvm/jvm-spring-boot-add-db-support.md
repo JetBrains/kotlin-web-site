@@ -375,7 +375,7 @@ fun main(args: Array<String>) {
    runApplication<DemoApplication>(*args)
 }
 ```
-{initial-collapse-state="collapsed"}
+{initial-collapse-state="collapsed" collapsible="true"}
 
 ```kotlin
 // Message.kt
