@@ -1598,7 +1598,7 @@ To configure JSON output format for your build reports, declare the following pr
 kotlin.build.report.output=json
 
 // The directory to store your build reports
-kotlin.build.report.json.directory="my/directory/path"
+kotlin.build.report.json.directory=my/directory/path
 ```
 
 Alternatively, you can run the following command:

@@ -463,7 +463,7 @@ kotlin.build.report.output=file,single_file,http,build_scan,json
 kotlin.build.report.single_file=some_filename
 
 # Mandatory if json output is used. Where to put reports 
-kotlin.build.report.json.directory="my/directory/path"
+kotlin.build.report.json.directory=my/directory/path
 
 # Optional. Output directory for file-based reports. Default: build/reports/kotlin-build/
 kotlin.build.report.file.output_dir=kotlin-reports
