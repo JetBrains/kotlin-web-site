@@ -101,7 +101,7 @@ Specifies the version of the software in which the element being documented was 
 Excludes the element from the generated documentation. Can be used for elements which are not part of the official
 API of a module but still have to be visible externally.
 
-> KDoc does not support the `@deprecated` tag. Instead, please use the `@Deprecated` annotation.
+> KDoc does not support the `@deprecated` tag. Instead, please use the [`@Deprecated`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-deprecated/) annotation.
 >
 {style="note"}
 
