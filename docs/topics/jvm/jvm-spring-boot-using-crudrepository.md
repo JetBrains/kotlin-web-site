@@ -193,6 +193,7 @@ class MessageController(private val service: MessageService) {
       this?.let { ResponseEntity.ok(it) } ?: ResponseEntity.notFound().build()
 }
 ```
+{initial-collapse-state="collapsed" collapsible="true"}
 
 ## Run the application
 

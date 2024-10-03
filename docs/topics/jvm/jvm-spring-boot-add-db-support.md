@@ -49,7 +49,7 @@ class MessageService(private val db: JdbcTemplate) {
       <p><code>val db: JdbcTemplate</code> is the constructor's argument:</p>
       <code-block lang="kotlin">
       @Service
-      class MessageService(private val db: JdbcTemplate)
+      class MessageService(val db: JdbcTemplate)
       </code-block>
   </def>
    <def title="Trailing lambda and SAM conversion">
