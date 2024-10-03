@@ -1,10 +1,10 @@
 [//]: # (title: Use Spring Data CrudRepository for database access)
 [//]: # (description: Work with Spring Data interface in a Spring Boot project written in Kotlin.)
 
-<microformat>
+<tldr>
     <p>This is the final part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>
     <p><img src="icon-1-done.svg" width="20" alt="Figt step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="jvm-spring-boot-add-db-support.md">Add database support for Spring Boot project</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Use Spring Data CrudRepository for database access</strong></p>
-</microformat>
+</tldr>
 
 In this part, you will migrate the service layer to use the [Spring Data](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html) `CrudRepository` instead of `JdbcTemplate` for database access.
 _CrudRepository_ is a Spring Data interface for generic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on a repository of a specific type.
@@ -19,7 +19,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
 
     > These annotations also require additional imports.
     >  
-    {type="note"}
+    {style="note"}
 
     ```kotlin
     // Message.kt
@@ -105,6 +105,95 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
    spring.sql.init.mode=always
    ```
 
+Here is the complete code of the application:
+
+```kotlin
+// DemoApplication.kt
+package demo
+
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
+
+@SpringBootApplication
+class DemoApplication
+
+fun main(args: Array<String>) {
+	runApplication<DemoApplication>(*args)
+}
+```
+
+```kotlin
+// Message.kt
+package demo
+
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
+
+@Table("MESSAGES")
+data class Message(val text: String, @Id val id: String? = null)
+```
+
+```kotlin
+// MessageRepository.kt
+package demo
+
+import org.springframework.data.repository.CrudRepository
+
+interface MessageRepository : CrudRepository<Message, String>
+```
+
+```kotlin
+// MessageService.kt
+package demo
+
+import org.springframework.data.repository.findByIdOrNull
+import org.springframework.stereotype.Service
+
+@Service
+class MessageService(private val db: MessageRepository) {
+   fun findMessages(): List<Message> = db.findAll().toList()
+
+   fun findMessageById(id: String): Message? = db.findByIdOrNull(id)
+
+   fun save(message: Message): Message = db.save(message)
+}
+```
+
+```kotlin
+// MessageController.kt
+package demo
+
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+import java.net.URI
+
+@RestController
+@RequestMapping("/")
+class MessageController(private val service: MessageService) {
+   @GetMapping
+   fun listMessages() = ResponseEntity.ok(service.findMessages())
+
+   @PostMapping
+   fun post(@RequestBody message: Message): ResponseEntity<Message> {
+      val savedMessage = service.save(message)
+      return ResponseEntity.created(URI("/${savedMessage.id}")).body(savedMessage)
+   }
+
+   @GetMapping("/{id}")
+   fun getMessage(@PathVariable id: String): ResponseEntity<Message> =
+      service.findMessageById(id).toResponseEntity()
+
+   private fun Message?.toResponseEntity(): ResponseEntity<Message> =
+      // if the message is null (not found), set response code to 404
+      this?.let { ResponseEntity.ok(it) } ?: ResponseEntity.notFound().build()
+}
+```
+
 ## Run the application
 
 The application is ready to run again.
@@ -115,7 +204,7 @@ By replacing the `JdbcTemplate` with `CrudRepository`, the functionality didn't 
 Get your personal language map to help you navigate Kotlin features and track your progress in studying the language:
 
 <a href="https://resources.jetbrains.com/storage/products/kotlin/docs/Kotlin_Language_Features_Map.pdf">
-   <img src="get-kotlin-language-map.png" width="700" alt="Get the Kotlin language map"/>
+   <img src="get-kotlin-language-map.png" width="700" alt="Get the Kotlin language map" style="block"/>
 </a>
 
 * Learn more about [Calling Java from Kotlin code](java-interop.md) and [Calling Kotlin from Java code](java-to-kotlin-interop.md).
