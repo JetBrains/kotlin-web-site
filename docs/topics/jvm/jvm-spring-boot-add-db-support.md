@@ -77,23 +77,6 @@ class MessageService(private val db: JdbcTemplate) {
    </def>
 </deflist>
 
-The `save` method of `MessageService` implements the logic of storing a message instance to the database using `JdbcTemplate`. 
-
-The `id` for `Message` class was declared as a nullable String:
-
-```kotlin
-data class Message(val id: String?, val text: String)
-```
-
-It would not be correct to store the `null` as an `id` value in the database though: you need to handle this situation gracefully.
-If the `id` is `null` while storing the messages in the database, the `id` value will be generated using `java.util.UUID` class. 
-
-<deflist collapsible="true">
-   <def title="Elvis operator – ?:">
-      <p>The code <code>message.id ?: UUID.randomUUID().toString()</code> uses the <a href="null-safety.md#elvis-operator">Elvis operator (if-not-null-else shorthand) <code>?:</code></a>. If the expression to the left of <code>?:</code> is not <code>null</code>, the Elvis operator returns it; otherwise, it returns the expression to the right. Note that the expression on the right-hand side is evaluated only if the left-hand side is <code>null</code>.</p>
-   </def>
-</deflist>
-
 ## Update the MessageController class
 
 Update `MessageController` to use the new `MessageService` class:
@@ -132,7 +115,6 @@ class MessageController(private val service: MessageService) {
       <p> Using the <code>created</code> method we configure the response status code (201) and set the location header indicating the context path for the created resource.</p>
    </def>
 </deflist>
-
 
 ## Update the MessageService class
 
