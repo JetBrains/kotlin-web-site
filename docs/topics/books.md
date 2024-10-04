@@ -116,4 +116,20 @@ This book will change the way you code — and give you back some of the joy you
 
 </td>
 </tr>
+
+<tr>
+<td>
+<img src="kotlin-crash-course.png" alt="Kotlin Crash Course" width="250"/>
+</td>
+<td>
+
+[Kotlin Crash Course](https://www.amazon.com/dp/9355516304) by Elena van Engelen-Maslova, an expert software engineer, is a fast-paced, hands-on introduction to Kotlin.
+
+Master key Kotlin concepts and apply them in eight interactive projects, from building REST APIs to serverless deployments. This book emphasizes practical, real-world applications while covering object-oriented and functional programming, collections, concurrency with coroutines, and unit testing.
+
+Learn industry best practices and build maintainable, high-performing applications, leveraging Kotlin’s modern features to solve real-world challenges.
+
+</td>
+</tr>
+
 </table>
