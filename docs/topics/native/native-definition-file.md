@@ -1,11 +1,11 @@
 [//]: # (title: Definition file)
 
-Kotlin/Native helps consume C and Objective-C libraries, allowing you to use their functionality in Kotlin.
-A special cinterop tool takes a C or an Objective-C library and generates the corresponding Kotlin bindings,
+Kotlin/Native enables you to consume C and Objective-C libraries, allowing you to use their functionality in Kotlin.
+A special tool called cinterop takes a C or an Objective-C library and generates the corresponding Kotlin bindings,
 so that the library's methods can be used in your Kotlin code as usual.
 
 To generate these bindings, each library needs a definition file, usually with the same name as the library.
-This is a property file that describes how exactly the library should be consumed. See the full [list of available properties](#properties).
+This is a property file that describes exactly how the library should be consumed. See the full [list of available properties](#properties).
 
 Here's a general workflow when working with a project:
 
@@ -35,7 +35,7 @@ Let's create a definition file and generate bindings for a C library:
    linkerOpts.linux = -L/usr/lib/x86_64-linux-gnu -lpng
    ```
 
-   * `headers` is the list of header files to generate Kotlin stubs. You can add multiple files to this entry,
+   * `headers` is the list of header files to generate Kotlin stubs for. You can add multiple files to this entry,
      separating each with a space. In this case, it's only `png.h`. The referenced files need to be available
      on the specified path (in this case, it's `/usr/include/png`).
    * `headerFilter` shows what exactly is included. In C, all the headers are also included when one file references
@@ -57,37 +57,39 @@ Let's create a definition file and generate bindings for a C library:
 
 After the bindings generation, the IDE can use them as a proxy view of the native library.
 
-> You can also configure bindings generation by using the [`cinterop` tool](#generate-bindings-using-command-line) in the command line.
+> You can also configure bindings generation by using the [cinterop tool](#generate-bindings-using-command-line) in the command line.
 > 
-{type="tip"}
+{style="tip"}
 
 ## Properties
 
 Here's the full list of properties you can use in your definition file to adjust the content of the generated binaries.
 For more information, see the corresponding sections below.
 
-| **Property**                                                                        | **Description**                                                                                                                                                                                                             |
-|-------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`headers`](#import-headers)                                                        | The list of headers from a library to be included in the bindings.                                                                                                                                                          |
-| [`modules`](#import-modules)                                                        | The list of Clang modules from an Objective-C library to be included in the bindings.                                                                                                                                       |
-| `language`                                                                          | Specifies the language. C is used by default; change to `Objective-C` if necessary.                                                                                                                                         |
-| [`compilerOpts`](#pass-compiler-and-linker-options)                                 | Compiler options that the cinterop tool passes to the C compiler.                                                                                                                                                           |
-| [`linkerOpts`](#pass-compiler-and-linker-options)                                   | Linker options that the cinterop tool passes to the linker.                                                                                                                                                                 |
-| [`excludedFunctions`](#ignore-specific-functions)                                   | A space-separated list of function names that should be ignored.                                                                                                                                                            |                                                               
-| `excludedMacros`                                                                    |                                                                                                                                                                                                                             |
-| [`staticLibraries`](#include-a-static-library)                                      | [Experimental](components-stability.md#stability-levels-explained). Includes a static library into `.klib`.                                                                                                                 |
-| [`libraryPaths`](#include-a-static-library)                                         | [Experimental](components-stability.md#stability-levels-explained). A space-separated list of directories where the cinterop tool searches for the library to be included in `.klib`.                                       |
-| `packageName`                                                                       | Package prefix for the generated Kotlin API.                                                                                                                                                                                |
-| [`headerFilter`](#filter-headers-by-globs)                                          | Filters headers by globs and includes only them when importing a library.                                                                                                                                                   |
-| [`excludeFilter`](#exclude-headers)                                                 | Excludes specific headers when importing a library and takes priority over `headerFilter`.                                                                                                                                       |
-| [`strictEnums`](#configure-enums-generation)                                        | A space-separated list of enums that should be generated as [Kotlin enums](enum-classes.md).                                                                                                                               |
-| [`nonStrictEnums`](#configure-enums-generation)                                     | A space-separated list of enums that should be generated as integral values.                                                                                                                                                |
-| [`noStringConversion`](#set-up-string-conversion)                                   | A space-separated list of functions whose `const char*` parameters should not be auto-converted to Kotlin `String`s.                                                                                                       |
+| **Property**                                                                        | **Description**                                                                                                                                                                                                          |
+|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [`headers`](#import-headers)                                                        | The list of headers from a library to be included in the bindings.                                                                                                                                                       |
+| [`modules`](#import-modules)                                                        | The list of Clang modules from an Objective-C library to be included in the bindings.                                                                                                                                    |
+| `language`                                                                          | Specifies the language. C is used by default; change to `Objective-C` if necessary.                                                                                                                                      |
+| [`compilerOpts`](#pass-compiler-and-linker-options)                                 | Compiler options that the cinterop tool passes to the C compiler.                                                                                                                                                        |
+| [`linkerOpts`](#pass-compiler-and-linker-options)                                   | Linker options that the cinterop tool passes to the linker.                                                                                                                                                              |
+| [`excludedFunctions`](#ignore-specific-functions)                                   | A space-separated list of function names that should be ignored.                                                                                                                                                         |                                              
+| `excludedMacros`                                                                    |                                                                                                                                                                                                                          |
+| [`staticLibraries`](#include-a-static-library)                                      | [Experimental](components-stability.md#stability-levels-explained). Includes a static library into `.klib`.                                                                                                              |
+| [`libraryPaths`](#include-a-static-library)                                         | [Experimental](components-stability.md#stability-levels-explained). A space-separated list of directories where the cinterop tool searches for the library to be included in `.klib`.                                    |
+| `packageName`                                                                       | Package prefix for the generated Kotlin API.                                                                                                                                                                             |
+| [`headerFilter`](#filter-headers-by-globs)                                          | Filters headers by globs and includes only them when importing a library.                                                                                                                                                |
+| [`excludeFilter`](#exclude-headers)                                                 | Excludes specific headers when importing a library and takes priority over `headerFilter`.                                                                                                                               |
+| [`strictEnums`](#configure-enums-generation)                                        | A space-separated list of enums that should be generated as [Kotlin enums](enum-classes.md).                                                                                                                             |
+| [`nonStrictEnums`](#configure-enums-generation)                                     | A space-separated list of enums that should be generated as integral values.                                                                                                                                             |
+| [`noStringConversion`](#set-up-string-conversion)                                   | A space-separated list of functions whose `const char*` parameters should not be auto-converted to Kotlin `String`s.                                                                                                     |
 | `allowedOverloadsForCFunctions`                                                     | By default, it's assumed that C functions have unique names. If several functions have the same name, only one is picked. However, you can change this by specifying these functions in `allowedOverloadsForCFunctions`. |
-| [`disableDesignatedInitializerChecks`](#allow-calling-a-non-designated-initializer) | Disables the compiler check that doesn't allow calling a non-designated Objective-C initializer as a `super()` constructor.                                                                                                 |
-| [`foreignExceptionMode`](#handle-objective-c-exceptions)                            | Wraps exceptions from Objective-C code into Kotlin exceptions with the `ForeignException` type.                                                                                                                             |
-| `objcClassesIncludingCategories`                                                    |                                                                                                                                                                                                                             |
-| [`userSetupHint`](#help-resolve-linker-errors)                                      | Adds a custom message, for example, to help users resolve linker errors.                                                                                                                                                    |
+| [`disableDesignatedInitializerChecks`](#allow-calling-a-non-designated-initializer) | Disables the compiler check that doesn't allow calling a non-designated Objective-C initializer as a `super()` constructor.                                                                                              |
+| [`foreignExceptionMode`](#handle-objective-c-exceptions)                            | Wraps exceptions from Objective-C code into Kotlin exceptions with the `ForeignException` type.                                                                                                                          |
+| [`userSetupHint`](#help-resolve-linker-errors)                                      | Adds a custom message, for example, to help users resolve linker errors.                                                                                                                                                 |
+
+<!-- | `excludedMacros`                                                                    |                                                                                                                                                                                                                          |
+| `objcClassesIncludingCategories`                                                    |                                                                                                                                                                                                                          | -->
 
 In addition to the list of properties, you can include [custom declarations](#add-custom-declarations) in your definition
 file.
@@ -108,7 +110,7 @@ use the `headerFilter` property. If a header matches any of the globs, its decla
 
 The globs are applied to the header paths relative to the appropriate include path elements,
 for example, `time.h` or `curl/curl.h`. So if the library is usually included with `#include <SomeLibrary/Header.h>`,
-it would probably be correct to filter headers with the following filter:
+you can probably filter headers with the following filter:
 
 ```none
 headerFilter = SomeLibrary/**
@@ -184,7 +186,7 @@ staticLibraries = libfoo.a
 libraryPaths = /opt/local/lib /usr/local/opt/curl/lib
 ```
 
-When given the above snippet, the `cinterop` tool searches `libfoo.a` in `/opt/local/lib` and `/usr/local/opt/curl/lib`,
+When given the above snippet, the cinterop tool searches `libfoo.a` in `/opt/local/lib` and `/usr/local/opt/curl/lib`,
 and if found, includes the library binary in the `klib`.
 
 When using a `klib` like this in your program, the library is linked automatically.
