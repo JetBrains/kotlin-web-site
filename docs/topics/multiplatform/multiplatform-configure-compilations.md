@@ -8,7 +8,7 @@ For each target, default compilations include:
 * `main` and `test` compilations for JVM, JS, and Native targets.
 * A [compilation](#compilation-for-android) per [Android build variant](https://developer.android.com/studio/build/build-variants), for Android targets.
 
-![Compilations](compilations.png)
+![Compilations](compilations.svg)
 
 If you need to compile something other than production code and unit tests, for example, integration or performance tests, 
 you can [create a custom compilation](#create-a-custom-compilation).
@@ -433,7 +433,7 @@ dependencies {
 
 Kotlin can build a [source set hierarchy](multiplatform-share-on-platforms.md#share-code-on-similar-platforms) with the `dependsOn` relation.
 
-![Source set hierarchy](jvm-js-main.png){width=400}
+![Source set hierarchy](jvm-js-main.svg)
 
 If the source set `jvmMain` depends on a source set `commonMain` then:
 

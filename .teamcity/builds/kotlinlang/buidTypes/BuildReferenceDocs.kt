@@ -42,18 +42,6 @@ object BuildReferenceDocs : BuildType({
       dockerImage = "alpine"
       dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
     }
-    script {
-      name = "Fix WRS-6159"
-      scriptContent = """
-            #!/usr/bin/env bash
-            ":" //# comment; exec /usr/bin/env node --input-type=module - "${'$'}@" < "${'$'}0"
-            
-            ${readScript("fix-wrs/index")}
-        """.trimIndent()
-      dockerImage = "node:22-slim"
-      dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
-      dockerPull = true
-    }
   }
 
   dependencies {

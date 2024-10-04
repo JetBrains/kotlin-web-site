@@ -18,9 +18,9 @@ On this page, you'll find a detailed description of the problem and a recommenda
 
 ## What's the issue
 
-Apple requirements for App Store submissions are [changing in the spring of 2024](https://developer.apple.com/news/?id=r1henawx).
-You can already encounter warnings if you submit an app that doesn't specify a reason for using a required reason API in
-its privacy manifest. Starting May 1, 2024, [App Store Connect](https://appstoreconnect.apple.com) will not accept such apps at all.
+Apple's requirements for App Store submissions [have changed in the spring of 2024](https://developer.apple.com/news/?id=r1henawx).
+[App Store Connect](https://appstoreconnect.apple.com) no longer accepts apps that don't specify a reason for using a required
+reason API in their privacy manifests.
 
 This is an automatic check, not a manual moderation: your app's code is analyzed, and you receive a list of issues in an
 email. The email will reference the "ITMS-91053: Missing API declaration" issue, listing all API categories used in the

@@ -854,7 +854,7 @@ kotlin {
 For other combinations of targets, [create a hierarchy manually](multiplatform-hierarchy.md#manual-configuration)
 by connecting the source sets with the `dependsOn` relation.
 
-![Hierarchical structure](manual-hierarchical-structure.png)
+![Hierarchical structure](manual-hierarchical-structure.svg)
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
