@@ -15,7 +15,7 @@ The common practice in Spring Framework based applications is to implement the d
 In Spring, you should mark classes with the `@Service` annotation to imply that the class belongs to the service layer of the application.
 In this application, you will create the `MessageService` class for this purpose.
 
-In the same package, create the `MessageService` class as follows:
+In the same package, create the `MessageService.kt` file and the `MessageService` class as follows:
 
 ```kotlin
 // MessageService.kt
@@ -27,18 +27,18 @@ import java.util.*
 
 @Service
 class MessageService(private val db: JdbcTemplate) {
-   fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
-      Message(response.getString("id"), response.getString("text"))
-   }
+    fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
+        Message(response.getString("id"), response.getString("text"))
+    }
 
-   fun save(message: Message): Message {
-      val id = message.id ?: UUID.randomUUID().toString() // generate new id if it is null
-      db.update(
-         "insert into messages values ( ?, ? )",
-         id, message.text
-      )
-      return message.copy(id = id) // return a copy of the message with the new id
-   }
+    fun save(message: Message): Message {
+        val id = message.id ?: UUID.randomUUID().toString() // Generate new id if it is null
+        db.update(
+            "insert into messages values ( ?, ? )",
+            id, message.text
+        )
+        return message.copy(id = id) // Return a copy of the message with the new id
+    }
 }
 ```
 
@@ -79,10 +79,12 @@ class MessageService(private val db: JdbcTemplate) {
 
 ## Update the MessageController class
 
-Update `MessageController` to use the new `MessageService` class:
+Update `MessageController.kt` to use the new `MessageService` class:
 
 ```kotlin
 // MessageController.kt
+package demo
+
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -95,14 +97,14 @@ import java.net.URI
 @RestController
 @RequestMapping("/")
 class MessageController(private val service: MessageService) {
-   @GetMapping
-   fun listMessages() = service.findMessages()
+    @GetMapping
+    fun listMessages() = service.findMessages()
 
-   @PostMapping
-   fun post(@RequestBody message: Message): ResponseEntity<Message> {
-      val savedMessage = service.save(message)
-      return ResponseEntity.created(URI("/${savedMessage.id}")).body(savedMessage)
-   }
+    @PostMapping
+    fun post(@RequestBody message: Message): ResponseEntity<Message> {
+        val savedMessage = service.save(message)
+        return ResponseEntity.created(URI("/${savedMessage.id}")).body(savedMessage)
+    }
 }
 ```
 
@@ -111,8 +113,8 @@ class MessageController(private val service: MessageService) {
       <p>The method responsible for handling HTTP POST requests needs to be annotated with <code>@PostMapping</code> annotation. To be able to convert the JSON sent as HTTP Body content into an object, you need to use the <code>@RequestBody</code> annotation for the method argument. Thanks to having Jackson library in the classpath of the application, the conversion happens automatically.</p>
    </def>
    <def title="ResponseEntity">
-      <p>ResponseEntity represents the whole HTTP response: status code, headers, and body.</p>
-      <p> Using the <code>created</code> method we configure the response status code (201) and set the location header indicating the context path for the created resource.</p>
+      <p><code>ResponseEntityL</code> represents the whole HTTP response: status code, headers, and body.</p>
+      <p> Using the <code>created()</code> method you configure the response status code (201) and set the location header indicating the context path for the created resource.</p>
    </def>
 </deflist>
 
@@ -126,10 +128,13 @@ data class Message(val id: String?, val text: String)
 
 It would not be correct to store the `null` as an `id` value in the database though: you need to handle this situation gracefully.
 
-Update your code to generate a new value when the `id` is `null` while storing the messages in the database:
+Update your code of the `MessageService.kt` file to generate a new value when the `id` is `null`
+while storing the messages in the database:
 
 ```kotlin
 // MessageService.kt
+package demo
+
 import org.springframework.stereotype.Service
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.query
@@ -170,6 +175,7 @@ Configure the database in the application:
 2. Update the `src/main/resources/schema.sql` file with the following code:
 
    ```sql
+   -- schema.sql
    CREATE TABLE IF NOT EXISTS messages (
    id       VARCHAR(60)  PRIMARY KEY,
    text     VARCHAR      NOT NULL
@@ -329,7 +335,7 @@ Extend the functionality of the application to retrieve the individual messages 
             service.findMessageById(id).toResponseEntity()
         
         private fun Message?.toResponseEntity(): ResponseEntity<Message> =
-            // if the message is null (not found), set response code to 404
+            // If the message is null (not found), set response code to 404
             this?.let { ResponseEntity.ok(it) } ?: ResponseEntity.notFound().build() 
     }
     ```
@@ -348,11 +354,11 @@ Extend the functionality of the application to retrieve the individual messages 
         <p>The second parameter for the <code>query()</code> function is declared as a <i>variable argument</i> (<code>vararg</code>). In Kotlin, the position of the variable arguments parameter is not required to be the last in the parameters list.</p>
     </def>
     <def title="Extension function with nullable receiver">
-         <p>Extensions can be defined with a nullable receiver type. If the receiver is <code>null</code>, then <code>this</code> is also <code>null</code>. So when defining an extension with a nullable receiver type, we recommend performing a <code>this == null</code> check inside the function body.</p>
-         <p>We can also use the null-safe invocation operator (<code>?.</code>) to perform the null check as in the <code>toResponseBody</code> function above:</p>
-         <code style="block" lang="kotlin">
-            this?.let { ResponseEntity.ok(it) }
-         </code>
+         <p>Extensions can be defined with a nullable receiver type. If the receiver is <code>null</code>, then <code>this</code> is also <code>null</code>. So when defining an extension with a nullable receiver type, it is recommended performing a <code>this == null</code> check inside the function body.</p>
+         <p>You can also use the null-safe invocation operator (<code>?.</code>) to perform the null check as in the <code>toResponseBody</code> function above:</p>
+         <code-block lang="kotlin">
+         this?.let { ResponseEntity.ok(it) }
+         </code-block>
     </def>
     <def title="ResponseEntity">
         <p><code>ResponseEntity</code> represents the HTTP response, including the status code, headers, and body. It is a generic wrapper that allows you to send customized HTTP responses back to the client with more control over the content.</p>

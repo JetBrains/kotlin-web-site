@@ -30,7 +30,13 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
    
    * **Name**: demo
    * **Language**: Kotlin
-   * **Build system**: Gradle
+   * **Type**: Gradle - Kotlin
+
+     > This option specifies the build system and the DSL.
+     >
+     {style="tip"}
+
+   * **Package name**: demo
    * **JDK**: Java 17 JDK
      
      > This tutorial uses **Amazon Corretto version 21**.
@@ -45,9 +51,9 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
 
 5. Select the following dependencies that will be required for the tutorial:
 
-   * **Web / Spring Web**
-   * **SQL / Spring Data JDBC**
-   * **SQL / H2 Database**
+   * **Web | Spring Web**
+   * **SQL | Spring Data JDBC**
+   * **SQL | H2 Database**
 
    ![Set up Spring Boot project](set-up-spring-boot-project.png){width=800}
 
@@ -74,45 +80,46 @@ The Gradle file is standard for Spring Boot, but it also contains necessary Kotl
 Here is the full script with the explanation of all parts and dependencies:
 
 ```kotlin
+// build.gradle.kts
 plugins {
-   kotlin("jvm") version "1.9.24" // The version of Kotlin to use
-   kotlin("plugin.spring") version "1.9.24" // The Kotlin Spring plugin
-   id("org.springframework.boot") version "3.3.2"
-   id("io.spring.dependency-management") version "1.1.6"
+    kotlin("jvm") version "1.9.24" // The version of Kotlin to use
+    kotlin("plugin.spring") version "1.9.24" // The Kotlin Spring plugin
+    id("org.springframework.boot") version "3.3.4"
+    id("io.spring.dependency-management") version "1.1.6"
 }
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
 
 java {
-   toolchain {
-      languageVersion = JavaLanguageVersion.of(17)
-   }
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 repositories {
-   mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-   implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
-   implementation("org.springframework.boot:spring-boot-starter-web")
-   implementation("com.fasterxml.jackson.module:jackson-module-kotlin") // Jackson extensions for Kotlin for working with JSON
-   implementation("org.jetbrains.kotlin:kotlin-reflect") // Kotlin reflection library, required for working with Spring
-   runtimeOnly("com.h2database:h2")
-   testImplementation("org.springframework.boot:spring-boot-starter-test")
-   testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
-   testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin") // Jackson extensions for Kotlin for working with JSON
+    implementation("org.jetbrains.kotlin:kotlin-reflect") // Kotlin reflection library, required for working with Spring
+    runtimeOnly("com.h2database:h2")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 kotlin {
-   compilerOptions {
-      freeCompilerArgs.addAll("-Xjsr305=strict") // `-Xjsr305=strict` enables the strict mode for JSR-305 annotations
-   }
+    compilerOptions {
+        freeCompilerArgs.addAll("-Xjsr305=strict") // `-Xjsr305=strict` enables the strict mode for JSR-305 annotations
+    }
 }
 
 tasks.withType<Test> {
-   useJUnitPlatform()
+    useJUnitPlatform()
 }
 ```
 
@@ -136,6 +143,7 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
 Open the `DemoApplication.kt` file:
 
 ```kotlin
+// DemoApplication.kt
 package demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -180,7 +188,9 @@ fun main(args: Array<String>) {
 
 The application is ready to run, but let's update its logic first.
 
-In the Spring application, a controller is used to handle the web requests. In the same package with `DemoApplication.kt` file, create the `MessageController` class as follows:
+In the Spring application, a controller is used to handle the web requests.
+In the same package with `DemoApplication.kt` file, create the `MessageController.kt` file with the
+`MessageController` class as follows:
 
 ```kotlin
 // MessageController.kt
@@ -192,8 +202,8 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class MessageController {
-   @GetMapping("/")
-   fun index(@RequestParam("name") name: String) = "Hello, $name!"
+    @GetMapping("/")
+    fun index(@RequestParam("name") name: String) = "Hello, $name!"
 }
 ```
 
@@ -228,42 +238,6 @@ class MessageController {
    </def>
 </deflist>
 
-> These Spring annotations also require additional imports:
->
-> ```kotlin
-> import org.springframework.web.bind.annotation.GetMapping
-> import org.springframework.web.bind.annotation.RequestParam
-> import org.springframework.web.bind.annotation.RestController
-> ```
->
-{style="note"}
-
-Here is a complete code of the `DemoApplication.kt`:
-
-```kotlin
-package com.example.demo
-
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
-
-@SpringBootApplication
-class DemoApplication
-
-fun main(args: Array<String>) {
-    runApplication<DemoApplication>(*args)
-}
-
-@RestController
-class MessageController {
-    @GetMapping("/")
-    fun index(@RequestParam("name") name: String) = "Hello, $name!"
-}
-```
-{initial-collapse-state="collapsed" collapsible="true"}
-
 ## Run the application
 
 The Spring application is now ready to run:
@@ -290,6 +264,6 @@ The Spring application is now ready to run:
 
 ## Next step
 
-In the next part of the tutorial you'll learn about Kotlin data classes and how you can use them in your application.
+In the next part of the tutorial, you'll learn about Kotlin data classes and how you can use them in your application.
 
 **[Proceed to the next chapter](jvm-spring-boot-add-data-class.md)**

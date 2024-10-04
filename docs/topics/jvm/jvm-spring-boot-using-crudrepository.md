@@ -31,19 +31,23 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     @Table("MESSAGES")
     data class Message(@Id val id: String?, val text: String)
     ```
-    In addition, to make the use of the `Message` class more idiomatic, we can set the default value for `id` property to null and flip the order of the data class properties: 
+
+    In addition, to make the use of the `Message` class more idiomatic,
+    you can set the default value for `id` property to null and flip the order of the data class properties: 
 
     ```kotlin
     @Table("MESSAGES")
     data class Message(val text: String, @Id val id: String? = null)
     ```
-    Now if we need to create a new instance of the `Message` class we can only specify the `text` property as a parameter:
+ 
+    Now if you need to create a new instance of the `Message` class, you can only specify the `text` property as a parameter:
 
     ```kotlin
     val message = Message("Hello") // id is null
     ```
 
-2. Declare an interface for the `CrudRepository` that will work with the `Message` data class:
+2. Declare an interface for the `CrudRepository` that will work with the `Message` data class. Create the `MessageRepository.kt`
+   file and add the following code to it:
 
     ```kotlin
     // MessageRepository.kt
@@ -118,7 +122,7 @@ import org.springframework.boot.runApplication
 class DemoApplication
 
 fun main(args: Array<String>) {
-	runApplication<DemoApplication>(*args)
+    runApplication<DemoApplication>(*args)
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true"}
@@ -154,11 +158,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class MessageService(private val db: MessageRepository) {
-   fun findMessages(): List<Message> = db.findAll().toList()
+    fun findMessages(): List<Message> = db.findAll().toList()
 
-   fun findMessageById(id: String): Message? = db.findByIdOrNull(id)
+    fun findMessageById(id: String): Message? = db.findByIdOrNull(id)
 
-   fun save(message: Message): Message = db.save(message)
+    fun save(message: Message): Message = db.save(message)
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true"}
@@ -179,22 +183,22 @@ import java.net.URI
 @RestController
 @RequestMapping("/")
 class MessageController(private val service: MessageService) {
-   @GetMapping
-   fun listMessages() = ResponseEntity.ok(service.findMessages())
+    @GetMapping
+    fun listMessages() = ResponseEntity.ok(service.findMessages())
 
-   @PostMapping
-   fun post(@RequestBody message: Message): ResponseEntity<Message> {
-      val savedMessage = service.save(message)
-      return ResponseEntity.created(URI("/${savedMessage.id}")).body(savedMessage)
-   }
+    @PostMapping
+    fun post(@RequestBody message: Message): ResponseEntity<Message> {
+        val savedMessage = service.save(message)
+        return ResponseEntity.created(URI("/${savedMessage.id}")).body(savedMessage)
+    }
 
-   @GetMapping("/{id}")
-   fun getMessage(@PathVariable id: String): ResponseEntity<Message> =
-      service.findMessageById(id).toResponseEntity()
+    @GetMapping("/{id}")
+    fun getMessage(@PathVariable id: String): ResponseEntity<Message> =
+        service.findMessageById(id).toResponseEntity()
 
-   private fun Message?.toResponseEntity(): ResponseEntity<Message> =
-      // if the message is null (not found), set response code to 404
-      this?.let { ResponseEntity.ok(it) } ?: ResponseEntity.notFound().build()
+    private fun Message?.toResponseEntity(): ResponseEntity<Message> =
+        // If the message is null (not found), set response code to 404
+        this?.let { ResponseEntity.ok(it) } ?: ResponseEntity.notFound().build()
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true"}
