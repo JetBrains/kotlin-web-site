@@ -31,11 +31,12 @@ class MessageService(private val db: JdbcTemplate) {
         Message(response.getString("id"), response.getString("text"))
     }
 
-    fun save(message: Message) {
+    fun save(message: Message): Message {
         db.update(
             "insert into messages values ( ?, ? )",
             message.id, message.text
         )
+        return message
     }
 }
 ```
@@ -111,7 +112,7 @@ class MessageController(private val service: MessageService) {
       <p>The method responsible for handling HTTP POST requests needs to be annotated with <code>@PostMapping</code> annotation. To be able to convert the JSON sent as HTTP Body content into an object, you need to use the <code>@RequestBody</code> annotation for the method argument. Thanks to having Jackson library in the classpath of the application, the conversion happens automatically.</p>
    </def>
    <def title="ResponseEntity">
-      <p><code>ResponseEntityL</code> represents the whole HTTP response: status code, headers, and body.</p>
+      <p><code>ResponseEntity</code> represents the whole HTTP response: status code, headers, and body.</p>
       <p> Using the <code>created()</code> method you configure the response status code (201) and set the location header indicating the context path for the created resource.</p>
    </def>
 </deflist>
@@ -286,12 +287,12 @@ Extend the functionality of the application to retrieve the individual messages 
         }.singleOrNull()
     
         fun save(message: Message): Message {
-            val id = message.id ?: UUID.randomUUID().toString()
+            val id = message.id ?: UUID.randomUUID().toString() // generate new id if it is null
             db.update(
                 "insert into messages values ( ?, ? )",
                 id, message.text
             )
-            return message.copy(id = id)
+            return message.copy(id = id) // return a copy of the message with the new id
         }
     }
     ```
