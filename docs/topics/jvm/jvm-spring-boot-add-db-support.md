@@ -31,13 +31,11 @@ class MessageService(private val db: JdbcTemplate) {
         Message(response.getString("id"), response.getString("text"))
     }
 
-    fun save(message: Message): Message {
-        val id = message.id ?: UUID.randomUUID().toString() // Generate new id if it is null
+    fun save(message: Message) {
         db.update(
             "insert into messages values ( ?, ? )",
-            id, message.text
+            message.id, message.text
         )
-        return message.copy(id = id) // Return a copy of the message with the new id
     }
 }
 ```
