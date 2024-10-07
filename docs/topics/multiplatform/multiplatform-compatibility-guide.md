@@ -15,11 +15,12 @@ with available Gradle, Xcode, and Android Gradle plugin versions:
 
 | Kotlin Multiplatform plugin version | Gradle    | Android Gradle plugin | Xcode |
 |-------------------------------------|-----------|-----------------------|-------|
+| 2.0.21                              | 7.5-8.8*  | 7.4.2–8.5             | 16.0  |
 | 2.0.20                              | 7.5-8.8*  | 7.4.2–8.5             | 15.3  |
 | 2.0.0                               | 7.5-8.5   | 7.4.2–8.3             | 15.3  |
 | 1.9.20                              | 7.5-8.1.1 | 7.4.2–8.2             | 15.0  |
 
-> Kotlin 2.0.20 is fully compatible with Gradle 6.8.3 through 8.6.
+> Kotlin 2.0.20 and 2.0.21 are fully compatible with Gradle 6.8.3 through 8.6.
 > Gradle 8.7 and 8.8 are also supported, but you may see deprecation warnings in your multiplatform projects
 > calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets). 
 > For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
