@@ -37,9 +37,10 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
      {style="tip"}
 
    * **Package name**: demo
-   * **JDK**: Java 17 JDK
+   * **JDK**: Java JDK
      
      > This tutorial uses **Amazon Corretto version 21**.
+     > If you don't have a JDK installed, you can download it from the dropdown list.
      >
      {style="note"}
    
