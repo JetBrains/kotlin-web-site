@@ -4,7 +4,7 @@
 > It may be changed at any time. Use it only for evaluation purposes.
 > We would appreciate your feedback in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 The Kotlin Power-assert compiler plugin improves the debugging experience
 by providing detailed failure messages with contextual information.
@@ -144,7 +144,7 @@ powerAssert {
     functions = listOf("kotlin.assert", "kotlin.test.assertEquals", "kotlin.test.assertTrue", "kotlin.test.assertNull", "kotlin.require", "org.example.AssertScope.assert")
 }
 ```
-{initial-collapse-state="collapsed"}
+{initial-collapse-state="collapsed" collapsible="true"}
 
 ### Assert function
 
@@ -360,7 +360,7 @@ powerAssert {
 
 > You should specify the full name of the package where you declare the `AssertScope.assert()` function.
 >
-{type="tip"}
+{style="tip"}
 
 After that, you could use it in your test code:
 
@@ -394,7 +394,7 @@ class SoftAssertExampleTest1 {
 In the output, all the `assert()` function error messages will be printed one after another:
 
 ```text
-harlie has an invalid salary: 40000
+Charlie has an invalid salary: 40000
 assert(employee.salary > 50000) { "${employee.name} has an invalid salary: ${employee.salary}" }
        |        |      |
        |        |      false

@@ -20,7 +20,7 @@ The Kotlin plugins that support 2.0.20 are bundled in the latest IntelliJ IDEA a
 You don't need to update the Kotlin plugin in your IDE.
 All you need to do is to [change the Kotlin version](configure-build-for-eap.md) to 2.0.20 in your build scripts.
 
-See [Update to a new release](releases.md#update-to-a-new-release) for details.
+See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for details.
 
 ## Language
 
@@ -29,9 +29,9 @@ receivers feature.
 
 ### Data class copy function to have the same visibility as constructor
 
-Currently, if you create a data class using a `private` constructor, the automatically generated `.copy()` function doesn't
+Currently, if you create a data class using a `private` constructor, the automatically generated `copy()` function doesn't
 have the same visibility. This can cause problems later in your code. In future Kotlin releases, we will introduce the
-behavior that the default visibility of the `.copy()` function is the same as the constructor. This change will be
+behavior that the default visibility of the `copy()` function is the same as the constructor. This change will be
 introduced gradually to help you migrate your code as smoothly as possible.
 
 Our migration plan starts with Kotlin 2.0.20, which issues warnings in your code where the visibility will
@@ -60,7 +60,7 @@ To give you more control over this behavior, in Kotlin 2.0.20 we've introduced t
 
 * `@ConsistentCopyVisibility` to opt in to the behavior now before we make it the default in a later release.
 * `@ExposedCopyVisibility` to opt out of the behavior and suppress warnings at the declaration site.
-  Note that even with this annotation, the compiler still reports warnings when the `.copy()` function is called.
+  Note that even with this annotation, the compiler still reports warnings when the `copy()` function is called.
 
 If you want to opt in to the new behavior already in 2.0.20 for a whole module rather than in individual classes,
 you can use the `-Xconsistent-data-class-copy-visibility` compiler option.
@@ -99,7 +99,7 @@ If you use context receivers in your code, we recommend that you migrate your co
 
 * Explicit parameters.
 
-   <table header-style="top">
+   <table>
       <tr>
           <td>Before</td>
           <td>After</td>
@@ -129,7 +129,7 @@ If you use context receivers in your code, we recommend that you migrate your co
 
 * Extension member functions (if possible).
 
-   <table header-style="top">
+   <table>
       <tr>
           <td>Before</td>
           <td>After</td>
@@ -254,7 +254,7 @@ Java in your multiplatform project, we recommend that you:
 
 > The separate subproject must **not** be a multiplatform project, and you must only use it to set up a dependency on your multiplatform project.
 >
-{type="warning"}
+{style="warning"}
 
 For example, you have a multiplatform project called `my-main-project` and you want
 to use the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) Gradle plugin to run a JVM application.
@@ -444,7 +444,7 @@ Kotlin/JS introduces some Experimental features to support static members in Jav
 > This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-18891/JS-provide-a-way-to-declare-static-members-JsStatic).
 >
-{type="warning"}
+{style="warning"}
 
 Starting with Kotlin 2.0.20, you can use the `@JsStatic` annotation. It works similarly to [@JvmStatic](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-static/)
 and instructs the compiler to generate additional static methods for the target declaration. This helps you use static
@@ -481,7 +481,7 @@ and setter methods static members in that object or the class containing the com
 > This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-69133/Kotlin-JS-Add-support-for-collection-instantiation-in-JavaScript).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 2.0.0 introduced the ability to export Kotlin collections to JavaScript (and TypeScript). Now, the JetBrains team
 is taking another step to improve collection interoperability. Starting with Kotlin 2.0.20, it's possible to
@@ -550,7 +550,7 @@ Therefore, if you use it to opt out, you will see a deprecation warning.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-61861/Gradle-Kotlin-compilations-depend-on-packed-artifacts).
 > Opt-in is required (see details below).
 >
-{type="warning"}
+{style="warning"}
 
 In Kotlin 2.0.20, we introduce a new approach that changes the way the outputs of Kotlin/JVM compilations,
 such as JAR files, are shared between projects. With this approach, Gradle's `apiElements` configuration now has a secondary
@@ -579,7 +579,7 @@ By default, this property is set to `false` and the `apiElements` variant in Gra
 > For more information on this property and its purpose,
 > see Gradle's documentation on the [Significant build performance drop on Windows for huge multi-projects](https://docs.gradle.org/current/userguide/java_library_plugin.html#sub:java_library_known_issues_windows_performance).
 >
-{type="note"}
+{style="note"}
 
 We would appreciate your feedback on this new approach. Have you noticed any performance improvements while using it?
 Let us know by adding a comment in [YouTrack](https://youtrack.jetbrains.com/issue/KT-61861/Gradle-Kotlin-compilations-depend-on-packed-artifacts).
@@ -716,7 +716,7 @@ Base64 decoding.
 > This feature is [Experimental](components-stability.md#stability-levels-explained).
 > To opt in, use the `@ExperimentalUuidApi` annotation or the compiler option `-opt-in=kotlin.uuid.ExperimentalUuidApi`.
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 2.0.20 introduces a class for representing [UUIDs (universally unique identifiers)](https://en.wikipedia.org/wiki/Universally_unique_identifier)
 in the common Kotlin standard library to address the challenge of uniquely identifying items.
@@ -791,7 +791,7 @@ Some example use cases involving UUIDs include:
 > To opt in, use the `@OptIn(ExperimentalStdlibApi::class)` annotation or the compiler
 > option `-opt-in=kotlin.ExperimentalStdlibApi`.
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 2.0.20 adds a new `minLength` property to the [`NumberHexFormat`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-hex-format/-number-hex-format/) class,
 accessed through [`HexFormat.number`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-hex-format/number.html).
@@ -820,7 +820,7 @@ width if the extra leading digits are zeros.
 > To opt in, use the `@OptIn(ExperimentalEncodingApi::class)`
 > annotation or the compiler option `-opt-in=kotlin.io.encoding.ExperimentalEncodingApi`.
 >
-{type="warning"}
+{style="warning"}
 
 Two changes were introduced to the Base64 decoder's behavior in Kotlin 2.0.20:
 
@@ -899,5 +899,5 @@ The Kotlin documentation has received some notable changes:
 Starting from IntelliJ IDEA 2023.3 and Android Studio Iguana (2023.2.1) Canary 15, the Kotlin plugin is distributed as a
 bundled plugin included in your IDE. This means that you can't install the plugin from JetBrains Marketplace anymore.
 
-To update to the new Kotlin version, [change the Kotlin version](releases.md#update-to-a-new-release)
+To update to the new Kotlin version, [change the Kotlin version](releases.md#update-to-a-new-kotlin-version)
 to 2.0.20 in your build scripts.

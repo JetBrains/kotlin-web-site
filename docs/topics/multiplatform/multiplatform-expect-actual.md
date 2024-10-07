@@ -6,7 +6,7 @@ You can provide platform-agnostic APIs in the common code.
 > This article describes the language mechanism of expected and actual declarations. For general recommendations on
 > different ways to use platform-specific APIs, see [Use platform-specific APIs](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html).
 >
-{type="tip"}
+{style="tip"}
 
 ## Rules for expected and actual declarations
 
@@ -108,7 +108,7 @@ and implemented differently in platform source sets:
 
 > Starting with Kotlin 1.9.0, using `getlogin()` and `getpid()` functions requires the `@OptIn` annotation.
 >
-{type="note"}
+{style="note"}
 
 ### Interfaces with expected and actual functions
 
@@ -254,7 +254,7 @@ platform dependencies.
 > They are almost stable, but migration steps may be required in the future.
 > We'll do our best to minimize any further changes for you to make.
 >
-{type="warning"}
+{style="warning"}
 
 You can use expected and actual classes to implement the same solution:
 
@@ -441,7 +441,7 @@ referred class elsewhere.
 
 > Since the `LocalDate` type uses the `Month` enum, you need to declare both of them as expected classes in the common code.
 >
-{type="note"}
+{style="note"}
 
 <!-- See [Using platform-specific APIs](multiplatform-connect-to-apis.md#actualizing-an-interface-or-a-class-with-an-existing-platform-class-using-typealiases)
 for an Android-specific example of this pattern. -->

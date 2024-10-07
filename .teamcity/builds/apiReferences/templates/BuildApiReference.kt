@@ -43,6 +43,7 @@ fun BuildSteps.buildDokkaHTML(block: GradleBuildStep.() -> Unit) = step(
         id = "step-build-dokka-html-id"
         name = "Build dokka html"
         tasks = "dokkaHtmlMultiModule"
+        useGradleWrapper = true
     }.apply(block),
 )
 

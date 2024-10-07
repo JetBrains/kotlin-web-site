@@ -109,7 +109,7 @@ fun main() {
 
 > In Java, if you want spaces between your delimiters and following items, you need to add a space to the delimiter explicitly.
 >
-{type="note"}
+{style="note"}
 
 Learn more about [joinToString()](collection-transformations.md#string-representation) usage.
 
@@ -317,6 +317,7 @@ System.out.println(result);
 {id="join-strings-15-java"}
 
 The output:
+
 ![Java 15 multiline output](java-15-multiline-output.png){width=700}
 
 If you put the triple-quote on the same line as the last word, this difference in behavior disappears.
@@ -340,6 +341,7 @@ fun main() {
 {kotlin-runnable="true" id="join-strings-kotlin"}
 
 The output:
+
 ![Kotlin multiline output](kotlin-multiline-output.png){width=700}
 
 To have  an extra empty line, you should add this empty line to your multiline string explicitly.

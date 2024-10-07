@@ -38,7 +38,7 @@ string in the output starting with `Using Kotlin Gradle plugin`, for example, `U
 > * [ResolutionStrategy in pluginManagement is not working for plugins with multivariants](https://github.com/gradle/gradle/issues/20545)
 > * [Plugin variants are ignored when a plugin is added as the `buildSrc` common dependency](https://github.com/gradle/gradle/issues/20847)
 >
-{type="note"}
+{style="note"}
 
 ### Gradle can't select a KGP variant in a custom configuration
 

@@ -246,6 +246,12 @@
     position:
       lat: 48.856614
       lng: 2.3522219
+  - name: BordeauxKt
+    country: France
+    url: https://bordeauxkt.io/
+    position:
+      lat: 44.845576
+      lng: -0.572983
   - name: Rhein-Main Kotlin
     country: Germany
     url: https://www.meetup.com/de-DE/Kotlin-Rhein-Main/
@@ -351,6 +357,12 @@
     position:
       lat: 33.6422
       lng: 72.9903
+  - name: KUG Sambhajinagar (Aurangabad) 
+    country: India
+    url: https://www.commudle.com/communities/kug-sambhajinagar/
+    position:
+      lat: 19.876165
+      lng: 75.343315
   - name: KUG New Delhi
     country: India
     url: https://www.commudle.com/communities/kug-new-delhi
@@ -423,6 +435,12 @@
     position:
       lat: 28.644800
       lng: 77.216721
+  - name: Noida Kotlin User Group
+    country: India
+    url: https://www.commudle.com/communities/noida-kotlin-user-group
+    position:
+      lat: 28.535556
+      lng: 77.390986
   - name: Dubai KUG
     country: United Arab Emirates
     url: https://www.facebook.com/kotlindubai/

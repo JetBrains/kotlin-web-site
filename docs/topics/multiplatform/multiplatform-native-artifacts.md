@@ -1,12 +1,14 @@
 [//]: # (title: Build final native binaries (Experimental DSL))
 
+<no-index/>
+
 > The new DSL described below is [Experimental](components-stability.md). It may be changed at any time.
 > We encourage you to use it for evaluation purposes.
 > 
 > If the new DSL doesn't work for you, see [the previous approach](multiplatform-build-native-binaries.md)
 > to building native binaries.
 > 
-{type="warning"}
+{style="warning"}
 
 [Kotlin/Native targets](multiplatform-dsl-reference.md#native-targets) are compiled to the `*.klib` library artifacts,
 which can be consumed by Kotlin/Native itself as a dependency but cannot be used as a native library.
@@ -17,7 +19,7 @@ of native binaries built for this target in addition to the default `*.klib` art
 > The `kotlin-multiplatform` plugin doesn't create any production binaries by default. The only binary available by default 
 > is a debug test executable that lets you run unit tests from the `test` compilation.
 >
-{type="note"}
+{style="note"}
 
 Kotlin artifact DSL can help you to solve a common issue: when you need to access multiple Kotlin modules from your app.
 Since the usage of several Kotlin/Native artifacts is limited, you can export multiple Kotlin modules into a single
@@ -215,7 +217,7 @@ The registered Gradle task is `assembleMyframeFramework` that assembles all type
 > If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#export-dependencies-to-binaries)
 > to export dependencies to binaries.
 >
-{type="tip"}
+{style="tip"}
 
 ### Fat frameworks
 
@@ -259,7 +261,7 @@ The registered Gradle task is `assembleMyfatframeFatFramework` that assembles al
 > If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#build-universal-frameworks)
 > to build fat frameworks.
 >
-{type="tip"}
+{style="tip"}
 
 ### XCFrameworks
 
@@ -305,4 +307,4 @@ The registered Gradle task is `assembleSdkXCFramework` that assembles all types 
 > If for some reason the new DSL doesn't work for you, try [the previous approach](multiplatform-build-native-binaries.md#build-xcframeworks)
 > to build XCFrameworks.
 >
-{type="tip"}
+{style="tip"}

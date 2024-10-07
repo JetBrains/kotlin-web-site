@@ -712,7 +712,7 @@ aliases for the corresponding JDK classes, and on the JS, the classes are implem
 JavaScript backend now generates more statically checkable code, which is friendlier to JS code processing tools,
 like minifiers, optimisers, linters, etc.
 
-### The `external` modifier
+### The external modifier
 
 If you need to access a class implemented in JavaScript from Kotlin in a typesafe way, you can write a Kotlin
 declaration using the `external` modifier. (In Kotlin 1.0, the `@native` annotation was used instead.)

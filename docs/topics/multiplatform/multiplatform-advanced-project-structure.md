@@ -22,7 +22,7 @@ Gradle-style project or library dependencies and the `dependsOn` relation betwee
 
 > Before diving into advanced concepts, we recommend learning [the basics of the multiplatform project structure](multiplatform-discover-project.md).
 >
-{type="tip"}
+{style="tip"}
 
 ## dependsOn and source set hierarchies
 
@@ -140,7 +140,7 @@ The final project structure will look like this:
 > See [Additional configuration](multiplatform-hierarchy.md#additional-configuration) to learn more about such cases
 > and how to handle them.
 >
-{type="note"}
+{style="note"}
 
 ## Dependencies on other libraries or projects
 
@@ -200,7 +200,7 @@ There are three important concepts in dependency resolution:
    > The propagation mechanism allows you to choose a scope that will receive the declared dependency by selecting a specific source set.
    > For example, if you want to use `kotlinx.coroutines` on iOS but not on Android, you can add this dependency to `iosMain` only.
    >
-   {type="tip"}
+   {style="tip"}
 
 2. The _source set → multiplatform library_ dependencies, like `commonMain` to `org.jetbrians.kotlinx:kotlinx-coroutines-core:1.7.3` above,
    represent the intermediate state of dependency resolution. The final state of resolution is always represented
@@ -208,7 +208,7 @@ There are three important concepts in dependency resolution:
 
    > The final _source set → source set_ dependencies are not `dependsOn` relations.
    >
-   {type="note"}
+   {style="note"}
 
    To infer granular _source set → source set_ dependencies, Kotlin reads the source set structure that is published
    alongside each multiplatform library. After this step, each library will be represented internally not as a whole,

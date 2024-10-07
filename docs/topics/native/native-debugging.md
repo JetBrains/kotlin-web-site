@@ -9,7 +9,7 @@ perform the following operations:
 
 >Supporting the DWARF 2 specification means that the debugger tool recognizes Kotlin as C89, because before the DWARF 5 specification, there is no identifier for the Kotlin language type in specification.
 >
-{type="note"}
+{style="note"}
 
 ## Produce binaries with debug info with Kotlin/Native compiler
 

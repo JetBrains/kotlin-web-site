@@ -1,9 +1,9 @@
 [//]: # (title: Get started with Kotlin custom scripting – tutorial)
 
-> Kotlin scripting is [Experimental](components-stability.md). It may be dropped or changed at any time.
+> Kotlin custom scripting is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Use it only for evaluation purposes. We appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 _Kotlin scripting_ is the technology that enables executing Kotlin code as scripts without prior compilation or
 packaging into executables.
@@ -61,7 +61,7 @@ Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains
    > Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do
    > it later at any time.
    >
-   {type="tip"}
+   {style="tip"}
 
 4. From the **Language** list, select **Kotlin**.
 5. Select the **Gradle** build system.
@@ -173,7 +173,7 @@ In this tutorial, this includes support for the `@Repository` and `@DependsOn` a
    > In this tutorial, we provide only the working code without explaining Kotlin scripting API.
    > You can find the same code with a detailed explanation [on GitHub](https://github.com/Kotlin/kotlin-script-examples/blob/master/jvm/basic/jvm-maven-deps/script/src/main/kotlin/org/jetbrains/kotlin/script/examples/jvm/resolve/maven/scriptDef.kt).
    > 
-   {type="note"}
+   {style="note"}
 
 5. Define the script compilation configuration as shown below.
 

@@ -1,6 +1,5 @@
 [//]: # (title: Kotlin Multiplatform)
-[//]: # (description: Kotlin Multiplatform allows creating cross-platform apps for desktop, web, and mobile devices.
-Share application logic while keeping native user experience.)
+[//]: # (description: Kotlin Multiplatform allows creating cross-platform apps for desktop, web, and mobile devices. Share application logic while keeping native user experience.)
 
 The Kotlin Multiplatform technology is designed to simplify the development of cross-platform projects. It reduces time
 spent writing and maintaining the same code for [different platforms](#kotlin-multiplatform-use-cases)
@@ -12,7 +11,7 @@ while retaining the flexibility and benefits of native programming.
 
 ### Android and iOS applications
 
-Sharing code between mobile platforms is a major Kotlin Multiplatform use case. With Kotlin Multiplatform,
+Sharing code between mobile platforms is a major [Kotlin Multiplatform](https://www.jetbrains.com/kotlin-multiplatform/) use case. With Kotlin Multiplatform,
 you can build cross-platform mobile applications that share code between Android and iOS projects to implement networking,
 data storage and data validation, analytics, computations, and other application logic.
 
@@ -68,7 +67,7 @@ declarations](multiplatform-expect-actual.md).
 
 > New to Kotlin? Take a look at [Getting started with Kotlin](getting-started.md).
 >
-{type="tip"}
+{style="tip"}
 
 ### Sample projects
 

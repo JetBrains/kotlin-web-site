@@ -22,7 +22,7 @@ By default, application threads must be paused when the GC is marking objects in
 > You can disable the parallelization of the mark phase with the `kotlin.native.binary.gcMarkSingleThreaded=true` compiler option.
 > However, this may increase the garbage collector's pause time on large heaps.
 >
-{type="tip"}
+{style="tip"}
 
 When the marking phase is completed, the GC processes weak references and nullifies reference points to an unmarked object.
 By default, weak references are processed concurrently to decrease the GC pause time.
@@ -91,7 +91,7 @@ Gradle build script:
 > With this option enabled, the GC doesn't collect Kotlin objects, so memory consumption will keep rising as long as the
 > program runs. Be careful not to exhaust the system memory.
 >
-{type="warning"}
+{style="warning"}
 
 ## Memory consumption
 
@@ -199,11 +199,11 @@ fun mainBackground(args: Array<String>) {
     error("CFRunLoopRun should never return")
 }
 ```
-{initial-collapse-state="collapsed"}
+{initial-collapse-state="collapsed" collapsible="true"}
 
 Then, compile the test binary with the `-e testlauncher.mainBackground` compiler option.
 
 ## What's next
 
 * [Migrate from the legacy memory manager](native-migration-guide.md)
-* [Configure integration with iOS](native-ios-integration.md)
+* [Check the specifics of integration with Swift/Objective-C ARC](native-arc-integration.md)

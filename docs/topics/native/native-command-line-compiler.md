@@ -12,7 +12,7 @@ in this case, you'll be targeting the same platform you're compiling on.
 > Although the output of the compiler doesn't have any dependencies or virtual machine requirements, the compiler itself
 > requires Java 1.8 or higher runtime. It's supported by [JDK 8 (JAVA SE 8) or later versions](https://www.oracle.com/java/technologies/downloads/).
 > 
-{type="note"}
+{style="note"}
 
 To install the compiler, unpack its archive to a directory of your choice and add the path to its `/bin` directory
 to the `PATH` environment variable.

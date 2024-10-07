@@ -1,9 +1,9 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
 <!--
-<microformat>
+<tldr>
     <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
-</microformat>
+</tldr>
 -->
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
@@ -25,7 +25,7 @@ In this channel, you can also get notifications about new EAP builds.
 >
 > Please note that we don't provide any guarantees of compatibility between EAP and final versions of the same release. 
 >
-{type="note"}
+{style="note"}
 
 If you have already installed the EAP version and want to work on projects that were created previously, 
 check [our instructions on how to configure your build to support this version](configure-build-for-eap.md). 
@@ -40,23 +40,31 @@ check [our instructions on how to configure your build to support this version](
 
 ## Build details
 
- _No preview versions are currently available._ 
+<!--  _No preview versions are currently available._ --> 
 
-<!--
 <table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.0.20-RC2</strong>
-            <p>Released: <strong>August 13, 2024</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.20-RC2" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.1.0-Beta1</strong>
+            <p>Released: <strong>September 17, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.0-Beta1" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A tooling release for Kotlin 2.0.0</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.20-RC2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.0.20-RC2</a>.</p>
+            <p>A language release with previews of new features and tooling updates.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.0-Beta1">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.1.0-Beta1</a>.</p>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>2.0.21-RC</strong>
+            <p>Released: <strong>October 1, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.21-RC" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 2.0.20</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.21-RC">changelog</a>.</p>
         </td>
     </tr>
 </table>
--->

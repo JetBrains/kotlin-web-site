@@ -155,7 +155,7 @@ If you accidentally mix up `EmployeeId` and `CustomerId`, a compilation error is
 
 > The `@JvmInline` annotation is only needed for JVM backends.
 >
-{type="note"}
+{style="note"}
 
 ## Instantiate an abstract class
 

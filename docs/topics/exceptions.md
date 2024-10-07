@@ -7,7 +7,7 @@ Unchecked exceptions simplify the exception handling process: you can catch exce
 > Learn more about how Kotlin handles exceptions when interacting with Java, Swift, and Objective-C in the
 > [Exception interoperability with Java, Swift, and Objective-C](#exception-interoperability-with-java-swift-and-objective-c) section.
 > 
-{type="tip"}
+{style="tip"}
 
 Working with exceptions consists of two primary actions:
 
@@ -100,7 +100,7 @@ fun main() {
 > }
 > ```
 >
-{type="note"}
+{style="note"}
 
 #### check() function
 
@@ -148,7 +148,7 @@ fun main() {
 > }
 > ```
 >
-{type="note"}
+{style="note"}
 
 #### error() function
 
@@ -346,7 +346,7 @@ fun main() {
 > }
 > ```
 > 
-{type="note"}
+{style="note"}
 
 If your code requires resource cleanup without handling exceptions, you can also use `try` with the `finally` block without `catch` blocks:
 
@@ -411,7 +411,7 @@ In this example, there is a default error message, "My message", but you can lea
 > Instead, create a new instance of the exception every time you need one.
 > This way, you can ensure the exception's state accurately reflects the specific context.
 >
-{type="tip"}
+{style="tip"}
 
 Custom exceptions can also be a subclass of any pre-existent exception subclass, like the `ArithmeticException` subclass:
 
@@ -432,7 +432,7 @@ class NumberTooLargeException: ArithmeticException("My message")
 > class SpecificCustomException: MyCustomException("Specific error message")
 > ```
 >
-{type="note"}
+{style="note"}
 
 Custom exceptions behave just like built-in exceptions. You can throw them using the `throw` keyword, 
 and handle them with `try-catch-finally` blocks. Let's look at an example to demonstrate:
@@ -586,7 +586,7 @@ Let's explore some common exception types found in Kotlin, which are all subclas
     > println("Element at index 3: $element")
     > ```
     > 
-    {type="note"}
+    {style="note"}
 
 * [`NoSuchElementException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-no-such-element-exception/): This exception is thrown when an element that does not exist in a
 particular collection is accessed. It occurs when using methods that expect a specific element,
@@ -606,7 +606,7 @@ such as [`first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collecti
     > println("First element in empty list: $firstElement")
     > ```
     >
-    {type="note"}
+    {style="note"}
 
 * [`NumberFormatException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-number-format-exception/): This exception occurs when attempting to convert a string to a numeric type, 
 but the string doesn't have an appropriate format.
@@ -625,7 +625,7 @@ but the string doesn't have an appropriate format.
     > println("Converted number: $number")
     > ```
     >
-    {type="note"}
+    {style="note"}
 
 * [`NullPointerException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-null-pointer-exception/): This exception is thrown when an application attempts to use an object reference that has the `null` value.
 Even though Kotlin's null safety features significantly reduce the risk of NullPointerExceptions, 

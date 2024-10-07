@@ -28,7 +28,7 @@ class Bar { ... }
 
 >To use a visible top-level declaration from another package, you should [import](packages.md#imports) it.
 >
-{type="note"}
+{style="note"}
 
 Examples:
 
@@ -55,7 +55,7 @@ For members declared inside a class:
 
 > In Kotlin, an outer class does not see private members of its inner classes.
 >
-{type="note"}
+{style="note"}
 
 If you override a `protected` or an `internal` member and do not specify the visibility explicitly, the overriding member
 will also have the same visibility as the original.
@@ -96,7 +96,7 @@ Use the following syntax to specify the visibility of the primary constructor of
 
 > You need to add an explicit `constructor` keyword.
 >
-{type="note"}
+{style="note"}
 
 ```kotlin
 class C private constructor(a: Int) { ... }

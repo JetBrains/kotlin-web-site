@@ -1,6 +1,6 @@
 [//]: # (title: Compatibility guide for Kotlin 1.9)
 
-_[Keeping the Language Modern](kotlin-evolution.md)_ and _[Comfortable Updates](kotlin-evolution.md)_ are among the fundamental principles in
+_[Keeping the Language Modern](kotlin-evolution-principles.md)_ and _[Comfortable Updates](kotlin-evolution-principles.md)_ are among the fundamental principles in
 Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed, and the
 latter says that this removal should be well-communicated beforehand to make code migration as smooth as possible.
 
@@ -85,7 +85,7 @@ perspective
 > * 1.7.0: report a warning (or an error in progressive mode) on cycles in types of annotation parameters
 > * 1.9.0: raise the warning to an error, `-XXLanguage:-ProhibitCyclesInAnnotations` can be used to temporarily revert to pre-1.9 behavior
 
-### Prohibit use of `@ExtensionFunctionType` annotation on function types with no parameters
+### Prohibit use of @ExtensionFunctionType annotation on function types with no parameters
 
 > **Issue**: [KT-43527](https://youtrack.jetbrains.com/issue/KT-43527)
 >
@@ -150,7 +150,7 @@ perspective
 >   super calls of `Any` methods are overridden as abstract in the superclass
 > - 1.9.0: report an error in all affected cases, including explicit super calls to an abstract method from the super class
 
-### Deprecate confusing grammar in `when-with-subject`
+### Deprecate confusing grammar in when-with-subject
 
 > **Issue**: [KT-48385](https://youtrack.jetbrains.com/issue/KT-48385)
 >
@@ -165,7 +165,7 @@ perspective
 > - 1.6.20: introduce a deprecation warning on the affected expressions
 > - 1.8.0: raise this warning to an error,
 >   `-XXLanguage:-ProhibitConfusingSyntaxInWhenBranches` can be used to temporarily revert to the pre-1.8 behavior
-> - \>= 2.1: repurpose some deprecated constructs for new language features
+> - &gt;= 2.1: repurpose some deprecated constructs for new language features
 
 ### Prevent implicit coercions between different numeric types
 
@@ -182,7 +182,7 @@ perspective
 > - < 1.5.30: the old behavior in all affected cases
 > - 1.5.30: fix the downcast behavior in generated property delegate accessors,
 >   `-Xuse-old-backend` can be used to temporarily revert to the pre-1.5.30 fix behavior
-> - \>= 2.0: fix the downcast behavior in other affected cases
+> - &gt;= 2.0: fix the downcast behavior in other affected cases
 
 ### Prohibit upper bound violation in a generic type alias usage (a type parameter used in a generic type argument of a type argument of the aliased type)
 
@@ -293,7 +293,7 @@ perspective
 > - 1.7.20: report a warning (or an error in the progressive mode) for inline extension calls on inline functional parameters
 > - 1.9.0: raise the warning to an error
 
-### Prohibit calls to infix functions named `suspend` with an anonymous function argument
+### Prohibit calls to infix functions named suspend with an anonymous function argument
 
 > **Issue**: [KT-49264](https://youtrack.jetbrains.com/issue/KT-49264)
 >
@@ -345,7 +345,7 @@ perspective
 >   called recursively in that function's body in a compound assignment operator argument
 > - 1.9.0: raise the warning to an error
 
-### Prohibit unsound calls with expected `@NotNull T` and given Kotlin generic parameter with nullable bound
+### Prohibit unsound calls with expected @NotNull T and given Kotlin generic parameter with nullable bound
 
 > **Issue**: [KT-36770](https://youtrack.jetbrains.com/issue/KT-36770)
 >
@@ -454,7 +454,7 @@ perspective
 > - 2.1.0: stop reporting the error, implement `Collection` interface in progressions thus changing
 >   the overload resolution result in the affected cases
 
-### Migrate declarations from `kotlin.dom` and `kotlin.browser` packages to `kotlinx.*`
+### Migrate declarations from kotlin.dom and kotlin.browser packages to kotlinx.*
 
 > **Issue**: [KT-39330](https://youtrack.jetbrains.com/issue/KT-39330)
 >
@@ -470,7 +470,7 @@ perspective
 > - 1.4.0: deprecate the API in `kotlin.dom` and `kotlin.browser` packages and propose the new API above as a replacement
 > - 1.6.0: raise the deprecation level to an error
 > - 1.8.20: remove the deprecated functions from stdlib for JS-IR target
-> - \>= 2.0: move the API in kotlinx.* packages to a separate library
+> - &gt;= 2.0: move the API in kotlinx.* packages to a separate library
 
 ### Deprecate some JS-only API
 
@@ -486,7 +486,7 @@ perspective
 >
 > - 1.6.0: deprecate the affected functions with a warning
 > - 1.9.0: raise the deprecation level to an error
-> - \>=2.0: remove the deprecated functions from the public API
+> - &gt;=2.0: remove the deprecated functions from the public API
 
 ## Tools
 
@@ -551,4 +551,4 @@ perspective
 > **Deprecation cycle:**
 >
 > * 1.8.0: raise the deprecation level to a warning
-> * \>= 1.9: delete the property
+> * &gt;= 1.9: delete the property

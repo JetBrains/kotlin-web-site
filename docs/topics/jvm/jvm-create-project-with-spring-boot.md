@@ -1,10 +1,10 @@
 [//]: # (title: Create a Spring Boot project with Kotlin)
 [//]: # (description: Create a Spring Boot application with Kotlin using IntelliJ IDEA.)
 
-<microformat>
+<tldr>
     <p>This is the first part of the <strong>Get started with Spring Boot and Kotlin</strong> tutorial:</p><br/>
     <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Create a Spring Boot project with Kotlin</strong><br/><img src="icon-2-todo.svg" width="20" alt="Second step"/> Add a data class to the Spring Boot project<br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add database support for the Spring Boot project<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access<br/></p>
-</microformat>
+</tldr>
 
 The first part of the tutorial shows you how to create a Spring Boot project in IntelliJ IDEA using Project Wizard.
 
@@ -14,7 +14,7 @@ Download and install the latest version of [IntelliJ IDEA Ultimate Edition](http
 
 > If you use IntelliJ IDEA Community Edition or another IDE, you can generate a Spring Boot project using a [web-based project generator](https://start.spring.io).
 > 
-{type="note"}
+{style="note"}
 
 ## Create a Spring Boot project
 
@@ -22,7 +22,7 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
 
 > You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html).
 >
-{type="note"}
+{style="note"}
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**. 
 2. In the panel on the left, select **New Project** | **Spring Initializr**.
@@ -35,7 +35,7 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
      
      > This tutorial uses **Amazon Corretto version 18**.
      >
-     {type="note"}
+     {style="note"}
    
    * **Java**: 17
 
@@ -55,7 +55,7 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
 
    > The IDE will generate and open a new project. It may take some time to download and import the project dependencies.
    >
-   {type="tip"} 
+   {style="tip"} 
 
 7. After this, you can observe the following structure in the **Project view**:
 
@@ -65,7 +65,7 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
    * There are packages and classes under the `main/kotlin` folder that belong to the application.
    * The entry point to the application is the `main()` method of the `DemoApplication.kt` file.
 
-## Explore the project Gradle build file {initial-collapse-state="collapsed"}
+## Explore the project Gradle build file {initial-collapse-state="collapsed" collapsible="true"}
 
 Open the `build.gradle.kts` file: it is the Gradle Kotlin build script, which contains a list of the dependencies required for the application.
 
@@ -196,10 +196,10 @@ class MessageController {
    </def>
    <def title="@GetMapping annotation">
       <p><code>@GetMapping</code> marks the functions of the REST controller that implement the endpoints corresponding to HTTP GET calls:</p>
-      <code style="block" lang="kotlin">
+      <code-block lang="kotlin">
       @GetMapping("/")
       fun index(@RequestParam("name") name: String) = "Hello, $name!"
-      </code>
+      </code-block>
    </def>
    <def title="@RequestParam annotation">
       <p>The function parameter <code>name</code> is marked with <code>@RequestParam</code> annotation. This annotation indicates that a method parameter should be bound to a web request parameter.</p>
@@ -228,7 +228,7 @@ class MessageController {
 > import org.springframework.web.bind.annotation.RestController
 > ```
 >
-{type="note"}
+{style="note"}
 
 Here is a complete code of the `DemoApplication.kt`:
 
@@ -254,7 +254,7 @@ class MessageController {
     fun index(@RequestParam("name") name: String) = "Hello, $name!"
 }
 ```
-{initial-collapse-state="collapsed"}
+{initial-collapse-state="collapsed" collapsible="true"}
 
 ## Run the application
 
@@ -266,7 +266,7 @@ The Spring application is now ready to run:
     
     > You can also run the `./gradlew bootRun` command in the terminal.
     >
-    {type="tip"}
+    {style="tip"}
 
     This starts the local server on your computer.
 

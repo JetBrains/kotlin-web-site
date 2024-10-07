@@ -8,7 +8,7 @@ in KSP:
 
 > [See the full-sized diagram](https://kotlinlang.org/docs/images/ksp-class-diagram.svg).
 >
-{type="note"}
+{style="note"}
 
 ## Type and resolution
 

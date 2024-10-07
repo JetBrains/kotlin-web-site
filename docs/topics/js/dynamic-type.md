@@ -2,7 +2,7 @@
 
 > The dynamic type is not supported in code targeting the JVM.
 >
-{type="note"}
+{style="note"}
 
 Being a statically typed language, Kotlin still has to interoperate with untyped or loosely typed environments,
 such as the JavaScript ecosystem. To facilitate these use cases, the `dynamic` type is available in the language:

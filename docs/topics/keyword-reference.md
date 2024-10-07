@@ -76,7 +76,7 @@ as identifiers in other contexts:
  * `init` begins an [initializer block](classes.md#constructors).
  * `param` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `property` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
- * `receiver`is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
+ * `receiver` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `set`
      - declares the [setter of a property](properties.md#getters-and-setters).
      - is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
@@ -143,8 +143,8 @@ Kotlin supports the following operators and special symbols:
  * `===`, `!==` - [referential equality operators](equality.md#referential-equality).
  * `<`, `>`, `<=`, `>=` - [comparison operators](operator-overloading.md#comparison-operators) (translated to calls of `compareTo()` for non-primitive types).
  * `[`, `]` - [indexed access operator](operator-overloading.md#indexed-access-operator) (translated to calls of `get` and `set`).
- * `!!` [asserts that an expression is non-nullable](null-safety.md#the-operator).
- * `?.` performs a [safe call](null-safety.md#safe-calls) (calls a method or accesses a property if the receiver is non-nullable).
+ * `!!` [asserts that an expression is non-nullable](null-safety.md#not-null-assertion-operator).
+ * `?.` performs a [safe call](null-safety.md#safe-call-operator) (calls a method or accesses a property if the receiver is non-nullable).
  * `?:` takes the right-hand value if the left-hand value is null (the [elvis operator](null-safety.md#elvis-operator)).
  * `::` creates a [member reference](reflection.md#function-references) or a [class reference](reflection.md#class-references).
  * `..`, `..<` create [ranges](ranges.md).
