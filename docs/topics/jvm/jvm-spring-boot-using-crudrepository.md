@@ -3,7 +3,7 @@
 
 <tldr>
     <p>This is the final part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>
-    <p><img src="icon-1-done.svg" width="20" alt="Figt step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="jvm-spring-boot-add-db-support.md">Add database support for Spring Boot project</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Use Spring Data CrudRepository for database access</strong></p>
+    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="jvm-spring-boot-add-db-support.md">Add database support for Spring Boot project</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Use Spring Data CrudRepository for database access</strong></p>
 </tldr>
 
 In this part, you will migrate the service layer to use the [Spring Data](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html) `CrudRepository` instead of `JdbcTemplate` for database access.
@@ -91,6 +91,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
 4. Update the messages table definition to generate the ids for the inserted objects. Since `id` is a string, you can use the `RANDOM_UUID()` function to generate the id value by default:
 
     ```sql
+    -- schema.sql 
     CREATE TABLE IF NOT EXISTS messages (
         id      VARCHAR(60)  DEFAULT RANDOM_UUID() PRIMARY KEY,
         text    VARCHAR      NOT NULL

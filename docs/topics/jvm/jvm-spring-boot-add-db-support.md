@@ -145,13 +145,14 @@ class MessageService(private val db: JdbcTemplate) {
         Message(response.getString("id"), response.getString("text"))
     }
 
-    fun save(message: Message) {
-        val id = message.id ?: UUID.randomUUID().toString()
+    fun save(message: Message): Message {
+        val id = message.id ?: UUID.randomUUID().toString() // Generate new id if it is null
         db.update(
             "insert into messages values ( ?, ? )",
             id, message.text
         )
-    } 
+        return message.copy(id = id) // Return a copy of the message with the new id
+   }
 }
 ```
 
@@ -203,7 +204,8 @@ Configure the database in the application:
 You should use an HTTP client to work with previously created endpoints. In IntelliJ IDEA, use the embedded HTTP client:
 
 1. Run the application. Once the application is up and running, you can execute POST requests to store messages in the database.
-   Create the `requests.http` file in the project root folder and add the following HTTP requests:
+
+2. Create the `requests.http` file in the project root folder and add the following HTTP requests:
 
    ```http request
    ### Post "Hello!"
@@ -236,12 +238,12 @@ You should use an HTTP client to work with previously created endpoints. In Inte
    GET http://localhost:8080/
    ```
 
-2. Execute all POST requests. Use the green **Run** icon in the gutter next to the request declaration.
+3. Execute all POST requests. Use the green **Run** icon in the gutter next to the request declaration.
    These requests write the text messages to the database:
 
    ![Execute POST request](execute-post-requests.png)
 
-3. Execute the GET request and see the result in the **Run** tool window:
+4. Execute the GET request and see the result in the **Run** tool window:
 
    ![Execute GET requests](execute-get-requests.png)
 
@@ -287,12 +289,12 @@ Extend the functionality of the application to retrieve the individual messages 
         }.singleOrNull()
     
         fun save(message: Message): Message {
-            val id = message.id ?: UUID.randomUUID().toString() // generate new id if it is null
+            val id = message.id ?: UUID.randomUUID().toString() // Generate new id if it is null
             db.update(
                 "insert into messages values ( ?, ? )",
                 id, message.text
             )
-            return message.copy(id = id) // return a copy of the message with the new id
+            return message.copy(id = id) // Return a copy of the message with the new id
         }
     }
     ```
