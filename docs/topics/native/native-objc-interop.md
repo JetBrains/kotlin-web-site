@@ -228,7 +228,7 @@ A Swift/Objective-C initializer is imported to Kotlin as constructors or as fact
 The latter happens with initializers declared in the Objective-C category or as a Swift extension,
 because Kotlin has no concept of extension constructors.
 
-> Remember to expose Swift methods with `@objc` before importing Swift initializers to Kotlin.
+> Remember to annotate Swift methods with `@objc` before importing Swift initializers to Kotlin.
 >
 {type="tip"}
 
@@ -575,13 +575,12 @@ binaries.framework {
 
 ### Forward declarations
 
-To import forward declarations, use the `objcnames` package. For example, to import a `objcstructName` forward declaration
-declared in an Objective-C library with a `library.package`, use a special forward declaration package:
-`import objcnames.structs.objcstructName`.
+To import forward declarations, use the `objcnames.classes` and `objcnames.protocols` packages. For example,
+to import a `objcprotocolName` forward declaration declared in an Objective-C library with a `library.package`,
+use a special forward declaration package: `import objcnames.protocols.objcprotocolName`.
 
-To transfer objects between libraries, you need to make an explicit `as` cast to and from the corresponding Objective-C
-forward declaration. Consider two objcinterop libraries, one that uses `objcnames.protocols.ForwardDeclaredProtocolProtocol`
-and the other that has an actual definition:
+Consider two objcinterop libraries, one that uses `objcnames.protocols.ForwardDeclaredProtocolProtocol`
+and the other with an actual implementation in another package:
 
 ```ObjC
 // First objcinterop library
@@ -601,20 +600,20 @@ NSString* consumeProtocol(id<ForwardDeclaredProtocol> s) {
 @protocol ForwardDeclaredProtocol
 @end
 // Implementation:
-@implementation ForwardDeclaredProtocolImpl : NSObject
-@end;
+@interface ForwardDeclaredProtocolImpl : NSObject <ForwardDeclaredProtocol>
+@end
 
 id<ForwardDeclaredProtocol> produceProtocol() {
     return [ForwardDeclaredProtocolImpl new];
 }
 ```
 
-To transfer objects between them, make the `as` cast in you Kotlin code:
+To transfer objects between the two libraries, make an explicit `as` cast in you Kotlin code:
 
 ```kotlin
 // Kotlin code:
 fun test() {
-    consumeStruct(produceStruct() as cnames.structs.ForwardDeclaredStruct)
+    consumeProtocol(produceProtocol() as objcnames.protocols.ForwardDeclaredProtocol)
 }
 ```
 

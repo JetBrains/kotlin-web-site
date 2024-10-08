@@ -654,17 +654,16 @@ To import forward declarations, use the `cnames` package. For example, to import
 declared in a C library with a `library.package`, use a special forward declaration package:
 `import cnames.structs.cstructName`.
 
-To transfer objects between libraries, you need to make an explicit `as` cast to and from the corresponding C
-forward declaration. Consider two cinterop libraries, one that has a forward declaration of a struct and the other
-with an actual implementation:
+Consider two cinterop libraries, one that has a forward declaration of a struct and the other
+with an actual implementation in another package:
 
 ```C
 // First C library
 #include <stdio.h>
 
-typedef struct ForwardDeclaredStruct ForwardDeclaredStruct;
+struct ForwardDeclaredStruct;
 
-void consumeStruct(ForwardDeclaredStruct* s) {
+void consumeStruct(struct ForwardDeclaredStruct* s) {
     printf("Struct consumed\n");
 }
 ```
@@ -674,27 +673,23 @@ void consumeStruct(ForwardDeclaredStruct* s) {
 // Header:
 #include <stdlib.h>
 
-typedef struct {
+struct ForwardDeclaredStruct {
     int data;
-} ForwardDeclaredStruct;
+};
 
 // Implementation:
-ForwardDeclaredStruct* produceStruct() {
-    ForwardDeclaredStruct* s = malloc(sizeof(ForwardDeclaredStruct));
+struct ForwardDeclaredStruct* produceStruct() {
+    struct ForwardDeclaredStruct* s = malloc(sizeof(struct ForwardDeclaredStruct));
     s->data = 42;
     return s;
 }
 ```
 
-To transfer objects between them, make the `as` cast in you Kotlin code:
+To transfer objects between the two libraries, make the `as` cast in you Kotlin code:
 
 ```kotlin
 // Kotlin code:
 fun test() {
-    consumeStruct(produceStruct() as cnames.structs.ForwardDeclaredStruct)
+    consumeStruct(produceStruct() as CPointer<cnames.structs.ForwardDeclaredStruct>)
 }
 ```
-
-> Casting is only allowed from the corresponding real class. Otherwise, you'll get an error.
->
-{type="note"}

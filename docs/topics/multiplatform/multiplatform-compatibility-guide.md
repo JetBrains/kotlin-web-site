@@ -947,8 +947,8 @@ and prepare this functionality for the Kotlin 2.0.0 release. From now on:
   @protocol ForwardDeclaredProtocol
   @end
   // Implementation:
-  @implementation ForwardDeclaredProtocolImpl : NSObject
-  @end;
+  @interface ForwardDeclaredProtocolImpl : NSObject <ForwardDeclaredProtocol>
+  @end
 
   id<ForwardDeclaredProtocol> produceProtocol() {
       return [ForwardDeclaredProtocolImpl new];
@@ -961,11 +961,11 @@ and prepare this functionality for the Kotlin 2.0.0 release. From now on:
   ```kotlin
   // Kotlin code:
   fun test() {
-      consumeProtocol(produceProtocol() as objcnames.protocols.ForwardDeclaredProtocolProtocol)
+      consumeProtocol(produceProtocol() as objcnames.protocols.ForwardDeclaredProtocol)
   }
   ```
 
-  > The casting to `objcnames.protocols.ForwardDeclaredProtocolProtocol` is only allowed from the corresponding real class.
+  > The casting to `objcnames.protocols.ForwardDeclaredProtocol` is only allowed from the corresponding real class.
   > Otherwise, you'll get an error.
   >
   {style="note"}
