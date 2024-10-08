@@ -18,7 +18,7 @@ Here's a general workflow when working with a project:
 Let's create a definition file and generate bindings for a C library:
 
 1. In your IDE, select the `src` folder and create a new directory with **File | New | Directory**.
-2. Name the new directory **nativeInterop/cinterop**.
+2. Name the new directory `nativeInterop/cinterop`.
    
    This is the default convention for `.def` file locations, but it can
    be overridden in the `build.gradle.kts` file if you use a different location.
@@ -123,7 +123,7 @@ declarations. It can help avoid various issues when upgrading Kotlin or tools in
 #### Exclude headers
 
 To exclude specific headers, use the `excludeFilter` property. It can be helpful to remove redundant or problematic
-headers and optimize compilation, as declarations from the specified headers are not included into the bindings:
+headers and optimize compilation, as declarations from the specified headers are not included in the bindings:
 
 ```none
 excludeFilter = SomeLibrary/time.h
@@ -236,7 +236,7 @@ headers = errno.h
 ---
 
 static inline int getErrno() {
-   return errno;
+    return errno;
 }
 ```
 
