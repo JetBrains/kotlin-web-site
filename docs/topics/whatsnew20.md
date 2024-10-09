@@ -1526,7 +1526,7 @@ Since Kotlin 2.0.0, the following DSLs for specifying compiler options are depre
 
 * The `kotlinOptions` DSL from the `KotlinCompile` interface that implements all Kotlin compilation tasks. Use
   `KotlinCompilationTask<CompilerOptions>` instead.
-* The `compilerOptions` property with the `HasCompilerOptions` type from the `KotlinCompiation` interface. This DSL was
+* The `compilerOptions` property with the `HasCompilerOptions` type from the `KotlinCompilation` interface. This DSL was
   inconsistent with other DSLs and configured the same `KotlinCommonCompilerOptions` object as `compilerOptions` inside
   the `KotlinCompilation.compileTaskProvider` compilation task, which was confusing.
 

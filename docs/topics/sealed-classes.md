@@ -164,7 +164,7 @@ you can create subclasses in any source set between the `expect` and `actual` de
 
 ## Use sealed classes with when expression
 
-The key benefit of using sealed classes comes into play when you use them in a [`when`](control-flow.md#when-expression)
+The key benefit of using sealed classes comes into play when you use them in a [`when`](control-flow.md#when-expressions-and-statements)
 expression.
 The `when` expression, used with a sealed class, allows the Kotlin compiler to check exhaustively that all possible cases are covered. 
 In such cases, you don't need to add an `else` clause:

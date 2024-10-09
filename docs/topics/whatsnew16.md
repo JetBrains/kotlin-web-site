@@ -21,7 +21,7 @@ It also includes various type inference improvements and support for annotations
 
 ### Stable exhaustive when statements for enum, sealed, and Boolean subjects
 
-An _exhaustive_ [`when`](control-flow.md#when-expression) statement contains branches for all possible types or values of 
+An _exhaustive_ [`when`](control-flow.md#when-expressions-and-statements) statement contains branches for all possible types or values of 
 its subject, or for some types plus an `else` branch. It covers all possible cases, making your code safer.
 
 We will soon prohibit non-exhaustive `when` statements to make the behavior consistent with `when` expressions. 
