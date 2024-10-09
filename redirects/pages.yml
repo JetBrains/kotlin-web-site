@@ -353,7 +353,7 @@
   to: /docs/whatsnew1430.html
 
 - from: /docs/reference/mpp-intro.html
-  to: /docs/multiplatform-get-started.html
+  to: /docs/multiplatform-intro.html
 
 - from: /docs/reference/multi-declarations.html
   to: /docs/multi-declarations.html
@@ -437,7 +437,7 @@
   to: /docs/multiplatform-publish-lib.html
 
 - from: /docs/reference/building-mpp-with-gradle.html
-  to: /docs/multiplatform-get-started.html
+  to: /docs/multiplatform-intro.html
 
 - from: /docs/reference/whatsnew-plugin-20203.html
   to: /docs/whatsnew-plugin-20203.html

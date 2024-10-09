@@ -868,7 +868,7 @@ removed from the public API of the Kotlin Gradle plugin in future releases. This
 
 **What's the best practice now?**
 
-Use respective [Kotlin targets](https://kotlinlang.org/docs/multiplatform-dsl-reference.html#targets) instead, for example:
+Use respective [Kotlin targets](multiplatform-dsl-reference.md#targets) instead, for example:
 
 <table>
     <tr>

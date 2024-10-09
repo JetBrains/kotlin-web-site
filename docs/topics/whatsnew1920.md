@@ -367,7 +367,7 @@ with the new project wizards and other notable features:
 
 ### Kotlin Multiplatform is Stable
 
-The 1.9.20 release marks an important milestone in the evolution of Kotlin: [Kotlin Multiplatform](multiplatform.md) has finally
+The 1.9.20 release marks an important milestone in the evolution of Kotlin: [Kotlin Multiplatform](multiplatform-intro.md) has finally
 become Stable. This means that the technology is safe to use in your projects and 100% ready for production. It also
 means that further development of Kotlin Multiplatform will continue according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
 

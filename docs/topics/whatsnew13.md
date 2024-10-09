@@ -29,7 +29,7 @@ The key differences to the old model are:
   (for example, in a module that targets JS, Android and iOS, you can have a source set that is shared only between Android and iOS).
   * [Publishing multiplatform libraries](multiplatform-publish-lib.md) is now supported.
 
-For more information, please refer to the [multiplatform programming documentation](multiplatform.md).
+For more information, please refer to the [multiplatform programming documentation](multiplatform-intro.md).
 
 ## Contracts
 
