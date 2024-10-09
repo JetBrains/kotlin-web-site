@@ -1,18 +1,5 @@
 [//]: # (title: Share your Kotlin Notebook)
 
-<tldr>
-   <p>This is the fourth part of the <strong>Getting started with Kotlin Notebook</strong> tutorial. Before proceeding, make sure you've completed the previous steps.</p>
-   <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="kotlin-notebook-set-up-env.md">Set up an environment</a><br/>
-      <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="kotlin-notebook-create.md">Create a Kotlin Notebook</a><br/>
-      <img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="kotlin-notebook-add-dependencies.md">Add dependencies to a Kotlin Notebook</a><br/>      
-      <img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Share a Kotlin Notebook</strong><br/>
-  </p>
-</tldr>
-
-Now that you have created your first Kotlin Notebook, you are ready to share your work with others! 
-
-## Share a Kotlin Notebook
-
 To share a Kotlin Notebook, just upload it to any notebook web viewer because Kotlin notebooks follow the 
 universal Jupyter format.
 
