@@ -32,7 +32,7 @@ and type inference:
 >
 {style="warning"}
 
-An _exhaustive_ [`when`](control-flow.md#when-expression) statement contains branches for all possible types or values of its subject or for some types plus an `else` branch. In other words, it covers all possible cases.
+An _exhaustive_ [`when`](control-flow.md#when-expressions-and-statements) statement contains branches for either all possible types or values of its subject, or for certain types and includes an `else` branch to cover any remaining cases.
 
 We're planning to prohibit non-exhaustive `when` statements soon to make the behavior consistent with `when` expressions. To ensure smooth migration, you can configure the compiler to report warnings about non-exhaustive `when` statements with a sealed class or a Boolean. Such warnings will appear by default in Kotlin 1.6 and will become errors later.
 

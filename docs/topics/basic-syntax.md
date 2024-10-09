@@ -437,7 +437,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-when-expression"}
 
-See [when expression](control-flow.md#when-expression).
+See [when expressions and statements](control-flow.md#when-expressions-and-statements).
 
 ## Ranges
 

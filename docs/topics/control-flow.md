@@ -27,10 +27,12 @@ fun main() {
     // You can also use `else if` in expressions:
     val maxLimit = 1
     val maxOrLimit = if (maxLimit > a) maxLimit else if (a > b) a else b
-
-    //sampleEnd
+  
     println("max is $max")
+    // max is 3
     println("maxOrLimit is $maxOrLimit")
+    // maxOrLimit is 3
+    //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="if-else-if-kotlin"}
@@ -50,33 +52,124 @@ val max = if (a > b) {
 If you're using `if` as an expression, for example, for returning its value or
 assigning it to a variable, the `else` branch is mandatory.
 
-## When expression
+## When expressions and statements
 
-`when` defines a conditional expression with multiple branches. It is similar to the `switch` statement in C-like languages.
-Its simple form looks like this.
+`when` is a conditional expression that runs code based on multiple possible values or conditions. It is
+similar to the `switch` statement in Java, C, and similar languages. For example:
 
 ```kotlin
-when (x) {
-    1 -> print("x == 1")
-    2 -> print("x == 2")
-    else -> {
-        print("x is neither 1 nor 2")
+fun main() {
+    //sampleStart
+    val x = 2
+    when (x) {
+        1 -> print("x == 1")
+        2 -> print("x == 2")
+        else -> print("x is neither 1 nor 2")
     }
+    // x == 2
+    //sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-conditions-when-statement"}
 
 `when` matches its argument against all branches sequentially until some branch condition is satisfied.
 
-`when` can be used either as an expression or as a statement. If it is used as an expression, the value
-of the first matching branch becomes the value of the overall expression. If it is used as a statement, the values of
-individual branches are ignored. Just like with `if`, each branch can be a block, and its value
-is the value of the last expression in the block.
+You can use `when` in a few different ways. Firstly, you can use `when` either as an **expression** or as a **statement**.
+As an expression, `when` returns a value for later use in your code. As a statement, `when` completes an action
+without returning anything of further use:
 
-The `else` branch is evaluated if none of the other branch conditions are satisfied.
+<table>
+   <tr>
+       <td>Expression</td>
+       <td>Statement</td>
+   </tr>
+   <tr>
+<td>
 
-If `when` is used as an _expression_, the `else` branch is mandatory,
-unless the compiler can prove that all possible cases are covered with branch conditions,
-for example, with [`enum` class](enum-classes.md) entries and [`sealed` class](sealed-classes.md) subtypes).
+```kotlin
+// Returns a string assigned to the 
+// text variable
+val text = when (x) {
+    1 -> "x == 1"
+    2 -> "x == 2"
+    else -> "x is neither 1 nor 2"
+}
+```
+
+</td>
+<td>
+
+```kotlin
+// Returns nothing but triggers a 
+// print statement
+when (x) {
+    1 -> print("x == 1")
+    2 -> print("x == 2")
+    else -> print("x is neither 1 nor 2")
+}
+```
+
+</td>
+</tr>
+</table>
+
+Secondly, you can use `when` with or without a subject. Whether you use a subject with `when` or not, your expression or
+statement behaves the same. We recommend using `when` with a subject when possible, as it makes your code easier to read
+and maintain by clearly showing what you're checking.
+
+<table>
+   <tr>
+       <td>With subject <code>x</code></td>
+       <td>Without subject</td>
+   </tr>
+   <tr>
+<td>
+
+```kotlin
+when(x) { ... }
+```
+
+</td>
+<td>
+
+```kotlin
+when { ... }
+```
+
+</td>
+</tr>
+</table>
+
+Depending on how you use `when`, there are different requirements for whether you need to cover all possible cases in your
+branches.
+
+If you use `when` as a statement, you don't have to cover all possible cases. In this example, some cases aren't covered,
+so nothing happens. However, no error occurs:
+
+```kotlin
+fun main() {
+    //sampleStart
+    val x = 3
+    when (x) {
+        // Not all cases are covered
+        1 -> print("x == 1")
+        2 -> print("x == 2")
+    }
+    //sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-statement"}
+
+In a `when` statement, the values of individual branches are ignored. Just like with `if`, each branch can be a block, 
+and its value is the value of the last expression in the block.
+
+If you use `when` as an expression, you have to cover all possible cases. In other words, it must be _exhaustive_.
+The value of the first matching branch becomes the value of the overall expression. If you don't cover all cases, 
+the compiler throws an error.
+
+If your `when` expression has a subject, you can use an `else` branch to make sure that all possible cases are covered, but
+it isn't mandatory. For example, if your subject is a `Boolean`, [`enum` class](enum-classes.md), [`sealed` class](sealed-classes.md),
+or one of their nullable counterparts, you can cover all cases without an `else` branch:
 
 ```kotlin
 enum class Bit {
@@ -84,37 +177,27 @@ enum class Bit {
 }
 
 val numericValue = when (getRandomBit()) {
+  // No else branch is needed because all cases are covered
     Bit.ZERO -> 0
     Bit.ONE -> 1
-    // 'else' is not required because all cases are covered
 }
 ```
 
-In `when` _statements_, the `else` branch is mandatory in the following conditions:
-* `when` has a subject of a `Boolean`, [`enum`](enum-classes.md),
-or [`sealed`](sealed-classes.md) type, or their nullable counterparts.
-* branches of `when` don't cover all possible cases for this subject.
+If your `when` expression **doesn't** have a subject, you **must** have an `else` branch or the compiler throws an error.
+The `else` branch is evaluated when none of the other branch conditions are satisfied:
 
 ```kotlin
-enum class Color {
-    RED, GREEN, BLUE
-}
-
-when (getColor()) {  
-    Color.RED -> println("red")
-    Color.GREEN -> println("green")   
-    Color.BLUE -> println("blue")
-    // 'else' is not required because all cases are covered
-}
-
-when (getColor()) {
-    Color.RED -> println("red") // no branches for GREEN and BLUE
-    else -> println("not red") // 'else' is required
+when {
+    a > b -> "a is greater than b"
+    a < b -> "a is less than b"
+    else -> "a is equal to b"
 }
 ```
 
+`when` expressions and statements offer different ways to simplify your code, handle multiple conditions, and perform 
+type checks.
 
-To define a common behavior for multiple cases, combine their conditions in a single line with a comma: 
+You can define a common behavior for multiple cases by combining their conditions in a single line with a comma: 
 
 ```kotlin
 when (x) {
@@ -123,7 +206,7 @@ when (x) {
 }
 ```
 
-You can use arbitrary expressions (not only constants) as branch conditions
+You can use arbitrary expressions (not only constants) as branch conditions:
 
 ```kotlin
 when (x) {
@@ -132,7 +215,7 @@ when (x) {
 }
 ```
 
-You can also check a value for being `in` or `!in` a [range](ranges.md) or a collection:
+You can also check whether a value is or isn't contained in a [range](ranges.md) or collection via the `in` or `!in` keywords:
 
 ```kotlin
 when (x) {
@@ -143,9 +226,9 @@ when (x) {
 }
 ```
 
-Another option is checking that a value `is` or `!is` of a particular type. Note that,
-due to [smart casts](typecasts.md#smart-casts), you can access the methods and properties of the type without
-any extra checks.
+Additionally, you can check that a value is or isn't a particular type via the `is` or `!is` keywords. Note that,
+due to [smart casts](typecasts.md#smart-casts), you can access the member functions and properties of the type without
+any additional checks.
 
 ```kotlin
 fun hasPrefix(x: Any) = when(x) {
@@ -154,8 +237,8 @@ fun hasPrefix(x: Any) = when(x) {
 }
 ```
 
-`when` can also be used as a replacement for an `if`-`else` `if` chain.
-If no argument is supplied, the branch conditions are simply boolean expressions, and a branch is executed when its condition is true:
+You can use `when` as a replacement for an `if`-`else` `if` chain.
+If there's no subject, the branch conditions are simply boolean expressions, and a branch is run when its condition is true:
 
 ```kotlin
 when {
@@ -165,7 +248,7 @@ when {
 }
 ```
 
-You can capture *when* subject in a variable using following syntax:
+You can capture the subject in a variable by using the following syntax:
 
 ```kotlin
 fun Request.getBody() =
@@ -175,7 +258,7 @@ fun Request.getBody() =
     }
 ```
 
-The scope of variable introduced in *when* subject is restricted to the body of this *when*.
+The scope of a variable introduced as the subject is restricted to the body of the `when` expression or statement.
 
 ## For loops
 
@@ -208,11 +291,12 @@ To iterate over a range of numbers, use a [range expression](ranges.md):
 fun main() {
 //sampleStart
     for (i in 1..3) {
-        println(i)
+        print(i)
     }
     for (i in 6 downTo 0 step 2) {
-        println(i)
+        print(i)
     }
+    // 1236420
 //sampleEnd
 }
 ```
@@ -227,8 +311,9 @@ fun main() {
 val array = arrayOf("a", "b", "c")
 //sampleStart
     for (i in array.indices) {
-        println(array[i])
+        print(array[i])
     }
+    // abc
 //sampleEnd
 }
 ```
@@ -243,6 +328,9 @@ fun main() {
     for ((index, value) in array.withIndex()) {
         println("the element at $index is $value")
     }
+    // the element at 0 is a
+    // the element at 1 is b
+    // the element at 2 is c
 //sampleEnd
 }
 ```
@@ -250,11 +338,11 @@ fun main() {
 
 ## While loops
 
-`while` and `do-while` loops execute their body continuously while their condition is satisfied.
+`while` and `do-while` loops process their body continuously while their condition is satisfied.
 The difference between them is the condition checking time:
-* `while` checks the condition and, if it's satisfied, executes the body and then returns to the condition check.
-* `do-while` executes the body and then checks the condition. If it's satisfied, the loop repeats. So, the body of `do-while`
-executes at least once regardless of the condition. 
+* `while` checks the condition and, if it's satisfied, processes the body and then returns to the condition check.
+* `do-while` processes the body and then checks the condition. If it's satisfied, the loop repeats. So, the body of `do-while`
+runs at least once regardless of the condition. 
 
 ```kotlin
 while (x > 0) {
