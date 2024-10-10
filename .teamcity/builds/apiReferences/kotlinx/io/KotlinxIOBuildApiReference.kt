@@ -29,22 +29,12 @@ object KotlinxIOBuildApiReference : BuildType({
     }
 
     steps {
-        scriptDropSnapshot {
-            enabled = false
-        }
+        scriptDropSnapshot {}
         scriptDokkaVersionSync {
             enabled = false // TODO readme, and disable this step for other libs too
         }
         buildDokkaHTML {
             enabled = false // TODO add useGradlewWrapper = true
-        }
-        script {
-            name = "Drop snapshot"
-            scriptContent = """
-                #!/bin/bash
-                set -e -u
-                sed -i -E "s/^(version=.+)-SNAPSHOT${'$'}/\1/gI" ./gradle.properties
-            """.trimIndent()
         }
         script {
             name = "build api reference"
