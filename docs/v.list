@@ -4,13 +4,13 @@
 
 <vars>
 
-    <var name="kotlinVersion" value="2.0.20" type="string"/>
+    <var name="kotlinVersion" value="2.0.21" type="string"/>
 
     <var name="kotlinEapVersion" value="2.1.0-Beta1" type="string"/>
 
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.0.20" type="string"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.0.21" type="string"/>
 
-    <var name="kotlinReleaseDate" value="August 22, 2024" type="string"/>
+    <var name="kotlinReleaseDate" value="October 10, 2024" type="string"/>
 
     <var name="kotlinEapReleaseDate" value="September 17, 2024" type="string"/>
 
