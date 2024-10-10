@@ -21,19 +21,19 @@ The following tokens are always interpreted as keywords and cannot be used as id
      - specifies the object being iterated in a [for loop](control-flow.md#for-loops).
      - is used as an infix operator to check that a value belongs to [a range](ranges.md),
        a collection, or another entity that [defines a 'contains' method](operator-overloading.md#in-operator).
-     - is used in [when expressions](control-flow.md#when-expression) for the same purpose.
+     - is used in [when expressions](control-flow.md#when-expressions-and-statements) for the same purpose.
      - marks a type parameter as [contravariant](generics.md#declaration-site-variance).
  * `!in`
      - is used as an operator to check that a value does NOT belong to [a range](ranges.md),
        a collection, or another entity that [defines a 'contains' method](operator-overloading.md#in-operator).
-     - is used in [when expressions](control-flow.md#when-expression) for the same purpose.
+     - is used in [when expressions](control-flow.md#when-expressions-and-statements) for the same purpose.
  * `interface` declares an [interface](interfaces.md).
  * `is`
      - checks that [a value has a certain type](typecasts.md#is-and-is-operators).
-     - is used in [when expressions](control-flow.md#when-expression) for the same purpose.
+     - is used in [when expressions](control-flow.md#when-expressions-and-statements) for the same purpose.
  * `!is`
      - checks that [a value does NOT have a certain type](typecasts.md#is-and-is-operators).
-     - is used in [when expressions](control-flow.md#when-expression) for the same purpose.
+     - is used in [when expressions](control-flow.md#when-expressions-and-statements) for the same purpose.
  * `null` is a constant representing an object reference that doesn't point to any object.
  * `object` declares [a class and its instance at the same time](object-declarations.md).
  * `package` specifies the [package for the current file](packages.md).
@@ -51,7 +51,7 @@ The following tokens are always interpreted as keywords and cannot be used as id
  * `typeof` is reserved for future use.
  * `val` declares a read-only [property](properties.md) or [local variable](basic-syntax.md#variables).
  * `var` declares a mutable [property](properties.md) or [local variable](basic-syntax.md#variables).
- * `when` begins a [when expression](control-flow.md#when-expression) (executes one of the given branches).
+ * `when` begins a [when expression](control-flow.md#when-expressions-and-statements) (executes one of the given branches).
  * `while` begins a [while loop](control-flow.md#while-loops) (a loop with a precondition).
 
 ## Soft keywords
@@ -153,7 +153,7 @@ Kotlin supports the following operators and special symbols:
  * `->`
      - separates the parameters and body of a [lambda expression](lambdas.md#lambda-expression-syntax).
      - separates the parameters and return type declaration in a [function type](lambdas.md#function-types).
-     - separates the condition and body of a [when expression](control-flow.md#when-expression) branch.
+     - separates the condition and body of a [when expression](control-flow.md#when-expressions-and-statements) branch.
  * `@`
      - introduces an [annotation](annotations.md#usage).
      - introduces or references a [loop label](returns.md#break-and-continue-labels).

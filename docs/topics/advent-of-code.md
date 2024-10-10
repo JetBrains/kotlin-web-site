@@ -230,7 +230,7 @@ or watch the video:
 
 ### Day 4: Passport processing
 
-Apply the [`when`](control-flow.md#when-expression) expression and explore different ways of how to validate the input:
+Apply the [`when`](control-flow.md#when-expressions-and-statements) expression and explore different ways of how to validate the input:
 utility functions, working with ranges, checking set membership, and matching a particular regular expression.
 
 * Read the puzzle description on [Advent of Code](https://adventofcode.com/2020/day/4)
