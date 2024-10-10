@@ -228,9 +228,9 @@ A Swift/Objective-C initializer is imported to Kotlin as constructors or as fact
 The latter happens with initializers declared in the Objective-C category or as a Swift extension,
 because Kotlin has no concept of extension constructors.
 
-> Remember to annotate Swift methods with `@objc` before importing Swift initializers to Kotlin.
+> Remember to annotate Swift initializers with `@objc` before importing them to Kotlin.
 >
-{type="tip"}
+{style="tip"}
 
 Kotlin constructors are imported as initializers to Swift/Objective-C.
 
@@ -613,14 +613,14 @@ To transfer objects between the two libraries, make an explicit `as` cast in you
 ```kotlin
 // Kotlin code:
 fun test() {
-    consumeProtocol(produceProtocol() as objcnames.protocols.ForwardDeclaredProtocol)
+    consumeProtocol(produceProtocol() as objcnames.protocols.ForwardDeclaredProtocolProtocol)
 }
 ```
 
 > The casting to `objcnames.protocols.ForwardDeclaredProtocolProtocol` is only allowed from the corresponding real class.
 > Otherwise, you'll get an error.
 >
-{type="note"}
+{style="note"}
 
 ## Casting between mapped types
 
