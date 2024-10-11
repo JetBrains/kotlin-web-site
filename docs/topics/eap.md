@@ -57,14 +57,4 @@ check [our instructions on how to configure your build to support this version](
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.0-Beta1">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.1.0-Beta1</a>.</p>
         </td>
     </tr>
-    <tr>
-        <td><strong>2.0.21</strong>
-            <p>Released: <strong>October 10, 2024</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.21" target="_blank">Release on GitHub</a></p>
-        </td>
-        <td>
-            <p>A bug fix release for Kotlin 2.0.20</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.21 ">changelog</a>.</p>
-        </td>
-    </tr>
 </table>
