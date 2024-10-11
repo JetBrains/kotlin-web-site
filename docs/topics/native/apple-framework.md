@@ -13,10 +13,10 @@ Kotlin/Native provides bidirectional interoperability with Objective-C/Swift. Ob
 be used in Kotlin code. Kotlin modules can be used in Swift/Objective-C code too. 
 
 Kotlin/Native comes with a set of pre-imported system frameworks; it's also possible to import an existing framework and
-use it from Kotlin. In this tutorial, you will learn how to create your own framework and use Kotlin/Native code from
+use it from Kotlin. In this tutorial, you'll learn how to create your own framework and use Kotlin/Native code from
 Objective-C and Swift applications on macOS and iOS.
 
-In this tutorial you'll:
+In this tutorial, you'll:
 
 * [Create a Kotlin library](#create-a-kotlin-library) and compile it to a framework.
 * Examine the generated [Objective-C and Swift API](#generated-framework-headers) code.
@@ -32,11 +32,11 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the 
 ## Create a Kotlin library
 
 > See the [Get started with Kotlin/Native using Gradle](native-gradle.md) tutorial for detailed first steps
-> and instructions on how to start a new Kotlin/Native project and open it in IntelliJ IDEA.
+> and instructions on how to create a new Kotlin/Native project and open it in IntelliJ IDEA.
 >
 {style="tip"}
 
-The Kotlin/Native compiler can produce a framework for macOS and iOS form the Kotlin code. The created framework contains
+The Kotlin/Native compiler can produce a framework for macOS and iOS from the Kotlin code. The created framework contains
 all declarations and binaries needed to use it with Objective-C and Swift. Let's create a Kotlin library first and use it
 from an Objective-C program.
 
@@ -132,7 +132,7 @@ from an Objective-C program.
     The `binaries {}` block configures the project to generate a dynamic or shared library.
 
     Along with `macosX64`, Kotlin/Native supports the `macosArm64` target for macOS and the `iosX64`, `iosArm64`, and
-    `iosSimulatorArm64` targets for iOS. You can replace the `macosX64` with respective functions:
+    `iosSimulatorArm64` targets for iOS. You can replace the `macosX64` with the respective functions:
     
     | Target platform/device | Gradle function     |
     |------------------------|---------------------|
@@ -154,7 +154,7 @@ or the `build/bin/native/releaseFramework` folder. Let's see what's inside.
 ## Generated framework headers
 
 You can find the generated framework in the `build/bin` directory. Each framework variant contains a header file.
-The headers do not depend on the target platform. Header files contain definitions for your Kotlin code and a few
+The headers don't depend on the target platform. Header files contain definitions for your Kotlin code and a few
 Kotlin-wide declarations.
 
 ### Kotlin/Native runtime declarations
@@ -317,7 +317,7 @@ You can find more information about type mapping in [Interoperability with Swift
 Objective-C and Swift use reference counting. Kotlin/Native has its own garbage collection too.
 Kotlin/Native garbage collection is integrated with Objective-C/Swift reference counting.
 
-Unused Kotlin objects are automatically removed.You do not need to use anything special to control the lifetime of
+Unused Kotlin objects are automatically removed. You don't need to use anything special to control the lifetime of
 Kotlin/Native instances from Swift or Objective-C.
 
 ## Use code from Objective-C
@@ -417,8 +417,8 @@ The further configuration depends on the target platform.
 For macOS, configure the framework search path of the produced binary. It's also known as `rpath` or [run-time search path](https://en.wikipedia.org/wiki/Rpath).
 The binary uses this path to look for the required frameworks.
 
-Depending on the layout of your application, you may have the **Frameworks** folder under the application bundle with
-all the frameworks you use. We do not recommend installing additional frameworks to the OS if it's unnecessary.
+Depending on your application's layout, you may have the **Frameworks** folder under the application bundle with
+all the frameworks you use. We do not recommend installing additional frameworks to the OS if they're unnecessary.
 
 To configure the `@rpath` parameter in Xcode:
 
@@ -443,6 +443,6 @@ The iOS simulator requires a framework compiled for the `ios_x64` target, the `i
 
 ## What's next
 
-* [Lear more about interoperability with Objective-C](native-objc-interop.md)
+* [Learn more about interoperability with Objective-C](native-objc-interop.md)
 * [See how interoperability with C is implemented in Kotlin](native-c-interop.md)
 * [Check out the Kotlin/Native as a dynamic library tutorial](native-dynamic-libraries.md)
