@@ -803,7 +803,7 @@ The new dependency will be added automatically. No additional steps are required
 >
 {style="warning"}
 
-[Kotlin Multiplatform](multiplatform.md) reduces time spent writing and maintaining the same code for [different platforms](multiplatform-dsl-reference.md#targets) 
+[Kotlin Multiplatform](multiplatform-intro.md) reduces time spent writing and maintaining the same code for [different platforms](multiplatform-dsl-reference.md#targets) 
 while retaining the flexibility and benefits of native programming. We continue investing our effort in multiplatform features
 and improvements:
 

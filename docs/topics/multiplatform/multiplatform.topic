@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+
+<topic
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+    title="Kotlin Multiplatform" id="multiplatform">
+    <section-starting-page>
+        <title>Kotlin Multiplatform</title>
+        <description>
+            Simplify the development of cross-platform projects and reduce the time spent writing and maintaining the same code for different platforms.
+        </description>
+        <spotlight>
+            <a href="multiplatform-intro.md" summary="Explore technical aspects behind the Kotlin Multiplatform technology" type="documents">Kotlin Multiplatform fundamentals</a>
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev" summary="Get hands-on experience of Kotlin Multiplatform with real-life projects" type="presentation">Kotlin Multiplatform in action</a>
+        </spotlight>
+        <primary>
+            <title>Popular use cases</title>
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html" summary="Get to know Kotlin Multiplatform and create a mobile app in Android Studio that works on both Android and iOS">Share logic but keep UI native</a>
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html" summary="Create an application with UI shared among Android, iOS, and desktop using Compose Multiplatform">Share both logic and UI</a>
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html" summary="Create a multiplatform app that has a shared data access layer between Android and iOS">Share a piece of logic</a>
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html" summary="Make your Android application work on iOS">Make your app multiplatform</a>
+        </primary>
+        <secondary>
+            <title>Kotlin Multiplatform technology</title>
+            <a href="multiplatform-discover-project.md" summary="Learn the basics: common and platform-specific code, targets, and source sets">Key concepts of project structure</a>
+            <a href="multiplatform-expect-actual.md" summary="Use expected and actual declarations to access platform-specific APIs">Expected and actual declarations</a>
+            <a href="multiplatform-hierarchy.md" summary="Arrange a hierarchy of source sets for sharing common code">Hierarchical project structure</a>
+            <a href="multiplatform-dsl-reference.md" summary="Configure Gradle build scripts for Kotlin Multiplatform projects">Gradle DSL reference</a>
+        </secondary>
+        <misc>
+            <links narrow="true">
+                <group>
+                    <title>Tutorials &amp; samples</title>
+                    <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html" summary="Set up an environment for KMP development">Set up an environment</a>
+                    <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html" summary="Make your Android application work on iOS">Make your app multiplatform</a>
+                    <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-run-tests.html" summary="Learn how to create and test Kotlin Multiplatform applications">Test your multiplatform app</a>
+                    <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-samples.html" summary="Kotlin Multiplatform samples">See curated list of projects</a>
+                    <a href="https://github.com/topics/kotlin-multiplatform-sample" summary="GitHub &quot;kotlin-multiplatform&quot; topic">Find more projects on GitHub</a>
+                </group>
+                <group>
+                    <title>Tools</title>
+                    <a href="https://kmp.jetbrains.com/" summary="Quickly create and download a multiplatform project template">New project wizard</a>
+                    <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform" summary="Android Studio plugin for developing applications both on Android and iOS">Android Studio plugin</a>
+                    <a href="https://www.jetbrains.com/lp/compose-multiplatform/" summary="Kotlin-based declarative UI framework developed by JetBrains">Compose Multiplatform UI framework</a>
+                    <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html" summary="Use Fleet for multiplatform development">Fleet code editor</a>
+                    <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/amper.html" summary="Project configuration with Amper">Amper configuration tool</a>
+                </group>
+                <group>
+                    <title>Community &amp; help</title>
+                    <a href="https://kotlinlang.slack.com/archives/C3PQML5NU" summary="Kotlin Slack">Join our Slack channel</a>
+                    <a href="https://stackoverflow.com/questions/tagged/kotlin-multiplatform" summary="Subscribe to the kotlin-multiplatform tag">Subscribe to our tag on StackOverflow</a>
+                    <a href="https://youtrack.jetbrains.com/newIssue?project=KT" summary="Kotlin issue tracker">Report an issue in YouTrack</a>
+                </group>
+            </links>
+        </misc>
+    </section-starting-page>
+</topic>

@@ -90,14 +90,14 @@ The following tokens act as keywords in modifier lists of declarations, and they
 in other contexts:
 
  * `abstract` marks a class or member as [abstract](classes.md#abstract-classes).
- * `actual` denotes a platform-specific implementation in [multiplatform projects](multiplatform.md).
+ * `actual` denotes a platform-specific implementation in [multiplatform projects](multiplatform-expect-actual.md).
  * `annotation` declares an [annotation class](annotations.md).
  * `companion` declares a [companion object](object-declarations.md#companion-objects).
  * `const` marks a property as a [compile-time constant](properties.md#compile-time-constants).
  * `crossinline` forbids [non-local returns in a lambda passed to an inline function](inline-functions.md#non-local-returns).
  * `data` instructs the compiler to [generate canonical members for a class](data-classes.md).
  * `enum` declares an [enumeration](enum-classes.md).
- * `expect` marks a declaration as [platform-specific](multiplatform.md), expecting an implementation in platform modules.
+ * `expect` marks a declaration as [platform-specific](multiplatform-expect-actual.md), expecting an implementation in platform modules.
  * `external` marks a declaration as implemented outside of Kotlin (accessible through [JNI](java-interop.md#using-jni-with-kotlin) or in [JavaScript](js-interop.md#external-modifier)).
  * `final` forbids [overriding a member](inheritance.md#overriding-methods).
  * `infix` allows calling a function using [infix notation](functions.md#infix-notation).

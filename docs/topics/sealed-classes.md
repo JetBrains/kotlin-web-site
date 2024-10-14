@@ -153,7 +153,7 @@ open class CustomError(): Error
 
 ### Inheritance in multiplatform projects
 
-There is one more inheritance restriction in [multiplatform projects](multiplatform-get-started.md): direct subclasses of sealed classes must
+There is one more inheritance restriction in [multiplatform projects](multiplatform-intro.md): direct subclasses of sealed classes must
 reside in the same [source set](multiplatform-discover-project.md#source-sets). It applies to sealed classes without the [expected and actual modifiers](multiplatform-expect-actual.md).
 
 If a sealed class is declared as `expect` in a common source set and have `actual` implementations in platform source sets,
