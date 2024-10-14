@@ -9,8 +9,8 @@
 >
 {style="warning"}
 
-Kotlin/Native provides bidirectional interoperability with Objective-C/Swift. Objective-C frameworks and libraries can
-be used in Kotlin code. Kotlin modules can be used in Swift/Objective-C code too. 
+Kotlin/Native provides bidirectional interoperability with Objective-C/Swift. You can both use Objective-C frameworks
+and libraries in Kotlin code, and Kotlin modules in Swift/Objective-C code. 
 
 Kotlin/Native comes with a set of pre-imported system frameworks; it's also possible to import an existing framework and
 use it from Kotlin. In this tutorial, you'll learn how to create your own framework and use Kotlin/Native code from
@@ -37,8 +37,9 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the 
 {style="tip"}
 
 The Kotlin/Native compiler can produce a framework for macOS and iOS from the Kotlin code. The created framework contains
-all declarations and binaries needed to use it with Objective-C and Swift. Let's create a Kotlin library first and use it
-from an Objective-C program.
+all declarations and binaries needed to use it with Objective-C and Swift.
+
+Let's first create a Kotlin library:
 
 1. In the `src/nativeMain/kotlin` directory, create the `hello.kt` file with the library contents:
 
@@ -134,15 +135,15 @@ from an Objective-C program.
     Along with `macosX64`, Kotlin/Native supports the `macosArm64` target for macOS and the `iosX64`, `iosArm64`, and
     `iosSimulatorArm64` targets for iOS. You can replace the `macosX64` with the respective functions:
     
-    | Target platform/device | Gradle function     |
-    |------------------------|---------------------|
-    | macOS x86_64           | `macosX64()`        | 
-    | macOS ARM 64           | `macosArm64()`      |
-    | iOS ARM 64             | `iosArm64()`        | 
-    | iOS x86_64             | `iosX64()`          |
-    | iOS Simulator (arm64)  | `iosSimulatorArm64` |
+    | Target platform/device | Gradle function       |
+    |------------------------|-----------------------|
+    | macOS x86_64           | `macosX64()`          | 
+    | macOS ARM 64           | `macosArm64()`        |
+    | iOS ARM 64             | `iosArm64()`          | 
+    | iOS x86_64             | `iosX64()`            |
+    | iOS Simulator (arm64)  | `iosSimulatorArm64()` |
 
-3. Run the `linkNative` Gradle task to build the library in the IDE or by calling the following console command:
+3. Run the `linkNative` Gradle task to build the library in the IDE or use the following call in the command line:
 
    ```bash
    ./gradlew linkNative
@@ -212,8 +213,8 @@ types from the other side:
 
 ### Kotlin numbers and NSNumber
 
-The next part of the `Demo.h` file contains number type mappings between Kotlin/Native and `NSNumber`. There is the base
-class called `DemoNumber` in Objective-C and `KotlinNumber` in Swift. It extends `NSNumber`.
+The next part of the `Demo.h` file contains number type mappings between Kotlin/Native and `NSNumber`. The base
+class is called `DemoNumber` in Objective-C and `KotlinNumber` in Swift. It extends `NSNumber`.
 
 There are also child classes per Kotlin number type:
 
@@ -251,7 +252,7 @@ In Swift, you can call the constructor to create an instance, for example, `Kotl
 
 ### Classes and objects from Kotlin
 
-Let's see how `class` and `object` are mapped to Objective-C and Swift. The generated `Demo.h` file contains the exact
+Let's see how `class` and `object` are mapped to Objective-C/Swift. The generated `Demo.h` file contains the exact
 definitions for `Class`, `Interface`, and `Object`:
 
 ```objc
@@ -314,8 +315,8 @@ You can find more information about type mapping in [Interoperability with Swift
 
 ## Garbage collection and reference counting
 
-Objective-C and Swift use reference counting. Kotlin/Native has its own garbage collection too.
-Kotlin/Native garbage collection is integrated with Objective-C/Swift reference counting.
+Objective-C and Swift use reference counting. Kotlin/Native has its own [garbage collector](native-memory-manager.md#garbage-collector)
+too. Kotlin/Native garbage collection is integrated with Objective-C/Swift reference counting.
 
 Unused Kotlin objects are automatically removed. You don't need to use anything special to control the lifetime of
 Kotlin/Native instances from Swift or Objective-C.
@@ -400,7 +401,7 @@ You can find more information about type mapping in [Interoperability with Swift
 
 ## Xcode and framework dependencies
 
-To use the framework, configure your Xcode project.  First, include the compiled framework in the Xcode project:
+To use the framework, configure your Xcode project. First, include the compiled framework in the project:
 
 1. In Xcode, open the project settings by double-clicking the project name.
 2. Select the target, then open the **General** tab.
