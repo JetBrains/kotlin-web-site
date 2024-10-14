@@ -10,7 +10,7 @@ same code for [different platforms](multiplatform-dsl-reference.md#targets) whil
 Kotlin Multiplatform allows you to share code across different platforms, whether it's mobile, web, or desktop.
 The platforms to which the code is compiled are defined by the list of _targets_.
 
-Each target has a corresponding *source set*, which represents a set of source files with its own dependencies and
+Each target has a corresponding *source set* which represents a set of source files with its own dependencies and
 compiler options. Platform-specific source sets, for example `jvmMain` for the JVM, can make use of platform-specific
 libraries and APIs.
 
@@ -50,10 +50,10 @@ For more details on this topic, see:
 
 A Kotlin Multiplatform project can depend on external libraries and other multiplatform projects. For common code,
 you can add dependencies on multiplatform libraries in the common source set. Kotlin automatically resolves and adds the
-appropriate platform-specific parts to other source sets. If only platform-specific API is required, add the dependency
+appropriate platform-specific parts to other source sets. If only a platform-specific API is required, add the dependency
 to the corresponding source sets.
 
-Adding Android-specific dependencies to a Kotlin Multiplatform project is easy and similar to adding them in a pure Android
+Adding Android-specific dependencies to a Kotlin Multiplatform project is similar to adding them in a pure Android
 project. When working with iOS-specific dependencies, you can seamlessly integrate Apple SDK frameworks without extra
 configuration. For external libraries and frameworks, Kotlin offers interoperability with Objective-C and Swift.
 

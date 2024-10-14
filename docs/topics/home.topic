@@ -21,7 +21,7 @@
         </primary>
         <secondary>
             <title>Kotlin Multiplatform</title>
-            <a href="multiplatform.topic" summary="Explore the world of Kotlin Multiplatform to share code between your applications">Kotlin Multiplatform overview</a>
+            <a href="multiplatform.topic" summary="Explore the Kotlin Multiplatform technology to share code between your applications">Kotlin Multiplatform overview</a>
             <a href="https://kmp.jetbrains.com/" summary="Quickly create and download a multiplatform project template">Kotlin Multiplatform Wizard</a>
             <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html" summary="Create a mobile app that works on both Android and iOS">Get started with Kotlin Multiplatform</a>
             <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html" summary="Use Compose Multiplatform to implement one user interface across mobile, desktop, and web">Get started with Compose Multiplatform</a>
