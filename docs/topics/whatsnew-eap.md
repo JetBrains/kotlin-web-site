@@ -67,18 +67,109 @@ the Kotlin team at JetBrains is focusing on improving the language with new feat
 In this release, we are excited to announce several new language design features.
 
 These features are available in preview, and we encourage you to try them and share your feedback:
-* Guard conditions in `when` with a subject. [Read the YouTrack issue for details](https://youtrack.jetbrains.com/issue/KT-13626)
-* Non-local `break` and `continue`. [Read the YouTrack issue for details](https://youtrack.jetbrains.com/issue/KT-1436)
+* Guard conditions in `when` with a subject. [Read the KEEP document for details](https://github.com/Kotlin/KEEP/blob/master/proposals/guards.md)
+* Non-local `break` and `continue`. [Read the KEEP document for details](https://github.com/Kotlin/KEEP/blob/master/proposals/break-continue-in-inline-lambdas.md)
 * Multidollar interpolation: improved handling of `$` in string literals. 
-  [Read the YouTrack issue for details](https://youtrack.jetbrains.com/issue/KT-2425)
+  [Read the KEEP document for details](https://github.com/Kotlin/KEEP/blob/master/proposals/dollar-escape.md)
 
-> All the features have the IDE support in the latest EAP version of IntelliJ IDEA with the K2 mode enabled.
+> All the features have IDE support in the latest EAP version of IntelliJ IDEA with the K2 mode enabled.
 > 
 > Learn more in the [IntelliJ IDEA 2024.3 EAP blog post](https://blog.jetbrains.com/idea/2024/09/intellij-idea-2024-3-eap/#k2-mode-enabled-by-default).
 > 
 {style="tip"}
 
 [See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
+
+## New Gradle DSL for compiler options in multiplatform projects is stable
+
+In Kotlin 2.0.0, [we introduced a new Experimental Gradle DSL](whatsnew20.md#new-gradle-dsl-for-compiler-options-in-multiplatform-projects) 
+to simplify the configuration of compiler options across your multiplatform projects. 
+In Kotlin %kotlinEapVersion%, this DSL has been promoted to Stable.
+
+With this new DSL, you can configure compiler options at the extension level for all targets and shared source sets 
+like `commonMain`, and at the target level for specific targets:
+
+```kotlin
+kotlin {
+    compilerOptions {
+        // Extension-level common compiler options that are used as defaults
+        // for all targets and shared source sets
+        allWarningsAsErrors.set(true)
+    }
+    jvm {
+        compilerOptions {
+            // Target-level JVM compiler options that are used as defaults
+            // for all compilations in this target
+            noJdk.set(true)
+        }
+    }
+}
+```
+
+The overall project configuration now has three layers.
+The highest is the extension level, then the target level,
+and the lowest is the compilation unit (which is usually a compilation task):
+
+![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
+
+The settings at a higher level are used as a convention (default) for a lower level:
+
+* The values of extension compiler options are the default for target compiler options, including shared source sets,
+  like `commonMain`, `nativeMain`, and `commonTest`.
+* The values of target compiler options are used as the default for compilation unit (task) compiler options, for
+  example, `compileKotlinJvm` and `compileTestKotlinJvm` tasks.
+
+In turn, configurations made at a lower level override related settings at a higher level:
+
+* Task-level compiler options override related configurations at the target or the extension level.
+* Target-level compiler options override related configurations at the extension level.
+
+When configuring your project, keep in mind that some old ways
+of setting up compiler options have been [deprecated](whatsnew20.md#deprecated-old-ways-of-defining-compiler-options).
+
+## Improved overload resolution for functions with generic types
+
+Previously, if you had a number of overloads for a function where some have value parameters of generic type
+and others had function types at the same position, the resolution behavior was inconsistent in some cases.
+
+This led to different behavior depending on whether your overloads were member functions or extension functions.
+For example:
+
+```kotlin
+class KeyValueStore<K, V> {
+    fun store(key: K, value: V) {} // 1
+    fun store(key: K, lazyValue: () -> V) {} // 2
+}
+
+fun <K, V> KeyValueStore<K, V>.storeExtension(key: K, value: V) {} // 1 
+fun <K, V> KeyValueStore<K, V>.storeExtension(key: K, lazyValue: () -> V) {} // 2
+
+fun test(kvs: KeyValueStore<String, Int>) {
+    // Member functions
+    kvs.store("", 1)    // Resolves to 1
+    kvs.store("") { 1 } // Resolves to 2
+
+    // Extension functions
+    kvs.storeExtension("", 1)    // Resolves to 1
+    kvs.storeExtension("") { 1 } // Doesn’t resolve
+}
+```
+
+In the example, the `KeyValueStore` class has two overloads for the `store()` function,
+where one overload has function parameters with generic types `K`, `V`,
+and another has a lambda function that returns a generic type `V`.
+Similarly, there are two overloads for the extension function: `storeExtension()`.
+
+When you called the `store()` function with and without a lambda function,
+the compiler successfully resolved the correct overloads.
+However, when you called the extension function `storeExtension()` with a lambda function,
+the compiler didn’t resolve the correct overload because it incorrectly considered both overloads as applicable.
+
+To fix this problem, we’ve introduced a new heuristic
+so that the compiler can discard a possible overload
+when a function parameter with generic type can’t accept a lambda function based on information from a different argument.
+This change makes the behavior of member functions and extension functions consistent,
+and is enabled by default in Kotlin %kotlinEapVersion%.
 
 ## Improved K2 kapt implementation
 
@@ -122,6 +213,172 @@ In certain cases, the new version offers compiler optimizations and faster compi
 It includes LLVM bug fixes and security updates as well.  
 This update shouldn’t affect your code, but if you run into any issues, 
 please create [an issue in our tracker](https://kotl.in/issue).
+
+## Kotlin/Wasm
+
+### Support for incremental compilation
+
+Previously, when you changed something to your Kotlin code, 
+the Kotlin/Wasm toolchain had to recompile the entire codebase.
+
+Starting from %kotlinEapVersion%, incremental compilation is supported for the Wasm targets.
+In development tasks, the compiler now recompiles only files relevant to changes from the last compilation,
+which noticeably reduces the compilation time.
+
+This change speeds up the development process to up to twice as fast for now,
+with plans to improve the speed in future releases.
+
+In the current setup, incremental compilation for the Wasm targets is disabled by default.
+To enable incremental compilation, add the following line to your project’s `local.properties` or `gradle.properties` file:
+
+```text
+kotlin.incremental.wasm=true
+```
+
+Try out the Kotlin/Wasm incremental compilation 
+and [share your feedback](https://youtrack.jetbrains.com/issue/KT-72158/Kotlin-Wasm-incremental-compilation-feedback)!
+Your insights will help make this feature stable and default sooner.
+
+### Browser APIs moved to the kotlinx-browser stand-alone library
+
+Before, the declarations for Web APIs and related target utilities were part of the Kotlin/Wasm standard library.
+
+In this release, the `org.w3c.*`
+declarations have been moved from the Kotlin/Wasm standard library to the new [kotlinx-browser library](https://github.com/kotlin/kotlinx-browser).
+This library also includes other web-related packages, such as `org.khronos.webgl`, `kotlin.dom`, and `kotlin.browser`.
+
+This separation provides modularity, 
+enabling independent updates for web-related APIs outside of Kotlin’s release cycle. 
+Additionally, the Kotlin/Wasm standard library now contains only declarations available in any JavaScript environments.
+
+To use the declarations from the moved packages, you need to add the `kotlinx-browser` 
+dependency in your project's build configuration file:
+
+```kotlin
+val wasmJsMain by getting {
+    dependencies {
+        implementation("org.jetbrains.kotlinx:kotlinx-browser:0.2")
+    }
+}
+```
+
+### Improved debugging experience for Kotlin/Wasm
+
+Previously, when debugging Kotlin/Wasm code in web browsers, you might encounter
+a low-level representation of variable values in the debugging interface. 
+This often made it challenging to track the current state of the application.
+
+![Kotlin/Wasm old debugger](wasm-old-debugger.png){width=700}
+
+To improve this experience, custom formatters have been added in the variable view.
+The implementation uses the [custom formatters API](https://firefox-source-docs.mozilla.org/devtools-user/custom_formatters/index.html),
+which is supported across major browsers like Firefox and Chromium-based.
+
+With this change, you can now display and locate variable values in a more user-friendly and comprehensible manner.
+
+![Kotlin/Wasm improved debugger](wasm-debugger-improved.png){width=700}
+
+To try the new debugging experience:
+
+1. Add the following compiler argument to the `wasmJs` compiler options:
+
+   ```kotlin
+   kotlin {
+      wasmJs {
+          …
+          compilerOptions {
+              freeCompilerArgs.add("-Xwasm-debugger-custom-formatters")
+          }
+      }
+   }
+   ```
+
+2. Enable the **Custom formatters** feature in your browser.
+
+   In the Chrome DevTools, it’s placed in **Settings | Preferences | Console**:
+
+   ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=700}
+
+   In the Firefox Developer Tools, it’s placed in **Settings | Advanced settings**:
+
+   ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=700}
+
+### Deprecation of default exports
+
+As part of the migration towards named exports, 
+an error was previously printed to the console when using a default import for Kotlin/Wasm exports in JavaScript.
+
+In %kotlinEapVersion%, default imports are completely removed in order to fully support named exports.
+
+When coding in JavaScript for the Kotlin/Wasm target,
+you now need to use the corresponding named imports instead of default imports.
+
+This change marks the last phase of a deprecation cycle to migrate towards named exports:
+
+**In version 2.0.0:** A warning message was printed to the console, 
+explaining that exporting entities via default exports is deprecated.
+
+**In version 2.0.20:** An error occurred, requesting the use of the corresponding named import.
+
+**In version 2.1.0:** The use of default imports is completely removed.
+
+## Support for non-identifier characters in Kotlin/JS properties
+
+Kotlin/JS previously did not allow
+using [names for test methods](https://kotlinlang.org/docs/coding-conventions.html#names-for-test-methods) with spaces
+enclosed in backticks.
+
+Similarly, it was not possible to access JavaScript object properties
+that contained characters not permitted in Kotlin identifiers, such as hyphens or spaces:
+
+```kotlin
+external interface Headers {
+    var accept: String?
+
+    // Invalid Kotlin identifier due to hyphen
+    var `content-length`: String?
+}
+
+val headers: Headers = TODO("value provided by a JS library")
+val accept = headers.accept
+// Causes error due to the hyphen in property name
+val length = headers.`content-length`
+```
+
+This behavior differed from JavaScript and TypeScript,
+which allow such properties to be accessed using non-identifier characters.
+
+Starting from Kotlin %kotlinEapVersion%, this feature is enabled by default.
+Kotlin/JS now allows you to use the backquote syntax and the `@JsName` annotation
+to interact with JavaScript properties that contain non-identifier characters and to use names for test methods.
+
+Now, you can enclose property names in backticks (``) to reference non-identifier characters. Additionally,
+you can use the `@JsName`and `@JsQualifier` annotations to map Kotlin property names to JavaScript equivalents:
+
+```kotlin
+object Bar {
+    val `property example`: String = "bar"
+}
+
+@JsQualifier("fooNamespace")
+external object Foo {
+    val `property example`: String
+}
+
+@JsExport
+object Baz {
+    val `property example`: String = "bar"
+}
+
+fun main() {
+    // In JS, this is compiled into Bar.property_example_HASH
+    println(Bar.`property example`)
+    // In JS, this is compiled into fooNamespace["property example"]
+    println(Foo.`property example`)
+    // In JS, this is compiled into Baz["property example"]
+    println(Baz.`property example`)
+}
+```
 
 ## Gradle improvements
 
