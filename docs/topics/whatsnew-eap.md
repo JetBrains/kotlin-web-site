@@ -382,8 +382,14 @@ fun main() {
 
 ## Gradle improvements
 
-Kotlin %kotlinEapVersion% is fully compatible with Gradle 7.6.3 through Gradle 8.9. 
-For more details, see [Gradle 8.9 release notes](https://docs.gradle.org/8.9/release-notes.html).
+Kotlin %kotlinEapVersion% is fully compatible with Gradle 7.6.3 through 8.6. 
+Gradle versions 8.7 to 8.10 are also supported, with only one exception: 
+If you use the Kotlin Multiplatform Gradle plugin, 
+you may see deprecation warnings in your multiplatform projects calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets).
+We plan to fix this issue as soon as possible.
+
+For more information, 
+see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
 
 You can also use Gradle versions up to the latest Gradle release, 
 but if you do, keep in mind that you may encounter deprecation warnings or some new Gradle features might not work.
@@ -395,6 +401,47 @@ Starting with Kotlin %kotlinEapVersion%, the minimum supported Android Gradle pl
 ### Bumped the minimum supported Gradle version to 7.6.3
 
 Starting with Kotlin %kotlinEapVersion%, the minimum supported Gradle version is 7.6.3.
+
+### Extra compiler checks
+
+With Kotlin %kotlinEapVersion%, you can now enable additional checks in the K2 compiler.
+These are extra declaration, expression, and type checks that are usually not crucial for compilation,
+but can still be useful if you want to validate the following cases:
+
+| Check type                                            | Comment                                                                                  |
+|-------------------------------------------------------|------------------------------------------------------------------------------------------|
+| `REDUNDANT_NULLABLE`                                  | `Boolean??` is used instead of `Boolean?`                                                |
+| `PLATFORM_CLASS_MAPPED_TO_KOTLIN`                     | `java.lang.String` is used instead of `kotlin.String`                                    |
+| `ARRAY_EQUALITY_OPERATOR_CAN_BE_REPLACED_WITH_EQUALS` | `arrayOf("") == arrayOf("")` is used instead of `arrayOf("").contentEquals(arrayOf(""))` |
+| `REDUNDANT_CALL_OF_CONVERSION_METHOD`                 | `42.toInt()` is used instead of `42`                                                     |
+| `USELESS_CALL_ON_NOT_NULL`                            | ` "".orEmpty()` is used instead of `""`                                                  |
+| `REDUNDANT_SINGLE_EXPRESSION_STRING_TEMPLATE`         | `"$string"` is used instead of `string`                                                  |
+| `UNUSED_ANONYMOUS_PARAMETER`                          | A parameter is passed in the lambda expression but never used                            |
+| `REDUNDANT_VISIBILITY_MODIFIER`                       | `public class Klass` is used instead of `class Klass`                                    |
+| `REDUNDANT_MODALITY_MODIFIER`                         | `final class Klass` is used instead of class Klass                                       |
+| `REDUNDANT_SETTER_PARAMETER_TYPE`                     | `set(value: Int)` is used instead of `set(value)`                                        |
+| `CAN_BE_VAL`                                          | `var local = 0` is defined, but never reassigned, can be `val local = 42` instead        |
+| `ASSIGNED_VALUE_IS_NEVER_READ`                        | `val local = 42` is defined, but never used afterward in the code                        |
+| `UNUSED_VARIABLE`                                     | `val local = 0` is defined, but never used in the code                                   |
+| `REDUNDANT_RETURN_UNIT_TYPE`                          | `fun foo(): Unit {}` is used instead of `fun foo() {}`                                   |
+| `UNREACHABLE_CODE`                                    | Code statement is present, but can never been executed                                   |
+
+If the check is true, you'll receive a compiler warning with a suggestion on how to fix the problem.
+
+Extra checks are disabled by default.
+To enable them, use the `-Wextra` compiler option in the command line or specify `extraWarnings`
+in the `compilerOptions {}` block of your Gradle build file:
+
+```kotlin
+kotlin {
+    compilerOptions {
+        extraWarnings.set(true)
+    }
+}
+```
+
+For more information on how to define and use options,
+see [Compiler options in the Kotlin Gradle plugin](gradle-compiler-options.md).
 
 ## Compose compiler updates
 
