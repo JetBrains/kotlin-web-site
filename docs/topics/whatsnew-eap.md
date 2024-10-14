@@ -87,7 +87,7 @@ to simplify the configuration of compiler options across your multiplatform proj
 In Kotlin %kotlinEapVersion%, this DSL has been promoted to Stable.
 
 With this new DSL, you can configure compiler options at the extension level for all targets and shared source sets 
-like `commonMain`, and at the target level for specific targets:
+like `commonMain`, as well as at the target level for specific targets:
 
 ```kotlin
 kotlin {
@@ -225,8 +225,7 @@ Starting from %kotlinEapVersion%, incremental compilation is supported for the W
 In development tasks, the compiler now recompiles only files relevant to changes from the last compilation,
 which noticeably reduces the compilation time.
 
-This change speeds up the development process to up to twice as fast for now,
-with plans to improve the speed in future releases.
+This change doubles the development speed for now, with plans to improve it further in future releases.
 
 In the current setup, incremental compilation for the Wasm targets is disabled by default.
 To enable incremental compilation, add the following line to your project's `local.properties` or `gradle.properties` file:
@@ -284,12 +283,12 @@ To try the new debugging experience:
 
    ```kotlin
    kotlin {
-      wasmJs {
-          …
-          compilerOptions {
-              freeCompilerArgs.add("-Xwasm-debugger-custom-formatters")
-          }
-      }
+       wasmJs {
+           …
+           compilerOptions {
+               freeCompilerArgs.add("-Xwasm-debugger-custom-formatters")
+           }
+       }
    }
    ```
 
@@ -353,7 +352,7 @@ Kotlin/JS now allows you to use the backquote syntax and the `@JsName` annotatio
 to interact with JavaScript properties that contain non-identifier characters and to use names for test methods.
 
 Now, you can enclose property names in backticks (``) to reference non-identifier characters. Additionally,
-you can use the `@JsName`and `@JsQualifier` annotations to map Kotlin property names to JavaScript equivalents:
+you can use the `@JsName` and `@JsQualifier` annotations to map Kotlin property names to JavaScript equivalents:
 
 ```kotlin
 object Bar {
@@ -418,7 +417,7 @@ but can still be useful if you want to validate the following cases:
 | `REDUNDANT_SINGLE_EXPRESSION_STRING_TEMPLATE`         | `"$string"` is used instead of `string`                                                  |
 | `UNUSED_ANONYMOUS_PARAMETER`                          | A parameter is passed in the lambda expression but never used                            |
 | `REDUNDANT_VISIBILITY_MODIFIER`                       | `public class Klass` is used instead of `class Klass`                                    |
-| `REDUNDANT_MODALITY_MODIFIER`                         | `final class Klass` is used instead of class Klass                                       |
+| `REDUNDANT_MODALITY_MODIFIER`                         | `final class Klass` is used instead of `class Klass`                                     |
 | `REDUNDANT_SETTER_PARAMETER_TYPE`                     | `set(value: Int)` is used instead of `set(value)`                                        |
 | `CAN_BE_VAL`                                          | `var local = 0` is defined, but never reassigned, can be `val local = 42` instead        |
 | `ASSIGNED_VALUE_IS_NEVER_READ`                        | `val local = 42` is defined, but never used afterward in the code                        |
