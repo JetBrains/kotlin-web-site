@@ -151,7 +151,7 @@ fun test(kvs: KeyValueStore<String, Int>) {
 
     // Extension functions
     kvs.storeExtension("", 1)    // Resolves to 1
-    kvs.storeExtension("") { 1 } // Doesn’t resolve
+    kvs.storeExtension("") { 1 } // Doesn't resolve
 }
 ```
 
@@ -163,11 +163,11 @@ Similarly, there are two overloads for the extension function: `storeExtension()
 When you called the `store()` function with and without a lambda function,
 the compiler successfully resolved the correct overloads.
 However, when you called the extension function `storeExtension()` with a lambda function,
-the compiler didn’t resolve the correct overload because it incorrectly considered both overloads as applicable.
+the compiler didn't resolve the correct overload because it incorrectly considered both overloads as applicable.
 
-To fix this problem, we’ve introduced a new heuristic
+To fix this problem, we've introduced a new heuristic
 so that the compiler can discard a possible overload
-when a function parameter with generic type can’t accept a lambda function based on information from a different argument.
+when a function parameter with generic type can't accept a lambda function based on information from a different argument.
 This change makes the behavior of member functions and extension functions consistent,
 and is enabled by default in Kotlin %kotlinEapVersion%.
 
@@ -211,7 +211,7 @@ before the new implementation is stabilized.
 In Kotlin %kotlinEapVersion%, we updated LLVM from version 11.1.0 to 16.0.0. 
 In certain cases, the new version offers compiler optimizations and faster compilation. 
 It includes LLVM bug fixes and security updates as well.  
-This update shouldn’t affect your code, but if you run into any issues, 
+This update shouldn't affect your code, but if you run into any issues, 
 please create [an issue in our tracker](https://kotl.in/issue).
 
 ## Kotlin/Wasm
@@ -229,7 +229,7 @@ This change speeds up the development process to up to twice as fast for now,
 with plans to improve the speed in future releases.
 
 In the current setup, incremental compilation for the Wasm targets is disabled by default.
-To enable incremental compilation, add the following line to your project’s `local.properties` or `gradle.properties` file:
+To enable incremental compilation, add the following line to your project's `local.properties` or `gradle.properties` file:
 
 ```text
 kotlin.incremental.wasm=true
@@ -248,7 +248,7 @@ declarations have been moved from the Kotlin/Wasm standard library to the new [k
 This library also includes other web-related packages, such as `org.khronos.webgl`, `kotlin.dom`, and `kotlin.browser`.
 
 This separation provides modularity, 
-enabling independent updates for web-related APIs outside of Kotlin’s release cycle. 
+enabling independent updates for web-related APIs outside of Kotlin's release cycle. 
 Additionally, the Kotlin/Wasm standard library now contains only declarations available in any JavaScript environments.
 
 To use the declarations from the moved packages, you need to add the `kotlinx-browser` 
@@ -295,11 +295,11 @@ To try the new debugging experience:
 
 2. Enable the **Custom formatters** feature in your browser.
 
-   In the Chrome DevTools, it’s placed in **Settings | Preferences | Console**:
+   In the Chrome DevTools, it's placed in **Settings | Preferences | Console**:
 
    ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=700}
 
-   In the Firefox Developer Tools, it’s placed in **Settings | Advanced settings**:
+   In the Firefox Developer Tools, it's placed in **Settings | Advanced settings**:
 
    ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=700}
 
