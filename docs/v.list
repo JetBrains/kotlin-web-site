@@ -24,6 +24,8 @@
 
     <var name="dateTimeVersion" value="0.6.1" type="string"/>
 
+    <var name="lincheckVersion" value="2.34" type="string"/>
+
     <var name="ktorVersion" value="3.0.0" type="string"/>
 
     <var name="sqlDelightVersion" value="2.0.2" type="string"/>
@@ -52,8 +54,6 @@
     <var name="webpackPreviousMajorVersion" value="4" type="string"/>
 
     <var name="foojayResolver" value="0.5.0" type="string"/>
-
-    <var name="lincheckVersion" value="2.34" type="string"/>
     <var name="jctoolsVersion" value="3.3.0" type="string"/>
 
     <var name="dokkaVersion"
