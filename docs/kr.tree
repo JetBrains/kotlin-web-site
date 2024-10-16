@@ -213,9 +213,7 @@
 		</toc-element>
 		<toc-element toc-title="Kotlin/Native">
 			<toc-element toc-title="Overview" topic="native-overview.md"/>
-			<toc-element accepts-web-file-names="basic-kotlin-native-app.html,kotlin-native-with-clion.html,targeting-multiple-platforms.html" topic="native-get-started.md"/>
-			<toc-element topic="native-gradle.md"/>
-			<toc-element topic="native-command-line-compiler.md"/>
+			<toc-element accepts-web-file-names="basic-kotlin-native-app.html,kotlin-native-with-clion.html,targeting-multiple-platforms.html,native-gradle.html,native-command-line-compiler.html" topic="native-get-started.md"/>
 			<toc-element topic="native-libraries.md"/>
 			<toc-element topic="native-platform-libs.md"/>
 			<toc-element toc-title="Memory manager">
@@ -239,6 +237,7 @@
 			</toc-element>
 			<toc-element accepts-web-file-names="quick-run.html" topic="run-code-snippets.md"/>
 			<toc-element toc-title="KDoc" topic="kotlin-doc.md"/>
+			<toc-element toc-title="OSGi" topic="kotlin-osgi.md"/>
 			<toc-element hidden="true" toc-title="Migrate to Kotlin code style with IntelliJ IDEA" topic="code-style-migration-guide.md"/>
 		</toc-element>
 	</toc-element>
@@ -278,8 +277,8 @@
 				<toc-element topic="mapping-struct-union-types-from-c.md"/>
 				<toc-element topic="mapping-function-pointers-from-c.md"/>
 				<toc-element topic="mapping-strings-from-c.md"/>
-				<toc-element accepts-web-file-names="curl.html" topic="native-app-with-c-and-libcurl.md"/>
 				<toc-element toc-title="Create a dynamic library" topic="native-dynamic-libraries.md"/>
+				<toc-element accepts-web-file-names="curl.html" topic="native-app-with-c-and-libcurl.md"/>
 			</toc-element>
 		</toc-element>
 	</toc-element>
@@ -318,6 +317,7 @@
 			<include from="kl.tree" origin="lincheck" element-id="lincheck"/>
 		</toc-element>
 		<toc-element toc-title="Ktor" href="https://ktor.io/"/>
+		<toc-element toc-title="Lets-Plot for Kotlin" topic="lets-plot.md"/>
 	</toc-element>
 	<toc-element toc-title="API reference">
 		<toc-element toc-title="Standard library (stdlib)" href="https://kotlinlang.org/api/latest/jvm/stdlib/"/>
@@ -334,21 +334,14 @@
 		<toc-element toc-title="Grammar" href="https://kotlinlang.org/docs/reference/grammar.html"/>
 		<toc-element href="https://kotlinlang.org/spec/" toc-title="Language specification"/>
 	</toc-element>
-	<toc-element toc-title="Tools">
-		<toc-element toc-title="Build tools">
-			<toc-element toc-title="Gradle">
-				<toc-element accepts-web-file-names="using-gradle.html" toc-title="Overview" topic="gradle.md"/>
-				<toc-element toc-title="Get started with Gradle – tutorial" topic="get-started-with-jvm-gradle-project.md"/>
-				<toc-element topic="gradle-configure-project.md"/>
-				<toc-element toc-title="Compiler options in KGP" topic="gradle-compiler-options.md"/>
-				<toc-element toc-title="Compilation and caches in KGP" topic="gradle-compilation-and-caches.md"/>
-				<toc-element topic="gradle-plugin-variants.md"/>
-			</toc-element>
-			<toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
-			<toc-element accepts-web-file-names="using-ant.html" topic="ant.md"/>
-		</toc-element>
-		<toc-element toc-title="Lets-Plot for Kotlin" topic="lets-plot.md"/>
-		<toc-element toc-title="OSGi" topic="kotlin-osgi.md"/>
+	<toc-element toc-title="Build tools">
+		<toc-element accepts-web-file-names="using-gradle.html" toc-title="Gradle overview" topic="gradle.md"/>
+		<toc-element toc-title="Get started with Gradle – tutorial" topic="get-started-with-jvm-gradle-project.md"/>
+		<toc-element topic="gradle-configure-project.md"/>
+		<toc-element toc-title="Compiler options in KGP" topic="gradle-compiler-options.md"/>
+		<toc-element toc-title="Compilation and caches in KGP" topic="gradle-compilation-and-caches.md"/>
+		<toc-element topic="gradle-plugin-variants.md"/>
+		<toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
 	</toc-element>
 	<toc-element toc-title="Compiler and plugins">
 		<toc-element toc-title="Compiler">
@@ -399,6 +392,7 @@
 	</toc-element>
 	<toc-element toc-title="Other resources">
 		<toc-element topic="faq.md"/>
+
 		<toc-element toc-title="Kotlin compatibility guides">
 			<toc-element topic="compatibility-guide-20.md"/>
 			<toc-element topic="compatibility-guide-19.md"/>
@@ -432,6 +426,6 @@
 		</toc-element>
 		<toc-element accepts-web-file-names="kotlin-logo.html" topic="kotlin-brand-assets.md"/>
 		<toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
-		<toc-element hidden="true" topic="test-page.md"/>
+		<toc-element  topic="test-page.md"/>
 	</toc-element>
 </instance-profile>

@@ -359,7 +359,3 @@ The standard Javadoc generation plugin (`maven-javadoc-plugin`) doesn't support 
 for Kotlin projects, use [Dokka](https://github.com/Kotlin/dokka). Dokka supports mixed-language projects and can 
 generate output in multiple formats, including standard Javadoc. For more information about how to configure Dokka in
 your Maven project, see [Maven](dokka-maven.md).
-
-## Enable OSGi support
-
-[Learn how to enable OSGi support in your Maven project](kotlin-osgi.md#maven).
