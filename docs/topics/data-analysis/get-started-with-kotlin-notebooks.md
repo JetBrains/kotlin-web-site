@@ -1,6 +1,6 @@
 [//]: # (title: Get started with Kotlin Notebook)
 
-Kotlin Notebook is an interactive tool that lets you mix code, visuals, and markdown in one document. 
+[Kotlin Notebook](kotlin-notebook-overview.md) is an interactive tool that lets you mix code, visuals, and markdown in one document. 
 You can use notebooks to write and execute code in sections known as _code cells_, see the results instantly, and write down your thoughts. 
 This setup makes it an excellent tool for rapid prototyping, analytics, and data science.
 

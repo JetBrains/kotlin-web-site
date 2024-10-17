@@ -1,6 +1,6 @@
 [//]: # (title: Share your Kotlin Notebook)
 
-To share a Kotlin Notebook, just upload it to any notebook web viewer because Kotlin notebooks follow the 
+To share a [Kotlin Notebook](kotlin-notebook-overview.md), you can just upload it to any notebook web viewer because [Kotlin notebooks](data-analysis-overview.md#notebooks) follow the 
 universal Jupyter format.
 
 We recommend the following platforms to share Kotlin notebooks:

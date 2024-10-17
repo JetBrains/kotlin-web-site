@@ -1,6 +1,6 @@
 [//]: # (title: Retrieve data from files)
 
-Kotlin Notebook, coupled with the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), enables 
+[Kotlin Notebook](kotlin-notebook-overview.md), coupled with the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), enables 
 you to work with both non-structured and structured data. This combination offers the flexibility to transform non-structured data, 
 such as data found in TXT files, into structured datasets. 
 

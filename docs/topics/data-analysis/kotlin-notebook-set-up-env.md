@@ -8,7 +8,7 @@
   </p>
 </tldr>
 
-Before you create your first Kotlin Notebook, you need to set up an environment.
+Before you create your first [Kotlin Notebook](kotlin-notebook-overview.md), you need to set up an environment.
 
 ## Set up the environment
 

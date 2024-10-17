@@ -8,7 +8,7 @@
   </p>
 </tldr>
 
-You've already created your first Kotlin Notebook! Now let's learn how to add dependencies to libraries, which
+You've already created your first [Kotlin Notebook](kotlin-notebook-overview.md)! Now let's learn how to add dependencies to libraries, which
 is necessary to unlock advanced features.
 
 > The Kotlin standard library can be used out of the box, so you don't have to import it.
@@ -17,7 +17,7 @@ is necessary to unlock advanced features.
 
 You can load any library from the Maven repository by specifying its coordinates using Gradle-style
 syntax in any code cell. 
-However, Kotlin Notebook has a simplified method to load popular libraries in the form of the `%use` statement:
+However, Kotlin Notebook has a simplified method to load popular libraries in the form of the [`%use` statement](https://www.jetbrains.com/help/idea/kotlin-notebook.html#import-libraries):
 
 ```kotlin
 // Replace libraryName with the library dependency you want to add
@@ -111,5 +111,5 @@ This is just a glimpse into what you can achieve with Kotlin Notebook and its [s
 ## What's next
 
 * See more details about [adding dependencies to your Kotlin Notebook](https://www.jetbrains.com/help/idea/kotlin-notebook.html#add-dependencies).
-* For a more extensive guide using the Kotlin DataFrame library, see [Retrieve data from files](data-analysis-work-with-data-sources.md)
+* For a more extensive guide using the Kotlin DataFrame library, see [Retrieve data from files](data-analysis-work-with-data-sources.md).
 * For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md).

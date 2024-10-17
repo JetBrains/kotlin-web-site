@@ -1,6 +1,6 @@
 [//]: # (title: Connect and retrieve data from databases)
 
-Kotlin Notebook offers capabilities for connecting to and retrieving data from various types of SQL databases, such as 
+[Kotlin Notebook](kotlin-notebook-overview.md) offers capabilities for connecting to and retrieving data from various types of SQL databases, such as 
 MariaDB, PostgreSQL, MySQL, and SQLite. 
 Utilizing the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), Kotlin Notebook can establish 
 connections to databases, execute SQL queries, and import the results for further operations.

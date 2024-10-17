@@ -5,7 +5,7 @@ different tasks in the data pipeline.
 
 In addition to its own libraries, Kotlin is 100% interoperable with Java. This interoperability helps to leverage 
 the entire ecosystem of tried-and-true Java libraries with excellent performance. With this perk, you can easily use either Kotlin 
-or Java libraries when working on Kotlin data projects. 
+or Java libraries when working on [Kotlin data projects](data-analysis-overview.md). 
 
 ## Kotlin libraries
 

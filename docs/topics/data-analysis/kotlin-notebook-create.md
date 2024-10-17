@@ -8,7 +8,7 @@
   </p>
 </tldr>
 
-Here, you will learn how to create your first Kotlin Notebook, perform simple operations, and run code cells. 
+Here, you will learn how to create your first [Kotlin Notebook](kotlin-notebook-overview.md), perform simple operations, and run code cells. 
 
 ## Create an empty project
 
