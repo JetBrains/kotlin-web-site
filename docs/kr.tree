@@ -12,16 +12,6 @@
 		<toc-element hidden="true" topic="kotlin-tour-classes.md"/>
 		<toc-element hidden="true" topic="kotlin-tour-null-safety.md"/>
 	</toc-element>
-	<toc-element toc-title="Kotlin overview">
-		<toc-element topic="multiplatform.topic"/>
-		<toc-element accepts-web-file-names="httpservlets.html" topic="server-overview.md"/>
-		<toc-element topic="android-overview.md"/>
-		<toc-element topic="wasm-overview.md"/>
-		<toc-element topic="native-overview.md"/>
-		<toc-element topic="js-overview.md"/>
-		<toc-element accepts-web-file-names="data-science-overview.html" topic="data-analysis-overview.md"/>
-		<toc-element topic="competitive-programming.md"/>
-	</toc-element>
 	<toc-element toc-title="What's new in Kotlin">
 		<toc-element toc-title="Kotlin 2.0.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2020.md"/>
 		<toc-element toc-title="Kotlin 2.0.0" topic="whatsnew20.md"/>
@@ -117,83 +107,146 @@
 		<toc-element accepts-web-file-names="multi-declarations.html" topic="destructuring-declarations.md"/>
 		<toc-element topic="reflection.md"/>
 	</toc-element>
-	<toc-element toc-title="Multiplatform development">
-		<toc-element accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html,multiplatform-get-started.html" toc-title="Introduction" topic="multiplatform-intro.md"/>
-		<toc-element accepts-web-file-names="mpp-discover-project.html" toc-title="Understand basic project structure" topic="multiplatform-discover-project.md"/>
-		<toc-element toc-title="Explore advanced project structure" topic="multiplatform-advanced-project-structure.md"/>
-		<toc-element toc-title="Set up targets" accepts-web-file-names="mpp-set-up-targets.html" topic="multiplatform-set-up-targets.md"/>
-		<toc-element toc-title="Share code">
-			<toc-element accepts-web-file-names="mpp-share-on-platforms.html" topic="multiplatform-share-on-platforms.md"/>
-			<toc-element topic="multiplatform-expect-actual.md"/>
-			<toc-element accepts-web-file-names="migrating-multiplatform-project-to-14.html" topic="multiplatform-hierarchy.md"/>
-		</toc-element>
-		<toc-element toc-title="Add dependencies">
-			<toc-element toc-title="On multiplatform libraries" accepts-web-file-names="mpp-add-dependencies.html" topic="multiplatform-add-dependencies.md"/>
-			<toc-element toc-title="For Android target platforms" topic="multiplatform-android-dependencies.md"/>
-			<toc-element toc-title="For iOS target platforms" topic="multiplatform-ios-dependencies.md"/>
-		</toc-element>
-		<toc-element toc-title="Set up iOS integration">
-			<toc-element toc-title="Choose integration method" topic="multiplatform-ios-integration-overview.md"/>
-			<toc-element topic="multiplatform-direct-integration.md"/>
-			<toc-element toc-title="Remote SPM export" topic="native-spm.md"/>
-			<toc-element toc-title="CocoaPods integration">
-				<toc-element topic="native-cocoapods.md"/>
-				<toc-element topic="native-cocoapods-libraries.md"/>
-				<toc-element topic="native-cocoapods-xcode.md"/>
-				<toc-element topic="native-cocoapods-dsl-reference.md"/>
+	<toc-element toc-title="Solutions">
+		<toc-element toc-title="Data analysis">
+			<toc-element toc-title="Overview" accepts-web-file-names="data-science-overview.html" topic="data-analysis-overview.md"/>
+			<toc-element toc-title="Get started with Kotlin Notebook">
+				<toc-element toc-title="Introduction to Kotlin Notebook" topic="get-started-with-kotlin-notebooks.md"/>
+				<toc-element toc-title="1. Set up an environment" topic="kotlin-notebook-set-up-env.md"/>
+				<toc-element toc-title="2. Create your first Kotlin Notebook" topic="kotlin-notebook-create.md"/>
+				<toc-element toc-title="3. Add dependencies to a Kotlin Notebook" topic="kotlin-notebook-add-dependencies.md"/>
+				<toc-element toc-title="4. Share a Kotlin Notebook" topic="kotlin-notebook-share.md"/>
 			</toc-element>
-			<toc-element toc-title="Local integration with SPM" topic="multiplatform-spm-local-integration.md"/>
+			<toc-element toc-title="Output formats in Kotlin notebooks" topic="data-analysis-notebooks-output-formats.md"/>
+			<toc-element toc-title="Working with data sources">
+				<toc-element topic="data-analysis-work-with-data-sources.md"/>
+				<toc-element topic="data-analysis-work-with-api.md"/>
+				<toc-element topic="data-analysis-connect-to-db.md"/>
+			</toc-element>
+			<toc-element toc-title="Data visualization in Kotlin Notebook" topic="data-analysis-visualization.md"/>
+			<toc-element toc-title="Libraries for data analysis" topic="data-analysis-libraries.md"/>
+			<toc-element topic="kotlin-notebook-overview.md"/>
 		</toc-element>
-		<toc-element toc-title="Compile artifacts">
-			<toc-element accepts-web-file-names="mpp-configure-compilations.html" topic="multiplatform-configure-compilations.md"/>
-			<toc-element toc-title="[Experimental DSL] Build final native binaries" hidden="true" topic="multiplatform-native-artifacts.md"/>
-			<toc-element accepts-web-file-names="mpp-build-native-binaries.html" topic="multiplatform-build-native-binaries.md"/>
+		<toc-element toc-title="Library design">
+			<include from="api-guidelines.tree" origin="api-guidelines" element-id="api-guidelines"/>
 		</toc-element>
-		<toc-element accepts-web-file-names="mpp-publish-lib.html" toc-title="Publish libraries" topic="multiplatform-publish-lib.md"/>
-		<toc-element toc-title="Reference">
-			<toc-element accepts-web-file-names="mpp-dsl-reference.html,mpp-supported-platforms.html,multiplatform-supported-platforms.html" topic="multiplatform-dsl-reference.md"/>
-			<toc-element topic="multiplatform-android-layout.md"/>
-			<toc-element toc-title="Compatibility guide" topic="multiplatform-compatibility-guide.md"/>
-			<toc-element topic="multiplatform-plugin-releases.md"/>
-		</toc-element>
+		<toc-element topic="android-overview.md"/>
+		<toc-element topic="competitive-programming.md"/>
 	</toc-element>
-	<toc-element toc-title="Data analysis">
-		<toc-element toc-title="Get started with Kotlin Notebook">
-			<toc-element toc-title="Introduction to Kotlin Notebook" topic="get-started-with-kotlin-notebooks.md"/>
-			<toc-element toc-title="1. Set up an environment" topic="kotlin-notebook-set-up-env.md"/>
-			<toc-element toc-title="2. Create your first Kotlin Notebook" topic="kotlin-notebook-create.md"/>
-			<toc-element toc-title="3. Add dependencies to a Kotlin Notebook" topic="kotlin-notebook-add-dependencies.md"/>
-			<toc-element toc-title="4. Share a Kotlin Notebook" topic="kotlin-notebook-share.md"/>
+	<toc-element toc-title="Development">
+		<toc-element toc-title="Multiplatform development">
+			<toc-element toc-title="Overview" topic="multiplatform.topic"/>
+			<toc-element accepts-web-file-names="building-mpp-with-gradle.html,intro-to-kotlin-mpp.html,mpp-intro.html,mpp-get-started.html,multiplatform-tutorials.html,multiplatform-get-started.html" toc-title="Introduction" topic="multiplatform-intro.md"/>
+			<toc-element accepts-web-file-names="mpp-discover-project.html" toc-title="Understand basic project structure" topic="multiplatform-discover-project.md"/>
+			<toc-element toc-title="Explore advanced project structure" topic="multiplatform-advanced-project-structure.md"/>
+			<toc-element toc-title="Set up targets" accepts-web-file-names="mpp-set-up-targets.html" topic="multiplatform-set-up-targets.md"/>
+			<toc-element toc-title="Share code">
+				<toc-element accepts-web-file-names="mpp-share-on-platforms.html" topic="multiplatform-share-on-platforms.md"/>
+				<toc-element topic="multiplatform-expect-actual.md"/>
+				<toc-element accepts-web-file-names="migrating-multiplatform-project-to-14.html" topic="multiplatform-hierarchy.md"/>
+			</toc-element>
+			<toc-element toc-title="Add dependencies">
+				<toc-element toc-title="On multiplatform libraries" accepts-web-file-names="mpp-add-dependencies.html" topic="multiplatform-add-dependencies.md"/>
+				<toc-element toc-title="For Android target platforms" topic="multiplatform-android-dependencies.md"/>
+				<toc-element toc-title="For iOS target platforms" topic="multiplatform-ios-dependencies.md"/>
+			</toc-element>
+			<toc-element toc-title="Set up iOS integration">
+				<toc-element toc-title="Choose integration method" topic="multiplatform-ios-integration-overview.md"/>
+				<toc-element topic="multiplatform-direct-integration.md"/>
+				<toc-element toc-title="Remote SPM export" topic="native-spm.md"/>
+				<toc-element toc-title="CocoaPods integration">
+					<toc-element topic="native-cocoapods.md"/>
+					<toc-element topic="native-cocoapods-libraries.md"/>
+					<toc-element topic="native-cocoapods-xcode.md"/>
+					<toc-element topic="native-cocoapods-dsl-reference.md"/>
+				</toc-element>
+				<toc-element toc-title="Local integration with SPM" topic="multiplatform-spm-local-integration.md"/>
+			</toc-element>
+			<toc-element toc-title="Compile artifacts">
+				<toc-element accepts-web-file-names="mpp-configure-compilations.html" topic="multiplatform-configure-compilations.md"/>
+				<toc-element toc-title="[Experimental DSL] Build final native binaries" hidden="true" topic="multiplatform-native-artifacts.md"/>
+				<toc-element accepts-web-file-names="mpp-build-native-binaries.html" topic="multiplatform-build-native-binaries.md"/>
+			</toc-element>
+			<toc-element accepts-web-file-names="mpp-publish-lib.html" toc-title="Publish libraries" topic="multiplatform-publish-lib.md"/>
+			<toc-element toc-title="Reference">
+				<toc-element accepts-web-file-names="mpp-dsl-reference.html,mpp-supported-platforms.html,multiplatform-supported-platforms.html" topic="multiplatform-dsl-reference.md"/>
+				<toc-element topic="multiplatform-android-layout.md"/>
+				<toc-element toc-title="Compatibility guide" topic="multiplatform-compatibility-guide.md"/>
+				<toc-element topic="multiplatform-plugin-releases.md"/>
+			</toc-element>
 		</toc-element>
-		<toc-element toc-title="Output formats in Kotlin notebooks" topic="data-analysis-notebooks-output-formats.md"/>
-		<toc-element toc-title="Working with data sources">
-			<toc-element topic="data-analysis-work-with-data-sources.md"/>
-			<toc-element topic="data-analysis-work-with-api.md"/>
-			<toc-element topic="data-analysis-connect-to-db.md"/>
+		<toc-element toc-title="Backend development">
+			<toc-element toc-title="Overview" accepts-web-file-names="httpservlets.html" topic="server-overview.md"/>
+			<toc-element toc-title="Create a web app with Kotlin and Spring Boot">
+				<toc-element accepts-web-file-names="jvm-spring-boot-restful.html,spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html" topic="jvm-get-started-spring-boot.md"/>
+				<toc-element toc-title="Create a Spring Boot project" topic="jvm-create-project-with-spring-boot.md"/>
+				<toc-element toc-title="Upgrade your project with data classes" topic="jvm-spring-boot-add-data-class.md"/>
+				<toc-element topic="jvm-spring-boot-add-db-support.md"/>
+				<toc-element toc-title="Use Spring Data CrudRepository" topic="jvm-spring-boot-using-crudrepository.md"/>
+			</toc-element>
 		</toc-element>
-		<toc-element toc-title="Data visualization in Kotlin Notebook" topic="data-analysis-visualization.md"/>
-		<toc-element toc-title="Libraries for data analysis" topic="data-analysis-libraries.md"/>
-	</toc-element>
-	<toc-element toc-title="Platforms">
-		<toc-element toc-title="JVM">
+		<toc-element toc-title="Web development">
+			<toc-element toc-title="WebAssembly (Wasm)">
+				<toc-element toc-title="Overview" topic="wasm-overview.md"/>
+				<toc-element topic="wasm-get-started.md"/>
+				<toc-element topic="wasm-debugging.md"/>
+				<toc-element topic="wasm-js-interop.md"/>
+				<toc-element topic="wasm-troubleshooting.md"/>
+			</toc-element>
+			<toc-element toc-title="Kotlin/JS">
+				<toc-element toc-title="Overview" topic="js-overview.md"/>
+				<toc-element accepts-web-file-names="command-line-library-js.html,working-with-javascript.html,setting-up.html,kotlin-to-javascript.html,create-library-js.html,getting-started-with-intellij-idea.html,getting-started-with-maven.html" topic="js-project-setup.md"/>
+				<toc-element topic="running-kotlin-js.md"/>
+				<toc-element topic="dev-server-continuous-compilation.md"/>
+				<toc-element accepts-web-file-names="debugging-kotlin-in-browser.html" topic="js-debugging.md"/>
+				<toc-element accepts-web-file-names="running-tests.html" topic="js-running-tests.md"/>
+				<!-- The following page is used in the Mari link service. If you wish to change it here, change the link there too -->
+				<toc-element toc-title="IR compiler" topic="js-ir-compiler.md"/>
+				<toc-element topic="js-ir-migration.md"/>
+				<toc-element topic="javascript-dce.md"/>
+				<toc-element hidden="true" topic="js-react.md"/>
+			</toc-element>
+		</toc-element>
+		<toc-element toc-title="Kotlin/JVM">
 			<toc-element topic="jvm-get-started.md"/>
+			<toc-element topic="jvm-test-using-junit.md"/>
+		</toc-element>
+		<toc-element toc-title="Kotlin/Native">
+			<toc-element toc-title="Overview" topic="native-overview.md"/>
+			<toc-element accepts-web-file-names="basic-kotlin-native-app.html,kotlin-native-with-clion.html,targeting-multiple-platforms.html" topic="native-get-started.md"/>
+			<toc-element topic="native-gradle.md"/>
+			<toc-element topic="native-command-line-compiler.md"/>
+			<toc-element topic="native-libraries.md"/>
+			<toc-element topic="native-platform-libs.md"/>
+			<toc-element toc-title="Memory manager">
+				<toc-element topic="native-memory-manager.md"/>
+				<toc-element toc-title="Integration with ARC" accepts-web-file-names="native-ios-integration.html" topic="native-arc-integration.md"/>
+				<toc-element toc-title="Migration guide" topic="native-migration-guide.md"/>
+			</toc-element>
+			<toc-element topic="native-debugging.md"/>
+			<toc-element topic="native-ios-symbolication.md"/>
+			<toc-element toc-title="Target support" topic="native-target-support.md"/>
+			<toc-element toc-title="App Store privacy manifests" topic="apple-privacy-manifest.md"/>
+			<toc-element toc-title="Improving compilation times" topic="native-improving-compilation-time.md"/>
+			<toc-element toc-title="License files" topic="native-binary-licenses.md"/>
+			<toc-element topic="native-faq.md"/>
+		</toc-element>
+		<toc-element toc-title="Kotlin custom scripting" topic="custom-script-deps-tutorial.md"/>
+		<toc-element toc-title="Tooling">
+			<toc-element toc-title="IDE for Kotlin development" accepts-web-file-names="getting-started-eclipse.html,eclipse.html" topic="kotlin-ide.md"/>
+			<toc-element toc-title="Dokka">
+				<include from="dokka.tree" origin="dokka" element-id="dokka"/>
+			</toc-element>
+			<toc-element accepts-web-file-names="quick-run.html" topic="run-code-snippets.md"/>
+			<toc-element toc-title="KDoc" topic="kotlin-doc.md"/>
+			<toc-element toc-title="TeamCity" topic="kotlin-and-ci.md"/>
+		</toc-element>
+	</toc-element>
+	<toc-element toc-title="Interoperability">
+		<toc-element toc-title="Java interop">
 			<toc-element topic="comparison-to-java.md"/>
 			<toc-element topic="java-interop.md"/>
 			<toc-element topic="java-to-kotlin-interop.md"/>
-			<toc-element toc-title="Spring">
-				<toc-element toc-title="Create a RESTful web service with a database using Spring Boot">
-					<toc-element accepts-web-file-names="jvm-spring-boot-restful.html,spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html" topic="jvm-get-started-spring-boot.md"/>
-					<toc-element toc-title="Create a Spring Boot project" topic="jvm-create-project-with-spring-boot.md"/>
-					<toc-element toc-title="Upgrade your project with data classes" topic="jvm-spring-boot-add-data-class.md"/>
-					<toc-element topic="jvm-spring-boot-add-db-support.md"/>
-					<toc-element toc-title="Use Spring Data CrudRepository" topic="jvm-spring-boot-using-crudrepository.md"/>
-				</toc-element>
-				<!-- <toc-element id="jvm-spring-boot-restful.md" accepts-web-file-names="spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html,jvm-get-started-spring-boot.html,jvm-create-project-with-spring-boot.html,jvm-spring-boot-add-data-class.html,jvm-spring-boot-add-db-support.html,jvm-spring-boot-using-crudrepository.html"/>-->
-				<toc-element toc-title="Spring Framework Documentation for Kotlin" href="https://docs.spring.io/spring-framework/docs/current/reference/html/languages.html#languages"/>
-				<toc-element toc-title="Build a web application with Spring Boot and Kotlin – tutorial" href="https://spring.io/guides/tutorials/spring-boot-kotlin/"/>
-				<toc-element toc-title="Create a chat application with Kotlin Coroutines and RSocket – tutorial" href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/"/>
-			</toc-element>
-			<toc-element topic="jvm-test-using-junit.md"/>
 			<toc-element topic="mixing-java-kotlin-intellij.md"/>
 			<toc-element topic="jvm-records.md"/>
 			<toc-element toc-title="Java to Kotlin migration guides">
@@ -203,11 +256,22 @@
 				<toc-element topic="standard-input.md"/>
 			</toc-element>
 		</toc-element>
-		<toc-element toc-title="Native">
-			<toc-element accepts-web-file-names="basic-kotlin-native-app.html,kotlin-native-with-clion.html,targeting-multiple-platforms.html" topic="native-get-started.md"/>
-			<toc-element topic="native-gradle.md"/>
-			<toc-element topic="native-command-line-compiler.md"/>
+		<toc-element toc-title="JavaScript interop">
+			<toc-element topic="browser-api-dom.md"/>
+			<toc-element accepts-web-file-names="calling-javascript-from-kotlin.html" topic="js-interop.md"/>
+			<toc-element topic="dynamic-type.md"/>
+			<toc-element topic="using-packages-from-npm.md"/>
+			<toc-element topic="js-to-kotlin-interop.md"/>
+			<toc-element topic="js-modules.md"/>
+			<toc-element topic="js-reflection.md"/>
+			<toc-element topic="typesafe-html-dsl.md"/>
+		</toc-element>
+		<toc-element toc-title="Objective-C and C interop">
 			<toc-element topic="native-definition-file.md"/>
+			<toc-element toc-title="Objective-C interop">
+				<toc-element topic="native-objc-interop.md"/>
+				<toc-element topic="apple-framework.md"/>
+			</toc-element>
 			<toc-element toc-title="C interop">
 				<toc-element topic="native-c-interop.md"/>
 				<toc-element topic="mapping-primitive-data-types-from-c.md"/>
@@ -215,59 +279,8 @@
 				<toc-element topic="mapping-function-pointers-from-c.md"/>
 				<toc-element topic="mapping-strings-from-c.md"/>
 				<toc-element accepts-web-file-names="curl.html" topic="native-app-with-c-and-libcurl.md"/>
+				<toc-element toc-title="Create a dynamic library" topic="native-dynamic-libraries.md"/>
 			</toc-element>
-			<toc-element toc-title="Objective-C interop">
-				<toc-element topic="native-objc-interop.md"/>
-				<toc-element topic="apple-framework.md"/>
-			</toc-element>
-			<toc-element topic="native-libraries.md"/>
-			<toc-element topic="native-platform-libs.md"/>
-			<toc-element topic="native-dynamic-libraries.md"/>
-			<toc-element toc-title="Memory manager">
-				<toc-element topic="native-memory-manager.md"/>
-				<toc-element toc-title="Integration with ARC" accepts-web-file-names="native-ios-integration.html" topic="native-arc-integration.md"/>
-				<toc-element toc-title="Migration guide" topic="native-migration-guide.md"/>
-			</toc-element>
-			<toc-element topic="native-debugging.md"/>
-			<toc-element topic="native-ios-symbolication.md"/>
-			<toc-element toc-title="Reference and tips">
-				<toc-element toc-title="Target support" topic="native-target-support.md"/>
-				<toc-element toc-title="App Store privacy manifests" topic="apple-privacy-manifest.md"/>
-				<toc-element toc-title="Improving compilation times" topic="native-improving-compilation-time.md"/>
-				<toc-element toc-title="License files" topic="native-binary-licenses.md"/>
-				<toc-element topic="native-faq.md"/>
-			</toc-element>
-		</toc-element>
-		<toc-element toc-title="WebAssembly (Wasm)">
-			<toc-element topic="wasm-get-started.md"/>
-			<toc-element topic="wasm-debugging.md"/>
-			<toc-element topic="wasm-js-interop.md"/>
-			<toc-element topic="wasm-troubleshooting.md"/>
-		</toc-element>
-		<toc-element toc-title="JavaScript">
-			<toc-element accepts-web-file-names="command-line-library-js.html,working-with-javascript.html,setting-up.html,kotlin-to-javascript.html,create-library-js.html,getting-started-with-intellij-idea.html,getting-started-with-maven.html" topic="js-project-setup.md"/>
-			<toc-element topic="running-kotlin-js.md"/>
-			<toc-element topic="dev-server-continuous-compilation.md"/>
-			<toc-element accepts-web-file-names="debugging-kotlin-in-browser.html" topic="js-debugging.md"/>
-			<toc-element accepts-web-file-names="running-tests.html" topic="js-running-tests.md"/>
-			<toc-element topic="javascript-dce.md"/>
-			<!-- The following page is used in the Mari link service. If you wish to change it here, change the link there too -->
-			<toc-element toc-title="IR compiler" topic="js-ir-compiler.md"/>
-			<toc-element topic="js-ir-migration.md"/>
-			<toc-element toc-title="Kotlin for the JS platform">
-				<toc-element topic="browser-api-dom.md"/>
-				<toc-element accepts-web-file-names="calling-javascript-from-kotlin.html" topic="js-interop.md"/>
-				<toc-element topic="dynamic-type.md"/>
-				<toc-element topic="using-packages-from-npm.md"/>
-				<toc-element topic="js-to-kotlin-interop.md"/>
-				<toc-element topic="js-modules.md"/>
-				<toc-element topic="js-reflection.md"/>
-				<toc-element topic="typesafe-html-dsl.md"/>
-			</toc-element>
-			<toc-element hidden="true" topic="js-react.md"/>
-		</toc-element>
-		<toc-element toc-title="Scripting">
-			<toc-element topic="custom-script-deps-tutorial.md"/>
 		</toc-element>
 	</toc-element>
 	<toc-element toc-title="Standard library">
@@ -334,16 +347,8 @@
 			<toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
 			<toc-element accepts-web-file-names="using-ant.html" topic="ant.md"/>
 		</toc-element>
-		<toc-element toc-title="Dokka">
-			<include from="dokka.tree" origin="dokka" element-id="dokka"/>
-		</toc-element>
-		<toc-element toc-title="IDE for Kotlin development" accepts-web-file-names="getting-started-eclipse.html,eclipse.html" topic="kotlin-ide.md"/>
 		<toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA" topic="code-style-migration-guide.md"/>
-		<toc-element topic="kotlin-notebook-overview.md"/>
 		<toc-element toc-title="Lets-Plot for Kotlin" topic="lets-plot.md"/>
-		<toc-element accepts-web-file-names="quick-run.html" topic="run-code-snippets.md"/>
-		<toc-element toc-title="TeamCity" topic="kotlin-and-ci.md"/>
-		<toc-element toc-title="KDoc" topic="kotlin-doc.md"/>
 		<toc-element toc-title="OSGi" topic="kotlin-osgi.md"/>
 	</toc-element>
 	<toc-element toc-title="Compiler and plugins">
@@ -386,9 +391,6 @@
 		<toc-element toc-title="Learn in IDE (JetBrains Academy)">
 			<toc-element toc-title="Learn Kotlin" topic="edu-tools-learner.md"/>
 			<toc-element toc-title="Teach Kotlin" topic="edu-tools-educator.md"/>
-		</toc-element>
-		<toc-element toc-title="Library authors' guidelines">
-			<include from="api-guidelines.tree" origin="api-guidelines" element-id="api-guidelines"/>
 		</toc-element>
 	</toc-element>
 	<toc-element toc-title="Early access preview (EAP)">
