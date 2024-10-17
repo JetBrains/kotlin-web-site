@@ -4,25 +4,15 @@
     background: #19191C;
     padding: 48px 0;
     overflow: hidden;
-
-    @media (--ktl-ts-min) {
-        padding: 72px 0;
-    }
-
-    @media (--ktl-ds-min) {
-        padding: 96px 0;
-    }
-
-}
-
-.heroSection[data-optimizely-id='hero-ab'] {
     text-align: center;
     @media (--ktl-ts-min) {
+        padding: 72px 0;
         .content {
             margin-left: 38px;
         }
     }
     @media (--ktl-ds-min) {
+        padding: 96px 0;
         .content {
             margin-left: 90px;
         }
@@ -53,10 +43,8 @@
     .developerLogo {
         margin: 0;
     }
+
     .developerCaption {
-        display: none;
-    }
-    .developerCaptionAb {
         display: block;
         margin-right: 8px;
     }
@@ -273,15 +261,6 @@
     @media (--ktl-ts) {
         margin-bottom: 0;
     }
-}
-
-.developerCaption {
-    white-space: nowrap;
-    margin-left: 38px;
-}
-
-.developerCaptionAb {
-    display: none;
 }
 
 .getStartedButton {
