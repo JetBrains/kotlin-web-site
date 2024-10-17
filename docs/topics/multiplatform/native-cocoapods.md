@@ -220,7 +220,7 @@ If you want to import your Kotlin project to an Xcode project:
 
 1. Make changes in your Podfile:
 
-   * If your project has any Git, HTTP, or custom Podspec repository dependencies, you should also specify the path to
+   * If your project has any Git, HTTP, or custom Podspec repository dependencies, you should specify the path to
      the Podspec in the Podfile.
 
      For example, if you add a dependency on `podspecWithFilesExample`, declare the path to the Podspec in the Podfile:
