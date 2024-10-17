@@ -228,7 +228,7 @@ A Swift/Objective-C initializer is imported to Kotlin as constructors or as fact
 The latter happens with initializers declared in the Objective-C category or as a Swift extension,
 because Kotlin has no concept of extension constructors.
 
-> Remember to annotate Swift initializers with `@objc` before importing them to Kotlin.
+> Before importing Swift initializers to Kotlin, don't forget to annotate them with `@objc`.
 >
 {style="tip"}
 
@@ -579,8 +579,8 @@ To import forward declarations, use the `objcnames.classes` and `objcnames.proto
 to import a `objcprotocolName` forward declaration declared in an Objective-C library with a `library.package`,
 use a special forward declaration package: `import objcnames.protocols.objcprotocolName`.
 
-Consider two objcinterop libraries, one that uses `objcnames.protocols.ForwardDeclaredProtocolProtocol`
-and the other with an actual implementation in another package:
+Consider two objcinterop libraries: one that uses `objcnames.protocols.ForwardDeclaredProtocolProtocol`
+and another with an actual implementation in another package:
 
 ```ObjC
 // First objcinterop library
@@ -608,7 +608,7 @@ id<ForwardDeclaredProtocol> produceProtocol() {
 }
 ```
 
-To transfer objects between the two libraries, make an explicit `as` cast in you Kotlin code:
+To transfer objects between the two libraries, use an explicit `as` cast in you Kotlin code:
 
 ```kotlin
 // Kotlin code:
@@ -617,7 +617,7 @@ fun test() {
 }
 ```
 
-> The casting to `objcnames.protocols.ForwardDeclaredProtocolProtocol` is only allowed from the corresponding real class.
+> Ypu can only cast to `objcnames.protocols.ForwardDeclaredProtocolProtocol` from the corresponding real class.
 > Otherwise, you'll get an error.
 >
 {style="note"}

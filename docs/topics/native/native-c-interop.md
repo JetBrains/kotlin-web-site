@@ -654,7 +654,7 @@ To import forward declarations, use the `cnames` package. For example, to import
 declared in a C library with a `library.package`, use a special forward declaration package:
 `import cnames.structs.cstructName`.
 
-Consider two cinterop libraries, one that has a forward declaration of a struct and the other
+Consider two cinterop libraries: one that has a forward declaration of a struct and another
 with an actual implementation in another package:
 
 ```C
@@ -685,7 +685,7 @@ struct ForwardDeclaredStruct* produceStruct() {
 }
 ```
 
-To transfer objects between the two libraries, make the `as` cast in you Kotlin code:
+To transfer objects between the two libraries, use an explicit `as` cast in you Kotlin code:
 
 ```kotlin
 // Kotlin code:

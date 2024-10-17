@@ -913,8 +913,7 @@ Here's the planned deprecation cycle:
 
 **What's changed?**
 
-The JetBrains team has revamped the approach to forward declarations in Kotlin to make their behavior more predictable
-and prepare this functionality for the Kotlin 2.0.0 release. From now on:
+The JetBrains team has revamped the approach to forward declarations in Kotlin to make their behavior more predictable:
 
 * You can only import forward declarations using the `cnames` or ` objcnames` packages.
 * You need to explicitly make a cast to and from the corresponding C and Objective-C forward declaration.
@@ -926,7 +925,7 @@ and prepare this functionality for the Kotlin 2.0.0 release. From now on:
   Now, you can only use a special forward declaration package for that: `import cnames.structs.cstructName`.
   The same is true for `objcnames`.
 
-* Consider two objcinterop libraries, one that uses `objcnames.protocols.ForwardDeclaredProtocolProtocol` and the other
+* Consider two objcinterop libraries: one that uses `objcnames.protocols.ForwardDeclaredProtocolProtocol` and another
   that has an actual definition:
 
   ```ObjC
@@ -965,7 +964,7 @@ and prepare this functionality for the Kotlin 2.0.0 release. From now on:
   }
   ```
 
-  > The casting to `objcnames.protocols.ForwardDeclaredProtocolProtocol` is only allowed from the corresponding real class.
+  > You can only cast to `objcnames.protocols.ForwardDeclaredProtocolProtocol` from the corresponding real class.
   > Otherwise, you'll get an error.
   >
   {style="note"}
