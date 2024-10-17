@@ -101,6 +101,7 @@
 		<toc-element toc-title="Functions">
 			<toc-element topic="functions.md"/>
 			<toc-element toc-title="Lambdas" topic="lambdas.md"/>
+			<toc-element topic="scope-functions.md"/>
 			<toc-element topic="inline-functions.md"/>
 			<toc-element topic="operator-overloading.md"/>
 			<toc-element toc-title="Builders">
@@ -270,7 +271,8 @@
 			<toc-element topic="custom-script-deps-tutorial.md"/>
 		</toc-element>
 	</toc-element>
-	<toc-element toc-title="Standard library">
+	<toc-element toc-title="Libraries">
+		<toc-element toc-title="Overview" topic="libraries-overview.md"/>
 		<toc-element toc-title="Collections">
 			<toc-element toc-title="Overview" topic="collections-overview.md"/>
 			<toc-element topic="constructing-collections.md"/>
@@ -293,10 +295,7 @@
 		</toc-element>
 		<toc-element topic="read-standard-input.md"/>
 		<toc-element topic="opt-in-requirements.md"/>
-		<toc-element topic="scope-functions.md"/>
 		<toc-element topic="time-measurement.md"/>
-	</toc-element>
-	<toc-element toc-title="Official libraries">
 		<toc-element toc-title="Coroutines (kotlinx.coroutines)">
 			<include from="kc.tree" origin="coroutines" element-id="coroutines"/>
 		</toc-element>
@@ -304,9 +303,15 @@
 		<toc-element toc-title="Lincheck (kotlinx.lincheck)">
 			<include from="kl.tree" origin="lincheck" element-id="lincheck"/>
 		</toc-element>
+		<toc-element toc-title="DateTime" href="https://github.com/Kotlin/kotlinx-datetime"/>
+		<toc-element toc-title="Kandy" href="https://kotlin.github.io/kandy/welcome.html"/>
+		<toc-element toc-title="DataFrame" href="https://kotlin.github.io/dataframe/overview.html"/>
+		<toc-element toc-title="Lets-Plot" topic="lets-plot.md"/>
+		<toc-element toc-title="Exposed" href="https://jetbrains.github.io/Exposed/home.html"/>
 		<toc-element toc-title="Ktor" href="https://ktor.io/"/>
 	</toc-element>
 	<toc-element toc-title="API reference">
+		<toc-element toc-title="Overview" topic="api-references-overview.md"/>
 		<toc-element toc-title="Standard library (stdlib)" href="https://kotlinlang.org/api/latest/jvm/stdlib/"/>
 		<toc-element toc-title="Test library (kotlin.test)" href="https://kotlinlang.org/api/latest/kotlin.test/"/>
 		<toc-element toc-title="Coroutines (kotlinx.coroutines)" href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/"/>
@@ -340,7 +345,6 @@
 		<toc-element toc-title="IDE for Kotlin development" accepts-web-file-names="getting-started-eclipse.html,eclipse.html" topic="kotlin-ide.md"/>
 		<toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA" topic="code-style-migration-guide.md"/>
 		<toc-element topic="kotlin-notebook-overview.md"/>
-		<toc-element toc-title="Lets-Plot for Kotlin" topic="lets-plot.md"/>
 		<toc-element accepts-web-file-names="quick-run.html" topic="run-code-snippets.md"/>
 		<toc-element toc-title="TeamCity" topic="kotlin-and-ci.md"/>
 		<toc-element toc-title="KDoc" topic="kotlin-doc.md"/>
