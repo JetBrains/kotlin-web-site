@@ -23,35 +23,23 @@
 		<toc-element topic="competitive-programming.md"/>
 	</toc-element>
 	<toc-element toc-title="What's new in Kotlin">
-		<toc-element toc-title="Kotlin 2.1.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2120.md"/>
-		<toc-element toc-title="Kotlin 2.1.0" topic="whatsnew21.md"/>
-        <toc-element toc-title="Kotlin 2.1.20-RC3" topic="whatsnew-eap.md" hidden="true"/>
-        <toc-element toc-title="Kotlin 2.0.x">
-            <toc-element toc-title="Kotlin 2.0.20" topic="whatsnew2020.md"/>
-            <toc-element toc-title="Kotlin 2.0.0" topic="whatsnew20.md"/>
-        </toc-element>
-        <toc-element toc-title="Kotlin 1.9.x">
-            <toc-element toc-title="Kotlin 1.9.20" topic="whatsnew1920.md"/>
-            <toc-element toc-title="Kotlin 1.9.0" topic="whatsnew19.md"/>
-        </toc-element>
+<!--        <toc-element toc-title="Kotlin 2.1.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2120.md"/>-->
+<!--        <toc-element toc-title="Kotlin 2.1.0" topic="whatsnew21.md"/>-->
+		<toc-element toc-title="Kotlin 2.1.0-RC3" topic="whatsnew-eap.md"/>
+		<toc-element toc-title="Kotlin 2.0.x">
+			<toc-element toc-title="Kotlin 2.0.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2020.md"/>
+			<toc-element toc-title="Kotlin 2.0.0" topic="whatsnew20.md"/>
+			<toc-element topic="compatibility-guide-20.md"/>
+		</toc-element>
+		<toc-element toc-title="Kotlin 1.9.x">
+			<toc-element toc-title="Kotlin 1.9.20" topic="whatsnew1920.md"/>
+			<toc-element toc-title="Kotlin 1.9.0" topic="whatsnew19.md"/>
+			<toc-element topic="compatibility-guide-19.md"/>
+		</toc-element>
 		<toc-element toc-title="Kotlin 1.8.x">
 			<toc-element toc-title="Kotlin 1.8.20" topic="whatsnew1820.md"/>
 			<toc-element toc-title="Kotlin 1.8.0" topic="whatsnew18.md"/>
-		</toc-element>
-		<toc-element toc-title="Earlier versions">
-			<toc-element toc-title="Kotlin 1.7.20" topic="whatsnew1720.md"/>
-			<toc-element toc-title="Kotlin 1.7.0" topic="whatsnew17.md"/>
-			<toc-element toc-title="Kotlin 1.6.20" topic="whatsnew1620.md"/>
-			<toc-element toc-title="Kotlin 1.6.0" topic="whatsnew16.md"/>
-			<toc-element toc-title="Kotlin 1.5.30" topic="whatsnew1530.md"/>
-			<toc-element toc-title="Kotlin 1.5.20" topic="whatsnew1520.md"/>
-			<toc-element toc-title="Kotlin 1.5.0" topic="whatsnew15.md"/>
-			<toc-element toc-title="Kotlin 1.4.30" topic="whatsnew1430.md"/>
-			<toc-element toc-title="Kotlin 1.4.20" topic="whatsnew1420.md"/>
-			<toc-element toc-title="Kotlin 1.4.0" topic="whatsnew14.md"/>
-			<toc-element toc-title="Kotlin 1.3" topic="whatsnew13.md"/>
-			<toc-element toc-title="Kotlin 1.2" topic="whatsnew12.md"/>
-			<toc-element toc-title="Kotlin 1.1" topic="whatsnew11.md"/>
+			<toc-element topic="compatibility-guide-18.md"/>
 		</toc-element>
 	</toc-element>
 	<toc-element toc-title="Kotlin evolution and roadmap">
@@ -59,6 +47,7 @@
 		<toc-element toc-title="Language features and proposals" topic="kotlin-language-features-and-proposals.md"/>
 		<toc-element toc-title="Language evolution principles" accepts-web-file-names="kotlin-evolution.html" topic="kotlin-evolution-principles.md"/>
 		<toc-element topic="components-stability.md"/>
+		<toc-element topic="compatibility-modes.md"/>
 		<toc-element hidden="true" topic="components-stability-pre-1.4.md"/>
 		<toc-element accepts-web-file-names="plugin-releases.html" topic="releases.md"/>
 	</toc-element>
@@ -417,17 +406,39 @@
 	<toc-element toc-title="Other resources">
 		<toc-element topic="faq.md"/>
 		<toc-element toc-title="Kotlin compatibility guides">
-			<toc-element topic="compatibility-guide-21.md"/>
-			<toc-element topic="compatibility-guide-20.md"/>
-			<toc-element topic="compatibility-guide-19.md"/>
-			<toc-element topic="compatibility-guide-18.md"/>
-			<toc-element topic="compatibility-guide-1720.md"/>
-			<toc-element topic="compatibility-guide-17.md"/>
-			<toc-element topic="compatibility-guide-16.md"/>
-			<toc-element topic="compatibility-guide-15.md"/>
-			<toc-element topic="compatibility-guide-14.md"/>
-			<toc-element topic="compatibility-guide-13.md"/>
-			<toc-element topic="compatibility-modes.md"/>
+
+		</toc-element>
+		<toc-element toc-title="Earlier versions">
+			<toc-element toc-title="Kotlin 1.7.x">
+				<toc-element toc-title="Kotlin 1.7.20" topic="whatsnew1720.md"/>
+				<toc-element toc-title="Kotlin 1.7.0" topic="whatsnew17.md"/>
+				<toc-element topic="compatibility-guide-1720.md"/>
+				<toc-element topic="compatibility-guide-17.md"/>
+			</toc-element>
+			<toc-element toc-title="Kotlin 1.6.x">
+				<toc-element toc-title="Kotlin 1.6.20" topic="whatsnew1620.md"/>
+				<toc-element toc-title="Kotlin 1.6.0" topic="whatsnew16.md"/>
+				<toc-element topic="compatibility-guide-16.md"/>
+			</toc-element>
+			<toc-element toc-title="Kotlin 1.5.x">
+				<toc-element toc-title="Kotlin 1.5.30" topic="whatsnew1530.md"/>
+				<toc-element toc-title="Kotlin 1.5.20" topic="whatsnew1520.md"/>
+				<toc-element toc-title="Kotlin 1.5.0" topic="whatsnew15.md"/>
+				<toc-element topic="compatibility-guide-15.md"/>
+			</toc-element>
+			<toc-element toc-title="Kotlin 1.4.x">
+				<toc-element toc-title="Kotlin 1.4.30" topic="whatsnew1430.md"/>
+				<toc-element toc-title="Kotlin 1.4.20" topic="whatsnew1420.md"/>
+				<toc-element toc-title="Kotlin 1.4.0" topic="whatsnew14.md"/>
+				<toc-element topic="compatibility-guide-14.md"/>
+			</toc-element>
+			<toc-element toc-title="Kotlin 1.3.x">
+				<toc-element toc-title="Kotlin 1.3" topic="whatsnew13.md"/>
+				<toc-element topic="compatibility-guide-13.md"/>
+			</toc-element>
+			<toc-element toc-title="Kotlin 1.2" topic="whatsnew12.md"/>
+			<toc-element toc-title="Kotlin 1.1" topic="whatsnew11.md"/>
+		</toc-element>
 		</toc-element>
 		<toc-element toc-title="Kotlin Foundation">
 			<toc-element toc-title="Kotlin Foundation" href="https://kotlinfoundation.org/"/>
