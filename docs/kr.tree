@@ -382,6 +382,20 @@
 			<toc-element toc-title="FAQ" topic="ksp-faq.md"/>
 		</toc-element>
 	</toc-element>
+	<toc-element toc-title="Kotlin evolution and roadmap">
+		<toc-element topic="roadmap.md"/>
+		<toc-element toc-title="Language features and proposals" topic="kotlin-language-features-and-proposals.md"/>
+		<toc-element toc-title="Language evolution principles" accepts-web-file-names="kotlin-evolution.html" topic="kotlin-evolution-principles.md"/>
+		<toc-element topic="components-stability.md"/>
+		<toc-element topic="compatibility-modes.md"/>
+		<toc-element hidden="true" topic="components-stability-pre-1.4.md"/>
+		<toc-element accepts-web-file-names="plugin-releases.html" topic="releases.md"/>
+	</toc-element>
+	<toc-element toc-title="Early access preview (EAP)">
+		<toc-element toc-title="Participate" topic="eap.md"/>
+		<toc-element toc-title="Install the Kotlin EAP Plugin" topic="install-eap-plugin.md"/>
+		<toc-element topic="configure-build-for-eap.md"/>
+	</toc-element>
 	<toc-element toc-title="Learning materials">
 		<toc-element toc-title="Overview" topic="learning-materials-overview.md"/>
 		<toc-element href="https://play.kotlinlang.org/byExample/overview" toc-title="Kotlin by example"/>
