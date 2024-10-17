@@ -216,40 +216,45 @@ the build process of an Xcode project.
 
 ## Update Podfile for Xcode
 
-If you want to import your Kotlin project in an Xcode project, you need to make some changes to your Podfile:
+If you want to import your Kotlin project to an Xcode project:
 
-* If your project has any Git, HTTP, or custom Podspec repository dependencies, you should also specify the path to
-the Podspec in the Podfile.
+1. Make changes in your Podfile:
 
-    For example, if you add a dependency on `podspecWithFilesExample`, declare the path to the Podspec in the Podfile:
+   * If your project has any Git, HTTP, or custom Podspec repository dependencies, you should specify the path to
+     the Podspec in the Podfile.
 
-    ```ruby
-    target 'ios-app' do
+     For example, if you add a dependency on `podspecWithFilesExample`, declare the path to the Podspec in the Podfile:
+
+     ```ruby
+     target 'ios-app' do
         # ... other dependencies ...
-        pod 'podspecWithFilesExample', :path => 'cocoapods/externalSources/url/podspecWithFilesExample'
-    end
-    ```
+        pod 'podspecWithFilesExample', :path => 'cocoapods/externalSources/url/podspecWithFilesExample' 
+     end
+     ```
 
-    The `:path` should contain the filepath to the Pod.
+     The `:path` should contain the filepath to the Pod.
 
-* When you add a library from the custom Podspec repository, you should also specify the [location](https://guides.cocoapods.org/syntax/podfile.html#source)
-of specs at the beginning of your Podfile:
+   * When you add a library from the custom Podspec repository, you should also specify the [location](https://guides.cocoapods.org/syntax/podfile.html#source)
+     of specs at the beginning of your Podfile:
 
-    ```ruby
-    source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'
+     ```ruby
+     source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'
 
-    target 'kotlin-cocoapods-xcproj' do
-        # ... other dependencies ...
-        pod 'example'
-    end
-    ```
+     target 'kotlin-cocoapods-xcproj' do
+         # ... other dependencies ...
+         pod 'example'
+     end
+     ```
 
-> After making changes in the Podfile, run **Reload All Gradle Projects** in IntelliJ IDEA
-> (or **Sync Project with Gradle Files** in Android Studio) to re-import the project.
->
-{style="note"}
+2. Run `pod install` in you project directory.
 
-If you don't make these changes to the Podfile, the `podInstall` task will fail, and the CocoaPods plugin will show
+   When you run `pod install` for the first time, it creates the `.xcworkspace` file. This file
+   includes your original `.xcodeproj` and the CocoaPods project.
+3. Close your `.xcodeproj` and open the new `.xcworkspace` file instead. This way you avoid issues with project dependencies.
+4. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+   to re-import the project.
+
+If you don't make these changes in the Podfile, the `podInstall` task will fail, and the CocoaPods plugin will show
 an error message in the log.
 
 ## Possible issues and solutions
