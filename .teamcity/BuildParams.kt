@@ -4,7 +4,7 @@ object BuildParams {
   const val KOTLINX_COROUTINES_RELEASE_TAG = "1.9.0-RC"
   const val KOTLINX_SERIALIZATION_RELEASE_TAG = "v1.7.3"
   const val KOTLINX_DATETIME_RELEASE_TAG = "v0.6.0"
-  const val KOTLINX_IO_RELEASE_TAG = "0.5.4"
+  const val KOTLINX_IO_RELEASE_TAG = "v0.5.4"  // @ToDo: after 0.6.0 use tag without "v" prefix
   const val KOTLIN_RELEASE_TAG = "v2.0.20"
 
   const val SEARCH_APP_ID = "7961PKYRXV"
