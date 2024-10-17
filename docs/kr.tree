@@ -399,16 +399,22 @@
 			<include from="api-guidelines.tree" origin="api-guidelines" element-id="api-guidelines"/>
 		</toc-element>
 	</toc-element>
+	<toc-element toc-title="Kotlin evolution and roadmap">
+		<toc-element topic="roadmap.md"/>
+		<toc-element toc-title="Language features and proposals" topic="kotlin-language-features-and-proposals.md"/>
+		<toc-element toc-title="Language evolution principles" accepts-web-file-names="kotlin-evolution.html" topic="kotlin-evolution-principles.md"/>
+		<toc-element topic="components-stability.md"/>
+		<toc-element topic="compatibility-modes.md"/>
+		<toc-element hidden="true" topic="components-stability-pre-1.4.md"/>
+		<toc-element accepts-web-file-names="plugin-releases.html" topic="releases.md"/>
+	</toc-element>
 	<toc-element toc-title="Early access preview (EAP)">
 		<toc-element toc-title="Participate" topic="eap.md"/>
 		<toc-element topic="configure-build-for-eap.md" accepts-web-file-names="install-eap-plugin.html"/>
 	</toc-element>
 	<toc-element toc-title="Other resources">
 		<toc-element topic="faq.md"/>
-		<toc-element toc-title="Kotlin compatibility guides">
-
-		</toc-element>
-		<toc-element toc-title="Earlier versions">
+		<toc-element toc-title="Earlier Kotlin versions">
 			<toc-element toc-title="Kotlin 1.7.x">
 				<toc-element toc-title="Kotlin 1.7.20" topic="whatsnew1720.md"/>
 				<toc-element toc-title="Kotlin 1.7.0" topic="whatsnew17.md"/>
@@ -438,7 +444,6 @@
 			</toc-element>
 			<toc-element toc-title="Kotlin 1.2" topic="whatsnew12.md"/>
 			<toc-element toc-title="Kotlin 1.1" topic="whatsnew11.md"/>
-		</toc-element>
 		</toc-element>
 		<toc-element toc-title="Kotlin Foundation">
 			<toc-element toc-title="Kotlin Foundation" href="https://kotlinfoundation.org/"/>
