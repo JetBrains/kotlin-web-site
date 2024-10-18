@@ -227,9 +227,8 @@ area of that circle.
 ```kotlin
 import kotlin.math.PI
 
-fun circleArea() {
-    // Write your code here
-}
+// Write your code here
+
 fun main() {
     println(circleArea(2))
 }
