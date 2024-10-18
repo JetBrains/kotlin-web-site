@@ -232,7 +232,11 @@ A Swift/Objective-C initializer is imported to Kotlin as constructors or as fact
 The latter happens with initializers declared in the Objective-C category or as a Swift extension,
 because Kotlin has no concept of extension constructors.
 
-Kotlin constructors are imported as initializers to Swift/Objective-C. 
+> Before importing Swift initializers to Kotlin, don't forget to annotate them with `@objc`.
+>
+{style="tip"}
+
+Kotlin constructors are imported as initializers to Swift/Objective-C.
 
 ### Setters
 
@@ -572,6 +576,55 @@ binaries.framework {
     freeCompilerArgs += "-Xno-objc-generics"
 }
 ```
+
+### Forward declarations
+
+To import forward declarations, use the `objcnames.classes` and `objcnames.protocols` packages. For example,
+to import a `objcprotocolName` forward declaration declared in an Objective-C library with a `library.package`,
+use a special forward declaration package: `import objcnames.protocols.objcprotocolName`.
+
+Consider two objcinterop libraries: one that uses `objcnames.protocols.ForwardDeclaredProtocolProtocol`
+and another with an actual implementation in another package:
+
+```ObjC
+// First objcinterop library
+#import <Foundation/Foundation.h>
+
+@protocol ForwardDeclaredProtocol;
+
+NSString* consumeProtocol(id<ForwardDeclaredProtocol> s) {
+    return [NSString stringWithUTF8String:"Protocol"];
+}
+```
+
+```ObjC
+// Second objcinterop library
+// Header:
+#import <Foundation/Foundation.h>
+@protocol ForwardDeclaredProtocol
+@end
+// Implementation:
+@interface ForwardDeclaredProtocolImpl : NSObject <ForwardDeclaredProtocol>
+@end
+
+id<ForwardDeclaredProtocol> produceProtocol() {
+    return [ForwardDeclaredProtocolImpl new];
+}
+```
+
+To transfer objects between the two libraries, use an explicit `as` cast in you Kotlin code:
+
+```kotlin
+// Kotlin code:
+fun test() {
+    consumeProtocol(produceProtocol() as objcnames.protocols.ForwardDeclaredProtocolProtocol)
+}
+```
+
+> Ypu can only cast to `objcnames.protocols.ForwardDeclaredProtocolProtocol` from the corresponding real class.
+> Otherwise, you'll get an error.
+>
+{style="note"}
 
 ## Casting between mapped types
 
