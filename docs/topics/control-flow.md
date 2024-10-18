@@ -90,7 +90,7 @@ val numericValue = when (getRandomBit()) {
 }
 ```
 
-In `when` _statements_, the `else` branch is mandatory in the following conditions:
+In `when` _statements_, the `else` branch is mandatory if both of the following conditions apply:
 * `when` has a subject of a `Boolean`, [`enum`](enum-classes.md),
 or [`sealed`](sealed-classes.md) type, or their nullable counterparts.
 * branches of `when` don't cover all possible cases for this subject.
