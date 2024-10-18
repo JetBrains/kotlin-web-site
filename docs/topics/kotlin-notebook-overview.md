@@ -19,7 +19,7 @@ The Kotlin Notebook plugin comes with [various features](https://www.jetbrains.c
 * Getting insights for debugging with error messages and traceback
 
 Kotlin Notebook is based on our [Kotlin Kernel for Jupyter Notebooks](https://github.com/Kotlin/kotlin-jupyter?tab=readme-ov-file#kotlin-kernel-for-ipythonjupyter), 
-making it easy to integrate with other [Kotlin notebook solutions](https://kotlinlang.org/docs/data-analysis-overview.html#notebooks).
+making it easy to integrate with other [Kotlin notebook solutions](data-analysis-overview.md#notebooks).
 Without compatibility issues, you can effortlessly share your work among Kotlin Notebook,
 [Datalore](https://datalore.jetbrains.com/), and [Kotlin-Jupyter Notebook](https://github.com/Kotlin/kotlin-jupyter).
 
