@@ -180,7 +180,7 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.5.1</version>
+            <version>3.8.6</version>
             <executions>
                 <!-- Replacing default-compile as it is treated specially by Maven -->
                 <execution>
