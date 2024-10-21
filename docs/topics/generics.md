@@ -98,8 +98,8 @@ The latter is called _contravariance_, and you can only call methods that take `
 you don't get a `String`, but rather an `Object`.
 
 Joshua Bloch, in his book [Effective Java, 3rd Edition](http://www.oracle.com/technetwork/java/effectivejava-136174.html), explains the problem well
-(Item 31: "Use bounded wildcards to increase API flexibility"). He gives the name _Producers_ to objects you only
-_read from_ and _Consumers_ to those you only _write to_. He recommends:
+(Item 31: "Use bounded wildcards to increase API flexibility"). He gives the name _Consumers_ to objects you only
+_read from_ and _Producers_ to those you only _write to_. He recommends:
 
 >"For maximum flexibility, use wildcard types on input parameters that represent producers or consumers."
 
