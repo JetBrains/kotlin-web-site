@@ -38,13 +38,13 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <th>Subsystem</th>
         <th>In focus now</th>
     </tr>
-    <tr>
+    <tr id="language">
         <td><strong>Language</strong></td>
         <td>
             <p><a href="kotlin-language-features-and-proposals.md">See the full list</a> of Kotlin language features and proposals or follow the <a href="https://youtrack.jetbrains.com/issue/KT-54620">YouTrack issue for upcoming language features</a></p>
         </td>
     </tr>
-    <tr>
+    <tr id="compiler">
         <td><strong>Compiler</strong></td>
         <td>
             <list>
@@ -56,7 +56,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             </list>
         </td>
     </tr>
-    <tr>
+    <tr id="multiplatform">
         <td><strong>Multiplatform</strong></td>
         <td>
             <list>
@@ -72,7 +72,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             <tip><p><a href="https://blog.jetbrains.com/kotlin/2023/11/kotlin-multiplatform-development-roadmap-for-2024/" target="_blank">Kotlin Multiplatform development roadmap for 2024</a></p></tip>
          </td>
     </tr>
-    <tr>
+    <tr id="tooling">
         <td><strong>Tooling</strong></td>
         <td>
             <list>
@@ -90,7 +90,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             </list>
          </td>
     </tr>
-    <tr>
+    <tr id="library-ecosystem">
         <td><strong>Library ecosystem</strong></td>
         <td>
             <list>
