@@ -239,7 +239,7 @@
 			</toc-element>
 			<toc-element accepts-web-file-names="quick-run.html" topic="run-code-snippets.md"/>
 			<toc-element toc-title="KDoc" topic="kotlin-doc.md"/>
-			<toc-element toc-title="TeamCity" topic="kotlin-and-ci.md"/>
+			<toc-element hidden="true" toc-title="Migrate to Kotlin code style with IntelliJ IDEA" topic="code-style-migration-guide.md"/>
 		</toc-element>
 	</toc-element>
 	<toc-element toc-title="Interoperability">
@@ -347,7 +347,6 @@
 			<toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
 			<toc-element accepts-web-file-names="using-ant.html" topic="ant.md"/>
 		</toc-element>
-		<toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA" topic="code-style-migration-guide.md"/>
 		<toc-element toc-title="Lets-Plot for Kotlin" topic="lets-plot.md"/>
 		<toc-element toc-title="OSGi" topic="kotlin-osgi.md"/>
 	</toc-element>
