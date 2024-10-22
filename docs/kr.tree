@@ -392,6 +392,7 @@
 	</toc-element>
 	<toc-element toc-title="Other resources">
 		<toc-element topic="faq.md"/>
+
 		<toc-element toc-title="Kotlin compatibility guides">
 			<toc-element topic="compatibility-guide-20.md"/>
 			<toc-element topic="compatibility-guide-19.md"/>
@@ -425,6 +426,6 @@
 		</toc-element>
 		<toc-element accepts-web-file-names="kotlin-logo.html" topic="kotlin-brand-assets.md"/>
 		<toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
-		<toc-element hidden="true" topic="test-page.md"/>
+		<toc-element  topic="test-page.md"/>
 	</toc-element>
 </instance-profile>
