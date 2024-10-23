@@ -584,6 +584,27 @@ By default, this property is set to `false` and the `apiElements` variant in Gra
 We would appreciate your feedback on this new approach. Have you noticed any performance improvements while using it?
 Let us know by adding a comment in [YouTrack](https://youtrack.jetbrains.com/issue/KT-61861/Gradle-Kotlin-compilations-depend-on-packed-artifacts).
 
+### Aligned dependency behavior of Kotlin Gradle plugin with java-test-fixtures plugin
+
+Prior to Kotlin 2.0.20, if you used the [`java-test-fixtures` plugin](https://docs.gradle.org/current/userguide/java_testing.html#sec:java_test_fixtures)
+in your project, there was a difference between Gradle and the Kotlin Gradle plugin in how dependencies were propagated. 
+
+The Kotlin Gradle plugin propagated dependencies:
+
+* From the `java-test-fixtures` plugin's `implementation` and `api` dependency types to the `test` source set compilation classpath.
+* From the main source set's `implementation` and `api` dependency types to the `java-test-fixtures` plugin's source set compilation classpath. 
+
+However, Gradle only propagated dependencies in the `api` dependency types.
+
+This difference in behavior led to some projects finding resource files multiple times in the classpath. 
+
+As of Kotlin 2.0.20, the Kotlin Gradle plugin's behavior is aligned with Gradle's `java-test-fixtures` plugin so this 
+problem no longer occurs for this or other Gradle plugins.
+
+As a result of this change, some dependencies in the `test` and `testFixtures` source sets may no longer be accessible.
+If this happens, either change the dependency declaration type from `implementation` to `api` or add a new dependency 
+declaration on the affected source set.
+
 ### Added task dependency for rare cases when the compile task lacks one on an artifact
 
 Prior to 2.0.20, we found that there were scenarios where a compile task was missing a task dependency for one
