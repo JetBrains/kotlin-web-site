@@ -41,7 +41,7 @@ all declarations and binaries needed to use it with Objective-C and Swift.
 
 Let's first create a Kotlin library:
 
-1. In the `src/nativeMain/kotlin` directory, create the `hello.kt` file with the library contents:
+1. In the `src/nativeMain/kotlin` directory, create the `lib.kt` file with the library contents:
 
    ```kotlin
    package example
@@ -133,15 +133,17 @@ Let's first create a Kotlin library:
     The `binaries {}` block configures the project to generate a dynamic or shared library.
 
     Along with `macosX64`, Kotlin/Native supports the `macosArm64` target for macOS and the `iosX64`, `iosArm64`, and
-    `iosSimulatorArm64` targets for iOS. You can replace the `macosX64` with the respective functions:
+    `iosSimulatorArm64` targets for iOS. So, you can replace the `macosX64()` with the respective functions:
     
     | Target platform/device | Gradle function       |
     |------------------------|-----------------------|
     | macOS x86_64           | `macosX64()`          | 
-    | macOS ARM 64           | `macosArm64()`        |
-    | iOS ARM 64             | `iosArm64()`          | 
-    | iOS x86_64             | `iosX64()`            |
-    | iOS Simulator (arm64)  | `iosSimulatorArm64()` |
+    | macOS ARM64            | `macosArm64()`        |
+    | iOS ARM64              | `iosArm64()`          | 
+    | iOS Simulator (x86_64) | `iosX64()`            |
+    | iOS Simulator (ARM64)  | `iosSimulatorArm64()` |
+
+    For information on other supported Apple targets, see [Kotlin/Native target support](native-target-support.md).
 
 3. Run the `linkNative` Gradle task to build the library in the IDE or use the following call in the command line:
 
@@ -208,6 +210,7 @@ types from the other side:
 | List        | Array               | NSArray             |
 | MutableList | NSMutableArray      | NSMutableArray      |
 | Set         | Set                 | NSSet               |
+| MutableSet  | NSMutableSet        | NSMutableSet        |
 | Map         | Dictionary          | NSDictionary        |
 | MutableMap  | NSMutableDictionary | NSMutableDictionary |
 
@@ -285,19 +288,18 @@ The code is full of Objective-C attributes, which are intended to help use the f
 Swift languages. `DemoInterface`, `DemoClazz`, and `DemoObject` are created for `Interface`, `Clazz`, and `Object`,
 respectively.
 
-The `Interface` is turned into `@protocol`, while both a `class` and an `object` are represented as `@interface`.
-The `Demo` prefix comes from the `-output` parameter of the `kotlinc-native` compiler and the framework name. 
-The nullable return type `ULong?` is turned into `DemoULong` in Objective-C.
+The `Interface` is turned into `@protocol`, while both a `class` and an `object` are represented as `@interface`. The
+`Demo` prefix comes from the framework name. The nullable return type `ULong?` is turned into `DemoULong` in Objective-C.
 
 ### Global declarations from Kotlin
 
-All global functions from Kotlin are turned into `DemoHelloKt` in Objective-C and into `HelloKt` in Swift,
+All global functions from Kotlin are turned into `DemoLibKt` in Objective-C and into `LibKt` in Swift,
 where `Demo` is the framework name set by the `-output` parameter of `kotlinc-native`.
 
 ```objc
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("HelloKt")))
-@interface DemoHelloKt : DemoBase
+__attribute__((swift_name("LibKt")))
+@interface DemoLibKt : DemoBase
 + (NSString * _Nullable)acceptFunF:(NSString * _Nullable (^)(NSString *))f __attribute__((swift_name("acceptFun(f:)")));
 + (void)forFloatsF:(float)f d:(DemoDouble * _Nullable)d __attribute__((swift_name("forFloats(f:d:)")));
 + (void)forIntegersB:(int8_t)b s:(uint16_t)s i:(int32_t)i l:(DemoULong * _Nullable)l __attribute__((swift_name("forIntegers(b:s:i:l:)")));
@@ -315,8 +317,8 @@ You can find more information about type mapping in [Interoperability with Swift
 
 ## Garbage collection and reference counting
 
-Objective-C and Swift use reference counting. Kotlin/Native has its own [garbage collector](native-memory-manager.md#garbage-collector)
-too. Kotlin/Native garbage collection is integrated with Objective-C/Swift reference counting.
+Objective-C and Swift use automatic reference counting (ARC). Kotlin/Native has its own [garbage collector](native-memory-manager.md#garbage-collector),
+which is also [integrated with Objective-C/Swift ARC](native-arc-integration.md).
 
 Unused Kotlin objects are automatically removed. You don't need to use anything special to control the lifetime of
 Kotlin/Native instances from Swift or Objective-C.
@@ -336,13 +338,13 @@ int main(int argc, const char * argv[]) {
         DemoClazz* clazz = [[ DemoClazz alloc] init];
         [clazz memberP:42];
         
-        [DemoHelloKt forIntegersB:1 s:1 i:3 l:[DemoULong numberWithUnsignedLongLong:4]];
-        [DemoHelloKt forIntegersB:1 s:1 i:3 l:nil];
+        [DemoLibKt forIntegersB:1 s:1 i:3 l:[DemoULong numberWithUnsignedLongLong:4]];
+        [DemoLibKt forIntegersB:1 s:1 i:3 l:nil];
         
-        [DemoHelloKt forFloatsF:2.71 d:[DemoDouble numberWithDouble:2.71]];
-        [DemoHelloKt forFloatsF:2.71 d:nil];
+        [DemoLibKt forFloatsF:2.71 d:[DemoDouble numberWithDouble:2.71]];
+        [DemoLibKt forFloatsF:2.71 d:nil];
         
-        NSString* ret = [DemoHelloKt acceptFunF:^NSString * _Nullable(NSString * it) {
+        NSString* ret = [DemoLibKt acceptFunF:^NSString * _Nullable(NSString * it) {
             return [it stringByAppendingString:@" Kotlin is fun"];
         }];
         
@@ -352,16 +354,16 @@ int main(int argc, const char * argv[]) {
 }
 ```
 
-Here, you call Kotlin classes directly from Objective-C code. A Kotlin `object` has the class method function `object`,
-which allows you to get the object's only instance and call `Object` methods on it.
+Here, you call Kotlin classes directly from Objective-C code. A Kotlin `object` uses the `<object name>.shared` class
+property, which allows you to get the object's only instance and call `Object` methods on it.
 
 The widespread pattern is used to create an instance of the `Clazz` class. You call the `[[ DemoClazz alloc] init]` on
 Objective-C. You can also use `[DemoClazz new]` for constructors without parameters.
 
-Global declarations from the Kotlin sources are scoped under the `DemoHelloKt` class in Objective-C.
+Global declarations from the Kotlin sources are scoped under the `DemoLibKt` class in Objective-C.
 All methods are turned into class methods of that class.
 
-The `strings` function is turned into `DemoHelloKt.stringsStr` function in Objective-C, so you can pass `NSString`
+The `strings` function is turned into `DemoLibKt.stringsStr` function in Objective-C, so you can pass `NSString`
 directly to it. The return is visible as `NSString` too.
 
 ## Use code from Swift
@@ -373,28 +375,27 @@ Objective-C example into Swift. Create the `main.swift` file with the following 
 import Foundation
 import Demo
 
-let kotlinObject = Object()
-assert(kotlinObject === Object(), "Kotlin object has only one instance")
+let kotlinObject = Object.shared
 
 let field = Object().field
 
 let clazz = Clazz()
 clazz.member(p: 42)
 
-HelloKt.forIntegers(b: 1, s: 2, i: 3, l: 4)
-HelloKt.forFloats(f: 2.71, d: nil)
+LibKt.forIntegers(b: 1, s: 2, i: 3, l: 4)
+LibKt.forFloats(f: 2.71, d: nil)
 
-let ret = HelloKt.acceptFun { "\($0) Kotlin is fun" }
+let ret = LibKt.acceptFun { "\($0) Kotlin is fun" }
 if (ret != nil) {
     print(ret!)
 }
 ``` 
 
 There are some small differences between the original Kotlin code and its Swift version. In Kotlin, any `object` has 
-only one instance. Kotlin `object Object` now has a constructor in Swift, and the `Object()` syntax is used to access
+only one instance. Kotlin `object Object` now has a constructor in Swift, and the `Object.shared` syntax is used to access
 its only instance. The instance is always the same in Swift, so that `Object() === Object()` is true.
 
-Methods and property names are translated as is. For example, Kotlin's `String` is turned into Swift's `String`. Swift
+Methods and property names are translated as is. Kotlin's `String` is turned into Swift's `String`. Swift
 hides `NSNumber*` boxing too. You can also pass a Swift closure to Kotlin and call a Kotlin lambda function from Swift. 
 
 You can find more information about type mapping in [Interoperability with Swift/Objective-C](native-objc-interop.md#mappings).
