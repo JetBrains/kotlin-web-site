@@ -173,6 +173,7 @@
 		</toc-element>
 		<toc-element toc-title="Data visualization in Kotlin Notebook" topic="data-analysis-visualization.md"/>
 		<toc-element toc-title="Libraries for data analysis" topic="data-analysis-libraries.md"/>
+		<toc-element topic="kotlin-notebook-overview.md"/>
 	</toc-element>
 	<toc-element toc-title="Platforms">
 		<toc-element toc-title="JVM">
@@ -270,6 +271,17 @@
 			<toc-element topic="custom-script-deps-tutorial.md"/>
 		</toc-element>
 	</toc-element>
+	<toc-element toc-title="Development">
+		<toc-element toc-title="Tooling">
+			<toc-element toc-title="IDE for Kotlin development" accepts-web-file-names="getting-started-eclipse.html,eclipse.html" topic="kotlin-ide.md"/>
+			<toc-element toc-title="Dokka">
+				<include from="dokka.tree" origin="dokka" element-id="dokka"/>
+			</toc-element>
+			<toc-element accepts-web-file-names="quick-run.html" topic="run-code-snippets.md"/>
+			<toc-element toc-title="KDoc" topic="kotlin-doc.md"/>
+			<toc-element hidden="true" toc-title="Migrate to Kotlin code style with IntelliJ IDEA" topic="code-style-migration-guide.md"/>
+		</toc-element>
+	</toc-element>
 	<toc-element toc-title="Standard library">
 		<toc-element toc-title="Collections">
 			<toc-element toc-title="Overview" topic="collections-overview.md"/>
@@ -305,6 +317,8 @@
 			<include from="kl.tree" origin="lincheck" element-id="lincheck"/>
 		</toc-element>
 		<toc-element toc-title="Ktor" href="https://ktor.io/"/>
+		<toc-element toc-title="Lets-Plot for Kotlin" topic="lets-plot.md"/>
+
 	</toc-element>
 	<toc-element toc-title="API reference">
 		<toc-element toc-title="Standard library (stdlib)" href="https://kotlinlang.org/api/latest/jvm/stdlib/"/>
@@ -320,30 +334,16 @@
 		<toc-element toc-title="Grammar" href="https://kotlinlang.org/docs/reference/grammar.html"/>
 		<toc-element href="https://kotlinlang.org/spec/" toc-title="Language specification"/>
 	</toc-element>
-	<toc-element toc-title="Tools">
-		<toc-element toc-title="Build tools">
-			<toc-element toc-title="Gradle">
-				<toc-element accepts-web-file-names="using-gradle.html" toc-title="Overview" topic="gradle.md"/>
-				<toc-element toc-title="Get started with Gradle – tutorial" topic="get-started-with-jvm-gradle-project.md"/>
-				<toc-element topic="gradle-configure-project.md"/>
-				<toc-element toc-title="Compiler options in KGP" topic="gradle-compiler-options.md"/>
-				<toc-element toc-title="Compilation and caches in KGP" topic="gradle-compilation-and-caches.md"/>
-				<toc-element topic="gradle-plugin-variants.md"/>
-			</toc-element>
-			<toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
-			<toc-element accepts-web-file-names="using-ant.html" topic="ant.md"/>
+	<toc-element toc-title="Build tools">
+		<toc-element toc-title="Gradle">
+			<toc-element accepts-web-file-names="using-gradle.html" toc-title="Overview" topic="gradle.md"/>
+			<toc-element toc-title="Get started with Gradle – tutorial" topic="get-started-with-jvm-gradle-project.md"/>
+			<toc-element topic="gradle-configure-project.md"/>
+			<toc-element toc-title="Compiler options in KGP" topic="gradle-compiler-options.md"/>
+			<toc-element toc-title="Compilation and caches in KGP" topic="gradle-compilation-and-caches.md"/>
+			<toc-element topic="gradle-plugin-variants.md"/>
 		</toc-element>
-		<toc-element toc-title="Dokka">
-			<include from="dokka.tree" origin="dokka" element-id="dokka"/>
-		</toc-element>
-		<toc-element toc-title="IDE for Kotlin development" accepts-web-file-names="getting-started-eclipse.html,eclipse.html" topic="kotlin-ide.md"/>
-		<toc-element toc-title="Migrate to Kotlin code style with IntelliJ IDEA" topic="code-style-migration-guide.md"/>
-		<toc-element topic="kotlin-notebook-overview.md"/>
-		<toc-element toc-title="Lets-Plot for Kotlin" topic="lets-plot.md"/>
-		<toc-element accepts-web-file-names="quick-run.html" topic="run-code-snippets.md"/>
-		<toc-element toc-title="TeamCity" topic="kotlin-and-ci.md"/>
-		<toc-element toc-title="KDoc" topic="kotlin-doc.md"/>
-		<toc-element toc-title="OSGi" topic="kotlin-osgi.md"/>
+		<toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
 	</toc-element>
 	<toc-element toc-title="Compiler and plugins">
 		<toc-element toc-title="Compiler">
