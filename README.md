@@ -22,7 +22,6 @@ Este repositorio es la fuente de [https://kotlinlang.es](https://kotlinlang.es).
 | [Comunidad](https://kotlinlang.es/community/)                   | [pages/community](pages/community)                       |
 | [Educación](https://kotlinlang.es/education/)                   | [templates/pages/education](templates/pages/education)   |
 
-
 Observa que los archivos fuente para [la página inicial de «server-side»](https://kotlinlang.org/lp/server-side/) y [la página inicial de Kotlin Multiplatform](https://kotlinlang.org/lp/multiplatform/) no están disponibles públicamente.
 
 #### Fuentes en diferentes repositorios
@@ -86,7 +85,7 @@ Para añadir un Grupo de Usuarios Kotlin (KUG, por sus siglas en inglés — *Ko
    Puedes hacerlo manualmente añadiendo la llave `position` con los valores `lat` y `lng`, como sigue:
 
    ```yaml
-   position
+   position:
      lat: 1.1111111
      lng: 1.1111111
    ```
@@ -233,11 +232,3 @@ Para ejecutar estas pruebas localmente, sigue los siguientes pasos:
 3. Descarga los artefactos de estas compilaciones y colócalos en el directorio `libs` por su nombre, por ejemplo, `kotlinx.coroutines`.
 4. Inicializa los contenedores `./scripts/dokka/up.sh`.
 5. Ejecuta la prueba dentro del contenedor `./scripts/dokka/run.sh` o en el host con uno de los siguientes scripts.
-
-Some tests focus on protecting the HTML markup of API references from being corrupted by the KTL components in the Dokka template's extension.
-To run these tests locally, follow the next steps:
-1. Create the `libs` folder in the project.
-2. Open the last successful build of each API reference on TeamCity.
-3. Download the artifacts of these builds and place them in the `libs` folder by their name, for example, `kotlinx.coroutines`.
-4. Up containers `./scripts/dokka/up.sh`.
-5. Run test inside container `./scripts/dokka/run.sh` or on the host with one of the scripts below.
