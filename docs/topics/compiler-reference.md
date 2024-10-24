@@ -80,7 +80,7 @@ Specify a custom path to the Kotlin compiler used for the discovery of runtime l
 ### -P plugin:pluginId:optionName=value
 
 Pass an option to a Kotlin compiler plugin.
-Available plugins and their options are listed in the **Tools > Compiler plugins** section of the documentation.
+Core plugins and their options are listed in the [Core compiler plugins](components-stability.md#core-compiler-plugins) section of the documentation.
   
 ### -language-version _version_
 
