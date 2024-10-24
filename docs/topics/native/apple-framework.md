@@ -16,7 +16,7 @@ Kotlin/Native comes with a set of pre-imported system frameworks; it's also poss
 use it from Kotlin. In this tutorial, you'll learn how to create your own framework and use Kotlin/Native code from
 Objective-C and Swift applications on macOS and iOS.
 
-In this tutorial, you'll:
+In this tutorial, you will:
 
 * [Create a Kotlin library](#create-a-kotlin-library) and compile it to a framework.
 * Examine the generated [Objective-C and Swift API](#generated-framework-headers) code.
@@ -152,7 +152,7 @@ Let's first create a Kotlin library:
    ```
     
 Depending on the variant, the build generates the framework into the `build/bin/native/debugFramework`
-or the `build/bin/native/releaseFramework` folder. Let's see what's inside.
+or the `build/bin/native/releaseFramework` directories. Let's see what's inside.
 
 ## Generated framework headers
 
@@ -162,8 +162,8 @@ Kotlin-wide declarations.
 
 ### Kotlin/Native runtime declarations
 
-In the `build/bin` directory, navigate to the `<Framework variant>/Demo.framework/Headers/Demo.h` header file and
-take a look at Kotlin runtime declarations:
+Navigate to the `build/bin/<Framework variant>/Demo.framework/Headers` directory, and open the `Demo.h` header file.
+Take a look at Kotlin runtime declarations:
 
 ```objc
 NS_ASSUME_NONNULL_BEGIN
@@ -333,7 +333,7 @@ Let's call the framework from Objective-C. For that, create the `main.m` file wi
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [[DemoObject object] field];
+        [DemoObject.shared field];
         
         DemoClazz* clazz = [[ DemoClazz alloc] init];
         [clazz memberP:42];
@@ -377,7 +377,7 @@ import Demo
 
 let kotlinObject = Object.shared
 
-let field = Object().field
+let field = Object.shared.field
 
 let clazz = Clazz()
 clazz.member(p: 42)
@@ -392,8 +392,7 @@ if (ret != nil) {
 ``` 
 
 There are some small differences between the original Kotlin code and its Swift version. In Kotlin, any `object` has 
-only one instance. Kotlin `object Object` now has a constructor in Swift, and the `Object.shared` syntax is used to access
-its only instance. The instance is always the same in Swift, so that `Object() === Object()` is true.
+only one instance. The `Object.shared` syntax is used to access this single instance.
 
 Methods and property names are translated as is. Kotlin's `String` is turned into Swift's `String`. Swift
 hides `NSNumber*` boxing too. You can also pass a Swift closure to Kotlin and call a Kotlin lambda function from Swift. 
