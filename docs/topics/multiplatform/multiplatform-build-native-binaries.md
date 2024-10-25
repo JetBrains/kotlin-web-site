@@ -414,7 +414,7 @@ Unlike [universal (fat) frameworks](#build-universal-frameworks), you don't need
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 
 plugins {
-    kotlin("multiplatform")
+    kotlin("multiplatform") version "%kotlinVersion%"
 }
 
 kotlin {
@@ -437,7 +437,7 @@ kotlin {
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFrameworkConfig
 
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform'
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
 }
 
 kotlin {
@@ -456,16 +456,18 @@ kotlin {
 </tab>
 </tabs>
 
-When you declare XCFrameworks, Kotlin Gradle plugin will register three Gradle tasks:
+When you declare XCFrameworks, the Kotlin Gradle plugin will register several Gradle tasks:
+
 * `assembleXCFramework`
-* `assembleDebugXCFramework` (additionally debug artifact that contains [dSYMs](native-ios-symbolication.md))
-* `assembleReleaseXCFramework`
+* `assemble<Framework name>DebugXCFramework` (additionally debug artifact that contains [dSYMs](native-ios-symbolication.md))
+* `assemble<Framework name>ReleaseXCFramework`
 
 <anchor name="build-frameworks"/>
 
 If you're using [CocoaPods integration](native-cocoapods.md) in your projects, you can build XCFrameworks with the Kotlin
 CocoaPods Gradle plugin. It includes the following tasks that build XCFrameworks with all the registered targets and
 generate podspec files:
+
 * `podPublishReleaseXCFramework`, which generates a release XCFramework along with a podspec file.
 * `podPublishDebugXCFramework`, which generates a debug XCFramework along with a podspec file.
 * `podPublishXCFramework`, which generates both debug and release XCFrameworks along with a podspec file.
