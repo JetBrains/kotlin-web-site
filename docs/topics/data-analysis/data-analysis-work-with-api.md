@@ -1,6 +1,6 @@
 [//]: # (title: Retrieve data from web sources and APIs)
 
-Kotlin Notebook provides a powerful platform for accessing and manipulating data from various web sources and APIs.
+[Kotlin Notebook](kotlin-notebook-overview.md) provides a powerful platform for accessing and manipulating data from various web sources and APIs.
 It simplifies data extraction and analysis tasks by offering an iterative environment where every step can be visualized 
 for clarity. This makes it particularly useful when exploring APIs you are not familiar with.
 
