@@ -322,17 +322,17 @@ The following attributes are supported:
 
 ### Attributes specific to JVM
 
-| Name              | Property name                   | Description                                                                                          | Possible values                                         | Default value               |
-|-------------------|---------------------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------|-----------------------------|
-| `nowarn`          |                                 | Generate no warnings                                                                                 | true, false                                             | false                       |
-| `languageVersion` | kotlin.compiler.languageVersion | Provide source compatibility with the specified version of Kotlin                                    | "1.6", "1.7", "1.8", "1.9", "2.0", "2.1" (EXPERIMENTAL) |                             |
-| `apiVersion`      | kotlin.compiler.apiVersion      | Allow using declarations only from the specified version of bundled libraries                        | "1.6", "1.7", "1.8", "1.9", "2.0", "2.1" (EXPERIMENTAL) |                             |
-| `sourceDirs`      |                                 | The directories containing the source files to compile                                               |                                                         | The project source roots    |
-| `compilerPlugins` |                                 | Enabled compiler plugins                                                                             |                                                         | []                          |
-| `pluginOptions`   |                                 | Options for compiler plugins                                                                         |                                                         | []                          |
-| `args`            |                                 | Additional compiler arguments                                                                        |                                                         | []                          |
-| `jvmTarget`       | `kotlin.compiler.jvmTarget`     | Target version of the generated JVM bytecode                                                         | "1.8", "9", "10", ..., "22"                             | "%defaultJvmTargetVersion%" |
-| `jdkHome`         | `kotlin.compiler.jdkHome`       | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |                                                         |                             |
+| Name              | Property name                   | Description                                                                                          | Possible values                                  | Default value               |
+|-------------------|---------------------------------|------------------------------------------------------------------------------------------------------|--------------------------------------------------|-----------------------------|
+| `nowarn`          |                                 | Generate no warnings                                                                                 | true, false                                      | false                       |
+| `languageVersion` | kotlin.compiler.languageVersion | Provide source compatibility with the specified version of Kotlin                                    | "1.8", "1.9", "2.0", "2.1", "2.2" (EXPERIMENTAL) |                             |
+| `apiVersion`      | kotlin.compiler.apiVersion      | Allow using declarations only from the specified version of bundled libraries                        | "1.8", "1.9", "2.0", "2.1", "2.2" (EXPERIMENTAL) |                             |
+| `sourceDirs`      |                                 | The directories containing the source files to compile                                               |                                                  | The project source roots    |
+| `compilerPlugins` |                                 | Enabled compiler plugins                                                                             |                                                  | []                          |
+| `pluginOptions`   |                                 | Options for compiler plugins                                                                         |                                                  | []                          |
+| `args`            |                                 | Additional compiler arguments                                                                        |                                                  | []                          |
+| `jvmTarget`       | `kotlin.compiler.jvmTarget`     | Target version of the generated JVM bytecode                                                         | "1.8", "9", "10", ..., "22"                      | "%defaultJvmTargetVersion%" |
+| `jdkHome`         | `kotlin.compiler.jdkHome`       | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |                                                  |                             |
 
 ## Use BOM
 
