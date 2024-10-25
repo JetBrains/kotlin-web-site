@@ -14,4 +14,4 @@ git+https://github.com/pik-software/geocoder.git@yandex-api-key#egg=geocoder
 ruamel.yaml==0.17.21
 PyYAML==5.4.1
 algoliasearch==1.20.0
-Werkzeug==2.3.8
+Werkzeug==3.0.6
