@@ -47,7 +47,7 @@ print(x.length) // x is automatically cast to String
 
 ### Control flow
 
-Smart casts work not only for `if` conditional expressions but also for [`when` expressions](control-flow.md#when-expression)
+Smart casts work not only for `if` conditional expressions but also for [`when` expressions](control-flow.md#when-expressions-and-statements)
 and [`while` loops](control-flow.md#while-loops):
 
 ```kotlin
