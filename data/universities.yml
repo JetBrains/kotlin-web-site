@@ -313,7 +313,7 @@
 - title: Purdue University West Lafayette
   location: West Lafayette, IN, US
   courses:
-  - name: CS 353: Principles of Concurrency and Parallelism
+  - name: "CS 353: Principles of Concurrency and Parallelism"
     url: https://www.cs.purdue.edu/homes/suresh/353-Spring2023/index.html
   geo:
     lat: 40.42381971692704
@@ -361,7 +361,7 @@
 - title: The Ohio State University
   location: Columbus, OH, US
   courses:
-  - name: CSE 5236: Mobile Application Development
+  - name: "CSE 5236: Mobile Application Development"
     url: https://syllabi.engineering.osu.edu/syllabi/cse_5236
   geo:
     lat: 40.00630254001021
@@ -385,7 +385,7 @@
 - title: Aarhus University
   location: Aarhus, Denmark
   courses:
-  - name: CMSC 436: Programming Handheld Systems
+  - name: "CMSC 436: Programming Handheld Systems"
     url: https://www.cs.umd.edu/class/fall2023/cmsc436/syllabus.html
   geo:
     lat: 56.16615366266737
@@ -2076,7 +2076,7 @@
 - title: Manchester Metropolitan University
   location: Manchester, UK
   courses:
-  - name: Android Development Essential Training: Your First App with Kotlin
+  - name: "Android Development Essential Training: Your First App with Kotlin"
     url: https://rise.mmu.ac.uk/lil/digital-capabilities/#
   geo:
     lat: 53.47054006
@@ -2610,7 +2610,7 @@
     lat: 43.67728424
     lng: -79.4107284
 - title: Gujarat Technological University
-  location:, India
+  location: Gujarat, India
   courses:
   - name: Mobile Computing using Android
     url: https://www.vbtmca.ac.in/SYLLABUS/Sem%202/629402.pdf
