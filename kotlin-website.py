@@ -129,9 +129,13 @@ def get_nav():
     return nav
 
 def get_countries_size():
-    def match_string(string):
-        return re.search(r'\((.*?)\)', string.get("location")).group(1)
-    matches = set(map(match_string, site_data['universities']))
+    def match_string(entry):
+        location = entry.get("location", "")
+        # Extract the last part as the country code
+        return location.split(",")[-1].strip()
+
+    # Extract unique countries, ignoring any None results
+    matches = set(filter(None, map(match_string, site_data['universities'])))
     return len(matches)
 
 
