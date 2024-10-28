@@ -163,19 +163,20 @@ Each of the following ways to set arguments overrides the ones that came before 
 
 #### Gradle daemon arguments inheritance
 
-The Kotlin daemon inherits a specific set of arguments from the Gradle daemon and then overwrites them with JVM args specified for the Kotlin daemon. For example, in the `gradle.properties` file:
+By default, the Kotlin daemon inherits a specific set of arguments from the Gradle daemon but overwrites them with any 
+JVM arguments specified directly for the Kotlin daemon. For example, if you add the following JVM arguments in the `gradle.properties` file:
 
 ```none
 org.gradle.jvmargs=-Xmx1500m -Xms500m -XX:MaxMetaspaceSize=1g
 ```
 
-would then result in the Kotlin daemon's JVM args being similar to:
+These arguments are then added to the Kotlin daemon's JVM arguments:
 
 ```none
 -Xmx1500m -XX:ReservedCodeCacheSize=320m -XX:MaxMetaspaceSize=1g -XX:UseParallelGC -ea -XX:+UseCodeCacheFlushing -XX:+HeapDumpOnOutOfMemoryError -Djava.awt.headless=true -Djava.rmi.server.hostname=127.0.0.1 --add-exports=java.base/sun.nio.ch=ALL-UNNAMED
 ```
 
-> Learn more about [Kotlin daemon's behavior with JVM arguments](#kotlin-daemon-s-behavior-with-jvm-arguments).
+> To learn more about the Kotlin daemon's default behavior with JVM arguments, see [Kotlin daemon's behavior with JVM arguments](#kotlin-daemon-s-behavior-with-jvm-arguments).
 >
 {style="note"}
 
@@ -203,11 +204,13 @@ When passing arguments, follow these rules:
 
 #### kotlin.daemon.jvmargs property
 
-You can add the `kotlin.daemon.jvmargs` property in the `gradle.properties` file. Note that if you do not specify `ReservedCodeCacheSize` here or in Gradle's JVM args, a default will be applied by the Kotlin Gradle plugin:
+You can add the `kotlin.daemon.jvmargs` property in the `gradle.properties` file:
 
 ```none
 kotlin.daemon.jvmargs=-Xmx1500m -Xms500m
 ```
+
+Note that if you don't specify the `ReservedCodeCacheSize` argument here or in Gradle's JVM arguments, the Kotlin Gradle plugin applies a default value of `320m`:
 
 ```none
 -Xmx1500m -XX:ReservedCodeCacheSize=320m -Xms500m
@@ -280,21 +283,23 @@ When configuring the Kotlin daemon's JVM arguments, note that:
   >
   {style="note"}
 
-If the following arguments are not specified, the Kotlin daemon will inherit them from the Gradle daemon:
+If the following arguments aren't specified, the Kotlin daemon inherits them from the Gradle daemon:
 
-* -Xmx
-* -XX:MaxMetaspaceSize
-* -XX:ReservedCodeCacheSize (Defaults to 320m if not inherited and unspecified)
+* `-Xmx`
+* `-XX:MaxMetaspaceSize`
+* `-XX:ReservedCodeCacheSize`. If not specified or inherited, the default value is `320m`.
 
-The Kotlin daemon also has a number of defaults:
-* -XX:UseParallelGC (if no other garbage collector was set)
-* -ea
-* -XX:+UseCodeCacheFlushing
-* -Djava.awt.headless=true
-* -D{java.servername.property}={localhostip}
-* --add-exports=java.base/sun.nio.ch=ALL-UNNAMED (Only for JDK 16+)
+The Kotlin daemon has the following default JVM arguments:
+* `-XX:UseParallelGC`. This argument is only applied if no other garbage collector is specified.
+* `-ea`
+* `-XX:+UseCodeCacheFlushing`
+* `-Djava.awt.headless=true`
+* `-D{java.servername.property}={localhostip}`
+* `--add-exports=java.base/sun.nio.ch=ALL-UNNAMED`. This argument is only applied for JDK versions 16 or higher.
 
-The list of defaults is considered an implementation detail of the Kotlin daemon and may vary between versions. You can use a tool like [VisualVM](https://visualvm.github.io/) to verify what the actual settings of a running JVM process like the Kotlin daemon are.
+> The list of default JVM arguments for the Kotlin daemon may vary between versions. You can use a tool like [VisualVM](https://visualvm.github.io/) to check the actual settings of a running JVM process, like the Kotlin daemon.
+>
+{style="note"}
 
 ## Rolling back to the previous compiler
 
