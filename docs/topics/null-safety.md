@@ -156,10 +156,10 @@ fun main() {
     // Checks for nullability first and then accesses length
     if (b != null && b.length > 0) {
         print("String of length ${b.length}")
-    // Provides alternative if the condition is not met  
+        // String of length 6
     } else {
         print("Empty string")
-        // String of length 6
+        // Provides alternative if the condition is not met      
     }
 //sampleEnd
 }
