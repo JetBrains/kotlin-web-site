@@ -32,6 +32,16 @@ a compilation target to run on the web.
 Kotlin/Wasm compiles your Kotlin code into Wasm format. Using Kotlin/Wasm, you can create applications that run on 
 different environments and devices, which support Wasm and meet Kotlin's requirements. 
 
+Kotlin/Wasm benefits from [WebAssembly System Interface (WASI)](https://wasi.dev/), which provides 
+a secure standard interface for running Kotlin applications compiled to WebAssembly across different environments.
+
+Kotlin/Wasm leverages WASI to abstract away platform-specific details, enabling the same Kotlin code to be executed on diverse 
+platforms without requiring custom handling for each runtime and expanding the reach of Kotlin/Wasm beyond web applications.
+
+> To see Kotlin/Wasm and WASI in action with Node.js, Deno, and WasmEdge, check the [Get started with Kotlin/Wasm and WASI tutorial](wasm-wasi.md).
+>
+{style="tip"}
+
 Additionally, you can use the most popular Kotlin libraries in Kotlin/Wasm out of the box. Like other Kotlin and Multiplatform
 projects, you can include dependency declarations in the build script. For more information, 
 see [Adding dependencies on multiplatform libraries](multiplatform-add-dependencies.md).

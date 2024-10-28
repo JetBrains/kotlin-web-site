@@ -240,6 +240,7 @@
 		</toc-element>
 		<toc-element toc-title="WebAssembly (Wasm)">
 			<toc-element topic="wasm-get-started.md"/>
+			<toc-element topic="wasm-wasi.md"/>
 			<toc-element topic="wasm-debugging.md"/>
 			<toc-element topic="wasm-js-interop.md"/>
 			<toc-element topic="wasm-troubleshooting.md"/>

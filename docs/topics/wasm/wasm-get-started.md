@@ -1,4 +1,4 @@
-[//]: # (title: Get started with Kotlin/Wasm in IntelliJ IDEA)
+[//]: # (title: Get started with Kotlin/Wasm and Compose Multiplatform)
 
 > Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time.
 > 
@@ -106,10 +106,9 @@ Join the Kotlin/Wasm community in Kotlin Slack:
 
 <a href="https://slack-chats.kotlinlang.org/c/webassembly"><img src="join-slack-channel.svg" width="700" alt="Join the Kotlin/Wasm community" style="block"/></a>
 
-Try the Kotlin/Wasm examples from the `kotlin-wasm-examples` repository:
+Try more Kotlin/Wasm examples:
 
-* [Compose image viewer](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-imageviewer)
-* [Jetsnack application](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-jetsnack)
-* [Node.js example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/nodejs-example)
-* [WASI example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example)
-* [Compose example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-example)
+* [Compose image viewer](https://github.com/JetBrains/compose-multiplatform/tree/master/examples/imageviewer)
+* [Jetsnack application](https://github.com/JetBrains/compose-multiplatform/tree/master/examples/jetsnack)
+* [Node.js example](https://github.com/Kotlin/kotlin-wasm-nodejs-template)
+* [WASI example](https://github.com/Kotlin/kotlin-wasm-wasi-template)
