@@ -114,9 +114,9 @@ const kotlinFoundationCompanies = [
         link: 'https://gradle.org/'
     },
     {
-        name: 'Uber',
-        logo: UberLogo,
-        link: 'https://www.uber.com/'
+        name: 'Touchlab',
+        logo: TouchlabLogo,
+        link: 'https://touchlab.co/'
     },
     {
         name: 'Shopify',
@@ -124,9 +124,9 @@ const kotlinFoundationCompanies = [
         link: 'https://shopify.engineering/'
     },
     {
-        name: 'Touchlab',
-        logo: TouchlabLogo,
-        link: 'https://touchlab.co/'
+        name: 'Uber',
+        logo: UberLogo,
+        link: 'https://www.uber.com/'
     },
     {
         name: 'Kotzilla',
