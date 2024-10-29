@@ -1,3 +1,12 @@
+- lang: pt
+  startDate: '2024-10-03'
+  endDate: '2024-10-03'
+  location: Lisbon, Portugal
+  online: false
+  speaker: 'Paulo Pereira'
+  title: 'Ko-Hacks'
+  subject: 'Mutabilidade: Necessidade ou Hábito?'
+  url: https://www.meetup.com/pt-BR/kotlin-lisboa/events/301917980/
 - lang: fr
   startDate: '2024-10-22'
   endDate: '2024-10-22'
