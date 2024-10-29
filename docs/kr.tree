@@ -360,6 +360,10 @@
 			<toc-element toc-title="Lombok" topic="lombok.md"/>
 			<toc-element toc-title="Power-assert" topic="power-assert.md"/>
 		</toc-element>
+		<toc-element toc-title="Compose compiler">
+			<toc-element toc-title="Compiler migration guide" topic="compose-compiler-migration-guide.md"/>
+			<toc-element toc-title="Compiler options" topic="compose-compiler-options.md"/>
+		</toc-element>
 		<toc-element toc-title="Kotlin Symbol Processing API">
 			<toc-element toc-title="KSP overview" topic="ksp-overview.md"/>
 			<toc-element toc-title="Quickstart" topic="ksp-quickstart.md"/>
