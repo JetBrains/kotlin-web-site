@@ -10,7 +10,7 @@ and provides a set of methods for declaring and configuring them.
 > The `kotlin-multiplatform` plugin doesn't create any production binaries by default. The only binary available by default
 > is a debug test executable that lets you run unit tests from the `test` compilation.
 >
-{type="note"}
+{style="note"}
 
 Binaries produced by the Kotlin/Native compiler can include third-party code, data, or derived work.
 This means if you distribute a Kotlin/Native-compiled final binary,
@@ -135,7 +135,7 @@ binary kind following the pattern: `<optional-name-prefix><build-type><binary-ki
 
 > Static and shared libraries have the suffixes static and shared respectively, for example, `fooDebugStatic` or `barReleaseShared`.
 >
-{type="note"}
+{style="note"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -277,7 +277,7 @@ export all these modules to it.
 
 > You can export only [`api` dependencies](gradle-configure-project.md#dependency-types) of the corresponding source set.
 >
-{type="note"}
+{style="note"}
 
 When you export a dependency, it includes all of its API to the framework API.
 The compiler adds the code from this dependency to the framework, even if you use a small fraction of it.
@@ -295,7 +295,7 @@ are exported as well.
 > In most cases, you don't need to add all these dependencies to the framework API.
 > Use `export` explicitly for the dependencies you need to directly access from your Swift or Objective-C code.
 >
-{type="warning"}
+{style="warning"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -335,7 +335,7 @@ framework on both 32-bit and 64-bit devices.
 
 > The fat framework must have the same base name as the initial frameworks. Otherwise, you'll get an error.
 >
-{type="warning"}
+{style="warning"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -461,6 +461,8 @@ When you declare XCFrameworks, Kotlin Gradle plugin will register three Gradle t
 * `assembleDebugXCFramework` (additionally debug artifact that contains [dSYMs](native-ios-symbolication.md))
 * `assembleReleaseXCFramework`
 
+<anchor name="build-frameworks"/>
+
 If you're using [CocoaPods integration](native-cocoapods.md) in your projects, you can build XCFrameworks with the Kotlin
 CocoaPods Gradle plugin. It includes the following tasks that build XCFrameworks with all the registered targets and
 generate podspec files:
@@ -474,7 +476,7 @@ for publishing to private or public podspec repositories.
 > Publishing Kotlin frameworks to public repositories is not recommended if those frameworks are built for different versions
 > of Kotlin. Doing so might lead to conflicts in the end-users' projects.
 >
-{type="warning"}
+{style="warning"}
 
 ## Customize the Info.plist file
 

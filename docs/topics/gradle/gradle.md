@@ -10,7 +10,7 @@ or pass a small [step-by-step tutorial](get-started-with-jvm-gradle-project.md) 
 
 > You can find information about the compatibility of Kotlin, Gradle, and Android Gradle plugin versions [here](gradle-configure-project.md#apply-the-plugin).
 > 
-{type="tip"}
+{style="tip"}
 
 In this chapter, you can also learn about:
 * [Compiler options and how to pass them](gradle-compiler-options.md).

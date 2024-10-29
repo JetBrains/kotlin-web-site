@@ -8,7 +8,7 @@ For each target, default compilations include:
 * `main` and `test` compilations for JVM, JS, and Native targets.
 * A [compilation](#compilation-for-android) per [Android build variant](https://developer.android.com/studio/build/build-variants), for Android targets.
 
-![Compilations](compilations.png)
+![Compilations](compilations.svg)
 
 If you need to compile something other than production code and unit tests, for example, integration or performance tests, 
 you can [create a custom compilation](#create-a-custom-compilation).
@@ -91,7 +91,7 @@ kotlin {
 > and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
 > your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 ## Configure compilations for one target
 
@@ -160,7 +160,7 @@ kotlin {
 > and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
 > your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 
 ## Configure one compilation
@@ -209,7 +209,7 @@ collection.
 > For custom compilations, you need to set up all dependencies manually. The default source set of a custom compilation 
 > does not depend on the `commonMain` and the `commonTest` source sets.
 >
-{type="note"}
+{style="note"}
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -316,14 +316,15 @@ The publication of this target is handled by the Kotlin plugin and doesn't requi
 Kotlin provides [interoperability with native languages](native-c-interop.md) and DSL to configure this for a specific 
 compilation.
 
-| Native language | Supported platforms | Comments |
-|-----------------|---------------------|----------|
-| C | All platforms, except for WebAssembly | |
-| Objective-C | Apple platforms (macOS, iOS, watchOS, tvOS) | |
+| Native language       | Supported platforms                         | Comments                                                                  |
+|-----------------------|---------------------------------------------|---------------------------------------------------------------------------|
+| C                     | All platforms, except for WebAssembly       |                                                                           |
+| Objective-C           | Apple platforms (macOS, iOS, watchOS, tvOS) |                                                                           |
 | Swift via Objective-C | Apple platforms (macOS, iOS, watchOS, tvOS) | Kotlin can use only Swift declarations marked with the `@objc` attribute. |
 
-A compilation can interact with several native libraries. Configure interoperability in the `cinterops` block of the 
-compilation with [available parameters](multiplatform-dsl-reference.md#cinterops).
+A compilation can interact with several native libraries. Configure interoperability with available properties in the
+[definition file](native-definition-file.md) or in the [`cinterops` block](multiplatform-dsl-reference.md#cinterops) of
+your build file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -433,7 +434,7 @@ dependencies {
 
 Kotlin can build a [source set hierarchy](multiplatform-share-on-platforms.md#share-code-on-similar-platforms) with the `dependsOn` relation.
 
-![Source set hierarchy](jvm-js-main.png){width=400}
+![Source set hierarchy](jvm-js-main.svg)
 
 If the source set `jvmMain` depends on a source set `commonMain` then:
 

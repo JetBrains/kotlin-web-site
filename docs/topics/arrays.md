@@ -6,7 +6,7 @@ The most common type of array in Kotlin is the object-type array, represented by
 > If you use primitives in an object-type array, this has a performance impact because your primitives are [boxed](https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html)
 > into objects. To avoid boxing overhead, use [primitive-type arrays](#primitive-type-arrays) instead.
 >
-{type="note"}
+{style="note"}
 
 ## When to use arrays
 
@@ -93,7 +93,7 @@ create an empty array :
 > var exampleArray: Array<String> = emptyArray()
 >```
 >
-{type="note"}
+{style="note"}
 
 The `Array` constructor takes the array size and a function that returns values for array elements given its index:
 
@@ -116,7 +116,7 @@ fun main() {
 
 > Like in most programming languages, indices start from 0 in Kotlin.
 >
-{type="note"}
+{style="note"}
 
 ### Nested arrays
 
@@ -141,7 +141,7 @@ fun main() {
 
 > Nested arrays don't have to be the same type or the same size.
 >
-{type="note"}
+{style="note"}
 
 ## Access and modify elements
 
@@ -231,7 +231,7 @@ fun main() {
 > 
 > To learn more about why arrays in Kotlin behave this way, see our [blog post](https://blog.jetbrains.com/kotlin/2015/09/feedback-request-limitations-on-data-classes/#Appendix.Comparingarrays).
 > 
-{type="warning"}
+{style="warning"}
 
 ### Transform arrays
 
@@ -258,7 +258,7 @@ fun main() {
 
 > The `.sum()` function can only be used with arrays of [numeric data types](numbers.md), such as `Int`.
 >
-{type="note"}
+{style="note"}
 
 #### Shuffle
 
@@ -375,7 +375,7 @@ fun main() {
 > [`.toByteArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-byte-array.html), [`.toCharArray()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/to-char-array.html),
 > and so on.
 > 
-{type="note"}
+{style="note"}
 
 ## What's next?
 

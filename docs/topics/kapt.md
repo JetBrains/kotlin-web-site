@@ -4,7 +4,7 @@
 > but have no plans to implement new features. Please use the [Kotlin Symbol Processing API (KSP)](ksp-overview.md) for annotation processing.
 > [See the list of libraries supported by KSP](ksp-overview.md#supported-libraries).
 >
-{type="warning"}
+{style="warning"}
 
 Annotation processors (see [JSR 269](https://jcp.org/en/jsr/detail?id=269)) are supported in Kotlin with the _kapt_ compiler plugin.
 
@@ -75,7 +75,7 @@ Follow these steps:
 > Support for K2 in the kapt compiler plugin is [Experimental](components-stability.md). Opt-in is required (see details below),
 > and you should use it only for evaluation purposes.
 >
-{type="warning"}
+{style="warning"}
 
 From Kotlin 1.9.20, you can try using the kapt compiler plugin with the [K2 compiler](https://blog.jetbrains.com/kotlin/2021/10/the-road-to-the-k2-compiler/),
 which brings performance improvements and many other benefits. To use the K2 compiler in your project, add the following
@@ -157,7 +157,7 @@ tasks.withType(org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask.class
 > It may be dropped or changed at any time. Use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-28901).
 >
-{type="warning"}
+{style="warning"}
 
 Caching for annotation processors' classloaders helps kapt perform faster if you run many Gradle tasks consecutively.
 
@@ -229,7 +229,7 @@ Enable the statistics in two steps:
 
 > You can also enable verbose output via the [command line option `verbose`](#use-in-cli).
 >
-> {type="note"}
+> {style="note"}
 
 The statistics will appear in the logs with the `info` level. You'll see the `Annotation processor stats:` line followed by 
 statistics on the execution time of each annotation processor. After these lines, there will be the `Generated files report:` line 

@@ -1,13 +1,13 @@
 [//]: # (title: Set up an environment)
 
-<microformat>
+<tldr>
    <p>This is the first part of the <strong>Getting started with Kotlin Notebook</strong> tutorial:</p>
    <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Set up an environment</strong><br/>
       <img src="icon-2-todo.svg" width="20" alt="Second step"/> Create a Kotlin Notebook<br/>
       <img src="icon-3-todo.svg" width="20" alt="Third step"/> Add dependencies to a Kotlin Notebook<br/>      
       <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Share a Kotlin Notebook<br/>
   </p>
-</microformat>
+</tldr>
 
 Before you create your first Kotlin Notebook, you need to set up an environment.
 
@@ -22,7 +22,7 @@ Before you create your first Kotlin Notebook, you need to set up an environment.
    > Alternatively, you can download the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook)
    > and install it manually.
    >
-   {type="note"}
+   {style="note"}
 
 4. Click **OK** to apply the changes and restart your IDE if prompted.
 

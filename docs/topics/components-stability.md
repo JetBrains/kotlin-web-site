@@ -28,7 +28,8 @@ Here's a quick guide to these stability levels and their meaning:
 
 We collectively refer to _Experimental_, _Alpha_ and _Beta_ as **pre-stable** levels.
 
-<a name="stable"></a>
+<a name="stable"/>
+
 **Stable** means "use it even in most conservative scenarios":
   * It's done. We will be evolving it according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
 
@@ -67,7 +68,7 @@ to avoid the accidental use of features that have not been released as stable.
 
 > By default, all new components have Experimental status.
 > 
-{type="note"}
+{style="note"}
 
 ### Kotlin compiler
 
@@ -94,10 +95,10 @@ to avoid the accidental use of features that have not been released as stable.
 
 | **Component**         | **Status** | **Status since version** | **Comments** |
 |-----------------------|------------|--------------------------|--------------|
-| kotlin-stdlib         | Stable     | 1.0                      |              |
+| kotlin-stdlib (JVM)   | Stable     | 1.0.0                    |              |
 | kotlinx-coroutines    | Stable     | 1.3.0                    |              |
 | kotlinx-serialization | Stable     | 1.0.0                    |              |
-| kotlin-reflect (JVM)  | Beta       | 1.0                      |              |
+| kotlin-reflect (JVM)  | Beta       | 1.0.0                    |              |
 | kotlinx-datetime      | Alpha      | 0.2.0                    |              |
 | kotlinx-io            | Alpha      | 0.2.0                    |              |
 
@@ -113,9 +114,9 @@ to avoid the accidental use of features that have not been released as stable.
 | **Component**                                | **Status** | **Status since version** | **Comments**                            |
 |----------------------------------------------|------------|--------------------------|-----------------------------------------|
 | Kotlin/Native Runtime                        | Stable     | 1.9.20                   |                                         |
-| Kotlin/Native interop with C and Objective-C | Beta       | 1.3                      |                                         |
+| Kotlin/Native interop with C and Objective-C | Beta       | 1.3.0                    |                                         |
 | klib binaries                                | Stable     | 1.9.20                   | Not including cinterop klibs, see below |
-| cinterop klib binaries                       | Beta       | 1.3                      |                                         |
+| cinterop klib binaries                       | Beta       | 1.3.0                    |                                         |
 | CocoaPods integration                        | Stable     | 1.9.20                   |                                         |
 
 > For details about Kotlin/Native targets support, see [](native-target-support.md).
@@ -124,10 +125,10 @@ to avoid the accidental use of features that have not been released as stable.
 
 | **Component**                         | **Status**   | **Status since version** | **Comments**                                   |
 |---------------------------------------|--------------|--------------------------|------------------------------------------------|
-| Scripting syntax and semantics        | Alpha        | 1.2                      |                                                |
-| Scripting embedding and extension API | Beta         | 1.5                      |                                                |
+| Scripting syntax and semantics        | Alpha        | 1.2.0                    |                                                |
+| Scripting embedding and extension API | Beta         | 1.5.0                    |                                                |
 | Scripting IDE support                 | Beta         |                          | Available since IntelliJ IDEA 2023.1 and later |
-| CLI scripting                         | Alpha        | 1.2                      |                                                |
+| CLI scripting                         | Alpha        | 1.2.0                    |                                                |
 
 ## Language features and design proposals
 

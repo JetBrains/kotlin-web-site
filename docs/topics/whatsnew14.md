@@ -322,7 +322,7 @@ In Kotlin 1.4, debugging coroutines is now much more convenient with the new fun
 
 > Debugging works for versions 1.3.8 or later of `kotlinx-coroutines-core`.
 >
-{type="note"}
+{style="note"}
 
 The **Debug Tool Window** now contains a new **Coroutines** tab. In this tab, you can find information about both currently 
 running and suspended coroutines. The coroutines are grouped by the dispatcher they are running on. 
@@ -558,14 +558,14 @@ kotlinOptions.useIR = true
 > If you [enable Jetpack Compose](https://developer.android.com/jetpack/compose/setup?hl=en), you will automatically be 
 > opted in to the new JVM backend without needing to specify the compiler option in `kotlinOptions`.
 >
-{type="note"}
+{style="note"}
 
 When using the command-line compiler, add the compiler option `-Xuse-ir`.
 
 > You can use code compiled by the new JVM IR backend only if you've enabled the new backend. Otherwise, you will get an error.
 > Considering this, we don't recommend that library authors switch to the new backend in production.
 >
-{type="note"}
+{style="note"}
 
 ### New modes for generating default methods
 
@@ -801,9 +801,9 @@ The new dependency will be added automatically. No additional steps are required
 > Support for multiplatform projects is in [Alpha](components-stability.md). It may change incompatibly and require manual migration in the future.
 > We appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues/KT).
 >
-{type="warning"}
+{style="warning"}
 
-[Kotlin Multiplatform](multiplatform.md) reduces time spent writing and maintaining the same code for [different platforms](multiplatform-dsl-reference.md#targets) 
+[Kotlin Multiplatform](multiplatform-intro.md) reduces time spent writing and maintaining the same code for [different platforms](multiplatform-dsl-reference.md#targets) 
 while retaining the flexibility and benefits of native programming. We continue investing our effort in multiplatform features
 and improvements:
 
@@ -813,7 +813,7 @@ and improvements:
 
 > Multiplatform projects require Gradle 6.0 or later.
 >
-{type="note"}
+{style="note"}
 
 ### Sharing code in several targets with the hierarchical project structure
 
@@ -854,7 +854,7 @@ kotlin {
 For other combinations of targets, [create a hierarchy manually](multiplatform-hierarchy.md#manual-configuration)
 by connecting the source sets with the `dependsOn` relation.
 
-![Hierarchical structure](manual-hierarchical-structure.png)
+![Hierarchical structure](manual-hierarchical-structure.svg)
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -1457,7 +1457,7 @@ important features and it can help you address any issues that you might face.
 
 >**Note**: `kotlinx-serialization` 1.0.0-RC only works with Kotlin compiler 1.4. Earlier compiler versions are not compatible.
 >
-{type="note"}
+{style="note"}
 
 ## Scripting and REPL
 

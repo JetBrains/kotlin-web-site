@@ -6,7 +6,7 @@ the type of a property or function at runtime) is essential when using a functio
 
 > Kotlin/JS provides limited support for reflection features. [Learn more about reflection in Kotlin/JS](js-reflection.md).
 >
-{type="note"}
+{style="note"}
 
 ## JVM dependency
 
@@ -69,7 +69,7 @@ The reference is a [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.
 >On JVM: a Kotlin class reference is not the same as a Java class reference. To obtain a Java class reference,
 >use the `.java` property on a `KClass` instance.
 >
-{type="note"}
+{style="note"}
 
 ### Bound class references
 

@@ -31,9 +31,10 @@ import GradleLogo from '../public/images/companies/gradle.svg';
 import UberLogo from '../public/images/companies/uber.svg';
 import AtlassianLogo from '../public/images/companies/atlassian.svg';
 import GoogleLogo from '../public/images/companies/google.svg';
-import JetbrainsLogo from '../public/images/companies/jetbrains.svg';
+import JetbrainsLogoSquare from '../public/images/companies/jetbrains-logo-square.svg';
 import ShopifyLogo from '../public/images/companies/shopify.svg';
 import TouchlabLogo from '../public/images/companies/touchlab.svg';
+import KotzillaLogo from '../public/images/companies/kotzilla-logo.svg'
 
 import McDonaldsLogo from '../public/images/companies/mcdonalds.svg';
 import AWSLogo from '../public/images/companies/aws.svg';
@@ -99,7 +100,7 @@ const kotlinUsageHighlightsCases = [
 const kotlinFoundationCompanies = [
     {
         name: 'JetBrains',
-        logo: JetbrainsLogo,
+        logo: JetbrainsLogoSquare,
         link: 'https://www.jetbrains.com/'
     },
     {
@@ -126,7 +127,13 @@ const kotlinFoundationCompanies = [
         name: 'Touchlab',
         logo: TouchlabLogo,
         link: 'https://touchlab.co/'
-    }
+    },
+    {
+        name: 'Kotzilla',
+        logo: KotzillaLogo,
+        link: 'https://kotzilla.io/'
+    },
+
 ];
 
 export async function getStaticProps() {

@@ -12,11 +12,17 @@ Since Kotlin 2.0.0, we ship the following types of releases:
 > For example, for the feature release 1.8.0, we had only one tooling release 1.8.20,
 > and several bugfix releases including 1.8.21, 1.8.22.
 >
-{type="tip"}
+{style="tip"}
 -->
 
 For each language and tooling release, we also ship several preview (_EAP_) versions for you to try
 new features before they are released. See [Early Access Preview](eap.md) for details.
+
+> If you want to be notified about new Kotlin releases, subscribe to the [Kotlin newsletter](https://lp.jetbrains.com/subscribe-to-kotlin-news/), 
+> follow [Kotlin on X](https://x.com/kotlin), 
+> or enable the **Watch | Custom | Releases** option on the [Kotlin GitHub repository](https://github.com/JetBrains/kotlin).
+> 
+{style="note"}
 
 ## Update to a new Kotlin version
 
@@ -71,7 +77,7 @@ To enable it, go to **Settings** | **Languages & Frameworks** | **Kotlin** and s
 > The K2 mode is in Beta from 2024.2. We are working on stability and code analysis improvements, but not all IDE features
 > are supported yet.
 >
-{type="warning"}
+{style="warning"}
 
 After enabling K2 mode, you may notice differences in IDE analysis due to changes in compiler behavior.
 Learn how the new K2 compiler differs from the previous one in the [migration guide](k2-compiler-migration-guide.md).
@@ -86,12 +92,22 @@ The following table lists details of the latest Kotlin releases:
 
 > You can also try [Early Access Preview (EAP) versions of Kotlin](eap.md#build-details).
 > 
-{type="tip"}
+{style="tip"}
 
 <table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
+    </tr>
+    <tr>
+        <td><strong>2.0.21</strong>
+            <p>Released: <strong>October 10, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.21" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 2.0.20</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.0.21">changelog</a>.</p>
+        </td>
     </tr>
     <tr>
         <td><strong>2.0.20</strong>

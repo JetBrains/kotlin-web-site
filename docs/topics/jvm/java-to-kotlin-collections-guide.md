@@ -15,7 +15,7 @@ this [video](https://www.youtube.com/watch?v=F8jj7e-_jFA) by Sebastian Aigner, K
 
 > All of the examples below use Java and Kotlin standard library APIs only.
 >
-{type="note"}
+{style="note"}
 
 ## Operations that are the same in Java and Kotlin
 
@@ -100,7 +100,7 @@ To perform all of the operations listed above on maps, you first need to get an 
 If you want to take a deep dive into `zip()`, `chunked()`, `windowed()`, and some other operations, watch this video by Sebastian Aigner 
 about advanced collection operations in Kotlin:
 
-<video href="N4CpLxGJlq0" title="Advanced Collection Operations"/>
+<video src="https://www.youtube.com/v/N4CpLxGJlq0" title="Advanced Collection Operations"/>
 
 ## Mutability
 
@@ -697,7 +697,7 @@ fun main() {
 > If collections have different sizes, the result of `zip()` is the smaller size. The last elements of 
 the larger collection are not included in the result.
 >
-{type="note"}
+{style="note"}
 
 ### Associate elements
 

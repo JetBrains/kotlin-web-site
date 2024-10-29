@@ -13,7 +13,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    > Select the **Create Git repository** checkbox to place the new project under version control. You will be able to do
    > it later at any time.
    >
-   {type="tip"}
+   {style="tip"}
 
 4. From the **Language** list, select **Kotlin**.
    
@@ -34,21 +34,22 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
     > You can also enable the **Generate code with onboarding tips** option to add some additional useful comments to your
     > sample code.
     >
-    {type="tip"}
+    {style="tip"}
 
 8. Click **Create**.
 
-  > If you chose the Gradle build system, you have in your project a build script file: `build.gradle(.kts)`. It includes 
-  > the `kotlin("jvm")` plugin and dependencies required for your console application. Make sure that you use the latest 
-  > version of the plugin:
-  > 
-  > ```kotlin
-  > plugins {
-  >     kotlin("jvm") version "%kotlinVersion%"
-  >     application
-  > }
-  > ```
-  >{type="note"}
+    > If you chose the Gradle build system, you have in your project a build script file: `build.gradle(.kts)`. It includes 
+    > the `kotlin("jvm")` plugin and dependencies required for your console application. Make sure that you use the latest 
+    > version of the plugin:
+    > 
+    > ```kotlin
+    > plugins {
+    >     kotlin("jvm") version "%kotlinVersion%"
+    >     application
+    > }
+    > ```
+    > 
+    {style="note"}
 
 ## Create an application
 

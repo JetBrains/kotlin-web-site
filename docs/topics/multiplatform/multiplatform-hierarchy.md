@@ -55,9 +55,9 @@ kotlin {
 When you declare the targets `androidTarget`, `iosArm64`, and `iosSimulatorArm64` in your code, the Kotlin Gradle plugin finds
 suitable shared source sets from the template and creates them for you. The resulting hierarchy looks like this:
 
-![An example of using the default hierarchy template](default-hierarchy-example.svg){thumbnail="true" width="350" thumbnail-same-file="true"}
+![An example of using the default hierarchy template](default-hierarchy-example.svg)
 
-Green source sets are actually created and present in the project, while gray ones from the default template are
+Colored source sets are actually created and present in the project, while gray ones from the default template are
 ignored. The Kotlin Gradle plugin hasn't created the `watchos` source set, for example, because there
 are no watchOS targets in the project.
 
@@ -117,7 +117,7 @@ kotlin {
 > This can be counter-intuitive for source sets like `native`, as you might expect that only APIs available on all
 > native targets are accessible in this source set. This behavior may change in the future.
 >
-{type="note"}
+{style="note"}
 
 ### Additional configuration
 
@@ -239,9 +239,9 @@ However, you still can do one of the following:
 > look into the `applyHierarchyTemplate {}` block and the declaration of `KotlinHierarchyTemplate.default` as an example.
 > Keep in mind that this API is still in development. It might not be tested and can change in further releases.
 >
-{type="tip"}
+{style="tip"}
 
-#### See the full hierarchy template {initial-collapse-state="collapsed"}
+#### See the full hierarchy template {initial-collapse-state="collapsed" collapsible="true"}
 
 When you declare the targets to which your project compiles,
 the plugin picks the shared source sets based on the specified targets from the template and creates them in your project.
@@ -251,7 +251,7 @@ the plugin picks the shared source sets based on the specified targets from the 
 > This example only shows the production part of the project, omitting the `Main` suffix
 > (for example, using `common` instead of `commonMain`). However, everything is the same for `*Test` sources as well.
 >
-{type="tip"}
+{style="tip"}
 
 ## Manual configuration
 
@@ -316,7 +316,7 @@ kotlin {
 
 The resulting hierarchical structure will look like this:
 
-![Manually configured hierarchical structure](manual-hierarchical-structure.png)
+![Manually configured hierarchical structure](manual-hierarchical-structure.svg)
 
 You can have a shared source set for the following combinations of targets:
 

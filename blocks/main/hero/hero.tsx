@@ -41,7 +41,7 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
                                 </Button>
                                 <div className={styles.developer}>
                                     <div className={styles.developerContent}>
-                                        <div className={cn(darkTextCn('rs-text-2', { hardness: 'hard' }), styles.developerCaptionAb)}>Developed by</div>
+                                        <div className={cn(darkTextCn('rs-text-2', { hardness: 'hard' }), styles.developerCaption)}>Developed by</div>
                                         <a
                                             href="https://www.jetbrains.com/"
                                             target={'_blank'}
@@ -49,17 +49,6 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
                                         >
                                             <img src={JBLogo.src} alt="jetbrains logo" className={styles.developerLogo} />{' '}
                                         </a>
-                                        <div className={cn(darkTextCn('rs-text-3', { hardness: 'hard' }), styles.developerCaption)}>
-                                            Kotlin, developed by&nbsp;
-                                            <a
-                                                href="https://www.jetbrains.com/"
-                                                className={darkTextCn('rs-link', { hardness: 'hard' })}
-                                                target={'_blank'}
-                                                rel={'noreferrer noopener'}
-                                            >
-                                                JetBrains
-                                            </a>.
-                                        </div>
                                     </div>
                                 </div>
                             </div>

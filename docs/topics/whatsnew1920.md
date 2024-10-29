@@ -14,7 +14,7 @@ and [Kotlin Multiplatform is now Stable](#kotlin-multiplatform-is-stable). Addit
 
 You can also find a short overview of the updates in this video:
 
-<video href="Ol_96CHKqg8" title="What's new in Kotlin 1.9.20"/>
+<video src="https://www.youtube.com/v/Ol_96CHKqg8" title="What's new in Kotlin 1.9.20"/>
 
 ## IDE support
 
@@ -28,7 +28,7 @@ The Kotlin plugins that support 1.9.20 are available for:
 > Starting from IntelliJ IDEA 2023.3.x and Android Studio Iguana (2023.2.1) Canary 15, the Kotlin plugin is automatically
 > included and updated. All you need to do is update the Kotlin version in your projects.
 >
-{type="note"}
+{style="note"}
 
 ## New Kotlin K2 compiler updates
 
@@ -48,7 +48,7 @@ Since this release, the Kotlin/Wasm supports the new K2 compiler.
 > Support for K2 in the kapt compiler plugin is [Experimental](components-stability.md).
 > Opt-in is required (see details below), and you should use it only for evaluation purposes.
 >
-{type="warning"}
+{style="warning"}
 
 In 1.9.20, you can try using the [kapt compiler plugin](kapt.md) with the K2 compiler.
 To use the K2 compiler in your project, add the following options to your `gradle.properties` file:
@@ -202,7 +202,7 @@ the number of tasks performed on each allocation and, therefore, helps to minimi
 > It may be dropped or changed at any time. Opt-in is required (see details below).
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.9.20 introduces a new compilation time optimization for Kotlin/Native.
 The compilation of `klib` artifacts into native code is now partially incremental.
@@ -306,7 +306,7 @@ your migration easier once we begin stabilizing the import.
 > As for native platform libraries shipped with Kotlin/Native (like Foundation, UIKit, and POSIX),  only some of their 
 > APIs need an opt-in with `@ExperimentalForeignApi`. In such cases, you get a warning with an opt-in requirement.
 >
-{type="note"}
+{style="note"}
 
 ### Custom message for linker errors
 
@@ -367,7 +367,7 @@ with the new project wizards and other notable features:
 
 ### Kotlin Multiplatform is Stable
 
-The 1.9.20 release marks an important milestone in the evolution of Kotlin: [Kotlin Multiplatform](multiplatform.md) has finally
+The 1.9.20 release marks an important milestone in the evolution of Kotlin: [Kotlin Multiplatform](multiplatform-intro.md) has finally
 become Stable. This means that the technology is safe to use in your projects and 100% ready for production. It also
 means that further development of Kotlin Multiplatform will continue according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
 
@@ -395,7 +395,7 @@ It includes intermediate source sets that Kotlin automatically creates for the t
 Consider a multiplatform project that targets both Android and iPhone devices and is developed on an Apple silicon MacBook.
 Compare how this project is set up between different versions of Kotlin:
 
-<table header-style="top">
+<table>
    <tr>
        <td>Kotlin 1.9.0 and earlier (a standard setup)</td>
        <td>Kotlin 1.9.20</td>
@@ -458,7 +458,7 @@ Green source sets are actually created and included in the project, while gray o
 
 To make it easier to work with the created project structure, IntelliJ IDEA now provides completion for source sets created with the default hierarchy template:
 
-<img src="multiplatform-hierarchy-completion.png" alt="IDE completion for source set names" width="350" animated="true"/>
+<img src="multiplatform-hierarchy-completion.animated.gif" alt="IDE completion for source set names" width="350" preview-src="multiplatform-hierarchy-completion.png"/>
 
 Kotlin also warns you if you attempt to access a source set that doesn't exist because you haven't declared the respective target.
 In the example below, there is no JVM target (only `androidTarget`, which is not the same). But let's try to use the `jvmMain` source set
@@ -540,7 +540,7 @@ introduced intermediate sources manually with  `dependsOn()` calls. To solve thi
 
   We're currently working on an API for creating your own hierarchy templates to simplify the setup process in such cases.
 
-#### See the full hierarchy template {initial-collapse-state="collapsed"}
+#### See the full hierarchy template {initial-collapse-state="collapsed" collapsible="true"}
 
 When you declare the targets to which your project compiles,
 the plugin picks the shared source sets from the template accordingly and creates them in your project.
@@ -550,7 +550,7 @@ the plugin picks the shared source sets from the template accordingly and create
 > This example only shows the production part of the project, omitting the `Main` suffix
 > (for example, using `common` instead of `commonMain`). However, everything is the same for `*Test` sources as well.
 >
-{type="tip"}
+{style="tip"}
 
 ### New project wizard
 
@@ -578,7 +578,7 @@ If you encounter any issues, please report them to [YouTrack](https://kotl.in/is
 with the wizard.
 
 <a href="https://kmp.jetbrains.com">
-   <img src="multiplatform-create-project-button.png" alt="Create a project"/>
+   <img src="multiplatform-create-project-button.png" alt="Create a project" style="block"/>
 </a>
 
 ### Full support for the Gradle configuration cache in Kotlin Multiplatform
@@ -602,7 +602,7 @@ Previously, if you wanted to configure a dependency on the standard library manu
 each source set individually. From `kotlin-stdlib:1.9.20` onward, you only need to configure the dependency **once** in
 the `commonMain` root source set:
 
-<table header-style="top">
+<table>
    <tr>
        <td>Standard library version 1.9.10 and earlier</td>
        <td>Standard library version 1.9.20</td>
@@ -713,7 +713,7 @@ In 1.9.20, Kotlin Wasm reached the [Alpha level](components-stability.md) of sta
 >
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="note"}
+{style="note"}
 
 ### Compatibility with Wasm GC phase 4 and final opcodes
 
@@ -723,7 +723,7 @@ We also recommend using the latest versions of browsers with the Wasm environmen
 * Version 119 or newer for Chrome and Chromium–based browsers.
 * Version 119 or newer for Firefox. Note that in Firefox 119, you need to [turn on Wasm GC manually](wasm-troubleshooting.md).
 
-### New `wasm-wasi` target, and the renaming of the `wasm` target to `wasm-js`
+### New wasm-wasi target, and the renaming of the wasm target to wasm-js
 
 In this release, we're introducing a new target for Kotlin/Wasm – `wasm-wasi`. We're also renaming the `wasm` target to `wasm-js`.
 In the Gradle DSL, these targets are available as `wasmWasi {}` and `wasmJs {}`, respectively.
@@ -770,14 +770,14 @@ private external fun wasiRawClockTimeGet(clockId: Int, precision: Long, resultPt
 
 > It isn't possible to use [interoperability with JavaScript](wasm-js-interop.md), while targeting `wasmWasi`.
 >
-{type="note"}
+{style="note"}
 
 ### Kotlin/Wasm API improvements
 
 This release delivers several quality-of-life improvements to the Kotlin/Wasm API.
 For example, you're no longer required to return a value for DOM event listeners:
 
-<table header-style="top">
+<table>
    <tr>
        <td>Before 1.9.20</td>
        <td>In 1.9.20</td>
@@ -886,7 +886,7 @@ the language version used:
 > If you use Gradle 8.0, you might come across some problems with build reports, especially when Gradle configuration
 > caching is enabled. This is a known issue, which is fixed in Gradle 8.1 and later.
 >
-{type="note"}
+{style="note"}
 
 ## Standard library
 
@@ -900,7 +900,7 @@ and there are some new features:
 > This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
 > Opt-in is required (see details below). Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 In Kotlin 1.9.0, the `entries` property for enum classes became Stable. The `entries` property is a modern and performant
 replacement for the synthetic `values()` function. As part of Kotlin 1.9.20, there is a replacement for the generic 
@@ -910,7 +910,7 @@ replacement for the synthetic `values()` function. As part of Kotlin 1.9.20, the
 > because it has less performance impact. Every time you call `enumValues<T>()`, a new array is created, whereas whenever
 > you call `enumEntries<T>()`, the same list is returned each time, which is far more efficient.
 >
-{type="tip"}
+{style="tip"}
 
 For example:
 
@@ -943,7 +943,7 @@ we finally conclude this work and make the Kotlin/Native standard library Stable
 * The [`printStackTrace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-throwable/print-stack-trace.html) function from the `Throwable` class now prints to `STDERR` instead of `STDOUT`.
   > The output format of `printStackTrace()` isn't Stable and is subject to change.
   >
-  {type="warning"}
+  {style="warning"}
 
 #### Improvements to the Atomics API
 
@@ -957,7 +957,7 @@ designed specifically to be consistent with Java's atomic arrays so that in the 
   > try them, opt in with `@OptIn(ExperimentalStdlibApi)`. Use them only for evaluation purposes. We would
   > appreciate your feedback in [YouTrack](https://kotl.in/issue).
   >
-  {type="warning"}
+  {style="warning"}
 * In the `kotlin.native.concurrent` package, the Atomics API that was deprecated in Kotlin 1.9.0 with deprecation level `WARNING` has had its deprecation level raised to `ERROR`.
 * In the `kotlin.concurrent` package, member functions of the [`AtomicInt`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.concurrent/-atomic-int/index.html) and [`AtomicLong`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.concurrent/-atomic-long/index.html) classes that had deprecation level: `ERROR`, have been removed.
 * All [member functions](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.concurrent/-atomic-reference/#functions) of the `AtomicReference` class now use atomic intrinsic functions.

@@ -17,7 +17,7 @@ object KotlinxIOBuildApiReference : BuildType({
     artifactRules = "build/dokka/htmlMultiModule/** => pages.zip"
 
     params {
-        param("release.tag", KOTLINX_IO_RELEASE_TAG)
+        param("release.tag", KOTLINX_IO_RELEASE_TAG.removePrefix("v"))
     }
 
     vcs {

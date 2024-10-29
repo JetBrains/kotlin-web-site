@@ -1,6 +1,5 @@
 [//]: # (title: Kotlin language features and proposals)
-[//]: # (description: Learn about the lifecycle of Kotlin features. 
-The page contains the full list of Kotlin language features and design proposals.)
+[//]: # (description: Learn about the lifecycle of Kotlin features. The page contains the full list of Kotlin language features and design proposals.)
 
 JetBrains evolves the Kotlin language according to the [Kotlin language evolution principles](kotlin-evolution-principles.md),
 guided by pragmatic design.
@@ -10,15 +9,15 @@ guided by pragmatic design.
 > See the explanation of language feature statuses in the 
 > [Kotlin evolution principles documentation](kotlin-evolution-principles.md#pre-stable-features).
 > 
-{type="note"}
+{style="note"}
 
 <tabs>
 <tab id="all-proposals" title="All">
 
-<!-- <include include-id="all-proposals" src="all-proposals.xml"/> -->
+<!-- <include element-id="all-proposals" from="all-proposals.topic"/> -->
 
-<chunk id="source">
-<table header-style="left">
+<snippet id="source">
+<table style="header-column">
 
 <!-- EXPLORATION AND DESIGN BLOCK -->
 
@@ -251,6 +250,24 @@ guided by pragmatic design.
 
 </td>
 </tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Multidollar interpolation: improved handling of `$` in string literals**
+
+* KEEP proposal: [dollar-escape.md](https://github.com/Kotlin/KEEP/blob/master/proposals/dollar-escape.md)
+* YouTrack issue: [KT-2425](https://youtrack.jetbrains.com/issue/KT-2425)
+* Target version: 2.1.0
+
+</td>
+</tr>
+
 <tr filter="keep">
 <td>
 
@@ -384,7 +401,7 @@ guided by pragmatic design.
 </tr>
 
 </table>
-</chunk>
+</snippet>
 
 <!-- END OF REVOKED BLOCK -->
 
@@ -392,31 +409,31 @@ guided by pragmatic design.
 
 <tab id="exploration-and-design" title="Exploration and design">
 
-<include include-id="source" use-filter="empty,exploration-and-design" src="kotlin-language-features-and-proposals.md"/>
+<include element-id="source" use-filter="empty,exploration-and-design" from="kotlin-language-features-and-proposals.md"/>
 
 </tab>
 
 <tab id="keep-preparation" title="KEEP discussion">
 
-<include include-id="source" use-filter="empty,keep" src="kotlin-language-features-and-proposals.md"/>
+<include element-id="source" use-filter="empty,keep" from="kotlin-language-features-and-proposals.md"/>
 
 </tab>
 
 <tab id="in-preview" title="In preview">
 
-<include include-id="source" use-filter="empty,in-preview" src="kotlin-language-features-and-proposals.md"/>
+<include element-id="source" use-filter="empty,in-preview" from="kotlin-language-features-and-proposals.md"/>
 
 </tab>
 
 <tab id="stable" title="Stable">
 
-<include include-id="source" use-filter="empty,stable" src="kotlin-language-features-and-proposals.md"/>
+<include element-id="source" use-filter="empty,stable" from="kotlin-language-features-and-proposals.md"/>
 
 </tab>
 
 <tab id="revoked" title="Revoked">
 
-<include include-id="source" use-filter="empty,revoked" src="kotlin-language-features-and-proposals.md"/>
+<include element-id="source" use-filter="empty,revoked" from="kotlin-language-features-and-proposals.md"/>
 
 </tab>
 </tabs>

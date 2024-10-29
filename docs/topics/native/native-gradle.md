@@ -10,7 +10,7 @@ To get started, install the latest version of [Gradle](https://gradle.org/instal
 
 > If you would like to use an IDE, check out the [Using IntelliJ IDEA](native-get-started.md) tutorial.
 > 
-{type="note"}
+{style="note"}
 
 ## Create project files
 
@@ -127,7 +127,7 @@ Now you can open your project in any IDE that supports Gradle. If you use Intell
 
 > If you face any problem with the project, IntelliJ IDEA will show the error message in the **Build** tab.
 >
-{type="note"}
+{style="note"}
 
 ## What's next?
 

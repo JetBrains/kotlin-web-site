@@ -1,8 +1,8 @@
 [//]: # (title: Multiplatform Gradle DSL reference)
 
-The Kotlin Multiplatform Gradle plugin is a tool for creating [Kotlin Multiplatform](multiplatform.md) projects.
+The Kotlin Multiplatform Gradle plugin is a tool for creating Kotlin Multiplatform projects.
 Here we provide a reference of its contents; use it as a reminder when writing Gradle build scripts
-for Kotlin Multiplatform projects. Learn the [concepts of Kotlin Multiplatform projects, how to create and configure them](multiplatform-get-started.md).
+for Kotlin Multiplatform projects. Learn the [concepts of Kotlin Multiplatform projects, how to create and configure them](multiplatform-intro.md).
 
 ## Id and version
 
@@ -36,19 +36,19 @@ plugins {
 `kotlin {}` is the top-level block for multiplatform project configuration in the Gradle build script.
 Inside `kotlin {}`, you can write the following blocks:
 
-| **Block**         | **Description**                                                                                                                                                                                                                 |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| _\<targetName\>_  | Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.                                                                                                        |
-| `targets`         | All targets of the project.                                                                                                                                                                                                     |
-| `presets`         | All predefined targets. Use this for [configuring multiple predefined targets](#targets) at once.                                                                                                                               |
-| `sourceSets`      | Configures predefined and declares custom [source sets](#source-sets) of the project.                                                                                                                                           |
-| `compilerOptions` | Extension-level common [compiler options](gradle-compiler-options.md) that are used as defaults for all targets and shared source sets. To use it, add the following opt-in: `@OptIn(ExperimentalKotlinGradlePluginApi::class)` |
+| **Block**            | **Description**                                                                                                                                                                                                                 |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| _&lt;targetName&gt;_ | Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.                                                                                                        |
+| `targets`            | All targets of the project.                                                                                                                                                                                                     |
+| `presets`            | All predefined targets. Use this for [configuring multiple predefined targets](#targets) at once.                                                                                                                               |
+| `sourceSets`         | Configures predefined and declares custom [source sets](#source-sets) of the project.                                                                                                                                           |
+| `compilerOptions`    | Extension-level common [compiler options](gradle-compiler-options.md) that are used as defaults for all targets and shared source sets. To use it, add the following opt-in: `@OptIn(ExperimentalKotlinGradlePluginApi::class)` |
 
 > The support for `compilerOptions {}` as a top-level block is [Experimental](components-stability.md#stability-levels-explained)
 > and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
 > your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 ## Targets
 
@@ -112,7 +112,7 @@ The complete list of available targets is the following:
 
 > A target that is not supported by the current host is ignored during building and, therefore, not published.
 >
-{type="note"}
+{style="note"}
 
 ```groovy
 kotlin {
@@ -147,7 +147,7 @@ In any target block, you can use the following declarations:
 > and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
 > your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 ### JVM targets
 
@@ -370,12 +370,12 @@ To provide an interop with a library, add an entry to `cinterops` and define its
 
 | **Name**         | **Description**                                       | 
 |------------------|-------------------------------------------------------|
-| `definitionFile` | The `.def` file describing the native API.                |
+| `definitionFile` | The `.def` file describing the native API.            |
 | `packageName`    | Package prefix for the generated Kotlin API.          |
 | `compilerOpts`   | Options to pass to the compiler by the cinterop tool. |
 | `includeDirs`    | Directories to look for headers.                      |
-
-Learn more how to [configure interop with native languages](multiplatform-configure-compilations.md#configure-interop-with-native-languages).
+| `header`         | Header to be included in the bindings.                |
+| `headers`        | The list of headers to be included in the bindings.   |
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -400,6 +400,10 @@ kotlin {
 
                 // A shortcut for includeDirs.allHeaders.
                 includeDirs("include/directory", "another/directory")
+
+                // Header files to be included in the bindings.
+                header("path/to/header.h")
+                headers("path/to/header1.h", "path/to/header2.h")
             }
 
             val anotherInterop by cinterops.creating { /* ... */ }
@@ -432,6 +436,10 @@ kotlin {
 
                     // A shortcut for includeDirs.allHeaders.
                     includeDirs("include/directory", "another/directory")
+
+                    // Header files to be included in the bindings.
+                    header("path/to/header.h")
+                    headers("path/to/header1.h", "path/to/header2.h")
                 }
 
                 anotherInterop { /* ... */ }
@@ -443,6 +451,8 @@ kotlin {
 
 </tab>
 </tabs>
+
+For more cinterop properties, see [Definition file](native-definition-file.md#properties).
 
 ### Android targets
 
@@ -467,7 +477,7 @@ Learn more about [compilation for Android](multiplatform-configure-compilations.
 > The `android` configuration inside `kotlin` doesn't replace the build configuration of any Android project.
 > Learn more about writing build scripts for Android projects in [Android developer documentation](https://developer.android.com/studio/build).
 >
-{type="note"}
+{style="note"}
 
 ## Source sets
 
@@ -482,11 +492,11 @@ developers can also create [custom](#custom-source-sets) source sets for their n
 Predefined source sets are set up automatically upon creation of a multiplatform project.
 Available predefined source sets are the following:
 
-| **Name**                            | **Description**                                                                                                                                                                                       | 
-|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `commonMain`                        | Code and resources shared between all platforms. Available in all multiplatform projects. Used in all main [compilations](#compilations) of a project.                                                |
-| `commonTest`                        | Test code and resources shared between all platforms. Available in all multiplatform projects. Used in all test compilations of a project.                                                            |
-| _\<targetName\>\<compilationName\>_ | Target-specific sources for a compilation. _\<targetName\>_ is the name of a predefined target and _\<compilationName\>_ is the name of a compilation for this target. Examples: `jsTest`, `jvmMain`. |
+| **Name**                                    | **Description**                                                                                                                                                                                               | 
+|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `commonMain`                                | Code and resources shared between all platforms. Available in all multiplatform projects. Used in all main [compilations](#compilations) of a project.                                                        |
+| `commonTest`                                | Test code and resources shared between all platforms. Available in all multiplatform projects. Used in all test compilations of a project.                                                                    |
+| _&lt;targetName&gt;&lt;compilationName&gt;_ | Target-specific sources for a compilation. _&lt;targetName&gt;_ is the name of a predefined target and _&lt;compilationName&gt;_ is the name of a compilation for this target. Examples: `jsTest`, `jvmMain`. |
 
 With Kotlin Gradle DSL, the sections of predefined source sets should be marked `by getting`.
 
@@ -822,7 +832,7 @@ kotlin {
 > and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
 > your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 
 ## Dependencies

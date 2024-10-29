@@ -65,5 +65,5 @@ window.addMouseListener(object : MouseAdapter() {
 > val listener = ActionListener { println("clicked") }
 > ```
 >
-{type="note"}
+{style="note"}
 

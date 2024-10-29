@@ -38,13 +38,13 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <th>Subsystem</th>
         <th>In focus now</th>
     </tr>
-    <tr>
+    <tr id="language">
         <td><strong>Language</strong></td>
         <td>
             <p><a href="kotlin-language-features-and-proposals.md">See the full list</a> of Kotlin language features and proposals or follow the <a href="https://youtrack.jetbrains.com/issue/KT-54620">YouTrack issue for upcoming language features</a></p>
         </td>
     </tr>
-    <tr>
+    <tr id="compiler">
         <td><strong>Compiler</strong></td>
         <td>
             <list>
@@ -56,7 +56,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             </list>
         </td>
     </tr>
-    <tr>
+    <tr id="multiplatform">
         <td><strong>Multiplatform</strong></td>
         <td>
             <list>
@@ -72,13 +72,14 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             <tip><p><a href="https://blog.jetbrains.com/kotlin/2023/11/kotlin-multiplatform-development-roadmap-for-2024/" target="_blank">Kotlin Multiplatform development roadmap for 2024</a></p></tip>
          </td>
     </tr>
-    <tr>
+    <tr id="tooling">
         <td><strong>Tooling</strong></td>
         <td>
             <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTIJ-31316">IntelliJ IDEA K2 mode complete release</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71286">Design the Build Tools API</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71288">Publish publicly available API reference for Kotlin Gradle Plugin</a></li> 
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71288">Publish publicly available API reference for Kotlin Gradle Plugin</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71292">Kotlin Ecosystem Plugin supporting Declarative Gradle</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71276">Provide out-of-the-box debugging experience for Kotlin/Wasm targets</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64575" target="_blank">Support Gradle project isolation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64577" target="_blank">Improve integration of Kotlin/Native toolchain into Gradle</a></li>
@@ -89,18 +90,17 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             </list>
          </td>
     </tr>
-    <tr>
+    <tr id="library-ecosystem">
         <td><strong>Library ecosystem</strong></td>
         <td>
             <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71293">Implement new Dokka Gradle plugin based on Dokkatoo</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71295">Refine the Dokka HTML output UI</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-62423">New multiplatform API for the standard library</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-62423">New multiplatform API for the standard library: Atomics</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-12719">Introduce default warnings/errors for Kotlin functions that return non-unit values that are unused</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71298">New multiplatform API for the standard library: Support for Unicode and codepoints</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71299">Expand Library authors’ guidelines</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71300">Stabilize the <code>kotlinx-io</code> library</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71292">Kotlin Ecosystem Plugin supporting Declarative Gradle</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71297">Improve Kotlin distribution UX: add code coverage and binary compatibility validation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64578" target="_blank">Promote <code>kotlinx-datetime</code> to Beta</a></li>
             </list>
@@ -118,7 +118,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 > * There's no commitment to delivering specific features or fixes in specific versions.
 > * We will adjust our priorities as we go and update the roadmap approximately every six months.
 > 
-{type="note"}
+{style="note"}
 
 ## What's changed since December 2023
 
@@ -154,14 +154,14 @@ We've **added** the following items to the roadmap:
 * 🆕 Tooling: [Design the Build Tools API](https://youtrack.jetbrains.com/issue/KT-71286)
 * 🆕 Tooling: [Publish publicly available API reference for Kotlin Gradle Plugin](https://youtrack.jetbrains.com/issue/KT-71288)
 * 🆕 Tooling: [Provide out-of-the-box debugging experience for Kotlin/Wasm targets](https://youtrack.jetbrains.com/issue/KT-71276)
+* 🆕 Tooling: [Kotlin Ecosystem Plugin supporting Declarative Gradle](https://youtrack.jetbrains.com/issue/KT-71292)
 * 🆕 Library ecosystem: [Implement new Dokka Gradle plugin based on Dokkatoo](https://youtrack.jetbrains.com/issue/KT-71293)
 * 🆕 Library ecosystem: [Refine the Dokka HTML output UI](https://youtrack.jetbrains.com/issue/KT-71295)
-* 🆕 Library ecosystem: [New multiplatform API for the standard library](https://youtrack.jetbrains.com/issue/KT-62423)
+* 🆕 Library ecosystem: [New multiplatform API for the standard library: Atomics](https://youtrack.jetbrains.com/issue/KT-62423)
 * 🆕 Library ecosystem: [Introduce default warnings/errors for Kotlin functions that return non-unit values that are unused](https://youtrack.jetbrains.com/issue/KT-12719)
 * 🆕 Library ecosystem: [New multiplatform API for the standard library: Support for Unicode and codepoints](https://youtrack.jetbrains.com/issue/KT-71298)
 * 🆕 Library ecosystem: [Expand Library authors’ guidelines](https://youtrack.jetbrains.com/issue/KT-71299)
 * 🆕 Library ecosystem: [Stabilize the kotlinx-io library](https://youtrack.jetbrains.com/issue/KT-71300)
-* 🆕 Library ecosystem: [Kotlin Ecosystem Plugin supporting Declarative Gradle](https://youtrack.jetbrains.com/issue/KT-71292)
 * 🆕 Library ecosystem: [Improve Kotlin distribution UX: add code coverage and binary compatibility validation](https://youtrack.jetbrains.com/issue/KT-71297)
 
 ### Removed items
@@ -175,7 +175,7 @@ We've **removed** the following items from the roadmap:
 > Some items were removed from the roadmap but not dropped completely. In some cases, we've merged previous roadmap items
 > with the current ones.
 >
-{type="note"}
+{style="note"}
 
 ### Items in progress
 

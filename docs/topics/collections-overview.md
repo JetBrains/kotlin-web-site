@@ -32,7 +32,7 @@ of its contents.
 
 > Arrays are not a type of collection. For more information, see [Arrays](arrays.md).
 >
-{type="note"}
+{style="note"}
 
 ## Collection types
 
@@ -80,7 +80,7 @@ Let's walk through the interfaces and their implementations. To learn about `Col
 To learn about `List`, `Set`, and `Map`, you can either read the corresponding sections or watch a video 
 by Sebastian Aigner, Kotlin Developer Advocate:
 
-<video href="F8jj7e-_jFA" title="Kotlin Collections Overview"/>
+<video src="https://www.youtube.com/v/F8jj7e-_jFA" title="Kotlin Collections Overview"/>
 
 ### Collection
 

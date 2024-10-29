@@ -9,7 +9,7 @@ The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultim
 > [install Xcode Command Line Tools](https://developer.apple.com/download/). For more information,
 > see [Set up an environment](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html).
 > 
-{type="note"}
+{style="note"}
 
 ## Before you start
 
@@ -32,7 +32,7 @@ The tutorial is applicable to both IntelliJ IDEA Community Edition and the Ultim
 > * Read more about these settings in the [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md).
 > * Read more about the Gradle build system in the [documentation](gradle.md).
 >
-{type="tip"}
+{style="tip"}
 
 ## Build and run the application
 
@@ -41,9 +41,11 @@ Open the `Main.kt` file in the `src/nativeMain/kotlin/` directory, then press th
 ![Run the application](native-run-gutter.png){width=478}
 
 IntelliJ IDEA runs the code using the Gradle task. You will see the result in the **Run** tab:
+
 ![Application output](native-output-gutter-1.png){width=331}
 
 After the first run, you will see the corresponding run configuration on the top bar in the IDE:
+
 ![Gradle run configuration](native-run-config.png){width=503}
 
 > IntelliJ IDEA Ultimate users can install the [Native Debugging Support](https://plugins.jetbrains.com/plugin/12775-native-debugging-support)
@@ -96,7 +98,7 @@ performs an incremental build of the project.
        //...
    }
    ```
-   {initial-collapse-state="collapsed" collapsed-title="runTask?.standardInput = System.`in`"}
+   {initial-collapse-state="collapsed" collapsible="true" collapsed-title="runTask?.standardInput = System.`in`"}
 
 4. Eliminate the whitespaces and count the letters:
    * Use the [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function to remove the empty spaces in the name.

@@ -7,6 +7,14 @@
   title: 'Ko-Hacks'
   subject: 'Mutabilidade: Necessidade ou Hábito?'
   url: https://www.meetup.com/pt-BR/kotlin-lisboa/events/301917980/
+- lang: fr
+  startDate: '2024-10-22'
+  endDate: '2024-10-22'
+  location: Bordeaux, France
+  speaker: Salomon Brys
+  title: 'Bordeaux Kotlin User Group'
+  subject: 'Compose Multiplatform: State of the art, use-cases and limits'
+  url: https://www.eventbrite.fr/e/billets-compose-multiplatform-etat-de-lart-cas-dusages-et-limites-1018664130837
 - lang: en
   startDate: '2024-09-21'
   endDate: '2024-09-21'

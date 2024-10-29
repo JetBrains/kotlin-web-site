@@ -15,7 +15,7 @@ The Kotlin 1.8.20 release is out and here are some of its biggest highlights:
 
 You can also find a short overview of the changes in this video:
 
-<video href="R1JpkpPzyBU" title="What's new in Kotlin 1.8.20"/>
+<video src="https://www.youtube.com/v/R1JpkpPzyBU" title="What's new in Kotlin 1.8.20"/>
 
 ## IDE support
 
@@ -29,7 +29,7 @@ The Kotlin plugins that support 1.8.20 are available for:
 > To download Kotlin artifacts and dependencies properly, [configure Gradle settings](#configure-gradle-settings)
 > to use the Maven Central repository.
 >
-{type="warning"}
+{style="warning"}
 
 ## New Kotlin K2 compiler updates
 
@@ -74,7 +74,7 @@ The previous `-Xuse-k2` compiler option has been deprecated.
 > The Alpha version of the new K2 compiler only works with JVM and JS IR projects.
 > It doesn't support Kotlin/Native or any of the multiplatform projects yet.
 >
-{type="warning"}
+{style="warning"}
 
 ### Leave your feedback on the new K2 compiler
 
@@ -102,7 +102,7 @@ As Kotlin continues to evolve, we're introducing preview versions for new langua
 > It may be dropped or changed at any time. Opt-in is required (see details below). Use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 Enum classes have a synthetic `values()` function, which returns an array of defined enum constants. However, using an
 array can lead to [hidden performance issues](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md#examples-of-performance-issues)
@@ -113,7 +113,7 @@ function. When called, the `entries` property returns a pre-allocated immutable 
 > The `values()` function is still supported, but we recommend that you use the `entries` property
 > instead.
 >
-{type="tip"}
+{style="tip"}
 
 ```kotlin
 enum class Color(val colorName: String, val rgb: String) {
@@ -165,7 +165,7 @@ tasks
 > Starting with IntelliJ IDEA 2023.1, if you have opted in to this feature, the appropriate IDE
 > inspection will notify you about converting from `values()` to `entries` and offer a quick-fix.
 >
-{type="tip"}
+{style="tip"}
 
 For more information on the proposal, see the [KEEP note](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md).
 
@@ -318,7 +318,7 @@ tasks
 > This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
 > Opt-in is required (see details below). Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.8.20 lifts restrictions on the use of secondary constructors with bodies
 in [inline classes](inline-classes.md).
@@ -445,7 +445,7 @@ kotlin {
 
 > Check out the [GitHub repository with Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples).
 >
-{type="tip"}
+{style="tip"}
 
 To run a Kotlin/Wasm project, you need to update the settings of the target environment:
 
@@ -500,7 +500,7 @@ and [support for the JVM IR backend in the kapt stub generating task by default]
 > It may be dropped or changed at any time. Use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.8.20 introduces the ability to create references to Java synthetic properties, for example, for such Java code:
 
@@ -608,7 +608,7 @@ The following targets have been deprecated with Kotlin 1.8.20 and will be remove
 As for the remaining targets, there are now three tiers of support depending on how well a target is supported and
 tested in the Kotlin/Native compiler. A target can be moved to a different tier. For example, we'll do our best to
 provide full support for `iosArm64` in the future, as it is important
-for [Kotlin Multiplatform](multiplatform-get-started.md).
+for [Kotlin Multiplatform](multiplatform-intro.md).
 
 If you're a library author, these target tiers can help you decide which targets to test on CI tools and which ones to
 skip. The Kotlin team will use the same approach when developing official Kotlin libraries,
@@ -635,7 +635,7 @@ deprecated [starting with this release](#update-for-kotlin-native-targets) and w
 > It may be dropped or changed at any time. Opt-in is required (see details below). Use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin/Native can now import Objective-C headers with `@import` directives. This feature is useful for consuming Swift
 libraries that have auto-generated Objective-C headers or classes of CocoaPods dependencies written in Swift.
@@ -692,7 +692,7 @@ cocoapods {
 > If you use this option with static frameworks, it will remove the Pod dependency entirely because Pods are not used
 > for static framework linking.
 >
-{type="note"}
+{style="note"}
 
 ### Import Objective-C extensions as class members in UIKit
 
@@ -747,7 +747,7 @@ Kotlin 1.8.20 strives to improve the developer experience with the following upd
 > It may be changed in future Kotlin releases without prior notice. Opt-in is required (see the details below).
 > We would appreciate your feedback in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 Kotlin 1.8.20 offers a new way of setting up source set hierarchy in your multiplatform projects − the default target
 hierarchy. The new approach is intended to replace target shortcuts like `ios`, which have their [design flaws](#why-replace-shortcuts).
@@ -791,9 +791,9 @@ You can find the complete scheme for the default target hierarchy in the [docume
 > This might be counter-intuitive for source sets like `native`, as you may expect that only APIs available on all
 > native targets are accessible in this source set. This behavior may change in the future.
 >
-{type="note"}
+{style="note"}
 
-#### Why replace shortcuts {initial-collapse-state="collapsed"}
+#### Why replace shortcuts {initial-collapse-state="collapsed" collapsible="true"}
 
 Creating source sets hierarchies can be verbose, error-prone, and unfriendly for beginners. Our previous solution was to
 introduce shortcuts like `ios` that create a part of the hierarchy for you. However, working with shortcuts proved they
@@ -836,7 +836,7 @@ help make it even better.
 > This feature has been supported in Gradle builds since Kotlin Gradle Plugin 1.8.20. For IDE support, use IntelliJ IDEA
 > 2023.1 Beta 2 (231.8109.2) or later and the Kotlin Gradle plugin 1.8.20 with any Kotlin IDE plugin.
 >
-{type="note"}
+{style="note"}
 
 Starting with 1.8.20, Kotlin Multiplatform supports [Gradle composite builds](https://docs.gradle.org/current/userguide/composite_builds.html).
 Composite builds allow you to include builds of separate projects or parts of the same project into a single build.
@@ -903,7 +903,7 @@ our [Dukat tool](https://github.com/Kotlin/dukat) instead.
 > The Dukat tool is [Experimental](components-stability.md#stability-levels-explained).
 > It may be dropped or changed at any time.
 >
-{type="warning"}
+{style="warning"}
 
 ### Kotlin variable and function names in source maps
 
@@ -935,7 +935,7 @@ map to improve the readability of your stack trace. Happy debugging!
 > The addition of variable and function names in source maps is [Experimental](components-stability.md#stability-levels-explained).
 > It may be dropped or changed at any time.
 >
-{type="warning"}
+{style="warning"}
 
 ### Opt in for generation of TypeScript definition files
 
@@ -962,7 +962,7 @@ kotlin {
 > The generation of TypeScript definitions (`d.ts`)
 > is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
 >
-{type="warning"}
+{style="warning"}
 
 ## Gradle
 
@@ -1001,7 +1001,7 @@ We would appreciate your feedback on this. You can [file an issue](https://kotl.
 > To use it, add `kotlin.compiler.preciseCompilationResultsBackup=true` to `gradle.properties`.
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue/experimental-ic-optimizations).
 >
-{type="warning"}
+{style="warning"}
 
 Starting with Kotlin 1.8.20, you can enable precise backup, whereby only those classes that Kotlin recompiles in
 the [incremental compilation](gradle-compilation-and-caches.md#incremental-compilation) will be backed up.
@@ -1016,7 +1016,7 @@ Gradle property to the `gradle.properties` file:
 kotlin.compiler.preciseCompilationResultsBackup=true
 ```
 
-#### Example of precise backup usage in JetBrains {initial-collapse-state="collapsed"}
+#### Example of precise backup usage in JetBrains {initial-collapse-state="collapsed" collapsible="true"}
 
 In the following charts, you can see examples of using precise backup compared to full backup:
 
@@ -1042,7 +1042,7 @@ different results. The factors affecting performance include but are not limited
 * Which modules are affected by the changes and how big these modules are.
 * Whether the changes are ABI or non-ABI.
 
-#### Evaluating optimizations with build reports {initial-collapse-state="collapsed"}
+#### Evaluating optimizations with build reports {initial-collapse-state="collapsed" collapsible="true"}
 
 To estimate the impact of the optimization on your computer for your project and your scenarios,
 you can use [Kotlin build reports](gradle-compilation-and-caches.md#build-reports).
@@ -1127,7 +1127,7 @@ Kotlin 1.8.20 adds a variety of new features, including some that are particular
 > you need to opt in with `@OptIn(ExperimentalStdlibApi::class)` or the compiler argument `-opt-in=kotlin.ExperimentalStdlibApi`.
 >
 
-{type="warning"}
+{style="warning"}
 
 The `AutoCloseable` interface has been added to the common standard library so that you can use one common interface for
 all libraries to close resources. In Kotlin/JVM, the `AutoCloseable` interface is an alias
@@ -1180,7 +1180,7 @@ fun writeBooksTo(writer: XMLWriter) {
 > and to use it, you need to opt in with `@OptIn(ExperimentalEncodingApi::class)` or the
 > compiler argument `-opt-in=kotlin.io.encoding.ExperimentalEncodingApi`.
 >
-{type="warning"}
+{style="warning"}
 
 We've added support for Base64 encoding and decoding. We provide 3 class instances, each using different encoding
 schemes and displaying different behaviors. Use the `Base64.Default` instance for the standard [Base64 encoding scheme](https://www.rfc-editor.org/rfc/rfc4648#section-4).
@@ -1195,7 +1195,7 @@ decoding, any illegal characters are skipped and don't throw an exception.
 > The `Base64.Default` instance is the companion object of the `Base64` class. As a result, you can call its functions
 > via `Base64.encode()` and  `Base64.decode()` instead of `Base64.Default.encode()` and `Base64.Default.decode()`.
 >
-{type="tip"}
+{style="tip"}
 
 ```kotlin
 val foBytes = "fo".map { it.code.toByte() }.toByteArray()
@@ -1226,7 +1226,7 @@ Base64 encoding and decoding with input and output streams.
 > It may be dropped or changed at any time. Opt-in is required (see details below).
 > Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 >
-{type="warning"}
+{style="warning"}
 
 If you annotate a `var` property with `@Volatile`, then the backing field is marked so that any reads or writes to this
 field are atomic, and writes are always made visible to other threads.
@@ -1290,7 +1290,7 @@ and [prohibits serializer customization via companion object](#prohibit-implicit
 > [Alpha](components-stability.md#stability-levels-explained). To use it,
 > [enable the Kotlin K2 compiler](#how-to-enable-the-kotlin-k2-compiler).
 >
-{type="warning"}
+{style="warning"}
 
 Starting with 1.8.20, the serialization compiler plugin works with the Kotlin K2 compiler.
 Give it a try and [share your feedback with us](#leave-your-feedback-on-the-new-k2-compiler)!
@@ -1340,7 +1340,7 @@ more information, see our [YouTrack ticket](https://youtrack.jetbrains.com/issue
 > In Kotlin 2.0, we plan to promote the compile warning to a compiler error. We recommend
 > that you migrate your code if you see this warning.
 >
-{type="tip"}
+{style="tip"}
 
 ## Documentation updates
 

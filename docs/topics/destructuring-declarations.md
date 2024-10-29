@@ -29,7 +29,7 @@ functions can be called on it. And, of course, there can be `component3()` and `
 > The `componentN()` functions need to be marked with the `operator` keyword to allow using them in a destructuring 
 >declaration.
 >
-{type="note"}
+{style="note"}
 
 Destructuring declarations also work in `for`-loops:
 
@@ -61,7 +61,7 @@ Since data classes automatically declare `componentN()` functions, destructuring
 > You could also use the standard class `Pair` and have `function()` return `Pair<Int, Status>`, 
 > but it's often better to have your data named properly.
 >
-{type="note"}
+{style="note"}
 
 ## Example: destructuring declarations and maps
 

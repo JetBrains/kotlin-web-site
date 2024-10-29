@@ -21,7 +21,7 @@ This feature helps you fetch data from web APIs, to then clean and transform the
 
 Would you like to try our Kotlin tools for data analysis?
 
-<a href="get-started-with-kotlin-notebooks.md"><img src="kotlin-notebooks-button.svg" width="600" alt="Get started with Kotlin Notebook"/></a>
+<a href="get-started-with-kotlin-notebooks.md"><img src="kotlin-notebooks-button.svg" width="600" alt="Get started with Kotlin Notebook" style="block"/></a>
 
 Our Kotlin data analysis tools let you smoothly handle your data from start to finish. Effortlessly 
 retrieve your data with simple drag-and-drop functionality in our Kotlin Notebook. Clean, transform, and visualize it with just a few lines of code. 

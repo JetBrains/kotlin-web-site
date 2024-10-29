@@ -28,7 +28,7 @@ kotlin {
 
 > The old compiler backend has been deprecated since Kotlin 1.8.0. Starting with Kotlin 1.9.0, using compiler types `LEGACY` or `BOTH` leads to an error.
 >
-{type="warning"}
+{style="warning"}
 
 The compiler type can also be set in the `gradle.properties` file, with the key `kotlin.js.compiler=ir`.
 This behaviour is overwritten by any settings in the `build.gradle(.kts)`, however.
@@ -66,7 +66,7 @@ kotlin.incremental.js.ir=false // true by default
 
 > The clean build in the incremental compilation mode is usually slower because of the need to create and populate the caches.
 >
-{type="note"}
+{style="note"}
 
 ## Output mode
 
@@ -129,7 +129,7 @@ kotlin {
 > The generation of TypeScript declaration files (`d.ts`) is [Experimental](components-stability.md). It may be dropped or changed at any time.
 > Opt-in is required (see the details below), and you should use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issues?q=%23%7BKJS:%20d.ts%20generation%7D).
 >
-{type="warning"}
+{style="warning"}
 
 The Kotlin/JS IR compiler is capable of generating TypeScript definitions from your Kotlin code. These definitions can be
 used by JavaScript tools and IDEs when working on hybrid apps to provide autocompletion, support static analyzers, and

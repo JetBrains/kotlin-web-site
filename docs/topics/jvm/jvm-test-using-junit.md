@@ -65,7 +65,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    > This setup enables access to all JUnit 5 APIs, along with the `kotlin-test` API,
    > in JVM-only projects and JVM tests of Kotlin Multiplatform (KMP) projects.
    >
-   {type="note"}
+   {style="note"}
 
 Here's a complete code for the `build.gradle.kts`:
 
@@ -89,7 +89,7 @@ tasks.test {
     useJUnitPlatform()
 }
 ```
-{initial-collapse-state="collapsed"}
+{initial-collapse-state="collapsed" collapsible="true"}
 
 ## Add the code to test it
 
@@ -124,7 +124,7 @@ tasks.test {
 
    > You can also manually create a `*.kt` file for tests in `src/test/kotlin`.
    >
-   {type="note"}
+   {style="note"}
 
 3. Add the test code for the `sum()` function in `SampleTest.kt`:
 
@@ -156,7 +156,7 @@ tasks.test {
 
    > You can also run all project tests via the command-line interface using the `./gradlew check` command.
    >
-   {type="note"}
+   {style="note"}
 
 2. Check the result in the **Run** tool window:
 

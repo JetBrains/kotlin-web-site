@@ -247,4 +247,4 @@ fun main() {
 
 > For more information about equality in Kotlin, see the [Equality](equality.md) documentation.
 > 
-{type="tip"}
+{style="tip"}

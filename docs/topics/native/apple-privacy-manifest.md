@@ -14,13 +14,13 @@ On this page, you'll find a detailed description of the problem and a recommenda
 > This page reflects the Kotlin team's current understanding of the issue.
 > As we have more data and knowledge about the accepted approach and workarounds, we'll update the page to reflect them.
 >
-{type="tip"}
+{style="tip"}
 
 ## What's the issue
 
-Apple requirements for App Store submissions are [changing in the spring of 2024](https://developer.apple.com/news/?id=r1henawx).
-You can already encounter warnings if you submit an app that doesn't specify a reason for using a required reason API in
-its privacy manifest. Starting May 1, 2024, [App Store Connect](https://appstoreconnect.apple.com) will not accept such apps at all.
+Apple's requirements for App Store submissions [have changed in the spring of 2024](https://developer.apple.com/news/?id=r1henawx).
+[App Store Connect](https://appstoreconnect.apple.com) no longer accepts apps that don't specify a reason for using a required
+reason API in their privacy manifests.
 
 This is an automatic check, not a manual moderation: your app's code is analyzed, and you receive a list of issues in an
 email. The email will reference the "ITMS-91053: Missing API declaration" issue, listing all API categories used in the
@@ -75,7 +75,7 @@ To use it, run the following command in the directory where the Kotlin framework
 You may also [download this script](https://github.com/JetBrains/kotlin/blob/rrf_v0.0.1/libraries/tools/required-reason-finder/required_reason_finder.py)
 separately, inspect it, and run it using `python3`.
 
-## Place the `.xcprivacy` file in your Kotlin artifacts
+## Place the .xcprivacy file in your Kotlin artifacts
 
 If you need to bundle the `PrivacyInfo.xcprivacy` file with your Kotlin artifacts, use the `apple-privacy-manifests` plugin:
 

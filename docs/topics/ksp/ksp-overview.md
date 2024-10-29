@@ -34,7 +34,7 @@ KSP avoids that by treating the source programs as read-only.
 
 You can also get an overview of KSP in this video:
 
-<video href="bv-VyGM3HCY" title="Kotlin Symbol Processing (KSP)"/>
+<video src="https://www.youtube.com/v/bv-VyGM3HCY" title="Kotlin Symbol Processing (KSP)"/>
 
 
 ## How KSP looks at source files
@@ -87,7 +87,7 @@ KSFile
 
 This view lists common things that are declared in the file: classes, functions, properties, and so on.
 
-## `SymbolProcessorProvider`: the entry point
+## SymbolProcessorProvider: the entry point
 
 KSP expects an implementation of the `SymbolProcessorProvider` interface to instantiate `SymbolProcessor`:
 

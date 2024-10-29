@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+
+<topic 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+	title="Kotlin Docs" id="home">
+    <section-starting-page>
+        <title>Kotlin docs</title>
+        <description>
+            Latest stable version: %kotlinVersion%
+        </description>
+        <spotlight>
+            <a href="getting-started.md" summary="Create your first Kotlin project for a platform of your choice in an IDE: IntelliJ IDEA or Android Studio" type="start">Get started with Kotlin</a>
+            <a href="https://play.kotlinlang.org/" summary="Write, edit, run, and share Kotlin code right in the browser" type="install">Try Kotlin online</a>
+        </spotlight>
+        <primary>
+            <title>First steps</title>
+            <a href="basic-syntax.md" summary="A quick introduction to Kotlin syntax: keywords, operators, program structure">Basic syntax</a>
+            <a href="kotlin-tour-welcome.md" summary="Take a tour of the fundamentals of the Kotlin programming language">Kotlin tour</a>
+        </primary>
+        <secondary>
+            <title>Kotlin Multiplatform</title>
+            <a href="multiplatform.topic" summary="Explore the Kotlin Multiplatform technology to share code between your applications">Kotlin Multiplatform overview</a>
+            <a href="https://kmp.jetbrains.com/" summary="Quickly create and download a multiplatform project template">Kotlin Multiplatform Wizard</a>
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html" summary="Create a mobile app that works on both Android and iOS">Get started with Kotlin Multiplatform</a>
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html" summary="Use Compose Multiplatform to implement one user interface across mobile, desktop, and web">Get started with Compose Multiplatform</a>
+        </secondary>
+        <misc>
+            <cards narrow="false">
+                <title>Featured topics</title>
+                <a href="whatsnew2020.md" summary="Performance improvements and bug fixes for Kotlin 2.0.0, where the Kotlin K2 compiler became Stable">What's New in Kotlin 2.0.20</a>
+                <a href="releases.md" summary="The latest Kotlin releases and instructions on how to update to them">Kotlin releases</a>
+                <a href="https://kotlinlang.org/api/latest/jvm/stdlib/" summary="Living essentials for everyday work with Kotlin: IO, files, threading, collections, and much more">Standard library API reference</a>
+                <a href="basic-types.md" summary="Kotlin type system: numbers, strings, arrays, and other built-in types">Basic types</a>
+                <a href="collections-overview.md" summary="Collections: lists, sets, and maps">Collections</a>
+                <a href="coroutines-overview.md" summary="Concurrency: coroutines, flows, channels">Coroutines</a>
+            </cards>
+        </misc>
+    </section-starting-page>
+</topic>
