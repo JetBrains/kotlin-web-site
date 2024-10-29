@@ -520,7 +520,7 @@ public void analyzeLogs() {
 In Kotlin, use the function [`groupBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/group-by.html):
 
 ```kotlin
-class Request(
+data class Request(
     val url: String,
     val responseCode: Int
 )
