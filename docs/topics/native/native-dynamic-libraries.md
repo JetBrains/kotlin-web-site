@@ -71,14 +71,14 @@ Let's create a Kotlin library and use it from a C program.
     }
     
     kotlin {
-        linuxX64("native") {      // on Linux 
-        // macosX64("native") {   // on x86_64 macOS
-        // macosArm64("native") { // on Apple Silicon macOS
-        // mingwX64("native") {   // on Windows
+        macosArm64("native") {  // Apple Silicon macOS
+        // linuxX64("native") { // Linux 
+        // macosX64("native") { // x86_64 macOS
+        // mingwX64("native") { // Windows
             binaries {
                 sharedLib {
-                    baseName = "native" // on Linux and macOS
-                    // baseName = "libnative" // on Windows
+                    baseName = "native"       // macOS and Linux 
+                    // baseName = "libnative" // Windows
                 }
             }
         }
@@ -103,13 +103,13 @@ Let's create a Kotlin library and use it from a C program.
     }
     
     kotlin {
-        macosArm64("native") { // Apple Silicon macOS
+        macosArm64("native") {  // Apple Silicon macOS
         // macosX64("native") { // x86_64 macOS
         // linuxX64("native") { // Linux
         // mingwX64("native") { // Windows
             binaries {
                 sharedLib {
-                    baseName = "native" // macOS and Linux 
+                    baseName = "native"       // macOS and Linux 
                     // baseName = "libnative" // Windows
                 }
             }
@@ -129,18 +129,21 @@ Let's create a Kotlin library and use it from a C program.
     * The `libnative` is used as the library name, the prefix for the generated header file name. It also prefixes all
       declarations in the header file.
 
-3. Run the `linkNative` Gradle task to build the library in the IDE or call the following console command:
+3. Run the `linkDebuSharedNative` Gradle task to build the library in the IDE or call the following console command:
 
    ```bash
-   ./gradlew linkNative
+   ./gradlew linkDebuSharedNative
    ```
 
-Depending on the variant, the build generates the library into the `build/bin/native/debugShared` and
-`build/bin/native/releaseShared` directories with the following files:
+The build generates the library into the `build/bin/native/debugShared` directory with the following files:
 
 * macOS `libnative_api.h` and `libnative.dylib`
-* and Linux: `libnative_api.h` and `libnative.so`
+* Linux: `libnative_api.h` and `libnative.so`
 * Windows: `libnative_api.h`, `libnative_symbols.def`, and `libnative.dll`
+
+> You can also use the `linkNative` Gradle task to generate both `debug` and `release` variants of the library. 
+> 
+{style="tip"}
 
 The Kotlin/Native compiler uses the same rules to generate the `.h` file for all platforms. Let's check out the C API of
 the Kotlin library.
@@ -149,7 +152,7 @@ the Kotlin library.
 
 Let's examine how C functions are mapped into Kotlin/Native declarations.
 
-Navigate to the `build/bin/native/<Library variant>` directory and open the `libnative_api.h` header file.
+In the `build/bin/native/debugShared` directory, open the `libnative_api.h` header file.
 The very first part contains the standard C/C++ header and footer:
 
 ```c
@@ -193,22 +196,22 @@ typedef void*              libnative_KNativePtr;
 Kotlin uses the `libnative_` prefix for all declarations in the created `libnative_api.h` file. Here's the complete list
 of type mappings:
 
-| Kotlin Define           | C Type                                         |
-|-------------------------|------------------------------------------------|
-| `libnative_KBoolean`    | `bool` or `_Bool`                              |
-| `libnative_KChar`       | `unsigned short`                               |
-| `libnative_KByte`       | `signed char`                                  |
-| `libnative_KShort`      | `short`                                        |
-| `libnative_KInt`        | `int`                                          |
-| `libnative_KLong`       | `long long`                                    |
-| `libnative_KUByte`      | `unsigned char`                                |
-| `libnative_KUShort`     | `unsigned short`                               |
-| `libnative_KUInt`       | `unsigned int`                                 |
-| `libnative_KULong`      | `unsigned long long`                           |
-| `libnative_KFloat`      | `float`                                        |
-| `libnative_KDouble`     | `double`                                       |
-| `libnative_KVector128`  | `float __attribute__ ((__vector_size__ (16))`  |
-| `libnative_KNativePtr`  | `void*`                                        |
+| Kotlin definition      | C type                                        |
+|------------------------|-----------------------------------------------|
+| `libnative_KBoolean`   | `bool` or `_Bool`                             |
+| `libnative_KChar`      | `unsigned short`                              |
+| `libnative_KByte`      | `signed char`                                 |
+| `libnative_KShort`     | `short`                                       |
+| `libnative_KInt`       | `int`                                         |
+| `libnative_KLong`      | `long long`                                   |
+| `libnative_KUByte`     | `unsigned char`                               |
+| `libnative_KUShort`    | `unsigned short`                              |
+| `libnative_KUInt`      | `unsigned int`                                |
+| `libnative_KULong`     | `unsigned long long`                          |
+| `libnative_KFloat`     | `float`                                       |
+| `libnative_KDouble`    | `double`                                      |
+| `libnative_KVector128` | `float __attribute__ ((__vector_size__ (16))` |
+| `libnative_KNativePtr` | `void*`                                       |
 
 The definitions part shows how Kotlin primitive types map into C primitive types.
 The reverse mapping is described in the [Mapping primitive data types from C](mapping-primitive-data-types-from-c.md) tutorial.
@@ -449,7 +452,7 @@ clang main.c libnative.dylib
 
 The compiler generates an executable called `a.out`. Run it to see the Kotlin code executed from the C library.
 
-### On Linux:
+### On Linux
 
 To compile the C code and link it with the dynamic library, navigate to the library directory and run the following command:
 
@@ -490,7 +493,7 @@ Follow the first option and generate the static wrapper library for the `libnati
 
    The command produces the `main.exe` file, which you can run.
 
-## Next steps
+## What's next
 
 * [Learn more about interoperability with Swift/Objective-C](native-objc-interop.md)
 * [Check out the Kotlin/Native as an Apple framework tutorial](apple-framework.md)
