@@ -4,14 +4,14 @@ Dynamic libraries are the main way to use Kotlin code from existing programs. Yo
 many platforms or languages, including JVM, Python, iOS, Android, and others.
 
 You can use the Kotlin/Native code from existing native applications or libraries. For this, you need to
-compile the Kotlin code into a dynamic library with the `.so` or `.dll` format.
+compile the Kotlin code into a dynamic library with the `.so`, `.dylib`, or `.dll` format.
 
 In this tutorial, you will:
 
 * [Compile Kotlin code to a dynamic library](#create-a-kotlin-library)
-* [Examine generated C headers](#generated-headers-file)
+* [Examine generated C headers](#generated-header-file)
 * [Use the Kotlin dynamic library from C](#use-generated-headers-from-c)
-* Compile and run the example on [Linux/macOS](#compile-and-run-the-example-on-linux-and-macos) and [Windows](#compile-and-run-the-example-on-windows)
+* [Compile and run the project](#compile-and-run-the-project)
 
 While it's possible to use the command line, either directly or by combining it with a script file
 (such as `.sh` or `.bat` file), this approach doesn't scale well for big projects that have hundreds of files and libraries.
@@ -103,14 +103,14 @@ Let's create a Kotlin library and use it from a C program.
     }
     
     kotlin {
-        linuxX64("native") { // on Linux
-        // macosX64("native") { // on x86_64 macOS
-        // macosArm64("native") { // on Apple Silicon macOS
-        // mingwX64("native") { // on Windows
+        macosArm64("native") { // Apple Silicon macOS
+        // macosX64("native") { // x86_64 macOS
+        // linuxX64("native") { // Linux
+        // mingwX64("native") { // Windows
             binaries {
                 sharedLib {
-                    baseName = "native" // on Linux and macOS
-                    // baseName = "libnative" // on Windows
+                    baseName = "native" // macOS and Linux 
+                    // baseName = "libnative" // Windows
                 }
             }
         }
@@ -138,7 +138,8 @@ Let's create a Kotlin library and use it from a C program.
 Depending on the variant, the build generates the library into the `build/bin/native/debugShared` and
 `build/bin/native/releaseShared` directories with the following files:
 
-* macOS and Linux: `libnative_api.h` and `libnative.so`
+* macOS `libnative_api.h` and `libnative.dylib`
+* and Linux: `libnative_api.h` and `libnative.so`
 * Windows: `libnative_api.h`, `libnative_symbols.def`, and `libnative.dll`
 
 The Kotlin/Native compiler uses the same rules to generate the `.h` file for all platforms. Let's check out the C API of
@@ -406,49 +407,61 @@ the entry point you'll use. The library name is used as a prefix for the functio
 
 ## Use generated headers from C
 
-The usage from C is straightforward and uncomplicated. Create a `main.c` file with the following code:
+The usage from C is straightforward. In the library directory, create the `main.c` file with the following code:
 
 ```c
 #include "libnative_api.h"
 #include "stdio.h"
 
 int main(int argc, char** argv) {
-    // Obtain reference for calling Kotlin/Native functions
-    libnative_ExportedSymbols* lib = libnative_symbols();
+  // Obtain reference for calling Kotlin/Native functions
+  libnative_ExportedSymbols* lib = libnative_symbols();
 
-    lib->kotlin.root.example.forIntegers(1, 2, 3, 4);
-    lib->kotlin.root.example.forFloats(1.0f, 2.0);
+  lib->kotlin.root.example.forIntegers(1, 2, 3, 4);
+  lib->kotlin.root.example.forFloats(1.0f, 2.0);
 
-    // Use C and Kotlin/Native strings
-    const char* str = "Hello from Native!";
-    const char* response = lib->kotlin.root.example.strings(str);
-    printf("in: %s\nout:%s\n", str, response);
-    lib->DisposeString(response);
+  // Use C and Kotlin/Native strings
+  const char* str = "Hello from Native!";
+  const char* response = lib->kotlin.root.example.strings(str);
+  printf("in: %s\nout:%s\n", str, response);
+  lib->DisposeString(response);
 
-    // Create Kotlin object instance
-    libnative_kref_example_Clazz newInstance = lib->kotlin.root.example.Clazz.Clazz();
-    long x = lib->kotlin.root.example.Clazz.memberFunction(newInstance, 42);
-    lib->DisposeStablePointer(newInstance.pinned);
+  // Create Kotlin object instance
+  libnative_kref_example_Clazz newInstance = lib->kotlin.root.example.Clazz.Clazz();
+  long x = lib->kotlin.root.example.Clazz.memberFunction(newInstance, 42);
+  lib->DisposeStablePointer(newInstance.pinned);
 
-    printf("DemoClazz returned %ld\n", x);
+  printf("DemoClazz returned %ld\n", x);
 
-    return 0;
+  return 0;
 }
 ```
 
-## Compile and run for Linux and macOS
+## Compile and run the project
 
-On macOS and Linux, compile the C code and link it with the dynamic library from the library directoty with the following command:
+### On macOS
+
+To compile the C code and link it with the dynamic library, navigate to the library directory and run the following command:
+
+```bash
+clang main.c libnative.dylib
+```
+
+The compiler generates an executable called `a.out`. Run it to see the Kotlin code executed from the C library.
+
+### On Linux:
+
+To compile the C code and link it with the dynamic library, navigate to the library directory and run the following command:
 
 ```bash
 gcc main.c libnative.so
 ```
 
 The compiler generates an executable called `a.out`. Run it to see the Kotlin code executed from the C library. On
-Linux, you'll need to include `.` into the `LD_LIBRARY_PATH` to let the application know to load the `libnative.so`
+Linux, you need to include `.` into the `LD_LIBRARY_PATH` to let the application know to load the `libnative.so`
 library from the current folder.
 
-## Compile and run for Windows
+### On Windows
 
 First, you'll need to install a Microsoft Visual C++ compiler that supports the x64_64 target. The easiest way to
 do this is to install a version of Microsoft Visual Studio on a Windows machine.
