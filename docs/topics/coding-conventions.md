@@ -993,7 +993,7 @@ Prefer using `when` if there are three or more options.
 
 ### Guard conditions in when expression
 
-Prefer using parentheses when combining multiple boolean expressions in `when` expressions or statements with [guard conditions](control-flow.md#guard-conditions-in-when-expressions):
+Use parentheses when combining multiple boolean expressions in `when` expressions or statements with [guard conditions](control-flow.md#guard-conditions-in-when-expressions):
 
 ```kotlin
 when (status) {

@@ -200,7 +200,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
-When using sealed classes with `when` expressions, you can also utilize guard conditions to include additional checks in a single branch.
+When using sealed classes with `when` expressions, you can also add guard conditions to include additional checks in a single branch.
 For more information, see [Guard conditions in when expressions](control-flow.md#guard-conditions-in-when-expressions).
 
 > In multiplatform projects, if you have a sealed class with a `when` expression as an 
