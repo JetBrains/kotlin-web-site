@@ -82,26 +82,40 @@ These features are available in preview, and we encourage you to try them and sh
 
 ### Non-local break and continue
 
-Kotlin %kotlinEapVersion% adds a preview of another long-awaited feature, an opportunity to use non-local `break` and
-`continue`. This feature expands the toolset you can use in the scope of inline functions and reduces boilerplate code
-in your project.
+Kotlin %kotlinEapVersion% adds a preview of a long-awaited feature, an opportunity to use non-local `break` and
+`continue`. It reduces boilerplate code and adds more flexibility when working with inline functions.
 
-Previously, you could only use non-local returns. Now, Kotlin also supports `break` and `continue` [jump expressions](returns.md)
+Previously, you could only use non-local returns in your project. Now, Kotlin also supports `break` and `continue` [jump expressions](returns.md)
 non-locally. That means that you can apply them within lambdas passed as arguments to an inline function that encloses
 the loop:
 
-```kotlin
-fun processList(elements: List<Int>): Boolean {
-    for (element in elements) {
-        val variable = element.nullableMethod() ?: run {
-            log.warning("Element is null or invalid, continuing...")
-            continue
+<compare>
+    <code-block lang="kotlin">
+        fun processList(elements: List&lt;Int&gt;): Boolean {
+            for (element in elements) {
+                val variable = element.nullableMethod()
+                if (variable == null) {
+                    log.warning("Element is null or invalid, continuing...")
+                    continue
+                }
+                if (variable == 0) return true
+            }
+            return false
         }
-        if (variable == 0) return true // If variable is zero, return true
-    }
-    return false
-}
-```
+    </code-block>
+    <code-block lang="kotlin">
+        fun processList(elements: List&lt;Int&gt;): Boolean {
+            for (element in elements) {
+                val variable = element.nullableMethod() ?: run {
+                    log.warning("Element is null or invalid, continuing...")
+                    continue
+                }
+                if (variable == 0) return true
+            }
+            return false
+        }
+    </code-block>
+</compare>
 
 The feature is currently [Experimental](components-stability.md#stability-levels-explained). To try it out in your project,
 use the `-Xnon-local-break-continue` compiler option in the command line:
