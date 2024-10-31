@@ -6,9 +6,12 @@
 >
 {style="note"}
 
-This tutorial demonstrates how to run a [WASI](https://wasi.dev/) application with [Kotlin/Wasm](wasm-overview.md) in IntelliJ IDEA. 
-The output is a simple application that utilizes the WASI API in [Node.js](https://nodejs.org/en), [Deno](https://deno.com/), 
-and [WasmEdge](https://wasmedge.org/).
+This tutorial demonstrates how to run a [WASI](https://wasi.dev/) application with [Kotlin/Wasm](wasm-overview.md) in IntelliJ IDEA.
+You can find examples of an application running on the [Node.js](https://nodejs.org/en), [Deno](https://deno.com/),
+and [WasmEdge](https://wasmedge.org/) environments. The output is a simple application that utilizes the standard WASI API.
+
+Currently, Kotlin/Wasm supports WASI 0.1, also known as Preview 1.
+Support for WASI 0.2 will be available in the future.
 
 > This Kotlin/Wasm WASI project supports Node.js tasks (`wasmWasiNode`*) by default.
 > Other task variants, such as those utilizing Deno or WasmEdge, are included as custom tasks.
@@ -82,9 +85,9 @@ You can also test that the Kotlin/Wasm application works correctly across variou
 
 From **kotlin-wasm-wasi-example** | **Tasks** | **verification** in the Gradle tool window, run one of the following Gradle tasks:
 
-* **wasmWasiNodeRun** to test the application in Node.js.
-* **wasmWasiDenoRun** to test the application in Deno.
-* **wasmWasiWasmEdgeRun** to test the application in WasmEdge.
+* **wasmWasiNodeTest** to test the application in Node.js.
+* **wasmWasiDenoTest** to test the application in Deno.
+* **wasmWasiWasmEdgeTest** to test the application in WasmEdge.
 
 ![Kotlin/Wasm and WASI test tasks](wasm-wasi-test-task.png){width=600}
 
