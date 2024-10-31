@@ -11,7 +11,7 @@ You can find examples of an application running on the [Node.js](https://nodejs.
 and [WasmEdge](https://wasmedge.org/) environments. The output is a simple application that utilizes the standard WASI API.
 
 Currently, Kotlin/Wasm supports WASI 0.1, also known as Preview 1.
-Support for WASI 0.2 will be available in the future.
+[Support for WASI 0.2 will be available in the future](https://youtrack.jetbrains.com/issue/KT-64568).
 
 > This Kotlin/Wasm WASI project supports Node.js tasks (`wasmWasiNode`*) by default.
 > Other task variants, such as those utilizing Deno or WasmEdge, are included as custom tasks.
