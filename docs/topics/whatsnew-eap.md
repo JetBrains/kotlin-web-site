@@ -82,7 +82,7 @@ These features are available in preview, and we encourage you to try them and sh
 
 ### Non-local break and continue
 
-Kotlin %kotlinEapVersion% adds a preview of a long-awaited feature, an opportunity to use non-local `break` and
+Kotlin %kotlinEapVersion% introduces a preview of a new feature, an ability to use non-local `break` and
 `continue`. It reduces boilerplate code and adds more flexibility when working with inline functions.
 
 Previously, you could only use non-local returns in your project. Now, Kotlin also supports `break` and `continue` [jump expressions](returns.md)
