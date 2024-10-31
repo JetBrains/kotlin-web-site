@@ -359,12 +359,11 @@ external fun <T : JsAny> processData(data: JsArray<T>): T
 
 ## Exception handling
 
-Since Kotlin 2.0.0 the Kotlin `try-catch` expression can catch JavaScript exceptions.
+You can use Kotlin `try-catch` expression to catch JavaScript exceptions.
 However, accessing specific details about the thrown value in Kotlin/Wasm isn’t possible by default.
 
-Starting from Kotlin 2.1.0, you can configure `JsException` to include the original error message and stack trace from JavaScript by enabling the `-Xwasm-attach-js-exception` compiler flag.
-
-To do so, add the following to your `build.gradle.kts` file:
+You can configure the `JsException` type to include the original error message and stack trace from JavaScript.
+To do so, add the following compiler flag to your `build.gradle.kts` file:
 
 ```kotlin
 kotlin {
@@ -378,9 +377,9 @@ kotlin {
 
 This behavior depends on the `WebAssembly.JSTag` API, which is only available in certain browsers:
 
-* Chrome: Supported from version 115
-* Firefox: Supported from version 129
-* Safari: Not yet supported
+* **Chrome:** Supported from version 115
+* **Firefox:** Supported from version 129
+* **Safari:** Not yet supported
 
 Here’s an example demonstrating this behavior:
 
@@ -408,7 +407,7 @@ fun main() {
 }
 ```
 
-With the `-Xwasm-attach-js-exception` flag enabled, `JsException` provides specific details from the JavaScript error.
+With the `-Xwasm-attach-js-exception` flag enabled, the `JsException` type provides specific details from the JavaScript error.
 Without the flag, `JsException` includes only a generic message stating that an exception was thrown while running JavaScript code.
 
 If you try to use a JavaScript `try-catch` expression to catch Kotlin/Wasm exceptions, it looks like a
@@ -431,7 +430,7 @@ Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interop
 | **Long**                | Type corresponds to JavaScript `BigInt`.                                                                                                                                                                            | Visible as a custom class in JavaScript.                                                                                                            |
 | **Arrays**              | Not supported in interop directly yet. You can use the new `JsArray` type instead.                                                                                                                                  | Implemented as JavaScript arrays.                                                                                                                   |
 | **Other types**         | Requires `JsReference<>` to pass Kotlin objects to JavaScript.                                                                                                                                                      | Allows the use of non-external Kotlin class types in external declarations.                                                                         |
-| **Exception handling**  | Starting from Kotlin 2.0.0, you can catch any JavaScript exception with the `JsException` and `Throwable` types.                                                                                                    | Can catch JavaScript `Error` using the `Throwable` type. It can catch any JavaScript exception using the `dynamic` type.                            |
+| **Exception handling**  | You can catch any JavaScript exception with the `JsException` and `Throwable` types.                                                                                                                                | Can catch JavaScript `Error` using the `Throwable` type. It can catch any JavaScript exception using the `dynamic` type.                            |
 | **Dynamic types**       | Does not support the `dynamic` type. Use `JsAny` instead (see sample code below).                                                                                                                                   | Supports the `dynamic` type.                                                                                                                        |
 
 > Kotlin/JS [dynamic type](dynamic-type.md) for interoperability with untyped or loosely typed objects is not
