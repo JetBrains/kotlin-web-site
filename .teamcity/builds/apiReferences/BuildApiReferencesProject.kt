@@ -1,5 +1,8 @@
 package builds.apiReferences
 
+import builds.apiReferences.kgp.KotlinGradlePluginBuildApiReference
+import builds.apiReferences.kgp.KotlinGradlePluginBuildSearchIndex
+import builds.apiReferences.kgp.KotlinGradlePluginPrepareDokkaTemplates
 import builds.apiReferences.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
 import builds.apiReferences.kotlinx.coroutines.KotlinxCoroutinesBuildSearchIndex
 import builds.apiReferences.kotlinx.coroutines.KotlinxCoroutinesPrepareDokkaTemplates
@@ -48,11 +51,16 @@ object BuildApiReferencesProject : Project({
     buildType(BuildStdlibApiReference)
     buildType(StdlibPrepareDokkaTemplates)
 
+    buildType(KotlinGradlePluginBuildApiReference)
+    buildType(KotlinGradlePluginBuildSearchIndex)
+    buildType(KotlinGradlePluginPrepareDokkaTemplates)
+
     vcsRoot(KotlinxSerialization)
     vcsRoot(KotlinxCoroutines)
     vcsRoot(KotlinxDatetime)
     vcsRoot(KotlinxIO)
-    vcsRoot(KotlinMetadataJvm)
+    vcsRoot(Kotlin)
+    vcsRoot(KotlinKGP)
 
     template(PrepareDokkaTemplate)
 })

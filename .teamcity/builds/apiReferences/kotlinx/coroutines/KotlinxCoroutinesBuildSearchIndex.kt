@@ -8,7 +8,7 @@ object KotlinxCoroutinesBuildSearchIndex : TemplateSearchIndex({
     description = "Build search index for Kotlinx Coroutines"
 
     params {
-        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_COROUTINES_ID")
+        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_COROUTINES_ID-stage")
     }
 
     dependencies {

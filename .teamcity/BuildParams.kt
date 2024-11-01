@@ -10,6 +10,7 @@ object BuildParams {
   const val KOTLINX_IO_RELEASE_TAG = "0.6.0"
   const val KOTLINX_IO_ID = "kotlinx-io"
   const val KOTLINX_METADATA_ID = "kotlinx-metadata-jvm"
+  const val KGP_ID = "kotlin-gradle-plugin"
   const val KOTLIN_CORE_API_BUILD_ID = "Kotlin_KotlinRelease_2020_LibraryReferenceLatestDocs"
   const val KOTLIN_RELEASE_TAG = "v2.0.21"
 
@@ -22,6 +23,7 @@ object BuildParams {
     "api/$KOTLINX_SERIALIZATION_ID",
     "api/$KOTLINX_DATETIME_ID",
     "api/$KOTLINX_IO_ID",
+    "api/$KGP_ID",
     "api/$KOTLINX_METADATA_ID",
   )
 }
