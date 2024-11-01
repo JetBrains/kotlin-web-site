@@ -145,24 +145,26 @@ Let's first create a Kotlin library:
 
     For information on other supported Apple targets, see [Kotlin/Native target support](native-target-support.md).
 
-3. Run the `linkNative` Gradle task to build the library in the IDE or use the following call in the command line:
+3. Run the `linkDebugFrameworkNative` Gradle task to build the framework in the IDE or call the following console command:
 
    ```bash
-   ./gradlew linkNative
+   ./gradlew linkDebugFrameworkNative
    ```
     
-Depending on the variant, the build generates the framework into the `build/bin/native/debugFramework`
-or the `build/bin/native/releaseFramework` directories. Let's see what's inside.
+The build generates the framework into the `build/bin/native/debugFramework` directory.
+
+> You can also use the `linkNative` Gradle task to generate both `debug` and `release` variants of the framework.
+>
+{style="tip"}
 
 ## Generated framework headers
 
-You can find the generated framework in the `build/bin` directory. Each framework variant contains a header file.
-The headers don't depend on the target platform. Header files contain definitions for your Kotlin code and a few
-Kotlin-wide declarations.
+Each framework variant contains a header file. The headers don't depend on the target platform. Header files contain
+definitions for your Kotlin code and a few Kotlin-wide declarations. Let's see what's inside.
 
 ### Kotlin/Native runtime declarations
 
-Navigate to the `build/bin/<Framework variant>/Demo.framework/Headers` directory, and open the `Demo.h` header file.
+In the `build/bin/native/debugFramework/Demo.framework/Headers` directory, open the `Demo.h` header file.
 Take a look at Kotlin runtime declarations:
 
 ```objc
@@ -325,7 +327,7 @@ Kotlin/Native instances from Swift or Objective-C.
 
 ## Use code from Objective-C
 
-Let's call the framework from Objective-C. For that, create the `main.m` file with the following code:
+Let's call the framework from Objective-C. In the framework directory, create the `main.m` file with the following code:
 
 ```objc 
 #import <Foundation/Foundation.h>
@@ -369,7 +371,9 @@ directly to it. The return is visible as `NSString` too.
 ## Use code from Swift
 
 The framework you compiled has helper attributes to make it easier to use with Swift. Let's convert the previous
-Objective-C example into Swift. Create the `main.swift` file with the following code:
+Objective-C example into Swift.
+
+In the framework directory, create the `main.swift` file with the following code:
 
 ```swift
 import Foundation
