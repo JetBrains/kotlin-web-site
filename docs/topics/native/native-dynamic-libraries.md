@@ -132,7 +132,7 @@ Let's create a Kotlin library and use it from a C program.
 3. Run the `linkDebuSharedNative` Gradle task to build the library in the IDE or call the following console command:
 
    ```bash
-   ./gradlew linkDebuSharedNative
+   ./gradlew linkDebugSharedNative
    ```
 
 The build generates the library into the `build/bin/native/debugShared` directory with the following files:
