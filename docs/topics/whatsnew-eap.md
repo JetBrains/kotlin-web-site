@@ -20,47 +20,7 @@ All you need to do is to [change the Kotlin version](configure-build-for-eap.md)
 
 See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for details.
 
-## Support for requiring opt-in to extend APIs
-
-Kotlin %kotlinEapVersion% introduces the [`@SubclassOptInRequired`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-subclass-opt-in-required/) annotation. 
-This annotation allows library authors 
-to require explicit opt-in before users can implement experimental interfaces or extend experimental classes.
-
-This feature can be useful when a library API is stable enough to use but might evolve with new abstract functions, 
-making it unstable for inheritance.
-
-To add the opt-in requirement to an API element,
-use the `@SubclassOptInRequired` annotation with a reference to the annotation class:
-
-```kotlin
-@RequiresOptIn(
-    level = RequiresOptIn.Level.WARNING,
-    message = "Interfaces in this library are experimental"
-)
-annotation class UnstableApi()
-
-@SubclassOptInRequired(UnstableApi::class)
-interface CoreLibraryApi
-```
-
-In this example, the `CoreLibraryApi` interface requires users to opt in before they can implement it.
-A user can opt in like this:
-
-```kotlin
-@OptIn(UnstableApi::class)
-interface MyImplementation : CoreLibraryApi
-```
-
-> When you use the `@SubclassOptInRequired` annotation to require opt-in, 
-> the requirement is not propagated to any [inner or nested classes](nested-classes.md).
->
-{style="note"}
-
-For a real-world example of how to use the `@SubclassOptInRequired` annotation in your API, 
-check out the [`SharedFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-shared-flow/) 
-interface in the `kotlinx.coroutines` library.
-
-## Preview of the new language features
+## Language
 
 After the Kotlin 2.0.0 release with the K2 compiler, 
 the Kotlin team at JetBrains is focusing on improving the language with new features. 
@@ -137,54 +97,47 @@ kotlin {
 We're planning to make this feature stable in future Kotlin releases. If you encounter any issues when using non-local
 `break` and `continue`, please report them to our [issue tracker](http://kotl.in/issue).
 
-## New Gradle DSL for compiler options in multiplatform projects is stable
+### Support for requiring opt-in to extend APIs
 
-In Kotlin 2.0.0, [we introduced a new Experimental Gradle DSL](whatsnew20.md#new-gradle-dsl-for-compiler-options-in-multiplatform-projects) 
-to simplify the configuration of compiler options across your multiplatform projects. 
-In Kotlin %kotlinEapVersion%, this DSL has been promoted to Stable.
+Kotlin %kotlinEapVersion% introduces the [`@SubclassOptInRequired`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-subclass-opt-in-required/) annotation.
+This annotation allows library authors
+to require explicit opt-in before users can implement experimental interfaces or extend experimental classes.
 
-With this new DSL, you can configure compiler options at the extension level for all targets and shared source sets 
-like `commonMain`, as well as at the target level for specific targets:
+This feature can be useful when a library API is stable enough to use but might evolve with new abstract functions,
+making it unstable for inheritance.
+
+To add the opt-in requirement to an API element,
+use the `@SubclassOptInRequired` annotation with a reference to the annotation class:
 
 ```kotlin
-kotlin {
-    compilerOptions {
-        // Extension-level common compiler options that are used as defaults
-        // for all targets and shared source sets
-        allWarningsAsErrors.set(true)
-    }
-    jvm {
-        compilerOptions {
-            // Target-level JVM compiler options that are used as defaults
-            // for all compilations in this target
-            noJdk.set(true)
-        }
-    }
-}
+@RequiresOptIn(
+    level = RequiresOptIn.Level.WARNING,
+    message = "Interfaces in this library are experimental"
+)
+annotation class UnstableApi()
+
+@SubclassOptInRequired(UnstableApi::class)
+interface CoreLibraryApi
 ```
 
-The overall project configuration now has three layers.
-The highest is the extension level, then the target level,
-and the lowest is the compilation unit (which is usually a compilation task):
+In this example, the `CoreLibraryApi` interface requires users to opt in before they can implement it.
+A user can opt in like this:
 
-![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
+```kotlin
+@OptIn(UnstableApi::class)
+interface MyImplementation : CoreLibraryApi
+```
 
-The settings at a higher level are used as a convention (default) for a lower level:
+> When you use the `@SubclassOptInRequired` annotation to require opt-in,
+> the requirement is not propagated to any [inner or nested classes](nested-classes.md).
+>
+{style="note"}
 
-* The values of extension compiler options are the default for target compiler options, including shared source sets,
-  like `commonMain`, `nativeMain`, and `commonTest`.
-* The values of target compiler options are used as the default for compilation unit (task) compiler options, for
-  example, `compileKotlinJvm` and `compileTestKotlinJvm` tasks.
+For a real-world example of how to use the `@SubclassOptInRequired` annotation in your API,
+check out the [`SharedFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-shared-flow/)
+interface in the `kotlinx.coroutines` library.
 
-In turn, configurations made at a lower level override related settings at a higher level:
-
-* Task-level compiler options override related configurations at the target or the extension level.
-* Target-level compiler options override related configurations at the extension level.
-
-When configuring your project, keep in mind that some old ways
-of setting up compiler options have been [deprecated](whatsnew20.md#deprecated-old-ways-of-defining-compiler-options).
-
-## Improved overload resolution for functions with generic types
+### Improved overload resolution for functions with generic types
 
 Previously, if you had a number of overloads for a function where some have value parameters of generic type
 and others had function types at the same position, the resolution behavior was inconsistent in some cases.
@@ -228,48 +181,257 @@ when a function parameter with generic type can't accept a lambda function based
 This change makes the behavior of member functions and extension functions consistent,
 and is enabled by default in Kotlin %kotlinEapVersion%.
 
-## Improved K2 kapt implementation
+## Kotlin K2 compiler
+
+With Kotlin %kotlinEapVersion%, the K2 compiler now provides more flexibility when working with compiler checks and
+warnings, as well as improved support for the kapt plugin.
+
+### Extra compiler checks
+
+With Kotlin %kotlinEapVersion%, you can now enable additional checks in the K2 compiler.
+These are extra declaration, expression, and type checks that are usually not crucial for compilation,
+but can still be useful if you want to validate the following cases:
+
+| Check type                                            | Comment                                                                                  |
+|-------------------------------------------------------|------------------------------------------------------------------------------------------|
+| `REDUNDANT_NULLABLE`                                  | `Boolean??` is used instead of `Boolean?`                                                |
+| `PLATFORM_CLASS_MAPPED_TO_KOTLIN`                     | `java.lang.String` is used instead of `kotlin.String`                                    |
+| `ARRAY_EQUALITY_OPERATOR_CAN_BE_REPLACED_WITH_EQUALS` | `arrayOf("") == arrayOf("")` is used instead of `arrayOf("").contentEquals(arrayOf(""))` |
+| `REDUNDANT_CALL_OF_CONVERSION_METHOD`                 | `42.toInt()` is used instead of `42`                                                     |
+| `USELESS_CALL_ON_NOT_NULL`                            | ` "".orEmpty()` is used instead of `""`                                                  |
+| `REDUNDANT_SINGLE_EXPRESSION_STRING_TEMPLATE`         | `"$string"` is used instead of `string`                                                  |
+| `UNUSED_ANONYMOUS_PARAMETER`                          | A parameter is passed in the lambda expression but never used                            |
+| `REDUNDANT_VISIBILITY_MODIFIER`                       | `public class Klass` is used instead of `class Klass`                                    |
+| `REDUNDANT_MODALITY_MODIFIER`                         | `final class Klass` is used instead of `class Klass`                                     |
+| `REDUNDANT_SETTER_PARAMETER_TYPE`                     | `set(value: Int)` is used instead of `set(value)`                                        |
+| `CAN_BE_VAL`                                          | `var local = 0` is defined, but never reassigned, can be `val local = 42` instead        |
+| `ASSIGNED_VALUE_IS_NEVER_READ`                        | `val local = 42` is defined, but never used afterward in the code                        |
+| `UNUSED_VARIABLE`                                     | `val local = 0` is defined, but never used in the code                                   |
+| `REDUNDANT_RETURN_UNIT_TYPE`                          | `fun foo(): Unit {}` is used instead of `fun foo() {}`                                   |
+| `UNREACHABLE_CODE`                                    | Code statement is present, but can never been executed                                   |
+
+If the check is true, you'll receive a compiler warning with a suggestion on how to fix the problem.
+
+Extra checks are disabled by default.
+To enable them, use the `-Wextra` compiler option in the command line or specify `extraWarnings`
+in the `compilerOptions {}` block of your Gradle build file:
+
+```kotlin
+kotlin {
+    compilerOptions {
+        extraWarnings.set(true)
+    }
+}
+```
+
+For more information on how to define and use options,
+see [Compiler options in the Kotlin Gradle plugin](gradle-compiler-options.md).
+
+### Global warning suppression
+
+In %kotlinEapVersion%, the Kotlin compiler has received a highly requested feature, the ability to suppress warnings globally.
+
+Now you can suppress specific warnings in the whole project. To do that, use the `-Xsuppress-warning=WARNING_NAME` syntax
+in the command line or the `freeCompilerArgs` attribute in the `compilerOptions {}` block of your build file.
+
+For example, if you have [extra compiler checks](#extra-compiler-checks) enabled in your project, but want to suppress
+one of them, use:
+
+```kotlin
+kotlin {
+    compilerOptions {
+        extraWarnings.set(true)
+        freeCompilerArgs.add("-Xsuppress-warning=CAN_BE_VAL")
+    }
+}
+```
+
+To get the warning name, select the problematic element and click the light bulb icon
+(or use <shortcut>Cmd + Enter</shortcut>/<shortcut>Alt + Enter</shortcut>):
+
+The new compiler option is currently [Experimental](components-stability.md#stability-levels-explained).
+Mind the following nuances:
+
+* Error suppression is not allowed.
+* If you pass an unknown warning name, the compilation will result in an error.
+* You can also specify several warnings at once:
+
+<tabs>
+<tab title="Command line">
+
+```bash
+kotlinc -Xsuppress-warning=NOTHING_TO_INLINE -Xsuppress-warning=NO_TAIL_CALLS_FOUND main.kt
+```
+
+</tab>
+<tab title="Build file">
+
+```kotlin
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.addAll(
+            listOf(
+                "-Xsuppress-warning=NOTHING_TO_INLINE",
+                "-Xsuppress-warning=NO_TAIL_CALLS_FOUND"
+            )
+        )
+    }
+}
+```
+
+</tab>
+</tabs>
+
+### Improved K2 kapt implementation
 
 > The kapt plugin for the K2 compiler (K2 kapt) is in [Alpha](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained).
 > It may be changed at any time. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-71439/K2-kapt-feedback).
 >
 {style="warning"}
 
-Currently, projects using the [kapt](https://kotlinlang.org/docs/kapt.html) plugin work with the K1 compiler by default, 
+Currently, projects using the [kapt](https://kotlinlang.org/docs/kapt.html) plugin work with the K1 compiler by default,
 supporting Kotlin versions up to 1.9.
 
-In Kotlin 1.9.20, we launched an experimental implementation of the kapt plugin with the K2 compiler (K2 kapt). 
+In Kotlin 1.9.20, we launched an experimental implementation of the kapt plugin with the K2 compiler (K2 kapt).
 Now, we improve K2 kapt's internal implementation to mitigate technical and performance issues.
 
 While the new K2 kapt implementation doesn't introduce new features,
 its performance has significantly improved compared to the previous K2 kapt implementation.
 Additionally, the K2 kapt plugin's behavior is now much closer to K1 kapt.
 
-To use the new K2 kapt plugin implementation, enable it the same way as the previous K2 kapt plugin. 
+To use the new K2 kapt plugin implementation, enable it the same way as the previous K2 kapt plugin.
 Add the following flag to the `gradle.properties` file of your project:
 
 ```text
 kapt.use.k2=true
 ```
 
-In upcoming releases, the K2 kapt implementation will be enabled by default instead of K1 kapt, 
+In upcoming releases, the K2 kapt implementation will be enabled by default instead of K1 kapt,
 so you won't longer need to enable it manually.
 
 When using the K2 kapt plugin, you may encounter a compilation error during the `kaptGenerateStubs*` tasks,
 even though the actual error details are missing from the Gradle log.
-This is a [known issue](https://youtrack.jetbrains.com/issue/KT-71431) that occurs when kapt is enabled in a module, 
+This is a [known issue](https://youtrack.jetbrains.com/issue/KT-71431) that occurs when kapt is enabled in a module,
 but no annotation processors are present. The workaround is to disable the kapt plugin in the module.
 
 We highly appreciate your [feedback](https://youtrack.jetbrains.com/issue/KT-71439/K2-kapt-feedback)
 before the new implementation is stabilized.
 
-## Update LLVM version to 16.0.0 for Kotlin/Native
+## Kotlin Multiplatform
 
-In Kotlin %kotlinEapVersion%, we updated LLVM from version 11.1.0 to 16.0.0. 
-In certain cases, the new version offers compiler optimizations and faster compilation. 
-It includes LLVM bug fixes and security updates as well.  
-This update shouldn't affect your code, but if you run into any issues, 
-please create [an issue in our tracker](https://kotl.in/issue).
+Kotlin %kotlinEapVersion% focuses on the improvements around Gradle: stabilizes new DSL for configuring compiler options
+in multiplatform projects and introduces a preview of Isolated Projects feature.
+
+### New Gradle DSL for compiler options in multiplatform projects is stable
+
+In Kotlin 2.0.0, [we introduced a new Experimental Gradle DSL](whatsnew20.md#new-gradle-dsl-for-compiler-options-in-multiplatform-projects)
+to simplify the configuration of compiler options across your multiplatform projects.
+In Kotlin %kotlinEapVersion%, this DSL has been promoted to Stable.
+
+With this new DSL, you can configure compiler options at the extension level for all targets and shared source sets
+like `commonMain`, as well as at the target level for specific targets:
+
+```kotlin
+kotlin {
+    compilerOptions {
+        // Extension-level common compiler options that are used as defaults
+        // for all targets and shared source sets
+        allWarningsAsErrors.set(true)
+    }
+    jvm {
+        compilerOptions {
+            // Target-level JVM compiler options that are used as defaults
+            // for all compilations in this target
+            noJdk.set(true)
+        }
+    }
+}
+```
+
+The overall project configuration now has three layers.
+The highest is the extension level, then the target level,
+and the lowest is the compilation unit (which is usually a compilation task):
+
+![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
+
+The settings at a higher level are used as a convention (default) for a lower level:
+
+* The values of extension compiler options are the default for target compiler options, including shared source sets,
+  like `commonMain`, `nativeMain`, and `commonTest`.
+* The values of target compiler options are used as the default for compilation unit (task) compiler options, for
+  example, `compileKotlinJvm` and `compileTestKotlinJvm` tasks.
+
+In turn, configurations made at a lower level override related settings at a higher level:
+
+* Task-level compiler options override related configurations at the target or the extension level.
+* Target-level compiler options override related configurations at the extension level.
+
+When configuring your project, keep in mind that some old ways
+of setting up compiler options have been [deprecated](whatsnew20.md#deprecated-old-ways-of-defining-compiler-options).
+
+### Preview Gradle's Isolated Projects in Kotlin Multiplatform
+
+> This feature is [Experimental](components-stability.md#stability-levels-explained) and is currently in a pre-alpha state with Gradle.
+> Use it only with Gradle version 8.10 and solely for evaluation purposes. The feature may be dropped or changed at any time.
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-57279/Support-Gradle-Project-Isolation-Feature-for-Kotlin-Multiplatform). Opt-in is required (see details below).
+>
+{style="warning"}
+
+In Kotlin %kotlinEapVersion%, you can preview Gradle's [Isolated Projects](https://docs.gradle.org/current/userguide/isolated_projects.html)
+feature in your multiplatform projects.
+
+The Isolated Projects feature in Gradle improves build performance by “isolating” individual Gradle projects from each
+other. Each project's build logic is restricted from directly accessing the mutable state of other projects, allowing them
+to safely run in parallel. To support this feature, we made some changes to the Kotlin Gradle plugin's model, and we are
+interested in hearing about your experiences during this preview phase.
+
+There are two ways to enable the Kotlin Gradle plugin's new model:
+
+* Option 1: **Testing compatibility without enabling Isolated Projects**: To check compatibility with the Kotlin Gradle
+  plugin's new model without enabling the Isolated Projects feature, add the following Gradle property in the
+  `build.gradle.kts` file of your project:
+
+  ```none
+  kotlin.kmp.isolated-projects.support=enable
+  ```
+
+* Option 2: **Testing with Isolated Projects enabled**: Enabling the Isolated Projects feature in Gradle automatically
+  configures the Kotlin Gradle plugin to use the new model. To enable the Isolated Projects feature, [set the system property](https://docs.gradle.org/current/userguide/isolated_projects.html#how_do_i_use_it).
+  In this case, you don't need to add the Gradle property for the Kotlin Gradle plugin to your project.
+
+## Kotlin/Native
+
+Kotlin %kotlinEapVersion% includes an upgrade for the `iosArm64` target support, improved cinterop cashing process, and other updates.
+
+### iosArm64 is promoted to Tier 1
+
+The `iosArm64` target, which is crucial for [Kotlin Multiplatform](multiplatform-intro.md) development, has been promoted
+to Tier 1. It's the highest level of support in the Kotlin/Native compiler.
+
+This means the target is regularly tested on CI to ensure that it's able to compile and run. We also provide source and
+binary compatibility between compiler releases for it.
+
+For more information on target tiers, see [Kotlin/Native target support](native-target-support.md).
+
+### LLVM update from 11.1.0 to 16.0.0
+
+In Kotlin %kotlinEapVersion%, we updated LLVM from version 11.1.0 to 16.0.0. The new version includes LLVM bug fixes and
+security updates. In certain cases, it also brings compiler optimizations and faster compilation.
+
+If you have Linux targets in your project, mind that the Kotlin/Native compiler now uses the `lld` linker by default for
+all Linux targets.
+
+This update shouldn't affect your code, but if you encounter any issues, please report them to our [issue tracker](http://kotl.in/issue).
+
+### Changes to cashing in cinterop
+
+In Kotlin %kotlinEapVersion%, we're making changes to the cinterop cashing process. It no longer has the
+[`CacheableTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/CacheableTask.html) annotation type.
+The recommended approach now is to use the [`cacheIf`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.tasks/-task-outputs/cache-if.html)
+output type to cache the results of the task.
+
+This should fix the issue when changes to header files specified in the [definition file](native-definition-file.md) were
+not recognized by UP-TO-DATE checks, so the build system failed to recompile the code.
 
 ## Kotlin/Wasm
 
@@ -457,47 +619,6 @@ Starting with Kotlin %kotlinEapVersion%, the minimum supported Android Gradle pl
 ### Bumped the minimum supported Gradle version to 7.6.3
 
 Starting with Kotlin %kotlinEapVersion%, the minimum supported Gradle version is 7.6.3.
-
-### Extra compiler checks
-
-With Kotlin %kotlinEapVersion%, you can now enable additional checks in the K2 compiler.
-These are extra declaration, expression, and type checks that are usually not crucial for compilation,
-but can still be useful if you want to validate the following cases:
-
-| Check type                                            | Comment                                                                                  |
-|-------------------------------------------------------|------------------------------------------------------------------------------------------|
-| `REDUNDANT_NULLABLE`                                  | `Boolean??` is used instead of `Boolean?`                                                |
-| `PLATFORM_CLASS_MAPPED_TO_KOTLIN`                     | `java.lang.String` is used instead of `kotlin.String`                                    |
-| `ARRAY_EQUALITY_OPERATOR_CAN_BE_REPLACED_WITH_EQUALS` | `arrayOf("") == arrayOf("")` is used instead of `arrayOf("").contentEquals(arrayOf(""))` |
-| `REDUNDANT_CALL_OF_CONVERSION_METHOD`                 | `42.toInt()` is used instead of `42`                                                     |
-| `USELESS_CALL_ON_NOT_NULL`                            | ` "".orEmpty()` is used instead of `""`                                                  |
-| `REDUNDANT_SINGLE_EXPRESSION_STRING_TEMPLATE`         | `"$string"` is used instead of `string`                                                  |
-| `UNUSED_ANONYMOUS_PARAMETER`                          | A parameter is passed in the lambda expression but never used                            |
-| `REDUNDANT_VISIBILITY_MODIFIER`                       | `public class Klass` is used instead of `class Klass`                                    |
-| `REDUNDANT_MODALITY_MODIFIER`                         | `final class Klass` is used instead of `class Klass`                                     |
-| `REDUNDANT_SETTER_PARAMETER_TYPE`                     | `set(value: Int)` is used instead of `set(value)`                                        |
-| `CAN_BE_VAL`                                          | `var local = 0` is defined, but never reassigned, can be `val local = 42` instead        |
-| `ASSIGNED_VALUE_IS_NEVER_READ`                        | `val local = 42` is defined, but never used afterward in the code                        |
-| `UNUSED_VARIABLE`                                     | `val local = 0` is defined, but never used in the code                                   |
-| `REDUNDANT_RETURN_UNIT_TYPE`                          | `fun foo(): Unit {}` is used instead of `fun foo() {}`                                   |
-| `UNREACHABLE_CODE`                                    | Code statement is present, but can never been executed                                   |
-
-If the check is true, you'll receive a compiler warning with a suggestion on how to fix the problem.
-
-Extra checks are disabled by default.
-To enable them, use the `-Wextra` compiler option in the command line or specify `extraWarnings`
-in the `compilerOptions {}` block of your Gradle build file:
-
-```kotlin
-kotlin {
-    compilerOptions {
-        extraWarnings.set(true)
-    }
-}
-```
-
-For more information on how to define and use options,
-see [Compiler options in the Kotlin Gradle plugin](gradle-compiler-options.md).
 
 ## Compose compiler updates
 
