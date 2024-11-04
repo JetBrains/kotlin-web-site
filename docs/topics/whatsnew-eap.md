@@ -249,6 +249,8 @@ kotlin {
 To get the warning name, select the problematic element and click the light bulb icon
 (or use <shortcut>Cmd + Enter</shortcut>/<shortcut>Alt + Enter</shortcut>):
 
+![Warning name intention](warning-name-intention.png){width="500"}
+
 The new compiler option is currently [Experimental](components-stability.md#stability-levels-explained).
 Mind the following nuances:
 
@@ -289,7 +291,7 @@ kotlin {
 >
 {style="warning"}
 
-Currently, projects using the [kapt](https://kotlinlang.org/docs/kapt.html) plugin work with the K1 compiler by default,
+Currently, projects using the [kapt](kapt.md) plugin work with the K1 compiler by default,
 supporting Kotlin versions up to 1.9.
 
 In Kotlin 1.9.20, we launched an experimental implementation of the kapt plugin with the K2 compiler (K2 kapt).
