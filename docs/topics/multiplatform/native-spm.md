@@ -1,5 +1,15 @@
 [//]: # (title: Swift package export setup)
 
+<tldr>
+   This is a remote integration method that can work for you if:<br/>
+
+   * You want to separate the code base of your final application from the common code base.
+   * You use the Swift package manager for handling dependencies in your iOS project. 
+   * You've already set up a Kotlin Multiplatform project targeting iOS on your local machine.<br/>
+
+   [Choose the integration method that suits you best](multiplatform-ios-integration-overview.md)
+</tldr>
+
 You can set up the Kotlin/Native output for an Apple target to be consumed as a Swift package manager (SPM) dependency.
 
 Consider a Kotlin Multiplatform project that has an iOS target. You may want to make this iOS binary available
