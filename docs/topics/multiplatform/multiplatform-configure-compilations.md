@@ -31,42 +31,6 @@ This example configures a compiler option that is common across all targets:
 
 ```kotlin
 kotlin {
-    targets.all {
-        compilations.all {
-            compilerOptions.configure {
-                allWarningsAsErrors.set(true)
-            }
-        }
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    targets.all {
-        compilations.all {
-            compilerOptions.configure {
-                allWarningsAsErrors = true
-            }
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
-
-Alternatively, you can use the `compilerOptions {}` [top-level block](multiplatform-dsl-reference.md#top-level-blocks):
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
     compilerOptions {
         allWarningsAsErrors.set(true)
     }
@@ -87,12 +51,6 @@ kotlin {
 </tab>
 </tabs>
 
-> The support for `compilerOptions {}` as a top-level block is [Experimental](components-stability.md#stability-levels-explained)
-> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
-> your feedback on it in [YouTrack](https://kotl.in/issue).
->
-{style="warning"}
-
 ## Configure compilations for one target
 
 <tabs group="build-script">
@@ -100,39 +58,7 @@ kotlin {
 
 ```kotlin
 kotlin {
-    jvm().compilations.all {
-        compilerOptions.configure {
-            jvmTarget.set(JvmTarget.JVM_1_8)
-        }
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    jvm().compilations.all {
-        compilerOptions.configure {
-            jvmTarget = JvmTarget.JVM_1_8
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
-
-Alternatively, you can use the `compilerOptions {}` block at target level:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
     jvm {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_1_8)
         }
@@ -155,13 +81,6 @@ kotlin {
 
 </tab>
 </tabs>
-
-> The support for the `compilerOptions {}` block at target level is [Experimental](components-stability.md#stability-levels-explained)
-> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
-> your feedback on it in [YouTrack](https://kotl.in/issue).
->
-{style="warning"}
-
 
 ## Configure one compilation
 
