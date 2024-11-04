@@ -193,6 +193,22 @@ guided by pragmatic design.
 </td>
 <td>
 
+**Expose boxed inline value classes in JVM**
+
+* KEEP proposal: [jvm-expose-boxed.md](https://github.com/Kotlin/KEEP/blob/jvm-expose-boxed/proposals/jvm-expose-boxed.md)
+* YouTrack issue: [KT-28135](https://youtrack.jetbrains.com/issue/KT-28135)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
 **Explicit backing fields: both `public` and `private` type for the same property**
 
 * KEEP proposal: [explicit-backing-fields.md](https://github.com/Kotlin/KEEP/blob/explicit-backing-fields-re/proposals/explicit-backing-fields.md)
