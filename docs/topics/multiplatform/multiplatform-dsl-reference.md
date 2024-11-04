@@ -36,18 +36,18 @@ plugins {
 `kotlin {}` is the top-level block for multiplatform project configuration in the Gradle build script.
 Inside `kotlin {}`, you can write the following blocks:
 
-| **Block**            | **Description**                                                                                                                         |
-|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| _&lt;targetName&gt;_ | Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.                |
-| `targets`            | All targets of the project.                                                                                                             |
-| `presets`            | All predefined targets. Use this for [configuring multiple predefined targets](#targets) at once.                                       |
-| `sourceSets`         | Configures predefined and declares custom [source sets](#source-sets) of the project.                                                   |
-| `compilerOptions`    | Extension-level common [compiler options](gradle-compiler-options.md) that are used as defaults for all targets and shared source sets. |
+| **Block**            | **Description**                                                                                                                          |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| _&lt;targetName&gt;_ | Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.                 |
+| `targets`            | Lists all targets of the project.                                                                                                        |
+| `sourceSets`         | Configures predefined and declares custom [source sets](#source-sets) of the project.                                                    |
+| `compilerOptions`    | Specifies common extension-level [compiler options](#compiler-options) that are used as defaults for all targets and shared source sets. |
 
 ## Targets
 
-_Target_ is a part of the build responsible for compiling, testing, and packaging a piece of software aimed at
-one of the supported platforms. Kotlin provides target presets for each platform. See how to [use a target preset](multiplatform-set-up-targets.md).
+A _target_ is a part of the build responsible for compiling, testing, and packaging a piece of software aimed at
+one of the supported platforms. Kotlin provides targets for each platform, so you can instruct Kotlin to compile code for
+that specific target. To learn more about how to configure these targets, see [Set up targets for Kotlin Multiplatform](multiplatform-set-up-targets.md).
 
 Each target can have one or more [compilations](#compilations). In addition to default compilations for
 test and production purposes, you can [create custom compilations](multiplatform-configure-compilations.md#create-a-custom-compilation).
@@ -58,7 +58,7 @@ The complete list of available targets is the following:
 <table>
     <tr>
         <th>Target platform</th>
-        <th>Target preset</th>
+        <th>Target</th>
         <th>Comments</th>
     </tr>
     <tr>
@@ -128,14 +128,13 @@ Each target can have one or more [compilations](#compilations).
 
 In any target block, you can use the following declarations:
 
-| **Name**            | **Description**                                                                                                                                                                                         | 
-|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `attributes`        | Attributes used for [disambiguating targets](multiplatform-set-up-targets.md#distinguish-several-targets-for-one-platform) for a single platform.                                                       |
-| `preset`            | The preset that the target has been created from, if any.                                                                                                                                               |
-| `platformType`      | Designates the Kotlin platform of this target. Available values: `jvm`, `androidJvm`, `js`, `wasm`, `native`, `common`.                                                                                 |
-| `artifactsTaskName` | The name of the task that builds the resulting artifacts of this target.                                                                                                                                |
-| `components`        | The components used to setup Gradle publications.                                                                                                                                                       |
-| `compilerOptions`   | The [compiler options](gradle-compiler-options.md) used for the target. This declaration overrides any `compilerOptions {}` configured at [top level](multiplatform-dsl-reference.md#top-level-blocks). |
+| **Name**            | **Description**                                                                                                                                                                            | 
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `attributes`        | Attributes used to [distinguish between targets](multiplatform-set-up-targets.md#distinguish-several-targets-for-one-platform) for a single platform.                                      |
+| `platformType`      | The Kotlin platform for this target. Available values: `jvm`, `androidJvm`, `js`, `wasm`, `native`, `common`.                                                                              |
+| `artifactsTaskName` | The name of the task that builds the resulting artifacts of this target.                                                                                                                   |
+| `components`        | Components used to set up Gradle publications.                                                                                                                                             |
+| `compilerOptions`   | [Compiler options](#compiler-options) used for the target. This declaration overrides any `compilerOptions {}` configured at [top level](multiplatform-dsl-reference.md#top-level-blocks). |
 
 ### JVM targets
 
@@ -769,6 +768,164 @@ kotlin {
     // Configure all compilations of all targets:
     compilerOptions {
         allWarningsAsErrors = true
+    }
+}
+```
+
+</tab>
+</tabs>
+
+## Compiler options
+
+You can configure compiler options in your projects at three different levels:
+
+* **Extension level**, in the `kotlin {}` block.
+* **Target level**, in a target block.
+* **Compilation unit level**, usually in a specific compilation task.
+
+![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
+
+Settings at a higher level work as defaults for the level below:
+
+* Compiler options set at the extension level are the default for target-level options, including shared source sets like `commonMain`, `nativeMain`, and `commonTest`.
+* Compiler options set at the target level are the default for options at the compilation unit (task) level, like `compileKotlinJvm` and `compileTestKotlinJvm` tasks.
+
+Configurations made at a lower level override similar settings at higher levels:
+
+* Task-level compiler options override similar settings at the target or extension level.
+* Target-level compiler options override similar settings at the extension level.
+
+For the list of possible compiler options, see [All compiler options](gradle-compiler-options.md#all-compiler-options).
+
+### Extension level
+
+To configure compiler options for all targets in your project, use the `compilerOptions {}` block at the top level:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    // Configures all compilations of all targets
+    compilerOptions {
+        allWarningsAsErrors.set(true)
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    // Configures all compilations of all targets:
+    compilerOptions {
+        allWarningsAsErrors = true
+    }
+}
+```
+
+</tab>
+</tabs>
+
+### Target level
+
+To configure compiler options for a specific target in your project, use the `compilerOptions {}` block inside the target block:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvm {
+        // Configures all compilations of the JVM target
+        compilerOptions {
+            allWarningsAsErrors.set(true)
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm {
+        // Configures all compilations of the JVM target
+        compilerOptions {
+            allWarningsAsErrors = true
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+### Compilation unit level
+
+To configure compiler options for a specific task, use the `compilerOptions {}` block inside the task:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+task.named<KotlinJvmCompile>("compileKotlinJvm") {
+    compilerOptions {
+        allWarningsAsErrors.set(true)
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+task.named<KotlinJvmCompile>("compileKotlinJvm") {
+    compilerOptions {
+        allWarningsAsErrors = true
+    }
+}
+```
+
+</tab>
+</tabs>
+
+To configure compiler options for a specific compilation, use the `compilerOptions {}` block within the compilation's task provider:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvm {
+        compilations.named(KotlinCompilation.MAIN_COMPILATION_NAME) {
+            compileTaskProvider.configure {
+                // Configures the 'main' compilation:
+                compilerOptions {
+                    allWarningsAsErrors.set(true)
+                }
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm {
+        compilations.named(KotlinCompilation.MAIN_COMPILATION_NAME) {
+            compileTaskProvider.configure {
+                // Configures the 'main' compilation:
+                compilerOptions {
+                    allWarningsAsErrors = true
+                }
+            }
+        }
     }
 }
 ```
