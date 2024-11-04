@@ -181,6 +181,29 @@ when a function parameter with generic type can't accept a lambda function based
 This change makes the behavior of member functions and extension functions consistent,
 and is enabled by default in Kotlin %kotlinEapVersion%.
 
+### Improved exhaustiveness checks for when expressions with sealed classes
+
+In previous versions of Kotlin, 
+the compiler required an `else` branch in `when` expressions for type parameters with sealed upper bounds, 
+even when all cases in the `sealed class` hierarchy were covered. 
+This behavior is addressed and improved in Kotlin %kotlinEapVersion%, 
+making exhaustiveness checks more powerful and allowing you to remove redundant `else` branches. 
+This keeps `when` expressions cleaner and more intuitive.
+
+Here's an example demonstrating the change:
+
+```kotlin
+sealed class Result
+object Error : Result()
+class Success(val value: String) : Result()
+
+fun <T : Result> render(result: T) = when (result) {
+    Error -> "Error!"
+    is Success -> result.value
+    // Requires no else branch
+}
+```
+
 ## Kotlin K2 compiler
 
 With Kotlin %kotlinEapVersion%, the K2 compiler now provides more flexibility when working with compiler checks and
@@ -382,7 +405,7 @@ of setting up compiler options have been [deprecated](whatsnew20.md#deprecated-o
 In Kotlin %kotlinEapVersion%, you can preview Gradle's [Isolated Projects](https://docs.gradle.org/current/userguide/isolated_projects.html)
 feature in your multiplatform projects.
 
-The Isolated Projects feature in Gradle improves build performance by “isolating” individual Gradle projects from each
+The Isolated Projects feature in Gradle improves build performance by "isolating" individual Gradle projects from each
 other. Each project's build logic is restricted from directly accessing the mutable state of other projects, allowing them
 to safely run in parallel. To support this feature, we made some changes to the Kotlin Gradle plugin's model, and we are
 interested in hearing about your experiences during this preview phase.
@@ -522,6 +545,115 @@ To try the new debugging experience:
    In the Firefox Developer Tools, it's placed in **Settings | Advanced settings**:
 
    ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=700}
+
+### Reduced size of Kotlin/Wasm binaries
+
+The size of your Wasm binaries produced by production builds will be reduced by up to 30%,
+and you may see some performance improvements.
+This is due to the fact that Binaryen options 
+`--closed-world`, `--type-ssa`, and `--type-merging` are now considered safe to use for 
+all Kotlin/Wasm projects and are enabled by default.
+
+### Improved JavaScript array interoperability in Kotlin/Wasm
+
+While Kotlin/Wasm's standard library provides the `JsArray<T>` type for JavaScript arrays,
+there was no direct method to transform `JsArray<T>` into Kotlin's native `Array` or `List` types.
+
+This gap required creating custom functions for array transformations, complicating interoperability between 
+Kotlin and JavaScript code.
+
+This release introduces an adapter function that automatically converts `JsArray<T>` to `Array<T>` and vice versa,
+simplifying array operations.
+
+Here's an example of conversion between generic types: Kotlin `List<T> `and `Array<T>` to JavaScript `JsArray<T>.`
+
+```kotlin
+val list: List<JsString> =
+    listOf("Kotlin", "Wasm").map { it.toJsString() }
+
+// Uses .toJsArray() to convert List or Array to JsArray
+val jsArray: JsArray<JsString> = list.toJsArray()
+
+// Uses .toArray() and .toList() to convert it back to Kotlin types 
+val kotlinArray: Array<JsString> = jsArray.toArray()
+val kotlinList: List<JsString> = jsArray.toList()
+```
+
+Similar methods are available for converting typed arrays to their Kotlin equivalents
+(for example, `IntArray` and `Int32Array`). For detailed information and implementation,
+see the [`kotlinx-browser` repository]( https://github.com/Kotlin/kotlinx-browser/blob/dfbdceed314567983c98f1d66e8c2e10d99c5a55/src/wasmJsMain/kotlin/arrayCopy.kt).
+
+Here's an example of conversion between typed arrays: Kotlin `IntArray` to JavaScript `Int32Array`.
+
+```kotlin
+import org.khronos.webgl.*
+
+    // ...
+
+    val intArray: IntArray = intArrayOf(1, 2, 3)
+    
+    // Uses .toInt32Array() to convert Kotlin IntArray to JavaScript Int32Array
+    val jsInt32Array: Int32Array = intArray.toInt32Array()
+    
+    // Uses toIntArray() to convert JavaScript Int32Array back to Kotlin IntArray
+    val kotlnIntArray: IntArray = jsInt32Array.toIntArray()
+```
+
+### Support for accessing JavaScript exception details in Kotlin/Wasm
+
+Previously, when a JavaScript exception occurred in Kotlin/Wasm, 
+the `JsException` type provided only a generic message without details from the original JavaScript error.
+
+Starting from Kotlin %kotlinEapVersion%, 
+you can now configure `JsException` to include the original error message and stack trace by enabling a specific compiler flag,
+providing more context to help diagnose issues originating from JavaScript.
+
+This behavior depends on the `WebAssembly.JSTag` API, which is available only in certain browsers:
+
+* **Chrome**: Supported from version 115
+* **Firefox**: Supported from version 129
+* **Safari**: Not yet supported
+
+This feature is disabled by default. To enable this feature, add the following compiler flag to your `build.gradle.kts` file:
+
+```kotlin
+kotlin {
+    wasmJs {
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-attach-js-exception")
+        }
+    }
+}
+```
+
+Here’s an example demonstrating the new behavior:
+
+```kotlin
+external object JSON {
+    fun <T: JsAny> parse(json: String): T
+}
+
+fun main() {
+    try {
+        JSON.parse("an invalid JSON")
+    } catch (e: JsException) {
+        println("Thrown value is: ${e.thrownValue}")
+        // SyntaxError: Unexpected token 'a', "an invalid JSON" is not valid JSON
+
+        println("Message: ${e.message}")
+        // Message: Unexpected token 'a', "an invalid JSON" is not valid JSON
+
+        println("Stacktrace:")
+        // Stacktrace:
+
+        // Prints the full JavaScript stack trace 
+        e.printStackTrace()
+    }
+}
+```
+
+With the `-Xwasm-attach-js-exception` flag enabled, `JsException` provides specific details from the JavaScript error.
+Without the flag, `JsException` includes only a generic message stating that an exception was thrown while running JavaScript code.
 
 ### Deprecation of default exports
 
