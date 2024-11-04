@@ -68,7 +68,7 @@ In this release, we are excited to announce several new language design features
 
 These features are available in preview, and we encourage you to try them and share your feedback:
 * Guard conditions in `when` with a subject. [Read the KEEP document for details](https://github.com/Kotlin/KEEP/blob/master/proposals/guards.md)
-* Non-local `break` and `continue`. [Read the KEEP document for details](https://github.com/Kotlin/KEEP/blob/master/proposals/break-continue-in-inline-lambdas.md)
+* [Non-local `break` and `continue`](#non-local-break-and-continue)
 * Multidollar interpolation: improved handling of `$` in string literals. 
   [Read the KEEP document for details](https://github.com/Kotlin/KEEP/blob/master/proposals/dollar-escape.md)
 
@@ -79,6 +79,63 @@ These features are available in preview, and we encourage you to try them and sh
 {style="tip"}
 
 [See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
+
+### Non-local break and continue
+
+Kotlin %kotlinEapVersion% introduces a preview of a new feature, an ability to use non-local `break` and
+`continue`. It reduces boilerplate code and adds more flexibility when working with inline functions.
+
+Previously, you could only use non-local returns in your project. Now, Kotlin also supports `break` and `continue` [jump expressions](returns.md)
+non-locally. That means that you can apply them within lambdas passed as arguments to an inline function that encloses
+the loop:
+
+<compare>
+    <code-block lang="kotlin">
+        fun processList(elements: List&lt;Int&gt;): Boolean {
+            for (element in elements) {
+                val variable = element.nullableMethod()
+                if (variable == null) {
+                    log.warning("Element is null or invalid, continuing...")
+                    continue
+                }
+                if (variable == 0) return true
+            }
+            return false
+        }
+    </code-block>
+    <code-block lang="kotlin">
+        fun processList(elements: List&lt;Int&gt;): Boolean {
+            for (element in elements) {
+                val variable = element.nullableMethod() ?: run {
+                    log.warning("Element is null or invalid, continuing...")
+                    continue
+                }
+                if (variable == 0) return true
+            }
+            return false
+        }
+    </code-block>
+</compare>
+
+The feature is currently [Experimental](components-stability.md#stability-levels-explained). To try it out in your project,
+use the `-Xnon-local-break-continue` compiler option in the command line:
+
+```bash
+kotlinc -Xnon-local-break-continue main.kt
+```
+
+Or set it in the `compilerOptions {}` block of your Gradle build file:
+
+```kotlin
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xnon-local-break-continue")
+    }
+}
+```
+
+We're planning to make this feature stable in future Kotlin releases. If you encounter any issues when using non-local
+`break` and `continue`, please report them to our [issue tracker](http://kotl.in/issue).
 
 ## New Gradle DSL for compiler options in multiplatform projects is stable
 
