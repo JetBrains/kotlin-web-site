@@ -221,7 +221,7 @@ but can still be useful if you want to validate the following cases:
 | `PLATFORM_CLASS_MAPPED_TO_KOTLIN`                     | `java.lang.String` is used instead of `kotlin.String`                                    |
 | `ARRAY_EQUALITY_OPERATOR_CAN_BE_REPLACED_WITH_EQUALS` | `arrayOf("") == arrayOf("")` is used instead of `arrayOf("").contentEquals(arrayOf(""))` |
 | `REDUNDANT_CALL_OF_CONVERSION_METHOD`                 | `42.toInt()` is used instead of `42`                                                     |
-| `USELESS_CALL_ON_NOT_NULL`                            | ` "".orEmpty()` is used instead of `""`                                                  |
+| `USELESS_CALL_ON_NOT_NULL`                            | `"".orEmpty()` is used instead of `""`                                                   |
 | `REDUNDANT_SINGLE_EXPRESSION_STRING_TEMPLATE`         | `"$string"` is used instead of `string`                                                  |
 | `UNUSED_ANONYMOUS_PARAMETER`                          | A parameter is passed in the lambda expression but never used                            |
 | `REDUNDANT_VISIBILITY_MODIFIER`                       | `public class Klass` is used instead of `class Klass`                                    |
@@ -309,7 +309,7 @@ kotlin {
 
 ### Improved K2 kapt implementation
 
-> The kapt plugin for the K2 compiler (K2 kapt) is in [Alpha](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained).
+> The kapt plugin for the K2 compiler (K2 kapt) is in [Alpha](components-stability.md#stability-levels-explained).
 > It may be changed at any time. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-71439/K2-kapt-feedback).
 >
 {style="warning"}
@@ -426,7 +426,7 @@ There are two ways to enable the Kotlin Gradle plugin's new model:
 
 ## Kotlin/Native
 
-Kotlin %kotlinEapVersion% includes an upgrade for the `iosArm64` target support, improved cinterop cashing process, and other updates.
+Kotlin %kotlinEapVersion% includes an upgrade for the `iosArm64` target support, improved cinterop caching process, and other updates.
 
 ### iosArm64 is promoted to Tier 1
 
@@ -448,9 +448,9 @@ all Linux targets.
 
 This update shouldn't affect your code, but if you encounter any issues, please report them to our [issue tracker](http://kotl.in/issue).
 
-### Changes to cashing in cinterop
+### Changes to caching in cinterop
 
-In Kotlin %kotlinEapVersion%, we're making changes to the cinterop cashing process. It no longer has the
+In Kotlin %kotlinEapVersion%, we're making changes to the cinterop caching process. It no longer has the
 [`CacheableTask`](https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/CacheableTask.html) annotation type.
 The recommended approach now is to use the [`cacheIf`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.tasks/-task-outputs/cache-if.html)
 output type to cache the results of the task.
@@ -677,7 +677,7 @@ explaining that exporting entities via default exports is deprecated.
 ## Support for non-identifier characters in Kotlin/JS properties
 
 Kotlin/JS previously did not allow
-using [names for test methods](https://kotlinlang.org/docs/coding-conventions.html#names-for-test-methods) with spaces
+using [names for test methods](coding-conventions.md#names-for-test-methods) with spaces
 enclosed in backticks.
 
 Similarly, it was not possible to access JavaScript object properties
