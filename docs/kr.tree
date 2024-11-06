@@ -347,18 +347,22 @@
 		<toc-element toc-title="OSGi" topic="kotlin-osgi.md"/>
 	</toc-element>
 	<toc-element toc-title="Compiler and plugins">
-		<toc-element toc-title="Compiler">
+		<toc-element toc-title="Kotlin compiler">
 			<toc-element accepts-web-file-names="k2-compiler-guide.html" topic="k2-compiler-migration-guide.md"/>
 			<toc-element toc-title="Command-line compiler" topic="command-line.md"/>
 			<toc-element toc-title="Compiler options" topic="compiler-reference.md"/>
 		</toc-element>
-		<toc-element toc-title="Compiler plugins">
+		<toc-element toc-title="Kotlin compiler plugins">
 			<toc-element toc-title="All-open" topic="all-open-plugin.md"/>
 			<toc-element toc-title="No-arg" topic="no-arg-plugin.md"/>
 			<toc-element toc-title="SAM with receiver" topic="sam-with-receiver-plugin.md"/>
 			<toc-element toc-title="kapt" topic="kapt.md"/>
 			<toc-element toc-title="Lombok" topic="lombok.md"/>
 			<toc-element toc-title="Power-assert" topic="power-assert.md"/>
+		</toc-element>
+		<toc-element toc-title="Compose compiler">
+			<toc-element toc-title="Compiler migration guide" topic="compose-compiler-migration-guide.md"/>
+			<toc-element toc-title="Compiler options" topic="compose-compiler-options.md"/>
 		</toc-element>
 		<toc-element toc-title="Kotlin Symbol Processing API">
 			<toc-element toc-title="KSP overview" topic="ksp-overview.md"/>
