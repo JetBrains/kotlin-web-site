@@ -15,8 +15,52 @@ in the [Working with command-line compiler](command-line.md) tutorial.
 
 Kotlin compilers have a number of options for tailoring the compiling process.
 
-Using a build script, you can specify additional compilation options. Use the `compilerOptions` property of a Kotlin compilation task for it. 
-For example:
+When you use the Kotlin Gradle plugin in your project, the Gradle DSL allows comprehensive configuration of compiler options. 
+The Gradle DSL is available for [Kotlin Multiplatform](multiplatform-dsl-reference.md) and [JVM/Android](#target-the-jvm) projects.
+
+With the Gradle DSL, you can configure compiler options within the build script at three levels: 
+* **Extension level in top-level blocks:** for all the targets and shared source sets.
+* **Target level in target-level blocks:** for a specific target.
+* **Compilation unit level:** usually a specific compilation task.
+
+![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
+
+The settings at a higher level are used as a convention (default) for a lower level:
+
+* The values of extension compiler options are the default for target compiler options, including shared source sets
+  like `commonMain`, `nativeMain`, and `commonTest`.
+* The values of target compiler options are used as the default for compilation unit (task) compiler options, for
+  example, `compileKotlinJvm` and `compileTestKotlinJvm` tasks.
+
+In turn, configurations made at a lower level override related settings at a higher level:
+
+* Task-level compiler options override related configurations at the target or the extension level.
+* Target-level compiler options override related configurations at the extension level.
+
+To confirm which level of compiler arguments is applied to the compilation, use the `DEBUG` level of Gradle [logging](https://docs.gradle.org/current/userguide/logging.html).
+Gradle is making these properties traceable, so understanding what overrides your values will soon be easier.
+
+> If you are a third-party plugin author, it is recommended that you apply your configuration on the project level to avoid 
+> overriding issues. Also, it is recommended that you document such configuration on your side explicitly.
+>
+{style="tip"}
+
+### Extension level
+
+You can configure compiler options for all the targets and source sets
+in the `compilerOptions {}` block at the top level:
+
+```kotlin
+kotlin {
+    compilerOptions {
+        optIn.add("kotlin.RequiresOptIn")
+    }
+}    
+```
+
+If you want to configure a plugin of a target different from JVM/Android and [Kotlin Multiplatform](multiplatform-dsl-reference.md), 
+use the `compilerOptions {}` property of the corresponding Kotlin compilation task. The following examples 
+show how to set this configuration up in both Kotlin and Groovy DSLs:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -43,40 +87,42 @@ tasks.named('compileKotlin', org.jetbrains.kotlin.gradle.tasks.KotlinCompilation
 </tab>
 </tabs>
 
-### Target the JVM
+### Target level
+
+You can configure compiler options for the JVM/Android and Kotlin Multiplatform targets
+in the `compilerOptions {}` block inside the `target {}` block:
+
+```kotlin
+kotlin {
+    target { 
+        compilerOptions {
+            optIn.add("kotlin.RequiresOptIn")
+        }
+    }
+}
+```
+
+### Compilation unit level
+
+You can configure compiler options for a specific compilation unit or task in a `compilerOptions {}` 
+block inside the task configuration:
+
+```Kotlin
+tasks.named<KotlinJvmCompile>("compileKotlin"){
+    compilerOptions {
+        optIn.add("kotlin.RequiresOptIn")
+    }
+}
+```
+
+## Target the JVM
+
+As explained before, you can define compiler options for your JVM/Android projects at the extension, target, and compilation unit levels.
 
 JVM compilation tasks are called `compileKotlin` for production code and `compileTestKotlin`
 for test code. The tasks for custom source sets are named according to their `compile<Name>Kotlin` patterns.
 
-The names of the tasks in Android Projects contain [build variant](https://developer.android.com/studio/build/build-variants.html)
-names and follow the `compile<BuildVariant>Kotlin` pattern, for example, `compileDebugKotlin` or `compileReleaseUnitTestKotlin`.
-
-For both the JVM and Android projects, it's possible to define options using the project Kotlin extension DSL:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    compilerOptions {
-        apiVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleApiVersion%)
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    compilerOptions {
-        apiVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleApiVersion%
-    }
-}
-```
-
-</tab>
-</tabs>
+Regarding Android compilation tasks, you can consult them by typing the `gradlew tasks --all` command in the terminal.
 
 Some important details to be aware of:
 
@@ -85,7 +131,7 @@ Some important details to be aware of:
 * You can override the configuration applied by `kotlin.compilerOptions` DSL using the `tasks.named<KotlinJvmCompile>("compileKotlin") { }`
   (or `tasks.withType<KotlinJvmCompile>().configureEach { }`) approach.
 
-### Target JavaScript
+## Target JavaScript
 
 JavaScript compilation tasks are called `compileKotlinJs` for production code, `compileTestKotlinJs` for test code, and `compile<Name>KotlinJs` for custom source sets.
 
@@ -124,9 +170,9 @@ Note that with the Gradle Kotlin DSL, you should get the task from the project's
 
 Use the `Kotlin2JsCompile` and `KotlinCompileCommon` types for JS and common targets, respectively.
 
-### For all Kotlin compilation tasks
+## All Kotlin compilation tasks
 
-It is also possible to configure all of the Kotlin compilation tasks in the project:
+It is also possible to configure all the Kotlin compilation tasks in the project:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -157,7 +203,7 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 
 ## All compiler options
 
-Here is a complete list of options for Gradle tasks:
+Here is a complete list of options for the Gradle compiler:
 
 ### Common attributes
 
@@ -176,7 +222,7 @@ Here is a complete list of options for Gradle tasks:
 | `noJdk`                   | Don't automatically include the Java runtime into the classpath                                                                                                                                                                               |                                                                                                         | false                       |
 | `jvmTargetValidationMode` | <list><li>Validation of the [JVM target compatibility](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks) between Kotlin and Java</li><li>A property for tasks of the `KotlinCompile` type.</li></list> | `WARNING`, `ERROR`, `INFO`                                                                              | `ERROR`                     |
 
-### Attributes common to JVM and JS
+### Attributes common to JVM and JavaScript
 
 | Name | Description | Possible values                                                |Default value |
 |------|-------------|----------------------------------------------------------------|--------------|
@@ -187,7 +233,6 @@ Here is a complete list of options for Gradle tasks:
 | `apiVersion`      | Restrict the use of declarations to those from the specified version of bundled libraries | "1.8", "1.9", "2.0", "2.1", "2.2" (EXPERIMENTAL) |               |
 | `languageVersion` | Provide source compatibility with the specified version of Kotlin                         | "1.8", "1.9", "2.0", "2.1", "2.2" (EXPERIMENTAL)  |               |
 
-
 > We are going to deprecate the attribute `freeCompilerArgs` in future releases. If you miss some option in the Kotlin Gradle DSL,
 > please, [file an issue](https://youtrack.jetbrains.com/newissue?project=kt).
 >
@@ -195,8 +240,8 @@ Here is a complete list of options for Gradle tasks:
 
 #### Example of additional arguments usage via freeCompilerArgs {initial-collapse-state="collapsed" collapsible="true"}
 
-Use the attribute `freeCompilerArgs` to supply additional (including experimental) compiler arguments. You can add a single
-argument to this attribute or a list of arguments:
+Use the `freeCompilerArgs` attribute to supply additional (including experimental) compiler arguments.
+You can add a single argument to this attribute or a list of arguments:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -205,14 +250,25 @@ argument to this attribute or a list of arguments:
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
-val compileKotlin: KotlinCompilationTask<*> by tasks
-
-// Single experimental argument
-compileKotlin.compilerOptions.freeCompilerArgs.add("-Xexport-kdoc")
-// Single additional argument, can be a key-value pair
-compileKotlin.compilerOptions.freeCompilerArgs.add("-Xno-param-assertions")
-// List of arguments
-compileKotlin.compilerOptions.freeCompilerArgs.addAll(listOf("-Xno-receiver-assertions", "-Xno-call-assertions"))
+kotlin {
+    target {
+        compilerOptions {
+            // Single experimental argument
+            freeCompilerArgs.add("-Xexport-kdoc")
+          
+            // Single additional argument
+            freeCompilerArgs.add("-Xno-param-assertions")
+          
+            // List of arguments
+            freeCompilerArgs.addAll(
+                listOf(
+                    "Xno-receiver-assertions", 
+                    "Xno-call-assertions"
+                )
+            )
+        }
+    }
+}
 ```
 
 </tab>
@@ -237,7 +293,11 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 </tab>
 </tabs>
 
-#### Example of setting a languageVersion
+> The `freeCompilerArgs` attribute is available at the [extension](#extension-level), [target](#target-level), and [compilation unit (task)](#compilation-unit-level) levels.
+>
+{style="tip"} 
+
+#### Example of setting languageVersion {initial-collapse-state="collapsed" collapsible="true"}
 
 To set a language version, use the following syntax:
 
@@ -245,15 +305,13 @@ To set a language version, use the following syntax:
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-tasks
-    .withType<org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile>()
-    .configureEach {
-        compilerOptions
-            .languageVersion
-            .set(
-                org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleLanguageVersion%
-            )
+kotlin {
+    target { 
+        compilerOptions {
+            languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleLanguageVersion%)
+        }
     }
+}
 ```
 
 </tab>
@@ -273,7 +331,7 @@ tasks
 
 Also, see [Types for compiler options](#types-for-compiler-options).
 
-### Attributes specific to JS
+### Attributes specific to JavaScript
 
 | Name | Description | Possible values |Default value |
 |---|---|---|---|
@@ -305,6 +363,7 @@ Some of the `compilerOptions` use the new types instead of the `String` type:
 ## What's next?
 
 Learn more about:
+* [Kotlin Multiplatform DSL reference](multiplatform-dsl-reference.md). 
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
 * [Gradle basics and specifics](https://docs.gradle.org/current/userguide/userguide.html).
 * [Support for Gradle plugin variants](gradle-plugin-variants.md).
