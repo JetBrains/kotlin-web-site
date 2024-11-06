@@ -619,18 +619,22 @@ support for the Android target. In the future, this support will be provided via
 Android team from Google.
 
 To open the way for the new solution from Google, we're renaming the `android` block to `androidTarget` in the current
-Kotlin DSL in 1.9.0. This is a temporary change that is necessary to free the short `android` name for the upcoming DSL
+Kotlin DSL. This is a temporary change that is necessary to free the short `android` name for the upcoming DSL
 from Google.
 
 **What's the best practice now?**
 
-Rename all the occurrences of  the `android` block to `androidTarget`. When the new plugin for the Android target support
+Rename all the occurrences of the `android` block to `androidTarget`. When the new plugin for the Android target support
 is available, migrate to the DSL from Google. It will be the preferred option to work with Android in Kotlin Multiplatform
 projects.
 
 **When do the changes take effect?**
 
-In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects.
+Here's the planned deprecation cycle:
+
+* 1.9.0: a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects
+* 2.1.0: report an error in such cases, causing the build to fail
+* 2.2.0: remove the `android` target DSL from the Kotlin Multiplatform Gradle plugin
 
 <anchor name="declaring-multiple-targets"/>
 ## Declaring several similar targets
