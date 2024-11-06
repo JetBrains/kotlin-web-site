@@ -182,12 +182,10 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.5.1</version>
             <executions>
-                <!-- Replacing default-compile as it is treated specially by Maven -->
                 <execution>
                     <id>default-compile</id>
                     <phase>none</phase>
                 </execution>
-                <!-- Replacing default-testCompile as it is treated specially by Maven -->
                 <execution>
                     <id>default-testCompile</id>
                     <phase>none</phase>
