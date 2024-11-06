@@ -238,7 +238,7 @@ fun hasPrefix(x: Any) = when(x) {
 ```
 
 You can use `when` as a replacement for an `if`-`else` `if` chain.
-If there's no subject, the branch conditions are simply boolean expressions, and a branch is run when its condition is true:
+If there's no subject, the branch conditions are simply boolean expressions. The first branch with a `true` condition runs:
 
 ```kotlin
 when {
