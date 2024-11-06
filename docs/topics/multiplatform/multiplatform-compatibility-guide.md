@@ -420,7 +420,7 @@ The access to `KotlinCompilation.source` has been deprecated. A code like this p
 kotlin {
     jvm()
     js()
-    ios()
+    iosArm64()
     
     sourceSets {
         val commonMain by getting
@@ -446,7 +446,7 @@ You can change the code above in one of the following ways:
 kotlin {
     jvm()
     js()
-    ios()
+    iosArm64()
 
     sourceSets {
         val commonMain by getting
@@ -909,6 +909,41 @@ Here's the planned deprecation cycle:
 * &gt;2.0: remove the presets-related API from the public API of the Kotlin Gradle plugin; sources that still use it fail
   with "unresolved reference" errors, and binaries (for example, Gradle plugins) might fail with linkage errors
   unless recompiled against the latest versions of the Kotlin Gradle plugin
+
+<anchor name="target-shortcuts-deprecation"/>
+## Deprecated Apple target shortcuts
+
+**What's changed?**
+
+We're deprecating `ios()`, `watchos()`, and `tvos()` target shortcuts in Kotlin Multiplatform DSL. They were designed to
+partially create a source set hierarchy for Apple targets. However, they were difficult to expand and could be confusing.
+
+For example, the `ios()` shortcut created both the `iosArm64` and `iosX64` targets but didn't include the `iosSimulatorArm64`
+target, which is necessary when working on hosts with Apple M chips. However, changing this shortcut was hard to implement
+and could cause issues in existing user projects.
+
+**What's the best practice now?**
+
+The Kotlin Gradle plugin now provides a built-in hierarchy template. Since Kotlin 1.9.20, it's enabled by default
+and contains predefined intermediate source sets for popular use cases.
+
+The difference from shortcuts is that you need to explicitly specify the set of targets first, and the plugin then
+automatically sets up intermediate source sets based on this list.
+
+For example, suppose you have `iosArm64` and `iosSimulatorArm64` targets in your project. In that case, the plugin
+automatically creates the `iosMain` and `iosTest` intermediate source sets, and for the `iosArm64` and `macosArm64`
+targets, it creates the `appleMain` and`appleTest` source sets.
+
+For more information, see [Hierarchical project structure](multiplatform-hierarchy.md)
+
+**When do the changes take effect?**
+
+Here's the planned deprecation cycle:
+
+* 1.9.20: report a warning when `ios()`, `watchos()`, and `tvos()` target shortcuts are used;
+  the default hierarchy template is enabled by default instead
+* 2.1.0: report an error when target shortcuts are used
+* 2.2.0: remove target shortcut DSL from the Kotlin Multiplatform Gradle plugin
 
 ## New approach to forward declarations
 
