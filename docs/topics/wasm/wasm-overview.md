@@ -15,7 +15,7 @@ Wasm is a binary instruction format for a stack-based virtual machine. This
 format is platform-independent because it runs on its own virtual machine. Wasm provides Kotlin and other languages with
 a compilation target. 
 
-You can use Kotlin/Wasm on different sub-platforms, 
+You can use Kotlin/Wasm on different target environments, 
 including [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) for web applications 
 and [WebAssembly System Interface (WASI)](https://wasi.dev/) for server-side applications.
 
@@ -55,7 +55,6 @@ Would you like to try it yourself?
 Kotlin/Wasm benefits from [WebAssembly System Interface (WASI)](https://wasi.dev/) for server-side applications.
 Applications built with Kotlin/Wasm and WASI use a Wasm-WASI target, allowing you to call the WASI API and run applications 
 outside the browser environment.
-
 
 Kotlin/Wasm leverages WASI to abstract away platform-specific details, enabling the same Kotlin code to be executed on diverse 
 platforms without requiring custom handling for each runtime and expanding the reach of Kotlin/Wasm beyond web applications.
@@ -102,9 +101,3 @@ allows you to use Kotlin code from JavaScript. For more information, see [Use Ko
 
 * Learn more about Kotlin/Wasm in this [YouTube playlist](https://kotl.in/wasm-pl).
 * Explore the [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples) in our GitHub repository.
-
-
-You can use Kotlin/Wasm on different sub-platforms such as [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) and [WebAssembly System Interface (WASI)](https://wasi.dev/).
-
-
-
