@@ -21,7 +21,7 @@ Create a project using the Kotlin Multiplatform wizard:
 3. Select the **Web** option. Make sure that no other options are selected.
 4. Click the **Download** button and unpack the resulting archive.
 
-![Kotlin Multiplatform wizard](wasm-compose-wizard.png){width=600}
+![Kotlin Multiplatform wizard](wasm-compose-web-wizard.png){width=600}
 
 ## Open the project in IntelliJ IDEA
 
@@ -147,7 +147,7 @@ kotlin {
 3. Click on the line numbers to set breakpoints on the code that you want to inspect. Only the lines
    with darker numbers can have breakpoints.
 
-![Set breakpoints](wasm-breakpoints.png){width=700}
+   ![Set breakpoints](wasm-breakpoints.png){width=700}
 
 4. Click on the **Click me!** button to interact with the application. This action triggers the execution of the 
    code, and the debugger pauses when the execution reaches a breakpoint.
@@ -157,14 +157,53 @@ kotlin {
    * ![Step over](wasm-step-over.png){width=30}{type="joined"} Step over to execute the current line and pause on the next line.
    * ![Step out](wasm-step-out.png){width=30}{type="joined"} Step out to execute the code until it exits the current function.
 
-![Debug controls](wasm-debug-controls.png){width=700}
+   ![Debug controls](wasm-debug-controls.png){width=700}
 
 6. Check the **Call stack** and **Scope** panes to trace the sequence of function calls and pinpoint the location of any errors.
 
-![Check call stack](wasm-debug-scope.png){width=700}
+   ![Check call stack](wasm-debug-scope.png){width=700}
+
+   For an improved visualization of the variable values, see [Enhance your debugging with custom formatters](#enhance-your-debugging-with-custom-formatters).
 
 7. Make changes to your code and [run the application](#run-the-application) again to verify that everything works as expected.
 8. Click on the line numbers with breakpoints to remove the breakpoints.
+
+### Enhance your debugging with custom formatters
+
+In addition to the default debugging experience, you can set up custom formatters to display and locate variable values in a more user-friendly and comprehensible manner.
+
+![Kotlin/Wasm improved debugger](wasm-debugger-improved.png){width=700}
+
+This implementation is supported across major browsers like Firefox and Chromium-based as
+it uses the [custom formatters API](https://firefox-source-docs.mozilla.org/devtools-user/custom_formatters/index.html).
+
+To set up custom formatters for an improved debugging experience:
+
+1. Add the following compiler argument to the `wasmJs` compiler options:
+
+```kotlin
+kotlin {
+    wasmJs {
+        …
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-debugger-custom-formatters")
+        }
+    }
+}   
+```
+
+2. Enable the **Custom formatters** feature in your browser.
+
+   In the Chrome DevTools, it’s placed in **Settings | Preferences | Console**:
+
+   ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=700}
+
+   In the Firefox Developer Tools, it’s placed in **Settings | Advanced settings**:
+
+   ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=700}
+
+After setting up the custom formatters, you can continue the debugging steps explained in
+[Debug your Kotlin/Wasm application](#debug-your-kotlin-wasm-application).
 
 ## Leave feedback
 
