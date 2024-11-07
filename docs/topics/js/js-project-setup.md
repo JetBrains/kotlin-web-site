@@ -598,11 +598,11 @@ For Kotlin/JS projects targeting Node.js, the plugin automatically downloads and
 host.
 You can also use an existing Node.js instance if you have it.
 
-### Configuring Node.js versions
+### Configuring Node.js settings
 
-You can specify versions of Node.js to use for each subproject, or set it once for the project as a whole.
+You can configure Node.js settings to use for each subproject, or set them for the project as a whole.
 
-To set a version for a specific subproject, add the following lines to its Gradle block:
+For example, to set the Node.js version for a specific subproject, add the following lines to its Gradle block:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
