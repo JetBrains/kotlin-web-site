@@ -20,13 +20,14 @@ This approach works with [Gradle's build cache](#gradle-build-cache-support) and
 
 For Kotlin/JVM, incremental compilation relies on classpath snapshots,
 which capture the API structure of modules to determine when recompilation is necessary.
-You can configure classpath snapshots as **fine-grained** or **coarse-grained**, depending on the level of detail required:
+To optimize the overall pipeline, the Kotlin compiler uses two types of classpath snapshots:
 
-* **Fine-grained snapshots** track changes within class members, such as fields or properties.
-This setting minimizes the scope of recompilation by targeting only files affected by specific member changes.
-To maintain performance, the Kotlin Gradle plugin skips creating fine-grained snapshots for `.jar` files in the Gradle cache.
-* **Coarse-grained snapshots** track changes only at the class level, resulting in smaller snapshots but a broader recompilation scope.
-This setting is useful for classes that change infrequently, such as external libraries.
+* **Fine-grained snapshots** include detailed information about class members, such as properties or functions.
+When member-level changes are detected, the Kotlin compiler recompiles only the classes that depend on the modified members.
+To maintain performance, the Kotlin Gradle plugin creates coarse-grained snapshots for `.jar` files in the Gradle cache.
+* **Coarse-grained snapshots** only contain the class ABI hash.
+When a part of ABI changes, the Kotlin compiler recompiles all classes that depend on the changed class.
+This is useful for classes that change infrequently, such as external libraries.
 
 > Kotlin/JS projects use a different incremental compilation approach based on history files. 
 >
@@ -40,7 +41,7 @@ There are several ways to disable incremental compilation:
 
   The parameter should be added to each subsequent build.
 
-Disabling incremental compilation invalidates incremental caches. The first build is never incremental.
+When you disable incremental compilation, incremental caches become invalid after the build. The first build is never incremental.
 
 > Sometimes problems with incremental compilation become visible several rounds after the failure occurs. Use [build reports](#build-reports)
 > to track the history of changes and compilations. This can help you to provide reproducible bug reports.
