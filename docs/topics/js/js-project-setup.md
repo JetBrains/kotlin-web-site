@@ -646,6 +646,11 @@ TODO
 </tab>
 </tabs>
 
+> If you use the `NodeJsRootPlugin` class to set a Node.js version for the entire project, it still works.
+> But you can only set separate versions for subprojects using `NodeJsPlugin`.
+> 
+{style="note"}
+
 ### Use pre-installed Node.js
 
 If Node.js is already installed on the host where you build Kotlin/JS projects, you can configure the Kotlin Multiplatform Gradle
