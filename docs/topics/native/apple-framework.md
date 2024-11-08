@@ -10,7 +10,7 @@
 {style="warning"}
 
 Kotlin/Native provides bidirectional interoperability with Swift/Objective-C. You can both use Objective-C frameworks
-and libraries in Kotlin code, and Kotlin modules in Swift/Objective-C code. 
+and libraries in Kotlin code, and Kotlin modules in Swift/Objective-C code.
 
 Kotlin/Native comes with a set of pre-imported system frameworks; it's also possible to import an existing framework and
 use it from Kotlin. In this tutorial, you'll learn how to create your own framework and use Kotlin/Native code from
@@ -36,7 +36,7 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the 
 
 ## Create a Kotlin library
 
-> See the [Get started with Kotlin/Native using Gradle](native-gradle.md) tutorial for detailed first steps
+> See the [Get started with Kotlin/Native](native-get-started.md#using-gradle) tutorial for detailed first steps
 > and instructions on how to create a new Kotlin/Native project and open it in IntelliJ IDEA.
 >
 {style="tip"}
@@ -78,7 +78,7 @@ Let's first create a Kotlin library:
 
     <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
-    
+
     ```kotlin
     plugins {
         kotlin("multiplatform") version "%kotlinVersion%"
@@ -103,10 +103,10 @@ Let's first create a Kotlin library:
         distributionType = Wrapper.DistributionType.ALL
     }
     ```
-    
+
     </tab>
     <tab title="Groovy" group-key="groovy">
-    
+
     ```groovy
     plugins {
         id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
@@ -131,25 +131,25 @@ Let's first create a Kotlin library:
         distributionType = "ALL"
     }
     ```
-    
+
     </tab>
     </tabs>
 
-    The `binaries {}` block configures the project to generate a dynamic or shared library.
+   The `binaries {}` block configures the project to generate a dynamic or shared library.
 
-    Kotlin/Native supports the `iosArm64`, `iosX64`, and `iosSimulatorArm64` targets for iOS, as well as `macosX64` and
-    `macosArm64` targets for macOS. So, you can replace the `iosArm64()` with the respective Gradle function for your
-    target platform:
+   Kotlin/Native supports the `iosArm64`, `iosX64`, and `iosSimulatorArm64` targets for iOS, as well as `macosX64` and
+   `macosArm64` targets for macOS. So, you can replace the `iosArm64()` with the respective Gradle function for your
+   target platform:
 
-    | Target platform/device | Gradle function       |
-    |------------------------|-----------------------|
-    | macOS x86_64           | `macosX64()`          | 
-    | macOS ARM64            | `macosArm64()`        |
-    | iOS ARM64              | `iosArm64()`          | 
-    | iOS Simulator (x86_64) | `iosX64()`            |
-    | iOS Simulator (ARM64)  | `iosSimulatorArm64()` |
+   | Target platform/device | Gradle function       |
+       |------------------------|-----------------------|
+   | macOS x86_64           | `macosX64()`          | 
+   | macOS ARM64            | `macosArm64()`        |
+   | iOS ARM64              | `iosArm64()`          | 
+   | iOS Simulator (x86_64) | `iosX64()`            |
+   | iOS Simulator (ARM64)  | `iosSimulatorArm64()` |
 
-    For information on other supported Apple targets, see [Kotlin/Native target support](native-target-support.md).
+   For information on other supported Apple targets, see [Kotlin/Native target support](native-target-support.md).
 
 3. Run the `linkDebugFrameworkNative` Gradle task in the IDE or use the following console command in your terminal to
    build the framework:
@@ -157,7 +157,7 @@ Let's first create a Kotlin library:
    ```bash
    ./gradlew linkDebugFrameworkNative
    ```
-    
+
 The build generates the framework into the `build/bin/native/debugFramework` directory.
 
 > You can also use the `linkNative` Gradle task to generate both `debug` and `release` variants of the framework.
@@ -318,7 +318,7 @@ __attribute__((swift_name("LibKt")))
 
 Kotlin `String` and Objective-C `NSString*` are mapped transparently. Similarly, `Unit` type from Kotlin is mapped to `void`.
 The primitive types are mapped directly. Non-nullable primitive types are mapped transparently.
-Nullable primitive types are mapped to `Kotlin<TYPE>*` types, as shown in the [table](#kotlin-numbers-and-nsnumber). 
+Nullable primitive types are mapped to `Kotlin<TYPE>*` types, as shown in the [table](#kotlin-numbers-and-nsnumber).
 Both higher-order functions `acceptFunF` and `supplyFun` are included and accept Objective-C blocks.
 
 You can find more information about type mapping in [Interoperability with Swift/Objective-C](native-objc-interop.md#mappings).
@@ -405,7 +405,7 @@ There are some small differences between the original Kotlin code and its Swift 
 has only one instance. The `Object.shared` syntax is used to access this single instance.
 
 Kotlin function and property names are translated as is. Kotlin's `String` is turned into Swift's `String`. Swift
-hides `NSNumber*` boxing too. You can also pass a Swift closure to Kotlin and call a Kotlin lambda function from Swift. 
+hides `NSNumber*` boxing too. You can also pass a Swift closure to Kotlin and call a Kotlin lambda function from Swift.
 
 You can find more information about type mapping in [Interoperability with Swift/Objective-C](native-objc-interop.md#mappings).
 
