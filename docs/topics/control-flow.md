@@ -251,7 +251,7 @@ For example, `0, 1 -> print("x == 0 or x == 1")`.
 >
 > `kotlin.compilerOptions.freeCompilerArgs.add("-Xwhen-guards")t`
 >
-{type="note"}
+{style="note"}
 
 ## For loops
 
