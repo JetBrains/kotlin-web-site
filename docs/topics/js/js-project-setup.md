@@ -617,7 +617,9 @@ project.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlu
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-TODO
+project.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin) {
+    project.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec).version = "your Node.js version"
+}
 ```
 
 </tab>
@@ -640,7 +642,10 @@ allprojects {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-TODO
+allprojects {
+    project.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin) {
+        project.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec).version = "your Node.js version"
+}
 ```
 
 </tab>
@@ -662,8 +667,8 @@ To use a pre-installed Node.js instance, add the following lines to the `build.g
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-project.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin> {
-    project.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec>().download = false
+project.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin) {
+    project.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec).download = false
     // "true" for default behavior
 }
 ```
@@ -672,7 +677,10 @@ project.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlu
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-TODO
+project.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin> {
+    project.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec>().download = false
+    // "true" for default behavior
+}
 ```
 
 </tab>
