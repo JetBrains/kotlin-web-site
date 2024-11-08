@@ -1,6 +1,6 @@
-[//]: # (title: Get started with Kotlin/Wasm in IntelliJ IDEA)
+[//]: # (title: Get started with Kotlin/Wasm and Compose Multiplatform)
 
-> Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time.
+> Kotlin/Wasm is in [Alpha](components-stability.md). It may be changed at any time.
 > 
 > [Join the Kotlin/Wasm community.](https://slack-chats.kotlinlang.org/c/webassembly)
 >
@@ -23,7 +23,7 @@ Create a project using the Kotlin Multiplatform wizard:
 3. Select the **Web** option. Make sure that no other options are selected.
 4. Click the **Download** button and unpack the resulting archive.
 
-![Kotlin Multiplatform wizard](wasm-compose-wizard.png){width=600}
+![Kotlin Multiplatform wizard](wasm-compose-web-wizard.png){width=600}
 
 ## Open the project in IntelliJ IDEA
 
@@ -34,6 +34,8 @@ Create a project using the Kotlin Multiplatform wizard:
 ## Run the application
 
 1. In IntelliJ IDEA, open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
+   
+   You can find the Gradle tasks in the Gradle tool window once the project loads.
 
    > You need at least Java 11 as your Gradle JVM for the tasks to load successfully.
    >
@@ -106,10 +108,9 @@ Join the Kotlin/Wasm community in Kotlin Slack:
 
 <a href="https://slack-chats.kotlinlang.org/c/webassembly"><img src="join-slack-channel.svg" width="700" alt="Join the Kotlin/Wasm community" style="block"/></a>
 
-Try the Kotlin/Wasm examples from the `kotlin-wasm-examples` repository:
+Try more Kotlin/Wasm examples:
 
-* [Compose image viewer](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-imageviewer)
-* [Jetsnack application](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-jetsnack)
-* [Node.js example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/nodejs-example)
-* [WASI example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example)
-* [Compose example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-example)
+* [Compose image viewer](https://github.com/JetBrains/compose-multiplatform/tree/master/examples/imageviewer)
+* [Jetsnack application](https://github.com/JetBrains/compose-multiplatform/tree/master/examples/jetsnack)
+* [Node.js example](https://github.com/Kotlin/kotlin-wasm-nodejs-template)
+* [WASI example](https://github.com/Kotlin/kotlin-wasm-wasi-template)
