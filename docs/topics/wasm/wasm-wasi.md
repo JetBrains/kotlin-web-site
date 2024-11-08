@@ -6,9 +6,10 @@
 >
 {style="note"}
 
-This tutorial demonstrates how to run a [WASI](https://wasi.dev/) application with [Kotlin/Wasm](wasm-overview.md) in IntelliJ IDEA.
+This tutorial demonstrates how to run a simple [Kotlin/Wasm](wasm-overview.md) application using the [WASI](https://wasi.dev/) API 
+in various WebAssembly virtual machines.
 You can find examples of an application running on the [Node.js](https://nodejs.org/en), [Deno](https://deno.com/),
-and [WasmEdge](https://wasmedge.org/) environments. The output is a simple application that utilizes the standard WASI API.
+and [WasmEdge](https://wasmedge.org/) virtual machines. The output is a simple application that utilizes the standard WASI API.
 
 Currently, Kotlin/Wasm supports WASI 0.1, also known as Preview 1.
 [Support for WASI 0.2 will be available in the future](https://youtrack.jetbrains.com/issue/KT-64568).
