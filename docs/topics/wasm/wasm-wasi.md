@@ -6,8 +6,9 @@
 >
 {style="note"}
 
-This tutorial demonstrates how to run a simple [Kotlin/Wasm](wasm-overview.md) application using the [WASI](https://wasi.dev/) API 
+This tutorial demonstrates how to run a simple [Kotlin/Wasm](wasm-overview.md) application using the [WebAssembly System Interface (WASI)](https://wasi.dev/) 
 in various WebAssembly virtual machines.
+
 You can find examples of an application running on [Node.js](https://nodejs.org/en), [Deno](https://deno.com/),
 and [WasmEdge](https://wasmedge.org/) virtual machines. The output is a simple application that uses the standard WASI API.
 
