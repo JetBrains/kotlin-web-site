@@ -38,7 +38,8 @@ In turn, configurations made at a lower level override related settings at a hig
 * Target-level compiler options override related configurations at the extension level.
 
 To confirm which level of compiler arguments is applied to the compilation, use the `DEBUG` level of Gradle [logging](https://docs.gradle.org/current/userguide/logging.html).
-Gradle is making these properties traceable, so understanding what overrides your values will soon be easier.
+For JVM and JS/WASM tasks, search for the `"Kotlin compiler args:"` string within the logs; for Native tasks,
+search for the `"Arguments ="` string.
 
 > If you are a third-party plugin author, it is recommended that you apply your configuration on the project level to avoid 
 > overriding issues. Also, it is recommended that you document such configuration on your side explicitly.
@@ -47,7 +48,7 @@ Gradle is making these properties traceable, so understanding what overrides you
 
 ### Extension level
 
-You can configure compiler options for all the targets and source sets
+You can configure compiler options for all the targets and shared source sets
 in the `compilerOptions {}` block at the top level:
 
 ```kotlin
@@ -58,8 +59,55 @@ kotlin {
 }    
 ```
 
-If you want to configure a plugin of a target different from JVM/Android and [Kotlin Multiplatform](multiplatform-dsl-reference.md), 
-use the `compilerOptions {}` property of the corresponding Kotlin compilation task. The following examples 
+### Target level
+
+You can configure compiler options for the JVM/Android target
+in the `compilerOptions {}` block inside the `target {}` block:
+
+```kotlin
+kotlin {
+    target { 
+        compilerOptions {
+            optIn.add("kotlin.RequiresOptIn")
+        }
+    }
+}
+```
+
+In Kotlin Multiplatform projects, you can configure compiler options inside the
+specific target. For example, `jvm { compilerOptions {}}`. For more information, see [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md).
+
+### Compilation unit level
+
+You can configure compiler options for a specific compilation unit or task in a `compilerOptions {}` 
+block inside the task configuration:
+
+```Kotlin
+tasks.named<KotlinJvmCompile>("compileKotlin"){
+    compilerOptions {
+        optIn.add("kotlin.RequiresOptIn")
+    }
+}
+```
+
+You can also access and configure compiler options at a compilation unit level via `KotlinCompilation`:
+
+```Kotlin
+kotlin {
+    jvm {
+        val main by compilations.getting {
+            compileTaskProvider.configure {
+                compilerOptions {
+
+                }
+            }
+        }
+    }
+}
+```
+
+If you want to configure a plugin of a target different from JVM/Android and [Kotlin Multiplatform](multiplatform-dsl-reference.md),
+use the `compilerOptions {}` property of the corresponding Kotlin compilation task. The following examples
 show how to set this configuration up in both Kotlin and Groovy DSLs:
 
 <tabs group="build-script">
@@ -87,39 +135,11 @@ tasks.named('compileKotlin', org.jetbrains.kotlin.gradle.tasks.KotlinCompilation
 </tab>
 </tabs>
 
-### Target level
-
-You can configure compiler options for the JVM/Android and Kotlin Multiplatform targets
-in the `compilerOptions {}` block inside the `target {}` block:
-
-```kotlin
-kotlin {
-    target { 
-        compilerOptions {
-            optIn.add("kotlin.RequiresOptIn")
-        }
-    }
-}
-```
-
-### Compilation unit level
-
-You can configure compiler options for a specific compilation unit or task in a `compilerOptions {}` 
-block inside the task configuration:
-
-```Kotlin
-tasks.named<KotlinJvmCompile>("compileKotlin"){
-    compilerOptions {
-        optIn.add("kotlin.RequiresOptIn")
-    }
-}
-```
-
 ## Target the JVM
 
 As explained before, you can define compiler options for your JVM/Android projects at the extension, target, and compilation unit levels.
 
-JVM compilation tasks are called `compileKotlin` for production code and `compileTestKotlin`
+Default JVM compilation tasks are called `compileKotlin` for production code and `compileTestKotlin`
 for test code. The tasks for custom source sets are named according to their `compile<Name>Kotlin` patterns.
 
 Regarding Android compilation tasks, you can consult them by typing the `gradlew tasks --all` command in the terminal.
@@ -251,22 +271,20 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 // ...
 
 kotlin {
-    target {
-        compilerOptions {
-            // Single experimental argument
-            freeCompilerArgs.add("-Xexport-kdoc")
-          
-            // Single additional argument
-            freeCompilerArgs.add("-Xno-param-assertions")
-          
-            // List of arguments
-            freeCompilerArgs.addAll(
-                listOf(
-                    "Xno-receiver-assertions", 
-                    "Xno-call-assertions"
-                )
+    compilerOptions {
+        // Single experimental argument
+        freeCompilerArgs.add("-Xexport-kdoc")
+
+        // Single additional argument
+        freeCompilerArgs.add("-Xno-param-assertions")
+
+        // List of arguments
+        freeCompilerArgs.addAll(
+            listOf(
+                "Xno-receiver-assertions",
+                "Xno-call-assertions"
             )
-        }
+        ) 
     }
 }
 ```
@@ -306,10 +324,8 @@ To set a language version, use the following syntax:
 
 ```kotlin
 kotlin {
-    target { 
-        compilerOptions {
-            languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.%gradleLanguageVersion%)
-        }
+    compilerOptions {
+        languageVersion.set(org.jetbrains.kotlin.gradle.dsl.KotlinVersion.% gradleLanguageVersion %)
     }
 }
 ```
