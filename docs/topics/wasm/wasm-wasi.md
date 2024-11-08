@@ -1,6 +1,6 @@
 [//]: # (title: Get started with Kotlin/Wasm and WASI)
 
-> Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time.
+> Kotlin/Wasm is in [Alpha](components-stability.md). It may be changed at any time.
 >
 > [Join the Kotlin/Wasm community.](https://slack-chats.kotlinlang.org/c/webassembly)
 >
@@ -8,13 +8,13 @@
 
 This tutorial demonstrates how to run a simple [Kotlin/Wasm](wasm-overview.md) application using the [WASI](https://wasi.dev/) API 
 in various WebAssembly virtual machines.
-You can find examples of an application running on the [Node.js](https://nodejs.org/en), [Deno](https://deno.com/),
-and [WasmEdge](https://wasmedge.org/) virtual machines. The output is a simple application that utilizes the standard WASI API.
+You can find examples of an application running on [Node.js](https://nodejs.org/en), [Deno](https://deno.com/),
+and [WasmEdge](https://wasmedge.org/) virtual machines. The output is a simple application that uses the standard WASI API.
 
 Currently, Kotlin/Wasm supports WASI 0.1, also known as Preview 1.
-[Support for WASI 0.2 will be available in the future](https://youtrack.jetbrains.com/issue/KT-64568).
+[Support for WASI 0.2 is planned for future releases](https://youtrack.jetbrains.com/issue/KT-64568).
 
-> This Kotlin/Wasm WASI project supports Node.js tasks (`wasmWasiNode`*) by default.
+> This Kotlin/Wasm WASI project supports Node.js tasks (`wasmWasiNode*`) by default.
 > Other task variants, such as those utilizing Deno or WasmEdge, are included as custom tasks.
 >
 {style="tip"}
@@ -36,7 +36,7 @@ Currently, Kotlin/Wasm supports WASI 0.1, also known as Preview 1.
 
 1. Open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**. 
    
-   In the **Gradle** tool window, the Gradle tasks appear under **kotlin-wasm-wasi-example** once the project has loaded.
+   In the **Gradle** tool window, you can find the Gradle tasks under **kotlin-wasm-wasi-example** once the project loads.
 
    > You need at least Java 11 as your Gradle JVM for the tasks to load successfully.
    >
@@ -76,15 +76,15 @@ in the terminal from the ` kotlin-wasm-wasi-template` root directory:
   ./gradlew wasmWasiWasmEdgeRun
   ```
 
-  You can see in the terminal that your application is built successfully:
+  The terminal displays a message when your application is built successfully:
 
   ![Kotlin/Wasm and WASI app](wasm-wasi-apps.png){width=600}
 
 ## Test the application
 
-You can also test that the Kotlin/Wasm application works correctly across various environments.
+You can also test that the Kotlin/Wasm application works correctly across various virtual machines.
 
-From **kotlin-wasm-wasi-example** | **Tasks** | **verification** in the Gradle tool window, run one of the following Gradle tasks:
+In the Gradle tool window, run one of the following Gradle tasks from **kotlin-wasm-wasi-example** | **Tasks** | **verification**:
 
 * **wasmWasiNodeTest** to test the application in Node.js.
 * **wasmWasiDenoTest** to test the application in Deno.

@@ -1,6 +1,6 @@
 [//]: # (title: Get started with Kotlin/Wasm and Compose Multiplatform)
 
-> Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time.
+> Kotlin/Wasm is in [Alpha](components-stability.md). It may be changed at any time.
 > 
 > [Join the Kotlin/Wasm community.](https://slack-chats.kotlinlang.org/c/webassembly)
 >
@@ -34,6 +34,8 @@ Create a project using the Kotlin Multiplatform wizard:
 ## Run the application
 
 1. In IntelliJ IDEA, open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
+   
+   You can find the Gradle tasks in the Gradle tool window once the project loads.
 
    > You need at least Java 11 as your Gradle JVM for the tasks to load successfully.
    >

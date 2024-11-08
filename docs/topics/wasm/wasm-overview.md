@@ -1,6 +1,6 @@
 [//]: # (title: Kotlin/Wasm)
 
-> Kotlin/Wasm is [Alpha](components-stability.md).
+> Kotlin/Wasm is in [Alpha](components-stability.md).
 > It may be changed at any time. You can use it in scenarios before production. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
 >
 > [Join the Kotlin/Wasm community](https://slack-chats.kotlinlang.org/c/webassembly).
@@ -30,8 +30,8 @@ Compose Multiplatform and Kotlin/Wasm.
 and [Jetpack Compose](https://developer.android.com/jetpack/compose) that allows you to implement the UI
 once and share it across all the platforms you target. 
 
-Specifically for web platforms, Compose Multiplatform uses 
-Kotlin/Wasm as its compilation target. Applications build with Kotlin/Wasm and Compose Multiplatform use a 
+For web platforms, Compose Multiplatform uses 
+Kotlin/Wasm as its compilation target. Applications built with Kotlin/Wasm and Compose Multiplatform use a 
 `wasm-js` target and run in browsers.
 
 [Explore our online demo of an application built with Compose Multiplatform and Kotlin/Wasm](https://zal.im/wasm/jetsnack/)
@@ -44,7 +44,7 @@ Kotlin/Wasm as its compilation target. Applications build with Kotlin/Wasm and C
 >
 {style="tip"}
 
-Additionally, you can use the most popular Kotlin libraries in Kotlin/Wasm out of the box. Like other Kotlin and Multiplatform
+Additionally, you can use the most popular Kotlin libraries in Kotlin/Wasm out of the box. Like in other Kotlin and Multiplatform
 projects, you can include dependency declarations in the build script. For more information,
 see [Adding dependencies on multiplatform libraries](multiplatform-add-dependencies.md).
 
@@ -54,12 +54,12 @@ Would you like to try it yourself?
 
 ## Kotlin/Wasm and WASI
 
-Kotlin/Wasm benefits from [WebAssembly System Interface (WASI)](https://wasi.dev/) for server-side applications.
+Kotlin/Wasm uses the [WebAssembly System Interface (WASI)](https://wasi.dev/) for server-side applications.
 Applications built with Kotlin/Wasm and WASI use a Wasm-WASI target, allowing you to call the WASI API and run applications 
 outside the browser environment.
 
-Kotlin/Wasm leverages WASI to abstract away platform-specific details, enabling the same Kotlin code to be executed on diverse 
-platforms without requiring custom handling for each runtime and expanding the reach of Kotlin/Wasm beyond web applications.
+Kotlin/Wasm leverages WASI to abstract away platform-specific details, allowing the same Kotlin code to run across diverse 
+platforms. This expands the reach of Kotlin/Wasm beyond web applications without requiring custom handling for each runtime.
 
 WASI provides a secure standard interface for running Kotlin applications compiled to WebAssembly across different environments.
 
