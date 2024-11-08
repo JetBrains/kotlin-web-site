@@ -1,11 +1,11 @@
 [//]: # (title: Swift package export setup)
 
 <tldr>
-   This is a remote integration method that can work for you if:<br/>
+   This is a remote integration method. It can work for you if:<br/>
 
-   * You want to separate the code base of your final application from the common code base.
-   * You use the Swift package manager for handling dependencies in your iOS project. 
-   * You've already set up a Kotlin Multiplatform project targeting iOS on your local machine.<br/>
+   * You want to separate the codebase of your final application from the common codebase.
+   * You've already set up a Kotlin Multiplatform project targeting iOS on your local machine.
+   * You use the Swift package manager for handling dependencies in your iOS project.<br/>
 
    [Choose the integration method that suits you best](multiplatform-ios-integration-overview.md)
 </tldr>

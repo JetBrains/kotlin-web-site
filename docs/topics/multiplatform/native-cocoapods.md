@@ -1,10 +1,10 @@
 [//]: # (title: CocoaPods overview and setup)
 
 <tldr>
-   This is a local integration method that can work for you if:<br/>
+   This is a local integration method. It can work for you if:<br/>
 
    * You have a mono repository setup with an iOS project that uses CocoaPods.
-   * You import CocoaPods dependencies in your Kotlin Multiplatform project.<br/>
+   * Your Kotlin Multiplatform project has CocoaPods dependencies.<br/>
 
    [Choose the integration method that suits you best](multiplatform-ios-integration-overview.md)
 </tldr>

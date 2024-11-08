@@ -1,10 +1,10 @@
 [//]: # (title: Direct integration)
 
 <tldr>
-   This is a local integration method that can work for you if:<br/>
+   This is a local integration method. It can work for you if:<br/>
 
-   * You do not import CocoaPods dependencies in your Kotlin Multiplatform project.
-   * You've already set up a Kotlin Multiplatform project targeting iOS on your local machine.<br/>
+   * You've already set up a Kotlin Multiplatform project targeting iOS on your local machine.
+   * Your Kotlin Multiplatform project does not have CocoaPods dependencies.<br/>
 
    [Choose the integration method that suits you best](multiplatform-ios-integration-overview.md)
 </tldr>
