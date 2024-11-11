@@ -198,11 +198,11 @@ sealed interface Animal {
 
 fun feedAnimal(animal: Animal) {
     when (animal) {
-        // Branch with only primary condition. Returns `feedDog()` when `Animal` is `Dog`
+        // Branch with only primary condition. Calls `feedDog()` when `Animal` is `Dog`
         is Animal.Dog -> feedDog()
-        // Branch with both primary and guard conditions. Returns `feedCat()` when `Animal` is `Cat` and is not `mouseHunter`
+        // Branch with both primary and guard conditions. Calls `feedCat()` when `Animal` is `Cat` and is not `mouseHunter`
         is Animal.Cat if !animal.mouseHunter -> feedCat()
-        // Returns "Unknown animal" if none of the above conditions match
+        // Prints "Unknown animal" if none of the above conditions match
         else -> println("Unknown animal")
     }
 }
@@ -224,9 +224,9 @@ when (animal) {
     is Animal.Dog -> feedDog()
     // Guard condition that checks if `animal` is `Cat` and not `mouseHunter`
     is Animal.Cat if !animal.mouseHunter -> feedCat()
-    // Returns giveLettuce() if none of the above conditions match and animal.eatsPlants is true
+    // Calls giveLettuce() if none of the above conditions match and animal.eatsPlants is true
     else if animal.eatsPlants -> giveLettuce()
-    // Returns "Unknown animal" if none of the above conditions match
+    // Prints "Unknown animal" if none of the above conditions match
     else -> println("Unknown animal")
 }
 ```
