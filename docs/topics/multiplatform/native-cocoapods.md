@@ -194,7 +194,8 @@ If you already have a project, you can add and configure the Kotlin CocoaPods Gr
                 // Specify the framework linking type. It's dynamic by default. 
                 isStatic = false
                 // Dependency export
-                export(project(":anotherKMMModule"))
+                // Uncomment and specify another project module if you have one:
+                // export(project(":<your other KMP module>"))
                 transitiveExport = false // This is default.
             }
 
