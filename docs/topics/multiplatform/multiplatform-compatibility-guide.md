@@ -916,7 +916,7 @@ Here's the planned deprecation cycle:
 **What's changed?**
 
 We're deprecating `ios()`, `watchos()`, and `tvos()` target shortcuts in Kotlin Multiplatform DSL. They were designed to
-partially create a source set hierarchy for Apple targets. However, they were difficult to expand and could be confusing.
+partially create a source set hierarchy for Apple targets. However, they proved to be difficult to expand and sometimes confusing.
 
 For example, the `ios()` shortcut created both the `iosArm64` and `iosX64` targets but didn't include the `iosSimulatorArm64`
 target, which is necessary when working on hosts with Apple M chips. However, changing this shortcut was hard to implement
@@ -932,7 +932,7 @@ automatically sets up intermediate source sets based on this list.
 
 For example, suppose you have `iosArm64` and `iosSimulatorArm64` targets in your project. In that case, the plugin
 automatically creates the `iosMain` and `iosTest` intermediate source sets, and for the `iosArm64` and `macosArm64`
-targets, it creates the `appleMain` and`appleTest` source sets.
+targets, it creates the `appleMain` and `appleTest` source sets.
 
 For more information, see [Hierarchical project structure](multiplatform-hierarchy.md)
 
