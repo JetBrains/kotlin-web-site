@@ -79,7 +79,7 @@ perspective
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: behavioral
+> **Incompatible change type**: source
 >
 > **Short summary**: The `registerKotlinJvmCompileTask(taskName, moduleName)` function is deprecated
 > in favor of the new `registerKotlinJvmCompileTask(taskName, compilerOptions, explicitApiMode)` function, which now accepts `KotlinJvmCompilerOptions`.
@@ -95,7 +95,7 @@ perspective
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: behavioral
+> **Incompatible change type**: source
 >
 > **Short summary**: The `registerKaptGenerateStubsTask(taskName)` function is deprecated.
 > Use the new `registerKaptGenerateStubsTask(compileTask, kaptExtension, explicitApiMode)` function instead.
