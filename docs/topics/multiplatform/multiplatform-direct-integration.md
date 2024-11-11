@@ -1,11 +1,20 @@
 [//]: # (title: Direct integration)
 
+<tldr>
+   This is a local integration method. It can work for you if:<br/>
+
+   * You've already set up a Kotlin Multiplatform project targeting iOS on your local machine.
+   * Your Kotlin Multiplatform project does not have CocoaPods dependencies.<br/>
+
+   [Choose the integration method that suits you best](multiplatform-ios-integration-overview.md)
+</tldr>
+
 If you want to develop your Kotlin Multiplatform project and an iOS project simultaneously by sharing code between them,
 you can set up direct integration using a special script.
 
 This script automates the process of connecting the Kotlin framework to iOS projects in Xcode:
 
-![Direct integration diagram](direct-integration-scheme.svg){width="700"}
+![Direct integration diagram](direct-integration-scheme.svg){width=700}
 
 The script uses the `embedAndSignAppleFrameworkForXcode` Gradle task designed specifically for the Xcode environment.
 During the setup, you add it to the run script phase of the iOS app build. After that, the Kotlin artifact
