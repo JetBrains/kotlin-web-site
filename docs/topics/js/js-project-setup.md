@@ -651,8 +651,8 @@ allprojects {
 </tab>
 </tabs>
 
-> If you use the `NodeJsRootPlugin` class to set a Node.js version for the entire project, it still works.
-> But you can only set separate versions for subprojects using `NodeJsPlugin`.
+> Using the `NodeJsRootPlugin` class to configure Node.js setting for the entire project is deprecated and will eventually
+> stop being supported.
 > 
 {style="note"}
 
