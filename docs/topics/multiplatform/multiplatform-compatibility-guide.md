@@ -761,7 +761,8 @@ the Kotlin Gradle plugin, making it easier to use and maintain the resulting bui
 Here's the planned deprecation cycle:
 
 * 1.9.20: introduce a deprecation warning when multiple similar targets are used in Kotlin Multiplatform projects
-* 2.0: report an error in such cases, causing the build to fail
+* 2.1.0: report an error in such cases, except for Kotlin/JS targets; to learn more about this exception, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47038/KJS-MPP-Split-JS-target-into-JsBrowser-and-JsNode)
+
 
 <anchor name="jvmWithJava-preset-deprecation"/>
 ## Deprecated jvmWithJava preset
