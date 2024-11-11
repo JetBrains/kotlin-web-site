@@ -177,6 +177,82 @@ fun Request.getBody() =
 
 The scope of variable introduced in *when* subject is restricted to the body of this *when*.
 
+### Guard conditions in when expressions
+
+> Guard conditions are an [experimental feature](components-stability.md#stability-levels-explained) that may be changed at any time.
+> We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-71140/Guard-conditions-in-when-expressions-feedback).
+>
+{style="warning"}
+
+Guard conditions allow you to include 
+more than one condition to the branches of a `when` expression, making complex control flow more explicit and concise.
+You can use guard conditions in `when` expressions or statements with a subject.
+
+To include a guard condition in a branch, place it after the primary condition, separated by `if`:
+
+```kotlin
+sealed interface Animal {
+    data class Cat(val mouseHunter: Boolean) : Animal
+    data class Dog(val breed: String) : Animal
+}
+
+fun feedAnimal(animal: Animal) {
+    when (animal) {
+        // Branch with only primary condition. Calls `feedDog()` when `Animal` is `Dog`
+        is Animal.Dog -> feedDog()
+        // Branch with both primary and guard conditions. Calls `feedCat()` when `Animal` is `Cat` and is not `mouseHunter`
+        is Animal.Cat if !animal.mouseHunter -> feedCat()
+        // Prints "Unknown animal" if none of the above conditions match
+        else -> println("Unknown animal")
+    }
+}
+```
+
+In a single `when` expression, you can combine branches with and without guard conditions. 
+The code in a branch with a guard condition runs only if both the primary condition and the guard condition evaluate to true.
+If the primary condition does not match, the guard condition is not evaluated. 
+
+If you use guard conditions in `when` statements without an `else` branch, and none of the conditions matches, none of the branches is executed. 
+
+Otherwise, if you use guard conditions in `when` expressions without an `else` branch, the compiler requires you to declare all the possible cases to avoid runtime errors.
+
+Additionally, guard conditions support `else if`:
+
+```kotlin
+when (animal) {
+    // Checks if `animal` is `Dog`
+    is Animal.Dog -> feedDog()
+    // Guard condition that checks if `animal` is `Cat` and not `mouseHunter`
+    is Animal.Cat if !animal.mouseHunter -> feedCat()
+    // Calls giveLettuce() if none of the above conditions match and animal.eatsPlants is true
+    else if animal.eatsPlants -> giveLettuce()
+    // Prints "Unknown animal" if none of the above conditions match
+    else -> println("Unknown animal")
+}
+```
+
+Combine multiple guard conditions within a single branch using the boolean operators `&&` (AND) or `||` (OR).
+Use parentheses around the boolean expressions to [avoid confusion](coding-conventions.md#guard-conditions-in-when-expression):
+
+```kotlin
+when (animal) {
+    is Animal.Cat if (!animal.mouseHunter && animal.hungry) -> feedCat()
+}
+```
+
+You can use guard conditions in any `when` expression or statement with a subject, except the case when you have multiple conditions separated by a comma.
+For example, `0, 1 -> print("x == 0 or x == 1")`.
+
+> To enable guard conditions in CLI, run the following command:
+>
+> `kotlinc -Xwhen-guards main.kt`
+>
+> To enable guard conditions in Gradle, add the following line to the `build.gradle.kts` file:
+>
+> `kotlin.compilerOptions.freeCompilerArgs.add("-Xwhen-guards")t`
+>
+{style="note"}
+
 ## For loops
 
 The `for` loop iterates through anything that provides an iterator. This is equivalent to the `foreach` loop in languages like C#.
