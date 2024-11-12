@@ -83,7 +83,7 @@ perspective
 >
 > **Short summary**: The `registerKotlinJvmCompileTask(taskName, moduleName)` function is deprecated
 > in favor of the new `registerKotlinJvmCompileTask(taskName, compilerOptions, explicitApiMode)` function, which now accepts `KotlinJvmCompilerOptions`.
-> This allows you to set compiler options directly when creating a new JVM compilation task.
+> This allows you to pass a `compilerOptions` instance, typically from an extension or target, with values used as conventions for the task’s options.
 >
 > **Deprecation cycle**:
 >
@@ -99,7 +99,7 @@ perspective
 >
 > **Short summary**: The `registerKaptGenerateStubsTask(taskName)` function is deprecated.
 > Use the new `registerKaptGenerateStubsTask(compileTask, kaptExtension, explicitApiMode)` function instead.
-> This new version allows `KotlinJvmCompile` tasks to be directly connected to `KaptGenerateStubsTask`, making it possible to apply `KotlinJvmCompilerOptions` directly within the task.
+> This new version allows you to link values as conventions from the relevant `KotlinJvmCompile` task, ensuring both tasks are using the same set of options.
 >
 > **Deprecation cycle**:
 >
@@ -130,7 +130,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: The `kotlin-compiler-embeddable` dependency is removed from the runtime in Kotlin Gradle Plugin (KGP).
-> Required modules are now included directly in KGP artifacts, with a version limit of 2.0 to support compatibility with Gradle versions below 8.2.
+> Required modules are now included directly in KGP artifacts, with a Kotlin language version limit of 2.0 to support compatibility with Gradle Kotlin runtime in versions below 8.2.
 >
 > **Deprecation cycle**:
 >
@@ -161,7 +161,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The `stabilityConfigurationFile` property in the Compose compiler options is deprecated
+> **Short summary**: The `stabilityConfigurationFile` property in the Compose extension is deprecated
 > in favor of a new `stabilityConfigurationFiles` property, which allows specifying multiple configuration files.
 >
 > **Deprecation cycle**:
