@@ -130,7 +130,7 @@ specify the variant names in the Android target block in the `shared/build.gradl
 ```kotlin
 kotlin {
     androidTarget {
-        publishLibraryVariants("release", "debug")
+        publishLibraryVariants("release")
     }
 }
 

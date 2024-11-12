@@ -467,7 +467,7 @@ Two functions help you configure [build variants](https://developer.android.com/
 ```kotlin
 kotlin {
     androidTarget {
-        publishLibraryVariants("release", "debug")
+        publishLibraryVariants("release")
     }
 }
 ```
