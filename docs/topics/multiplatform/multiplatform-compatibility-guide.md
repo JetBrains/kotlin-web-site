@@ -421,6 +421,7 @@ kotlin {
     jvm()
     js()
     iosArm64()
+    iosSimulatorArm64()
     
     sourceSets {
         val commonMain by getting
@@ -447,6 +448,7 @@ kotlin {
     jvm()
     js()
     iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
         val commonMain by getting
