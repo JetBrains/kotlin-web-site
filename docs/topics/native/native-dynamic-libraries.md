@@ -21,6 +21,11 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the 
 
 Let's examine the advanced C interop-related usages of Kotlin/Native and [Kotlin Multiplatform](gradle-configure-project.md#targeting-multiple-platforms) builds with Gradle.
 
+> If you use a Mac and want to create and run applications for macOS or other Apple targets, you also need to
+> install [Xcode Command Line Tools](https://developer.apple.com/download/), launch it, and accept the license terms first.
+>
+{style="note"}
+
 ## Create a Kotlin library
 
 Kotlin/Native compiler can produce a dynamic library from the Kotlin code. A dynamic library often comes with a `.h`
@@ -71,10 +76,11 @@ Let's create a Kotlin library and use it from a C program.
     }
     
     kotlin {
-        macosArm64("native") {  // Apple Silicon macOS
-        // linuxX64("native") { // Linux 
-        // macosX64("native") { // x86_64 macOS
-        // mingwX64("native") { // Windows
+        macosArm64("native") {    // macOS on Apple Silicon
+        // macosX64("native") {   // macOS on x86_64 platforms
+        // linuxArm64("native") { // Linux on ARM64 platforms
+        // linuxX64("native") {   // Linux on x86_64 platforms
+        // mingwX64("native") {   // Windows
             binaries {
                 sharedLib {
                     baseName = "native"       // macOS and Linux 
@@ -103,10 +109,11 @@ Let's create a Kotlin library and use it from a C program.
     }
     
     kotlin {
-        macosArm64("native") {  // Apple Silicon macOS
-        // macosX64("native") { // x86_64 macOS
-        // linuxX64("native") { // Linux
-        // mingwX64("native") { // Windows
+        macosArm64("native") {    // Apple Silicon macOS
+        // macosX64("native") {   // macOS on x86_64 platforms
+        // linuxArm64("native") { // Linux on ARM64 platforms
+        // linuxX64("native") {   // Linux on x86_64 platforms
+        // mingwX64("native") {   // Windows
             binaries {
                 sharedLib {
                     baseName = "native"       // macOS and Linux 
@@ -139,7 +146,7 @@ The build generates the library into the `build/bin/native/debugShared` director
 
 * macOS `libnative_api.h` and `libnative.dylib`
 * Linux: `libnative_api.h` and `libnative.so`
-* Windows: `libnative_api.h`, `libnative_symbols.def`, and `libnative.dll`
+* Windows: `libnative_api.h`, `libnative.def`, and `libnative.dll`
 
 > You can also use the `linkNative` Gradle task to generate both `debug` and `release` variants of the library. 
 > 
@@ -466,11 +473,10 @@ library from the current folder.
 
 ### On Windows
 
-First, you'll need to install a Microsoft Visual C++ compiler that supports the x64_64 target. The easiest way to
-do this is to install a version of Microsoft Visual Studio on a Windows machine.
+First, you'll need to install a Microsoft Visual C++ compiler that supports the x64_64 target.
 
-In this example, you'll use the `x64 Native Tools Command Prompt <VERSION>` console. You'll see the shortcut to
-open the console in the start menu. It comes with a Microsoft Visual Studio package.
+The easiest way to do this is to install Microsoft Visual Studio on a Windows machine. During installation,
+select components necessary to work with C++, for example, **Desktop development with C++**.
 
 On Windows, dynamic libraries are included either via a generated static library wrapper or with manual code,
 which deals with the [LoadLibrary](https://learn.microsoft.com/en-gb/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya)
@@ -482,7 +488,7 @@ Follow the first option and generate the static wrapper library for the `libnati
    from the code:
 
    ```bash
-   lib /def:libnative_symbols.def /out:libnative.lib
+   lib /def:libnative.def /out:libnative.lib
    ```
 
 2. Compile your `main.c` into an executable. Include the generated `libnative.lib` into the build command and start:
