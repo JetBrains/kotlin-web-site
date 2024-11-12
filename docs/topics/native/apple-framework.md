@@ -18,10 +18,10 @@ Objective-C and Swift applications on macOS and iOS.
 
 In this tutorial, you will:
 
-* [Create a Kotlin library](#create-a-kotlin-library) and compile it to a framework.
-* Examine the generated [Objective-C and Swift API](#generated-framework-headers) code.
-* Use the framework from [Objective-C](#use-code-from-objective-c) and [Swift](#use-code-from-swift).
-* [Configure Xcode](#xcode-and-framework-dependencies) to use the framework for [macOS](#macos-target) and [iOS](#ios-targets).
+* [Create a Kotlin library and compile it to a framework](#create-a-kotlin-library)
+* [Examine the generated Objective-C and Swift API code](#generated-framework-headers)
+* [Use the framework from Objective-C](#use-code-from-objective-c)
+* [Use the framework from Swift](#use-code-from-swift)
 
 While it's possible to use the command line to create a Kotlin framework, either directly or by combining it with a
 script file (such as `.sh` or `.bat` file), this approach doesn't scale well for big projects that have hundreds of files
@@ -84,7 +84,7 @@ Let's first create a Kotlin library:
     }
     
     kotlin {
-        macosX64("native") {
+        iosArm64("native") {
             binaries {
                 framework {
                     baseName = "Demo"
@@ -112,7 +112,7 @@ Let's first create a Kotlin library:
     }
     
     kotlin {
-        macosX64("native") {
+        iosArm64("native") {
             binaries {
                 framework {
                     baseName = "Demo"
@@ -132,9 +132,9 @@ Let's first create a Kotlin library:
 
     The `binaries {}` block configures the project to generate a dynamic or shared library.
 
-    Along with `macosX64`, Kotlin/Native supports the `macosArm64` target for macOS and the `iosX64`, `iosArm64`, and
-    `iosSimulatorArm64` targets for iOS. So, you can replace the `macosX64()` with the respective functions:
-    
+    Along with `iosArm64`, Kotlin/Native supports the `iosX64` and `iosSimulatorArm64` targets for iOS, and `macosX64`
+    and `macosArm64` targets for macOS. So, you can replace the `iosArm64()` with the respective functions:
+
     | Target platform/device | Gradle function       |
     |------------------------|-----------------------|
     | macOS x86_64           | `macosX64()`          | 
@@ -403,48 +403,12 @@ hides `NSNumber*` boxing too. You can also pass a Swift closure to Kotlin and ca
 
 You can find more information about type mapping in [Interoperability with Swift/Objective-C](native-objc-interop.md#mappings).
 
-## Xcode and framework dependencies
+## Connect the framework to iOS project
 
-To use the framework, configure your Xcode project. First, include the compiled framework in the project:
+Now you can connect the generated framework to the iOS project as a dependency. There are multiple ways to set it up
+and automate the process, choose the method that suits you best:
 
-1. In Xcode, open the project settings by double-clicking the project name.
-2. Select the target, then open the **General** tab.
-3. Scroll down to the **Frameworks, Libraries, and Embedded Content** section and add your framework:
-
-   ![Add framework to the project settings](xcode-ios-add-framework.png){width=700}
-
-This makes Xcode consider the framework and resolve imports both from Objective-C and Swift.
-
-The further configuration depends on the target platform.
-
-### macOS target
-
-For macOS, configure the framework search path of the produced binary. It's also known as `rpath` or [run-time search path](https://en.wikipedia.org/wiki/Rpath).
-The binary uses this path to look for the required frameworks.
-
-Depending on your application's layout, you may have the **Frameworks** folder under the application bundle with
-all the frameworks you use. We do not recommend installing additional frameworks to the OS if they're unnecessary.
-
-To configure the `@rpath` parameter in Xcode:
-
-1. Open the **Build Settings** tab.
-2. Scroll down to the **Runpath Search Paths** section and specify the relative path to the compiled framework.
-
-### iOS targets
-
-For iOS, configure the framework search path of the produced binary:
-
-1. Open the **Build Settings** tab.
-2. Scroll down to the **Search path** section and include the framework path in the **Framework Search Paths** section.
-   
-   It's possible to use the `$(PROJECT_DIR)` macro to simplify the setup.
- 
-The iOS simulator requires a framework compiled for the `ios_x64` target, the `iOS_sim` folder in this case.
-
-> See [this Stack Overflow thread](https://stackoverflow.com/questions/30963294/creating-ios-osx-frameworks-is-it-necessary-to-codesign-them-before-distributin)
-> for more recommendations. Also, try the [CocoaPods integration](native-cocoapods.md) to automate the process.
-> 
-{style="tip"}
+<a href="multiplatform-ios-integration-overview.md"><img src="choose-ios-integration.svg" width="700" alt="Choose iOS integration method" style="block"/></a>
 
 ## What's next
 
