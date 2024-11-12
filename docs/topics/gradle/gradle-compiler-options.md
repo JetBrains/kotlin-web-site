@@ -94,7 +94,7 @@ You can also access and configure compiler options at a compilation unit level v
 
 ```Kotlin
 kotlin {
-    jvm {
+    target {
         val main by compilations.getting {
             compileTaskProvider.configure {
                 compilerOptions {
@@ -116,7 +116,7 @@ show how to set this configuration up in both Kotlin and Groovy DSLs:
 ```kotlin
 tasks.named("compileKotlin", org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask::class.java) {
     compilerOptions {
-        freeCompilerArgs.add("-Xexport-kdoc")
+        apiVersion.set("1.8")
     }
 }
 ```
@@ -127,7 +127,7 @@ tasks.named("compileKotlin", org.jetbrains.kotlin.gradle.tasks.KotlinCompilation
 ```groovy
 tasks.named('compileKotlin', org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask.class) {
     compilerOptions {
-        freeCompilerArgs.add("-Xexport-kdoc")
+        apiVersion.set("1.8")
     }
 }
 ```
