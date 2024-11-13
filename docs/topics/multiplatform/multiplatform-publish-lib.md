@@ -49,13 +49,23 @@ in the publication's scope.
 
 ## Host requirements
 
-Except for Apple platform targets, Kotlin/Native supports cross-compilation, allowing any host to produce needed artifacts.
+Kotlin/Native supports cross-compilation, allowing any host to produce necessary `.klib` artifacts.
 
-To avoid any issues during publication:
-* Publish only from an Apple host when your project targets Apple operating systems.
-* Publish all artifacts from one host only to avoid duplicating publications in the repository.
-  
-  Maven Central, for example, explicitly forbids duplicate publications and fails the process. <!-- TBD: add the actual error -->
+To produce artifacts for projects with Apple targets, you'd normally need an Apple machine.
+However, if you want to use other hosts, you can set this [Experimental](components-stability.md#stability-levels-explained)
+option in your `gradle.properties` file:
+
+```none
+kotlin.native.enableKlibsCrossCompilation=true
+```
+
+> To build [final binaries](multiplatform-build-native-binaries.md) for Apple targets, you still need to use a Mac machine.
+>
+{style="note"}
+
+To avoid any issues during publication, publish all artifacts from one host only to avoid duplicating publications in the
+repository. Maven Central, for example, explicitly forbids duplicate publications and fails the process.
+<!-- TBD: add the actual error -->
   
 ### If you use Kotlin 1.7.0 or earlier {initial-collapse-state="collapsed" collapsible="true"}
 
