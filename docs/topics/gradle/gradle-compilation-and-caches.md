@@ -13,11 +13,21 @@ On this page, you can learn about the following topics:
 
 ## Incremental compilation
 
-The Kotlin Gradle plugin supports incremental compilation. Incremental compilation tracks changes to files in the classpath
-between builds so that only the files affected by these changes are compiled. Incremental compilation works with [Gradle's
-build cache](#gradle-build-cache-support) and supports [compilation avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance).
+The Kotlin Gradle plugin supports incremental compilation, which is enabled by default for Kotlin/JVM and Kotlin/JS projects.
+Incremental compilation tracks changes to files in the classpath between builds so that only the files affected
+by these changes are compiled.
+This approach works with [Gradle's build cache](#gradle-build-cache-support) and supports [compilation avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance).
 
-Incremental compilation is supported for Kotlin/JVM and Kotlin/JS projects, and is enabled by default.
+For Kotlin/JVM, incremental compilation relies on classpath snapshots,
+which capture the API structure of modules to determine when recompilation is necessary.
+To optimize the overall pipeline, the Kotlin compiler uses two types of classpath snapshots:
+
+* **Fine-grained snapshots:** include detailed information about class members, such as properties or functions.
+When member-level changes are detected, the Kotlin compiler recompiles only the classes that depend on the modified members.
+To maintain performance, the Kotlin Gradle plugin creates coarse-grained snapshots for `.jar` files in the Gradle cache.
+* **Coarse-grained snapshots:** only contain the class [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) hash.
+When a part of ABI changes, the Kotlin compiler recompiles all classes that depend on the changed class.
+This is useful for classes that change infrequently, such as external libraries.
 
 > Kotlin/JS projects use a different incremental compilation approach based on history files. 
 >
@@ -31,14 +41,14 @@ There are several ways to disable incremental compilation:
 
   The parameter should be added to each subsequent build.
 
-Note: Any build with incremental compilation disabled invalidates incremental caches. The first build is never incremental.
+When you disable incremental compilation, incremental caches become invalid after the build. The first build is never incremental.
 
 > Sometimes problems with incremental compilation become visible several rounds after the failure occurs. Use [build reports](#build-reports)
 > to track the history of changes and compilations. This can help you to provide reproducible bug reports.
 >
 {style="tip"}
 
-If you'd like to learn more about how our current incremental compilation approach works and compares to the previous one,
+To learn more about how our current incremental compilation approach works and compares to the previous one,
 see our [blog post](https://blog.jetbrains.com/kotlin/2022/07/a-new-approach-to-incremental-compilation-in-kotlin/).
 
 ### Precise backup of compilation tasks' outputs
