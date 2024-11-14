@@ -600,7 +600,7 @@ You can also use an existing Node.js instance if you have it.
 
 ### Configuring Node.js settings
 
-You can configure Node.js settings to use for each subproject, or set them for the project as a whole.
+You can configure Node.js settings for each subproject, or set them for the project as a whole.
 
 For example, to set the Node.js version for a specific subproject, add the following lines to its Gradle block
 in your `build.gradle(.kts)` file:
