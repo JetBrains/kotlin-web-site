@@ -22,10 +22,10 @@ For Kotlin/JVM, incremental compilation relies on classpath snapshots,
 which capture the API structure of modules to determine when recompilation is necessary.
 To optimize the overall pipeline, the Kotlin compiler uses two types of classpath snapshots:
 
-* **Fine-grained snapshots** include detailed information about class members, such as properties or functions.
+* **Fine-grained snapshots:** include detailed information about class members, such as properties or functions.
 When member-level changes are detected, the Kotlin compiler recompiles only the classes that depend on the modified members.
 To maintain performance, the Kotlin Gradle plugin creates coarse-grained snapshots for `.jar` files in the Gradle cache.
-* **Coarse-grained snapshots** only contain the class ABI hash.
+* **Coarse-grained snapshots:** only contain the class [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) hash.
 When a part of ABI changes, the Kotlin compiler recompiles all classes that depend on the changed class.
 This is useful for classes that change infrequently, such as external libraries.
 
