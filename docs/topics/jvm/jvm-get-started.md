@@ -58,17 +58,17 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
    ![Main.kt with main fun](jvm-main-kt-initial.png){width=700}
 
 2. Modify the code so that it requests your name and says `Hello` to you:
-   
-   * Change the local variable name from `val` to `var` so that you can change its value dynamically.
+
    * Create an input prompt and assign to the `name` variable the value returned by the [`readln()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/readln.html) function.
    * Let's use a string template instead of concatenation by adding a dollar sign `$` before the variable name directly in the text output like this – `$name`.
    
    ```kotlin
    fun main() {
-       var name = "Kotlin"
        println("What's your name?")
-       name = readln()
+       val name = readln()
        println("Hello, $name!")
+   
+       // ...
    }
    ```
 
