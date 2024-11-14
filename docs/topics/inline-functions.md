@@ -54,7 +54,9 @@ however, can be manipulated in any way you like, including being stored in field
 >
 {style="note"}
 
-## Non-local returns
+## Non-local jump expressions
+
+### Returns
 
 In Kotlin, you can only use a normal, unqualified `return` to exit a named function or an anonymous function.
 To exit a lambda, use a [label](returns.md#return-to-labels). A bare `return` is forbidden
@@ -122,9 +124,30 @@ inline fun f(crossinline body: () -> Unit) {
 }
 ```
 
-> `break` and `continue` are not yet available in inlined lambdas, but we are planning to support them, too.
+### Break and continue
+
+> This feature is currently [Experimental](components-stability.md#stability-levels-explained).
+> We're planning to stabilize it in future releases.
+> To opt in, use the `-Xnon-local-break-continue` compiler option.
+> We would appreciate your feedback on it in [YouTrack](http://kotl.in/issue).
 >
-{style="note"}
+{style="warning"}
+
+Similar to non-local `return`, you can apply `break` and `continue` [jump expressions](returns.md) within lambdas passed
+as arguments to an inline function that encloses the loop:
+
+```kotlin
+fun processList(elements: List&lt;Int&gt;): Boolean {
+    for (element in elements) {
+        val variable = element.nullableMethod() ?: run {
+            log.warning("Element is null or invalid, continuing...")
+            continue
+        }
+        if (variable == 0) return true
+    }
+    return false
+}
+```
 
 ## Reified type parameters
 
