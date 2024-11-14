@@ -271,9 +271,6 @@
 - from: /docs/reference/whatsnew12.html
   to: /docs/whatsnew12.html
 
-- from: /docs/reference/mpp-set-up-targets.html
-  to: /docs/multiplatform-set-up-targets.html
-
 - from: /docs/reference/equality.html
   to: /docs/equality.html
 
@@ -564,9 +561,6 @@
 - from: /docs/reference/visibility-modifiers.html
   to: /docs/visibility-modifiers.html
 
-- from: /docs/reference/mpp-discover-project.html
-  to: /docs/multiplatform-discover-project.html
-
 - from: /docs/reference/null-safety.html
   to: /docs/null-safety.html
 
@@ -755,6 +749,9 @@
     - /docs/multiplatform-mobile-understand-project-structure.html
     - /docs/kmm-understand-project-structure.html
     - /docs/mpp-discover-project.html
+    - /docs/reference/mpp-discover-project.html
+    - /docs/reference/mpp-set-up-targets.html
+    - /docs/multiplatform-set-up-targets.html
   to: /docs/multiplatform-discover-project.html
 
 - from:

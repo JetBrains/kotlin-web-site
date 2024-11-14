@@ -47,7 +47,7 @@ Inside `kotlin {}`, you can write the following blocks:
 
 A _target_ is a part of the build responsible for compiling, testing, and packaging a piece of software aimed at
 one of the supported platforms. Kotlin provides targets for each platform, so you can instruct Kotlin to compile code for
-that specific target. To learn more about how to configure these targets, see [Set up targets for Kotlin Multiplatform](multiplatform-set-up-targets.md).
+that specific target. To learn more about how to configure these targets. See how to [set up a target](multiplatform-discover-project.md#targets).
 
 Each target can have one or more [compilations](#compilations). In addition to default compilations for
 test and production purposes, you can [create custom compilations](multiplatform-configure-compilations.md#create-a-custom-compilation).
@@ -130,11 +130,17 @@ In any target block, you can use the following declarations:
 
 | **Name**            | **Description**                                                                                                                                                                            | 
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `attributes`        | Attributes used to [distinguish between targets](multiplatform-set-up-targets.md#distinguish-several-targets-for-one-platform) for a single platform.                                      |
 | `platformType`      | The Kotlin platform for this target. Available values: `jvm`, `androidJvm`, `js`, `wasm`, `native`, `common`.                                                                              |
 | `artifactsTaskName` | The name of the task that builds the resulting artifacts of this target.                                                                                                                   |
 | `components`        | Components used to set up Gradle publications.                                                                                                                                             |
 | `compilerOptions`   | [Compiler options](#compiler-options) used for the target. This declaration overrides any `compilerOptions {}` configured at [top level](multiplatform-dsl-reference.md#top-level-blocks). |
+
+> The support for `compilerOptions {}` as a common target configuration is [Experimental](components-stability.md#stability-levels-explained)
+> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
+> your feedback on it in [YouTrack](https://kotl.in/issue).
+>
+{style="warning"}
+
 
 ### JVM targets
 

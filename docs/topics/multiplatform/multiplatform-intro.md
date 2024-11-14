@@ -25,7 +25,6 @@ and the target-specific source set.
 For more details on this topic, see:
 
 * [The basics of Kotlin Multiplatform project structure](multiplatform-discover-project.md)
-* [Set up targets manually](multiplatform-set-up-targets.md)
 * [Advanced concepts of the multiplatform project structure](multiplatform-advanced-project-structure.md)
 
 ## Use code sharing mechanisms
