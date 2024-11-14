@@ -602,7 +602,8 @@ You can also use an existing Node.js instance if you have it.
 
 You can configure Node.js settings to use for each subproject, or set them for the project as a whole.
 
-For example, to set the Node.js version for a specific subproject, add the following lines to its Gradle block:
+For example, to set the Node.js version for a specific subproject, add the following lines to its Gradle block
+in your `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -661,15 +662,15 @@ allprojects {
 If Node.js is already installed on the host where you build Kotlin/JS projects, you can configure the Kotlin Multiplatform Gradle
 plugin to use it instead of installing its own Node.js instance.
 
-To use a pre-installed Node.js instance, add the following lines to the `build.gradle(.kts)` file:
+To use a pre-installed Node.js instance, add the following lines to your `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 project.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin) {
+    // Set to `true` for default behavior
     project.extensions.getByType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec).download = false
-    // "true" for default behavior
 }
 ```
 
@@ -678,8 +679,8 @@ project.plugins.withType(org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlu
 
 ```groovy
 project.plugins.withType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsPlugin> {
+    // Set to `true` for default behavior
     project.the<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsEnvSpec>().download = false
-    // "true" for default behavior
 }
 ```
 
