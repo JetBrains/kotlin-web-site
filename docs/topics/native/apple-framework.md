@@ -29,6 +29,11 @@ and libraries. Therefore, it's better to compile using a build system, as it hel
 compiler binaries and libraries with transitive dependencies and run the compiler and tests.
 Kotlin/Native can use the [Gradle](https://gradle.org) build system through the [Kotlin Multiplatform plugin](gradle-configure-project.md#targeting-multiple-platforms).
 
+> If you use a Mac and want to create and run applications for iOS or other Apple targets, you also need to
+> install [Xcode Command Line Tools](https://developer.apple.com/download/), launch it, and accept the license terms first.
+>
+{style="note"}
+
 ## Create a Kotlin library
 
 > See the [Get started with Kotlin/Native using Gradle](native-gradle.md) tutorial for detailed first steps
