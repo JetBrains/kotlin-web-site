@@ -55,6 +55,141 @@ perspective
 > - 2.2.0: raise the warning to an error for incompatible `copy()` usages
 > - 2.3.0: the `copy()` function defaults to the visibility of the primary constructor
 
+### Deprecate appendln in favor of appendLine
+
+> **Issue**: [KTLC-27](https://youtrack.jetbrains.com/issue/KTLC-27)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: `StringBuilder.appendln()` is deprecated in favor of `StringBuilder.appendLine()`.
+>
+> **Deprecation cycle**:
+>
+> - 1.4: the `appendln()` function is deprecated; report a warning on use
+> - 2.1.0: raise the warning to an error
+
+### Change the typeOf() function behavior on Kotlin/Native
+
+> **Issue**: [KT-70754](https://youtrack.jetbrains.com/issue/KT-70754)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: The behavior of the `typeOf()` function on Kotlin/Native is aligned with Kotlin/JVM
+> to ensure consistency across platforms. 
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: align the `typeOf()` function behavior on Kotlin/Native
+
+### Prohibit exposing types through type parameters' bounds
+
+> **Issue**: [KT-69653](https://youtrack.jetbrains.com/issue/KT-69653)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Exposing types with lower visibility through type parameter bounds is now prohibited,
+> addressing inconsistencies in type visibility rules.
+> This change ensures that bounds on type parameters follow the same visibility rules as classes, preventing issues like IR validation errors in JVM.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report a warning for exposing types via type parameter bounds with lower visibility
+> - 2.2.0: raise the warning to an error
+
+### Prohibit inheriting an abstract var property alongside a val property with the same name
+
+> **Issue**: [KT-58659](https://youtrack.jetbrains.com/issue/KT-58659)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: If a class inherits an abstract `var` property from an interface and a `val` property with the same name from a superclass,
+> it now triggers a compilation error. This resolves runtime crashes caused by missing setters in such cases.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report a warning (or an error in progressive mode) when a class inherits an abstract `var` property from an interface and a `val` property with the same name from a superclass
+> - 2.2.0: raise the warning to an error
+
+### Report error when accessing uninitialized enum entries
+
+> **Issue**: [KT-68451](https://youtrack.jetbrains.com/issue/KT-68451)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now reports an error when uninitialized enum entries are accessed during enum class or entry initialization.
+> This aligns behavior with member property initialization rules, preventing runtime exceptions and ensuring consistent logic.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report an error when accessing uninitialized enum entries
+
+### Change Map.Entry behavior to fail-fast on structural modification
+
+> **Issue**: [KTLC-23](https://youtrack.jetbrains.com/issue/KTLC-23)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Accessing a `Map.Entry` key-value pair after its associated map has been structurally modified now throws a `ConcurrentModificationException`.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report a warning
+> - 2.2.0: raise the warning to an error
+
+### Changes in K2 smart cast propagation
+
+> **Issue**: [KTLC-34](https://youtrack.jetbrains.com/issue/KTLC-34)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: K2 changes the behavior of smart cast propagation, introducing bidirectional propagation of type
+> information for inferred variables, like `val x = y`. Explicitly typed variables, such as `val x: T = y`,
+> no longer propagate type information, ensuring stricter adherence to declared types.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: change the behavior in K2; K1 remains unaffected
+
+### Correct the handling of member-extension property overrides in Java subclasses
+
+> **Issue**: [KTLC-35](https://youtrack.jetbrains.com/issue/KTLC-35)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: The getter for member-extension properties overridden by Java subclasses is now hidden in the subclass's scope,
+> aligning its behavior with regular Kotlin properties.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: enable the new behavior in K2; K1 remains unaffected
+
+### Correct visibility alignment for getters and setters of var properties overriding a protected val
+
+> **Issue**: [KTLC-36](https://youtrack.jetbrains.com/issue/KTLC-36)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: binary
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: enforce consistent visibility for both getters and setters in K2; K1 remains unaffected
 
 ## Tools
 
