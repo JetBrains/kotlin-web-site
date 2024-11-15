@@ -221,6 +221,46 @@ external class User : JsAny {
 }
 ```
 
+### Array interoperability
+
+You can directly transform JavaScript's `JsArray<T>` into Kotlin's native `Array` or `List` types and vice versa.
+
+To automatically convert `JsArray<T>` to `Array<T>` or the other way around, use one of the available [adapter functions](https://github.com/Kotlin/kotlinx-browser/blob/dfbdceed314567983c98f1d66e8c2e10d99c5a55/src/wasmJsMain/kotlin/arrayCopy.kt).
+
+Here's an example of conversion between generic types: Kotlin `List<T> `and `Array<T>` to JavaScript `JsArray<T>.`
+
+```kotlin
+val list: List<JsString> =
+    listOf("Kotlin", "Wasm").map { it.toJsString() }
+
+// Uses .toJsArray() to convert List or Array to JsArray
+val jsArray: JsArray<JsString> = list.toJsArray()
+
+// Uses .toArray() and .toList() to convert it back to Kotlin types 
+val kotlinArray: Array<JsString> = jsArray.toArray()
+val kotlinList: List<JsString> = jsArray.toList()
+```
+
+Similar adapter functions are available for converting typed arrays to their Kotlin equivalents
+(for example, `IntArray` and `Int32Array`). For detailed information and implementation,
+see the [`kotlinx-browser` repository]( https://github.com/Kotlin/kotlinx-browser/blob/dfbdceed314567983c98f1d66e8c2e10d99c5a55/src/wasmJsMain/kotlin/arrayCopy.kt).
+
+Here's an example of conversion between typed arrays: Kotlin `IntArray` to JavaScript `Int32Array`.
+
+```kotlin
+import org.khronos.webgl.*
+
+    // ...
+
+    val intArray: IntArray = intArrayOf(1, 2, 3)
+    
+    // Uses .toInt32Array() to convert Kotlin IntArray to JavaScript Int32Array
+    val jsInt32Array: Int32Array = intArray.toInt32Array()
+    
+    // Uses toIntArray() to convert JavaScript Int32Array back to Kotlin IntArray
+    val kotlnIntArray: IntArray = jsInt32Array.toIntArray()
+```
+
 ## Use Kotlin code in JavaScript
 
 Learn how to use your Kotlin code in JavaScript by using the `@JsExport` annotation.
