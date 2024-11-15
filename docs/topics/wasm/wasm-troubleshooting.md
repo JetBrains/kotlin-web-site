@@ -109,3 +109,26 @@ You can place your new `.mjs` file in the resources folder, and it will automati
 
 You can also place your `.mjs` file in a custom location. In this case, you need to either manually move it next to the main `.mjs` file or 
 adjust the path in the import statement to match its location.
+
+## Use incremental compilation
+
+When you change something to your Kotlin code, 
+the Kotlin/Wasm toolchain doesn't need to recompile the entire codebase. 
+
+Wasm targets support incremental compilation, which enables the compiler to recompile only files relevant to changes 
+from the last compilation.
+
+The use of incremental compilation reduces the compilation time. It doubles 
+the development speed for now, with plans to improve it further in future releases.
+
+In the current setup, incremental compilation for the Wasm targets is disabled by default.
+To enable it, add the following line to your project's `local.properties` or `gradle.properties` file:
+
+```text
+kotlin.incremental.wasm=true
+```
+
+> Try out the Kotlin/Wasm incremental compilation and [share your feedback](https://youtrack.jetbrains.com/issue/KT-72158/Kotlin-Wasm-incremental-compilation-feedback).
+> Your insights help make this feature [Stable](components-stability.md) and enabled by default sooner.
+>
+{style="note"}
