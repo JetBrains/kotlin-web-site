@@ -48,13 +48,13 @@ check [our instructions on how to configure your build to support this version](
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.1.0-RC</strong>
-            <p>Released: <strong>November 4, 2024</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.0-RC" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.1.0-RC2</strong>
+            <p>Released: <strong>November 18, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.0-RC2" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <p>A language release with previews of new features and tooling updates.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.0-RC">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.1.0-RC</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.0-RC2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.1.0-RC2</a>.</p>
         </td>
     </tr>
 </table>
