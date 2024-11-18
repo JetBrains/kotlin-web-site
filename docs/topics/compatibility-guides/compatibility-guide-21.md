@@ -191,6 +191,126 @@ perspective
 >
 > - 2.1.0: enforce consistent visibility for both getters and setters in K2; K1 remains unaffected
 
+### Raise severity of JSpecify nullability mismatch diagnostics to errors
+
+> **Issue**: [KTLC-11](https://youtrack.jetbrains.com/issue/KTLC-11)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Nullability mismatches from `org.jspecify.annotations`, such as `@NonNull`, `@Nullable`, and `@NullMarked` are treated as errors instead of warnings,
+> enforcing stricter type safety for Java interoperability. To adjust the severity of these diagnostics, use the `-Xnullability-annotations` compiler option.
+>
+> **Deprecation cycle**:
+>
+> - 1.6.0: report a warning for potential nullability mismatches
+> - 1.8.20: expand warnings to specific JSpecify annotations, including: `@Nullable`, `@NullnessUnspecified`, `@NullMarked`, and legacy annotations in `org.jspecify.nullness` (JSpecify 0.2 and earlier)
+> - 2.0.0: add support for the `@NonNull` annotation
+> - 2.1.0: change default mode to strict  for JSpecify annotations, converting warnings into errors; use `-Xnullability-annotations=@org.jspecify.annotations:warning` or `-Xnullability-annotations=@org.jspecify.annotations:ignore` to override the default behavior
+
+### Change overload resolution to prioritize extension functions over invoke calls in ambiguous cases
+
+> **Issue**: [KTLC-37](https://youtrack.jetbrains.com/issue/KTLC-37)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: change overload resolution to consistently prioritize extension functions over `invoke` calls for extension functions with matching signatures; this change applies only after recompilation and does not affect precompiled binaries
+
+### Prohibit returning nullable values from lambdas in SAM constructors of JDK function interfaces
+
+> **Issue**: [KTLC-42](https://youtrack.jetbrains.com/issue/KTLC-42)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a deprecation warning for nullable return values in SAM constructors of JDK function interfaces
+> - 2.1.0: enable the new behavior by default
+
+### Correct handling of private members conflicting with public members in Kotlin/Native
+
+> **Issue**: [KTLC-43](https://youtrack.jetbrains.com/issue/KTLC-43)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: private functions and properties in Kotlin/Native no longer override or affect public members in a superclass, aligning with JVM behavior
+
+### Forbid access to private operator functions in public inline functions
+
+> **Issue**: [KTLC-71](https://youtrack.jetbrains.com/issue/KTLC-71)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Private operator functions such as `getValue()`, `setValue()`, `provideDelegate()`, `hasNext()`, and `next()` can no longer be accessed in public inline functions
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a deprecation warning for accessing private operator functions in public inline functions
+> - 2.1.0: raise the warning to an error
+
+### Prohibit passing invalid arguments to invariant parameters annotated with @UnsafeVariance
+
+> **Issue**: [KTLC-72](https://youtrack.jetbrains.com/issue/KTLC-72)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now ignores `@UnsafeVariance` annotations during type checks, enforcing stricter type safety for invariant type parameters.
+> This prevents invalid calls that rely on `@UnsafeVariance` to bypass expected type checks.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: activate the new behavior in K2
+
+### Report nullability errors for error-level nullable arguments of warning-level Java types
+
+> **Issue**: [KTLC-100](https://youtrack.jetbrains.com/issue/KTLC-100)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now detects nullability mismatches in Java methods where a warning-level
+> nullable type contains type arguments with stricter, error-level nullability.
+> This ensures that previously ignored errors in type arguments are reported correctly.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a deprecation warning for nullability mismatches in Java methods with stricter type arguments
+> - 2.1.0: raise the warning to an error
+
+### Report implicit usages of inaccessible types
+
+> **Issue**: [KTLC-3](https://youtrack.jetbrains.com/issue/KTLC-3)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now reports usages of inaccessible types in function literals and type arguments,
+> preventing compilation and runtime failures caused by incomplete type information.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report warnings for function literals with parameters or receivers of inaccessible non-generic types and for types with inaccessible type argument; report errors for
+> function literals with parameters or receivers of inaccessible generic types and for types with inaccessible generic type arguments in specific scenarios
+> - 2.1.0: raise warnings to errors for function literals with parameters and receivers of inaccessible non-generic types
+> - 2.2.0: raise warnings to errors for types with inaccessible type arguments
+
 ## Tools
 
 ### Deprecate KotlinCompilationOutput#resourcesDirProvider
