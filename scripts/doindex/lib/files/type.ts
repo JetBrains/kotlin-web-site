@@ -5,7 +5,7 @@ import { loadFile } from '../html.js';
 export type FileType =
     'File_Text' | 'File_Pdf' | 'File_Archive' | 'File_Asset'
     | 'File_Font' | 'File_Data' | 'File_License' | 'File_Image'
-    | 'Page_Undetected' | 'Page_NotFound' | 'Page_Spec' | 'Page_Grammar'
+    | 'Page_Undetected' | 'NotFound' | 'Page_Spec' | 'Page_Grammar'
     | 'Page_API' | 'Page_API_stdlib' | 'Page_API_test' | 'Page_API_Deprecated'
     | 'Page_Community' | 'Page_Documentation' | 'Page_LegacyDocumentation'
     | 'Iframe' | 'Redirect' | 'Hidden' | 'Unknown';
@@ -39,7 +39,7 @@ export async function getType(url: string, filePath: string): Promise<[FileType,
         if ($('meta[name=robots][content=noindex]').length)
             return ['Hidden', $];
 
-        if (url === '404.html' || url === '404/') return ['Page_NotFound', $];
+        if (url === '404.html' || url.match(/404\/(index\.html)?/g)) return ['NotFound', $];
         if (url.startsWith('spec/')) return ['Page_Spec', $];
         if (url === 'docs/reference/grammar.html') return ['Page_Grammar', $];
 

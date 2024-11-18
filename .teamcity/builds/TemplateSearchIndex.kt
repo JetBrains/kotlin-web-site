@@ -11,7 +11,7 @@ private const val SCRIPT_PATH = "scripts/doindex";
 
 fun BuildSteps.scriptDistAnalyze(block: ScriptBuildStep.() -> Unit) = step(
     ScriptBuildStep {
-        name = "Build and push search index"
+        name = "Run dist/ analyzer"
         //language=bash
         scriptContent = """
             #!/bin/sh
@@ -41,6 +41,7 @@ open class TemplateSearchIndex(init: BuildType.() -> Unit) : BuildType({
 
         param("env.WH_SEARCH_USER", SEARCH_APP_ID)
         param("env.WH_SEARCH_WRITE_KEY", "%ALGOLIA_WRITE_API_KEY%")
+        param("env.WH_SKIP_PREFILTER", "true") // analyze all files
     }
 
     vcs {
