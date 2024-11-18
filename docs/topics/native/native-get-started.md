@@ -1,24 +1,20 @@
 [//]: # (title: Get started with Kotlin/Native)
 
-In this tutorial, you'll learn how to create a Kotlin/Native application.
+In this tutorial, you'll learn how to create a Kotlin/Native application. Choose the tool that works best for you and
+create your app using:
+
+* **[IDE](#in-ide)**. Here, you can clone the project template from the version control system and use it in IntelliJ IDEA.
+* **[The Gradle build system](#using-gradle)**. To better understand how things work under the hood,
+  create build files for the project manually.
+* **[The command line tool](#using-the-command-line-compiler)**. You can use the Kotlin/Native compiler,
+  which is shipped as a part of the standard Kotlin distribution, and create the app directly in the command line tool.
+
+  Console compilation may seem easy and straightforward, but it doesn't scale well for larger projects with hundreds of
+  files and libraries. For such projects, we recommended using an IDE or a build system.
 
 With Kotlin/Native, you can compile for [different targets](native-target-support.md), including Linux, macOS, and Windows.
 While cross-platform compilation is possible, which means using one platform to compile for a different one,
-in this case, you'll be targeting the same platform you're compiling on.
-
-There are several options for getting started with Kotlin/Native:
-
-* The easiest way to visualize the project creation is to [use an IDE](#in-ide).
-* If you want to get a better understanding of how things work under the hood, [create build files for the project manually](#using-gradle).
-  
-  The default choice for Kotlin/Native and Kotlin Multiplatform is the [Gradle](https://gradle.org) build system,
-  commonly used in Java, Android, and other ecosystems.
-
-* You can also use the Kotlin/Native compiler (which is shipped as a part of the standard Kotlin distribution)
-  [directly in the command line tool](#using-the-command-line-compiler).
-
-  While console compilation seems easy and clear, it doesn't scale well for larger projects with hundreds of files and
-  libraries. For such projects, it's recommended to use an IDE or a build system.
+in this tutorial, you'll be targeting the same platform you're compiling on.
 
 > If you use a Mac and want to create and run applications for macOS or other Apple targets, you also need to
 > install [Xcode Command Line Tools](https://developer.apple.com/download/), launch it, and accept the license terms first.
@@ -32,15 +28,15 @@ the Community Edition and the Ultimate Edition.
 
 ### Create the project
 
-1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/) with the latest [Kotlin plugin](releases.md).
+1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 2. Clone the [project template](https://github.com/Kotlin/kmp-native-wizard)
-   by selecting **File** | **New** | **Project from Version Control** in IntelliJ IDEA and using this URL link:
+   by selecting **File** | **New** | **Project from Version Control** in IntelliJ IDEA and using this URL:
 
    ```none
    https://github.com/Kotlin/kmp-native-wizard
    ```   
 
-3. Open the `gradle/libs.versions.toml` file, the version catalog of project dependencies. To create Kotlin/Native
+3. Open the `gradle/libs.versions.toml` file, which is the version catalog for project dependencies. To create Kotlin/Native
    applications, you need the Kotlin Multiplatform Gradle plugin, which has the same version as Kotlin. Ensure that you
    use the latest Kotlin version:
 
@@ -66,11 +62,11 @@ Press the green icon in the gutter to run the code:
 
 ![Run the application](native-run-gutter.png){width=478}
 
-IntelliJ IDEA runs the code using the Gradle task. You will see the result in the **Run** tab:
+IntelliJ IDEA runs the code using the Gradle task and outputs the result in the **Run** tab:
 
 ![Application output](native-output-gutter-1.png){width=331}
 
-After the first run, you will see the corresponding run configuration on the top bar in the IDE:
+After the first run, the IDE creates the corresponding run configuration at the top:
 
 ![Gradle run configuration](native-run-config.png){width=503}
 
@@ -151,7 +147,7 @@ Let's add a feature to your application so it can count the number of letters in
 Now let's count only the unique letters in your name:
 
 1. In the `Main.kt` file, declare the new [extension function](extensions.md#extension-functions)
-   `countDistinctCharacters()` for `String`:
+   `.countDistinctCharacters()` for `String`:
 
    * Convert the name to lowercase using the [`.lowercase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/lowercase.html) function.
    * Convert the input string to a list of characters using the [`toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) function.
@@ -162,7 +158,7 @@ Now let's count only the unique letters in your name:
    fun String.countDistinctCharacters() = lowercase().toList().distinct().count()
    ```
 
-2. Use the `countDistinctCharacters()` function to count the unique letters in your name:
+2. Use the `.countDistinctCharacters()` function to count the unique letters in your name:
 
    ```kotlin
    fun String.countDistinctCharacters() = lowercase().toList().distinct().count()
@@ -187,14 +183,15 @@ Now let's count only the unique letters in your name:
 
 ## Using Gradle
 
-In this section, you'll learn how to manually create a Kotlin/Native application using Gradle.
+In this section, you'll learn how to manually create a Kotlin/Native application using [Gradle](https://gradle.org).
+It's the default build system for Kotlin/Native and Kotlin Multiplatform projects, which is also commonly used in Java,
+Android, and other ecosystems.
 
 ### Create project files
 
-1. To get started, install the compatible version of [Gradle](https://gradle.org/install/). See the [compatibility table](gradle-configure-project.md#apply-the-plugin)
+1. To get started, install a compatible version of [Gradle](https://gradle.org/install/). See the [compatibility table](gradle-configure-project.md#apply-the-plugin)
    to check the Kotlin Gradle plugin (KGP) compatibility with available Gradle versions.
-2. Create an empty project directory. Inside it, create the `build.gradle(.kts)` Gradle build file with the following
-   content:
+2. Create an empty project directory. Inside it, create a `build.gradle(.kts)` file with the following content:
 
    <tabs group="build-script">
    <tab title="Kotlin" group-key="kotlin">
@@ -257,13 +254,13 @@ In this section, you'll learn how to manually create a Kotlin/Native application
    </tab>
    </tabs>
 
-   You can use different [target presets](native-target-support.md), such as `macosArm64`, `iosArm64` `linuxArm64`,
-   and `mingwX64` to define the target platform. The preset name describes a platform for which you are compiling your code.
-   These target presets optionally take the target name as a parameter, which in this case is `native`.
-   The target name is used to generate the source paths and task names in the project.
+   You can use different [target names](native-target-support.md), such as `macosArm64`, `iosArm64` `linuxArm64`,
+   and `mingwX64` to define the targets for which you are compiling your code.
+   These target names can optionally take the platform name as a parameter, which in this case is `native`.
+   The platform name is used to generate the source paths and task names in the project.
 
 3. Create an empty `settings.gradle(.kts)` file in the project directory.
-4. Create a directory `src/nativeMain/kotlin` and place inside it the `hello.kt` file with the following content:
+4. Create a `src/nativeMain/kotlin` directory and place a `hello.kt` file inside with the following content:
 
    ```kotlin
    fun main() {
@@ -284,7 +281,7 @@ as specified in the build file.
    ```
 
    This command creates the `build/bin/native` directory with two directories inside: `debugExecutable` and
-   `releaseExecutable`. They contain corresponding binary files.
+   `releaseExecutable`. They contain the corresponding binary files.
 
    By default, the name of the binary file is the same as the project directory.
 
@@ -294,7 +291,7 @@ as specified in the build file.
    build/bin/native/debugExecutable/<project_name>.kexe
    ```
 
-Terminal prints "Hello, Kotlin/Native!".
+The terminal prints "Hello, Kotlin/Native!".
 
 ### Open the project in IDE
 
@@ -302,7 +299,7 @@ Now, you can open your project in any IDE that supports Gradle. If you use Intel
 
 1. Select **File** | **Open**.
 2. Select the project directory and click **Open**.
-   IntelliJ IDEA will automatically detect it as a Kotlin/Native project.
+   IntelliJ IDEA automatically detects if it's as a Kotlin/Native project.
 
 If you encounter a problem with the project, IntelliJ IDEA displays the error message in the **Build** tab.
 
@@ -315,12 +312,13 @@ In this section, you'll learn how to create a Kotlin/Native application using th
 To install the compiler:
 
 1. Go to the Kotlin's [GitHub releases](%kotlinLatestUrl%) page.
-2. Look for a file with `kotlin-native` in the name and download one that is suitable for your operating system.
+2. Look for a file with `kotlin-native` in the name and download one that is suitable for your operating system,
+   for example `kotlin-native-prebuilt-linux-x86_64-2.0.21.tar.gz`.
 3. Unpack the archive to a directory of your choice.
 4. Open your shell profile and add the path to the compiler's `/bin` directory to the `PATH` environment variable: 
 
    ```bash
-   export PATH="/<path to the complier>/kotlin-native/bin:$PATH"
+   export PATH="/<path to the compiler>/kotlin-native/bin:$PATH"
    ```
 
 > Although the compiler output has no dependencies or virtual machine requirements, the compiler itself
@@ -347,8 +345,8 @@ To compile the application, execute the following command with the downloaded co
 kotlinc-native hello.kt -o hello
 ```
 
-The value of `-o` option specifies the name of the output file, so this call generates the `hello.kexe` binary file on
-macOS and Linux (and `hello.exe` on Windows).
+The value of the `-o` option specifies the name of the output file, so this call generates the `hello.kexe` binary file
+on macOS and Linux (and `hello.exe` on Windows).
 
 For the full list of available options, see [Kotlin compiler options](compiler-reference.md).
 
