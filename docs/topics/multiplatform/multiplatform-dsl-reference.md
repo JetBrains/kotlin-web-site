@@ -135,13 +135,6 @@ In any target block, you can use the following declarations:
 | `components`        | Components used to set up Gradle publications.                                                                                                                                             |
 | `compilerOptions`   | [Compiler options](#compiler-options) used for the target. This declaration overrides any `compilerOptions {}` configured at [top level](multiplatform-dsl-reference.md#top-level-blocks). |
 
-> The support for `compilerOptions {}` as a common target configuration is [Experimental](components-stability.md#stability-levels-explained)
-> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
-> your feedback on it in [YouTrack](https://kotl.in/issue).
->
-{style="warning"}
-
-
 ### JVM targets
 
 In addition to [common target configuration](#common-target-configuration), `jvm` targets have a specific function:
