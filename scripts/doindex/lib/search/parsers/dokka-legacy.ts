@@ -1,46 +1,26 @@
-import { DEFAULT_RECORD, htmlToText } from '../lib/parser.mjs';
-import { findPrevElementWith, nextElement } from '../lib/html.mjs';
+import { AnyNode, Node } from 'domhandler';
+import { Cheerio, CheerioAPI } from 'cheerio';
 
-/** @typedef {import('domhandler').Node} Node */
+import { findPrevElementWith, htmlToText, nextElement } from '../../html.js';
+import { DEFAULT_RECORD, GetRecords, SearchRecord } from '../records.js';
 
-/** @typedef {import('domhandler').Element} Element */
-
-/**
- * @template {Node} TNode
- * @param {TNode} node
- * @param {number} level
- * @returns {boolean}
- */
-function isFinalNode(node, level) {
+function isFinalNode<T extends Node & { tagName?: string }>(node: T, level: number): boolean {
     return level === 0 && /^h[3-9]$/gi.test(node.tagName);
 }
 
-/**
- * @param {import('cheerio').Cheerio} article
- * @returns {void}
- */
-function dropSourceLinks(article) {
+function dropSourceLinks(article: Cheerio<AnyNode>) {
     article.find('a[href*="https://github.com"]:contains("source\\)")').remove();
 }
 
-/**
- * @param {import('cheerio').Cheerio} article
- * @returns {void}
- */
-function dropPlatformSwitches(article) {
+function dropPlatformSwitches(article: Cheerio<AnyNode>) {
     article.find('div[data-kotlin-version][data-platform] > .tags').remove();
 }
 
-/**
- * @param {import('cheerio').CheerioAPI} $
- * @param {import('cheerio').Cheerio} article
- * @returns {[text: string, url: string][]}
- */
-function dropBreadcrumbs($, article) {
+function dropBreadcrumbs($: CheerioAPI, article: Cheerio<AnyNode>): [text: string, url: string][] {
     const breadcrumbsNode = article.find('.api-docs-breadcrumbs').remove();
 
     const breadcrumbs = [...breadcrumbsNode.find('a')]
-        .map(function mapBreadcrumbs(el) {
+        .map(function mapBreadcrumbs(el): [text: string, url: string] {
             const $el = $(el);
             return [$el.text(), $el.attr('href')];
         });
@@ -55,21 +35,11 @@ function dropBreadcrumbs($, article) {
 
 const SIGNATURE_SELECTOR = 'div[data-kotlin-version][data-platform]:has(> .signature)';
 
-/**
- * @template {Node} TNode
- * @param {TNode} child
- * @returns {boolean}
- */
-function isSignatureDescriptionNode(child) {
+function isSignatureDescriptionNode<T extends Node & { tagName?: string }>(child: T): boolean {
     return !child.tagName || child.tagName === 'p';
 }
 
-/**
- * @param {import('cheerio').CheerioAPI} $
- * @param {import('cheerio').Cheerio} article
- * @returns {void}
- */
-function swapSignatureCodeAndText($, article) {
+function swapSignatureCodeAndText($: CheerioAPI, article: Cheerio<AnyNode>) {
     const signatures = article.find(SIGNATURE_SELECTOR);
 
     for (const signature of signatures) {
@@ -96,11 +66,7 @@ function swapSignatureCodeAndText($, article) {
     }
 }
 
-/**
- * @param {import('cheerio').CheerioAPI} $
- * @param {import('cheerio').Cheerio} article
- */
-function findTitleNode($, article) {
+function findTitleNode(article: Cheerio<AnyNode>) {
     let titleNode = article.find('h1[id]');
     const packageTitle = article.find('h2[id^=package-]');
 
@@ -119,16 +85,9 @@ function findTitleNode($, article) {
     return titleNode;
 }
 
-/**
- * @param {import('cheerio').CheerioAPI} $
- * @param {string} url
- * @param {Object.<string, *>} data
- */
-async function legacyApi($, url, data) {
-    /** @type {string|null} */
-    let content = null;
+async function legacyApi($: CheerioAPI, url: string) {
+    let content: string | null = null;
 
-    /** @type {import('cheerio').Cheerio} */
     const $article = $('.page-content');
     const pageUrl = new URL($('meta[property="og:url"][content]').attr('content'));
 
@@ -144,7 +103,7 @@ async function legacyApi($, url, data) {
 
     const levels = dropBreadcrumbs($, $article);
 
-    const $titleNode = findTitleNode($, $article);
+    const $titleNode = findTitleNode($article);
 
     if ($titleNode.length)
         content = await htmlToText($, [$titleNode[0].nextSibling], isFinalNode);
@@ -169,24 +128,22 @@ async function legacyApi($, url, data) {
 
     const finalUrl = '/' + url;
 
-    return [
-        {
-            ...DEFAULT_RECORD,
-            ...data,
+    const result: SearchRecord = {
+        ...DEFAULT_RECORD,
 
-            objectID: finalUrl.replace(/\.html$/g, ''),
-            parent: finalUrl,
-            pageType: 'api',
-            url: new URL(finalUrl, pageUrl).toString(),
+        objectID: finalUrl.replace(/\.html$/g, ''),
+        parent: finalUrl,
+        url: new URL(finalUrl, pageUrl).toString(),
 
-            headings: breadcrumbs.length ? breadcrumbs.reverse().join(' | ') : title,
-            mainTitle: title,
-            pageTitle: title,
+        headings: breadcrumbs.length ? breadcrumbs.reverse().join(' | ') : title,
+        mainTitle: title,
+        pageTitle: title,
 
-            content
-        }
-    ];
+        content
+    };
+
+    return [result];
 }
 
-export const Page_API_stdlib = legacyApi;
-export const Page_API_test = legacyApi;
+export const Page_API_stdlib: GetRecords = legacyApi;
+export const Page_API_test: GetRecords = legacyApi;
