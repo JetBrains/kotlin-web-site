@@ -1,5 +1,6 @@
 package builds.apiReferences.kotlinx.metadataJvm
 
+import BuildParams.KOTLINX_METADATA_ID
 import BuildParams.KOTLIN_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
 import builds.apiReferences.templates.*
@@ -9,7 +10,8 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 private const val LIB_DIR = "libraries/kotlinx-metadata/jvm"
 
 object KotlinxMetadataJvmBuildApiReference : BuildType({
-    name = "kotlinx-metadata-jvm API reference"
+    name = "$KOTLINX_METADATA_ID API reference"
+    description = "Build pages for Kotlinx Metadata JVM"
 
     templates(BuildApiReference)
 

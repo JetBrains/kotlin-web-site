@@ -1,7 +1,7 @@
 package builds.kotlinlang.buidTypes
 
 import builds.kotlinlang.templates.DockerImageBuilder
-import jetbrains.buildServer.configs.kotlin.AbsoluteId
+import builds.scriptDistAnalyze
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
@@ -75,23 +75,7 @@ object BuildSitePages : BuildType({
                 cp -fR out/_next dist/_next/
             """.trimIndent()
         }
-        script {
-            name = "Build Sitemap"
-
-            conditions {
-                equals("teamcity.build.branch.is_default", "true")
-            }
-
-            scriptContent = """
-                #!/bin/bash
-                pip install -r requirements.txt
-                python kotlin-website.py sitemap
-            """.trimIndent()
-
-            dockerImage = "%dep.Kotlin_KotlinSites_Builds_KotlinlangOrg_BuildPythonContainer.kotlin-website-image%"
-            dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
-            dockerPull = true
-        }
+        scriptDistAnalyze {}
         script {
             name = "Update build status"
             scriptContent = """
@@ -142,17 +126,6 @@ object BuildSitePages : BuildType({
             artifacts {
                 artifactRules = "+:docs.zip!** => _webhelp/reference/"
             }
-        }
-
-        artifacts(AbsoluteId("Kotlin_KotlinRelease_2020_LibraryReferenceLegacyDocs")) {
-            buildRule = tag("publish", """
-                +:<default>
-                +:*
-            """.trimIndent())
-            artifactRules = """
-                kotlin.test.zip!** => api/latest/kotlin.test
-                kotlin-stdlib.zip!** => api/latest/jvm/stdlib
-            """.trimIndent()
         }
     }
 })

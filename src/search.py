@@ -157,7 +157,7 @@ def get_webhelp_page_index_objects(content: Tag, url: str, page_path: str, title
 def get_wh_index():
     if 'WH_SEARCH_USER' in os.environ and 'WH_SEARCH_KEY' in os.environ:
         client = algoliasearch.Client(os.environ['WH_SEARCH_USER'], os.environ['WH_SEARCH_KEY'])
-        index_name = os.environ['WH_INDEX_NAME'] if 'WH_INDEX_NAME' in os.environ else "dev_KOTLINLANG_WEBHELP"
+        index_name = os.environ['ALGOLIA_INDEX_NAME'] if 'ALGOLIA_INDEX_NAME' in os.environ else "dev_KOTLINLANG_WEBHELP"
         return Index(client, index_name)
     return None
 

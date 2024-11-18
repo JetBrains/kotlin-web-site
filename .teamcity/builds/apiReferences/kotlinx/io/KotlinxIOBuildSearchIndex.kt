@@ -1,20 +1,25 @@
 package builds.apiReferences.kotlinx.io
 
-import builds.apiReferences.dependsOnDokkaPagesJson
-import builds.apiReferences.templates.BuildApiReferenceSearchIndex
-import jetbrains.buildServer.configs.kotlin.BuildType
+import BuildParams.KOTLINX_IO_ID
+import builds.TemplateSearchIndex
 
-object KotlinxIOBuildSearchIndex: BuildType({
-  name = "Build search index for kotlinx-io"
+object KotlinxIOBuildSearchIndex : TemplateSearchIndex({
+    name = "$KOTLINX_IO_ID search"
+    description = "Build search index for Kotlinx IO"
 
-  templates(BuildApiReferenceSearchIndex)
+    params {
+        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_IO_ID-stage")
+    }
 
-  params {
-    param("env.ALGOLIA_INDEX_NAME", "kotlinx-io")
-    param("env.API_REFERENCE_URL", "/api/kotlinx-io")
-  }
-
-  dependencies {
-    dependsOnDokkaPagesJson(KotlinxIOBuildApiReference)
-  }
+    dependencies {
+        dependency(KotlinxIOBuildApiReference) {
+            snapshot {}
+            artifacts {
+                artifactRules = """
+                    pages.zip!** => dist/api/$KOTLINX_IO_ID/
+                """.trimIndent()
+                cleanDestination = true
+            }
+        }
+    }
 })

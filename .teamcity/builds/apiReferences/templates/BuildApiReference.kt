@@ -29,11 +29,12 @@ fun BuildSteps.scriptDokkaVersionSync(block: ScriptBuildStep.() -> Unit) = step(
         id = "step-dokka-version-sync-id"
         name = "Sync dokka version with main repository templates"
         dockerImage = "debian"
+        // language=bash
         scriptContent = """
-        #!/bin/bash
-        sed -i -E "s/^(dokka_version|dokkaVersion)=.+/\1=%DOKKA_TEMPLATES_VERSION%/gi" ./gradle.properties
-        find . -name "*.gradle.kts" -exec sed -i -E "s|mavenCentral|maven(url = \"$DOKKA_SPACE_REPO\")\nmavenCentral|" {} \;
-        find . -name "*.gradle" -exec sed -i -E "s|mavenCentral|maven \{ url \"$DOKKA_SPACE_REPO\" \}\nmavenCentral|" {} \;
+            #!/bin/bash
+            sed -i -E "s/^(dokka_version|dokkaVersion)=.+/\1=%DOKKA_TEMPLATES_VERSION%/gi" ./gradle.properties
+            find . -name "*.gradle.kts" -exec sed -i -E "s|mavenCentral|maven(url = \"$DOKKA_SPACE_REPO\")\nmavenCentral|" {} \;
+            find . -name "*.gradle" -exec sed -i -E "s|mavenCentral|maven \{ url \"$DOKKA_SPACE_REPO\" \}\nmavenCentral|" {} \;
         """.trimIndent()
     }.apply(block),
 )
@@ -45,6 +46,17 @@ fun BuildSteps.buildDokkaHTML(block: GradleBuildStep.() -> Unit) = step(
         tasks = "dokkaHtmlMultiModule"
         useGradleWrapper = true
     }.apply(block),
+)
+
+private fun BuildSteps.addNoRobots(block: ScriptBuildStep.() -> Unit) = step(
+    ScriptBuildStep {
+        name = "Add no robots for older versions"
+        //language=bash
+        scriptContent = """
+            #!/bin/sh
+            find . -type f -path "*/api/*/older/*.html" -exec sed -i -E 's/(<head[^>]*>)/\1<meta name="robots" content="noindex, nofollow">/g' {} \;
+        """.trimIndent()
+    }.apply(block)
 )
 
 fun Triggers.vcsDefaultTrigger(block: Trigger.() -> Unit) = trigger(
@@ -75,5 +87,6 @@ object BuildApiReference : Template({
         scriptDropSnapshot {}
         scriptDokkaVersionSync {}
         buildDokkaHTML {}
+        addNoRobots {}
     }
 })
