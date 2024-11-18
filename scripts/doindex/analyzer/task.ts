@@ -52,7 +52,7 @@ async function onMessage({ filePath, relativePath }: Opts) {
         if (!isNaN(date)) modified = date;
     }
 
-    const url = relativePath.replace(/\/index\.html$/g, '/');
+    const url = relativePath.replace(/(^|\/)index\.html$/g, '/');
 
     let records: SearchRecord[] = [];
 
