@@ -372,3 +372,30 @@ Language settings are checked for consistency in the following ways:
 bugfix features).
 * `jvmMain` should use all experimental annotations that `commonMain` uses.
 * `apiVersion`, bugfix language features, and `progressiveMode` can be set arbitrarily.
+
+## Configure Isolated Projects feature in Gradle
+
+> This feature is [Experimental](components-stability.md#stability-levels-explained) and is currently in a pre-alpha state with Gradle. 
+> Use it only with Gradle versions 8.10 or higher, and solely for evaluation purposes. The feature may be dropped or changed at any time.
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-57279/Support-Gradle-Project-Isolation-Feature-for-Kotlin-Multiplatform). 
+> Opt-in is required (see details below).
+> 
+{style="warning"}
+
+Gradle provides the [Isolated Projects](https://docs.gradle.org/current/userguide/isolated_projects.html) feature,
+which improves build performance by "isolating" individual projects from each other. The feature separates the build scripts
+and plugins between projects, allowing them to run safely in parallel.
+
+To enable this feature, follow Gradle's instructions to [set the system property](https://docs.gradle.org/current/userguide/isolated_projects.html#how_do_i_use_it).
+
+If you want to check compatibility before enabling Isolated Projects in Gradle, you can test your projects with the new 
+Kotlin Gradle plugin model. Add the following Gradle property to your `gradle.properties` file:
+
+```none
+kotlin.kmp.isolated-projects.support=enable
+```
+
+If you decide to enable the Isolated Projects feature later, remember to remove this Gradle property. The Kotlin Gradle plugin
+applies and manages this Gradle property directly.
+
+For more information about the Isolated Projects feature, see [Gradle's documentation](https://docs.gradle.org/current/userguide/isolated_projects.html).
