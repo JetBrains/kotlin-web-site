@@ -33,8 +33,8 @@ makeStdlibRedirects()
             }
         }
 
-        if(redirects.redirects.size > 0)
-            console.log(`unresolved ${redirects.redirects.size} redirects...`)
+        if (redirects.redirects.size > 0)
+            console.log(`unresolved ${redirects.redirects.size} redirects...`);
 
         return [...redirects.matched.entries()];
     })
@@ -72,21 +72,21 @@ async function readFiles(currentPath) {
 const MANUAL_LINKS = {
     // > I think it's the right thing to hide HIDDEN deprecated api from the documentation,
     // > so these pages can be redirected just to their containing package in the new docs.
-    "api/latest/kotlin.test/kotlin.test/assert-true-no-inline.html":
-        "api/core/kotlin-test/kotlin.test/index.html",
-    "api/latest/kotlin.test/kotlin.test/assert-false-no-inline.html":
-        "api/core/kotlin-test/kotlin.test/index.html",
-    "api/latest/kotlin.test/kotlin.test/expect-no-inline.html":
-        "api/core/kotlin-test/kotlin.test/index.html",
-    "api/latest/kotlin.test/kotlin.test/assert-not-null-no-inline.html":
-        "api/core/kotlin-test/kotlin.test/index.html",
+    'api/latest/kotlin.test/kotlin.test/assert-true-no-inline.html':
+        'api/core/kotlin-test/kotlin.test/index.html',
+    'api/latest/kotlin.test/kotlin.test/assert-false-no-inline.html':
+        'api/core/kotlin-test/kotlin.test/index.html',
+    'api/latest/kotlin.test/kotlin.test/expect-no-inline.html':
+        'api/core/kotlin-test/kotlin.test/index.html',
+    'api/latest/kotlin.test/kotlin.test/assert-not-null-no-inline.html':
+        'api/core/kotlin-test/kotlin.test/index.html',
 
-    "api/latest/jvm/stdlib/kotlin.collections/-abstract-mutable-collection/to-j-s-o-n.html":
-        "api/core/kotlin-stdlib/kotlin.collections/-abstract-mutable-collection/index.html",
+    'api/latest/jvm/stdlib/kotlin.collections/-abstract-mutable-collection/to-j-s-o-n.html':
+        'api/core/kotlin-stdlib/kotlin.collections/-abstract-mutable-collection/index.html'
 };
 
 function getTargetPath(path, name) {
-    return MANUAL_LINKS[path + "/" + name] || (
+    return MANUAL_LINKS[path + '/' + name] || (
         new LinksProcessor(path, name)
             .replaceAllTypes()
             .replaceKotlinJvmOptionals()
@@ -156,7 +156,7 @@ async function addFile(currentPath, name) {
         console.log('hasTypeForTypeAlias');
         return redirects.add(oldPath, typeAliasFile);
     }
-/*
+
     const text = await readFile(oldPath, { encoding: 'utf-8' });
     const match = text.match(/<meta http-equiv="refresh" content="0; url=([^"]+)"\/>/);
 
@@ -166,6 +166,6 @@ async function addFile(currentPath, name) {
         redirects.addRedirect(oldPath, to);
         return;
     }
-*/
+
     redirects.addUnmatched(oldPath);
 }
