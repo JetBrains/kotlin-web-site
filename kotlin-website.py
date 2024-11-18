@@ -428,9 +428,6 @@ def generate_redirect_pages():
         for file in files:
             if not file.endswith(".yml"):
                 continue
-            # @ToDo: drop after core support
-            if file == "stdlib-redirects.yml":
-                continue
 
             redirects_file_path = path.join(redirects_folder, file)
 
