@@ -32,7 +32,7 @@ await execFilesTask(
     async function addToReport(item: Metadata) {
         result.push(item);
     },
-    env['WH_SHORT_REPORT'] ? preFilterFiles : null
+    env['WH_SKIP_PREFILTER'] ? null : preFilterFiles
 );
 
 result.sort(([path1], [path2]) => path1.localeCompare(path2));
