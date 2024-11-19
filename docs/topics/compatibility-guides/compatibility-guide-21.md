@@ -311,6 +311,23 @@ perspective
 > - 2.1.0: raise warnings to errors for function literals with parameters and receivers of inaccessible non-generic types
 > - 2.2.0: raise warnings to errors for types with inaccessible type arguments
 
+## Standard library
+
+### Remove kotlin-stdlib-common artifacts in compiler tests
+
+> **Issue**: [KT-62159](https://youtrack.jetbrains.com/issue/KT-62159)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: binary
+>
+> **Short summary**: The JAR file published under `org.jetbrains.kotlin:kotlin-stdlib-common` is deprecated, with `.klib` files replacing it as the standard format.
+> The legacy `kotlin-stdlib-common` artifacts built with `kotlin-platform-common` and `enableCompatibilityMetadataVariant` are removed in compiler tests.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: remove `kotlin-stdlib-common` artifacts in compiler tests
+
 ## Tools
 
 ### Deprecate KotlinCompilationOutput#resourcesDirProvider
