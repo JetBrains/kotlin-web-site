@@ -198,17 +198,17 @@ and functions that are implicitly not skippable (inline functions and functions 
 
 > The feature flag affects behavior only with a version of Compose runtime that supports pausable composition,
 > starting with `androidx.compose.runtime` 1.8.0-alpha02.
-> With older versions, the feature flag has no effect.
+> Older versions ignore the feature flag.
 >
 {style="note"}
 
 **Default**: disabled
 
-If enabled, changes code generation of composable functions to enable pausing when part of a pausable composition.
-This allows Compose runtime to suspend composition on the skipping points,
-letting long-running compositions be split across multiple frames.
+If enabled, changes the code generation of composable functions to allow pausing when part of a pausable composition.
+This lets Compose runtime suspend composition at skipping points,
+splitting long-running compositions across multiple frames.
 
-Pausable composition is used in Lazy lists and other performance intensive components for prefetching content
+Lazy lists and other performance intensive components use pausable composition to prefetch content
 that might cause visual jank when executed in a blocking manner.
 
 > This feature is considered [Experimental](components-stability.md#stability-levels-explained) and is disabled by default.
