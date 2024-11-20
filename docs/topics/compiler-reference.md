@@ -133,7 +133,7 @@ fully qualified name.
 
 ### -Xsuppress-warning
 
-Suppresses specific warnings [globally in the whole project](whatsnew-eap.md), for example:
+Suppresses specific warnings [globally across the whole project](whatsnew-eap.md), for example:
 
 ```bash
 kotlinc -Xsuppress-warning=NOTHING_TO_INLINE -Xsuppress-warning=NO_TAIL_CALLS_FOUND main.kt
