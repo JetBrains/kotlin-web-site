@@ -6,7 +6,7 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 
 object KotlinxIOPrepareDokkaTemplates : BuildType({
     name = "$KOTLINX_IO_ID templates"
-    description = "Build dokka templates for Kotlinx IO"
+    description = "Build Dokka Templates for Kotlinx IO"
 
     templates(PrepareDokkaTemplate)
 

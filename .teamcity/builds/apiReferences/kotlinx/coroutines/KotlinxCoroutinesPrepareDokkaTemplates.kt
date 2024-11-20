@@ -6,7 +6,7 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 
 object KotlinxCoroutinesPrepareDokkaTemplates : BuildType({
     name = "$KOTLINX_COROUTINES_ID templates"
-    description = "Build dokka templates for Kotlinx Coroutines"
+    description = "Build Dokka Templates for Kotlinx Coroutines"
 
     templates(PrepareDokkaTemplate)
 

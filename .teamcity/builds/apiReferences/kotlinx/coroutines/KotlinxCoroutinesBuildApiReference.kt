@@ -7,7 +7,7 @@ import builds.apiReferences.templates.BuildApiReference
 import jetbrains.buildServer.configs.kotlin.BuildType
 
 object KotlinxCoroutinesBuildApiReference : BuildType({
-    name = "$KOTLINX_COROUTINES_ID API reference"
+    name = "$KOTLINX_COROUTINES_ID pages"
     description = "Build pages for Kotlinx Coroutines"
 
     templates(BuildApiReference)

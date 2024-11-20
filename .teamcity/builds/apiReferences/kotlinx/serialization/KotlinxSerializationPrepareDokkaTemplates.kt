@@ -6,7 +6,7 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 
 object KotlinxSerializationPrepareDokkaTemplates : BuildType({
     name = "$KOTLINX_SERIALIZATION_ID templates"
-    description = "Builds API reference for Kotlinx Serialization"
+    description = "Builds Dokka Templates for Kotlinx Serialization"
 
     templates(PrepareDokkaTemplate)
 

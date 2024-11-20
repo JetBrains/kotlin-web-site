@@ -7,7 +7,7 @@ import builds.apiReferences.templates.BuildApiReference
 import jetbrains.buildServer.configs.kotlin.BuildType
 
 object KotlinxSerializationBuildApiReference : BuildType({
-    name = "$KOTLINX_SERIALIZATION_ID API reference"
+    name = "$KOTLINX_SERIALIZATION_ID pages"
     description = "Build pages for Kotlinx Serialization"
 
     templates(BuildApiReference)

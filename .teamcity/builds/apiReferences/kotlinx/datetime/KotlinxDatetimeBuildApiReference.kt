@@ -9,7 +9,7 @@ import builds.apiReferences.templates.scriptDropSnapshot
 import jetbrains.buildServer.configs.kotlin.BuildType
 
 object KotlinxDatetimeBuildApiReference : BuildType({
-    name = "$KOTLINX_DATETIME_ID API reference"
+    name = "$KOTLINX_DATETIME_ID pages"
     description = "Build pages for Kotlinx Datetime"
 
     templates(BuildApiReference)

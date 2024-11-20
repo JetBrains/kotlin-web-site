@@ -11,7 +11,7 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object KotlinxIOBuildApiReference : BuildType({
-    name = "$KOTLINX_IO_ID API reference"
+    name = "$KOTLINX_IO_ID pages"
     description = "Build pages for Kotlinx IO"
 
     templates(BuildApiReference)

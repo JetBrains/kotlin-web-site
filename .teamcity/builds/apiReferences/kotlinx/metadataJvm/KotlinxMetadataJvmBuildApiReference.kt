@@ -10,7 +10,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 private const val LIB_DIR = "libraries/kotlinx-metadata/jvm"
 
 object KotlinxMetadataJvmBuildApiReference : BuildType({
-    name = "$KOTLINX_METADATA_ID API reference"
+    name = "$KOTLINX_METADATA_ID pages"
     description = "Build pages for Kotlinx Metadata JVM"
 
     templates(BuildApiReference)

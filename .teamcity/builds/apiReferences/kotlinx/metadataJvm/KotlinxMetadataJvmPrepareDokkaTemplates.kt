@@ -6,7 +6,7 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 
 object KotlinxMetadataJvmPrepareDokkaTemplates : BuildType({
     name = "$KOTLINX_METADATA_ID templates"
-    description = "Build dokka templates for Kotlinx Metadata JVM"
+    description = "Build Dokka Templates for Kotlinx Metadata JVM"
 
     templates(PrepareDokkaTemplate)
 

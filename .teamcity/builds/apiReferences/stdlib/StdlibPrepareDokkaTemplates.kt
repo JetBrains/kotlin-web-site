@@ -9,7 +9,7 @@ import jetbrains.buildServer.configs.kotlin.BuildType
  */
 object StdlibPrepareDokkaTemplates : BuildType({
     name = "Core API templates"
-    description = "Build pages for Kotlin Core API"
+    description = "Build Dokka Templates for Kotlin Core API"
 
     templates(PrepareDokkaTemplate)
 
