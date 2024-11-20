@@ -62,6 +62,7 @@ object BuildSitePages : BuildType({
         script {
             name = "Override with external source"
             dockerImage = "alpine"
+            //language=bash
             scriptContent = """
                 cp -fR _webhelp/reference/* build/docs/
                 #cp -fR _webhelp/mobile build/docs/
@@ -73,20 +74,15 @@ object BuildSitePages : BuildType({
                 
                 cp -fR out/* dist/
                 cp -fR out/_next dist/_next/
+                
+                cp sitemap_index.xml dist/
+                
+                mkdir -p "dist/api/latest/jvm/stdlib"
+                cp package-list-stdlib dist/api/latest/jvm/stdlib/package-list
+                
+                mkdir -p "dist/api/latest/kotlin.test"
+                cp package-list-kotlin-test dist/api/latest/kotlin.test/package-list
             """.trimIndent()
-        }
-        script {
-            name = "Add old package-list files"
-            //language=bash
-            scriptContent = """
-              #!/bin/sh
-              mkdir -p "dist/api/latest/jvm/stdlib"
-              mv assets/stdlib-package-list dist/api/latest/jvm/stdlib/package-list
-              
-              mkdir -p "dist/api/latest/kotlin.test"
-              mv assets/kotlin.test-package-list dist/api/latest/kotlin.test/package-list
-          """.trimIndent()
-            dockerImage = "alpine"
         }
         scriptDistAnalyze {}
         script {
