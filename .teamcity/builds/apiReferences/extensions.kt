@@ -12,6 +12,7 @@ fun Dependencies.dependsOnDokkaTemplate(build: BuildType, artifactPath: String =
     }
     artifacts {
       artifactRules = "+:dokka-templates/** => $artifactPath"
+      cleanDestination = true
     }
   }
 }

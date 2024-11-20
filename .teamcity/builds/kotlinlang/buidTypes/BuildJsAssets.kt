@@ -19,6 +19,10 @@ object BuildJsAssets: BuildType({
     showDependenciesChanges = true
   }
 
+  requirements {
+    doesNotContain("docker.server.osType", "windows")
+  }
+
   steps {
     script {
       name = "Build assets"
@@ -37,7 +41,6 @@ object BuildJsAssets: BuildType({
         NODE_ENV=production yarn run build
       """.trimIndent()
       dockerImage = "node:18"
-      dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
       dockerPull = true
     }
   }

@@ -7,8 +7,21 @@ object PrepareDokkaTemplate: Template({
   name = "Build Custom HTML Template"
   artifactRules = "dokka-templates/** => dokka-templates"
 
+  requirements {
+    doesNotContain("teamcity.agent.name", "windows")
+  }
+
+  params {
+//      param("env.ALGOLIA_INDEX_NAME", "")
+  }
+
   vcs {
-    root(vcsRoots.KotlinLangOrg)
+    root(vcsRoots.KotlinLangOrg, """
+      package.json
+      yarn.lock
+      dokka-templates/
+      scripts/dokka/
+    """.trimIndent())
   }
 
   steps {
@@ -32,9 +45,5 @@ object PrepareDokkaTemplate: Template({
       """.trimIndent()
       dockerImage = "node:16-alpine"
     }
-  }
-
-  requirements {
-    doesNotContain("teamcity.agent.name", "windows")
   }
 })

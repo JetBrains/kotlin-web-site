@@ -1,5 +1,6 @@
 package builds.apiReferences.kotlinx.io
 
+import BuildParams.KOTLINX_IO_ID
 import BuildParams.KOTLINX_IO_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
 import builds.apiReferences.templates.BuildApiReference
@@ -10,7 +11,8 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object KotlinxIOBuildApiReference : BuildType({
-    name = "kotlinx-io API reference"
+    name = "$KOTLINX_IO_ID API reference"
+    description = "Build pages for Kotlinx IO"
 
     templates(BuildApiReference)
 

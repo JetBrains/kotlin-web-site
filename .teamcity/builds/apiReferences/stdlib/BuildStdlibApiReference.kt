@@ -1,13 +1,22 @@
 package builds.apiReferences.stdlib
 
+import BuildParams.KOTLIN_CORE_API_BUILD_ID
+import builds.scriptDistAnalyze
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object BuildStdlibApiReference : BuildType({
-  name = "Stdlib Api reference"
+  name = "Core API reference"
+
+    vcs {
+        root(vcsRoots.KotlinLangOrg, """
+          scripts/doindex/
+        """.trimIndent())
+    }
+
   artifactRules = """
-      +:content/** => latest-version.zip
+      +:dist/api/core/** => pages.zip
       +:pages.json => ./
   """.trimIndent()
 
@@ -16,28 +25,35 @@ object BuildStdlibApiReference : BuildType({
           name = "Drop unnecessary files"
           // language=bash
           scriptContent = """
-              ls -la ./
-              ls -la ./content/
-              ls -la ./content/all-libs/
-
-              rm ./content/all-libs/not-found-version.html
+              rm ./dist/api/core/not-found-version.html
               
               # empty pages.json
-              mv ./content/all-libs/scripts/pages.json ./
-              echo "[]" > ./content/all-libs/scripts/pages.json
+              mv ./dist/api/core/scripts/pages.json ./
+              echo "[]" > ./dist/api/core/scripts/pages.json
           """.trimIndent()
+      }
+      script {
+          name = "Add no robots for older versions"
+          workingDir = "dist/"
+          //language=bash
+          scriptContent = """
+              #!/bin/sh
+              find . -type f -path "*/api/*/older/*.html" -exec sed -i -E 's/(<head[^>]*>)/\1<meta name="robots" content="noindex, nofollow">/g' {} \;
+          """.trimIndent()
+          dockerImage = "alpine"
+      }
+      scriptDistAnalyze {
+          enabled = false
+          scriptContent += "\nmv sitemap.xml api/core/sitemap.xml"
       }
   }
 
   dependencies {
-      dependency(AbsoluteId("Kotlin_KotlinRelease_2020_LibraryReferenceLatestDocs")) {
+      dependency(AbsoluteId(KOTLIN_CORE_API_BUILD_ID)) {
           artifacts {
-              buildRule = tag(tag = "publish", branch = """
-                  +:<default>
-                  +:*
-              """.trimIndent())
+              buildRule = lastSuccessful()
               cleanDestination = true
-              artifactRules = "+:latest-version.zip!** => content/"
+              artifactRules = "latest-version.zip!all-libs/** => dist/api/core/"
           }
     }
   }

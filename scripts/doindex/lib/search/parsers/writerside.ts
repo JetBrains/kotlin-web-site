@@ -1,35 +1,21 @@
-import { DEFAULT_RECORD, htmlToText } from '../lib/parser.mjs';
-import { findNextElementWith } from '../lib/html.mjs';
+import { AnyNode, Element, Node } from 'domhandler';
+import { Cheerio, CheerioAPI } from 'cheerio';
 
-/** @typedef {import('domhandler').Node} Node */
+import { findNextElementWith, htmlToText, replaceNode } from '../../html.js';
+import { DEFAULT_RECORD, GetRecords, SearchRecord } from '../records.js';
 
-/** @typedef {import('domhandler').Element} Element */
-
-/**
- * @param {import('cheerio').Cheerio} article
- * @returns {string[]}
- */
-function getBreadcrumbs(article) {
+function getBreadcrumbs(article: Cheerio<AnyNode>): string[] {
     return article.attr('data-breadcrumbs')?.split('///') || [];
 }
 
-/**
- * @param {import('cheerio').Cheerio} article
- * @returns {void}
- */
-function dropIrrelevantSections(article) {
+function dropIrrelevantSections(article: Cheerio<AnyNode>) {
     article.find([
         '.chapter:has(#what-s-next)', '.chapter:has(#next-step)', '.chapter:has(#next-steps)',
         '.chapter:has(#learn-more)', '.chapter:has(#leave-feedback)'
     ].join(', ')).remove();
 }
 
-/**
- * @param {import('cheerio').Cheerio} article
- * @param {string} pageUrl
- * @returns {void}
- */
-function replaceMedia(article, pageUrl) {
+function replaceMedia(article: Cheerio<AnyNode>, pageUrl: string) {
     const videos = article.find('.video-player');
 
     for (let i = 0, length = videos.length; i < length; i++) {
@@ -39,50 +25,17 @@ function replaceMedia(article, pageUrl) {
     }
 }
 
-/**
- * @param {import('cheerio').Element} node
- */
-function cloneAttrsString(node) {
-    return Object.entries((node.attribs || {})).map(([key, value]) => {
-        const val = typeof value === 'string' ? `="${value}"` : '';
-        return `${key}${val}`;
-    }).join(' ');
-}
-
-/**
- * @param {import('cheerio').Cheerio} article
- * @param {string} selector
- * @param {($node: import('cheerio').Cheerio<Element>, attrs: string, content: string) => string} cb
- */
-function replaceNode(article, selector, cb) {
-    const listStrong = article.find(selector);
-
-    for (let i = 0, length = listStrong.length; i < length; i++) {
-        const $node = listStrong.eq(i);
-        const newNode = cb($node, cloneAttrsString(listStrong[i]), $node.html());
-        $node.replaceWith(newNode);
-    }
-}
-
-/**
- * @param {import('cheerio').Cheerio} article
- * @returns {void}
- */
-function replaceWRSSemantic(article) {
-    replaceNode(article, 'span.control', ($node, attrs, content) => (
+function replaceWRSSemantic(article: Cheerio<AnyNode>) {
+    replaceNode(article, 'span.control', (_$node, attrs, content) => (
         `<b ${attrs}>${content}</b>`
     ));
 
-    replaceNode(article, 'div.code-block', ($node, attrs, content) => (
+    replaceNode(article, 'div.code-block', (_$node, attrs, content) => (
         `<code ${attrs}>${content}</code>`
     ));
 }
 
-/**
- * @param {import('cheerio').Cheerio} article
- * @returns {void}
- */
-function dropUiElements(article) {
+function dropUiElements(article: Cheerio<AnyNode>) {
     article.find('.last-modified').remove();
     article.find('.navigation-links').remove();
     article.find('[class*="inline-icon-"]').remove();
@@ -90,25 +43,14 @@ function dropUiElements(article) {
 
 const TITLE_SELECTOR = '[id]:is(h1, h2, h3, h4)';
 
-/**
- * @typedef {object} Chapter
- * @template {Node} TNode
- *
- * @property {TNode} titleNode
- * @template {string|string[]} TTitle
- *
- * @property {TTitle} title
- * @property {string|null} content
- */
+type Chapter = {
+    titleNode: Element,
+    title: string[],
+    content: string | null,
+}
 
-/**
- * @param {import('cheerio').CheerioAPI} $
- * @template {Node} TNode
- * @param {TNode} titleNode
- * @returns {Node}
- */
-function pairTitleContent($, titleNode) {
-    let contentNode;
+function pairTitleContent($: CheerioAPI, titleNode: Element): Node {
+    let contentNode: Element | null = null;
 
     /* check title inside collapse */
     const chapterNode = titleNode.parentNode;
@@ -118,32 +60,22 @@ function pairTitleContent($, titleNode) {
     return contentNode || titleNode.nextSibling;
 }
 
-/**
- * @param {import('cheerio').CheerioAPI} $
- * @param {import('cheerio').Cheerio} article
- * @returns {Promise<Chapter<Element, string>>}
- */
-async function getIntroduction($, article) {
+async function getIntroduction($: CheerioAPI, article: Cheerio<AnyNode>): Promise<Chapter> {
     const titleNode = article.find(`> ${TITLE_SELECTOR}`)[0];
     const contentNode = pairTitleContent($, titleNode);
 
     return {
         titleNode,
-        title: $(titleNode).text(),
+        title: [$(titleNode).text()],
         content: await htmlToText($, [contentNode], (node, level) =>
-            level === 0 && $(node).is('section.chapter'))
+            level === 0 && node instanceof Element && $(node).is('section.chapter'))
     };
 }
 
-/**
- * @param {import('cheerio').CheerioAPI} $
- * @param {import('cheerio').Cheerio} article
- * @returns {Promise<Chapter<Element, string>[]>}
- */
-async function getChapters($, article) {
+async function getChapters($: CheerioAPI, article: Cheerio<AnyNode>): Promise<Chapter[]> {
     const chapters = article.find('> .chapter');
 
-    return Promise.all([...chapters].map(async function toChapter(chapter) {
+    return Promise.all(chapters.toArray().map(async function toChapter(chapter): Promise<Chapter> {
         const title = $(chapter).find([
             `> ${TITLE_SELECTOR}`,
             `> .collapse > .collapse__title > ${TITLE_SELECTOR}`
@@ -151,42 +83,27 @@ async function getChapters($, article) {
 
         return {
             titleNode: title[0],
-            title: title.text(),
+            title: [title.text()],
             content: null
         };
     }));
 }
 
-/**
- * @param {string[]} headings
- * @returns {string|void}
- */
-function myMainTitle(headings) {
+function myMainTitle(headings: string[]): string | void {
     return headings.find((title, i, list) => i !== list.length - 1 && (
         title.endsWith('– tutorial') ||
         /advent of code 20\d{2}/i.test(title)
     ));
 }
 
-/**
- * @param {import('cheerio').CheerioAPI}$
- * @param {import('cheerio').Cheerio} article
- * @returns {Promise<[intro: Chapter<Element, string>, chapters: Chapter<Element, string>[]]>}
- */
-async function extractChapters($, article) {
+async function extractChapters($: CheerioAPI, article: Cheerio<AnyNode>): Promise<[intro: Chapter, chapters: Chapter[]]> {
     return await Promise.all([
         getIntroduction($, article),
         getChapters($, article)
     ]);
 }
 
-/**
- * @param {import('cheerio').default} $
- * @param {string} url
- * @param {Object.<key, *>} data
- */
-async function docs($, url, data) {
-    /** @type {import('cheerio').Cheerio} */
+async function docs($: CheerioAPI, url: string) {
     const $body = $('body[data-template]');
     const isArtile = $body.attr('data-template') === 'article';
 
@@ -195,7 +112,6 @@ async function docs($, url, data) {
         return [];
     }
 
-    /** @type {import('cheerio').Cheerio} */
     const $article = $('article.article');
     const pageUrl = new URL($('meta[property="og:url"]').attr('content'));
 
@@ -209,9 +125,7 @@ async function docs($, url, data) {
 
     const chapters = await Promise.all(
         chaptersTopLevel.map(
-            /** @returns {Promise<Chapter<Element>[]>} */
             async function toChapter({ title, titleNode }) {
-                /** @type {import('cheerio').Cheerio} */
                 const $chapterNode = $(titleNode.parentNode);
                 const [chapterIntro, chaptersSubLevel] = await extractChapters($, $chapterNode);
 
@@ -221,19 +135,18 @@ async function docs($, url, data) {
                             const subContentNode = pairTitleContent($, subTitleNode);
                             return {
                                 titleNode: subTitleNode,
-                                title: title ? [title, subTitle] : subTitle,
+                                title: [...title, ...subTitle],
                                 content: await htmlToText($, [subContentNode])
                             };
                         }
                     )
                 );
 
-                return [chapterIntro].concat(...subChapters);
+                return [chapterIntro, ...subChapters];
             }
         )
     );
 
-    /** @type {Chapter<Element>[]} */
     const subArticles = [pageIntro].concat(...chapters);
 
     return Promise.all(subArticles.map(async function toRecord({ title, titleNode, content }) {
@@ -241,7 +154,7 @@ async function docs($, url, data) {
         const id = $titleNode.attr('id');
         const finalUrl = `/${url}#${id}`;
 
-        const pageTitles = [pageIntro.title].concat(title);
+        const pageTitles: string[] = [...pageIntro.title, ...title];
         const headings = [...breadcrumbs, ...pageTitles];
 
         let mainTitle = myMainTitle(headings);
@@ -250,7 +163,7 @@ async function docs($, url, data) {
         if (!mainTitle) {
             // random length, formally depends from UI
             if (pageTitles.join(' ').length < 65) {
-                mainTitle = pageIntro.title;
+                mainTitle = pageIntro.title[0];
                 pageTitle = [].concat(title).join(': ');
             } else {
                 mainTitle = pageTitles.pop();
@@ -261,21 +174,22 @@ async function docs($, url, data) {
             }
         }
 
-        return ({
+        const result: SearchRecord = {
             ...DEFAULT_RECORD,
-            ...data,
 
             objectID: finalUrl,
-            pageType: 'docs',
             url: new URL(finalUrl, pageUrl).toString(),
             parent: '/' + url,
 
             headings: headings.reverse().join(' | '),
             mainTitle,
             pageTitle,
+
             content
-        });
+        };
+
+        return result;
     }));
 }
 
-export const Page_Documentation = docs;
+export const Page_Documentation: GetRecords = docs;

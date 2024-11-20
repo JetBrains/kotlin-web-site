@@ -3,7 +3,7 @@ const {
     TEST_MODULE_DIR,
     TARGET_REFLECT_MODULE_DIR,
     TARGET_STDLIB_MODULE_DIR,
-    TARGET_TEST_MODULE_DIR,
+    TARGET_TEST_MODULE_DIR
 } = require('./utils');
 
 class LinksProcessor {
@@ -61,6 +61,7 @@ class LinksProcessor {
             .replaceAtStart(TEST_MODULE_DIR + '/', TARGET_TEST_MODULE_DIR + '/')
             .replaceAtStart(STDLIB_MODULE_DIR + '/', TARGET_STDLIB_MODULE_DIR + '/');
     }
+
     /**
      * There is a folder that has lost its prefix
      */

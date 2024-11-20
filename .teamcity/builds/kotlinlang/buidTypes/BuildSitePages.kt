@@ -1,7 +1,7 @@
 package builds.kotlinlang.buidTypes
 
 import builds.kotlinlang.templates.DockerImageBuilder
-import jetbrains.buildServer.configs.kotlin.AbsoluteId
+import builds.scriptDistAnalyze
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
@@ -76,22 +76,19 @@ object BuildSitePages : BuildType({
             """.trimIndent()
         }
         script {
-            name = "Build Sitemap"
-
-            conditions {
-                equals("teamcity.build.branch.is_default", "true")
-            }
-
+            name = "Add old package-list files"
+            //language=bash
             scriptContent = """
-                #!/bin/bash
-                pip install -r requirements.txt
-                python kotlin-website.py sitemap
-            """.trimIndent()
-
-            dockerImage = "%dep.Kotlin_KotlinSites_Builds_KotlinlangOrg_BuildPythonContainer.kotlin-website-image%"
-            dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
-            dockerPull = true
+              #!/bin/sh
+              mkdir -p "dist/api/latest/jvm/stdlib"
+              mv assets/stdlib-package-list dist/api/latest/jvm/stdlib/package-list
+              
+              mkdir -p "dist/api/latest/kotlin.test"
+              mv assets/kotlin.test-package-list dist/api/latest/kotlin.test/package-list
+          """.trimIndent()
+            dockerImage = "alpine"
         }
+        scriptDistAnalyze {}
         script {
             name = "Update build status"
             scriptContent = """
@@ -142,17 +139,6 @@ object BuildSitePages : BuildType({
             artifacts {
                 artifactRules = "+:docs.zip!** => _webhelp/reference/"
             }
-        }
-
-        artifacts(AbsoluteId("Kotlin_KotlinRelease_2020_LibraryReferenceLegacyDocs")) {
-            buildRule = tag("publish", """
-                +:<default>
-                +:*
-            """.trimIndent())
-            artifactRules = """
-                kotlin.test.zip!** => api/latest/kotlin.test
-                kotlin-stdlib.zip!** => api/latest/jvm/stdlib
-            """.trimIndent()
         }
     }
 })

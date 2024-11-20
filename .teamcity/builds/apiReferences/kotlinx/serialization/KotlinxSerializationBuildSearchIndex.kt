@@ -1,20 +1,25 @@
 package builds.apiReferences.kotlinx.serialization
 
-import builds.apiReferences.dependsOnDokkaPagesJson
-import builds.apiReferences.templates.BuildApiReferenceSearchIndex
-import jetbrains.buildServer.configs.kotlin.BuildType
+import BuildParams.KOTLINX_SERIALIZATION_ID
+import builds.TemplateSearchIndex
 
-object KotlinxSerializationBuildSearchIndex: BuildType({
-  name = "Build search index for kotlinx.serialization"
+object KotlinxSerializationBuildSearchIndex : TemplateSearchIndex({
+    name = "$KOTLINX_SERIALIZATION_ID search"
+    description = "Build search index for Kotlinx Serialization"
 
-  templates(BuildApiReferenceSearchIndex)
+    params {
+        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_SERIALIZATION_ID")
+    }
 
-  params {
-    param("env.ALGOLIA_INDEX_NAME", "kotlinx.serialization")
-    param("env.API_REFERENCE_URL", "/api/kotlinx.serialization")
-  }
-
-  dependencies {
-    dependsOnDokkaPagesJson(KotlinxSerializationBuildApiReference)
-  }
+    dependencies {
+        dependency(KotlinxSerializationBuildApiReference) {
+            snapshot {}
+            artifacts {
+                artifactRules = """
+                    pages.zip!** => dist/api/$KOTLINX_SERIALIZATION_ID/
+                """.trimIndent()
+                cleanDestination = true
+            }
+        }
+    }
 })
