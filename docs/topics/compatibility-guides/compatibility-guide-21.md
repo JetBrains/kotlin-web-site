@@ -41,20 +41,6 @@ perspective
 > - 2.2.0: raise the warning to an error
 -->
 
-### Change data class copy() function visibility to match private constructor
-
-> **Issue**: [KT-11914](https://youtrack.jetbrains.com/issue/KT-11914)
->
-> **Component**: Core language
->
-> **Incompatible change type**: source
->
-> **Deprecation cycle**:
->
-> - 2.0.20: report a warning for visibility mismatches; apply `@ConsistentCopyVisibility` or use the `-Xconsistent-data-class-copy-visibility` flag to adopt the new behavior early, or use the `@ExposedCopyVisibility` annotation to retain the old behavior
-> - 2.2.0: raise the warning to an error for incompatible `copy()` usages
-> - 2.3.0: the `copy()` function defaults to the visibility of the primary constructor
-
 ### Deprecate appendln in favor of appendLine
 
 > **Issue**: [KTLC-27](https://youtrack.jetbrains.com/issue/KTLC-27)
@@ -162,7 +148,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 2.1.0: change the behavior in K2; K1 remains unaffected
+> - 2.1.0: enable the new behavior
 
 ### Correct the handling of member-extension property overrides in Java subclasses
 
@@ -177,7 +163,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 2.1.0: enable the new behavior in K2; K1 remains unaffected
+> - 2.1.0: enable the new behavior
 
 ### Correct visibility alignment for getters and setters of var properties overriding a protected val
 
@@ -274,7 +260,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 2.1.0: activate the new behavior in K2
+> - 2.1.0: activate the new behavior
 
 ### Report nullability errors for error-level nullable arguments of warning-level Java types
 
