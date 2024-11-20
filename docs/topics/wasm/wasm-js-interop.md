@@ -461,7 +461,7 @@ library that provides JavaScript browser APIs:
   * WebGL types
 * Packages `org.w3c.dom.*`:
   * DOM API types
-* Packages `kotlinx.browser`:
+* Package `kotlinx.browser`:
   * DOM API global objects, like `window` and `document`
 
 To use the declarations from the `kotlinx-browser` library, add it as a dependency in your
