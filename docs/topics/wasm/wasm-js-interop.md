@@ -296,17 +296,33 @@ You can use nullable versions of these types as well.
 
 JavaScript values are represented in Kotlin using the `JsAny` type and its subtypes.
 
-The standard library provides representation for some of these types:
+The Kotlin/Wasm standard library provides representation for some of these types:
 * Package `kotlin.js`:
     * `JsAny`
     * `JsBoolean`, `JsNumber`, `JsString`
     * `JsArray`
     * `Promise`
+
+The [`kotlinx-browser` library](https://github.com/kotlin/kotlinx-browser), a stand-alone
+library including web-related APIs, also provides
+representation for some of the `JsAny` type and its subtypes:
 * Package `org.khronos.webgl`:
     * Typed arrays, like `Int8Array`
     * WebGL types
 * Packages `org.w3c.dom.*`:
     * DOM API types
+* Packages `kotlin.browser`
+
+To use the declarations from the `kotlinx-browser` library, add the `kotlinx-browser` dependency in your 
+project's build configuration file:
+
+```kotlin
+val wasmJsMain by getting {
+    dependencies {
+        implementation("org.jetbrains.kotlinx:kotlinx-browser:0.2")
+    }
+}
+```
 
 You can also create custom `JsAny` subtypes by declaring an `external` interface or class.
 
