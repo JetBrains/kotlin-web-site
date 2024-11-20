@@ -23,6 +23,8 @@ Pay special attention to the following restrictions concerning the use of the lo
 * Do not change the text.
 * Do not set the logo against a complex background. Do not place the logo in front of a bright background.
 
+[Read the Kotlin brand usage guidelines](https://kotlinfoundation.org/guidelines/).
+
 ## Kotlin mascot
 
 Kodee is Kotlin's reimagined mascot. More than just a symbol, Kodee is your friendly companion who’s there to encourage 
