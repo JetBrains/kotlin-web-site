@@ -49,6 +49,7 @@ object BuildStdlibApiReference : BuildType({
         scriptDistAnalyze {
             //language=bash
             scriptContent += """
+                \n
                 cd ../../dist
                 mv sitemap.xml api/core/sitemap.xml
             """.trimIndent()
