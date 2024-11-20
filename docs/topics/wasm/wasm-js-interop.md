@@ -320,7 +320,7 @@ project's build configuration file:
 ```kotlin
 val wasmJsMain by getting {
     dependencies {
-        implementation("org.jetbrains.kotlinx:kotlinx-browser:0.2")
+        implementation("org.jetbrains.kotlinx:kotlinx-browser:0.3")
     }
 }
 ```
