@@ -18,14 +18,7 @@ object PrepareDokkaTemplate: Template({
   }
 
   vcs {
-    root(vcsRoots.KotlinLangOrg, """
-      .babelrc
-      package.json
-      yarn.lock
-      dokka-templates/
-      scripts/dokka/
-      scripts/react-renderer/
-    """.trimIndent())
+    root(vcsRoots.KotlinLangOrg)
   }
 
   steps {
