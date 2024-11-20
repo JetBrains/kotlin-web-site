@@ -311,9 +311,10 @@ representation for some of the `JsAny` type and its subtypes:
     * WebGL types
 * Packages `org.w3c.dom.*`:
     * DOM API types
-* Packages `kotlin.browser`
+* Packages `kotlinx.browser`
+    * DOM API global objects, like `window` and `document`
 
-To use the declarations from the `kotlinx-browser` library, add the `kotlinx-browser` dependency in your 
+To use the declarations from the `kotlinx-browser` library, add it as a dependency in your 
 project's build configuration file:
 
 ```kotlin
