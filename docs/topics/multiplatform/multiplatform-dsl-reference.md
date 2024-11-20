@@ -47,7 +47,7 @@ Inside `kotlin {}`, you can write the following blocks:
 
 A _target_ is a part of the build responsible for compiling, testing, and packaging a piece of software aimed at
 one of the supported platforms. Kotlin provides targets for each platform, so you can instruct Kotlin to compile code for
-that specific target. To learn more about how to configure these targets. See how to [set up a target](multiplatform-discover-project.md#targets).
+that specific target. Learn more about [setting up targets](multiplatform-discover-project.md#targets).
 
 Each target can have one or more [compilations](#compilations). In addition to default compilations for
 test and production purposes, you can [create custom compilations](multiplatform-configure-compilations.md#create-a-custom-compilation).
