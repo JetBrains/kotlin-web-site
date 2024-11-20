@@ -19,9 +19,9 @@ When you use the Kotlin Gradle plugin in your project, the Gradle DSL allows com
 The Gradle DSL is available for [Kotlin Multiplatform](multiplatform-dsl-reference.md) and [JVM/Android](#target-the-jvm) projects.
 
 With the Gradle DSL, you can configure compiler options within the build script at three levels: 
-* **Extension level in top-level blocks:** for all the targets and shared source sets.
-* **Target level in target-level blocks:** for a specific target.
-* **Compilation unit level:** usually a specific compilation task.
+* **Extension level,** as a top-level block. These compiler options are common for all targets and shared source sets.
+* **Target level**, in the target block. These compiler options are for a specific target.
+* **Compilation unit level,** usually as a specific compilation task.
 
 ![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
 
@@ -48,7 +48,7 @@ search for the `"Arguments ="` string.
 
 ### Extension level
 
-You can configure compiler options for all the targets and shared source sets
+You can configure common compiler options for all the targets and shared source sets
 in the `compilerOptions {}` block at the top level:
 
 ```kotlin
