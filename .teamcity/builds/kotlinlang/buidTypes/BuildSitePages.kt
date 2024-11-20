@@ -75,6 +75,19 @@ object BuildSitePages : BuildType({
                 cp -fR out/_next dist/_next/
             """.trimIndent()
         }
+        script {
+            name = "Add old package-list files"
+            //language=bash
+            scriptContent = """
+              #!/bin/sh
+              mkdir -p "dist/api/latest/jvm/stdlib"
+              mv assets/stdlib-package-list dist/api/latest/jvm/stdlib/package-list
+              
+              mkdir -p "dist/api/latest/kotlin.test"
+              mv assets/kotlin.test-package-list dist/api/latest/kotlin.test/package-list
+          """.trimIndent()
+            dockerImage = "alpine"
+        }
         scriptDistAnalyze {}
         script {
             name = "Update build status"
