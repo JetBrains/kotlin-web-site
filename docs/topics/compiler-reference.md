@@ -56,7 +56,7 @@ Turn any warnings into a compilation error.
 
 ### -Wextra
 
-Enable [additional declaration, expression, and type compiler checks](whatsnew-eap.md#extra-compiler-checks) that
+Enable [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that
 emit warnings if true.
 
 ### -verbose
