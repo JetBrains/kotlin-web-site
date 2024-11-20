@@ -43,7 +43,7 @@ In this example:
 
 * The `StringBuilder` class is the receiver type.
 * The function type of the lambda expression has no function parameters `()` and has no return value `Unit`.
-* The lambda expression calls the `append()` member function from the `StringBuilder` class and uses the string "Hello!" as the function parameter.
+* The lambda expression calls the `append()` member function from the `StringBuilder` class and uses the string `"Hello!"` as the function parameter.
 * An instance of the `StringBuilder` class is created.
 * The lambda expression assigned to `appendText` is called on the `stringBuilder` instance.
 * The `stringBuilder` instance is converted to string with the `.toString()` function and printed via the `println()` function.
@@ -287,4 +287,4 @@ fun main() {
 
 ## Next step
 
-<!-- [Intermediate classes](kotlin-tour-intermediate-classes.md) -->
+[Classes and interfaces](kotlin-tour-intermediate-classes-part-1.md)
