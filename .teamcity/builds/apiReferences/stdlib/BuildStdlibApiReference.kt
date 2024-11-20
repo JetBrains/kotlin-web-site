@@ -3,8 +3,17 @@ package builds.apiReferences.stdlib
 import BuildParams.KOTLIN_CORE_API_BUILD_ID
 import builds.scriptDistAnalyze
 import jetbrains.buildServer.configs.kotlin.AbsoluteId
+import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+
+fun BuildSteps.sitemapGenerate(lib: String) = scriptDistAnalyze {
+    //language=bash
+    scriptContent += "\n" + """
+        cd ../../dist
+        mv sitemap.xml api/$lib/sitemap.xml
+    """.trimIndent()
+}
 
 object BuildStdlibApiReference : BuildType({
     name = "Core API pages"
@@ -45,13 +54,7 @@ object BuildStdlibApiReference : BuildType({
             """.trimIndent()
             dockerImage = "alpine"
         }
-        scriptDistAnalyze {
-            //language=bash
-            scriptContent += "\n" + """
-                cd ../../dist
-                mv sitemap.xml api/core/sitemap.xml
-            """.trimIndent()
-        }
+        sitemapGenerate("core")
     }
 
     dependencies {

@@ -3,6 +3,7 @@ package builds.apiReferences.kotlinx.coroutines
 import BuildParams.KOTLINX_COROUTINES_ID
 import BuildParams.KOTLINX_COROUTINES_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
+import builds.apiReferences.stdlib.sitemapGenerate
 import builds.apiReferences.templates.BuildApiReference
 import jetbrains.buildServer.configs.kotlin.BuildType
 
@@ -22,5 +23,9 @@ object KotlinxCoroutinesBuildApiReference : BuildType({
 
     dependencies {
         dependsOnDokkaTemplate(KotlinxCoroutinesPrepareDokkaTemplates)
+    }
+
+    steps {
+        sitemapGenerate(KOTLINX_COROUTINES_ID)
     }
 })

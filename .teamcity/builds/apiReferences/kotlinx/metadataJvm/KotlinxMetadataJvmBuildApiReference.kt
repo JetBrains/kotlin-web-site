@@ -1,8 +1,10 @@
 package builds.apiReferences.kotlinx.metadataJvm
 
+import BuildParams.KOTLINX_IO_ID
 import BuildParams.KOTLINX_METADATA_ID
 import BuildParams.KOTLIN_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
+import builds.apiReferences.stdlib.sitemapGenerate
 import builds.apiReferences.templates.*
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
@@ -48,6 +50,7 @@ object KotlinxMetadataJvmBuildApiReference : BuildType({
                 ./gradlew :kotlin-metadata-jvm:dokkaHtml -PdeployVersion=${KOTLIN_RELEASE_TAG.removePrefix("v")} --no-daemon --no-configuration-cache
             """.trimIndent()
         }
+        sitemapGenerate(KOTLINX_METADATA_ID)
     }
 
     dependencies {
