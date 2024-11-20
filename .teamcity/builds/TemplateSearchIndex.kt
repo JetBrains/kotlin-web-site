@@ -7,7 +7,7 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import vcsRoots.KotlinLangOrg
 
-private const val SCRIPT_PATH = "scripts/doindex";
+const val SCRIPT_PATH = "scripts/doindex";
 
 fun BuildSteps.scriptDistAnalyze(block: ScriptBuildStep.() -> Unit) = step(
     ScriptBuildStep {
