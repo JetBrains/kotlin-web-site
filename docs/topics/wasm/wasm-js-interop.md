@@ -304,7 +304,7 @@ The Kotlin/Wasm standard library provides representation for some of these types
     * `Promise`
 
 The [`kotlinx-browser` library](https://github.com/kotlin/kotlinx-browser), a stand-alone
-library including web-related APIs, also provides
+library that provides JavaScript browser APIs, also offers
 representation for some of the `JsAny` type and its subtypes:
 * Package `org.khronos.webgl`:
     * Typed arrays, like `Int8Array`
