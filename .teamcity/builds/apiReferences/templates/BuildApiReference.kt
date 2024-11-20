@@ -71,6 +71,14 @@ object BuildApiReference : Template({
 
     artifactRules = "build/dokka/htmlMultiModule/** => pages.zip"
 
+    vcs {
+        root(
+            vcsRoots.KotlinLangOrg, """
+                scripts/doindex/
+            """.trimIndent()
+        )
+    }
+
     params {
         param("DOKKA_TEMPLATES_VERSION", DOKKA_TEMPLATES_VERSION)
     }

@@ -39,7 +39,7 @@ object ApiReferencesTemplateTest: BuildType({
 
   requirements {
     exists("docker.server.version")
-    contains("docker.server.osType", "linux")
+    doesNotContain("docker.server.osType", "windows")
   }
 
   features {
