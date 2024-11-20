@@ -5,7 +5,9 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object PrepareDokkaTemplate: Template({
   name = "Build Custom HTML Template"
-  artifactRules = "dokka-templates/** => dokka-templates"
+  artifactRules = """
+      dokka-templates/** => dokka-templates
+  """.trimIndent()
 
   requirements {
     doesNotContain("teamcity.agent.name", "windows")
@@ -21,6 +23,7 @@ object PrepareDokkaTemplate: Template({
       yarn.lock
       dokka-templates/
       scripts/dokka/
+      scripts/react-renderer/
     """.trimIndent())
   }
 
