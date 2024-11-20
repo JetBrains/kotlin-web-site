@@ -223,9 +223,9 @@ external class User : JsAny {
 
 ### Array interoperability
 
-You can directly transform JavaScript's `JsArray<T>` into Kotlin's native `Array` or `List` types and vice versa.
+You can copy JavaScript's `JsArray<T>` into Kotlin's native `Array` or `List` types and vice versa.
 
-To automatically convert `JsArray<T>` to `Array<T>` or the other way around, use one of the available [adapter functions](https://github.com/Kotlin/kotlinx-browser/blob/dfbdceed314567983c98f1d66e8c2e10d99c5a55/src/wasmJsMain/kotlin/arrayCopy.kt).
+To convert `JsArray<T>` to `Array<T>` or the other way around, use one of the available [adapter functions](https://github.com/Kotlin/kotlinx-browser/blob/dfbdceed314567983c98f1d66e8c2e10d99c5a55/src/wasmJsMain/kotlin/arrayCopy.kt).
 
 Here's an example of conversion between generic types: Kotlin `List<T> `and `Array<T>` to JavaScript `JsArray<T>.`
 
