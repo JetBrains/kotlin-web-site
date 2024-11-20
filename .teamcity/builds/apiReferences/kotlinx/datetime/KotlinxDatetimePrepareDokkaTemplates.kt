@@ -11,6 +11,6 @@ object KotlinxDatetimePrepareDokkaTemplates : BuildType({
     templates(PrepareDokkaTemplate)
 
     params {
-        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_DATETIME_ID-stage")
+        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_DATETIME_ID")
     }
 })

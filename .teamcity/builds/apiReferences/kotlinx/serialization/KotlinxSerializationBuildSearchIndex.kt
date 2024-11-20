@@ -8,7 +8,7 @@ object KotlinxSerializationBuildSearchIndex : TemplateSearchIndex({
     description = "Build search index for Kotlinx Serialization"
 
     params {
-        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_SERIALIZATION_ID-stage")
+        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_SERIALIZATION_ID")
     }
 
     dependencies {

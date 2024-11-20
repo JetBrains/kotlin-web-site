@@ -11,6 +11,6 @@ object KotlinxIOPrepareDokkaTemplates : BuildType({
     templates(PrepareDokkaTemplate)
 
     params {
-        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_IO_ID-stage")
+        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_IO_ID")
     }
 })

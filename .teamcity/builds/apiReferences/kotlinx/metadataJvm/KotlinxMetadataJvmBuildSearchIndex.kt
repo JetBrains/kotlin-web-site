@@ -8,7 +8,7 @@ object KotlinxMetadataJvmBuildSearchIndex : TemplateSearchIndex({
     description = "Build search index for Kotlinx Metadata JVM"
 
     params {
-        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_METADATA_ID-stage")
+        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_METADATA_ID")
     }
 
     dependencies {

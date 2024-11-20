@@ -11,6 +11,6 @@ object KotlinxCoroutinesPrepareDokkaTemplates : BuildType({
     templates(PrepareDokkaTemplate)
 
     params {
-        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_COROUTINES_ID-stage")
+        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_COROUTINES_ID")
     }
 })
