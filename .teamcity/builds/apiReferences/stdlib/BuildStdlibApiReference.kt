@@ -7,12 +7,22 @@ import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
-fun BuildSteps.sitemapGenerate(lib: String) = scriptDistAnalyze {
-    //language=bash
-    scriptContent += "\n" + """
+fun BuildSteps.sitemapGenerate(lib: String, resultPath: String = "build/dokka/htmlMultiModule") = {
+    if (lib != "core") script {
+        //language=bash
+        scriptContent = """
+            mkdir -p "dist/api"
+            cp -r "$resultPath" "dist/api/$lib"
+        """.trimIndent()
+        dockerImage = "alpine"
+    }
+    scriptDistAnalyze {
+        //language=bash
+        scriptContent += "\n" + """
         cd ../../dist
         mv sitemap.xml api/$lib/sitemap.xml
     """.trimIndent()
+    }
 }
 
 object BuildStdlibApiReference : BuildType({

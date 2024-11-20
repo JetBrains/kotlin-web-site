@@ -68,6 +68,7 @@ fun Triggers.vcsDefaultTrigger(block: Trigger.() -> Unit) = trigger(
 
 object BuildApiReference : Template({
     name = "Dokka Reference Template"
+    description = "Process pages for Core API"
 
     artifactRules = "build/dokka/htmlMultiModule/** => pages.zip"
 

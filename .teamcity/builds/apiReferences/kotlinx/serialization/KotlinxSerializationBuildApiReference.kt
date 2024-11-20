@@ -1,6 +1,5 @@
 package builds.apiReferences.kotlinx.serialization
 
-import BuildParams.KOTLINX_METADATA_ID
 import BuildParams.KOTLINX_SERIALIZATION_ID
 import BuildParams.KOTLINX_SERIALIZATION_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate

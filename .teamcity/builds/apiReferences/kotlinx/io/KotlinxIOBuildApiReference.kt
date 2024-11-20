@@ -1,6 +1,5 @@
 package builds.apiReferences.kotlinx.io
 
-import BuildParams.KOTLINX_DATETIME_ID
 import BuildParams.KOTLINX_IO_ID
 import BuildParams.KOTLINX_IO_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
@@ -17,8 +16,6 @@ object KotlinxIOBuildApiReference : BuildType({
     description = "Build pages for Kotlinx IO"
 
     templates(BuildApiReference)
-
-    artifactRules = "build/dokka/htmlMultiModule/** => pages.zip"
 
     params {
         param("release.tag", KOTLINX_IO_RELEASE_TAG.removePrefix("v"))
