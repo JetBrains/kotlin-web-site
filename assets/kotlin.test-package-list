@@ -1,0 +1,10 @@
+$dokka.format:kotlin-website-html
+$dokka.linkExtension:html
+$dokka.location:kotlin.test.AfterTestkotlin.test/-after-test/index.html
+$dokka.location:kotlin.test.BeforeTestkotlin.test/-before-test/index.html
+$dokka.location:kotlin.test.Ignorekotlin.test/-ignore/index.html
+$dokka.location:kotlin.test.Testkotlin.test/-test/index.html
+kotlin.test
+kotlin.test.junit
+kotlin.test.junit5
+kotlin.test.testng
