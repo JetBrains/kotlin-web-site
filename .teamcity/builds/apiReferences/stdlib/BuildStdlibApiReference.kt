@@ -46,7 +46,6 @@ object BuildStdlibApiReference : BuildType({
             dockerImage = "alpine"
         }
         scriptDistAnalyze {
-            enabled = false
             scriptContent += "\nmv sitemap.xml api/core/sitemap.xml"
         }
     }
