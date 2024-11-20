@@ -400,7 +400,7 @@ For more information about scope functions, see [Scope functions](scope-function
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="scope-functions-exercise-1"}
 
-Rewrite the `getPriceInEuros()` function as a single-expression function that uses Elvis operators `?.` and the `let` scope function.
+Rewrite the `.getPriceInEuros()` function as a single-expression function that uses Elvis operators `?.` and the `let` scope function.
 
 |---|---|
 ```kotlin
