@@ -3,6 +3,7 @@ package builds.apiReferences.kotlinx.io
 import BuildParams.KOTLINX_IO_ID
 import BuildParams.KOTLINX_IO_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
+import builds.apiReferences.stdlib.copyDokkaFiles
 import builds.apiReferences.stdlib.sitemapGenerate
 import builds.apiReferences.templates.BuildApiReference
 import builds.apiReferences.templates.buildDokkaHTML
@@ -47,6 +48,7 @@ object KotlinxIOBuildApiReference : BuildType({
                 ./gradlew dokkaHtmlMultiModule --no-daemon --no-configuration-cache
             """.trimIndent()
         }
+        copyDokkaFiles(KOTLINX_IO_ID)
         sitemapGenerate(KOTLINX_IO_ID)
     }
 })

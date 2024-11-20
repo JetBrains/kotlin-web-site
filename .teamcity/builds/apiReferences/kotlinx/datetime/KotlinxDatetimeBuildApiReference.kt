@@ -3,6 +3,7 @@ package builds.apiReferences.kotlinx.datetime
 import BuildParams.KOTLINX_DATETIME_ID
 import BuildParams.KOTLINX_DATETIME_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
+import builds.apiReferences.stdlib.copyDokkaFiles
 import builds.apiReferences.stdlib.sitemapGenerate
 import builds.apiReferences.templates.BuildApiReference
 import builds.apiReferences.templates.buildDokkaHTML
@@ -42,6 +43,7 @@ object KotlinxDatetimeBuildApiReference : BuildType({
         buildDokkaHTML {
             tasks = ":kotlinx-datetime:dokkaHtml"
         }
-        sitemapGenerate(KOTLINX_DATETIME_ID, HTML_RESULT)
+        copyDokkaFiles(KOTLINX_DATETIME_ID, HTML_RESULT)
+        sitemapGenerate(KOTLINX_DATETIME_ID)
     }
 })
