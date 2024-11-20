@@ -47,8 +47,9 @@ object BuildStdlibApiReference : BuildType({
             dockerImage = "alpine"
         }
         scriptDistAnalyze {
+            //language=bash
             scriptContent += """
-                cd ../..
+                cd ../../dist
                 mv sitemap.xml api/core/sitemap.xml
             """.trimIndent()
         }
