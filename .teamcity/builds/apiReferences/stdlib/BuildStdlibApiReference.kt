@@ -1,7 +1,6 @@
 package builds.apiReferences.stdlib
 
 import BuildParams.KOTLIN_CORE_API_BUILD_ID
-import builds.SCRIPT_PATH
 import builds.scriptDistAnalyze
 import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.BuildType
@@ -48,8 +47,7 @@ object BuildStdlibApiReference : BuildType({
         }
         scriptDistAnalyze {
             //language=bash
-            scriptContent += """
-                \n
+            scriptContent += "\n" + """
                 cd ../../dist
                 mv sitemap.xml api/core/sitemap.xml
             """.trimIndent()
