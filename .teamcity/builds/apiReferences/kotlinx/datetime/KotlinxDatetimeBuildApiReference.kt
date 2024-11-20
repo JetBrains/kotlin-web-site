@@ -2,37 +2,19 @@ package builds.apiReferences.kotlinx.datetime
 
 import BuildParams.KOTLINX_DATETIME_ID
 import BuildParams.KOTLINX_DATETIME_RELEASE_TAG
+import builds.apiReferences.BuildApiPages
 import builds.apiReferences.dependsOnDokkaTemplate
-import builds.apiReferences.stdlib.copyDokkaFiles
-import builds.apiReferences.stdlib.sitemapGenerate
-import builds.apiReferences.templates.BuildApiReference
-import builds.apiReferences.templates.buildDokkaHTML
-import builds.apiReferences.templates.scriptDropSnapshot
-import jetbrains.buildServer.configs.kotlin.BuildType
+import builds.apiReferences.scriptBuildHtml
+import builds.apiReferences.scriptDropSnapshot
+import builds.apiReferences.vcsRoots.KotlinxDatetime
 
-private const val HTML_RESULT = "core/build/dokka/html"
+private const val DOKKA_HTML_RESULT = "core/build/dokka/html"
 
-object KotlinxDatetimeBuildApiReference : BuildType({
-    name = "$KOTLINX_DATETIME_ID pages"
-    description = "Build pages for Kotlinx Datetime"
-
-    templates(BuildApiReference)
-
-    artifactRules = "$HTML_RESULT/** => pages.zip"
-
-    params {
-        param("release.tag", KOTLINX_DATETIME_RELEASE_TAG)
-    }
-
-    vcs {
-        root(builds.apiReferences.vcsRoots.KotlinxDatetime)
-    }
-
-    dependencies {
-        dependsOnDokkaTemplate(KotlinxDatetimePrepareDokkaTemplates, "core/dokka-templates")
-    }
-
-    steps {
+object KotlinxDatetimeBuildApiReference : BuildApiPages(
+    apiId = KOTLINX_DATETIME_ID,
+    releaseTag = KOTLINX_DATETIME_RELEASE_TAG,
+    pagesRoot = DOKKA_HTML_RESULT,
+    stepDropSnapshot = {
         scriptDropSnapshot {
             // language=bash
             scriptContent = """
@@ -40,10 +22,15 @@ object KotlinxDatetimeBuildApiReference : BuildType({
                 sed -i -E "s/versionSuffix=SNAPSHOT//gi" ./gradle.properties
             """.trimIndent()
         }
-        buildDokkaHTML {
-            tasks = ":kotlinx-datetime:dokkaHtml"
+    },
+    stepBuildHtml = {
+        scriptBuildHtml { tasks = ":kotlinx-datetime:dokkaHtml" }
+    },
+    init = {
+        vcs {
+            root(KotlinxDatetime)
         }
-        copyDokkaFiles(KOTLINX_DATETIME_ID, HTML_RESULT)
-        sitemapGenerate(KOTLINX_DATETIME_ID)
-    }
-})
+        dependencies {
+            dependsOnDokkaTemplate(KotlinxDatetimePrepareDokkaTemplates, "core/dokka-templates")
+        }
+    })
