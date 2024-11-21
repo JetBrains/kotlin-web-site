@@ -4,6 +4,7 @@ import BuildParams.SEARCH_APP_ID
 import builds.kotlinlang.buidTypes.PageViews
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
+import jetbrains.buildServer.configs.kotlin.triggers.schedule
 import vcsRoots.KotlinLangOrg
 
 const val SCRIPT_PATH = "scripts/doindex";
@@ -48,6 +49,16 @@ abstract class TemplateSearchIndex(init: BuildType.() -> Unit) : BuildType({
         )
         cleanCheckout = true
         showDependenciesChanges = true
+    }
+
+    triggers {
+        schedule {
+            schedulingPolicy = cron {
+                hours = "4"
+                dayOfMonth = "*/2"
+            }
+            branchFilter = "+:<default>"
+        }
     }
 
     steps {
