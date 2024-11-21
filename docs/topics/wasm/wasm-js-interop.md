@@ -454,15 +454,15 @@ Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interop
 
 ## Web-related browser APIs
 
-The [`kotlinx-browser` library](https://github.com/kotlin/kotlinx-browser) is a stand-alone
-library that provides JavaScript browser APIs:
+The [`kotlinx-browser` library](https://github.com/kotlin/kotlinx-browser) is a standalone
+library that provides JavaScript browser APIs, including:
 * Package `org.khronos.webgl`:
-  * Typed arrays, like `Int8Array`
-  * WebGL types
+  * Typed arrays, like `Int8Array`.
+  * WebGL types.
 * Packages `org.w3c.dom.*`:
-  * DOM API types
+  * DOM API types.
 * Package `kotlinx.browser`:
-  * DOM API global objects, like `window` and `document`
+  * DOM API global objects, like `window` and `document`.
 
 To use the declarations from the `kotlinx-browser` library, add it as a dependency in your
 project's build configuration file:
