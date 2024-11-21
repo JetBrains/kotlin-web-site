@@ -1,14 +1,16 @@
 package builds.apiReferences.kotlinx.serialization
 
+import BuildParams.KOTLINX_SERIALIZATION_ID
 import builds.apiReferences.templates.PrepareDokkaTemplate
 import jetbrains.buildServer.configs.kotlin.BuildType
 
-object KotlinxSerializationPrepareDokkaTemplates: BuildType({
-  name = "Prepare dokka templates for kotlinx.serialization"
+object KotlinxSerializationPrepareDokkaTemplates : BuildType({
+    name = "$KOTLINX_SERIALIZATION_ID templates"
+    description = "Builds Dokka Templates for Kotlinx Serialization"
 
-  templates(PrepareDokkaTemplate)
+    templates(PrepareDokkaTemplate)
 
-  params {
-    param("env.ALGOLIA_INDEX_NAME", "kotlinx.serialization")
-  }
+    params {
+        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_SERIALIZATION_ID")
+    }
 })

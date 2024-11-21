@@ -1,14 +1,16 @@
 package builds.apiReferences.kotlinx.io
 
+import BuildParams.KOTLINX_IO_ID
 import builds.apiReferences.templates.PrepareDokkaTemplate
 import jetbrains.buildServer.configs.kotlin.BuildType
 
-object KotlinxIOPrepareDokkaTemplates: BuildType({
-  name = "Prepare dokka templates for kotlinx-io"
+object KotlinxIOPrepareDokkaTemplates : BuildType({
+    name = "$KOTLINX_IO_ID templates"
+    description = "Build Dokka Templates for Kotlinx IO"
 
-  templates(PrepareDokkaTemplate)
+    templates(PrepareDokkaTemplate)
 
-  params {
-    param("env.ALGOLIA_INDEX_NAME", "kotlinx-io")
-  }
+    params {
+        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_IO_ID")
+    }
 })

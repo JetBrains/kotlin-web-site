@@ -5,7 +5,17 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object PrepareDokkaTemplate: Template({
   name = "Build Custom HTML Template"
-  artifactRules = "dokka-templates/** => dokka-templates"
+  artifactRules = """
+      dokka-templates/** => dokka-templates
+  """.trimIndent()
+
+  requirements {
+    doesNotContain("teamcity.agent.name", "windows")
+  }
+
+  params {
+//      param("env.ALGOLIA_INDEX_NAME", "")
+  }
 
   vcs {
     root(vcsRoots.KotlinLangOrg)
@@ -32,9 +42,5 @@ object PrepareDokkaTemplate: Template({
       """.trimIndent()
       dockerImage = "node:16-alpine"
     }
-  }
-
-  requirements {
-    doesNotContain("teamcity.agent.name", "windows")
   }
 })

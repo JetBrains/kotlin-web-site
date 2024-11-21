@@ -1,4 +1,4 @@
-const { promises: { access, writeFile } } = require('fs');
+const { access, writeFile } = require('fs').promises;
 const YAML = require('yaml');
 
 const OLD_PATH_PREFIX = 'api/latest';
@@ -17,21 +17,16 @@ module.exports.TARGET_REFLECT_MODULE_DIR = TARGET_ROOT_PATH + '/kotlin-reflect';
 module.exports.exists = async function exists(path) {
     try {
         await access(path);
-        return true;
     } catch (e) {
-        //
+        return false;
     }
-    return false;
+    return true;
 };
 
 module.exports.writeRedirects = async function writeRedirects(name, urls) {
     const content = urls
         .map(([from, to]) => ({ from: '/' + from, to: '/' + to.replace(/\/index\.html$/, '/') }))
-        .sort(function(a, b) {
-            if (a.from < b.from) return -1;
-            if (a.from > b.from) return 1;
-            return 0;
-        });
+        .sort((a, b) => a.from.localeCompare(b.from));
 
     console.log(`write ${urls.length} redirects...`);
     await writeFile(name, YAML.stringify(content), 'utf8');

@@ -1,6 +1,16 @@
 {
+  "type": "module",
+  "scripts": {
+    "generate-metadata": "tsx analyzer/index.ts",
+    "build": "tsc --outDir ../pages-js --project tsconfig.json"
+  },
   "dependencies": {
-    "algoliasearch": "^4.24.0",
-    "cheerio": "^1.0.0-rc.12"
+    "@types/fast-levenshtein": "^0.0.4",
+    "@types/node": "^22.9.0",
+    "algoliasearch": "^5.14.2",
+    "cheerio": "^1.0.0",
+    "fast-levenshtein": "^3.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.1-rc"
   }
 }

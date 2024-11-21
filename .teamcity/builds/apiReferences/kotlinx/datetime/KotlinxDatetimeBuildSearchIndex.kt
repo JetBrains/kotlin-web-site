@@ -1,20 +1,25 @@
 package builds.apiReferences.kotlinx.datetime
 
-import builds.apiReferences.dependsOnDokkaPagesJson
-import builds.apiReferences.templates.BuildApiReferenceSearchIndex
-import jetbrains.buildServer.configs.kotlin.BuildType
+import BuildParams.KOTLINX_DATETIME_ID
+import builds.TemplateSearchIndex
 
-object KotlinxDatetimeBuildSearchIndex: BuildType({
-  name = "Build search index for kotlinx-datetime"
+object KotlinxDatetimeBuildSearchIndex : TemplateSearchIndex({
+    name = "$KOTLINX_DATETIME_ID search"
+    description = "Build search index for Kotlinx Datetime"
 
-  templates(BuildApiReferenceSearchIndex)
+    params {
+        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_DATETIME_ID")
+    }
 
-  params {
-    param("env.ALGOLIA_INDEX_NAME", "kotlinx-datetime")
-    param("env.API_REFERENCE_URL", "/api/kotlinx-datetime")
-  }
-
-  dependencies {
-    dependsOnDokkaPagesJson(KotlinxDatetimeBuildApiReference)
-  }
+    dependencies {
+        dependency(KotlinxDatetimeBuildApiReference) {
+            snapshot {}
+            artifacts {
+                artifactRules = """
+                    pages.zip!** => dist/api/$KOTLINX_DATETIME_ID/
+                """.trimIndent()
+                cleanDestination = true
+            }
+        }
+    }
 })

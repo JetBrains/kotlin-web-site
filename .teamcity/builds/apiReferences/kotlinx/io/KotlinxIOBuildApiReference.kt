@@ -1,7 +1,10 @@
 package builds.apiReferences.kotlinx.io
 
+import BuildParams.KOTLINX_IO_ID
 import BuildParams.KOTLINX_IO_RELEASE_TAG
 import builds.apiReferences.dependsOnDokkaTemplate
+import builds.apiReferences.stdlib.copyDokkaFiles
+import builds.apiReferences.stdlib.sitemapGenerate
 import builds.apiReferences.templates.BuildApiReference
 import builds.apiReferences.templates.buildDokkaHTML
 import builds.apiReferences.templates.scriptDokkaVersionSync
@@ -10,11 +13,10 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object KotlinxIOBuildApiReference : BuildType({
-    name = "kotlinx-io API reference"
+    name = "$KOTLINX_IO_ID pages"
+    description = "Build pages for Kotlinx IO"
 
     templates(BuildApiReference)
-
-    artifactRules = "build/dokka/htmlMultiModule/** => pages.zip"
 
     params {
         param("release.tag", KOTLINX_IO_RELEASE_TAG.removePrefix("v"))
@@ -46,5 +48,7 @@ object KotlinxIOBuildApiReference : BuildType({
                 ./gradlew dokkaHtmlMultiModule --no-daemon --no-configuration-cache
             """.trimIndent()
         }
+        copyDokkaFiles(KOTLINX_IO_ID)
+        sitemapGenerate(KOTLINX_IO_ID)
     }
 })

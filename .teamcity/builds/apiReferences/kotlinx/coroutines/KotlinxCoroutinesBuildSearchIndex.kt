@@ -1,20 +1,25 @@
 package builds.apiReferences.kotlinx.coroutines
 
-import builds.apiReferences.dependsOnDokkaPagesJson
-import builds.apiReferences.templates.BuildApiReferenceSearchIndex
-import jetbrains.buildServer.configs.kotlin.BuildType
+import BuildParams.KOTLINX_COROUTINES_ID
+import builds.TemplateSearchIndex
 
-object KotlinxCoroutinesBuildSearchIndex: BuildType({
-  name = "Build search index for kotlinx.coroutines"
+object KotlinxCoroutinesBuildSearchIndex : TemplateSearchIndex({
+    name = "$KOTLINX_COROUTINES_ID search"
+    description = "Build search index for Kotlinx Coroutines"
 
-  templates(BuildApiReferenceSearchIndex)
+    params {
+        param("env.ALGOLIA_INDEX_NAME", "$KOTLINX_COROUTINES_ID")
+    }
 
-  params {
-    param("env.ALGOLIA_INDEX_NAME", "kotlinx.coroutines")
-    param("env.API_REFERENCE_URL", "/api/kotlinx.coroutines")
-  }
-
-  dependencies {
-    dependsOnDokkaPagesJson(KotlinxCoroutinesBuildApiReference)
-  }
+    dependencies {
+        dependency(KotlinxCoroutinesBuildApiReference) {
+            snapshot {}
+            artifacts {
+                artifactRules = """
+                    pages.zip!** => dist/api/$KOTLINX_COROUTINES_ID/
+                """.trimIndent()
+                cleanDestination = true
+            }
+        }
+    }
 })
