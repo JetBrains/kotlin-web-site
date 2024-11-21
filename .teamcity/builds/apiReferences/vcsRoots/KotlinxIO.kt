@@ -6,11 +6,11 @@ import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 object KotlinxIO : GitVcsRoot({
   name = "kotlinx-io vcs root"
   url = "git@github.com:Kotlin/kotlinx-io.git"
-  branch = "$KOTLINX_IO_RELEASE_TAG"
+  branch = "refs/tags/$KOTLINX_IO_RELEASE_TAG"
   branchSpec = """
-        +:refs/heads/(*)
-        +:refs/tags/(*)
-    """.trimIndent()
+    +:refs/heads/(*)
+    +:refs/tags/(*)
+  """.trimIndent()
   useTagsAsBranches = true
   authMethod = uploadedKey {
     uploadedKey = "teamcity"
