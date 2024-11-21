@@ -129,6 +129,6 @@ kotlin.incremental.wasm=true
 ```
 
 > Try out the Kotlin/Wasm incremental compilation and [share your feedback](https://youtrack.jetbrains.com/issue/KT-72158/Kotlin-Wasm-incremental-compilation-feedback).
-> Your insights help make this feature [Stable](components-stability.md) and enabled by default sooner.
+> Your insights help make the feature stable and enabled by default sooner.
 >
 {style="note"}
