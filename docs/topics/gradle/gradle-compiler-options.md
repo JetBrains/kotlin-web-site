@@ -161,10 +161,11 @@ Here is a complete list of options for Gradle tasks:
 
 ### Common attributes
 
-| Name              | Description                                                                              | Possible values           | Default value |
-|-------------------|------------------------------------------------------------------------------------------|---------------------------|---------------|
-| `optIn`           | A property for configuring a list of [opt-in compiler arguments](opt-in-requirements.md) | `listOf( /* opt-ins */ )` | `emptyList()` |
-| `progressiveMode` | Enables the [progressive compiler mode](whatsnew13.md#progressive-mode)                  | `true`, `false`           | `false`       |
+| Name              | Description                                                                                                                              | Possible values           | Default value |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|---------------|
+| `optIn`           | A property for configuring a list of [opt-in compiler arguments](opt-in-requirements.md)                                                 | `listOf( /* opt-ins */ )` | `emptyList()` |
+| `progressiveMode` | Enables the [progressive compiler mode](whatsnew13.md#progressive-mode)                                                                  | `true`, `false`           | `false`       |
+| `extraWarnings`   | Enables [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that emit warnings if true | `true`, `false`           | `false`       |
 
 ### Attributes specific to JVM
 
