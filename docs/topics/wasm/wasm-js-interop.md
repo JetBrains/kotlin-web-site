@@ -227,7 +227,7 @@ You can copy JavaScript's `JsArray<T>` into Kotlin's native `Array` or `List` ty
 
 To convert `JsArray<T>` to `Array<T>` or the other way around, use one of the available [adapter functions](https://github.com/Kotlin/kotlinx-browser/blob/dfbdceed314567983c98f1d66e8c2e10d99c5a55/src/wasmJsMain/kotlin/arrayCopy.kt).
 
-Here's an example of conversion between generic types: Kotlin `List<T> `and `Array<T>` to JavaScript `JsArray<T>.`
+Here's an example of conversion between generic types:
 
 ```kotlin
 val list: List<JsString> =
@@ -245,7 +245,7 @@ Similar adapter functions are available for converting typed arrays to their Kot
 (for example, `IntArray` and `Int32Array`). For detailed information and implementation,
 see the [`kotlinx-browser` repository]( https://github.com/Kotlin/kotlinx-browser/blob/dfbdceed314567983c98f1d66e8c2e10d99c5a55/src/wasmJsMain/kotlin/arrayCopy.kt).
 
-Here's an example of conversion between typed arrays: Kotlin `IntArray` to JavaScript `Int32Array`.
+Here's an example of conversion between typed arrays:
 
 ```kotlin
 import org.khronos.webgl.*
