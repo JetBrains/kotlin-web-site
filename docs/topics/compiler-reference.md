@@ -54,6 +54,11 @@ Suppress the compiler from displaying warnings during compilation.
 
 Turn any warnings into a compilation error. 
 
+### -Wextra
+
+Enable [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that
+emit warnings if true.
+
 ### -verbose
 
 Enable verbose logging output which includes details of the compilation process.
