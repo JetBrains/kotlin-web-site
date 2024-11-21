@@ -15,4 +15,13 @@ object BuildParams {
 
   const val SEARCH_APP_ID = "7961PKYRXV"
   const val SEARCH_INDEX_NAME = "prod_KOTLINLANG_WEBHELP"
+
+  val API_URLS = listOf(
+    "api/core",
+    "api/$KOTLINX_COROUTINES_ID",
+    "api/$KOTLINX_SERIALIZATION_ID",
+    "api/$KOTLINX_DATETIME_ID",
+    "api/$KOTLINX_IO_ID",
+    "api/$KOTLINX_METADATA_ID",
+  )
 }

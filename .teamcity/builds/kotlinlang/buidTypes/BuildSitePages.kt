@@ -1,5 +1,6 @@
 package builds.kotlinlang.buidTypes
 
+import BuildParams.API_URLS
 import builds.kotlinlang.templates.DockerImageBuilder
 import builds.scriptDistAnalyze
 import jetbrains.buildServer.configs.kotlin.BuildType
@@ -36,6 +37,7 @@ object BuildSitePages : BuildType({
     steps {
         script {
             name = "Build html pages"
+            // language=bash
             scriptContent = """
                 #!/bin/bash
                 
@@ -86,7 +88,20 @@ object BuildSitePages : BuildType({
         }
         scriptDistAnalyze {}
         script {
+            name = "Collect sitemap_index.xml"
+            // language=sh
+            scriptContent = """
+                set -x
+                echo '<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' > dist/sitemap_index.xml
+                echo '<sitemap><loc>https://kotlinlang.org/sitemap.xml</loc></sitemap>' >> dist/sitemap_index.xml
+                ${API_URLS.joinToString("\n") { id -> "echo '<sitemap><loc>https://kotlinlang.org/$id/sitemap.xml</loc></sitemap>' >> dist/sitemap_index.xml" }}
+                echo '</sitemapindex>' >> dist/sitemap_index.xml
+            """.trimIndent()
+            dockerImage = "alpine"
+        }
+        script {
             name = "Update build status"
+            // language=bash
             scriptContent = """
                 #!/bin/bash
                 
