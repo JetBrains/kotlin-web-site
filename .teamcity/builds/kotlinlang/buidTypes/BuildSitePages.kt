@@ -77,8 +77,6 @@ object BuildSitePages : BuildType({
                 cp -fR out/* dist/
                 cp -fR out/_next dist/_next/
                 
-                cp sitemap_index.xml dist/
-                
                 mkdir -p "dist/api/latest/jvm/stdlib"
                 cp package-list-stdlib dist/api/latest/jvm/stdlib/package-list
                 
@@ -86,7 +84,7 @@ object BuildSitePages : BuildType({
                 cp package-list-kotlin-test dist/api/latest/kotlin.test/package-list
             """.trimIndent()
         }
-        scriptDistAnalyze {}
+        step(scriptDistAnalyze {})
         script {
             name = "Collect sitemap_index.xml"
             // language=sh
