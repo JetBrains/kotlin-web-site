@@ -41,21 +41,6 @@ perspective
 > - 2.2.0: raise the warning to an error
 -->
 
-### Deprecate appendln in favor of appendLine
-
-> **Issue**: [KTLC-27](https://youtrack.jetbrains.com/issue/KTLC-27)
->
-> **Component**: Core language
->
-> **Incompatible change type**: source
->
-> **Short summary**: `StringBuilder.appendln()` is deprecated in favor of `StringBuilder.appendLine()`.
->
-> **Deprecation cycle**:
->
-> - 1.4: the `appendln()` function is deprecated; report a warning on use
-> - 2.1.0: raise the warning to an error
-
 ### Change the typeOf() function behavior on Kotlin/Native
 
 > **Issue**: [KT-70754](https://youtrack.jetbrains.com/issue/KT-70754)
@@ -118,21 +103,6 @@ perspective
 > **Deprecation cycle**:
 >
 > - 2.1.0: report an error when accessing uninitialized enum entries
-
-### Change Map.Entry behavior to fail-fast on structural modification
-
-> **Issue**: [KTLC-23](https://youtrack.jetbrains.com/issue/KTLC-23)
->
-> **Component**: Core language
->
-> **Incompatible change type**: behavioral
->
-> **Short summary**: Accessing a `Map.Entry` key-value pair after its associated map has been structurally modified now throws a `ConcurrentModificationException`.
->
-> **Deprecation cycle**:
->
-> - 2.1.0: report a warning
-> - 2.2.0: raise the warning to an error
 
 ### Changes in K2 smart cast propagation
 
@@ -312,6 +282,35 @@ perspective
 > **Deprecation cycle**:
 >
 > - 2.1.0: deprecate and remove `kotlin-stdlib-common` and kotlin-stdlib JAR artifacts
+
+### Deprecate appendln in favor of appendLine
+
+> **Issue**: [KTLC-27](https://youtrack.jetbrains.com/issue/KTLC-27)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: `StringBuilder.appendln()` is deprecated in favor of `StringBuilder.appendLine()`.
+>
+> **Deprecation cycle**:
+>
+> - 1.4.0: the `appendln()` function is deprecated; report a warning on use
+> - 2.1.0: raise the warning to an error
+
+### Change Map.Entry behavior to fail-fast on structural modification
+
+> **Issue**: [KTLC-23](https://youtrack.jetbrains.com/issue/KTLC-23)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Accessing a `Map.Entry` key-value pair after its associated map has been structurally modified now throws a `ConcurrentModificationException`.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: throw an exception when a map structural modification is detected
 
 ## Tools
 
