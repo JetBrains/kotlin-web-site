@@ -632,8 +632,8 @@ projects.
 
 Here's the planned deprecation cycle:
 
-* 1.9.0: a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects
-* 2.1.0: report an error in such cases, causing the build to fail
+* 1.9.0: introduce a deprecation warning when the `android` name is used in Kotlin Multiplatform projects
+* 2.1.0: raise this warning to an error
 * 2.2.0: remove the `android` target DSL from the Kotlin Multiplatform Gradle plugin
 
 <anchor name="declaring-multiple-targets"/>
