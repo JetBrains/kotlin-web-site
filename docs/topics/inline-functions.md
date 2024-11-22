@@ -129,7 +129,7 @@ inline fun f(crossinline body: () -> Unit) {
 > This feature is currently [Experimental](components-stability.md#stability-levels-explained).
 > We're planning to stabilize it in future releases.
 > To opt in, use the `-Xnon-local-break-continue` compiler option.
-> We would appreciate your feedback on it in [YouTrack](http://kotl.in/issue).
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-1436).
 >
 {style="warning"}
 
@@ -137,7 +137,7 @@ Similar to non-local `return`, you can apply `break` and `continue` [jump expres
 as arguments to an inline function that encloses the loop:
 
 ```kotlin
-fun processList(elements: List&lt;Int&gt;): Boolean {
+fun processList(elements: List<Int>): Boolean {
     for (element in elements) {
         val variable = element.nullableMethod() ?: run {
             log.warning("Element is null or invalid, continuing...")

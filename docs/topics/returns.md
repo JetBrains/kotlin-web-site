@@ -14,9 +14,7 @@ val s = person.name ?: return
 
 The type of these expressions is the [Nothing type](exceptions.md#the-nothing-type).
 
-## Break and continue
-
-### Break and continue with labels
+## Break and continue labels
 
 Any expression in Kotlin may be marked with a _label_.
 Labels have the form of an identifier followed by the `@` sign, such as `abc@` or `fooBar@`.
@@ -28,7 +26,7 @@ loop@ for (i in 1..100) {
 }
 ```
 
-Now, we can qualify a `break` or a `continue` with a label:
+Now, you can qualify a `break` or a `continue` with a label:
 
 ```kotlin
 loop@ for (i in 1..100) {
@@ -41,39 +39,15 @@ loop@ for (i in 1..100) {
 A `break` qualified with a label jumps to the execution point right after the loop marked with that label.
 A `continue` proceeds to the next iteration of that loop.
 
-### Non-local break and continue
-
-> This feature is currently [Experimental](components-stability.md#stability-levels-explained).
-> We're planning to stabilize it in future releases.
-> To opt in, use the `-Xnon-local-break-continue` compiler option.
-> We would appreciate your feedback on it in [YouTrack](http://kotl.in/issue).
+> In some cases, you can apply `break` and `continue` *non-locally* without explicitly defining labels.
+> Such non-local usages are valid in lambda expressions used in enclosing [inline functions](inline-functions.md#break-and-continue).
 >
-{style="warning"}
+{style="tip"}
 
-In some cases, you can apply `break` and `continue` *non-locally* without explicitly defining labels.
-Such non-local usages are valid in lambda expressions used in enclosing [inline functions](inline-functions.md):
-
-```kotlin
-fun processList(elements: List&lt;Int&gt;): Boolean {
-    for (element in elements) {
-        val variable = element.nullableMethod() ?: run {
-            log.warning("Element is null or invalid, continuing...")
-            continue
-        }
-        if (variable == 0) return true
-    }
-    return false
-}
-```
-
-Here, `continue` is applied in the lambda, which is passed as an argument to an inline function enclosing the loop.
-
-## Returns
+## Return to labels
 
 In Kotlin, functions can be nested using function literals, local functions, and object expressions.
 Qualified `return`s allow you to return from an outer function.
-
-### Return to labels
 
 The most important use case is returning from a lambda expression. To return from a lambda expression,
 label it and qualify the `return`:
@@ -166,26 +140,7 @@ return@a 1
 
 This means "return `1` at label `@a`" rather than "return a labeled expression `(@a 1)`".
 
-### Non-local returns
-
-In some cases, you can return from a lambda expression without using labels. Such *non-local* returns are located in a
-lambda but exit the enclosing [inline function](inline-functions.md):
-
-```kotlin
-//sampleStart
-fun foo() {
-    listOf(1, 2, 3, 4, 5).forEach {
-        if (it == 3) return // non-local return directly to the caller of foo()
-        print(it)
-    }
-    println("this point is unreachable")
-}
-//sampleEnd
-
-fun main() {
-    foo()
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-Here, the `return` expression returns from the nearest enclosing function `foo()`.
+> In some cases, you can return from a lambda expression without using labels. Such *non-local* returns are located in a
+> lambda but exit the enclosing [inline function](inline-functions.md#returns).
+>
+{style="tip"}

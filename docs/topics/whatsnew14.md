@@ -245,7 +245,7 @@ fun test() {
 
 In Kotlin 1.3, you could not use unqualified `break` and `continue` inside `when` expressions included in loops. The reason was that these keywords were reserved for possible [fall-through behavior](https://en.wikipedia.org/wiki/Switch_statement#Fallthrough) in `when` expressions. 
 
-That's why if you wanted to use `break` and `continue` inside `when` expressions in loops, you had to [label](returns.md#break-and-continue-with-labels) them, which became rather cumbersome.
+That's why if you wanted to use `break` and `continue` inside `when` expressions in loops, you had to [label](returns.md#break-and-continue-labels) them, which became rather cumbersome.
 
 ```kotlin
 fun test(xs: List<Int>) {
