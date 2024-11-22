@@ -307,12 +307,11 @@ perspective
 >
 > **Incompatible change type**: binary
 >
-> **Short summary**: The JAR file published under `org.jetbrains.kotlin:kotlin-stdlib-common` is deprecated, with `.klib` files replacing it as the standard format.
-> The legacy `kotlin-stdlib-common` artifacts built with `kotlin-platform-common` and `enableCompatibilityMetadataVariant` are removed in compiler tests.
+> **Short summary**:  The `kotlin-stdlib-common` and `kotlin-stdlib` JAR artifacts are deprecated and replaced by `.klib` files as the standard format for common multiplatform declarations metadata.
 >
 > **Deprecation cycle**:
 >
-> - 2.1.0: remove `kotlin-stdlib-common` artifacts in compiler tests
+> - 2.1.0: deprecate and remove `kotlin-stdlib-common` and kotlin-stdlib JAR artifacts
 
 ## Tools
 
