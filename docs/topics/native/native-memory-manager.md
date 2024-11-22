@@ -81,11 +81,11 @@ kotlin.native.binary.gc=cms
 ### Disable garbage collection
 
 It's recommended to keep the GC enabled. However, you can disable it in certain cases, such as for testing purposes or
-if you encounter issues and have a short-lived program. To do so, set the following compiler option in your
-Gradle build script:
+if you encounter issues and have a short-lived program. To do so, set the following binary option in your
+`gradle.properties` file:
 
 ```none
--Xgc=noop
+kotlin.native.binary.gc=noop
 ```
 
 > With this option enabled, the GC doesn't collect Kotlin objects, so memory consumption will keep rising as long as the
@@ -155,23 +155,14 @@ If there are no memory leaks in the program, but you still see unexpectedly high
 try updating Kotlin to the latest version. We're constantly improving the memory manager, so even a simple compiler
 update might improve memory consumption.
 
-If you continue to experience high memory consumption after updating, several options are available:
+If you continue to experience high memory consumption after updating, switch to the system memory allocator by using
+the following compiler option in your Gradle build script:
 
-* Switch to a different memory allocator by using one of the following compiler options in your Gradle build script:
+```none
+-Xallocator=std
+```
 
-  * `-Xallocator=std` for the system allocator.
-  * `-Xallocator=mimalloc` for the [mimalloc](https://github.com/microsoft/mimalloc) allocator.
-
-* If you use the mimalloc allocator, you can instruct it to promptly release memory back to the system.
-  To do so, enable the following binary option in your `gradle.properties` file:
-
-  ```none
-  kotlin.native.binary.mimallocUseCompaction=true
-  ```
-
-  It's a smaller performance cost, but it yields less certain results than the standard system allocator does.
-
-If none of these options improves your memory consumption, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
+If this doesn't improve your memory consumption, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
 
 ## Unit tests in the background
 
