@@ -33,7 +33,7 @@ abstract class BuildApiPages(
     vcsDefaultTrigger: VcsTrigger.() -> Unit = {},
     init: BuildType.() -> Unit = {}
 ) : BuildType({
-    name = "/api/$apiId pages"
+    name = "$apiId pages"
     description = "Build pages for /api/$apiId"
 
     artifactRules = "$pagesRoot/** => pages.zip"
