@@ -204,7 +204,7 @@ Consider an example where you need to target all modern Apple devices and Androi
 
 ```kotlin
 kotlin {
-    android()
+    androidTarget()
     iosArm64()   // 64-bit iPhone devices
     macosArm64() // Modern Apple Silicon-based Macs
     watchosX64() // Modern 64-bit Apple Watch devices

@@ -52,7 +52,7 @@ that specific target. Learn more about [setting up targets](multiplatform-discov
 Each target can have one or more [compilations](#compilations). In addition to default compilations for
 test and production purposes, you can [create custom compilations](multiplatform-configure-compilations.md#create-a-custom-compilation).
 
-The targets of a multiplatform project are described in the corresponding blocks inside `kotlin {}`, for example, `jvm`, `android`, `iosArm64`.
+The targets of a multiplatform project are described in the corresponding blocks inside `kotlin {}`, for example, `jvm`, `androidTarget`, `iosArm64`.
 The complete list of available targets is the following:
 
 <table>
@@ -96,7 +96,7 @@ The complete list of available targets is the following:
     </tr>
     <tr>
         <td>Android applications and libraries</td>
-        <td><code>android</code></td>
+        <td><code>androidTarget</code></td>
         <td>
             <p>Manually apply an Android Gradle plugin: <code>com.android.application</code> or <code>com.android.library</code>.</p>
             <p>You can only create one Android target per Gradle subproject.</p>
@@ -452,15 +452,15 @@ Two functions help you configure [build variants](https://developer.android.com/
 
 ```kotlin
 kotlin {
-    android {
-        publishLibraryVariants("release", "debug")
+    androidTarget {
+        publishLibraryVariants("release")
     }
 }
 ```
 
 Learn more about [compilation for Android](multiplatform-configure-compilations.md#compilation-for-android).
 
-> The `android` configuration inside `kotlin` doesn't replace the build configuration of any Android project.
+> The `androidTarget` configuration inside the `kotlin {}` block doesn't replace the build configuration of any Android project.
 > Learn more about writing build scripts for Android projects in [Android developer documentation](https://developer.android.com/studio/build).
 >
 {style="note"}

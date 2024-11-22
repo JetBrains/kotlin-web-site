@@ -329,8 +329,8 @@ for each build variant, a Kotlin compilation is created under the same name.
 
 Then, for each [Android source set](https://developer.android.com/studio/build/build-variants#sourcesets) compiled for 
 each of the variants, a Kotlin source set is created under that source set name prepended by the target name, like the 
-Kotlin source set `androidDebug` for an Android source set `debug` and the Kotlin target named `android`. These Kotlin 
-source sets are added to the variants' compilations accordingly.
+Kotlin source set `androidDebug` for an Android source set `debug` and the Kotlin target named `androidTarget`.
+These Kotlin source sets are added to the variants' compilations accordingly.
 
 The default source set `commonMain` is added to each production (application or library) variant's compilation. 
 The `commonTest` source set is similarly added to the compilations of unit test and instrumented test variants.
@@ -341,7 +341,7 @@ than within Kotlin source set dependencies.
 
 ```kotlin
 kotlin {
-    android { /* ... */ }
+    androidTarget { /* ... */ }
 }
 
 dependencies {
