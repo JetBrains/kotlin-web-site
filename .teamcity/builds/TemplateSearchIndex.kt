@@ -2,32 +2,29 @@ package builds
 
 import BuildParams.SEARCH_APP_ID
 import builds.kotlinlang.buidTypes.PageViews
-import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
+import jetbrains.buildServer.configs.kotlin.triggers.schedule
 import vcsRoots.KotlinLangOrg
 
 const val SCRIPT_PATH = "scripts/doindex";
 
-fun BuildSteps.scriptDistAnalyze(block: ScriptBuildStep.() -> Unit) = step(
-    ScriptBuildStep {
-        name = "Run dist/ analyzer"
-        //language=bash
-        scriptContent = """
-            #!/bin/sh
-            set -e
-            npm install
-            npm run generate-metadata
-        """.trimIndent()
-        dockerImage = "node:22-alpine"
-        workingDir = SCRIPT_PATH
-        dockerPull = true
+fun scriptDistAnalyze(block: ScriptBuildStep.() -> Unit) = ScriptBuildStep {
+    id = "script-dist-analyze"
+    name = "Run dist/ analyzer"
+    //language=bash
+    scriptContent = """
+        #!/bin/sh
+        set -e
+        npm install
+        npm run generate-metadata
+    """.trimIndent()
+    dockerImage = "node:22-alpine"
+    workingDir = SCRIPT_PATH
+    dockerPull = true
+}.apply(block)
 
-        block()
-    }
-)
-
-open class TemplateSearchIndex(init: BuildType.() -> Unit) : BuildType({
+abstract class TemplateSearchIndex(init: BuildType.() -> Unit) : BuildType({
     artifactRules = """
         reports/** => reports.zip
     """.trimIndent()
@@ -54,8 +51,18 @@ open class TemplateSearchIndex(init: BuildType.() -> Unit) : BuildType({
         showDependenciesChanges = true
     }
 
+    triggers {
+        schedule {
+            schedulingPolicy = cron {
+                hours = "4"
+                dayOfMonth = "*/2"
+            }
+            branchFilter = "+:<default>"
+        }
+    }
+
     steps {
-        scriptDistAnalyze {}
+        step(scriptDistAnalyze {})
     }
 
     dependencies {
@@ -69,5 +76,5 @@ open class TemplateSearchIndex(init: BuildType.() -> Unit) : BuildType({
         }
     }
 
-    init()
+    init(this)
 })
