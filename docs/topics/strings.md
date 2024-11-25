@@ -155,7 +155,7 @@ ${'$'}_9.99
 """
 ```
 
-> To avoid `${'$'}` sequences in multiline strings, you can use Experimental [multi-dollar string interpolation feature](#multi-dollar-string-interpolation).
+> To avoid `${'$'}` sequences in strings, you can use the Experimental [multi-dollar string interpolation feature](#multi-dollar-string-interpolation).
 >
 {style="note"}
 
@@ -166,12 +166,14 @@ ${'$'}_9.99
 >
 {style="warning"}
 
-Multiline strings in Kotlin don't support backslash escaping for literals. To escape dollar signs (`$`), 
-you need to use the `${'$'}` construct to prevent string interpolation.
-This approach can make the code harder to read, especially when the string contains multiple dollar signs.
+Multi-dollar string interpolation allows you to specify how many consecutive dollar signs are required to trigger interpolation.
+While you can [escape literals](#escaped-strings) for single-line strings,
+multiline strings in Kotlin don’t support backslash escaping.
+To include dollar signs (`$`) as literal characters, you must use the `${'$'}` construct to prevent string interpolation.
+This approach can make code harder to read, especially when strings contain multiple dollar signs.
 
-The multi-dollar string interpolation feature allows you to specify how many consecutive dollar signs are needed to trigger interpolation.
-This lets you treat dollar signs as literal characters in multiline strings.  
+Multi-dollar string interpolation simplifies this
+by letting you treat dollar signs as literal characters in both single-line and multiline strings.
 For example:
 
 ```kotlin
@@ -187,14 +189,16 @@ val KClass<*>.jsonSchema : String
     """
 ```
 
-Here, the use of `$$` before the multiline string means that only two consecutive dollar signs trigger string interpolation,
-while single dollar signs remain as literal characters.
+Here, the `$$` prefix specifies that two consecutive dollar signs are required to trigger string interpolation. 
+Single dollar signs remain as literal characters.
 
-You can specify how many dollar signs trigger interpolation.
-For example, you can use three consecutive dollar signs `$$$` to trigger string interpolation:
+You can adjust how many dollar signs trigger interpolation.
+For example, using three consecutive dollar signs (`$$$`) allows `$` and `$$` to remain as literals 
+while enabling interpolation with `$$$`:
 
 ```kotlin
-val requestData =
+val productName = "carrot"
+val requestedData =
     $$$"""{
       "currency": "$",
       "enteredAmount": "42.45 $$",
@@ -202,7 +206,17 @@ val requestData =
       "product": "$$$productName"
     }
     """
+
+println(requestedData)
+//{
+//    "currency": "$",
+//    "enteredAmount": "42.45 $$",
+//    "$$serviceField": "none",
+//    "product": "carrot"
+//}
 ```
+
+Here, the `$$$` prefix allows the string to include `$` and `$$` without requiring the `${'$'}` construct for escaping.
 
 To enable the feature, use the following compiler option in the command line:
 
