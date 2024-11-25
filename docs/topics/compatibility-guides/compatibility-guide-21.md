@@ -73,7 +73,7 @@ perspective
 > - 2.1.0: report a warning for exposing types via type parameter bounds with lower visibility
 > - 2.2.0: raise the warning to an error
 
-### Prohibit inheriting an abstract var property alongside a val property with the same name
+### Prohibit inheriting an abstract var property and a val property with the same name
 
 > **Issue**: [KT-58659](https://youtrack.jetbrains.com/issue/KT-58659)
 >
@@ -98,7 +98,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: The compiler now reports an error when uninitialized enum entries are accessed during enum class or entry initialization.
-> This aligns behavior with member property initialization rules, preventing runtime exceptions and ensuring consistent logic.
+> This aligns the behavior with member property initialization rules, preventing runtime exceptions and ensuring consistent logic.
 >
 > **Deprecation cycle**:
 >
@@ -112,7 +112,7 @@ perspective
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**: K2 changes the behavior of smart cast propagation, introducing bidirectional propagation of type
+> **Short summary**: K2 changes the behavior of smart cast propagation by introducing bidirectional propagation of type
 > information for inferred variables, like `val x = y`. Explicitly typed variables, such as `val x: T = y`,
 > no longer propagate type information, ensuring stricter adherence to declared types.
 >
@@ -129,7 +129,7 @@ perspective
 > **Incompatible change type**: behavioral
 >
 > **Short summary**: The getter for member-extension properties overridden by Java subclasses is now hidden in the subclass's scope,
-> aligning its behavior with regular Kotlin properties.
+> aligning its behavior with that of regular Kotlin properties.
 >
 > **Deprecation cycle**:
 >
@@ -155,15 +155,15 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Nullability mismatches from `org.jspecify.annotations`, such as `@NonNull`, `@Nullable`, and `@NullMarked` are treated as errors instead of warnings,
+> **Short summary**: Nullability mismatches from `org.jspecify.annotations`, such as `@NonNull`, `@Nullable`, and `@NullMarked` are now treated as errors instead of warnings,
 > enforcing stricter type safety for Java interoperability. To adjust the severity of these diagnostics, use the `-Xnullability-annotations` compiler option.
 >
 > **Deprecation cycle**:
 >
-> - 1.6.0: report a warning for potential nullability mismatches
+> - 1.6.0: report warnings for potential nullability mismatches
 > - 1.8.20: expand warnings to specific JSpecify annotations, including: `@Nullable`, `@NullnessUnspecified`, `@NullMarked`, and legacy annotations in `org.jspecify.nullness` (JSpecify 0.2 and earlier)
 > - 2.0.0: add support for the `@NonNull` annotation
-> - 2.1.0: change default mode to strict  for JSpecify annotations, converting warnings into errors; use `-Xnullability-annotations=@org.jspecify.annotations:warning` or `-Xnullability-annotations=@org.jspecify.annotations:ignore` to override the default behavior
+> - 2.1.0: change default mode to `strict` for JSpecify annotations, converting warnings into errors; use `-Xnullability-annotations=@org.jspecify.annotations:warning` or `-Xnullability-annotations=@org.jspecify.annotations:ignore` to override the default behavior
 
 ### Change overload resolution to prioritize extension functions over invoke calls in ambiguous cases
 
@@ -210,7 +210,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Private operator functions such as `getValue()`, `setValue()`, `provideDelegate()`, `hasNext()`, and `next()` can no longer be accessed in public inline functions
+> **Short summary**: Private operator functions such as `getValue()`, `setValue()`, `provideDelegate()`, `hasNext()`, and `next()` can no longer be accessed in public inline functions.
 >
 > **Deprecation cycle**:
 >
@@ -320,7 +320,7 @@ perspective
 
 ### Deprecate freezing-related APIs in Kotlin/Native
 
-> **Issue**: [KT-69545](https://youtrack.jetbrains.com/issue/KT-NNNNN)
+> **Issue**: [KT-69545](https://youtrack.jetbrains.com/issue/KT-69545)
 >
 > **Component**: kotlin-stdlib
 >
@@ -408,7 +408,7 @@ perspective
 >
 > **Short summary**: `KotlinTopLevelExtension` and `KotlinTopLevelExtensionConfig` interfaces are deprecated in favor of a new `KotlinTopLevelExtension` interface.
 > This interface merges `KotlinTopLevelExtensionConfig`, `KotlinTopLevelExtension`, and `KotlinProjectExtension`
-> to provide a clearer API hierarchy, and official access to JVM toolchain and compiler properties.
+> to streamline API hierarchy, and provide official access to the JVM toolchain and compiler properties.
 >
 > **Deprecation cycle**:
 >
@@ -423,7 +423,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: The `kotlin-compiler-embeddable` dependency is removed from the runtime in Kotlin Gradle Plugin (KGP).
-> Required modules are now included directly in KGP artifacts, with a Kotlin language version limit of 2.0 to support compatibility with Gradle Kotlin runtime in versions below 8.2.
+> Required modules are now included directly in KGP artifacts, with the Kotlin language version limited to 2.0 to support compatibility with Gradle Kotlin runtime in versions below 8.2.
 >
 > **Deprecation cycle**:
 >
@@ -446,7 +446,7 @@ perspective
 > - 2.1.0: report a warning on accessing these symbols
 > - 2.2.0: raise the warning to an error
 
-### Support for multiple stability configuration files
+### Add support for multiple stability configuration files
 
 > **Issue**: [KT-68345](https://youtrack.jetbrains.com/issue/KT-68345)
 >
