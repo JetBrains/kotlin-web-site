@@ -269,6 +269,25 @@ perspective
 
 ## Standard library
 
+### Deprecate locale-sensitive case conversion functions for Char and String
+
+> **Issue**: [KT-43023](https://youtrack.jetbrains.com/issue/KT-43023)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Among other Kotlin standard library APIs, locale-sensitive case conversion functions for `Char` and `String`, such as `Char.toUpperCase()` and `String.toLowerCase()`, are deprecated.
+> Replace them with locale-agnostic alternatives like `String.lowercase()` or explicitly specify the locale for locale-sensitive behavior, such as `String.lowercase(Locale.getDefault())`.
+>
+> For a comprehensive list of deprecated Kotlin standard library APIs in Kotlin 2.1.0, see [KT-71628](https://youtrack.jetbrains.com/issue/KT-71628).
+>
+> **Deprecation cycle**:
+>
+> - 1.4.30: introduce locale-agnostic alternatives as experimental API
+> - 1.5.0: deprecate locale-sensitive case conversion functions with a warning
+> - 2.1.0: raise the warning to an error`
+
 ### Remove kotlin-stdlib-common artifacts in compiler tests
 
 > **Issue**: [KT-62159](https://youtrack.jetbrains.com/issue/KT-62159)
@@ -296,6 +315,23 @@ perspective
 > **Deprecation cycle**:
 >
 > - 1.4.0: the `appendln()` function is deprecated; report a warning on use
+> - 2.1.0: raise the warning to an error
+
+### Deprecate freezing-related APIs in Kotlin/Native
+
+> **Issue**: [KT-69545](https://youtrack.jetbrains.com/issue/KT-NNNNN)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Freezing-related APIs in Kotlin/Native, previously marked with the `@FreezingIsDeprecated` annotation, are now deprecated.
+> This aligns with the new memory manager that removes the need for freezing objects for thread sharing.
+> For migration details, see the [Kotlin/Native migration guide](native-migration-guide.md#update-your-code).
+>
+> **Deprecation cycle**:
+>
+> - 1.7.20: deprecate freezing-related APIs with a warning
 > - 2.1.0: raise the warning to an error
 
 ### Change Map.Entry behavior to fail-fast on structural modification
