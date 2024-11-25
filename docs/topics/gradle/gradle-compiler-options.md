@@ -41,10 +41,10 @@ To find out which level of compiler arguments is applied to the compilation, use
 For JVM and JS/WASM tasks, search for the `"Kotlin compiler args:"` string within the logs; for Native tasks,
 search for the `"Arguments ="` string.
 
-> If you are a third-party plugin author, it is recommended that you apply your configuration on the project level to avoid 
-> overriding issues. Also, it is recommended that you document such configuration on your side explicitly.
+> If you're a third-party plugin author, it's best to apply your configuration on the project level to avoid
+> overriding issues. You can use the new Kotlin plugin DSL extension types for this. It's recommended that you document this
+> configuration on your side explicitly.
 >
-> Additionally, you can use the new Kotlin plugin DSL extension types for a more streamlined plugin development experience.
 {style="tip"}
 
 ### Extension level
