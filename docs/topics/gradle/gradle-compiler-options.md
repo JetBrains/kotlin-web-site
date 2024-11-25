@@ -13,31 +13,31 @@ in the [Working with command-line compiler](command-line.md) tutorial.
 
 ## How to define options
 
-Kotlin compilers have a number of options for tailoring the compiling process.
+Kotlin compilers have a number of options for tailoring the compiling process. 
 
-When you use the Kotlin Gradle plugin in your project, the Gradle DSL allows comprehensive configuration of compiler options. 
-The Gradle DSL is available for [Kotlin Multiplatform](multiplatform-dsl-reference.md) and [JVM/Android](#target-the-jvm) projects.
+The Gradle DSL allows comprehensive 
+configuration of compiler options. It is available for [Kotlin Multiplatform](multiplatform-dsl-reference.md) and [JVM/Android](#target-the-jvm) projects.
 
 With the Gradle DSL, you can configure compiler options within the build script at three levels: 
-* **Extension level,** as a top-level block. These compiler options are common for all targets and shared source sets.
-* **Target level**, in the target block. These compiler options are for a specific target.
-* **Compilation unit level,** usually as a specific compilation task.
+* **Extension level**, in the `kotlin {}` block for all targets and shared source sets.
+* **Target level**, in the block for a specific target.
+* **Compilation unit level,** usually in a specific compilation task.
 
 ![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
 
 The settings at a higher level are used as a convention (default) for a lower level:
 
-* The values of extension compiler options are the default for target compiler options, including shared source sets
+* Compiler options set at the extension level are the default for target-level options, including shared source sets 
   like `commonMain`, `nativeMain`, and `commonTest`.
-* The values of target compiler options are used as the default for compilation unit (task) compiler options, for
-  example, `compileKotlinJvm` and `compileTestKotlinJvm` tasks.
+* Compiler options set at the target level are the default for options at the compilation unit (task) level, 
+  like `compileKotlinJvm` and `compileTestKotlinJvm` tasks.
 
 In turn, configurations made at a lower level override related settings at a higher level:
 
 * Task-level compiler options override related configurations at the target or the extension level.
 * Target-level compiler options override related configurations at the extension level.
 
-To confirm which level of compiler arguments is applied to the compilation, use the `DEBUG` level of Gradle [logging](https://docs.gradle.org/current/userguide/logging.html).
+To find out which level of compiler arguments is applied to the compilation, use the `DEBUG` level of Gradle [logging](https://docs.gradle.org/current/userguide/logging.html).
 For JVM and JS/WASM tasks, search for the `"Kotlin compiler args:"` string within the logs; for Native tasks,
 search for the `"Arguments ="` string.
 
@@ -142,7 +142,8 @@ As explained before, you can define compiler options for your JVM/Android projec
 Default JVM compilation tasks are called `compileKotlin` for production code and `compileTestKotlin`
 for test code. The tasks for custom source sets are named according to their `compile<Name>Kotlin` patterns.
 
-Regarding Android compilation tasks, you can consult them by typing the `gradlew tasks --all` command in the terminal.
+You can see the list of Android compilation tasks by running the `gradlew tasks --all` command in the terminal. The Android tasks
+are grouped under the _Android_ category.
 
 Some important details to be aware of:
 
@@ -272,7 +273,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 kotlin {
     compilerOptions {
-        // Sets apiVersion and jvmTarget
+        // Specifies the version of the Kotlin API and the JVM target
         apiVersion.set(KotlinVersion.%gradleLanguageVersion%)
         jvmTarget.set(JvmTarget.JVM_1_8)
         
@@ -302,7 +303,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 tasks.named('compileKotlin', KotlinCompilationTask) {
     compilerOptions {
-        // Sets apiVersion and jvmTarget
+        // Specifies the version of the Kotlin API and the JVM target
         apiVersion = KotlinVersion.%gradleLanguageVersion%
         jvmTarget = JvmTarget.JVM_1_8
         
