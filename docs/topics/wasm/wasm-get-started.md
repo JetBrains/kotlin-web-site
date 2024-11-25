@@ -23,7 +23,7 @@ Create a project using the Kotlin Multiplatform wizard:
 3. Select the **Web** option. Make sure that no other options are selected.
 4. Click the **Download** button and unpack the resulting archive.
 
-![Kotlin Multiplatform wizard](wasm-compose-web-wizard.png){width=600}
+![Kotlin Multiplatform wizard](wasm-compose-web-wizard.png){width=400}
 
 ## Open the project in IntelliJ IDEA
 
