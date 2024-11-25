@@ -360,7 +360,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: The `KotlinCompilationOutput#resourcesDirProvider` field is deprecated.
-> Use `KotlinSourceSet.resources` to add additional resource directories instead.
+> Use `KotlinSourceSet.resources` in your Gradle build script instead to add additional resource directories.
 > 
 > **Deprecation cycle**:
 >
