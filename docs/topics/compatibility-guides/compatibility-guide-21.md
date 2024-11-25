@@ -288,7 +288,7 @@ perspective
 > - 1.5.0: deprecate locale-sensitive case conversion functions with a warning
 > - 2.1.0: raise the warning to an error`
 
-### Remove kotlin-stdlib-common artifacts in compiler tests
+### Remove kotlin-stdlib-common JAR artifact
 
 > **Issue**: [KT-62159](https://youtrack.jetbrains.com/issue/KT-62159)
 >
@@ -296,11 +296,12 @@ perspective
 >
 > **Incompatible change type**: binary
 >
-> **Short summary**:  The `kotlin-stdlib-common` and `kotlin-stdlib` JAR artifacts are deprecated and replaced by `.klib` files as the standard format for common multiplatform declarations metadata.
+> **Short summary**:  The `kotlin-stdlib-common.jar` artifact, previously used for legacy multiplatform declarations metadata, is deprecated and replaced by `.klib` files as the standard format for common multiplatform declarations metadata.
+> This change does not affect the main `kotlin-stdlib.jar` or `kotlin-stdlib-all.jar` artifacts.
 >
 > **Deprecation cycle**:
 >
-> - 2.1.0: deprecate and remove `kotlin-stdlib-common` and kotlin-stdlib JAR artifacts
+> - 2.1.0: deprecate and remove `kotlin-stdlib-common.jar` artifact
 
 ### Deprecate appendln in favor of appendLine
 
