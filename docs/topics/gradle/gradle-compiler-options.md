@@ -44,6 +44,7 @@ search for the `"Arguments ="` string.
 > If you are a third-party plugin author, it is recommended that you apply your configuration on the project level to avoid 
 > overriding issues. Also, it is recommended that you document such configuration on your side explicitly.
 >
+> Additionally, you can use the new Kotlin plugin DSL extension types for a more streamlined plugin development experience.
 {style="tip"}
 
 ### Extension level
