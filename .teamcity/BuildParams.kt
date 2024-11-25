@@ -10,9 +10,10 @@ object BuildParams {
   const val KOTLINX_IO_RELEASE_TAG = "0.6.0"
   const val KOTLINX_IO_ID = "kotlinx-io"
   const val KOTLINX_METADATA_ID = "kotlinx-metadata-jvm"
-  const val KGP_ID = "kotlin-gradle-plugin"
   const val KOTLIN_CORE_API_BUILD_ID = "Kotlin_KotlinRelease_2020_LibraryReferenceLatestDocs"
   const val KOTLIN_RELEASE_TAG = "v2.0.21"
+  const val KGP_ID = "kotlin-gradle-plugin"
+  val KGP_RELEASE_TAG = if (KOTLIN_RELEASE_TAG >= "v2.1.0") KOTLIN_RELEASE_TAG else "2.1.0"
 
   const val SEARCH_APP_ID = "7961PKYRXV"
   const val SEARCH_INDEX_NAME = "prod_KOTLINLANG_WEBHELP"
