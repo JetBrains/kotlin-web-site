@@ -142,8 +142,8 @@ As explained before, you can define compiler options for your JVM/Android projec
 Default JVM compilation tasks are called `compileKotlin` for production code and `compileTestKotlin`
 for test code. The tasks for custom source sets are named according to their `compile<Name>Kotlin` patterns.
 
-You can see the list of Android compilation tasks by running the `gradlew tasks --all` command in the terminal. The Android tasks
-are grouped under the _Android_ category.
+You can see the list of Android compilation tasks by running the `gradlew tasks --all` command in the terminal
+and searching for `compile*Kotlin` task names in the `Other tasks` group.
 
 Some important details to be aware of:
 
