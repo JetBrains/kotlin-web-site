@@ -86,13 +86,14 @@ See [Characters](characters.md) page for the list of supported escape sequences.
 
 ### Multiline strings
 
-_Multiline strings_ can contain newlines and arbitrary text. It is delimited by a triple quote (`"""`), contains no escaping and can contain newlines and any other characters:
+_Multiline strings_ can contain newlines and arbitrary text. It is delimited by a triple quote (`"""`),
+contains no escaping and can contain newlines and any other characters:
 
 ```kotlin
 val text = """
     for (c in "foo")
         print(c)
-"""
+    """
 ```
 
 To remove leading whitespace from multiline strings, use the [`trimMargin()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html) function:
@@ -144,7 +145,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 You can use templates both in multiline and escaped strings.
-To insert the dollar sign `$`  in a multiline string (which doesn't support backslash escaping) before any symbol,
+To insert the dollar sign `$` in a multiline string (which doesn't support backslash escaping) before any symbol,
 which is allowed as a beginning of an [identifier](https://kotlinlang.org/docs/reference/grammar.html#identifiers),
 use the following syntax:
 
@@ -153,6 +154,76 @@ val price = """
 ${'$'}_9.99
 """
 ```
+
+> To avoid `${'$'}` sequences in multiline strings, you can use Experimental [multi-dollar string interpolation feature](#multi-dollar-string-interpolation).
+>
+{style="note"}
+
+### Multi-dollar string interpolation
+
+> The multi-dollar string interpolation is [Experimental](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained).
+> It may be changed at any time. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-2425).
+>
+{style="warning"}
+
+Multiline strings in Kotlin don't support backslash escaping for literals. To escape dollar signs (`$`), 
+you need to use the `${'$'}` construct to prevent string interpolation.
+This approach can make the code harder to read, especially when the string contains multiple dollar signs.
+
+The multi-dollar string interpolation feature allows you to specify how many consecutive dollar signs are needed to trigger interpolation.
+This lets you treat dollar signs as literal characters in multiline strings.  
+For example:
+
+```kotlin
+val KClass<*>.jsonSchema : String
+    get() = $$"""
+    {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://example.com/product.schema.json",
+      "$dynamicAnchor": "meta"
+      "title": "$${simpleName ?: qualifiedName ?: "unknown"}",
+      "type": "object"
+    }
+    """
+```
+
+Here, the use of `$$` before the multiline string means that only two consecutive dollar signs trigger string interpolation,
+while single dollar signs remain as literal characters.
+
+You can specify how many dollar signs trigger interpolation.
+For example, you can use three consecutive dollar signs `$$$` to trigger string interpolation:
+
+```kotlin
+val requestData =
+    $$$"""{
+      "currency": "$",
+      "enteredAmount": "42.45 $$",
+      "$$serviceField": "none",
+      "product": "$$$productName"
+    }
+    """
+```
+
+To enable the feature, use the following compiler option in the command line:
+
+```bash
+kotlinc -Xmulti-dollar-interpolation main.kt
+```
+
+Alternatively, update the `compilerOptions {}` block of your Gradle build file:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xmulti-dollar-interpolation")
+    }
+}
+```
+
+This feature doesn't affect existing code that uses single-dollar string interpolation. 
+You can continue using single `$`
+as before and apply multi-dollar signs when you need to handle literal dollar signs in strings.
 
 ## String formatting
 
@@ -211,3 +282,13 @@ for example, in localization cases that depend on the user locale.
 
 Be careful when using the `String.format()` function because it can be easy to mismatch the number or position of the 
 arguments with their corresponding placeholders.
+
+
+---
+
+```kotlin
+// build.gradle.kts
+dependencies {
+    myCompilerScope("org.jetbrains.kotlin:kotlin-compiler-embeddable:%kotlinVersion")
+}
+```
