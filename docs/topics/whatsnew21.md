@@ -173,7 +173,7 @@ which is common in financial data and templating systems, required workarounds s
 With the multi-dollar interpolation feature enabled, you can configure how many dollar signs trigger interpolation, 
 with fewer dollar signs being treated as string literals.
 
-Here’s an example of how to generate an JSON schema multi-line string with placeholders using `$`:
+Here's an example of how to generate an JSON schema multi-line string with placeholders using `$`:
 
 ```kotlin
 val KClass<*>.jsonSchema : String
@@ -188,7 +188,8 @@ val KClass<*>.jsonSchema : String
    """
 ```
 
-In this example, the initial `$$` means that you need **two dollar signs** (`$$`) to trigger interpolation. It prevents `$schema`, `$id`, and `$dynamicAnchor` from being interpreted as interpolation markers.
+In this example, the initial `$$` means that you need **two dollar signs** (`$$`) to trigger interpolation.
+It prevents `$schema`, `$id`, and `$dynamicAnchor` from being interpreted as interpolation markers.
 
 This approach is especially helpful when working with systems that use dollar signs for placeholder syntax.
 
@@ -275,7 +276,7 @@ fun test(kvs: KeyValueStore<String, Int>) {
 
     // Extension functions
     kvs.storeExtension("", 1)    // Resolves to 1
-    kvs.storeExtension("") { 1 } // Doesn’t resolve
+    kvs.storeExtension("") { 1 } // Doesn't resolve
 }
 ```
 
@@ -287,7 +288,7 @@ Similarly, there are two overloads for the extension function: `storeExtension()
 When the `store()` function was called with and without a lambda function,
 the compiler successfully resolved the correct overloads.
 However, when the extension function `storeExtension()` was called with a lambda function,
-the compiler didn’t resolve the correct overload because it incorrectly considered both overloads to be applicable.
+the compiler didn't resolve the correct overload because it incorrectly considered both overloads to be applicable.
 
 To fix this problem, we've introduced a new heuristic so that the compiler can discard a possible overload
 when a function parameter with a generic type can't accept a lambda function based on information from a different argument.
@@ -513,7 +514,7 @@ This ensures that annotations like `@NonNull` and `@Nullable` are enforced durin
 preventing unexpected nullability issues at runtime.
 
 The `@NullMarked` annotation also affects the nullability of all members within its scope,
-making the behavior more predictable when you’re working with annotated Java code.
+making the behavior more predictable when you're working with annotated Java code.
 
 Here's an example demonstrating the new default behavior:
 
@@ -798,7 +799,7 @@ Kotlin 2.1.0 includes an upgrade for the `iosArm64` target support, improved cin
 The `iosArm64` target, which is crucial for [Kotlin Multiplatform](multiplatform-intro.md) development,
 has been promoted to Tier 1. This is the highest level of support in the Kotlin/Native compiler.
 
-This means the target is regularly tested on the CI pipeline to ensure that it’s able to compile and run.
+This means the target is regularly tested on the CI pipeline to ensure that it's able to compile and run.
 We also provide source and binary compatibility between compiler releases for the target.
 
 For more information on target tiers, see [Kotlin/Native target support](native-target-support.md).
@@ -853,7 +854,7 @@ which noticeably reduces the compilation time.
 This change currently doubles the compilation speed, and there are plans to improve it further in future releases.
 
 In the current setup, incremental compilation for Wasm targets is disabled by default.
-To enable incremental compilation, add the following line to your project’s `local.properties` or `gradle.properties` file:
+To enable incremental compilation, add the following line to your project's `local.properties` or `gradle.properties` file:
 
 ```none
 # gradle.properties
@@ -872,7 +873,7 @@ In this release, the `org.w3c.*`
 declarations have been moved from the Kotlin/Wasm standard library to the new [kotlinx-browser library](https://github.com/kotlin/kotlinx-browser).
 This library also includes other web-related packages, such as `org.khronos.webgl`, `kotlin.dom`, and `kotlinx.browser`.
 
-This separation provides modularity, enabling independent updates for web-related APIs outside of Kotlin’s release cycle.
+This separation provides modularity, enabling independent updates for web-related APIs outside of Kotlin's release cycle.
 Additionally, the Kotlin/Wasm standard library now contains only declarations available in any JavaScript environment.
 
 To use the declarations from the moved packages,
@@ -1373,7 +1374,7 @@ If your code is sensitive to recompositions, you may notice changes in runtime b
 
 ### Performance improvements
 
-The Compose compiler used to create a full copy of module’s IR to transform `@Composable` types.
+The Compose compiler used to create a full copy of module's IR to transform `@Composable` types.
 Apart from increased memory consumption when copying elements that were not related to Compose,
 this behavior was also breaking downstream compiler plugins in [certain edge cases](https://issuetracker.google.com/365066530).
 
