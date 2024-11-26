@@ -6,7 +6,7 @@ _[Released: November 27, 2024](releases.md#release-details)_
 
 The Kotlin plugins that support 2.1.0 are bundled in the latest IntelliJ IDEA and Android Studio.
 You don't need to update the Kotlin plugin in your IDE.
-All you need to do is to [change the Kotlin version](configure-build-for-eap.md) to 2.1.0 in your build scripts.
+All you need to do is [change the Kotlin version](configure-build-for-eap.md) to 2.1.0 in your build scripts.
 
 See [Update to a new Kotlin version](releases.md#update-to-a-new-kotlin-version) for details.
 

@@ -105,7 +105,7 @@ The following table lists details of the latest Kotlin releases:
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.0" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A language release with the new language features.</p>
+            <p>A language release introducing new language features.</p>
             <p>Learn more about Kotlin 2.1.0 in <a href="whatsnew21.md" target="_blank">What's new in Kotlin 2.1.0</a>.</p>
         </td>
     </tr>
