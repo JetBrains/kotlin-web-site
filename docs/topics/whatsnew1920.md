@@ -59,7 +59,7 @@ kapt.use.k2=true
 ```
 
 Alternatively, you can enable K2 for kapt by completing the following steps:
-1. In your `build.gradle.kts` file, [set the language version](gradle-compiler-options.md#example-of-setting-a-languageversion) to `2.0`.
+1. In your `build.gradle.kts` file, [set the language version](gradle-compiler-options.md#example-of-setting-languageversion) to `2.0`.
 2. In your `gradle.properties` file, add `kapt.use.k2=true`.
 
 If you encounter any issues when using kapt with the K2 compiler, please report them to our

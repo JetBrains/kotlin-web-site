@@ -317,7 +317,7 @@ From Kotlin 2.0.0, the K2 compiler is used by default.
 
 To use the previous compiler from Kotlin 2.0.0 onwards, either:
 
-* In your `build.gradle.kts` file, [set your language version](gradle-compiler-options.md#example-of-setting-a-languageversion) to `1.9`.
+* In your `build.gradle.kts` file, [set your language version](gradle-compiler-options.md#example-of-setting-languageversion) to `1.9`.
 
   OR
 * Use the following compiler option: `-language-version 1.9`.
