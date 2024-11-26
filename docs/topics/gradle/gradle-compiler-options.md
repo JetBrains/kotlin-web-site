@@ -42,7 +42,7 @@ For JVM and JS/WASM tasks, search for the `"Kotlin compiler args:"` string withi
 search for the `"Arguments ="` string.
 
 > If you're a third-party plugin author, it's best to apply your configuration on the project level to avoid
-> overriding issues. You can use the new Kotlin plugin DSL extension types for this. It's recommended that you document this
+> overriding issues. You can use the new [Kotlin plugin DSL extension types](whatsnew21.md#new-api-for-kotlin-gradle-plugin-extensions) for this. It's recommended that you document this
 > configuration on your side explicitly.
 >
 {style="tip"}
