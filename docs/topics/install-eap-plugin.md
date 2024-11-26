@@ -1,8 +1,9 @@
 [//]: # (title: Install the EAP Plugin for IntelliJ IDEA or Android Studio)
 
 <tldr>
-    <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
-    <p><a href="eap.md#build-details">Explore Kotlin EAP release details</a></p>
+    <p>No preview versions are currently available</p>
+    <!-- <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
+    <p><a href="eap.md#build-details">Explore Kotlin EAP release details</a></p> -->
 </tldr>
 
 > Starting from IntelliJ IDEA 2023.3 and Android Studio Iguana (2023.2.1) Canary 15, the Kotlin plugin doesn't need to be

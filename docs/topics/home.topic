@@ -29,7 +29,7 @@
         <misc>
             <cards narrow="false">
                 <title>Featured topics</title>
-                <a href="whatsnew2020.md" summary="Performance improvements and bug fixes for Kotlin 2.0.0, where the Kotlin K2 compiler became Stable">What's New in Kotlin 2.0.20</a>
+                <a href="whatsnew21.md" summary="New language features and other updates">What's new in Kotlin 2.1.0</a>
                 <a href="releases.md" summary="The latest Kotlin releases and instructions on how to update to them">Kotlin releases</a>
                 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/" summary="Living essentials for everyday work with Kotlin: IO, files, threading, collections, and much more">Standard library API reference</a>
                 <a href="basic-types.md" summary="Kotlin type system: numbers, strings, arrays, and other built-in types">Basic types</a>
