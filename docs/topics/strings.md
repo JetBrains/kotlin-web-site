@@ -145,8 +145,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 You can use templates both in multiline and escaped strings. However, multiline strings don't support backslash escaping. 
-To insert the dollar sign `$`
-in a multiline string
+To insert the dollar sign `$` in a multiline string
 before any symbol allowed at the beginning of an [identifier](https://kotlinlang.org/docs/reference/grammar.html#identifiers),
 use the following syntax:
 
