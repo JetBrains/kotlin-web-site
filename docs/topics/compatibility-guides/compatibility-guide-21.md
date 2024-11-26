@@ -125,6 +125,8 @@ perspective
 > **Component**: Core language
 >
 > **Incompatible change type**: binary
+> 
+> **Short summary**: The visibility of getters and setters for `var` properties overriding a `protected val` property is now consistent, with both inheriting the visibility of the overridden `val` property.
 >
 > **Deprecation cycle**:
 >
@@ -155,6 +157,9 @@ perspective
 > **Component**: Core language
 >
 > **Incompatible change type**: behavioral
+> 
+> **Short summary**: Overload resolution now consistently prioritizes extension functions over invoke calls in ambiguous cases.
+> This resolves inconsistencies in the resolution logic for local functions and properties. The change applies only after recompilation, without affecting precompiled binaries.
 >
 > **Deprecation cycle**:
 >
@@ -167,6 +172,9 @@ perspective
 > **Component**: Core language
 >
 > **Incompatible change type**: source
+> 
+> **Short summary**: Returning nullable values from lambdas in SAM constructors of JDK function interfaces now triggers a compilation error if the specified type argument is non-nullable.
+> This resolves issues where nullability mismatches could lead to runtime exceptions, ensuring stricter type safety.
 >
 > **Deprecation cycle**:
 >
@@ -180,6 +188,9 @@ perspective
 > **Component**: Core language
 >
 > **Incompatible change type**: behavioral
+> 
+> **Short summary**: In Kotlin/Native, private members no longer override or conflict with public members in a superclass, aligning behavior with Kotlin/JVM.
+> This resolves inconsistencies in override resolution and eliminates unexpected behavior caused by separate compilation.
 >
 > **Deprecation cycle**:
 >
