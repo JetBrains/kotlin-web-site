@@ -133,8 +133,8 @@ inline fun f(crossinline body: () -> Unit) {
 >
 {style="warning"}
 
-Similar to non-local `return`, you can apply `break` and `continue` [jump expressions](returns.md) within lambdas passed
-as arguments to an inline function that encloses the loop:
+Similar to non-local `return`, you can apply `break` and `continue` [jump expressions](returns.md) in lambdas passed
+as arguments to an inline function that encloses a loop:
 
 ```kotlin
 fun processList(elements: List<Int>): Boolean {
