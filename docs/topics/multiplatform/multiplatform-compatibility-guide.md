@@ -929,12 +929,12 @@ and could cause issues in existing user projects.
 The Kotlin Gradle plugin now provides a built-in hierarchy template. Since Kotlin 1.9.20, it's enabled by default
 and contains predefined intermediate source sets for popular use cases.
 
-The difference from shortcuts is that you need to explicitly specify the set of targets first, and the plugin then
-automatically sets up intermediate source sets based on this list.
+Instead of shortcuts, you should specify the list of targets, and then the plugin automatically sets up intermediate
+source sets based on this list.
 
-For example, suppose you have `iosArm64` and `iosSimulatorArm64` targets in your project. In that case, the plugin
-automatically creates the `iosMain` and `iosTest` intermediate source sets, and for the `iosArm64` and `macosArm64`
-targets, it creates the `appleMain` and `appleTest` source sets.
+For example, if you have `iosArm64` and `iosSimulatorArm64` targets in your project, the plugin automatically creates
+the `iosMain` and `iosTest` intermediate source sets. For the `iosArm64` and `macosArm64` targets, the `appleMain` and
+`appleTest` source sets are created.
 
 For more information, see [Hierarchical project structure](multiplatform-hierarchy.md)
 
