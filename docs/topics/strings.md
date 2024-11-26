@@ -144,9 +144,10 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-You can use templates both in multiline and escaped strings.
-To insert the dollar sign `$` in a multiline string (which doesn't support backslash escaping) before any symbol,
-which is allowed as a beginning of an [identifier](https://kotlinlang.org/docs/reference/grammar.html#identifiers),
+You can use templates both in multiline and escaped strings. However, multiline strings don't support backslash escaping. 
+To insert the dollar sign `$`
+in a multiline string
+before any symbol allowed at the beginning of an [identifier](https://kotlinlang.org/docs/reference/grammar.html#identifiers),
 use the following syntax:
 
 ```kotlin
@@ -162,13 +163,16 @@ ${'$'}_9.99
 ### Multi-dollar string interpolation
 
 > The multi-dollar string interpolation is [Experimental](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained).
+> and opt-in is required (see details below).
+> 
 > It may be changed at any time. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-2425).
 >
 {style="warning"}
 
 Multi-dollar string interpolation allows you to specify how many consecutive dollar signs are required to trigger interpolation.
+Interpolation is the process of embedding variables or expressions directly into a string.
 While you can [escape literals](#escaped-strings) for single-line strings,
-multiline strings in Kotlin don’t support backslash escaping.
+multiline strings in Kotlin don't support backslash escaping.
 To include dollar signs (`$`) as literal characters, you must use the `${'$'}` construct to prevent string interpolation.
 This approach can make code harder to read, especially when strings contain multiple dollar signs.
 
@@ -236,7 +240,7 @@ kotlin {
 ```
 
 This feature doesn't affect existing code that uses single-dollar string interpolation. 
-You can continue using single `$`
+You can continue using a single `$`
 as before and apply multi-dollar signs when you need to handle literal dollar signs in strings.
 
 ## String formatting
@@ -296,13 +300,3 @@ for example, in localization cases that depend on the user locale.
 
 Be careful when using the `String.format()` function because it can be easy to mismatch the number or position of the 
 arguments with their corresponding placeholders.
-
-
----
-
-```kotlin
-// build.gradle.kts
-dependencies {
-    myCompilerScope("org.jetbrains.kotlin:kotlin-compiler-embeddable:%kotlinVersion")
-}
-```
