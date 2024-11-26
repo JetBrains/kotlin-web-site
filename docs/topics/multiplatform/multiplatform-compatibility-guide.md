@@ -933,7 +933,7 @@ Instead of shortcuts, you should specify the list of targets, and then the plugi
 source sets based on this list.
 
 For example, if you have `iosArm64` and `iosSimulatorArm64` targets in your project, the plugin automatically creates
-the `iosMain` and `iosTest` intermediate source sets. For the `iosArm64` and `macosArm64` targets, the `appleMain` and
+the `iosMain` and `iosTest` intermediate source sets. If you have `iosArm64` and `macosArm64` targets, the `appleMain` and
 `appleTest` source sets are created.
 
 For more information, see [Hierarchical project structure](multiplatform-hierarchy.md)
