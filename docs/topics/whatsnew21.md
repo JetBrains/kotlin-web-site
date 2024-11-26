@@ -3,6 +3,7 @@
 _[Released: November 27, 2024](releases.md#release-details)_
 
 The Kotlin 2.1.0 release is here! Here are the main highlights:
+
 * **New language features in preview**: [Guard conditions in `when` with a subject](#guard-conditions-in-when-with-a-subject),
   [non-local `break` and `continue`](#non-local-break-and-continue), and [multi-dollar string interpolation](#multi-dollar-string-interpolation).
 * **K2 compiler updates**: [More flexibility around compiler checks](#extra-compiler-checks) and [improvements to the kapt implementation](#improved-k2-kapt-implementation).
@@ -45,7 +46,6 @@ These features are available in preview, and we encourage you to try them and sh
 
 > This feature is [In preview](kotlin-evolution-principles.md#pre-stable-features),
 > and opt-in is required (see details below).
-> It may be changed at any time.
 > 
 > We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-71140).
 >
@@ -239,7 +239,7 @@ A user can opt in like this:
 
 ```kotlin
 @OptIn(UnstableApi::class)
-interface MyImplementation : CoreLibraryApi
+interface MyImplementation: CoreLibraryApi
 ```
 
 > When you use the `@SubclassOptInRequired` annotation to require opt-in, 
@@ -306,8 +306,8 @@ Here's an example demonstrating the change:
 
 ```kotlin
 sealed class Result
-object Error : Result()
-class Success(val value: String) : Result()
+object Error: Result()
+class Success(val value: String): Result()
 
 fun <T : Result> render(result: T) = when (result) {
     Error -> "Error!"
@@ -392,33 +392,33 @@ The following details are also worth noting:
 * Error suppression is not allowed.
 * If you pass an unknown warning name, compilation will result in an error.
 * You can specify several warnings at once:
-   
+  
    <tabs>
    <tab title="Command line">
-   
+
    ```bash
    kotlinc -Xsuppress-warning=NOTHING_TO_INLINE -Xsuppress-warning=NO_TAIL_CALLS_FOUND main.kt
    ```
-   
+
    </tab>
    <tab title="Build file">
-   
+
    ```kotlin
-   // build.gradle.kts
-  kotlin {
-      compilerOptions {
-          freeCompilerArgs.addAll(
-              listOf(
-                  "-Xsuppress-warning=NOTHING_TO_INLINE",
-                  "-Xsuppress-warning=NO_TAIL_CALLS_FOUND"
-              )
-          )
-      }
-  }
-  ```
-  
-  </tab>
-  </tabs>
+    // build.gradle.kts
+   kotlin {
+       compilerOptions {
+           freeCompilerArgs.addAll(
+               listOf(
+                   "-Xsuppress-warning=NOTHING_TO_INLINE",
+                   "-Xsuppress-warning=NO_TAIL_CALLS_FOUND"
+               )
+           )
+       }
+   }
+   ```
+
+   </tab>
+   </tabs>
 
 ### Improved K2 kapt implementation
 
@@ -630,7 +630,7 @@ kotlin {
     iosX64()
     iosArm64()
     iosSimulatorArm64()
-  
+
     @OptIn(ExperimentalSwiftExportDsl::class)
     swiftExport {
         // Root module name
@@ -639,7 +639,7 @@ kotlin {
         // Collapse rule
         // Removes package prefix from generated Swift code
         flattenPackage = "com.example.sandbox"
-      
+
         // Export external modules
         export(project(":subproject")) {
             // Exported module name
@@ -710,6 +710,7 @@ To try it out in your project, add the following binary option to your `gradle.p
 # gradle.properties
 kotlin.native.enableKlibsCrossCompilation=true
 ```
+
 #### Leave feedback on the feature
 
 We're planning to stabilize this feature and further improve library publication in future Kotlin releases.
@@ -854,7 +855,7 @@ This change currently doubles the compilation speed, and there are plans to impr
 In the current setup, incremental compilation for Wasm targets is disabled by default.
 To enable incremental compilation, add the following line to your project’s `local.properties` or `gradle.properties` file:
 
-```text
+```none
 # gradle.properties
 kotlin.incremental.wasm=true
 ```
@@ -1210,7 +1211,7 @@ configure<KotlinJvmExtension> {
         jvmTarget.set(JvmTarget.JVM_17)
     }
 
-    target.mavenPublication { 
+    target.mavenPublication {
         groupId = "com.example"
         artifactId = "example-project"
         version = "1.0-SNAPSHOT"
@@ -1271,12 +1272,12 @@ import org.gradle.api.tasks.Classpath
 import org.gradle.api.tasks.TaskAction
 import org.gradle.workers.WorkerExecutor
 import javax.inject.Inject
-abstract class TaskUsingKotlinCompiler : DefaultTask() {
+abstract class TaskUsingKotlinCompiler: DefaultTask() {
     @get:Inject
-    abstract val executor : WorkerExecutor
+    abstract val executor: WorkerExecutor
 
     @get:Classpath
-    abstract val kotlinCompiler : ConfigurableFileCollection
+    abstract val kotlinCompiler: ConfigurableFileCollection
 
     @TaskAction
     fun compile() {
@@ -1293,8 +1294,8 @@ Finally, configure the Kotlin compiler classpath in your Gradle plugin:
 ```kotlin
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-abstract class MyPlugin : Plugin<Project> {
-    override fun apply(target : Project) {
+abstract class MyPlugin: Plugin<Project> {
+    override fun apply(target: Project) {
         val myDependencyScope = target.configurations.create("myDependencyScope")
         target.dependencies.add(myDependencyScope.name, "$KOTLIN_COMPILER_EMBEDDABLE:$KOTLIN_COMPILER_VERSION")
         val myResolvableConfiguration = target.configurations.create("myResolvable") {
