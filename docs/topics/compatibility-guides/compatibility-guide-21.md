@@ -49,7 +49,7 @@ perspective
 >
 > **Short summary**: Exposing types with lower visibility through type parameter bounds is now prohibited,
 > addressing inconsistencies in type visibility rules.
-> This change ensures that bounds on type parameters follow the same visibility rules as classes, preventing issues like IR validation errors in JVM.
+> This change ensures that bounds on type parameters follow the same visibility rules as classes, preventing issues like IR validation errors in the JVM.
 >
 > **Deprecation cycle**:
 >
@@ -370,7 +370,7 @@ perspective
 >
 > **Short summary**: The `registerKotlinJvmCompileTask(taskName, moduleName)` function is deprecated
 > in favor of the new `registerKotlinJvmCompileTask(taskName, compilerOptions, explicitApiMode)` function, which now accepts `KotlinJvmCompilerOptions`.
-> This allows you to pass a `compilerOptions` instance, typically from an extension or target, with values used as conventions for the task’s options.
+> This allows you to pass a `compilerOptions` instance, typically from an extension or target, with values used as conventions for the task's options.
 >
 > **Deprecation cycle**:
 >
@@ -463,7 +463,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: support for these platform plugin IDs have been removed:
+> **Short summary**: Support for these platform plugin IDs have been removed:
 > * `kotlin-platform-common`
 > * `org.jetbrains.kotlin.platform.common`
 >
