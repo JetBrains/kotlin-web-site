@@ -23,10 +23,11 @@
 		<toc-element topic="competitive-programming.md"/>
 	</toc-element>
 	<toc-element toc-title="What's new in Kotlin">
-		<toc-element toc-title="Kotlin 2.0.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2020.md"/>
-		<toc-element toc-title="Kotlin 2.0.0" topic="whatsnew20.md"/>
-		<toc-element toc-title="Kotlin 2.1.0-RC2" topic="whatsnew-eap.md"/>
+		<toc-element toc-title="Kotlin 2.1.0" accepts-web-file-names="whatsnew.html" topic="whatsnew21.md"/>
+		<toc-element toc-title="Kotlin 2.1.0-RC2" topic="whatsnew-eap.md" hidden="true"/>
 		<toc-element toc-title="Earlier versions">
+			<toc-element toc-title="Kotlin 2.0.20" topic="whatsnew2020.md"/>
+			<toc-element toc-title="Kotlin 2.0.0" topic="whatsnew20.md"/>
 			<toc-element toc-title="Kotlin 1.9.20" topic="whatsnew1920.md"/>
 			<toc-element toc-title="Kotlin 1.9.0" topic="whatsnew19.md"/>
 			<toc-element toc-title="Kotlin 1.8.20" topic="whatsnew1820.md"/>
