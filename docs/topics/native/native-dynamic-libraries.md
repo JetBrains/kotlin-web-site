@@ -1,7 +1,11 @@
 [//]: # (title: Kotlin/Native as a dynamic library – tutorial)
 
-Dynamic libraries are the main way to use Kotlin code from existing programs. You can use them to share your code with
-many platforms or languages, including JVM, Python, iOS, Android, and others.
+You can create dynamic libraries to use Kotlin code from existing programs. It helps share your code with
+many platforms or languages, including JVM, Python, Android, and others.
+
+> For iOS and other Apple targets, we recommend generating a framework. See the [Kotlin/Native as an Apple framework](apple-framework.md) tutorial.
+> 
+{style="tip"}
 
 You can use the Kotlin/Native code from existing native applications or libraries. For this, you need to
 compile the Kotlin code into a dynamic library with the `.so`, `.dylib`, or `.dll` format.
@@ -136,7 +140,7 @@ Let's create a Kotlin library and use it from a C program.
     * The `libnative` is used as the library name, the prefix for the generated header file name. It also prefixes all
       declarations in the header file.
 
-3. Run the `linkDebuSharedNative` Gradle task to build the library in the IDE or call the following console command:
+3. Run the `linkDebugSharedNative` Gradle task to build the library in the IDE or call the following console command:
 
    ```bash
    ./gradlew linkDebugSharedNative
@@ -157,7 +161,7 @@ the Kotlin library.
 
 ## Generated header file
 
-Let's examine how C functions are mapped into Kotlin/Native declarations.
+Let's examine how Kotlin/Native declarations are mapped into C functions.
 
 In the `build/bin/native/debugShared` directory, open the `libnative_api.h` header file.
 The very first part contains the standard C/C++ header and footer:
@@ -169,7 +173,7 @@ The very first part contains the standard C/C++ header and footer:
 extern "C" {
 #endif
 
-/// THE REST OF THE GENERATED CODE GOES HERE
+/// The rest of the generated code
 
 #ifdef __cplusplus
 }  /* extern "C" */
@@ -220,54 +224,18 @@ of type mappings:
 | `libnative_KVector128` | `float __attribute__ ((__vector_size__ (16))` |
 | `libnative_KNativePtr` | `void*`                                       |
 
-The definitions part shows how Kotlin primitive types map into C primitive types.
+The definition part of the `libnative_api.h` file shows how Kotlin primitive types map into C primitive types.
+The Kotlin/Native compiler generates them automatically for every library. 
 The reverse mapping is described in the [Mapping primitive data types from C](mapping-primitive-data-types-from-c.md) tutorial.
 
-The next part of the `libnative_api.h` file contains definitions of the types that are used in the library:
+After the automatically generated type definitions, you'll find the separate type definitions used in your library:
 
 ```c
 struct libnative_KType;
 typedef struct libnative_KType libnative_KType;
 
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_Byte;
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_Short;
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_Int;
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_Long;
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_Float;
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_Double;
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_Char;
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_Boolean;
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_Unit;
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_UByte;
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_UShort;
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_UInt;
-typedef struct {
-  libnative_KNativePtr pinned;
-} libnative_kref_kotlin_ULong;
+/// Automatically generated type definitions
+
 typedef struct {
   libnative_KNativePtr pinned;
 } libnative_kref_example_Object;
@@ -284,46 +252,77 @@ The `typedef struct { ... } TYPE_NAME` syntax is used in C language to declare a
 {style="tip"}
 
 As you can see from these definitions, Kotlin types are mapped using the same pattern: `Object` is mapped into
-`libnative_kref_example_Object`, `Clazz` is mapped into `libnative_kref_example_Clazz`, and so on. All structs contain
+`libnative_kref_example_Object` and `Clazz` is mapped into `libnative_kref_example_Clazz`. All structs contain
 nothing but the `pinned` field with a pointer. The field type `libnative_KNativePtr` is defined as `void*` above.
 
 C doesn't support namespaces, so the Kotlin/Native compiler generates long names to avoid any possible clashes
 with other symbols in the existing native project.
 
-The next part of the `libnative_api.h` file consists of structure declarations of runtime and user library functions:
+### Service runtime functions
+
+The code reads as follows. You have the `libnative_ExportedSymbols` structure, which defines all the functions that
+Kotlin/Native and your library provide. It uses nested anonymous structures heavily to mimic packages. The `libnative_`
+prefix comes from the library name.
+
+The `libnative_ExportedSymbols` structure has several helper functions in the header file:
 
 ```c
 typedef struct {
   /* Service functions. */
   void (*DisposeStablePointer)(libnative_KNativePtr ptr);
   void (*DisposeString)(const char* string);
-  libnative_KBoolean (*IsInstance)(libnative_KNativePtr ref, const libnative_KType* type);
-  libnative_kref_kotlin_Byte (*createNullableByte)(libnative_KByte);
-  libnative_KByte (*getNonNullValueOfByte)(libnative_kref_kotlin_Byte);
-  libnative_kref_kotlin_Short (*createNullableShort)(libnative_KShort);
-  libnative_KShort (*getNonNullValueOfShort)(libnative_kref_kotlin_Short);
-  libnative_kref_kotlin_Int (*createNullableInt)(libnative_KInt);
-  libnative_KInt (*getNonNullValueOfInt)(libnative_kref_kotlin_Int);
-  libnative_kref_kotlin_Long (*createNullableLong)(libnative_KLong);
-  libnative_KLong (*getNonNullValueOfLong)(libnative_kref_kotlin_Long);
-  libnative_kref_kotlin_Float (*createNullableFloat)(libnative_KFloat);
-  libnative_KFloat (*getNonNullValueOfFloat)(libnative_kref_kotlin_Float);
-  libnative_kref_kotlin_Double (*createNullableDouble)(libnative_KDouble);
-  libnative_KDouble (*getNonNullValueOfDouble)(libnative_kref_kotlin_Double);
-  libnative_kref_kotlin_Char (*createNullableChar)(libnative_KChar);
-  libnative_KChar (*getNonNullValueOfChar)(libnative_kref_kotlin_Char);
-  libnative_kref_kotlin_Boolean (*createNullableBoolean)(libnative_KBoolean);
-  libnative_KBoolean (*getNonNullValueOfBoolean)(libnative_kref_kotlin_Boolean);
-  libnative_kref_kotlin_Unit (*createNullableUnit)(void);
-  libnative_kref_kotlin_UByte (*createNullableUByte)(libnative_KUByte);
-  libnative_KUByte (*getNonNullValueOfUByte)(libnative_kref_kotlin_UByte);
-  libnative_kref_kotlin_UShort (*createNullableUShort)(libnative_KUShort);
-  libnative_KUShort (*getNonNullValueOfUShort)(libnative_kref_kotlin_UShort);
-  libnative_kref_kotlin_UInt (*createNullableUInt)(libnative_KUInt);
-  libnative_KUInt (*getNonNullValueOfUInt)(libnative_kref_kotlin_UInt);
-  libnative_kref_kotlin_ULong (*createNullableULong)(libnative_KULong);
-  libnative_KULong (*getNonNullValueOfULong)(libnative_kref_kotlin_ULong);
+```
 
+These functions deal with Kotlin/Native objects. `DisposeStablePointer` is called to release a reference to a Kotlin object,
+and `DisposeString` is called to release a Kotlin String, which has the `char*` type in C.
+
+The next part of the `libnative_api.h` file consists of structure declarations of runtime functions:
+
+```c
+libnative_KBoolean (*IsInstance)(libnative_KNativePtr ref, const libnative_KType* type);
+libnative_KBoolean (*IsInstance)(libnative_KNativePtr ref, const libnative_KType* type);
+libnative_kref_kotlin_Byte (*createNullableByte)(libnative_KByte);
+libnative_KByte (*getNonNullValueOfByte)(libnative_kref_kotlin_Byte);
+libnative_kref_kotlin_Short (*createNullableShort)(libnative_KShort);
+libnative_KShort (*getNonNullValueOfShort)(libnative_kref_kotlin_Short);
+libnative_kref_kotlin_Int (*createNullableInt)(libnative_KInt);
+libnative_KInt (*getNonNullValueOfInt)(libnative_kref_kotlin_Int);
+libnative_kref_kotlin_Long (*createNullableLong)(libnative_KLong);
+libnative_KLong (*getNonNullValueOfLong)(libnative_kref_kotlin_Long);
+libnative_kref_kotlin_Float (*createNullableFloat)(libnative_KFloat);
+libnative_KFloat (*getNonNullValueOfFloat)(libnative_kref_kotlin_Float);
+libnative_kref_kotlin_Double (*createNullableDouble)(libnative_KDouble);
+libnative_KDouble (*getNonNullValueOfDouble)(libnative_kref_kotlin_Double);
+libnative_kref_kotlin_Char (*createNullableChar)(libnative_KChar);
+libnative_KChar (*getNonNullValueOfChar)(libnative_kref_kotlin_Char);
+libnative_kref_kotlin_Boolean (*createNullableBoolean)(libnative_KBoolean);
+libnative_KBoolean (*getNonNullValueOfBoolean)(libnative_kref_kotlin_Boolean);
+libnative_kref_kotlin_Unit (*createNullableUnit)(void);
+libnative_kref_kotlin_UByte (*createNullableUByte)(libnative_KUByte);
+libnative_KUByte (*getNonNullValueOfUByte)(libnative_kref_kotlin_UByte);
+libnative_kref_kotlin_UShort (*createNullableUShort)(libnative_KUShort);
+libnative_KUShort (*getNonNullValueOfUShort)(libnative_kref_kotlin_UShort);
+libnative_kref_kotlin_UInt (*createNullableUInt)(libnative_KUInt);
+libnative_KUInt (*getNonNullValueOfUInt)(libnative_kref_kotlin_UInt);
+libnative_kref_kotlin_ULong (*createNullableULong)(libnative_KULong);
+libnative_KULong (*getNonNullValueOfULong)(libnative_kref_kotlin_ULong);
+```
+
+It's possible to use the `IsInstance` function to check if a Kotlin object (referenced with its `.pinned` pointer)
+is an instance of a type. The actual set of operations generated depends on actual usages.
+
+> Kotlin/Native has garbage collector, but it doesn't help deal with Kotlin objects from the C language. However,
+> Kotlin/Native provides [interoperability with Swift/Objective-C](native-objc-interop.md), and the garbage collector is [integrated with Objective-C/Swift ARC](native-arc-integration.md).
+>
+{style="tip"}
+
+### Your library functions
+
+Let's take a look at the separate structure declarations used in your library. The `libnative_kref_example` field mimics
+the package structure of your Kotlin code with a `libnative_kref.` prefix:
+
+```c
+typedef struct {
   /* User functions. */
   struct {
     struct {
@@ -354,33 +353,6 @@ anonymous structure type, the type with no name.
 C doesn't support objects either, so function pointers are used to mimic object semantics. A function pointer is declared
 as `RETURN_TYPE (* FIELD_NAME)(PARAMETERS)`.
 
-### Runtime functions
-
-The code reads as follows. You have the `libnative_ExportedSymbols` structure, which defines all the functions that
-Kotlin/Native and your library provide. It uses nested anonymous structures heavily to mimic packages. The `libnative_`
-prefix comes from the library name.
-
-The `libnative_ExportedSymbols` structure has several helper functions in the header file:
-
-```c
-void (*DisposeStablePointer)(libnative_KNativePtr ptr);
-void (*DisposeString)(const char* string);
-libnative_KBoolean (*IsInstance)(libnative_KNativePtr ref, const libnative_KType* type);
-```
-
-These functions deal with Kotlin/Native objects. `DisposeStablePointer` is called to release a Kotlin object, and
-`DisposeString` is called to release a Kotlin String, which has the `char*` type in C. It's possible to use the
-`IsInstance` function to check if a Kotlin type or a `libnative_KNativePtr` is an instance of another type. The actual
-set of operations generated depends on actual usages.
-
-Kotlin/Native has garbage collector, but it doesn't help deal with Kotlin objects from the C language. However,
-Kotlin/Native provides [interoperability with Swift/Objective-C](native-objc-interop.md), and the garbage collector is [integrated with Objective-C/Swift ARC](native-arc-integration.md).
-
-### Your library functions
-
-Let's take a look at the `libnative_kref_example` field. It mimics the package structure of your Kotlin code with a
-`libnative_kref.` prefix.
-
 There is a `libnative_kref_example_Clazz` field that represents the `Clazz` from Kotlin. The `libnative_KULong` is
 accessible with the `memberFunction` field. The only difference is that the `memberFunction` accepts a `thiz` reference as
 the first parameter. The C language doesn't support objects, which is why `thiz` pointer should be passed explicitly.
@@ -410,8 +382,7 @@ extern libnative_ExportedSymbols* libnative_symbols(void);
 The function `libnative_symbols` allows you to open the way from the native code to the Kotlin/Native library. This is
 the entry point you'll use. The library name is used as a prefix for the function name.
 
-> Kotlin/Native object references don't support multithreaded access. Hosting the returned `libnative_ExportedSymbols*`
-> pointer per thread might be necessary.
+> Hosting the returned `libnative_ExportedSymbols*` pointer per thread might be necessary.
 >
 {style="note"}
 
