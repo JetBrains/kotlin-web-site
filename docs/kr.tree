@@ -404,6 +404,7 @@
 	<toc-element toc-title="Other resources">
 		<toc-element topic="faq.md"/>
 		<toc-element toc-title="Kotlin compatibility guides">
+			<toc-element topic="compatibility-guide-21.md"/>
 			<toc-element topic="compatibility-guide-20.md"/>
 			<toc-element topic="compatibility-guide-19.md"/>
 			<toc-element topic="compatibility-guide-18.md"/>
