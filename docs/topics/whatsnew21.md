@@ -8,9 +8,9 @@ The Kotlin 2.1.0 release is here! Here are the main highlights:
   [non-local `break` and `continue`](#non-local-break-and-continue), and [multi-dollar string interpolation](#multi-dollar-string-interpolation).
 * **K2 compiler updates**: [More flexibility around compiler checks](#extra-compiler-checks) and [improvements to the kapt implementation](#improved-k2-kapt-implementation).
 * **Kotlin Multiplatform**: Introduced [basic support for Swift export](#basic-support-for-swift-export),
-  a [stable Gradle DSL for compiler options](#new-gradle-dsl-for-compiler-options-in-multiplatform-projects-promoted-to-stable), and more.
+  [stable Gradle DSL for compiler options](#new-gradle-dsl-for-compiler-options-in-multiplatform-projects-promoted-to-stable), and more.
 * **Kotlin/Native**: [Improved support for `iosArm64`](#iosarm64-promoted-to-tier-1) and other updates.
-* **Kotlin/Wasm**: Multiple updates including [support for incremental compilation](#support-for-incremental-compilation).
+* **Kotlin/Wasm**: Multiple updates, including [support for incremental compilation](#support-for-incremental-compilation).
 * **Gradle support**: [Improved compatibility with newer versions of Gradle and the Android Gradle plugin](#gradle-improvements),
   along with [updates to the Kotlin Gradle plugin API](#new-api-for-kotlin-gradle-plugin-extensions).
 * **Documentation**: [Significant improvements to the Kotlin documentation](#documentation-updates).
@@ -26,7 +26,7 @@ See [Update to a new Kotlin version](releases.md#update-to-a-new-kotlin-version)
 ## Language
 
 After the Kotlin 2.0.0 release with the K2 compiler, the JetBrains team is focusing on improving the language with new features.
-In this release, we are excited to announce several new language design enhancements.
+In this release, we are excited to announce several new language design improvements.
 
 These features are available in preview, and we encourage you to try them and share your feedback:
 
@@ -41,6 +41,12 @@ These features are available in preview, and we encourage you to try them and sh
 {type="tip"}
 
 [See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
+
+This release also brings the following language updates:
+
+* [](#support-for-requiring-opt-in-to-extend-apis)
+* [](#improved-overload-resolution-for-functions-with-generic-types)
+* [](#improved-exhaustiveness-checks-for-when-expressions-with-sealed-classes)
 
 ### Guard conditions in when with a subject
 
@@ -155,7 +161,7 @@ please report them to our [issue tracker](https://youtrack.jetbrains.com/issue/K
 
 ### Multi-dollar string interpolation
 
-> Multi-dollar string interpolation is [In preview](kotlin-evolution-principles.md#pre-stable-features)
+> The feature is [In preview](kotlin-evolution-principles.md#pre-stable-features)
 > and opt-in is required (see details below).
 > 
 > We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-2425).
@@ -319,8 +325,8 @@ fun <T : Result> render(result: T) = when (result) {
 
 ## Kotlin K2 compiler
 
-With Kotlin 2.1.0, the K2 compiler now provides more flexibility when working with compiler checks and warnings,
-as well as improved support for the kapt plugin.
+With Kotlin 2.1.0, the K2 compiler now provides [more flexibility when working with compiler checks](#extra-compiler-checks)
+and [warnings](#global-warning-suppression), as well as [improved support for the kapt plugin](#improved-k2-kapt-implementation).
 
 ### Extra compiler checks
 
@@ -555,9 +561,10 @@ For more information, see [Nullability annotations](java-interop.md#nullability-
 
 ## Kotlin Multiplatform
 
-Kotlin 2.1.0 introduces basic support for Swift export and makes publishing Kotlin Multiplatform libraries easier.
-It also focuses on improvements around Gradle that stabilize the new DSL for configuring compiler options
-and bring a preview of the Isolated Projects feature.
+Kotlin 2.1.0 introduces [basic support for Swift export](#basic-support-for-swift-export) and makes
+[publishing Kotlin Multiplatform libraries easier](#ability-to-publish-kotlin-libraries-from-any-host).
+It also focuses on improvements around Gradle that stabilize the [new DSL for configuring compiler options](#new-gradle-dsl-for-compiler-options-in-multiplatform-projects-promoted-to-stable)
+and bring a [preview of the Isolated Projects feature](#preview-gradle-s-isolated-projects-in-kotlin-multiplatform).
 
 ### New Gradle DSL for compiler options in multiplatform projects promoted to Stable
 
@@ -702,7 +709,7 @@ which should greatly simplify the publishing process for Kotlin and Kotlin Multi
 
 For more information, see [Publishing multiplatform libraries](https://kotlinlang.org/docs/multiplatform-publish-lib.html).
 
-#### How to enable the feature
+#### How to enable the publishing Kotlin libraries from any host feature
 
 This feature is currently [Experimental](components-stability.md#stability-levels-explained).
 To try it out in your project, add the following binary option to your `gradle.properties` file:
@@ -712,7 +719,7 @@ To try it out in your project, add the following binary option to your `gradle.p
 kotlin.native.enableKlibsCrossCompilation=true
 ```
 
-#### Leave feedback on the feature
+#### Leave feedback on the publishing Kotlin libraries from any host feature
 
 We're planning to stabilize this feature and further improve library publication in future Kotlin releases.
 Please leave your feedback in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-71290).
@@ -792,7 +799,8 @@ see this issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47038/KJS-M
 
 ## Kotlin/Native
 
-Kotlin 2.1.0 includes an upgrade for the `iosArm64` target support, improved cinterop caching process, and other updates.
+Kotlin 2.1.0 includes an [upgrade for the `iosArm64` target support](#iosarm64-promoted-to-tier-1),
+[improved cinterop caching process](#changes-to-caching-in-cinterop), and other updates.
 
 ### iosArm64 promoted to Tier 1
 
@@ -842,6 +850,8 @@ For more information on the memory allocator and garbage collection in Kotlin,
 see [Kotlin/Native memory management](native-memory-manager.md).
 
 ## Kotlin/Wasm
+
+Kotlin/Wasm received some multiple updates along with [support for incremental compilation](#support-for-incremental-compilation).
 
 ### Support for incremental compilation
 
@@ -988,7 +998,7 @@ Previously, when a JavaScript exception occurred in Kotlin/Wasm,
 the `JsException` type provided only a generic message without details from the original JavaScript error.
 
 Starting from Kotlin 2.1.0, you can configure `JsException`
-to include the original error message and stack trace by enabling a specific compiler flag.
+to include the original error message and stack trace by enabling a specific compiler option.
 This provides more context to help diagnose issues originating from JavaScript.
 
 This behavior depends on the `WebAssembly.JSTag` API, which is available only in certain browsers:
@@ -1344,7 +1354,7 @@ Pausable composition is a new Experimental feature that changes how the compiler
 With this feature enabled, composition can be suspended on skipping points during runtime,
 allowing long-running composition processes to be split across multiple frames.
 Pausable composition is used in lazy lists and other performance-intensive components for prefetching content
-that might cause visual junk when executed in a blocking manner.
+that might cause frames to drop when executed in a blocking manner.
 
 To try out pausable composition, add the following feature flag in the Gradle configuration for the Compose compiler:
 
@@ -1515,7 +1525,6 @@ fun traverseFileTree() {
     // "[, build, build/Project.jar, src, src/A.class, src/A.kt]"
   
     // Traverses the file tree with cleanVisitor, applying the rootDirectory.visitFileTree(cleanVisitor) cleanup rules
-
     val directoryStructureAfterClean = rootDirectory.walk(PathWalkOption.INCLUDE_DIRECTORIES)
         .map { it.relativeTo(rootDirectory).toString() }
         .toList().sorted()
@@ -1554,6 +1563,7 @@ The Kotlin documentation has received some notable changes:
 * New [Building a Kotlin library for multiplatform](api-guidelines-build-for-multiplatform.md) page –
   Learn how to design your Kotlin libraries for Kotlin Multiplatform.
 * New [Introduction to Kotlin Multiplatform](multiplatform-intro.md) page – Learn about Kotlin Multiplatform's key concepts, dependencies, libraries, and more.
+* Updated [Kotlin Multiplatform overview](multiplatform.topic) page – Navigate through the essentials of Kotlin Multiplatform and popular use cases.
 * New [iOS integration](multiplatform-ios-integration-overview.md) section – Learn how to integrate a Kotlin Multiplatform shared module into your iOS app.
 * New [Kotlin/Native's definition file](native-definition-file.md) page – Learn how to create a definition file to consume C and Objective-C libraries.
 * [Get started with WASI](wasm-wasi.md) –
