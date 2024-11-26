@@ -63,7 +63,7 @@ kotlin.native.enableKlibsCrossCompilation=true
 >
 {style="note"}
 
-To avoid any issues during publication, publish all artifacts from one host only to avoid duplicating publications in the
+To avoid any issues during publication, publish all artifacts from a single host to avoid duplicating publications in the
 repository. Maven Central, for example, explicitly forbids duplicate publications and fails the process.
 <!-- TBD: add the actual error -->
   
