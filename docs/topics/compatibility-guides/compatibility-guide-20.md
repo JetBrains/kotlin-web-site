@@ -170,8 +170,6 @@ perspective
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**:
->
 > **Deprecation cycle**:
 >
 > - 2.0.0: new overload resolution behavior; function calls are consistently prioritized over invoke conventions
