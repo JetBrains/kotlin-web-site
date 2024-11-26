@@ -1528,10 +1528,10 @@ The Kotlin documentation has received some notable changes:
 
 ### Language concepts
 
-* Improved [Null safety page](null-safety.md) – Learn how to handle `null` values safely in your code.
-* Improved [Objects declarations and expressions page](object-declarations.md) –
+* Improved [Null safety](null-safety.md) page – Learn how to handle `null` values safely in your code.
+* Improved [Objects declarations and expressions](object-declarations.md) page –
   Learn how to define a class and create an instance in a single step.
-* Improved [When expressions and statements section](control-flow.md#when-expression) –
+* Improved [When expressions and statements](control-flow.md#when-expression) section –
   Learn about the `when` conditional and how you can use it.
 * Updated [Kotlin roadmap](roadmap.md), [Kotlin evolution principles](kotlin-evolution-principles.md),
   and [Kotlin language features and proposals](kotlin-language-features-and-proposals.md) pages – 
@@ -1551,6 +1551,9 @@ The Kotlin documentation has received some notable changes:
 
 * New [Building a Kotlin library for multiplatform](api-guidelines-build-for-multiplatform.md) page –
   Learn how to design your Kotlin libraries for Kotlin Multiplatform.
+* New [Introduction to Kotlin Multiplatform](multiplatform-intro.md) page – Learn about Kotlin Multiplatform's key concepts, dependencies, libraries, and more.
+* New [iOS integration](multiplatform-ios-integration-overview.md) section – Learn how to integrate a Kotlin Multiplatform shared module into your iOS app.
+* New [Kotlin/Native's definition file](native-definition-file.md) page – Learn how to create a definition file to consume C and Objective-C libraries.
 * [Get started with WASI](wasm-wasi.md) –
   Learn how to run a simple Kotlin/Wasm application using WASI in various WebAssembly virtual machines.
 
