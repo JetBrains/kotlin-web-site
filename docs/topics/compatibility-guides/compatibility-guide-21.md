@@ -24,23 +24,6 @@ perspective
 
 ## Language
 
-<!--
-### Title
-
-> **Issue**: [KT-NNNNN](https://youtrack.jetbrains.com/issue/KT-NNNNN)
->
-> **Component**: Core language
->
-> **Incompatible change type**: source
->
-> **Short summary**:
->
-> **Deprecation cycle**:
->
-> - 2.1.0: report a warning
-> - 2.2.0: raise the warning to an error
--->
-
 ### Change the typeOf() function behavior on Kotlin/Native
 
 > **Issue**: [KT-70754](https://youtrack.jetbrains.com/issue/KT-70754)
@@ -112,7 +95,7 @@ perspective
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**: K2 changes the behavior of smart cast propagation by introducing bidirectional propagation of type
+> **Short summary**: The K2 compiler changes its behavior for smart cast propagation by introducing bidirectional propagation of type
 > information for inferred variables, like `val x = y`. Explicitly typed variables, such as `val x: T = y`,
 > no longer propagate type information, ensuring stricter adherence to declared types.
 >
@@ -286,7 +269,7 @@ perspective
 >
 > - 1.4.30: introduce locale-agnostic alternatives as experimental API
 > - 1.5.0: deprecate locale-sensitive case conversion functions with a warning
-> - 2.1.0: raise the warning to an error`
+> - 2.1.0: raise the warning to an error
 
 ### Remove kotlin-stdlib-common JAR artifact
 
@@ -303,7 +286,7 @@ perspective
 >
 > - 2.1.0: deprecate and remove `kotlin-stdlib-common.jar` artifact
 
-### Deprecate appendln in favor of appendLine
+### Deprecate appendln() in favor of appendLine()
 
 > **Issue**: [KTLC-27](https://youtrack.jetbrains.com/issue/KTLC-27)
 >
@@ -327,7 +310,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: Freezing-related APIs in Kotlin/Native, previously marked with the `@FreezingIsDeprecated` annotation, are now deprecated.
-> This aligns with the new memory manager that removes the need for freezing objects for thread sharing.
+> This aligns with the introduction of the new memory manager that removes the need for freezing objects for thread sharing.
 > For migration details, see the [Kotlin/Native migration guide](native-migration-guide.md#update-your-code).
 >
 > **Deprecation cycle**:
