@@ -76,6 +76,14 @@ Here are some recommendations for configuring Gradle for better compilation perf
     * **Local build cache**: Add `org.gradle.caching=true` to your `gradle.properties` or run with `--build-cache` on the command line.
     * **Remote build cache** in continuous integration environments. Learn how to [configure the remote build cache](https://docs.gradle.org/current/userguide/build_cache.html#sec:build_cache_configure_remote).
 
+* **Use the Gradle [configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html)**:
+  Add `org.gradle.configuration-cache=true` to your `gradle.properties`.
+  > Configuration cache also enables running `link*` tasks in parallel which could heavily load the machine, 
+  > specifically with a lot of CPU cores.
+  > To be fixed with [KT-70915](https://youtrack.jetbrains.com/issue/KT-70915/Limit-parallelism-on-KotlinNativeLink-tasks).
+  >
+  {style="note"}
+
 * **Enable previously disabled features of Kotlin/Native**. There are properties that disable the Gradle daemon and compiler
   caches – `kotlin.native.disableCompilerDaemon=true` and `kotlin.native.cacheKind=none`. If you had issues with these
   features before and added these lines to your `gradle.properties` or Gradle arguments, remove them and check whether
