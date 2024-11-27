@@ -5,7 +5,7 @@ import BuildParams.KOTLIN_RELEASE_TAG
 import builds.apiReferences.BuildApiPages
 import builds.apiReferences.dependsOnDokkaTemplate
 import builds.apiReferences.scriptBuildHtml
-import builds.apiReferences.vcsRoots.KotlinMetadataJvm
+import builds.apiReferences.vcsRoots.Kotlin
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 
 private const val LIB_DIR = "libraries/kotlinx-metadata/jvm"
@@ -33,7 +33,7 @@ object KotlinxMetadataJvmBuildApiReference : BuildApiPages(
     },
     init = {
         vcs {
-            root(KotlinMetadataJvm)
+            root(Kotlin)
         }
         dependencies {
             dependsOnDokkaTemplate(KotlinxMetadataJvmPrepareDokkaTemplates, "$LIB_DIR/dokka-templates")

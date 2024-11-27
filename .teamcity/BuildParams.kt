@@ -12,6 +12,8 @@ object BuildParams {
   const val KOTLINX_METADATA_ID = "kotlinx-metadata-jvm"
   const val KOTLIN_CORE_API_BUILD_ID = "Kotlin_KotlinRelease_2020_LibraryReferenceLatestDocs"
   const val KOTLIN_RELEASE_TAG = "v2.0.21"
+  const val KGP_ID = "kotlin-gradle-plugin"
+  val KGP_RELEASE_TAG = if (KOTLIN_RELEASE_TAG >= "v2.1.0") KOTLIN_RELEASE_TAG else "2.1.0"
 
   const val SEARCH_APP_ID = "7961PKYRXV"
   const val SEARCH_INDEX_NAME = "prod_KOTLINLANG_WEBHELP"
@@ -22,6 +24,7 @@ object BuildParams {
     "api/$KOTLINX_SERIALIZATION_ID",
     "api/$KOTLINX_DATETIME_ID",
     "api/$KOTLINX_IO_ID",
+    "api/$KGP_ID",
     "api/$KOTLINX_METADATA_ID",
   )
 }

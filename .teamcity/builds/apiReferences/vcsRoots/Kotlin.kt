@@ -3,7 +3,7 @@ package builds.apiReferences.vcsRoots
 import BuildParams.KOTLIN_RELEASE_TAG
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
-object KotlinMetadataJvm : GitVcsRoot({
+object Kotlin : GitVcsRoot({
   name = "kotlin metadata vcs root"
   url = "git@github.com:JetBrains/kotlin.git"
   branch = "refs/tags/$KOTLIN_RELEASE_TAG"
