@@ -45,7 +45,7 @@ object BuildStdlibApiReference : BuildType({
     dependencies {
         dependency(AbsoluteId(KOTLIN_CORE_API_BUILD_ID)) {
             artifacts {
-                buildRule = lastSuccessful()
+                buildRule = tag("publish", "*")
                 cleanDestination = true
                 artifactRules = "latest-version.zip!all-libs/** => $PAGES_ROOT/"
             }
