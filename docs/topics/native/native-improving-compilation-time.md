@@ -49,6 +49,13 @@ Here are some recommendations for configuring Gradle for better compilation perf
       
       To build a platform-specific framework, call the `embedAndSignAppleFrameworkForXcode` task.
 
+* **Build only for the target you need**. Similarly to the recommendation above, don't build a binary for all Native
+  platforms at once. For example, compiling an [XCFramework](multiplatform-build-native-binaries.md#build-xcframeworks)
+  (e.g., with an `*XCFramework` task) builds the same code for all targets, which takes proportionally more time than
+  building for a single target.
+  * If you do need XCFrameworks for your setup, you can reduce the number of targets.
+    For example, you don't need `iosX64` if you don't run this project on iOS simulators on Intel-based Macs.
+
 * **Don't disable the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html)** without having a
   good reason to. [Kotlin/Native runs from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native)
   by default. When it's enabled, the same JVM process is used and there is no need to warm it up for each compilation.
