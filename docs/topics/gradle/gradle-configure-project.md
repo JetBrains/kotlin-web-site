@@ -50,7 +50,8 @@ In the following table, there are the minimum and maximum **fully supported** ve
 
 | KGP version   | Gradle min and max versions            | AGP min and max versions                            |
 |---------------|----------------------------------------|-----------------------------------------------------|
-| 2.0.20        | %minGradleVersion%–%maxGradleVersion%* | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 2.1.0         | %minGradleVersion%–%maxGradleVersion%* | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 2.0.20–2.0.21 | 6.8.3–8.8*                             | 7.1.3–8.5                                           |
 | 2.0.0         | 6.8.3–8.5                              | 7.1.3–8.3.1                                         |
 | 1.9.20–1.9.25 | 6.8.3–8.1.1                            | 4.2.2–8.1.0                                         |
 | 1.9.0–1.9.10  | 6.8.3–7.6.0                            | 4.2.2–7.4.0                                         |
@@ -60,8 +61,8 @@ In the following table, there are the minimum and maximum **fully supported** ve
 | 1.7.0–1.7.10  | 6.7.1–7.0.2                            | 3.4.3–7.0.2                                         |
 | 1.6.20–1.6.21 | 6.1.1–7.0.2                            | 3.4.3–7.0.2                                         |
 
-> *Kotlin 2.0.20 is fully compatible with Gradle 6.8.3 through 8.6.
-> Gradle 8.7 and 8.8 are also supported, with only one exception: If you use the Kotlin Multiplatform Gradle plugin,
+> *Kotlin 2.0.20–2.0.21 and Kotlin 2.1.0 are fully compatible with Gradle up to 8.6.
+> Gradle versions 8.7–8.10 are also supported, with only one exception: If you use the Kotlin Multiplatform Gradle plugin,
 > you may see deprecation warnings in your multiplatform projects calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets).
 > For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
 >

@@ -154,7 +154,7 @@ The feature has the following restrictions:
 >
 {style="warning"}
 
-The author of a library can mark an experimental API as [requiring opt-in](opt-in-requirements.md#create-opt-in-requirement-annotations) to inform users about its experimental state. The compiler raises a warning or error when the API is used and requires [explicit consent](opt-in-requirements.md#opt-in-to-using-api) to suppress it.
+The author of a library can mark an experimental API as [requiring opt-in](opt-in-requirements.md#create-opt-in-requirement-annotations) to inform users about its experimental state. The compiler raises a warning or error when the API is used and requires [explicit consent](opt-in-requirements.md#opt-in-to-api) to suppress it.
 
 In Kotlin 1.5.30, the compiler treats any declaration that has an experimental type in the signature as experimental. Namely, it requires opt-in even for implicit usages of an experimental API. For example, if the function's return type is marked as an experimental API element, a usage of the function requires you to opt-in even if the declaration is not marked as requiring an opt-in explicitly.
 

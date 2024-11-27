@@ -94,7 +94,7 @@ in other contexts:
  * `annotation` declares an [annotation class](annotations.md).
  * `companion` declares a [companion object](object-declarations.md#companion-objects).
  * `const` marks a property as a [compile-time constant](properties.md#compile-time-constants).
- * `crossinline` forbids [non-local returns in a lambda passed to an inline function](inline-functions.md#non-local-returns).
+ * `crossinline` forbids [non-local returns in a lambda passed to an inline function](inline-functions.md#returns).
  * `data` instructs the compiler to [generate canonical members for a class](data-classes.md).
  * `enum` declares an [enumeration](enum-classes.md).
  * `expect` marks a declaration as [platform-specific](multiplatform-expect-actual.md), expecting an implementation in platform modules.

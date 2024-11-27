@@ -31,42 +31,6 @@ This example configures a compiler option that is common across all targets:
 
 ```kotlin
 kotlin {
-    targets.all {
-        compilations.all {
-            compilerOptions.configure {
-                allWarningsAsErrors.set(true)
-            }
-        }
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    targets.all {
-        compilations.all {
-            compilerOptions.configure {
-                allWarningsAsErrors = true
-            }
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
-
-Alternatively, you can use the `compilerOptions {}` [top-level block](multiplatform-dsl-reference.md#top-level-blocks):
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
     compilerOptions {
         allWarningsAsErrors.set(true)
     }
@@ -87,12 +51,6 @@ kotlin {
 </tab>
 </tabs>
 
-> The support for `compilerOptions {}` as a top-level block is [Experimental](components-stability.md#stability-levels-explained)
-> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
-> your feedback on it in [YouTrack](https://kotl.in/issue).
->
-{style="warning"}
-
 ## Configure compilations for one target
 
 <tabs group="build-script">
@@ -100,39 +58,7 @@ kotlin {
 
 ```kotlin
 kotlin {
-    jvm().compilations.all {
-        compilerOptions.configure {
-            jvmTarget.set(JvmTarget.JVM_1_8)
-        }
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    jvm().compilations.all {
-        compilerOptions.configure {
-            jvmTarget = JvmTarget.JVM_1_8
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
-
-Alternatively, you can use the `compilerOptions {}` block at target level:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
     jvm {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_1_8)
         }
@@ -155,13 +81,6 @@ kotlin {
 
 </tab>
 </tabs>
-
-> The support for the `compilerOptions {}` block at target level is [Experimental](components-stability.md#stability-levels-explained)
-> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
-> your feedback on it in [YouTrack](https://kotl.in/issue).
->
-{style="warning"}
-
 
 ## Configure one compilation
 
@@ -410,8 +329,8 @@ for each build variant, a Kotlin compilation is created under the same name.
 
 Then, for each [Android source set](https://developer.android.com/studio/build/build-variants#sourcesets) compiled for 
 each of the variants, a Kotlin source set is created under that source set name prepended by the target name, like the 
-Kotlin source set `androidDebug` for an Android source set `debug` and the Kotlin target named `android`. These Kotlin 
-source sets are added to the variants' compilations accordingly.
+Kotlin source set `androidDebug` for an Android source set `debug` and the Kotlin target named `androidTarget`.
+These Kotlin source sets are added to the variants' compilations accordingly.
 
 The default source set `commonMain` is added to each production (application or library) variant's compilation. 
 The `commonTest` source set is similarly added to the compilations of unit test and instrumented test variants.
@@ -422,7 +341,7 @@ than within Kotlin source set dependencies.
 
 ```kotlin
 kotlin {
-    android { /* ... */ }
+    androidTarget { /* ... */ }
 }
 
 dependencies {
@@ -453,3 +372,30 @@ Language settings are checked for consistency in the following ways:
 bugfix features).
 * `jvmMain` should use all experimental annotations that `commonMain` uses.
 * `apiVersion`, bugfix language features, and `progressiveMode` can be set arbitrarily.
+
+## Configure Isolated Projects feature in Gradle
+
+> This feature is [Experimental](components-stability.md#stability-levels-explained) and is currently in a pre-alpha state with Gradle. 
+> Use it only with Gradle versions 8.10 or higher, and solely for evaluation purposes. The feature may be dropped or changed at any time.
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-57279/Support-Gradle-Project-Isolation-Feature-for-Kotlin-Multiplatform). 
+> Opt-in is required (see details below).
+> 
+{style="warning"}
+
+Gradle provides the [Isolated Projects](https://docs.gradle.org/current/userguide/isolated_projects.html) feature,
+which improves build performance by "isolating" individual projects from each other. The feature separates the build scripts
+and plugins between projects, allowing them to run safely in parallel.
+
+To enable this feature, follow Gradle's instructions to [set the system property](https://docs.gradle.org/current/userguide/isolated_projects.html#how_do_i_use_it).
+
+If you want to check compatibility before enabling Isolated Projects in Gradle, you can test your projects with the new 
+Kotlin Gradle plugin model. Add the following Gradle property to your `gradle.properties` file:
+
+```none
+kotlin.kmp.isolated-projects.support=enable
+```
+
+If you decide to enable the Isolated Projects feature later, remember to remove this Gradle property. The Kotlin Gradle plugin
+applies and manages this Gradle property directly.
+
+For more information about the Isolated Projects feature, see [Gradle's documentation](https://docs.gradle.org/current/userguide/isolated_projects.html).

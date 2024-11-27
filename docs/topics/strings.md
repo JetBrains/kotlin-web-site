@@ -86,13 +86,14 @@ See [Characters](characters.md) page for the list of supported escape sequences.
 
 ### Multiline strings
 
-_Multiline strings_ can contain newlines and arbitrary text. It is delimited by a triple quote (`"""`), contains no escaping and can contain newlines and any other characters:
+_Multiline strings_ can contain newlines and arbitrary text. It is delimited by a triple quote (`"""`),
+contains no escaping and can contain newlines and any other characters:
 
 ```kotlin
 val text = """
     for (c in "foo")
         print(c)
-"""
+    """
 ```
 
 To remove leading whitespace from multiline strings, use the [`trimMargin()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html) function:
@@ -143,9 +144,9 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-You can use templates both in multiline and escaped strings.
-To insert the dollar sign `$`  in a multiline string (which doesn't support backslash escaping) before any symbol,
-which is allowed as a beginning of an [identifier](https://kotlinlang.org/docs/reference/grammar.html#identifiers),
+You can use templates both in multiline and escaped strings. However, multiline strings don't support backslash escaping. 
+To insert the dollar sign `$` in a multiline string
+before any symbol allowed at the beginning of an [identifier](https://kotlinlang.org/docs/reference/grammar.html#identifiers),
 use the following syntax:
 
 ```kotlin
@@ -153,6 +154,94 @@ val price = """
 ${'$'}_9.99
 """
 ```
+
+> To avoid `${'$'}` sequences in strings, you can use the Experimental [multi-dollar string interpolation feature](#multi-dollar-string-interpolation).
+>
+{style="note"}
+
+### Multi-dollar string interpolation
+
+> The multi-dollar string interpolation is [Experimental](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained)
+> and opt-in is required (see details below).
+> 
+> It may be changed at any time. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-2425).
+>
+{style="warning"}
+
+Multi-dollar string interpolation allows you to specify how many consecutive dollar signs are required to trigger interpolation.
+Interpolation is the process of embedding variables or expressions directly into a string.
+
+While you can [escape literals](#escaped-strings) for single-line strings,
+multiline strings in Kotlin don't support backslash escaping.
+To include dollar signs (`$`) as literal characters, you must use the `${'$'}` construct to prevent string interpolation.
+This approach can make code harder to read, especially when strings contain multiple dollar signs.
+
+Multi-dollar string interpolation simplifies this
+by letting you treat dollar signs as literal characters in both single-line and multiline strings.
+For example:
+
+```kotlin
+val KClass<*>.jsonSchema : String
+    get() = $$"""
+    {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://example.com/product.schema.json",
+      "$dynamicAnchor": "meta"
+      "title": "$${simpleName ?: qualifiedName ?: "unknown"}",
+      "type": "object"
+    }
+    """
+```
+
+Here, the `$$` prefix specifies that two consecutive dollar signs are required to trigger string interpolation. 
+Single dollar signs remain as literal characters.
+
+You can adjust how many dollar signs trigger interpolation.
+For example, using three consecutive dollar signs (`$$$`) allows `$` and `$$` to remain as literals 
+while enabling interpolation with `$$$`:
+
+```kotlin
+val productName = "carrot"
+val requestedData =
+    $$$"""{
+      "currency": "$",
+      "enteredAmount": "42.45 $$",
+      "$$serviceField": "none",
+      "product": "$$$productName"
+    }
+    """
+
+println(requestedData)
+//{
+//    "currency": "$",
+//    "enteredAmount": "42.45 $$",
+//    "$$serviceField": "none",
+//    "product": "carrot"
+//}
+```
+
+Here, the `$$$` prefix allows the string to include `$` and `$$` without requiring the `${'$'}` construct for escaping.
+
+To enable the feature, use the following compiler option in the command line:
+
+```bash
+kotlinc -Xmulti-dollar-interpolation main.kt
+```
+
+Alternatively, update the `compilerOptions {}` block of your Gradle build file:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xmulti-dollar-interpolation")
+    }
+}
+```
+
+This feature doesn't affect existing code that uses single-dollar string interpolation. 
+You can continue using a single `$`
+as before and apply multi-dollar signs when you need to handle literal dollar signs in strings.
 
 ## String formatting
 

@@ -36,35 +36,29 @@ plugins {
 `kotlin {}` is the top-level block for multiplatform project configuration in the Gradle build script.
 Inside `kotlin {}`, you can write the following blocks:
 
-| **Block**            | **Description**                                                                                                                                                                                                                 |
-|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| _&lt;targetName&gt;_ | Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.                                                                                                        |
-| `targets`            | All targets of the project.                                                                                                                                                                                                     |
-| `presets`            | All predefined targets. Use this for [configuring multiple predefined targets](#targets) at once.                                                                                                                               |
-| `sourceSets`         | Configures predefined and declares custom [source sets](#source-sets) of the project.                                                                                                                                           |
-| `compilerOptions`    | Extension-level common [compiler options](gradle-compiler-options.md) that are used as defaults for all targets and shared source sets. To use it, add the following opt-in: `@OptIn(ExperimentalKotlinGradlePluginApi::class)` |
-
-> The support for `compilerOptions {}` as a top-level block is [Experimental](components-stability.md#stability-levels-explained)
-> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
-> your feedback on it in [YouTrack](https://kotl.in/issue).
->
-{style="warning"}
+| **Block**            | **Description**                                                                                                                          |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| _&lt;targetName&gt;_ | Declares a particular target of a project. The names of available targets are listed in the [Targets](#targets) section.                 |
+| `targets`            | Lists all targets of the project.                                                                                                        |
+| `sourceSets`         | Configures predefined and declares custom [source sets](#source-sets) of the project.                                                    |
+| `compilerOptions`    | Specifies common extension-level [compiler options](#compiler-options) that are used as defaults for all targets and shared source sets. |
 
 ## Targets
 
-_Target_ is a part of the build responsible for compiling, testing, and packaging a piece of software aimed at
-one of the supported platforms. Kotlin provides target presets for each platform. See how to [use a target preset](multiplatform-set-up-targets.md).
+A _target_ is a part of the build responsible for compiling, testing, and packaging a piece of software aimed at
+one of the supported platforms. Kotlin provides targets for each platform, so you can instruct Kotlin to compile code for
+that specific target. Learn more about [setting up targets](multiplatform-discover-project.md#targets).
 
 Each target can have one or more [compilations](#compilations). In addition to default compilations for
 test and production purposes, you can [create custom compilations](multiplatform-configure-compilations.md#create-a-custom-compilation).
 
-The targets of a multiplatform project are described in the corresponding blocks inside `kotlin {}`, for example, `jvm`, `android`, `iosArm64`.
+The targets of a multiplatform project are described in the corresponding blocks inside `kotlin {}`, for example, `jvm`, `androidTarget`, `iosArm64`.
 The complete list of available targets is the following:
 
 <table>
     <tr>
         <th>Target platform</th>
-        <th>Target preset</th>
+        <th>Target</th>
         <th>Comments</th>
     </tr>
     <tr>
@@ -102,7 +96,7 @@ The complete list of available targets is the following:
     </tr>
     <tr>
         <td>Android applications and libraries</td>
-        <td><code>android</code></td>
+        <td><code>androidTarget</code></td>
         <td>
             <p>Manually apply an Android Gradle plugin: <code>com.android.application</code> or <code>com.android.library</code>.</p>
             <p>You can only create one Android target per Gradle subproject.</p>
@@ -134,20 +128,12 @@ Each target can have one or more [compilations](#compilations).
 
 In any target block, you can use the following declarations:
 
-| **Name**            | **Description**                                                                                                                                                                                                                                                                                 | 
-|---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `attributes`        | Attributes used for [disambiguating targets](multiplatform-set-up-targets.md#distinguish-several-targets-for-one-platform) for a single platform.                                                                                                                                               |
-| `preset`            | The preset that the target has been created from, if any.                                                                                                                                                                                                                                       |
-| `platformType`      | Designates the Kotlin platform of this target. Available values: `jvm`, `androidJvm`, `js`, `wasm`, `native`, `common`.                                                                                                                                                                         |
-| `artifactsTaskName` | The name of the task that builds the resulting artifacts of this target.                                                                                                                                                                                                                        |
-| `components`        | The components used to setup Gradle publications.                                                                                                                                                                                                                                               |
-| `compilerOptions`   | The [compiler options](gradle-compiler-options.md) used for the target. This declaration overrides any `compilerOptions {}` configured at [top level](multiplatform-dsl-reference.md#top-level-blocks). To use it, add the following opt-in: `@OptIn(ExperimentalKotlinGradlePluginApi::class)` |
-
-> The support for `compilerOptions {}` as a common target configuration is [Experimental](components-stability.md#stability-levels-explained)
-> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
-> your feedback on it in [YouTrack](https://kotl.in/issue).
->
-{style="warning"}
+| **Name**            | **Description**                                                                                                                                                                            | 
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `platformType`      | The Kotlin platform for this target. Available values: `jvm`, `androidJvm`, `js`, `wasm`, `native`, `common`.                                                                              |
+| `artifactsTaskName` | The name of the task that builds the resulting artifacts of this target.                                                                                                                   |
+| `components`        | Components used to set up Gradle publications.                                                                                                                                             |
+| `compilerOptions`   | [Compiler options](#compiler-options) used for the target. This declaration overrides any `compilerOptions {}` configured at [top level](multiplatform-dsl-reference.md#top-level-blocks). |
 
 ### JVM targets
 
@@ -466,15 +452,15 @@ Two functions help you configure [build variants](https://developer.android.com/
 
 ```kotlin
 kotlin {
-    android {
-        publishLibraryVariants("release", "debug")
+    androidTarget {
+        publishLibraryVariants("release")
     }
 }
 ```
 
 Learn more about [compilation for Android](multiplatform-configure-compilations.md#compilation-for-android).
 
-> The `android` configuration inside `kotlin` doesn't replace the build configuration of any Android project.
+> The `androidTarget` configuration inside the `kotlin {}` block doesn't replace the build configuration of any Android project.
 > Learn more about writing build scripts for Android projects in [Android developer documentation](https://developer.android.com/studio/build).
 >
 {style="note"}
@@ -756,12 +742,8 @@ kotlin {
     }
 
     // Configure all compilations of all targets:
-    targets.all {
-        compilations.all {
-            compilerOptions.configure {
-                allWarningsAsErrors.set(true)
-            }
-        }
+    compilerOptions {
+        allWarningsAsErrors.set(true)
     }
 }
 ```
@@ -783,12 +765,8 @@ kotlin {
     }
 
     // Configure all compilations of all targets:
-    targets.all {
-        compilations.all {
-            compilerOptions.configure {
-                allWarningsAsErrors = true
-            }
-        }
+    compilerOptions {
+        allWarningsAsErrors = true
     }
 }
 ```
@@ -796,16 +774,38 @@ kotlin {
 </tab>
 </tabs>
 
-Alternatively, to configure compiler options that are common for all targets, you can use the `compilerOptions {}` [top-level block](multiplatform-dsl-reference.md#top-level-blocks):
+## Compiler options
+
+You can configure compiler options in your projects at three different levels:
+
+* **Extension level**, in the `kotlin {}` block.
+* **Target level**, in a target block.
+* **Compilation unit level**, usually in a specific compilation task.
+
+![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
+
+Settings at a higher level work as defaults for the level below:
+
+* Compiler options set at the extension level are the default for target-level options, including shared source sets like `commonMain`, `nativeMain`, and `commonTest`.
+* Compiler options set at the target level are the default for options at the compilation unit (task) level, like `compileKotlinJvm` and `compileTestKotlinJvm` tasks.
+
+Configurations made at a lower level override similar settings at higher levels:
+
+* Task-level compiler options override similar settings at the target or extension level.
+* Target-level compiler options override similar settings at the extension level.
+
+For the list of possible compiler options, see [All compiler options](gradle-compiler-options.md#all-compiler-options).
+
+### Extension level
+
+To configure compiler options for all targets in your project, use the `compilerOptions {}` block at the top level:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
-    
-    // Configure all compilations of all targets:
-    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    // Configures all compilations of all targets
     compilerOptions {
         allWarningsAsErrors.set(true)
     }
@@ -817,8 +817,7 @@ kotlin {
 
 ```groovy
 kotlin {
-    
-    // Configure all compilations of all targets:
+    // Configures all compilations of all targets:
     compilerOptions {
         allWarningsAsErrors = true
     }
@@ -828,12 +827,110 @@ kotlin {
 </tab>
 </tabs>
 
-> The support for `compilerOptions {}` as a top-level block is [Experimental](components-stability.md#stability-levels-explained)
-> and requires opt-in. It may be dropped or changed at any time. Use it only for evaluation purposes. We would appreciate
-> your feedback on it in [YouTrack](https://kotl.in/issue).
->
-{style="warning"}
+### Target level
 
+To configure compiler options for a specific target in your project, use the `compilerOptions {}` block inside the target block:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvm {
+        // Configures all compilations of the JVM target
+        compilerOptions {
+            allWarningsAsErrors.set(true)
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm {
+        // Configures all compilations of the JVM target
+        compilerOptions {
+            allWarningsAsErrors = true
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+### Compilation unit level
+
+To configure compiler options for a specific task, use the `compilerOptions {}` block inside the task:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+task.named<KotlinJvmCompile>("compileKotlinJvm") {
+    compilerOptions {
+        allWarningsAsErrors.set(true)
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+task.named<KotlinJvmCompile>("compileKotlinJvm") {
+    compilerOptions {
+        allWarningsAsErrors = true
+    }
+}
+```
+
+</tab>
+</tabs>
+
+To configure compiler options for a specific compilation, use the `compilerOptions {}` block within the compilation's task provider:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    jvm {
+        compilations.named(KotlinCompilation.MAIN_COMPILATION_NAME) {
+            compileTaskProvider.configure {
+                // Configures the 'main' compilation:
+                compilerOptions {
+                    allWarningsAsErrors.set(true)
+                }
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    jvm {
+        compilations.named(KotlinCompilation.MAIN_COMPILATION_NAME) {
+            compileTaskProvider.configure {
+                // Configures the 'main' compilation:
+                compilerOptions {
+                    allWarningsAsErrors = true
+                }
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 ## Dependencies
 
@@ -941,8 +1038,8 @@ The `languageSettings {}` block of a source set defines certain aspects of proje
 kotlin {
     sourceSets.all {
         languageSettings.apply {
-            languageVersion = "%languageVersion%" // possible values: '1.6', '1.7', '1.8', '1.9', `2.0`
-            apiVersion = "%apiVersion%" // possible values: '1.6', '1.7', '1.8', '1.9', `2.0`
+            languageVersion = "%languageVersion%" // possible values: '1.8', '1.9', `2.0`, `2.1`
+            apiVersion = "%apiVersion%" // possible values: '1.8', '1.9', `2.0`, `2.1`
             enableLanguageFeature("InlineClasses") // language feature name
             optIn("kotlin.ExperimentalUnsignedTypes") // annotation FQ-name
             progressiveMode = true // false by default
@@ -958,8 +1055,8 @@ kotlin {
 kotlin {
     sourceSets.all {
         languageSettings {
-            languageVersion = '%languageVersion%' // possible values: '1.6', '1.7', '1.8', '1.9', `2.0`
-            apiVersion = '%apiVersion%' // possible values: '1.6', '1.7', '1.8', '1.9', `2.0`
+            languageVersion = '%languageVersion%' // possible values: '1.8', '1.9', `2.0`, `2.1`
+            apiVersion = '%apiVersion%' // possible values: '1.8', '1.9', `2.0`, `2.1`
             enableLanguageFeature('InlineClasses') // language feature name
             optIn('kotlin.ExperimentalUnsignedTypes') // annotation FQ-name
             progressiveMode = true // false by default

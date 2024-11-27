@@ -157,7 +157,7 @@ additional compiler configuration.
 
 Before 1.7.0, the opt-in feature itself required the argument `-opt-in=kotlin.RequiresOptIn` to avoid a warning. It no
 longer requires this; however, you can still use the compiler argument `-opt-in` to opt-in for other
-annotations, [module-wide](opt-in-requirements.md#module-wide-opt-in).
+annotations, [a module](opt-in-requirements.md#opt-in-a-module).
 
 ### Stable definitely non-nullable types
 

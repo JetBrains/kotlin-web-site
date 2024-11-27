@@ -123,7 +123,7 @@ kotlin {
     // Source set declaration:
     sourceSets {
         commonMain {
-            // configure the commonMain source set
+            // Configure the commonMain source set
         }
     }
 }
@@ -204,7 +204,7 @@ Consider an example where you need to target all modern Apple devices and Androi
 
 ```kotlin
 kotlin {
-    android()
+    androidTarget()
     iosArm64()   // 64-bit iPhone devices
     macosArm64() // Modern Apple Silicon-based Macs
     watchosX64() // Modern 64-bit Apple Watch devices
@@ -313,4 +313,4 @@ tutorial](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-
 
 * [Learn more about declaring and using predefined source sets in Gradle scripts](multiplatform-hierarchy.md)
 * [Explore advanced concepts of the multiplatform project structure](multiplatform-advanced-project-structure.md)
-* [Learn how to configure compilations](multiplatform-configure-compilations.md)
+* [Learn more about target compilation and creating custom compilations](multiplatform-configure-compilations.md)

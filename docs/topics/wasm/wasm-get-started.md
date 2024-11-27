@@ -23,7 +23,7 @@ Create a project using the Kotlin Multiplatform wizard:
 3. Select the **Web** option. Make sure that no other options are selected.
 4. Click the **Download** button and unpack the resulting archive.
 
-![Kotlin Multiplatform wizard](wasm-compose-web-wizard.png){width=600}
+![Kotlin Multiplatform wizard](wasm-compose-web-wizard.png){width=400}
 
 ## Open the project in IntelliJ IDEA
 
@@ -110,7 +110,8 @@ Join the Kotlin/Wasm community in Kotlin Slack:
 
 Try more Kotlin/Wasm examples:
 
-* [Compose image viewer](https://github.com/JetBrains/compose-multiplatform/tree/master/examples/imageviewer)
-* [Jetsnack application](https://github.com/JetBrains/compose-multiplatform/tree/master/examples/jetsnack)
-* [Node.js example](https://github.com/Kotlin/kotlin-wasm-nodejs-template)
-* [WASI example](https://github.com/Kotlin/kotlin-wasm-wasi-template)
+* [Compose image viewer](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-imageviewer)
+* [Jetsnack application](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-jetsnack)
+* [Node.js example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/nodejs-example)
+* [WASI example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example)
+* [Compose example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-example)

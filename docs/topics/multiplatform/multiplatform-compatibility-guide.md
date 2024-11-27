@@ -13,14 +13,15 @@ developing projects with Kotlin Multiplatform.
 When configuring your project, check the compatibility of a particular version of the Kotlin Multiplatform Gradle plugin (same as the Kotlin version in your project)
 with available Gradle, Xcode, and Android Gradle plugin versions:
 
-| Kotlin Multiplatform plugin version | Gradle    | Android Gradle plugin | Xcode |
-|-------------------------------------|-----------|-----------------------|-------|
-| 2.0.21                              | 7.5-8.8*  | 7.4.2–8.5             | 16.0  |
-| 2.0.20                              | 7.5-8.8*  | 7.4.2–8.5             | 15.3  |
-| 2.0.0                               | 7.5-8.5   | 7.4.2–8.3             | 15.3  |
-| 1.9.20                              | 7.5-8.1.1 | 7.4.2–8.2             | 15.0  |
+| Kotlin Multiplatform plugin version | Gradle                                 | Android Gradle plugin           | Xcode   |
+|-------------------------------------|----------------------------------------|---------------------------------|---------|
+| 2.1.0                               | %minGradleVersion%–%maxGradleVersion%* | 7.4.2–%maxAndroidGradleVersion% | %xcode% |
+| 2.0.21                              | 7.5-8.8*                               | 7.4.2–8.5                       | 16.0    |
+| 2.0.20                              | 7.5-8.8*                               | 7.4.2–8.5                       | 15.3    |
+| 2.0.0                               | 7.5-8.5                                | 7.4.2–8.3                       | 15.3    |
+| 1.9.20                              | 7.5-8.1.1                              | 7.4.2–8.2                       | 15.0    |
 
-> Kotlin 2.0.20 and 2.0.21 are fully compatible with Gradle 6.8.3 through 8.6.
+> *Kotlin 2.0.20–2.0.21 and Kotlin 2.1.0 are fully compatible with Gradle up to 8.6.
 > Gradle 8.7 and 8.8 are also supported, but you may see deprecation warnings in your multiplatform projects
 > calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets). 
 > For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
@@ -420,7 +421,8 @@ The access to `KotlinCompilation.source` has been deprecated. A code like this p
 kotlin {
     jvm()
     js()
-    ios()
+    iosArm64()
+    iosSimulatorArm64()
     
     sourceSets {
         val commonMain by getting
@@ -446,7 +448,8 @@ You can change the code above in one of the following ways:
 kotlin {
     jvm()
     js()
-    ios()
+    iosArm64()
+    iosSimulatorArm64()
 
     sourceSets {
         val commonMain by getting
@@ -619,18 +622,22 @@ support for the Android target. In the future, this support will be provided via
 Android team from Google.
 
 To open the way for the new solution from Google, we're renaming the `android` block to `androidTarget` in the current
-Kotlin DSL in 1.9.0. This is a temporary change that is necessary to free the short `android` name for the upcoming DSL
+Kotlin DSL. This is a temporary change that is necessary to free the short `android` name for the upcoming DSL
 from Google.
 
 **What's the best practice now?**
 
-Rename all the occurrences of  the `android` block to `androidTarget`. When the new plugin for the Android target support
+Rename all the occurrences of the `android` block to `androidTarget`. When the new plugin for the Android target support
 is available, migrate to the DSL from Google. It will be the preferred option to work with Android in Kotlin Multiplatform
 projects.
 
 **When do the changes take effect?**
 
-In Kotlin 1.9.0, a deprecation warning is introduced when the `android` name is used in Kotlin Multiplatform projects.
+Here's the planned deprecation cycle:
+
+* 1.9.0: introduce a deprecation warning when the `android` name is used in Kotlin Multiplatform projects
+* 2.1.0: raise this warning to an error
+* 2.2.0: remove the `android` target DSL from the Kotlin Multiplatform Gradle plugin
 
 <anchor name="declaring-multiple-targets"/>
 ## Declaring several similar targets
@@ -762,7 +769,6 @@ Here's the planned deprecation cycle:
 
 * 1.9.20: introduce a deprecation warning when multiple similar targets are used in Kotlin Multiplatform projects
 * 2.1.0: report an error in such cases, except for Kotlin/JS targets; to learn more about this exception, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47038/KJS-MPP-Split-JS-target-into-JsBrowser-and-JsNode)
-
 
 <anchor name="jvmWithJava-preset-deprecation"/>
 ## Deprecated jvmWithJava preset
@@ -910,6 +916,41 @@ Here's the planned deprecation cycle:
 * &gt;2.0: remove the presets-related API from the public API of the Kotlin Gradle plugin; sources that still use it fail
   with "unresolved reference" errors, and binaries (for example, Gradle plugins) might fail with linkage errors
   unless recompiled against the latest versions of the Kotlin Gradle plugin
+
+<anchor name="target-shortcuts-deprecation"/>
+## Deprecated Apple target shortcuts
+
+**What's changed?**
+
+We're deprecating `ios()`, `watchos()`, and `tvos()` target shortcuts in Kotlin Multiplatform DSL. They were designed to
+partially create a source set hierarchy for Apple targets. However, they proved to be difficult to expand and sometimes confusing.
+
+For example, the `ios()` shortcut created both the `iosArm64` and `iosX64` targets but didn't include the `iosSimulatorArm64`
+target, which is necessary when working on hosts with Apple M chips. However, changing this shortcut was hard to implement
+and could cause issues in existing user projects.
+
+**What's the best practice now?**
+
+The Kotlin Gradle plugin now provides a built-in hierarchy template. Since Kotlin 1.9.20, it's enabled by default
+and contains predefined intermediate source sets for popular use cases.
+
+Instead of shortcuts, you should specify the list of targets, and then the plugin automatically sets up intermediate
+source sets based on this list.
+
+For example, if you have `iosArm64` and `iosSimulatorArm64` targets in your project, the plugin automatically creates
+the `iosMain` and `iosTest` intermediate source sets. If you have `iosArm64` and `macosArm64` targets, the `appleMain` and
+`appleTest` source sets are created.
+
+For more information, see [Hierarchical project structure](multiplatform-hierarchy.md)
+
+**When do the changes take effect?**
+
+Here's the planned deprecation cycle:
+
+* 1.9.20: report a warning when `ios()`, `watchos()`, and `tvos()` target shortcuts are used;
+  the default hierarchy template is enabled by default instead
+* 2.1.0: report an error when target shortcuts are used
+* 2.2.0: remove target shortcut DSL from the Kotlin Multiplatform Gradle plugin
 
 ## New approach to forward declarations
 

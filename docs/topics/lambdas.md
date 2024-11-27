@@ -330,7 +330,7 @@ functions with a block body.
 >
 {style="note"}
 
-Another difference between lambda expressions and anonymous functions is the behavior of [non-local returns](inline-functions.md#non-local-returns).
+Another difference between lambda expressions and anonymous functions is the behavior of [non-local returns](inline-functions.md#returns).
 A `return`  statement without a label always returns from the function declared with the `fun` keyword. This means that
 a `return` inside a lambda expression will return from the enclosing function, whereas a `return` inside an anonymous
 function will return from the anonymous function itself.
