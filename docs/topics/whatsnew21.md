@@ -623,7 +623,7 @@ There are two ways to enable the Kotlin Gradle plugin's new model:
 > Opt-in is required (see the details below), and you should use it only for evaluation purposes.
 > We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
 > 
-{type="warning"}
+{style="warning"}
 
 Version 2.1.0 takes the first step towards providing support for Swift export in Kotlin,
 allowing you to export Kotlin sources directly to the Swift interface without using Objective-C headers.
