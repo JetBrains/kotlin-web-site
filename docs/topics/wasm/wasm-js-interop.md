@@ -399,7 +399,7 @@ You can use Kotlin `try-catch` expression to catch JavaScript exceptions.
 However, accessing specific details about the thrown value in Kotlin/Wasm isn’t possible by default.
 
 You can configure the `JsException` type to include the original error message and stack trace from JavaScript.
-To do so, add the following compiler flag to your `build.gradle.kts` file:
+To do so, add the following compiler option to your `build.gradle.kts` file:
 
 ```kotlin
 kotlin {
@@ -443,8 +443,8 @@ fun main() {
 }
 ```
 
-With the `-Xwasm-attach-js-exception` flag enabled, the `JsException` type provides specific details from the JavaScript error.
-Without the flag, `JsException` includes only a generic message stating that an exception was thrown while running JavaScript code.
+With the `-Xwasm-attach-js-exception` compiler option enabled, the `JsException` type provides specific details from the JavaScript error.
+Without enabling this compiler option, `JsException` includes only a generic message stating that an exception was thrown while running JavaScript code.
 
 If you try to use a JavaScript `try-catch` expression to catch Kotlin/Wasm exceptions, it looks like a
 generic `WebAssembly.Exception` without directly accessible messages and data.
