@@ -1560,7 +1560,7 @@ The Kotlin documentation has received some notable changes:
 
 ### Multiplatform development
 
-* New [Building a Kotlin library for multiplatform](api-guidelines-build-for-multiplatform.md) page –
+* New [Building a Kotlin library for multiplatform](https://kotlinlang.org/docs/api-guidelines-build-for-multiplatform.html) page –
   Learn how to design your Kotlin libraries for Kotlin Multiplatform.
 * New [Introduction to Kotlin Multiplatform](multiplatform-intro.md) page – Learn about Kotlin Multiplatform's key concepts, dependencies, libraries, and more.
 * Updated [Kotlin Multiplatform overview](multiplatform.topic) page – Navigate through the essentials of Kotlin Multiplatform and popular use cases.
