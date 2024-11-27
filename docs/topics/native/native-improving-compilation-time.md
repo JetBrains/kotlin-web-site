@@ -85,7 +85,8 @@ Here are some recommendations for configuring Gradle for better compilation perf
   {style="note"}
 
 * **Enable previously disabled features of Kotlin/Native**. There are properties that disable the Gradle daemon and compiler
-  caches – `kotlin.native.disableCompilerDaemon=true` and `kotlin.native.cacheKind=none`. If you had issues with these
+  caches – `kotlin.native.disableCompilerDaemon=true`, `kotlin.native.cacheKind=none` and `kotlin.native.cacheKind.$target=none`
+  (where `$target` is a Kotlin/Native compilation target, e.g. `iosSimulatorArm64`). If you had issues with these
   features before and added these lines to your `gradle.properties` or Gradle arguments, remove them and check whether
   the build completes successfully. It is possible that these properties were added previously to work around issues that
   have already been fixed.
