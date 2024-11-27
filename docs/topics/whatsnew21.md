@@ -1542,7 +1542,7 @@ The Kotlin documentation has received some notable changes:
 * Improved [Null safety](null-safety.md) page – Learn how to handle `null` values safely in your code.
 * Improved [Objects declarations and expressions](object-declarations.md) page –
   Learn how to define a class and create an instance in a single step.
-* Improved [When expressions and statements](control-flow.md#when-expression) section –
+* Improved [When expressions and statements](control-flow.md#when-expressions-and-statements) section –
   Learn about the `when` conditional and how you can use it.
 * Updated [Kotlin roadmap](roadmap.md), [Kotlin evolution principles](kotlin-evolution-principles.md),
   and [Kotlin language features and proposals](kotlin-language-features-and-proposals.md) pages – 
