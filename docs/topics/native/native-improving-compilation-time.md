@@ -41,8 +41,7 @@ Here are some recommendations for configuring Gradle for better compilation perf
   
   If you have a non-typical case or build configuration, you might need to choose the task yourself.
     * `linkDebug*`: To run your code during development, you usually need only one binary, so running the corresponding
-      `linkDebug*` task should be enough. Keep in mind that compiling a release binary (`linkRelease*`) takes more time
-      than compiling a debug one.
+      `linkDebug*` task should be enough.
     * `embedAndSignAppleFrameworkForXcode`: Since iOS simulators and devices have different processor architectures, it's a common approach to
       distribute a Kotlin/Native binary as a universal (fat) framework. During local development, it will be faster to build
       the `.framework` for only the platform you're using.
@@ -55,6 +54,12 @@ Here are some recommendations for configuring Gradle for better compilation perf
   building for a single target.
   * If you do need XCFrameworks for your setup, you can reduce the number of targets.
     For example, you don't need `iosX64` if you don't run this project on iOS simulators on Intel-based Macs.
+
+* **Don't build release binaries unless necessary**. Kotlin/Native supports
+  [two build modes – debug and release](https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#declare-binaries).
+  Release is highly optimized, and this takes a lot of time: compilation of release binaries takes an order of magnitude
+  more time than debug binaries. In a typical development cycle, all the optimizations might be unnecessary. So, if
+  your development cycle uses a task with "Release" in its name, consider replacing it with "Debug". 
 
 * **Don't disable the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html)** without having a
   good reason to. [Kotlin/Native runs from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native)
