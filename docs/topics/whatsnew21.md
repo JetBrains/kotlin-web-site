@@ -619,6 +619,12 @@ There are two ways to enable the Kotlin Gradle plugin's new model:
 
 ### Basic support for Swift export
 
+> This feature is currently in the early stages of development. It may be dropped or changed at any time.
+> Opt-in is required (see the details below), and you should use it only for evaluation purposes.
+> We would appreciate your feedback on it in [YouTrack](https://kotl.in/issue).
+> 
+{type="warning"}
+
 Version 2.1.0 takes the first step towards providing support for Swift export in Kotlin,
 allowing you to export Kotlin sources directly to the Swift interface without using Objective-C headers.
 This should make multiplatform development for Apple targets easier.
@@ -674,7 +680,7 @@ which you can access from Xcode.
 
 #### How to enable Swift export
 
-This feature is currently [Experimental](components-stability.md#stability-levels-explained).
+Keep in mind that the feature is currently only in the early stages of development.
 To try it out in your project, add the following Gradle option to your `gradle.properties` file:
 
 ```none
