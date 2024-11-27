@@ -42,7 +42,7 @@ A `continue` proceeds to the next iteration of that loop.
 > In some cases, you can apply `break` and `continue` *non-locally* without explicitly defining labels.
 > Such non-local usages are valid in lambda expressions used in enclosing [inline functions](inline-functions.md#break-and-continue).
 >
-{style="tip"}
+{style="note"}
 
 ## Return to labels
 
@@ -143,4 +143,4 @@ This means "return `1` at label `@a`" rather than "return a labeled expression `
 > In some cases, you can return from a lambda expression without using labels. Such *non-local* returns are located in a
 > lambda but exit the enclosing [inline function](inline-functions.md#returns).
 >
-{style="tip"}
+{style="note"}
