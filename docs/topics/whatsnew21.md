@@ -456,11 +456,6 @@ kapt.use.k2=true
 In upcoming releases, the K2 kapt implementation will be enabled by default instead of K1 kapt,
 so you will no longer need to enable it manually.
 
-When using the K2 kapt plugin, you might encounter a compilation error during the `kaptGenerateStubs*` tasks,
-even though the actual error details are missing from the Gradle log.
-This is a [known issue](https://youtrack.jetbrains.com/issue/KT-71431) that occurs when kapt is enabled in a module,
-but no annotation processors are present. The workaround is to disable the kapt plugin in the module.
-
 We highly appreciate your [feedback](https://youtrack.jetbrains.com/issue/KT-71439/K2-kapt-feedback) before the new implementation is stabilized.
 
 ### Resolution for overload conflicts between unsigned and non-primitive types
