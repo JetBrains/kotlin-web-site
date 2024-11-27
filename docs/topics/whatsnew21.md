@@ -605,7 +605,7 @@ There are two ways to enable the Kotlin Gradle plugin's new model:
 
 * Option 1: **Testing compatibility without enabling Isolated Projects** –
   To check compatibility with the Kotlin Gradle plugin's new model without enabling the Isolated Projects feature,
-  add the following Gradle property in the `build.gradle.kts` file of your project:
+  add the following Gradle property in the `gradle.properties` file of your project:
 
   ```none
   # gradle.properties
