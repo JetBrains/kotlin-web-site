@@ -64,6 +64,7 @@ abstract class BuildApiPages(
         stepBuildHtml()?.also { step -> step(step) }
         stepNoRobots(pagesRoot)?.also { step -> step(step) }
         stepCopyDokkaApiResult(apiId, pagesRoot)?.also { step -> step(step) }
+        stepNoRobots(pagesRoot)?.also { step -> step(step) }
         stepSitemapGenerate(pagesRoot)?.also { step -> step(step) }
     }
 
@@ -136,10 +137,11 @@ fun scriptGenerateSitemap(pagesRoot: String = DEFAULT_DOKKA_PATH): BuildStep = s
 fun scriptNoRobots(pagesRoot: String, block: ScriptBuildStep.() -> Unit = {}) = ScriptBuildStep {
     name = "Add no robots for older versions"
     workingDir = pagesRoot
-    //language=bash
+    //language=sh
     scriptContent = """
-        #!/bin/sh
-        find . -type f -path "*/api/*/older/*.html" -exec sed -i -E 's/(<head[^>]*>)/\1<meta name="robots" content="noindex, nofollow">/g' {} \;
+        # replace with print
+        # find . -type f \( -regex "^./\d\+\.\d\+\(\.\d\)\?/.\+\.html${'$'}" \) -exec echo {} \; -exec sed -i -E 's/(<head[^>]*>)/\1<meta name="robots" content="noindex, nofollow">/g' {} \;
+        find . -type f \( -regex "^./\d\+\.\d\+\(\.\d\)\?/.\+\.html${'$'}" \) -exec sed -i -E 's/(<head[^>]*>)/\1<meta name="robots" content="noindex, nofollow">/g' {} \;
     """.trimIndent()
     dockerImage = "alpine"
 }.apply(block)

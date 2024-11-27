@@ -3,5 +3,3 @@ Host: kotlinlang.org
 
 # Sitemaps
 sitemap: https://kotlinlang.org/sitemap_index.xml
-
-Disallow: /api/core/older/*

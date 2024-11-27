@@ -1,11 +1,12 @@
 import { env } from 'node:process';
 import { mkdir } from 'node:fs/promises';
-import { EventEmitter } from 'events'
+import { EventEmitter } from 'events';
 
 import { DIST_FOLDER, REPORT_FOLDER } from '../lib/files/index.js';
 import { execFilesTask, Filter } from '../lib/files/execTask.js';
 import { writeReports } from './reports/write.js';
 import { Metadata } from './metadata.js';
+import { isApiPreviousVersion } from '../lib/files/type.js';
 
 console.time('Data successfully built');
 
@@ -13,8 +14,8 @@ const TASK_PATH = import.meta.dirname + '/task';
 
 function preFilterFiles({ relativePath: path }: Parameters<Filter>[0]) {
     const isSkip = (
-        // optimize by path "api/core/older" takes more than 1 minute only for filesystem iteration
-        (path.startsWith('api/') && (path.endsWith('/older'))) ||
+        // optimize by path "api/core/1.2.3/" takes more than 1 minute only for filesystem iteration
+        isApiPreviousVersion(path) ||
         path === 'spec' ||
         path === 'api/latest'
     );
@@ -25,7 +26,7 @@ function preFilterFiles({ relativePath: path }: Parameters<Filter>[0]) {
 
 let result: Metadata[] = [];
 
-EventEmitter.defaultMaxListeners = 15
+EventEmitter.defaultMaxListeners = 15;
 
 await execFilesTask(
     DIST_FOLDER, TASK_PATH,

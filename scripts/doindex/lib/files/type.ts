@@ -10,6 +10,10 @@ export type FileType =
     | 'Page_Community' | 'Page_Documentation' | 'Page_LegacyDocumentation'
     | 'Iframe' | 'Redirect' | 'Hidden' | 'Unknown';
 
+export function isApiPreviousVersion(url: string) {
+    return url.match(/^api\/[^/]+\/(\d+\.\d+(\.\d+)?)(\/|$)/)?.[1];
+}
+
 export async function getType(url: string, filePath: string): Promise<[FileType, CheerioAPI | null]> {
     if (url.endsWith('/package-list') || url.endsWith('index.yml')) return ['File_Text', null];
     if (url.endsWith('.pdf')) return ['File_Pdf', null];
@@ -47,7 +51,7 @@ export async function getType(url: string, filePath: string): Promise<[FileType,
             if (url.startsWith('api/latest/')) pageType = url.includes('jvm/stdlib') ? 'Page_API_stdlib' : 'Page_API_test';
             else if (url.endsWith('/navigation.html') && $(':is(.sideMenu, .sideMenuPart) .sideMenuPart').length)
                 pageType = 'Iframe';
-            else if (url.includes('/older/')) return ['Page_API_Deprecated', $];
+            else if (isApiPreviousVersion(url)) return ['Page_API_Deprecated', $];
             else pageType = 'Page_API';
         }
 
