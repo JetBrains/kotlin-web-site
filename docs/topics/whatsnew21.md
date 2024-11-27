@@ -183,15 +183,15 @@ Here's an example of how to generate an JSON schema multi-line string with place
 
 ```kotlin
 val KClass<*>.jsonSchema : String
-   get() = $$"""
-   {
-     "$schema": "https://json-schema.org/draft/2020-12/schema",
-     "$id": "https://example.com/product.schema.json",
-     "$dynamicAnchor": "meta"
-     "title": "$${simpleName ?: qualifiedName ?: "unknown"}",
-     "type": "object"
-   }
-   """
+    get() = $$"""
+    {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://example.com/product.schema.json",
+      "$dynamicAnchor": "meta"
+      "title": "$${simpleName ?: qualifiedName ?: "unknown"}",
+      "type": "object"
+    }
+    """
 ```
 
 In this example, the initial `$$` means that you need **two dollar signs** (`$$`) to trigger interpolation.
@@ -411,7 +411,7 @@ The following details are also worth noting:
    <tab title="Build file">
 
    ```kotlin
-    // build.gradle.kts
+   // build.gradle.kts
    kotlin {
        compilerOptions {
            freeCompilerArgs.addAll(
@@ -573,7 +573,7 @@ to simplify the configuration of compiler options across your multiplatform proj
 In Kotlin 2.1.0, this DSL has been promoted to Stable.
 
 The overall project configuration now has three layers. The highest is the extension level, 
-then the target level and the lowest is the compilation unit (which is usually a compilation task):
+then the target level, and the lowest is the compilation unit (which is usually a compilation task):
 
 ![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
 
@@ -851,7 +851,7 @@ see [Kotlin/Native memory management](native-memory-manager.md).
 
 ## Kotlin/Wasm
 
-Kotlin/Wasm received some multiple updates along with [support for incremental compilation](#support-for-incremental-compilation).
+Kotlin/Wasm received multiple updates along with [support for incremental compilation](#support-for-incremental-compilation).
 
 ### Support for incremental compilation
 
@@ -931,15 +931,15 @@ To try the new debugging experience:
    }
    ```
 
-2. Enable custom formatters in your browser.
+2. Enable custom formatters in your browser:
 
-   In Chrome DevTools, it's available via **Settings | Preferences | Console**:
+   * In Chrome DevTools, it's available via **Settings | Preferences | Console**:
 
-   ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=700}
+     ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=700}
 
-   In Firefox DevTools, it's available via **Settings | Advanced settings**:
+   * In Firefox DevTools, it's available via **Settings | Advanced settings**:
 
-   ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=700}
+     ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=700}
 
 ### Reduced size of Kotlin/Wasm binaries
 
@@ -1162,7 +1162,7 @@ This also makes the generated code more aligned with modern JS.
 This feature is enabled by default when targeting ES2015.
 Alternatively, you can enable it by using the `-Xes-arrow-functions` command line argument.
 
-[Learn more about ES2015 (ECMAScript 2015, ES6) in the official documentation.](https://262.ecma-international.org/6.0/)
+Learn more about [ES2015 (ECMAScript 2015, ES6) in the official documentation](https://262.ecma-international.org/6.0/).
 
 ## Gradle improvements
 
@@ -1240,7 +1240,7 @@ You can use the `KotlinAndroidExtension` in exactly the same way.
 Starting with Kotlin 2.1.0,
 you will receive a warning if you access compiler module symbols bundled within the Kotlin Gradle plugin (KGP).
 Previously, the KGP included `org.jetbrains.kotlin:kotlin-compiler-embeddable` in its runtime dependencies,
-making internal compiler symbols, such as `KotlinCompilerVersion`, available in build script classpath.
+making internal compiler symbols, such as `KotlinCompilerVersion`, available in the build script classpath.
 
 These symbols are intended for internal use only.
 Access to them will be removed in upcoming Kotlin releases to prevent compatibility issues and simplify KGP maintenance.
@@ -1421,7 +1421,7 @@ The most notable changes include:
   which has a different default value on each OS. On Kotlin/JVM, this property defaults to `\r\n` (CR LF) on Windows and `\n` (LF) on other systems.
   On the other hand, the `appendLine()` function consistently uses `\n` (LF) as the line separator, ensuring consistent behavior across platforms.
 
-For a complete list of affected APIs in this release, see [KT-71628](https://youtrack.jetbrains.com/issue/KT-71628).
+For a complete list of affected APIs in this release, see the [KT-71628](https://youtrack.jetbrains.com/issue/KT-71628) YouTrack issue.
 
 ### Stable file tree traversal extensions for java.nio.file.Path
 
