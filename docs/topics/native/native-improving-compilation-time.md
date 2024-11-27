@@ -43,18 +43,11 @@ Here are some recommendations for configuring Gradle for better compilation perf
     * `linkDebug*`: To run your code during development, you usually need only one binary, so running the corresponding
       `linkDebug*` task should be enough. Keep in mind that compiling a release binary (`linkRelease*`) takes more time
       than compiling a debug one.
-    * `packForXcode`: Since iOS simulators and devices have different processor architectures, it's a common approach to
+    * `embedAndSignAppleFrameworkForXcode`: Since iOS simulators and devices have different processor architectures, it's a common approach to
       distribute a Kotlin/Native binary as a universal (fat) framework. During local development, it will be faster to build
       the `.framework` for only the platform you're using.
       
-      To build a platform-specific framework, call the `packForXcode` task generated
-      by the [Kotlin Multiplatform project wizard](https://kmp.jetbrains.com/). 
-      
-      > Remember that in this case, you will need to clean the build using `./gradlew clean` after switching between the
-      > device and the simulator. See [this issue](https://youtrack.jetbrains.com/issue/KT-40907) for details.
-      > 
-      {style="note"}
-
+      To build a platform-specific framework, call the `embedAndSignAppleFrameworkForXcode` task.
 
 * **Don't disable the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html)** without having a
   good reason to. [Kotlin/Native runs from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native)
