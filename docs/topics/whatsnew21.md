@@ -38,7 +38,7 @@ These features are available in preview, and we encourage you to try them and sh
 >
 > Learn more in the [IntelliJ IDEA 2024.3 blog post](https://blog.jetbrains.com/idea/2024/11/intellij-idea-2024-3/).
 >
-{type="tip"}
+{style="tip"}
 
 [See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
 
@@ -252,7 +252,7 @@ interface MyImplementation: CoreLibraryApi
 > When you use the `@SubclassOptInRequired` annotation to require opt-in, 
 > the requirement is not propagated to any [inner or nested classes](nested-classes.md).
 >
-{type="note"}
+{style="note"}
 
 For a real-world example of how to use the `@SubclassOptInRequired` annotation in your API,
 check out the [`SharedFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-shared-flow/)
@@ -434,7 +434,7 @@ The following details are also worth noting:
 > 
 > We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-71439/K2-kapt-feedback).
 >
-{type="warning"}
+{style="warning"}
 
 Currently, projects using the [kapt](kapt.md) plugin work with the K1 compiler by default, 
 supporting Kotlin versions up to 1.9.
@@ -603,19 +603,19 @@ and we are interested in hearing about your experiences during this preview phas
 
 There are two ways to enable the Kotlin Gradle plugin's new model:
 
-Option 1: **Testing compatibility without enabling Isolated Projects** –
-To check compatibility with the Kotlin Gradle plugin's new model without enabling the Isolated Projects feature,
-add the following Gradle property in the `build.gradle.kts` file of your project:
+* Option 1: **Testing compatibility without enabling Isolated Projects** –
+  To check compatibility with the Kotlin Gradle plugin's new model without enabling the Isolated Projects feature,
+  add the following Gradle property in the `build.gradle.kts` file of your project:
 
-```none
-# gradle.properties
-kotlin.kmp.isolated-projects.support=enable
-```
+  ```none
+  # gradle.properties
+  kotlin.kmp.isolated-projects.support=enable
+  ```
 
-Option 2: **Testing with Isolated Projects enabled** –
-Enabling the Isolated Projects feature in Gradle automatically configures the Kotlin Gradle plugin to use the new model.
-To enable the Isolated Projects feature, [set the system property](https://docs.gradle.org/current/userguide/isolated_projects.html#how_do_i_use_it).
-In this case, you don't need to add the Gradle property for the Kotlin Gradle plugin to your project.
+* Option 2: **Testing with Isolated Projects enabled** –
+  Enabling the Isolated Projects feature in Gradle automatically configures the Kotlin Gradle plugin to use the new model.
+  To enable the Isolated Projects feature, [set the system property](https://docs.gradle.org/current/userguide/isolated_projects.html#how_do_i_use_it).
+  In this case, you don't need to add the Gradle property for the Kotlin Gradle plugin to your project.
 
 ### Basic support for Swift export
 
