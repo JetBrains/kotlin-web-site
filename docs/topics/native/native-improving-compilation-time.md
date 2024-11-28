@@ -67,7 +67,7 @@ Here are some recommendations for configuring Gradle for better compilation perf
   Release is highly optimized, and this takes a lot of time: compilation of release binaries takes an order of magnitude
   more time than debug binaries. In a typical development cycle, all the optimizations might be unnecessary. So, if
   your development cycle uses a task with "Release" in its name, consider replacing it with "Debug". Similarly, instead
-  of running `assembleXCFramework`, you can run `assembleXcfDebugXCFramework`, for example.
+  of running `assembleXCFramework`, you can run `assembleSharedDebugXCFramework`, for example.
   > Release binaries are built with `linkRelease*` Gradle tasks. You can check for their presence in the build log,
   > or using a [Gradle build scan](https://docs.gradle.org/current/userguide/build_scans.html) by running Gradle
   > with `--scan` flag.
