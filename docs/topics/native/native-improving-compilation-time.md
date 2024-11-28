@@ -54,6 +54,12 @@ Here are some recommendations for configuring Gradle for better compilation perf
   building for a single target.
   * If you do need XCFrameworks for your setup, you can reduce the number of targets.
     For example, you don't need `iosX64` if you don't run this project on iOS simulators on Intel-based Macs.
+  > Binaries for different targets are built with `linkDebug*$Target` and `linkRelease*$Target` Gradle tasks.
+  > You can look for the executed tasks in the build log, or in a
+  > [Gradle build scan](https://docs.gradle.org/current/userguide/build_scans.html)
+  > by running Gradle with `--scan` flag.
+  >
+  {style="tip"}
 
 * **Don't build release binaries unless necessary**. Kotlin/Native supports
   [two build modes – debug and release](https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#declare-binaries).
