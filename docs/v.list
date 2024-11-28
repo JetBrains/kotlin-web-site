@@ -42,8 +42,8 @@
     <var name="gradleApiVersion" value="KOTLIN_2_1" type="string"/>
 
     <!-- KSP -->
-    <var name="kspSupportedKotlinVersion" value="2.0.21" type="string"/>
-    <var name="kspVersion" value="1.0.28" type="string"/>
+    <var name="kspSupportedKotlinVersion" value="2.1.0" type="string"/>
+    <var name="kspVersion" value="1.0.29" type="string"/>
 
     <!-- Other -->
     <var name="defaultJvmTargetVersion" value="1.8" type="string"/>
