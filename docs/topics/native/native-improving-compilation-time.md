@@ -65,7 +65,13 @@ Here are some recommendations for configuring Gradle for better compilation perf
   [two build modes – debug and release](https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#declare-binaries).
   Release is highly optimized, and this takes a lot of time: compilation of release binaries takes an order of magnitude
   more time than debug binaries. In a typical development cycle, all the optimizations might be unnecessary. So, if
-  your development cycle uses a task with "Release" in its name, consider replacing it with "Debug". 
+  your development cycle uses a task with "Release" in its name, consider replacing it with "Debug". Similarly, instead
+  of running `assembleXCFramework`, you can run `assembleXcfDebugXCFramework`, for example.
+  > Release binaries are built with `linkRelease*` Gradle tasks. You can check for their presence in the build log,
+  > or using a [Gradle build scan](https://docs.gradle.org/current/userguide/build_scans.html) by running Gradle
+  > with `--scan` flag.
+  >
+  {style="tip"}
 
 * **Don't disable the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html)** without having a
   good reason to. [Kotlin/Native runs from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native)
