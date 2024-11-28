@@ -63,7 +63,7 @@ Here are some recommendations for configuring Gradle for better compilation perf
   {style="tip"}
 
 * **Don't build release binaries unless necessary**. Kotlin/Native supports
-  [two build modes – debug and release](https://kotlinlang.org/docs/multiplatform-build-native-binaries.html#declare-binaries).
+  [two build modes – debug and release](multiplatform-build-native-binaries.md#declare-binaries).
   Release is highly optimized, and this takes a lot of time: compilation of release binaries takes an order of magnitude
   more time than debug binaries. In a typical development cycle, all the optimizations might be unnecessary. So, if
   your development cycle uses a task with "Release" in its name, consider replacing it with "Debug". Similarly, instead
