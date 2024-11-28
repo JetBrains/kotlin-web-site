@@ -46,7 +46,8 @@ Here are some recommendations for configuring Gradle for better compilation perf
       distribute a Kotlin/Native binary as a universal (fat) framework. During local development, it will be faster to build
       the `.framework` for only the platform you're using.
       
-      To build a platform-specific framework, call the `embedAndSignAppleFrameworkForXcode` task.
+      To build a platform-specific framework, call the 
+      [embedAndSignAppleFrameworkForXcode](multiplatform-direct-integration.md#connect-the-framework-to-your-project) task.
 
 * **Build only for the target you need**. Similarly to the recommendation above, don't build a binary for all Native
   platforms at once. For example, compiling an [XCFramework](multiplatform-build-native-binaries.md#build-xcframeworks)
