@@ -459,7 +459,7 @@ kotlin {
 When you declare XCFrameworks, the Kotlin Gradle plugin will register several Gradle tasks:
 
 * `assembleXCFramework`
-* `assemble<Framework name>DebugXCFramework` (additionally debug artifact that contains [dSYMs](native-ios-symbolication.md))
+* `assemble<Framework name>DebugXCFramework`
 * `assemble<Framework name>ReleaseXCFramework`
 
 <anchor name="build-frameworks"/>
