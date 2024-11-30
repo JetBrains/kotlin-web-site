@@ -69,6 +69,9 @@ export async function writeReports(list: Metadata[]) {
 
             fileTypes[type] = (fileTypes[type] || 0) + 1;
         }
+        for (const [type, value] of Object.entries(fileTypes)) {
+            console.log(`##teamcity[buildStatisticValue key='${type}' value='${value}']`);
+        }
     } finally {
         await Promise.all([
             writeFile(types, makeStatsReport(fileTypes), 'utf8').finally(() => types.close()),
