@@ -68,42 +68,24 @@ If you encounter any difficulties or problems, report an issue in our [issue tra
 
 <tab id="cross-platform-mobile" title="Cross-platform">
 
-Here you'll learn how to develop and improve your cross-platform application using [Kotlin Multiplatform](https://kotlinlang.org/lp/multiplatform/).
+Here you'll learn how to develop a cross-platform application using [Kotlin Multiplatform](multiplatform-intro.md).
 
 1. **[Set up your environment for cross-platform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html).**
 
 2. **Create your first application for iOS and Android:**
 
-   * To start from scratch, [create a basic cross-platform application with the project wizard](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html).
-   * If you have an existing Android application and want to make it cross-platform, complete the [Make your Android application work on iOS](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html) tutorial.
-   * If you prefer real-life examples, clone and play with an existing project, for example the networking and data storage project from the [Create a multiplatform app using Ktor and SQLdelight](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html) tutorial or any [sample project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-samples.html).
+   * [Create a basic cross-platform application from scratch with the project wizard](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html).
+   * [Make your existing Android application work on iOS](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html).
+   * [Create a cross-platform application using Ktor and SQLdelight](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html).
 
-3. **Use a wide set of multiplatform libraries** to implement the required business logic only once in the shared module. Learn more about [adding dependencies](multiplatform-add-dependencies.md).
+3. **Explore [sample projects](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-samples.html)**.
 
-   | Library       | Details                                                                                                                                                            |
-   |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-   | Ktor          | [Docs](https://ktor.io/docs/client.html)                                                                                                                           | 
-   | Serialization | [Docs](serialization.md) and [sample](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html#create-an-application-data-model) |
-   | Coroutines    | [Docs](coroutines-guide.md) and [sample](coroutines-and-channels.md)                                                                                               |
-   | DateTime      | [Docs](https://github.com/Kotlin/kotlinx-datetime#readme)                                                                                                          |
-   | SQLDelight    | Third-party library. [Docs](https://cashapp.github.io/sqldelight/)                                                                                                 |
-
-   > You can also find a multiplatform library in the [community-driven list](https://libs.kmp.icerock.dev/).
-   >
-   {style="tip"}
-
-4. **Learn more about Kotlin Multiplatform:**
-   * Learn more about [Kotlin Multiplatform](multiplatform-intro.md).
-   * Look through [samples projects](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-samples.html).
-   * [Publish a multiplatform library](multiplatform-publish-lib.md).
-   * Learn how Kotlin Multiplatform is used at [Netflix](https://netflixtechblog.com/netflix-android-and-ios-studio-apps-kotlin-multiplatform-d6d4d8d25d23), [VMware](https://kotlinlang.org/lp/multiplatform/case-studies/vmware/), [Yandex](https://kotlinlang.org/lp/multiplatform/case-studies/yandex/), and [many other companies](https://kotlinlang.org/lp/multiplatform/case-studies/).
-
-5. **Join the Kotlin Multiplatform community:**
+4. **Join the Kotlin Multiplatform community:**
 
    * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#getting-started](https://kotlinlang.slack.com/archives/C0B8MA7FA) and [#multiplatform](https://kotlinlang.slack.com/archives/C3PQML5NU) channels.
    * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: Subscribe to the ["kotlin-multiplatform" tag](https://stackoverflow.com/questions/tagged/kotlin-multiplatform).
 
-6. **Follow Kotlin** on:
+5. **Follow Kotlin** on:
 
    * ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin)
    * ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/)
@@ -116,6 +98,8 @@ If you encounter any difficulties or problems, report an issue to our [issue tra
 <tab id="android" title="Android">
 
 To start using Kotlin for Android development, read [Google's recommendation for getting started with Kotlin on Android](https://developer.android.com/kotlin/get-started).
+
+Join the Android community on ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#android](https://kotlinlang.slack.com/archives/C0B8M7BUY) channel.
 
 Follow Kotlin on ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
 
