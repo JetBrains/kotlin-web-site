@@ -81,15 +81,15 @@ For example, you don't need `iosX64` if you don't run this project on iOS simula
 >
 {style="tip"}
 
-### Don't build release binaries
+### Don't build unnecessary release binaries
 
 Kotlin/Native supports two build modes, [debug and release](multiplatform-build-native-binaries.md#declare-binaries).
 Release is highly optimized, and this takes a lot of time: compilation of release binaries takes an order of magnitude
 more time than debug binaries.
 
-In a typical development cycle, all these optimizations might be unnecessary. If your development cycle uses a task with
-`Release` in its name, consider replacing it with `Debug`. Similarly, instead
-of running `assembleXCFramework`, you can run `assembleSharedDebugXCFramework`, for example.
+Apart from an actual release, all these optimizations might be unnecessary in a typical development cycle.
+If you use a task with `Release` in its name during the development process, consider replacing it with `Debug`.
+Similarly, instead of running `assembleXCFramework`, you can run `assembleSharedDebugXCFramework`, for example.
 
 > Release binaries are built with `linkRelease*` Gradle tasks. You can check for them in the build log
 > or in the [Gradle build scan](https://docs.gradle.org/current/userguide/build_scans.html) by running a Gradle build
@@ -100,7 +100,7 @@ of running `assembleXCFramework`, you can run `assembleSharedDebugXCFramework`, 
 ### Don't disable Gradle daemon
 
 Don't disable the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html) without having a good reason. By default, [Kotlin/Native runs from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native).
-When it's enabled, the same JVM process is used and there is no need to warm it up for each compilation.
+When it's enabled, the same JVM process is used, and there is no need to warm it up for each compilation.
 
 ### Don't use transitive export
 
