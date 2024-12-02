@@ -9,28 +9,28 @@
 >
 {style="warning"}
 
-Kotlin/Native provides bidirectional interoperability with Objective-C/Swift. You can both use Objective-C frameworks
+Kotlin/Native provides bidirectional interoperability with Swift/Objective-C. You can both use Objective-C frameworks
 and libraries in Kotlin code, and Kotlin modules in Swift/Objective-C code. 
 
 Kotlin/Native comes with a set of pre-imported system frameworks; it's also possible to import an existing framework and
 use it from Kotlin. In this tutorial, you'll learn how to create your own framework and use Kotlin/Native code from
-Objective-C and Swift applications on macOS and iOS.
+Swift/Objective-C applications on macOS and iOS.
 
 In this tutorial, you will:
 
 * [Create a Kotlin library and compile it to a framework](#create-a-kotlin-library)
-* [Examine the generated Objective-C and Swift API code](#generated-framework-headers)
+* [Examine the generated Swift/Objective-C API code](#generated-framework-headers)
 * [Use the framework from Objective-C](#use-code-from-objective-c)
 * [Use the framework from Swift](#use-code-from-swift)
 
-While it's possible to use the command line to create a Kotlin framework, either directly or by combining it with a
-script file (such as `.sh` or `.bat` file), this approach doesn't scale well for big projects that have hundreds of files
-and libraries. Therefore, it's better to compile using a build system, as it helps to download and cache the Kotlin/Native
+You can use the command line to generate a Kotlin framework, either directly or with a script file (such as `.sh` or `.bat` file).
+However, this approach doesn't scale well for big projects that have hundreds of files and libraries.
+Using a build system simplifies the process by downloading and caching the Kotlin/Native
 compiler binaries and libraries with transitive dependencies and run the compiler and tests.
 Kotlin/Native can use the [Gradle](https://gradle.org) build system through the [Kotlin Multiplatform plugin](gradle-configure-project.md#targeting-multiple-platforms).
 
 > If you use a Mac and want to create and run applications for iOS or other Apple targets, you also need to
-> install [Xcode Command Line Tools](https://developer.apple.com/download/), launch it, and accept the license terms first.
+> install the [Xcode Command Line Tools](https://developer.apple.com/download/), launch it, and accept the license terms first.
 >
 {style="note"}
 
@@ -42,7 +42,7 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the 
 {style="tip"}
 
 The Kotlin/Native compiler can produce a framework for macOS and iOS from the Kotlin code. The created framework contains
-all declarations and binaries needed to use it with Objective-C and Swift.
+all declarations and binaries needed to use it with Swift/Objective-C.
 
 Let's first create a Kotlin library:
 
@@ -137,8 +137,9 @@ Let's first create a Kotlin library:
 
     The `binaries {}` block configures the project to generate a dynamic or shared library.
 
-    Along with `iosArm64`, Kotlin/Native supports the `iosX64` and `iosSimulatorArm64` targets for iOS, and `macosX64`
-    and `macosArm64` targets for macOS. So, you can replace the `iosArm64()` with the respective functions:
+    Kotlin/Native supports the `iosArm64`, `iosX64`, and `iosSimulatorArm64` targets for iOS, as well as `macosX64` and
+    `macosArm64` targets for macOS. So, you can replace the `iosArm64()` with the respective Gradle function for your
+    target platform:
 
     | Target platform/device | Gradle function       |
     |------------------------|-----------------------|
@@ -150,7 +151,8 @@ Let's first create a Kotlin library:
 
     For information on other supported Apple targets, see [Kotlin/Native target support](native-target-support.md).
 
-3. Run the `linkDebugFrameworkNative` Gradle task to build the framework in the IDE or call the following console command:
+3. Run the `linkDebugFrameworkNative` Gradle task in the IDE or use the following console command in your terminal to
+   build the framework:
 
    ```bash
    ./gradlew linkDebugFrameworkNative
@@ -208,9 +210,9 @@ __attribute__((swift_name("KotlinMutableDictionary")))
 @end
 ```
 
-Kotlin classes have a `KotlinBase` base class in Objective-C/Swift; the class extends the `NSObject` class there.
+Kotlin classes have a `KotlinBase` base class in Swift/Objective-C that extends the `NSObject` class there.
 There are also wrappers for collections and exceptions. Most of the collection types are mapped to similar collection
-types from the other side:
+types in Swift/Objective-C:
 
 | Kotlin      | Swift               | Objective-C         |
 |-------------|---------------------|---------------------|
@@ -223,7 +225,7 @@ types from the other side:
 
 ### Kotlin numbers and NSNumber
 
-The next part of the `Demo.h` file contains number type mappings between Kotlin/Native and `NSNumber`. The base
+The next part of the `Demo.h` file contains type mappings between Kotlin/Native number types and `NSNumber`. The base
 class is called `DemoNumber` in Objective-C and `KotlinNumber` in Swift. It extends `NSNumber`.
 
 There are also child classes per Kotlin number type:
@@ -243,8 +245,8 @@ There are also child classes per Kotlin number type:
 | `Double`  | `KotlinDouble`  | `<Package>Double`  | `double`             |
 | `Boolean` | `KotlinBoolean` | `<Package>Boolean` | `BOOL/Bool`          |
 
-Every number type has a class method to create a new instance from the related simple type. Also, there is an instance method
-to extract a simple value back. Schematically, declarations look like that:
+Every number type has a class method to create a new instance from the corresponding simple type. Also, there is an instance
+method to extract a simple value back. Schematically, all such declarations look like that:
 
 ```objc
 __attribute__((swift_name("Kotlin__TYPE__")))
@@ -254,15 +256,15 @@ __attribute__((swift_name("Kotlin__TYPE__")))
 @end;
 ```
 
-Here, `__TYPE__` is one of the simple type names, and `__CTYPE__` is the related Objective-C type,
+Here, `__TYPE__` is one of the simple type names, and `__CTYPE__` is the corresponding Objective-C type,
 for example, `initWithChar(char)`.
 
-These types are used to map boxed Kotlin number types into Objective-C and Swift.
+These types are used to map boxed Kotlin number types to Swift/Objective-C.
 In Swift, you can call the constructor to create an instance, for example, `KotlinLong(value: 42)`.
 
 ### Classes and objects from Kotlin
 
-Let's see how `class` and `object` are mapped to Objective-C/Swift. The generated `Demo.h` file contains the exact
+Let's see how `class` and `object` are mapped to Swift/Objective-C. The generated `Demo.h` file contains the exact
 definitions for `Class`, `Interface`, and `Object`:
 
 ```objc
@@ -291,9 +293,8 @@ __attribute__((swift_name("Object")))
 @end
 ```
 
-The code is full of Objective-C attributes, which are intended to help use the framework from both Objective-C and
-Swift languages. `DemoInterface`, `DemoClazz`, and `DemoObject` are created for `Interface`, `Clazz`, and `Object`,
-respectively.
+Objective-C attributes in this code help use the framework from both Swift and Objective-C
+languages. `DemoInterface`, `DemoClazz`, and `DemoObject` are created for `Interface`, `Clazz`, and `Object`, respectively.
 
 The `Interface` is turned into `@protocol`, while both a `class` and an `object` are represented as `@interface`. The
 `Demo` prefix comes from the framework name. The nullable return type `ULong?` is turned into `DemoULong` in Objective-C.
@@ -301,7 +302,7 @@ The `Interface` is turned into `@protocol`, while both a `class` and an `object`
 ### Global declarations from Kotlin
 
 All global functions from Kotlin are turned into `DemoLibKt` in Objective-C and into `LibKt` in Swift,
-where `Demo` is the framework name set by the `-output` parameter of `kotlinc-native`.
+where `Demo` is the framework name set by the `-output` parameter of `kotlinc-native`:
 
 ```objc
 __attribute__((objc_subclassing_restricted))
@@ -317,17 +318,17 @@ __attribute__((swift_name("LibKt")))
 
 Kotlin `String` and Objective-C `NSString*` are mapped transparently. Similarly, `Unit` type from Kotlin is mapped to `void`.
 The primitive types are mapped directly. Non-nullable primitive types are mapped transparently.
-Nullable primitive types are mapped into `Kotlin<TYPE>*` types, as shown in the [table](#kotlin-numbers-and-nsnumber). 
+Nullable primitive types are mapped to `Kotlin<TYPE>*` types, as shown in the [table](#kotlin-numbers-and-nsnumber). 
 Both higher-order functions `acceptFunF` and `supplyFun` are included and accept Objective-C blocks.
 
 You can find more information about type mapping in [Interoperability with Swift/Objective-C](native-objc-interop.md#mappings).
 
 ## Garbage collection and reference counting
 
-Objective-C and Swift use automatic reference counting (ARC). Kotlin/Native has its own [garbage collector](native-memory-manager.md#garbage-collector),
+Swift and Objective-C use automatic reference counting (ARC). Kotlin/Native has its own [garbage collector](native-memory-manager.md#garbage-collector),
 which is also [integrated with Objective-C/Swift ARC](native-arc-integration.md).
 
-Unused Kotlin objects are automatically removed. You don't need to use anything special to control the lifetime of
+Unused Kotlin objects are automatically removed. You don't need to take additional steps to control the lifetime of
 Kotlin/Native instances from Swift or Objective-C.
 
 ## Use code from Objective-C
@@ -361,22 +362,22 @@ int main(int argc, const char * argv[]) {
 }
 ```
 
-Here, you call Kotlin classes directly from Objective-C code. A Kotlin `object` uses the `<object name>.shared` class
-property, which allows you to get the object's only instance and call `Object` methods on it.
+Here, you call Kotlin classes directly from Objective-C code. A Kotlin object uses the `<object name>.shared` class
+property, which allows you to get the object's only instance and call object methods on it.
 
 The widespread pattern is used to create an instance of the `Clazz` class. You call the `[[ DemoClazz alloc] init]` on
 Objective-C. You can also use `[DemoClazz new]` for constructors without parameters.
 
 Global declarations from the Kotlin sources are scoped under the `DemoLibKt` class in Objective-C.
-All methods are turned into class methods of that class.
+All Kotlin functions are turned into class methods of that class.
 
 The `strings` function is turned into `DemoLibKt.stringsStr` function in Objective-C, so you can pass `NSString`
-directly to it. The return is visible as `NSString` too.
+directly to it. The return value is visible as `NSString` too.
 
 ## Use code from Swift
 
-The framework you compiled has helper attributes to make it easier to use with Swift. Let's convert the previous
-Objective-C example into Swift.
+The framework you generated has helper attributes to make it easier to use with Swift. Let's convert the [previous
+Objective-C example](#use-code-from-objective-c) into Swift.
 
 In the framework directory, create the `main.swift` file with the following code:
 
@@ -400,17 +401,17 @@ if (ret != nil) {
 }
 ``` 
 
-There are some small differences between the original Kotlin code and its Swift version. In Kotlin, any `object` has 
+There are some small differences between the original Kotlin code and its Swift version. In Kotlin, any object has 
 only one instance. The `Object.shared` syntax is used to access this single instance.
 
-Methods and property names are translated as is. Kotlin's `String` is turned into Swift's `String`. Swift
+Kotlin function and property names are translated as is. Kotlin's `String` is turned into Swift's `String`. Swift
 hides `NSNumber*` boxing too. You can also pass a Swift closure to Kotlin and call a Kotlin lambda function from Swift. 
 
 You can find more information about type mapping in [Interoperability with Swift/Objective-C](native-objc-interop.md#mappings).
 
-## Connect the framework to iOS project
+## Connect the framework your iOS project
 
-Now you can connect the generated framework to the iOS project as a dependency. There are multiple ways to set it up
+Now you can connect the generated framework to your iOS project as a dependency. There are multiple ways to set it up
 and automate the process, choose the method that suits you best:
 
 <a href="multiplatform-ios-integration-overview.md"><img src="choose-ios-integration.svg" width="700" alt="Choose iOS integration method" style="block"/></a>
