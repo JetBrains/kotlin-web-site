@@ -74,7 +74,3 @@ The following are not goals of KSP:
 * Examining expression-level information of source code.
 * Modifying source code.
 * 100% compatibility with the Java Annotation Processing API.
-
-We are also exploring several additional features. These features are currently unavailable:
-
-* IDE integration: Currently IDEs know nothing about the generated code.
