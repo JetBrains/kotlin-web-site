@@ -656,13 +656,6 @@ kotlin {
             // Collapse exported dependency rule
             flattenPackage = "com.subproject.library"
         }
-
-        // Configure Swift export binaries
-        binaries {
-            linkTaskProvider.configure {
-                freeCompilerArgs += "-opt-in=some.value"
-            }
-        }
     }
 }
 ```
