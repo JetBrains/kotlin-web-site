@@ -181,9 +181,7 @@ This results in fewer slots being used and fewer comparisons being made at runti
 
 ### OptimizeNonSkippingGroups
 
-> This feature is considered [Experimental](components-stability.md#stability-levels-explained).
->
-{style="warning"}
+<primary-label ref="experimental-general"/>
 
 **Default**: disabled
 
@@ -196,9 +194,7 @@ and functions that are implicitly not skippable (inline functions and functions 
 
 ### PausableComposition
 
-> This feature is considered [Experimental](components-stability.md#stability-levels-explained).
->
-{style="warning"}
+<primary-label ref="experimental-general"/>
 
 **Default**: disabled
 
