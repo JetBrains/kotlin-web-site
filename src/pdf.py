@@ -21,6 +21,8 @@ PDF_CONFIG = {
     'footer-spacing': '7',
     'enable-smart-shrinking': '',
     'enable-local-file-access': '',
+    'no-stop-slow-scripts': '',
+    'javascript-delay': '6000',
     'zoom': '1.3'
 }
 
