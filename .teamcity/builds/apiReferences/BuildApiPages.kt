@@ -1,6 +1,7 @@
 package builds.apiReferences
 
 import BuildParams.DOKKA_TEMPLATES_VERSION
+import builds.SCRIPT_PATH
 import builds.scriptDistAnalyze
 import jetbrains.buildServer.configs.kotlin.BuildStep
 import jetbrains.buildServer.configs.kotlin.BuildSteps
@@ -39,7 +40,7 @@ abstract class BuildApiPages(
     artifactRules = "$pagesRoot/** => pages.zip"
 
     vcs {
-        root(KotlinLangOrg, "scripts/doindex/")
+        root(KotlinLangOrg, "$SCRIPT_PATH/")
     }
 
     params {
