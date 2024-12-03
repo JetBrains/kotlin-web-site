@@ -693,13 +693,14 @@ The Kotlin compiler produces `.klib` artifacts for publishing Kotlin libraries.
 Previously, you could get the necessary artifacts from any host, except for Apple platform targets that required a Mac machine. 
 That put a special restraint on Kotlin Multiplatform projects that targeted iOS, macOS, tvOS, and watchOS targets.
 
-Kotlin 2.1.0 lifts this restriction, achieving full support for cross-compilation.
+Kotlin 2.1.0 lifts this restriction, adding support for cross-compilation.
 Now you can use any host to produce `.klib` artifacts,
 which should greatly simplify the publishing process for Kotlin and Kotlin Multiplatform libraries.
 
-> To build [final binaries](multiplatform-build-native-binaries.md) for Apple targets, you still need to use a Mac machine.
->
-{style="note"}
+Cross-compilation is currently Experimental and has some limitations. You still need to use a Mac machine if:
+
+* Your library has a [cinterop dependency](native-c-interop.md).
+* You need to build or test [final binaries](multiplatform-build-native-binaries.md) for Apple targets.
 
 For more information, see [Publishing multiplatform libraries](https://kotlinlang.org/docs/multiplatform-publish-lib.html).
 
