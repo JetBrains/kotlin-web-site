@@ -401,15 +401,15 @@ if (ret != nil) {
 }
 ``` 
 
-There are some small differences between the original Kotlin code and its Swift version. In Kotlin, any object has 
-only one instance. The `Object.shared` syntax is used to access this single instance.
+There are some small differences between the original Kotlin code and its Swift version. In Kotlin, any object declaration
+has only one instance. The `Object.shared` syntax is used to access this single instance.
 
 Kotlin function and property names are translated as is. Kotlin's `String` is turned into Swift's `String`. Swift
 hides `NSNumber*` boxing too. You can also pass a Swift closure to Kotlin and call a Kotlin lambda function from Swift. 
 
 You can find more information about type mapping in [Interoperability with Swift/Objective-C](native-objc-interop.md#mappings).
 
-## Connect the framework your iOS project
+## Connect the framework to your iOS project
 
 Now you can connect the generated framework to your iOS project as a dependency. There are multiple ways to set it up
 and automate the process, choose the method that suits you best:
