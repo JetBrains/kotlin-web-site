@@ -17,16 +17,16 @@ In this tutorial, you will:
 * [Use the Kotlin dynamic library from C](#use-generated-headers-from-c)
 * [Compile and run the project](#compile-and-run-the-project)
 
-While it's possible to use the command line, either directly or by combining it with a script file
-(such as `.sh` or `.bat` file), this approach doesn't scale well for big projects that have hundreds of files and libraries.
-Therefore, it's better to use a build system for compilation, as it helps to download and cache the Kotlin/Native
+You can use the command line to generate a Kotlin library, either directly or with a script file (such as `.sh` or `.bat` file).
+However, this approach doesn't scale well for big projects that have hundreds of files and libraries.
+Using a build system simplifies the process by downloading and caching the Kotlin/Native
 compiler binaries and libraries with transitive dependencies and run the compiler and tests.
 Kotlin/Native can use the [Gradle](https://gradle.org) build system through the [Kotlin Multiplatform plugin](gradle-configure-project.md#targeting-multiple-platforms).
 
 Let's examine the advanced C interop-related usages of Kotlin/Native and [Kotlin Multiplatform](gradle-configure-project.md#targeting-multiple-platforms) builds with Gradle.
 
-> If you use a Mac and want to create and run applications for macOS or other Apple targets, you also need to
-> install [Xcode Command Line Tools](https://developer.apple.com/download/), launch it, and accept the license terms first.
+> If you use a Mac and want to create and run applications for macOS or other Apple targets, you also need to install
+> the [Xcode Command Line Tools](https://developer.apple.com/download/), launch it, and accept the license terms first.
 >
 {style="note"}
 
@@ -140,7 +140,8 @@ Let's create a Kotlin library and use it from a C program.
     * The `libnative` is used as the library name, the prefix for the generated header file name. It also prefixes all
       declarations in the header file.
 
-3. Run the `linkDebugSharedNative` Gradle task to build the library in the IDE or call the following console command:
+3. Run the `linkDebugSharedNative` Gradle task in the IDE or use the following console command in your terminal to build
+   the library:
 
    ```bash
    ./gradlew linkDebugSharedNative
