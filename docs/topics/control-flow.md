@@ -332,7 +332,7 @@ For example, `0, 1 -> print("x == 0 or x == 1")`.
 >
 > To enable guard conditions in Gradle, add the following line to the `build.gradle.kts` file:
 >
-> `kotlin.compilerOptions.freeCompilerArgs.add("-Xwhen-guards")t`
+> `kotlin.compilerOptions.freeCompilerArgs.add("-Xwhen-guards")`
 >
 {style="note"}
 
