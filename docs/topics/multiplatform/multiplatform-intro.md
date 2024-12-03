@@ -62,6 +62,19 @@ For more details on this topic, see:
 * [Add dependencies on Android libraries](multiplatform-android-dependencies.md)
 * [Add dependencies on iOS libraries](multiplatform-ios-dependencies.md)
 
+## Set up integration with iOS
+
+If your multiplatform project targets iOS, you can set up integration of the Kotlin Multiplatform shared module with
+your iOS app.
+
+For that, you generate an iOS framework and then add it as a local o remote dependency to the iOS project:
+
+* **Local integration**: integrate directly using a special script or the CocoaPods dependency manager for setups involving
+  local Pod dependencies.
+* **Remote integration**: use the Swift package manager with XCFrameworks or distribute shared modules using CocoaPods.
+
+For more details on this topic, see [iOS integration methods](multiplatform-ios-integration-overview.md).
+
 ## Configure compilations
 
 Every target can have multiple compilations for different purposes, typically for production or testing, but you can also
