@@ -228,7 +228,7 @@ types in Swift/Objective-C:
 The next part of the `Demo.h` file contains type mappings between Kotlin/Native number types and `NSNumber`. The base
 class is called `DemoNumber` in Objective-C and `KotlinNumber` in Swift. It extends `NSNumber`.
 
-There are also child classes per Kotlin number type:
+For each Kotlin number type, there is a corresponding predefined child class:
 
 | Kotlin    | Swift           | Objective-C        | Simple type          |
 |-----------|-----------------|--------------------|----------------------|
