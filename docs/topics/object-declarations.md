@@ -440,7 +440,7 @@ fun main() {
 
 ### Use anonymous objects as return and value types
 
-When you return an anonymous object from a local or [`private`](visibility-modifiers.md#packages) function or property (but not an [inline function](inline-functions.md)),
+When you return an anonymous object from a local or [`private`](visibility-modifiers.md#packages) function or property,
 all the members of that anonymous object are accessible through that function or property:
 
 ```kotlin
