@@ -59,16 +59,18 @@
 - from: /docs/tutorials/native/kotlin-native-with-clion.html
   to: /docs/tutorials/native/using-command-line-compiler.html
 
-- from: /docs/tutorials/native/using-command-line-compiler.html
-  to: /docs/native-command-line-compiler.html
-
 - from: /docs/tutorials/native/gradle-for-kotlin-native.html
   to: /docs/tutorials/native/using-gradle.html
 
 - from: /docs/tutorials/native/interop-with-c.html
   to: /docs/native-app-with-c-and-libcurl.html
 
-- from: /docs/tutorials/native/using-intellij-idea.html
+- from:
+  - /docs/tutorials/native/using-intellij-idea.html
+  - /docs/tutorials/native/using-gradle.html
+  - /docs/native-gradle.html
+  - /docs/tutorials/native/using-command-line-compiler.html
+  - /docs/native-command-line-compiler.html
   to: /docs/native-get-started.html
 
 - from: /docs/tutorials/native/targeting-multiple-platforms.html
@@ -98,8 +100,6 @@
 - from: /docs/tutorials/native/mapping-primitive-data-types-from-c.html
   to: /docs/mapping-primitive-data-types-from-c.html
 
-- from: /docs/tutorials/native/using-gradle.html
-  to: /docs/native-gradle.html
 
 - from: /docs/tutorials/kotlin-and-ci.html
   to: /docs/kotlin-and-ci.html
@@ -791,3 +791,4 @@
 - from:
     - /docs/cross-platform-frameworks.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/cross-platform-frameworks.html
+
