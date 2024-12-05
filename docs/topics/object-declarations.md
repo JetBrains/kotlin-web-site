@@ -440,7 +440,7 @@ fun main() {
 
 ### Use anonymous objects as return and value types
 
-When you return an anonymous object from a local or [`private`](visibility-modifiers.md#packages) function or property (but not an [inline function](inline-functions.md)),
+When you return an anonymous object from a local or [`private`](visibility-modifiers.md#packages) function or property,
 all the members of that anonymous object are accessible through that function or property:
 
 ```kotlin
@@ -469,7 +469,7 @@ fun main() {
 This allows you to return an anonymous object with specific properties,
 offering a simple way to encapsulate data or behavior without creating a separate class.
 
-If a function or property that returns an anonymous object is `public` or `private`, its actual type is:
+If a function or property that returns an anonymous object has `public`, `protected`, or `internal` visibility, its actual type is:
 
 * `Any` if the anonymous object doesn't have a declared supertype.
 * The declared supertype of the anonymous object, if there is exactly one such type.
