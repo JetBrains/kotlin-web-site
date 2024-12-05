@@ -7,7 +7,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.triggers.schedule
 import vcsRoots.KotlinLangOrg
 
-const val SCRIPT_PATH = "scripts/doindex";
+const val SCRIPT_PATH = "scripts/dist";
 
 fun scriptDistAnalyze(block: ScriptBuildStep.() -> Unit) = ScriptBuildStep {
     id = "script-dist-analyze"
@@ -42,11 +42,7 @@ abstract class TemplateSearchIndex(init: BuildType.() -> Unit) : BuildType({
     }
 
     vcs {
-        root(
-            KotlinLangOrg, """
-                $SCRIPT_PATH
-            """.trimIndent()
-        )
+        root(KotlinLangOrg, "$SCRIPT_PATH/")
         cleanCheckout = true
         showDependenciesChanges = true
     }
