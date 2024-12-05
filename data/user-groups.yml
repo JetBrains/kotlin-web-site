@@ -1092,3 +1092,9 @@
     position:
       lat: 31.791702
       lng: -7.09262
+  - name: Kotlin Cameroun User Group
+    country: Cameroun
+    url: https://www.linkedin.com/company/kotlin-cameroun
+    position:
+      lat: 4.0511
+      lng: 9.7085
