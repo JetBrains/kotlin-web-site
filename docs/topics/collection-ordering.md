@@ -73,6 +73,23 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
+You can combine `compareBy()` with the [`thenBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.comparisons/then-by.html) function to define secondary sorting criteria.
+For example, you can first arrange strings by their length and then sort them alphabetically:
+
+```kotlin
+fun main() {
+//sampleStart
+    val sortedStrings = listOf("aaa", "bb", "c", "b", "a", "aa", "ccc")
+         // Sorts first by length and then alphabetically
+        .sortedWith(compareBy<String> { it.length }.thenBy { it })
+
+    println(sortedStrings)
+    // [a, b, c, aa, bb, aaa, ccc]
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 The Kotlin collections package provides functions for sorting collections in natural, custom, and even random orders.
 On this page, we'll describe sorting functions that apply to [read-only](collections-overview.md#collection-types) collections.
 These functions return their result as a new collection containing the elements of the original collection in the requested order.
