@@ -73,14 +73,36 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-You can combine `compareBy()` with the [`thenBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.comparisons/then-by.html) function to define secondary sorting criteria.
-For example, you can first arrange strings by their length and then sort them alphabetically:
+You can also define an order for multiple criteria.
+For example, to sort strings by their length and alphabetically when the lengths are equal, you can write:
 
 ```kotlin
 fun main() {
 //sampleStart
     val sortedStrings = listOf("aaa", "bb", "c", "b", "a", "aa", "ccc")
-         // Sorts first by length and then alphabetically
+        .sortedWith { a, b -> 
+           when (val compareLengths = a.length.compareTo(b.length)) {
+             0 -> a.compareTo(b)
+             else -> compareLengths
+           }
+         }
+
+    println(sortedStrings)
+    // [a, b, c, aa, bb, aaa, ccc]
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+The Kotlin standard library provides the [`thenBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.comparisons/then-by.html) function to simplify multi-criteria sorting.
+It works with an existing comparator to add a secondary sorting rule.
+
+For example, you can combine `compareBy()` with `thenBy()` to sort strings by their length first and alphabetically second, just like in the previous example:
+
+```kotlin
+fun main() {
+//sampleStart
+    val sortedStrings = listOf("aaa", "bb", "c", "b", "a", "aa", "ccc")
         .sortedWith(compareBy<String> { it.length }.thenBy { it })
 
     println(sortedStrings)
