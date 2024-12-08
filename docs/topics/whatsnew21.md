@@ -697,7 +697,7 @@ Kotlin 2.1.0 lifts this restriction, achieving full support for cross-compilatio
 Now you can use any host to produce `.klib` artifacts,
 which should greatly simplify the publishing process for Kotlin and Kotlin Multiplatform libraries.
 
-> To build [final binaries](multiplatform-build-native-binaries.md) for Apple targets, you still need to use a Mac machine.
+> To test and build [final binaries](multiplatform-build-native-binaries.md) for Apple targets, you still need to use a Mac machine.
 >
 {style="note"}
 
