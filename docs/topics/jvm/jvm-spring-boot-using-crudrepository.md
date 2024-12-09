@@ -79,7 +79,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
 
     <deflist collapsible="true">
        <def title="Extension functions">
-          <p>The return type of the <code>findByIdOrNull()</code> function is an <a href="extensions.md#extension-functions">extension function</a> for <code>CrudRepository</code> interface in Spring Data JDBC.</p>
+          <p>The <code>findByIdOrNull()</code> function is an <a href="extensions.md#extension-functions">extension function</a> for <code>CrudRepository</code> interface in Spring Data JDBC.</p>
        </def>
        <def title="CrudRepository save() function">
           <p><a href="https://docs.spring.io/spring-data/jdbc/docs/current/reference/html/#jdbc.entity-persistence">This function works</a> with an assumption that the new object doesn't have an id in the database. Hence, the id <b>should be null</b> for insertion.</p>
