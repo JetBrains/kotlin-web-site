@@ -697,27 +697,26 @@ Kotlin 2.1.0 lifts this restriction, adding support for cross-compilation.
 Now you can use any host to produce `.klib` artifacts,
 which should greatly simplify the publishing process for Kotlin and Kotlin Multiplatform libraries.
 
-Cross-compilation is currently Experimental and has some limitations. You still need to use a Mac machine if:
+#### How to enable publishing libraries from any host
 
-* Your library has a [cinterop dependency](native-c-interop.md).
-* You need to build or test [final binaries](multiplatform-build-native-binaries.md) for Apple targets.
-
-For more information, see [Publishing multiplatform libraries](https://kotlinlang.org/docs/multiplatform-publish-lib.html).
-
-#### How to enable the publishing Kotlin libraries from any host feature
-
-This feature is currently [Experimental](components-stability.md#stability-levels-explained).
-To try it out in your project, add the following binary option to your `gradle.properties` file:
+To try cross-compilation out in your project, add the following binary option to your `gradle.properties` file:
 
 ```none
 # gradle.properties
 kotlin.native.enableKlibsCrossCompilation=true
 ```
 
-#### Leave feedback on the publishing Kotlin libraries from any host feature
+This feature is currently Experimental and has some limitations. You still need to use a Mac machine if:
+
+* Your library has a [cinterop dependency](native-c-interop.md).
+* You need to build or test [final binaries](multiplatform-build-native-binaries.md) for Apple targets.
+
+#### Leave feedback on publishing libraries from any host
 
 We're planning to stabilize this feature and further improve library publication in future Kotlin releases.
 Please leave your feedback in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-71290).
+
+For more information, see [Publishing multiplatform libraries](https://kotlinlang.org/docs/multiplatform-publish-lib.html).
 
 ### Support for non-packed klibs
 
