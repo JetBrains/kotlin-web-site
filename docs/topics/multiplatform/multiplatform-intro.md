@@ -67,7 +67,7 @@ For more details on this topic, see:
 If your multiplatform project targets iOS, you can set up integration of the Kotlin Multiplatform shared module with
 your iOS app.
 
-For that, you generate an iOS framework and then add it as a local o remote dependency to the iOS project:
+For that, you generate an iOS framework and then add it as a local or remote dependency to the iOS project:
 
 * **Local integration**: integrate directly using a special script or the CocoaPods dependency manager for setups involving
   local Pod dependencies.
