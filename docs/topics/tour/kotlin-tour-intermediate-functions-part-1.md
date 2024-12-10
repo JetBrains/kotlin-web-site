@@ -18,7 +18,7 @@ The receiver object is what the function is called on. In other words, the recei
 
 ![An example of sender and receiver](receiver-highlight.png){width="500"}
 
-In this example, the `main()` function calls the `.first()` function. The `.first()` function is called on the `readOnlyShapes`
+In this example, the `main()` function calls the `.first()` function. The `.first()` function is called **on** the `readOnlyShapes`
 variable, so the `readOnlyShapes` variable is the receiver.
 
 The receiver object has a **type** so that the compiler understands when the function can be used.
@@ -81,7 +81,7 @@ For more information about extension functions, see [Extensions](extensions.md).
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="extension-functions-exercise-1"}
 
-Write a function called `isPositive` that takes an integer and checks whether it is positive.
+Write an extension function called `isPositive` that takes an integer and checks whether it is positive.
 
 |---|---|
 ```kotlin
@@ -107,7 +107,7 @@ fun main() {
 
 ### Exercise 2 {initial-collapse-state="collapsed" collapsible="true" id="extension-functions-exercise-2"}
 
-Write a function called `toLowercaseString` that takes a string and returns a lowercase version.
+Write an extension function called `toLowercaseString` that takes a string and returns a lowercase version.
 
 <deflist collapsible="true">
     <def title="Hint">
