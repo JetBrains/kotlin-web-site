@@ -37,6 +37,26 @@ Compatible Kotlin version
 <tr>
 <td>
 
+**0.8.4**
+
+Released: 6 December, 2024
+
+</td>
+<td>
+
+* Support for Kotlin's K2 mode for improved stability and code analysis.
+
+</td>
+<td>
+
+* [Any of Kotlin plugin versions](releases.md#release-details)
+
+</td>
+</tr>
+<tr>
+<tr>
+<td>
+
 **0.8.3**
 
 Released: 23 July, 2024
