@@ -1,17 +1,22 @@
 [//]: # (title: Compatibility guide for Kotlin Multiplatform)
 
+<show-structure depth="1"/>
+
 This guide summarizes [incompatible changes](kotlin-evolution-principles.md#incompatible-changes) you might encounter while
 developing projects with Kotlin Multiplatform.
 
-> Mind the deprecation cycle of a specific change in relation to the Kotlin version you have in your projects. The current
-> Stable version of Kotlin is %kotlinVersion%.
->
-{style="note"}
+The current Stable version of Kotlin is %kotlinVersion%. Mind the deprecation cycle of a specific change in relation to
+the Kotlin version you have in your projects, for example:
+
+* When upgrading from Kotlin 1.7.0 to Kotlin 1.9.0, check incompatible changes that come into effect in [Kotlin 1.7.0−1.8.22](#kotlin-1-7-0-1-8-22)
+  and in [Kotlin 1.9.0](#kotlin-1-9-0-1-9-25).
+* When upgrading from Kotlin 1.9.0 to Kotlin 2.0.0, check incompatible changes that come into effect in [Kotlin 1.9.0−1.9.25](#kotlin-1-9-0-1-9-25)
+  and in [Kotlin 2.0.0](#kotlin-2-0-0-and-later).
 
 ## Version compatibility
 
-When configuring your project, check the compatibility of a particular version of the Kotlin Multiplatform Gradle plugin (same as the Kotlin version in your project)
-with available Gradle, Xcode, and Android Gradle plugin versions:
+When configuring your project, check the compatibility of a particular version of the Kotlin Multiplatform Gradle plugin
+(same as the Kotlin version in your project) with available Gradle, Xcode, and Android Gradle plugin versions:
 
 | Kotlin Multiplatform plugin version | Gradle                                 | Android Gradle plugin           | Xcode   |
 |-------------------------------------|----------------------------------------|---------------------------------|---------|
@@ -546,18 +551,18 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    ```kotlin
    // build.gradle.kts:
    plugins {
-   kotlin("js") version "1.9.0"
+       kotlin("js") version "1.9.0"
    }
    
    dependencies {
-   testImplementation(kotlin("test"))
-   implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
+       testImplementation(kotlin("test"))
+       implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
    }
    
    kotlin {
-   js {
-       // ...
-   }
+       js {
+           // ...
+       }
    }
    ```
 
@@ -567,28 +572,28 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
    ```kotlin
    // build.gradle.kts:
    plugins {
-   kotlin("multiplatform") version "1.9.0"
+       kotlin("multiplatform") version "1.9.0"
    }
    
    kotlin {
-   js {
-       // ...
-   }
-       
-   // Option #1. Declare dependencies in the sourceSets {} block:
-   sourceSets {
-       val jsMain by getting {
-           dependencies {
-               // No need for the js prefix here, you can just copy and paste it from the top-level block
-               implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
-           }
+       js {
+           // ...
        }
-   }
+       
+       // Option #1. Declare dependencies in the sourceSets {} block:
+       sourceSets {
+           val jsMain by getting {
+               dependencies {
+                   // No need for the js prefix here, you can just copy and paste it from the top-level block
+                   implementation("org.jetbrains.kotlinx:kotlinx-html:0.8.0")
+               }
+          }
+       }
    }
    
    dependencies {
-   // Option #2. Add the js prefix to the dependency declaration:
-   add("jsTestImplementation", kotlin("test"))
+       // Option #2. Add the js prefix to the dependency declaration:
+       add("jsTestImplementation", kotlin("test"))
    }
    ```
 
