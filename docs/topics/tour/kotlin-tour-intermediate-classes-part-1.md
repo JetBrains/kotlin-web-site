@@ -335,6 +335,8 @@ Then, create another child class called `SmartThermostat` that inherits from the
 Finally, add another function called `adjustTemperature()` that accepts a temperature measurement as an input and prints:
 `$name thermostat set to $temperature°C.`
 
+|--|--|
+
 ```kotlin
 abstract class // write your code here
 
@@ -550,6 +552,8 @@ a `message` as an input and return a printed statement: `"Sending a smart messag
 > 
 {style="note"}
 
+|--|--|
+
 ```kotlin
 interface Messenger {
     fun sendMessage(message: String)
@@ -614,207 +618,6 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-4"}
 
-## Open classes
-
-If you can't use interfaces or abstract classes, you can explicitly make a class inheritable. To do this, use the `open`
-keyword before your class declaration:
-
-```kotlin
-open class Vehicle
-```
-
-To create a class that inherits from another, add a colon after your class header followed by a call to the constructor
-of the parent class that you want to inherit from:
-
-```kotlin
-class Car : Vehicle
-```
-{validate="false"}
-
-In this example, the `Car` class inherits from the `Vehicle` class:
-
-```kotlin
-open class Vehicle(val make: String, val model: String)
-
-class Car(make: String, model: String, val numberOfDoors: Int) : Vehicle(make, model)
-
-fun main() {
-    // Creates an instance of the Car class
-    val car = Car("Toyota", "Corolla", 4)
-}
-```
-
-Just like when creating a normal class instance, if your class inherits from a parent class, then it must initialize
-all the parameters declared in the parent class header. So in the example, the `car` instance of the `Car` class initializes
-the parent class parameters: `make` and `model`.
-
-### Overriding inherited behavior
-
-If you want to inherit from a class but change some of the behavior, you can override the inherited behavior.
-
-By default, it's not possible to override a member function or property of a parent class. Just like with abstract classes,
-you need to add special keywords.
-
-#### Member functions
-
-To allow a function in the parent class to be overridden, use the `open` keyword before its declaration in the parent class:
-
-```kotlin
-open fun displayInfo() {}
-```
-{validate="false"}
-
-To override an inherited member function, use the `override` keyword before the function declaration in the child class:
-
-```kotlin
-override fun displayInfo() {}
-```
-{validate="false"}
-
-For example:
-
-```kotlin
-open class Vehicle(val make: String, val model: String) {
-    open fun displayInfo() {
-        println("Vehicle Info: Make - $make, Model - $model")
-    }
-}
-
-class Car(make: String, model: String, val numberOfDoors: Int) : Vehicle(make, model) {
-    override fun displayInfo() {
-        println("Car Info: Make - $make, Model - $model, Number of Doors - $numberOfDoors")
-    }
-}
-
-fun main() {
-    val car1 = Car("Toyota", "Corolla", 4)
-    val car2 = Car("Honda", "Civic", 2)
-
-    // Uses the overridden displayInfo() function
-    car1.displayInfo()
-    // Car Info: Make - Toyota, Model - Corolla, Number of Doors - 4
-    car2.displayInfo()
-    // Car Info: Make - Honda, Model - Civic, Number of Doors - 2
-}
-```
-{kotlin-runnable="true" id="kotlin-tour-class-override-function"}
-
-This example:
-
-* Creates two instances of the `Car` class that inherit from the `Vehicle` class: `car1` and `car2`.
-* Overrides the `displayInfo()` function in the `Car` class to also print the number of doors.
-* Calls the overridden `displayInfo()` function on `car1` and `car2` instances.
-
-#### Properties
-
-The syntax for overriding properties is exactly the same as for overriding member functions.
-
-To allow a property in the parent class to be overridden, use the `open` keyword before its declaration in the parent class:
-
-```kotlin
-open val transmissionType: String
-```
-{validate="false"}
-
-To override an inherited member function, use the `override` keyword before the function declaration in the child class:
-
-```kotlin
-override val transmissionType: String
-```
-{validate="false"}
-
-Properties can be overridden in the class header or in the class body:
-
-```kotlin
-open class Vehicle(val make: String, val model: String, open val transmissionType: String)
-
-// In class header
-class Car(make: String, model: String, val numberOfDoors: Int, override val transmissionType: String = "Automatic") :
-    Vehicle(make, model)
-
-// In class body
-class Car(make: String, model: String, val numberOfDoors: Int) : Vehicle(make, model) {
-    override val transmissionType: String = "Automatic"
-}
-```
-
-> If the property you want to override in the parent class has no default value, you must initialize it in the child class.
->
-{style="note"}
-
-For example:
-
-```kotlin
-open class Vehicle(val make: String, val model: String) {
-    open val transmissionType: String
-    open fun displayInfo() {
-        println("Vehicle Info: Make - $make, Model - $model, Transmission Type - $transmissionType")
-    }
-}
-
-class Car(make: String, model: String, val numberOfDoors: Int) : Vehicle(make, model) {
-    override val transmissionType: String = "Automatic"
-    override fun displayInfo() {
-        println("Car Info: Make - $make, Model - $model, Transmission Type - $transmissionType, Number of Doors - $numberOfDoors")
-    }
-}
-
-fun main() {
-    val car1 = Car("Toyota", "Corolla", 4)
-    val car2 = Car("Honda", "Civic", 2)
-
-    car1.displayInfo()
-    // Car Info: Make - Toyota, Model - Corolla, Transmission Type - Automatic, Number of Doors - 4
-    car2.displayInfo()
-    // Car Info: Make - Honda, Model - Civic, Transmission Type - Automatic, Number of Doors - 2
-
-}
-```
-{kotlin-runnable="true" id="kotlin-tour-class-override-property"}
-
-This example:
-
-* Creates two instances of the `Car` class that inherit from the `Vehicle` class: `car1` and `car2`.
-* Overrides the `transmissionType` variable in the `Car` class to `"Automatic"`.
-* Overrides the `displayInfo()` function in the `Car` class to also print the transmission type and the number of doors.
-* Calls the overridden `displayInfo()` function on `car1` and `car2` instances.
-
-For more information about class inheritance and overriding class behavior, see [Inheritance](inheritance.md).
-
-### Open classes and interfaces
-
-You can create a class that inherits a class **and** implements multiple interfaces. In this case, you must declare 
-the parent class first, after the colon, before listing the interfaces:
-
-```kotlin
-// Define interfaces
-interface EcoFriendly {
-    val emissionLevel: String
-}
-
-interface ElectricVehicle {
-    val batteryCapacity: Double
-}
-
-// Parent class
-open class Vehicle(val make: String, val model: String)
-
-// Child class
-open class Car(make: String, model: String, val numberOfDoors: Int) : Vehicle(make, model)
-
-// New class that inherits from Car and implements two interfaces
-class ElectricCar(
-    make: String,
-    model: String,
-    numberOfDoors: Int,
-    val capacity: Double,
-    val emission: String
-) : Car(make, model, numberOfDoors), EcoFriendly, ElectricVehicle {
-    override val batteryCapacity: Double = capacity
-    override val emissionLevel: String = emission
-}
-```
-
 ## Next step
 
-[Object declarations and special classes](kotlin-tour-intermediate-classes-part-2.md)
+[Objects](kotlin-tour-intermediate-classes-part-2.md)
