@@ -2,7 +2,8 @@
   "type": "module",
   "scripts": {
     "generate-metadata": "tsx analyzer/index.ts",
-    "build": "tsc --outDir ../pages-js --project tsconfig.json"
+    "generate-pdf": "tsx pdf/index.ts",
+    "build": "tsc --outDir ../dist --project tsconfig.json"
   },
   "dependencies": {
     "@types/fast-levenshtein": "^0.0.4",
