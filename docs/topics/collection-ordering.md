@@ -73,7 +73,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-You can also define an order for multiple criteria.
+You can also define an order based on multiple criteria.
 For example, to sort strings by their length and alphabetically when the lengths are equal, you can write:
 
 ```kotlin
@@ -94,8 +94,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Since sorting by multiple criteria is a very common scenario, the Kotlin standard library provides the [`thenBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.comparisons/then-by.html) function to simplify it.
-It complements an existing comparator by adding a secondary sorting rule.
+Since sorting by multiple criteria is a common scenario, the Kotlin standard library provides the [`thenBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.comparisons/then-by.html) function that you can use to add a secondary sorting rule.
 
 For example, you can combine `compareBy()` with `thenBy()` to sort strings by their length first and alphabetically second, just like in the previous example:
 
