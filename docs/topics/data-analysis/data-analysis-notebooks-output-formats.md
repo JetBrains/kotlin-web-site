@@ -288,7 +288,7 @@ You can create various charts directly in your Kotlin Notebook to visualize your
 
 ## What's next
 
-* [Visualize data using the DataFrame and Kandy libraries](data-analysis-visualization.md).
-* [Learn more about rendering and displaying rich output in Kotlin Notebook](https://www.jetbrains.com/help/idea/kotlin-notebook.html#render-rich-output).
-* [Retrieve data from the CSV and JSON files](data-analysis-work-with-data-sources.md).
-* [Check out the list of recommended libraries](data-analysis-libraries.md).
+* [Visualize data using the DataFrame and Kandy libraries](data-analysis-visualization.md)
+* [Learn more about rendering and displaying rich output in Kotlin Notebook](https://www.jetbrains.com/help/idea/kotlin-notebook.html#render-rich-output)
+* [Retrieve data from the CSV and JSON files](data-analysis-work-with-data-sources.md)
+* [Check out the list of recommended libraries](data-analysis-libraries.md)

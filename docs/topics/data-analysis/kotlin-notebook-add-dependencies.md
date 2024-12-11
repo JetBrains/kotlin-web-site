@@ -110,6 +110,7 @@ This is just a glimpse into what you can achieve with Kotlin Notebook and its [s
 
 ## What's next
 
-* See more details about [adding dependencies to your Kotlin Notebook](https://www.jetbrains.com/help/idea/kotlin-notebook.html#add-dependencies).
-* For a more extensive guide using the Kotlin DataFrame library, see [Retrieve data from files](data-analysis-work-with-data-sources.md).
-* For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md).
+* Learn how to [share your Kotlin Notebook](kotlin-notebook-share.md)
+* See more details about [adding dependencies to your Kotlin Notebook](https://www.jetbrains.com/help/idea/kotlin-notebook.html#add-dependencies)
+* For a more extensive guide using the Kotlin DataFrame library, see [Retrieve data from files](data-analysis-work-with-data-sources.md)
+* For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md)

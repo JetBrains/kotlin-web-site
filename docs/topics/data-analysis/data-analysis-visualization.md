@@ -162,7 +162,7 @@ Here's the result:
 
 ## What's next
 
-* Explore more chart examples in the [Kandy library documentation](https://kotlin.github.io/kandy/examples.html).
-* Explore more advanced plotting options in the [Lets-Plot library documentation](lets-plot.md).
-* Find additional information about creating, exploring, and managing data frames in the [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/info.html).
-* Learn more about data visualization in Kotlin Notebook in this [YouTube video]( https://www.youtube.com/watch?v=m4Cqz2_P9rI&t=4s).
+* Explore more chart examples in the [Kandy library documentation](https://kotlin.github.io/kandy/examples.html)
+* Explore more advanced plotting options in the [Lets-Plot library documentation](lets-plot.md)
+* Find additional information about creating, exploring, and managing data frames in the [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/info.html)
+* Learn more about data visualization in Kotlin Notebook in this [YouTube video]( https://www.youtube.com/watch?v=m4Cqz2_P9rI&t=4s)

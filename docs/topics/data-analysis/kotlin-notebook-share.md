@@ -15,6 +15,6 @@ We recommend the following platforms to share Kotlin notebooks:
 
 ## What's next
 
-* Explore data visualization using the [Kandy library](data-analysis-visualization.md).
-* Learn about retrieving data from files, web sources, or databases in [Working with data sources](data-analysis-work-with-data-sources.md).
-* For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md).
+* Explore data visualization using the [Kandy library](data-analysis-visualization.md)
+* Learn about retrieving data from files, web sources, or databases in [Working with data sources](data-analysis-work-with-data-sources.md)
+* For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md)
