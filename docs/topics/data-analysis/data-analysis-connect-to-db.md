@@ -1,6 +1,6 @@
 [//]: # (title: Connect and retrieve data from databases)
 
-Kotlin Notebook offers capabilities for connecting to and retrieving data from various types of SQL databases, such as 
+[Kotlin Notebook](kotlin-notebook-overview.md) offers capabilities for connecting to and retrieving data from various types of SQL databases, such as 
 MariaDB, PostgreSQL, MySQL, and SQLite. 
 Utilizing the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), Kotlin Notebook can establish 
 connections to databases, execute SQL queries, and import the results for further operations.
@@ -180,6 +180,6 @@ occurring first names of actors:
 
 ## What's next
 
-* Explore data visualization using the [Kandy library](https://kotlin.github.io/kandy/examples.html).
-* Find additional information about data visualization in [Data visualization in Kotlin Notebook with Kandy](data-analysis-visualization.md).
-* For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md).
+* Explore data visualization using the [Kandy library](https://kotlin.github.io/kandy/examples.html)
+* Find additional information about data visualization in [Data visualization in Kotlin Notebook with Kandy](data-analysis-visualization.md)
+* For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md)

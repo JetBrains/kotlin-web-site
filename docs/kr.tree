@@ -162,9 +162,9 @@
 			<toc-element toc-title="Introduction to Kotlin Notebook" topic="get-started-with-kotlin-notebooks.md"/>
 			<toc-element toc-title="1. Set up an environment" topic="kotlin-notebook-set-up-env.md"/>
 			<toc-element toc-title="2. Create your first Kotlin Notebook" topic="kotlin-notebook-create.md"/>
-			<toc-element toc-title="3. Add dependencies to a Kotlin Notebook" topic="kotlin-notebook-add-dependencies.md"/>
-			<toc-element toc-title="4. Share a Kotlin Notebook" topic="kotlin-notebook-share.md"/>
+			<toc-element toc-title="3. Add dependencies to your Kotlin Notebook" topic="kotlin-notebook-add-dependencies.md"/>
 		</toc-element>
+		<toc-element toc-title="Share your Kotlin Notebook" topic="kotlin-notebook-share.md"/>
 		<toc-element toc-title="Output formats in Kotlin notebooks" topic="data-analysis-notebooks-output-formats.md"/>
 		<toc-element toc-title="Working with data sources">
 			<toc-element topic="data-analysis-work-with-data-sources.md"/>

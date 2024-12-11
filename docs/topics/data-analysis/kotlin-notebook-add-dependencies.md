@@ -4,12 +4,11 @@
    <p>This is the third part of the <strong>Getting started with Kotlin Notebook</strong> tutorial. Before proceeding, make sure you've completed the previous steps.</p>
    <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="kotlin-notebook-set-up-env.md">Set up an environment</a><br/>
       <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="kotlin-notebook-create.md">Create a Kotlin Notebook</a><br/>
-      <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Add dependencies to a Kotlin Notebook</strong><br/>      
-      <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Share a Kotlin Notebook<br/>
+      <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Add dependencies to a Kotlin Notebook</strong><br/>
   </p>
 </tldr>
 
-You've already created your first Kotlin Notebook! Now let's learn how to add dependencies to libraries, which
+You've already created your first [Kotlin Notebook](kotlin-notebook-overview.md)! Now let's learn how to add dependencies to libraries, which
 is necessary to unlock advanced features.
 
 > The Kotlin standard library can be used out of the box, so you don't have to import it.
@@ -18,7 +17,7 @@ is necessary to unlock advanced features.
 
 You can load any library from the Maven repository by specifying its coordinates using Gradle-style
 syntax in any code cell. 
-However, Kotlin Notebook has a simplified method to load popular libraries in the form of the `%use` statement:
+However, Kotlin Notebook has a simplified method to load popular libraries in the form of the [`%use` statement](https://www.jetbrains.com/help/idea/kotlin-notebook.html#import-libraries):
 
 ```kotlin
 // Replace libraryName with the library dependency you want to add
@@ -109,11 +108,9 @@ The resulting chart:
 Congratulations on adding and utilizing these libraries in your Kotlin Notebook!
 This is just a glimpse into what you can achieve with Kotlin Notebook and its [supported libraries](data-analysis-libraries.md).
 
-For a more extensive guide using the Kotlin DataFrame library, see 
-[Retrieve data from files](data-analysis-work-with-data-sources.md), and explore [Data visualization in Kotlin Notebook with Kandy](data-analysis-visualization.md) for advanced data visualization.
+## What's next
 
-## Next step
-
-In the next part of the tutorial, you will learn how to share a Kotlin Notebook.
-
-**[Proceed to the next chapter](kotlin-notebook-share.md)**
+* Learn how to [share your Kotlin Notebook](kotlin-notebook-share.md)
+* See more details about [adding dependencies to your Kotlin Notebook](https://www.jetbrains.com/help/idea/kotlin-notebook.html#add-dependencies)
+* For a more extensive guide using the Kotlin DataFrame library, see [Retrieve data from files](data-analysis-work-with-data-sources.md)
+* For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md)

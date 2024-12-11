@@ -1,6 +1,6 @@
 [//]: # (title: Retrieve data from web sources and APIs)
 
-Kotlin Notebook provides a powerful platform for accessing and manipulating data from various web sources and APIs.
+[Kotlin Notebook](kotlin-notebook-overview.md) provides a powerful platform for accessing and manipulating data from various web sources and APIs.
 It simplifies data extraction and analysis tasks by offering an iterative environment where every step can be visualized 
 for clarity. This makes it particularly useful when exploring APIs you are not familiar with.
 
@@ -213,6 +213,6 @@ For more advanced techniques, see the [Kotlin DataFrame documentation](https://k
 
 ## What's next
 
-* Explore data visualization using the [Kandy library](https://kotlin.github.io/kandy/examples.html).
-* Find additional information about data visualization in [Data visualization in Kotlin Notebook with Kandy](data-analysis-visualization.md).
-* For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md).
+* Explore data visualization using the [Kandy library](https://kotlin.github.io/kandy/examples.html)
+* Find additional information about data visualization in [Data visualization in Kotlin Notebook with Kandy](data-analysis-visualization.md)
+* For an extensive overview of tools and resources available for data science and analysis in Kotlin, see [Kotlin and Java libraries for data analysis](data-analysis-libraries.md)
