@@ -69,10 +69,10 @@ Including Chromium-based browsers such as Edge, Brave, Opera, or Samsung Interne
 
 * **For older versions:**
 
-   It is not supported.
+   Not supported.
 
-> Ensure you use Safari 18.2 or later. This version is available for iOS 18.2, iPadOS 18.2, visionOS 2.2, macOS 15.2, macOS Sonoma, and macOS Ventura.
-> On iOS and iPadOS, Safari 18.2 is bundled with the operating system, so you need to update the operating system to version 18.2 or later.
+> Safari 18.2 is available for iOS 18.2, iPadOS 18.2, visionOS 2.2, macOS 15.2, macOS Sonoma, and macOS Ventura.
+> On iOS and iPadOS, Safari 18.2 is bundled with the operating system. To get it, update your device to version 18.2 or later.
 >
 > For more information, see the [Safari release notes](https://developer.apple.com/documentation/safari-release-notes/safari-18_2-release-notes#Overview).
 >
