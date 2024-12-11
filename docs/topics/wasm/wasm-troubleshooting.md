@@ -63,8 +63,20 @@ Including Chromium-based browsers such as Edge, Brave, Opera, or Samsung Interne
 
 ### Safari/WebKit
 
-WebAssembly garbage collection support is currently under
-[active development](https://bugs.webkit.org/show_bug.cgi?id=247394).
+* **For version 18.2 or later:**
+
+  Works by default.
+
+* **For older versions:**
+
+   Not supported.
+
+> Safari 18.2 is available for iOS 18.2, iPadOS 18.2, visionOS 2.2, macOS 15.2, macOS Sonoma, and macOS Ventura.
+> On iOS and iPadOS, Safari 18.2 is bundled with the operating system. To get it, update your device to version 18.2 or later.
+>
+> For more information, see the [Safari release notes](https://developer.apple.com/documentation/safari-release-notes/safari-18_2-release-notes#Overview).
+>
+{style="note"}
 
 ## Wasm proposals support
 
