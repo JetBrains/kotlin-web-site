@@ -214,6 +214,7 @@
 				<toc-element topic="mapping-struct-union-types-from-c.md"/>
 				<toc-element topic="mapping-function-pointers-from-c.md"/>
 				<toc-element topic="mapping-strings-from-c.md"/>
+				<toc-element topic="native-dynamic-libraries.md"/>
 				<toc-element accepts-web-file-names="curl.html" topic="native-app-with-c-and-libcurl.md"/>
 			</toc-element>
 			<toc-element toc-title="Objective-C interop">
@@ -222,7 +223,6 @@
 			</toc-element>
 			<toc-element topic="native-libraries.md"/>
 			<toc-element topic="native-platform-libs.md"/>
-			<toc-element topic="native-dynamic-libraries.md"/>
 			<toc-element toc-title="Memory manager">
 				<toc-element topic="native-memory-manager.md"/>
 				<toc-element toc-title="Integration with ARC" accepts-web-file-names="native-ios-integration.html" topic="native-arc-integration.md"/>
