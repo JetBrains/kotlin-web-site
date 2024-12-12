@@ -313,7 +313,7 @@ is an instance of a type. The actual set of operations generated depends on actu
 
 > Kotlin/Native has its own garbage collector, but it doesn't manage Kotlin objects accessed from C. However,
 > Kotlin/Native provides [interoperability with Swift/Objective-C](native-objc-interop.md),
-> and the garbage collector is [integrated with Objective-C ARC](native-arc-integration.md).
+> and the garbage collector is [integrated with Swift/Objective-C ARC](native-arc-integration.md).
 >
 {style="tip"}
 
