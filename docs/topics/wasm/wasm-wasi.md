@@ -77,9 +77,9 @@ in the terminal from the ` kotlin-wasm-wasi-template` root directory:
   ./gradlew wasmWasiWasmEdgeRun
   ```
 
-  The terminal displays a message when your application is built successfully:
+The terminal displays a message when your application is built successfully:
 
-  ![Kotlin/Wasm and WASI app](wasm-wasi-apps.png){width=600}
+![Kotlin/Wasm and WASI app](wasm-wasi-app-terminal.png){width=600}
 
 ## Test the application
 
@@ -91,7 +91,7 @@ In the Gradle tool window, run one of the following Gradle tasks from **kotlin-w
 * **wasmWasiDenoTest** to test the application in Deno.
 * **wasmWasiWasmEdgeTest** to test the application in WasmEdge.
 
-![Kotlin/Wasm and WASI test tasks](wasm-wasi-test-task.png){width=600}
+![Kotlin/Wasm and WASI test tasks](wasm-wasi-testing-task.png){width=600}
 
 Alternatively, run one of the following commands
 in the terminal from the ` kotlin-wasm-wasi-template` root directory:
@@ -114,15 +114,15 @@ in the terminal from the ` kotlin-wasm-wasi-template` root directory:
   ./gradlew wasmWasiWasmEdgeTest
   ```
 
-You can see the test results:
+The terminal displays the test results:
 
-![Kotlin/Wasm and WASI test](wasm-wasi-test-result.png){width=600}
+![Kotlin/Wasm and WASI test](wasm-wasi-tests-results.png){width=600}
 
 ## What's next?
 
 Join the Kotlin/Wasm community in Kotlin Slack:
 
-<a href="https://slack-chats.kotlinlang.org/c/webassembly"><img src="join-slack-channel.svg" width="700" alt="Join the Kotlin/Wasm community" style="block"/></a>
+<a href="https://slack-chats.kotlinlang.org/c/webassembly"><img src="join-slack-channel.svg" width="500" alt="Join the Kotlin/Wasm community" style="block"/></a>
 
 Try more Kotlin/Wasm examples:
 
