@@ -234,5 +234,5 @@ kotlin.publishJvmEnvironmentAttribute=false
 
 ## What's next
 
-See the [Library authors' guidelines](api-guidelines-build-for-multiplatform.md) for the best practices and tips
-when designing a library for Kotlin Multiplatform.
+See the [Library authors' guidelines](api-guidelines-build-for-multiplatform.md) for best practices and tips
+on designing a library for Kotlin Multiplatform.
