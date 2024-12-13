@@ -141,7 +141,7 @@ kotlin {
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
 
-        iosArm64.deploymentTarget = "13.5"
+        iosArm64.deploymentTarget = "16.0"
       
         pod("pod_dependency") {
             version = "1.0"

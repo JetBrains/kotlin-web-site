@@ -37,7 +37,7 @@ version of the library, you can just omit this parameter altogether.
         iosArm64()
 
         cocoapods {
-            iosArm64.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "16.0"
 
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
@@ -80,7 +80,7 @@ import cocoapods.FirebaseAuth.*
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            iosArm64.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "16.0"
 
             pod("pod_dependency") {
                 version = "1.0"
@@ -141,7 +141,7 @@ import cocoapods.FirebaseAuth.*
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            iosArm64.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "16.0"
 
             pod("FirebaseAuth") {
                 source = git("https://github.com/firebase/firebase-ios-sdk") {
@@ -189,7 +189,7 @@ import cocoapods.CocoaLumberjack.*
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            iosArm64.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "16.0"
 
             specRepos {
                 url("https://github.com/Kotlin/kotlin-cocoapods-spec.git")
@@ -235,7 +235,7 @@ import cocoapods.example.*
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            iosArm64.deploymentTarget = "13.5"
+            iosArm64.deploymentTarget = "16.0"
 
             pod("YandexMapKit") {
                 packageName = "YandexMK"
@@ -281,7 +281,7 @@ kotlin {
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
 
-        iosArm64.deploymentTarget = "13.5"
+        iosArm64.deploymentTarget = "16.0"
 
         pod("PodName") {
             extraOpts = listOf("-compiler-option", "-fmodules")
