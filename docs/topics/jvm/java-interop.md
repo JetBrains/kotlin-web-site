@@ -199,7 +199,7 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
 
   * [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
 (`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package)
-  * [JSpecify](https://jspecify.dev/) (`org.jspecify.nullness`)
+  * [JSpecify](https://jspecify.dev/) (`org.jspecify.annotations`)
   * Android (`com.android.annotations` and `android.support.annotations`)
   * JSR-305 (`javax.annotation`, more details below)
   * FindBugs (`edu.umd.cs.findbugs.annotations`)
