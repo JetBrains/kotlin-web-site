@@ -8,15 +8,15 @@ developing projects with Kotlin Multiplatform.
 The current Stable version of Kotlin is %kotlinVersion%. Mind the deprecation cycle of a specific change in relation to
 the Kotlin version you have in your projects, for example:
 
-* When upgrading from Kotlin 1.7.0 to Kotlin 1.9.0, check incompatible changes that come into effect in [Kotlin 1.7.0−1.8.22](#kotlin-1-7-0-1-8-22)
-  and in [Kotlin 1.9.0](#kotlin-1-9-0-1-9-25).
-* When upgrading from Kotlin 1.9.0 to Kotlin 2.0.0, check incompatible changes that come into effect in [Kotlin 1.9.0−1.9.25](#kotlin-1-9-0-1-9-25)
-  and in [Kotlin 2.0.0](#kotlin-2-0-0-and-later).
+* When upgrading from Kotlin 1.7.0 to Kotlin 1.9.0, check incompatible changes that came into effect both in
+  [Kotlin 1.9.0](#kotlin-1-9-0-1-9-25) and in [Kotlin 1.7.0−1.8.22](#kotlin-1-7-0-1-8-22).
+* When upgrading from Kotlin 1.9.0 to Kotlin 2.0.0, check incompatible changes that came into effect both in
+  [Kotlin 2.0.0](#kotlin-2-0-0-and-later) and in [Kotlin 1.9.0−1.9.25](#kotlin-1-9-0-1-9-25). 
 
 ## Version compatibility
 
 When configuring your project, check the compatibility of a particular version of the Kotlin Multiplatform Gradle plugin
-(same as the Kotlin version in your project) with available Gradle, Xcode, and Android Gradle plugin versions:
+(same as the Kotlin version in your project) with Gradle, Xcode, and Android Gradle plugin versions:
 
 | Kotlin Multiplatform plugin version | Gradle                                 | Android Gradle plugin           | Xcode   |
 |-------------------------------------|----------------------------------------|---------------------------------|---------|
@@ -38,15 +38,15 @@ When configuring your project, check the compatibility of a particular version o
 This section covers incompatible changes that end their deprecation cycle and come into effect in Kotlin 2.0.0−%kotlinVersion%.
 
 <anchor name="android-target-rename"/>
-### Rename of android target to androidTarget
+### Rename of `android` target to `androidTarget`
 
 **What's changed?**
 
-We continue our efforts to stabilize Kotlin Multiplatform. An essential step in this way is to provide first-class
+We continue our efforts to make Kotlin Multiplatform more stable. An essential step in this direction is to provide first-class
 support for the Android target. In the future, this support will be provided via a separate plugin, developed by the
 Android team from Google.
 
-To open the way for the new solution from Google, we're renaming the `android` block to `androidTarget` in the current
+To open the way for the new solution, we're renaming the `android` block to `androidTarget` in the current
 Kotlin DSL. This is a temporary change that is necessary to free the short `android` name for the upcoming DSL
 from Google.
 
@@ -119,7 +119,7 @@ kotlin {
 The implementation comes with non-trivial configuration complexity:
 
 * You have to set up Gradle attributes on the `:shared` side and each consumer's side. Otherwise, Gradle can't
-  resolve dependencies in such projects because without additional information  it's not clear whether the consumer
+  resolve dependencies in such projects because without additional information it's not clear whether the consumer
   should receive the Ktor-based or the OkHttp-based implementation.
 * You have to set up the `commonJvmMain` source set manually.
 * The configuration involves a handful of low-level Gradle and Kotlin Gradle plugin abstractions and APIs.
@@ -476,7 +476,7 @@ Here's the planned deprecation cycle:
   reference" errors during the buildscript compilation
 
 <anchor name="kotlin-js-plugin-deprecation"/>
-### Migration from kotlin-js Gradle plugin to kotlin-multiplatform Gradle plugin {initial-collapse-state="collapsed" collapsible="true"}
+### Migration from `kotlin-js` Gradle plugin to `kotlin-multiplatform` Gradle plugin {initial-collapse-state="collapsed" collapsible="true"}
 
 **What's changed?**
 
@@ -609,7 +609,7 @@ load on the Kotlin team. We encourage you to migrate to the `kotlin-multiplatfor
 In 1.9.0, the use of the `kotlin-js` Gradle plugin produces a deprecation warning.
 
 <anchor name="jvmWithJava-preset-deprecation"/>
-### Deprecated jvmWithJava preset {initial-collapse-state="collapsed" collapsible="true"}
+### Deprecated `jvmWithJava` preset {initial-collapse-state="collapsed" collapsible="true"}
 
 **What's changed?**
 
@@ -658,7 +658,7 @@ Here's the planned deprecation cycle:
 * &gt;1.9.20: remove support for `kotlin.mpp.androidSourceSetLayoutVersion=1`; the Kotlin Gradle plugin ignores the property
 
 <anchor name="common-sourceset-with-dependson-deprecation"/>
-### Deprecated commonMain and commonTest with custom dependsOn {initial-collapse-state="collapsed" collapsible="true"}
+### Deprecated `commonMain` and `commonTest` with custom `dependsOn` {initial-collapse-state="collapsed" collapsible="true"}
 
 **What's changed?**
 
