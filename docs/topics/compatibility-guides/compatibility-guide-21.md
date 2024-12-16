@@ -24,6 +24,23 @@ perspective
 
 ## Language
 
+### Remove language versions 1.4 and 1.5
+
+> **Issue**: [KT-60521](https://youtrack.jetbrains.com/issue/KT-60521)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.1 introduces language version 2.1 and removes support for language versions 1.4 and 1.5.
+> Language versions 1.6 and 1.7 are deprecated.
+>
+> **Deprecation cycle**:
+>
+> - 1.6.0: report a warning for language version 1.4
+> - 1.9.0: report a warning for language version 1.5
+> - 2.1.0: report a warning for language versions 1.6 and 1.7; raise the warning to an error for language versions 1.4 and 1.5
+
 ### Change the typeOf() function behavior on Kotlin/Native
 
 > **Issue**: [KT-70754](https://youtrack.jetbrains.com/issue/KT-70754)
