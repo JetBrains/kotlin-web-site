@@ -669,12 +669,29 @@ which you can access from Xcode.
 #### How to enable Swift export
 
 Keep in mind that the feature is currently only in the early stages of development.
-To try it out in your project, add the following Gradle option to your `gradle.properties` file:
 
-```none
-# gradle.properties
-kotlin.experimental.swift-export.enabled=true
-```
+To try it out in your project:
+
+1. Add the following Gradle option to your `gradle.properties` file:
+
+   ```none
+   # gradle.properties
+   kotlin.experimental.swift-export.enabled=true
+   ```
+
+2. In Xcode, open the project settings.
+3. On the **Build Phases** tab, locate the **Run Script** phase.
+4. Adjust the following script and copy the result to the run script phase:
+
+   ```bash
+   cd "<Path to the root of the multiplatform project>"
+   ./gradlew :<Shared module name>:embedSwiftExportForXcode
+   ```
+
+   * In the `cd` command, specify the path to the root of your Kotlin Multiplatform project, for example, `$SRCROOT/..`.
+   * In the `./gradlew` command, specify the name of the shared module, for example, `:shared` or `:composeApp`.
+
+   ![Add the Swift export script](xcode-swift-export-run-script-phase.png){width=700}
 
 #### Leave feedback on Swift export
 
