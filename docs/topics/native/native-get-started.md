@@ -3,14 +3,14 @@
 In this tutorial, you'll learn how to create a Kotlin/Native application. Choose the tool that works best for you and
 create your app using:
 
-* **[IDE](#in-ide)**. Here, you can clone the project template from the version control system and use it in IntelliJ IDEA.
+* **[The IDE](#in-ide)**. Here, you can clone the project template from a version control system and use it in IntelliJ IDEA.
 * **[The Gradle build system](#using-gradle)**. To better understand how things work under the hood,
-  create build files for the project manually.
+  create build files for your project manually.
 * **[The command line tool](#using-the-command-line-compiler)**. You can use the Kotlin/Native compiler,
   which is shipped as a part of the standard Kotlin distribution, and create the app directly in the command line tool.
 
   Console compilation may seem easy and straightforward, but it doesn't scale well for larger projects with hundreds of
-  files and libraries. For such projects, we recommended using an IDE or a build system.
+  files and libraries. For such projects, we recommend using an IDE or a build system.
 
 With Kotlin/Native, you can compile for [different targets](native-target-support.md), including Linux, macOS, and Windows.
 While cross-platform compilation is possible, which means using one platform to compile for a different one,
@@ -299,7 +299,7 @@ Now, you can open your project in any IDE that supports Gradle. If you use Intel
 
 1. Select **File** | **Open**.
 2. Select the project directory and click **Open**.
-   IntelliJ IDEA automatically detects if it's as a Kotlin/Native project.
+   IntelliJ IDEA automatically detects if it's a Kotlin/Native project.
 
 If you encounter a problem with the project, IntelliJ IDEA displays the error message in the **Build** tab.
 
