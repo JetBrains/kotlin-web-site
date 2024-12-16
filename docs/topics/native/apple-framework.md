@@ -36,7 +36,7 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the 
 
 ## Create a Kotlin library
 
-> See the [Get started with Kotlin/Native using Gradle](native-gradle.md) tutorial for detailed first steps
+> See the [Get started with Kotlin/Native](native-get-started.md#using-gradle) tutorial for detailed first steps
 > and instructions on how to create a new Kotlin/Native project and open it in IntelliJ IDEA.
 >
 {style="tip"}
