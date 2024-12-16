@@ -709,6 +709,7 @@ kotlin.native.enableKlibsCrossCompilation=true
 This feature is currently Experimental and has some limitations. You still need to use a Mac machine if:
 
 * Your library has a [cinterop dependency](native-c-interop.md).
+* You have [CocoaPods integration](native-cocoapods.md) set up in your project.
 * You need to build or test [final binaries](multiplatform-build-native-binaries.md) for Apple targets.
 
 #### Leave feedback on publishing libraries from any host
@@ -716,7 +717,7 @@ This feature is currently Experimental and has some limitations. You still need 
 We're planning to stabilize this feature and further improve library publication in future Kotlin releases.
 Please leave your feedback in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-71290).
 
-For more information, see [Publishing multiplatform libraries](https://kotlinlang.org/docs/multiplatform-publish-lib.html).
+For more information, see [Publishing multiplatform libraries](multiplatform-publish-lib.md).
 
 ### Support for non-packed klibs
 

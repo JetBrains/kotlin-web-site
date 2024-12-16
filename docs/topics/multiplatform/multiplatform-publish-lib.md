@@ -65,6 +65,7 @@ kotlin.native.enableKlibsCrossCompilation=true
 Cross-compilation is currently Experimental and has some limitations. You still need to use a Mac machine if:
 
 * Your library has a [cinterop dependency](native-c-interop.md).
+* You have [CocoaPods integration](native-cocoapods.md) set up in your project.
 * You need to build or test [final binaries](multiplatform-build-native-binaries.md) for Apple targets.
 
 ### Duplicating publications
