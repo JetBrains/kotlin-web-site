@@ -231,3 +231,8 @@ You can disable the publication of this attribute by adding the following Gradle
 ```none
 kotlin.publishJvmEnvironmentAttribute=false
 ```
+
+## What's next
+
+See the [Library authors' guidelines](api-guidelines-build-for-multiplatform.md) for best practices and tips
+on designing a library for Kotlin Multiplatform.
