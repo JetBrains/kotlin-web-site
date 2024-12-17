@@ -27,4 +27,4 @@ Learn about:
   please refer to the [Dokka README](https://github.com/Kotlin/dokka/blob/master/README.md#using-the-gradle-plugin)
   for configuration instructions. Dokka supports mixed-language projects and can generate output in multiple
   formats, including standard Javadoc.
-**OSGi**. For OSGi support see the [Kotlin OSGi page](kotlin-osgi.md).
+* **OSGi**. For OSGi support see the [Kotlin OSGi page](kotlin-osgi.md).
