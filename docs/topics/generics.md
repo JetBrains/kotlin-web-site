@@ -239,8 +239,8 @@ You can project a type with `in` as well:
 fun fill(dest: Array<in String>, value: String) { ... }
 ```
 
-`Array<in String>` corresponds to Java's `Array<? super String>`. This means that you can pass an array of `CharSequence`
-or an array of `Object` to the `fill()` function.
+`Array<in String>` corresponds to Java's `Array<? super String>`. This means that you can pass an array of `String`, `CharSequence`,
+or `Object` to the `fill()` function.
 
 ### Star-projections
 
