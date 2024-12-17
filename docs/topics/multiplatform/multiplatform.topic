@@ -43,6 +43,7 @@
                     <a href="https://kmp.jetbrains.com/" summary="Quickly create and download a multiplatform project template">New project wizard</a>
                     <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform" summary="Android Studio plugin for developing applications both on Android and iOS">Android Studio plugin</a>
                     <a href="https://www.jetbrains.com/lp/compose-multiplatform/" summary="Kotlin-based declarative UI framework developed by JetBrains">Compose Multiplatform UI framework</a>
+                    <a href="https://klibs.io/" summary="Experimental search platform for Kotlin Multiplatform libraries developed by JetBrains">Search platform for libraries</a>
                     <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html" summary="Use Fleet for multiplatform development">Fleet code editor</a>
                     <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/amper.html" summary="Project configuration with Amper">Amper configuration tool</a>
                 </group>
