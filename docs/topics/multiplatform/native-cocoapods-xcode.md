@@ -36,11 +36,13 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
         iosArm64()
 
         cocoapods {
+            version = "2.0"
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
-            iosArm64.deploymentTarget = "16.0"
+            ios.deploymentTarget = "16.0"
             pod("FirebaseAuth") {
                 version = "10.16.0"
+                extraOpts += listOf("-compiler-option", "-fmodules")
             }
             podfile = project.file("../ios-app/Podfile")
         }
@@ -82,13 +84,15 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
         tvosArm64()
 
         cocoapods {
+            version = "2.0"
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
-            iosArm64.deploymentTarget = "16.0"
-            tvosArm64.deploymentTarget = "16.0"
+            ios.deploymentTarget = "16.0"
+            tvos.deploymentTarget = "16.0"
 
             pod("FirebaseAuth") {
                 version = "10.16.0"
+                extraOpts += listOf("-compiler-option", "-fmodules")
             }
             podfile = project.file("../severalTargetsXcodeProject/Podfile") // specify the path to the Podfile
         }

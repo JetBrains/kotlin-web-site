@@ -37,13 +37,15 @@ version of the library, you can just omit this parameter altogether.
         iosArm64()
 
         cocoapods {
-            iosArm64.deploymentTarget = "16.0"
+            version = "2.0"
+            ios.deploymentTarget = "16.0"
 
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
             pod("FirebaseAuth") {
                 version = "10.16.0"
+                extraOpts += listOf("-compiler-option", "-fmodules")
             }
         }
     }
@@ -77,21 +79,25 @@ import cocoapods.FirebaseAuth.*
         iosArm64()
 
         cocoapods {
+            version = "2.0"
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            iosArm64.deploymentTarget = "16.0"
+            ios.deploymentTarget = "16.0"
 
             pod("pod_dependency") {
                 version = "1.0"
+                extraOpts += listOf("-compiler-option", "-fmodules")
                 source = path(project.file("../pod_dependency"))
             }
             pod("subspec_dependency/Core") {
                 version = "1.0"
+                extraOpts += listOf("-compiler-option", "-fmodules")
                 source = path(project.file("../subspec_dependency"))
             }
             pod("FirebaseAuth") {
                 version = "10.16.0"
+                extraOpts += listOf("-compiler-option", "-fmodules")
             }
         }
     }
@@ -138,27 +144,31 @@ import cocoapods.FirebaseAuth.*
         iosArm64()
 
         cocoapods {
+            version = "2.0"
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            iosArm64.deploymentTarget = "16.0"
+            ios.deploymentTarget = "16.0"
 
             pod("FirebaseAuth") {
                 source = git("https://github.com/firebase/firebase-ios-sdk") {
                     tag = "10.16.0"
                 }
+                extraOpts += listOf("-compiler-option", "-fmodules")
             }
 
             pod("JSONModel") {
                 source = git("https://github.com/jsonmodel/jsonmodel.git") {
                     branch = "key-mapper-class"
                 }
+                extraOpts += listOf("-compiler-option", "-fmodules")
             }
 
             pod("CocoaLumberjack") {
                 source = git("https://github.com/CocoaLumberjack/CocoaLumberjack.git") {
                     commit = "3e7f595e3a459c39b917aacf9856cd2a48c4dbf3"
                 }
+                extraOpts += listOf("-compiler-option", "-fmodules")
             }
         }
     }
@@ -186,10 +196,11 @@ import cocoapods.CocoaLumberjack.*
         iosArm64()
 
         cocoapods {
+            version = "2.0"
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            iosArm64.deploymentTarget = "16.0"
+            ios.deploymentTarget = "16.0"
 
             specRepos {
                 url("https://github.com/Kotlin/kotlin-cocoapods-spec.git")
@@ -232,13 +243,15 @@ import cocoapods.example.*
         iosArm64()
 
         cocoapods {
+            version = "2.0"
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            iosArm64.deploymentTarget = "16.0"
+            ios.deploymentTarget = "16.0"
 
             pod("YandexMapKit") {
                 packageName = "YandexMK"
+                extraOpts += listOf("-compiler-option", "-fmodules")
             }
         }
     }
@@ -278,10 +291,11 @@ kotlin {
     iosArm64()
 
     cocoapods {
+        version = "2.0"
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
 
-        iosArm64.deploymentTarget = "16.0"
+        ios.deploymentTarget = "16.0"
 
         pod("PodName") {
             extraOpts = listOf("-compiler-option", "-fmodules")
