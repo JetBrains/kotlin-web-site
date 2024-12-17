@@ -101,6 +101,9 @@
 - from: /docs/tutorials/native/using-gradle.html
   to: /docs/native-gradle.html
 
+- from: /docs/tutorials/kotlin-and-ci.html
+  to: /docs/kotlin-and-ci.html
+
 - from: /docs/tutorials/build-tools.html
   to: /docs/gradle.html
 
@@ -408,6 +411,9 @@
 
 - from: /docs/reference/inline-classes.html
   to: /docs/inline-classes.html
+
+- from: /docs/reference/kotlin-osgi.html
+  to: /docs/kotlin-osgi.html
 
 - from: /docs/reference/migrating-multiplatform-project-to-14.html
   to: /docs/migrating-multiplatform-project-to-14.html
@@ -788,18 +794,3 @@
 - from:
     - /docs/cross-platform-frameworks.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/cross-platform-frameworks.html
-
-- from:
-    - /docs/using-ant.html
-    - /docs/ant.html
-  to: /docs/gradle.html
-
-- from:
-    - /docs/reference/kotlin-osgi.html
-    - /docs/kotlin-osgi.html
-  to: /docs/home.html
-
-- from:
-    - /docs/tutorials/kotlin-and-ci.html
-    - /docs/kotlin-and-ci.html
-  to: /docs/home.html
