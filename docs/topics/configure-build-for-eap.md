@@ -1,8 +1,10 @@
 [//]: # (title: Configure your build for EAP)
 
-If you create new projects using the EAP version of Kotlin, you don't need to perform any additional steps. The [Kotlin Plugin](install-eap-plugin.md) will do everything for you!
-
-You only need to configure your build manually for existing projects — projects that were created before installing the EAP version.
+<tldr>
+    <!-- <p>No preview versions are currently available</p> -->
+    <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
+    <p><a href="eap.md#build-details">Explore Kotlin EAP release details</a></p>
+</tldr>
 
 To configure your build to use the EAP version of Kotlin, you need to: 
 
@@ -145,3 +147,9 @@ In the sample Maven project definition, replace `KOTLIN-EAP-VERSION` with the ac
     </build>
 </project>
 ```
+
+## If you run into any problems
+
+* Report an issue to [our issue tracker, YouTrack](https://kotl.in/issue).
+* Find help in the [#eap channel in Kotlin Slack](https://app.slack.com/client/T09229ZC6/C0KLZSCHF) ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
+* Roll back to the latest stable version: [change it in your build script file](configure-build-for-eap.md#adjust-the-kotlin-version).

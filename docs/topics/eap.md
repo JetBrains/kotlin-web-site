@@ -1,10 +1,8 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
-<!--
 <tldr>
     <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
 </tldr>
--->
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
 
@@ -19,16 +17,13 @@ for everyone in [the growing Kotlin community](https://kotlinlang.org/community/
 If you have any questions and want to participate in discussions, you are welcome to join the [#eap channel in Kotlin Slack](https://app.slack.com/client/T09229ZC6/C0KLZSCHF). 
 In this channel, you can also get notifications about new EAP builds.
 
-**[Install the Kotlin EAP Plugin for IDEA or Android Studio](install-eap-plugin.md)**
+**[Configure your project for the Kotlin EAP version](configure-build-for-eap.md)**
 
 > By participating in the EAP, you expressly acknowledge that the EAP version may not be reliable, may not work as intended, and may contain errors.
 >
 > Please note that we don't provide any guarantees of compatibility between EAP and final versions of the same release. 
 >
 {style="note"}
-
-If you have already installed the EAP version and want to work on projects that were created previously, 
-check [our instructions on how to configure your build to support this version](configure-build-for-eap.md). 
 
 ## How the EAP can help you be more productive with Kotlin
 
@@ -40,23 +35,21 @@ check [our instructions on how to configure your build to support this version](
 
 ## Build details
 
-_No preview versions are currently available._ 
+<!-- _No preview versions are currently available._ -->  
 
-<!--
 <table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.1.0-RC2</strong>
-            <p>Released: <strong>November 18, 2024</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.0-RC2" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.1.20-Beta1</strong>
+            <p>Released: <strong>December 19, 2024</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.20-Beta1" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A language release with previews of new features and tooling updates.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.0-RC2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.1.0-RC2</a>.</p>
+            <p>A tooling release with K2 kapt enabled by default.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.20-Beta1">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.1.20-Beta1</a>.</p>
         </td>
     </tr>
 </table>
--->
