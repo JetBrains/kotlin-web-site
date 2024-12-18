@@ -26,16 +26,17 @@ Note that source files for the [server-side landing page](https://kotlinlang.org
 
 #### Sources in different repositories
 
-Source files for the language specification and the docs for coroutines, lincheck, Dokka, and Library creators' guidelines
+Source files for the language specification and the docs for coroutines, serialization, lincheck, Dokka, and Library creators' guidelines
 are stored in separate repositories
 
-| Website page                                                                                     | GitHub repository                                                   |
-|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
-| [Coroutines docs](https://kotlinlang.org/docs/coroutines-guide.html)                             | [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/) |
-| [Lincheck docs](https://kotlinlang.org/docs/lincheck-guide.html)                                 | [kotlinx.lincheck](https://github.com/Kotlin/kotlinx-lincheck/)     |
-| [Dokka docs](https://kotlinlang.org/docs/dokka-introduction.html)                                | [Dokka](https://github.com/Kotlin/dokka/)                           |
-| [Library creators' guidelines](https://kotlinlang.org/docs/jvm-api-guidelines-introduction.html) | [api-guidelines](https://github.com/Kotlin/api-guidelines)          |
-| [Language specification](https://kotlinlang.org/spec/introduction.html)                          | [kotlin-spec](https://github.com/Kotlin/kotlin-spec)                |
+| Website page                                                                                     | GitHub repository                                                         |
+|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| [Coroutines docs](https://kotlinlang.org/docs/coroutines-guide.html)                             | [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/)       |
+| [Lincheck docs](https://kotlinlang.org/docs/lincheck-guide.html)                                 | [kotlinx.lincheck](https://github.com/Kotlin/kotlinx-lincheck/)           |
+| [Dokka docs](https://kotlinlang.org/docs/dokka-introduction.html)                                | [Dokka](https://github.com/Kotlin/dokka/)                                 |
+| [Serialization docs](https://kotlinlang.org/docs/serialization.html)                             | [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization)  | 
+| [Library creators' guidelines](https://kotlinlang.org/docs/jvm-api-guidelines-introduction.html) | [api-guidelines](https://github.com/Kotlin/api-guidelines)                |
+| [Language specification](https://kotlinlang.org/spec/introduction.html)                          | [kotlin-spec](https://github.com/Kotlin/kotlin-spec)                      |
 
 #### Auto-generated content
 
