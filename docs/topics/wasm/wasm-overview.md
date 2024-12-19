@@ -39,7 +39,7 @@ Kotlin/Wasm as its compilation target. Applications built with Kotlin/Wasm and C
 ![Kotlin/Wasm demo](wasm-demo.png){width=700}
 
 > To run applications built with Kotlin/Wasm in a browser, you need a browser version that supports the new garbage collection
-> and exception handling proposals. To check the browser support status, see the [WebAssembly
+> and legacy exception handling proposals. To check the browser support status, see the [WebAssembly
 > roadmap](https://webassembly.org/roadmap/).
 >
 {style="tip"}
