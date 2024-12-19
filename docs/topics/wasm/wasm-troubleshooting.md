@@ -79,7 +79,7 @@ For this reason, we strongly recommend that you update your Wasm projects to the
 
 ### Exception handling proposal
 
-The Kotlin toolchain by default uses [legacy exception handling proposal](https://github.com/WebAssembly/exception-handling/blob/master/proposals/exception-handling/legacy/Exceptions.md) which allows running produced wasm binaries in wider range of enveriments.
+The Kotlin toolchain uses the [legacy exception handling proposal](https://github.com/WebAssembly/exception-handling/blob/master/proposals/exception-handling/legacy/Exceptions.md) by default which allows running produced Wasm binaries in wider range of environments.
 
 Since Kotlin 2.0.0, we have introduced support for the new version of Wasm [exception handling proposal](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md) within Kotlin/Wasm.
 
