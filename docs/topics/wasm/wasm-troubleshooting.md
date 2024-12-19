@@ -69,7 +69,7 @@ WebAssembly garbage collection support is currently under
 ## Wasm proposals support
 
 Kotlin/Wasm improvements are based on [WebAssembly proposals](https://webassembly.org/roadmap/). Here you can find details about the support for WebAssembly's 
-garbage collection and exception handling proposals. 
+garbage collection and (legacy) exception handling proposals. 
 
 ### Garbage collection proposal
 
@@ -78,6 +78,8 @@ Since Kotlin 1.9.20, the Kotlin toolchain uses the latest version of the [Wasm g
 For this reason, we strongly recommend that you update your Wasm projects to the latest version of Kotlin. We also recommend you use the latest versions of browsers with the Wasm environment.
 
 ### Exception handling proposal
+
+The Kotlin toolchain by default uses [legacy exception handling proposal](https://github.com/WebAssembly/exception-handling/blob/master/proposals/exception-handling/legacy/Exceptions.md) which allows running produced wasm binaries in wider range of enveriments.
 
 Since Kotlin 2.0.0, we have introduced support for the new version of Wasm [exception handling proposal](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md) within Kotlin/Wasm.
 
