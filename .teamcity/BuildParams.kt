@@ -1,7 +1,7 @@
 object BuildParams {
   const val DOKKA_TEMPLATES_VERSION = "1.9.10"
 
-  const val KOTLINX_COROUTINES_RELEASE_TAG = "1.10.0"
+  const val KOTLINX_COROUTINES_RELEASE_TAG = "1.10.1"
   const val KOTLINX_COROUTINES_ID = "kotlinx.coroutines"
   const val KOTLINX_SERIALIZATION_RELEASE_TAG = "v1.8.0-RC"
   const val KOTLINX_SERIALIZATION_ID = "kotlinx.serialization"
