@@ -26,9 +26,11 @@ have some other strong reason to do so.
     ```kotlin
     kotlin {
         cocoapods {
+            version = "2.0"
             //..
             pod("FirebaseAuth") {
                 version = "10.16.0"
+                extraOpts += listOf("-compiler-option", "-fmodules")
             }
         }
     }
@@ -40,9 +42,11 @@ have some other strong reason to do so.
     ```groovy
     kotlin {
         cocoapods {
+            version = "2.0"
             //..
             pod('FirebaseAuth') {
                 version = '10.16.0'
+                extraOpts += ['-compiler-option', '-fmodules']
             }
         }
     }
