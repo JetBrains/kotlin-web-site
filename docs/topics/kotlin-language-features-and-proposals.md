@@ -129,6 +129,69 @@ guided by pragmatic design.
 </td>
 <td>
 
+**kotlin.time.Instant**
+
+* KEEP proposal: [Instant and Clock](https://github.com/dkhalanskyjb/KEEP/blob/dkhalanskyjb-instant/proposals/stdlib/instant.md)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Common Atomics and Atomic Arrays**
+
+* KEEP proposal: [Common atomics](https://github.com/Kotlin/KEEP/blob/mvicsokolova/common-atomics/proposals/common-atomics.md)
+* YouTrack issue: [KT-62423](https://youtrack.jetbrains.com/issue/KT-62423)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Improvements to annotation use-site targets on properties**
+
+* KEEP proposal: [Improvements to annotation use-site targets on properties](https://github.com/Kotlin/KEEP/blob/change-defaulting-rule/proposals/change-defaulting-rule.md)
+* YouTrack issue: [KT-19289](https://youtrack.jetbrains.com/issue/KT-19289/Hibernate-Validator-annotations-dropped)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Nested (non-capturing) type aliases**
+
+* KEEP proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/nested-typealias/proposals/nested-typealias.md)
+* YouTrack issue: [KT-45285](https://youtrack.jetbrains.com/issue/KT-45285/Support-nested-type-aliases)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
 **Streamline KDoc ambiguity links**
 
 * KEEP proposal: [streamline-KDoc-ambiguity-references.md](https://github.com/Kotlin/KEEP/blob/kdoc/Streamline-KDoc-ambiguity-references/proposals/kdoc/streamline-KDoc-ambiguity-references.md)
