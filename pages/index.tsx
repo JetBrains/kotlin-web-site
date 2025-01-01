@@ -32,7 +32,6 @@ import UberLogo from '../public/images/companies/uber.svg';
 import AtlassianLogo from '../public/images/companies/atlassian.svg';
 import GoogleLogo from '../public/images/companies/google.svg';
 import JetbrainsLogoSquare from '../public/images/companies/jetbrains-logo-square.svg';
-import ShopifyLogo from '../public/images/companies/shopify.svg';
 import TouchlabLogo from '../public/images/companies/touchlab.svg';
 import KotzillaLogo from '../public/images/companies/kotzilla-logo.svg'
 
@@ -117,11 +116,6 @@ const kotlinFoundationCompanies = [
         name: 'Touchlab',
         logo: TouchlabLogo,
         link: 'https://touchlab.co/'
-    },
-    {
-        name: 'Shopify',
-        logo: ShopifyLogo,
-        link: 'https://shopify.engineering/'
     },
     {
         name: 'Uber',
