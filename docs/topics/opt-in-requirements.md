@@ -216,6 +216,37 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 </tab>
 </tabs>
 
+or like this:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
+// ...
+
+tasks.named<KotlinCompilationTask<*>>("compileKotlin").configure {
+    compilerOptions.optIn.add("org.mylibrary.OptInAnnotation")
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
+// ...
+
+tasks.named('compileKotlin', KotlinCompilationTask) {
+    compilerOptions {
+        optIn.add('org.mylibrary.OptInAnnotation')
+    }
+}
+```
+
+</tab>
+</tabs>
+
 If your Gradle module is a multiplatform module, use the `optIn` method:
 
 <tabs group="build-script">
