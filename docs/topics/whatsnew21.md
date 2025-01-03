@@ -1260,7 +1260,7 @@ If other parts of your build logic (e.g. plugins such as kotlinter or others) de
 
 To guard against those issues, KGP will now display a warning if `org.jetbrains.kotlin:kotlin-compiler-embeddable` is loaded in the build classpath alongside KGP.
 
-As a long term fix, if you are a plugin author using `org.jetbrains.kotlin:kotlin-compiler-embeddable` classes, we require doing so in an isolated classloader.
+As a long term fix, if you are a plugin author using `org.jetbrains.kotlin:kotlin-compiler-embeddable` classes, we recommend doing so in an isolated classloader.
 
 This can for an example be done using the [Gradle Workers API](https://docs.gradle.org/current/userguide/worker_api.html)
 with classloader or process isolation.
