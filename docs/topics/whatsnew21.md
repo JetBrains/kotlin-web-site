@@ -1256,7 +1256,7 @@ These symbols were intended for internal use only.
 
 Starting with Kotlin 2.1.0, KGP bundles a subset of `org.jetbrains.kotlin:kotlin-compiler-embeddable` class files in its jar file and will progressively remove them. This is to prevent compatibility issues and simplify KGP maintenance.
 
-If other parts of your build logic (e.g. plugins such as kotlinter or others) depend on a different version of `org.jetbrains.kotlin:kotlin-compiler-embeddable` than the one bundle with KGP, there is a high chance of conflict and runtime exception. 
+If other parts of your build logic (e.g. plugins such as kotlinter or others) depend on a different version of `org.jetbrains.kotlin:kotlin-compiler-embeddable` than the one bundled with KGP, there is a high chance of conflict and runtime exception. 
 
 To guard against those issues, KGP will now display a warning if `org.jetbrains.kotlin:kotlin-compiler-embeddable` is loaded in the build classpath alongside KGP.
 
