@@ -27,7 +27,7 @@ no longer recommended for production use and have become legacy.
 one version to the next if carried out without proper care. We will always announce such changes well in advance, mark things
 as deprecated and provide automated migration tools _before the change happens_. By the time the language changes we
 want most of the code in the world to be already updated and thus have no issues migrating to the new version.
-
+  
 **Feedback Loop**. Going through deprecation cycles requires significant effort, so we want to minimize the number of
 incompatible changes we'll be making in the future. Apart from using our best judgement, we believe that trying things out
 in real life is the best way to validate a design. Before casting things in stone we want them battle-tested. This is why
