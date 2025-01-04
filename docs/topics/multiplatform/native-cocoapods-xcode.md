@@ -36,11 +36,13 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
         iosArm64()
 
         cocoapods {
+            version = "2.0"
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
-            iosArm64.deploymentTarget = "13.5"
+            ios.deploymentTarget = "16.0"
             pod("FirebaseAuth") {
                 version = "10.16.0"
+                extraOpts += listOf("-compiler-option", "-fmodules")
             }
             podfile = project.file("../ios-app/Podfile")
         }
@@ -52,7 +54,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
     ```ruby
     use_frameworks!
 
-    platform :ios, '13.5'
+    platform :ios, '16.0'
 
     target 'ios-app' do
             pod 'kotlin_library', :path => '../kotlin-library'
@@ -82,13 +84,15 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
         tvosArm64()
 
         cocoapods {
+            version = "2.0"
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
-            iosArm64.deploymentTarget = "13.5"
-            tvosArm64.deploymentTarget = "13.4"
+            ios.deploymentTarget = "16.0"
+            tvos.deploymentTarget = "16.0"
 
             pod("FirebaseAuth") {
                 version = "10.16.0"
+                extraOpts += listOf("-compiler-option", "-fmodules")
             }
             podfile = project.file("../severalTargetsXcodeProject/Podfile") // specify the path to the Podfile
         }
@@ -100,14 +104,14 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
     ```ruby
     target 'iosApp' do
       use_frameworks!
-      platform :ios, '13.5'
+      platform :ios, '16.0'
       # Pods for iosApp
       pod 'kotlin_library', :path => '../kotlin-library'
     end
 
     target 'TVosApp' do
       use_frameworks!
-      platform :tvos, '13.4'
+      platform :tvos, '16.0'
 
       # Pods for TVosApp
       pod 'kotlin_library', :path => '../kotlin-library'

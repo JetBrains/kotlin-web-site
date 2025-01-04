@@ -176,7 +176,8 @@ If you already have a project, you can add and configure the Kotlin CocoaPods Gr
     kotlin {
         cocoapods {
             // Required properties
-            // Specify the required Pod version here. Otherwise, the Gradle project version is used.
+            // Specify the required Pod version here
+            // Otherwise, the Gradle project version is used
             version = "1.0"
             summary = "Some description for a Kotlin/Native module"
             homepage = "Link to a Kotlin/Native module homepage"

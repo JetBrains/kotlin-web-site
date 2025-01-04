@@ -105,6 +105,7 @@ The `framework` block is nested inside `cocoapods` and configures the framework 
 ```kotlin
 kotlin {
     cocoapods {
+        version = "2.0"
         framework {
             baseName = "MyFramework"
             isStatic = false
@@ -136,15 +137,16 @@ and `source` of the library, in its configuration block:
 ```kotlin
 kotlin {
     iosArm64()
-   
     cocoapods {
+        version = "2.0"
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
 
-        iosArm64.deploymentTarget = "13.5"
+        ios.deploymentTarget = "16.0"
       
         pod("pod_dependency") {
             version = "1.0"
+            extraOpts += listOf("-compiler-option", "-fmodules")
             linkOnly = true
             source = path(project.file("../pod_dependency"))
         }
