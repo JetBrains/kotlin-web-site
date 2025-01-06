@@ -1,11 +1,13 @@
 package builds.apiReferences.stdlib
 
 import BuildParams.KOTLIN_CORE_API_BUILD_ID
+import builds.SCRIPT_PATH
 import builds.apiReferences.scriptGenerateSitemap
 import builds.apiReferences.scriptNoRobots
 import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import vcsRoots.KotlinLangOrg
 
 private const val PAGES_ROOT = "dist/api/core"
 
@@ -14,11 +16,7 @@ object BuildStdlibApiReference : BuildType({
     description = "Build pages for Kotlin Core API"
 
     vcs {
-        root(
-            vcsRoots.KotlinLangOrg, """
-                scripts/doindex/
-            """.trimIndent()
-        )
+        root(KotlinLangOrg, "$SCRIPT_PATH/")
     }
 
     artifactRules = """

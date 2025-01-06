@@ -35,20 +35,18 @@ pdf/kotlin-reference.pdf
 pdf/tmp.html
 *.pyc
 google-credentials.json
-./package-lock.json
+package-lock.json
 .env
 pages/api/
 external/
 assets/externals
 pages/docs/tutorials/kotlin-for-py/
 _teamcity
-dist
+/dist
 libs
 generated
 .next
 .teamcity/*.iml
 
-/scripts/doindex/package-lock.json
-/search-report*
-/reports
+/reports*
 /data/page_views_map.json
