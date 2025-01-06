@@ -51,8 +51,8 @@ For example:
 ```kotlin
 fun main() { 
 //sampleStart
-    val popcorn = 5    // There are 5 boxes of popcorn
-    val hotdog = 7     // There are 7 hotdogs
+    val popcornPrice = 5    // Popcorn costs 5 dollars
+    val hotdogPrice = 7     // Hotdogs cost 7 dollars
     var customers = 10 // There are 10 customers in the queue
     
     // Some customers leave the queue
