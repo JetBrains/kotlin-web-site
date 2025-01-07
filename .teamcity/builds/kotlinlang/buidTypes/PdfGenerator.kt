@@ -1,6 +1,5 @@
 package builds.kotlinlang.buidTypes
 
-import BuildParams.DOKKA_TEMPLATES_VERSION
 import builds.SCRIPT_PATH
 import builds.kotlinlang.templates.DockerImageBuilder
 import jetbrains.buildServer.configs.kotlin.BuildType
@@ -24,7 +23,7 @@ object PdfGenerator : BuildType({
   }
 
   params {
-    booleanParameter("with-pdf", "true")
+    select("with-pdf", "false", options = listOf("true", "false"))
   }
 
   steps {
@@ -43,7 +42,7 @@ object PdfGenerator : BuildType({
     }
     script {
       conditions {
-        equals("param.with-pdf", "true")
+        equals("with-pdf", "true")
       }
       name = "Generate PDF"
       //language=sh
