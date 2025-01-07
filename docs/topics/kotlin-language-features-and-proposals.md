@@ -163,7 +163,7 @@ guided by pragmatic design.
 **Improvements to annotation use-site targets on properties**
 
 * KEEP proposal: [Improvements to annotation use-site targets on properties](https://github.com/Kotlin/KEEP/blob/change-defaulting-rule/proposals/change-defaulting-rule.md)
-* YouTrack issue: [KT-19289](https://youtrack.jetbrains.com/issue/KT-19289/Hibernate-Validator-annotations-dropped)
+* YouTrack issue: [KT-19289](https://youtrack.jetbrains.com/issue/KT-19289)
 
 </td>
 </tr>
@@ -179,7 +179,7 @@ guided by pragmatic design.
 **Nested (non-capturing) type aliases**
 
 * KEEP proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/nested-typealias/proposals/nested-typealias.md)
-* YouTrack issue: [KT-45285](https://youtrack.jetbrains.com/issue/KT-45285/Support-nested-type-aliases)
+* YouTrack issue: [KT-45285](https://youtrack.jetbrains.com/issue/KT-45285)
 
 </td>
 </tr>
