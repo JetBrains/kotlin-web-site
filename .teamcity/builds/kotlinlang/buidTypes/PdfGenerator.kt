@@ -1,5 +1,6 @@
 package builds.kotlinlang.buidTypes
 
+import BuildParams.DOKKA_TEMPLATES_VERSION
 import builds.SCRIPT_PATH
 import builds.kotlinlang.templates.DockerImageBuilder
 import jetbrains.buildServer.configs.kotlin.BuildType
@@ -13,12 +14,17 @@ object PdfGenerator : BuildType({
   templates(DockerImageBuilder)
 
   artifactRules = """
-      dist/docs/pdf.html
-      pdf/kotlin-docs.pdf
+    dist/** => dist.zip!
+    dist/docs/pdf.html
+    pdf/kotlin-docs.pdf
   """.trimIndent()
 
   requirements {
     doesNotContain("docker.server.osType", "windows")
+  }
+
+  params {
+    booleanParameter("with-pdf", "true")
   }
 
   steps {
@@ -36,11 +42,12 @@ object PdfGenerator : BuildType({
       workingDir = SCRIPT_PATH
     }
     script {
+      conditions {
+        equals("param.with-pdf", "true")
+      }
       name = "Generate PDF"
       //language=sh
-      scriptContent = """
-        ./scripts/pdf.sh
-      """.trimIndent()
+      scriptContent = "./scripts/pdf.sh"
       dockerImage = "python:3.9"
     }
   }
