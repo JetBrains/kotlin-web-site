@@ -48,6 +48,11 @@ Please report such issues to our [issue tracker](https://youtrack.jetbrains.com/
 ## Gradle: support for version 8.11
 
 Kotlin %kotlinEapVersion% is now compatible with the latest stable Gradle version, 8.11, and supports its features.
+Gradle versions 8.7 to 8.11 are supported, with one exception. If you use the Kotlin Multiplatform Gradle plugin,
+you may see deprecation warnings in your multiplatform projects when calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets).
+We plan to fix this issue as soon as possible.
+
+For more information, see the related issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542).
 
 ## How to update to Kotlin %kotlinEapVersion%
 
