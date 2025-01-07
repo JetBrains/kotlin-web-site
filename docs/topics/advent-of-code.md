@@ -4,7 +4,7 @@
 every day from December 1 to December 25. With the permission of [Eric Wastl](http://was.tl/), creator of Advent of Code,
 we'll show how to solve these puzzles using the idiomatic Kotlin style:
 
-* [Advent of Code 2024](https://www.youtube.com/watch?v=r7nMRJ57QA0&list=PLlFc5cFwUnmwHaD3-qeoLHnho_PY2g9JX&index=12)
+* [Advent of Code 2024](https://www.youtube.com/playlist?list=PLlFc5cFwUnmwHaD3-qeoLHnho_PY2g9JX)
 * [Advent of Code 2023](https://www.youtube.com/playlist?list=PLlFc5cFwUnmzk0wvYW4aTl57F2VNkFisU)
 * [](#advent-of-code-2022)
 * [](#advent-of-code-2021)
