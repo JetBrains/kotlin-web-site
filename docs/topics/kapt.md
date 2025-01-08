@@ -78,12 +78,27 @@ Follow these steps:
 {style="warning"}
 
 From Kotlin 1.9.20, you can try using the kapt compiler plugin with the [K2 compiler](https://blog.jetbrains.com/kotlin/2021/10/the-road-to-the-k2-compiler/),
-which brings performance improvements and many other benefits. To use the K2 compiler in your project, add the following
-options to your `gradle.properties` file:
+which brings performance improvements and many other benefits. To use the K2 compiler in your Gradle project, add the following
+option to your `gradle.properties` file:
 
 ```kotlin
 kapt.use.k2=true
 ```
+
+If you use the Maven build system, update your `pom.xml` file:
+
+```xml
+<configuration>
+   ...
+   <args>
+      <arg>-Xuse-k2-kapt</arg>
+   </args>
+</configuration>
+```
+
+> To enable the kapt plugin in your Maven project, see [](#use-in-maven).
+>
+{style="tip"}
 
 If you encounter any issues when using kapt with the K2 compiler, please report them to our
 [issue tracker](http://kotl.in/issue).
@@ -367,6 +382,17 @@ For example:
 <configuration>
    ...
    <aptMode>stubs</aptMode>
+</configuration>
+```
+
+To enable the kapt plugin with the K2 compiler, add the `-Xuse-k2-kapt` compiler option:
+
+```xml
+<configuration>
+   ...
+   <args>
+      <arg>-Xuse-k2-kapt</arg>
+   </args>
 </configuration>
 ```
 
