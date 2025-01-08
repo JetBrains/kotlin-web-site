@@ -698,7 +698,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The `outputFile` JavaScript compiler option has been removed. Now, the `destinationDirectory`
+> **Short summary**: The `outputFile` JavaScript compiler option has been removed. Instead, you can use the `destinationDirectory`
 > property of the `Kotlin2JsCompile` task is available to specify the directory where the compiled JavaScript output files
 > are written.
 >
