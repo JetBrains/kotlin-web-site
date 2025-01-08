@@ -689,3 +689,20 @@ perspective
 >
 > - 1.3: the platform plugin IDs are deprecated
 > - 2.0.0: the platform plugin IDs are no longer supported
+
+### Remove outputFile JavaScript compiler option
+
+> **Issue**: [KT-61116](https://youtrack.jetbrains.com/issue/KT-61116)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `outputFile` JavaScript compiler option has been removed. Instead, you can use the `destinationDirectory`
+> property of the `Kotlin2JsCompile` task to specify the directory where the compiled JavaScript output files
+> are written.
+>
+> **Deprecation cycle**:
+>
+> - 1.9.25: the `outputFile` compiler option is deprecated
+> - 2.0.0: the `outputFile` compiler option is removed
