@@ -73,8 +73,8 @@ Learn more in Gradle's documentation about their [Build cache](https://docs.grad
 {style="note"}
 
 Use the configuration cache to significantly improve build performance by caching the result of the configuration phase
-and reuse it for subsequent builds. If nothing changes in a build file (or its dependencies) the build file isn't
-recompiled.
+and reusing it for subsequent builds. If Gradle detects no changes in the build configuration or related
+dependencies, it skips the configuration phase.
 
 Learn more in Gradle's documentation about their [Configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html).
 
@@ -92,6 +92,8 @@ For more information, see [Tips for improving compilation time](native-improving
 If you're using a library that relies on the [kapt](kapt.md) compiler plugin, check whether you can switch to using the [Kotlin Symbol Processing (KSP) API](ksp-overview.md)
 instead. The KSP API improves build performance by reducing annotation processing time. KSP is faster and more efficient
 than kapt, as it processes source code directly without generating intermediary Java stubs.
+
+For guidance on the migration steps, see Google's [migration guide](https://developer.android.com/build/migrate-to-ksp).
 
 To learn more about how KSP compares to kapt, check out [why KSP](ksp-why-ksp.md).
 
@@ -133,7 +135,7 @@ Explore Gradle's community cookbook on [Using Gradle with Continuous Integration
 <primary-label ref="advanced"/>
 
 Like the [local build cache](#use-local-build-cache), the remote build cache helps you save time by reusing outputs
-from other builds. It can retrieve task outputs from any earlier build you've already run, not just the last one.
+from other builds. It can retrieve task outputs from any earlier build that anyone has already run, not just the last one.
 
 The remote build cache uses a cache server to share task outputs across builds. For example, in a development environment
 with a CI/CD server, all builds on the server populate the remote cache. When you check out the main branch to 
