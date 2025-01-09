@@ -127,7 +127,7 @@ Set up a CI/CD process to significantly reduce build time by using incremental b
 persistent storage or use a remote build cache to see these benefits. This process doesn't have to be time-consuming, 
 as some providers, like [GitHub](https://github.com/features/actions), offer this service almost out of the box.
 
-Explore Gradle's community cookbook on [Using Gradle with Continuous Integration systems](https://community.gradle.org/cookbook/ci/).
+Explore Gradle's community cookbook on [Using Gradle with Continuous Integration systems](https://cookbook.gradle.org/ci/).
 
 ### Use remote build cache
 <primary-label ref="advanced"/>
