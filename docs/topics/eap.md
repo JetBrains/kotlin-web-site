@@ -48,7 +48,7 @@ In this channel, you can also get notifications about new EAP builds.
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.10-RC" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A bug fix release for Kotlin 2.1.10</p>
+            <p>A bug fix release for Kotlin 2.1.0</p>
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.10-RC">changelog</a>.</p>
         </td>
     </tr>
