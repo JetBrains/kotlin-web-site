@@ -14,7 +14,7 @@ object PdfGenerator : BuildType({
 
   artifactRules = """
     dist/** => dist.zip!
-    dist/docs/pdf.html
+    docs/kr.tree => dist.zip
     pdf/kotlin-docs.pdf
   """.trimIndent()
 
