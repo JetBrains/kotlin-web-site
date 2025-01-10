@@ -344,7 +344,7 @@ fun main() {
 Lambda expressions can be hard to understand at first glance so let's break it down. Lambda expressions are written 
 within curly braces `{}`.
 
-Within the lambda expression, you write:
+Within the lambda expression:
 
 * The parameters followed by an `->`.
 * The function body after the `->`.
