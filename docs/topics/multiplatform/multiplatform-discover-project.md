@@ -289,7 +289,7 @@ devices, respectively, you can use the `tvosMain` intermediate source set for al
 ## Integration with tests
 
 Real-life projects also require tests alongside the main production code. This is why all source sets created by
-default have the `Main` and `Test` prefixes. `Main` contains production code, while `Test` contains tests for this code.
+default have the `Main` and `Test` suffixes. `Main` contains production code, while `Test` contains tests for this code.
 The connection between them is established automatically, and tests can use the API provided by the `Main` code without
 additional configuration.
 
