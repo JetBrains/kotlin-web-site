@@ -91,8 +91,10 @@ kotlin {
 kotlin {
     jvm {
         val main by compilations.getting {
-            compilerOptions.configure {
-                jvmTarget.set(JvmTarget.JVM_1_8)
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(JvmTarget.JVM_1_8)
+                }
             }
         }
     }
@@ -106,8 +108,10 @@ kotlin {
 kotlin {
     jvm {
         compilations.main {
-            compilerOptions.configure {
-                jvmTarget = JvmTarget.JVM_1_8
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget = JvmTarget.JVM_1_8
+                }
             }
         }
     }

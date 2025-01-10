@@ -729,9 +729,11 @@ A compilation has the following parameters:
 kotlin {
     jvm {
         val main by compilations.getting {
-            compilerOptions.configure { 
-                // Set up the Kotlin compiler options for the 'main' compilation:
-                jvmTarget.set(JvmTarget.JVM_1_8)
+            compileTaskProvider.configure {
+                compilerOptions {
+                    // Set up the Kotlin compiler options for the 'main' compilation:
+                    jvmTarget.set(JvmTarget.JVM_1_8)
+                }
             }
         
             compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
@@ -754,9 +756,13 @@ kotlin {
 ```groovy
 kotlin {
     jvm {
-        compilations.main.compilerOptions.configure { 
-            // Setup the Kotlin compiler options for the 'main' compilation:
-            jvmTarget = JvmTarget.JVM_1_8
+        compilations.main {
+            compileTaskProvider.configure {
+                compilerOptions {
+                    // Setup the Kotlin compiler options for the 'main' compilation:
+                    jvmTarget = JvmTarget.JVM_1_8
+                }
+            }
         }
 
         compilations.main.compileKotlinTask // get the Kotlin task 'compileKotlinJvm' 
