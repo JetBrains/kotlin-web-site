@@ -17,16 +17,16 @@
     <var name="kotlinEapReleaseDate" value="December 19, 2024" type="string"/>
 
     <!-- Libraries and Frameworks -->
-    <var name="coroutinesVersion" value="1.9.0" type="string"/>
+    <var name="coroutinesVersion" value="1.10.1" type="string"/>
     <var name="coroutinesEapVersion" value="1.9.0-RC.2" type="string"/>
 
-    <var name="serializationVersion" value="1.7.3" type="string"/>
+    <var name="serializationVersion" value="1.8.0" type="string"/>
 
     <var name="dateTimeVersion" value="0.6.1" type="string"/>
 
     <var name="lincheckVersion" value="2.34" type="string"/>
 
-    <var name="ktorVersion" value="3.0.1" type="string"/>
+    <var name="ktorVersion" value="3.0.3" type="string"/>
 
     <var name="sqlDelightVersion" value="2.0.2" type="string"/>
 
