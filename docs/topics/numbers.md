@@ -3,7 +3,7 @@
 ## Integer types
 
 Kotlin provides a set of built-in types that represent numbers.  
-For integer numbers, there are four types with different sizes and, hence, value ranges:
+For integer numbers, there are four types with different sizes and value ranges:
 
 | Type	    | Size (bits) | Min value                                    | Max value                                      |
 |----------|-------------|----------------------------------------------|------------------------------------------------|
@@ -12,9 +12,16 @@ For integer numbers, there are four types with different sizes and, hence, value
 | `Int`	   | 32          | -2,147,483,648 (-2<sup>31</sup>)             | 2,147,483,647 (2<sup>31</sup> - 1)             |
 | `Long`	  | 64          | -9,223,372,036,854,775,808 (-2<sup>63</sup>) | 9,223,372,036,854,775,807 (2<sup>63</sup> - 1) |
 
+> In addition to signed integer types, Kotlin also provides unsigned integer types.
+> As unsigned integers are aimed at a different set of use cases, they are covered separately.
+> See the [](unsigned-integer-types.md) page.
+> 
+{style="tip"}
+
 When you initialize a variable with no explicit type specification, the compiler automatically infers the type with the 
 smallest range enough to represent the value starting from `Int`. If it is not exceeding the range of `Int`, the type is `Int`.
-If it does exceed that range, the type is `Long`. To specify the `Long` value explicitly, append the suffix `L` to the value. 
+If it does exceed that range, the type is `Long`. To specify the `Long` value explicitly, append the suffix `L` to the value.
+To use the `Byte` or `Short` type, specify it explicitly in the declaration. 
 Explicit type specification triggers the compiler to check the value not to exceed the range of the specified type.
 
 ```kotlin
@@ -23,11 +30,6 @@ val threeBillion = 3000000000 // Long
 val oneLong = 1L // Long
 val oneByte: Byte = 1
 ```
-
-> In addition to these signed integer types, Kotlin also provides unsigned integer types.
-> For more information, see [Unsigned integer types](unsigned-integer-types.md).
->
-{style="tip"}
 
 ## Floating-point types
 
@@ -41,14 +43,14 @@ These types differ in their size and provide storage for floating-point numbers 
 | `Float`	 | 32          | 24               | 8             | 6-7            |
 | `Double` | 64          | 53               | 11            | 15-16          |    
 
-You can initialize `Double` and `Float` variables with numbers that have a fractional part.
-The fractional part is separated from the integer part by a period (`.`)
+You can initialize `Double` and `Float` variables only with numbers that have a fractional part.
+Separate the fractional part from the integer part by a period (`.`)
 
 For variables initialized with fractional numbers, the compiler infers the `Double` type:
 
 ```kotlin
 val pi = 3.14 // Double
-val one: Double = 1 // Error: type mismatch
+val one: Double = 1 // Error: type mismatch, inferred Int
 val oneDouble = 1.0 // Double
 ```
 
@@ -66,17 +68,20 @@ For example, a function with a `Double` parameter can be called only on `Double`
 
 ```kotlin
 fun main() {
-    fun printDouble(d: Double) { print(d) }
+//sampleStart
+    fun printDouble(x: Double) { print(x) }
 
-    val i = 1    
-    val d = 1.0
-    val f = 1.0f 
+    val x = 1.0
+    val xInt = 1    
+    val xFloat = 1.0f 
 
-    printDouble(d)
-    printDouble(i) // Error: Type mismatch
-    printDouble(f) // Error: Type mismatch
+    printDouble(x)
+    printDouble(xInt) // Error: Type mismatch
+    printDouble(xFloat) // Error: Type mismatch
+//sampleEnd
 }
 ```
+{kotlin-runnable="true"}
 
 To convert numeric values to different types, use [explicit conversions](#explicit-number-conversions).
 
@@ -85,7 +90,7 @@ To convert numeric values to different types, use [explicit conversions](#explic
 There are several kinds of literal constants for integral values:
 
 * Decimals: `123`
-* Longs are tagged by a capital `L`: `123L`
+* Longs, tagged by a capital `L`: `123L`
 * Hexadecimals: `0x0F`
 * Binaries: `0b00001011`
 
@@ -96,7 +101,7 @@ There are several kinds of literal constants for integral values:
 Kotlin also supports a conventional notation for floating-point numbers:
 
 * Doubles by default: `123.5`, `123.5e10`
-* Floats are tagged by `f` or `F`: `123.5f`
+* Floats, tagged by `f` or `F`: `123.5f`
 
 You can use underscores to make number constants more readable:
 
@@ -106,6 +111,7 @@ val creditCardNumber = 1234_5678_9012_3456L
 val socialSecurityNumber = 999_99_9999L
 val hexBytes = 0xFF_EC_DE_5E
 val bytes = 0b11010010_01101001_10010100_10010010
+val highPrecision = 1_234_567.7182818284
 ```
 
 > There are also special tags for unsigned integer literals.  
@@ -116,7 +122,7 @@ val bytes = 0b11010010_01101001_10010100_10010010
 ## Numbers representation on the Java Virtual Machine
 
 On the JVM platform, numbers are stored as primitive types: `int`, `double`, and so on.
-When you use generics, or create a nullable number reference such as `Int?`, numbers are boxed in Java classes
+When you use generics or create a nullable number reference such as `Int?`, numbers are boxed in Java classes
 such as `Integer` or `Double`.
 
 JVM applies a memory optimization to `Integer` objects that represent numbers between `−128` and `127`:
@@ -136,7 +142,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-For a number outside of this range the nullable objects are different:
+For a number outside of this range the nullable objects are different, but [structurally equal](equality.md#structural-equality):
 
 ```kotlin
 fun main() {
@@ -146,21 +152,7 @@ fun main() {
     val anotherBoxedB: Int? = b
     
     println(boxedB === anotherBoxedB) // false
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-At the same time, they are [structurally equal](equality.md#structural-equality):
-
-```kotlin
-fun main() {
-//sampleStart
-    val b: Int = 10000
-    println(b == b) // Prints 'true'
-    val boxedB: Int? = b
-    val anotherBoxedB: Int? = b
-    println(boxedB == anotherBoxedB) // Prints 'true'
+    println(boxedB == anotherBoxedB) // true
 //sampleEnd
 }
 ```
@@ -180,13 +172,19 @@ print(b == a) // Prints "false" as Long.equals() checks not only value but wheth
 
 So equality would have been lost silently, not to mention identity.
 
-As a consequence, smaller types _are NOT implicitly converted_ to bigger types.
+As a consequence, smaller types are _not_ implicitly converted to bigger types.
 This means that assigning a value of type `Byte` to an `Int` variable requires an explicit conversion:
 
 ```kotlin
-val b: Byte = 1 // OK, literals are checked statically
-// val i: Int = b // ERROR
-val i1: Int = b.toInt()
+fun main() {
+//sampleStart
+    val byteOne: Byte = 1 // OK, literals are checked statically
+    val intAssignedByteOne: Int = byteOne // ERROR: Type mismatch
+    val intConvertedByteOne: Int = byteOne.toInt()
+    
+    println()
+//sampleEnd
+}
 ```
 
 All number types support conversions to other types:
@@ -199,7 +197,7 @@ All number types support conversions to other types:
 * `toDouble(): Double`
 
 In many cases, there is no need for explicit conversions because the type is inferred from the context,
-and arithmetical operations are overloaded for appropriate conversions, for example:
+and arithmetical operators are overloaded for appropriate conversions, for example:
 
 ```kotlin
 val l = 1L + 3 // Long + Int => Long
@@ -271,10 +269,21 @@ bits of the numbers' representation.
 Bitwise operations are represented by functions that can be called in infix form. They can be applied only to `Int` and `Long`:
 
 ```kotlin
-val x = (1 shl 2) and 0x000FF000
+fun main() {
+//sampleStart
+    val x = 1
+    val xShiftedLeft = (x shl 2)
+    // Prints "4"
+    println(xShiftedLeft)
+    
+    val xAnd = x and 0x000FF000
+    // Prints "0"
+    println(xAnd)
+//sampleEnd
+}
 ```
 
-Here is the complete list of bitwise operations:
+The complete list of bitwise operations:
 
 * `shl(bits)` – signed shift left
 * `shr(bits)` – signed shift right
