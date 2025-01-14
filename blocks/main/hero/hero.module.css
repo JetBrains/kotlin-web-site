@@ -108,6 +108,52 @@
         }
 
     }
+
+    .banner {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        width: 545px;
+        padding: 16px 16px 16px 24px;
+        box-sizing: border-box;
+        border-radius: 24px;
+        background-color: rgba(126, 66, 255, 0.40);
+        overflow: hidden;
+
+        @media (--ktl-ds) {
+            display: none;
+        }
+
+        .bannerContent {
+            text-align: left;
+        }
+
+        .bannerTitle {
+            margin: 0;
+            letter-spacing: 0.01em;
+        }
+
+        .bannerCaption {
+            margin: 0;
+            color: white;
+            letter-spacing: 0.01em;
+        }
+
+        .bannerButton {
+            align-self: flex-end;
+        }
+    }
+
+    .banner:before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 198px;
+        height: 100px;
+        background-image: url("/images/main/hero-banner-gradient.svg");
+    }
 }
 
 .heroText {
