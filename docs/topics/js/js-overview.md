@@ -63,6 +63,21 @@ over the rendering of arbitrary UI elements, vector shapes, gradients, and custo
 For updates and discussions about the framework, join the [#doodle](https://kotlinlang.slack.com/messages/doodle) and
 [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
+### Kobweb
+
+_Kobweb_ is an opinionated Kotlin framework for creating websites and web apps. It leverages [Compose HTML](https://github.com/JetBrains/compose-multiplatform?tab=readme-ov-file#compose-html) and 
+live-reloading for fast development. Inspired by [Next.js](https://nextjs.org/), Kobweb promotes a standard structure for adding widgets, layouts, 
+and pages.
+
+Out of the box, Kobweb provides page routing, light/dark mode, CSS styling, Markdown support, backend APIs, and more features. 
+It includes [Silk](https://github.com/varabyte/kobweb?tab=readme-ov-file#silk), a set of versatile widgets for modern UIs. Kobweb also supports site export, generating page snapshots 
+for SEO, and automatic search indexing.
+
+Visit the [Kobweb](https://github.com/varabyte/kobweb-site) repository for documentation and examples.
+
+For updates and discussions about the framework, join the [#kobweb](https://kotlinlang.slack.com/archives/C04RTD72RQ8) and 
+[#compose-web](https://kotlinlang.slack.com/archives/C01F2HV7868) channels in the Kotlin Slack.
+
 ## Join the Kotlin/JS community
 
 You can join the [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channel in the official [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)
