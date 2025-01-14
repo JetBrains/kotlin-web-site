@@ -100,7 +100,7 @@ There are several kinds of literal constants for integral values:
 
 Kotlin also supports a conventional notation for floating-point numbers:
 
-* Doubles by default: `123.5`, `123.5e10`
+* Doubles (fractional part without other tags): `123.5`, `123.5e10`
 * Floats, tagged by `f` or `F`: `123.5f`
 
 You can use underscores to make number constants more readable:
@@ -111,7 +111,7 @@ val creditCardNumber = 1234_5678_9012_3456L
 val socialSecurityNumber = 999_99_9999L
 val hexBytes = 0xFF_EC_DE_5E
 val bytes = 0b11010010_01101001_10010100_10010010
-val highPrecision = 1_234_567.7182818284
+val bigFractional = 1_234_567.7182818284
 ```
 
 > There are also special tags for unsigned integer literals.  
@@ -119,15 +119,16 @@ val highPrecision = 1_234_567.7182818284
 > 
 {style="tip"}
 
-## Numbers representation on the Java Virtual Machine
+## Boxing numbers on the Java Virtual Machine
 
-On the JVM platform, numbers are stored as primitive types: `int`, `double`, and so on.
+JVM stores numbers as primitive types: `int`, `double`, and so on.
 When you use generics or create a nullable number reference such as `Int?`, numbers are boxed in Java classes
 such as `Integer` or `Double`.
 
-JVM applies a memory optimization to `Integer` objects that represent numbers between `−128` and `127`:
+JVM applies a [memory optimization](https://docs.oracle.com/javase/specs/jls/se22/html/jls-5.html#jls-5.1.7)
+to `Integer` objects that represent numbers between `−128` and `127`:
 all nullable references to such objects are referring to the same object.
-So in this example nullable objects are [referentially equal](equality.md#referential-equality):
+For example, nullable objects in the following code are [referentially equal](equality.md#referential-equality):
 
 ```kotlin
 fun main() {
@@ -160,29 +161,18 @@ fun main() {
 
 ## Explicit number conversions
 
-Due to different representations, smaller types _are not subtypes_ of bigger ones.
-If they were, we would have troubles of the following sort:
-
-```kotlin
-// Hypothetical code, does not actually compile:
-val a: Int? = 1 // A boxed Int (java.lang.Integer)
-val b: Long? = a // Implicit conversion yields a boxed Long (java.lang.Long)
-print(b == a) // Prints "false" as Long.equals() checks not only value but whether the other number is Long as well
-```
-
-So equality would have been lost silently, not to mention identity.
-
-As a consequence, smaller types are _not_ implicitly converted to bigger types.
-This means that assigning a value of type `Byte` to an `Int` variable requires an explicit conversion:
+Due to different representations, number types _are not subtypes_ of each other.
+As a consequence, smaller types are _not_ implicitly converted to bigger types and vice versa.
+For example, assigning a value of type `Byte` to an `Int` variable requires an explicit conversion:
 
 ```kotlin
 fun main() {
 //sampleStart
-    val byteOne: Byte = 1 // OK, literals are checked statically
-    val intAssignedByteOne: Int = byteOne // ERROR: Type mismatch
-    val intConvertedByteOne: Int = byteOne.toInt()
+    val byte: Byte = 1 // OK, literals are checked statically
+    val intAssignedByte: Int = byte // ERROR: Type mismatch
+    val intConvertedByte: Int = byte.toInt()
     
-    println()
+    println(intConvertedByte)
 //sampleEnd
 }
 ```
@@ -190,7 +180,7 @@ fun main() {
 
 All number types support conversions to other types:
 
-* `toByte(): Byte`
+* `toByte(): Byte` (deprecated for [Float](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/to-byte.html) and [Double](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/to-byte.html))
 * `toShort(): Short`
 * `toInt(): Int`
 * `toLong(): Long`
@@ -208,7 +198,19 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
+### Reasoning against implicit conversions
+
+If numbers of different types were converted implicitly, we could sometimes lose equality and identity silently.
+For example, imagine `Int` was a subtype of `Long`:
+
+```kotlin
+// Hypothetical code, does not actually compile:
+val a: Int? = 1 // A boxed Int (java.lang.Integer)
+val b: Long? = a // Implicit conversion yields a boxed Long (java.lang.Long)
+print(b == a) // Prints "false" as Long.equals() checks not only value but whether the other number is Long as well
+```
 
 ## Operations on numbers
 
