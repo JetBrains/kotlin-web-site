@@ -186,6 +186,7 @@ fun main() {
 //sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 All number types support conversions to other types:
 
@@ -200,8 +201,14 @@ In many cases, there is no need for explicit conversions because the type is inf
 and arithmetical operators are overloaded for appropriate conversions, for example:
 
 ```kotlin
-val l = 1L + 3 // Long + Int => Long
+fun main() {
+//sampleStart
+    val l = 1L + 3 // Long + Int => Long
+    println(l is Long) // true
+//sampleEnd
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 ## Operations on numbers
 
@@ -232,7 +239,7 @@ fun main() {
 //sampleStart
     val x = 5 / 2
     println(x == 2.5) // ERROR: Operator '==' cannot be applied to 'Int' and 'Double'
-    println(x == 2)
+    println(x == 2)   // true
 //sampleEnd
 }
 ```
@@ -244,13 +251,13 @@ This is true for a division between any two integer types:
 fun main() {
 //sampleStart
     val x = 5L / 2
-    println(x == 2L)
+    println(x == 2L) // But not `x == 2`, as Long (x) cannot be compared to Int (2)
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-To return a floating-point type, explicitly convert one of the arguments to a floating-point type:
+To return a division result with the fractional part, explicitly convert one of the arguments to a floating-point type:
 
 ```kotlin
 fun main() {
@@ -273,12 +280,10 @@ fun main() {
 //sampleStart
     val x = 1
     val xShiftedLeft = (x shl 2)
-    // Prints "4"
-    println(xShiftedLeft)
+    println(xShiftedLeft)  // Prints "4"
     
     val xAnd = x and 0x000FF000
-    // Prints "0"
-    println(xAnd)
+    println(xAnd)          // Prints "0"
 //sampleEnd
 }
 ```
