@@ -158,7 +158,7 @@ yarn start
 pip  install --no-build-isolation -r requirements.txt
 
 # run python server
-python3 kotlin_website.py
+python3 kotlin-website.py
 ```
 Now you can open the website at [http://localhost:9000](http://localhost:9000).
 
