@@ -49,9 +49,9 @@ Separate the fractional part from the integer part by a period (`.`)
 For variables initialized with fractional numbers, the compiler infers the `Double` type:
 
 ```kotlin
-val pi = 3.14 // Double
-val one: Double = 1 // Error: type mismatch, inferred Int
-val oneDouble = 1.0 // Double
+val pi = 3.14          // Double
+// val one: Double = 1 // Error: type mismatch, inferred Int
+val oneDouble = 1.0    // Double
 ```
 
 To explicitly specify the `Float` type for a value, add the suffix `f` or `F`.
@@ -76,8 +76,8 @@ fun main() {
     val xFloat = 1.0f 
 
     printDouble(x)
-    printDouble(xInt) // Error: Type mismatch
-    printDouble(xFloat) // Error: Type mismatch
+    // printDouble(xInt)   // Error: Type mismatch
+    // printDouble(xFloat) // Error: Type mismatch
 //sampleEnd
 }
 ```
@@ -169,7 +169,7 @@ For example, assigning a value of type `Byte` to an `Int` variable requires an e
 fun main() {
 //sampleStart
     val byte: Byte = 1 // OK, literals are checked statically
-    val intAssignedByte: Int = byte // ERROR: Type mismatch
+    // val intAssignedByte: Int = byte // Error: Type mismatch
     val intConvertedByte: Int = byte.toInt()
     
     println(intConvertedByte)
@@ -240,7 +240,7 @@ Division between integer numbers always returns an integer number. Any fractiona
 fun main() {
 //sampleStart
     val x = 5 / 2
-    println(x == 2.5) // ERROR: Operator '==' cannot be applied to 'Int' and 'Double'
+    // println(x == 2.5) // Error: Operator '==' cannot be applied to 'Int' and 'Double'
     println(x == 2)   // true
 //sampleEnd
 }
