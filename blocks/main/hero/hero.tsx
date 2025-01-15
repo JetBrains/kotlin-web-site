@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import { useTextStyles, createTextCn } from '@rescui/typography';
 import { ThemeProvider } from '@rescui/ui-contexts';
+import  heroBannerDataRaw from '../../../data/hero-banner.yml';
 
 import Image from 'next/image';
 
@@ -19,6 +20,16 @@ interface Props {
     title: string,
     children: ReactNode;
 }
+
+type HeroBannerData = {
+    isActive: boolean;
+    title: string;
+    caption: string;
+    buttonLabel: string;
+    buttonUrl: string;
+}
+
+const heroBannerData = heroBannerDataRaw as HeroBannerData;
 
 export const HeroSection: FC<Props> = ({ children, title }) => {
     const textCn = useTextStyles();
@@ -51,6 +62,14 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
                                         </a>
                                     </div>
                                 </div>
+                                {heroBannerData.isActive && <div className={styles.banner}>
+                                    <div className={styles.bannerContent}>
+                                        <h5 className={cn(darkTextCn('rs-h2'), styles.bannerTitle)}>{heroBannerData.title}</h5>
+                                        <p className={cn(darkTextCn('rs-text-2'), styles.bannerCaption)}>{heroBannerData.caption}</p>
+                                    </div>
+                                    <Button mode="outline" size="m" href={heroBannerData.buttonUrl}
+                                            className={styles.bannerButton}>{heroBannerData.buttonLabel}</Button>
+                                </div>}
                             </div>
                         </div>
 
