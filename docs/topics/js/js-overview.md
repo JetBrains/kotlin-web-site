@@ -36,12 +36,12 @@ live-reloading for fast development. Inspired by [Next.js](https://nextjs.org/),
 and pages.
 
 Out of the box, Kobweb provides page routing, light/dark mode, CSS styling, Markdown support, backend APIs, and more features.
-It includes [Silk](https://github.com/varabyte/kobweb?tab=readme-ov-file#silk), a set of versatile widgets for modern UIs. 
+It also includes a UI library called Silk, a set of versatile widgets for modern UIs. 
 
 Kobweb also supports site export, generating page snapshots
 for SEO, and automatic search indexing. Additionally, Kobweb makes it easy to create DOM-based UIs that efficiently update in response to state changes.
 
-Visit the [Kobweb](https://github.com/varabyte/kobweb-site) repository for documentation and examples.
+Visit the [Kobweb](https://kobweb.varabyte.com/) repository for documentation and examples.
 
 For updates and discussions about the framework, join the [#kobweb](https://kotlinlang.slack.com/archives/C04RTD72RQ8) and
 [#compose-web](https://kotlinlang.slack.com/archives/C01F2HV7868) channels in the Kotlin Slack.
