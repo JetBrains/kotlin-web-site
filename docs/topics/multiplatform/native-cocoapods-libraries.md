@@ -43,9 +43,9 @@ version of the library, you can just omit this parameter altogether.
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
 
-            pod("FirebaseAuth") {
-                version = "10.16.0"
-                extraOpts += listOf("-compiler-option", "-fmodules")
+            pod("SDWebImage") {
+                version = "5.20.0"
+                extraOpts += listOf("-compiler-option")
             }
         }
     }
@@ -57,7 +57,7 @@ version of the library, you can just omit this parameter altogether.
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
 ```kotlin
-import cocoapods.FirebaseAuth.*
+import cocoapods.SDWebImage.*
 ```
 
 ## On a locally stored library
@@ -87,17 +87,17 @@ import cocoapods.FirebaseAuth.*
 
             pod("pod_dependency") {
                 version = "1.0"
-                extraOpts += listOf("-compiler-option", "-fmodules")
+                extraOpts += listOf("-compiler-option")
                 source = path(project.file("../pod_dependency"))
             }
             pod("subspec_dependency/Core") {
                 version = "1.0"
-                extraOpts += listOf("-compiler-option", "-fmodules")
+                extraOpts += listOf("-compiler-option")
                 source = path(project.file("../subspec_dependency"))
             }
-            pod("FirebaseAuth") {
-                version = "10.16.0"
-                extraOpts += listOf("-compiler-option", "-fmodules")
+            pod("SDWebImage") {
+                version = "5.20.0"
+                extraOpts += listOf("-compiler-option")
             }
         }
     }
@@ -116,7 +116,7 @@ To use these dependencies from the Kotlin code, import the packages `cocoapods.<
 ```kotlin
 import cocoapods.pod_dependency.*
 import cocoapods.subspec_dependency.*
-import cocoapods.FirebaseAuth.*
+import cocoapods.SDWebImage.*
 ```
 
 ## From a custom Git repository
@@ -150,25 +150,25 @@ import cocoapods.FirebaseAuth.*
 
             ios.deploymentTarget = "16.0"
 
-            pod("FirebaseAuth") {
-                source = git("https://github.com/firebase/firebase-ios-sdk") {
-                    tag = "10.16.0"
+            pod("SDWebImage") {
+                source = git("https://github.com/SDWebImage/SDWebImage") {
+                    tag = "5.20.0"
                 }
-                extraOpts += listOf("-compiler-option", "-fmodules")
+                extraOpts += listOf("-compiler-option")
             }
 
             pod("JSONModel") {
                 source = git("https://github.com/jsonmodel/jsonmodel.git") {
                     branch = "key-mapper-class"
                 }
-                extraOpts += listOf("-compiler-option", "-fmodules")
+                extraOpts += listOf("-compiler-option")
             }
 
             pod("CocoaLumberjack") {
                 source = git("https://github.com/CocoaLumberjack/CocoaLumberjack.git") {
                     commit = "3e7f595e3a459c39b917aacf9856cd2a48c4dbf3"
                 }
-                extraOpts += listOf("-compiler-option", "-fmodules")
+                extraOpts += listOf("-compiler-option")
             }
         }
     }
@@ -230,13 +230,17 @@ import cocoapods.example.*
 ## With custom cinterop options
 
 1. Specify the name of a Pod library in the `pod()` function.
+2. In the configuration block, add the following options:
 
-   In the configuration block, specify the cinterop options:
-   * `extraOpts` – to specify the list of options for a Pod library. For example, specific flags: `extraOpts = listOf("-compiler-option")`.
-   * `packageName` – to specify the package name. If you specify this, you can import the library using the package name:
-     `import <packageName>`.
+   * `extraOpts` – to specify the list of options for a Pod library. For example,  `extraOpts = listOf("-compiler-option")`.
+      
+      > If you encounter issues with clang modules, add the `-fmodules` option as well.
+      >
+     {style="note"}
 
-2. Specify the minimum deployment target version for the Pod library.
+   * `packageName` – to import the library directly using the package name with `import <packageName>`.
+
+3. Specify the minimum deployment target version for the Pod library.
 
     ```kotlin
     kotlin {
@@ -249,28 +253,29 @@ import cocoapods.example.*
 
             ios.deploymentTarget = "16.0"
 
-            pod("YandexMapKit") {
-                packageName = "YandexMK"
+            pod("FirebaseAuth") {
+                packageName = "FirebaseAuthWrapper"
+                version = "11.7.0"
                 extraOpts += listOf("-compiler-option", "-fmodules")
             }
         }
     }
     ```
 
-3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+4. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
    
 ```kotlin
-import cocoapods.YandexMapKit.*
+import cocoapods.FirebaseAuth.*
 ```
    
 If you use the `packageName` parameter, you can import the library using the package name `import <packageName>`:
    
 ```kotlin
-import YandexMK.YMKPoint
-import YandexMK.YMKDistance
+import FirebaseAuthWrapper.Auth
+import FirebaseAuthWrapper.User
 ```
 
 ### Support for Objective-C headers with @import directives
@@ -298,6 +303,7 @@ kotlin {
         ios.deploymentTarget = "16.0"
 
         pod("PodName") {
+            version = "1.0.0"
             extraOpts = listOf("-compiler-option", "-fmodules")
         }
     }

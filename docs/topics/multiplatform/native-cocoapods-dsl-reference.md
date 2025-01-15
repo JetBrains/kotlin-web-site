@@ -146,7 +146,7 @@ kotlin {
       
         pod("pod_dependency") {
             version = "1.0"
-            extraOpts += listOf("-compiler-option", "-fmodules")
+            extraOpts += listOf("-compiler-option")
             linkOnly = true
             source = path(project.file("../pod_dependency"))
         }
