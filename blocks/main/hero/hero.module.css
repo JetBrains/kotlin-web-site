@@ -113,6 +113,7 @@
         display: none;
         position: relative;
         justify-content: space-between;
+        gap: 50px;
         margin-top: 40px;
         width: 545px;
         padding: 16px 16px 16px 24px;
@@ -123,17 +124,17 @@
 
         .bannerContent {
             text-align: left;
+            min-width: 0;
         }
 
-        .bannerTitle {
+        .bannerTitle, .bannerCaption {
             margin: 0;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             letter-spacing: 0.01em;
-        }
-
-        .bannerCaption {
-            margin: 0;
             color: white;
-            letter-spacing: 0.01em;
         }
 
         .bannerButton {
