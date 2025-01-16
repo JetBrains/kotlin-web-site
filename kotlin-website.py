@@ -8,13 +8,12 @@ from hashlib import md5
 from os import path
 from urllib.parse import urlparse, urljoin, ParseResult
 
-import yaml
+from ruamel.yaml import YAML, YAMLError
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, Response, send_from_directory, request
 from flask.helpers import url_for, send_file, make_response
 from flask.views import View
 from flask_frozen import Freezer, walk_directory
-from yaml import FullLoader
 
 from src.Feature import Feature
 from src.api import get_api_page
@@ -29,6 +28,8 @@ from src.pages.MyFlatPages import MyFlatPages
 from src.pdf import generate_pdf
 from src.processors.processors import process_code_blocks
 from src.processors.processors import set_replace_simple_code
+
+yaml = YAML(typ='rt')
 
 app = Flask(__name__, static_folder='_assets')
 app.config.from_pyfile('mysettings.py')
@@ -88,8 +89,8 @@ def get_site_data():
         with open(data_file_path, encoding="UTF-8") as stream:
             try:
                 file_name_without_extension = data_file[:-4] if data_file.endswith(".yml") else data_file
-                data[file_name_without_extension] = yaml.load(stream, Loader=FullLoader)
-            except yaml.YAMLError as exc:
+                data[file_name_without_extension] = yaml.load(stream)
+            except YAMLError as exc:
                 sys.stderr.write('Cant parse data file ' + data_file + ': ')
                 sys.stderr.write(str(exc))
                 sys.exit(-1)
@@ -98,7 +99,7 @@ def get_site_data():
                 sys.stderr.write(str(exc))
                 sys.exit(-1)
     data["core"] = redirect_to_map(
-        yaml.load(open("redirects/stdlib-redirects.yml", encoding="UTF-8"), Loader=FullLoader))
+        yaml.load(open("redirects/stdlib-redirects.yml", encoding="UTF-8")))
     return data
 
 
@@ -143,7 +144,7 @@ def get_education_courses():
 
 def get_nav_impl():
     with open(path.join(data_folder, "_nav.yml")) as stream:
-        nav = yaml.load(stream, Loader=FullLoader)
+        nav = yaml.load(stream)
         nav = process_nav_includes(build_mode, nav)
         return nav
 
@@ -151,7 +152,7 @@ def get_nav_impl():
 def get_kotlin_features():
     features_dir = path.join(os.path.dirname(__file__), "kotlin-features")
     features = []
-    for feature_meta in yaml.load(open(path.join(features_dir, "kotlin-features.yml")), Loader=FullLoader):
+    for feature_meta in yaml.load(open(path.join(features_dir, "kotlin-features.yml"))):
         file_path = path.join(features_dir, feature_meta['content_file'])
         with open(file_path, encoding='utf-8') as f:
             content = f.read()
@@ -436,7 +437,7 @@ def generate_redirect_pages():
 
             with open(redirects_file_path, encoding="UTF-8") as stream:
                 try:
-                    redirects = yaml.load(stream, Loader=FullLoader)
+                    redirects = yaml.load(stream)
 
                     for entry in redirects:
                         url_to = entry["to"]
@@ -449,7 +450,7 @@ def generate_redirect_pages():
                             else:
                                 app.add_url_rule(url, view_func=RedirectTemplateView.as_view(url, url=url_to))
 
-                except yaml.YAMLError as exc:
+                except YAMLError as exc:
                     sys.stderr.write('Cant parse data file ' + file + ': ')
                     sys.stderr.write(str(exc))
                     sys.exit(-1)
