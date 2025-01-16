@@ -179,5 +179,5 @@ The sequence processing goes like this:
 
 ![Sequences processing](sequence-processing.svg) {width="700"}
 
-In this example, by processing elements lazily and stopping once four items are found, sequences reduce the total number
-of operations compared to using a list approach.
+In this example, the lazy processing of elements and stopping after finding four items reduces the number of operations
+compared to using a list approach.
