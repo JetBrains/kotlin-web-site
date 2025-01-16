@@ -210,19 +210,23 @@ you need to specify the Data type.
 ```kotlin
 fun main() {
 //sampleStart
-    // Initializes the variable x at the moment of declaration; type is not required
+    // Initializes the variable x at the moment of declaration; type is inferred by the compiler
     val x = 5
-    // Declares the variable c without initialization; type is required 
-    // (less common)
+
+    // Declares the variable c without initialization; type is explicitly specified as Int
+    // The value of c will be assigned based on runtime logic
     val c: Int
-    // Initializes the variable c after declaration 
+
+    // Initializes the variable c after declaration
     c = 3
+
     // 5 
     // 3
 //sampleEnd
     println(x)
     println(c)
 }
+
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-initialize"}
 
