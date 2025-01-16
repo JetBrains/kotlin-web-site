@@ -1,6 +1,6 @@
 from os import path
 
-import yaml
+import ruamel.yaml as yaml
 from bs4 import BeautifulSoup
 
 from src.processors.processors import process_code_blocks, process_header_ids
