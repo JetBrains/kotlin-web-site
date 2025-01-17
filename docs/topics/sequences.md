@@ -144,7 +144,7 @@ the output of the two last lines.
 
 This is how the list processing goes:
 
-![List processing](list-processing.png)
+![List processing](list-processing.svg)
 
 ### Sequence
 
@@ -177,6 +177,7 @@ When the result size reaches 4, the processing stops because it's the largest po
 
 The sequence processing goes like this:
 
-![Sequences processing](sequence-processing.png) {width="700"}
+![Sequences processing](sequence-processing.svg) {width="700"}
 
-In this example, the sequence processing takes 18 steps instead of 23 steps for doing the same with lists.
+In this example, the lazy processing of elements and stopping after finding four items reduces the number of operations
+compared to using a list approach.
