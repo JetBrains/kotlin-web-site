@@ -34,9 +34,15 @@ object DockerImageBuilder : Template({
       onDependencyCancel = FailureAction.CANCEL
     }
 
-    artifacts(BuildKotlinGrammar) {
-      buildRule = lastPinned("+:*")
-      artifactRules = "grammar.xml"
+    dependency(BuildKotlinGrammar) {
+      snapshot {
+        onDependencyFailure = FailureAction.FAIL_TO_START
+        onDependencyCancel = FailureAction.CANCEL
+      }
+
+      artifacts {
+        artifactRules = "grammar.xml"
+      }
     }
   }
 })
