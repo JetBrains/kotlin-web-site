@@ -100,7 +100,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-string-templates"}
 
-For more information, see [String templates](strings.md).
+For more information, see [String templates](strings.md#string-templates).
 
 You will notice that there aren't any types declared for variables. Kotlin has inferred the type itself: `Int`. This tour
 explains the different Kotlin basic types and how to declare them in the [next chapter](kotlin-tour-basic-types.md).
