@@ -232,7 +232,7 @@ import cocoapods.example.*
 1. Specify the name of a Pod library in the `pod()` function.
 2. In the configuration block, add the following options:
 
-   * `extraOpts` – to specify the list of options for a Pod library. For example,  `extraOpts = listOf("-compiler-option")`.
+   * `extraOpts` – to specify the list of options for a Pod library. For example, `extraOpts = listOf("-compiler-option")`.
       
       > If you encounter issues with clang modules, add the `-fmodules` option as well.
       >
