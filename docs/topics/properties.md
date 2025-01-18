@@ -57,7 +57,7 @@ the property (this way you can implement a computed property). Here's an example
 
 ```kotlin
 //sampleStart
-class Rectangle(val width: Int, val height: Int) {
+class Rectangle(var width: Int, var height: Int) {
     val area: Int // property type is optional since it can be inferred from the getter's return type
         get() = this.width * this.height
 }
