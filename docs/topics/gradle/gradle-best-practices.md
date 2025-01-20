@@ -47,7 +47,7 @@ Learn more in Gradle's documentation about [Dependency management basics](https:
 
 <primary-label ref="advanced"/>
 
-Use convention plugins to encapsulate and reuse common build logic across multiple build files. Moving shared configurations
+Use convention plugins to encapsulate and reuse common build logic across multiple build files. Moving a shared configuration
 into a plugin helps simplify and modularize your build scripts.
 
 Although the initial setup may be time-consuming, it's easy to maintain and add new build logic once you complete it.
