@@ -1,7 +1,9 @@
-<a href="{{ edit_on_github_url }}"
-   class="page-link-to-github"
-   target="_blank"
-   title="Edit this page on GitHub">
-        <i class="github-icon"></i>
-        <span class="text">Edit Page</span>
-</a>
+{% if edit_on_github_url %}
+    <a href="{{ edit_on_github_url }}"
+        class="page-link-to-github"
+        target="_blank"
+        title="Edit this page on GitHub">
+            <i class="github-icon"></i>
+            <span class="text">Edit Page</span>
+    </a>
+{% endif %}
