@@ -1104,3 +1104,9 @@
     position:
       lat: 4.0511
       lng: 9.7085
+  - name: Kotlin Gurugram User Group
+    country: India
+    url: https://www.commudle.com/communities/gurugram-kotlin-user-group
+    position:
+      lat: 28.4595
+      lng: 77.0266
