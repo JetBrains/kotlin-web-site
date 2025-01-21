@@ -1251,7 +1251,6 @@ You can use the `KotlinAndroidExtension` in exactly the same way.
 
 Previously, KGP included `org.jetbrains.kotlin:kotlin-compiler-embeddable` in its runtime dependencies,
 making internal compiler symbols available in the build script classpath.
-
 These symbols were intended for internal use only.
 
 Starting with Kotlin 2.1.0, KGP bundles a subset of `org.jetbrains.kotlin:kotlin-compiler-embeddable` class files in its JAR file and progressively removes them.
