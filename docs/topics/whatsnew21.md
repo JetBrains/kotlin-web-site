@@ -1254,16 +1254,16 @@ making internal compiler symbols available in the build script classpath.
 
 These symbols were intended for internal use only.
 
-Starting with Kotlin 2.1.0, KGP bundles a subset of `org.jetbrains.kotlin:kotlin-compiler-embeddable` class files in its jar file and will progressively remove them. This is to prevent compatibility issues and simplify KGP maintenance.
+Starting with Kotlin 2.1.0, KGP bundles a subset of `org.jetbrains.kotlin:kotlin-compiler-embeddable` class files in its JAR file and progressively removes them.
+This change aims to prevent compatibility issues and simplify KGP maintenance.
 
-If other parts of your build logic (e.g. plugins such as kotlinter or others) depend on a different version of `org.jetbrains.kotlin:kotlin-compiler-embeddable` than the one bundled with KGP, there is a high chance of conflict and runtime exception. 
+If other parts of your build logic, such as plugins like `kotlinter`, depend on a different version of `org.jetbrains.kotlin:kotlin-compiler-embeddable`
+than the one bundled with KGP, it can lead to conflicts and runtime exceptions.
 
-To guard against those issues, KGP will now display a warning if `org.jetbrains.kotlin:kotlin-compiler-embeddable` is loaded in the build classpath alongside KGP.
+To prevent such issues, KGP now shows a warning if `org.jetbrains.kotlin:kotlin-compiler-embeddable` is present in the build classpath alongside KGP.
 
-As a long term fix, if you are a plugin author using `org.jetbrains.kotlin:kotlin-compiler-embeddable` classes, we recommend doing so in an isolated classloader.
-
-This can for an example be done using the [Gradle Workers API](https://docs.gradle.org/current/userguide/worker_api.html)
-with classloader or process isolation.
+As a long-term solution, if you're a plugin author using `org.jetbrains.kotlin:kotlin-compiler-embeddable` classes, we recommend running them in an isolated classloader.
+For example, you can achieve it using the [Gradle Workers API](https://docs.gradle.org/current/userguide/worker_api.html) with classloader or process isolation.
 
 #### Using the Gradle Workers API
 
