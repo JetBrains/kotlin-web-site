@@ -1,4 +1,4 @@
-lang: en
+- lang: en
   startDate: '2025-02-22'
   endDate: '2025-02-22'
   location: Gurugram , India
@@ -6,7 +6,7 @@ lang: en
   title: 'UDAAN 2025'
   subject: 'Empowering Innovation Through Technology'
   url: https://www.commudle.com/communities/gurugram-kotlin-user-group/events/udaan-2025
-  - lang: pt
+- lang: pt
   startDate: '2024-10-03'
   endDate: '2024-10-03'
   location: Lisbon, Portugal
