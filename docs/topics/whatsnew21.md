@@ -1249,16 +1249,20 @@ You can use the `KotlinAndroidExtension` in exactly the same way.
 
 ### Compiler symbols hidden from the Kotlin Gradle plugin API
 
-Starting with Kotlin 2.1.0,
-you will receive a warning if you access compiler module symbols bundled within the Kotlin Gradle plugin (KGP).
-Previously, the KGP included `org.jetbrains.kotlin:kotlin-compiler-embeddable` in its runtime dependencies,
-making internal compiler symbols, such as `KotlinCompilerVersion`, available in the build script classpath.
+Previously, KGP included `org.jetbrains.kotlin:kotlin-compiler-embeddable` in its runtime dependencies,
+making internal compiler symbols available in the build script classpath.
+These symbols were intended for internal use only.
 
-These symbols are intended for internal use only.
-Access to them will be removed in upcoming Kotlin releases to prevent compatibility issues and simplify KGP maintenance.
-If your build logic relies on any compiler symbols,
-you need to update it and use the [Gradle Workers API](https://docs.gradle.org/current/userguide/worker_api.html)
-with classloader or process isolation to ensure safe interaction with the compiler.
+Starting with Kotlin 2.1.0, KGP bundles a subset of `org.jetbrains.kotlin:kotlin-compiler-embeddable` class files in its JAR file and progressively removes them.
+This change aims to prevent compatibility issues and simplify KGP maintenance.
+
+If other parts of your build logic, such as plugins like `kotlinter`, depend on a different version of `org.jetbrains.kotlin:kotlin-compiler-embeddable`
+than the one bundled with KGP, it can lead to conflicts and runtime exceptions.
+
+To prevent such issues, KGP now shows a warning if `org.jetbrains.kotlin:kotlin-compiler-embeddable` is present in the build classpath alongside KGP.
+
+As a long-term solution, if you're a plugin author using `org.jetbrains.kotlin:kotlin-compiler-embeddable` classes, we recommend running them in an isolated classloader.
+For example, you can achieve it using the [Gradle Workers API](https://docs.gradle.org/current/userguide/worker_api.html) with classloader or process isolation.
 
 #### Using the Gradle Workers API
 
