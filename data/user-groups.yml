@@ -681,6 +681,12 @@
     position:
       lat: 31.230416
       lng: 121.473701
+  - name: Shanxi KUG
+    country: China Mainland
+    url: https://shanxi-kug.github.io/
+    position:
+      lat: 37.8634511
+      lng: 112.3777618
   - name: Shenzhen KUG
     country: China Mainland
     url: https://github.com/szkug/

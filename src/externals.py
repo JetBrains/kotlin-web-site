@@ -1,7 +1,7 @@
 import os
 import re
 from os import path
-import yaml
+import ruamel.yaml as yaml
 import shutil
 
 from src.github import assert_valid_git_hub_url
