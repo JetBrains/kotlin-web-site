@@ -304,11 +304,9 @@ class BaseWithBound<T : Number> {}
 So passing nullable type as a type argument or type parameter produces a warning.
 
 Annotating type arguments and type parameters works with the Java 8 target or higher. The feature requires that the 
-nullability annotations support the `TYPE_USE` target (`org.jetbrains.annotations` supports this in version 15 and above). 
-Pass the `-Xtype-enhancement-improvements-strict-mode` compiler option to report errors in Kotlin code that uses 
-nullability which deviates from the nullability annotations from Java.
+nullability annotations support the `TYPE_USE` target (`org.jetbrains.annotations` supports this in version 15 and above).
 
-> Note: If a nullability annotation supports other targets that are applicable to a type in addition to the `TYPE_USE` target, then
+> If a nullability annotation supports other targets that are applicable to a type in addition to the `TYPE_USE` target,
 > `TYPE_USE` takes priority. For example, if `@Nullable` has both `TYPE_USE` and `METHOD` targets, the Java method
 > signature `@Nullable String[] f()` becomes `fun f(): Array<String?>!` in Kotlin.
 >
