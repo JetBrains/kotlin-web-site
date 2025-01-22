@@ -288,6 +288,12 @@
     position:
       lat: 59.3293235
       lng: 18.0685808
+  - name: Lund KUG
+    country: Sweden
+    url: https://github.com/lukug
+    position:
+      lat: 55.711062
+      lng: 13.210313
   - name: Stuttgart KUG
     country: Germany
     url: https://www.meetup.com/Kotlin-User-Group-Stuttgart/
