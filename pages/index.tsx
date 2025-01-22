@@ -142,7 +142,7 @@ function Index() {
             title={'Kotlin Programming Language'}
             ogImageName={'general.png'}
             description={
-                'Kotlin is a programming language that makes coding concise, cross-platform, and fun. It is Google’s preferred language for Android app development.'
+                'Kotlin is a concise and multiplatform programming language by JetBrains. Enjoy coding and build server-side, mobile, web, and desktop applications efficiently.'
             }
         >
             <ThemeProvider theme="dark">
