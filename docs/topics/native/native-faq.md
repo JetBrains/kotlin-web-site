@@ -15,7 +15,7 @@ Kotlin/Native uses an automated memory management scheme that is similar to what
 
 ## How do I create a shared library?
 
-Use the `-produce dynamic` compiler switch, or `binaries.sharedLib()` in Gradle.
+Use the `-produce dynamic` compiler option or `binaries.sharedLib()` in your Gradle build file:
 
 ```kotlin
 kotlin {
@@ -25,12 +25,14 @@ kotlin {
 }
 ```
 
-It will produce a platform-specific shared object (`.so` on Linux, `.dylib` on macOS, and `.dll` on Windows targets) and a
+It produces a platform-specific shared object (`.so` on Linux, `.dylib` on macOS, and `.dll` on Windows targets) and a
 C language header, allowing the use of all public APIs available in your Kotlin/Native program from C/C++ code.
+
+[Complete the Kotlin/Native as a dynamic library tutorial](native-dynamic-libraries.md)
 
 ## How do I create a static library or an object file?
 
-Use the `-produce static` compiler switch, or `binaries.staticLib()` in Gradle.
+Use the `-produce static` compiler option or `binaries.staticLib()` in your Gradle build file:
 
 ```kotlin
 kotlin {
@@ -40,7 +42,7 @@ kotlin {
 }
 ```
 
-It will produce a platform-specific static object (`.a` library format) and a C language header, allowing you to
+It produces a platform-specific static object (`.a` library format) and a C language header, allowing you to
 use all the public APIs available in your Kotlin/Native program from C/C++ code.
 
 ## How do I run Kotlin/Native behind a corporate proxy?
