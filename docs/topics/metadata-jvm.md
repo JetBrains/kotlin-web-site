@@ -256,8 +256,6 @@ fun main() {
 }
 ```
 
-> 
-
 ## Modify metadata
 
 The `kotlinx-metadata-jvm` library enables you to modify Kotlin class metadata, allowing you to adjust visibility attributes,
