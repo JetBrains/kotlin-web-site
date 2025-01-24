@@ -227,8 +227,6 @@ data class User(val name: String, val id: Int)
 fun main() {
     //sampleStart
     val user = User("Alex", 1)
-    val secondUser = User("Alex", 1)
-    val thirdUser = User("Max", 2)
 
     // Creates an exact copy of user
     println(user.copy())       
