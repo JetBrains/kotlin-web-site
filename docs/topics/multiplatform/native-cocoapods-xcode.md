@@ -42,7 +42,6 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
             ios.deploymentTarget = "16.0"
             pod("SDWebImage") {
                 version = "5.20.0"
-                extraOpts += listOf("-compiler-option")
             }
             podfile = project.file("../ios-app/Podfile")
         }
@@ -92,7 +91,6 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
 
             pod("SDWebImage") {
                 version = "5.20.0"
-                extraOpts += listOf("-compiler-option")
             }
             podfile = project.file("../severalTargetsXcodeProject/Podfile") // specify the path to the Podfile
         }

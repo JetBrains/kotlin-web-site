@@ -30,7 +30,6 @@ have some other strong reason to do so.
             //..
             pod("SDWebImage") {
                 version = "5.20.0"
-                extraOpts += listOf("-compiler-option")
             }
         }
     }
@@ -46,7 +45,6 @@ have some other strong reason to do so.
             //..
             pod('SDWebImage') {
                 version = '5.20.0'
-                extraOpts += ['-compiler-option']
             }
         }
     }

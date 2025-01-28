@@ -45,7 +45,6 @@ version of the library, you can just omit this parameter altogether.
 
             pod("SDWebImage") {
                 version = "5.20.0"
-                extraOpts += listOf("-compiler-option")
             }
         }
     }
@@ -97,7 +96,6 @@ import cocoapods.SDWebImage.*
             }
             pod("SDWebImage") {
                 version = "5.20.0"
-                extraOpts += listOf("-compiler-option")
             }
         }
     }
@@ -154,21 +152,18 @@ import cocoapods.SDWebImage.*
                 source = git("https://github.com/SDWebImage/SDWebImage") {
                     tag = "5.20.0"
                 }
-                extraOpts += listOf("-compiler-option")
             }
 
             pod("JSONModel") {
                 source = git("https://github.com/jsonmodel/jsonmodel.git") {
                     branch = "key-mapper-class"
                 }
-                extraOpts += listOf("-compiler-option")
             }
 
             pod("CocoaLumberjack") {
                 source = git("https://github.com/CocoaLumberjack/CocoaLumberjack.git") {
                     commit = "3e7f595e3a459c39b917aacf9856cd2a48c4dbf3"
                 }
-                extraOpts += listOf("-compiler-option")
             }
         }
     }
