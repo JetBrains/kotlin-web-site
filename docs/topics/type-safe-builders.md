@@ -254,32 +254,26 @@ annotation class HtmlTagMarker
 This allows the `@DslMarker` annotation to be applied to function types, most commonly to lambdas with receivers. For example:
 
 ```kotlin
-fun HTML.head(init: @HtmlTagMarker Head.() -> Unit): Head {
-    val head = Head()
-    head.init()
-    return head
-}
+fun html(init: @HtmlTagMarker HTML.() -> Unit): HTML { ... }
 
-fun Head.title(init: @HtmlTagMarker Title.() -> Unit): Title {
-    val title = Title()
-    title.init()
-    return title
-}
+fun HTML.head(init: @HtmlTagMarker Head.() -> Unit): Head { ... }
+
+fun Head.title(init: @HtmlTagMarker Title.() -> Unit): Title { ... }
 ```
 
-When you call these functions, the `@DslMarker` annotation restricts access to outer receivers unless you specify them explicitly:
+When you call these functions, the `@DslMarker` annotation restricts access to outer receivers in the body of a lambda marked with it unless you specify them explicitly:
 
 ```kotlin
 html {
     head {
         title {
-            // Access to head or outer html members is restricted here.
+            // Access to title, head or other functions of outer receivers is restricted here.
         }
     }
 }
 ```
 
-This ensures that only the nearest receiver’s members are accessible within a lambda, preventing unintended interactions between nested scopes.
+This ensures that only the nearest receiver’s members and extensions are accessible within a lambda, preventing unintended interactions between nested scopes.
 
 ### Full definition of the com.example.html package
 
