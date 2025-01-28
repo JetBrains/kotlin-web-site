@@ -151,7 +151,7 @@ suspend fun main() {
     println("Total processed items: ${processedItems.load()}")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
 
 To enable seamless interoperability between Kotlin's atomic types and Java's [`java.util.concurrent.atomic`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/package-summary.html)
 atomic types, the API provides the `.asJavaAtomic()` and `.asKotlinAtomic()` extension functions. On the JVM, Kotlin
@@ -181,7 +181,7 @@ fun main() {
 }
 //sampleEnd
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
 
 ## Changes in UUID parsing and formatting functions
 <primary-label ref="experimental-opt-in"/>
@@ -189,11 +189,11 @@ fun main() {
 The JetBrains team continues to improve the support for UUIDs [introduced to the standard library in 2.0.20](whatsnew2020.md#support-for-uuids-in-the-common-kotlin-standard-library).
 
 Previously, the `parse()` function only accepted UUIDs in the hex-and-dash format. With Kotlin %kotlinEapVersion%,
-you can use `parse()` for *both* the hex-and-dash and the plain hexadecimal format (without dashes).
+you can use `parse()` for _both_ the hex-and-dash and the plain hexadecimal format (without dashes).
 
 We also introduce functions specific to the operations with the hex-and-dash format in this release:
 
-* `parseHexDash()` the parses UUIDs from the hex-and-dash format.
+* `parseHexDash()` that parses UUIDs from the hex-and-dash format.
 * `toHexDashString()` that converts a UUID into a string in the hex-and-dash format (mirroring the `toString()` functionality).
 
 These functions work similarly to [`parseHex()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex.html)
@@ -221,7 +221,7 @@ fun main() {
 }
 //sampleEnd
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
 
 ## How to update to Kotlin %kotlinEapVersion%
 
