@@ -242,7 +242,46 @@ html {
 }
 ```
 
-## Full definition of the com.example.html package
+You can also apply the `@DslMarker` annotation directly to [function types](lambdas.md#function-types).
+To do so, annotate a `@DslMarker` annotation with `@Target(AnnotationTarget.TYPE)`:
+
+```kotlin
+@Target(AnnotationTarget.TYPE)
+@DslMarker
+annotation class HtmlTagMarker
+```
+
+This allows the `@DslMarker` annotation to be applied to function types, most commonly to lambdas with receivers. For example:
+
+```kotlin
+fun HTML.head(init: @HtmlTagMarker Head.() -> Unit): Head {
+    val head = Head()
+    head.init()
+    return head
+}
+
+fun Head.title(init: @HtmlTagMarker Title.() -> Unit): Title {
+    val title = Title()
+    title.init()
+    return title
+}
+```
+
+When you call these functions, the `@DslMarker` annotation restricts access to outer receivers unless you specify them explicitly:
+
+```kotlin
+html {
+    head {
+        title {
+            // Access to head or outer html members is restricted here.
+        }
+    }
+}
+```
+
+This ensures that only the nearest receiver’s members are accessible within a lambda, preventing unintended interactions between nested scopes.
+
+### Full definition of the com.example.html package
 
 This is how the package `com.example.html` is defined (only the elements used in the example above).
 It builds an HTML tree. It makes heavy use of [extension functions](extensions.md) and
@@ -345,4 +384,3 @@ fun html(init: HTML.() -> Unit): HTML {
     return html
 }
 ```
-
