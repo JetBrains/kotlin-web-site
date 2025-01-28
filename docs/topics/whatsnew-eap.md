@@ -151,7 +151,7 @@ suspend fun main() {
     println("Total processed items: ${processedItems.load()}")
 }
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20-beta2"}
 
 To enable seamless interoperability between Kotlin's atomic types and Java's [`java.util.concurrent.atomic`](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/package-summary.html)
 atomic types, the API provides the `.asJavaAtomic()` and `.asKotlinAtomic()` extension functions. On the JVM, Kotlin
@@ -181,7 +181,7 @@ fun main() {
 }
 //sampleEnd
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20-beta2"}
 
 ## Changes in UUID parsing and formatting functions
 <primary-label ref="experimental-opt-in"/>
@@ -221,7 +221,7 @@ fun main() {
 }
 //sampleEnd
 ```
-{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20-beta2"}
 
 ## How to update to Kotlin %kotlinEapVersion%
 
