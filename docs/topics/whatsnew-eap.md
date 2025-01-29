@@ -14,8 +14,8 @@ Here are some details of this EAP release:
 
 * [](#kotlin-k2-compiler-new-default-kapt-plugin)
 * [](#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin)
+* [](#common-atomic-types)
 * [](#changes-in-uuid-parsing-and-formatting-functions)
-* [](#common-atomic-types-in-the-kotlin-standard-library)
 
 ## IDE support
 
@@ -47,7 +47,7 @@ kapt.use.k2=false
 
 Please report such issues to our [issue tracker](https://youtrack.jetbrains.com/issue/KT-71439/K2-kapt-feedback).
 
-## Kotlin Multiplatform: New DSL to replace Gradle's Application plugin
+## Kotlin Multiplatform: new DSL to replace Gradle's Application plugin
 
 <primary-label ref="experimental-opt-in"/>
 
@@ -109,7 +109,9 @@ We plan to fix this issue as soon as possible.
 
 For more information, see the related issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542).
 
-## Common atomic types in the Kotlin standard library
+## Standard library
+
+### Common atomic types
 <primary-label ref="experimental-opt-in"/>
 
 In Kotlin %kotlinEapVersion%, we are introducing common atomic types in the standard library's `kotlin.concurrent.atomics`
@@ -183,7 +185,7 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20-beta2"}
 
-## Changes in UUID parsing and formatting functions
+### Changes in UUID parsing and formatting functions
 <primary-label ref="experimental-opt-in"/>
 
 The JetBrains team continues to improve the support for UUIDs [introduced to the standard library in 2.0.20](whatsnew2020.md#support-for-uuids-in-the-common-kotlin-standard-library).
