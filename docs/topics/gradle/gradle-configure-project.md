@@ -733,10 +733,8 @@ To add a dependency on a library, set the dependency of the required [type](#dep
 ```kotlin
 kotlin {
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation("com.example:my-library:1.0")
-            }
+        commonMain.dependencies {
+            implementation("com.example:my-library:1.0")
         }
     }
 }
@@ -977,10 +975,8 @@ Kotlin/Native targets do not require additional test dependencies, and the `kotl
 ```kotlin
 kotlin {
     sourceSets {
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test")) // This brings all the platform dependencies automatically
-            }
+         commonTest.dependencies {
+             implementation(kotlin("test")) // This brings all the platform dependencies automatically
         }
     }
 }
@@ -1032,10 +1028,8 @@ kotlin {
         }
     }
     sourceSets {
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
+        commonTest.dependencies {
+            implementation(kotlin("test"))
         }
     }
 }
@@ -1121,10 +1115,8 @@ source set. Use the library's base artifact name, such as `kotlinx-coroutines-co
 ```kotlin
 kotlin {
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
-            }
+        commonMain.dependencies {
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
     }
 }
@@ -1157,10 +1149,8 @@ the corresponding source set:
 ```kotlin
 kotlin {
     sourceSets {
-        val jvmMain by getting {
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
-            }
+        jvmMain.dependencies {
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
     }
 }
