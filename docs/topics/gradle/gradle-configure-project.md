@@ -1102,12 +1102,12 @@ kotlin.test.infer.jvm.variant=false
 
 If you have used a variant of `kotlin("test")` in your build script explicitly and your project build stopped working with
 a compatibility conflict,
-see [this issue in the Compatibility Guide](compatibility-guide-15.md#do-not-mix-several-jvm-variants-of-kotlin-test-in-a-single-project).
+see [this issue in the Compatibility guide](compatibility-guide-15.md#do-not-mix-several-jvm-variants-of-kotlin-test-in-a-single-project).
 
 ### Set a dependency on a kotlinx library
 
 If you use a multiplatform library and need to depend on the shared code, set the dependency only once in the shared
-source set. Use the library's base artifact name, such as `kotlinx-coroutines-core` or `ktor-client-core`.
+source set. Use the library's base artifact name, such as `kotlinx-coroutines-core` or `ktor-client-core`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -1141,7 +1141,7 @@ kotlin {
 </tabs>
 
 If you need a kotlinx library for a platform-specific dependency, you can still use the library's base artifact name in
-the corresponding source set:
+the corresponding platform source set:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
