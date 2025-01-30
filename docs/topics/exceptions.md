@@ -597,7 +597,7 @@ such as [`first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collecti
     val firstElement = emptyList.first()  // throws NoSuchElementException
     ```
 
-    > To avoid this exception is to use a safer alternative, for example the [`firstOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-or-null.html) function:
+    > To avoid this exception, use a safer alternative, such as the [`firstOrNull()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first-or-null.html) function:
     >
     > ```kotlin
     > val emptyList = listOf<Int>()
