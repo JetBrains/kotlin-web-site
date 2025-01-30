@@ -229,8 +229,10 @@ sorting a collection in place, while `sorted` is returning a sorted copy of the 
 The names should make it clear what the purpose of the entity is, so it's best to avoid using meaningless words
 (`Manager`, `Wrapper`) in names.
 
-When using an acronym as part of a declaration name, capitalize it if it consists of two letters (`IOStream`);
-capitalize only the first letter if it is longer (`XmlFormatter`, `HttpInputStream`).
+When using an acronym as part of a declaration name, follow these rules:
+
+* For two-letter acronyms, use uppercase for both letters. For example, `IOStream`.
+* For acronyms longer than two letters, capitalize only the first letter. For example, `XmlFormatter` or `HttpInputStream`.
 
 ## Formatting
 
