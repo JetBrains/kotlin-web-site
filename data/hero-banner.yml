@@ -1,4 +1,4 @@
-isActive: true
+isActive: false
 title: "Ktor 3.0 is out"
 caption: "A better way to build servers & clients"
 buttonLabel: "Try Now"
