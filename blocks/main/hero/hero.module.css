@@ -110,7 +110,7 @@
     }
 
     .banner {
-        display: none;
+        display: flex;
         position: relative;
         justify-content: space-between;
         gap: 50px;
@@ -140,6 +140,10 @@
         .bannerButton {
             align-self: flex-end;
         }
+
+        @media (--ktl-ds) {
+            display: none;
+        }
     }
 
     .banner:before {
@@ -150,16 +154,6 @@
         width: 198px;
         height: 100px;
         background-image: url("/images/main/hero-banner-gradient.svg");
-    }
-}
-
-:global(.ab-hero-ktor) {
-    .banner {
-        display: flex;
-
-        @media (--ktl-ds) {
-            display: none;
-        }
     }
 }
 
