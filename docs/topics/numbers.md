@@ -51,6 +51,7 @@ For variables initialized with fractional numbers, the compiler infers the `Doub
 ```kotlin
 val pi = 3.14          // Double
 // val one: Double = 1 // Error: type mismatch, inferred Int
+
 val oneDouble = 1.0    // Double
 ```
 
@@ -90,7 +91,7 @@ To convert numeric values to different types, use [explicit conversions](#explic
 There are several kinds of literal constants for integral values:
 
 * Decimals: `123`
-* Longs, tagged by a capital `L`: `123L`
+* Longs, ending with the capital `L`: `123L`
 * Hexadecimals: `0x0F`
 * Binaries: `0b00001011`
 
@@ -100,8 +101,8 @@ There are several kinds of literal constants for integral values:
 
 Kotlin also supports a conventional notation for floating-point numbers:
 
-* Doubles (fractional part without other tags): `123.5`, `123.5e10`
-* Floats, tagged by `f` or `F`: `123.5f`
+* Doubles (default when the fractional part does not end with a letter): `123.5`, `123.5e10`
+* Floats, ending with the letter `f` or `F`: `123.5f`
 
 You can use underscores to make number constants more readable:
 
@@ -119,15 +120,18 @@ val bigFractional = 1_234_567.7182818284
 > 
 {style="tip"}
 
-## Boxing numbers on the Java Virtual Machine
+## Boxing and caching numbers on the Java Virtual Machine
+
+The way JVM stores numbers can make your code behave counterintuitively because of the cache used by default
+for small (byte-sized) numbers.
 
 JVM stores numbers as primitive types: `int`, `double`, and so on.
 When you use generics or create a nullable number reference such as `Int?`, numbers are boxed in Java classes
 such as `Integer` or `Double`.
 
 JVM applies a [memory optimization](https://docs.oracle.com/javase/specs/jls/se22/html/jls-5.html#jls-5.1.7)
-to `Integer` objects that represent numbers between `−128` and `127`:
-all nullable references to such objects are referring to the same object.
+to `Integer` and other types that can represent numbers between `−128` and `127`:
+all nullable references to such objects are referring to the same cached object.
 For example, nullable objects in the following code are [referentially equal](equality.md#referential-equality):
 
 ```kotlin
@@ -158,6 +162,11 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+For this reason, Kotlin warns about using referential equality with boxable numbers and literals
+with the following message: "Identity equality for arguments of types ... and ... is prohibited."
+When comparing `Int`, `Short`, `Long`, and `Byte` types (as well as `Char` and `Boolean`), use only
+structural equality check to get consistent results.
 
 ## Explicit number conversions
 
