@@ -19,9 +19,9 @@ The Gradle DSL allows comprehensive
 configuration of compiler options. It is available for [Kotlin Multiplatform](multiplatform-dsl-reference.md) and [JVM/Android](#target-the-jvm) projects.
 
 With the Gradle DSL, you can configure compiler options within the build script at three levels: 
-* **Extension level**, in the `kotlin {}` block for all targets and shared source sets.
-* **Target level**, in the block for a specific target.
-* **Compilation unit level,** usually in a specific compilation task.
+* **[Extension level](#extension-level)**, in the `kotlin {}` block for all targets and shared source sets.
+* **[Target level](#target-level)**, in the block for a specific target.
+* **[Compilation unit level](#compilation-unit-level),** usually in a specific compilation task.
 
 ![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
 
@@ -138,7 +138,7 @@ tasks.named('compileKotlin', org.jetbrains.kotlin.gradle.tasks.KotlinCompilation
 
 ## Target the JVM
 
-As explained before, you can define compiler options for your JVM/Android projects at the extension, target, and compilation unit levels.
+[As explained before](#how-to-define-options), you can define compiler options for your JVM/Android projects at the extension, target, and compilation unit levels (tasks).
 
 Default JVM compilation tasks are called `compileKotlin` for production code and `compileTestKotlin`
 for test code. The tasks for custom source sets are named according to their `compile<Name>Kotlin` patterns.
