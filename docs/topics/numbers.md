@@ -19,10 +19,10 @@ For integer numbers, there are four types with different sizes and value ranges:
 {style="tip"}
 
 When you initialize a variable with no explicit type specification, the compiler automatically infers the type with the 
-smallest range enough to represent the value starting from `Int`. If it is not exceeding the range of `Int`, the type is `Int`.
+smallest range enough to represent the value starting from `Int`. If it doesn't exceed the range of `Int`, the type is `Int`.
 If it does exceed that range, the type is `Long`. To specify the `Long` value explicitly, append the suffix `L` to the value.
 To use the `Byte` or `Short` type, specify it explicitly in the declaration. 
-Explicit type specification triggers the compiler to check the value not to exceed the range of the specified type.
+Explicit type specification triggers the compiler to check that the value doesn't exceed the range of the specified type.
 
 ```kotlin
 val one = 1 // Int
@@ -50,16 +50,17 @@ For variables initialized with fractional numbers, the compiler infers the `Doub
 
 ```kotlin
 val pi = 3.14          // Double
-// val one: Double = 1 // Error: type mismatch, inferred Int
+// val one: Double = 1 // Int is inferred
 
+// Initializer type mismatch
 val oneDouble = 1.0    // Double
 ```
 
 To explicitly specify the `Float` type for a value, add the suffix `f` or `F`.
-If the value provided this way contains more than 7 decimal digits, it will be rounded:
+If a value provided in this way contains more than 7 decimal digits, it is rounded:
 
 ```kotlin
-val e = 2.7182818284 // Double
+val e = 2.7182818284           // Double
 val eFloat = 2.7182818284f // Float, actual value is 2.7182817
 ```
 
@@ -77,8 +78,10 @@ fun main() {
     val xFloat = 1.0f 
 
     printDouble(x)
-    // printDouble(xInt)   // Error: Type mismatch
-    // printDouble(xFloat) // Error: Type mismatch
+    // printDouble(xInt)   
+    // Argument type mismatch
+    // printDouble(xFloat)
+    // Argument type mismatch
 //sampleEnd
 }
 ```
@@ -99,7 +102,7 @@ There are several kinds of literal constants for integral values:
 >
 {style="note"}
 
-Kotlin also supports a conventional notation for floating-point numbers:
+Kotlin also supports conventional notation for floating-point numbers:
 
 * Doubles (default when the fractional part does not end with a letter): `123.5`, `123.5e10`
 * Floats, ending with the letter `f` or `F`: `123.5f`
@@ -126,11 +129,11 @@ The way JVM stores numbers can make your code behave counterintuitively because 
 for small (byte-sized) numbers.
 
 JVM stores numbers as primitive types: `int`, `double`, and so on.
-When you use generics or create a nullable number reference such as `Int?`, numbers are boxed in Java classes
+When you use [generic types](generics.md) or create a nullable number reference such as `Int?`, numbers are boxed in Java classes
 such as `Integer` or `Double`.
 
 JVM applies a [memory optimization](https://docs.oracle.com/javase/specs/jls/se22/html/jls-5.html#jls-5.1.7)
-to `Integer` and other types that can represent numbers between `−128` and `127`:
+to `Integer` and other objects that represent numbers between `−128` and `127`:
 all nullable references to such objects are referring to the same cached object.
 For example, nullable objects in the following code are [referentially equal](equality.md#referential-equality):
 
@@ -178,7 +181,8 @@ For example, assigning a value of type `Byte` to an `Int` variable requires an e
 fun main() {
 //sampleStart
     val byte: Byte = 1 // OK, literals are checked statically
-    // val intAssignedByte: Int = byte // Error: Type mismatch
+    // val intAssignedByte: Int = byte 
+    // Initializer type mismatch
     val intConvertedByte: Int = byte.toInt()
     
     println(intConvertedByte)
@@ -196,13 +200,13 @@ All number types support conversions to other types:
 * `toFloat(): Float`
 * `toDouble(): Double`
 
-In many cases, there is no need for explicit conversions because the type is inferred from the context,
-and arithmetical operators are overloaded for appropriate conversions, for example:
+In many cases, there is no need for explicit conversion because the type is inferred from the context,
+and arithmetical operators are overloaded for appropriate conversions. For example:
 
 ```kotlin
 fun main() {
 //sampleStart
-    val l = 1L + 3 // Long + Int => Long
+    val l = 1L + 3       // Long + Int => Long
     println(l is Long) // true
 //sampleEnd
 }
@@ -216,9 +220,9 @@ For example, imagine `Int` was a subtype of `Long`:
 
 ```kotlin
 // Hypothetical code, does not actually compile:
-val a: Int? = 1 // A boxed Int (java.lang.Integer)
+val a: Int? = 1     // A boxed Int (java.lang.Integer)
 val b: Long? = a // Implicit conversion yields a boxed Long (java.lang.Long)
-print(b == a) // Prints "false" as Long.equals() checks not only value but whether the other number is Long as well
+print(b == a)      // Prints "false" as Long.equals() checks not only the value but whether the other number is Long as well
 ```
 
 ## Operations on numbers
@@ -249,8 +253,10 @@ Division between integer numbers always returns an integer number. Any fractiona
 fun main() {
 //sampleStart
     val x = 5 / 2
-    // println(x == 2.5) // Error: Operator '==' cannot be applied to 'Int' and 'Double'
-    println(x == 2)   // true
+    // println(x == 2.5) 
+    // Operator '==' cannot be applied to 'Int' and 'Double'
+    println(x == 2)   
+    // true
 //sampleEnd
 }
 ```
@@ -291,10 +297,12 @@ fun main() {
 //sampleStart
     val x = 1
     val xShiftedLeft = (x shl 2)
-    println(xShiftedLeft)  // Prints "4"
+    println(xShiftedLeft)  
+    // 4
     
     val xAnd = x and 0x000FF000
-    println(xAnd)          // Prints "0"
+    println(xAnd)          
+    // 0
 //sampleEnd
 }
 ```
