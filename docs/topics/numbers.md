@@ -50,18 +50,20 @@ For variables initialized with fractional numbers, the compiler infers the `Doub
 
 ```kotlin
 val pi = 3.14          // Double
-// val one: Double = 1 // Int is inferred
 
+val one: Double = 1    // Int is inferred
 // Initializer type mismatch
+
 val oneDouble = 1.0    // Double
 ```
+{validate="false"}
 
 To explicitly specify the `Float` type for a value, add the suffix `f` or `F`.
 If a value provided in this way contains more than 7 decimal digits, it is rounded:
 
 ```kotlin
-val e = 2.7182818284           // Double
-val eFloat = 2.7182818284f // Float, actual value is 2.7182817
+val e = 2.7182818284          // Double
+val eFloat = 2.7182818284f    // Float, actual value is 2.7182817
 ```
 
 Unlike in some other languages, there are no implicit widening conversions for numbers in Kotlin.
@@ -78,14 +80,16 @@ fun main() {
     val xFloat = 1.0f 
 
     printDouble(x)
-    // printDouble(xInt)   
+    
+    printDouble(xInt)   
     // Argument type mismatch
-    // printDouble(xFloat)
+    
+    printDouble(xFloat)
     // Argument type mismatch
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" validate="false"}
 
 To convert numeric values to different types, use [explicit conversions](#explicit-number-conversions).
 
@@ -180,16 +184,19 @@ For example, assigning a value of type `Byte` to an `Int` variable requires an e
 ```kotlin
 fun main() {
 //sampleStart
-    val byte: Byte = 1 // OK, literals are checked statically
-    // val intAssignedByte: Int = byte 
+    val byte: Byte = 1
+    // OK, literals are checked statically
+    
+    val intAssignedByte: Int = byte 
     // Initializer type mismatch
+    
     val intConvertedByte: Int = byte.toInt()
     
     println(intConvertedByte)
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false"}
 
 All number types support conversions to other types:
 
@@ -207,7 +214,7 @@ and arithmetical operators are overloaded for appropriate conversions. For examp
 fun main() {
 //sampleStart
     val l = 1L + 3       // Long + Int => Long
-    println(l is Long) // true
+    println(l is Long)   // true
 //sampleEnd
 }
 ```
@@ -215,13 +222,15 @@ fun main() {
 
 ### Reasoning against implicit conversions
 
+Kotlin doesn't support implicit conversions because they can lead to unexpected behavior.
+
 If numbers of different types were converted implicitly, we could sometimes lose equality and identity silently.
-For example, imagine `Int` was a subtype of `Long`:
+For example, imagine if `Int` was a subtype of `Long`:
 
 ```kotlin
 // Hypothetical code, does not actually compile:
-val a: Int? = 1     // A boxed Int (java.lang.Integer)
-val b: Long? = a // Implicit conversion yields a boxed Long (java.lang.Long)
+val a: Int? = 1    // A boxed Int (java.lang.Integer)
+val b: Long? = a   // Implicit conversion yields a boxed Long (java.lang.Long)
 print(b == a)      // Prints "false" as Long.equals() checks not only the value but whether the other number is Long as well
 ```
 
@@ -253,14 +262,15 @@ Division between integer numbers always returns an integer number. Any fractiona
 fun main() {
 //sampleStart
     val x = 5 / 2
-    // println(x == 2.5) 
+    println(x == 2.5) 
     // Operator '==' cannot be applied to 'Int' and 'Double'
+    
     println(x == 2)   
     // true
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false"}
 
 This is true for a division between any two integer types:
 
@@ -268,7 +278,8 @@ This is true for a division between any two integer types:
 fun main() {
 //sampleStart
     val x = 5L / 2
-    println(x == 2L) // But not `x == 2`, as Long (x) cannot be compared to Int (2)
+    println(x == 2L)
+    // But not `x == 2`, as Long (x) cannot be compared to Int (2)
 //sampleEnd
 }
 ```
@@ -345,12 +356,14 @@ fun main() {
     //sampleStart
     // Operand statically typed as floating-point number
     println(Double.NaN == Double.NaN)                 // false
+    
     // Operand NOT statically typed as floating-point number
     // So NaN is equal to itself
     println(listOf(Double.NaN) == listOf(Double.NaN)) // true
 
     // Operand statically typed as floating-point number
     println(0.0 == -0.0)                              // true
+    
     // Operand NOT statically typed as floating-point number
     // So -0.0 is less than 0.0
     println(listOf(0.0) == listOf(-0.0))              // false
