@@ -4,20 +4,24 @@ Kotlin lets you easily create ranges of values using the [`.rangeTo()`](https://
 and [`.rangeUntil()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/range-until.html) functions from the 
 `kotlin.ranges` package. 
 
+A range represents an ordered set of values with a defined start and end. By default, it increments by 1 at each step.
+For example, `1..4` represents the numbers 1, 2, 3, and 4.
+
 To create:
-* a closed-ended range, call the `.rangeTo()` function with the `..` operator.
-* an open-ended range, call the `.rangeUntil()` function with the `..<` operator.
+
+* a closed-ended range, call the `.rangeTo()` function with the `..` operator. This includes both the start and end values.
+* an open-ended range, call the `.rangeUntil()` function with the `..<` operator. This includes the start value but excludes the end value.
 
 For example:
 
 ```kotlin
 fun main() {
 //sampleStart
-    // Closed-ended range
+    // Closed-ended range: includes both 1 and 4
     println(4 in 1..4)
     // true
     
-    // Open-ended range
+    // Open-ended range: includes 1, excludes 4
     println(4 in 1..<4)
     // false
 //sampleEnd
@@ -50,11 +54,10 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-downto"}
 
-It is also possible to iterate over numbers with an arbitrary step (not necessarily 1). This is done via the
-[`step`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/step.html) function.
+You can also iterate over numbers with a custom step using the
+[`step()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/step.html) function, instead of the default increment of `1`:
 
 ```kotlin
-
 fun main() {
 //sampleStart
     for (i in 0..8 step 2) print(i)
