@@ -61,15 +61,14 @@ fun preparePostAsync(callback: (Token) -> Unit) {
 This in principle feels like a much more elegant solution, but once again has several issues:
 
 * Difficulty of nested callbacks. Usually a function that is used as a callback, often ends up needing its own callback. This leads to a series of nested callbacks which
-lead to incomprehensible code. The pattern is often referred to as the titled christmas tree (braces represent branches of the tree).
+lead to incomprehensible code. The pattern is often referred to as the [pyramid of doom](https://en.wikipedia.org/wiki/Pyramid_of_doom_(programming)) due to the triangular shape that indentations from these deeply nested callbacks create.
 * Error handling is complicated. The nesting model makes error handling and propagation of these somewhat more complicated. 
 
 Callbacks are quite common in event-loop architectures such as JavaScript, but even there, generally people have moved away to using other approaches such as promises or reactive extensions.
 
 ## Futures, promises, and others
 
-The idea behind futures or promises (there are also other terms these can be referred to depending on language/platform), is that when we make a call, we're promised 
-that at some point it will return with an object called a Promise, which can then be operated on.
+The idea behind futures or promises (there are also other terms these can be referred to depending on language/platform), is that when we make an async call, we're immediately returned a `Promise` object—a guarantee that the call will eventually return a result; the `Promise` acts as a placeholder until the underlying async operation completes, at which point we can respond to its success or failure.
 
 ```kotlin
 fun postItem(item: Item) {
