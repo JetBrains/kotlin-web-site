@@ -1,6 +1,7 @@
 [//]: # (title: Test code using JUnit in JVM – tutorial)
 
-This tutorial shows you how to write a simple unit test and run it with the Gradle build tool.
+This tutorial shows you how to write a simple unit test in a Kotlin/JVM project and run it with the Gradle build tool.
+If you're working on a multiplatform app, refer to the [Kotlin Multiplatform tutorial](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-run-tests.html).
 
 The example in the tutorial has the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/index.html) library under the hood and runs the test using JUnit.
 
