@@ -68,7 +68,7 @@ Callbacks are quite common in event-loop architectures such as JavaScript, but e
 
 ## Futures, promises, and others
 
-The idea behind futures or promises (there are also other terms these can be referred to depending on language/platform), is that when we make an async call, we're immediately returned a `Promise` object—a guarantee that the call will eventually return a result; the `Promise` acts as a placeholder until the underlying async operation completes, at which point we can respond to its success or failure.
+The idea behind futures or promises (there are also other terms these can be referred to depending on language/platform), is that when we make a call, we're _promised_ that at some point that call will return – we're immediately returned a Promise object representing this future completion, which can then be operated on.
 
 ```kotlin
 fun postItem(item: Item) {
