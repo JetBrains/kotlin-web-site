@@ -21,11 +21,6 @@ The new architecture and enriched data structure enables the K2 compiler to prov
   frontend to analyze your Kotlin code, bringing stability and performance improvements. For more information,
   see [Support in IDEs](#support-in-ides).
 
-  > The K2 mode is in Beta. We are working on stability and code analysis improvements, but not all IDE features are supported
-  > yet.
-  >
-  {style="warning"}
-
 This guide:
 
 * Explains the benefits of the new K2 compiler.
