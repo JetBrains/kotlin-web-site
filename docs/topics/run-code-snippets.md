@@ -26,7 +26,7 @@ IntelliJ IDEA and Android Studio support Kotlin [scratch files and worksheets](h
 
     > Kotlin worksheets aren't supported in [K2 mode](https://blog.jetbrains.com/idea/2024/11/k2-mode-becomes-stable/) yet. We're working on adding this functionality.
     >
-    {style="note"}
+    {style="warning"}
 
 Syntax highlighting, auto-completion, and other
 IntelliJ IDEA code editing features are supported in scratches and worksheets. There's no need to declare the `main()` function 
