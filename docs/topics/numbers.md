@@ -286,7 +286,7 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false"}
 
 To return a division result with the fractional part, explicitly convert one of the arguments to a floating-point type:
 
