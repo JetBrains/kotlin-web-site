@@ -1,3 +1,11 @@
+- lang: ko
+  startDate: '2025-02-15'
+  endDate: '2025-02-15'
+  location: Seoul, Korea
+  speaker: 'To be announced'
+  title: 'Kotlin Backend Meetup'
+  subject: 'Whole new event for Kotlin Backend Developers in Seoul, Korea'
+  url: https://event-us.kr/kugseoul/event/98337
 - lang: en
   startDate: '2025-02-22'
   endDate: '2025-02-22'
