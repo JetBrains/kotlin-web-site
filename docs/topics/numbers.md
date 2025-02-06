@@ -136,7 +136,7 @@ The JVM stores numbers as primitive types: `int`, `double`, and so on.
 When you use [generic types](generics.md) or create a nullable number reference such as `Int?`, numbers are boxed in Java classes
 such as `Integer` or `Double`.
 
-The JVM applies [memory optimization](https://docs.oracle.com/javase/specs/jls/se22/html/jls-5.html#jls-5.1.7)
+The JVM applies a [memory optimization technique](https://docs.oracle.com/javase/specs/jls/se22/html/jls-5.html#jls-5.1.7)
 to `Integer` and other objects that represent numbers between `−128` and `127`.
 All nullable references to such objects refer to the same cached object.
 For example, nullable objects in the following code are [referentially equal](equality.md#referential-equality):
