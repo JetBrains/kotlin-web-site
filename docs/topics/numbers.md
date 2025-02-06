@@ -122,7 +122,7 @@ val bytes = 0b11010010_01101001_10010100_10010010
 val bigFractional = 1_234_567.7182818284
 ```
 
-> There are also special tags for unsigned integer literals.  
+> There are also special suffixes for unsigned integer literals.  
 > Read more about [literals for unsigned integer types](unsigned-integer-types.md).
 > 
 {style="tip"}
@@ -278,8 +278,11 @@ This is true for a division between any two integer types:
 fun main() {
 //sampleStart
     val x = 5L / 2
+    println (x == 2)
+    // Error, as Long (x) cannot be compared to Int (2)
+    
     println(x == 2L)
-    // But not `x == 2`, as Long (x) cannot be compared to Int (2)
+    // true
 //sampleEnd
 }
 ```
