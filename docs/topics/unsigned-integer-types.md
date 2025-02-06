@@ -49,7 +49,7 @@ To make unsigned integers easier to use, you can append a suffix to an integer l
 indicating a specific unsigned type (similarly to `F` for `Float` or `L` for `Long`):
 
 * `u` and `U` letters signify unsigned literals without specifying the exact type.
-    If no expected type is provided, the compiler will use `UInt` or `ULong` depending on the size of the literal:
+    If no expected type is provided, the compiler uses `UInt` or `ULong` depending on the size of the literal:
 
     ```kotlin
     val b: UByte = 1u  // UByte, expected type provided
