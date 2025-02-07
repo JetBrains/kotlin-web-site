@@ -3,19 +3,26 @@
 ## Integer types
 
 Kotlin provides a set of built-in types that represent numbers.  
-For integer numbers, there are four types with different sizes and, hence, value ranges:
+For integer numbers, there are four types with different sizes and value ranges:
 
-| Type	 |Size (bits)| Min value| Max value|
-|--------|-----------|----------|--------- |
-| `Byte`	 | 8         |-128      |127       |
-| `Short`	 | 16        |-32768    |32767     |
-| `Int`	 | 32        |-2,147,483,648 (-2<sup>31</sup>)| 2,147,483,647 (2<sup>31</sup> - 1)|
-| `Long`	 | 64        |-9,223,372,036,854,775,808 (-2<sup>63</sup>)|9,223,372,036,854,775,807 (2<sup>63</sup> - 1)|
+| Type	    | Size (bits) | Min value                                    | Max value                                      |
+|----------|-------------|----------------------------------------------|------------------------------------------------|
+| `Byte`	  | 8           | -128                                         | 127                                            |
+| `Short`	 | 16          | -32768                                       | 32767                                          |
+| `Int`	   | 32          | -2,147,483,648 (-2<sup>31</sup>)             | 2,147,483,647 (2<sup>31</sup> - 1)             |
+| `Long`	  | 64          | -9,223,372,036,854,775,808 (-2<sup>63</sup>) | 9,223,372,036,854,775,807 (2<sup>63</sup> - 1) |
+
+> In addition to signed integer types, Kotlin also provides unsigned integer types.
+> As unsigned integers are aimed at a different set of use cases, they are covered separately.
+> See [](unsigned-integer-types.md).
+> 
+{style="tip"}
 
 When you initialize a variable with no explicit type specification, the compiler automatically infers the type with the 
-smallest range enough to represent the value starting from `Int`. If it is not exceeding the range of `Int`, the type is `Int`.
-If it exceeds, the type is `Long`. To specify the `Long` value explicitly, append the suffix `L` to the value. 
-Explicit type specification triggers the compiler to check the value not to exceed the range of the specified type.
+smallest range enough to represent the value starting from `Int`. If it doesn't exceed the range of `Int`, the type is `Int`.
+If it does exceed that range, the type is `Long`. To specify the `Long` value explicitly, append the suffix `L` to the value.
+To use the `Byte` or `Short` type, specify it explicitly in the declaration. 
+Explicit type specification triggers the compiler to check that the value doesn't exceed the range of the specified type.
 
 ```kotlin
 val one = 1 // Int
@@ -24,10 +31,6 @@ val oneLong = 1L // Long
 val oneByte: Byte = 1
 ```
 
-> In addition to integer types, Kotlin also provides unsigned integer types. For more information, see [Unsigned integer types](unsigned-integer-types.md).
->
-{style="tip"}
-
 ## Floating-point types
 
 For real numbers, Kotlin provides floating-point types `Float` and `Double` that adhere to the [IEEE 754 standard](https://en.wikipedia.org/wiki/IEEE_754).
@@ -35,55 +38,67 @@ For real numbers, Kotlin provides floating-point types `Float` and `Double` that
 
 These types differ in their size and provide storage for floating-point numbers with different precision:
 
-| Type	 |Size (bits)|Significant bits|Exponent bits|Decimal digits|
-|--------|-----------|--------------- |-------------|--------------|
-| `Float`	 | 32        |24              |8            |6-7            |
-| `Double` | 64        |53              |11           |15-16          |    
+| Type	    | Size (bits) | Significant bits | Exponent bits | Decimal digits |
+|----------|-------------|------------------|---------------|----------------|
+| `Float`	 | 32          | 24               | 8             | 6-7            |
+| `Double` | 64          | 53               | 11            | 15-16          |    
 
-You can initialize `Double` and `Float` variables  with numbers having a fractional part.
-It's separated from the integer part by a period (`.`)
+You can initialize `Double` and `Float` variables only with numbers that have a fractional part.
+Separate the fractional part from the integer part by a period (`.`)
+
 For variables initialized with fractional numbers, the compiler infers the `Double` type:
 
 ```kotlin
-val pi = 3.14 // Double
-// val one: Double = 1 // Error: type mismatch
-val oneDouble = 1.0 // Double
+val pi = 3.14          // Double
+
+val one: Double = 1    // Int is inferred
+// Initializer type mismatch
+
+val oneDouble = 1.0    // Double
 ```
+{validate="false"}
 
 To explicitly specify the `Float` type for a value, add the suffix `f` or `F`.
-If such a value contains more than 6-7 decimal digits, it will be rounded:
+If a value provided in this way contains more than 7 decimal digits, it is rounded:
 
 ```kotlin
-val e = 2.7182818284 // Double
-val eFloat = 2.7182818284f // Float, actual value is 2.7182817
+val e = 2.7182818284          // Double
+val eFloat = 2.7182818284f    // Float, actual value is 2.7182817
 ```
 
-Unlike some other languages, there are no implicit widening conversions for numbers in Kotlin.
+Unlike in some other languages, there are no implicit widening conversions for numbers in Kotlin.
 For example, a function with a `Double` parameter can be called only on `Double` values, but not `Float`,
 `Int`, or other numeric values:
 
 ```kotlin
 fun main() {
-    fun printDouble(d: Double) { print(d) }
+//sampleStart
+    fun printDouble(x: Double) { print(x) }
 
-    val i = 1    
-    val d = 1.0
-    val f = 1.0f 
+    val x = 1.0
+    val xInt = 1    
+    val xFloat = 1.0f 
 
-    printDouble(d)
-//    printDouble(i) // Error: Type mismatch
-//    printDouble(f) // Error: Type mismatch
+    printDouble(x)
+    
+    printDouble(xInt)   
+    // Argument type mismatch
+    
+    printDouble(xFloat)
+    // Argument type mismatch
+//sampleEnd
 }
 ```
+{kotlin-runnable="true" validate="false"}
 
 To convert numeric values to different types, use [explicit conversions](#explicit-number-conversions).
 
 ## Literal constants for numbers
 
-There are the following kinds of literal constants for integral values:
+There are several kinds of literal constants for integral values:
 
 * Decimals: `123`
-* Longs are tagged by a capital `L`: `123L`
+* Longs, ending with the capital `L`: `123L`
 * Hexadecimals: `0x0F`
 * Binaries: `0b00001011`
 
@@ -91,10 +106,10 @@ There are the following kinds of literal constants for integral values:
 >
 {style="note"}
 
-Kotlin also supports a conventional notation for floating-point numbers:
+Kotlin also supports conventional notation for floating-point numbers:
 
-* Doubles by default: `123.5`, `123.5e10`
-* Floats are tagged by `f` or `F`: `123.5f`
+* Doubles (default when the fractional part does not end with a letter): `123.5`, `123.5e10`
+* Floats, ending with the letter `f` or `F`: `123.5f`
 
 You can use underscores to make number constants more readable:
 
@@ -104,20 +119,27 @@ val creditCardNumber = 1234_5678_9012_3456L
 val socialSecurityNumber = 999_99_9999L
 val hexBytes = 0xFF_EC_DE_5E
 val bytes = 0b11010010_01101001_10010100_10010010
+val bigFractional = 1_234_567.7182818284
 ```
 
-> There are also special tags for unsigned integer literals.  
+> There are also special suffixes for unsigned integer literals.  
 > Read more about [literals for unsigned integer types](unsigned-integer-types.md).
 > 
 {style="tip"}
 
-## Numbers representation on the JVM
+## Boxing and caching numbers on the Java Virtual Machine
 
-On the JVM platform, numbers are stored as primitive types: `int`, `double`, and so on.
-Exceptions are cases when you create a nullable number reference such as `Int?` or use generics.
-In these cases numbers are boxed in Java classes `Integer`, `Double`, and so on.
+The way the JVM stores numbers can make your code behave counterintuitively because of the cache used by default
+for small (byte-sized) numbers.
 
-Nullable references to the same number can refer to different objects:
+The JVM stores numbers as primitive types: `int`, `double`, and so on.
+When you use [generic types](generics.md) or create a nullable number reference such as `Int?`, numbers are boxed in Java classes
+such as `Integer` or `Double`.
+
+The JVM applies a [memory optimization technique](https://docs.oracle.com/javase/specs/jls/se22/html/jls-5.html#jls-5.1.7)
+to `Integer` and other objects that represent numbers between `−128` and `127`.
+All nullable references to such objects refer to the same cached object.
+For example, nullable objects in the following code are [referentially equal](equality.md#referential-equality):
 
 ```kotlin
 fun main() {
@@ -126,72 +148,90 @@ fun main() {
     val boxedA: Int? = a
     val anotherBoxedA: Int? = a
     
-    val b: Int = 10000
-    val boxedB: Int? = b
-    val anotherBoxedB: Int? = b
-    
     println(boxedA === anotherBoxedA) // true
-    println(boxedB === anotherBoxedB) // false
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-All nullable references to `a` are actually the same object because of the memory optimization that JVM applies to `Integer`s
-between `-128` and `127`. It doesn't apply to the `b` references, so they are different objects.
-
-On the other hand, they are still equal:
+For numbers outside this range, the nullable objects are different but [structurally equal](equality.md#structural-equality):
 
 ```kotlin
 fun main() {
 //sampleStart
     val b: Int = 10000
-    println(b == b) // Prints 'true'
     val boxedB: Int? = b
     val anotherBoxedB: Int? = b
-    println(boxedB == anotherBoxedB) // Prints 'true'
+    
+    println(boxedB === anotherBoxedB) // false
+    println(boxedB == anotherBoxedB) // true
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
+For this reason, Kotlin warns about using referential equality with boxable numbers and literals
+with the following message: `"Identity equality for arguments of types ... and ... is prohibited."`
+When comparing `Int`, `Short`, `Long`, and `Byte` types (as well as `Char` and `Boolean`), use 
+structural equality checks to get consistent results.
+
 ## Explicit number conversions
 
-Due to different representations, smaller types _are not subtypes_ of bigger ones.
-If they were, we would have troubles of the following sort:
+Due to different representations, number types _are not subtypes_ of each other.
+As a consequence, smaller types are _not_ implicitly converted to bigger types and vice versa.
+For example, assigning a value of type `Byte` to an `Int` variable requires an explicit conversion:
 
 ```kotlin
-// Hypothetical code, does not actually compile:
-val a: Int? = 1 // A boxed Int (java.lang.Integer)
-val b: Long? = a // Implicit conversion yields a boxed Long (java.lang.Long)
-print(b == a) // Surprise! This prints "false" as Long's equals() checks whether the other is Long as well
+fun main() {
+//sampleStart
+    val byte: Byte = 1
+    // OK, literals are checked statically
+    
+    val intAssignedByte: Int = byte 
+    // Initializer type mismatch
+    
+    val intConvertedByte: Int = byte.toInt()
+    
+    println(intConvertedByte)
+//sampleEnd
+}
 ```
-
-So equality would have been lost silently, not to mention identity.
-
-As a consequence, smaller types _are NOT implicitly converted_ to bigger types.
-This means that assigning a value of type `Byte` to an `Int` variable requires an explicit conversion:
-
-```kotlin
-val b: Byte = 1 // OK, literals are checked statically
-// val i: Int = b // ERROR
-val i1: Int = b.toInt()
-```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false"}
 
 All number types support conversions to other types:
 
-* `toByte(): Byte`
+* `toByte(): Byte` (deprecated for [Float](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/to-byte.html) and [Double](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/to-byte.html))
 * `toShort(): Short`
 * `toInt(): Int`
 * `toLong(): Long`
 * `toFloat(): Float`
 * `toDouble(): Double`
 
-In many cases, there is no need for explicit conversions because the type is inferred from the context,
-and arithmetical operations are overloaded for appropriate conversions, for example:
+In many cases, there is no need for explicit conversion because the type is inferred from the context,
+and arithmetical operators are overloaded to handle conversions automatically. For example:
 
 ```kotlin
-val l = 1L + 3 // Long + Int => Long
+fun main() {
+//sampleStart
+    val l = 1L + 3       // Long + Int => Long
+    println(l is Long)   // true
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
+
+### Reasoning against implicit conversions
+
+Kotlin doesn't support implicit conversions because they can lead to unexpected behavior.
+
+If numbers of different types were converted implicitly, we could sometimes lose equality and identity silently.
+For example, imagine if `Int` was a subtype of `Long`:
+
+```kotlin
+// Hypothetical code, does not actually compile:
+val a: Int? = 1    // A boxed Int (java.lang.Integer)
+val b: Long? = a   // Implicit conversion yields a boxed Long (java.lang.Long)
+print(b == a)      // Prints "false" as Long.equals() checks not only the value but whether the other number is Long as well
 ```
 
 ## Operations on numbers
@@ -211,22 +251,26 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-You can also override these operators for custom classes. See [Operator overloading](operator-overloading.md) for details.
+You can override these operators in custom number classes.
+See [Operator overloading](operator-overloading.md) for details.
 
 ### Division of integers
 
-Division between integers numbers always returns an integer number. Any fractional part is discarded.
+Division between integer numbers always returns an integer number. Any fractional part is discarded.
 
 ```kotlin
 fun main() {
 //sampleStart
     val x = 5 / 2
-    //println(x == 2.5) // ERROR: Operator '==' cannot be applied to 'Int' and 'Double'
-    println(x == 2)
+    println(x == 2.5) 
+    // Operator '==' cannot be applied to 'Int' and 'Double'
+    
+    println(x == 2)   
+    // true
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false"}
 
 This is true for a division between any two integer types:
 
@@ -234,13 +278,17 @@ This is true for a division between any two integer types:
 fun main() {
 //sampleStart
     val x = 5L / 2
+    println (x == 2)
+    // Error, as Long (x) cannot be compared to Int (2)
+    
     println(x == 2L)
+    // true
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false"}
 
-To return a floating-point type, explicitly convert one of the arguments to a floating-point type:
+To return a division result with the fractional part, explicitly convert one of the arguments to a floating-point type:
 
 ```kotlin
 fun main() {
@@ -259,10 +307,21 @@ bits of the numbers' representation.
 Bitwise operations are represented by functions that can be called in infix form. They can be applied only to `Int` and `Long`:
 
 ```kotlin
-val x = (1 shl 2) and 0x000FF000
+fun main() {
+//sampleStart
+    val x = 1
+    val xShiftedLeft = (x shl 2)
+    println(xShiftedLeft)  
+    // 4
+    
+    val xAnd = x and 0x000FF000
+    println(xAnd)          
+    // 0
+//sampleEnd
+}
 ```
 
-Here is the complete list of bitwise operations:
+The complete list of bitwise operations:
 
 * `shl(bits)` – signed shift left
 * `shr(bits)` – signed shift right
@@ -300,12 +359,14 @@ fun main() {
     //sampleStart
     // Operand statically typed as floating-point number
     println(Double.NaN == Double.NaN)                 // false
+    
     // Operand NOT statically typed as floating-point number
     // So NaN is equal to itself
     println(listOf(Double.NaN) == listOf(Double.NaN)) // true
 
     // Operand statically typed as floating-point number
     println(0.0 == -0.0)                              // true
+    
     // Operand NOT statically typed as floating-point number
     // So -0.0 is less than 0.0
     println(listOf(0.0) == listOf(-0.0))              // false
