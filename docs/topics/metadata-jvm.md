@@ -75,8 +75,9 @@ Add the following dependency to your `pom.xml` file.
 
 ## Read and parse metadata
 
-The `kotlin-metadata-jvm` library enables you to inspect Kotlin class metadata from compiled `.class` files.
-This allows you to extract structured information about class or file-level declarations and use it with validation tools like the [Binary Compatibility Validator (BCV)](https://github.com/Kotlin/binary-compatibility-validator).
+You can use the `kotlin-metadata-jvm` library to extract structured information from compiled Kotlin `.class` files, such as class names, visibility, and signatures.
+This makes it useful in projects that need to analyze compiled Kotlin declarations.
+For example, the [Binary Compatibility Validator (BCV)](https://github.com/Kotlin/binary-compatibility-validator) relies on `kotlin-metadata-jvm` to print public API declarations.
 
 You can start exploring Kotlin class metadata by retrieving the `@Metadata` annotation from a compiled class using reflection:
 
@@ -181,9 +182,9 @@ You can do this by following these steps:
 
 1. Read the bytecode of a `.class` file using the ASM library's `ClassReader` class.
    This class processes the compiled file and populates a `ClassNode` object, which represents the class structure.
-2. Extract the `@Metadata`  from the `ClassNode` object using the `findAnnotation()` function.
-3. Parse the extracted metadata using the `readLenient()` function.
-4. Inspect the parsed metadata with the `kotlinMetadata` property.
+2. Extract the `@Metadata`  from the `ClassNode` object. In the code example below, a custom extension function `findAnnotation()` is used for this.
+3. Parse the extracted metadata using the `KotlinClassMetadata.readLenient()` function.
+4. Inspect the parsed metadata with the `kmClass` and `kmPackage` properties.
 
 Here's an example:
 
@@ -209,7 +210,7 @@ private fun List<Any>.annotationValue(key: String): Any? {
     return null
 }
 
-// Finds a specific annotation of a class node
+// Defines a custom extension function to locate an annotation by its name in a ClassNode
 fun ClassNode.findAnnotation(annotationName: String, includeInvisible: Boolean = false): AnnotationNode? {
     val visible = visibleAnnotations?.firstOrNull { it.refersToName(annotationName) }
     if (!includeInvisible) return visible
@@ -261,14 +262,6 @@ fun main() {
         kmClass.functions.forEach { function ->
             println("- ${function.name}, Visibility: ${function.visibility}")
         }
-
-        // Extracts and prints additional metadata details
-        val annotation = classNode.findAnnotation("kotlin/Metadata")
-        if (annotation != null) {
-            println("Annotation values: ${annotation.values}")
-        }
-    } else {
-        println("No Kotlin metadata found or metadata is not of type Class.")
     }
 }
 ```
@@ -276,10 +269,12 @@ fun main() {
 ## Modify metadata
 
 When using tools like [ProGuard](https://github.com/Guardsquare/proguard) to shrink and optimize bytecode, some declarations may be removed from `.class` files.
-To keep metadata consistent with the modified bytecode, you must remove the corresponding entries.
+ProGuard automatically updates metadata to keep it consistent with the modified bytecode.
+
+However, if you're developing a custom tool that modifies Kotlin bytecode in a similar way, you need to ensure that metadata is adjusted accordingly.
 You can do this using the `kotlin-metadata-jvm` library, which lets you update declarations, adjust attributes, and remove specific elements.
 
-For example, if you use a JVM tool that deletes private methods from Java class files, you also need to delete private functions from Kotlin metadata to maintain consistency.
+For example, if you use a JVM tool that deletes private methods from Java class files, you must also delete private functions from Kotlin metadata to maintain consistency.
 To do this:
 
 1. Parse the metadata by using the `readStrict()` function to load the `@Metadata` annotation into a structured `KotlinClassMetadata` object.
@@ -345,9 +340,8 @@ To create metadata for a Kotlin class file from scratch using the Kotlin Metadat
 1. Create an instance of `KmClass`, `KmPackage`, or `KmLambda`, depending on the type of metadata you want to generate.
 2. Populate the instance with attributes such as the class name, visibility, constructors, and function signatures. Kotlin’s `apply()` function can reduce boilerplate code while setting properties.
 3. Use the populated instance to create a `KotlinClassMetadata` object, which can generate a `@Metadata` annotation.
-4. Use the `ClassWriter` class from [ASM](https://asm.ow2.io/) to embed the metadata into a `.class` file.
-5. Specify the metadata version (for example, `JvmMetadataVersion.LATEST_STABLE_SUPPORTED`) and flags (0 for no flags, or copy flags from existing files if necessary).
-6. Access the annotation fields, such as `kind`, `data1` and `data2` to embed the metadata into a `.class` file or process it further.
+4. Specify the metadata version (for example, `JvmMetadataVersion.LATEST_STABLE_SUPPORTED`) and flags (`0` for no flags, or copy flags from existing files if necessary).
+5. Use the `ClassWriter` class from [ASM](https://asm.ow2.io/) to embed metadata fields, such as `kind`, `data1` and `data2` into a `.class` file.
 
 The following example demonstrates how to create metadata for a simple Kotlin class:
 
@@ -406,7 +400,7 @@ fun main() {
 }
 ```
 
-> For a more detailed example, see the [Kotlin Metadata JVM GitHub repository](https://github.com/JetBrains/kotlin/blob/master/libraries/kotlinx-metadata/jvm/test/kotlin/metadata/test/MetadataSmokeTest.kt).
+> For a more detailed example, see the [Kotlin Metadata JVM GitHub repository](https://github.com/JetBrains/kotlin/blob/50331fb1496378c82c862db04af597e4198ec645/libraries/kotlinx-metadata/jvm/test/kotlin/metadata/test/MetadataSmokeTest.kt#L43)).
 > 
 {style="tip"}
 
