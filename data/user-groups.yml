@@ -1116,3 +1116,9 @@
     position:
       lat: 28.4595
       lng: 77.0266
+  - name: Kotlin Tripoli User Group
+    country: Libya
+    url: https://www.facebook.com/Kotlin.Tripoli/
+    position:
+      lat: 32.856266
+      lng: 13.222725
