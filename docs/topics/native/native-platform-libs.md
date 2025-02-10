@@ -69,9 +69,8 @@ You can explore the native libraries available for Kotlin/Native targets in the 
      <tab title="Windows">
 
      ```none
-     %USERPROFILE%\.konan
+     %\USERPROFILE%\.konan
      ```
-     {validate="false"}
 
      </tab>
      </tabs>
