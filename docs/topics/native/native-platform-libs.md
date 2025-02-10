@@ -1,6 +1,6 @@
 [//]: # (title: Platform libraries)
 
-To provide access to user's native operating system services, Kotlin/Native distribution includes a set of prebuilt
+To provide access to operating systems' native services, Kotlin/Native distribution includes a set of prebuilt
 libraries specific to each target. They are called _platform libraries_.
 
 The packages from platform libraries are available by default. You don't need to specify additional link options to use
@@ -43,10 +43,10 @@ The POSIX platform library is not available for the [WebAssembly](wasm-overview.
 Kotlin/Native provides bindings for various popular native libraries that are commonly used on different platforms,
 for example, OpenGL, zlib, and so on.
 
-On Apple platforms, the `objc` library is included to enable interoperability with [Objective-C](native-objc-interop.md)
+On Apple platforms, the `objc` library is included to enable [interoperability with Objective-C](native-objc-interop.md)
 APIs.
 
-You can explore the native libraries available for Kotlin/Native targets in the Kotlin/Native distribution:
+You can explore the native libraries available for Kotlin/Native targets in the compiler distribution:
 
 * If you [installed a standalone Kotlin/Native compiler](native-get-started.md#download-and-install-the-compiler):
 
