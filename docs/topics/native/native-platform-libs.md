@@ -71,6 +71,7 @@ You can explore the native libraries available for Kotlin/Native targets in the 
      ```none
      %USERPROFILE%\.konan
      ```
+     {validate="false"}
 
      </tab>
      </tabs>
