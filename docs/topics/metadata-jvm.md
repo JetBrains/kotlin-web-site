@@ -340,7 +340,7 @@ To create metadata for a Kotlin class file from scratch using the Kotlin Metadat
 1. Create an instance of `KmClass`, `KmPackage`, or `KmLambda`, depending on the type of metadata you want to generate.
 2. Populate the instance with attributes such as the class name, visibility, constructors, and function signatures.
 
-    > Kotlin’s `apply()` function can reduce boilerplate code while setting properties.
+    > You can use Kotlin's `apply()` function to reduce boilerplate code while setting properties.
     >
     {style="tip"}
 
