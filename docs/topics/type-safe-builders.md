@@ -243,7 +243,7 @@ html {
 ```
 
 You can also apply the `@DslMarker` annotation directly to [function types](lambdas.md#function-types).
-To do so, annotate a `@DslMarker` annotation with `@Target(AnnotationTarget.TYPE)`:
+Simply annotate the `@DslMarker` annotation with `@Target(AnnotationTarget.TYPE)`:
 
 ```kotlin
 @Target(AnnotationTarget.TYPE)
@@ -251,7 +251,7 @@ To do so, annotate a `@DslMarker` annotation with `@Target(AnnotationTarget.TYPE
 annotation class HtmlTagMarker
 ```
 
-This allows the `@DslMarker` annotation to be applied to function types, most commonly to lambdas with receivers. For example:
+As a result, the `@DslMarker` annotation can be applied to function types, most commonly to lambdas with receivers. For example:
 
 ```kotlin
 fun html(init: @HtmlTagMarker HTML.() -> Unit): HTML { ... }
@@ -273,7 +273,7 @@ html {
 }
 ```
 
-This ensures that only the nearest receiver’s members and extensions are accessible within a lambda, preventing unintended interactions between nested scopes.
+Only the nearest receiver's members and extensions are accessible within a lambda, preventing unintended interactions between nested scopes.
 
 ### Full definition of the com.example.html package
 
