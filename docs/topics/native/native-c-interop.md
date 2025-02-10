@@ -12,7 +12,7 @@
 This document covers general aspects of Kotlin's interoperability with C. Kotlin/Native comes with a cinterop tool,
 which you can use to quickly generate everything you need to interact with an external C library.
 
-The tool analyses C headers and produces a "natural" mapping of C types, functions, and constants into Kotlin.
+The tool analyzes C headers and produces a straightforward mapping of C types, functions, and constants into Kotlin.
 The generated stubs then can be imported into an IDE to enable code completion and navigation.
 
 > Kotlin also provides interoperability with Objective-C. Objective-C libraries are imported through the cinterop tool
@@ -22,7 +22,7 @@ The generated stubs then can be imported into an IDE to enable code completion a
 
 ## Setting up your project
 
-Here's a general workflow when working with a project that consumes a Clibrary:
+Here's a general workflow when working with a project that needs to consume a C library:
 
 1. Create and configure a [definition file](native-definition-file.md). It describes what the cinterop tool should
    include into Kotlin [bindings](#bindings).
@@ -51,15 +51,15 @@ All the supported C types have corresponding representations in Kotlin:
 * `typedef` are represented as `typealias`.
 
 Also, any C type has the Kotlin type representing the lvalue of this type, i.e., the value located in memory rather than
-a simple immutable self-contained value. Think C++ references, as a similar concept. For structs (and `typedef`s to
+a simple immutable self-contained value. Think C++ references as a similar concept. For structs (and `typedef`s to
 structs), this representation is the main one and has the same name as the struct itself. For Kotlin enums, it's named
 `${type}.Var`; for `CPointer<T>`, it's `CPointerVar<T>`; and for most other types, it's `${type}Var`.
 
-For types that have both representations, the one with a "lvalue" has a mutable `.value` property for accessing the value.
+For types that have both representations, the one with the lvalue has a mutable `.value` property for accessing the value.
 
 #### Pointer types
 
-The type argument `T` of `CPointer<T>` must be one of the "lvalue" types described above, for example, the C type
+The type argument `T` of `CPointer<T>` must be one of the lvalue types described above. For example, the C type
 `struct S*` is mapped to `CPointer<S>`, `int8_t*` is mapped to `CPointer<int_8tVar>`, and `char**` is mapped to
 `CPointer<CPointerVar<ByteVar>>`.
 
@@ -108,7 +108,7 @@ import kotlinx.cinterop.*
 val intPtr: CPointer<IntVar> = bytePtr.reinterpret()
 ```
 
-As is with C, these reinterpret casts are unsafe and can potentially lead to subtle memory problems in the application.
+As is with C, these `.reinterpret` casts are unsafe and can potentially lead to subtle memory problems in the application.
 
 Also, there are unsafe casts between `CPointer<T>?` and `Long` available, provided by the `.toLong()` and `.toCPointer<T>()`
 extension methods:
@@ -142,7 +142,7 @@ import kotlinx.cinterop.*
 val bytePtr = placement.allocArray<ByteVar>(5)
 ```
 
-The most "natural" placement is in the object `nativeHeap`. It corresponds to allocating native memory with `malloc` and
+The most logical placement is in the object `nativeHeap`. It corresponds to allocating native memory with `malloc` and
 provides an additional `.free()` operation to free allocated memory:
 
 ```kotlin
@@ -247,7 +247,7 @@ memScoped {
 
 ### Scope-local pointers
 
-It's possible to create a scope-stable pointer of C representation of `CValues<T>` instance using the `CValues<T>.ptr`
+It's possible to create a scope-stable pointer of C representation for the `CValues<T>` instance using the `CValues<T>.ptr`
 extension property, available under `memScoped {}`. It allows using APIs that require C pointers with a lifetime bound
 to a certain `MemScope`. For example:
 
@@ -268,21 +268,18 @@ Once the control flow leaves the `memScoped` scope, C pointers become invalid.
 
 ### Pass and receive structs by value
 
-When a C function takes or returns a struct / union `T` by value, the corresponding
-argument type or return type is represented as `CValue<T>`.
-
 When a C function takes or returns a struct/union `T` by value, the corresponding argument type or return type is
 represented as `CValue<T>`.
 
 `CValue<T>` is an opaque type, so the structure fields cannot be accessed with the appropriate Kotlin properties.
 This can be fine if an API uses structures as opaque handles. However, if field access is required, the following
-conversion methods available:
+conversion methods are available:
 
 * [`fun T.readValue(): CValue<T>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/read-value.html)
   converts (the lvalue) `T` to a `CValue<T>`. So to construct the `CValue<T>`,
   `T` can be allocated, filled, and then converted to `CValue<T>`.
 * [`CValue<T>.useContents(block: T.() -> R): R`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/use-contents.html)
-  temporarily places the `CValue<T>` to memory, and then runs the passed lambda with this placed value `T` as receiver.
+  temporarily stores the `CValue<T>` in memory, and then runs the passed lambda with this placed value `T` as receiver.
   So to read a single field, you can use the following code:
 
   ```kotlin
@@ -290,8 +287,7 @@ conversion methods available:
   ```
   
 * [`fun cValue(initialize: T.() -> Unit): CValue<T>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/c-value.html)
-  creates a `CValue<T>` by allocating `T` in memory, applying the
-  provided `initialize` function, and converting the result into a `CValue<T>`.
+  applies the provided `initialize` function to allocate `T` in memory and converts the result into a `CValue<T>`.
 * [`fun CValue<T>.copy(modify: T.() -> Unit): CValue<T>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/copy.html)
   creates a modified copy of an existing `CValue<T>`. The original value is placed in memory, altered using the `modify()`
   function, and then converted back into a new `CValue<T>`.
@@ -301,8 +297,8 @@ conversion methods available:
 
 ### Callbacks
 
-To convert a Kotlin function to a pointer to a C function, `staticCFunction(::kotlinFunction)` can be used. It's also
-possible lambda instead of a function reference. The function or lambda must not capture any values.
+To convert a Kotlin function to a pointer to a C function, you can use `staticCFunction(::kotlinFunction)`. It's also
+possible to provide a lambda instead of a function reference. The function or lambda must not capture any values.
 
 #### Pass user data to callbacks
 
@@ -346,7 +342,7 @@ After that it becomes invalid, so `voidPtr` can't be unwrapped anymore.
 
 Every C macro that expands to a constant is represented as a Kotlin property.
 
-Macros without parameters are supported in case the compiler can infer the type:
+Macros without parameters are supported in cases when the compiler can infer the type:
 
 ```c
 int foo(int);
@@ -439,7 +435,7 @@ There's a couple of approaches you can take:
     
   @OptIn(ExperimentalForeignApi::class)
   fun readData(fd: Int) { 
-  val buffer = ByteArray(1024)
+      val buffer = ByteArray(1024)
       while (true) {
           val length = recv(fd, buffer.refTo(0), buffer.size.convert(), 0).toInt()
 
@@ -451,8 +447,8 @@ There's a couple of approaches you can take:
   }
   ```
 
-  Here, `buffer.refTo(0)` has the `CValuesRef` type that pins the array before entering the function, passes the address
-  of its zeroth element to the function, and unpins the array after exiting.
+  Here, `buffer.refTo(0)` has the `CValuesRef` type that pins the array before entering the `recv()` function,
+  passes the address of its zeroth element to the function, and unpins the array after exiting.
 
 ### Forward declarations
 
