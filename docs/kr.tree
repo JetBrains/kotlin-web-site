@@ -424,6 +424,7 @@
 		</toc-element>
 		<toc-element toc-title="Google Summer of Code">
 			<toc-element toc-title="Overview" topic="gsoc-overview.md"/>
+			<toc-element toc-title="GSoC 2025" topic="gsoc-2025.md"/>
 			<toc-element toc-title="GSoC 2024" topic="gsoc-2024.md"/>
 			<toc-element toc-title="GSoC 2023" topic="gsoc-2023.md"/>
 		</toc-element>
