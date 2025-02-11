@@ -6,12 +6,12 @@ you're applying the plugin to.
 
 There are two kinds of options you can specify:
 
-* General compiler settings which are likely to be disabled or enabled as needed in any given project.
+* General compiler settings, which can be disabled or enabled as needed in any given project.
 * Feature flags that enable or disable new and experimental features, which should eventually become part of the baseline.
 
 You can find the [list of available general settings](https://kotlinlang.org/api/kotlin-gradle-plugin/compose-compiler-gradle-plugin/org.jetbrains.kotlin.compose.compiler.gradle/-compose-compiler-gradle-plugin-extension/)
 and the [list of supported feature flags](https://kotlinlang.org/api/kotlin-gradle-plugin/compose-compiler-gradle-plugin/org.jetbrains.kotlin.compose.compiler.gradle/-compose-feature-flag/-companion/)
-in the Compose Compiler Gradle Plugin API reference.
+in the Compose compiler Gradle plugin API reference.
 
 Here's an example configuration:
 
@@ -27,7 +27,7 @@ composeCompiler {
 ```
 
 > The Gradle plugin provides defaults for several Compose compiler options that were only specified manually before Kotlin 2.0.
-> If you have any of them set up with `freeCompilerArgs`, for example, Gradle will report a duplicate options error.
+> If you have any of them set up with `freeCompilerArgs`, for example, Gradle reports a duplicate options error.
 >
 {style="warning"}
 
@@ -55,4 +55,4 @@ If you are configuring the Compose compiler directly, use the following syntax t
 ```
 
 See the [list of supported feature flags](https://kotlinlang.org/api/kotlin-gradle-plugin/compose-compiler-gradle-plugin/org.jetbrains.kotlin.compose.compiler.gradle/-compose-feature-flag/-companion/)
-in the Compose Compiler Gradle Plugin API reference.
+in the Compose compiler Gradle plugin API reference.
