@@ -26,7 +26,7 @@ composeCompiler {
 }
 ```
 
-> The Gradle plugin provides defaults for several Compose compiler options that were only specified manually before.
+> The Gradle plugin provides defaults for several Compose compiler options that were only specified manually before Kotlin 2.0.
 > If you have any of them set up with `freeCompilerArgs`, for example, Gradle will report a duplicate options error.
 >
 {style="warning"}
