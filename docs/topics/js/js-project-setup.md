@@ -272,7 +272,7 @@ Once an npm dependency is installed, you can use its API in your code as describ
 
 ## run task
 
-The Kotlin Multiplatform Gradle plugin provides a `jsRun` task that lets you run pure Kotlin/JS projects without additional configuration.
+The Kotlin Multiplatform Gradle plugin provides a `jsBrowserDevelopmentRun` task that lets you run pure Kotlin/JS projects without additional configuration.
 
 For running Kotlin/JS projects in the browser, this task is an alias for the `browserDevelopmentRun` task (which is also
 available in Kotlin multiplatform projects). It uses the [webpack-dev-server](https://webpack.js.org/configuration/dev-server/)
@@ -280,25 +280,25 @@ to serve your JavaScript artifacts.
 If you want to customize the configuration used by `webpack-dev-server`, for example, adjust the port the server runs on,
 use the [webpack configuration file](#webpack-bundling).
 
-For running Kotlin/JS projects targeting Node.js, use the `jsRun` task that is an alias for the `nodeRun` task.
+For running Kotlin/JS projects targeting Node.js, use the `jsBrowserDevelopmentRun` task that is an alias for the `nodeRun` task.
 
-To run a project, execute the standard lifecycle `jsRun` task, or the alias to which it corresponds:
+To run a project, execute the standard lifecycle `jsBrowserDevelopmentRun` task, or the alias to which it corresponds:
 
 ```bash
-./gradlew jsRun
+./gradlew jsBrowserDevelopmentRun
 ```
 
 To automatically trigger a re-build of your application after making changes to the source files, use the Gradle
 [continuous build](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:continuous_build) feature:
 
 ```bash
-./gradlew jsRun --continuous
+./gradlewjsBrowserDevelopmentRun --continuous
 ```
 
 or 
 
 ```bash
-./gradlew jsRun -t
+./gradlew jsBrowserDevelopmentRun -t
 ```
 
 Once the build of your project has succeeded, the `webpack-dev-server` will automatically refresh the browser page.
