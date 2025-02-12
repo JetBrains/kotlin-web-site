@@ -4,8 +4,7 @@ To provide access to native services of operating systems, Kotlin/Native distrib
 libraries specific to each target. These are called _platform libraries_.
 
 The packages from platform libraries are available by default. You don't need to specify additional link options to use
-them. The Kotlin/Native compiler automatically detects which platform libraries are accessed and automatically links
-the necessary ones.
+them. The Kotlin/Native compiler automatically detects which platform libraries are accessed and links the necessary ones.
 
 However, platform libraries in the compiler distribution are merely wrappers and bindings to the native libraries. That
 means you need to install native libraries themselves (`.so`, `.a`, `.dylib`, `.dll`, and so on) on your local machine.
@@ -40,7 +39,7 @@ The POSIX platform library is not available for the [WebAssembly](wasm-overview.
 ## Popular native libraries
 
 Kotlin/Native provides bindings for various popular native libraries that are commonly used on different platforms,
-such as, OpenGL, zlib, and Foundation.
+such as OpenGL, zlib, and Foundation.
 
 On Apple platforms, the `objc` library is included to enable [interoperability with Objective-C](native-objc-interop.md)
 APIs.
@@ -78,7 +77,7 @@ You can explore the native libraries available for Kotlin/Native targets in your
   3. Navigate to the `klib/platform` directory.
   4. Choose the folder with the corresponding target.
 
-> If you'd like to explore the definition file for each supported platform library, in the compiler distribution folder,
+> If you'd like to explore the definition file for each supported platform library: in the compiler distribution folder,
 > navigate to the `konan/platformDef` directory and choose the necessary target.
 > 
 {style="tip"}
