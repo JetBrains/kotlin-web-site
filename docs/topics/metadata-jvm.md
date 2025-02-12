@@ -10,7 +10,7 @@ and classes at runtime.
 > 
 {style="warning"}
 
-You can also use the Kotlin Metadata JVM library to inspect attributes for binary compatibility validation or to generate and embed metadata into `.class` files.
+You can also use the Kotlin Metadata JVM library to inspect various declaration attributes such as visibility or modality, or to generate and embed metadata into `.class` files.
 
 ## Add the library to your project
 
@@ -374,7 +374,7 @@ fun main() {
         }
     }
 
-    // Serializes metadata into KotlinClassMetadata, specifying the version and flags
+    // Serializes a KotlinClassMetadata.Class instance, including the version and flags, into a @kotlin.Metadata annotation
     val annotationData = KotlinClassMetadata.Class(
         klass, JvmMetadataVersion.LATEST_STABLE_SUPPORTED, 0
     ).write()
@@ -382,6 +382,7 @@ fun main() {
     // Generates a .class file with ASM
     val classBytes = ClassWriter(0).apply {
         visit(Opcodes.V1_6, Opcodes.ACC_PUBLIC, "Hello", null, "java/lang/Object", null)
+        // Writes @kotlin.Metadata instance to the .class file
         visitAnnotation("Lkotlin/Metadata;", true).apply {
             visit("mv", annotationData.metadataVersion)
             visit("k", annotationData.kind)
