@@ -341,7 +341,7 @@ Include the native bitcode library.
 
 ### -no-default-libs
 
-Disable linking user code with the [default platform libraries](native-platform-libs.md) distributed with the compiler.
+Disable linking user code with the prebuilt [platform libraries](native-platform-libs.md) distributed with the compiler.
 
 ### -nomain
 
