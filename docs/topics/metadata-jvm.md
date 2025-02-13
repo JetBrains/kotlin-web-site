@@ -107,7 +107,7 @@ These functions allow you to extract detailed information about classes or files
     > The `readStrict()` function supports metadata formats up to one version beyond [`JvmMetadataVersion.LATEST_STABLE_SUPPORTED`](https://kotlinlang.org/api/kotlinx-metadata-jvm/kotlin-metadata-jvm/kotlin.metadata.jvm/-jvm-metadata-version/-companion/-l-a-t-e-s-t_-s-t-a-b-l-e_-s-u-p-p-o-r-t-e-d.html), which corresponds to the latest Kotlin version used in the project.
     > For example, if your project depends on `kotlin-metadata-jvm:2.1.0`, `readStrict()` can process metadata up to Kotlin `2.2.x`; otherwise, it throws an error to prevent mishandling unknown formats.
     > 
-    > For more information, see the [Kotlin MetaData GitHub repository](https://github.com/JetBrains/kotlin/blob/master/libraries/kotlinx-metadata/jvm/ReadMe.md#detailed-explanation). 
+    > For more information, see the [Kotlin Metadata GitHub repository](https://github.com/JetBrains/kotlin/blob/master/libraries/kotlinx-metadata/jvm/ReadMe.md#detailed-explanation). 
     >
     {style="note"}
 
@@ -310,8 +310,11 @@ fun main() {
                 kmClass.functions.removeIf { it.visibility == Visibility.PRIVATE }
                 println("Removed private functions. Remaining functions: ${kmClass.functions.map { it.name }}")
 
-                // Writes the modified metadata back
+                // Serializes the modified metadata back
                 val newMetadata = metadata.write()
+                // After modifying the metadata, you need to write it into the class file
+                // To do so, you can use a bytecode manipulation framework such as ASM
+                
                 println("Modified metadata: ${newMetadata}")
             } else {
                 println("The metadata is not a class.")
