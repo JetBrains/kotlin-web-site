@@ -24,6 +24,10 @@ IntelliJ IDEA and Android Studio support Kotlin [scratch files and worksheets](h
   To create a Kotlin worksheet in a project directory, right-click the directory in the project tree and select
   **New** | **Kotlin Class/File** | **Kotlin Worksheet**.
 
+    > Kotlin worksheets aren't supported in [K2 mode](https://blog.jetbrains.com/idea/2024/11/k2-mode-becomes-stable/). We're working on providing an alternative with similar functionality.
+    >
+    {style="warning"}
+
 Syntax highlighting, auto-completion, and other
 IntelliJ IDEA code editing features are supported in scratches and worksheets. There's no need to declare the `main()` function 
 – all the code you write is executed as if it were in the body of `main()`.

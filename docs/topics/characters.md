@@ -36,7 +36,7 @@ fun main() {
 
 If a value of character variable is a digit, you can explicitly convert it to an `Int` number using the [`digitToInt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/digit-to-int.html) function.
 
-> On the JVM, characters are boxed in Java classes when a nullable reference is needed, just like with [numbers](numbers.md#numbers-representation-on-the-jvm).
+> On the JVM, characters are boxed in Java classes when a nullable reference is needed, just like with [numbers](numbers.md#boxing-and-caching-numbers-on-the-java-virtual-machine).
 > Identity is not preserved by the boxing operation.
 >
 {style="note"}

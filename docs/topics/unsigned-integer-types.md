@@ -45,26 +45,26 @@ arrays are not a stable feature, so an API that uses them can be broken by chang
 
 ## Unsigned integers literals
 
-To make unsigned integers easier to use, Kotlin provides an ability to tag an integer literal with a suffix
-indicating a specific unsigned type (similarly to `Float` or `Long`):
+To make unsigned integers easier to use, you can append a suffix to an integer literal  
+indicating a specific unsigned type (similarly to `F` for `Float` or `L` for `Long`):
 
-* `u` and `U` tag is for unsigned literals. The exact type is determined based on the expected type.
-  If no expected type is provided, compiler will use `UInt` or `ULong` depending on the size of literal:
+* `u` and `U` letters signify unsigned literals without specifying the exact type.
+    If no expected type is provided, the compiler uses `UInt` or `ULong` depending on the size of the literal:
 
-  ```kotlin
-  val b: UByte = 1u  // UByte, expected type provided
-  val s: UShort = 1u // UShort, expected type provided
-  val l: ULong = 1u  // ULong, expected type provided
+    ```kotlin
+    val b: UByte = 1u  // UByte, expected type provided
+    val s: UShort = 1u // UShort, expected type provided
+    val l: ULong = 1u  // ULong, expected type provided
   
-  val a1 = 42u // UInt: no expected type provided, constant fits in UInt
-  val a2 = 0xFFFF_FFFF_FFFFu // ULong: no expected type provided, constant doesn't fit in UInt
-  ```
+    val a1 = 42u // UInt: no expected type provided, constant fits in UInt
+    val a2 = 0xFFFF_FFFF_FFFFu // ULong: no expected type provided, constant doesn't fit in UInt
+    ```
 
-* `uL` and `UL` explicitly tag literal as unsigned long:
+* `uL` and `UL` explicitly specify that literal should be an unsigned long:
 
-  ```kotlin
-  val a = 1UL // ULong, even though no expected type provided and constant fits into UInt
-  ```
+    ```kotlin
+    val a = 1UL // ULong, even though no expected type provided and the constant fits into UInt
+    ```
 
 ## Use cases
 
