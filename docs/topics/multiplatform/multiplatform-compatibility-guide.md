@@ -49,7 +49,7 @@ these Java source sets are created by default.
 
 **What's the best practice now?**
 
-Previously, you had to explicitly use the `withJava()` to create `src/jvmMain/java` and `src/jvmTest/java` source sets:
+Previously, you had to explicitly use the `withJava()` function to create `src/jvmMain/java` and `src/jvmTest/java` source sets:
 
 ```kotlin
 kotlin {
@@ -63,7 +63,7 @@ From Kotlin %kotlinEapVersion%, you can remove the `withJava()` function from yo
 
 In addition, Gradle now only runs Java compile tasks if Java sources are present, triggering a JVM validation 
 diagnostic that previously didn't run before. This diagnostic fails if you explicitly configure an incompatible JVM target
-for `KotlinJVMCompile` tasks or inside `compilerOptions`. For guidance on ensuring JVM target compatibility, see 
+for `KotlinJvmCompile` tasks or inside `compilerOptions`. For guidance on ensuring JVM target compatibility, see 
 [Check for JVM target compatibility of related compile tasks](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks).
 
 If your project uses Gradle versions higher than 8.7 and doesn't rely on Gradle Java plugins, like [Java](https://docs.gradle.org/current/userguide/java_plugin.html),
@@ -683,7 +683,7 @@ Here's the planned deprecation cycle:
 
 * 1.3.40: introduce a warning when `targetPresets.jvmWithJava` is used
 * 1.9.20: raise this warning to an error
-* &gt;1.9.20: remove `targetPresets.jvmWithJava` API; attempts to use it lead to the buildscript compilation failure
+* >1.9.20: remove `targetPresets.jvmWithJava` API; attempts to use it lead to the buildscript compilation failure
 
 > Even though the whole `targetPresets` API is deprecated, the `jvmWithJava` preset has a different deprecation timeline.
 >
