@@ -292,7 +292,7 @@ To automatically trigger a re-build of your application after making changes to 
 [continuous build](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:continuous_build) feature:
 
 ```bash
-./gradlewjsBrowserDevelopmentRun --continuous
+./gradlew jsBrowserDevelopmentRun --continuous
 ```
 
 or 
