@@ -1,6 +1,6 @@
 [//]: # (title: Platform libraries)
 
-To provide access to native services of operating systems, Kotlin/Native distribution includes a set of prebuilt
+To provide access to native services of operating systems, the Kotlin/Native distribution includes a set of prebuilt
 libraries specific to each target. These are called _platform libraries_.
 
 The packages from platform libraries are available by default. You don't need to specify additional link options to use
@@ -12,7 +12,7 @@ means you need to install native libraries themselves (`.so`, `.a`, `.dylib`, `.
 ## POSIX bindings
 
 Kotlin provides the POSIX platform library for all UNIX- and Windows-based targets, including Android and iOS.
-These platform libraries contain bindings to the platform's implementation in the [POSIX standard](https://en.wikipedia.org/wiki/POSIX).
+These platform libraries contain bindings to the platform's implementation, which follows the [POSIX standard](https://en.wikipedia.org/wiki/POSIX).
 
 To use the library, import it into your project:
 
@@ -44,7 +44,8 @@ such as OpenGL, zlib, and Foundation.
 On Apple platforms, the `objc` library is included to enable [interoperability with Objective-C](native-objc-interop.md)
 APIs.
 
-You can explore the native libraries available for Kotlin/Native targets in your compiler distribution:
+You can explore the native libraries available for Kotlin/Native targets in your compiler distribution,
+depending on your setup:
 
 * If you [installed a standalone Kotlin/Native compiler](native-get-started.md#download-and-install-the-compiler):
 
