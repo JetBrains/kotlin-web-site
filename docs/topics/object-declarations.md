@@ -322,7 +322,7 @@ fun main() {
 {kotlin-runnable="true" id="object-expression-companion-object-names"}
 
 Although members of companion objects in Kotlin look like static members from other languages,
-they are actually instance members of the companion object, meaning they belong to the object itself.
+the members do not directly belong to the class, but rather, they belong to the object itself.
 This allows companion objects to implement interfaces:
 
 ```kotlin
@@ -372,7 +372,7 @@ fun main() {
         val hello = "Hello"
         val world = "World"
         // Object expressions extend the Any class, which already has a toString() function,
-        // so it must be overridden
+        // so this still needs the `override` keyword.
         override fun toString() = "$hello $world"
     }
 
