@@ -47,7 +47,7 @@ static or dynamic [C libraries](native-c-interop.md),
 Swift/Objective-C [frameworks](native-objc-interop.md),
 graphical engines, and anything else directly from Kotlin/Native.
 
-Kotlin/Native [libraries](native-platform-libs.md) help share Kotlin
+Kotlin/Native [platform libraries](native-platform-libs.md) help share Kotlin
 code between projects.
 POSIX, gzip, OpenGL, Metal, Foundation, and many other popular libraries and Apple frameworks
 are pre-imported and included as Kotlin/Native libraries in the compiler package.

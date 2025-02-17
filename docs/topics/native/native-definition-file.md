@@ -258,7 +258,7 @@ Note that the generated bindings are generally platform-specific, so if you are 
 the bindings need to be regenerated.
 
 * For host libraries that are not included in the sysroot search paths, headers may be needed.
-* For a typical Unix library with a configuration script, the `compilerOpts` will likely contain the output of a
+* For a typical UNIX library with a configuration script, the `compilerOpts` will likely contain the output of a
   configuration script with the `--cflags` option (maybe without exact paths).
 * The output of a configuration script with `--libs` can be passed to the `linkerOpts` property.
 
