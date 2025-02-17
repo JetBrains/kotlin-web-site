@@ -37,7 +37,7 @@ When configuring your project, check the compatibility of a particular version o
 
 This section covers incompatible changes that end their deprecation cycle and come into effect in Kotlin 2.0.0−%kotlinVersion%.
 
-<anchor name="java-source-sets-created-by-default"/>
+<anchor name="java-source-set-created-by-default"/>
 ### Java source sets created by default
 <primary-label ref="eap"/>
 
@@ -83,7 +83,7 @@ If you run into any issues, report them in our [issue tracker](https://kotl.in/i
 
 Here's the planned deprecation cycle:
 
-* Gradle &gt; 8.6: introduce a deprecation warning for any previous version of Kotlin in multiplatform projects using the `withJava()` function.
+* Gradle >8.6: introduce a deprecation warning for any previous version of Kotlin in multiplatform projects using the `withJava()` function.
 * Gradle 9.0: raise this warning to an error.
 * %kotlinEapVersion%: introduce a deprecation warning when using the `withJava()` function with any version of Gradle.
 
@@ -814,6 +814,7 @@ declarations. Also, it's now only possible to import forward declarations by usi
 
 This section covers incompatible changes that end their deprecation cycle and come into effect in Kotlin 1.7.0−1.8.22.
 
+<anchor name="deprecated-compatibility-with-kmp-gradle-plugin-and-gradle-java-plugins"/>
 ### Deprecated compatibility with Kotlin Multiplatform Gradle plugin and Gradle Java plugins {initial-collapse-state="collapsed" collapsible="true"}
 
 **What's changed?**
@@ -844,7 +845,6 @@ While we don't yet know exactly how to resolve this compatibility problem, we ar
 some form of Java source compilation in your Kotlin Multiplatform projects. At a minimum, we will support the compilation
 of Java sources and using Gradle's [`java-base`](https://docs.gradle.org/current/javadoc/org/gradle/api/plugins/JavaBasePlugin.html) plugin within your multiplatform projects.
 
-<anchor name="deprecated-compatibility-with-kotlin-multiplatform-gradle-plugin-and-gradle-java-plugins"/>
 **What's the best practice now?**
 
 If you see this deprecation warning in your multiplatform project, we recommend that you:
