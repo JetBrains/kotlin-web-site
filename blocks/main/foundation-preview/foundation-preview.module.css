@@ -43,6 +43,7 @@
 .companies {
     display: flex;
     gap: 16px;
+    align-items: center;
 }
 
 @media (--ktl-tl) {
@@ -91,7 +92,6 @@
 
     .companies {
         flex-wrap: wrap;
-        align-items: center;
         gap: 8px;
         max-width: 684px;
     }
