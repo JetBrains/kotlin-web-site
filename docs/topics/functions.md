@@ -3,9 +3,19 @@
 Kotlin functions are declared using the `fun` keyword:
 
 ```kotlin
-fun double(x: Int): Int {
-    return 2 * x
+//sampleStart
+// Doubles the given number
+fun double(number: Int): Int {
+    return 2 * number
 }
+
+fun main() {
+    val input = 5
+    val result = double(input)
+    println(result)
+    // Prints: 10
+}
+//sampleEnd
 ```
 
 ## Function usage
@@ -13,13 +23,39 @@ fun double(x: Int): Int {
 Functions are called using the standard approach:
 
 ```kotlin
-val result = double(2)
+//sampleStart
+fun main() {
+    // Calls the double function with different arguments
+    val result1 = double(2)
+    val result2 = double(10)
+
+    println(result1)
+    // Prints: 4
+    println(result2)
+    // Prints: 20
+}
+//sampleEnd
 ```
 
 Calling member functions uses dot notation:
 
 ```kotlin
-Stream().read() // create instance of class Stream and call read()
+//sampleStart
+class TextReader {
+    // Reads text from a source and returns it as a string
+    fun readText(): String {
+        return "Sample text"
+    }
+}
+
+fun main() {
+    // Creates an instance of TextReader and calls readText()
+    val reader = TextReader()
+    val text = reader.readText()
+    println(text)
+    // Prints: Sample text
+}
+//sampleEnd
 ```
 
 ### Parameters
@@ -172,7 +208,23 @@ fun printHello(name: String?): Unit {
 The `Unit` return type declaration is also optional. The above code is equivalent to:
 
 ```kotlin
-fun printHello(name: String?) { ... }
+//sampleStart
+// Prints a greeting message based on the provided name
+fun printHello(name: String?) {
+    if (name != null)
+        println("Hello $name")
+    else
+        println("Hi there!")
+}
+
+fun main() {
+    printHello("Alice")
+    // Prints: Hello Alice
+
+    printHello(null)
+    // Prints: Hi there!
+}
+//sampleEnd
 ```
 
 ### Single-expression functions
@@ -202,12 +254,28 @@ in the body, and the return type will be non-obvious to the reader (and sometime
 You can mark a parameter of a function (usually the last one) with the `vararg` modifier:
 
 ```kotlin
-fun <T> asList(vararg ts: T): List<T> {
-    val result = ArrayList<T>()
-    for (t in ts) // ts is an Array
-        result.add(t)
-    return result
+//sampleStart
+// Creates a list from a variable number of elements
+fun <T> createList(vararg elements: T): List<T> {
+    val resultList = ArrayList<T>()
+    // Iterates through the elements array and adds each to the list
+    for (element in elements) {
+        resultList.add(element)
+    }
+    return resultList
 }
+
+fun main() {
+    // Creates lists with different numbers of elements
+    val numbers = createList(1, 2, 3, 4, 5)
+    println(numbers)
+    // Prints: [1, 2, 3, 4, 5]
+
+    val fruits = createList("apple", "banana", "orange")
+    println(fruits)
+    // Prints: [apple, banana, orange]
+}
+//sampleEnd
 ```
 
 In this case, you can pass a variable number of arguments to the function:
@@ -227,16 +295,23 @@ When you call a `vararg`-function, you can pass arguments individually, for exam
 an array and want to pass its contents to the function, use the *spread* operator (prefix the array with `*`):
 
 ```kotlin
-val a = arrayOf(1, 2, 3)
-val list = asList(-1, 0, *a, 4)
-```
+//sampleStart
+fun main() {
+    // Creates a regular array of strings
+    val colors = arrayOf("red", "green", "blue")
+    // Creates a list with additional elements before and after the array
+    val colorList = createList("purple", "yellow", *colors, "orange")
+    println(colorList)
+    // Prints: [purple, yellow, red, green, blue, orange]
 
-If you want to pass a [primitive type array](arrays.md#primitive-type-arrays)
-into `vararg`, you need to convert it to a regular (typed) array using the `toTypedArray()` function:
-
-```kotlin
-val a = intArrayOf(1, 2, 3) // IntArray is a primitive type array
-val list = asList(-1, 0, *a.toTypedArray(), 4)
+    // Creates a primitive type array of integers
+    val numbers = intArrayOf(1, 2, 3)
+    // Converts primitive array to regular array and creates a list
+    val numberList = createList(0, *numbers.toTypedArray(), 4, 5)
+    println(numberList)
+    // Prints: [0, 1, 2, 3, 4, 5]
+}
+//sampleEnd
 ```
 
 ### Infix notation
@@ -250,13 +325,29 @@ for the call). Infix functions must meet the following requirements:
 no [default value](#default-arguments).
 
 ```kotlin
-infix fun Int.shl(x: Int): Int { ... }
+//sampleStart
+// Defines an infix function that performs string concatenation with a separator
+class StringWrapper(val value: String) {
+    // Joins two strings with the given separator
+    infix fun joinWith(other: String): String {
+        return "$value - $other"
+    }
+}
 
-// calling the function using the infix notation
-1 shl 2
+fun main() {
+    val greeting = StringWrapper("Hello")
 
-// is the same as
-1.shl(2)
+    // Using infix notation
+    val result1 = greeting joinWith "World"
+    println(result1)
+    // Prints: Hello - World
+
+    // Using regular method call notation
+    val result2 = greeting.joinWith("Kotlin")
+    println(result2)
+    // Prints: Hello - Kotlin
+}
+//sampleEnd
 ```
 
 > Infix function calls have lower precedence than arithmetic operators, type casts, and the `rangeTo` operator.
@@ -279,7 +370,7 @@ unambiguous parsing.
 ```kotlin
 class MyStringCollection {
     infix fun add(s: String) { /*...*/ }
-    
+
     fun build() {
         this add "abc"   // Correct
         add("abc")       // Correct
@@ -299,30 +390,48 @@ to top level functions, Kotlin functions can also be declared locally as member 
 Kotlin supports local functions, which are functions inside other functions:
 
 ```kotlin
-fun dfs(graph: Graph) {
-    fun dfs(current: Vertex, visited: MutableSet<Vertex>) {
-        if (!visited.add(current)) return
-        for (v in current.neighbors)
-            dfs(v, visited)
+//sampleStart
+// Calculates the total price with tax and optional discount
+fun calculateOrder(items: List<Double>, taxRate: Double) {
+    // Local function to calculate price with tax
+    fun addTax(price: Double): Double {
+        return price * (1 + taxRate)
     }
 
-    dfs(graph.vertices[0], HashSet())
-}
-```
-
-A local function can access local variables of outer functions (the closure). In the case above, `visited` can be a local variable:
-
-```kotlin
-fun dfs(graph: Graph) {
-    val visited = HashSet<Vertex>()
-    fun dfs(current: Vertex) {
-        if (!visited.add(current)) return
-        for (v in current.neighbors)
-            dfs(v)
+    // Local function to apply discount if total is over threshold
+    fun applyDiscount(total: Double): Double {
+        val discountThreshold = 100.0
+        val discountRate = 0.1
+        return if (total > discountThreshold) {
+            total * (1 - discountRate)
+        } else {
+            total
+        }
     }
 
-    dfs(graph.vertices[0])
+    // Calculate total with tax for all items
+    var total = 0.0
+    for (item in items) {
+        total += addTax(item)
+    }
+
+    // Apply discount to final total
+    val finalTotal = applyDiscount(total)
+
+    println("Subtotal: $${String.format("%.2f", items.sum())}")
+    println("Total with tax: $${String.format("%.2f", total)}")
+    println("Final total with discount: $${String.format("%.2f", finalTotal)}")
 }
+
+fun main() {
+    val items = listOf(50.0, 40.0, 20.0)
+    calculateOrder(items, 0.08)
+    // Prints:
+    // Subtotal: $110.00
+    // Total with tax: $118.80
+    // Final total with discount: $106.92
+}
+//sampleEnd
 ```
 
 ### Member functions
@@ -361,27 +470,66 @@ When a function is marked with the `tailrec` modifier and meets the required for
 the recursion, leaving behind a fast and efficient loop based version instead:
 
 ```kotlin
-val eps = 1E-10 // "good enough", could be 10^-15
+//sampleStart
+// Calculates factorial using tail recursion
+tailrec fun factorial(n: Long, accumulator: Long = 1): Long =
+    when {
+        n <= 1 -> accumulator
+        else -> factorial(n - 1, n * accumulator)
+    }
 
-tailrec fun findFixPoint(x: Double = 1.0): Double =
-    if (Math.abs(x - Math.cos(x)) < eps) x else findFixPoint(Math.cos(x))
+// Calculates sum of numbers in a range using tail recursion
+tailrec fun sumRange(start: Long, end: Long, accumulator: Long = 0): Long =
+    when {
+        start > end -> accumulator
+        else -> sumRange(start + 1, end, accumulator + start)
+    }
+
+fun main() {
+    // Calculate factorial of 5
+    val fact5 = factorial(5)
+    println("Factorial of 5 is: $fact5")
+    // Prints: Factorial of 5 is: 120
+
+    // Calculate sum of numbers from 1 to 100
+    val sum = sumRange(1, 100)
+    println("Sum of numbers from 1 to 100 is: $sum")
+    // Prints: Sum of numbers from 1 to 100 is: 5050
+}
+//sampleEnd
 ```
 
-This code calculates the `fixpoint` of cosine, which is a mathematical constant. It simply calls `Math.cos` repeatedly
-starting at `1.0` until the result no longer changes, yielding a result of `0.7390851332151611` for the specified
-`eps` precision. The resulting code is equivalent to this more traditional style:
+This code demonstrates two practical uses of tail recursion:
+1. Calculating factorial without stack overflow for large numbers
+2. Summing a range of numbers efficiently
+
+The traditional loop-based equivalent would look like this:
 
 ```kotlin
-val eps = 1E-10 // "good enough", could be 10^-15
-
-private fun findFixPoint(): Double {
-    var x = 1.0
-    while (true) {
-        val y = Math.cos(x)
-        if (Math.abs(x - y) < eps) return x
-        x = Math.cos(x)
+//sampleStart
+// Traditional loop-based factorial calculation
+fun factorialLoop(n: Long): Long {
+    var result = 1L
+    for (i in 1..n) {
+        result *= i
     }
+    return result
 }
+
+// Traditional loop-based range sum calculation
+fun sumRangeLoop(start: Long, end: Long): Long {
+    var sum = 0L
+    for (i in start..end) {
+        sum += i
+    }
+    return sum
+}
+
+fun main() {
+    println("Factorial of 5 is: ${factorialLoop(5)}")
+    println("Sum of 1..100 is: ${sumRangeLoop(1, 100)}")
+}
+//sampleEnd
 ```
 
 To be eligible for the `tailrec` modifier, a function must call itself as the last operation it performs. You cannot use
@@ -392,4 +540,3 @@ Currently, tail recursion is supported by Kotlin for the JVM and Kotlin/Native.
 * [Inline functions](inline-functions.md)
 * [Extension functions](extensions.md)
 * [Higher-order functions and lambdas](lambdas.md)
-
