@@ -37,6 +37,56 @@ When configuring your project, check the compatibility of a particular version o
 
 This section covers incompatible changes that end their deprecation cycle and come into effect in Kotlin 2.0.0−%kotlinVersion%.
 
+<anchor name="java-source-set-created-by-default"/>
+### Java source sets created by default
+<primary-label ref="eap"/>
+
+**What's changed?**
+
+To align Kotlin Multiplatform with upcoming changes in Gradle, we are phasing out the `withJava()` function. The `withJava()`
+function enabled integration with Gradle's Java plugins by creating the necessary Java source sets. From Kotlin %kotlinEapVersion%,
+these Java source sets are created by default.
+
+**What's the best practice now?**
+
+Previously, you had to explicitly use the `withJava()` function to create `src/jvmMain/java` and `src/jvmTest/java` source sets:
+
+```kotlin
+kotlin {
+    jvm {
+        withJava()
+    }
+}
+``` 
+
+From Kotlin %kotlinEapVersion%, you can remove the `withJava()` function from your build script.
+
+In addition, Gradle now only runs Java compile tasks if Java sources are present, triggering a JVM validation 
+diagnostic that previously didn't run before. This diagnostic fails if you explicitly configure an incompatible JVM target
+for `KotlinJvmCompile` tasks or inside `compilerOptions`. For guidance on ensuring JVM target compatibility, see 
+[Check for JVM target compatibility of related compile tasks](gradle-configure-project.md#check-for-jvm-target-compatibility-of-related-compile-tasks).
+
+If your project uses Gradle versions higher than 8.7 and doesn't rely on Gradle Java plugins, like [Java](https://docs.gradle.org/current/userguide/java_plugin.html),
+[Java Library](https://docs.gradle.org/current/userguide/java_library_plugin.html), or [Application](https://docs.gradle.org/current/userguide/application_plugin.html),
+or a third party Gradle plugin that has a dependency on a Gradle Java plugin, you can remove the `withJava()` function.
+
+If your project uses the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) Gradle Java plugin,
+we recommend migrating to the [new Experimental DSL](whatsnew-eap.md#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin).
+Starting with Gradle 8.7, the Application plugin will no longer work with the Kotlin Multiplatform Gradle plugin.
+
+If you want to use both the Kotlin Multiplatform Gradle plugin and other Gradle plugins for
+Java in your multiplatform project, see [Deprecated compatibility with Kotlin Multiplatform Gradle plugin and Java plugins](multiplatform-compatibility-guide.md#deprecated-compatibility-with-kotlin-multiplatform-gradle-plugin-and-gradle-java-plugins).
+
+If you run into any issues, report them in our [issue tracker](https://kotl.in/issue) or ask for help in our [public Slack channel](https://kotlinlang.slack.com/archives/C19FD9681).
+
+**When do the changes take effect?**
+
+Here's the planned deprecation cycle:
+
+* Gradle >8.6: introduce a deprecation warning for any previous version of Kotlin in multiplatform projects using the `withJava()` function.
+* Gradle 9.0: raise this warning to an error.
+* %kotlinEapVersion%: introduce a deprecation warning when using the `withJava()` function with any version of Gradle.
+
 <anchor name="android-target-rename"/>
 ### Rename of `android` target to `androidTarget`
 
@@ -633,7 +683,7 @@ Here's the planned deprecation cycle:
 
 * 1.3.40: introduce a warning when `targetPresets.jvmWithJava` is used
 * 1.9.20: raise this warning to an error
-* &gt;1.9.20: remove `targetPresets.jvmWithJava` API; attempts to use it lead to the buildscript compilation failure
+* >1.9.20: remove `targetPresets.jvmWithJava` API; attempts to use it lead to the buildscript compilation failure
 
 > Even though the whole `targetPresets` API is deprecated, the `jvmWithJava` preset has a different deprecation timeline.
 >
@@ -764,6 +814,7 @@ declarations. Also, it's now only possible to import forward declarations by usi
 
 This section covers incompatible changes that end their deprecation cycle and come into effect in Kotlin 1.7.0−1.8.22.
 
+<anchor name="deprecated-compatibility-with-kmp-gradle-plugin-and-gradle-java-plugins"/>
 ### Deprecated compatibility with Kotlin Multiplatform Gradle plugin and Gradle Java plugins {initial-collapse-state="collapsed" collapsible="true"}
 
 **What's changed?**
@@ -805,7 +856,7 @@ If you see this deprecation warning in your multiplatform project, we recommend 
 Otherwise, if you want to use both the Kotlin Multiplatform Gradle plugin and these Gradle plugins for Java in your multiplatform
 project, we recommend that you:
 
-1. Create a separate subproject in your multiplatform project.
+1. Create a separate subproject in your Gradle project.
 2. In the separate subproject, apply the Gradle plugin for Java.
 3. In the separate subproject, add a dependency on your parent multiplatform project.
 
@@ -814,7 +865,7 @@ project, we recommend that you:
 {style="warning"}
 
 For example, you have a multiplatform project called `my-main-project` and you want
-to use the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) Gradle plugin to run a JVM application.
+to use the [Java Library](https://docs.gradle.org/current/userguide/java_library_plugin.html) Gradle plugin.
 
 Once you've created a subproject, let's call it `subproject-A`, your parent project structure should look like this:
 
@@ -828,14 +879,14 @@ Once you've created a subproject, let's call it `subproject-A`, your parent proj
         └── Main.java
 ```
 
-In your subproject's `build.gradle.kts` file, apply the Application plugin in the `plugins {}` block:
+In your subproject's `build.gradle.kts` file, apply the Java Library plugin in the `plugins {}` block:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
-    id("application")
+    id("java-library")
 }
 ```
 
@@ -844,7 +895,7 @@ plugins {
 
 ```groovy
 plugins {
-    id('application')
+    id('java-library')
 }
 ```
 
