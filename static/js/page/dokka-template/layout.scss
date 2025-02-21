@@ -9,12 +9,6 @@
 
   /* / Fix global dokka styles */
 
-  #sideMenu {
-    @media (min-width: 760px) {
-      padding-left: 16px;
-    }
-  }
-
   @media (max-width: 759px) {
     #leftColumn.open ~ #ktl-main #searchBar {
       display: none;
