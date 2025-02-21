@@ -42,6 +42,7 @@ interface MyInterface {
 
     fun foo() {
         print(prop)
+        // Prints: [value of prop property]
     }
 }
 
@@ -64,7 +65,7 @@ interface Named {
 interface Person : Named {
     val firstName: String
     val lastName: String
-    
+
     override val name: String get() = "$firstName $lastName"
 }
 
@@ -83,16 +84,20 @@ When you declare many types in your supertype list, you may inherit more than on
 ```kotlin
 interface A {
     fun foo() { print("A") }
+    // Prints: A
     fun bar()
 }
 
 interface B {
     fun foo() { print("B") }
+    // Prints: B
     fun bar() { print("bar") }
+    // Prints: bar
 }
 
 class C : A {
     override fun bar() { print("bar") }
+    // Prints: bar
 }
 
 class D : A, B {
