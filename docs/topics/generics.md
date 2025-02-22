@@ -248,7 +248,7 @@ Sometimes you want to say that you know nothing about the type argument, but you
 The safe way here is to define such a projection of the generic type, that every concrete instantiation of that generic
 type will be a subtype of that projection.
 
-Kotlin provides so-called _star-projection_ syntax for this:
+Kotlin provides so-called _star-projection_ syntax at use site for this:
 
 - For `Foo<out T : TUpper>`, where `T` is a covariant type parameter with the upper bound `TUpper`, `Foo<*>` is
   equivalent to `Foo<out TUpper>`. This means that when the `T` is unknown you can safely _read_ values of `TUpper` from `Foo<*>`.
