@@ -5,7 +5,7 @@ _[Released: August 22, 2024](releases.md#release-details)_
 The Kotlin 2.0.20 release is out! This version includes performance improvements and bug fixes for Kotlin 2.0.0, where we
 announced the Kotlin K2 compiler as Stable. Here are some additional highlights from this release:
 
-* [The data class copy function will have the same visibility as the constructor](#data-class-copy-function-to-have-the-same-visibility-as-constructor)
+* [The data class copy function to have the same visibility as the constructor](#data-class-copy-function-to-have-the-same-visibility-as-constructor)
 * [Static accessors for source sets from the default target hierarchy are now available in multiplatform projects](#static-accessors-for-source-sets-from-the-default-target-hierarchy)
 * [Concurrent marking for Kotlin/Native has been made possible in the garbage collector](#concurrent-marking-in-garbage-collector)
 * [The `@ExperimentalWasmDsl` annotation in Kotlin/Wasm has a new location](#new-location-of-experimentalwasmdsl-annotation)

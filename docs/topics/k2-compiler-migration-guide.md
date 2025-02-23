@@ -922,7 +922,7 @@ Java field of the same name. Now, `b` resolves to: `Derived.b`.
 > 
 > From Kotlin 2.0.0, IntelliJ IDEA correctly navigates to the same location as the compiler.
 >
-{type ="note"}
+{style="note"}
 
 The general rule is that the subclass takes precedence. The previous example demonstrates this, as the Kotlin property
 `a` from the `Derived` class is resolved because `Derived` is a subclass of the `Base` Java class.
@@ -1309,7 +1309,7 @@ In addition, the Kotlin K2 compiler supports:
 
 ### Upgrade your custom compiler plugins
 
-> Custom compiler plugins use the plugin API, which is [Experimental](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained).
+> Custom compiler plugins use the plugin API, which is [Experimental](components-stability.md#stability-levels-explained).
 > As a result, the API may change at any time, so we can't guarantee backward compatibility.
 >
 {style="warning"}

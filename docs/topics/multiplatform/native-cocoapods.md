@@ -262,7 +262,7 @@ If you want to import your Kotlin project to an Xcode project:
      end
      ```
 
-2. Run `pod install` in you project directory.
+2. Run `pod install` in your project directory.
 
    When you run `pod install` for the first time, it creates the `.xcworkspace` file. This file
    includes your original `.xcodeproj` and the CocoaPods project.

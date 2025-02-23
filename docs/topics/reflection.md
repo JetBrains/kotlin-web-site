@@ -43,10 +43,10 @@ To use reflection in a Gradle or Maven project, add the dependency on `kotlin-re
     
     ```xml
     <dependencies>
-      <dependency>
-          <groupId>org.jetbrains.kotlin</groupId>
-          <artifactId>kotlin-reflect</artifactId>
-      </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-reflect</artifactId>
+        </dependency>
     </dependencies>
     ```
 
