@@ -221,7 +221,7 @@ area of that circle.
 > In this exercise, you import a package so that you can access the value of pi via `PI`. For more information about
 > importing packages, see [Packages and imports](packages.md).
 >
-{type = "tip"}
+{style="tip"}
 
 |---|---|
 ```kotlin
@@ -382,7 +382,6 @@ fun main() {
     //sampleStart
     val numbers = listOf(1, -2, 3, -4, 5, -6)
     
-    
     val positives = numbers.filter ({ x -> x > 0 })
     
     val isNegative = { x: Int -> x < 0 }
@@ -418,7 +417,7 @@ the type of function parameters (`x`) in the lambda expression.
 > This is an example of a [trailing lambda](#trailing-lambdas), which is discussed in more detail at the end of this
 > chapter.
 >
-{type = "note"}
+{style="note"}
 
 Another good example, is using the [`.map()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/map.html) 
 function to transform items in a collection:

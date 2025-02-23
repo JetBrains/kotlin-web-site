@@ -71,7 +71,7 @@ Here is a list of requirements for libraries/infrastructures:
 ### What is KSP's future roadmap?
 
 The following items have been planned:
-* Support [new Kotlin compiler](https://kotlinlang.org/docs/roadmap.html)
+* Support [new Kotlin compiler](roadmap.md)
 * Improve support to multiplatform. For example, running KSP on a subset of targets/sharing computations between targets.
 * Improve performance. There are a bunch of optimizations to be done!
 * Keep fixing bugs.

@@ -63,14 +63,12 @@ This ensures you gather data across multiple pages:
 
    ```kotlin
    fun load(path: String, maxPages: Int): AnyFrame {
-   
        // Initializes a mutable list to store rows of data.
        val rows = mutableListOf<AnyRow>()
    
        // Sets the initial page path for data loading.
        var pagePath = path
        do {
-           
            // Loads data from the current page path.
            val row = load(pagePath)
            // Adds the loaded data as a row to the list.
