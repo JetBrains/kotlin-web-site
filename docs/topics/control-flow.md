@@ -177,7 +177,7 @@ enum class Bit {
 }
 
 val numericValue = when (getRandomBit()) {
-  // No else branch is needed because all cases are covered
+    // No else branch is needed because all cases are covered
     Bit.ZERO -> 0
     Bit.ONE -> 1
 }
@@ -281,9 +281,9 @@ sealed interface Animal {
 
 fun feedAnimal(animal: Animal) {
     when (animal) {
-        // Branch with only primary condition. Calls `feedDog()` when `Animal` is `Dog`
+        // Branch with only primary condition. Calls `feedDog()` when `animal` is `Dog`
         is Animal.Dog -> feedDog()
-        // Branch with both primary and guard conditions. Calls `feedCat()` when `Animal` is `Cat` and is not `mouseHunter`
+        // Branch with both primary and guard conditions. Calls `feedCat()` when `animal` is `Cat` and not `mouseHunter`
         is Animal.Cat if !animal.mouseHunter -> feedCat()
         // Prints "Unknown animal" if none of the above conditions match
         else -> println("Unknown animal")

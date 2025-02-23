@@ -61,7 +61,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
     end
     ```
 
-6. Run `pod install` in you project directory.
+6. Run `pod install` in your project directory.
 
    When you run `pod install` for the first time, it creates the `.xcworkspace` file. This file
    includes your original `.xcodeproj` and the CocoaPods project.
@@ -117,7 +117,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
     end
     ```
 
-6. Run `pod install` in you project directory.
+6. Run `pod install` in your project directory.
 
    When you run `pod install` for the first time, it creates the `.xcworkspace` file. This file
    includes your original `.xcodeproj` and the CocoaPods project.

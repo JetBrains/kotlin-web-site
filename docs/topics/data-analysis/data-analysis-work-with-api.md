@@ -71,7 +71,7 @@ This ensures you gather data across multiple pages:
        // Sets the initial page path for data loading.
        var pagePath = path
        do {
-           
+   
            // Loads data from the current page path.
            val row = load(pagePath)
            // Adds the loaded data as a row to the list.

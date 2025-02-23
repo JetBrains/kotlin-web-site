@@ -92,7 +92,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.net.URI
 
-
 @RestController
 @RequestMapping("/")
 class MessageController(private val service: MessageService) {
@@ -152,7 +151,7 @@ class MessageService(private val db: JdbcTemplate) {
             id, message.text
         )
         return message.copy(id = id) // Return a copy of the message with the new id
-   }
+    }
 }
 ```
 
@@ -279,7 +278,6 @@ Extend the functionality of the application to retrieve the individual messages 
     
     @Service
     class MessageService(private val db: JdbcTemplate) {
-    
         fun findMessages(): List<Message> = db.query("select * from messages") { response, _ ->
             Message(response.getString("id"), response.getString("text"))
         }
@@ -379,7 +377,7 @@ import org.springframework.boot.runApplication
 class DemoApplication
 
 fun main(args: Array<String>) {
-   runApplication<DemoApplication>(*args)
+    runApplication<DemoApplication>(*args)
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true"}
@@ -435,7 +433,6 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.net.URI
-
 
 @RestController
 @RequestMapping("/")
