@@ -48,9 +48,9 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Compiler</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/TBD">Finalize JSpecify support</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/TBD">Deprecate K1 compiler</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/TBD">Promote Kotlin/Wasm (<code>wasm-js</code> target) to Beta</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75371">Finalize JSpecify support</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75372">Deprecate K1 compiler</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75370">Promote Kotlin/Wasm (<code>wasm-js</code> target) to Beta</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64568" target="_blank">Kotlin/Wasm: Switch <code>wasm-wasi</code> target of libraries to WASI Preview 2</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64569" target="_blank">Kotlin/Wasm: Support Component Model</a></li>
             </list>
@@ -67,20 +67,20 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71289">Support declaring Kotlin Multiplatform dependencies at project-level</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64570" target="_blank">Unify inline semantics between all Kotlin targets</a></li>
             </list>
-            <tip><p><a href="https://blog.jetbrains.com/kotlin/2023/11/kotlin-multiplatform-development-roadmap-for-2024/" target="_blank">Kotlin Multiplatform development roadmap for 2024</a></p></tip>
+            <tip><p><a href="https://blog.jetbrains.com/kotlin/2024/10/kotlin-multiplatform-development-roadmap-for-2025/" target="_blank">Kotlin Multiplatform development roadmap for 2025</a></p></tip>
          </td>
     </tr>
     <tr id="tooling">
         <td><strong>Tooling</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/TBD" target="_blank">Improve development experience for Kotlin/Wasm projects in IntelliJ IDEA</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/TBD" target="_blank">Improve performance of imports</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/TBD" target="_blank">Support resources in XCFrameworks</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75374" target="_blank">Improve development experience for Kotlin/Wasm projects in IntelliJ IDEA</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75376" target="_blank">Improve performance of imports</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75377" target="_blank">Support resources in XCFrameworks</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-31316" target="_blank">IntelliJ IDEA K2 mode complete release</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71286" target="_blank">Design the Build Tools API</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71292" target="_blank">Kotlin Ecosystem Plugin supporting Declarative Gradle</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-64575" target="_blank">Support Gradle project isolation</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-54105" target="_blank">Support Gradle project isolation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64577" target="_blank">Improve integration of Kotlin/Native toolchain into Gradle</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTNB-506" target="_blank">Kotlin Notebook: Light Notebooks and improved experience exploring data from HTTP endpoints</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-60279" target="_blank">Improve Kotlin build reports</a></li>
@@ -116,7 +116,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 > 
 {style="note"}
 
-## What's changed since December 2023
+## What's changed since September 2024
 
 ### Completed items
 
