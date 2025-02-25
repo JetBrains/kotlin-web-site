@@ -4,9 +4,8 @@ Every Kotlin release ships with a standalone version of the compiler. You can do
 
 > Installing the command-line compiler is not an essential step to use Kotlin.
 > The common approach is to write Kotlin applications using IDEs or code editors with official Kotlin support,
-> such as [IntelliJ IDEA](https://www.jetbrains.com/idea/), [JetBrains Fleet](https://www.jetbrains.com/fleet/),
-> or [Android Studio](https://developer.android.com/studio).
-> They provide full Kotlin support right out of the box, no extra components needed.
+> such as [IntelliJ IDEA](https://www.jetbrains.com/idea/) or [Android Studio](https://developer.android.com/studio).
+> They provide full Kotlin support right out of the box.
 > 
 > Learn how to [get started with Kotlin in an IDE](getting-started.md).
 > 
