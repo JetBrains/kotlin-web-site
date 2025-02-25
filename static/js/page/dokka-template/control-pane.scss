@@ -10,6 +10,24 @@
     }
   }
 
+  @media (max-width: 899px) and (min-width: 760px) {
+    .library-name--link {
+      margin-left: 32px !important;
+    }
+
+    .navigation-controls {
+      padding-right: 18px;
+    }
+
+    .navigation-controls--btn_toc {
+      margin-right: 18px;
+    }
+
+    .library-version {
+      padding-left: 32px !important;
+    }
+  }
+
   .library-name--link::before {
     display: none;
   }
