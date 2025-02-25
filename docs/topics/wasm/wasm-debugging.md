@@ -69,8 +69,7 @@ Create a project using the Kotlin Multiplatform wizard:
 ## Debug in your browser
 
 > Currently, debugging is only available in your browser. In the future, you will be able to debug your code in 
-> [IntelliJ IDEA](https://youtrack.jetbrains.com/issue/KT-64683/Kotlin-Wasm-debugging-in-IntelliJ-IDEA) and 
-> [Fleet](https://youtrack.jetbrains.com/issue/KT-64684). 
+> [IntelliJ IDEA](https://youtrack.jetbrains.com/issue/KT-64683/Kotlin-Wasm-debugging-in-IntelliJ-IDEA). 
 >
 {style="note"}
 
