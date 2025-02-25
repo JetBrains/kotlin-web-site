@@ -392,14 +392,4 @@ and plugins between projects, allowing them to run safely in parallel.
 
 To enable this feature, follow Gradle's instructions to [set the system property](https://docs.gradle.org/current/userguide/isolated_projects.html#how_do_i_use_it).
 
-If you want to check compatibility before enabling Isolated Projects in Gradle, you can test your projects with the new 
-Kotlin Gradle plugin model. Add the following Gradle property to your `gradle.properties` file:
-
-```none
-kotlin.kmp.isolated-projects.support=enable
-```
-
-If you decide to enable the Isolated Projects feature later, remember to remove this Gradle property. The Kotlin Gradle plugin
-applies and manages this Gradle property directly.
-
 For more information about the Isolated Projects feature, see [Gradle's documentation](https://docs.gradle.org/current/userguide/isolated_projects.html).
