@@ -92,6 +92,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
     <tr id="library-ecosystem">
         <td><strong>Library ecosystem</strong></td>
         <td>
+            <p><b>Library ecosystem roadmap items:</b></p>
             <list>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71295" target="_blank">Refine the Dokka HTML output UI</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-12719" target="_blank">Introduce default warnings/errors for Kotlin functions that return non-unit values that are unused</a></li>
@@ -100,12 +101,20 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71297" target="_blank">Improve Kotlin distribution UX: add code coverage and binary compatibility validation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64578" target="_blank">Promote <code>kotlinx-datetime</code> to Beta</a></li>
             </list>
-            <tip><p>Ktor and Exposed roadmaps:</p>
+            <p><b>Ktor roadmap items:</b></p>
             <list>
-                <li><a href="https://blog.jetbrains.com/kotlin/2024/03/the-ktor-roadmap-for-2024/" target="_blank">Ktor framework roadmap</a></li>
-                <li><a href="https://blog.jetbrains.com/kotlin/2023/08/exposed-moving-forward/" target="_blank">Exposed library roadmap</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-1501">Add gRPC support to Ktor with a generator plugin and tutorial</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-7158">Make project structuring for the backend applications simple</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-3937">Publish CLI generator to SNAP</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-6026">Create Kubernetes Generator Plugin</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-6621">Make Dependency Injection Usage Simple</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-7938">HTTP/3 Support</a></li>
             </list>
-            </tip>
+            <p><b>Exposed roadmap items:</b></p>
+            <list>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/EXPOSED-444">Release 1.0.0</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/EXPOSED-74">Add R2DBC Support</a></li>
+            </list>
          </td>
     </tr>
 </table>
@@ -135,12 +144,20 @@ We've **completed** the following items from the previous roadmap:
 
 We've **added** the following items to the roadmap:
 
-* 🆕 Compiler: [Finalize JSpecify support](https://youtrack.jetbrains.com/issue/TBD)
-* 🆕 Compiler: [Deprecate K1 compiler](https://youtrack.jetbrains.com/issue/TBD)
-* 🆕 Compiler: [Promote Kotlin/Wasm (`wasm-js` target) to Beta](https://youtrack.jetbrains.com/issue/TBD)
-* 🆕 Tooling: [Improve development experience for Kotlin/Wasm projects in IntelliJ IDEA](https://youtrack.jetbrains.com/issue/TBD)
-* 🆕 Tooling: [Improve performance of imports](https://youtrack.jetbrains.com/issue/TBD)
-* 🆕 Tooling: [Support resources in XCFrameworks](https://youtrack.jetbrains.com/issue/TBD)
+* 🆕 Compiler: [Finalize JSpecify support](https://youtrack.jetbrains.com/issue/KT-75371)
+* 🆕 Compiler: [Deprecate K1 compiler](https://youtrack.jetbrains.com/issue/KT-75372)
+* 🆕 Compiler: [Promote Kotlin/Wasm (`wasm-js` target) to Beta](https://youtrack.jetbrains.com/issue/KT-75370)
+* 🆕 Tooling: [Improve development experience for Kotlin/Wasm projects in IntelliJ IDEA](https://youtrack.jetbrains.com/issue/KT-75374)
+* 🆕 Tooling: [Improve performance of imports](https://youtrack.jetbrains.com/issue/KT-75376)
+* 🆕 Tooling: [Support resources in XCFrameworks](https://youtrack.jetbrains.com/issue/KT-75377)
+* 🆕 Ktor: [Add gRPC support to Ktor with a generator plugin and tutorial](https://youtrack.jetbrains.com/issue/KTOR-1501)
+* 🆕 Ktor: [Make project structuring for the backend applications simple](https://youtrack.jetbrains.com/issue/KTOR-7158)
+* 🆕 Ktor: [Publish CLI generator to SNAP](https://youtrack.jetbrains.com/issue/KTOR-3937)
+* 🆕 Ktor: [Create Kubernetes Generator Plugin](https://youtrack.jetbrains.com/issue/KTOR-6026)
+* 🆕 Ktor: [Make Dependency Injection Usage Simple](https://youtrack.jetbrains.com/issue/KTOR-6621)
+* 🆕 Ktor: [HTTP/3 Support](https://youtrack.jetbrains.com/issue/KTOR-7938)
+* 🆕 Exposed: [Release 1.0.0](https://youtrack.jetbrains.com/issue/EXPOSED-444)
+* 🆕 Exposed: [Add R2DBC Support](https://youtrack.jetbrains.com/issue/EXPOSED-74)
 
 ### Removed items
 
