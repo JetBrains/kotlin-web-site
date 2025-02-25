@@ -375,8 +375,8 @@ tasks.withType<org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimu
 > ```shell
 > /usr/bin/xcrun simctl boot <DeviceId>
 >```
-> 
-{type = "warning"}
+>
+{style="warning"}
 
 ### Library linkage in Kotlin/Native
 
@@ -414,7 +414,6 @@ kotlin {
 
         compilations.configureEach {
             compilerOptions.configure {
-
                 // To suppress linkage warnings:
                 freeCompilerArgs.add("-Xpartial-linkage-loglevel=INFO")
 
@@ -662,12 +661,12 @@ To enable these features, update your `build.gradle.kts` file accordingly:
 
 ```kotlin
 // build.gradle.kts
-kotlin { 
-    js(IR) { 
+kotlin {
+    js(IR) {
         useEsModules() // Enables ES2015 modules
         browser()
-        }
     }
+}
 
 // Enables ES2015 classes generation
 tasks.withType<KotlinJsCompile>().configureEach {

@@ -21,7 +21,7 @@ the LPK and [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted
    >
    {style="tip"}
 
-3. Create a new notebook by selecting **File** | **New** | **Kotlin Notebook**.
+3. Create a new Kotlin Notebook by selecting **File** | **New** | **Kotlin Notebook**.
 4. In your notebook, import the LPK and Kotlin DataFrame libraries by running the following command:
 
     ```kotlin
