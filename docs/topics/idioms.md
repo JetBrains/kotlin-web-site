@@ -49,6 +49,7 @@ if ("jane@example.com" !in emailsList) { ... }
 
 ```kotlin
 println("Name $name")
+// Prints: Name [value of name variable]
 ```
 
 Learn the difference between [Java and Kotlin string concatenation](java-to-kotlin-idioms-strings.md#concatenate-strings).
@@ -59,12 +60,12 @@ Learn the difference between [Java and Kotlin string concatenation](java-to-kotl
 // Reads a string and returns null if the input can't be converted into an integer. For example: Hi there!
 val wrongInt = readln().toIntOrNull()
 println(wrongInt)
-// null
+// Prints: null
 
 // Reads a string that can be converted into an integer and returns an integer. For example: 13
 val correctInt = readln().toIntOrNull()
 println(correctInt)
-// 13
+// Prints: 13
 ```
 
 For more information, see [Read standard input.](read-standard-input.md)
@@ -94,6 +95,7 @@ val map = mapOf("a" to 1, "b" to 2, "c" to 3)
 
 ```kotlin
 println(map["key"])
+// Prints: [value associated with "key" in the map]
 map["key"] = value
 ```
 
@@ -102,6 +104,7 @@ map["key"] = value
 ```kotlin
 for ((k, v) in map) {
     println("$k -> $v")
+    // Prints: [key] -> [value]
 }
 ```
 
@@ -371,7 +374,7 @@ a = b.also { b = a }
 ```
 
 ## Mark code as incomplete (TODO)
- 
+
 Kotlin's standard library has a `TODO()` function that will always throw a `NotImplementedError`.
 Its return type is `Nothing` so it can be used regardless of expected type.
 There's also an overload that accepts a reason parameter:
