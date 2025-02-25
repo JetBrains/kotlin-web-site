@@ -6,27 +6,8 @@
 
     background-color: #1b1b1b;
 
-    @media (min-width: 940px) {
-      min-height: 70px; /* KTL-1147 */
-      box-sizing: border-box;
-    }
-  }
-
-  @media (max-width: 899px) and (min-width: 760px) {
-    .library-name--link {
-      margin-left: 32px !important;
-    }
-
-    .navigation-controls {
-      padding-right: 18px;
-    }
-
-    .navigation-controls--btn_toc {
-      margin-right: 18px;
-    }
-
-    .library-version {
-      padding-left: 32px !important;
+    @media (min-width: 900px) {
+      padding-left: 32px
     }
   }
 
@@ -40,17 +21,16 @@
     }
   }
 
-  .navigation-controls--btn_theme {
-    /* this is the last icon in pane have much more spacing for click then
-       the last icon in global header. It did for same right border for both panes */
-    @media(min-width: 760px) {
-      margin-right: -8px;
+  .ktl-dokka-header {
+    // hide kotlinlang header on dokka tablet in order to have only one navigation
+    @media (min-width: 760px) and (max-width: 899px) {
+      display: none;
     }
   }
 }
 
 .theme-dark .root .navigation {
-  background-color: #262628;
+  background-color: #323237;
 }
 
 .core-api #searchBar {
