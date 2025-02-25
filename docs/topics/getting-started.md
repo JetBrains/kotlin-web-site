@@ -33,6 +33,7 @@ Here you'll learn how to develop a console application and create unit tests wit
 4. **Follow Kotlin** on:
 
    * ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin)
+   * ![Bluesky](bsky.svg){width=18}{type="joined"} [Bluesky](https://bsky.app/profile/kotlinlang.org)
    * ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/)
    * ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
 
@@ -59,6 +60,7 @@ Here you'll learn how to develop a backend application with Kotlin server-side.
 4. **Follow Kotlin** on:
 
    * ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin)
+   * ![Bluesky](bsky.svg){width=18}{type="joined"} [Bluesky](https://bsky.app/profile/kotlinlang.org)
    * ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/)
    * ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
 
@@ -88,6 +90,7 @@ Here you'll learn how to develop a cross-platform application using [Kotlin Mult
 5. **Follow Kotlin** on:
 
    * ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin)
+   * ![Bluesky](bsky.svg){width=18}{type="joined"} [Bluesky](https://bsky.app/profile/kotlinlang.org)
    * ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/)
    * ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
 
@@ -101,7 +104,7 @@ To start using Kotlin for Android development, read [Google's recommendation for
 
 Join the Android community on ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) and join the [#android](https://kotlinlang.slack.com/archives/C0B8M7BUY) channel.
 
-Follow Kotlin on ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
+Follow Kotlin on ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Bluesky](bsky.svg){width=18}{type="joined"} [Bluesky](https://bsky.app/profile/kotlinlang.org), ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/), and ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), and don't miss any important ecosystem updates.
 
 </tab>
 
@@ -125,6 +128,7 @@ From building data pipelines to productionizing machine learning models, Kotlin 
 
 4. **Follow Kotlin** on:
    * ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin)
+   * ![Bluesky](bsky.svg){width=18}{type="joined"} [Bluesky](https://bsky.app/profile/kotlinlang.org)
    * ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/)
    * ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw)
 
