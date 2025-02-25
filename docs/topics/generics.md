@@ -250,7 +250,7 @@ type will be a subtype of that projection.
 
 Kotlin provides so-called _star-projection_ syntax for this:
 
-- For `Foo<out T : TUpper>`, where `T` is a covariant type parameter with the upper bound `TUpper`, `Foo<*>` is
+- For `Foo<out T : TUpper>`, where `T` is a covariant type parameter, a subtype of `TUpper`, the upper bound(see below). `Foo<*>` is
   equivalent to `Foo<out TUpper>`. This means that when the `T` is unknown you can safely _read_ values of `TUpper` from `Foo<*>`.
 - For `Foo<in T>`, where `T` is a contravariant type parameter, `Foo<*>` is equivalent to `Foo<in Nothing>`. This means
   there is nothing you can _write_ to `Foo<*>` in a safe way when `T` is unknown.
