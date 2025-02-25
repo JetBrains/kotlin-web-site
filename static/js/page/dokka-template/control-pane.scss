@@ -4,6 +4,8 @@
     position: relative;
     z-index: 10;
 
+    background-color: #1b1b1b;
+
     @media (min-width: 940px) {
       min-height: 70px; /* KTL-1147 */
       box-sizing: border-box;
@@ -45,6 +47,10 @@
       margin-right: -8px;
     }
   }
+}
+
+.theme-dark .root .navigation {
+  background-color: #262628;
 }
 
 .core-api #searchBar {
