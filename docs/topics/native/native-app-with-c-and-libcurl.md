@@ -5,13 +5,11 @@ a simple HTTP client that can run natively on specified platforms using Kotlin/N
 
 The output will be an executable command-line app that you can run on macOS and Linux and make simple HTTP GET requests.
 
-> While it is possible to use the command line, either directly or by combining it with a script file (such as a `.sh` or
-> a `.bat` file), this approach doesn't scale well for big projects with hundreds of files and libraries. In this case, it is
-> better to use the Kotlin/Native compiler with a build system, as it helps download and cache the Kotlin/Native
-> compiler binaries and libraries with transitive dependencies and run the compiler and tests. Kotlin/Native can use the
-> [Gradle](gradle.md) build system through the [`kotlin-multiplatform`](gradle-configure-project.md#targeting-multiple-platforms)
-> plugin.
->
+You can use the command line to generate a Kotlin library, either directly or with a script file (such as `.sh` or `.bat` file).
+However, this approach doesn't scale well for larger projects that have hundreds of files and libraries.
+Using a build system simplifies the process by downloading and caching the Kotlin/Native
+compiler binaries and libraries with transitive dependencies, as well as by running the compiler and tests.
+Kotlin/Native can use the [Gradle](https://gradle.org) build system through the [Kotlin Multiplatform plugin](gradle-configure-project.md#targeting-multiple-platforms).
 
 ## Before you start
 
