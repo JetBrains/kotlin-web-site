@@ -150,6 +150,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Tooling: [Improve development experience for Kotlin/Wasm projects in IntelliJ IDEA](https://youtrack.jetbrains.com/issue/KT-75374)
 * 🆕 Tooling: [Improve performance of imports](https://youtrack.jetbrains.com/issue/KT-75376)
 * 🆕 Tooling: [Support resources in XCFrameworks](https://youtrack.jetbrains.com/issue/KT-75377)
+* 🆕 Tooling: [Smoother access and improved experience in Kotlin Notebook](https://youtrack.jetbrains.com/issue/KTNB-898)
 * 🆕 Ktor: [Add gRPC support to Ktor with a generator plugin and tutorial](https://youtrack.jetbrains.com/issue/KTOR-1501)
 * 🆕 Ktor: [Make project structuring for the backend applications simple](https://youtrack.jetbrains.com/issue/KTOR-7158)
 * 🆕 Ktor: [Publish CLI generator to SNAP](https://youtrack.jetbrains.com/issue/KTOR-3937)
