@@ -225,9 +225,9 @@ command (<shortcut>Cmd + B</shortcut>/<shortcut>Ctrl + B</shortcut>), you can na
 for C functions:
 
 ```kotlin
-fun ints(c: Byte, d: Short, e: Int, f: Long)
-fun uints(c: UByte, d: UShort, e: UInt, f: ULong)
-fun doubles(a: Float, b: Double)
+fun ints(c: kotlin.Byte, d: kotlin.Short, e: kotlin.Int, f: kotlin.Long)
+fun uints(c: kotlin.UByte, d: kotlin.UShort, e: kotlin.UInt, f: kotlin.ULong)
+fun doubles(a: kotlin.Float, b: kotlin.Double)
 ```
 
 C types are mapped directly, except for the `char` type, which is mapped to `kotlin.Byte` as it's usually an 8-bit
@@ -269,7 +269,7 @@ To verify that everything works as expected, run the `linkDebugSharedNative` Gra
 or use the following command to run the code:
 
 ```bash
-./gradlew linkDebugSharedNative
+./gradlew runDebugExecutableNative
 ```
 
 ## Next step
