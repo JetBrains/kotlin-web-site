@@ -27,20 +27,10 @@ In the tutorial, you'll learn:
 * [How struct and union types are mapped](#mapping-struct-and-union-c-types)
 * [How to use struct and union type from Kotlin](#use-struct-and-union-types-from-kotlin)
 
-Kotlin/Native comes with the `cinterop` tool that generates bindings between the C language and Kotlin.
-It uses a `.def` definition file to specify a C library to import. For more details, see the
-[Interoperability with C](native-c-interop.md) documentation.
-
-You can use the command line to generate a Kotlin library, either directly or with a script file (such as `.sh` or `.bat` file).
-However, this approach doesn't scale well for larger projects that have hundreds of files and libraries.
-Using a build system simplifies the process by downloading and caching the Kotlin/Native
-compiler binaries and libraries with transitive dependencies, as well as by running the compiler and tests.
-Kotlin/Native can use the [Gradle](https://gradle.org) build system through the [Kotlin Multiplatform plugin](gradle-configure-project.md#targeting-multiple-platforms).
-
 ## Mapping struct and union C types
 
-The best way to understand the mapping between Kotlin and C is to create a simple project. Let's declare a struct and a
-union in the C language, to see how they are mapped into Kotlin.
+The best way to understand the mapping between Kotlin and C is to use a simple code sample in your project.
+Let's declare a struct and a union in the C language and see how they are mapped into Kotlin.
 
 In the [previous tutorial](mapping-primitive-data-types-from-c.md), you've created a C library with the necessary files.
 For this step, update the declarations in the `interop.def` file after the `---` separator:
@@ -313,7 +303,7 @@ fun callMix_value() {
 }
 ```
 
-## Run the code
+## Update Kotlin code
 
 Now that you've learned how to use C declarations in your code, try to use them in your project.
 The final code in the `hello.kt` file may look like this:
@@ -356,7 +346,7 @@ To check that everything works as expected, run the `linkDebugSharedNative` Grad
 or use the following command to run the code:
 
 ```bash
-./gradlew linkDebugSharedNative
+./gradlew runDebugExecutableNative
 ```
 
 ## Next step
