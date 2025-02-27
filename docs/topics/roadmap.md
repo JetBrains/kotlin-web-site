@@ -78,12 +78,12 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75374" target="_blank">Improve development experience for Kotlin/Wasm projects in IntelliJ IDEA</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75376" target="_blank">Improve performance of imports</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75377" target="_blank">Support resources in XCFrameworks</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTNB-898" target="_blank">Kotlin Notebook: Smoother access and improved experience</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-31316" target="_blank">IntelliJ IDEA K2 mode complete release</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71286" target="_blank">Design the Build Tools API</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71292" target="_blank">Kotlin Ecosystem Plugin supporting Declarative Gradle</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-54105" target="_blank">Support Gradle project isolation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64577" target="_blank">Improve integration of Kotlin/Native toolchain into Gradle</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTNB-506" target="_blank">Kotlin Notebook: Light Notebooks and improved experience exploring data from HTTP endpoints</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-60279" target="_blank">Improve Kotlin build reports</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-55515" target="_blank">Expose stable compiler arguments in Gradle DSL</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49511" target="_blank">Improve Kotlin scripting and experience with <code>.gradle.kts</code></a></li>
