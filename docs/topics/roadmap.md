@@ -161,6 +161,19 @@ We've **added** the following items to the roadmap:
 * 🆕 Exposed: [Release 1.0.0](https://youtrack.jetbrains.com/issue/EXPOSED-444)
 * 🆕 Exposed: [Add R2DBC Support](https://youtrack.jetbrains.com/issue/EXPOSED-74)
 
+<!--
+### Removed items
+
+We've **removed** the following items from the roadmap:
+
+* ❌ Compiler: [Improve the quality of compiler diagnostics](https://youtrack.jetbrains.com/issue/KT-71275)
+
+> Some items were removed from the roadmap but not dropped completely. In some cases, we've merged previous roadmap items
+> with the current ones.
+>
+{style="note"}
+-->
+
 ### Items in progress
 
 All other previously identified roadmap items are in progress. You can check their [YouTrack tickets](https://youtrack.jetbrains.com/issues?q=project:%20KT,%20KTIJ%20tag:%20%7BRoadmap%20Item%7D%20%23Unresolved%20)
