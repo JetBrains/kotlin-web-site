@@ -133,6 +133,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 We've **completed** the following items from the previous roadmap:
 
 * ✅ Compiler: [Support debugging inline functions on Android](https://youtrack.jetbrains.com/issue/KT-60276)
+* ✅ Compiler: [Improve the quality of compiler diagnostics](https://youtrack.jetbrains.com/issue/KT-71275)
 * ✅ Multiplatform: [Support Xcode 16 in Kotlin](https://youtrack.jetbrains.com/issue/KT-71287)
 * ✅ Multiplatform: [Publish publicly available API reference for Kotlin Gradle Plugin](https://youtrack.jetbrains.com/issue/KT-71288)
 * ✅ Tooling: [Provide out-of-the-box debugging experience for Kotlin/Wasm targets](https://youtrack.jetbrains.com/issue/KT-71276)
@@ -160,6 +161,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Exposed: [Release 1.0.0](https://youtrack.jetbrains.com/issue/EXPOSED-444)
 * 🆕 Exposed: [Add R2DBC Support](https://youtrack.jetbrains.com/issue/EXPOSED-74)
 
+<!--
 ### Removed items
 
 We've **removed** the following items from the roadmap:
@@ -170,6 +172,7 @@ We've **removed** the following items from the roadmap:
 > with the current ones.
 >
 {style="note"}
+-->
 
 ### Items in progress
 
