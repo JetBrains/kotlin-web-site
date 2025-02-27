@@ -409,7 +409,7 @@ fun main() {
 }
 ```
 
-> For a more detailed example, see the [Kotlin Metadata JVM GitHub repository](https://github.com/JetBrains/kotlin/blob/50331fb1496378c82c862db04af597e4198ec645/libraries/kotlinx-metadata/jvm/test/kotlin/metadata/test/MetadataSmokeTest.kt#L43)).
+> For a more detailed example, see the [Kotlin Metadata JVM GitHub repository](https://github.com/JetBrains/kotlin/blob/50331fb1496378c82c862db04af597e4198ec645/libraries/kotlinx-metadata/jvm/test/kotlin/metadata/test/MetadataSmokeTest.kt#L43).
 > 
 {style="tip"}
 

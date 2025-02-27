@@ -98,6 +98,7 @@ to avoid the accidental use of features that have not been released as stable.
 | kotlin-stdlib (JVM)   | Stable     | 1.0.0                    |              |
 | kotlinx-coroutines    | Stable     | 1.3.0                    |              |
 | kotlinx-serialization | Stable     | 1.0.0                    |              |
+| kotlinx-metadata-jvm  | Stable     | 2.0.0                    |              |
 | kotlin-reflect (JVM)  | Beta       | 1.0.0                    |              |
 | kotlinx-datetime      | Alpha      | 0.2.0                    |              |
 | kotlinx-io            | Alpha      | 0.2.0                    |              |
