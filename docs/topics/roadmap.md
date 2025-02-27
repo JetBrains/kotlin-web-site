@@ -66,6 +66,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71281">Implement the next generation distribution format of multiplatform libraries</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71289">Support declaring Kotlin Multiplatform dependencies at project-level</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64570" target="_blank">Unify inline semantics between all Kotlin targets</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-71279" target="_blank">Enable incremental compilation of klib artifacts by default</a></li>
             </list>
             <tip><p><a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/kotlin-multiplatform-roadmap.html" target="_blank">Kotlin Multiplatform development roadmap</a></p></tip>
          </td>
@@ -132,7 +133,6 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 We've **completed** the following items from the previous roadmap:
 
 * ✅ Compiler: [Support debugging inline functions on Android](https://youtrack.jetbrains.com/issue/KT-60276)
-* ✅ Multiplatform: [Enable incremental compilation of klib artifacts by default](https://youtrack.jetbrains.com/issue/KT-71279)
 * ✅ Multiplatform: [Support Xcode 16 in Kotlin](https://youtrack.jetbrains.com/issue/KT-71287)
 * ✅ Multiplatform: [Publish publicly available API reference for Kotlin Gradle Plugin](https://youtrack.jetbrains.com/issue/KT-71288)
 * ✅ Tooling: [Provide out-of-the-box debugging experience for Kotlin/Wasm targets](https://youtrack.jetbrains.com/issue/KT-71276)
