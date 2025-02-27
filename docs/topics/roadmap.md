@@ -67,7 +67,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71289">Support declaring Kotlin Multiplatform dependencies at project-level</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64570" target="_blank">Unify inline semantics between all Kotlin targets</a></li>
             </list>
-            <tip><p><a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/kotlin-multiplatform-roadmap.html/" target="_blank">Kotlin Multiplatform development roadmap</a></p></tip>
+            <tip><p><a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/kotlin-multiplatform-roadmap.html" target="_blank">Kotlin Multiplatform development roadmap</a></p></tip>
          </td>
     </tr>
     <tr id="tooling">
@@ -101,7 +101,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71297" target="_blank">Improve Kotlin distribution UX: add code coverage and binary compatibility validation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64578" target="_blank">Promote <code>kotlinx-datetime</code> to Beta</a></li>
             </list>
-            <p><b>Ktor</b></p>
+            <p><b>Ktor:</b></p>
             <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-1501">Add gRPC support to Ktor with a generator plugin and tutorial</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-7158">Make project structuring for the backend applications simple</a></li>
@@ -110,7 +110,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-6621">Make Dependency Injection Usage Simple</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-7938">HTTP/3 Support</a></li>
             </list>
-            <p><b>Exposed</b></p>
+            <p><b>Exposed:</b></p>
             <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/EXPOSED-444">Release 1.0.0</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/EXPOSED-74">Add R2DBC Support</a></li>
