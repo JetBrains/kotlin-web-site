@@ -6,7 +6,7 @@ for example, for production and test purposes.
 For each target, default compilations include:
 
 * `main` and `test` compilations for JVM, JS, and Native targets.
-* A [compilation](#compilation-for-android) per [Android build variant](https://developer.android.com/studio/build/build-variants), for Android targets.
+* A [compilation](#compilation-for-android) per [Android build variant](https://developer.android.com/build/build-variants), for Android targets.
 
 ![Compilations](compilations.svg)
 
@@ -126,7 +126,7 @@ kotlin {
 If you need to compile something other than production code and unit tests, for example, integration or performance tests, 
 create a custom compilation.
  
-For example, to create a custom compilation for integration tests of the `jvm()` target, add a new item to the `compilations` 
+For example, to create a custom compilation for integration tests of the `jvm` target, add a new item to the `compilations` 
 collection. 
  
 > For custom compilations, you need to set up all dependencies manually. The default source set of a custom compilation 
@@ -139,28 +139,23 @@ collection.
 
 ```kotlin
 kotlin {
-    jvm() {
+    jvm {
         compilations {
             val main by getting
-            
-            val integrationTest by compilations.creating {
+            val integrationTest by creating {
+                // Import main and its classpath as dependencies and add internal visibility
+                associateWith(main)
                 defaultSourceSet {
                     dependencies {
-                        // Compile against the main compilation's compile classpath and outputs:
-                        implementation(main.compileDependencyFiles + main.output.classesDirs)
                         implementation(kotlin("test-junit"))
                         /* ... */
                     }
                 }
                 
                 // Create a test task to run the tests produced by this compilation:
-                tasks.register<Test>("integrationTest") {
-                    // Run the tests with the classpath containing the compile dependencies (including 'main'),
-                    // runtime dependencies, and the outputs of this compilation:
-                    classpath = compileDependencyFiles + runtimeDependencyFiles + output.allOutputs
-                    
-                    // Run only the tests from this compilation's outputs:
-                    testClassesDirs = output.classesDirs
+                testRuns.create("integration") {
+                    // Configure the test task
+                    setExecutionSourceFrom(integrationTest)
                 }
             }
         }
@@ -173,26 +168,22 @@ kotlin {
 
 ```groovy
 kotlin {
-    jvm() {
+    jvm {
         compilations.create('integrationTest') {
+            def main = compilations.main
+            // Import main and its classpath as dependencies and add internal visibility
+            associateWith(main)
             defaultSourceSet {
                 dependencies {
-                    def main = compilations.main
-                    // Compile against the main compilation's compile classpath and outputs:
-                    implementation(main.compileDependencyFiles + main.output.classesDirs)
                     implementation kotlin('test-junit')
                     /* ... */
                 }
             }
-           
+
             // Create a test task to run the tests produced by this compilation:
-            tasks.register('jvmIntegrationTest', Test) {
-                // Run the tests with the classpath containing the compile dependencies (including 'main'),
-                // runtime dependencies, and the outputs of this compilation:
-                classpath = compileDependencyFiles + runtimeDependencyFiles + output.allOutputs
-                
-                // Run only the tests from this compilation's outputs:
-                testClassesDirs = output.classesDirs
+            testRuns.create('integration') {
+                // Configure the test task
+                setExecutionSourceFrom(compilations.integrationTest)
             }
         }
     }
@@ -202,8 +193,14 @@ kotlin {
 </tab>
 </tabs>
 
-You also need to create a custom compilation in other cases, for example, if you want to combine compilations for different 
-JVM versions in your final artifact, or you have already set up source sets in Gradle and want to migrate to a multiplatform project.
+Custom compilations are also necessary in other cases. For example, if you want to combine compilations for different 
+JVM versions in your final artifact, or you have already set up source sets in Gradle and want to migrate to a
+multiplatform project.
+
+> To create custom compilations for the [`androidTarget`](#compilation-for-android), set up build variants
+> through the [Android Gradle plugin](https://developer.android.com/build/build-variants).
+> 
+{style="tip"}
 
 ## Use Java sources in JVM compilations
 
@@ -305,7 +302,7 @@ kotlin {
                     // Options to be passed to compiler by cinterop tool.
                     compilerOpts '-Ipath/to/headers'
                     
-                    // Directories for header search (an eqivalent of the -I<path> compiler option).
+                    // Directories for header search (an equivalent of the -I<path> compiler option).
                     includeDirs.allHeaders("path1", "path2")
                     
                     // Additional directories to search headers listed in the 'headerFilter' def-file option.
@@ -328,10 +325,10 @@ kotlin {
 
 ## Compilation for Android 
  
-The compilations created for an Android target by default are tied to [Android build variants](https://developer.android.com/studio/build/build-variants): 
+The compilations created for an Android target by default are tied to [Android build variants](https://developer.android.com/build/build-variants): 
 for each build variant, a Kotlin compilation is created under the same name.
 
-Then, for each [Android source set](https://developer.android.com/studio/build/build-variants#sourcesets) compiled for 
+Then, for each [Android source set](https://developer.android.com/build/build-variants#sourcesets) compiled for 
 each of the variants, a Kotlin source set is created under that source set name prepended by the target name, like the 
 Kotlin source set `androidDebug` for an Android source set `debug` and the Kotlin target named `androidTarget`.
 These Kotlin source sets are added to the variants' compilations accordingly.
