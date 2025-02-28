@@ -125,14 +125,12 @@ kotlin {
 
 If you need to compile something other than production code and unit tests, for example, integration or performance tests, 
 create a custom compilation.
+
+For custom compilations, you need to set up all dependencies manually. The default source set of a custom compilation
+does not depend on the `commonMain` and the `commonTest` source sets.
  
-For example, to create a custom compilation for integration tests of the `jvm` target, add a new item to the `compilations` 
-collection. 
- 
-> For custom compilations, you need to set up all dependencies manually. The default source set of a custom compilation 
-> does not depend on the `commonMain` and the `commonTest` source sets.
->
-{style="note"}
+For example, to create a custom compilation for integration tests of the `jvm` target, set up an [`associateWith`](gradle-configure-project.md#associate-compiler-tasks)
+relation between the `integrationTest` and `main` compilations:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -143,7 +141,7 @@ kotlin {
         compilations {
             val main by getting
             val integrationTest by creating {
-                // Import main and its classpath as dependencies and add internal visibility
+                // Import main and its classpath as dependencies and establish internal visibility
                 associateWith(main)
                 defaultSourceSet {
                     dependencies {
@@ -171,7 +169,7 @@ kotlin {
     jvm {
         compilations.create('integrationTest') {
             def main = compilations.main
-            // Import main and its classpath as dependencies and add internal visibility
+            // Import main and its classpath as dependencies and establish internal visibility
             associateWith(main)
             defaultSourceSet {
                 dependencies {
@@ -180,7 +178,7 @@ kotlin {
                 }
             }
 
-            // Create a test task to run the tests produced by this compilation:
+            // Create a test task to run the tests produced by this compilation
             testRuns.create('integration') {
                 // Configure the test task
                 setExecutionSourceFrom(compilations.integrationTest)
@@ -192,6 +190,9 @@ kotlin {
 
 </tab>
 </tabs>
+
+By associating compilations, you add the main compilation output as a dependency and establish the `internal` visibility
+between compilations.
 
 Custom compilations are also necessary in other cases. For example, if you want to combine compilations for different 
 JVM versions in your final artifact, or you have already set up source sets in Gradle and want to migrate to a
