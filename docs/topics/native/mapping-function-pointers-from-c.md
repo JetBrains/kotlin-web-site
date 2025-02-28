@@ -18,24 +18,22 @@
 >
 {style="warning"}
 
+In this tutorial, you'll learn how C function pointers are visible from Kotlin and explore the advanced C
+interop-related usages of Kotlin/Native and [multiplatform](gradle-configure-project.md#targeting-multiple-platforms)
+Gradle builds.
+
 In this tutorial, you'll learn how to:
 
-- [Pass Kotlin function as C function pointer](#pass-kotlin-function-as-c-function-pointer)
-- [Use C function pointer from Kotlin](#use-the-c-function-pointer-from-kotlin)
+* [How to pass Kotlin function as a C function pointer](#pass-kotlin-function-as-a-c-function-pointer)
+* [How to use C function pointers from Kotlin](#use-the-c-function-pointer-from-kotlin)
 
 ## Mapping function pointer types from C
 
-The best way to understand the mapping between Kotlin and C is to try a tiny 
-example. Declare a function that accepts a function pointer as a parameter and 
-another function that returns a function pointer. 
+The best way to understand the mapping between Kotlin and C is to use a simple code sample in your project. Let's
+declare a function that accepts a function pointer as a parameter and another function that returns a function pointer.
 
-Kotlin/Native comes with the `cinterop` tool; the tool generates bindings between the C language and Kotlin.
-It uses a `.def` file to specify a C library to import. More details on this are
-in [Interop with C Libraries](native-c-interop.md).
- 
-The quickest way to try out C API mapping is to have all C declarations in the
-`interop.def` file, without creating any `.h` of `.c` files at all. Then place the C declarations 
-in a `.def` file after the special `---` separator line:
+In the [first tutorial](mapping-primitive-data-types-from-c.md) of the series, you've created a C library with the
+necessary files. For this step, update the declarations in the `interop.def` file after the `---` separator:
 
 ```c 
 
@@ -54,214 +52,115 @@ void accept_fun(MyFun f) {
 MyFun supply_fun() {
   return myFun;
 }
-
 ``` 
 
 The `interop.def` file is enough to compile and run the application or open it in an IDE.
-Now it is time to create project files, open the project in
-[IntelliJ IDEA](https://jetbrains.com/idea) and run it. 
 
 ## Inspect generated Kotlin APIs for a C library
 
-While it is possible to use the command line, either directly or
-by combining it with a script file (such as `.sh` or `.bat` file), this approach doesn't
-scale well for big projects that have hundreds of files and libraries.
-It is then better to use the Kotlin/Native compiler with a build system, as it
-helps to download and cache the Kotlin/Native compiler binaries and libraries with
-transitive dependencies and run the compiler and tests.
-Kotlin/Native can use the [Gradle](https://gradle.org) build system through the [kotlin-multiplatform](gradle-configure-project.md#targeting-multiple-platforms) plugin.
+Let's see how C function pointers are mapped into Kotlin/Native and fix the project:
 
-We covered the basics of setting up an IDE compatible project with Gradle in the
-[Get started with Kotlin/Native](native-get-started.md#using-gradle)
-tutorial. Please check it out if you are looking for detailed first steps
-and instructions on how to start a new Kotlin/Native project and open it in IntelliJ IDEA.
-In this tutorial, we'll look at the advanced C interop related usages of Kotlin/Native 
-and [multiplatform](gradle-configure-project.md#targeting-multiple-platforms)
-builds with Gradle.
+1. In `src/nativeMain/kotlin,` update your `hello.kt` file from the [previous tutorial](mapping-primitive-data-types-from-c.md)
+   with the following content:
 
-First, create a project folder. All the paths in this tutorial will be relative to this folder. Sometimes
-the missing directories will have to be created before any new files can be added.
+   ```kotlin
+   import interop.*
+ 
+   fun main() {
+       println("Hello Kotlin/Native!")
+      
+       accept_fun(/* fix me*/)
+       val useMe = supply_fun()
+   }
+   ```
 
-Use the following `build.gradle(.kts)` Gradle build file:
+2. With the help of IntelliJ IDEA's [Go to declaration](https://www.jetbrains.com/help/rider/Navigation_and_Search__Go_to_Declaration.html)
+   command (<shortcut>Cmd + B</shortcut>/<shortcut>Ctrl + B</shortcut>), you can navigate to the following generated API
+   for C functions:
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
+   ```kotlin
+   fun myFun(i: kotlin.Int): kotlin.Int
+   fun accept_fun(f: kotlinx.cinterop.CPointer<kotlinx.cinterop.CFunction<(kotlin.Int) -> kotlin.Int>>? /* from: interop.MyFun? */)
+   fun supply_fun(): kotlinx.cinterop.CPointer<kotlinx.cinterop.CFunction<(kotlin.Int) -> kotlin.Int>>? /* from: interop.MyFun? */
+   ```
 
-```kotlin
-plugins {
-    kotlin("multiplatform") version "%kotlinVersion%"
-}
+As you can see, C function pointers are represented in Kotlin using `CPointer<CFunction<...>>`. The `accept_fun()` function
+takes an optional function pointer as a parameter, while `supply_fun()` returns a function pointer.
 
-repositories {
-    mavenCentral()
-}
+`CFunction<(Int) -> Int>` describes the function signature, and `CPointer<CFunction<...>>?` represents a nullable
+function pointer. There is an `invoke` operator extension function available for all `CPointer<CFunction<...>>` types,
+allowing you to call function pointers as if they were regular Kotlin functions.
 
-kotlin {
-  linuxX64("native") { // on Linux
-  // macosX64("native") { // on x86_64 macOS
-  // macosArm64("native") { // on Apple Silicon macOS
-  // mingwX64("native") { // on Windows
-    val main by compilations.getting
-    val interop by main.cinterops.creating
-    
-    binaries {
-      executable()
-    }
-  }
-}
+## Pass Kotlin function as a C function pointer
 
-tasks.wrapper {
-  gradleVersion = "%gradleVersion%"
-  distributionType = Wrapper.DistributionType.BIN
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
-}
-
-repositories {
-    mavenCentral()
-}
-
-kotlin {
-  linuxX64('native') { // on Linux
-  // macosX64("native") { // on x86_64 macOS
-  // macosArm64("native") { // on Apple Silicon macOS  
-  // mingwX64('native') { // on Windows
-    compilations.main.cinterops {
-      interop 
-    }
-    
-    binaries {
-      executable()
-    }
-  }
-}
-
-wrapper {
-  gradleVersion = '%gradleVersion%'
-  distributionType = 'BIN'
-}
-```
-
-</tab>
-</tabs>
-
-The project file configures the C interop as an additional step of the build.
-Let's move the `interop.def` file to the `src/nativeInterop/cinterop` directory.
-Gradle recommends using conventions instead of configurations,
-for example, the source files are expected to be in the `src/nativeMain/kotlin` folder.
-By default, all the symbols from C are imported to the `interop` package,
-you may want to import the whole package in our `.kt` files.
-Check out the [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md) to learn about all the different ways you could configure it.
-
-Let's create a `src/nativeMain/kotlin/hello.kt` stub file with the following content
-to see how C function pointer declarations are visible from Kotlin:
+It's time to try using C functions from Kotlin code. Call the `accept_fun()` function and pass the C function pointer
+to a Kotlin lambda:
 
 ```kotlin
-import interop.*
+import kotlinx.cinterop.staticCFunction
+import kotlinx.cinterop.ExperimentalForeignApi
 
-fun main() {
-  println("Hello Kotlin/Native!")
-  
-  accept_fun(https://kotlinlang.org/*fix me */)
-  val useMe = supply_fun()
-}
-```
-
-Now you are ready to
-[open the project in IntelliJ IDEA](native-get-started.md)
-and to see how to fix the example project. While doing that,
-see how C functions are mapped into Kotlin/Native declarations.
-
-## C function pointers in Kotlin
-
-With the help of IntelliJ IDEA's **Go To** | **Declaration or Usages** or
-compiler errors, see the following declarations for the C functions:
-
-```kotlin
-fun accept_fun(f: MyFun? /* = CPointer<CFunction<(Int) -> Int>>? */)
-fun supply_fun(): MyFun? /* = CPointer<CFunction<(Int) -> Int>>? */
-
-fun myFun(i: kotlin.Int): kotlin.Int
-
-typealias MyFun = kotlinx.cinterop.CPointer<kotlinx.cinterop.CFunction<(kotlin.Int) -> kotlin.Int>>
-
-typealias MyFunVar = kotlinx.cinterop.CPointerVarOf<lib.MyFun>
-```
-
-You see that the function's `typedef` from C has been turned into Kotlin `typealias`. It uses `CPointer<..>` type
-to represent the pointer parameters, and `CFunction<(Int)->Int>` to represent the function signature. 
-There is an `invoke` operator extension function available for all `CPointer<CFunction<..>` types, so that 
-it is possible to call it as you would call any other function in Kotlin. 
-
-## Pass Kotlin function as C function pointer
-
-It is the time to try using C functions from the Kotlin program. Call the `accept_fun`
-function and pass the C function pointer to a Kotlin lambda:
-
-```kotlin
+@OptIn(ExperimentalForeignApi::class)
 fun myFun() {
-  accept_fun(staticCFunction<Int, Int> { it + 1 })
+    accept_fun(staticCFunction<Int, Int> { it + 1 })
 }
-
 ```
 
-This call uses the `staticCFunction{..}` helper function from Kotlin/Native to wrap a Kotlin lambda function into a C function pointer.
-It only allows having unbound and non-capturing lambda functions. For example, it is not able
-to use a local variable from the function. You may only use globally visible declarations.
+This call uses the `staticCFunction{}` helper function from Kotlin/Native to wrap a Kotlin lambda function into a C
+function pointer. It only allows having unbound and non-capturing lambda functions. For example, it cannot use a local
+variable from the function. You can only use globally visible declarations.
 
-It is vital to make sure that the function does not throw any exceptions.
-Throwing exceptions from a `staticCFunction{..}` will end up in non-deterministic side-effects.
+It's vital to ensure that the function does not throw any exceptions. Throwing exceptions from a `staticCFunction{}`
+will end up in non-deterministic side effects.
 
 ## Use the C function pointer from Kotlin
 
 The next step is to call a C function pointer from a C pointer that you have from the `supply_fun()` call:
 
 ```kotlin
+import interop.*
+import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.invoke
+
+@OptIn(ExperimentalForeignApi::class)
 fun myFun2() {
-  val functionFromC = supply_fun() ?: error("No function is returned")
-  
-  functionFromC(42)
+    val functionFromC = supply_fun() ?: error("No function is returned")
+
+    functionFromC(42)
 }
-
 ```
 
-Kotlin turns the function pointer return type into a nullable `CPointer<CFunction<..>` object. There is the need
-to explicitly check for `null` first. The [elvis operator](null-safety.md) for that in the code above.
-The `cinterop` tool helps us to turn a C function pointer into an easy to call object in Kotlin. This is
-what we did on the last line.
+Kotlin turns the function pointer return type into a nullable `CPointer<CFunction<>` object. You need to first explicitly
+check for `null`; that's why the [Elvis operator](null-safety.md) is used in the code above.
+The `cinterop` tool helps you turn a C function pointer into a simple `functionFromC(42)` object call in Kotlin.
 
-## Fix the code
+## Update Kotlin code
 
-You've seen all definitions and it is time to fix and run the code.
-Run the `runDebugExecutableNative` Gradle task [in the IDE](native-get-started.md)
-or use the following command to run the code:
-
-```bash
-./gradlew runDebugExecutableNative
-```
-
+Now that you've seen all the definitions, try to use them in your project.
 The code in the `hello.kt` file may look like this:
 
 ```kotlin
 import interop.*
-import kotlinx.cinterop.*
+import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.invoke
+import kotlinx.cinterop.staticCFunction
 
 fun main() {
-  println("Hello Kotlin/Native!")
- 
-  val cFunctionPointer = staticCFunction<Int, Int> { it + 1 }
-  accept_fun(cFunctionPointer)
+    println("Hello Kotlin/Native!")
 
-  val funFromC = supply_fun() ?: error("No function is returned")
-  funFromC(42)
+    val cFunctionPointer = staticCFunction<Int, Int> { it + 1 }
+    accept_fun(cFunctionPointer)
+
+    val funFromC = supply_fun() ?: error("No function is returned")
+    funFromC(42)
 }
+```
+
+To check that everything works as expected, run the `runDebugExecutableNative` Gradle task [in IDE](native-get-started.md#build-and-run-the-application)
+or use the following command to run the code:
+
+```bash
+./gradlew runDebugExecutableNative
 ```
 
 ## Next step
