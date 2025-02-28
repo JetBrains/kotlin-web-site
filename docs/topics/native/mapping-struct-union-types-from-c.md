@@ -81,8 +81,8 @@ Let's see how C struct and union types are mapped into Kotlin/Native and fix the
    }
    ```
    
-2. To avoid compiler errors, interoperability to the build process. For that, update your `build.gradle(.kts)` build file
-   with the following content:
+2. To avoid compiler errors, add interoperability to the build process. For that, update your `build.gradle(.kts)` build
+   file with the following content:
 
     <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
@@ -146,7 +146,7 @@ Let's see how C struct and union types are mapped into Kotlin/Native and fix the
 
 You see that `cinterop` generates Kotlin types for struct and union declarations in C. The generated API includes
 fully qualified package names for `CValue<T>` and `CValuesRef<T>`, reflecting their location in `kotlinx.cinterop`.
-`CValue<T>` represents a by-value structure parameter, while `CValuesRef<T>?` is used for passing a pointer to a structure
+`CValue<T>` represents a by-value structure parameter, while `CValuesRef<T>?` is used to pass a pointer to a structure
 or a union.
 
 Technically, there is no difference between struct and union types on the Kotlin side. The memory layout of a union
@@ -163,7 +163,7 @@ represented as `kotlinx.cinterop.CValue<T>`, while typed pointer parameters use 
 
 Kotlin provides a convenient API for creating and working with these types. Let's explore how to use it in practice.
 
-### Create a CValue<T>
+### Create a CValue&lt;T&gt;
 
 `CValue<T>` type is used to pass by-value parameters to a C function call. Use `cValue` function to create `CValue<T>`
 object instance. The function requires a [lambda function with a receiver](lambdas.md#function-literals-with-receiver) 
@@ -198,7 +198,7 @@ fun callValue() {
 }
 ```
 
-### Create struct and union as CValuesRef<T>
+### Create struct and union as CValuesRef&lt;T&gt;
 
 The `CValuesRef<T>` type is used in Kotlin to pass a typed pointer parameter of a C function. To allocate `MyStruct` and
 `MyUnion` in the native memory, use the following extension function on `kotlinx.cinterop.NativePlacement` type:
@@ -249,16 +249,16 @@ fun callRef() {
 Here, the `ptr` extension property, which is available within the `memScoped {}` block, converts `MyStruct` and `MyUnion`
 instances into native pointers.
 
-Since memory is managed inside the `memScoped {}` block, it will be automatically freed at the end of the block. Make sure
+Since memory is managed inside the `memScoped {}` block, it will be automatically freed at the end of the block. Ensure
 not to use pointers outside of this scope to avoid accessing deallocated memory. If you need longer-lived allocations
 (for example, for caching in a C library), consider using `Arena()` or `nativeHeap`.
 
-### Conversion between CValue<T> and CValuesRef<T>
+### Conversion between CValue&lt;T&gt; and CValuesRef&lt;T&gt;
 
-There are cases when you need to pass a struct as a value to one call, and then, to pass the same struct
+There are cases when you need to pass a struct as a value to one call and then pass the same struct
 as a reference to another call.
 
-To do that, you'll need a `NativePlacement`, but first let's see now `CValue<T>` is turned to a pointer:
+To do that, you'll need a `NativePlacement`, but first, let's see how `CValue<T>` is turned to a pointer:
 
 ```kotlin
 import interop.*
@@ -305,7 +305,7 @@ fun callMix_value() {
 
 ## Update Kotlin code
 
-Now that you've learned how to use C declarations in your code, try to use them in your project.
+Now that you've learned how to use C declarations in Kotlin code, try to use them in your project.
 The final code in the `hello.kt` file may look like this:
  
 ```kotlin
@@ -342,7 +342,7 @@ fun main() {
 }
 ```
 
-To check that everything works as expected, run the `linkDebugSharedNative` Gradle task [in IDE](native-get-started.md#build-and-run-the-application)
+To check that everything works as expected, run the `runDebugExecutableNative` Gradle task [in IDE](native-get-started.md#build-and-run-the-application)
 or use the following command to run the code:
 
 ```bash
