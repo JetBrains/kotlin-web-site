@@ -193,7 +193,7 @@ To create project files:
     ways you can configure it.
 
 2. Move your `interop.def`, `lib.h`, and `lib.def` files to the `src/nativeInterop/cinterop` directory.
-3. Create a `src/nativeMain/kotlin` directory. This is where all the source files should be, following Gradle's
+3. Create a `src/nativeMain/kotlin` directory. This is where you should place all the source files, following Gradle's
    recommendations on using conventions instead of configurations.
 
    By default, all the symbols from C are imported to the `interop` package.
