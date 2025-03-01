@@ -29,8 +29,9 @@ In general, the script:
 ## How to set up
 
 If you're currently using the CocoaPods plugin to connect your Kotlin framework, migrate first.
+If your project doesn't have CocoaPods dependencies, [skip this step](#connect-the-framework-to-your-project).
 
-### Migrate from CocoaPods plugin to direct integration {initial-collapse-state="collapsed" collapsible="true"}
+### Migrate from the CocoaPods plugin
 
 To migrate from the CocoaPods plugin:
 
@@ -76,7 +77,7 @@ To connect the Kotlin framework generated from the multiplatform project to your
 
    ![User Script Sandboxing](disable-sandboxing-in-xcode-project-settings.png){width=700}
 
-   > This may require restarting your Gradle daemon, if you built the iOS project without disabling sandboxing first.
+   > This may require restarting your Gradle daemon if you built the iOS project without disabling sandboxing first.
    > Stop the Gradle daemon process that might have been sandboxed:
    > ```shell
    > ./gradlew --stop

@@ -43,7 +43,7 @@ The tutorial assumes that your project is using [direct integration](multiplatfo
 approach with the `embedAndSignAppleFrameworkForXcode` task in the project's build phase. If you're connecting a Kotlin
 framework through CocoaPods plugin or through Swift package with `binaryTarget`, migrate first.
 
-### Migrate from SPM binaryTarget integration to local direct integration {initial-collapse-state="collapsed" collapsible="true"}
+### Migrate from SPM binaryTarget integration {initial-collapse-state="collapsed" collapsible="true"}
 
 To migrate from the SPM integration with `binaryTarget`:
 
@@ -52,7 +52,7 @@ To migrate from the SPM integration with `binaryTarget`:
 2. In every `Package.swift` file, remove both dependencies to the package with a Kotlin framework inside and target
    dependencies to the products.
 
-### Migrate from CocoaPods plugin to direct integration {initial-collapse-state="collapsed" collapsible="true"}
+### Migrate from the CocoaPods plugin {initial-collapse-state="collapsed" collapsible="true"}
 
 > If you have dependencies on other Pods in the `cocoapods {}` block, you have to resort to the CocoaPods integration approach.
 > Currently, it's impossible to both have dependencies on Pods and on the Kotlin framework in a multimodal SPM project. 
@@ -81,7 +81,7 @@ To migrate from the CocoaPods plugin:
 To be able to use Kotlin code in a local Swift package, connect the Kotlin framework generated from the multiplatform
 project to your Xcode project:
 
-1. In Xcode, go to **Product** | **Scheme** | **Edit scheme** or click the schemes icon in the top bar and select **Edit scheme**:
+1. In Xcode, go to **Product** | **Scheme** | **Edit scheme** or click the scheme icon in the top bar and select **Edit scheme**:
 
    ![Edit scheme](xcode-edit-schemes.png){width=700}
 
@@ -103,7 +103,9 @@ project to your Xcode project:
 
    ![Filled run script action](xcode-filled-run-script-action.png){width=700}
 
-5. You can now import the shared module into your local Swift package and use Kotlin code. For example, define the following function:
+5. You can now import the shared module into your local Swift package and use Kotlin code.
+
+   In Xcode, navigate to your local Swift package and define a function with a module import, for example:
 
    ```Swift
    import Shared
