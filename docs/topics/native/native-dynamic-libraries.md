@@ -149,7 +149,7 @@ Let's create a Kotlin library and use it from a C program.
 
 The build generates the library into the `build/bin/native/debugShared` directory with the following files:
 
-* macOS `libnative_api.h` and `libnative.dylib`
+* macOS: `libnative_api.h` and `libnative.dylib`
 * Linux: `libnative_api.h` and `libnative.so`
 * Windows: `libnative_api.h`, `libnative.def`, and `libnative.dll`
 

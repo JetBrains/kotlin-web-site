@@ -103,7 +103,6 @@ tasks.test {
 
    ```kotlin
    class Sample() {
-
        fun sum(a: Int, b: Int): Int {
            return a + b
        }
@@ -114,7 +113,7 @@ tasks.test {
 
 1. In IntelliJ IDEA, select **Code** | **Generate** | **Test...** for the `Sample` class:
 
-   ![Create a test](generate-test.png)
+   ![Generate a test](generate-test.png)
 
 2. Specify the name of the test class. For example, `SampleTest`:
 
@@ -138,7 +137,6 @@ tasks.test {
    import kotlin.test.Test
 
    class SampleTest {
-
        private val testSample: Sample = Sample()
 
        @Test

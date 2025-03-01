@@ -1,7 +1,7 @@
 [//]: # (title: Kotlin/JS dead code elimination)
 
 > The dead code elimination (DCE) tool is deprecated. The DCE tool was designed for the legacy JS backend, which is now obsolete. The current 
-> [JS IR backend](#dce-and-javascript-ir-compiler) supports DCE out of the box, and the [@JsExport annotation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-js-export/) 
+> [JS IR backend](#dce-and-javascript-ir-compiler) supports DCE out of the box, and the [`@JsExport` annotation](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-js-export/) 
 > allows specifying which Kotlin functions and classes to retain during DCE.
 >
 {style="warning"}
@@ -39,7 +39,7 @@ The application of DCE with the IR compiler is as follows:
   * `compileProductionLibraryKotlinJs`
   * Other Gradle tasks including "production" in their name
 
-With the @JsExport annotation, you can specify the declarations you want DCE to treat as roots.
+With the `@JsExport` annotation, you can specify the declarations you want DCE to treat as roots.
 
 ## Exclude declarations from DCE
 

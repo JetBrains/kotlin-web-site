@@ -169,7 +169,7 @@ import interop.*
 fun main() {
   println("Hello Kotlin/Native!")
   
-  accept_fun(https://kotlinlang.org/*fix me */)
+  accept_fun(/*fix me */)
   val useMe = supply_fun()
 }
 ```
