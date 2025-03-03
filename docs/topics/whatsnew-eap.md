@@ -13,12 +13,11 @@ The Kotlin %kotlinEapVersion% release is out!
 Here are some details of this EAP release:
 
 * [](#kotlin-k2-compiler-new-default-kapt-plugin)
-* [](#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin)
+* [Kotlin Multiplatform: new DSL to replace Gradle's Application plugin and compatibility with Gradle's Isolated Projects](#kotlin-multiplatform)
 * [](#kotlin-native-new-inlining-optimization)
-* [Kotlin/Wasm: migration to Provider API](#kotlin-wasm-migration-to-provider-api-for-kotlin-wasm-and-kotlin-js-properties)
-* [Gradle: support for custom publication variants](#support-for-adding-custom-gradle-publication-variants)
-* [](#common-atomic-types)
-* [](#changes-in-uuid-parsing-and-formatting-functions)
+* [Kotlin/Wasm: migration to Provider API and default custom formatters](#kotlin-wasm)
+* [Gradle: support for Gradle 8.11 and custom publication variants](#support-for-adding-custom-gradle-publication-variants)
+* [Standard library: common atomic types and improved UUID support](#standard-library)
 * [](#compose-compiler-source-information-included-by-default)
 
 ## IDE support
@@ -51,8 +50,9 @@ kapt.use.k2=false
 
 Please report any issues to our [issue tracker](https://youtrack.jetbrains.com/issue/KT-71439/K2-kapt-feedback).
 
-## Kotlin Multiplatform: new DSL to replace Gradle's Application plugin
+## Kotlin Multiplatform
 
+### New DSL to replace Gradle's Application plugin
 <primary-label ref="experimental-opt-in"/>
 
 Starting with Gradle 8.7, the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) plugin is
@@ -104,6 +104,33 @@ plugin is applied on the first `executable {}` block.
 If you run into any issues, report them in our [issue tracker](https://kotl.in/issue) or let us know in our
 [public Slack channel](https://kotlinlang.slack.com/archives/C19FD9681).
 
+### Kotlin Gradle Multiplatform plugin compatible with Gradle's Isolated Projects
+
+> This feature is [Experimental](components-stability.md#stability-levels-explained) and is currently in a pre-Alpha
+> state in Gradle. Use it only with Gradle version 8.10 or higher and solely for evaluation purposes.
+> The feature may be dropped or changed at any time.
+>
+> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-57279/Support-Gradle-Project-Isolation-Feature-for-Kotlin-Multiplatform).
+> Opt-in is required (see details below).
+>
+{style="warning"}
+
+Since Kotlin 2.1.0, you've been able to [preview Gradle's Isolated Projects feature](whatsnew21.md#preview-gradle-s-isolated-projects-in-kotlin-multiplatform) in your multiplatform projects.
+
+Previously, you had to configure the Kotlin Gradle plugin to make your project compatible with the Isolated Projects
+feature before you could try it out. In Kotlin %kotlinEapVersion%, this additional step is no longer necessary.
+
+Now, to enable the Isolated Projects feature, you only need to [set the system property](https://docs.gradle.org/current/userguide/isolated_projects.html#how_do_i_use_it).
+
+If you notice problems with your Gradle build after upgrading, you can opt out of the new Kotlin Gradle plugin behavior
+by setting:
+
+```none
+kotlin.kmp.isolated-projects.support=disable
+```
+
+However, if you use this Gradle property in your project, you can't use the Isolated Projects feature.
+
 ## Kotlin/Native: new inlining optimization
 <primary-label ref="experimental-opt-in"/>
 
@@ -126,7 +153,9 @@ gives an overall performance improvement of 9.5%. Of course, you can try out oth
 If you experience increased binary size or compilation time, please report such issues
 in [YouTrack](https://kotl.in/issue).
 
-## Kotlin/Wasm: migration to Provider API for Kotlin/Wasm and Kotlin/JS properties
+## Kotlin/Wasm
+
+### Migration to Provider API for Kotlin/Wasm and Kotlin/JS properties
 
 Previously, properties in Kotlin/Wasm and Kotlin/JS extensions were mutable (`var`) and assigned directly in build
 scripts:
@@ -166,6 +195,40 @@ assignments.
 
 However, if you maintain a plugin based on the Kotlin Gradle Plugin, and your plugin does not apply `kotlin-dsl`, you
 must update property assignments to use the `.set()` function.
+
+### Custom formatters enabled by default
+
+Before, you had to [manually configure](whatsnew21.md#improved-debugging-experience-for-kotlin-wasm) custom formatters
+to improve debugging in web browsers when working with Kotlin/Wasm code.
+
+In this release, custom formatters are enabled by default in development builds, so no additional Gradle configuration
+is needed.
+
+To use this feature, you only need to ensure that custom formatters are enabled in your browser's developer tools:
+
+* In Chrome DevTools, it's available via **Settings | Preferences | Console**:
+
+  ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=400}
+
+* In Firefox DevTools, it's available via **Settings | Advanced settings**:
+
+  ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=400}
+
+This change primarily affects development builds. If you have specific requirements for production builds,
+you need to adjust your Gradle configuration accordingly. Add the following compiler option to the `wasmJs {}` block:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    wasmJs {
+        // ...
+
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-debugger-custom-formatters")
+        }
+    }
+}
+```
 
 ## Gradle
 
@@ -291,7 +354,7 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
 
-### Changes in UUID parsing and formatting functions
+### Changes in UUID parsing, formatting, and comparability
 <primary-label ref="experimental-opt-in"/>
 
 The JetBrains team continues to improve the support for UUIDs [introduced to the standard library in 2.0.20](whatsnew2020.md#support-for-uuids-in-the-common-kotlin-standard-library).
@@ -308,6 +371,11 @@ These functions work similarly to [`parseHex()`](https://kotlinlang.org/api/core
 and [`toHexString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-hex-string.html), which were
 introduced earlier for the hexadecimal format. Explicit naming for parsing and formatting functionality should improve
 code clarity and your overall experience with UUIDs.
+
+UUIDs in Kotlin are now `Comparable`. Starting with Kotlin %kotlinEapVersion%, you can directly compare and sort values
+of the `Uuid` type. This enables the use of the `<` and `>` operators, standard library extensions available exclusively
+for `Comparable` types or their collections (such as `sorted()`), and allows passing UUIDs to any functions or APIs that
+require the `Comparable` interface.
 
 Remember that the UUID support in the standard library is still [Experimental](components-stability.md#stability-levels-explained).
 To opt in, use the `@ExperimentalUuidApi` annotation or the compiler option `-opt-in=kotlin.uuid.ExperimentalUuidApi`:
@@ -327,6 +395,15 @@ fun main() {
 
     // Outputs the UUID in the hex-and-dash format
     println(hexDashFormat)
+
+    // Outputs UUIDs in ascending order
+    println(
+        listOf(
+            uuid,
+            Uuid.parse("780e8400e29b41d4a716446655440005"),
+            Uuid.parse("5ab88400e29b41d4a716446655440076")
+        ).sorted()
+    )
 }
 //sampleEnd
 ```
