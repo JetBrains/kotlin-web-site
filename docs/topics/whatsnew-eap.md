@@ -17,7 +17,7 @@ Here are some details of this EAP release:
 * [](#kotlin-native-new-inlining-optimization)
 * [Kotlin/Wasm: migration to Provider API and default custom formatters](#kotlin-wasm)
 * [Gradle: support for Gradle 8.11 and custom publication variants](#support-for-adding-custom-gradle-publication-variants)
-* [Standard library: common atomic types and improved UUID support](#standard-library)
+* [Standard library: common atomic types, improved UUID support, and new time tracking functionality](#standard-library)
 * [](#compose-compiler-source-information-included-by-default)
 
 ## IDE support
@@ -408,6 +408,56 @@ fun main() {
 //sampleEnd
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
+
+### New time tracking functionality
+<primary-label ref="experimental-opt-in"/>
+
+Starting with Kotlin %kotlinEapVersion%, the standard library provides the ability to represent a moment in time.
+This functionality was previously only available in [`kotlinx-datetime`](https://kotlinlang.org/api/kotlinx-datetime/),
+an official Kotlin library.
+
+The [kotlinx.datetime.Clock](https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/kotlinx.datetime/-clock/)
+interface is introduced to the standard library as `kotlin.time.Clock` and the [`kotlinx.datetime.Instant`](https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/kotlinx.datetime/-instant/)
+class as `kotlin.time.Instant`. These concepts naturally align with the `time` package in the standard library because
+they’re only concerned with moments in time compared to a more complex calendar and timezone functionality that remains
+in `kotlinx-datetime`.
+
+`Instant` and `Clock` are useful when you need precise time tracking without considering time zones or dates.
+For example, you can use them to log events with timestamps, measure durations between two points in time,
+and obtain the current moment for system processes.
+
+To provide interoperability with other languages, additional converter functions are available:
+
+* `.toKotlinInstant()` converts a time value to a `kotlin.time.Instant` instance.
+* `.toJavaInstant()` converts the `kotlin.time.Instant` value to a `java.time.Instant` value.
+* `Instant.toJSDate()` converts the `kotlin.time.Instant` value to an instance of the JS `Date` class. This conversion
+  is not precise, JS uses millisecond precision to represent dates, while Kotlin allows for nanosecond resolution.
+
+The new time features of the standard library are still [Experimental](components-stability.md#stability-levels-explained).
+To opt in, use the `@ExperimentalTime` annotation:
+
+```kotlin
+import kotlin.time.*
+        
+@ExperimentalTime
+fun main() {
+
+    // Get the current moment in time
+    val currentInstant = Clock.System.now()
+    println("Current time: $currentInstant")
+
+    // Find the difference between two moments in time
+    val pastInstant = Instant.parse("2023-01-01T00:00:00Z")
+    val duration = currentInstant - pastInstant
+
+    println("Time elapsed since 2023-01-01: $duration")
+}
+```
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
+
+<!--
+For more information on the implementation, see this [KEEP proposal](https://github.com/dkhalanskyjb/KEEP/blob/dkhalanskyjb-instant/proposals/stdlib/instant.md#instant-and-clock).
+-->
 
 ## Compose compiler: source information included by default
 
