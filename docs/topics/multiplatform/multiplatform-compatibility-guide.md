@@ -71,7 +71,7 @@ If your project uses Gradle versions higher than 8.7 and doesn't rely on Gradle 
 or a third party Gradle plugin that has a dependency on a Gradle Java plugin, you can remove the `withJava()` function.
 
 If your project uses the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) Gradle Java plugin,
-we recommend migrating to the [new Experimental DSL](whatsnew-eap.md#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin).
+we recommend migrating to the [new Experimental DSL](whatsnew-eap.md#new-dsl-to-replace-gradle-s-application-plugin).
 Starting with Gradle 8.7, the Application plugin will no longer work with the Kotlin Multiplatform Gradle plugin.
 
 If you want to use both the Kotlin Multiplatform Gradle plugin and other Gradle plugins for
