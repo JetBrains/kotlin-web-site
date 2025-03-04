@@ -182,12 +182,10 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.5.1</version>
             <executions>
-                <!-- Replacing default-compile as it is treated specially by Maven -->
                 <execution>
                     <id>default-compile</id>
                     <phase>none</phase>
                 </execution>
-                <!-- Replacing default-testCompile as it is treated specially by Maven -->
                 <execution>
                     <id>default-testCompile</id>
                     <phase>none</phase>
@@ -211,6 +209,29 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
     </plugins>
 </build>
 ```
+
+There are a couple of notes to make here. First, since Maven 3.0.3, the plugins that bound to the same phase have specific execution order. 
+In particular, if plugin `A` is bind to phase `compile` and plugin `B` is bind to phase `compile`, then whoever is executed first is resolved by
+their declaration order in the `pom.xml`. It simply means if `A` is declared before `B` in `pom.xml`, the `A` will be executed prior to `B`. However,
+the built-in plugins native executions, like for plugins `maven-compiler-plugin`, `maven-jar-plugin` e.t.c are executed first regardless of their 
+order in `pom.xml`. Their execution ids are typically named `default-_someting_`. 
+
+Therefore, by specifying the following execution for `maven-compiler-plugin`: 
+
+```
+<execution>
+    <id>default-compile</id>
+    <phase>none</phase>
+</execution>
+<execution>
+    <id>default-testCompile</id>
+    <phase>none</phase>
+</execution>
+```
+
+we're effectively disabling the default executions of `maven-compiler-plugin`. Please, note, that usage of phase 'none' is just a well-known workaround for
+disabling the particualr execution of plugin in Maven. By disabling `default-compile` and `default-testCompile` executions, the new executions `java-compile`
+and not treated as predefined, therefore, and hence the `kotlin-maven-plugin`, as it is declared first, takes precedence. 
 
 ## Enable incremental compilation
 
