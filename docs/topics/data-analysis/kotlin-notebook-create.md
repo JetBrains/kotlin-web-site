@@ -26,7 +26,7 @@ Here, you will learn how to create your first [Kotlin Notebook](kotlin-notebook-
    ![Create a new Kotlin Notebook project](new-notebook-project.png){width=700}
 
 5. Select the **IntelliJ** build system.
-6. From the **JDK list**, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in your project.
+6. From the **JDK** list, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in your project.
 7. Enable the **Add sample code** option to create a file with a sample `"Hello World!"` application.
 
    > You can also enable the **Generate code with onboarding tips** option to add some additional useful comments to your sample code.

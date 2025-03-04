@@ -135,7 +135,7 @@ Kotlin 1.9.20 includes a Stable memory manager with the new memory allocator ena
 ### Custom memory allocator enabled by default
 
 Kotlin 1.9.20 comes with the new memory allocator enabled by default. It's designed to replace the previous default allocator,
-`mimaloc`, to make garbage collection more efficient and improve the runtime performance of the [Kotlin/Native memory manager](native-memory-manager.md).
+`mimalloc`, to make garbage collection more efficient and improve the runtime performance of the [Kotlin/Native memory manager](native-memory-manager.md).
 
 The new custom allocator divides system memory into pages, allowing independent sweeping in consecutive order.
 Each allocation becomes a memory block within a page, and the page keeps track of block sizes.
@@ -155,7 +155,7 @@ which will enable the Kotlin team to experiment with different page layouts to i
 
 Starting with Kotlin 1.9.20, the new memory allocator is the default. No additional setup is required.
 
-If you experience high memory consumption, you can switch back to `mimaloc` or the system allocator with `-Xallocator=mimalloc`
+If you experience high memory consumption, you can switch back to `mimalloc` or the system allocator with `-Xallocator=mimalloc`
 or `-Xallocator=std` in your Gradle build script. Please report such issues in [YouTrack](https://kotl.in/issue) to help
 us improve the new memory allocator.
 

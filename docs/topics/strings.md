@@ -161,7 +161,7 @@ ${'$'}_9.99
 
 ### Multi-dollar string interpolation
 
-> The multi-dollar string interpolation is [Experimental](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained)
+> The multi-dollar string interpolation is [Experimental](components-stability.md#stability-levels-explained)
 > and opt-in is required (see details below).
 > 
 > It may be changed at any time. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-2425).

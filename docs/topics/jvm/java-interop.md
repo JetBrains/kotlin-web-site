@@ -269,7 +269,7 @@ fun main() {
 
 The upper bound of `Derived` is set to `Base<String?>`, which is different from `Base<String>`.
 
-Learn more about [Java generics in Kotlin](java-interop.md#java-generics-in-kotlin).
+Learn more about [Java generics in Kotlin](#java-generics-in-kotlin).
 
 #### Type parameters
 
@@ -548,7 +548,7 @@ Collection types may be read-only or mutable in Kotlin, so Java's collections ar
 | `Map<K, V>`          | `Map<K, V>`          | `MutableMap<K, V>`              | `(Mutable)Map<K, V>!`              |
 | `Map.Entry<K, V>`    | `Map.Entry<K, V>`    | `MutableMap.MutableEntry<K,V>` | `(Mutable)Map.(Mutable)Entry<K, V>!` |
 
-Java's arrays are mapped as mentioned [below](java-interop.md#java-arrays):
+Java's arrays are mapped as mentioned [below](#java-arrays):
 
 | **Java type** | **Kotlin type**                |
 |---------------|--------------------------------|

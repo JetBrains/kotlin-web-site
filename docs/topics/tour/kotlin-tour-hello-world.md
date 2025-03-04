@@ -41,8 +41,8 @@ All programs need to be able to store data, and variables help you to do just th
 * Mutable variables with `var`
 
 > You can't change a read-only variable once you have given it a value.
-> 
-{type ="note"}
+>
+{style="note"}
 
 To assign a value, use the assignment operator `=`.
 
