@@ -259,6 +259,10 @@ In the example:
 * Within the `greetMammal()` function body, there's a `when` expression that uses the [`is` operator](typecasts.md#is-and-is-operators) to check the type of `mammal` and decide which action to perform.
 * The `main()` function calls the `greetMammal()` function with an instance of the `Cat` class and `name` parameter called `Snowy`.
 
+> This tour discusses the `is` operator in more detail in the [Null safety](kotlin-tour-intermediate-null-safety.md) chapter.
+> 
+{style ="tip"}
+
 For more information about sealed classes and their recommended use cases, see [Sealed classes and interfaces](sealed-classes.md).
 
 ### Enum classes
