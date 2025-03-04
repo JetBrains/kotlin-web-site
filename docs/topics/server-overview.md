@@ -12,8 +12,11 @@ maintaining full compatibility with existing Java-based technology stacks, all w
 * **Migration**: Kotlin supports gradual migration of large codebases from Java to Kotlin. You can start
   writing new code in Kotlin while keeping older parts of your system in Java.
 * **Tooling**: In addition to great IDE support in general, Kotlin offers framework-specific tooling (for example,
-  for Spring) in the plugin for IntelliJ IDEA Ultimate.
-* **Learning Curve**: For a Java developer, getting started with Kotlin is very easy. The automated Java-to-Kotlin converter included in the Kotlin plugin helps with the first steps. [Kotlin Koans](koans.md) can guide you through the key features of the language with a series of interactive exercises.
+  for Spring and Ktor) in the plugin for IntelliJ IDEA Ultimate.
+* **Learning Curve**: For a Java developer, getting started with Kotlin is very easy. The automated Java-to-Kotlin converter
+  included in the Kotlin plugin helps with your first steps. [Kotlin Koans](koans.md) guide you through key language features
+  with a series of interactive exercises. Kotlin-specific frameworks like [Ktor](https://ktor.io/) offer
+  a simple, straightforward approach without the hidden complexities of larger frameworks.
 
 ## Frameworks for server-side development with Kotlin
 
@@ -67,9 +70,17 @@ banks and built entirely in Kotlin.
 [JetBrains Account](https://account.jetbrains.com/), the system responsible for the entire license sales and validation
 process at JetBrains, is written in 100% Kotlin and has been running in production since 2015 with no major issues.
 
+[Chess.com](https://www.chess.com/) is a website dedicated to chess and the millions of players around the world 
+who love the game. Chess.com uses Ktor for the seamless configuration of multiple HTTP clients.
+
+Engineers at [Adobe](https://blog.developer.adobe.com/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a) use Kotlin for server-side app development and Ktor for prototyping in the Adobe Experience 
+Platform, which enables organizations to centralize and standardize customer data before applying data science and machine learning.
+
+
 ## Next steps
 
 * For a more in-depth introduction to the language, check out the Kotlin documentation on this site and [Kotlin Koans](koans.md).
+* Explore how to [build asynchronous server applications with Ktor](https://ktor.io/docs/server-create-a-new-project.html), a framework that uses Kotlin coroutines.
 * Watch a webinar ["Micronaut for microservices with Kotlin"](https://micronaut.io/2020/12/03/webinar-micronaut-for-microservices-with-kotlin/) and 
   explore a detailed [guide](https://guides.micronaut.io/latest/micronaut-kotlin-extension-fns.html) 
   showing how you can use [Kotlin extension functions](extensions.md#extension-functions) in the Micronaut framework.
