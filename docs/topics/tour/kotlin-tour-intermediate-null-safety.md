@@ -1,4 +1,4 @@
-[//]: # (title: Intermediate Null safety)
+[//]: # (title: Intermediate: Null safety)
 
 In the beginner's tour, you learned how to handle `null` values in your code but there are also use cases where using 
 null safety features can be helpful.
@@ -16,7 +16,7 @@ Before we explore how casting works, how can you check if an object has a certai
 * `is` checks if the object has the type and returns a boolean value.
 * `!is` checks if the object **doesn't** have the type and returns a boolean value.
 
-You've already seen this in practice when you learned about sealed classes in the [Classes](intermediate-tour-classes.md) chapter.
+You've already seen this in practice when you learned about sealed classes in the [Open and other special classes](kotlin-tour-intermediate-classes-part-3.md) chapter.
 
 For example:
 
@@ -37,23 +37,23 @@ fun main() {
     val myList = listOf(1, 2, 3)
 
     // The type is String
-    printObjectType(myString)   
+    printObjectType(myString)
     // It's a String with length 14
-    
+
     // The type is Int
-    printObjectType(myInt)      
+    printObjectType(myInt)
     // It's an Integer with value 42
 
     // The type is List, so it's NOT a Double.
     printObjectType(myList)
     // It's NOT a Double
-    
+
     // The type is Double, so the else branch is triggered.
-    printObjectType(myDouble)   
+    printObjectType(myDouble)
     // Unknown type
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="kotlin-tour-null-safety-casts"}
 
 To explicitly _cast_ an object to any other type you can use the `as` operator. This includes casting from a nullable 
 type to its non-nullable counterpart. If the cast isn't possible, the program crashes **at runtime**. This is why it's 
@@ -64,13 +64,13 @@ fun main() {
 //sampleStart
     val a: String? = null
     val b = a as String
-  
+
     // Triggers an error at runtime
     print(b)
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" validate="false"}
+{kotlin-runnable="true" validate="false" id="kotlin-tour-null-safety-as-operator"}
 
 To explicitly cast an object to a non-nullable type, but return `null` instead of throwing an error on failure, use the `as?`
 operator. Since the `as?` operator doesn't trigger an error on failure, it is called the **safe** operator.
@@ -80,14 +80,14 @@ fun main() {
 //sampleStart
     val a: String? = null
     val b = a as? String
-  
+
     // Returns null value
     print(b)
     // null
 //sampleEnd
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="kotlin-tour-null-safety-safe-operator"}
 
 The `as?` operator can be combined with the Elvis operator `?:`, to reduce several lines of code to one. For example,
 the following `calculateTotalStringLength()` function that calculates the total length of all strings provided in a mixed list,
@@ -110,6 +110,7 @@ fun calculateTotalStringLength(items: List<Any>): Int {
 ```
 
 To:
+
 ```kotlin
 fun calculateTotalStringLength(items: List<Any>): Int {
     return items.sumOf { (it as? String)?.length ?: 0 }
@@ -142,14 +143,14 @@ To filter `null` values from a list, use the [`filterNotNull()`](https://kotlinl
 ```kotlin
 fun main() {
     val emails: List<String?> = listOf("alice@example.com", null, "bob@example.com", null, "carol@example.com")
-    
+
     val validEmails = emails.filterNotNull()
 
     println(validEmails)
     // [alice@example.com, bob@example.com, carol@example.com]
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="kotlin-tour-null-safety-filternotnull"}
 
 If you want to perform filtering of `null` values directly when creating a list, use the [`listOfNotNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/list-of-not-null.html) function:
 
@@ -163,11 +164,11 @@ fun main() {
     val requestedFile = "appConfig.json"
     val configFiles = listOfNotNull(serverConfig[requestedFile])
 
-    println(configFiles) 
+    println(configFiles)
     // [App Configuration]
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="kotlin-tour-null-safety-listofnotnull"}
 
 In both of these examples, if all items are `null` values, an empty list is returned.
 
@@ -205,9 +206,9 @@ fun main() {
     val minTemperature = temperatures.minOrNull()
     println("Lowest temperature recorded: ${minTemperature ?: "No data"}")
     // Lowest temperature recorded: 15
-} 
+}
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="kotlin-tour-null-safety-collections"}
 
 This example uses the Elvis operator `?:` to return a printed statement if the functions return a `null` value.
 
@@ -219,21 +220,21 @@ For example, to transform a collection with a lambda expression and return the f
 
 ```kotlin
 fun main() {
-data class User(val name: String?, val age: Int?)
+    data class User(val name: String?, val age: Int?)
 
-val users = listOf(
-    User(null, 25),
-    User("Alice", null),
-    User(null, null),
-    User("Bob", 30)
-)
+    val users = listOf(
+        User(null, 25),
+        User("Alice", null),
+        User(null, null),
+        User("Bob", 30)
+    )
 
-val firstNonNullName = users.firstNotNullOfOrNull { it.name }
-println(firstNonNullName)  
-// Alice
+    val firstNonNullName = users.firstNotNullOfOrNull { it.name }
+    println(firstNonNullName)
+    // Alice
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="kotlin-tour-null-safety-firstnotnullofornull"}
 
 To use a lambda function to work on each item sequentially in a collection to create an accumulated value, or return a 
 `null` value when the collection is empty, use the [`reduceOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/reduce-or-null.html) function:
@@ -252,9 +253,9 @@ fun main() {
     val emptyTotalPrice = emptyCart.reduceOrNull { runningTotal, price -> runningTotal + price }
     println("Total price of items in the empty cart: ${emptyTotalPrice ?: "No items"}")
     // Total price of items in the empty cart: No items
-} 
+}
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="kotlin-tour-null-safety-reduceornull"}
 
 This example also uses the Elvis operator `?:` to return a printed statement if the function returns a `null` value.
 
@@ -276,8 +277,8 @@ nested checks. The reduced complexity of your code also makes it easier to maint
 data class User(
     val id: Int,
     val name: String,
-  // List of friend user IDs
-    val friends: List<Int> 
+    // List of friend user IDs
+    val friends: List<Int>
 )
 
 // Function to get the number of friends for a user
@@ -305,7 +306,7 @@ fun main() {
     // -1
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="kotlin-tour-null-safety-early-return"}
 
 In this example:
 
@@ -328,9 +329,10 @@ calls because the `users[userId]` might return a `null` value, making the code s
 ```kotlin
 fun getNumberOfFriends(users: Map<Int, User>, userId: Int): Int {
     // Retrieve the user or return -1 if not found
-   return users[userId]?.friends?.size ?: -1
+    return users[userId]?.friends?.size ?: -1
 }
 ```
+{validate="false"}
 
 Although this example checks only one condition with the Elvis operator, you can add multiple checks to cover any critical
 error paths. Early returns with the Elvis operator prevent your program from doing unnecessary work and make your code 
@@ -364,10 +366,9 @@ Complete the `getNotificationPreferences()` function so that:
 >     // and has an active session
 >     val canAccessDashboard = userIsLoggedIn.takeIf { hasSession }
 > 
->     println(canAccessDashboard ?: "Access denied") 
+>     println(canAccessDashboard ?: "Access denied")
 >     // true
 > }
->
 > ```
 >
 {style = "tip"}
@@ -440,24 +441,23 @@ with a predicate to return a `null` value if there is more than one active subsc
 ```kotlin
 data class Subscription(val name: String, val isActive: Boolean)
 
-fun getActiveSubscription(subscriptions: List<Subscription>): Subscription? {
-    return // write your code here
-}
+fun getActiveSubscription(subscriptions: List<Subscription>): Subscription? // write your code here
 
 fun main() {
     val userWithPremiumPlan = listOf(
         Subscription("Basic Plan", false),
         Subscription("Premium Plan", true)
     )
-    
+
     val userWithConflictingPlans = listOf(
         Subscription("Basic Plan", true),
         Subscription("Premium Plan", true)
     )
 
-    println(getActiveSubscription(userWithPremiumPlan)) 
+    println(getActiveSubscription(userWithPremiumPlan))
     // Subscription(name=Premium Plan, isActive=true)
-    println(getActiveSubscription(userWithConflictingPlans)) 
+
+    println(getActiveSubscription(userWithConflictingPlans))
     // null
 }
 ```
@@ -468,14 +468,8 @@ fun main() {
 ```kotlin
 data class Subscription(val name: String, val isActive: Boolean)
 
-// Possible solution 1
 fun getActiveSubscription(subscriptions: List<Subscription>): Subscription? {
     return subscriptions.singleOrNull { subscription -> subscription.isActive }
-
-// Possible solution 2
-//fun getActiveSubscription(subscriptions: List<Subscription>): Subscription? =
-    //subscriptions.singleOrNull { it.isActive }
-
 }
 
 fun main() {
@@ -483,19 +477,48 @@ fun main() {
         Subscription("Basic Plan", false),
         Subscription("Premium Plan", true)
     )
-    
+
     val userWithConflictingPlans = listOf(
         Subscription("Basic Plan", true),
         Subscription("Premium Plan", true)
     )
 
-    println(getActiveSubscription(userWithPremiumPlan)) 
+    println(getActiveSubscription(userWithPremiumPlan))
     // Subscription(name=Premium Plan, isActive=true)
-    println(getActiveSubscription(userWithConflictingPlans)) 
+
+    println(getActiveSubscription(userWithConflictingPlans))
     // null
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution-2"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-null-safety-solution-2-1"}
+
+|--|--|
+
+```kotlin
+data class Subscription(val name: String, val isActive: Boolean)
+
+fun getActiveSubscription(subscriptions: List<Subscription>): Subscription? =
+    subscriptions.singleOrNull { it.isActive }
+
+fun main() {
+    val userWithPremiumPlan = listOf(
+        Subscription("Basic Plan", false),
+        Subscription("Premium Plan", true)
+    )
+
+    val userWithConflictingPlans = listOf(
+        Subscription("Basic Plan", true),
+        Subscription("Premium Plan", true)
+    )
+
+    println(getActiveSubscription(userWithPremiumPlan))
+    // Subscription(name=Premium Plan, isActive=true)
+
+    println(getActiveSubscription(userWithConflictingPlans))
+    // null
+}
+```
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-null-safety-solution-2-2"}
 
 ### Exercise 3 {initial-collapse-state="collapsed" collapsible="true" id="null-safety-exercise-3"}
 
@@ -519,7 +542,7 @@ fun main() {
         User("charlie99", true)
     )
 
-    println(getActiveUsernames(allUsers)) 
+    println(getActiveUsernames(allUsers))
     // [alice123, charlie99]
 }
 ```
@@ -537,15 +560,10 @@ fun main() {
 ```kotlin
 data class User(val username: String, val isActive: Boolean)
 
-// Possible solution
 fun getActiveUsernames(users: List<User>): List<String> {
-    return users.mapNotNull { user -> 
+    return users.mapNotNull { user ->
         if (user.isActive) user.username else null
     }
-
-// Possible solution with takeIf() function
-//fun getActiveUsernames(users: List<User>): List<String> =
-    //users.mapNotNull { user -> user.username.takeIf { user.isActive } }
 }
 
 fun main() {
@@ -555,11 +573,31 @@ fun main() {
         User("charlie99", true)
     )
 
-    println(getActiveUsernames(allUsers)) 
+    println(getActiveUsernames(allUsers))
     // [alice123, charlie99]
 }
 ```
-{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-null-safety-solution-3"}
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 1" id="kotlin-tour-null-safety-solution-3-1"}
+
+|--|--|
+
+```kotlin
+data class User(val username: String, val isActive: Boolean)
+
+fun getActiveUsernames(users: List<User>): List<String> = users.mapNotNull { user -> user.username.takeIf { user.isActive } }
+
+fun main() {
+    val allUsers = listOf(
+        User("alice123", true),
+        User("bob_the_builder", false),
+        User("charlie99", true)
+    )
+
+    println(getActiveUsernames(allUsers))
+    // [alice123, charlie99]
+}
+```
+{initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution 2" id="kotlin-tour-null-safety-solution-3-2"}
 
 ### Exercise 4 {initial-collapse-state="collapsed" collapsible="true" id="null-safety-exercise-4"}
 
