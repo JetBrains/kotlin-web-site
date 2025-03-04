@@ -22,10 +22,10 @@ In this tutorial, you'll learn how C function pointers are visible from Kotlin a
 interop-related usages of Kotlin/Native and [multiplatform](gradle-configure-project.md#targeting-multiple-platforms)
 Gradle builds.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you'll:
 
-* [How to pass Kotlin function as a C function pointer](#pass-kotlin-function-as-a-c-function-pointer)
-* [How to use C function pointers from Kotlin](#use-the-c-function-pointer-from-kotlin)
+* [Learn how to pass Kotlin function as a C function pointer](#pass-kotlin-function-as-a-c-function-pointer)
+* [Use C function pointers from Kotlin](#use-the-c-function-pointer-from-kotlin)
 
 ## Mapping function pointer types from C
 
@@ -106,11 +106,11 @@ fun myFun() {
 }
 ```
 
-This call uses the `staticCFunction{}` helper function from Kotlin/Native to wrap a Kotlin lambda function into a C
+This call uses the `staticCFunction {}` helper function from Kotlin/Native to wrap a Kotlin lambda function into a C
 function pointer. It only allows having unbound and non-capturing lambda functions. For example, it cannot use a local
 variable from the function. You can only use globally visible declarations.
 
-It's vital to ensure that the function does not throw any exceptions. Throwing exceptions from a `staticCFunction{}`
+It's vital to ensure that the function does not throw any exceptions. Throwing exceptions from a `staticCFunction {}`
 will end up in non-deterministic side effects.
 
 ## Use the C function pointer from Kotlin
