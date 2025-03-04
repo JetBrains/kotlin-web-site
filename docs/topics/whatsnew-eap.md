@@ -29,7 +29,6 @@ All you need to do is to [change the Kotlin version](configure-build-for-eap.md)
 See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for details.
 
 ## Kotlin K2 compiler: new default kapt plugin
-
 <primary-label ref="beta"/>
 
 Starting with Kotlin %kotlinEapVersion%, the K2 implementation of the kapt compiler plugin is enabled by default
@@ -105,13 +104,10 @@ If you run into any issues, report them in our [issue tracker](https://kotl.in/i
 [public Slack channel](https://kotlinlang.slack.com/archives/C19FD9681).
 
 ### Kotlin Gradle Multiplatform plugin compatible with Gradle's Isolated Projects
+<primary-label ref="experimental-opt-in"/>
 
-> This feature is [Experimental](components-stability.md#stability-levels-explained) and is currently in a pre-Alpha
-> state in Gradle. Use it only with Gradle version 8.10 or higher and solely for evaluation purposes.
-> The feature may be dropped or changed at any time.
->
-> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-57279/Support-Gradle-Project-Isolation-Feature-for-Kotlin-Multiplatform).
-> Opt-in is required (see details below).
+> This feature is currently in a pre-Alpha state in Gradle.
+> Use it only with Gradle version 8.10 or higher and solely for evaluation purposes.
 >
 {style="warning"}
 
@@ -130,6 +126,8 @@ kotlin.kmp.isolated-projects.support=disable
 ```
 
 However, if you use this Gradle property in your project, you can't use the Isolated Projects feature.
+
+We would appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-57279/Support-Gradle-Project-Isolation-Feature-for-Kotlin-Multiplatform).
 
 ## Kotlin/Native: new inlining optimization
 <primary-label ref="experimental-opt-in"/>
@@ -438,8 +436,8 @@ To opt in, use the `@ExperimentalTime` annotation:
 
 ```kotlin
 import kotlin.time.*
-        
-@ExperimentalTime
+
+@OptIn(ExperimentalTime::class)
 fun main() {
 
     // Get the current moment in time
@@ -455,9 +453,7 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
 
-<!--
-For more information on the implementation, see this [KEEP proposal](https://github.com/dkhalanskyjb/KEEP/blob/dkhalanskyjb-instant/proposals/stdlib/instant.md#instant-and-clock).
--->
+For more information on the implementation, see this [KEEP proposal](https://github.com/Kotlin/KEEP/pull/387/files).
 
 ## Compose compiler: source information included by default
 
