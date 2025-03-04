@@ -149,7 +149,7 @@
 			<toc-element toc-title="[Experimental DSL] Build final native binaries" hidden="true" topic="multiplatform-native-artifacts.md"/>
 			<toc-element accepts-web-file-names="mpp-build-native-binaries.html" topic="multiplatform-build-native-binaries.md"/>
 		</toc-element>
-		<toc-element accepts-web-file-names="mpp-publish-lib.html" toc-title="Publish libraries" topic="multiplatform-publish-lib.md"/>
+		<toc-element accepts-web-file-names="mpp-publish-lib.html" toc-title="Explore library publication" topic="multiplatform-publish-lib.md"/>
 		<toc-element toc-title="Reference">
 			<toc-element accepts-web-file-names="mpp-dsl-reference.html,mpp-supported-platforms.html,multiplatform-supported-platforms.html" topic="multiplatform-dsl-reference.md"/>
 			<toc-element topic="multiplatform-android-layout.md"/>
