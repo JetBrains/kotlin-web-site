@@ -155,7 +155,7 @@ fun main() {
 }
 ```
 
-To check that everything works as expected, run the `runDebugExecutableNative` Gradle task [in IDE](native-get-started.md#build-and-run-the-application)
+To verify that everything works as expected, run the `runDebugExecutableNative` Gradle task [in IDE](native-get-started.md#build-and-run-the-application)
 or use the following command to run the code:
 
 ```bash
