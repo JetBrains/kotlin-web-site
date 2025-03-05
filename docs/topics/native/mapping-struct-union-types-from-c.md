@@ -63,7 +63,7 @@ The `interop.def` file is enough to compile and run the application or open it i
 
 Let's see how C struct and union types are mapped into Kotlin/Native and update your project:
 
-1. In `src/nativeMain/kotlin,` update your `hello.kt` file from the [previous tutorial](mapping-primitive-data-types-from-c.md)
+1. In `src/nativeMain/kotlin`, update your `hello.kt` file from the [previous tutorial](mapping-primitive-data-types-from-c.md)
    with the following content:
 
    ```kotlin
