@@ -26,7 +26,7 @@
 
     <var name="lincheckVersion" value="2.34" type="string"/>
 
-    <var name="ktorVersion" value="3.0.3" type="string"/>
+    <var name="ktorVersion" value="3.1.1" type="string"/>
 
     <var name="sqlDelightVersion" value="2.0.2" type="string"/>
 
