@@ -18,8 +18,8 @@
 >
 {style="warning"}
 
-In this tutorial, you'll learn which C data types are visible in Kotlin/Native and vice versa and explore the advanced
-C interop-related usages of Kotlin/Native and [multiplatform](gradle-configure-project.md#targeting-multiple-platforms)
+Let's explore which C data types are visible in Kotlin/Native and vice versa and examine advanced
+C interop-related use cases of Kotlin/Native and [multiplatform](gradle-configure-project.md#targeting-multiple-platforms)
 Gradle builds.
 
 In this tutorial, you'll:
@@ -220,8 +220,8 @@ You'll complete the code later as you learn how C primitive type declarations lo
 
 Let's see how C primitive types are mapped into Kotlin/Native and update the example project accordingly.
 
-With the help of IntelliJ IDEA's [Go to declaration](https://www.jetbrains.com/help/rider/Navigation_and_Search__Go_to_Declaration.html)
-command (<shortcut>Cmd + B</shortcut>/<shortcut>Ctrl + B</shortcut>), you can navigate to the following generated API
+Use the IntelliJ IDEA's [Go to declaration](https://www.jetbrains.com/help/rider/Navigation_and_Search__Go_to_Declaration.html)
+command (<shortcut>Cmd + B</shortcut>/<shortcut>Ctrl + B</shortcut>) to navigate to the following generated API
 for C functions:
 
 ```kotlin
