@@ -15,7 +15,7 @@ Here are some details of this EAP release:
 * [](#kotlin-k2-compiler-new-default-kapt-plugin)
 * [Kotlin Multiplatform: new DSL to replace Gradle's Application plugin and compatibility with Gradle's Isolated Projects](#kotlin-multiplatform)
 * [](#kotlin-native-new-inlining-optimization)
-* [Kotlin/Wasm: migration to Provider API and default custom formatters](#kotlin-wasm)
+* [Kotlin/Wasm: default custom formatters and migration to Provider API](#kotlin-wasm)
 * [Gradle: support for Gradle 8.11 and custom publication variants](#support-for-adding-custom-gradle-publication-variants)
 * [Standard library: common atomic types, improved UUID support, and new time tracking functionality](#standard-library)
 * [](#compose-compiler-source-information-included-by-default)
@@ -153,6 +153,40 @@ in [YouTrack](https://kotl.in/issue).
 
 ## Kotlin/Wasm
 
+### Custom formatters enabled by default
+
+Before, you had to [manually configure](whatsnew21.md#improved-debugging-experience-for-kotlin-wasm) custom formatters
+to improve debugging in web browsers when working with Kotlin/Wasm code.
+
+In this release, custom formatters are enabled by default in development builds, so no additional Gradle configuration
+is needed.
+
+To use this feature, you only need to ensure that custom formatters are enabled in your browser's developer tools:
+
+* In Chrome DevTools, it's available via **Settings | Preferences | Console**:
+
+  ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=400}
+
+* In Firefox DevTools, it's available via **Settings | Advanced settings**:
+
+  ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=400}
+
+This change primarily affects development builds. If you have specific requirements for production builds,
+you need to adjust your Gradle configuration accordingly. Add the following compiler option to the `wasmJs {}` block:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    wasmJs {
+        // ...
+
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-debugger-custom-formatters")
+        }
+    }
+}
+```
+
 ### Migration to Provider API for Kotlin/Wasm and Kotlin/JS properties
 
 Previously, properties in Kotlin/Wasm and Kotlin/JS extensions were mutable (`var`) and assigned directly in build
@@ -193,40 +227,6 @@ assignments.
 
 However, if you maintain a plugin based on the Kotlin Gradle Plugin, and your plugin does not apply `kotlin-dsl`, you
 must update property assignments to use the `.set()` function.
-
-### Custom formatters enabled by default
-
-Before, you had to [manually configure](whatsnew21.md#improved-debugging-experience-for-kotlin-wasm) custom formatters
-to improve debugging in web browsers when working with Kotlin/Wasm code.
-
-In this release, custom formatters are enabled by default in development builds, so no additional Gradle configuration
-is needed.
-
-To use this feature, you only need to ensure that custom formatters are enabled in your browser's developer tools:
-
-* In Chrome DevTools, it's available via **Settings | Preferences | Console**:
-
-  ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=400}
-
-* In Firefox DevTools, it's available via **Settings | Advanced settings**:
-
-  ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=400}
-
-This change primarily affects development builds. If you have specific requirements for production builds,
-you need to adjust your Gradle configuration accordingly. Add the following compiler option to the `wasmJs {}` block:
-
-```kotlin
-// build.gradle.kts
-kotlin {
-    wasmJs {
-        // ...
-
-        compilerOptions {
-            freeCompilerArgs.add("-Xwasm-debugger-custom-formatters")
-        }
-    }
-}
-```
 
 ## Gradle
 
@@ -376,7 +376,7 @@ for `Comparable` types or their collections (such as `sorted()`), and allows pas
 require the `Comparable` interface.
 
 Remember that the UUID support in the standard library is still [Experimental](components-stability.md#stability-levels-explained).
-To opt in, use the `@ExperimentalUuidApi` annotation or the compiler option `-opt-in=kotlin.uuid.ExperimentalUuidApi`:
+To opt in, use the `@OptIn(ExperimentalUuidApi::class)` annotation or the compiler option `-opt-in=kotlin.uuid.ExperimentalUuidApi`:
 
 ```kotlin
 import kotlin.uuid.ExperimentalUuidApi
@@ -432,7 +432,7 @@ To provide interoperability with other languages, additional converter functions
   is not precise, JS uses millisecond precision to represent dates, while Kotlin allows for nanosecond resolution.
 
 The new time features of the standard library are still [Experimental](components-stability.md#stability-levels-explained).
-To opt in, use the `@ExperimentalTime` annotation:
+To opt in, use the `@OptIn(ExperimentalTime::class)` annotation:
 
 ```kotlin
 import kotlin.time.*
