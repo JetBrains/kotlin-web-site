@@ -7,7 +7,7 @@ object BuildParams {
   const val KOTLINX_SERIALIZATION_ID = "kotlinx.serialization"
   const val KOTLINX_DATETIME_RELEASE_TAG = "v0.6.2"
   const val KOTLINX_DATETIME_ID = "kotlinx-datetime"
-  const val KOTLINX_IO_RELEASE_TAG = "0.6.0"
+  const val KOTLINX_IO_RELEASE_TAG = "0.7.0"
   const val KOTLINX_IO_ID = "kotlinx-io"
   const val KOTLINX_METADATA_ID = "kotlinx-metadata-jvm"
   const val KOTLIN_CORE_API_BUILD_ID = "Kotlin_KotlinRelease_210_LibraryReferenceLatestDocs"
