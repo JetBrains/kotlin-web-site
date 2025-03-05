@@ -18,9 +18,8 @@
 >
 {style="warning"}
 
-In this tutorial, you'll learn how C function pointers are visible from Kotlin and explore the advanced C
-interop-related usages of Kotlin/Native and [multiplatform](gradle-configure-project.md#targeting-multiple-platforms)
-Gradle builds.
+Let's explore which C function pointers are visible from Kotlin and examine advanced C interop-related use cases of
+Kotlin/Native and [multiplatform](gradle-configure-project.md#targeting-multiple-platforms) Gradle builds.
 
 In this tutorial, you'll:
 
@@ -29,10 +28,10 @@ In this tutorial, you'll:
 
 ## Mapping function pointer types from C
 
-The best way to understand the mapping between Kotlin and C is to use a simple code sample in your project. Let's
-declare a function that accepts a function pointer as a parameter and another function that returns a function pointer.
+To understand the mapping between Kotlin and C, let's declare two functiona: one that accepts a function pointer as a
+parameter and another one that returns a function pointer.
 
-In the [first tutorial](mapping-primitive-data-types-from-c.md) of the series, you've created a C library with the
+In the [first tutorial](mapping-primitive-data-types-from-c.md) of the series, you've already created a C library with the
 necessary files. For this step, update the declarations in the `interop.def` file after the `---` separator:
 
 ```c 
@@ -58,9 +57,9 @@ The `interop.def` file is enough to compile and run the application or open it i
 
 ## Inspect generated Kotlin APIs for a C library
 
-Let's see how C function pointers are mapped into Kotlin/Native and fix the project:
+Let's see how C function pointers are mapped into Kotlin/Native and update your project:
 
-1. In `src/nativeMain/kotlin,` update your `hello.kt` file from the [previous tutorial](mapping-primitive-data-types-from-c.md)
+1. In `src/nativeMain/kotlin`, update your `hello.kt` file from the [previous tutorial](mapping-primitive-data-types-from-c.md)
    with the following content:
 
    ```kotlin
@@ -74,8 +73,8 @@ Let's see how C function pointers are mapped into Kotlin/Native and fix the proj
    }
    ```
 
-2. With the help of IntelliJ IDEA's [Go to declaration](https://www.jetbrains.com/help/rider/Navigation_and_Search__Go_to_Declaration.html)
-   command (<shortcut>Cmd + B</shortcut>/<shortcut>Ctrl + B</shortcut>), you can navigate to the following generated API
+2. Use the IntelliJ IDEA's [Go to declaration](https://www.jetbrains.com/help/rider/Navigation_and_Search__Go_to_Declaration.html)
+   command (<shortcut>Cmd + B</shortcut>/<shortcut>Ctrl + B</shortcut>) to navigate to the following generated API
    for C functions:
 
    ```kotlin
