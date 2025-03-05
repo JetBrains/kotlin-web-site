@@ -31,7 +31,7 @@ In this tutorial, you'll:
 To understand the mapping between Kotlin and C, let's declare two functiona: one that accepts a function pointer as a
 parameter and another one that returns a function pointer.
 
-In the [first tutorial](mapping-primitive-data-types-from-c.md) of the series, you've already created a C library with the
+In the [first part of the series](mapping-primitive-data-types-from-c.md) of the series, you've already created a C library with the
 necessary files. For this step, update the declarations in the `interop.def` file after the `---` separator:
 
 ```c 
@@ -59,7 +59,7 @@ The `interop.def` file is enough to compile and run the application or open it i
 
 Let's see how C function pointers are mapped into Kotlin/Native and update your project:
 
-1. In `src/nativeMain/kotlin`, update your `hello.kt` file from the [previous tutorial](mapping-primitive-data-types-from-c.md)
+1. In `src/nativeMain/kotlin`, update your `hello.kt` file from the [previous tutorial](mapping-struct-union-types-from-c.md)
    with the following content:
 
    ```kotlin
