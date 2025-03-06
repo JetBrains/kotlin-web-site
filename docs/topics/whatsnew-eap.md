@@ -13,10 +13,10 @@ The Kotlin %kotlinEapVersion% release is out!
 Here are some details of this EAP release:
 
 * [](#kotlin-k2-compiler-new-default-kapt-plugin)
-* [Kotlin Multiplatform: new DSL to replace Gradle's Application plugin and compatibility with Gradle's Isolated Projects](#kotlin-multiplatform)
+* [](#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin)
 * [](#kotlin-native-new-inlining-optimization)
 * [Kotlin/Wasm: default custom formatters and migration to Provider API](#kotlin-wasm)
-* [Gradle: support for Gradle 8.11 and custom publication variants](#support-for-adding-custom-gradle-publication-variants)
+* [Gradle: support for Gradle 8.11, compatibility with Isolated Projects, and custom publication variants](#support-for-adding-custom-gradle-publication-variants)
 * [Standard library: common atomic types, improved UUID support, and new time tracking functionality](#standard-library)
 * [](#compose-compiler-source-information-included-by-default)
 
@@ -49,9 +49,7 @@ kapt.use.k2=false
 
 Please report any issues to our [issue tracker](https://youtrack.jetbrains.com/issue/KT-71439/K2-kapt-feedback).
 
-## Kotlin Multiplatform
-
-### New DSL to replace Gradle's Application plugin
+## Kotlin Multiplatform: new DSL to replace Gradle's Application plugin
 <primary-label ref="experimental-opt-in"/>
 
 Starting with Gradle 8.7, the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) plugin is
@@ -102,32 +100,6 @@ plugin is applied on the first `executable {}` block.
 
 If you run into any issues, report them in our [issue tracker](https://kotl.in/issue) or let us know in our
 [public Slack channel](https://kotlinlang.slack.com/archives/C19FD9681).
-
-### Kotlin Gradle Multiplatform plugin compatible with Gradle's Isolated Projects
-<primary-label ref="experimental-opt-in"/>
-
-> This feature is currently in a pre-Alpha state in Gradle.
-> Use it only with Gradle version 8.10 or higher and solely for evaluation purposes.
->
-{style="warning"}
-
-Since Kotlin 2.1.0, you've been able to [preview Gradle's Isolated Projects feature](whatsnew21.md#preview-gradle-s-isolated-projects-in-kotlin-multiplatform) in your multiplatform projects.
-
-Previously, you had to configure the Kotlin Gradle plugin to make your project compatible with the Isolated Projects
-feature before you could try it out. In Kotlin %kotlinEapVersion%, this additional step is no longer necessary.
-
-Now, to enable the Isolated Projects feature, you only need to [set the system property](https://docs.gradle.org/current/userguide/isolated_projects.html#how_do_i_use_it).
-
-If you notice problems with your Gradle build after upgrading, you can opt out of the new Kotlin Gradle plugin behavior
-by setting:
-
-```none
-kotlin.kmp.isolated-projects.support=disable
-```
-
-However, if you use this Gradle property in your project, you can't use the Isolated Projects feature.
-
-We would appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-57279/Support-Gradle-Project-Isolation-Feature-for-Kotlin-Multiplatform).
 
 ## Kotlin/Native: new inlining optimization
 <primary-label ref="experimental-opt-in"/>
@@ -233,6 +205,36 @@ must update property assignments to use the `.set()` function.
 ### Support for version 8.11
 Kotlin %kotlinEapVersion% is now compatible with the latest stable Gradle version, 8.11, and supports its features.
 
+### Kotlin Gradle plugin compatible with Gradle's Isolated Projects
+<primary-label ref="experimental-opt-in"/>
+
+> This feature is currently in a pre-Alpha state in Gradle.
+> Use it only with Gradle version 8.10 or higher and solely for evaluation purposes.
+>
+{style="warning"}
+
+Since Kotlin 2.1.0, you've been able to [preview Gradle's Isolated Projects feature](whatsnew21.md#preview-gradle-s-isolated-projects-in-kotlin-multiplatform)
+in your projects.
+
+Previously, you had to configure the Kotlin Gradle plugin to make your project compatible with the Isolated Projects
+feature before you could try it out. In Kotlin %kotlinEapVersion%, this additional step is no longer necessary.
+
+Now, to enable the Isolated Projects feature, you only need to [set the system property](https://docs.gradle.org/current/userguide/isolated_projects.html#how_do_i_use_it).
+
+Gradle’s Isolated Projects feature is supported in Kotlin Gradle plugins for both multiplatform projects and projects
+that contain only the JVM or Android target.
+
+Specifically for multiplatform projects, if you notice problems with your Gradle build after upgrading, you can opt out
+of the new Kotlin Gradle plugin behavior by setting:
+
+```none
+kotlin.kmp.isolated-projects.support=disable
+```
+
+However, if you use this Gradle property in your multiplatform project, you can't use the Isolated Projects feature.
+
+We would appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-57279/Support-Gradle-Project-Isolation-Feature-for-Kotlin-Multiplatform).
+
 ### Support for adding custom Gradle publication variants
 <primary-label ref="experimental-opt-in"/>
 
@@ -243,9 +245,8 @@ This feature is available for multiplatform projects and projects targeting the 
 >
 {style="note"}
 
-This feature is [Experimental](components-stability.md#stability-levels-explained). To opt in,
-use the `@OptIn(ExperimentalKotlinGradlePluginApi::class)` annotation or the compiler option
-`-opt-in=kotlin.ExperimentalKotlinGradlePluginApi`.
+This feature is [Experimental](components-stability.md#stability-levels-explained).
+To opt in, use the `@OptIn(ExperimentalKotlinGradlePluginApi::class)` annotation.
 
 To add a custom Gradle publication variant, invoke the `adhocSoftwareComponent()` function, which returns an instance
 of [`AdhocComponentWithVariants`](https://docs.gradle.org/current/javadoc/org/gradle/api/component/AdhocComponentWithVariants.html)
