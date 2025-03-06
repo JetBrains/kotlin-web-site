@@ -1,6 +1,6 @@
 [//]: # (title: Setting up multiplatform library publication)
 
-You can set up the publication of your multiplatform library to different locations: 
+You can set up the publication of your multiplatform library to different locations:
 
 * [To a local Maven repository](#publishing-to-a-local-maven-repository)
 * To the Maven Central repository. Learn how to set up account credentials, customize library metadata, and configure
@@ -38,26 +38,95 @@ on the current host, except for the Android target, which needs an [additional s
 
 ## Structure of publications
 
-Publications of a multiplatform library include an additional _root_ publication `kotlinMultiplatform` that stands for the 
-whole library and is automatically resolved to the appropriate platform-specific artifacts when added as a dependency to the common source set. 
-Learn more about [adding dependencies](multiplatform-add-dependencies.md).
+Publications of a Kotlin Multiplatform library include multiple Maven publications, each corresponding to a specific target.
+Additionally, an umbrella _root_ publication, `kotlinMultiplatform`, that represents the entire library is published.
 
-This `kotlinMultiplatform` publication includes metadata artifacts and references the other publications as its variants.
+When added as a [dependency](multiplatform-add-dependencies.md) to the common source set, the root publication automatically resolves to the appropriate
+platform-specific artifacts.
 
-Some repositories, such as Maven Central, require the root module to contain a JAR artifact without a classifier,
-for example `kotlinMultiplatform-1.0.jar`.
-The Kotlin Multiplatform plugin automatically produces the required artifact with the embedded metadata artifacts.
-This means you don't have to add an empty artifact to the root module of your library to
-meet the repository's requirements.
+### Target-specific and root publications
 
-> Learn more about JAR artifact generation with [Gradle](multiplatform-configure-compilations.md#compilation-for-jvm)
-> and [Maven](maven.md#create-jar-file) build systems.
->
-{style="tip"}
+The Kotlin Multiplatform Gradle plugin configures separate publications for each target.
+Consider the following project configuration:
 
-The `kotlinMultiplatform` publication may also need the sources and documentation artifacts if that is required by the repository. In that case, 
-add those artifacts by using [`artifact(...)`](https://docs.gradle.org/current/javadoc/org/gradle/api/publish/maven/MavenPublication.html#artifact-java.lang.Object-) 
-in the publication's scope.
+```kotlin
+// projectName = "lib"
+group = "test"
+version = "1.0"
+
+kotlin {
+    jvm()
+    iosX64()
+    iosArm64()
+}
+```
+
+This setup generates the following Maven publications:
+
+**Target-specific publications**
+
+* For the `jvm` target:`test:lib-jvm:1.0`
+* For the `iosX64` target: `test:lib-iosx64:1.0`
+* For the `iosArm64` target:`test:lib-iosarm64:1.0`
+
+Each target-specific publication is independent. For example, running `publishJvmPublicationTo<MavenRepositoryName>`
+publishes only the JVM module, leaving other modules unpublished.
+
+**Root publication**
+
+The `kotlinMultiplatform` root publication: `test:lib:1.0`.
+
+The root publication serves as an entry point that references all target-specific publications.
+It includes metadata artifacts and ensures proper dependency resolution by including references to other publications:
+expected URLs and coordinates for individual platform artifacts.
+
+* Some repositories, such as Maven Central, require the root module to contain a JAR artifact without a classifier,
+  for example `kotlinMultiplatform-1.0.jar`.
+  The Kotlin Multiplatform plugin automatically produces the required artifact with the embedded metadata artifacts.
+  This means you don't have to add an empty artifact to the root module of your library to
+  meet the repository's requirements.
+
+  > Learn more about JAR artifact generation with [Gradle](multiplatform-configure-compilations.md#compilation-for-jvm)
+  > and [Maven](maven.md#create-jar-file) build systems.
+  >
+  {style="tip"}
+
+* The `kotlinMultiplatform` publication may also need sources and documentation artifacts if that is required by the
+  repository. In that case, use [`artifact()`](https://docs.gradle.org/current/javadoc/org/gradle/api/publish/maven/MavenPublication.html#artifact-java.lang.Object-)
+  in the publication's scope.
+
+### Publishing a complete library
+
+To publish all necessary artifacts in one step, use the `publishAllPublicationsTo<MavenRepositoryName>` umbrella task.
+For example:
+
+```bash
+./gradlew publishAllPublicationsToGithubPackagesRepository
+```
+
+When publishing to Maven Local, you can use a special task:
+
+```bash
+./gradlew publishToMavenLocal
+```
+
+These tasks ensure that all target-specific and root publications are published together, making the library fully
+available for dependency resolution.
+
+Alternatively, you can use separate publication tasks. Run the root publication first:
+
+```bash
+./gradlew publishKotlinMultiplatformPublicationToMavenLocal
+````
+
+This task publishes a `*.module` file with information about the target-specific publications, but the targets themselves
+remain unpublished. To complete the process, publish each target-specific publication separately:
+
+```bash
+./gradlew publish<TargetName>PublicationToMavenLocal
+```
+
+This guarantees that all artifacts are available and correctly referenced.
 
 ## Host requirements
 
@@ -90,7 +159,7 @@ repository. Maven Central, for example, explicitly forbids duplicate publication
 
 To publish an Android library, you need to provide additional configuration.
 
-By default, no artifacts of an Android library are published. To publish artifacts produced by a set of Android [build variants](https://developer.android.com/build/build-variants), 
+By default, no artifacts of an Android library are published. To publish artifacts produced by a set of Android [build variants](https://developer.android.com/build/build-variants),
 specify the variant names in the Android target block in the `shared/build.gradle.kts` file:
 
 ```kotlin
@@ -99,10 +168,9 @@ kotlin {
         publishLibraryVariants("release")
     }
 }
-
 ```
 
-The example works for Android libraries without [product flavors](https://developer.android.com/build/build-variants#product-flavors). 
+The example works for Android libraries without [product flavors](https://developer.android.com/build/build-variants#product-flavors).
 For a library with product flavors, the variant names also contain the flavors, like `fooBarDebug` or `fooBarRelease`.
 
 The default publishing setup is as follows:
@@ -116,8 +184,8 @@ The default publishing setup is as follows:
 If you want to make every published Android variant compatible with only the same build type used by the library consumer,
 set this Gradle property: `kotlin.android.buildTypeAttribute.keep=true`.
 
-You can also publish variants grouped by the product flavor, so that the outputs of the different build types are placed 
-in a single module, with the build type becoming a classifier for the artifacts (the release build type is still published 
+You can also publish variants grouped by the product flavor, so that the outputs of the different build types are placed
+in a single module, with the build type becoming a classifier for the artifacts (the release build type is still published
 with no classifier). This mode is disabled by default and can be enabled as follows in the `shared/build.gradle.kts` file:
 
 ```kotlin
@@ -128,7 +196,7 @@ kotlin {
 }
 ```
 
-> It is not recommended that you publish variants grouped by the product flavor in case they have different dependencies, 
+> It is not recommended that you publish variants grouped by the product flavor in case they have different dependencies,
 > as those will be merged into one dependency list.
 >
 {style="note"}
@@ -179,7 +247,7 @@ you can configure and disable sources publication with the `withSourcesJar()` AP
 
 Starting with Kotlin 2.0.0, the Gradle attribute [`org.gradle.jvm.environment`](https://docs.gradle.org/current/userguide/variant_attributes.html#sub:jvm_default_attributes)
 is automatically published with all Kotlin variants to help distinguish between JVM and Android variants of Kotlin Multiplatform
-libraries. The attribute indicates which library variant is suited for which JVM environment, and Gradle uses this information to help with 
+libraries. The attribute indicates which library variant is suited for which JVM environment, and Gradle uses this information to help with
 dependency resolution in your projects. The target environment can be "android", "standard-jvm", or "no-jvm".
 
 You can disable the publication of this attribute by adding the following Gradle property to your `gradle.properties` file:
