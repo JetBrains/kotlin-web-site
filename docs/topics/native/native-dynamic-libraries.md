@@ -18,9 +18,9 @@ In this tutorial, you will:
 * [Compile and run the project](#compile-and-run-the-project)
 
 You can use the command line to generate a Kotlin library, either directly or with a script file (such as `.sh` or `.bat` file).
-However, this approach doesn't scale well for big projects that have hundreds of files and libraries.
+However, this approach doesn't scale well for larger projects that have hundreds of files and libraries.
 Using a build system simplifies the process by downloading and caching the Kotlin/Native
-compiler binaries and libraries with transitive dependencies, and by running the compiler and tests.
+compiler binaries and libraries with transitive dependencies, as well as by running the compiler and tests.
 Kotlin/Native can use the [Gradle](https://gradle.org) build system through the [Kotlin Multiplatform plugin](gradle-configure-project.md#targeting-multiple-platforms).
 
 Let's examine the advanced C interop-related usages of Kotlin/Native and [Kotlin Multiplatform](gradle-configure-project.md#targeting-multiple-platforms) builds with Gradle.

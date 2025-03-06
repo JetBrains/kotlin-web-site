@@ -43,6 +43,7 @@
 .companies {
     display: flex;
     gap: 16px;
+    align-items: center;
 }
 
 @media (--ktl-tl) {
@@ -91,9 +92,8 @@
 
     .companies {
         flex-wrap: wrap;
-        align-items: center;
         gap: 8px;
-        max-width: 684px;
+        max-width: 745px;
     }
 
     .companyLogo {
@@ -103,6 +103,12 @@
 
     .buttonWrap {
         align-self: flex-end;
+    }
+}
+
+@media (--ktl-ds) and (--ktl-tl-min) {
+    .companies {
+        max-width: 585px;
     }
 }
 

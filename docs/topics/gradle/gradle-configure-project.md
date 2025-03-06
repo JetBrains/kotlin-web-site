@@ -733,10 +733,8 @@ To add a dependency on a library, set the dependency of the required [type](#dep
 ```kotlin
 kotlin {
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation("com.example:my-library:1.0")
-            }
+        commonMain.dependencies {
+            implementation("com.example:my-library:1.0")
         }
     }
 }
@@ -977,10 +975,8 @@ Kotlin/Native targets do not require additional test dependencies, and the `kotl
 ```kotlin
 kotlin {
     sourceSets {
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test")) // This brings all the platform dependencies automatically
-            }
+         commonTest.dependencies {
+             implementation(kotlin("test")) // This brings all the platform dependencies automatically
         }
     }
 }
@@ -1032,10 +1028,8 @@ kotlin {
         }
     }
     sourceSets {
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
+        commonTest.dependencies {
+            implementation(kotlin("test"))
         }
     }
 }
@@ -1108,13 +1102,12 @@ kotlin.test.infer.jvm.variant=false
 
 If you have used a variant of `kotlin("test")` in your build script explicitly and your project build stopped working with
 a compatibility conflict,
-see [this issue in the Compatibility Guide](compatibility-guide-15.md#do-not-mix-several-jvm-variants-of-kotlin-test-in-a-single-project).
+see [this issue in the Compatibility guide](compatibility-guide-15.md#do-not-mix-several-jvm-variants-of-kotlin-test-in-a-single-project).
 
 ### Set a dependency on a kotlinx library
 
-If you use a [`kotlinx` library](https://github.com/Kotlin/kotlinx.coroutines) and need a platform-specific dependency, 
-you can use platform-specific variants of libraries with suffixes such as `-jvm` or `-js`, for example, 
-`kotlinx-coroutines-core-jvm`. You can also use the library's base artifact name instead – `kotlinx-coroutines-core`.
+If you use a multiplatform library and need to depend on the shared code, set the dependency only once in the shared
+source set. Use the library's base artifact name, such as `kotlinx-coroutines-core` or `ktor-client-core`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -1122,46 +1115,8 @@ you can use platform-specific variants of libraries with suffixes such as `-jvm`
 ```kotlin
 kotlin {
     sourceSets {
-        val jvmMain by getting {
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:%coroutinesVersion%")
-            }
-        }
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    sourceSets {
-        jvmMain {
-            dependencies {
-                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:%coroutinesVersion%'
-            }
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
-
-If you use a multiplatform library and need to depend on the shared code, set the dependency only once, in the shared
-source set. Use the library's base artifact name, such as `kotlinx-coroutines-core` or `ktor-client-core`.
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
-            }
+        commonMain.dependencies {
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
     }
 }
@@ -1174,6 +1129,40 @@ kotlin {
 kotlin {
     sourceSets {
         commonMain {
+            dependencies {
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+If you need a kotlinx library for a platform-specific dependency, you can still use the library's base artifact name in
+the corresponding platform source set:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets {
+        jvmMain.dependencies {
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        jvmMain {
             dependencies {
                 implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
             }

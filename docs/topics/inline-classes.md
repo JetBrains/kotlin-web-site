@@ -100,7 +100,7 @@ other classes and are always `final`.
 
 In generated code, the Kotlin compiler keeps a *wrapper* for each inline class. Inline class instances can be represented 
 at runtime either as wrappers or as the underlying type. This is similar to how `Int` can be 
-[represented](numbers.md#numbers-representation-on-the-jvm) either as a primitive `int` or as the wrapper `Integer`.
+[represented](numbers.md#boxing-and-caching-numbers-on-the-java-virtual-machine) either as a primitive `int` or as the wrapper `Integer`.
 
 The Kotlin compiler will prefer using underlying types instead of wrappers to produce the most performant and optimized code. 
 However, sometimes it is necessary to keep wrappers around. As a rule of thumb, inline classes are boxed whenever they 

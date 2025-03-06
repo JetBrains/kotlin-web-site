@@ -1,8 +1,8 @@
 [//]: # (title: IDEs for Kotlin development)
-[//]: # (description: JetBrains provides official Kotlin IDE support for IntelliJ IDEA, Fleet, and Android Studio.)
+[//]: # (description: JetBrains provides official Kotlin IDE support for IntelliJ IDEA and Android Studio.)
 
 JetBrains provides the official Kotlin support for the following IDEs and code editors:
-[IntelliJ IDEA](#intellij-idea), [JetBrains Fleet](#fleet), and [Android Studio](#android-studio).
+[IntelliJ IDEA](#intellij-idea) and [Android Studio](#android-studio).
 
 Other IDEs and code editors only have Kotlin community-supported plugins.
 
@@ -18,24 +18,6 @@ Each IDEA release introduces new features and upgrades that improve the experien
 See [What's new in IntelliJ IDEA](https://www.jetbrains.com/idea/whatsnew/) for the latest updates and improvements for Kotlin.
 
 Read more about IntelliJ IDEA in the [official documentation](https://www.jetbrains.com/help/idea/discover-intellij-idea.html).
-
-## Fleet
-
-> JetBrains Fleet is currently in Public Preview. At this stage it is free to use.
-> 
-{style="note"}
-
-[JetBrains Fleet](https://www.jetbrains.com/fleet/) is a _polyglot code editor_ that offers advanced support for Kotlin,
-providing a streamlined experience for Kotlin developers. You can use Fleet for quick, targeted edits,
-or enable Smart Mode to transform it into a powerful tool with code intelligence features.
-
-Kotlin plugin is bundled with each Fleet release.
-
-Fleet supports Kotlin Multiplatform projects targeting the Android, iOS, web, and desktop platforms,
-including testing and debugging your code. Smart Mode selects the appropriate code-processing engine
-and enables navigation between Kotlin Multiplatform code and code written in languages interoperable with Kotlin.
-
-See the [Use Fleet for Multiplatform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html) tutorial to get started.
 
 ## Android Studio
 
@@ -60,7 +42,7 @@ If you want to contribute to the plugin, send a pull request to its [repository 
 
 ## Compatibility with the Kotlin language versions
 
-For IntelliJ IDEA, Fleet, and Android Studio, the Kotlin plugin is bundled with each release.
+For IntelliJ IDEA and Android Studio, the Kotlin plugin is bundled with each release.
 When the new Kotlin version is released, these tools will suggest updating Kotlin to the latest version automatically.
 See the latest supported language version in [Kotlin releases](releases.md#ide-support).
 
@@ -76,5 +58,4 @@ Also, you could use package managers, such as [Homebrew](command-line.md#homebre
 ## What's next?
 
 * [Start your first project using IntelliJ IDEA IDE](jvm-get-started.md)
-* [Create a Multiplatform project with Fleet](https://www.jetbrains.com/help/kotlin-multiplatform-dev/fleet.html)
 * [Create your first cross-platform mobile app using Android Studio](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)

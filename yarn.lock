@@ -1238,6 +1238,14 @@
     core-js-pure "^3.25.1"
     regenerator-runtime "^0.13.11"
 
+"@babel/runtime-corejs3@^7.26.0":
+  version "7.26.9"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.26.9.tgz#8b73bae47453aa3dd2839ac52598581a7dd8332f"
+  integrity sha512-5EVjbTegqN7RSJle6hMWYxO4voo4rI+9krITk+DWR+diJgGrjZjrIBnJhjrHYYQsFgI7j1w1QnrvV7YSKBfYGg==
+  dependencies:
+    core-js-pure "^3.30.2"
+    regenerator-runtime "^0.14.0"
+
 "@babel/runtime@7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0.tgz#adeb78fedfc855aa05bc041640f3f6f98e85424c"
@@ -1430,10 +1438,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@4.8.3":
-  version "4.8.3"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.8.3.tgz#2f4d402fc28a80ad2fabea2df1f817c3763b67f5"
-  integrity sha512-zBzeP89kYJiEABOBw9RUy3Mazy56Vk/nu+jeC9TgKFcMF8YpKLf1wZzqXXq9uAjXRshIqNSPciXWW1c0ZbP80Q==
+"@jetbrains/kotlin-web-site-ui@^4.9.0":
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.9.0.tgz#94c0a95ed81612e87825639ee153c4119c8413c4"
+  integrity sha512-7gtddUYdlmcWd1S5r4sBhL2oZ+h3wpB49PEUsDUmDzZPfFSntBcVLc7JKOzV87iVWyyOuvOc9F3MbbRf9o97PQ==
 
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
@@ -1743,15 +1751,6 @@
     "@babel/runtime-corejs3" "^7.14.0"
     core-js "^3.9.1"
 
-"@rescui/icons@0.13.1":
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.13.1.tgz#90a4598b5fbc2424bdd454acf74c40695bc01b01"
-  integrity sha512-Q6OKdYOjph7GV1Ou/y3hv+ACAjSDGD9pNF/xELMlBN3y10cFvNFulUSvBrDSeIO39tmuM171nvxGOWU+mv2rvA==
-  dependencies:
-    "@babel/runtime-corejs3" "^7.14.0"
-    classnames "^2.2.6"
-    core-js "^3.9.1"
-
 "@rescui/icons@^0.11.2":
   version "0.11.2"
   resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.11.2.tgz#754668960df98d9432f6a79b552de03573a942e8"
@@ -1769,6 +1768,14 @@
     "@babel/runtime-corejs3" "^7.14.0"
     classnames "^2.2.6"
     core-js "^3.9.1"
+
+"@rescui/icons@^0.16.13":
+  version "0.16.13"
+  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.16.13.tgz#e1a64bd98d83bd8815035a3aa56ec67ecaead95e"
+  integrity sha512-ik1ZE0QNFM6Kfk8hs3GSmHMvcLLTu/Pxzi5aAy4Z5uIrnKxqXf5k3AlbKZVWS/pneeKLSWhheztcjUVtjidv+g==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.26.0"
+    classnames "^2.2.6"
 
 "@rescui/input@^0.8.2":
   version "0.8.2"
@@ -3596,6 +3603,11 @@ core-js-pure@^3.25.1:
   version "3.30.2"
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.30.2.tgz#005a82551f4af3250dcfb46ed360fad32ced114e"
   integrity sha512-p/npFUJXXBkCCTIlEGBdghofn00jWG6ZOtdoIXSJmAu2QBvN0IqpZXWweOytcwE6cfx8ZvVUy1vw8zxhe4Y2vg==
+
+core-js-pure@^3.30.2:
+  version "3.40.0"
+  resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.40.0.tgz#d9a019e9160f9b042eeb6abb92242680089d486e"
+  integrity sha512-AtDzVIgRrmRKQai62yuSIN5vNiQjcJakJb4fbhVw3ehxx7Lohphvw9SGNWKhLFqSxC4ilD0g/L1huAYFQU3Q6A==
 
 core-js@3.19.0:
   version "3.19.0"

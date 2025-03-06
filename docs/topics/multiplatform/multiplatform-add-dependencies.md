@@ -92,7 +92,7 @@ kotlin {
 ### kotlinx libraries
 
 If you use a multiplatform library and need to [depend on the shared code](#library-shared-for-all-source-sets), set the
-dependency only once in the shared source set. Use the library base artifact name, such as `kotlinx-coroutines-core`.
+dependency only once in the shared source set. Use the library base artifact name, such as `kotlinx-coroutines-core`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -125,9 +125,8 @@ kotlin {
 </tab>
 </tabs>
 
-If you use a kotlinx library and need a [platform-specific dependency](#library-used-in-specific-source-sets), you can
-use platform-specific variants of libraries with suffixes such as `-jvm` or `-js`, for
-example, `kotlinx-coroutines-core-jvm`.
+If you need a kotlinx library for a [platform-specific dependency](#library-used-in-specific-source-sets), you can
+still use library's base artifact name in the corresponding platform source set:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -136,7 +135,7 @@ example, `kotlinx-coroutines-core-jvm`.
 kotlin {
     sourceSets {
         jvmMain.dependencies {
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:%coroutinesVersion%")
+            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
         }
     }
 }
@@ -150,7 +149,7 @@ kotlin {
     sourceSets {
         jvmMain {
             dependencies {
-                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:%coroutinesVersion%'
+                implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
             }
         }
     }
