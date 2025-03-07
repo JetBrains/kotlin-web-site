@@ -133,41 +133,42 @@ kotlin {
 >
 {style="note"}
 
-#### Enhance your debugging with custom formatters
+#### Use custom formatters
 
-In addition to the default debugging configuration, you can set up custom formatters to display and locate variable values in a more user-friendly and comprehensible manner.
+Custom formatters help display and locate variable values in a more user-friendly and comprehensible manner when debugging Kotlin/Wasm code.
 
-![Kotlin/Wasm improved debugger](wasm-debugger-improved.png){width=600}
+Custom formatters are enabled by default in development builds, so you don't need additional Gradle configurations. 
 
-This implementation is supported across major browsers like Firefox and Chromium-based as
+This feature is supported in Firefox and Chromium-based browsers as
 it uses the [custom formatters API](https://firefox-source-docs.mozilla.org/devtools-user/custom_formatters/index.html).
 
-To set up custom formatters for an improved debugging experience:
+To use this feature, ensure that custom formatters are enabled in your browser's developer tools:
 
-1. Add the following compiler argument to the `wasmJs` compiler options:
+* In Chrome DevTools, find the custom formatters checkbox in **Settings | Preferences | Console**:
 
-   ```kotlin
-   kotlin {
-       wasmJs {
-           // ...
-           compilerOptions {
-               freeCompilerArgs.add("-Xwasm-debugger-custom-formatters")
-           }
-       }
-   }   
-   ```
+  ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=400}
 
-2. Enable the **Custom formatters** feature in your browser:
+* In Firefox DevTools, find the custom formatters checkbox in **Settings | Advanced settings**:
 
-   * In the Chrome DevTools, it's placed in **Settings | Preferences | Console**:
+  ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=400}
 
-   ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=400}
+Custom formatters work for Kotlin/Wasm development builds. If you have specific requirements for production builds,
+you need to adjust your Gradle configuration accordingly. Add the following compiler option to the `wasmJs {}` block:
 
-   * In the Firefox Developer Tools, it's placed in **Settings | Advanced settings**:
+```kotlin
+// build.gradle.kts
+kotlin {
+    wasmJs {
+        // ...
 
-   ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=400}
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-debugger-custom-formatters")
+        }
+    }
+}
+```
 
-After setting up custom formatters, you can complete the debugging tutorial.
+After enabling custom formatters, you can continue with the debugging tutorial.
 
 ### Debug your Kotlin/Wasm application
 
@@ -200,7 +201,7 @@ After setting up custom formatters, you can complete the debugging tutorial.
 
    ![Check call stack](wasm-debug-scope.png){width=550}
 
-   For an improved visualization of the variable values, see [Enhance your debugging with custom formatters](#enhance-your-debugging-with-custom-formatters).
+   For an improved visualization of the variable values, see _Use custom formatters_ within the [Configure your browser for debugging](#configure-your-browser-for-debugging) section.
 
 7. Make changes to your code and [run the application](#run-the-application) again to verify that everything works as expected.
 8. Click on the line numbers with breakpoints to remove the breakpoints.
