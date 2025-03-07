@@ -4,7 +4,7 @@
     <p>This is the first part of the <strong>Mapping Kotlin and C</strong> tutorial series.</p>
     <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Mapping primitive data types from C</strong><br/>
        <img src="icon-2-todo.svg" width="20" alt="Second step"/> <a href="mapping-struct-union-types-from-c.md">Mapping struct and union types from C</a><br/>
-       <img src="icon-3-todo.svg" width="20" alt="Third step"/> <a href="mapping-function-pointers-from-c.md">Mapping function pointers</a><br/>      
+       <img src="icon-3-todo.svg" width="20" alt="Third step"/> <a href="mapping-function-pointers-from-c.md">Mapping function pointers</a><br/>
        <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> <a href="mapping-strings-from-c.md">Mapping strings from C</a><br/>
     </p>
 </tldr>
@@ -18,8 +18,8 @@
 >
 {style="warning"}
 
-In this tutorial, you'll learn which C data types are visible in Kotlin/Native and vice versa and explore the advanced
-C interop-related usages of Kotlin/Native and [multiplatform](gradle-configure-project.md#targeting-multiple-platforms)
+Let's explore which C data types are visible in Kotlin/Native and vice versa and examine advanced
+C interop-related use cases of Kotlin/Native and [multiplatform](gradle-configure-project.md#targeting-multiple-platforms)
 Gradle builds.
 
 In this tutorial, you'll:
@@ -120,7 +120,7 @@ To create project files:
 
     <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
-    
+
     ```kotlin
     plugins {
         kotlin("multiplatform") version "%kotlinVersion%"
@@ -150,10 +150,10 @@ To create project files:
         distributionType = Wrapper.DistributionType.BIN
     }
     ```
-    
+
     </tab>
     <tab title="Groovy" group-key="groovy">
-    
+
     ```groovy
     plugins {
         id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
@@ -184,13 +184,13 @@ To create project files:
         distributionType = 'BIN'
     }
     ```
-    
+
     </tab>
     </tabs>
 
-    The project file configures the C interop as an additional build step.
-    Check out the [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md) to learn about different
-    ways you can configure it.
+   The project file configures the C interop as an additional build step.
+   Check out the [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md) to learn about different
+   ways you can configure it.
 
 2. Move your `interop.def`, `lib.h`, and `lib.def` files to the `src/nativeInterop/cinterop` directory.
 3. Create a `src/nativeMain/kotlin` directory. This is where you should place all the source files, following Gradle's
@@ -218,10 +218,10 @@ You'll complete the code later as you learn how C primitive type declarations lo
 
 ## Inspect generated Kotlin APIs for a C library
 
-Let's see how C primitive types are mapped into Kotlin/Native and update the example project accordingly. 
+Let's see how C primitive types are mapped into Kotlin/Native and update the example project accordingly.
 
-With the help of IntelliJ IDEA's [Go to declaration](https://www.jetbrains.com/help/rider/Navigation_and_Search__Go_to_Declaration.html)
-command (<shortcut>Cmd + B</shortcut>/<shortcut>Ctrl + B</shortcut>), you can navigate to the following generated API
+Use the IntelliJ IDEA's [Go to declaration](https://www.jetbrains.com/help/rider/Navigation_and_Search__Go_to_Declaration.html)
+command (<shortcut>Cmd + B</shortcut>/<shortcut>Ctrl + B</shortcut>) to navigate to the following generated API
 for C functions:
 
 ```kotlin
@@ -250,7 +250,7 @@ signed value:
 
 Now that you've seen the C definitions, you can update your Kotlin code. The final code in the `hello.kt` file may look
 like this:
- 
+
 ```kotlin
 import interop.*
 import kotlinx.cinterop.ExperimentalForeignApi
@@ -265,7 +265,7 @@ fun main() {
 }
 ```
 
-To verify that everything works as expected, run the `linkDebugSharedNative` Gradle task [in your IDE](native-get-started.md#build-and-run-the-application)
+To verify that everything works as expected, run the `runDebugExecutableNative` Gradle task [in your IDE](native-get-started.md#build-and-run-the-application)
 or use the following command to run the code:
 
 ```bash
