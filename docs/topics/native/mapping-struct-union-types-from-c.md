@@ -313,6 +313,7 @@ import kotlinx.cinterop.cValue
 import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.ptr
 import kotlinx.cinterop.readValue
+import kotlinx.cinterop.ExperimentalForeignApi
 
 @OptIn(ExperimentalForeignApi::class)
 fun main() {
