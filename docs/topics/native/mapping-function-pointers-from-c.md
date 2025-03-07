@@ -64,7 +64,9 @@ Let's see how C function pointers are mapped into Kotlin/Native and update your 
 
    ```kotlin
    import interop.*
- 
+   import kotlinx.cinterop.ExperimentalForeignApi
+   
+   @OptIn(ExperimentalForeignApi::class)
    fun main() {
        println("Hello Kotlin/Native!")
       
@@ -96,6 +98,7 @@ It's time to try using C functions from Kotlin code. Call the `accept_fun()` fun
 to a Kotlin lambda:
 
 ```kotlin
+import interop.*
 import kotlinx.cinterop.staticCFunction
 import kotlinx.cinterop.ExperimentalForeignApi
 
@@ -144,6 +147,7 @@ import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.invoke
 import kotlinx.cinterop.staticCFunction
 
+@OptIn(ExperimentalForeignApi::class)
 fun main() {
     println("Hello Kotlin/Native!")
 
