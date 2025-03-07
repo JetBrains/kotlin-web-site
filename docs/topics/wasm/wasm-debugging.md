@@ -139,20 +139,20 @@ Custom formatters help display and locate variable values in a more user-friendl
 
 Custom formatters are enabled by default in development builds, so you don't need additional Gradle configurations. 
 
-This feature is supported across major browsers like Firefox and Chromium-based as
+This feature is supported in Firefox and Chromium-based browsers as
 it uses the [custom formatters API](https://firefox-source-docs.mozilla.org/devtools-user/custom_formatters/index.html).
 
-To use this feature, you only need to ensure that custom formatters are enabled in your browser's developer tools:
+To use this feature, ensure that custom formatters are enabled in your browser's developer tools:
 
-* In the Chrome DevTools, it's placed in **Settings | Preferences | Console**:
+* In Chrome DevTools, find the custom formatters checkbox in **Settings | Preferences | Console**:
 
   ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=400}
 
-* In the Firefox Developer Tools, it's placed in **Settings | Advanced settings**:
+* In Firefox DevTools, find the custom formatters checkbox in **Settings | Advanced settings**:
 
   ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=400}
 
-Custom formatters work for development builds. If you have specific requirements for production builds,
+Custom formatters work for Kotlin/Wasm development builds. If you have specific requirements for production builds,
 you need to adjust your Gradle configuration accordingly. Add the following compiler option to the `wasmJs {}` block:
 
 ```kotlin
@@ -168,7 +168,7 @@ kotlin {
 }
 ```
 
-After enabling custom formatters, you can complete the debugging tutorial.
+After enabling custom formatters, you can continue with the debugging tutorial.
 
 ### Debug your Kotlin/Wasm application
 
@@ -201,7 +201,7 @@ After enabling custom formatters, you can complete the debugging tutorial.
 
    ![Check call stack](wasm-debug-scope.png){width=550}
 
-   For an improved visualization of the variable values, see [Use custom formatters](#use-custom-formatters).
+   For an improved visualization of the variable values, see _Use custom formatters_ within the [Configure your browser for debugging](#configure-your-browser-for-debugging) section.
 
 7. Make changes to your code and [run the application](#run-the-application) again to verify that everything works as expected.
 8. Click on the line numbers with breakpoints to remove the breakpoints.
