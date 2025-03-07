@@ -71,7 +71,7 @@ The Power-assert plugin provides several options to customize its behavior:
 * **`functions`**: A list of fully-qualified function paths. The Power-assert plugin will transform the calls to these functions. If not specified, only `kotlin.assert()` calls will be transformed by default.
 * **`includedSourceSets`**: A list of Gradle source sets that the Power-assert plugin will transform. If not specified, all _test source sets_ will be transformed by default.
 
-To customize the behavior, add the `powerAssert {}` block to you build script file:
+To customize the behavior, add the `powerAssert {}` block to your build script file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">

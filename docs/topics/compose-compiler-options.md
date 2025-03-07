@@ -17,12 +17,12 @@ Here's an example configuration:
 
 ```kotlin
 composeCompiler {
-   includeSourceInformation = true
+    includeSourceInformation = true
 
-   featureFlags = setOf(
-           ComposeFeatureFlag.StrongSkipping.disabled(),
-           ComposeFeatureFlag.OptimizeNonSkippingGroups
-   )
+    featureFlags = setOf(
+        ComposeFeatureFlag.StrongSkipping.disabled(),
+        ComposeFeatureFlag.OptimizeNonSkippingGroups
+    )
 }
 ```
 
