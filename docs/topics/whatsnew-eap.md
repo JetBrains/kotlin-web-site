@@ -15,10 +15,9 @@ Here are some details of this EAP release:
 * [](#kotlin-k2-compiler-new-default-kapt-plugin)
 * [](#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin)
 * [](#kotlin-native-new-inlining-optimization)
-* [Kotlin/Wasm: migration to Provider API](#kotlin-wasm-migration-to-provider-api-for-kotlin-wasm-and-kotlin-js-properties)
-* [Gradle: support for custom publication variants](#support-for-adding-custom-gradle-publication-variants)
-* [](#common-atomic-types)
-* [](#changes-in-uuid-parsing-and-formatting-functions)
+* [Kotlin/Wasm: default custom formatters and migration to Provider API](#kotlin-wasm)
+* [Gradle: support for Gradle 8.11, compatibility with Isolated Projects, and custom publication variants](#support-for-adding-custom-gradle-publication-variants)
+* [Standard library: common atomic types, improved UUID support, and new time tracking functionality](#standard-library)
 * [](#compose-compiler-source-information-included-by-default)
 
 ## IDE support
@@ -30,7 +29,6 @@ All you need to do is to [change the Kotlin version](configure-build-for-eap.md)
 See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for details.
 
 ## Kotlin K2 compiler: new default kapt plugin
-
 <primary-label ref="beta"/>
 
 Starting with Kotlin %kotlinEapVersion%, the K2 implementation of the kapt compiler plugin is enabled by default
@@ -52,7 +50,6 @@ kapt.use.k2=false
 Please report any issues to our [issue tracker](https://youtrack.jetbrains.com/issue/KT-71439/K2-kapt-feedback).
 
 ## Kotlin Multiplatform: new DSL to replace Gradle's Application plugin
-
 <primary-label ref="experimental-opt-in"/>
 
 Starting with Gradle 8.7, the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) plugin is
@@ -126,7 +123,43 @@ gives an overall performance improvement of 9.5%. Of course, you can try out oth
 If you experience increased binary size or compilation time, please report such issues
 in [YouTrack](https://kotl.in/issue).
 
-## Kotlin/Wasm: migration to Provider API for Kotlin/Wasm and Kotlin/JS properties
+## Kotlin/Wasm
+
+### Custom formatters enabled by default
+
+Before, you had to [manually configure](whatsnew21.md#improved-debugging-experience-for-kotlin-wasm) custom formatters
+to improve debugging in web browsers when working with Kotlin/Wasm code.
+
+In this release, custom formatters are enabled by default in development builds, so no additional Gradle configuration
+is needed.
+
+To use this feature, you only need to ensure that custom formatters are enabled in your browser's developer tools:
+
+* In Chrome DevTools, it's available via **Settings | Preferences | Console**:
+
+  ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=400}
+
+* In Firefox DevTools, it's available via **Settings | Advanced settings**:
+
+  ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=400}
+
+This change primarily affects development builds. If you have specific requirements for production builds,
+you need to adjust your Gradle configuration accordingly. Add the following compiler option to the `wasmJs {}` block:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    wasmJs {
+        // ...
+
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-debugger-custom-formatters")
+        }
+    }
+}
+```
+
+### Migration to Provider API for Kotlin/Wasm and Kotlin/JS properties
 
 Previously, properties in Kotlin/Wasm and Kotlin/JS extensions were mutable (`var`) and assigned directly in build
 scripts:
@@ -172,6 +205,36 @@ must update property assignments to use the `.set()` function.
 ### Support for version 8.11
 Kotlin %kotlinEapVersion% is now compatible with the latest stable Gradle version, 8.11, and supports its features.
 
+### Kotlin Gradle plugin compatible with Gradle's Isolated Projects
+<primary-label ref="experimental-opt-in"/>
+
+> This feature is currently in a pre-Alpha state in Gradle.
+> Use it only with Gradle version 8.10 or higher and solely for evaluation purposes.
+>
+{style="warning"}
+
+Since Kotlin 2.1.0, you've been able to [preview Gradle's Isolated Projects feature](whatsnew21.md#preview-gradle-s-isolated-projects-in-kotlin-multiplatform)
+in your projects.
+
+Previously, you had to configure the Kotlin Gradle plugin to make your project compatible with the Isolated Projects
+feature before you could try it out. In Kotlin %kotlinEapVersion%, this additional step is no longer necessary.
+
+Now, to enable the Isolated Projects feature, you only need to [set the system property](https://docs.gradle.org/current/userguide/isolated_projects.html#how_do_i_use_it).
+
+Gradle’s Isolated Projects feature is supported in Kotlin Gradle plugins for both multiplatform projects and projects
+that contain only the JVM or Android target.
+
+Specifically for multiplatform projects, if you notice problems with your Gradle build after upgrading, you can opt out
+of the new Kotlin Gradle plugin behavior by setting:
+
+```none
+kotlin.kmp.isolated-projects.support=disable
+```
+
+However, if you use this Gradle property in your multiplatform project, you can't use the Isolated Projects feature.
+
+We would appreciate your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-57279/Support-Gradle-Project-Isolation-Feature-for-Kotlin-Multiplatform).
+
 ### Support for adding custom Gradle publication variants
 <primary-label ref="experimental-opt-in"/>
 
@@ -182,9 +245,8 @@ This feature is available for multiplatform projects and projects targeting the 
 >
 {style="note"}
 
-This feature is [Experimental](components-stability.md#stability-levels-explained). To opt in,
-use the `@OptIn(ExperimentalKotlinGradlePluginApi::class)` annotation or the compiler option
-`-opt-in=kotlin.ExperimentalKotlinGradlePluginApi`.
+This feature is [Experimental](components-stability.md#stability-levels-explained).
+To opt in, use the `@OptIn(ExperimentalKotlinGradlePluginApi::class)` annotation.
 
 To add a custom Gradle publication variant, invoke the `adhocSoftwareComponent()` function, which returns an instance
 of [`AdhocComponentWithVariants`](https://docs.gradle.org/current/javadoc/org/gradle/api/component/AdhocComponentWithVariants.html)
@@ -291,7 +353,7 @@ fun main() {
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
 
-### Changes in UUID parsing and formatting functions
+### Changes in UUID parsing, formatting, and comparability
 <primary-label ref="experimental-opt-in"/>
 
 The JetBrains team continues to improve the support for UUIDs [introduced to the standard library in 2.0.20](whatsnew2020.md#support-for-uuids-in-the-common-kotlin-standard-library).
@@ -309,8 +371,13 @@ and [`toHexString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/
 introduced earlier for the hexadecimal format. Explicit naming for parsing and formatting functionality should improve
 code clarity and your overall experience with UUIDs.
 
+UUIDs in Kotlin are now `Comparable`. Starting with Kotlin %kotlinEapVersion%, you can directly compare and sort values
+of the `Uuid` type. This enables the use of the `<` and `>` operators, standard library extensions available exclusively
+for `Comparable` types or their collections (such as `sorted()`), and allows passing UUIDs to any functions or APIs that
+require the `Comparable` interface.
+
 Remember that the UUID support in the standard library is still [Experimental](components-stability.md#stability-levels-explained).
-To opt in, use the `@ExperimentalUuidApi` annotation or the compiler option `-opt-in=kotlin.uuid.ExperimentalUuidApi`:
+To opt in, use the `@OptIn(ExperimentalUuidApi::class)` annotation or the compiler option `-opt-in=kotlin.uuid.ExperimentalUuidApi`:
 
 ```kotlin
 import kotlin.uuid.ExperimentalUuidApi
@@ -327,10 +394,67 @@ fun main() {
 
     // Outputs the UUID in the hex-and-dash format
     println(hexDashFormat)
+
+    // Outputs UUIDs in ascending order
+    println(
+        listOf(
+            uuid,
+            Uuid.parse("780e8400e29b41d4a716446655440005"),
+            Uuid.parse("5ab88400e29b41d4a716446655440076")
+        ).sorted()
+    )
 }
 //sampleEnd
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
+
+### New time tracking functionality
+<primary-label ref="experimental-opt-in"/>
+
+Starting with Kotlin %kotlinEapVersion%, the standard library provides the ability to represent a moment in time.
+This functionality was previously only available in [`kotlinx-datetime`](https://kotlinlang.org/api/kotlinx-datetime/),
+an official Kotlin library.
+
+The [kotlinx.datetime.Clock](https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/kotlinx.datetime/-clock/)
+interface is introduced to the standard library as `kotlin.time.Clock` and the [`kotlinx.datetime.Instant`](https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/kotlinx.datetime/-instant/)
+class as `kotlin.time.Instant`. These concepts naturally align with the `time` package in the standard library because
+they’re only concerned with moments in time compared to a more complex calendar and timezone functionality that remains
+in `kotlinx-datetime`.
+
+`Instant` and `Clock` are useful when you need precise time tracking without considering time zones or dates.
+For example, you can use them to log events with timestamps, measure durations between two points in time,
+and obtain the current moment for system processes.
+
+To provide interoperability with other languages, additional converter functions are available:
+
+* `.toKotlinInstant()` converts a time value to a `kotlin.time.Instant` instance.
+* `.toJavaInstant()` converts the `kotlin.time.Instant` value to a `java.time.Instant` value.
+* `Instant.toJSDate()` converts the `kotlin.time.Instant` value to an instance of the JS `Date` class. This conversion
+  is not precise, JS uses millisecond precision to represent dates, while Kotlin allows for nanosecond resolution.
+
+The new time features of the standard library are still [Experimental](components-stability.md#stability-levels-explained).
+To opt in, use the `@OptIn(ExperimentalTime::class)` annotation:
+
+```kotlin
+import kotlin.time.*
+
+@OptIn(ExperimentalTime::class)
+fun main() {
+
+    // Get the current moment in time
+    val currentInstant = Clock.System.now()
+    println("Current time: $currentInstant")
+
+    // Find the difference between two moments in time
+    val pastInstant = Instant.parse("2023-01-01T00:00:00Z")
+    val duration = currentInstant - pastInstant
+
+    println("Time elapsed since 2023-01-01: $duration")
+}
+```
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="2.1.20"}
+
+For more information on the implementation, see this [KEEP proposal](https://github.com/Kotlin/KEEP/pull/387/files).
 
 ## Compose compiler: source information included by default
 
