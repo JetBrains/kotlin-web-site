@@ -1,4 +1,4 @@
-[//]: # (title: Explore multiplatform library publication)
+[//]: # (title: Setting up multiplatform library publication)
 
 You can set up the publication of your multiplatform library to different locations: 
 
@@ -12,8 +12,8 @@ You can set up the publication of your multiplatform library to different locati
 You can publish a multiplatform library to a local Maven repository with the `maven-publish` Gradle plugin:
 
 1. In the `shared/build.gradle.kts` file, add the [`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html).
-2. Specify the group, version, and the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories)
-   where the library should be published:
+2. Specify the group and version for the library, as well as the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories)
+   where it should be published:
 
    ```kotlin
    plugins {
