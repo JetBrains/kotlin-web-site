@@ -1,4 +1,13 @@
 - lang: fr
+  startDate: '2025-03-08'
+  endDate: '2025-03-08'
+  location: Douala, Cameroon
+  online: true
+  speaker: Ulrich Pouani, Jaures Beinjamin
+  title: 'Kotlin Cameroon'
+  subject: Compose & KMP :"Construire des Apps Modernes et Performantes !". 
+  url: https://www.linkedin.com/posts/kotlin-cameroon_kotlin-android-jetpackcompose-activity-7303471534222761986-04wp?utm_source=share&utm_medium=member_desktop&rcm=ACoAADWUdFMBLMAq-imsylXYsbZIFGY4KKJ2cc4
+- lang: fr
   startDate: '2025-03-13'
   endDate: '2025-03-13'
   location: Bordeaux, France
