@@ -4,7 +4,7 @@ The Kotlin Multiplatform Gradle plugin is a tool for creating Kotlin Multiplatfo
 Here we provide a reference of its contents; use it as a reminder when writing Gradle build scripts
 for Kotlin Multiplatform projects. Learn the [concepts of Kotlin Multiplatform projects, how to create and configure them](multiplatform-intro.md).
 
-## Id and version
+## ID and version
 
 The fully qualified name of the Kotlin Multiplatform Gradle plugin is `org.jetbrains.kotlin.multiplatform`. 
 If you use the Kotlin Gradle DSL, you can apply the plugin with `kotlin("multiplatform")`.
@@ -189,12 +189,12 @@ in the Kotlin/JS documentation.
 
 `browser {}` can contain the following configuration blocks:
 
-| **Name**       | **Description**                                                         | 
-|----------------|-------------------------------------------------------------------------|
-| `testRuns`     | Configuration of test execution.                                        |
-| `runTask`      | Configuration of project running.                                       |
+| **Name**       | **Description**                                                            | 
+|----------------|----------------------------------------------------------------------------|
+| `testRuns`     | Configuration of test execution.                                           |
+| `runTask`      | Configuration of project running.                                          |
 | `webpackTask`  | Configuration of project bundling with [Webpack](https://webpack.js.org/). |
-| `distribution` | Path to output files.                                                   |
+| `distribution` | Path to output files.                                                      |
 
 ```kotlin
 kotlin {
@@ -349,10 +349,10 @@ binaries {
 
 Learn more about [building native binaries](multiplatform-build-native-binaries.md).
 
-#### CInterops
+#### Cinterops
 
 `cinterops` is a collection of descriptions for interop with native libraries.
-To provide an interop with a library, add an entry to `cinterops` and define its parameters:
+To provide interop with a library, add an entry to `cinterops` and define its parameters:
 
 | **Name**         | **Description**                                       | 
 |------------------|-------------------------------------------------------|
@@ -484,15 +484,13 @@ Available predefined source sets are the following:
 | `commonTest`                                | Test code and resources shared between all platforms. Available in all multiplatform projects. Used in all test compilations of a project.                                                                    |
 | _&lt;targetName&gt;&lt;compilationName&gt;_ | Target-specific sources for a compilation. _&lt;targetName&gt;_ is the name of a predefined target and _&lt;compilationName&gt;_ is the name of a compilation for this target. Examples: `jsTest`, `jvmMain`. |
 
-With Kotlin Gradle DSL, the sections of predefined source sets should be marked `by getting`.
-
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
     sourceSets {
-        val commonMain by getting { /* ... */ }
+        commonMain { /* ... */ }
     }
 }
 ```
@@ -503,7 +501,7 @@ kotlin {
 ```groovy
 kotlin { 
     sourceSets { 
-        commonMain { /* ... */ } 
+        commonMain { /* ... */ }
     }
 }
 ```
@@ -565,7 +563,7 @@ Configurations of source sets are stored inside the corresponding blocks of `sou
 ```kotlin
 kotlin { 
     sourceSets { 
-        val commonMain by getting {
+        commonMain {
             kotlin.srcDir("src")
             resources.srcDir("res")
 
@@ -651,28 +649,31 @@ kotlin {
 ### Custom compilations
 
 In addition to predefined compilations, you can create your own custom compilations.
-To create a custom compilation, add a new item into the `compilations` collection.
-If using Kotlin Gradle DSL, mark custom compilations `by creating`.
-
-Learn more about creating a [custom compilation](multiplatform-configure-compilations.md#create-a-custom-compilation).
+To do that, set up an [`associateWith`](gradle-configure-project.md#associate-compiler-tasks) relation between the new
+and the `main` compilation. If you're using the Kotlin Gradle DSL, mark custom compilations with `by creating`:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
-    jvm() {
+    jvm {
         compilations {
-            val integrationTest by compilations.creating {
+            val main by getting
+            val integrationTest by creating {
+                // Import main and its classpath as dependencies and establish internal visibility
+                associateWith(main)
                 defaultSourceSet {
                     dependencies {
+                        implementation(kotlin("test-junit"))
                         /* ... */
                     }
                 }
 
-                // Create a test task to run the tests produced by this compilation:
-                tasks.register<Test>("integrationTest") {
-                    /* ... */
+                // Create a test task to run the tests produced by this compilation
+                testRuns.create("integration") {
+                    // Configure the test task
+                    setExecutionSourceFrom(integrationTest)
                 }
             }
         }
@@ -685,17 +686,22 @@ kotlin {
 
 ```groovy
 kotlin {
-    jvm() {
+    jvm {
         compilations.create('integrationTest') {
+            def main = compilations.main
+            // Import main and its classpath as dependencies and establish internal visibility
+            associateWith(main)
             defaultSourceSet {
                 dependencies {
+                    implementation kotlin('test-junit')
                     /* ... */
                 }
             }
 
-            // Create a test task to run the tests produced by this compilation:
-            tasks.register('jvmIntegrationTest', Test) {
-                /* ... */
+            // Create a test task to run the tests produced by this compilation
+            testRuns.create('integration') {
+                // Configure the test task
+                setExecutionSourceFrom(compilations.integrationTest)
             }
         }
     }
@@ -704,6 +710,11 @@ kotlin {
 
 </tab>
 </tabs>
+
+By associating compilations, you add the main compilation output as a dependency and establish the `internal` visibility
+between compilations.
+
+Learn more about creating [custom compilations](multiplatform-configure-compilations.md#create-a-custom-compilation).
 
 ### Compilation parameters
 
@@ -959,12 +970,12 @@ There are four types of dependencies:
 ```kotlin
 kotlin {
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
                 api("com.example:foo-metadata:1.0")
             }
         }
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
                 implementation("com.example:foo-jvm:1.0")
             }
