@@ -112,8 +112,6 @@ To set up the publishing of an XCFramework:
    
    `swift package compute-checksum Shared.xcframework.zip`
 
-<anchor name="upload"/>
-
 2. Upload the ZIP file to the file storage of your choice. The file should be accessible
    by a direct link. For example, here's how you can do it using releases in GitHub:
    
@@ -295,8 +293,9 @@ For example, you have a `network` and a `database` module, which you combine in 
     ./gradlew :together:assembleTogetherReleaseXCFramework
     ```
 
-5. Follow steps 4–7 from [the previous section](#upload) for `together.xcframework`: archive, calculate the checksum,
-   upload the archived XCFramework, create and push a `Package.swift` file.
+5. Follow the steps from the [previous section](#prepare-the-xcframework-and-the-swift-package-manifest) to prepare
+   `together.xcframework`: archive it, calculate the checksum, upload the archived XCFramework to the file storage,
+   create and push a `Package.swift` file.
 
 Now, you can import the dependency into an Xcode project. After adding the `import together` directive,
 you should have classes from both the `network` and `database` modules available for import in Swift code.

@@ -590,7 +590,7 @@ Let's explore some common exception types found in Kotlin, which are all subclas
 
 * [`NoSuchElementException`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-no-such-element-exception/): This exception is thrown when an element that does not exist in a
 particular collection is accessed. It occurs when using methods that expect a specific element,
-such as [`first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html), [`last()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html), or [`elementAt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/element-at.html).
+such as [`first()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/first.html) or [`last()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/last.html).
 
     ```kotlin
     val emptyList = listOf<Int>()

@@ -1,3 +1,11 @@
+- lang: fr
+  startDate: '2025-03-13'
+  endDate: '2025-03-13'
+  location: Bordeaux, France
+  speaker: Frédéric Dubuisson, Aurélien Richeton, Ivan Canet
+  title: 'Bordeaux Kotlin User Group'
+  subject: 'Ktor : notre pari gagnant, KtMongo : le futur de MongoDB en Kotlin'
+  url: https://www.eventbrite.fr/e/billets-ktor-notre-pari-gagnant-ktmongo-le-futur-de-mongodb-en-kotlin-1253771216459
 - lang: en
   startDate: '2025-03-08'
   endDate: '2025-03-08'
