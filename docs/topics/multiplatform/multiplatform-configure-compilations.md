@@ -207,24 +207,14 @@ JVM versions in your final artifact, or you have already set up source sets in G
 
 ## Use Java sources in JVM compilations
 
-When creating a project with the [project wizard](https://kmp.jetbrains.com/), Java sources are included in the compilations of
+When creating a project with the [project wizard](https://kmp.jetbrains.com/), Java sources are created by default and included in the compilations of
 the JVM target.
-
-In the build script, the following section applies the Gradle `java` plugin and configures the target to cooperate with it:
-
-```kotlin
-kotlin {
-    jvm {
-        withJava()
-    }
-}
-```
 
 The Java source files are placed in the child directories of the Kotlin source roots. For example, the paths are:
 
 ![Java source files](java-source-paths.png){width=200}
 
-The common source sets cannot include Java sources.
+The common source sets can't include Java sources.
 
 Due to current limitations, the Kotlin plugin replaces some tasks configured by the Java plugin:
 
