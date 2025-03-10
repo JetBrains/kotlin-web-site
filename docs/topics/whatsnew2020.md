@@ -518,8 +518,7 @@ This feature is available for the `Set`, `Map`, and `List` Kotlin collection typ
 
 Kotlin 2.0.20 is fully compatible with Gradle 6.8.3 through 8.6. Gradle 8.7 and 8.8 are also supported, with only one 
 exception: If you use the Kotlin Multiplatform Gradle plugin, you may see deprecation warnings in your multiplatform projects
-calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets). We plan to fix
-this issue as soon as possible.
+calling the `withJava()` function in the JVM target. We plan to fix this issue as soon as possible.
 
 For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
 

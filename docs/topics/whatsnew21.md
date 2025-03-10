@@ -1181,7 +1181,7 @@ Learn more about [ES2015 (ECMAScript 2015, ES6) in the official documentation](h
 Kotlin 2.1.0 is fully compatible with Gradle 7.6.3 through 8.6.
 Gradle versions 8.7 to 8.10 are also supported, with only one exception.
 If you use the Kotlin Multiplatform Gradle plugin,
-you may see deprecation warnings in your multiplatform projects calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets).
+you may see deprecation warnings in your multiplatform projects calling the `withJava()` function in the JVM target.
 We plan to fix this issue as soon as possible.
 
 For more information,
