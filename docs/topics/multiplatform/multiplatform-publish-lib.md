@@ -211,7 +211,7 @@ you can configure and disable sources publication with the `withSourcesJar()` AP
   ```kotlin
   kotlin {
       withSourcesJar(publish = false)
-  
+
       jvm()
       linuxX64()
   }
@@ -235,7 +235,7 @@ you can configure and disable sources publication with the `withSourcesJar()` AP
   kotlin {
       // Disable sources publication for all targets except for JVM:
       withSourcesJar(publish = false)
-  
+
       jvm {
           withSourcesJar(publish = true)
       }
