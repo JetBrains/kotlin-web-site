@@ -136,11 +136,11 @@ fun passStringToC() {
 ```
 
 Passing a Kotlin string to C is straightforward, thanks to the `String.cstr` [extension property](extensions.md#extension-properties).
-There is also `String.wcstr` property for cases when you need UTF-16 characters.
+There is also `String.wcstr` property for cases if you work with UTF-16 characters.
 
 ## Read C strings in Kotlin
 
-This time, you'll take a returned `char *` from the `return_string()` function and turn it into a Kotlin string:
+Now take a returned `char *` from the `return_string()` function and turn it into a Kotlin string:
 
 ```kotlin
 import interop.*
@@ -158,7 +158,7 @@ fun passStringToC() {
 Here, the `.toKString()` extension function converts a C string returned from the `return_string()` function
 into a Kotlin string.
 
-Kotlin provides several `.toKString()` extension functions for converting C `char *` strings into Kotlin strings,
+Kotlin provides several extension functions for converting C `char *` strings into Kotlin strings,
 depending on the encoding:
 
 ```kotlin
@@ -194,9 +194,9 @@ fun sendString() {
 }
 ```
 
-Here, you first need a native pointer to pass to the C function. Use the `.usePinned` extension function to temporarily
-pin the native memory address of the byte array. The C function fills in the byte array with data. Use another extension
-function, `ByteArray.decodeToString()`, to turn the byte array into a Kotlin string, assuming UTF-8 encoding. 
+Here, a native pointer is passed to the C function first. The `.usePinned` extension function temporarily
+pins the native memory address of the byte array. The C function fills in the byte array with data. Another extension
+function, `ByteArray.decodeToString()`, turns the byte array into a Kotlin string, assuming UTF-8 encoding. 
 
 ## Update Kotlin code
 
