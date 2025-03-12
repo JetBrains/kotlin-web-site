@@ -1,7 +1,7 @@
 [//]: # (title: Mapping strings from C – tutorial)
 
 <tldr>
-    <p>This is the fourth part of the <strong>Mapping Kotlin and C</strong> tutorial series.</p>
+    <p>This is the final part of the <strong>Mapping Kotlin and C</strong> tutorial series. Before proceeding, make sure you've completed previous steps.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="mapping-primitive-data-types-from-c.md">Mapping primitive data types from C</a><br/>
         <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="mapping-struct-union-types-from-c.md">Mapping struct and union types from C</a><br/>
       <img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="mapping-function-pointers-from-c.md">Mapping function pointers</a><br/>
@@ -22,7 +22,7 @@ In the final part of the series, let's see how to deal with C strings in Kotlin/
 
 In this tutorial, you'll learn how to:
 
-* [Pass a Kotlin string to C](#pass-kotlin-string-to-c)
+* [Pass a Kotlin string to C](#pass-kotlin-strings-to-c)
 * [Read a C string in Kotlin](#read-c-strings-in-kotlin)
 * [Receive C string bytes into a Kotlin string](#receive-c-string-bytes-from-kotlin)
 
@@ -53,8 +53,9 @@ necessary files. For this step:
    #endif
    ```
 
-   This example shows the most popular ways to pass or receive a string in the C language. Take the return of `return_string`
-   with caution. Ensure you use the right function to dispose of the returned `char*` with the right `free()` function call.
+   This example shows the most popular ways to pass or receive a string in the C language. Take the return of the
+   `return_string()` function with caution. Ensure you use the right function to dispose of the returned `char*` with
+    the right `free()` function call.
 
 2. Update the declarations in the `interop.def` file after the `---` separator:
 
@@ -119,7 +120,7 @@ as it's usually an 8-bit signed value.
 In the generated Kotlin declarations, `str` is defined as `CValuesRef<ByteVarOf<Byte>>?`.
 Since this type is nullable, you can pass `null` as the argument value. 
 
-## Pass Kotlin string to C
+## Pass Kotlin strings to C
 
 Let's try to use the API from Kotlin. Call the `pass_string()` function first:
 
@@ -136,7 +137,7 @@ fun passStringToC() {
 ```
 
 Passing a Kotlin string to C is straightforward, thanks to the `String.cstr` [extension property](extensions.md#extension-properties).
-There is also `String.wcstr` property for cases if you work with UTF-16 characters.
+There is also `String.wcstr` property for cases with UTF-16 characters.
 
 ## Read C strings in Kotlin
 

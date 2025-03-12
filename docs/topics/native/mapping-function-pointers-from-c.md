@@ -1,7 +1,7 @@
 [//]: # (title: Mapping function pointers from C – tutorial)
 
 <tldr>
-    <p>This is the third part of the <strong>Mapping Kotlin and C</strong> tutorial series.</p>
+    <p>This is the third part of the <strong>Mapping Kotlin and C</strong> tutorial series. Before proceeding, make sure you've completed previous steps.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="mapping-primitive-data-types-from-c.md">Mapping primitive data types from C</a><br/>
         <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="mapping-struct-union-types-from-c.md">Mapping struct and union types from C</a><br/>
         <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Mapping function pointers</strong><br/>
