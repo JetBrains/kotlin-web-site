@@ -80,7 +80,7 @@ necessary files. For this step:
    }
    ```
 
-The `interop.def` file is enough to compile and run the application or open it in an IDE.
+The `interop.def` file provides everything necessary to compile, run, or open the application in an IDE.
 
 ## Inspect generated Kotlin APIs for a C library
 
