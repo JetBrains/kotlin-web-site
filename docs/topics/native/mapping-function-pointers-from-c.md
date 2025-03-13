@@ -28,8 +28,8 @@ In this tutorial, you'll:
 
 ## Mapping function pointer types from C
 
-To understand the mapping between Kotlin and C, let's declare two functiona: one that accepts a function pointer as a
-parameter and another one that returns a function pointer.
+To understand the mapping between Kotlin and C, let's declare two functions: one that accepts a function pointer as a
+parameter and another that returns a function pointer.
 
 In the [first part of the series](mapping-primitive-data-types-from-c.md) of the series, you've already created a C library with the
 necessary files. For this step, update the declarations in the `interop.def` file after the `---` separator:
@@ -109,11 +109,11 @@ fun myFun() {
 ```
 
 This call uses the `staticCFunction {}` helper function from Kotlin/Native to wrap a Kotlin lambda function into a C
-function pointer. It only allows having unbound and non-capturing lambda functions. For example, it cannot use a local
-variable from the function. You can only use globally visible declarations.
+function pointer. It allows only unbound and non-capturing lambda functions. For example, it cannot capture a local
+variable from the function, only globally visible declarations.
 
-It's vital to ensure that the function does not throw any exceptions. Throwing exceptions from a `staticCFunction {}`
-will end up in non-deterministic side effects.
+Ensure that the function doesn't throw any exceptions. Throwing exceptions from a `staticCFunction {}`
+causes non-deterministic side effects.
 
 ## Use the C function pointer from Kotlin
 
@@ -133,7 +133,7 @@ fun myFun2() {
 ```
 
 Kotlin turns the function pointer return type into a nullable `CPointer<CFunction<>` object. You need to first explicitly
-check for `null`; that's why the [Elvis operator](null-safety.md) is used in the code above.
+check for `null`, which is why the [Elvis operator](null-safety.md) is used in the code above.
 The `cinterop` tool helps you turn a C function pointer into a simple `functionFromC(42)` object call in Kotlin.
 
 ## Update Kotlin code
