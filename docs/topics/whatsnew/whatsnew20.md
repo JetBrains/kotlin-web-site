@@ -26,7 +26,7 @@ keynote, where we announced exciting updates and addressed the recent work on th
 
 The Kotlin plugins that support Kotlin 2.0.0 are bundled in the latest IntelliJ IDEA and Android Studio.
 You don't need to update the Kotlin plugin in your IDE.
-All you need to do is to [change the Kotlin version](configure-build-for-eap.md) to Kotlin 2.0.0 in your build scripts.
+All you need to do is to [change the Kotlin version](releases.md#update-to-a-new-kotlin-version) to Kotlin 2.0.0 in your build scripts.
 
 * For details about IntelliJ IDEA's support for the Kotlin K2 compiler, see [Support in IDEs](#support-in-ides).
 * For more details about IntelliJ IDEA's support for Kotlin, see [Kotlin releases](releases.md#ide-support).
@@ -1822,5 +1822,5 @@ fun main() {
 Starting from IntelliJ IDEA 2023.3 and Android Studio Iguana (2023.2.1) Canary 15, the Kotlin plugin is distributed as a
 bundled plugin included in your IDE. This means that you can't install the plugin from JetBrains Marketplace anymore.
 
-To update to the new Kotlin version, [change the Kotlin version](configure-build-for-eap.md#adjust-the-kotlin-version)
+To update to the new Kotlin version, [change the Kotlin version](releases.md#update-to-a-new-kotlin-version)
 to 2.0.0 in your build scripts.

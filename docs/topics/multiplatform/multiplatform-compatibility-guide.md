@@ -40,7 +40,6 @@ This section covers incompatible changes that end their deprecation cycle and co
 
 <anchor name="java-source-set-created-by-default"/>
 ### Java source sets created by default
-<primary-label ref="eap"/>
 
 **What's changed?**
 
@@ -72,7 +71,7 @@ If your project uses Gradle versions higher than 8.7 and doesn't rely on Gradle 
 or a third party Gradle plugin that has a dependency on a Gradle Java plugin, you can remove the `withJava()` function.
 
 If your project uses the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) Gradle Java plugin,
-we recommend migrating to the [new Experimental DSL](whatsnew-eap.md#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin).
+we recommend migrating to the [new Experimental DSL](whatsnew2120.md#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin).
 Starting with Gradle 8.7, the Application plugin will no longer work with the Kotlin Multiplatform Gradle plugin.
 
 If you want to use both the Kotlin Multiplatform Gradle plugin and other Gradle plugins for
@@ -86,7 +85,7 @@ Here's the planned deprecation cycle:
 
 * Gradle >8.6: introduce a deprecation warning for any previous version of Kotlin in multiplatform projects using the `withJava()` function.
 * Gradle 9.0: raise this warning to an error.
-* %kotlinEapVersion%: introduce a deprecation warning when using the `withJava()` function with any version of Gradle.
+* 2.1.20: introduce a deprecation warning when using the `withJava()` function with any version of Gradle.
 
 <anchor name="android-target-rename"/>
 ### Rename of `android` target to `androidTarget`
