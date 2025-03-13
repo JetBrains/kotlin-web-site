@@ -44,7 +44,7 @@ Apply the `kotlin-plugin-lombok` Gradle plugin in the `build.gradle(.kts)` file:
 ```kotlin
 plugins {
     kotlin("plugin.lombok") version "%kotlinVersion%"
-    id("io.freefair.lombok") version "8.10"
+    id("io.freefair.lombok") version "%lombokVersion%"
 }
 ```
 
@@ -54,7 +54,7 @@ plugins {
 ```groovy
 plugins {
     id 'org.jetbrains.kotlin.plugin.lombok' version '%kotlinVersion%'
-    id 'io.freefair.lombok' version '8.10'
+    id 'io.freefair.lombok' version '%lombokVersion%'
 }
 ```
 

@@ -18,7 +18,7 @@ announced the Kotlin K2 compiler as Stable. Here are some additional highlights 
 
 The Kotlin plugins that support 2.0.20 are bundled in the latest IntelliJ IDEA and Android Studio.
 You don't need to update the Kotlin plugin in your IDE.
-All you need to do is to [change the Kotlin version](configure-build-for-eap.md) to 2.0.20 in your build scripts.
+All you need to do is to change the Kotlin version to 2.0.20 in your build scripts.
 
 See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for details.
 
