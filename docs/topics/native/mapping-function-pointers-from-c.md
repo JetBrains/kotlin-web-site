@@ -53,7 +53,7 @@ MyFun supply_fun() {
 }
 ``` 
 
-The `interop.def` file is enough to compile and run the application or open it in an IDE.
+The `interop.def` file provides everything necessary to compile, run, or open the application in an IDE.
 
 ## Inspect generated Kotlin APIs for a C library
 
@@ -88,7 +88,7 @@ Let's see how C function pointers are mapped into Kotlin/Native and update your 
 As you can see, C function pointers are represented in Kotlin using `CPointer<CFunction<...>>`. The `accept_fun()` function
 takes an optional function pointer as a parameter, while `supply_fun()` returns a function pointer.
 
-`CFunction<(Int) -> Int>` describes the function signature, and `CPointer<CFunction<...>>?` represents a nullable
+`CFunction<(Int) -> Int>` represents the function signature, and `CPointer<CFunction<...>>?` represents a nullable
 function pointer. There is an `invoke` operator extension function available for all `CPointer<CFunction<...>>` types,
 allowing you to call function pointers as if they were regular Kotlin functions.
 
@@ -117,7 +117,7 @@ causes non-deterministic side effects.
 
 ## Use the C function pointer from Kotlin
 
-The next step is to call a C function pointer from a C pointer that you have from the `supply_fun()` call:
+The next step is to invoke a C function pointer returned from the `supply_fun()` call:
 
 ```kotlin
 import interop.*
@@ -134,7 +134,7 @@ fun myFun2() {
 
 Kotlin turns the function pointer return type into a nullable `CPointer<CFunction<>` object. You need to first explicitly
 check for `null`, which is why the [Elvis operator](null-safety.md) is used in the code above.
-The `cinterop` tool helps you turn a C function pointer into a simple `functionFromC(42)` object call in Kotlin.
+The `cinterop` tool allows you to call a C function pointer as a regular Kotlin function call: `functionFromC(42)`.
 
 ## Update Kotlin code
 
