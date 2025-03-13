@@ -336,10 +336,10 @@ guided by pragmatic design.
 
 <!-- the first td element should have the width="200" attribute -->
 
-<tr filter="in-preview">
+<tr filter="stable">
 <td>
 
-**In preview**
+**Stable**
 
 </td>
 <td>
