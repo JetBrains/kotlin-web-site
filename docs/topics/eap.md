@@ -44,7 +44,7 @@ In this channel, you can also get notifications about new EAP builds.
     </tr>
     <tr>
         <td><strong>2.1.20-RC3</strong>
-            <p>Released: <strong>March 13, 2025</strong></p>
+            <p>Released: <strong>March 14, 2025</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.20-RC3" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
