@@ -1,10 +1,9 @@
 [//]: # (title: Type aliases)
 
 Type aliases provide alternative names for existing types.
-If the type name is too long you can introduce a different shorter name and use the new one instead.
- 
-It's useful to shorten long generic types.
-For instance, it's often tempting to shrink collection types:
+If the type name is too long, you can introduce a different shorter name and use the new one instead.
+
+For example, you can create shorter names for collection types:
 
 ```kotlin
 typealias NodeSet = Set<Network.Node>
@@ -12,7 +11,7 @@ typealias NodeSet = Set<Network.Node>
 typealias FileTable<K> = MutableMap<K, MutableList<File>>
 ```
 
-You can provide different aliases for function types:
+You can also provide different aliases for function types:
 
 ```kotlin
 typealias MyHandler = (Int, String, Any) -> Unit
@@ -20,7 +19,7 @@ typealias MyHandler = (Int, String, Any) -> Unit
 typealias Predicate<T> = (T) -> Boolean
 ```
 
-You can have new names for inner and nested classes:
+Or, you can have new names for nested and inner classes:
 
 ```kotlin
 class A {
@@ -34,10 +33,10 @@ typealias AInner = A.Inner
 typealias BInner = B.Inner
 ```
 
-Type aliases do not introduce new types. 
+Type aliases do not introduce new types.
 They are equivalent to the corresponding underlying types.
-When you add `typealias Predicate<T>` and use `Predicate<Int>` in your code, the Kotlin compiler always expands it to `(Int) -> Boolean`. 
-Thus you can pass a variable of your type whenever a general function type is required and vice versa:
+For example, if you declare `typealias Predicate<T> = (T) -> Boolean` and use `Predicate<Int>` in your code, the Kotlin compiler expands the type to `(Int) -> Boolean`.
+This means you can pass a variable of type `Predicate<Int>` whenever `(Int) -> Boolean` is required and vice versa:
 
 ```kotlin
 typealias Predicate<T> = (T) -> Boolean

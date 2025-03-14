@@ -130,13 +130,13 @@ type `Source<Object>` - there are no consumer-methods to call. But Java does not
 ```java
 // Java
 void demo(Source<String> strs) {
-    Source<Object> objects = strs; // !!! Not allowed in Java
+    Source<Object> objs = strs; // !!! Not allowed in Java
     // ...
 }
 ```
 
-To fix this, you should declare objects of type `Source<? extends Object>`. Doing so is meaningless,
-because you can call all the same methods on such a variable as before, so there's no value added by the more complex type.
+To fix this, you should declare `objs` of type `Source<? extends Object>`. Doing so is meaningless,
+because you can call all the same methods on a `Source<Object>`, so there's no value added by the more complex type.
 But the compiler does not know that.
 
 In Kotlin, there is a way to explain this sort of thing to the compiler. This is called _declaration-site variance_:
