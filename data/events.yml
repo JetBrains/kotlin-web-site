@@ -14,6 +14,14 @@
   title: 'UDAAN 2025'
   subject: 'Empowering Innovation Through Technology'
   url: https://www.commudle.com/communities/gurugram-kotlin-user-group/events/udaan-2025
+- lang: ko
+  startDate: '2025-02-15'
+  endDate: '2025-02-15'
+  location: Seoul, Korea
+  speaker: 'To be announced'
+  title: 'Kotlin Backend Meetup'
+  subject: 'Whole new event for Kotlin Backend Developers in Seoul, Korea'
+  url: https://event-us.kr/kugseoul/event/98337
 - lang: pt
   startDate: '2024-10-03'
   endDate: '2024-10-03'
