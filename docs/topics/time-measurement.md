@@ -32,8 +32,8 @@ available for `Int`, `Long`, and `Double` types: `nanoseconds`, `microseconds`, 
 `hours`, and `days`.
 
 > Days refer to periods of 24 hours. They are not calendar days.
-> 
-{type = "tip"}
+>
+{style="tip"}
 
 For example:
 

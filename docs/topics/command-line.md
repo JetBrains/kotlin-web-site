@@ -96,7 +96,7 @@ kotlinc hello.kt -d hello.jar
 ```
 
 Since binaries compiled this way depend on the Kotlin runtime, 
-you should ensure that it is present in the classpath whenever your compiled library is used
+you should ensure that it is present in the classpath whenever your compiled library is used.
 
 You can also use the `kotlin` script to run binaries produced by the Kotlin compiler:
 
