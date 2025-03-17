@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin 2.1.20)
 
-_[Released: March 13, 2025](releases.md#release-details)_
+_[Released: March 20, 2025](releases.md#release-details)_
 
 The Kotlin 2.1.20 release is here! Here are the main highlights:
 
