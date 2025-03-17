@@ -44,7 +44,7 @@ This section covers incompatible changes that end their deprecation cycle and co
 **What's changed?**
 
 To align Kotlin Multiplatform with upcoming changes in Gradle, we are phasing out the `withJava()` function. The `withJava()`
-function enabled integration with Gradle's Java plugins by creating the necessary Java source sets. From Kotlin %kotlinEapVersion%,
+function enabled integration with Gradle's Java plugins by creating the necessary Java source sets. From Kotlin 2.1.20,
 these Java source sets are created by default.
 
 **What's the best practice now?**
@@ -59,7 +59,7 @@ kotlin {
 }
 ``` 
 
-From Kotlin %kotlinEapVersion%, you can remove the `withJava()` function from your build script.
+From Kotlin 2.1.20, you can remove the `withJava()` function from your build script.
 
 In addition, Gradle now only runs Java compile tasks if Java sources are present, triggering a JVM validation 
 diagnostic that previously didn't run before. This diagnostic fails if you explicitly configure an incompatible JVM target

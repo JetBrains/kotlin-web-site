@@ -21,7 +21,7 @@ All you need to do is to change the Kotlin version to 2.1.20 in your build scrip
 
 See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for details.
 
-### IntelliJ IDEA can download sources for Kotlin artifacts in projects with OSGi support
+### Download sources for Kotlin artifacts in projects with OSGi support
 
 Sources of all dependencies of the `kotlin-osgi-bundle` library are now included in its distribution. This allows
 IntelliJ IDEA to download these sources to provide documentation for Kotlin symbols and improve the debugging experience.
@@ -151,20 +151,20 @@ Kotlin/Wasm and Kotlin/JS.
 Before, you had to [manually configure](whatsnew21.md#improved-debugging-experience-for-kotlin-wasm) custom formatters
 to improve debugging in web browsers when working with Kotlin/Wasm code.
 
-In this release, custom formatters are enabled by default in development builds, so no additional Gradle configuration
-is needed.
+In this release, custom formatters are enabled by default in development builds, so you don't need additional Gradle
+configurations.
 
 To use this feature, you only need to ensure that custom formatters are enabled in your browser's developer tools:
 
-* In Chrome DevTools, it's available via **Settings | Preferences | Console**:
+* In Chrome DevTools, find the custom formatters checkbox in **Settings | Preferences | Console**:
 
   ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=400}
 
-* In Firefox DevTools, it's available via **Settings | Advanced settings**:
+* In Firefox DevTools, find the custom formatters checkbox in **Settings | Advanced settings**:
 
   ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=400}
 
-This change primarily affects development builds. If you have specific requirements for production builds,
+This change primarily affects Kotlin/Wasm development builds. If you have specific requirements for production builds,
 you need to adjust your Gradle configuration accordingly. To do so, add the following compiler option to the `wasmJs {}` block:
 
 ```kotlin
@@ -567,15 +567,15 @@ The Kotlin documentation has received some notable changes:
 
 ### Revamped and new pages
 
-* Improved [Numbers](numbers.md) page – learn about different Kotlin types for representing numbers.
+* [Kotlin roadmap](roadmap.md) – see the updated list of Kotlin's priorities on language and ecosystem evolution.
 * [Gradle best practices](gradle-best-practices.md) page – learn essential best practices for optimizing your Gradle
   builds and improving performance.
 * [Compose Multiplatform and Jetpack Compose](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-and-jetpack-compose.html)
   – an overview of the relation between the two UI frameworks.
-* [Kotlin roadmap](roadmap.md) – see the updated list of Kotlin's priorities on language and ecosystem evolution.
 * [Kotlin Multiplatform and Flutter](https://www.jetbrains.com/help/kotlin-multiplatform-dev/kotlin-multiplatform-flutter.html)
   – see the comparison of two popular cross-platform frameworks.
 * [Interoperability with C](native-c-interop.md) – explore the details of Kotlin's interoperability with C.
+* [Numbers](numbers.md) – learn about different Kotlin types for representing numbers.
 
 ### New and updated tutorials
 
