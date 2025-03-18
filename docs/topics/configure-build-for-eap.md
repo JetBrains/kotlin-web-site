@@ -1,8 +1,8 @@
 [//]: # (title: Configure your build for EAP)
 
 <tldr>
-    <!-- <p>No preview versions are currently available</p> -->
-    <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
+    <p>No preview versions are currently available</p>
+    <!-- <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p> -->
     <p><a href="eap.md#build-details">Explore Kotlin EAP release details</a></p>
 </tldr>
 
@@ -152,4 +152,4 @@ In the sample Maven project definition, replace `KOTLIN-EAP-VERSION` with the ac
 
 * Report an issue to [our issue tracker, YouTrack](https://kotl.in/issue).
 * Find help in the [#eap channel in Kotlin Slack](https://app.slack.com/client/T09229ZC6/C0KLZSCHF) ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
-* Roll back to the latest stable version: [change it in your build script file](configure-build-for-eap.md#adjust-the-kotlin-version).
+* Roll back to the latest stable version: [change it in your build script file](#adjust-the-kotlin-version).
