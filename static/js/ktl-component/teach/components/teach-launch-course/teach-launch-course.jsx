@@ -125,6 +125,14 @@ export const TeachLaunchCourse = () => {
                             Testing
                         </a>
                     </li>
+                    <li>
+                        <a
+                            className={textCn('rs-link', { external: true })}
+                            href="https://docs.google.com/presentation/d/1hZTaQ1gdStte2aeQU78UmpVzpKErdeOCRQPOYH2p3DI/edit?usp=sharing"
+                        >
+                            Reflection (JVM)
+                        </a>
+                    </li>
                 </ul>
             </div>
 
