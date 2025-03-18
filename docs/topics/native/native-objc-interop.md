@@ -46,7 +46,7 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a framewor
 To make your Kotlin code more Objective-C/Swift-friendly, you can hide a Kotlin declaration from Objective-C and Swift
 with `@HiddenFromObjC`. The annotation disables a function or property export to Objective-C.
 
-Alternatively, you can mark Kotlin declarations with the` internal` modifier to restrict their visibility in the
+Alternatively, you can mark Kotlin declarations with the `internal` modifier to restrict their visibility in the
 compilation module. Choose `@HiddenFromObjC` if you only want to hide the Kotlin declaration from Objective-C and Swift,
 but still keep it visible from other Kotlin modules.
 
@@ -306,7 +306,7 @@ the Kotlin method should be marked with the `@Throws` annotation, specifying a l
 
 When compiling to the Objective-C/Swift framework, non-`suspend` functions that have or inherit the `@Throws` annotation
 are represented as `NSError*`-producing methods in Objective-C and as `throws` methods in Swift.
-Representations for `suspend` functions always have`NSError*`/`Error` parameter in completion handler.
+Representations for `suspend` functions always have `NSError*`/`Error` parameter in completion handler.
 
 When Kotlin function called from Swift/Objective-C code throws an exception which is an instance of one of
 the `@Throws`-specified classes or their subclasses, it is propagated as `NSError`.
@@ -612,7 +612,7 @@ id<ForwardDeclaredProtocol> produceProtocol() {
 }
 ```
 
-To transfer objects between the two libraries, use an explicit `as` cast in you Kotlin code:
+To transfer objects between the two libraries, use an explicit `as` cast in your Kotlin code:
 
 ```kotlin
 // Kotlin code:
@@ -621,7 +621,7 @@ fun test() {
 }
 ```
 
-> Ypu can only cast to `objcnames.protocols.ForwardDeclaredProtocolProtocol` from the corresponding real class.
+> You can only cast to `objcnames.protocols.ForwardDeclaredProtocolProtocol` from the corresponding real class.
 > Otherwise, you'll get an error.
 >
 {style="note"}
