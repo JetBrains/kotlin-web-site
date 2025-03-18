@@ -246,7 +246,7 @@ for custom Gradle publication variants.
 ### Kotlin Gradle plugins compatible with Gradle's Isolated Projects
 <primary-label ref="experimental-opt-in"/>
 
-> This feature is currently in a pre-Alpha state in Gradle.
+> This feature is currently in a pre-Alpha state in Gradle. JS and Wasm targets are not supported at the moment.
 > Use it only with Gradle version 8.10 or higher and solely for evaluation purposes.
 >
 {style="warning"}
