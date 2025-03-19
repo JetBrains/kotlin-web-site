@@ -16,15 +16,3 @@ fun Dependencies.dependsOnDokkaTemplate(build: BuildType, artifactPath: String =
     }
   }
 }
-
-fun Dependencies.dependsOnDokkaPagesJson(build: BuildType) {
-  dependency(build) {
-    snapshot {
-      onDependencyFailure = FailureAction.FAIL_TO_START
-      onDependencyCancel = FailureAction.CANCEL
-    }
-    artifacts {
-      artifactRules = "+:pages.zip!scripts/pages.json => api-references"
-    }
-  }
-}

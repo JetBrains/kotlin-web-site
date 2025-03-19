@@ -1,3 +1,6 @@
+import builds.apiReferences.VCS
+import builds.apiReferences.kgp.KotlinGradleAPI
+
 object BuildParams {
   const val DOKKA_TEMPLATES_VERSION = "2.0.0"
 
@@ -36,6 +39,11 @@ object BuildParams {
   const val KOTLINX_METADATA_RELEASE_TAG = KGP_RELEASE_TAG // KOTLIN_RELEASE_TAG
   const val KOTLINX_METADATA_TITLE = KOTLINX_METADATA_ID
 
+  val KGP_REFERENCE = KotlinGradleAPI {
+    addVersion("2.1.0", VCS.tag("v2.1.0"))
+    addVersion("2.1.20", VCS.tag("v2.1.20"))
+  }
+
   const val SEARCH_APP_ID = "7961PKYRXV"
   const val SEARCH_INDEX_NAME = "prod_KOTLINLANG_WEBHELP"
 
@@ -45,7 +53,7 @@ object BuildParams {
     "api/$KOTLINX_SERIALIZATION_ID",
     "api/$KOTLINX_DATETIME_ID",
     "api/$KOTLINX_IO_ID",
-    "api/$KGP_ID",
+    "api/${KGP_REFERENCE.urlPart}",
     "api/$KOTLINX_METADATA_ID",
   )
 }
