@@ -48,23 +48,24 @@ plugins {
 When configuring your project, check the Kotlin Gradle plugin (KGP) compatibility with available Gradle versions. 
 In the following table, there are the minimum and maximum **fully supported** versions of Gradle and Android Gradle plugin (AGP):
 
-| KGP version   | Gradle min and max versions            | AGP min and max versions                            |
-|---------------|----------------------------------------|-----------------------------------------------------|
-| 2.1.0         | %minGradleVersion%–%maxGradleVersion%* | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
-| 2.0.20–2.0.21 | 6.8.3–8.8*                             | 7.1.3–8.5                                           |
-| 2.0.0         | 6.8.3–8.5                              | 7.1.3–8.3.1                                         |
-| 1.9.20–1.9.25 | 6.8.3–8.1.1                            | 4.2.2–8.1.0                                         |
-| 1.9.0–1.9.10  | 6.8.3–7.6.0                            | 4.2.2–7.4.0                                         |
-| 1.8.20–1.8.22 | 6.8.3–7.6.0                            | 4.1.3–7.4.0                                         |      
-| 1.8.0–1.8.11  | 6.8.3–7.3.3                            | 4.1.3–7.2.1                                         |   
-| 1.7.20–1.7.22 | 6.7.1–7.1.1                            | 3.6.4–7.0.4                                         |
-| 1.7.0–1.7.10  | 6.7.1–7.0.2                            | 3.4.3–7.0.2                                         |
-| 1.6.20–1.6.21 | 6.1.1–7.0.2                            | 3.4.3–7.0.2                                         |
+| KGP version   | Gradle min and max versions           | AGP min and max versions                            |
+|---------------|---------------------------------------|-----------------------------------------------------|
+| 2.1.20        | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 2.1.0–2.1.10  | 7.6.3–8.10*                           | 7.3.1–8.7.2                                         |
+| 2.0.20–2.0.21 | 6.8.3–8.8*                            | 7.1.3–8.5                                           |
+| 2.0.0         | 6.8.3–8.5                             | 7.1.3–8.3.1                                         |
+| 1.9.20–1.9.25 | 6.8.3–8.1.1                           | 4.2.2–8.1.0                                         |
+| 1.9.0–1.9.10  | 6.8.3–7.6.0                           | 4.2.2–7.4.0                                         |
+| 1.8.20–1.8.22 | 6.8.3–7.6.0                           | 4.1.3–7.4.0                                         |      
+| 1.8.0–1.8.11  | 6.8.3–7.3.3                           | 4.1.3–7.2.1                                         |   
+| 1.7.20–1.7.22 | 6.7.1–7.1.1                           | 3.6.4–7.0.4                                         |
+| 1.7.0–1.7.10  | 6.7.1–7.0.2                           | 3.4.3–7.0.2                                         |
+| 1.6.20–1.6.21 | 6.1.1–7.0.2                           | 3.4.3–7.0.2                                         |
 
-> *Kotlin 2.0.20–2.0.21 and Kotlin 2.1.0 are fully compatible with Gradle up to 8.6.
+> *Kotlin 2.0.20–2.0.21 and Kotlin 2.1.0–2.1.10 are fully compatible with Gradle up to 8.6.
 > Gradle versions 8.7–8.10 are also supported, with only one exception: If you use the Kotlin Multiplatform Gradle plugin,
-> you may see deprecation warnings in your multiplatform projects calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets).
-> For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
+> you may see deprecation warnings in your multiplatform projects calling the `withJava()` function in the JVM target.
+> For more information, see [Java source sets created by default](multiplatform-compatibility-guide.md#java-source-sets-created-by-default).
 >
 {style="warning"}
 

@@ -19,7 +19,7 @@ The Kotlin 2.1.0 release is here! Here are the main highlights:
 
 The Kotlin plugins that support 2.1.0 are bundled in the latest IntelliJ IDEA and Android Studio.
 You don't need to update the Kotlin plugin in your IDE.
-All you need to do is [change the Kotlin version](configure-build-for-eap.md) to 2.1.0 in your build scripts.
+All you need to do is change the Kotlin version to 2.1.0 in your build scripts.
 
 See [Update to a new Kotlin version](releases.md#update-to-a-new-kotlin-version) for details.
 
@@ -1181,7 +1181,7 @@ Learn more about [ES2015 (ECMAScript 2015, ES6) in the official documentation](h
 Kotlin 2.1.0 is fully compatible with Gradle 7.6.3 through 8.6.
 Gradle versions 8.7 to 8.10 are also supported, with only one exception.
 If you use the Kotlin Multiplatform Gradle plugin,
-you may see deprecation warnings in your multiplatform projects calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets).
+you may see deprecation warnings in your multiplatform projects calling the `withJava()` function in the JVM target.
 We plan to fix this issue as soon as possible.
 
 For more information,

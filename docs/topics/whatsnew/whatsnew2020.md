@@ -18,7 +18,7 @@ announced the Kotlin K2 compiler as Stable. Here are some additional highlights 
 
 The Kotlin plugins that support 2.0.20 are bundled in the latest IntelliJ IDEA and Android Studio.
 You don't need to update the Kotlin plugin in your IDE.
-All you need to do is to [change the Kotlin version](configure-build-for-eap.md) to 2.0.20 in your build scripts.
+All you need to do is to change the Kotlin version to 2.0.20 in your build scripts.
 
 See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for details.
 
@@ -518,8 +518,7 @@ This feature is available for the `Set`, `Map`, and `List` Kotlin collection typ
 
 Kotlin 2.0.20 is fully compatible with Gradle 6.8.3 through 8.6. Gradle 8.7 and 8.8 are also supported, with only one 
 exception: If you use the Kotlin Multiplatform Gradle plugin, you may see deprecation warnings in your multiplatform projects
-calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets). We plan to fix
-this issue as soon as possible.
+calling the `withJava()` function in the JVM target. We plan to fix this issue as soon as possible.
 
 For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
 

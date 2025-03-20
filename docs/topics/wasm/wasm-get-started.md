@@ -41,14 +41,14 @@ Create a project using the Kotlin Multiplatform wizard:
    >
    {style="note"}
 
-2. In **composeApp** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserRun** task.
+2. In **composeApp** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDevelopmentRun** task.
 
    ![Run the Gradle task](wasm-gradle-task-window.png){width=600}
 
    Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
 
    ```bash
-   ./gradlew wasmJsBrowserRun -t
+   ./gradlew wasmJsBrowserDevelopmentRun -t
    ```
 
 3. Once the application starts, open the following URL in your browser:
