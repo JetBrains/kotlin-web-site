@@ -76,13 +76,13 @@ no longer compatible with the Kotlin Multiplatform Gradle plugin. Kotlin 2.1.20 
 DSL to achieve similar functionality. The new `executable {}` block configures execution tasks and Gradle
 [distributions](https://docs.gradle.org/current/userguide/distribution_plugin.html#distribution_plugin) for JVM targets.
 
-Before using the DSL, add the following to your build script:
+Before the `executable {}` block in your build script, add the following `@OptIn` annotation:
 
 ```kotlin
-OptIn(ExperimentalKotlinGradlePluginApi::class)
+@OptIn(ExperimentalKotlinGradlePluginApi::class)
 ```
 
-Then, add the new `executable {}` block. For example:
+For example:
 
 ```kotlin
 kotlin {
