@@ -72,9 +72,7 @@ kotlin {
 ```
 
 The instruction `binaries.executable()` explicitly instructs the Kotlin compiler to emit executable `.js` files.
-This is the default behavior when using the current Kotlin/JS compiler, but the instruction is explicitly required if you
-are working with the [Kotlin/JS IR compiler](js-ir-compiler.md), or have set `kotlin.js.generate.executable.default=false`
-in the `gradle.properties` file. In those cases, omitting `binaries.executable()` will cause the compiler to only generate 
+Omitting `binaries.executable()` will cause the compiler to only generate 
 Kotlin-internal library files, which can be used from other projects, but not run on their own.
 
 > This is typically faster than creating executable files,
