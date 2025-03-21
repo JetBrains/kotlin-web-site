@@ -1,7 +1,7 @@
 [//]: # (title: Mapping struct and union types from C – tutorial)
 
 <tldr>
-    <p>This is the second part of the <strong>Mapping Kotlin and C</strong> tutorial series.</p>
+    <p>This is the second part of the <strong>Mapping Kotlin and C</strong> tutorial series. Before proceeding, make sure you've completed previous steps.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="mapping-primitive-data-types-from-c.md">Mapping primitive data types from C</a><br/>
        <img src="icon-2.svg" width="20" alt="Second step"/> <strong>Mapping struct and union types from C</strong><br/>
        <img src="icon-3-todo.svg" width="20" alt="Third step"/> <a href="mapping-function-pointers-from-c.md">Mapping function pointers</a><br/>
