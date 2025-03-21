@@ -1,7 +1,7 @@
 package builds.apiReferences.kotlinx.datetime
 
 import BuildParams.KOTLINX_DATETIME_ID
-import BuildParams.KOTLINX_DATETIME_RELEASE_TAG
+import BuildParams.KOTLINX_DATETIME_RELEASE_LABEL
 import builds.apiReferences.BuildApiPages
 import builds.apiReferences.dependsOnDokkaTemplate
 import builds.apiReferences.scriptBuildHtml
@@ -12,7 +12,7 @@ private const val DOKKA_HTML_RESULT = "core/build/dokka/html"
 
 object KotlinxDatetimeBuildApiReference : BuildApiPages(
     apiId = KOTLINX_DATETIME_ID,
-    releaseTag = KOTLINX_DATETIME_RELEASE_TAG,
+    releaseTag = KOTLINX_DATETIME_RELEASE_LABEL,
     pagesRoot = DOKKA_HTML_RESULT,
     stepDropSnapshot = {
         scriptDropSnapshot {
