@@ -44,11 +44,16 @@ Learn more about [adding dependencies](multiplatform-add-dependencies.md).
 
 This `kotlinMultiplatform` publication includes metadata artifacts and references the other publications as its variants.
 
-> Some repositories, such as Maven Central, require that the root module contains a JAR artifact without a classifier, for example `kotlinMultiplatform-1.0.jar`.  
-> The Kotlin Multiplatform plugin automatically produces the required artifact with the embedded metadata artifacts.  
-> This means you don't have to customize your build by adding an empty artifact to the root module of your library to meet the repository's requirements.
+Some repositories, such as Maven Central, require the root module to contain a JAR artifact without a classifier,
+for example `kotlinMultiplatform-1.0.jar`.
+The Kotlin Multiplatform plugin automatically produces the required artifact with the embedded metadata artifacts.
+This means you don't have to customize your build by adding an empty artifact to the root module of your library to
+meet the repository's requirements.
+
+> Learn more about JAR artifact generation with [Gradle](multiplatform-configure-compilations.md#compilation-for-jvm)
+> and [Maven](maven.md#create-jar-file) build systems.
 >
-{style="note"}
+{style="tip"}
 
 The `kotlinMultiplatform` publication may also need the sources and documentation artifacts if that is required by the repository. In that case, 
 add those artifacts by using [`artifact(...)`](https://docs.gradle.org/current/javadoc/org/gradle/api/publish/maven/MavenPublication.html#artifact-java.lang.Object-) 

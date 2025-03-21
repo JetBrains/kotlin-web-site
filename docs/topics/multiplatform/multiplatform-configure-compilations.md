@@ -205,24 +205,87 @@ kotlin {
 You also need to create a custom compilation in other cases, for example, if you want to combine compilations for different 
 JVM versions in your final artifact, or you have already set up source sets in Gradle and want to migrate to a multiplatform project.
 
-## Use Java sources in JVM compilations
+## Compilation for JVM
 
-When creating a project with the [project wizard](https://kmp.jetbrains.com/), Java sources are created by default and included in the compilations of
-the JVM target.
+When you declare the `jvm` target in your multiplatform project, the Kotlin Multiplatform plugin automatically
+creates Java sources sets and includes them in the compilations of the JVM target.
 
-The Java source files are placed in the child directories of the Kotlin source roots. For example, the paths are:
+The common source sets can't include Java resources, so you should place them in the corresponding child directories
+of your multiplatform project. For example:
 
 ![Java source files](java-source-paths.png){width=200}
 
-The common source sets can't include Java sources.
+Currently, the Kotlin Multiplatform plugin replaces some tasks configured by the Java plugin:
 
-Due to current limitations, the Kotlin plugin replaces some tasks configured by the Java plugin:
+* JAR task: instead of a standard `jar`, it uses a target-specific task based on the artifact's name, for example,
+  `jvmJar` for the `jvm()` target declaration and `desktopJar` for `jvm("desktop")`.
+* Test task: instead of a standard `test`, it uses a target-specific task based on the artifact's name, for example, `jvmTest`.
+* Resource processing: instead of `*ProcessResources` tasks, resources are handled by the equivalent compilation tasks.
 
-* The target's JAR task instead of `jar` (for example, `jvmJar`).
-* The target's test task instead of `test` (for example, `jvmTest`).
-* The resources are processed by the equivalent tasks of the compilations instead of `*ProcessResources` tasks.
+These tasks are created automatically when the target is declared. However, you can manually define the JAR task
+and configure it if necessary:
 
-The publication of this target is handled by the Kotlin plugin and doesn't require steps that are specific for the Java plugin.
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+// Shared module's `build.gradle.kts` file
+plugins {
+    kotlin("multiplatform") version "%kotlinVersion%"
+}
+
+kotlin {
+    // Specify the JVM target
+    jvm {
+        // Add the task for JAR generation
+        tasks.named<Jar>(artifactsTaskName).configure {
+            // Configure the task
+        }
+    }
+
+    sourceSets {
+        jvmMain {
+            dependencies {
+                // Add JVM-specific dependencies
+            }
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+// Shared module's `build.gradle` file
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+
+kotlin {
+    // Specify the JVM target
+    jvm {
+        // Add the task for JAR generation
+        tasks.named<Jar>(artifactsTaskName).configure {
+            // Configure the task
+        }
+    }
+
+    sourceSets {
+        jvmMain {
+            dependencies {
+                // Add JVM-specific dependencies
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+The publication of this target is handled by the Kotlin Multiplatform plugin and doesn't require steps that are specific
+to the Java plugin.
 
 ## Configure interop with native languages
 
