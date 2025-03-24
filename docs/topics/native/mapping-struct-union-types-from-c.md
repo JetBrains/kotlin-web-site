@@ -57,7 +57,7 @@ void union_by_value(MyUnion u) {}
 void union_by_pointer(MyUnion* u) {}
 ``` 
 
-The `interop.def` file is enough to compile and run the application or open it in an IDE.
+The `interop.def` file provides everything necessary to compile, run, or open the application in an IDE.
 
 ## Inspect generated Kotlin APIs for a C library
 
@@ -313,6 +313,7 @@ import kotlinx.cinterop.cValue
 import kotlinx.cinterop.memScoped
 import kotlinx.cinterop.ptr
 import kotlinx.cinterop.readValue
+import kotlinx.cinterop.ExperimentalForeignApi
 
 @OptIn(ExperimentalForeignApi::class)
 fun main() {
