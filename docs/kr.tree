@@ -67,7 +67,7 @@
 		<toc-element topic="coding-conventions.md"/>
 		<toc-element topic="idioms.md"/>
 		<toc-element toc-title="Types">
-			<toc-element toc-title="Overview" topic="basic-types.md"/>
+			<toc-element toc-title="Overview" topic="types-overview.md"/>
 			<toc-element topic="numbers.md"/>
 			<toc-element topic="unsigned-integer-types.md"/>
 			<toc-element topic="booleans.md"/>
@@ -114,8 +114,8 @@
 				<toc-element topic="delegated-properties.md"/>
 			</toc-element>
 		</toc-element>
-		<toc-element topic="equality.md"/>
 		<toc-element topic="null-safety.md"/>
+		<toc-element topic="equality.md"/>
 		<toc-element toc-title="Generics" topic="generics.md"/>
 	    <toc-element toc-title="Concurrency">
 	        <toc-element topic="async-programming.md"/>
