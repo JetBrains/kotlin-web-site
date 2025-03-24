@@ -7,7 +7,7 @@ import jetbrains.buildServer.configs.kotlin.RelativeId
 import vcsRoots.KotlinLangOrg
 
 private fun String.camelCase(delim: String = "-", join: String = "") =
-    this.split(delim).joinToString(join) { it.capitalize() }
+    this.split(delim).joinToString(join) { it.replaceFirstChar { char -> char.uppercase() } }
 
 typealias ProjectReferenceAttachBuild = (project: Project, version: String) -> BuildType
 
