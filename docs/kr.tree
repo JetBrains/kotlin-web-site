@@ -78,7 +78,6 @@
 			<toc-element topic="type-aliases.md"/>
 		</toc-element>
 		<toc-element toc-title="Control flow">
-			<toc-element topic="ranges.md"/>
 			<toc-element topic="control-flow.md"/>
 			<toc-element topic="returns.md"/>
 		</toc-element>
@@ -302,6 +301,7 @@
 				<toc-element topic="collection-plus-minus.md"/>
 			</toc-element>
 			<toc-element topic="sequences.md"/>
+			<toc-element topic="ranges.md"/>
 		</toc-element>
 		<toc-element topic="read-standard-input.md"/>
 		<toc-element topic="opt-in-requirements.md"/>
