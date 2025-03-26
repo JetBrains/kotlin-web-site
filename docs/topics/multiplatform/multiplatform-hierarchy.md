@@ -31,7 +31,6 @@ Consider the following `build.gradle(.kts)` file in the project's module that co
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-// Shared module's `build.gradle.kts` file
 kotlin {
     androidTarget()
     iosArm64()
@@ -43,7 +42,6 @@ kotlin {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-// Shared module's `build.gradle` file
 kotlin {
     androidTarget()
     iosArm64()
@@ -69,13 +67,13 @@ from the `apple`, `native`, and `common` source sets is compiled to `watchosArm6
 The Kotlin Gradle plugin provides both type-safe and static accessors for all of the source sets from the default hierarchy
 template, so you can reference them without `by getting` or `by creating` constructs compared to the [manual configuration](#manual-configuration).
 
-If you try to access the source set without declaring the corresponding target first, you'll see a warning:
+If you try to access the source set in the shared module's `build.gradle(.kts)` file without declaring the corresponding
+target first, you'll see a warning:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-// Shared module's `build.gradle.kts` file
 kotlin {
     androidTarget()
     iosArm64()
@@ -95,7 +93,6 @@ kotlin {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-// Shared module's `build.gradle` file
 kotlin {
     androidTarget()
     iosArm64()
@@ -168,7 +165,6 @@ for example, one between a macOS and a JVM target.
     <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
-    // Shared module's `build.gradle.kts` file
     kotlin {
         jvm()
         macosArm64()
@@ -194,7 +190,6 @@ for example, one between a macOS and a JVM target.
     <tab title="Groovy" group-key="groovy">
 
     ```groovy
-    // Shared module's `build.gradle` file
     kotlin {
         jvm()
         macosArm64()
@@ -269,14 +264,13 @@ Windows, and macOS targets (`linuxX64`, `mingwX64`, and `macosX64`):
 
 1. In the shared module's `build.gradle(.kts)` file, add the intermediate source set `desktopMain`, which holds the shared
    logic for these targets.
-2. Using the `dependsOn` relation, set up the source set hierarchy, connecting `commonMain` with `desktopMain` and
+2. Using the `dependsOn` relation, set up the source set hierarchy. Connect `commonMain` with `desktopMain` and then
    `desktopMain` with each of the target source sets:
 
     <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
     
     ```kotlin
-    // Shared module's `build.gradle.kts` file
     kotlin {
         linuxX64()
         mingwX64()
@@ -298,7 +292,6 @@ Windows, and macOS targets (`linuxX64`, `mingwX64`, and `macosX64`):
     <tab title="Groovy" group-key="groovy">
     
     ```groovy
-   // Shared module's `build.gradle` file
     kotlin {
         linuxX64()
         mingwX64()
