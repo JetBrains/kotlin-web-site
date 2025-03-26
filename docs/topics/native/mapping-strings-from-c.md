@@ -1,7 +1,7 @@
 [//]: # (title: Mapping strings from C – tutorial)
 
 <tldr>
-    <p>This is the final part of the <strong>Mapping Kotlin and C</strong> tutorial series. Before proceeding, make sure you've completed previous steps.</p>
+    <p>This is the final part of the <strong>Mapping Kotlin and C</strong> tutorial series. Before proceeding, make sure you've completed the previous steps.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="mapping-primitive-data-types-from-c.md">Mapping primitive data types from C</a><br/>
         <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="mapping-struct-union-types-from-c.md">Mapping struct and union types from C</a><br/>
       <img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="mapping-function-pointers-from-c.md">Mapping function pointers</a><br/>
@@ -28,15 +28,15 @@ In this tutorial, you'll learn how to:
 
 ## Working with C strings
 
-There is no dedicated type in C language for strings. A method signature or documentation can help you understand 
-whether a given `char *` means a C string in a particular context.
+C doesn't have a dedicated string type. Method signatures or documentation can help you identify 
+whether a given `char *` represents a C string in a particular context.
 
-Strings in the C language are null-terminated, so a trailing zero character `\0` is added at the end of a byte sequence
-to mark a string termination. Usually, [UTF-8 encoded strings](https://en.wikipedia.org/wiki/UTF-8) are used.
+Strings in the C language are null-terminated, so a trailing zero character `\0` is added to the end of a byte sequence
+to mark the end of a string. Usually, [UTF-8 encoded strings](https://en.wikipedia.org/wiki/UTF-8) are used.
 The UTF-8 encoding uses variable-width characters and is backward-compatible with [ASCII](https://en.wikipedia.org/wiki/ASCII).
 Kotlin/Native uses UTF-8 character encoding by default.
 
-To understand string mapping between Kotlin and C, first create library headers.
+To understand how strings are mapped between Kotlin and C, first create the library headers.
 In the [first part of the series](mapping-primitive-data-types-from-c.md), you've already created a C library with the
 necessary files. For this step:
 
@@ -53,7 +53,7 @@ necessary files. For this step:
    #endif
    ```
 
-   This example shows the most popular ways to pass or receive a string in the C language. Take the return of the
+   This example shows common ways to pass or receive a string in the C language. Take the return of the
    `return_string()` function with caution. Ensure you use the right function to dispose of the returned `char*` with
     the right `free()` function call.
 
@@ -103,7 +103,7 @@ Let's see how C string declarations are mapped into Kotlin/Native:
    }
    ```
 
-2. Use the IntelliJ IDEA's [Go to declaration](https://www.jetbrains.com/help/rider/Navigation_and_Search__Go_to_Declaration.html)
+2. Use IntelliJ IDEA's [Go to declaration](https://www.jetbrains.com/help/rider/Navigation_and_Search__Go_to_Declaration.html)
    command (<shortcut>Cmd + B</shortcut>/<shortcut>Ctrl + B</shortcut>) to navigate to the following generated API for C
    functions:
 
@@ -137,7 +137,7 @@ fun passStringToC() {
 ```
 
 Passing a Kotlin string to C is straightforward, thanks to the `String.cstr` [extension property](extensions.md#extension-properties).
-There is also `String.wcstr` property for cases with UTF-16 characters.
+There is also the `String.wcstr` property for cases that involve UTF-16 characters.
 
 ## Read C strings in Kotlin
 
@@ -228,7 +228,7 @@ fun main() {
 }
 ```
 
-To verify that everything works as expected, run the `runDebugExecutableNative` Gradle task [in IDE](native-get-started.md)
+To verify that everything works as expected, run the `runDebugExecutableNative` Gradle task [in your IDE](native-get-started.md)
 or use the following command to run the code:
 
 ```bash
