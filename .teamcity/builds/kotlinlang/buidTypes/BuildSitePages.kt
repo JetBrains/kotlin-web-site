@@ -1,6 +1,6 @@
 package builds.kotlinlang.buidTypes
 
-import BuildParams.API_URLS
+import BuildParams.API_REFERENCES
 import builds.kotlinlang.templates.DockerImageBuilder
 import builds.scriptDistAnalyze
 import jetbrains.buildServer.configs.kotlin.BuildType
@@ -86,13 +86,15 @@ object BuildSitePages : BuildType({
         }
         step(scriptDistAnalyze {})
         script {
+            val apis = listOf("api/core") + API_REFERENCES.map { "api/${it.urlPart}" }
+
             name = "Collect sitemap_index.xml"
             // language=sh
             scriptContent = """
                 set -x
                 echo '<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' > dist/sitemap_index.xml
                 echo '<sitemap><loc>https://kotlinlang.org/sitemap.xml</loc></sitemap>' >> dist/sitemap_index.xml
-                ${API_URLS.joinToString("\n") { id -> "echo '<sitemap><loc>https://kotlinlang.org/$id/sitemap.xml</loc></sitemap>' >> dist/sitemap_index.xml" }}
+                ${apis.joinToString("\n") { id -> "echo '<sitemap><loc>https://kotlinlang.org/$id/sitemap.xml</loc></sitemap>' >> dist/sitemap_index.xml" }}
                 echo '</sitemapindex>' >> dist/sitemap_index.xml
             """.trimIndent()
             dockerImage = "alpine"

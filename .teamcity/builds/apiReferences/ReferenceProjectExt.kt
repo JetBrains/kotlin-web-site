@@ -30,7 +30,7 @@ fun ReferenceProject.makeReferenceVcs(version: String, vcsUrl: String, tagOrBran
     this.project.vcsRoot(it)
 }
 
-fun ReferenceProject.makeReferenceTemplate(apiVersion: String, algoliaIndex: String, tagsOrBranch: String? = null) =
+fun ReferenceProject.makeReferenceTemplate(apiVersion: String, algoliaIndex: String, tagOrBranch: String? = null) =
     BuildType {
         configureReferenceTemplate()
 
@@ -41,7 +41,7 @@ fun ReferenceProject.makeReferenceTemplate(apiVersion: String, algoliaIndex: Str
         val templateVcs = KotlinLangVcs {
             id = RelativeId("${project.id}_${apiVersion.replace(".", "")}_Template_Vcs")
             name = "$apiVersion templates vcs"
-            branch = tagsOrBranch ?: VCS.branch("master")
+            branch = tagOrBranch ?: VCS.branch("master")
             branchSpec = ""
         }
 
@@ -58,7 +58,7 @@ fun ReferenceProject.makeReferenceTemplate(apiVersion: String, algoliaIndex: Str
         this.project.buildType(it)
     }
 
-class TemplateDep(val dir: String, val build: BuildType)
+class TemplateDep(val build: BuildType, val dir: String? = null)
 
 fun ReferenceProject.makeReferencePages(
     version: String,
@@ -96,3 +96,25 @@ fun ReferenceProject.makeReferencePages(
         steps()
     }
 }.also { this.project.buildType(it) }
+
+fun ReferenceProject.makeAPIReference(
+    version: String,
+    gitUrl: String,
+    gitBranch: String,
+    templateVersion: String? = null,
+    templateDir: String? = null,
+    pagesDir: String = DEFAULT_DOKKA_PATH,
+    previousVersionDir: String? = null,
+    steps: BuildSteps.() -> Unit = {},
+): BuildType {
+    val vcs = makeReferenceVcs(version, gitUrl, gitBranch)
+    val template = makeReferenceTemplate(version, urlPart, templateVersion)
+
+    return makeReferencePages(version, pagesDir, vcs, TemplateDep(template, templateDir), steps).apply {
+        if (previousVersionDir != null) {
+            params {
+                param("OLD_VERSIONS_DIR", previousVersionDir)
+            }
+        }
+    }
+}
