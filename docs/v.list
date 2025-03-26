@@ -59,7 +59,7 @@
     <var name="jctoolsVersion" value="3.3.0" type="string"/>
 
     <var name="dokkaVersion"
-         value="2.0.20"
+         value="2.0.0"
          type="string"/>
 
     <var name="xcode" value="16.0" type="string"/>
