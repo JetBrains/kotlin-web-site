@@ -58,7 +58,7 @@
 	</toc-element>
 	<toc-element toc-title="Language guide">
 	    <toc-element toc-title="Basic syntax">
-			<toc-element toc-title="Cheat sheet" topic="basic-syntax.md"/>
+			<toc-element toc-title="Overview" topic="basic-syntax.md"/>
 			<toc-element topic="keyword-reference.md"/>
 			<toc-element topic="packages.md"/>
 			<toc-element topic="annotations.md"/>
