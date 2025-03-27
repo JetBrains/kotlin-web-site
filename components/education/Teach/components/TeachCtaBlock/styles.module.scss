@@ -1,0 +1,18 @@
+.buttons {
+  display: grid;
+  grid-template-areas: "a a";
+  grid-auto-columns: min-content;
+  grid-gap: 16px;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.button {
+  @media (max-width: 768px) {
+    font-size: 16px;
+    padding: 8px 24px;
+  }
+}

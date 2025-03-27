@@ -1,0 +1,17 @@
+.numbers {
+  display: flex;
+}
+
+.number {
+  &:not(:last-child) {
+    margin-right: 35px;
+  }
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--ktl-color-text-secondary);
+}

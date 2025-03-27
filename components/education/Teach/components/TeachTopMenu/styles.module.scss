@@ -1,0 +1,12 @@
+.stickyMenu {
+  position: sticky;
+  top: 0;
+  z-index: 901;
+}
+
+.button {
+  @media (max-width: 480px) {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
