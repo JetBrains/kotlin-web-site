@@ -1,5 +1,10 @@
 [//]: # (title: Classes)
 
+> Before creating classes, consider using a [data class](data-classes.md) if the purpose is to store data.
+> Alternatively, think about extending an existing class with an [extension](extensions.md), rather than creating a new one from scratch.
+>
+{style="tip"}
+
 Classes in Kotlin are declared using the keyword `class`:
 
 ```kotlin

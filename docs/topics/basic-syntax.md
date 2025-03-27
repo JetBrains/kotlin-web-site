@@ -1,4 +1,4 @@
-[//]: # (title: Basic syntax)
+[//]: # (title: Basic syntax overview)
 
 This is a collection of basic syntax elements with examples. At the end of every section, you'll find a link to
 a detailed description of the related topic.

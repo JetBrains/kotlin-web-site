@@ -735,7 +735,7 @@ Since the previous release, the Kotlin documentation has received some notable c
 
 ### Revamped and improved pages
 
-* [Basic types overview](basic-types.md) – learn about the basic types used in Kotlin: numbers, Booleans, characters, strings, arrays, and unsigned integer numbers.
+* [Basic types overview](types-overview.md) – learn about the basic types used in Kotlin: numbers, Booleans, characters, strings, arrays, and unsigned integer numbers.
 * [IDEs for Kotlin development](kotlin-ide.md) – see the list of IDEs with official Kotlin support and tools that have community-supported plugins.
 
 ### New articles in the Kotlin Multiplatform journal
