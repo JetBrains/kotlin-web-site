@@ -1,0 +1,19 @@
+name: Junie
+
+permissions:
+  contents: write
+  pull-requests: write
+  packages: read
+
+on:
+  workflow_dispatch:
+    inputs:
+      workflow_params:
+        description: "stringified params"
+        required: true
+
+jobs:
+  call-workflow-passing-data:
+    uses: JetBrains/junie-workflows/.github/workflows/ej-issue.yml@main
+    with:
+      workflow_params: ${{ inputs.workflow_params }}
