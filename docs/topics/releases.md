@@ -1,5 +1,10 @@
 [//]: # (title: Kotlin releases)
 
+<tldr>
+    <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
+    <p>See <a href="whatsnew2120.md">What's new in Kotlin %kotlinVersion%</a> for details</p>
+</tldr>
+
 Since Kotlin 2.0.0, we ship the following types of releases:
 
 * _Language releases_ (2._x_._0_) that bring major changes in the language and include tooling updates. Released once in 6 months.
