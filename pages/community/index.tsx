@@ -87,10 +87,6 @@ function Index() {
                 Join a&nbsp;Kotlin User Group
                 <DesktopBreak /> or&nbsp;start your own
             </OverviewBottomLink>
-            <OverviewBottomLink buttonLink={'/community/events/'} buttonTitle={'Talks and Events →'}>
-                Get inspired at&nbsp;a&nbsp;Kotlin event
-                <DesktopBreak /> or&nbsp;host one yourself
-            </OverviewBottomLink>
         </CommunityLayout>
     );
 }
