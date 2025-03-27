@@ -31,7 +31,7 @@ import GradleLogo from '../public/images/companies/gradle.svg';
 import UberLogo from '../public/images/companies/uber.svg';
 import AtlassianLogo from '../public/images/companies/atlassian.svg';
 import GoogleLogo from '../public/images/companies/google.svg';
-import JetbrainsLogoSquare from '../public/images/companies/jetbrains-logo-square.svg';
+import JetbrainsLogo from '../assets/jetbrains-logo.svg';
 import TouchlabLogo from '../public/images/companies/touchlab.svg';
 import KotzillaLogo from '../public/images/companies/kotzilla-logo.svg'
 
@@ -99,7 +99,7 @@ const kotlinUsageHighlightsCases = [
 const kotlinFoundationCompanies = [
     {
         name: 'JetBrains',
-        logo: JetbrainsLogoSquare,
+        logo: JetbrainsLogo,
         link: 'https://www.jetbrains.com/'
     },
     {
