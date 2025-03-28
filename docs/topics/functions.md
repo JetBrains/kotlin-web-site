@@ -220,7 +220,7 @@ Inside a function, a `vararg`-parameter of type `T` is visible as an array of `T
 variable has type `Array<out T>`.
 
 Only one parameter can be marked as `vararg`. If a `vararg` parameter is not the last one in the list, values for the
-subsequent parameters can be passed using named argument syntax, or, if the parameter has a function type, by passing
+subsequent parameters must be passed using named argument syntax, or, if the parameter has a function type, by passing
 a lambda outside the parentheses.
 
 When you call a `vararg`-function, you can pass arguments individually, for example `asList(1, 2, 3)`. If you already have
