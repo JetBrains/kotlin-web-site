@@ -14,14 +14,14 @@ Depending on the target platform, some platform-specific extra setup might be re
 
 ## Run the Node.js target
 
-When targeting Node.js with Kotlin/JS, you can simply execute the `jsBrowserDevelopmentRun` Gradle task. This can be done for example via the
+When targeting Node.js with Kotlin/JS, you can simply execute the `run` Gradle task. This can be done for example via the
 command line, using the Gradle wrapper:
 
 ```bash
-./gradlew jsBrowserDevelopmentRun
+./gradlew run
 ```
 
-If you're using IntelliJ IDEA, you can find the `jsBrowserDevelopmentRun` action in the Gradle tool window:
+If you're using IntelliJ IDEA, you can find the `run` action in the Gradle tool window:
 
 ![Gradle Run task in IntelliJ IDEA](run-gradle-task.png){width=700}
 
