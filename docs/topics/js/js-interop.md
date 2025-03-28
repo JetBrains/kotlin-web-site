@@ -10,7 +10,7 @@ the surrounding tooling.
 
 ## Inline JavaScript
 
-You can inline some JavaScript code into your Kotlin code using the [`js()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/js.html) function.
+You can inline JavaScript code into your Kotlin code using the [`js()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/js.html) function.
 For example:
 
 ```kotlin
@@ -26,17 +26,21 @@ a string constant. So, the following code is incorrect:
 fun jsTypeOf(o: Any): String {
     return js(getTypeof() + " o") // error reported here
 }
+
 fun getTypeof() = "typeof"
 ```
 
-Note that invoking `js()` returns a result of type [`dynamic`](dynamic-type.md), which provides no type safety at the
-compile time.
+> As the JavaScript code is parsed by the Kotlin compiler, not all ECMAScript features might be supported,
+> in which case compilation errors will be reported.  
+{style="note"}
+
+Note that invoking `js()` returns a result of type [`dynamic`](dynamic-type.md), which provides no type safety at compile time.
 
 ## external modifier
 
 To tell Kotlin that a certain declaration is written in pure JavaScript, you should mark it with the `external` modifier.
 When the compiler sees such a declaration, it assumes that the implementation for the corresponding class, function or
-property is provided externally (by the developer or via an [npm dependency](js-project-setup.md#npm-dependencies)), and
+property is provided externally (by the developer or via a [npm dependency](js-project-setup.md#npm-dependencies)), and
 therefore does not try to generate any JavaScript code from the declaration. This is also why `external` declarations
 can't have a body. For example:
 
