@@ -38,7 +38,7 @@ function or an extension function.
 * If the function is absent or ambiguous, it is a compilation error.
 * If the function is present and its return type is `R`, the expression `+a` has type `R`.
 
-> These operations, as well as all the others, are optimized for [basic types](types-overview) and do not introduce 
+> These operations, as well as all the others, are optimized for [basic types](types-overview.md) and do not introduce 
 > overhead of function calls for them.
 >
 {style="note"}
