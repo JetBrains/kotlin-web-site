@@ -109,28 +109,20 @@ The Kotlin/Native compiler does not support bitcode embedding since Kotlin 2.0.2
 If you're using earlier versions of Xcode but want to upgrade to Kotlin 2.0.20 or later versions, disable bitcode
 embedding in your Xcode projects.
 
-## Why do I see InvalidMutabilityException?
+## How do I reference objects safely from different coroutines?
 
-> This issue is relevant for the legacy memory manager only. Check out [Kotlin/Native memory management](native-memory-manager.md)
-> to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
->
-{style="note"}
+To safely access or update an object across multiple coroutines in Kotlin/Native, consider using concurrency-safe
+constructs `AtomicReference` or `@Volatile`.
 
-It likely happens, because you are trying to mutate a frozen object. An object can transfer to the
-frozen state either explicitly, as objects reachable from objects on which the `kotlin.native.concurrent.freeze` is called,
-or implicitly (i.e. reachable from `enum` or global singleton object - see the next question).
+Use [`@Volatile`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.concurrent/-volatile/) to annotate a `var` property.
+This makes all reads and writes to the property's backing field atomic. In addition, writes become immediately visible
+to other threads. When another thread accesses this property, it observes not only the updated value but also the side
+effects that led to that update.
 
-## How do I make a singleton object mutable?
+Alternatively, use [AtomicReference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.concurrent.atomics/-atomic-reference/),
+which allows atomic reads and updates. On Kotlin/Native, it wraps a volatile variable and performs atomic operations.
 
-> This issue is relevant for the legacy memory manager only. Check out [Kotlin/Native memory management](native-memory-manager.md)
-> to learn about the new memory manager, which has been enabled by default since Kotlin 1.7.20.
->
-{style="note"}
-
-Currently, singleton objects are immutable (i.e. frozen after creation), and it's generally considered
-good practise to have the global state immutable. If for some reason you need a mutable state inside such an
-object, use the `@konan.ThreadLocal` annotation on the object. Also, the `kotlin.native.concurrent.AtomicReference` class could be
-used to store different pointers to frozen objects in a frozen object and automatically update them.
+For more information about access to the shared mutable state, see the [Coroutines documentation](shared-mutable-state-and-concurrency.md).
 
 ## How can I compile my project with unreleased versions of Kotlin/Native?
 
