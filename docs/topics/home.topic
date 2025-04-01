@@ -32,7 +32,7 @@
                 <a href="whatsnew22.md" summary="New experimental and stable features, performance improvements, and bug fixes">What's new in Kotlin 2.2.0</a>
                 <a href="releases.md" summary="The latest Kotlin releases and instructions on how to update to them">Kotlin releases</a>
                 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/" summary="Living essentials for everyday work with Kotlin: IO, files, threading, collections, and much more">Standard library API reference</a>
-                <a href="basic-types.md" summary="Kotlin type system: numbers, strings, arrays, and other built-in types">Basic types</a>
+                <a href="types-overview.md" summary="Kotlin type system: numbers, strings, arrays, and other built-in types">Types overview</a>
                 <a href="collections-overview.md" summary="Collections: lists, sets, and maps">Collections</a>
                 <a href="coroutines-overview.md" summary="Concurrency: coroutines, flows, channels">Coroutines</a>
             </cards>

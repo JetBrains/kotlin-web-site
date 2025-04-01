@@ -67,69 +67,77 @@
 		<toc-element hidden="true" topic="components-stability-pre-1.4.md"/>
 		<toc-element accepts-web-file-names="plugin-releases.html" topic="releases.md"/>
 	</toc-element>
-	<toc-element toc-title="Basics">
-		<toc-element topic="basic-syntax.md"/>
-		<toc-element topic="idioms.md"/>
-		<toc-element href="https://play.kotlinlang.org/byExample/overview" toc-title="Kotlin by example"/>
+	<toc-element toc-title="Language guide">
+	    <toc-element toc-title="Basic syntax">
+			<toc-element toc-title="Overview" topic="basic-syntax.md"/>
+			<toc-element topic="keyword-reference.md"/>
+			<toc-element topic="packages.md"/>
+			<toc-element topic="annotations.md"/>
+			<toc-element topic="visibility-modifiers.md"/>
+		</toc-element>
 		<toc-element topic="coding-conventions.md"/>
-	</toc-element>
-	<toc-element toc-title="Concepts">
+		<toc-element topic="idioms.md"/>
 		<toc-element toc-title="Types">
-			<toc-element toc-title="Basic types">
-				<toc-element toc-title="Overview" topic="basic-types.md"/>
-				<toc-element topic="numbers.md"/>
-				<toc-element topic="unsigned-integer-types.md"/>
-				<toc-element topic="booleans.md"/>
-				<toc-element topic="characters.md"/>
-				<toc-element topic="strings.md"/>
-				<toc-element topic="arrays.md"/>
-			</toc-element>
+			<toc-element toc-title="Overview" topic="types-overview.md"/>
+			<toc-element topic="numbers.md"/>
+			<toc-element topic="unsigned-integer-types.md"/>
+			<toc-element topic="booleans.md"/>
+			<toc-element topic="characters.md"/>
+			<toc-element topic="strings.md"/>
+			<toc-element topic="arrays.md"/>
 			<toc-element topic="typecasts.md"/>
+			<toc-element topic="type-aliases.md"/>
 		</toc-element>
 		<toc-element toc-title="Control flow">
 			<toc-element topic="control-flow.md"/>
 			<toc-element topic="returns.md"/>
-			<toc-element topic="exceptions.md"/>
 		</toc-element>
-		<toc-element topic="packages.md"/>
-		<toc-element toc-title="Classes and objects">
-			<toc-element topic="classes.md"/>
-			<toc-element topic="inheritance.md"/>
-			<toc-element topic="properties.md"/>
-			<toc-element topic="interfaces.md"/>
-			<toc-element topic="fun-interfaces.md"/>
-			<toc-element topic="visibility-modifiers.md"/>
-			<toc-element topic="extensions.md"/>
-			<toc-element topic="data-classes.md"/>
-			<toc-element topic="sealed-classes.md"/>
-			<toc-element topic="generics.md"/>
-			<toc-element topic="nested-classes.md"/>
-			<toc-element topic="enum-classes.md"/>
-			<toc-element topic="inline-classes.md"/>
-			<toc-element topic="object-declarations.md"/>
-			<toc-element topic="delegation.md"/>
-			<toc-element topic="delegated-properties.md"/>
-			<toc-element topic="type-aliases.md"/>
-		</toc-element>
+		<toc-element toc-title="Error handling" topic="exceptions.md"/>
 		<toc-element toc-title="Functions">
 			<toc-element topic="functions.md"/>
 			<toc-element toc-title="Lambdas" topic="lambdas.md"/>
-			<toc-element topic="inline-functions.md"/>
-			<toc-element topic="operator-overloading.md"/>
+			<toc-element topic="this-expressions.md"/>
 			<toc-element toc-title="Builders">
 				<toc-element topic="type-safe-builders.md"/>
 				<toc-element topic="using-builders-with-builder-inference.md"/>
 			</toc-element>
 			<toc-element topic="context-parameters.md"/>
+			<toc-element topic="inline-functions.md"/>
+			<toc-element topic="operator-overloading.md"/>
+		</toc-element>
+		<toc-element toc-title="Classes and interfaces">
+			<toc-element topic="classes.md"/>
+			<toc-element topic="data-classes.md"/>
+			<toc-element topic="extensions.md"/>
+			<toc-element topic="interfaces.md"/>
+			<toc-element topic="delegation.md"/>
+			<toc-element topic="inheritance.md"/>
+			<toc-element topic="object-declarations.md"/>
+			<toc-element toc-title="Special classes and interfaces">
+				<toc-element topic="sealed-classes.md"/>
+			    <toc-element topic="enum-classes.md"/>
+			    <toc-element topic="inline-classes.md"/>
+			    <toc-element topic="nested-classes.md"/>
+			    <toc-element topic="fun-interfaces.md"/>
+			</toc-element>
+			<toc-element toc-title="Properties">
+				<toc-element topic="properties.md"/>
+				<toc-element topic="delegated-properties.md"/>
+			</toc-element>
 		</toc-element>
 		<toc-element topic="null-safety.md"/>
 		<toc-element topic="equality.md"/>
-		<toc-element topic="this-expressions.md"/>
-		<toc-element topic="async-programming.md"/>
-		<toc-element topic="coroutines-overview.md"/>
-		<toc-element topic="annotations.md"/>
-		<toc-element accepts-web-file-names="multi-declarations.html" topic="destructuring-declarations.md"/>
+		<toc-element toc-title="Generics" topic="generics.md"/>
+	    <toc-element toc-title="Concurrency">
+	        <toc-element topic="async-programming.md"/>
+	        <toc-element topic="coroutines-overview.md"/>
+        </toc-element>
 		<toc-element topic="reflection.md"/>
+		<toc-element accepts-web-file-names="multi-declarations.html" topic="destructuring-declarations.md"/>
+		<toc-element toc-title="Language reference">
+			<toc-element toc-title="Grammar" href="https://kotlinlang.org/docs/reference/grammar.html"/>
+			<toc-element href="https://kotlinlang.org/spec/" toc-title="Language specification"/>
+		</toc-element>
 	</toc-element>
 	<toc-element toc-title="Data analysis">
 		<toc-element toc-title="Get started with Kotlin Notebook">
@@ -248,23 +256,27 @@
 	<toc-element toc-title="Standard library">
 		<toc-element toc-title="Collections">
 			<toc-element toc-title="Overview" topic="collections-overview.md"/>
-			<toc-element topic="constructing-collections.md"/>
-			<toc-element topic="iterators.md"/>
-			<toc-element topic="ranges.md"/>
-			<toc-element topic="sequences.md"/>
-			<toc-element toc-title="Operations overview" topic="collection-operations.md"/>
-			<toc-element toc-title="Transformations" topic="collection-transformations.md"/>
+			<toc-element toc-title="Create" topic="constructing-collections.md"/>
+			<toc-element toc-title="Traverse" topic="iterators.md"/>
+			<toc-element toc-title="Order" topic="collection-ordering.md"/>
+			<toc-element toc-title="Group" topic="collection-grouping.md"/>
+			<toc-element toc-title="Transform" topic="collection-transformations.md"/>
 			<toc-element toc-title="Filter" topic="collection-filtering.md"/>
-			<toc-element topic="collection-plus-minus.md"/>
-			<toc-element toc-title="Group elements" topic="collection-grouping.md"/>
-			<toc-element topic="collection-parts.md"/>
-			<toc-element topic="collection-elements.md"/>
-			<toc-element topic="collection-ordering.md"/>
-			<toc-element topic="collection-aggregate.md"/>
-			<toc-element toc-title="Write operations" topic="collection-write.md"/>
-			<toc-element topic="list-operations.md"/>
-			<toc-element topic="set-operations.md"/>
-			<toc-element topic="map-operations.md"/>
+			<toc-element toc-title="Retrieve">
+				<toc-element topic="collection-parts.md"/>
+				<toc-element topic="collection-elements.md"/>
+			</toc-element>
+			<toc-element toc-title="Operations and operators">
+				<toc-element toc-title="Operations overview" topic="collection-operations.md"/>
+				<toc-element topic="collection-aggregate.md"/>
+				<toc-element toc-title="Write operations" topic="collection-write.md"/>
+				<toc-element topic="list-operations.md"/>
+				<toc-element topic="set-operations.md"/>
+				<toc-element topic="map-operations.md"/>
+				<toc-element topic="collection-plus-minus.md"/>
+			</toc-element>
+			<toc-element topic="sequences.md"/>
+			<toc-element topic="ranges.md"/>
 		</toc-element>
 		<toc-element topic="read-standard-input.md"/>
 		<toc-element topic="opt-in-requirements.md"/>
@@ -293,11 +305,6 @@
 		<toc-element toc-title="JVM Metadata (kotlin-metadata-jvm)" href="https://kotlinlang.org/api/kotlinx-metadata-jvm/"/>
 		<toc-element toc-title="Ktor" href="https://api.ktor.io/"/>
 		<toc-element toc-title="Kotlin Gradle plugins (kotlin-gradle-plugin)" href="https://kotlinlang.org/api/kotlin-gradle-plugin/"/>
-	</toc-element>
-	<toc-element toc-title="Language reference">
-		<toc-element topic="keyword-reference.md"/>
-		<toc-element toc-title="Grammar" href="https://kotlinlang.org/docs/reference/grammar.html"/>
-		<toc-element href="https://kotlinlang.org/spec/" toc-title="Language specification"/>
 	</toc-element>
 	<toc-element toc-title="Tools">
 		<toc-element toc-title="Build tools">
