@@ -221,8 +221,6 @@
 		<toc-element toc-title="Kotlin/Native">
 			<toc-element toc-title="Overview" topic="native-overview.md"/>
 			<toc-element accepts-web-file-names="basic-kotlin-native-app.html,kotlin-native-with-clion.html,targeting-multiple-platforms.html,native-gradle.html,native-command-line-compiler.html" topic="native-get-started.md"/>
-			<toc-element hidden="true" topic="native-gradle.md"/>
-			<toc-element hidden="true" topic="native-command-line-compiler.md"/>
 			<toc-element topic="native-libraries.md"/>
 			<toc-element topic="native-platform-libs.md"/>
 			<toc-element toc-title="Memory manager">
