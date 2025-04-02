@@ -198,6 +198,7 @@
 			<toc-element toc-title="WebAssembly (Wasm)">
 				<toc-element toc-title="Overview" topic="wasm-overview.md"/>
 				<toc-element topic="wasm-get-started.md"/>
+				<toc-element topic="wasm-wasi.md"/>
 				<toc-element topic="wasm-debugging.md"/>
 				<toc-element topic="wasm-js-interop.md"/>
 				<toc-element topic="wasm-troubleshooting.md"/>
@@ -347,6 +348,7 @@
 		<toc-element accepts-web-file-names="using-gradle.html" toc-title="Gradle overview" topic="gradle.md"/>
 		<toc-element toc-title="Get started with Gradle – tutorial" topic="get-started-with-jvm-gradle-project.md"/>
 		<toc-element topic="gradle-configure-project.md"/>
+		<toc-element topic="gradle-best-practices.md"/>
 		<toc-element toc-title="Compiler options in KGP" topic="gradle-compiler-options.md"/>
 		<toc-element toc-title="Compilation and caches in KGP" topic="gradle-compilation-and-caches.md"/>
 		<toc-element topic="gradle-plugin-variants.md"/>
