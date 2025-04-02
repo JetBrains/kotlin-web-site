@@ -309,23 +309,89 @@ manually or using a shell command:
     echo -e "kotlin.apple.cocoapods.bin=$(which pod)" >> local.properties
     ```
 
-### Module not found {initial-collapse-state="collapsed" collapsible="true"}
+### Module or framework not found {initial-collapse-state="collapsed" collapsible="true"}
 
-You may encounter a `module 'SomeSDK' not found` error that is connected with the [C-interop](native-c-interop.md) issue.
-Try these workarounds to avoid this error:
+When installing Pods, you may encounter `module 'SomeSDK' not found` or `framework 'SomeFramework' not found`
+errors connected to [C interop](native-c-interop.md) issues. To resolve such errors, try these solutions:
+
+#### Update packages
+
+Update your installation tool and the installed packages (gems):
+
+<tabs>
+<tab title="RVM">
+
+1. Update Ruby version manager (RVM):
+
+   ```bash
+   rvm get stable
+   ```
+
+2. Update Ruby's package manager, RubyGems:
+
+    ```bash
+    gem update --system
+    ```
+
+3. Upgrade all the installed gems to their latest versions:
+
+    ```bash
+    gem update
+    ```
+
+</tab>
+<tab title="Rbenv">
+
+1. Update Rbenv:
+
+    ```bash
+    cd ~/.rbenv
+    git pull
+    ```
+
+2. Update Ruby's package manager, RubyGems:
+
+    ```bash
+    gem update --system
+    ```
+
+3. Upgrade all the installed gems to their latest versions:
+
+    ```bash
+    gem update
+    ```
+
+</tab>
+<tab title="Homebrew">
+
+1. Update the Homebrew package manager: 
+
+   ```bash
+   brew update
+   ```
+
+2. Upgrade all the installed packages to their latest versions:
+
+   ```bash
+   brew upgrade
+   ````
+
+</tab>
+</tabs>
 
 #### Specify the framework name 
 
 1. Look through the downloaded Pod directory `[shared_module_name]/build/cocoapods/synthetic/IOS/Pods/...`
    for the `module.modulemap` file.
-2. Check the framework name inside the module, for example `SDWebImageMapKit {}`. If the framework name doesn't match the Pod
-name, specify it explicitly:
+2. Check the framework name inside the module, for example `SDWebImageMapKit {}`. If the framework name doesn't match
+   the Pod name, specify it explicitly:
 
     ```kotlin
     pod("SDWebImage/MapKit") {
         moduleName = "SDWebImageMapKit"
     }
     ```
+
 #### Specify headers
 
 If the Pod doesn't contain a `.modulemap` file, like the `pod("NearbyMessages")`, specify the main header explicitly:
