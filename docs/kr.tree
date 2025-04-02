@@ -13,10 +13,12 @@
 		<toc-element hidden="true" topic="kotlin-tour-null-safety.md"/>
 	</toc-element>
 	<toc-element toc-title="What's new in Kotlin">
-		<toc-element toc-title="Kotlin 2.0.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2020.md"/>
-		<toc-element toc-title="Kotlin 2.0.0" topic="whatsnew20.md"/>
-		<toc-element toc-title="Kotlin 2.1.0-Beta2" topic="whatsnew-eap.md"/>
+		<toc-element toc-title="Kotlin 2.1.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2120.md"/>
+		<toc-element toc-title="Kotlin 2.1.0" topic="whatsnew21.md"/>
+		<toc-element toc-title="Kotlin 2.1.20-RC3" topic="whatsnew-eap.md" hidden="true"/>
 		<toc-element toc-title="Earlier versions">
+			<toc-element toc-title="Kotlin 2.0.20" topic="whatsnew2020.md"/>
+			<toc-element toc-title="Kotlin 2.0.0" topic="whatsnew20.md"/>
 			<toc-element toc-title="Kotlin 1.9.20" topic="whatsnew1920.md"/>
 			<toc-element toc-title="Kotlin 1.9.0" topic="whatsnew19.md"/>
 			<toc-element toc-title="Kotlin 1.8.20" topic="whatsnew1820.md"/>
@@ -285,7 +287,7 @@
 				<toc-element topic="mapping-struct-union-types-from-c.md"/>
 				<toc-element topic="mapping-function-pointers-from-c.md"/>
 				<toc-element topic="mapping-strings-from-c.md"/>
-				<toc-element toc-title="Create a dynamic library" topic="native-dynamic-libraries.md"/>
+				<toc-element toc-title="Create a dynamic library – tutorial" topic="native-dynamic-libraries.md"/>
 				<toc-element accepts-web-file-names="curl.html" topic="native-app-with-c-and-libcurl.md"/>
 			</toc-element>
 		</toc-element>
@@ -352,18 +354,22 @@
 		<toc-element hidden="true" accepts-web-file-names="using-ant.html" topic="ant.md"/>
 	</toc-element>
 	<toc-element toc-title="Compiler and plugins">
-		<toc-element toc-title="Compiler">
+		<toc-element toc-title="Kotlin compiler">
 			<toc-element accepts-web-file-names="k2-compiler-guide.html" topic="k2-compiler-migration-guide.md"/>
 			<toc-element toc-title="Command-line compiler" topic="command-line.md"/>
 			<toc-element toc-title="Compiler options" topic="compiler-reference.md"/>
 		</toc-element>
-		<toc-element toc-title="Compiler plugins">
+		<toc-element toc-title="Kotlin compiler plugins">
 			<toc-element toc-title="All-open" topic="all-open-plugin.md"/>
 			<toc-element toc-title="No-arg" topic="no-arg-plugin.md"/>
 			<toc-element toc-title="SAM with receiver" topic="sam-with-receiver-plugin.md"/>
 			<toc-element toc-title="kapt" topic="kapt.md"/>
 			<toc-element toc-title="Lombok" topic="lombok.md"/>
 			<toc-element toc-title="Power-assert" topic="power-assert.md"/>
+		</toc-element>
+		<toc-element toc-title="Compose compiler">
+			<toc-element toc-title="Compiler migration guide" topic="compose-compiler-migration-guide.md"/>
+			<toc-element toc-title="Compiler options" topic="compose-compiler-options.md"/>
 		</toc-element>
 		<toc-element toc-title="Kotlin Symbol Processing API">
 			<toc-element toc-title="KSP overview" topic="ksp-overview.md"/>
@@ -395,11 +401,12 @@
 	</toc-element>
 	<toc-element toc-title="Early access preview (EAP)">
 		<toc-element toc-title="Participate" topic="eap.md"/>
-		<toc-element topic="configure-build-for-eap.md"/>
+		<toc-element topic="configure-build-for-eap.md" accepts-web-file-names="install-eap-plugin.html"/>
 	</toc-element>
 	<toc-element toc-title="Other resources">
 		<toc-element topic="faq.md"/>
 		<toc-element toc-title="Kotlin compatibility guides">
+			<toc-element topic="compatibility-guide-21.md"/>
 			<toc-element topic="compatibility-guide-20.md"/>
 			<toc-element topic="compatibility-guide-19.md"/>
 			<toc-element topic="compatibility-guide-18.md"/>
@@ -419,8 +426,10 @@
 			<toc-element toc-title="Kotlin Foundation FAQ" href="https://kotlinfoundation.org/faq/"/>
 		</toc-element>
 		<toc-element toc-title="Google Summer of Code">
-			<toc-element topic="gsoc-2024.md"/>
-			<toc-element topic="gsoc-2023.md"/>
+			<toc-element toc-title="Overview" topic="gsoc-overview.md"/>
+			<toc-element toc-title="GSoC 2025" topic="gsoc-2025.md"/>
+			<toc-element toc-title="GSoC 2024" topic="gsoc-2024.md"/>
+			<toc-element toc-title="GSoC 2023" topic="gsoc-2023.md"/>
 		</toc-element>
 		<toc-element topic="security.md"/>
 		<toc-element topic="kotlin-pdf.md"/>
