@@ -25,7 +25,7 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the 
 
    ![Native application project structure](native-project-structure.png){width=700}
 
-   The template includes a project with the files and folders you need to get you started. It's important to understand
+   The template includes a project with the files and folders you need to get started. It's important to understand
    that an application written in Kotlin/Native can target different platforms if the code does not have platform-specific
    requirements. Your code is placed in the `nativeMain` directory with a corresponding `nativeTest`. For this tutorial,
    keep the folder structure as is.
@@ -86,8 +86,8 @@ This is a property file that describes exactly how the library should be consume
 In this app, you'll need the libcurl library to make some HTTP calls. To create its definition file:
 
 1. Select the `src` folder and create a new directory with **File | New | Directory**.
-2. Name new directory **nativeInterop/cinterop**. This is the default convention for header file locations, though it can
-   be overridden in the `build.gradle.kts` file if you use a different location.
+2. Name the new directory **nativeInterop/cinterop**. This is the default convention for header file locations,
+   though it can be overridden in the `build.gradle.kts` file if you use a different location.
 3. Select this new subfolder and create a new `libcurl.def` file with **File | New | File**.
 4. Update your file with the following code:
 
@@ -160,8 +160,8 @@ cinterops {
 
 ## Write the application code
 
-Now you have the library and the corresponding Kotlin stubs and can use them from your application. For this tutorial,
-convert the [simple.c](https://curl.se/libcurl/c/simple.html) example to Kotlin.
+Now that you have the library and the corresponding Kotlin stubs, you can use them from your application.
+For this tutorial, convert the [simple.c](https://curl.se/libcurl/c/simple.html) example to Kotlin.
 
 In the `src/nativeMain/kotlin/` folder, update your `Main.kt` file with the following code:
 
@@ -193,7 +193,7 @@ the same as the C version. All the calls you'd expect in the libcurl library are
 
 ## Compile and run the application
 
-1. Compile the application. To do that, call `runDebugExecutableNative` in the list of run Gradle tasks or use the following
+1. Compile the application. To do that, run the `runDebugExecutableNative` Gradle task from the task list or use the following
    command in the terminal:
  
    ```bash
