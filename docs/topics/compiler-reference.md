@@ -217,6 +217,10 @@ The command-line tool for Kotlin to JS compilation is `kotlinc-js`.
 
 In addition to the [common options](#common-options), Kotlin/JS compiler has the options listed below.
 
+### -target {es5|es2015}
+
+Generate JS files for the specified ECMA version.
+
 ### -libraries _path_
 
 Paths to Kotlin libraries with `.meta.js` and `.kjsm` files, separated by the system path separator.
