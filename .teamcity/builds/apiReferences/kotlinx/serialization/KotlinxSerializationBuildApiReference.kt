@@ -4,6 +4,7 @@ import BuildParams.KOTLINX_SERIALIZATION_ID
 import BuildParams.KOTLINX_SERIALIZATION_RELEASE_TAG
 import builds.apiReferences.BuildApiPages
 import builds.apiReferences.dependsOnDokkaTemplate
+import builds.apiReferences.scriptBuildHtml
 import builds.apiReferences.vcsRoots.KotlinxSerialization
 
 object KotlinxSerializationBuildApiReference : BuildApiPages(
@@ -13,5 +14,10 @@ object KotlinxSerializationBuildApiReference : BuildApiPages(
         }
         dependencies {
             dependsOnDokkaTemplate(KotlinxSerializationPrepareDokkaTemplates)
+        }
+    },
+    stepBuildHtml = {
+        scriptBuildHtml {
+            tasks = ":dokkaHtmlMultiModule"
         }
     })
