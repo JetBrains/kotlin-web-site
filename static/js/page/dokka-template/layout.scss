@@ -1,4 +1,10 @@
 .root {
+  --horizontal-spacing-for-content: 32px;
+
+  @media (max-width: 640px) {
+    --horizontal-spacing-for-content: 16px;
+  }
+
   display: flex;
   flex-direction: column;
 
@@ -9,12 +15,6 @@
 
   /* / Fix global dokka styles */
 
-  #sideMenu {
-    @media (min-width: 760px) {
-      padding-left: 16px;
-    }
-  }
-
   @media (max-width: 759px) {
     #leftColumn.open ~ #ktl-main #searchBar {
       display: none;
@@ -23,14 +23,6 @@
 
   #main {
     box-sizing: border-box;
-
-    @media (max-width: 759px) {
-      padding-left: 24px;
-    }
-
-    @media (max-width: 759px) {
-      padding-left: 8px;
-    }
   }
 
   .main-content {
