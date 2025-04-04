@@ -301,6 +301,7 @@
 			<include from="kc.tree" origin="coroutines" element-id="coroutines"/>
 		</toc-element>
 		<toc-element toc-title="Serialization (kotlinx.serialization)" topic="serialization.md"/>
+		<toc-element toc-title="Kotlin Metadata JVM (kotlin-metadata-jvm)" topic="metadata-jvm.md"/>
 		<toc-element toc-title="Lincheck (kotlinx.lincheck)">
 			<include from="kl.tree" origin="lincheck" element-id="lincheck"/>
 		</toc-element>
