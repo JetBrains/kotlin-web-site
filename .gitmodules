@@ -1,0 +1,4 @@
+[submodule "kotlinx-serialization"]
+	path = docs-test-submodule/kotlinx-serialization
+	url = https://github.com/Kotlin/kotlinx.serialization
+	branch = doc-restructuring
