@@ -36,3 +36,7 @@
 .core-api #searchBar {
   display: none !important;
 }
+
+.filter-section > .platform-tag.platform-selector[data-filter*="/nativeMain"] {
+  --platform-tag-color: #E082F3;
+}
