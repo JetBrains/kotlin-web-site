@@ -378,6 +378,7 @@ arguments at runtime, and the compiler prohibits such `is`-checks such as
 ```kotlin
 if (something is List<*>) {
     something.forEach { println(it) } // The items are typed as `Any?`
+    // Prints: [value of each item in the list]
 }
 ```
 
@@ -422,9 +423,13 @@ val stringToStringList = somePair.asPairOf<String, List<String>>() // Compiles b
 
 fun main() {
     println("stringToSomething = " + stringToSomething)
+    // Prints: stringToSomething = (items, [1, 2, 3])
     println("stringToInt = " + stringToInt)
+    // Prints: stringToInt = null
     println("stringToList = " + stringToList)
+    // Prints: stringToList = (items, [1, 2, 3])
     println("stringToStringList = " + stringToStringList)
+    // Prints: stringToStringList = (items, [1, 2, 3])
     //println(stringToStringList?.second?.forEach() {it.length}) // This will throw ClassCastException as list items are not String
 }
 ```
