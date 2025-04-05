@@ -3,7 +3,7 @@ object BuildParams {
 
   const val KOTLINX_COROUTINES_RELEASE_TAG = "1.10.1"
   const val KOTLINX_COROUTINES_ID = "kotlinx.coroutines"
-  const val KOTLINX_SERIALIZATION_RELEASE_TAG = "v1.8.0"
+  const val KOTLINX_SERIALIZATION_RELEASE_TAG = "v1.8.1"
   const val KOTLINX_SERIALIZATION_ID = "kotlinx.serialization"
   const val KOTLINX_DATETIME_RELEASE_TAG = "v0.6.2"
   const val KOTLINX_DATETIME_ID = "kotlinx-datetime"
