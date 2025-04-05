@@ -38,10 +38,9 @@ version of the library, you can just omit this parameter altogether.
 
         cocoapods {
             version = "2.0"
-            ios.deploymentTarget = "16.0"
-
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
+            ios.deploymentTarget = "16.0"
 
             pod("SDWebImage") {
                 version = "5.20.0"
@@ -81,7 +80,6 @@ import cocoapods.SDWebImage.*
             version = "2.0"
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
-
             ios.deploymentTarget = "16.0"
 
             pod("pod_dependency") {
@@ -145,7 +143,6 @@ import cocoapods.SDWebImage.*
             version = "2.0"
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
-
             ios.deploymentTarget = "16.0"
 
             pod("SDWebImage") {
@@ -175,7 +172,7 @@ import cocoapods.SDWebImage.*
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
 
 ```kotlin
-import cocoapods.Alamofire.*
+import cocoapods.SDWebImage.*
 import cocoapods.JSONModel.*
 import cocoapods.CocoaLumberjack.*
 ```
@@ -194,7 +191,6 @@ import cocoapods.CocoaLumberjack.*
             version = "2.0"
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
-
             ios.deploymentTarget = "16.0"
 
             specRepos {
@@ -245,7 +241,6 @@ import cocoapods.example.*
             version = "2.0"
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
-
             ios.deploymentTarget = "16.0"
 
             pod("FirebaseAuth") {
@@ -294,7 +289,6 @@ kotlin {
         version = "2.0"
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
-
         ios.deploymentTarget = "16.0"
 
         pod("PodName") {
