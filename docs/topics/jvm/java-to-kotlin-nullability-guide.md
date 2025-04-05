@@ -337,6 +337,13 @@ you would do the check anyway, but no additional boxing is performed this way.
 >
 {style="note"}
 
+> In Java, the unsafe type cast `(String) y` corresponds to `y as String?` in Kotlin, not `y as String`.
+This is because `y as String?` only throws `ClassCastException` when the `y` is not of type `String`,
+whereas `y as String` additionally throws `NullPointerException` (NPE) when `y` is `null`.
+This distinction might lead to accidental NPE swallowing if using try-catch blocks designed to handle `ClassCastException`.
+>
+{style="warning"}
+
 ## What's next?
 
 * Browse other [Kotlin idioms](idioms.md).
