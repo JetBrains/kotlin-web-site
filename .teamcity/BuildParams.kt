@@ -2,7 +2,7 @@ object BuildParams {
   const val DOKKA_TEMPLATES_VERSION = "2.0.0"
 
   const val KOTLINX_COROUTINES_RELEASE_LABEL = "1.10.1"
-  const val KOTLINX_COROUTINES_RELEASE_TAG = "whyoleg/dokka2-sync" // master``
+  const val KOTLINX_COROUTINES_RELEASE_TAG = "whyoleg/dokka2-sync" // master
   const val KOTLINX_COROUTINES_ID = "kotlinx.coroutines"
 
   const val KOTLINX_SERIALIZATION_RELEASE_LABEL = "v1.8.1"
