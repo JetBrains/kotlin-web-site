@@ -120,7 +120,9 @@ to other threads. When another thread accesses this property, it observes not on
 effects that led to that update.
 
 Alternatively, use [AtomicReference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.concurrent.atomics/-atomic-reference/),
-which allows atomic reads and updates. On Kotlin/Native, it wraps a volatile variable and performs atomic operations.
+which supports atomic reads and updates. On Kotlin/Native, it wraps a volatile variable and performs atomic operations.
+Kotlin also provides a set of types for atomic operations tailored to a specific data type. You can use `AtomicInt`,
+`AtomicLong`, `AtomicBoolean`, `AtomicArray`, as well as `AtomicIntArray` and `AtomicLongArray`.
 
 For more information about access to the shared mutable state, see the [Coroutines documentation](shared-mutable-state-and-concurrency.md).
 
