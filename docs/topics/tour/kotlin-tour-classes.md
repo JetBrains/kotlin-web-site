@@ -80,7 +80,7 @@ In the example:
 * `id` and `email` are used with the default constructor to create `contact`.
 
 Kotlin classes can have many constructors, including ones that you define yourself. To learn more about how to declare 
-multiple constructors, see [Constructors](classes.md#constructors).
+multiple constructors, see [Constructors](classes.md#constructors-and-initializer-blocks).
 
 ## Access properties
 
