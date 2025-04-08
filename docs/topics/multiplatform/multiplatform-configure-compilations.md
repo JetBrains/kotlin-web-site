@@ -220,7 +220,7 @@ Currently, the Kotlin Multiplatform plugin replaces some tasks configured by the
 * JAR task: instead of a standard `jar`, it uses a target-specific task based on the artifact's name, for example,
   `jvmJar` for the `jvm()` target declaration and `desktopJar` for `jvm("desktop")`.
 * Test task: instead of a standard `test`, it uses a target-specific task based on the artifact's name, for example, `jvmTest`.
-* Resource processing: instead of `*ProcessResources` tasks, resources are handled by the equivalent compilation tasks.
+* Resource processing: instead of `*ProcessResources` tasks, resources are handled by the corresponding compilation tasks.
 
 These tasks are created automatically when the target is declared. However, you can manually define the JAR task
 and configure it if necessary:
@@ -284,7 +284,7 @@ kotlin {
 </tab>
 </tabs>
 
-The publication of this target is handled by the Kotlin Multiplatform plugin and doesn't require steps that are specific
+This target is published by the Kotlin Multiplatform plugin and doesn't require steps that are specific
 to the Java plugin.
 
 ## Configure interop with native languages

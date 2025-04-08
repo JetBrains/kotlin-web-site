@@ -47,7 +47,7 @@ This `kotlinMultiplatform` publication includes metadata artifacts and reference
 Some repositories, such as Maven Central, require the root module to contain a JAR artifact without a classifier,
 for example `kotlinMultiplatform-1.0.jar`.
 The Kotlin Multiplatform plugin automatically produces the required artifact with the embedded metadata artifacts.
-This means you don't have to customize your build by adding an empty artifact to the root module of your library to
+This means you don't have to add an empty artifact to the root module of your library to
 meet the repository's requirements.
 
 > Learn more about JAR artifact generation with [Gradle](multiplatform-configure-compilations.md#compilation-for-jvm)
