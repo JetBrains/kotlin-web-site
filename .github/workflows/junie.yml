@@ -1,4 +1,5 @@
 name: Junie
+run-name: Junie run ${{ inputs.run_id }}
 
 permissions:
   contents: write
@@ -8,12 +9,15 @@ permissions:
 on:
   workflow_dispatch:
     inputs:
+      run_id:
+        description: "id of workflow process"
+        required: true
       workflow_params:
         description: "stringified params"
         required: true
 
 jobs:
   call-workflow-passing-data:
-    uses: JetBrains/junie-workflows/.github/workflows/ej-issue.yml@main
+    uses: jetbrains-junie/junie-workflows/.github/workflows/ej-issue.yml@main
     with:
       workflow_params: ${{ inputs.workflow_params }}
