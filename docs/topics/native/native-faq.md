@@ -112,19 +112,19 @@ embedding in your Xcode projects.
 ## How do I reference objects safely from different coroutines?
 
 To safely access or update an object across multiple coroutines in Kotlin/Native, consider using concurrency-safe
-constructs `AtomicReference` or `@Volatile`.
+constructs, such as `@Volatile` and `AtomicReference`.
 
 Use [`@Volatile`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.concurrent/-volatile/) to annotate a `var` property.
 This makes all reads and writes to the property's backing field atomic. In addition, writes become immediately visible
-to other threads. When another thread accesses this property, it observes not only the updated value but also the side
-effects that led to that update.
+to other threads. When another thread accesses this property, it observes not only the updated value but also the changes
+that happened before the update.
 
 Alternatively, use [AtomicReference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.concurrent.atomics/-atomic-reference/),
 which supports atomic reads and updates. On Kotlin/Native, it wraps a volatile variable and performs atomic operations.
-Kotlin also provides a set of types for atomic operations tailored to a specific data type. You can use `AtomicInt`,
+Kotlin also provides a set of types for atomic operations tailored to specific data types. You can use `AtomicInt`,
 `AtomicLong`, `AtomicBoolean`, `AtomicArray`, as well as `AtomicIntArray` and `AtomicLongArray`.
 
-For more information about access to the shared mutable state, see the [Coroutines documentation](shared-mutable-state-and-concurrency.md).
+For more information about access to shared mutable state, see the [Coroutines documentation](shared-mutable-state-and-concurrency.md).
 
 ## How can I compile my project with unreleased versions of Kotlin/Native?
 
