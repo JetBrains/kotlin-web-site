@@ -8,7 +8,7 @@
     <@page_metadata.display/>
     <@template_cmd name="pathToRoot"><script>var pathToRoot = "${pathToRoot}";</script></@template_cmd>
     <link rel="preload" href="${pathToRoot!""}navigation.html" as="document" type="text/html"/>
-    <link rel="preload" href="/_assets/dokka-template.css?core-v1" as="style">
+    <link rel="preload" href="/_assets/dokka-template.css?dokka-v2" as="style">
     <script>document.documentElement.classList.replace("no-js","js");</script>
     <#-- This script doesn't need to be there but it is nice to have
     since app in dark mode doesn't 'blink' (class is added before it is rendered) -->
@@ -27,7 +27,7 @@
     </script>
     <#-- Resources (scripts, stylesheets) are handled by Dokka.
     Use customStyleSheets and customAssets to change them. -->
-    <link rel="stylesheet" href="/_assets/dokka-template.css?core-v1">
+    <link rel="stylesheet" href="/_assets/dokka-template.css?dokka-v2">
     <@resources/>
 </head>
 <body class="${process.env.DOKKA_CUSTOM_BODY}">
@@ -76,8 +76,8 @@
         </div>
     </div>
 </div>
-<script defer src="/_assets/shared.js?core-v1" type="text/javascript"></script>
-<script defer src="/_assets/dokka-template.js?core-v1" type="text/javascript"></script>
+<script defer src="/_assets/shared.js?dokka-v2" type="text/javascript"></script>
+<script defer src="/_assets/dokka-template.js?dokka-v2" type="text/javascript"></script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5P98');</script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5P98" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <#if "${process.env.DOKKA_FEEDBACK}" == "true">
