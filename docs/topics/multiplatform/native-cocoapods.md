@@ -134,14 +134,14 @@ To create a project using the web wizard and configure the CocoaPods integration
    alias(libs.plugins.kotlinCocoapods)
    ```
 
-Now you are ready to use CocoaPods in your Kotlin Multiplatform project.
+Now you are ready to [configure CocoaPods in your Kotlin Multiplatform project](#configure-the-project).
 
 ### In Android Studio
 
 To create a project in Android Studio with the CocoaPods integration:
 
 1. Install the [Kotlin Multiplatform plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform) to Android Studio.
-2. In Android Studio, select  **File** | **New** | **New Project** in the menu.
+2. In Android Studio, select **File** | **New** | **New Project** in the menu.
 3. In the list of project templates, select **Kotlin Multiplatform App** and then click **Next**.
 4. Name your application and click **Next**.
 5. Choose **CocoaPods Dependency Manager** as the iOS framework distribution option.
@@ -152,11 +152,16 @@ To create a project in Android Studio with the CocoaPods integration:
 
    The plugin will automatically generate the project with the CocoaPods integration set up.
 
-## Configure existing project
+## Configure the project
 
-If you already have a project, you can add and configure the Kotlin CocoaPods Gradle plugin manually:
+To configure the Kotlin CocoaPods Gradle plugin in your multiplatform project:
 
-1. In `build.gradle(.kts)` of your project, apply the CocoaPods plugin as well as the Kotlin Multiplatform plugin:
+1. In `build.gradle(.kts)` of your project, apply the CocoaPods plugin as well as the Kotlin Multiplatform plugin.
+
+   > Skip this step if you've created your project with the [web wizard](#using-web-wizard) or
+   > the [Kotlin Multiplatform plugin for Android Studio](#in-android-studio).
+   > 
+   {style="note"}
     
     ```kotlin
     plugins {
@@ -318,8 +323,8 @@ Try these workarounds to avoid this error:
 
 1. Look through the downloaded Pod directory `[shared_module_name]/build/cocoapods/synthetic/IOS/Pods/...`
    for the `module.modulemap` file.
-2. Check the framework name inside the module, for example `SDWebImageMapKit {}`. If the framework name doesn't match the Pod
-name, specify it explicitly:
+2. Check the framework name inside the module, for example `SDWebImageMapKit {}`. If the framework name doesn't match
+   the Pod name, specify it explicitly:
 
     ```kotlin
     pod("SDWebImage/MapKit") {
