@@ -11,12 +11,12 @@ private fun String.camelCase(delim: String = "-", join: String = "") =
 
 typealias ProjectReferenceAttachBuild = (project: Project, version: String) -> BuildType
 
-open class ReferenceProject(val urlPart: String) {
+open class ReferenceProject(val urlPart: String, val projectTitle: String = urlPart) {
     init {
         if (urlPart.isBlank()) throw IllegalArgumentException("urlPart cannot be blank")
     }
 
-    val projectName = urlPart.camelCase(join = " ")
+    val projectName = projectTitle.camelCase(join = " ")
 
     val project = Project {
         id = RelativeId(urlPart.camelCase())
@@ -25,6 +25,7 @@ open class ReferenceProject(val urlPart: String) {
 
         params {
             param("env.ALGOLIA_INDEX_NAME", urlPart)
+            param("env.API_REFERENCE_NAME", projectTitle)
         }
     }
 
@@ -88,15 +89,13 @@ open class ReferenceProject(val urlPart: String) {
             }
         }
 
-        currentVersion.apply {
-            dependencies {
-                for ((previousVersion, version) in versions) {
-                    if (previousVersion == currentVersion) continue
-                    artifacts(previousVersion) {
-                        buildRule = tag("release")
-                        artifactRules = "pages.zip!** => %OLD_VERSIONS_DIR%/$version/"
-                        cleanDestination = true
-                    }
+        currentVersion.dependencies {
+            for ((previousVersion, version) in versions) {
+                if (previousVersion == currentVersion) continue
+                artifacts(previousVersion) {
+                    buildRule = tag("release")
+                    artifactRules = "pages.zip!** => %OLD_VERSIONS_DIR%/$version/"
+                    cleanDestination = true
                 }
             }
         }

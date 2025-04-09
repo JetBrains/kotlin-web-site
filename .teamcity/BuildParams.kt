@@ -41,7 +41,7 @@ object BuildParams {
 
   val KGP_REFERENCE = KotlinGradleAPI {
     addVersion("2.1.0", VCS.tag("v2.1.0"))
-    addVersion("2.1.20", VCS.tag("v2.1.20"))
+    addVersion("2.1.20", VCS.branch("whyoleg/dokka2-sync"))
   }
 
   const val SEARCH_APP_ID = "7961PKYRXV"

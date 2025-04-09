@@ -41,7 +41,7 @@ fun ReferenceProject.makeReferenceTemplate(apiVersion: String, algoliaIndex: Str
         val templateVcs = KotlinLangVcs {
             id = RelativeId("${project.id}_${apiVersion.replace(".", "")}_Template_Vcs")
             name = "$apiVersion templates vcs"
-            branch = tagsOrBranch ?: "refs/heads/master"
+            branch = tagsOrBranch ?: VCS.branch("master")
             branchSpec = ""
         }
 

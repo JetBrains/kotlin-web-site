@@ -1,5 +1,6 @@
 package builds.apiReferences.kgp
 
+import BuildParams.KGP_TITLE
 import builds.apiReferences.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
@@ -8,7 +9,7 @@ private const val OUTPUT_DIR = "libraries/tools/gradle/documentation/build/docum
 private const val TEMPLATES_DIR = "build/api-reference/templates"
 private const val PREVIOUS_DIR = "libraries/tools/gradle/documentation/build/documentation/kotlinlangOld"
 
-class KotlinGradleAPI(init: KotlinGradleAPI.() -> Unit) : ReferenceProject("kotlin-gradle-plugin") {
+class KotlinGradleAPI(init: KotlinGradleAPI.() -> Unit) : ReferenceProject("kotlin-gradle-plugin", KGP_TITLE) {
     init {
         init()
         build()
@@ -17,8 +18,9 @@ class KotlinGradleAPI(init: KotlinGradleAPI.() -> Unit) : ReferenceProject("kotl
     fun addVersion(version: String, tagsOrBranch: String, templateVersion: String? = null) {
         addReference(version) { project, version ->
             val vcs = makeReferenceVcs(version, REPO, tagsOrBranch)
-            val template = TemplateDep(TEMPLATES_DIR, makeReferenceTemplate(version, urlPart, templateVersion))
-            val pages = makeReferencePages(version, OUTPUT_DIR, vcs, template) {
+            val template = makeReferenceTemplate(version, urlPart, templateVersion)
+
+            val pages = makeReferencePages(version, OUTPUT_DIR, vcs, TemplateDep(TEMPLATES_DIR, template)) {
                 script {
                     name = "Build API reference pages"
                     //language=bash
@@ -31,11 +33,11 @@ class KotlinGradleAPI(init: KotlinGradleAPI.() -> Unit) : ReferenceProject("kotl
                 }
             }
 
-            pages.apply {
-                params {
-                    param("OLD_VERSIONS_DIR", PREVIOUS_DIR)
-                }
+            pages.params {
+                param("OLD_VERSIONS_DIR", PREVIOUS_DIR)
             }
+
+            pages
         }
     }
 }
