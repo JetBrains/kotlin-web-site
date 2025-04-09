@@ -15,6 +15,7 @@ object PrepareDokkaTemplate: Template({
 
   params {
 //      param("env.ALGOLIA_INDEX_NAME", "")
+      param("env.API_REFERENCE_NAME", "")
   }
 
   vcs {

@@ -1,6 +1,6 @@
 <#macro display>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8">
-    <title>${pageName}</title>
+    <title>${pageName} | ${process.env.API_REFERENCE_NAME} – Kotlin Programming Language</title>
     <!-- Icons -->
     <link rel="icon" type="image/svg" sizes="16x16" href="https://kotlinlang.org/assets/images/favicon.svg?v2">
     <link rel="icon" type="image/x-icon" sizes="32x32" href="https://kotlinlang.org/assets/images/favicon.ico?v2">

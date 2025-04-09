@@ -1,6 +1,7 @@
 package builds.apiReferences.kgp
 
 import BuildParams.KGP_ID
+import BuildParams.KGP_TITLE
 import builds.apiReferences.templates.PrepareDokkaTemplate
 import jetbrains.buildServer.configs.kotlin.BuildType
 
@@ -11,6 +12,7 @@ object KotlinGradlePluginPrepareDokkaTemplates : BuildType({
     templates(PrepareDokkaTemplate)
 
     params {
-        param("env.ALGOLIA_INDEX_NAME", "$KGP_ID")
+        param("env.ALGOLIA_INDEX_NAME", KGP_ID)
+        param("env.API_REFERENCE_NAME", KGP_TITLE)
     }
 })
