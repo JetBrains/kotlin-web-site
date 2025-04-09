@@ -8,7 +8,10 @@ object BuildParams {
   const val CORE_API_STABLE = "2.1.20"
 
   const val KGP_API_TITLE = "Kotlin Gradle Plugin"
-  val KGP_API_VERSIONS: KGPSetup = { addVersion(CORE_API_STABLE) }
+  val KGP_API_VERSIONS: KGPSetup = {
+    addVersion("2.1.0")
+    addVersion(CORE_API_STABLE)
+  }
 
   val API_REFERENCES = listOf(
     KotlinxCoroutines("1.10.1"),

@@ -11,16 +11,18 @@ class KotlinxMetadata(
     version: String, tagOrBranch: String = VCS.tag("v$version")
 ) : ReferenceProject("kotlinx-metadata-jvm") {
     init {
-        makeAPIReference(
-            version = version,
-            gitUrl = "git@github.com:JetBrains/kotlin.git",
-            gitBranch = tagOrBranch,
-            templateDir = "${LIB_DIR}/dokka-templates",
-            pagesDir = "${LIB_DIR}/build/dokka",
-            steps = {
-                step(dokkaBuildHtml(version) {
-                    tasks = ":kotlin-metadata-jvm:dokkaHtml"
+        addReference(version) {
+            makeAPIReference(
+                version,
+                gitUrl = "git@github.com:JetBrains/kotlin.git",
+                gitBranch = tagOrBranch,
+                templateDir = "${LIB_DIR}/dokka-templates",
+                pagesDir = "${LIB_DIR}/build/dokka",
+                steps = {
+                    step(dokkaBuildHtml(version) {
+                        tasks = ":kotlin-metadata-jvm:dokkaHtml"
+                    })
                 })
-            })
+        }
     }
 }

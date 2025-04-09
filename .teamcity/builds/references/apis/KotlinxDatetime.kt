@@ -9,15 +9,17 @@ class KotlinxDatetime(
     version: String, tagOrBranch: String = VCS.branch("latest-release")
 ) : ReferenceProject("kotlinx-datetime") {
     init {
-        makeAPIReference(
-            version,
-            gitUrl = "git@github.com:Kotlin/kotlinx-datetime.git",
-            gitBranch = tagOrBranch,
-            pagesDir = "core/build/dokka/html",
-            steps = {
-                step(dokkaBuildHtml(version) {
-                    tasks = ":kotlinx-datetime:dokkaHtml"
+        addReference(version) {
+            makeAPIReference(
+                version,
+                gitUrl = "git@github.com:Kotlin/kotlinx-datetime.git",
+                gitBranch = tagOrBranch,
+                pagesDir = "core/build/dokka/html",
+                steps = {
+                    step(dokkaBuildHtml(version) {
+                        tasks = ":kotlinx-datetime:dokkaHtml"
+                    })
                 })
-            })
+        }
     }
 }

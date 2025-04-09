@@ -9,7 +9,7 @@ import vcsRoots.KotlinLangOrg
 private fun String.camelCase(delim: String = "-", join: String = "") =
     this.split(delim).joinToString(join) { it.replaceFirstChar { char -> char.uppercase() } }
 
-typealias ProjectReferenceAttachBuild = (project: Project, version: String) -> BuildType
+typealias ProjectReferenceBuilder = () -> BuildType
 
 open class ReferenceProject(val urlPart: String, val projectTitle: String = urlPart) {
     init {
@@ -33,8 +33,8 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
 
     fun getCurrentVersion(): Pair<BuildType, String>? = this.versions.lastOrNull()
 
-    fun addReference(version: String, buildReference: ProjectReferenceAttachBuild) {
-        versions.add(buildReference(this.project, version) to version)
+    fun addReference(version: String, buildReference: ProjectReferenceBuilder) {
+        versions.add(buildReference() to version)
     }
 
     fun build() {

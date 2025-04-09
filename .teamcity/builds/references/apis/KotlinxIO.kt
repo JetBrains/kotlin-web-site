@@ -6,10 +6,12 @@ import builds.common.makeAPIReference
 
 class KotlinxIO(version: String, tagOrBranch: String = VCS.tag(version)) : ReferenceProject("kotlinx-io") {
     init {
-        makeAPIReference(
-            version,
-            gitUrl = "git@github.com:Kotlin/kotlinx-io.git",
-            gitBranch = tagOrBranch
-        )
+        addReference(version) {
+            makeAPIReference(
+                version,
+                gitUrl = "git@github.com:Kotlin/kotlinx-io.git",
+                gitBranch = tagOrBranch
+            )
+        }
     }
 }

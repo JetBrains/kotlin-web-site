@@ -16,7 +16,7 @@ class KotlinGradlePlugin(init: KGPSetup) :
     }
 
     fun addVersion(version: String, tagOrBranch: String = VCS.tag("v$version"), templateVersion: String? = null) {
-        addReference(version) { project, version ->
+        addReference(version) {
             makeAPIReference(
                 version,
                 gitUrl = "git@github.com:JetBrains/kotlin.git",
