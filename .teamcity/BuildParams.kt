@@ -42,7 +42,7 @@ object BuildParams {
 
   val KGP_REFERENCE = KotlinGradleAPI {
     addVersion("2.1.0", VCS.tag("v2.1.0"))
-    addVersion("2.1.20", VCS.branch("rrr/2.1.20/yahor/fix-api-reference-version-selector"))
+    addVersion("2.1.20", VCS.branch("whyoleg/dokka2-sync"))
   }
 
   val API_COMPOSE = ComposeMultiplatformCore {
