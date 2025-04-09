@@ -1,15 +1,16 @@
 package builds.references.stdlib
 
-import BuildParams.CORE_API_BUILD_ID
+import BuildParams.CORE_API_STABLE
+import builds.common.scriptGenerateSitemap
+import builds.common.scriptNoRobots
 import builds.kotlinlang.templates.SCRIPT_PATH
-import builds.references.scriptGenerateSitemap
-import builds.references.scriptNoRobots
 import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import vcsRoots.KotlinLangOrg
 
 private const val PAGES_ROOT = "dist/api/core"
+private val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_${CORE_API_STABLE.replace(".", "")}}_LibraryReferenceLatestDocs"
 
 object BuildStdlibApiReference : BuildType({
     name = "Core API pages"

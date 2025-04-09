@@ -4,9 +4,8 @@ object BuildParams {
   const val SEARCH_APP_ID = "7961PKYRXV"
   const val SEARCH_INDEX_NAME = "prod_KOTLINLANG_WEBHELP"
 
-  const val CORE_API_STABLE = "2.1.20"
   const val CORE_API_TITLE = "Core API"
-  val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_${CORE_API_STABLE.replace(".", "") }}_LibraryReferenceLatestDocs"
+  const val CORE_API_STABLE = "2.1.20"
 
   const val KGP_API_TITLE = "Kotlin Gradle Plugin"
   val KGP_API_VERSIONS: KGPSetup = { addVersion(CORE_API_STABLE) }
