@@ -1,6 +1,8 @@
-package builds.apiReferences
+package references.common
 
 import builds.SCRIPT_PATH
+import builds.apiReferences.scriptGenerateSitemap
+import builds.apiReferences.scriptNoRobots
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.RelativeId
@@ -51,7 +53,7 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
             artifactRules = "$workingDir/** => pages.zip"
 
             vcs {
-                root(KotlinLangOrg, "$SCRIPT_PATH/")
+                root(KotlinLangOrg, "${SCRIPT_PATH}/")
             }
 
             steps {

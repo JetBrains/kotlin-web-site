@@ -1,5 +1,8 @@
-package builds.apiReferences
+package references.common
 
+import builds.apiReferences.DEFAULT_DOKKA_PATH
+import builds.apiReferences.dependsOnDokkaTemplate
+import builds.apiReferences.scriptBuildHtml
 import builds.apiReferences.templates.configureReferenceTemplate
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType

@@ -1,12 +1,14 @@
-package builds.apiReferences.kgp
+package references
 
-import BuildParams.KGP_API_TITLE
-import builds.apiReferences.ReferenceProject
-import builds.apiReferences.VCS
-import builds.apiReferences.makeAPIReference
+import BuildParams
 import builds.apiReferences.scriptBuildHtml
+import references.common.ReferenceProject
+import references.common.VCS
+import references.common.makeAPIReference
 
-class KotlinGradlePlugin(init: KotlinGradlePlugin.() -> Unit) : ReferenceProject("kotlin-gradle-plugin", KGP_API_TITLE) {
+class KotlinGradlePlugin(init: KotlinGradlePlugin.() -> Unit) :
+    ReferenceProject("kotlin-gradle-plugin", BuildParams.KGP_API_TITLE) {
+
     init {
         init()
     }
@@ -25,8 +27,7 @@ class KotlinGradlePlugin(init: KotlinGradlePlugin.() -> Unit) : ReferenceProject
                     step(scriptBuildHtml(version) {
                         tasks = ":gradle:documentation:dokkaKotlinlangDocumentation"
                     })
-                }
-            )
+                })
         }
     }
 }

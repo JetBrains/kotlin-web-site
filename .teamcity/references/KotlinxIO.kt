@@ -1,8 +1,8 @@
-package builds.apiReferences.kotlinx.io
+package references
 
-import builds.apiReferences.ReferenceProject
-import builds.apiReferences.VCS
-import builds.apiReferences.makeAPIReference
+import references.common.ReferenceProject
+import references.common.VCS
+import references.common.makeAPIReference
 
 class KotlinxIO(version: String, tagOrBranch: String = VCS.tag(version)) : ReferenceProject("kotlinx-io") {
     init {
