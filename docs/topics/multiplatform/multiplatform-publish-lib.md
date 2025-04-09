@@ -1,35 +1,42 @@
-[//]: # (title: Publishing multiplatform libraries)
+[//]: # (title: Setting up multiplatform library publication)
 
-You can publish a multiplatform library to a local Maven repository with the [`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html). 
-In the `shared/build.gradle.kts` file, specify the group, version, and the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories) where the library
-should be published. The plugin creates publications automatically.
+You can set up the publication of your multiplatform library to different locations: 
 
-```kotlin
-plugins {
-    //...
-    id("maven-publish")
-}
+* [To a local Maven repository](#publishing-to-a-local-maven-repository)
+* To the Maven Central repository. Learn how to set up account credentials, customize library metadata, and configure
+  the publication plugin in [our tutorial](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-libraries.html).
+* To a GitHub repository. For more information, see GitHub's documentation on [GitHub packages](https://docs.github.com/en/packages).
 
-group = "com.example"
-version = "1.0"
+## Publishing to a local Maven repository
 
-publishing {
-    repositories {
-        maven {
-            //...
-        }
-    }
-}
-```
+You can publish a multiplatform library to a local Maven repository with the `maven-publish` Gradle plugin:
 
-> You can also publish a multiplatform library to a GitHub repository. For more information, see GitHub's documentation on [GitHub packages](https://docs.github.com/en/packages).
->
-{style="tip"}
+1. In the `shared/build.gradle.kts` file, add the [`maven-publish` Gradle plugin](https://docs.gradle.org/current/userguide/publishing_maven.html).
+2. Specify the group and version for the library, as well as the [repositories](https://docs.gradle.org/current/userguide/publishing_maven.html#publishing_maven:repositories)
+   where it should be published:
+
+   ```kotlin
+   plugins {
+       // ...
+       id("maven-publish")
+   }
+
+   group = "com.example"
+   version = "1.0"
+
+   publishing {
+       repositories {
+           maven {
+               //...
+           }
+       }
+   }
+   ```
+
+When used with `maven-publish`, the Kotlin plugin automatically creates publications for each target that can be built
+on the current host, except for the Android target, which needs an [additional step to configure publishing](#publish-an-android-library).
 
 ## Structure of publications
-
-When used with `maven-publish`, the Kotlin plugin automatically creates publications for each target that can be built on the current host, except for the Android target, 
-which needs an [additional step to configure publishing](#publish-an-android-library).
 
 Publications of a multiplatform library include an additional _root_ publication `kotlinMultiplatform` that stands for the 
 whole library and is automatically resolved to the appropriate platform-specific artifacts when added as a dependency to the common source set. 
@@ -37,11 +44,16 @@ Learn more about [adding dependencies](multiplatform-add-dependencies.md).
 
 This `kotlinMultiplatform` publication includes metadata artifacts and references the other publications as its variants.
 
-> Some repositories, such as Maven Central, require that the root module contains a JAR artifact without a classifier, for example `kotlinMultiplatform-1.0.jar`.  
-> The Kotlin Multiplatform plugin automatically produces the required artifact with the embedded metadata artifacts.  
-> This means you don't have to customize your build by adding an empty artifact to the root module of your library to meet the repository's requirements.
+Some repositories, such as Maven Central, require the root module to contain a JAR artifact without a classifier,
+for example `kotlinMultiplatform-1.0.jar`.
+The Kotlin Multiplatform plugin automatically produces the required artifact with the embedded metadata artifacts.
+This means you don't have to add an empty artifact to the root module of your library to
+meet the repository's requirements.
+
+> Learn more about JAR artifact generation with [Gradle](multiplatform-configure-compilations.md#compilation-for-jvm)
+> and [Maven](maven.md#create-jar-file) build systems.
 >
-{style="note"}
+{style="tip"}
 
 The `kotlinMultiplatform` publication may also need the sources and documentation artifacts if that is required by the repository. In that case, 
 add those artifacts by using [`artifact(...)`](https://docs.gradle.org/current/javadoc/org/gradle/api/publish/maven/MavenPublication.html#artifact-java.lang.Object-) 
@@ -73,75 +85,12 @@ Cross-compilation is currently Experimental and has some limitations. You still 
 To avoid any issues during publication, publish all artifacts from a single host to avoid duplicating publications in the
 repository. Maven Central, for example, explicitly forbids duplicate publications and fails the process.
 <!-- TBD: add the actual error -->
-  
-#### If you use Kotlin 1.7.0 or earlier {initial-collapse-state="collapsed" collapsible="true"}
-
-Before 1.7.20, the Kotlin/Native compiler didn't support all cross-compilation options. If you use earlier versions, you may need
-to publish multiplatform projects from multiple hosts: a Windows host to compile a Windows target, a Linux host to compile a Linux target, and so on.
-This can result in duplicate publications of modules that are cross-compiled. The most straightforward way to avoid this is to upgrade to a later
-version of Kotlin and publish from a single host as described above.
-
-If upgrading is not an option, assign a main host for each target and check for it in the `shared/build.gradle(.kts)` file:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    jvm()
-    js()
-    mingwX64()
-    linuxX64()
-  
-    val publicationsFromMainHost =
-        listOf(jvm(), js()).map { it.name } + "kotlinMultiplatform"
-  
-    publishing {
-        publications {
-            matching { it.name in publicationsFromMainHost }.all {
-                val targetPublication = this@all
-                tasks.withType<AbstractPublishToMaven>()
-                    .matching { it.publication == targetPublication }
-                    .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
-            }
-        }
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    jvm()
-    js()
-    mingwX64()
-    linuxX64()
-  
-    def publicationsFromMainHost =
-        [jvm(), js()].collect { it.name } + "kotlinMultiplatform"
-  
-    publishing {
-        publications {
-            matching { it.name in publicationsFromMainHost }.all { targetPublication ->
-                tasks.withType(AbstractPublishToMaven)
-                    .matching { it.publication == targetPublication }
-                    .configureEach { onlyIf { findProperty("isMainHost") == "true" } }
-            }
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
 
 ## Publish an Android library
 
 To publish an Android library, you need to provide additional configuration.
 
-By default, no artifacts of an Android library are published. To publish artifacts produced by a set of [Android variants](https://developer.android.com/studio/build/build-variants), 
+By default, no artifacts of an Android library are published. To publish artifacts produced by a set of Android [build variants](https://developer.android.com/build/build-variants), 
 specify the variant names in the Android target block in the `shared/build.gradle.kts` file:
 
 ```kotlin
@@ -153,7 +102,7 @@ kotlin {
 
 ```
 
-The example works for Android libraries without [product flavors](https://developer.android.com/studio/build/build-variants#product-flavors). 
+The example works for Android libraries without [product flavors](https://developer.android.com/build/build-variants#product-flavors). 
 For a library with product flavors, the variant names also contain the flavors, like `fooBarDebug` or `fooBarRelease`.
 
 The default publishing setup is as follows:
@@ -248,5 +197,5 @@ Libraries that meet the criteria are added automatically. For more information o
 
 ## What's next
 
-See the [Library authors' guidelines](api-guidelines-build-for-multiplatform.md) for best practices and tips
-on designing a library for Kotlin Multiplatform.
+* [Learn how to publish your Kotlin Multiplatform library to the Maven Central repository](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-libraries.html)
+* [See the Library authors' guidelines for best practices and tips on designing a library for Kotlin Multiplatform](api-guidelines-build-for-multiplatform.md)

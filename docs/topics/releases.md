@@ -1,5 +1,10 @@
 [//]: # (title: Kotlin releases)
 
+<tldr>
+    <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
+    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin %kotlinVersion%</a> for details</p>
+</tldr>
+
 Since Kotlin 2.0.0, we ship the following types of releases:
 
 * _Language releases_ (2._x_._0_) that bring major changes in the language and include tooling updates. Released once in 6 months.
@@ -95,6 +100,16 @@ The following table lists details of the latest Kotlin releases:
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
+    </tr>
+   <tr>
+        <td><strong>2.1.20</strong>
+            <p>Released: <strong>March 20, 2025</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.20" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+           <p>A tooling release for Kotlin 2.1.0 containing new experimental features, performance improvements, and bug fixes.</p>
+            <p>Learn more about Kotlin 2.1.20 in <a href="whatsnew2120.md" target="_blank">What's new in Kotlin 2.1.20</a>.</p>
+        </td>
     </tr>
     <tr>
         <td><strong>2.1.10</strong>

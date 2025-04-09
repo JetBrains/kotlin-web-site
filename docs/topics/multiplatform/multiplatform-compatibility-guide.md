@@ -18,19 +18,20 @@ the Kotlin version you have in your projects, for example:
 When configuring your project, check the compatibility of a particular version of the Kotlin Multiplatform Gradle plugin
 (same as the Kotlin version in your project) with Gradle, Xcode, and Android Gradle plugin versions:
 
-| Kotlin Multiplatform plugin version | Gradle                                 | Android Gradle plugin           | Xcode   |
-|-------------------------------------|----------------------------------------|---------------------------------|---------|
-| 2.1.0                               | %minGradleVersion%–%maxGradleVersion%* | 7.4.2–%maxAndroidGradleVersion% | %xcode% |
-| 2.0.21                              | 7.5-8.8*                               | 7.4.2–8.5                       | 16.0    |
-| 2.0.20                              | 7.5-8.8*                               | 7.4.2–8.5                       | 15.3    |
-| 2.0.0                               | 7.5-8.5                                | 7.4.2–8.3                       | 15.3    |
-| 1.9.20                              | 7.5-8.1.1                              | 7.4.2–8.2                       | 15.0    |
+| Kotlin Multiplatform plugin version | Gradle                                | Android Gradle plugin           | Xcode   |
+|-------------------------------------|---------------------------------------|---------------------------------|---------|
+| 2.1.20                              | %minGradleVersion%–%maxGradleVersion% | 7.4.2–%maxAndroidGradleVersion% | %xcode% |
+| 2.1.0–2.1.10                        | 7.6.3-8.10*                           | 7.4.2–8.7.2                     | 16.0    |
+| 2.0.21                              | 7.5-8.8*                              | 7.4.2–8.5                       | 16.0    |
+| 2.0.20                              | 7.5-8.8*                              | 7.4.2–8.5                       | 15.3    |
+| 2.0.0                               | 7.5-8.5                               | 7.4.2–8.3                       | 15.3    |
+| 1.9.20                              | 7.5-8.1.1                             | 7.4.2–8.2                       | 15.0    |
 
-> *Kotlin 2.0.20–2.0.21 and Kotlin 2.1.0 are fully compatible with Gradle up to 8.6.
-> Gradle 8.7 and 8.8 are also supported, but you may see deprecation warnings in your multiplatform projects
-> calling the [`withJava()` function in the JVM target](multiplatform-dsl-reference.md#jvm-targets). 
-> For more information, see the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-66542/Gradle-JVM-target-with-withJava-produces-a-deprecation-warning).
-> 
+> *Kotlin 2.0.20–2.0.21 and Kotlin 2.1.0–2.1.10 are fully compatible with Gradle up to 8.6.
+> Gradle versions 8.7–8.10 are also supported, with only one exception: If you use the Kotlin Multiplatform Gradle plugin,
+> you may see deprecation warnings in your multiplatform projects calling the `withJava()` function in the JVM target.
+> For more information, see [Java source sets created by default](#java-source-sets-created-by-default).
+>
 {style="warning"}
 
 ## Kotlin 2.0.0 and later
@@ -39,12 +40,11 @@ This section covers incompatible changes that end their deprecation cycle and co
 
 <anchor name="java-source-set-created-by-default"/>
 ### Java source sets created by default
-<primary-label ref="eap"/>
 
 **What's changed?**
 
 To align Kotlin Multiplatform with upcoming changes in Gradle, we are phasing out the `withJava()` function. The `withJava()`
-function enabled integration with Gradle's Java plugins by creating the necessary Java source sets. From Kotlin %kotlinEapVersion%,
+function enabled integration with Gradle's Java plugins by creating the necessary Java source sets. From Kotlin 2.1.20,
 these Java source sets are created by default.
 
 **What's the best practice now?**
@@ -59,7 +59,7 @@ kotlin {
 }
 ``` 
 
-From Kotlin %kotlinEapVersion%, you can remove the `withJava()` function from your build script.
+From Kotlin 2.1.20, you can remove the `withJava()` function from your build script.
 
 In addition, Gradle now only runs Java compile tasks if Java sources are present, triggering a JVM validation 
 diagnostic that previously didn't run before. This diagnostic fails if you explicitly configure an incompatible JVM target
@@ -71,7 +71,7 @@ If your project uses Gradle versions higher than 8.7 and doesn't rely on Gradle 
 or a third party Gradle plugin that has a dependency on a Gradle Java plugin, you can remove the `withJava()` function.
 
 If your project uses the [Application](https://docs.gradle.org/current/userguide/application_plugin.html) Gradle Java plugin,
-we recommend migrating to the [new Experimental DSL](whatsnew-eap.md#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin).
+we recommend migrating to the [new Experimental DSL](whatsnew2120.md#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin).
 Starting with Gradle 8.7, the Application plugin will no longer work with the Kotlin Multiplatform Gradle plugin.
 
 If you want to use both the Kotlin Multiplatform Gradle plugin and other Gradle plugins for
@@ -85,7 +85,7 @@ Here's the planned deprecation cycle:
 
 * Gradle >8.6: introduce a deprecation warning for any previous version of Kotlin in multiplatform projects using the `withJava()` function.
 * Gradle 9.0: raise this warning to an error.
-* %kotlinEapVersion%: introduce a deprecation warning when using the `withJava()` function with any version of Gradle.
+* 2.1.20: introduce a deprecation warning when using the `withJava()` function with any version of Gradle.
 
 <anchor name="android-target-rename"/>
 ### Rename of `android` target to `androidTarget`

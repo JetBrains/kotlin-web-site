@@ -1,8 +1,10 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
+<!--
 <tldr>
     <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
 </tldr>
+-->
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
 
@@ -35,21 +37,23 @@ In this channel, you can also get notifications about new EAP builds.
 
 ## Build details
 
-<!-- _No preview versions are currently available._ -->  
+_No preview versions are currently available._  
 
+<!--
 <table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.1.20-RC</strong>
-            <p>Released: <strong>February 19, 2025</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.20-RC" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.1.20-RC3</strong>
+            <p>Released: <strong>March 14, 2025</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.20-RC3" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <p>A tooling release with K2 kapt enabled by default.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.20-RC">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.1.20-RC</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.20-RC3">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.1.20-RC3</a>.</p>
         </td>
     </tr>
 </table>
+-->

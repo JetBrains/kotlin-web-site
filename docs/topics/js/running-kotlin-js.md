@@ -14,14 +14,14 @@ Depending on the target platform, some platform-specific extra setup might be re
 
 ## Run the Node.js target
 
-When targeting Node.js with Kotlin/JS, you can simply execute the `jsRun` Gradle task. This can be done for example via the
+When targeting Node.js with Kotlin/JS, you can simply execute the `jsNodeDevelopmentRun` Gradle task. This can be done for example via the
 command line, using the Gradle wrapper:
 
 ```bash
-./gradlew jsRun
+./gradlew jsNodeDevelopmentRun
 ```
 
-If you're using IntelliJ IDEA, you can find the `jsRun` action in the Gradle tool window:
+If you're using IntelliJ IDEA, you can find the `jsNodeDevelopmentRun` action in the Gradle tool window:
 
 ![Gradle Run task in IntelliJ IDEA](run-gradle-task.png){width=700}
 
@@ -57,10 +57,10 @@ After making these adjustments, start the integrated development server. You can
 Gradle wrapper:
 
 ```bash
-./gradlew jsRun
+./gradlew jsBrowserDevelopmentRun
 ```
 
-When working from IntelliJ IDEA, you can find the `jsRun` action in the Gradle tool window.
+When working from IntelliJ IDEA, you can find the `jsBrowserDevelopmentRun` action in the Gradle tool window.
 
 After the project has been built, the embedded `webpack-dev-server` will start running, and will open a (seemingly empty)
 browser window pointing to the HTML file you specified previously. To validate that your program is running correctly,

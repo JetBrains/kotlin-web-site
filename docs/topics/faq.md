@@ -57,7 +57,9 @@ For more information, check out [the resource on server-side development](server
 
 ### Can I use Kotlin for web development?
 
-Yes. In addition to using for backend web, you can also use Kotlin/Wasm for client-side web. Learn how to [get started with Kotlin/Wasm](wasm-get-started.md).
+Yes. For backend web development, Kotlin works well with frameworks such as [Ktor](https://ktor.io/) and [Spring](https://spring.io/), enabling you to build 
+server-side applications efficiently. Additionally, you can use Kotlin/Wasm for client-side web development.
+Learn how to [get started with Kotlin/Wasm](wasm-get-started.md).
 
 ### Can I use Kotlin for desktop development?
 
@@ -172,7 +174,7 @@ Kotlin is also being covered in different conferences worldwide. You can find a 
 ### Is Kotlin on social media?
 
 Yes. 
-Subscribe to the [Kotlin YouTube channel](https://www.youtube.com/c/Kotlin) and follow Kotlin [on Twitter](https://twitter.com/kotlin).
+Subscribe to the [Kotlin YouTube channel](https://www.youtube.com/c/Kotlin) and follow Kotlin [on Twitter](https://twitter.com/kotlin) or [on Bluesky](https://bsky.app/profile/kotlinlang.org).
 
 ### Any other online Kotlin resources?
 

@@ -10,7 +10,7 @@ the surrounding tooling.
 
 ## Inline JavaScript
 
-You can inline some JavaScript code into your Kotlin code using the [`js()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/js.html) function.
+You can inline JavaScript code into your Kotlin code using the [`js()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/js.html) function.
 For example:
 
 ```kotlin
@@ -26,11 +26,16 @@ a string constant. So, the following code is incorrect:
 fun jsTypeOf(o: Any): String {
     return js(getTypeof() + " o") // error reported here
 }
+
 fun getTypeof() = "typeof"
 ```
 
-Note that invoking `js()` returns a result of type [`dynamic`](dynamic-type.md), which provides no type safety at the
-compile time.
+> As the JavaScript code is parsed by the Kotlin compiler, not all ECMAScript features might be supported.
+> In this case, you can encounter compilation errors.
+> 
+{style="note"}
+
+Note that invoking `js()` returns a result of type [`dynamic`](dynamic-type.md), which provides no type safety at compile time.
 
 ## external modifier
 

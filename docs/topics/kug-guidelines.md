@@ -36,7 +36,7 @@ Have a question? [Contact us](mailto:kug@jetbrains.com)
 
 ## Support for KUGs from JetBrains
 
-Active KUGs that host at least 1 meetup every 3 months can apply for the community support program, which includes:
+Active KUGs that host at least 1 meetup every 3 months can apply for [the community support program](https://www.jetbrains.com/community/user-groups/), which includes:
 * Official KUG branding.
 * A special entry on the Kotlin website.
 * Free licenses for JetBrains products to raffle off at meetups.

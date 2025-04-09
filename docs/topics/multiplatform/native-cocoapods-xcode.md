@@ -40,6 +40,7 @@ dependency by calling `pod install` manually for each Xcode project. In other ca
             summary = "CocoaPods test library"
             homepage = "https://github.com/JetBrains/kotlin"
             ios.deploymentTarget = "16.0"
+   
             pod("SDWebImage") {
                 version = "5.20.0"
             }

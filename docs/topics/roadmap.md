@@ -78,12 +78,12 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75374" target="_blank">Improve development experience for Kotlin/Wasm projects in IntelliJ IDEA</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75376" target="_blank">Improve performance of imports</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75377" target="_blank">Support resources in XCFrameworks</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTNB-898" target="_blank">Kotlin Notebook: Smoother access and improved experience</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-31316" target="_blank">IntelliJ IDEA K2 mode complete release</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71286" target="_blank">Design the Build Tools API</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71292" target="_blank">Kotlin Ecosystem Plugin supporting Declarative Gradle</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-54105" target="_blank">Support Gradle project isolation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64577" target="_blank">Improve integration of Kotlin/Native toolchain into Gradle</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTNB-506" target="_blank">Kotlin Notebook: Light Notebooks and improved experience exploring data from HTTP endpoints</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-60279" target="_blank">Improve Kotlin build reports</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-55515" target="_blank">Expose stable compiler arguments in Gradle DSL</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49511" target="_blank">Improve Kotlin scripting and experience with <code>.gradle.kts</code></a></li>
@@ -133,6 +133,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 We've **completed** the following items from the previous roadmap:
 
 * ✅ Compiler: [Support debugging inline functions on Android](https://youtrack.jetbrains.com/issue/KT-60276)
+* ✅ Compiler: [Improve the quality of compiler diagnostics](https://youtrack.jetbrains.com/issue/KT-71275)
 * ✅ Multiplatform: [Support Xcode 16 in Kotlin](https://youtrack.jetbrains.com/issue/KT-71287)
 * ✅ Multiplatform: [Publish publicly available API reference for Kotlin Gradle Plugin](https://youtrack.jetbrains.com/issue/KT-71288)
 * ✅ Tooling: [Provide out-of-the-box debugging experience for Kotlin/Wasm targets](https://youtrack.jetbrains.com/issue/KT-71276)
@@ -150,6 +151,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Tooling: [Improve development experience for Kotlin/Wasm projects in IntelliJ IDEA](https://youtrack.jetbrains.com/issue/KT-75374)
 * 🆕 Tooling: [Improve performance of imports](https://youtrack.jetbrains.com/issue/KT-75376)
 * 🆕 Tooling: [Support resources in XCFrameworks](https://youtrack.jetbrains.com/issue/KT-75377)
+* 🆕 Tooling: [Smoother access and improved experience in Kotlin Notebook](https://youtrack.jetbrains.com/issue/KTNB-898)
 * 🆕 Ktor: [Add gRPC support to Ktor with a generator plugin and tutorial](https://youtrack.jetbrains.com/issue/KTOR-1501)
 * 🆕 Ktor: [Make project structuring for the backend applications simple](https://youtrack.jetbrains.com/issue/KTOR-7158)
 * 🆕 Ktor: [Publish CLI generator to SNAP](https://youtrack.jetbrains.com/issue/KTOR-3937)
@@ -159,6 +161,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Exposed: [Release 1.0.0](https://youtrack.jetbrains.com/issue/EXPOSED-444)
 * 🆕 Exposed: [Add R2DBC Support](https://youtrack.jetbrains.com/issue/EXPOSED-74)
 
+<!--
 ### Removed items
 
 We've **removed** the following items from the roadmap:
@@ -169,6 +172,7 @@ We've **removed** the following items from the roadmap:
 > with the current ones.
 >
 {style="note"}
+-->
 
 ### Items in progress
 

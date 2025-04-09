@@ -203,34 +203,87 @@ multiplatform project.
 > 
 {style="tip"}
 
-## Use Java sources in JVM compilations
+## Compilation for JVM
 
-When creating a project with the [project wizard](https://kmp.jetbrains.com/), Java sources are included in the compilations of
-the JVM target.
+When you declare the `jvm` target in your multiplatform project, the Kotlin Multiplatform plugin automatically
+creates Java sources sets and includes them in the compilations of the JVM target.
 
-In the build script, the following section applies the Gradle `java` plugin and configures the target to cooperate with it:
+The common source sets can't include Java resources, so you should place them in the corresponding child directories
+of your multiplatform project. For example:
+
+![Java source files](java-source-paths.png){width=200}
+
+Currently, the Kotlin Multiplatform plugin replaces some tasks configured by the Java plugin:
+
+* JAR task: instead of a standard `jar`, it uses a target-specific task based on the artifact's name, for example,
+  `jvmJar` for the `jvm()` target declaration and `desktopJar` for `jvm("desktop")`.
+* Test task: instead of a standard `test`, it uses a target-specific task based on the artifact's name, for example, `jvmTest`.
+* Resource processing: instead of `*ProcessResources` tasks, resources are handled by the corresponding compilation tasks.
+
+These tasks are created automatically when the target is declared. However, you can manually define the JAR task
+and configure it if necessary:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
+// Shared module's `build.gradle.kts` file
+plugins {
+    kotlin("multiplatform") version "%kotlinVersion%"
+}
+
 kotlin {
+    // Specify the JVM target
     jvm {
-        withJava()
+        // Add the task for JAR generation
+        tasks.named<Jar>(artifactsTaskName).configure {
+            // Configure the task
+        }
+    }
+
+    sourceSets {
+        jvmMain {
+            dependencies {
+                // Add JVM-specific dependencies
+            }
+        }
     }
 }
 ```
 
-The Java source files are placed in the child directories of the Kotlin source roots. For example, the paths are:
+</tab>
+<tab title="Groovy" group-key="groovy">
 
-![Java source files](java-source-paths.png){width=200}
+```groovy
+// Shared module's `build.gradle` file
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
 
-The common source sets cannot include Java sources.
+kotlin {
+    // Specify the JVM target
+    jvm {
+        // Add the task for JAR generation
+        tasks.named<Jar>(artifactsTaskName).configure {
+            // Configure the task
+        }
+    }
 
-Due to current limitations, the Kotlin plugin replaces some tasks configured by the Java plugin:
+    sourceSets {
+        jvmMain {
+            dependencies {
+                // Add JVM-specific dependencies
+            }
+        }
+    }
+}
+```
 
-* The target's JAR task instead of `jar` (for example, `jvmJar`).
-* The target's test task instead of `test` (for example, `jvmTest`).
-* The resources are processed by the equivalent tasks of the compilations instead of `*ProcessResources` tasks.
+</tab>
+</tabs>
 
-The publication of this target is handled by the Kotlin plugin and doesn't require steps that are specific for the Java plugin.
+This target is published by the Kotlin Multiplatform plugin and doesn't require steps that are specific
+to the Java plugin.
 
 ## Configure interop with native languages
 
@@ -389,15 +442,5 @@ which improves build performance by "isolating" individual projects from each ot
 and plugins between projects, allowing them to run safely in parallel.
 
 To enable this feature, follow Gradle's instructions to [set the system property](https://docs.gradle.org/current/userguide/isolated_projects.html#how_do_i_use_it).
-
-If you want to check compatibility before enabling Isolated Projects in Gradle, you can test your projects with the new 
-Kotlin Gradle plugin model. Add the following Gradle property to your `gradle.properties` file:
-
-```none
-kotlin.kmp.isolated-projects.support=enable
-```
-
-If you decide to enable the Isolated Projects feature later, remember to remove this Gradle property. The Kotlin Gradle plugin
-applies and manages this Gradle property directly.
 
 For more information about the Isolated Projects feature, see [Gradle's documentation](https://docs.gradle.org/current/userguide/isolated_projects.html).

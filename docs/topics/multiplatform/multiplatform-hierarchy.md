@@ -25,7 +25,7 @@ The Kotlin Gradle plugin has a built-in default [hierarchy template](#see-the-fu
 It contains predefined intermediate source sets for some popular use cases.
 The plugin sets up those source sets automatically based on the targets specified in your project.
 
-Consider the following example:
+Consider the following `build.gradle(.kts)` file in the project's module that contains shared code:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -67,7 +67,8 @@ from the `apple`, `native`, and `common` source sets is compiled to `watchosArm6
 The Kotlin Gradle plugin provides both type-safe and static accessors for all of the source sets from the default hierarchy
 template, so you can reference them without `by getting` or `by creating` constructs compared to the [manual configuration](#manual-configuration).
 
-If you try to access the source set without declaring the corresponding target first, you'll see a warning:
+If you try to access the source set in the shared module's `build.gradle(.kts)` file without declaring the corresponding
+target first, you'll see a warning:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -147,8 +148,8 @@ To solve this issue, configure your project by doing one of the following:
 
 **Case**. All of your intermediate source sets are currently covered by the default hierarchy template.
 
-**Solution**. Remove all manual `dependsOn()` calls and source sets with `by creating` constructions.
-To check the list of all default source sets, see the [full hierarchy template](#see-the-full-hierarchy-template).
+**Solution**. In the shared module's `build.gradle(.kts)` file, remove all manual `dependsOn()` calls and source sets
+with `by creating` constructions. To check the list of all default source sets, see the [full hierarchy template](#see-the-full-hierarchy-template).
 
 #### Creating additional source sets
 
@@ -157,7 +158,7 @@ for example, one between a macOS and a JVM target.
 
 **Solution**:
 
-1. Reapply the template by explicitly calling `applyDefaultHierarchyTemplate()`.
+1. In the shared module's `build.gradle(.kts)` file, reapply the template by explicitly calling `applyDefaultHierarchyTemplate()`.
 2. Configure additional source sets [manually](#manual-configuration) using `dependsOn()`:
 
     <tabs group="build-script">
@@ -258,61 +259,63 @@ the plugin picks the shared source sets based on the specified targets from the 
 You can manually introduce an intermediate source in the source set structure.
 It will hold the shared code for several targets.
 
-For example, here’s what to do if you want to share code among native Linux,
+For example, here's what to do if you want to share code among native Linux,
 Windows, and macOS targets (`linuxX64`, `mingwX64`, and `macosX64`):
 
-1. Add the intermediate source set `desktopMain`, which holds the shared logic for these targets.
-2. Specify the source set hierarchy using the `dependsOn` relation.
+1. In the shared module's `build.gradle(.kts)` file, add the intermediate source set `desktopMain`, which holds the shared
+   logic for these targets.
+2. Using the `dependsOn` relation, set up the source set hierarchy. Connect `commonMain` with `desktopMain` and then
+   `desktopMain` with each of the target source sets:
 
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    linuxX64()
-    mingwX64()
-    macosX64()
-
-    sourceSets {
-        val desktopMain by creating {
-            dependsOn(commonMain.get())
-        }
-
-        linuxX64Main.get().dependsOn(desktopMain)
-        mingwX64Main.get().dependsOn(desktopMain)
-        macosX64Main.get().dependsOn(desktopMain)
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    linuxX64()
-    mingwX64()
-    macosX64()
-
-    sourceSets {
-        desktopMain {
-            dependsOn(commonMain.get())
-        }
-        linuxX64Main {
-            dependsOn(desktopMain)
-        }
-        mingwX64Main {
-            dependsOn(desktopMain)
-        }
-        macosX64Main {
-            dependsOn(desktopMain)
+    <tabs group="build-script">
+    <tab title="Kotlin" group-key="kotlin">
+    
+    ```kotlin
+    kotlin {
+        linuxX64()
+        mingwX64()
+        macosX64()
+    
+        sourceSets {
+            val desktopMain by creating {
+                dependsOn(commonMain.get())
+            }
+    
+            linuxX64Main.get().dependsOn(desktopMain)
+            mingwX64Main.get().dependsOn(desktopMain)
+            macosX64Main.get().dependsOn(desktopMain)
         }
     }
-}
-```
-
-</tab>
-</tabs>
+    ```
+    
+    </tab>
+    <tab title="Groovy" group-key="groovy">
+    
+    ```groovy
+    kotlin {
+        linuxX64()
+        mingwX64()
+        macosX64()
+    
+        sourceSets {
+            desktopMain {
+                dependsOn(commonMain.get())
+            }
+            linuxX64Main {
+                dependsOn(desktopMain)
+            }
+            mingwX64Main {
+                dependsOn(desktopMain)
+            }
+            macosX64Main {
+                dependsOn(desktopMain)
+            }
+        }
+    }
+    ```
+    
+    </tab>
+    </tabs>
 
 The resulting hierarchical structure will look like this:
 
