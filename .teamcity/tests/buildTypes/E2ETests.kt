@@ -1,7 +1,7 @@
 package tests.buildTypes
 
-import builds.apiReferences.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
-import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildApiReference
+import builds.references.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
+import builds.references.kotlinx.serialization.KotlinxSerializationBuildApiReference
 import builds.kotlinlang.buidTypes.BuildJsAssets
 import builds.kotlinlang.buidTypes.BuildReferenceDocs
 import jetbrains.buildServer.configs.kotlin.BuildType

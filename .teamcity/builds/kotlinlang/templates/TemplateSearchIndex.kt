@@ -1,4 +1,4 @@
-package builds
+package builds.kotlinlang.templates
 
 import BuildParams.SEARCH_APP_ID
 import builds.kotlinlang.buidTypes.PageViews

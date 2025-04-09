@@ -1,8 +1,8 @@
-package references
+package builds.references.apis
 
-import references.common.ReferenceProject
-import references.common.VCS
-import references.common.makeAPIReference
+import builds.common.ReferenceProject
+import builds.common.VCS
+import builds.common.makeAPIReference
 
 class KotlinxCoroutines(
     version: String, tagOrBranch: String = VCS.branch("master")

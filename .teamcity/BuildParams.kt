@@ -1,32 +1,27 @@
-import references.KotlinGradlePlugin
-import references.KotlinxCoroutines
-import references.KotlinxDatetime
-import references.KotlinxIO
-import references.KotlinxMetadata
-import references.KotlinxSerialization
-import references.common.VCS
+import builds.common.VCS
+import builds.references.apis.*
 
 object BuildParams {
-  const val DOKKA_TEMPLATES_VERSION = "2.0.0"
-
   const val SEARCH_APP_ID = "7961PKYRXV"
   const val SEARCH_INDEX_NAME = "prod_KOTLINLANG_WEBHELP"
 
-  val CORE_API_BUILD_ID = ""
+  const val KOTLIN_CURRENT_RELEASE = "2.1.20"
 
   const val CORE_API_TITLE = "Core API"
   const val KGP_API_TITLE = "Kotlin Gradle Plugin"
 
+  val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_${KOTLIN_CURRENT_RELEASE.replace(".", "") }}_LibraryReferenceLatestDocs"
+
   val API_REFERENCES = listOf(
-    KotlinxCoroutines("1.10.1", VCS.branch("whyoleg/dokka2-sync")), // master
-    KotlinxSerialization("1.8.1", VCS.branch("whyoleg/dokka2-sync")), // master
-    KotlinxDatetime("0.6.2", VCS.branch("whyoleg/dokka2-sync")), // latest-release
-    KotlinxIO("0.7.0", VCS.branch("whyoleg/dokka2-sync")), // 0.7.0
+    KotlinxCoroutines("1.10.1"),
+    KotlinxSerialization("1.8.1"),
+    KotlinxDatetime("0.6.2"),
+    KotlinxIO("0.7.0"),
+
+    KotlinxMetadata(KOTLIN_CURRENT_RELEASE),
 
     KotlinGradlePlugin {
-      addVersion("2.1.20", VCS.branch("whyoleg/dokka2-sync"))
+      addVersion(KOTLIN_CURRENT_RELEASE)
     },
-
-    KotlinxMetadata("2.1.20", VCS.branch("whyoleg/dokka2-sync")),
   )
 }

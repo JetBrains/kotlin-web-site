@@ -1,10 +1,9 @@
 package builds.kotlinlang.buidTypes
 
 import BuildParams.SEARCH_INDEX_NAME
-import builds.TemplateSearchIndex
-import builds.apiReferences.stdlib.BuildStdlibApiReference
+import builds.kotlinlang.templates.TemplateSearchIndex
+import builds.references.stdlib.BuildStdlibApiReference
 import jetbrains.buildServer.configs.kotlin.triggers.schedule
-import vcsRoots.KotlinLangOrg
 
 object BuildSearchIndex : TemplateSearchIndex({
     name = "kotlinlang.org search"

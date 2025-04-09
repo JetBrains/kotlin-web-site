@@ -1,9 +1,9 @@
-package references
+package builds.references.apis
 
-import builds.apiReferences.scriptBuildHtml
-import references.common.ReferenceProject
-import references.common.VCS
-import references.common.makeAPIReference
+import builds.common.ReferenceProject
+import builds.common.VCS
+import builds.common.dokkaBuildHtml
+import builds.common.makeAPIReference
 
 class KotlinxDatetime(
     version: String, tagOrBranch: String = VCS.branch("latest-release")
@@ -15,7 +15,7 @@ class KotlinxDatetime(
             gitBranch = tagOrBranch,
             pagesDir = "core/build/dokka/html",
             steps = {
-                step(scriptBuildHtml(version) {
+                step(dokkaBuildHtml(version) {
                     tasks = ":kotlinx-datetime:dokkaHtml"
                 })
             })

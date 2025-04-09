@@ -1,10 +1,10 @@
-package references
+package builds.references.apis
 
 import BuildParams
-import builds.apiReferences.scriptBuildHtml
-import references.common.ReferenceProject
-import references.common.VCS
-import references.common.makeAPIReference
+import builds.common.ReferenceProject
+import builds.common.VCS
+import builds.common.dokkaBuildHtml
+import builds.common.makeAPIReference
 
 class KotlinGradlePlugin(init: KotlinGradlePlugin.() -> Unit) :
     ReferenceProject("kotlin-gradle-plugin", BuildParams.KGP_API_TITLE) {
@@ -24,7 +24,7 @@ class KotlinGradlePlugin(init: KotlinGradlePlugin.() -> Unit) :
                 pagesDir = "libraries/tools/gradle/documentation/build/documentation/kotlinlang",
                 previousVersionDir = "libraries/tools/gradle/documentation/build/documentation/kotlinlangOld",
                 steps = {
-                    step(scriptBuildHtml(version) {
+                    step(dokkaBuildHtml(version) {
                         tasks = ":gradle:documentation:dokkaKotlinlangDocumentation"
                     })
                 })

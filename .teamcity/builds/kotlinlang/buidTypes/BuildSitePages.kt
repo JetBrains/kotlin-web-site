@@ -2,7 +2,7 @@ package builds.kotlinlang.buidTypes
 
 import BuildParams.API_REFERENCES
 import builds.kotlinlang.templates.DockerImageBuilder
-import builds.scriptDistAnalyze
+import builds.kotlinlang.templates.scriptDistAnalyze
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep

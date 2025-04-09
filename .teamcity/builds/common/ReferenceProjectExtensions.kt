@@ -1,9 +1,5 @@
-package references.common
+package builds.common
 
-import builds.apiReferences.DEFAULT_DOKKA_PATH
-import builds.apiReferences.dependsOnDokkaTemplate
-import builds.apiReferences.scriptBuildHtml
-import builds.apiReferences.templates.configureReferenceTemplate
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.RelativeId
@@ -68,7 +64,7 @@ fun ReferenceProject.makeReferencePages(
     outputDir: String = DEFAULT_DOKKA_PATH,
     vcsRoot: VcsRoot? = null,
     template: TemplateDep? = null,
-    steps: BuildSteps.() -> Unit = { step(scriptBuildHtml(version)) }
+    steps: BuildSteps.() -> Unit = { step(dokkaBuildHtml(version)) }
 ) = BuildType {
     id = RelativeId("${project.id}_${version.replace(".", "")}_Build")
     name = "$version pages"

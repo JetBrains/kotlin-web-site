@@ -1,9 +1,9 @@
-package references
+package builds.references.apis
 
-import builds.apiReferences.scriptBuildHtml
-import references.common.ReferenceProject
-import references.common.VCS
-import references.common.makeAPIReference
+import builds.common.ReferenceProject
+import builds.common.VCS
+import builds.common.dokkaBuildHtml
+import builds.common.makeAPIReference
 
 class KotlinxSerialization(
     version: String, tagOrBranch: String = VCS.branch("master")
@@ -14,7 +14,7 @@ class KotlinxSerialization(
             gitUrl = "git@github.com:Kotlin/kotlinx.serialization.git",
             gitBranch = tagOrBranch,
             steps = {
-                step(scriptBuildHtml(version) {
+                step(dokkaBuildHtml(version) {
                     tasks = ":dokkaHtmlMultiModule"
                 })
             })

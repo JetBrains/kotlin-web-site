@@ -1,9 +1,9 @@
-package builds.apiReferences.stdlib
+package builds.references.stdlib
 
 import BuildParams.CORE_API_BUILD_ID
-import builds.SCRIPT_PATH
-import builds.apiReferences.scriptGenerateSitemap
-import builds.apiReferences.scriptNoRobots
+import builds.kotlinlang.templates.SCRIPT_PATH
+import builds.references.scriptGenerateSitemap
+import builds.references.scriptNoRobots
 import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script

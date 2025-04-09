@@ -1,6 +1,6 @@
 package builds.kotlinlang.buidTypes
 
-import builds.SCRIPT_PATH
+import builds.kotlinlang.templates.SCRIPT_PATH
 import builds.kotlinlang.templates.DockerImageBuilder
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction

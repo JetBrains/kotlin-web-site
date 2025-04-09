@@ -1,8 +1,6 @@
-package references.common
+package builds.common
 
-import builds.SCRIPT_PATH
-import builds.apiReferences.scriptGenerateSitemap
-import builds.apiReferences.scriptNoRobots
+import builds.kotlinlang.templates.SCRIPT_PATH
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.RelativeId

@@ -1,6 +1,6 @@
 package vcsRoots
 
-import references.common.VCS
+import builds.common.VCS
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 open class KotlinLangVcs(init: GitVcsRoot.() -> Unit) : GitVcsRoot({

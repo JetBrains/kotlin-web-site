@@ -1,14 +1,13 @@
 package tests.buildTypes
 
-import builds.apiReferences.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
-import builds.apiReferences.kotlinx.serialization.KotlinxSerializationBuildApiReference
+import builds.references.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
+import builds.references.kotlinx.serialization.KotlinxSerializationBuildApiReference
 import jetbrains.buildServer.configs.kotlin.BuildStep
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildFeatures.PullRequests
 import jetbrains.buildServer.configs.kotlin.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 object ApiReferencesTemplateTest: BuildType({
   name = "Api References Template Test"

@@ -26,12 +26,12 @@ version = "2024.12"
 
 project {
   subProject(builds.kotlinlang.SiteProject)
-  subProject(builds.apiReferences.BuildApiReferencesProject)
+  subProject(builds.references.ReferencesProject)
   subProject(tests.TestsProject)
 
   subProjectsOrder = arrayListOf(
     builds.kotlinlang.SiteProject,
-    builds.apiReferences.BuildApiReferencesProject,
+    builds.references.ReferencesProject,
     tests.TestsProject
   )
 

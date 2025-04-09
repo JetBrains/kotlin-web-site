@@ -1,9 +1,9 @@
-package references
+package builds.references.apis
 
-import builds.apiReferences.scriptBuildHtml
-import references.common.ReferenceProject
-import references.common.VCS
-import references.common.makeAPIReference
+import builds.common.ReferenceProject
+import builds.common.VCS
+import builds.common.dokkaBuildHtml
+import builds.common.makeAPIReference
 
 private const val LIB_DIR = "libraries/kotlinx-metadata/jvm"
 
@@ -18,7 +18,7 @@ class KotlinxMetadata(
             templateDir = "${LIB_DIR}/dokka-templates",
             pagesDir = "${LIB_DIR}/build/dokka",
             steps = {
-                step(scriptBuildHtml(version) {
+                step(dokkaBuildHtml(version) {
                     tasks = ":kotlin-metadata-jvm:dokkaHtml"
                 })
             })
