@@ -278,7 +278,7 @@ to serve your JavaScript artifacts.
 If you want to customize the configuration used by `webpack-dev-server`, for example, adjust the port the server runs on,
 use the [webpack configuration file](#webpack-bundling).
 
-For running Kotlin/JS projects targeting Node.js, use the `jsBrowserDevelopmentRun` task that is an alias for the `nodeRun` task.
+For running Kotlin/JS projects targeting Node.js, use the `jsNodeDevelopmentRun` task that is an alias for the `nodeRun` task.
 
 To run a project, execute the standard lifecycle `jsBrowserDevelopmentRun` task, or the alias to which it corresponds:
 

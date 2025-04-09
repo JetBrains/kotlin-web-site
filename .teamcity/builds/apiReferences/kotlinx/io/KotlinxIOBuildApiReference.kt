@@ -1,7 +1,7 @@
 package builds.apiReferences.kotlinx.io
 
 import BuildParams.KOTLINX_IO_ID
-import BuildParams.KOTLINX_IO_RELEASE_TAG
+import BuildParams.KOTLINX_IO_RELEASE_LABEL
 import builds.apiReferences.BuildApiPages
 import builds.apiReferences.dependsOnDokkaTemplate
 import builds.apiReferences.scriptBuildHtml
@@ -10,7 +10,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 
 object KotlinxIOBuildApiReference : BuildApiPages(
     apiId = KOTLINX_IO_ID,
-    releaseTag = KOTLINX_IO_RELEASE_TAG.removePrefix("v"),
+    releaseTag = KOTLINX_IO_RELEASE_LABEL.removePrefix("v"),
     stepDokkaVersionSync = {
         // TODO readme, and disable this step for other libs too
         null

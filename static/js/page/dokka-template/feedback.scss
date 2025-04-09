@@ -102,8 +102,9 @@
 }
 
 .theme-dark .feedback, .theme-dark .feedback__popup {
-  background-color: #252528;
+  background-color: var(--background-color);
   color: hsla(0, 0%, 100%, 0.8);
+  filter: brightness(1.25);
 }
 
 .feedback__popup a {
