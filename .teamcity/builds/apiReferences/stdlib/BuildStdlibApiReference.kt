@@ -1,6 +1,6 @@
 package builds.apiReferences.stdlib
 
-import BuildParams.KOTLIN_CORE_API_BUILD_ID
+import BuildParams.CORE_API_BUILD_ID
 import builds.SCRIPT_PATH
 import builds.apiReferences.scriptGenerateSitemap
 import builds.apiReferences.scriptNoRobots
@@ -41,7 +41,7 @@ object BuildStdlibApiReference : BuildType({
     }
 
     dependencies {
-        dependency(AbsoluteId(KOTLIN_CORE_API_BUILD_ID)) {
+        dependency(AbsoluteId(CORE_API_BUILD_ID)) {
             artifacts {
                 buildRule = tag("publish", "*")
                 cleanDestination = true

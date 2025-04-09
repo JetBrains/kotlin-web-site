@@ -137,11 +137,11 @@ and `source` of the library, in its configuration block:
 ```kotlin
 kotlin {
     iosArm64()
+    
     cocoapods {
         version = "2.0"
         summary = "CocoaPods test library"
         homepage = "https://github.com/JetBrains/kotlin"
-
         ios.deploymentTarget = "16.0"
       
         pod("pod_dependency") {
