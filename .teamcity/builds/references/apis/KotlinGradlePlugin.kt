@@ -6,7 +6,9 @@ import builds.common.VCS
 import builds.common.dokkaBuildHtml
 import builds.common.makeAPIReference
 
-class KotlinGradlePlugin(init: KotlinGradlePlugin.() -> Unit) :
+typealias KGPSetup = KotlinGradlePlugin.() -> Unit
+
+class KotlinGradlePlugin(init: KGPSetup) :
     ReferenceProject("kotlin-gradle-plugin", BuildParams.KGP_API_TITLE) {
 
     init {
