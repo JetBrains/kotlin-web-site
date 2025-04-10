@@ -66,7 +66,7 @@ With the new solution, you can better fine-tune warning reporting in your projec
 
 | Command | Description |
 | -- | -- |
-| [`-Werror`](compiler-reference.md#werror)` | Raises all warnings to compilation errors. |
+| [`-Werror`](compiler-reference.md#werror) | Raises all warnings to compilation errors. |
 | `-Xwarning-level=DIAGNOSTIC_NAME:error` | Raises only specified warnings to errors. |
 | `-Werror -Xwarning-level=DIAGNOSTIC_NAME:warning` | Raises all warnings to errors except for the specified ones. |
 
@@ -78,7 +78,7 @@ With the new solution, you can better fine-tune warning reporting in your projec
 | `-Xwarning-level=DIAGNOSTIC_NAME:warning` | Enables only specified additional compiler checks. |
 | `-Wextra -Xwarning-level=DIAGNOSTIC_NAME:disabled` | Enables all additional checks except for the specified ones. |
 
-### Warning lists
+#### Warning lists
 
 In case you have many warnings you want to exclude from general rules, you can list them in a separate file through [`@argfile`](compiler-reference.md#argfile).
 
@@ -88,7 +88,7 @@ The new compiler option is still [Experimental](components-stability.md#stabilit
 
 ## Kotlin/JVM: changes to default method generation for interface functions
 
-Starting from Kotlin %kotlinEapVersion%, functions declared in interfaces are compiled to JVM default methods out of the box.
+Starting from Kotlin %kotlinEapVersion%, functions declared in interfaces are compiled to JVM default methods unless configured otherwise.
 This change affects how Kotlin's interface functions with implementations are compiled to bytecode. 
 This behavior is controlled by the new stable compiler option `-jvm-default`, replacing the deprecated `-Xjvm-default` option.
 
