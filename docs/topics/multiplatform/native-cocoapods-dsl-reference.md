@@ -1,14 +1,18 @@
 [//]: # (title: CocoaPods Gradle plugin DSL reference)
 
-Kotlin CocoaPods Gradle plugin is a tool for creating Podspec files. These files are necessary to integrate your Kotlin
+<tldr>
+
+* Before adding Pod dependencies, [complete the initial configuration](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
+* See the sample project with [different Pod dependencies in a Kotlin project](https://github.com/Kotlin/kmp-with-cocoapods-multitarget-xcode-sample).
+* Check out the sample project with [a Kotlin library connected to an Xcode project with several targets](https://github.com/Kotlin/kmp-with-cocoapods-multitarget-xcode-sample).
+
+</tldr>
+
+The Kotlin CocoaPods Gradle plugin is a tool for creating Podspec files. These files are necessary to integrate your Kotlin
 project with the [CocoaPods dependency manager](https://cocoapods.org/).
 
-This reference contains the complete list of blocks, functions, and properties for the Kotlin CocoaPods Gradle plugin that
-you can use when working with the [CocoaPods integration](native-cocoapods.md).
-
-* Learn how to [set up the environment and configure the Kotlin CocoaPods Gradle plugin](native-cocoapods.md).
-* Depending on your project and purposes, you can add dependencies between [a Kotlin project and a Pod library](native-cocoapods-libraries.md)
-as well as [a Kotlin Gradle project and an Xcode project](native-cocoapods-xcode.md).
+This DSL reference contains the complete list of blocks, functions, and properties for the Kotlin CocoaPods Gradle plugin that
+you can use when working with the CocoaPods integration.
 
 ## Enable the plugin
 
@@ -23,9 +27,9 @@ plugins {
 
 The plugin versions match the [Kotlin release versions](releases.md). The latest stable version is %kotlinVersion%.
 
-## cocoapods block
+## `cocoapods {}` block
 
-The `cocoapods` block is the top-level block for the CocoaPods configuration. It contains general information on the Pod,
+The `cocoapods {}` block is the top-level block for the CocoaPods configuration. It contains general information on the Pod,
 including required information like the Pod version, summary, and homepage, as well as optional features.
 
 You can use the following blocks, functions, and properties inside it:
@@ -36,7 +40,7 @@ You can use the following blocks, functions, and properties inside it:
 | `summary`                             | A required description of the Pod built from this project.                                                                                                                                                                       |
 | `homepage`                            | A required link to the homepage of the Pod built from this project.                                                                                                                                                              |
 | `authors`                             | Specifies authors of the Pod built from this project.                                                                                                                                                                            |
-| `podfile`                             | Configures the existing `Podfile` file.                                                                                                                                                                                          |
+| `podfile`                             | Configures the existing Podfile.                                                                                                                                                                                                 |
 | `noPodspec()`                         | Sets up the plugin not to produce a Podspec file for the `cocoapods` section.                                                                                                                                                    |
 | `name`                                | The name of the Pod built from this project. If not provided, the project name is used.                                                                                                                                          |
 | `license`                             | The license of the Pod built from this project, its type, and the text.                                                                                                                                                          |
@@ -88,9 +92,9 @@ kotlin {
 }
 ```
 
-### framework block
+### `framework {} block
 
-The `framework` block is nested inside `cocoapods` and configures the framework properties of the Pod built from the project.
+The `framework {}` block is nested inside `cocoapods` and configures the framework properties of the Pod built from the project.
 
 > Note that `baseName` is a required field.
 >
@@ -153,3 +157,8 @@ kotlin {
     }
 }
 ```
+
+## What's next
+
+* [Add dependencies on a Pod library in your Kotlin project](native-cocoapods-libraries.md)
+* [Set up dependencies between a Kotlin project and an Xcode project](native-cocoapods-xcode.md)

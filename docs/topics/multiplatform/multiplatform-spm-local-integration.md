@@ -63,14 +63,14 @@ To migrate from the CocoaPods plugin:
 
 1. In Xcode, clean build directories using **Product** | **Clean Build Folder** or with the
    <shortcut>Cmd + Shift + K</shortcut> shortcut.
-2. In the directory with `Podfile`, run the following command:
+2. In the directory with Podfile, run the following command:
 
     ```none
    pod deintegrate
    ```
 
 3. Remove the `cocoapods {}` block from your `build.gradle(.kts)` files.
-4. Delete the `.podspec` and `Podfile` files.
+4. Delete the `.podspec` file and the Podfile.
 
 ## Connect the framework to your project
 
