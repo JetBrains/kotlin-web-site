@@ -3,7 +3,7 @@
 [Kotlin Notebook](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook) is a dynamic plugin for IntelliJ IDEA that 
 provides an interactive environment to create and edit notebooks, leveraging the full potential of Kotlin's capabilities.
 
-> The Kotlin Notebook plugin requires IntelliJ IDEA Ultimate.
+> The Kotlin Notebook plugin requires IntelliJ IDEA Ultimate, IntelliJ IDEA Community or Android Studio (starting from 2025.1).
 > 
 {style="note"}
 
