@@ -56,27 +56,27 @@ With the new solution, you can better fine-tune warning reporting in your projec
 
 #### Suppress warnings
 
-| Command | Description |
-| -- | -- |
-| [`-nowarn`](compiler-reference.md#nowarn) | Suppresses all warnings during compilation. |
-| `-Xwarning-level=DIAGNOSTIC_NAME:disabled` | Suppresses only specified warnings.  Works the same as [`-Xsuppress-warning`](compiler-reference.md#xsuppress-warning). |
-| `-nowarn -Xwarning-level=DIAGNOSTIC_NAME:warning` | Suppresses all warnings except for the specified ones. |
+| Command                                           | Description                                                                                                             |
+|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| [`-nowarn`](compiler-reference.md#nowarn)         | Suppresses all warnings during compilation.                                                                             |
+| `-Xwarning-level=DIAGNOSTIC_NAME:disabled`        | Suppresses only specified warnings.  Works the same as [`-Xsuppress-warning`](compiler-reference.md#xsuppress-warning). |
+| `-nowarn -Xwarning-level=DIAGNOSTIC_NAME:warning` | Suppresses all warnings except for the specified ones.                                                                  |
 
 #### Raise warnings to errors
 
-| Command | Description |
-| -- | -- |
-| [`-Werror`](compiler-reference.md#werror) | Raises all warnings to compilation errors. |
-| `-Xwarning-level=DIAGNOSTIC_NAME:error` | Raises only specified warnings to errors. |
+| Command                                           | Description                                                  |
+|---------------------------------------------------|--------------------------------------------------------------|
+| [`-Werror`](compiler-reference.md#werror)         | Raises all warnings to compilation errors.                   |
+| `-Xwarning-level=DIAGNOSTIC_NAME:error`           | Raises only specified warnings to errors.                    |
 | `-Werror -Xwarning-level=DIAGNOSTIC_NAME:warning` | Raises all warnings to errors except for the specified ones. |
 
 #### Enable additional compiler warnings
 
-| Command | Description |
-| -- | -- |
-| [`-Wextra`](compiler-reference.md#wextra) | Enables all additional declaration, expression, and type compiler checks that emit warnings if true. |
-| `-Xwarning-level=DIAGNOSTIC_NAME:warning` | Enables only specified additional compiler checks. |
-| `-Wextra -Xwarning-level=DIAGNOSTIC_NAME:disabled` | Enables all additional checks except for the specified ones. |
+| Command                                            | Description                                                                                          |
+|----------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| [`-Wextra`](compiler-reference.md#wextra)          | Enables all additional declaration, expression, and type compiler checks that emit warnings if true. |
+| `-Xwarning-level=DIAGNOSTIC_NAME:warning`          | Enables only specified additional compiler checks.                                                   |
+| `-Wextra -Xwarning-level=DIAGNOSTIC_NAME:disabled` | Enables all additional checks except for the specified ones.                                         |
 
 #### Warning lists
 
