@@ -1122,3 +1122,9 @@
     position:
       lat: 32.856266
       lng: 13.222725
+  - name: Kotlin User Group Ahmedabad
+    country: India
+    url: https://www.commudle.com/communities/kug-ahmedabad
+    position:
+      lat: 23.03
+      lng: 72.58
