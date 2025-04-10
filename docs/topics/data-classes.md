@@ -34,7 +34,7 @@ Additionally, the generation of data class members follows these rules with rega
 Data classes may extend other classes (see [Sealed classes](sealed-classes.md) for examples).
 
 > On the JVM, if the generated class needs to have a parameterless constructor, default values for the properties have
-> to be specified (see [Constructors](classes.md#constructors)):
+> to be specified (see [Constructors](classes.md#constructors-and-initializer-blocks)):
 > 
 > ```kotlin
 > data class User(val name: String = "", val age: Int = 0)
