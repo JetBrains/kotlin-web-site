@@ -11,8 +11,8 @@
             Simplify the development of cross-platform projects and reduce the time spent writing and maintaining the same code for different platforms.
         </description>
         <spotlight>
-            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev" summary="Get hands-on experience of Kotlin Multiplatform with real-life projects" type="presentation">Kotlin Multiplatform in action</a>
-            <a href="https://www.jetbrains.com/lp/compose-multiplatform/" summary="Discover Kotlin-based declarative UI framework developed by JetBrains">Compose Multiplatform UI framework</a>
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev" summary="Get hands-on experience of Kotlin Multiplatform with real-life projects" type="cross-platform">Kotlin Multiplatform in action</a>
+            <a href="https://www.jetbrains.com/lp/compose-multiplatform/" summary="Discover Kotlin-based declarative UI framework developed by JetBrains" type="creative">Compose Multiplatform UI framework</a>
         </spotlight>
         <primary>
             <title>Popular use cases</title>
