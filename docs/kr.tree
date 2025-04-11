@@ -364,9 +364,9 @@
 			<toc-element toc-title="Learn Kotlin" topic="edu-tools-learner.md"/>
 			<toc-element toc-title="Teach Kotlin" topic="edu-tools-educator.md"/>
 		</toc-element>
-		<toc-element toc-title="Library authors' guidelines">
+		<!-- <toc-element toc-title="Library authors' guidelines">
 			<include from="api-guidelines.tree" origin="api-guidelines" element-id="api-guidelines"/>
-		</toc-element>
+		</toc-element> -->
 	</toc-element>
 	<toc-element toc-title="Early access preview (EAP)">
 		<toc-element toc-title="Participate" topic="eap.md"/>
