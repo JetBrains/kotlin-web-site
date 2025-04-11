@@ -48,7 +48,7 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Default arguments](functions.md#default-arguments)
 * [Named parameters](functions.md#named-arguments)
 * [Infix functions](functions.md#infix-notation)
-* [Expect and actual declarations](multiplatform-expect-actual.md)
+* [Expect and actual declarations](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html)
 * [Explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors) and [better control of API surface](opt-in-requirements.md)
 
 ## What's next?

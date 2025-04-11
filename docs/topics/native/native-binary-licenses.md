@@ -14,7 +14,7 @@ Sometimes it is derived work, such as code rewritten from C++ to Kotlin.
 In particular, the Kotlin/Native compiler produces binaries that can include third-party code, data, or derived work.
 This means that the Kotlin/Native-compiled binaries are subject to the terms and conditions of the third-party licenses.
 
-In practice, if you distribute a Kotlin/Native-compiled [final binary](multiplatform-build-native-binaries.md),
+In practice, if you distribute a Kotlin/Native-compiled [final binary](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html),
 you should always include necessary license files in your binary distribution. The files should be accessible
 to users of your distribution in a readable form.
 

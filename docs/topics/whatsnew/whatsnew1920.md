@@ -312,7 +312,7 @@ your migration easier once we begin stabilizing the import.
 
 If you're a library author, you can now help your users resolve linker errors with custom messages.
 
-If your Kotlin library depends on C or Objective-C libraries, for example, using the [CocoaPods integration](native-cocoapods.md),
+If your Kotlin library depends on C or Objective-C libraries, for example, using the [CocoaPods integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html),
 its users need to have these dependent libraries locally on the machine or configure them explicitly in the project build script.
 If this was not the case, users used to get a confusing "Framework not found" message.
 
@@ -367,7 +367,7 @@ with the new project wizards and other notable features:
 
 ### Kotlin Multiplatform is Stable
 
-The 1.9.20 release marks an important milestone in the evolution of Kotlin: [Kotlin Multiplatform](multiplatform-intro.md) has finally
+The 1.9.20 release marks an important milestone in the evolution of Kotlin: [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html) has finally
 become Stable. This means that the technology is safe to use in your projects and 100% ready for production. It also
 means that further development of Kotlin Multiplatform will continue according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
 
@@ -376,8 +376,8 @@ the current stability status of the feature you're using. Before using any exper
 you'll need to enable it explicitly in **Settings** | **Advanced Settings** | **Kotlin** | **Experimental Multiplatform**.
 
 * Visit the [Kotlin blog](https://blog.jetbrains.com/kotlin/2023/11/kotlin-multiplatform-stable/) to learn more about the Kotlin Multiplatform stabilization and future plans.
-* Check out the [Multiplatform compatibility guide](multiplatform-compatibility-guide.md) to see what significant changes were made on the way to stabilization.
-* Read about the [mechanism of expected and actual declarations](multiplatform-expect-actual.md), an important part of Kotlin Multiplatform that was also partially stabilized in this release.
+* Check out the [Multiplatform compatibility guide](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-compatibility-guide.html) to see what significant changes were made on the way to stabilization.
+* Read about the [mechanism of expected and actual declarations](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html), an important part of Kotlin Multiplatform that was also partially stabilized in this release.
 
 ### Template for configuring multiplatform projects
 
@@ -586,7 +586,7 @@ with the wizard.
 Previously, we introduced a [preview](whatsnew19.md#preview-of-the-gradle-configuration-cache) of the Gradle configuration
 cache, which was available for Kotlin multiplatform libraries. With 1.9.20, the Kotlin Multiplatform plugin takes a step further.
 
-It now supports the Gradle configuration cache in the [Kotlin CocoaPods Gradle plugin](native-cocoapods-dsl-reference.md),
+It now supports the Gradle configuration cache in the [Kotlin CocoaPods Gradle plugin](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-dsl-reference.html),
 as well as in the integration tasks that are necessary for Xcode builds, like `embedAndSignAppleFrameworkForXcode`.
 
 Now all multiplatform projects can take advantage of the improved build time.
@@ -662,10 +662,10 @@ Gradle to automatically resolve the correct standard library artifacts for the o
 ### Default support for third-party cinterop libraries
 
 Kotlin 1.9.20 adds default support (rather than support by opt-in) for all cinterop dependencies in projects that have 
-the [Kotlin CocoaPods Gradle](native-cocoapods.md) plugin applied.
+the [Kotlin CocoaPods Gradle](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html) plugin applied.
 
 This means you can now share more native code without being limited by platform–specific dependencies. For example, you can add
-[dependencies on Pod libraries](native-cocoapods-libraries.md) to the `iosMain` shared source set.
+[dependencies on Pod libraries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-libraries.html) to the `iosMain` shared source set.
 
 Previously, this only worked with [platform-specific libraries](native-platform-libs.md) shipped with a Kotlin/Native
 distribution (like Foundation, UIKit, and POSIX). All third-party Pod libraries are now available in shared source sets by
@@ -980,7 +980,7 @@ The Kotlin documentation has received some notable changes:
 * Improved Collections chapter in the [tour of Kotlin](kotlin-tour-welcome.md) – Learn the fundamentals of the Kotlin programming language with chapters including both theory and practice.
 * [Definitely non-nullable types](generics.md#definitely-non-nullable-types) – Learn about definitely non-nullable generic types.
 * Improved [Arrays page](arrays.md) – Learn about arrays and when to use them.
-* [Expected and actual declarations in Kotlin Multiplatform](multiplatform-expect-actual.md) – Learn about the Kotlin mechanism of expected and actual declarations in Kotlin Multiplatform.
+* [Expected and actual declarations in Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html) – Learn about the Kotlin mechanism of expected and actual declarations in Kotlin Multiplatform.
 
 ## Install Kotlin 1.9.20
 

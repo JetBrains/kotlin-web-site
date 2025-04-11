@@ -161,7 +161,7 @@ If you have an existing project with a static linking type and you upgrade to Ko
 explicitly), you may encounter an error with the project's execution. To fix it, close your Xcode project and
 run `pod install` in the Podfile directory.
 
-For more information, see the [CocoaPods Gradle plugin DSL reference](native-cocoapods-dsl-reference.md).
+For more information, see the [CocoaPods Gradle plugin DSL reference](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-dsl-reference.html).
 
 ## Kotlin Multiplatform: A new Android source set layout
 

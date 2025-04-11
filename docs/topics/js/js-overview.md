@@ -51,7 +51,7 @@ For updates and discussions about the framework, join the [#kobweb](https://kotl
 _KVision_ is an object-oriented web framework that makes it possible to write applications in Kotlin/JS with ready-to-use components
 that can be used as building blocks for your application's user interface. You can use both reactive and imperative programming
 models to build your frontend, use connectors for Ktor, Spring Boot, and other frameworks to integrate it with your server-side
-applications, and share code using [Kotlin Multiplatform](multiplatform-intro.md).
+applications, and share code using [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html).
 
 [Visit KVision site](https://kvision.io) for documentation, tutorials, and examples.
 

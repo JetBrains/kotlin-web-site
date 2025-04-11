@@ -11,7 +11,6 @@
             Simplify the development of cross-platform projects and reduce the time spent writing and maintaining the same code for different platforms.
         </description>
         <spotlight>
-            <a href="multiplatform-intro.md" summary="Explore technical aspects behind the Kotlin Multiplatform technology" type="documents">Kotlin Multiplatform fundamentals</a>
             <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev" summary="Get hands-on experience of Kotlin Multiplatform with real-life projects" type="presentation">Kotlin Multiplatform in action</a>
         </spotlight>
         <primary>
@@ -23,10 +22,10 @@
         </primary>
         <secondary>
             <title>Kotlin Multiplatform technology</title>
-            <a href="multiplatform-discover-project.md" summary="Learn the basics: common and platform-specific code, targets, and source sets">Key concepts of project structure</a>
-            <a href="multiplatform-expect-actual.md" summary="Use expected and actual declarations to access platform-specific APIs">Expected and actual declarations</a>
-            <a href="multiplatform-hierarchy.md" summary="Arrange a hierarchy of source sets for sharing common code">Hierarchical project structure</a>
-            <a href="multiplatform-dsl-reference.md" summary="Configure Gradle build scripts for Kotlin Multiplatform projects">Gradle DSL reference</a>
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-discover-project.html" summary="Learn the basics: common and platform-specific code, targets, and source sets">Key concepts of project structure</a>
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html" summary="Use expected and actual declarations to access platform-specific APIs">Expected and actual declarations</a>
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-hierarchy.html" summary="Arrange a hierarchy of source sets for sharing common code">Hierarchical project structure</a>
+            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html" summary="Configure Gradle build scripts for Kotlin Multiplatform projects">Gradle DSL reference</a>
         </secondary>
         <misc>
             <links narrow="true">

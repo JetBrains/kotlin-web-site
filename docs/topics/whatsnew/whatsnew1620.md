@@ -480,8 +480,8 @@ By default, libraries published with the hierarchical project structure are comp
 
 #### Better code-sharing in your project
 
-Without hierarchical structure support, there is no straightforward way to share code across _some_ but not _all_ [Kotlin targets](multiplatform-dsl-reference.md#targets).
-One popular example is sharing code across all iOS targets and having access to iOS-specific [dependencies](multiplatform-share-on-platforms.md#connect-platform-specific-libraries), like Foundation.
+Without hierarchical structure support, there is no straightforward way to share code across _some_ but not _all_ [Kotlin targets](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#targets).
+One popular example is sharing code across all iOS targets and having access to iOS-specific [dependencies](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-share-on-platforms.html#connect-platform-specific-libraries), like Foundation.
 
 Thanks to the hierarchical project structure support, you can now achieve this out of the box.
 In the new structure, source sets form a hierarchy.
@@ -500,13 +500,13 @@ This prevents such cases as, for example, the use of a macOS-specific function i
 
 When a multiplatform library is published, the API of its intermediate source sets is now properly published alongside it, making it available for consumers.
 Again, the Kotlin toolchain will automatically figure out the API available in the consumer source set while carefully watching out for unsafe usages, like using an API meant for the JVM in JS code.
-Learn more about [sharing code in libraries](multiplatform-share-on-platforms.md#share-code-in-libraries).
+Learn more about [sharing code in libraries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-share-on-platforms.html#share-code-in-libraries).
 
 #### Configuration and setup
 
 Starting with Kotlin 1.6.20, all your new multiplatform projects will have a hierarchical project structure. No additional setup is required.
 
-* If you've already [turned it on manually](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), you can remove the deprecated options from `gradle.properties`:
+* If you've already [turned it on manually](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-share-on-platforms.html#share-code-on-similar-platforms), you can remove the deprecated options from `gradle.properties`:
 
   ```none
   # gradle.properties
@@ -535,9 +535,9 @@ To simplify CocoaPods integration, Kotlin 1.6.20 delivers the following features
 
 * The CocoaPods plugin now has tasks that build XCFrameworks with all registered targets and generate the Podspec file. This can be useful when you don't want to integrate with Xcode directly, but you want to build artifacts and deploy them to your local CocoaPods repository.
   
-  Learn more about [building XCFrameworks](multiplatform-build-native-binaries.md#build-xcframeworks).
+  Learn more about [building XCFrameworks](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html#build-xcframeworks).
 
-* If you use [CocoaPods integration](native-cocoapods.md) in your projects, you're used to specifying the required Pod version for the entire Gradle project. Now you have more options:
+* If you use [CocoaPods integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html) in your projects, you're used to specifying the required Pod version for the entire Gradle project. Now you have more options:
   * Specify the Pod version directly in the `cocoapods` block
   * Continue using a Gradle project version
   
@@ -559,7 +559,7 @@ kotlin {
 }
 ```
 
-See the full Kotlin CocoaPods Gradle plugin [DSL reference](native-cocoapods-dsl-reference.md).
+See the full Kotlin CocoaPods Gradle plugin [DSL reference](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-dsl-reference.html).
 
 ## Kotlin/JS
 

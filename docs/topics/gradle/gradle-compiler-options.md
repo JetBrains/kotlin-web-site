@@ -16,7 +16,7 @@ in the [Working with command-line compiler](command-line.md) tutorial.
 Kotlin compilers have a number of options for tailoring the compiling process. 
 
 The Gradle DSL allows comprehensive 
-configuration of compiler options. It is available for [Kotlin Multiplatform](multiplatform-dsl-reference.md) and [JVM/Android](#target-the-jvm) projects.
+configuration of compiler options. It is available for [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html) and [JVM/Android](#target-the-jvm) projects.
 
 With the Gradle DSL, you can configure compiler options within the build script at three levels: 
 * **[Extension level](#extension-level)**, in the `kotlin {}` block for all targets and shared source sets.
@@ -76,7 +76,7 @@ kotlin {
 ```
 
 In Kotlin Multiplatform projects, you can configure compiler options inside the
-specific target. For example, `jvm { compilerOptions {}}`. For more information, see [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md).
+specific target. For example, `jvm { compilerOptions {}}`. For more information, see [Multiplatform Gradle DSL reference](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html).
 
 ### Compilation unit level
 
@@ -107,7 +107,7 @@ kotlin {
 }
 ```
 
-If you want to configure a plugin of a target different from JVM/Android and [Kotlin Multiplatform](multiplatform-dsl-reference.md),
+If you want to configure a plugin of a target different from JVM/Android and [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html),
 use the `compilerOptions {}` property of the corresponding Kotlin compilation task. The following examples
 show how to set this configuration up in both Kotlin and Groovy DSLs:
 
@@ -392,7 +392,7 @@ Some of the `compilerOptions` use the new types instead of the `String` type:
 ## What's next?
 
 Learn more about:
-* [Kotlin Multiplatform DSL reference](multiplatform-dsl-reference.md). 
+* [Kotlin Multiplatform DSL reference](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html). 
 * [Incremental compilation, caches support, build reports, and the Kotlin daemon](gradle-compilation-and-caches.md).
 * [Gradle basics and specifics](https://docs.gradle.org/current/userguide/userguide.html).
 * [Support for Gradle plugin variants](gradle-plugin-variants.md).

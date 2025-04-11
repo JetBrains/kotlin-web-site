@@ -608,7 +608,7 @@ The following targets have been deprecated with Kotlin 1.8.20 and will be remove
 As for the remaining targets, there are now three tiers of support depending on how well a target is supported and
 tested in the Kotlin/Native compiler. A target can be moved to a different tier. For example, we'll do our best to
 provide full support for `iosArm64` in the future, as it is important
-for [Kotlin Multiplatform](multiplatform-intro.md).
+for [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html).
 
 If you're a library author, these target tiers can help you decide which targets to test on CI tools and which ones to
 skip. The Kotlin team will use the same approach when developing official Kotlin libraries,
@@ -644,7 +644,7 @@ Previously, the cinterop tool failed to analyze headers that depended on Objecti
 directive. The reason was that it lacked support for the `-fmodules` option.
 
 Starting with Kotlin 1.8.20, you can use Objective-C headers with `@import`. To do so, pass the `-fmodules` option to
-the compiler in the definition file as `compilerOpts`. If you use [CocoaPods integration](native-cocoapods.md), specify
+the compiler in the definition file as `compilerOpts`. If you use [CocoaPods integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html), specify
 the cinterop option in the configuration block of the `pod()` function like this:
 
 ```kotlin
@@ -722,7 +722,7 @@ We would appreciate your feedback on this [in YouTrack](https://kotl.in/issue).
 ### Deprecation of useLibraries() in Cocoapods Gradle plugin
 
 Kotlin 1.8.20 starts the deprecation cycle of the `useLibraries()` function used in
-the [CocoaPods integration](native-cocoapods.md) for static libraries.
+the [CocoaPods integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html) for static libraries.
 
 We introduced the `useLibraries()` function to allow dependencies on Pods containing static libraries. With time, this
 case has become very rare. Most of the Pods are distributed by sources, and Objective-C frameworks or XCFrameworks are a
@@ -731,7 +731,7 @@ common choice for binary distribution.
 Since this function is unpopular and it creates issues that complicate the development of the Kotlin CocoaPods Gradle
 plugin, we've decided to deprecate it.
 
-For more information on frameworks and XCFrameworks, see [Build final native binaries](multiplatform-build-native-binaries.md).
+For more information on frameworks and XCFrameworks, see [Build final native binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html).
 
 ## Kotlin Multiplatform
 
@@ -784,7 +784,7 @@ are no watchOS targets in the project.
 If you add a watchOS target, such as `watchosArm64`, the `watchos` source set is created, and the code from
 the `apple`, `native`, and `common` source sets is compiled to `watchosArm64`, as well.
 
-You can find the complete scheme for the default target hierarchy in the [documentation](multiplatform-hierarchy.md#default-hierarchy-template).
+You can find the complete scheme for the default target hierarchy in the [documentation](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-hierarchy.html#default-hierarchy-template).
 
 > In this example, the `apple` and `native` source sets compile only to the `iosArm64` and `iosSimulatorArm64` targets.
 > Therefore, despite their names, they have access to the full iOS API.
@@ -824,7 +824,7 @@ tooling-assisted migration.
 This new feature is [Experimental](components-stability.md#stability-levels-explained). For Kotlin Gradle build scripts,
 you need to opt in with `@OptIn(ExperimentalKotlinGradlePluginApi::class)`.
 
-For more information, see [Hierarchical project structure](multiplatform-hierarchy.md#default-hierarchy-template).
+For more information, see [Hierarchical project structure](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-hierarchy.html#default-hierarchy-template).
 
 #### Leave feedback
 
@@ -1350,7 +1350,7 @@ The Kotlin documentation has received some notable changes:
   database and learn more about the features of Spring Boot and Kotlin.
 * [Scope functions](scope-functions.md) – learn how to simplify your code with useful scope functions from the standard
   library.
-* [CocoaPods integration](native-cocoapods.md) – set up an environment to work with CocoaPods.
+* [CocoaPods integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html) – set up an environment to work with CocoaPods.
 
 ## Install Kotlin 1.8.20
 

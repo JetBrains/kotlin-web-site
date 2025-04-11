@@ -49,7 +49,7 @@ the Community Edition and the Ultimate Edition.
 
    ![Load Gradle changes button](load-gradle-changes.png){width=295}
 
-For more information about these settings, see the [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md).
+For more information about these settings, see the [Multiplatform Gradle DSL reference](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html).
 
 ### Build and run the application
 
@@ -378,5 +378,5 @@ The application prints "Hello, Kotlin/Native" to the standard output.
 
 * Complete the [Create an app using C interop and libcurl](native-app-with-c-and-libcurl.md) tutorial that explains how
   to create a native HTTP client and interoperate with C libraries.
-* Learn how to [write Gradle build scripts for real-life Kotlin/Native projects](multiplatform-dsl-reference.md).
+* Learn how to [write Gradle build scripts for real-life Kotlin/Native projects](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html).
 * Read more about the Gradle build system in the [documentation](gradle.md).
