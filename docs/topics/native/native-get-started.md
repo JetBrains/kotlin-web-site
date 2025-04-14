@@ -277,7 +277,7 @@ as specified in the build file.
 1. From the root project directory, run the build command:
 
    ```bash
-   ./gradlew nativeBinaries
+   gradle nativeBinaries
    ```
 
    This command creates the `build/bin/native` directory with two directories inside: `debugExecutable` and
