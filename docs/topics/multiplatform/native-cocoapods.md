@@ -247,7 +247,7 @@ If you want to import your Kotlin project to an Xcode project:
 
      The `:path` should contain the filepath to the Pod.
 
-   * If you add a library from the custom Podspec repository, also specify the [location](https://guides.cocoapods.org/syntax/podfile.html#source)
+   * If you add a library from the custom Podspec repository, specify the [location](https://guides.cocoapods.org/syntax/podfile.html#source)
      of specs at the beginning of your Podfile:
 
      ```ruby

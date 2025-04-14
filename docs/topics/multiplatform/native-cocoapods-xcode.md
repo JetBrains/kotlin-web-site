@@ -22,7 +22,7 @@ you need to call `pod install` manually for each Xcode project. In other cases, 
 >   [`use_modular_headers!`](https://guides.cocoapods.org/syntax/podfile.html#use_modular_headers_bang) or
 >   [`use_frameworks!`](https://guides.cocoapods.org/syntax/podfile.html#use_frameworks_bang) directives.
 > * If you don't specify the minimum deployment target version and a dependency Pod requires a higher deployment target,
->   you will get an error.
+>   you'll get an error.
 >
 {style="note"}
 

@@ -3,7 +3,7 @@
 <tldr>
 
 * Before adding Pod dependencies, [complete the initial configuration](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
-* See the sample project with [different Pod dependencies in a Kotlin project](https://github.com/Kotlin/kmp-with-cocoapods-multitarget-xcode-sample).
+* See the sample project with [different Pod dependencies set up in a Kotlin project](https://github.com/Kotlin/kmp-with-cocoapods-multitarget-xcode-sample).
 * Check out the sample project with [a Kotlin library connected to an Xcode project with several targets](https://github.com/Kotlin/kmp-with-cocoapods-multitarget-xcode-sample).
 
 </tldr>
@@ -11,8 +11,8 @@
 The Kotlin CocoaPods Gradle plugin is a tool for creating Podspec files. These files are necessary to integrate your Kotlin
 project with the [CocoaPods dependency manager](https://cocoapods.org/).
 
-This DSL reference contains the complete list of blocks, functions, and properties for the Kotlin CocoaPods Gradle plugin that
-you can use when working with the CocoaPods integration.
+This DSL reference lists the main blocks, functions, and properties for the Kotlin CocoaPods Gradle plugin that
+you can use when setting up CocoaPods integration.
 
 ## Enable the plugin
 
@@ -120,7 +120,7 @@ kotlin {
 }
 ```
 
-## pod() function
+## `pod()` function
 
 The `pod()` function call adds a CocoaPods dependency to the Pod built from this project. Each dependency requires
 a separate function call.
@@ -160,5 +160,6 @@ kotlin {
 
 ## What's next
 
+* [See the full syntax of Kotlin DSL in the Kotlin Gradle plugin repository](https://github.com/JetBrains/kotlin/blob/master/libraries/tools/kotlin-gradle-plugin/src/common/kotlin/org/jetbrains/kotlin/gradle/targets/native/cocoapods/CocoapodsExtension.kt)
 * [Add dependencies on a Pod library in your Kotlin project](native-cocoapods-libraries.md)
 * [Set up dependencies between a Kotlin project and an Xcode project](native-cocoapods-xcode.md)

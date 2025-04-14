@@ -13,11 +13,11 @@ To add a Pod dependency, use the `pod()` function call in the shared module's `b
 Each dependency requires its separate function call. You can specify the parameters for the dependency in
 the configuration block of the function.
 
-* When you add a new dependency and re-import the project in your IDE, the dependency will be added automatically.
+* When you add a new dependency and re-import the project in your IDE, the library will be connected automatically.
 * To use your Kotlin project with Xcode, [make changes in your project's Podfile](native-cocoapods.md#update-podfile-for-xcode) first.
 
 > If you don't specify the minimum deployment target version and a dependency Pod requires a higher deployment target,
-> you will get an error.
+> you'll get an error.
 >
 {style="note"}
 
