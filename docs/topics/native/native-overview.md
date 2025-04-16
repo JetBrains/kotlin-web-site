@@ -1,13 +1,13 @@
 [//]: # (title: Kotlin/Native)
 
-Kotlin/Native is a technology for compiling Kotlin code to native binaries which can run without a virtual machine.
+Kotlin/Native is a technology for compiling Kotlin code to native binaries that can run without a virtual machine.
 Kotlin/Native includes an [LLVM](https://llvm.org/)-based backend for the Kotlin compiler and a native implementation of
 the Kotlin standard library.
 
 ## Why Kotlin/Native?
 
 Kotlin/Native is primarily designed to allow compilation for platforms on which _virtual machines_ are not desirable or
-possible, such as embedded devices or iOS. It's ideal for situations when a developer needs to produce a self-contained
+possible, such as embedded devices or iOS. It's ideal for situations when you need to to produce a self-contained
 program that doesn't require an additional runtime or a virtual machine.
 
 It's easy to include compiled Kotlin code in existing projects written in C, C++, Swift, Objective-C, and other languages.
