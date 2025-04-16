@@ -201,7 +201,6 @@
 			<toc-element topic="native-ios-symbolication.md"/>
 			<toc-element toc-title="Reference and tips">
 				<toc-element toc-title="Target support" topic="native-target-support.md"/>
-				<toc-element toc-title="App Store privacy manifests" topic="apple-privacy-manifest.md"/>
 				<toc-element toc-title="Improving compilation time" topic="native-improving-compilation-time.md"/>
 				<toc-element toc-title="License files" topic="native-binary-licenses.md"/>
 				<toc-element topic="native-faq.md"/>

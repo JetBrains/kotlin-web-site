@@ -844,3 +844,6 @@
     - /docs/reference/migrating-multiplatform-project-to-14.html
     - /docs/multiplatform-hierarchy.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-hierarchy.html
+
+- from: /docs/apple-privacy-manifest.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-privacy-manifest.html
