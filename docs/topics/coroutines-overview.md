@@ -68,5 +68,5 @@ Learn more in [Shared mutable state and concurrency](shared-mutable-state-and-co
 * Learn how to [debug coroutines](debug-coroutines-with-idea.md) using built-in tools in IntelliJ IDEA.
 * For flow-specific debugging, see the [Debug Kotlin Flow using IntelliJ IDEA](debug-flow-with-idea.md) tutorial.
 * Read the [Guide to UI programming with coroutines](https://github.com/Kotlin/kotlinx.coroutines/blob/master/ui/coroutines-guide-ui.md) to learn about coroutine-based UI development.
-* * Review [best practices for using coroutines in Android](https://developer.android.com/kotlin/coroutines/coroutines-best-practices).
+* Review [best practices for using coroutines in Android](https://developer.android.com/kotlin/coroutines/coroutines-best-practices).
 * Check out the [`kotlinx.coroutines` API reference](https://kotlinlang.org/api/kotlinx.coroutines/).
