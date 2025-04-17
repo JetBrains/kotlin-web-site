@@ -376,7 +376,7 @@ The application prints "Hello, Kotlin/Native" to the standard output.
 
 ## What's next?
 
-* Complete the [Create an app using C Interop and libcurl](native-app-with-c-and-libcurl.md) tutorial that explains how
+* Complete the [Create an app using C interop and libcurl](native-app-with-c-and-libcurl.md) tutorial that explains how
   to create a native HTTP client and interoperate with C libraries.
 * Learn how to [write Gradle build scripts for real-life Kotlin/Native projects](multiplatform-dsl-reference.md).
 * Read more about the Gradle build system in the [documentation](gradle.md).

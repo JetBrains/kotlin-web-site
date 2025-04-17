@@ -249,7 +249,12 @@ cannot be run during the GC pause.
 
 In a _retain cycle_, a number of objects refer each other using strong references cyclically:
 
-![Retain cycles](native-retain-cycle.png){height=200}
+```mermaid
+graph TD
+    A --> B
+    B --> C
+    C --> A
+```
 
 Kotlin's tracing GC and Objective-C's ARC handle retain cycles differently. When objects become unreachable, Kotlin's GC
 can properly reclaim such cycles, while Objective-C's ARC cannot. Therefore, retain cycles of Kotlin objects can be reclaimed,
@@ -257,7 +262,11 @@ while [retain cycles of Swift/Objective-C objects cannot](https://docs.swift.org
 
 Consider the case when a retain cycle contains both Objective-C and Kotlin objects:
 
-![Retain cycles with Objective-C and Kotlin objects](native-objc-kotlin-retain-cycles.png){height=150}
+```mermaid
+graph TD
+    Kotlin.A --> ObjC.B
+    ObjC.B --> Kotlin.A
+```
 
 This involves combining Kotlin's and Objective-C's memory management models that cannot handle (reclaim) retain cycles
 together. That means if at least one Objective-C object is present, the retain cycle of a whole graph of objects
