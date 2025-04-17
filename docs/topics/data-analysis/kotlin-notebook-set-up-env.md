@@ -12,7 +12,7 @@ Before you create your first [Kotlin Notebook](kotlin-notebook-overview.md), you
 
 ## Set up the environment
 
-Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook?_gl=1*cohcp7*_gcl_au*MjM3NDMxMjkwLjE3NDQwMzUxNDM.*FPAU*ODUzMDkxNjQ1LjE3NDQwMzE2OTg.*_ga*MTAzNjAwMzc0LjE3NDQwMzUxNDA.*_ga_9J976DJZ68*MTc0NDgyMjEwNC4xOS4xLjE3NDQ4MjQ4MDEuNTUuMC4w), 
+Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), 
 which is bundled and enabled in IntelliJ IDEA by default.
 
 To use Kotlin Notebook, download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
