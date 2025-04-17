@@ -73,16 +73,19 @@ If you are migrating to the new language release, Kotlin plugin's migration tool
 
 ## IDE support
 
-Even with the release of the K2 compiler, IntelliJ IDEA and Android Studio still use the previous compiler by default 
-for code analysis, code completion, highlighting, and other IDE-related features.
+Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and
+[Android Studio](https://developer.android.com/kotlin/get-started) with an official Kotlin plugin developed by JetBrains.
 
-Starting from 2024.1, IntelliJ IDEA can use the new K2 compiler to analyze your code with its K2 mode.
-To enable it, go to **Settings** | **Languages & Frameworks** | **Kotlin** and select the **Enable K2 mode** option.
+K2 mode in IntelliJ IDEA and Android Studio uses the K2 compiler to improve code analysis, code completion, and highlighting.
 
-![Enable K2 mode](k2-mode.png){width=200}
+Starting with IntelliJ IDEA 2025.1, K2 mode is [enabled by default](https://blog.jetbrains.com/idea/2025/04/k2-mode-in-intellij-idea-2025-1-current-state-and-faq/).
 
-After enabling K2 mode, you may notice differences in IDE analysis due to changes in compiler behavior.
-Learn how the new K2 compiler differs from the previous one in the [migration guide](k2-compiler-migration-guide.md).
+In Android Studio, you can enable K2 mode starting with 2024.1 by following these steps:
+
+1. Go to **Settings** | **Languages & Frameworks** | **Kotlin**.
+2. Select the **Enable K2 mode** option.
+
+Learn more about K2 mode in [our blog](https://blog.jetbrains.com/idea/2025/04/k2-mode-in-intellij-idea-2025-1-current-state-and-faq/).
 
 ## Kotlin release compatibility
 
