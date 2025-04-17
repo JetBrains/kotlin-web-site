@@ -14,15 +14,15 @@ the LPK and [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted
 
 ## Before you start
 
-Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook?_gl=1*cohcp7*_gcl_au*MjM3NDMxMjkwLjE3NDQwMzUxNDM.*FPAU*ODUzMDkxNjQ1LjE3NDQwMzE2OTg.*_ga*MTAzNjAwMzc0LjE3NDQwMzUxNDA.*_ga_9J976DJZ68*MTc0NDgyMjEwNC4xOS4xLjE3NDQ4MjQ4MDEuNTUuMC4w),
+Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
 which is bundled and enabled in IntelliJ IDEA by default.
 
 If the Kotlin Notebook features are not available, ensure the plugin is enabled. For more information,
 see [Set up an environment](kotlin-notebook-set-up-env.md).
 
-Start working with Lets-Plot in your Kotlin Notebook:
+Create a new Kotlin Notebook to work with Lets-Plot:
 
-1. Create a new notebook by selecting **File** | **New** | **Kotlin Notebook**.
+1. Select **File** | **New** | **Kotlin Notebook**.
 2. In your notebook, import the LPK and Kotlin DataFrame libraries by running the following command:
 
     ```kotlin
