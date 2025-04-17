@@ -63,6 +63,6 @@
          value="2.0.0"
          type="string"/>
 
-    <var name="xcode" value="16.0" type="string"/>
+    <var name="xcode" value="16.3" type="string"/>
 
 </vars>
