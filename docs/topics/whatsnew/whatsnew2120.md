@@ -126,6 +126,9 @@ If you run into any issues, report them in our [issue tracker](https://kotl.in/i
 Starting with Kotlin 2.1.2**1**, the Kotlin/Native compiler supports Xcode 16.3 – the latest stable version of Xcode.
 Feel free to update your Xcode and continue working on your Kotlin projects for Apple operating systems.
 
+The 2.1.21 release also fixes the related [cinterop issue](https://youtrack.jetbrains.com/issue/KT-75781/) that caused
+compilation failures in Kotlin Multiplatform projects.
+
 ### New inlining optimization
 <primary-label ref="experimental-opt-in"/>
 
