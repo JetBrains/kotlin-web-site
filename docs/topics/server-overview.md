@@ -76,6 +76,7 @@ who love the game. Chess.com uses Ktor for the seamless configuration of multipl
 Engineers at [Adobe](https://blog.developer.adobe.com/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a) use Kotlin for server-side app development and Ktor for prototyping in the Adobe Experience 
 Platform, which enables organizations to centralize and standardize customer data before applying data science and machine learning.
 
+[OpenSea](https://opensea.io/os2) is the one-stop shop for everything onchain. Tokens and NFTs, all on one platform. OpenSea uses Kotlin to power the entire backend.
 
 ## Next steps
 
