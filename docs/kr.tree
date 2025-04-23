@@ -26,16 +26,7 @@
         <toc-element toc-title="Kotlin 2.1.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2120.md"/>
         <toc-element toc-title="Kotlin 2.1.0" topic="whatsnew21.md"/>
 		<toc-element toc-title="Kotlin 2.1.0-RC3" topic="whatsnew-eap.md" hidden="true"/>
-		<toc-element toc-title="Kotlin 2.0.x">
-			<toc-element toc-title="Kotlin 2.0.20" topic="whatsnew2020.md"/>
-			<toc-element toc-title="Kotlin 2.0.0" topic="whatsnew20.md"/>
-			<toc-element topic="compatibility-guide-20.md"/>
-		</toc-element>
-		<toc-element toc-title="Kotlin 1.9.x">
-			<toc-element toc-title="Kotlin 1.9.20" topic="whatsnew1920.md"/>
-			<toc-element toc-title="Kotlin 1.9.0" topic="whatsnew19.md"/>
-			<toc-element topic="compatibility-guide-19.md"/>
-		</toc-element>
+		<toc-element topic="compatibility-guide-21.md"/>
 	</toc-element>
 	<toc-element toc-title="Language guide">
 	    <toc-element toc-title="Basic syntax">
@@ -401,6 +392,16 @@
 	<toc-element toc-title="Other resources">
 		<toc-element topic="faq.md"/>
 		<toc-element toc-title="Earlier Kotlin versions">
+			<toc-element toc-title="Kotlin 2.0.x">
+				<toc-element toc-title="Kotlin 2.0.20" topic="whatsnew2020.md"/>
+				<toc-element toc-title="Kotlin 2.0.0" topic="whatsnew20.md"/>
+				<toc-element topic="compatibility-guide-20.md"/>
+			</toc-element>
+			<toc-element toc-title="Kotlin 1.9.x">
+				<toc-element toc-title="Kotlin 1.9.20" topic="whatsnew1920.md"/>
+				<toc-element toc-title="Kotlin 1.9.0" topic="whatsnew19.md"/>
+				<toc-element topic="compatibility-guide-19.md"/>
+			</toc-element>
 			<toc-element toc-title="Kotlin 1.8.x">
 				<toc-element toc-title="Kotlin 1.8.20" topic="whatsnew1820.md"/>
 				<toc-element toc-title="Kotlin 1.8.0" topic="whatsnew18.md"/>
