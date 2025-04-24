@@ -35,7 +35,7 @@
 
     <!-- Gradle, KGP, AGP -->
     <var name="minGradleVersion" value="7.6.3" type="string"/>
-    <var name="maxGradleVersion" value="8.11" type="string"/>
+    <var name="maxGradleVersion" value="8.12.1" type="string"/>
 
     <var name="minAndroidGradleVersion" value="7.3.1" type="string"/>
     <var name="maxAndroidGradleVersion" value="8.7.2" type="string"/>
@@ -67,6 +67,6 @@
          value="2.0.0"
          type="string"/>
 
-    <var name="xcode" value="16.0" type="string"/>
+    <var name="xcode" value="16.3" type="string"/>
 
 </vars>
