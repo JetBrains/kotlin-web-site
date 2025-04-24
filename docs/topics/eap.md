@@ -54,13 +54,13 @@ In this channel, you can also get notifications about new EAP builds.
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.2.0-Beta1</strong>
-            <p>Released: <strong>April 15, 2025</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0-Beta1" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.2.0-Beta2</strong>
+            <p>Released: <strong>April 29, 2025</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0-Beta2" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <p>A language release with previews of new features and tooling updates.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0-Beta1">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.2.0-Beta1</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0-Beta2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.2.0-Beta2</a>.</p>
         </td>
     </tr>
     <tr>
