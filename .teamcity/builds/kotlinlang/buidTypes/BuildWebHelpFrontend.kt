@@ -31,7 +31,7 @@ object BuildWebHelpFrontend : BuildType({
         pnpm run build:kotlin
       """.trimIndent()
       formatStderrAsError = true
-      dockerImage = "node:16-alpine"
+      dockerImage = "node:18-alpine"
     }
   }
 
