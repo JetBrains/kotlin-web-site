@@ -78,6 +78,10 @@ Starting with Gradle 8.7, the Application plugin will no longer work with the Ko
 If you want to use both the Kotlin Multiplatform Gradle plugin and other Gradle plugins for
 Java in your multiplatform project, see [Deprecated compatibility with Kotlin Multiplatform Gradle plugin and Java plugins](multiplatform-compatibility-guide.md#deprecated-compatibility-with-kotlin-multiplatform-gradle-plugin-and-gradle-java-plugins).
 
+If you use the [Java test fixtures](https://docs.gradle.org/current/userguide/java_testing.html#sec:java_test_fixtures) Gradle plugin with Kotlin 2.1.20
+and a Gradle version higher than 8.7, the plugin doesn't work. Instead, upgrade to [Kotlin 2.1.21](releases.md#release-details)
+where this issue is resolved.
+
 If you run into any issues, report them in our [issue tracker](https://kotl.in/issue) or ask for help in our [public Slack channel](https://kotlinlang.slack.com/archives/C19FD9681).
 
 **When do the changes take effect?**
