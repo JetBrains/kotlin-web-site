@@ -18,6 +18,7 @@
 		<toc-element hidden="true" topic="kotlin-tour-intermediate-objects.md"/>
 		<toc-element hidden="true" topic="kotlin-tour-intermediate-open-special-classes.md"/>
         <toc-element hidden="true" topic="kotlin-tour-intermediate-properties.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-intermediate-null-safety.md"/>
 	</toc-element>
 	<toc-element toc-title="Kotlin overview">
 		<toc-element topic="multiplatform.topic"/>
