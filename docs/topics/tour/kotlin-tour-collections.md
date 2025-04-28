@@ -96,8 +96,8 @@ fun main() {
 > functions are examples of **extension** functions. To call an extension function on an object, write the function name 
 > after the object appended with a period `.` 
 > 
-> For more information about extension functions, see [Extension functions](extensions.md#extension-functions).
-> For the purposes of this tour, you only need to know how to call them. 
+> Extension functions are covered in detail [in the intermediate tour](kotlin-tour-intermediate-extension-functions.md#extension-functions).
+> For now, you only need to know how to call them. 
 > 
 {style="note"}
 
