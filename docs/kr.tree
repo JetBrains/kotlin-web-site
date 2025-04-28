@@ -16,6 +16,7 @@
 		<toc-element hidden="true" topic="kotlin-tour-intermediate-lambdas-receiver.md"/>
         <toc-element hidden="true" topic="kotlin-tour-intermediate-classes-interfaces.md"/>
 		<toc-element hidden="true" topic="kotlin-tour-intermediate-objects.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-intermediate-open-special-classes.md"/>
 	</toc-element>
 	<toc-element toc-title="Kotlin overview">
 		<toc-element topic="multiplatform.topic"/>
