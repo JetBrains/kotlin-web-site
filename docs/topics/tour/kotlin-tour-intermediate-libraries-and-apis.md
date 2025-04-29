@@ -174,7 +174,7 @@ fun main() {
 
 This is the easiest way to opt in, but there are other ways. To learn more, see [Opt-in requirements](opt-in-requirements.md).
 
-## Libraries and APIs practice
+## Practice
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="libraries-exercise-1"}
 
