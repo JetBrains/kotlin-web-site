@@ -28,7 +28,7 @@ Install the [CocoaPods dependency manager](https://cocoapods.org/) using the ins
 <tabs>
 <tab title="RVM">
 
-1. Install [Ruby version manager](https://rvm.io/rvm/install) in case you don't have it yet.
+1. Install [RVM](https://rvm.io/rvm/install) in case you don't have it yet.
 2. Install Ruby. You can choose a specific version:
 
     ```bash
@@ -317,7 +317,7 @@ manually or using a shell command:
 ### Module or framework not found {initial-collapse-state="collapsed" collapsible="true"}
 
 When installing Pods, you may encounter `module 'SomeSDK' not found` or `framework 'SomeFramework' not found`
-errors connected to [C interop](native-c-interop.md) issues. To resolve such errors, try these solutions:
+errors related to [C interop](native-c-interop.md) issues. To resolve such errors, try these solutions:
 
 #### Update packages
 
@@ -326,7 +326,7 @@ Update your installation tool and the installed packages (gems):
 <tabs>
 <tab title="RVM">
 
-1. Update Ruby version manager (RVM):
+1. Update RVM:
 
    ```bash
    rvm get stable
@@ -338,7 +338,7 @@ Update your installation tool and the installed packages (gems):
     gem update --system
     ```
 
-3. Upgrade all the installed gems to their latest versions:
+3. Upgrade all installed gems to their latest versions:
 
     ```bash
     gem update
