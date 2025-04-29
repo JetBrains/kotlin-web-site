@@ -395,7 +395,7 @@ This can significantly reduce memory footprint and improve your code's runtime p
 
 For more information about inline value classes, see [Inline value classes](inline-classes.md).
 
-## Special classes practice
+## Practice
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="special-classes-exercise-1"}
 
