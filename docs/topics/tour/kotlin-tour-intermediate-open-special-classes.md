@@ -432,9 +432,13 @@ fun main() {
     val status4: DeliveryStatus = DeliveryStatus.Canceled("Address not found")
 
     printDeliveryStatus(status1)
+    // The package is pending pickup from Alice.
     printDeliveryStatus(status2)
+    // The package is in transit and expected to arrive by 2024-11-20.
     printDeliveryStatus(status3)
+    // The package was delivered to Bob on 2024-11-18.
     printDeliveryStatus(status4)
+    // The delivery was canceled due to: Address not found.
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-special-classes-exercise-1"}
@@ -472,9 +476,13 @@ fun main() {
     val status4: DeliveryStatus = DeliveryStatus.Canceled("Address not found")
 
     printDeliveryStatus(status1)
+    // The package is pending pickup from Alice.
     printDeliveryStatus(status2)
+    // The package is in transit and expected to arrive by 2024-11-20.
     printDeliveryStatus(status3)
+    // The package was delivered to Bob on 2024-11-18.
     printDeliveryStatus(status4)
+    // The delivery was canceled due to: Address not found.
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-1"}

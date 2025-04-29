@@ -397,12 +397,18 @@ fun main() {
     val bedroomThermostat = SmartThermostat("Bedroom Thermostat")
     
     livingRoomLight.turnOn()
+    // Living Room Light is now ON.
     livingRoomLight.adjustBrightness(10)
+    // Adjusting Living Room Light brightness to 10%.
     livingRoomLight.turnOff()
+    // Living Room Light is now OFF.
 
     bedroomThermostat.turnOn()
+    // Bedroom Thermostat thermostat is now heating.
     bedroomThermostat.adjustTemperature(5)
+    // Bedroom Thermostat thermostat set to 5°C.
     bedroomThermostat.turnOff()
+    // Bedroom Thermostat thermostat is now off.
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-interfaces-exercise-1"}
@@ -448,12 +454,18 @@ fun main() {
     val bedroomThermostat = SmartThermostat("Bedroom Thermostat")
     
     livingRoomLight.turnOn()
+    // Living Room Light is now ON.
     livingRoomLight.adjustBrightness(10)
+    // Adjusting Living Room Light brightness to 10%.
     livingRoomLight.turnOff()
+    // Living Room Light is now OFF.
 
     bedroomThermostat.turnOn()
+    // Bedroom Thermostat thermostat is now heating.
     bedroomThermostat.adjustTemperature(5)
+    // Bedroom Thermostat thermostat set to 5°C.
     bedroomThermostat.turnOff()
+    // Bedroom Thermostat thermostat is now off.
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-1"}
@@ -485,6 +497,7 @@ class // Write your code here
 fun main() {
     val audio = Audio("Symphony No. 5", "Beethoven")
     audio.play()
+   // Playing audio: Symphony No. 5, composed by Beethoven
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-interfaces-exercise-2"}
@@ -505,6 +518,7 @@ class Audio(override val title: String, val composer: String) : Media {
 fun main() {
     val audio = Audio("Symphony No. 5", "Beethoven")
     audio.play()
+   // Playing audio: Symphony No. 5, composed by Beethoven
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-2"}
@@ -542,8 +556,11 @@ fun main() {
     val visa = CreditCard("Visa")
     
     visa.authorize(100.0)
+    // Authorizing payment of $100.0.
     visa.processPayment(100.0)
+    // Processing credit card payment of $100.0.
     visa.refund(50.0)
+    // Refunding $50.0 to the credit card.
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-interfaces-exercise-3"}
@@ -576,8 +593,11 @@ fun main() {
     val visa = CreditCard("Visa")
     
     visa.authorize(100.0)
+    // Authorizing payment of $100.0.
     visa.processPayment(100.0)
+    // Processing credit card payment of $100.0.
     visa.refund(50.0)
+    // Refunding $50.0 to the credit card.
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-3"}
@@ -623,8 +643,12 @@ fun main() {
     val smartMessenger = SmartMessenger(basicMessenger)
     
     basicMessenger.sendMessage("Hello!")
+    // Sending message: Hello!
     println(smartMessenger.receiveMessage())
+    // You've got a new message!
     smartMessenger.sendMessage("Hello from SmartMessenger!")
+    // Sending a smart message: Hello from SmartMessenger!
+    // Sending message: [smart] Hello from SmartMessenger!
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-classes-interfaces-exercise-4"}
@@ -658,8 +682,12 @@ fun main() {
     val smartMessenger = SmartMessenger(basicMessenger)
     
     basicMessenger.sendMessage("Hello!")
+    // Sending message: Hello!
     println(smartMessenger.receiveMessage())
+    // You've got a new message!
     smartMessenger.sendMessage("Hello from SmartMessenger!")
+    // Sending a smart message: Hello from SmartMessenger!
+    // Sending message: [smart] Hello from SmartMessenger!
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-interfaces-solution-4"}
