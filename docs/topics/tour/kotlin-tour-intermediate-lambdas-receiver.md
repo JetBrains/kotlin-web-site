@@ -173,6 +173,7 @@ fun fetchData(callback: StringBuilder.() -> Unit) {
 fun main() {
     fetchData {
         // Write your code here
+        // Data received - Processed
     }
 }
 ```
@@ -189,6 +190,7 @@ fun main() {
     fetchData {
         append(" - Processed")
         println(this.toString())
+        // Data received - Processed
     }
 }
 ```
@@ -224,6 +226,7 @@ fun main() {
 
     button.onEvent {
         // Write your code here
+        // Double click!
     }
 }
 ```
@@ -256,6 +259,7 @@ fun main() {
     button.onEvent {
         if (!isRightClick && amount == 2) {
             println("Double click!")
+            // Double click!
         }
     }
 }

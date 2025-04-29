@@ -424,7 +424,7 @@ updating a UI or to perform additional checks, like verifying the validity of da
 
 For more information, see [Observable properties](delegated-properties.md#observable-properties).
 
-## Properties practice
+## Practice
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-1"}
 

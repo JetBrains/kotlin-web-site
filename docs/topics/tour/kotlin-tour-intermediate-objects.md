@@ -185,20 +185,25 @@ data object OrderOne: Order {
 data object // Write your code here
 
 fun main() {
-    // Print the contents of each data object
-    println("Order One Details: $OrderOne")
-    println("Order Two Details: $OrderTwo")
+    // Print the name of each data object
+    println("Order name: $OrderOne")
+    // Order name: OrderOne
+    println("Order name: $OrderTwo")
+    // Order name: OrderTwo
 
     // Check if the orders are identical
     println("Are the two orders identical? ${OrderOne == OrderTwo}")
+    // Are the two orders identical? false
 
     if (OrderOne == OrderTwo) {
         println("The orders are identical.")
     } else {
         println("The orders are unique.")
+        // The orders are unique.
     }
 
     println("Do the orders have the same customer name? ${OrderOne.customerName == OrderTwo.customerName}")
+    // Do the orders have the same customer name? false
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-1"}
@@ -224,20 +229,25 @@ data object OrderTwo: Order {
 }
 
 fun main() {
-    // Print the contents of each data object
-    println("Order One Details: $OrderOne")
-    println("Order Two Details: $OrderTwo")
+    // Print the name of each data object
+    println("Order name: $OrderOne")
+    // Order name: OrderOne
+    println("Order name: $OrderTwo")
+    // Order name: OrderTwo
 
     // Check if the orders are identical
     println("Are the two orders identical? ${OrderOne == OrderTwo}")
+    // Are the two orders identical? false
 
     if (OrderOne == OrderTwo) {
         println("The orders are identical.")
     } else {
         println("The orders are unique.")
+        // The orders are unique.
     }
 
     println("Do the orders have the same customer name? ${OrderOne.customerName == OrderTwo.customerName}")
+    // Do the orders have the same customer name? false
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-1"}
@@ -260,7 +270,9 @@ object // Write your code here
 
 fun main() {
     println("${FlyingSkateboard.name}: ${FlyingSkateboard.move()}")
+    // Flying Skateboard: Glides through the air with a hover engine
     println("${FlyingSkateboard.name}: ${FlyingSkateboard.fly()}")
+    // Flying Skateboard: Woooooooo
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-2"}
@@ -281,7 +293,9 @@ object FlyingSkateboard : Vehicle {
 
 fun main() {
     println("${FlyingSkateboard.name}: ${FlyingSkateboard.move()}")
+    // Flying Skateboard: Glides through the air with a hover engine
     println("${FlyingSkateboard.name}: ${FlyingSkateboard.fly()}")
+    // Flying Skateboard: Woooooooo
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-2"}
@@ -310,6 +324,7 @@ fun main() {
     val fahrenheit = 90.0
     val temp = Temperature.fromFahrenheit(fahrenheit)
     println("${temp.celsius}°C is $fahrenheit °F")
+    // 32.22222222222222°C is 90.0 °F
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-objects-exercise-3"}
@@ -328,6 +343,7 @@ fun main() {
     val fahrenheit = 90.0
     val temp = Temperature.fromFahrenheit(fahrenheit)
     println("${temp.celsius}°C is $fahrenheit °F")
+    // 32.22222222222222°C is 90.0 °F
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-objects-solution-3"}
