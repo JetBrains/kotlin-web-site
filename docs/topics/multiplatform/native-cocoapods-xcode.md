@@ -7,8 +7,8 @@
 
 </tldr>
 
-You can use a whole Kotlin project as a Pod dependency. To do that, you'll need to include such
-a dependency in the Podfile of your project, specifying its name and path to the project directory with the
+You can use an entire Kotlin project as a Pod dependency. To do that, you'll need to include such
+a dependency in the Podfile of your project, specifying its name and the path to the project directory with the
 generated Podspec.
 
 This dependency will be automatically built (and rebuilt) along with this project. Such an approach
@@ -16,7 +16,7 @@ simplifies importing to Xcode by removing a need to write the corresponding Grad
 
 You can add dependencies between a Kotlin project and an Xcode project with one or several targets. It's also
 possible to add dependencies between a Kotlin project and multiple Xcode projects. However, in this case,
-you need to call `pod install` manually for each Xcode project. In other cases, it's done automatically.
+you need to call `pod install` manually for each Xcode project. With a single Xcode project, it's done automatically.
 
 > * To correctly import the dependencies into the Kotlin/Native module, the Podfile must contain either
 >   [`use_modular_headers!`](https://guides.cocoapods.org/syntax/podfile.html#use_modular_headers_bang) or
@@ -59,7 +59,7 @@ To use a Kotlin project as a Pod dependency in the Xcode project with one target
     }
     ```
 
-6. In the Podfile, add the name and path of the Kotlin project you want to include to the Xcode project:
+6. In the Podfile, add the name and path of the Kotlin project you want to include in the Xcode project:
 
     ```ruby
     target 'ios-app' do
@@ -137,7 +137,7 @@ To use a Kotlin project as a Pod dependency in the Xcode project with several ta
    When you run `pod install` for the first time, it creates the `.xcworkspace` file. This file
    includes your original `.xcodeproj` and the CocoaPods project.
 8. Close your `.xcodeproj` and open the new `.xcworkspace` file instead. This way you avoid issues with project dependencies.
-9. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+9. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 ## What's next

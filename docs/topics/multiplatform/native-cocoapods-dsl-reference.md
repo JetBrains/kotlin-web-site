@@ -4,7 +4,7 @@
 
 * Before adding Pod dependencies, [complete the initial configuration](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
 * See the sample project with [different Pod dependencies set up in a Kotlin project](https://github.com/Kotlin/kmp-with-cocoapods-multitarget-xcode-sample).
-* Check out the sample project with [a Kotlin library connected to an Xcode project with several targets](https://github.com/Kotlin/kmp-with-cocoapods-multitarget-xcode-sample).
+* Check out the sample project where [an Xcode project with several targets depends on a Kotlin library](https://github.com/Kotlin/kmp-with-cocoapods-multitarget-xcode-sample).
 
 </tldr>
 

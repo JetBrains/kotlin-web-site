@@ -9,8 +9,8 @@
 
 You can add dependencies on Pod libraries from different locations in your Kotlin project.
 
-To add a Pod dependency, use the `pod()` function call in the shared module's `build.gradle(.kts)` file.
-Each dependency requires its separate function call. You can specify the parameters for the dependency in
+To add a Pod dependency, call the `pod()` function in the shared module's `build.gradle(.kts)` file.
+Each dependency requires a separate function call. You can specify the parameters for the dependency in
 the configuration block of the function.
 
 * When you add a new dependency and re-import the project in your IDE, the library will be connected automatically.
@@ -189,7 +189,7 @@ import cocoapods.CocoaLumberjack.*
 
 To add a dependency on a Pod library located in the custom Podspec repository:
 
-1. Specify the HTTP address to the custom Podspec repository using the `url()` inside the `specRepos {}` block.
+1. Specify the address of the custom Podspec repository using a `url()` call inside the `specRepos {}` block.
 2. Specify the name of a Pod library in the `pod()` function.
 3. Specify the minimum deployment target version for the Pod library.
 

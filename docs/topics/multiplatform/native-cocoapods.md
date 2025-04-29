@@ -13,7 +13,7 @@ Kotlin/Native provides integration with the [CocoaPods dependency manager](https
 on Pod libraries as well as use a Kotlin project as a CocoaPods dependency.
 
 You can manage Pod dependencies directly in IntelliJ IDEA or Android Studio and enjoy all the additional features such as
-code highlighting and completion. You can build the whole Kotlin project with Gradle and without switching to Xcode. 
+code highlighting and completion. You can build the whole Kotlin project with Gradle without switching to Xcode. 
 
 You only need Xcode if you want to change Swift/Objective-C code or run your application on an Apple simulator or device.
 To work correctly with Xcode, you should [update your Podfile](#update-podfile-for-xcode).
