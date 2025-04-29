@@ -53,7 +53,7 @@ To add a dependency on a Pod library located in the CocoaPods repository:
     }
     ```
 
-3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+3. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
@@ -110,7 +110,7 @@ To add a dependency on a locally stored Pod library:
    >
    {style="note"}
 
-3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+3. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
@@ -174,7 +174,7 @@ To add a dependency on a Pod library located in the custom Git repository:
     }
     ```
 
-3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+3. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
@@ -211,10 +211,10 @@ To add a dependency on a Pod library located in the custom Podspec repository:
     }
     ```
 
-4. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+4. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
-> To work correctly with Xcode, you should specify the location of specs at the beginning of your Podfile:
+> To work with Xcode, specify the location of specs at the beginning of your Podfile:
 > 
 > ```ruby
 > source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'
@@ -264,7 +264,7 @@ To add a dependency on a Pod library using custom cinterop options:
     }
     ```
 
-4. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+4. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:

@@ -76,7 +76,7 @@ To use a Kotlin project as a Pod dependency in the Xcode project with one target
    When you run `pod install` for the first time, it creates the `.xcworkspace` file. This file
    includes your original `.xcodeproj` and the CocoaPods project.
 8. Close your `.xcodeproj` and open the new `.xcworkspace` file instead. This way you avoid issues with project dependencies.
-9. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+9. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 ## Xcode project with several targets
@@ -112,7 +112,7 @@ To use a Kotlin project as a Pod dependency in the Xcode project with several ta
     }
     ```
 
-6. In the Podfile, add the name and path of the Kotlin project you want to include to the Xcode project:
+6. In the Podfile, add the name and path of the Kotlin project you want to include in the Xcode project:
 
     ```ruby
     target 'iosApp' do

@@ -13,10 +13,10 @@ Kotlin/Native provides integration with the [CocoaPods dependency manager](https
 on Pod libraries as well as use a Kotlin project as a CocoaPods dependency.
 
 You can manage Pod dependencies directly in IntelliJ IDEA or Android Studio and enjoy all the additional features such as
-code highlighting and completion. You can build the whole Kotlin project with Gradle without switching to Xcode. 
+code highlighting and completion. You can build an entire Kotlin project with Gradle without switching to Xcode. 
 
 You only need Xcode if you want to change Swift/Objective-C code or run your application on an Apple simulator or device.
-To work correctly with Xcode, you should [update your Podfile](#update-podfile-for-xcode).
+To work with Xcode, [update your Podfile](#update-podfile-for-xcode) first.
 
 ## Set up an environment to work with CocoaPods
 
@@ -213,7 +213,7 @@ To configure the Kotlin CocoaPods Gradle plugin in your multiplatform project:
     >
     {style="note"}
     
-3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+3. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 4. Generate the [Gradle wrapper](https://docs.gradle.org/current/userguide/gradle_wrapper.html) to avoid compatibility
    issues during an Xcode build.
@@ -264,7 +264,7 @@ If you want to import your Kotlin project to an Xcode project:
    When you run `pod install` for the first time, it creates the `.xcworkspace` file. This file
    includes your original `.xcodeproj` and the CocoaPods project.
 3. Close your `.xcodeproj` and open the new `.xcworkspace` file instead. This way you avoid issues with project dependencies.
-4. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+4. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 If you don't make these changes in the Podfile, the `podInstall` task will fail, and the CocoaPods plugin will show
