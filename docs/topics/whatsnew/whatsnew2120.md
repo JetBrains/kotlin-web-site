@@ -6,7 +6,7 @@ The Kotlin 2.1.20 release is here! Here are the main highlights:
 
 * **K2 compiler updates**: [updates to the new kapt and Lombok plugins](#kotlin-k2-compiler)
 * **Kotlin Multiplatform**: [new DSL to replace Gradle's Application plugin](#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin)
-* **Kotlin/Native**: [new inlining optimization](#kotlin-native-new-inlining-optimization)
+* **Kotlin/Native**: [support for Xcode 16.3 and a new inlining optimization](#kotlin-native)
 * **Kotlin/Wasm**: [default custom formatters, support for DWARF, and migration to Provider API](#kotlin-wasm)
 * **Gradle support**: [compatibility with Gradle's Isolated Projects and custom publication variants](#gradle)
 * **Standard library**: [common atomic types, improved UUID support, and new time-tracking functionality](#standard-library)
@@ -119,7 +119,17 @@ plugin is applied on the first `executable {}` block.
 
 If you run into any issues, report them in our [issue tracker](https://kotl.in/issue) or let us know in our [public Slack channel](https://kotlinlang.slack.com/archives/C19FD9681).
 
-## Kotlin/Native: new inlining optimization
+## Kotlin/Native
+
+### Support for Xcode 16.3
+
+Starting with Kotlin **2.1.21**, the Kotlin/Native compiler supports Xcode 16.3 – the latest stable version of Xcode.
+Feel free to update your Xcode and continue working on your Kotlin projects for Apple operating systems.
+
+The 2.1.21 release also fixes the related [cinterop issue](https://youtrack.jetbrains.com/issue/KT-75781/) that caused
+compilation failures in Kotlin Multiplatform projects.
+
+### New inlining optimization
 <primary-label ref="experimental-opt-in"/>
 
 Kotlin 2.1.20 introduces a new inlining optimization pass, which comes before the actual code generation phase.
@@ -551,9 +561,10 @@ alongside the plugin, due to an option being effectively set twice.
 
 ## Breaking changes and deprecations
 
-* To align Kotlin Multiplatform with upcoming changes in Gradle, we are phasing out the `withJava()` function.
-  [Java source sets are now created by default](multiplatform-compatibility-guide.md#java-source-sets-created-by-default).
 
+* To align Kotlin Multiplatform with upcoming changes in Gradle, we are phasing out the `withJava()` function.
+  [Java source sets are now created by default](multiplatform-compatibility-guide.md#java-source-sets-created-by-default). If you use the [Java test fixtures](https://docs.gradle.org/current/userguide/java_testing.html#sec:java_test_fixtures) Gradle plugin,
+  upgrade directly to [Kotlin 2.1.21](releases.md#release-details) to avoid compatibility issues.
 * The JetBrains team is proceeding with the deprecation of the `kotlin-android-extensions` plugin. If you try to use it
   in your project, you'll now get a configuration error, and no plugin code will be executed.
 
