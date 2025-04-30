@@ -55,7 +55,7 @@ In this channel, you can also get notifications about new EAP builds.
     </tr>
     <tr>
         <td><strong>2.2.0-Beta2</strong>
-            <p>Released: <strong>April 29, 2025</strong></p>
+            <p>Released: <strong>April 30, 2025</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0-Beta2" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
