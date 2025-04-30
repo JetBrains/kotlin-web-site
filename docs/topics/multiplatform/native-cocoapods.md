@@ -28,7 +28,7 @@ Install the [CocoaPods dependency manager](https://cocoapods.org/) using the ins
 <tabs>
 <tab title="RVM">
 
-1. Install [Ruby version manager](https://rvm.io/rvm/install) in case you don't have it yet.
+1. Install [RVM](https://rvm.io/rvm/install) in case you don't have it yet.
 2. Install Ruby. You can choose a specific version:
 
     ```bash
@@ -314,10 +314,75 @@ manually or using a shell command:
     echo -e "kotlin.apple.cocoapods.bin=$(which pod)" >> local.properties
     ```
 
-### Module not found {initial-collapse-state="collapsed" collapsible="true"}
+### Module or framework not found {initial-collapse-state="collapsed" collapsible="true"}
 
-You may encounter a `module 'SomeSDK' not found` error that is connected with the [C-interop](native-c-interop.md) issue.
-Try these workarounds to avoid this error:
+When installing Pods, you may encounter `module 'SomeSDK' not found` or `framework 'SomeFramework' not found`
+errors related to [C interop](native-c-interop.md) issues. To resolve such errors, try these solutions:
+
+#### Update packages
+
+Update your installation tool and the installed packages (gems):
+
+<tabs>
+<tab title="RVM">
+
+1. Update RVM:
+
+   ```bash
+   rvm get stable
+   ```
+
+2. Update Ruby's package manager, RubyGems:
+
+    ```bash
+    gem update --system
+    ```
+
+3. Upgrade all installed gems to their latest versions:
+
+    ```bash
+    gem update
+    ```
+
+</tab>
+<tab title="Rbenv">
+
+1. Update Rbenv:
+
+    ```bash
+    cd ~/.rbenv
+    git pull
+    ```
+
+2. Update Ruby's package manager, RubyGems:
+
+    ```bash
+    gem update --system
+    ```
+
+3. Upgrade all the installed gems to their latest versions:
+
+    ```bash
+    gem update
+    ```
+
+</tab>
+<tab title="Homebrew">
+
+1. Update the Homebrew package manager: 
+
+   ```bash
+   brew update
+   ```
+
+2. Upgrade all the installed packages to their latest versions:
+
+   ```bash
+   brew upgrade
+   ````
+
+</tab>
+</tabs>
 
 #### Specify the framework name 
 
@@ -331,6 +396,7 @@ Try these workarounds to avoid this error:
         moduleName = "SDWebImageMapKit"
     }
     ```
+
 #### Specify headers
 
 If the Pod doesn't contain a `.modulemap` file, like the `pod("NearbyMessages")`, specify the main header explicitly:
