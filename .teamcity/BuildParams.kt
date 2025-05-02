@@ -11,7 +11,7 @@ object BuildParams {
   const val KOTLINX_SERIALIZATION_ID = "kotlinx.serialization"
   const val KOTLINX_SERIALIZATION_TITLE = KOTLINX_SERIALIZATION_ID
 
-  const val KOTLINX_DATETIME_RELEASE_TAG = "latest-release"
+  const val KOTLINX_DATETIME_RELEASE_TAG = "whyoleg/dokka2-sync"
   const val KOTLINX_DATETIME_RELEASE_LABEL = "v0.6.2"
   const val KOTLINX_DATETIME_ID = "kotlinx-datetime"
   const val KOTLINX_DATETIME_TITLE = KOTLINX_DATETIME_ID
@@ -21,8 +21,8 @@ object BuildParams {
   const val KOTLINX_IO_ID = "kotlinx-io"
   const val KOTLINX_IO_TITLE = KOTLINX_IO_ID
 
-  const val KOTLIN_RELEASE_TAG = "2.1.20"
-  const val KOTLIN_RELEASE_LABEL = KOTLIN_RELEASE_TAG
+  const val KOTLIN_RELEASE_TAG = "whyoleg/dokka2-sync"
+  const val KOTLIN_RELEASE_LABEL = "2.1.20"
 
   const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_2120_LibraryReferenceLatestDocs"
   const val CORE_API_TITLE = "Core API"
