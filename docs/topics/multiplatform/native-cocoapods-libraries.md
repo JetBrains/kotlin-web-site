@@ -1,32 +1,36 @@
 [//]: # (title: Add dependencies on a Pod library)
 
-To add dependencies between a Kotlin project and a Pod library, [complete the initial configuration](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
-You can then add dependencies on different types of Pod libraries.
+<tldr>
 
-When you add a new dependency and re-import the project in your IDE, the new dependency will be added automatically.
-No additional steps are required.
+   * Before adding Pod dependencies, [complete the initial configuration](native-cocoapods.md#set-up-an-environment-to-work-with-cocoapods).
+   * You can find a sample project in our [GitHub repository](https://github.com/Kotlin/kmp-with-cocoapods-sample).
 
-To use your Kotlin project with Xcode, you should [make changes in your project Podfile](native-cocoapods.md#update-podfile-for-xcode).
+</tldr>
 
-A Kotlin project requires the `pod()` function call in `build.gradle(.kts)` for adding a Pod dependency.
-Each dependency requires its separate function call. You can specify the parameters for the dependency in
+You can add dependencies on Pod libraries from different locations in your Kotlin project.
+
+To add a Pod dependency, call the `pod()` function in the shared module's `build.gradle(.kts)` file.
+Each dependency requires a separate function call. You can specify the parameters for the dependency in
 the configuration block of the function.
 
+* When you add a new dependency and re-import the project in your IDE, the library will be connected automatically.
+* To use your Kotlin project with Xcode, [make changes in your project's Podfile](native-cocoapods.md#update-podfile-for-xcode) first.
+
 > If you don't specify the minimum deployment target version and a dependency Pod requires a higher deployment target,
-> you will get an error.
+> you'll get an error.
 >
 {style="note"}
 
-You can find a sample project [here](https://github.com/Kotlin/kmm-with-cocoapods-sample).
-
 ## From the CocoaPods repository
+
+To add a dependency on a Pod library located in the CocoaPods repository: 
 
 1. Specify the name of a Pod library in the `pod()` function.
    
-   In the configuration block, you can specify the version of the library using the `version` parameter. To use the latest
-version of the library, you can just omit this parameter altogether.
+   In the configuration block, you can specify the version of the library using the `version` parameter.
+   To use the latest version of the library, you can omit this parameter altogether.
 
-   > You can add dependencies on subspecs.
+   > You can add dependencies on subspecs as well.
    >
    {style="note"}
 
@@ -49,7 +53,7 @@ version of the library, you can just omit this parameter altogether.
     }
     ```
 
-3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+3. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
@@ -60,12 +64,14 @@ import cocoapods.SDWebImage.*
 
 ## On a locally stored library
 
+To add a dependency on a locally stored Pod library:
+
 1. Specify the name of a Pod library in the `pod()` function.
 
    In the configuration block, specify the path to the local Pod library: use the `path()` function in the `source` parameter value.
 
    > You can add local dependencies on subspecs as well.
-   > The `cocoapods` block can include dependencies to Pods stored locally and Pods from the CocoaPods repository at
+   > The `cocoapods {}` block can include dependencies to Pods stored locally and Pods from the CocoaPods repository at
    > the same time.
    >
    {style="note"}
@@ -104,7 +110,7 @@ import cocoapods.SDWebImage.*
    >
    {style="note"}
 
-3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+3. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
@@ -116,6 +122,8 @@ import cocoapods.SDWebImage.*
 ```
 
 ## From a custom Git repository
+
+To add a dependency on a Pod library located in the custom Git repository:
 
 1. Specify the name of a Pod library in the `pod()` function.
 
@@ -166,7 +174,7 @@ import cocoapods.SDWebImage.*
     }
     ```
 
-3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+3. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
@@ -179,7 +187,9 @@ import cocoapods.CocoaLumberjack.*
 
 ## From a custom Podspec repository
 
-1. Specify the HTTP address to the custom Podspec repository using the `url()` inside the `specRepos` block.
+To add a dependency on a Pod library located in the custom Podspec repository:
+
+1. Specify the address of the custom Podspec repository using a `url()` call inside the `specRepos {}` block.
 2. Specify the name of a Pod library in the `pod()` function.
 3. Specify the minimum deployment target version for the Pod library.
 
@@ -201,11 +211,11 @@ import cocoapods.CocoaLumberjack.*
     }
     ```
 
-4. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+4. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
-> To work correctly with Xcode, you should specify the location of specs at the beginning of your Podfile.
-> For example,
+> To work with Xcode, specify the location of specs at the beginning of your Podfile:
+> 
 > ```ruby
 > source 'https://github.com/Kotlin/kotlin-cocoapods-spec.git'
 > ```
@@ -219,6 +229,8 @@ import cocoapods.example.*
 ```
 
 ## With custom cinterop options
+
+To add a dependency on a Pod library using custom cinterop options:
 
 1. Specify the name of a Pod library in the `pod()` function.
 2. In the configuration block, add the following options:
@@ -252,7 +264,7 @@ import cocoapods.example.*
     }
     ```
 
-4. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+4. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 To use these dependencies from the Kotlin code, import the packages `cocoapods.<library-name>`:
@@ -323,3 +335,8 @@ printImageInfo(loadImage())
 If you haven't configured the correct dependencies between cinterops in this case,
 the code would be invalid because the `WebImage` type would be sourced from different cinterop files and, consequently,
 different packages.
+
+## What's next
+
+* [Set up dependencies between a Kotlin project and an Xcode project](native-cocoapods-xcode.md)
+* [See the full CocoaPods Gradle plugin DSL reference](native-cocoapods-dsl-reference.md)
