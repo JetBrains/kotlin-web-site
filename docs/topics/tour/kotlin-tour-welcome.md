@@ -1,28 +1,50 @@
 [//]: # (title: Welcome to our tour of Kotlin!)
 
-> This tour covers the fundamentals of the Kotlin programming language and can be completed entirely within your 
-> browser. There is no installation required.
-{ type = "note" }
+> These tours can be completed entirely within your browser. There is no installation required.
+> 
+{ style = "note" }
 
-Each chapter in this tour contains:
+Quickly learn the essentials of the Kotlin programming language through our tours, which will take you from beginner to intermediate
+level. Each chapter contains:
 
 * **Theory** to introduce key concepts of the language with examples.
 * **Practice** with exercises to test your understanding of what you have learned.
 * **Solutions** for your reference.
 
-In this tour you will learn about:
+Start with our beginner tour to grasp the fundamentals:
 
-* [Variables](kotlin-tour-hello-world.md)
-* [Basic types](kotlin-tour-basic-types.md)
-* [Collections](kotlin-tour-collections.md)
-* [Control flow](kotlin-tour-control-flow.md)
-* [Functions](kotlin-tour-functions.md)
-* [Classes](kotlin-tour-classes.md)
-* [Null safety](kotlin-tour-null-safety.md)
+<a href="kotlin-tour-hello-world.md"><img src="start-beginner-tour.svg" width="700" alt="Start the beginner's Kotlin tour" style="block"/></a>
 
-To have the best experience, we recommend that you read through these chapters in order. But if you want, you can choose
-which chapters you want to read.
+<deflist collapsible="true">
+    <def title="Beginner tour contents" default-state="collapsed">
+        <ul>
+            <li><a href="kotlin-tour-hello-world.md">Variables</a></li>
+            <li><a href="kotlin-tour-basic-types.md">Basic types</a></li>
+            <li><a href="kotlin-tour-collections.md">Collections</a></li>
+            <li><a href="kotlin-tour-control-flow.md">Control flow</a></li>
+            <li><a href="kotlin-tour-functions.md">Functions</a></li>
+            <li><a href="kotlin-tour-classes.md">Classes</a></li>
+            <li><a href="kotlin-tour-null-safety.md">Null safety</a></li>
+        </ul>
+    </def>
+</deflist>
 
-Ready to go?
+If you're ready to take your understanding of Kotlin to the next level, take our intermediate tour:
 
-<a href="kotlin-tour-hello-world.md"><img src="start-kotlin-tour.svg" width="700" alt="Start the Kotlin tour" style="block"/></a>
+<a href="kotlin-tour-intermediate-extension-functions.md"><img src="start-intermediate-tour.svg" width="700" alt="Start the intermediate Kotlin tour" style="block"/></a>
+
+<deflist collapsible="true">
+    <def title="Intermediate tour contents" default-state="collapsed">
+        <ul>
+            <li><a href="kotlin-tour-intermediate-extension-functions.md">Extension functions</a></li>
+            <li><a href="kotlin-tour-intermediate-scope-functions.md">Scope functions</a></li>
+            <li><a href="kotlin-tour-intermediate-lambdas-receiver.md">Lambda expressions with receiver</a></li>
+            <li><a href="kotlin-tour-intermediate-classes-interfaces.md">Classes and interfaces</a></li>
+            <li><a href="kotlin-tour-intermediate-objects.md">Objects</a></li>
+            <li><a href="kotlin-tour-intermediate-open-special-classes.md">Open and special classes</a></li>
+            <li><a href="kotlin-tour-intermediate-properties.md">Properties</a></li>
+            <li><a href="kotlin-tour-intermediate-null-safety.md">Null safety</a></li>
+            <li><a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></li>
+        </ul>
+    </def>
+</deflist>

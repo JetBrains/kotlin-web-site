@@ -77,11 +77,11 @@ sealed interface Animal {
 
 fun feedAnimal(animal: Animal) {
     when (animal) {
-        // Branch with only the primary condition. Returns `feedDog()` when `Animal` is `Dog`
+        // Branch with only the primary condition. Calls `feedDog()` when `animal` is `Dog`
         is Animal.Dog -> animal.feedDog()
-        // Branch with both primary and guard conditions. Returns `feedCat()` when `Animal` is `Cat` and is not `mouseHunter`
+        // Branch with both primary and guard conditions. Calls `feedCat()` when `animal` is `Cat` and is not `mouseHunter`
         is Animal.Cat if !animal.mouseHunter -> animal.feedCat()
-        // Returns "Unknown animal" if none of the above conditions match
+        // Prints "Unknown animal" if none of the above conditions match
         else -> println("Unknown animal")
     }
 }
@@ -970,7 +970,7 @@ This gap required creating custom functions for array transformations, complicat
 This release introduces an adapter function that automatically converts `JsArray<T>` to `Array<T>` and vice versa,
 simplifying array operations.
 
-Here's an example of conversion between generic types: Kotlin `List<T> `and `Array<T>` to JavaScript `JsArray<T>.`
+Here's an example of conversion between generic types: Kotlin `List<T>` and `Array<T>` to JavaScript `JsArray<T>`.
 
 ```kotlin
 val list: List<JsString> =

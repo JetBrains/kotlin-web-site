@@ -77,7 +77,7 @@ To add these libraries:
 
     ![Using DataFrame to display data](add-dataframe-dependency.png){width=700}
 
-5. In a new code cell, use the `.plot` method to visually represent the distribution of TV shows and Movies in your DataFrame.:
+5. In a new code cell, use the `.plot` method to visually represent the distribution of TV shows and Movies in your DataFrame:
 
     ```kotlin
     rawDf

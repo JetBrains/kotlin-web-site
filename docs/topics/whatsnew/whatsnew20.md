@@ -1055,7 +1055,7 @@ import { User, me, KtList } from "my-module"
 
 const allMyFriendNames = me.friends
     .asJsReadonlyArrayView()
-    .map(x => x.name) // [‘Kodee']
+    .map(x => x.name) // ['Kodee']
 ```
 
 > Unfortunately, creating Kotlin collections from JavaScript is still unavailable. We're planning to add this
@@ -1216,7 +1216,6 @@ This version brings the following changes:
 
 * [New Gradle DSL for compiler options in multiplatform projects](#new-gradle-dsl-for-compiler-options-in-multiplatform-projects)
 * [New Compose compiler Gradle plugin](#new-compose-compiler-gradle-plugin)
-* [Bumping minimum supported versions](#bumped-minimum-supported-agp-version)
 * [New attribute to distinguish JVM and Android published libraries](#new-attribute-to-distinguish-jvm-and-android-published-libraries)
 * [Improved Gradle dependency handling for CInteropProcess in Kotlin/Native](#improved-gradle-dependency-handling-for-cinteropprocess-in-kotlin-native)
 * [Visibility changes in Gradle](#visibility-changes-in-gradle)
@@ -1628,10 +1627,10 @@ metrics:
             "GRADLE_TASK": 2724000000,
             "COMPILER_INITIALIZATION": 263000000,
             "IR_GENERATION": 74000000,
-…
+...
           }
         }
-…
+...
  "aggregatedMetrics": {
     "buildTimes": {
       "buildTimesNs": {
@@ -1643,7 +1642,7 @@ metrics:
         "GRADLE_TASK": 3234000000,
         "COMPILER_INITIALIZATION": 292000000,
         "IR_GENERATION": 89000000,
-…
+...
       }
     }
 ```
@@ -1670,7 +1669,7 @@ dependencies {
 
 In this example, the `commonAnnotationProcessors` Gradle configuration is your common configuration for annotation
 processing that you want to be used for all your projects. You use the [`extendsFrom()`](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html#org.gradle.api.artifacts.Configuration:extendsFrom)
-method to add "commonAnnotationProcessors" as a superconfiguration. kapt sees that the `commonAnnotationProcessors` 
+method to add `commonAnnotationProcessors` as a superconfiguration. kapt sees that the `commonAnnotationProcessors` 
 Gradle configuration has a dependency on the Dagger annotation processor. Therefore, kapt includes the Dagger annotation
 processor in its configuration for annotation processing.
 

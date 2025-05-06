@@ -1,26 +1,33 @@
-[//]: # (title: Kotlin Multiplatform plugin releases)
+[//]: # (title: Android Studio plugin releases)
 
-Ensure that you have the latest version of the [Kotlin Multiplatform plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile)
-to continue working with Kotlin Multiplatform projects in Android Studio.
+The [Kotlin Multiplatform plugin for Android Studio](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform)
+helps you develop applications both for Android and iOS.
+Ensure that you have the latest version of the plugin to work with Kotlin Multiplatform projects.
+
+> For the information on the Kotlin Multiplatform Gradle plugin, see its [DSL reference](multiplatform-dsl-reference.md)
+> and the [Compatibility guide](multiplatform-compatibility-guide.md).
+> 
+{style="tip"}
 
 ## Update to the new release
 
-Android Studio will suggest updating to a new Kotlin Multiplatform plugin release as soon as it is available. If you accept the suggestion, it will automatically update the plugin to the latest version. 
-You'll need to restart Android Studio to complete the plugin installation.
+Android Studio suggests updating to a new Kotlin Multiplatform plugin release as soon as it's available.
+If you accept the suggestion, it automatically updates the plugin to the latest version.
+To complete the plugin installation, restart your Android Studio.
 
-You can check the plugin version and update it manually in **Settings/Preferences** | **Plugins**.
+You can check the plugin version and update it manually in **Settings** | **Plugins**.
 
 You need a compatible version of Kotlin for the plugin to work correctly. You can find compatible versions in the [release details](#release-details).
-You can check your Kotlin version and update it in **Settings/Preferences** | **Plugins** or in **Tools** | **Kotlin** | **Configure Kotlin Plugin Updates**.
+To check your Kotlin version and update it, go to **Settings** | **Plugins** or in **Tools** | **Kotlin** | **Configure Kotlin in Project**.
 
->If you do not have a compatible version of Kotlin installed, the Kotlin Multiplatform plugin will be disabled. You will need to update your Kotlin 
->version, and then enable the plugin in **Settings/Preferences** | **Plugins**.
+> If you don't have a compatible version of Kotlin installed, the Kotlin Multiplatform plugin will be disabled.
+> Update your Kotlin version, and then enable the plugin again in **Settings** | **Plugins**.
 >
 {style="note"}
 
 ## Release details
 
-The following table lists the details of the latest Kotlin Multiplatform plugin releases: 
+The following table lists the details of the latest releases of Kotlin Multiplatform plugin for Android Studio: 
 
 <table> 
 <tr>

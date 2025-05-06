@@ -185,7 +185,7 @@ if the dice match or `You lose :(` otherwise.
 > In this exercise, you import a package so that you can use the `Random.nextInt()` function to give you a random `Int`.
 > For more information about importing packages, see [Packages and imports](packages.md).
 >
-{type = "tip"}
+{style="tip"}
 
 <deflist collapsible="true">
     <def title="Hint">

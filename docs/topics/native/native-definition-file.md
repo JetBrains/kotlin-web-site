@@ -74,7 +74,6 @@ For more information, see the corresponding sections below.
 | [`compilerOpts`](#pass-compiler-and-linker-options)                                 | Compiler options that the cinterop tool passes to the C compiler.                                                                                                                                                        |
 | [`linkerOpts`](#pass-compiler-and-linker-options)                                   | Linker options that the cinterop tool passes to the linker.                                                                                                                                                              |
 | [`excludedFunctions`](#ignore-specific-functions)                                   | A space-separated list of function names that should be ignored.                                                                                                                                                         |                                              
-| `excludedMacros`                                                                    |                                                                                                                                                                                                                          |
 | [`staticLibraries`](#include-a-static-library)                                      | [Experimental](components-stability.md#stability-levels-explained). Includes a static library into `.klib`.                                                                                                              |
 | [`libraryPaths`](#include-a-static-library)                                         | [Experimental](components-stability.md#stability-levels-explained). A space-separated list of directories where the cinterop tool searches for the library to be included in `.klib`.                                    |
 | `packageName`                                                                       | Package prefix for the generated Kotlin API.                                                                                                                                                                             |
@@ -215,7 +214,7 @@ Kotlin code.
 To propagate Objective-C exceptions to Kotlin, enable wrapping with the `foreignExceptionMode = objc-wrap` property.
 In this case, Objective-C exceptions are translated into Kotlin exceptions that get the `ForeignException` type.
 
-#### Help resolve linker errors
+### Help resolve linker errors
 
 Linker errors might occur when a Kotlin library depends on C or Objective-C libraries, for example, using the
 [CocoaPods integration](native-cocoapods.md). If dependent libraries aren't installed locally on the machine or configured

@@ -17,9 +17,8 @@ The new architecture and enriched data structure enables the K2 compiler to prov
 * **Easier introduction of syntactic sugar for new language features**. In the future, you'll be able to use more concise,
   readable code when new features are introduced.
 * **Faster compilation times**. Compilation times can be [significantly faster](#performance-improvements).
-* **Enhanced IDE performance**. If you enable K2 mode in IntelliJ IDEA, then IntelliJ IDEA will use the K2 compiler
-  frontend to analyze your Kotlin code, bringing stability and performance improvements. For more information,
-  see [Support in IDEs](#support-in-ides).
+* **Enhanced IDE performance**. Starting with 2025.1, IntelliJ IDEA uses K2 mode to analyze your Kotlin code, increasing
+ stability and providing performance improvements. For more information, see [Support in IDEs](#support-in-ides).
 
 This guide:
 
@@ -556,28 +555,27 @@ For more information on what is possible with build reports, see [Build reports]
 
 ## Support in IDEs
 
-By default, both IntelliJ IDEA and Android Studio 2024.1 use the previous compiler for code analysis, code completion,
-highlighting, and other IDE-related features. This is to ensure performance and stability while we work on integrating 
-the new Kotlin K2 compiler.
+K2 mode in IntelliJ IDEA and Android Studio uses the K2 compiler to improve code analysis, code completion, and highlighting.
 
-If you'd like to try using the same features with the new Kotlin K2 compiler, support is available from IntelliJ IDEA and 
-Android Studio 2024.1. To enable K2 mode:
+Starting with IntelliJ IDEA 2025.1, K2 mode is [enabled by default](https://blog.jetbrains.com/idea/2025/04/k2-mode-in-intellij-idea-2025-1-current-state-and-faq/).
 
-1. In your IDE, go to **Settings** | **Languages & Frameworks** | **Kotlin**.
+In Android Studio, you can enable K2 mode starting with 2024.1 by following these steps:
+
+1. Go to **Settings** | **Languages & Frameworks** | **Kotlin**.
 2. Select the **Enable K2 mode** option.
 
-Learn more about K2 mode in our [blog](https://blog.jetbrains.com/idea/2024/11/k2-mode-becomes-stable/).
+### Previous IDE behavior {initial-collapse-state="collapsed" collapsible="true"}
+
+If you want to go back to the previous IDE behavior, you can disable K2 mode:
+
+1. Go to **Settings** | **Languages & Frameworks** | **Kotlin**.
+2. Deselect the **Enable K2 mode** option.
 
 > We plan to introduce [Stable](components-stability.md#stability-levels-explained) language features after Kotlin 2.1.0.
-> Until then, you can continue to use the previous compiler for code analysis, and you won't encounter any code highlighting
+> Until then, you can continue to use the previous IDE features for code analysis, and you won't encounter any code highlighting
 > issues due to unrecognized language features.
 >
 {style="note"}
-
-It's important to note that regardless of which compiler you use for code analysis in your IDE, the compiler used
-by your build system is **independent** and configured separately in your build script. If you [upgrade your Kotlin version
-to Kotlin 2.0.0 in your build scripts](#how-to-enable-the-kotlin-k2-compiler), the new K2 compiler will be used by default
-by your build system only.
 
 ## Try the Kotlin K2 compiler in the Kotlin Playground
 
@@ -924,7 +922,7 @@ Java field of the same name. Now, `b` resolves to: `Derived.b`.
 > 
 > From Kotlin 2.0.0, IntelliJ IDEA correctly navigates to the same location as the compiler.
 >
-{type ="note"}
+{style="note"}
 
 The general rule is that the subclass takes precedence. The previous example demonstrates this, as the Kotlin property
 `a` from the `Derived` class is resolved because `Derived` is a subclass of the `Base` Java class.
@@ -1311,7 +1309,7 @@ In addition, the Kotlin K2 compiler supports:
 
 ### Upgrade your custom compiler plugins
 
-> Custom compiler plugins use the plugin API, which is [Experimental](https://kotlinlang.org/docs/components-stability.html#stability-levels-explained).
+> Custom compiler plugins use the plugin API, which is [Experimental](components-stability.md#stability-levels-explained).
 > As a result, the API may change at any time, so we can't guarantee backward compatibility.
 >
 {style="warning"}

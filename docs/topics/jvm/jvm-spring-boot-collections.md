@@ -119,7 +119,7 @@ fun groups(): Map<String, List<Message>> {
 ## Transformation operations
 
 A common task with collections is to transform the collection elements from one type to another.
-Of course, Kotlin standard library provides a number of [transformation functions](https://kotlinlang.org/docs/collection-transformations.html) for such tasks.
+Of course, Kotlin standard library provides a number of [transformation functions](collection-transformations.md) for such tasks.
 
 For instance, let's transform a list of `Message` objects into a list of String objects which are composed by concatenating the `id` and the `text` body of the message.
 For that, we can use `map()` function that applies the given lambda function to each subsequent element and returns the list of the lambda results:

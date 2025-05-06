@@ -9,16 +9,16 @@ For a detailed example, see the [Notebook in the KotlinDataFrame SQL Examples Gi
 
 ## Before you start
 
-1. Download and install the latest version of [IntelliJ IDEA Ultimate](https://www.jetbrains.com/idea/download/?section=mac).
-2. Install the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook) in IntelliJ IDEA.
+Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
+which is bundled and enabled in IntelliJ IDEA by default.
 
-   > Alternatively, access the Kotlin Notebook plugin from **Settings** | **Plugins** | **Marketplace** within IntelliJ IDEA.
-   >
-   {style="tip"}
+If the Kotlin Notebook features are not available, ensure the plugin is enabled. For more information,
+see [Set up an environment](kotlin-notebook-set-up-env.md).
 
-3. Create a new Kotlin Notebook by selecting **File** | **New** | **Kotlin Notebook**.
-4. Ensure you have access to an SQL database, such as MariaDB or MySQL.
+Create a new Kotlin Notebook:
 
+1. Select **File** | **New** | **Kotlin Notebook**.
+2. Ensure you have access to an SQL database, such as MariaDB or MySQL.
 
 ## Connect to database
 

@@ -103,7 +103,7 @@ You can choose how the JS IR compiler outputs `.js` files in your project:
   
      ```none
      # gradle.properties
-     kotlin.js.ir.output.granularity=per-file // `per-module` is the default
+     kotlin.js.ir.output.granularity=per-file // 'per-module' is the default
      ```
 
 ## Minification of member names in production

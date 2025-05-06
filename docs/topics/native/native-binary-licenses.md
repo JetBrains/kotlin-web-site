@@ -51,7 +51,7 @@ Always include the following license files for the corresponding projects:
         <td><a href="https://github.com/microsoft/mimalloc">mimalloc</a></td>
         <td>
           <p><a href="https://github.com/JetBrains/kotlin/blob/master/kotlin-native/licenses/third_party/mimalloc_LICENSE.txt">MIT license</a></p>
-          <p>Include in case you use the mimaloc memory allocator instead of the default one (the <code>-Xallocator=mimalloc</code> compiler option is set).</p>
+          <p>Include in case you use the mimalloc memory allocator instead of the default one (the <code>-Xallocator=mimalloc</code> compiler option is set).</p>
         </td>
    </tr>
    <tr>

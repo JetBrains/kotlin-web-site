@@ -8,16 +8,9 @@ export function isStaging(baseURL: string): boolean {
 }
 
 export const closeCookiesConsentBanner = async (context: BrowserContext, baseURL: string) => {
-    await context.addCookies([
-        {
-            name: 'jb_cookies_consent_closed',
-            value: 'true',
-            url: baseURL,
-        },
-        {
-            name: 'adConsent',
-            value: 'false',
-            url: baseURL,
-        },
-    ]);
+    const page = await context.newPage();
+    await page.goto(baseURL);
+    await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
+    await page.click('button.ch2-btn.ch2-btn-primary');
+    await page.close();
 };

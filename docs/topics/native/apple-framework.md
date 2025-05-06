@@ -326,7 +326,7 @@ You can find more information about type mapping in [Interoperability with Swift
 ## Garbage collection and reference counting
 
 Swift and Objective-C use automatic reference counting (ARC). Kotlin/Native has its own [garbage collector](native-memory-manager.md#garbage-collector),
-which is also [integrated with Objective-C/Swift ARC](native-arc-integration.md).
+which is also [integrated with Swift/Objective-C ARC](native-arc-integration.md).
 
 Unused Kotlin objects are automatically removed. You don't need to take additional steps to control the lifetime of
 Kotlin/Native instances from Swift or Objective-C.

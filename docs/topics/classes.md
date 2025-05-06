@@ -191,7 +191,7 @@ The process of creating instances of nested, inner, and anonymous inner classes 
 
 Classes can contain:
 
-* [Constructors and initializer blocks](classes.md#constructors)
+* [Constructors and initializer blocks](#constructors)
 * [Functions](functions.md)
 * [Properties](properties.md)
 * [Nested and inner classes](nested-classes.md)

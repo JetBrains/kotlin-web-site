@@ -11,7 +11,7 @@ In the result map of `groupBy()` with two lambdas, the keys produced by `keySele
 of the value transformation function instead of the original elements.
 
 This example illustrates using the `groupBy()` function to group the strings by their first letter, iterating through
-the groups on the resulting `Map` with the `for` operator, and then transforming the values to uppercase using the `keySelector` function:
+the groups on the resulting `Map` with the `for` operator, and then transforming the values to uppercase using the `valueTransform` function:
 
 ```kotlin
 fun main() {
