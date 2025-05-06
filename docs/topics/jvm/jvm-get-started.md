@@ -21,7 +21,7 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
    If you want to create a more complex project that needs further configuration, select Maven or Gradle. For Gradle,
    choose a language for the build script: Kotlin or Groovy.
-5. From the **JDK list**, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in
+5. From the **JDK** list, select the [JDK](https://www.oracle.com/java/technologies/downloads/) that you want to use in
    your project.
    * If the JDK is installed on your computer, but not defined in the IDE, select **Add JDK** and specify the path to the
    JDK home directory. 

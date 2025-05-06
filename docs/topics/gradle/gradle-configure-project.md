@@ -185,7 +185,7 @@ in the `java` extension or task cause JVM target incompatibility. For example:
 the `compileKotlin` task has `jvmTarget=1.8`, and
 the `compileJava` task has (or [inherits](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java-extension)) `targetCompatibility=15`.
 
-Configure the behavior of this check for the whole project by setting the `kotlin.jvm.target.validation.mode` property in the `build.gradle(.kts)`
+Configure the behavior of this check for the whole project by setting the `kotlin.jvm.target.validation.mode` property in the `gradle.properties`
 file to:
 
 * `error` – the plugin fails the build; the default value for projects on Gradle 8.0+.

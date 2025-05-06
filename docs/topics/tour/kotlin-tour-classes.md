@@ -332,7 +332,7 @@ how you can use this class.
 > In this exercise, you import a package so that you can use the [`Random.nextInt()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.random/-random/next-int.html) function.
 > For more information about importing packages, see [Packages and imports](packages.md).
 >
-{type = "tip"}
+{style="tip"}
 
 <deflist collapsible="true" id="kotlin-tour-classes-exercise-3-hint-1">
     <def title="Hint 1">

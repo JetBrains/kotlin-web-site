@@ -11,6 +11,15 @@
 		<toc-element hidden="true" topic="kotlin-tour-functions.md"/>
 		<toc-element hidden="true" topic="kotlin-tour-classes.md"/>
 		<toc-element hidden="true" topic="kotlin-tour-null-safety.md"/>
+        <toc-element hidden="true" topic="kotlin-tour-intermediate-extension-functions.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-intermediate-scope-functions.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-intermediate-lambdas-receiver.md"/>
+        <toc-element hidden="true" topic="kotlin-tour-intermediate-classes-interfaces.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-intermediate-objects.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-intermediate-open-special-classes.md"/>
+        <toc-element hidden="true" topic="kotlin-tour-intermediate-properties.md"/>
+		<toc-element hidden="true" topic="kotlin-tour-intermediate-null-safety.md"/>
+        <toc-element hidden="true" topic="kotlin-tour-intermediate-libraries-and-apis.md"/>
 	</toc-element>
 	<toc-element toc-title="Kotlin overview">
 		<toc-element topic="multiplatform.topic"/>
@@ -25,7 +34,7 @@
 	<toc-element toc-title="What's new in Kotlin">
 		<toc-element toc-title="Kotlin 2.1.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2120.md"/>
 		<toc-element toc-title="Kotlin 2.1.0" topic="whatsnew21.md"/>
-		<toc-element toc-title="Kotlin 2.1.20-RC3" topic="whatsnew-eap.md" hidden="true"/>
+		<toc-element toc-title="Kotlin 2.2.0-Beta2" topic="whatsnew-eap.md"/>
 		<toc-element toc-title="Earlier versions">
 			<toc-element toc-title="Kotlin 2.0.20" topic="whatsnew2020.md"/>
 			<toc-element toc-title="Kotlin 2.0.0" topic="whatsnew20.md"/>
@@ -155,7 +164,7 @@
 			<toc-element accepts-web-file-names="mpp-dsl-reference.html,mpp-supported-platforms.html,multiplatform-supported-platforms.html" topic="multiplatform-dsl-reference.md"/>
 			<toc-element topic="multiplatform-android-layout.md"/>
 			<toc-element toc-title="Compatibility guide" topic="multiplatform-compatibility-guide.md"/>
-			<toc-element topic="multiplatform-plugin-releases.md"/>
+			<toc-element toc-title="Android Studio plugin" topic="multiplatform-plugin-releases.md"/>
 		</toc-element>
 	</toc-element>
 	<toc-element toc-title="Data analysis">

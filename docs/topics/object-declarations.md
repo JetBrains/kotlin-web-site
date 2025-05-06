@@ -95,7 +95,7 @@ of an assignment statement:
 ```kotlin
 // Syntax error: An object expression cannot bind a name.
 val myObject = object MySingleton {
-val name = "Singleton"
+    val name = "Singleton"
 }
 ```
 Object declarations cannot be local, which means they cannot be nested directly inside a function.

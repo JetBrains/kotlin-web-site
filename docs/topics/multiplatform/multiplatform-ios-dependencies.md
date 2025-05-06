@@ -251,7 +251,7 @@ Learn more about [Objective-C and Swift interop](native-objc-interop.md) and
    * [From a custom Podspec repository](native-cocoapods-libraries.md#from-a-custom-podspec-repository)
    * [With custom cinterop options](native-cocoapods-libraries.md#with-custom-cinterop-options)
 
-3. Run **Reload All Gradle Projects** in IntelliJ IDEA (or **Sync Project with Gradle Files** in Android Studio)
+3. Run **Build** | **Reload All Gradle Projects** in IntelliJ IDEA (or **File** | **Sync Project with Gradle Files** in Android Studio)
    to re-import the project.
 
 To use the dependency in your Kotlin code, import the package `cocoapods.<library-name>`. For the example above, it's:

@@ -206,7 +206,7 @@ fun main() {
 
 ## What's next?
 
-Congratulations! Now that you have completed the Kotlin tour, check out our tutorials for popular Kotlin applications:
+Congratulations! Now that you have completed the beginner tour, take your understanding of Kotlin to the next level with
+our intermediate tour:
 
-* [Create a backend application](jvm-create-project-with-spring-boot.md)
-* [Create a cross-platform application for Android and iOS](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)
+<a href="kotlin-tour-intermediate-extension-functions.md"><img src="start-intermediate-tour.svg" width="700" alt="Start the intermediate Kotlin tour" style="block"/></a>

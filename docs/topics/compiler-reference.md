@@ -25,18 +25,18 @@ For details, see [Gradle compiler options](gradle-compiler-options.md#how-to-def
 For details, see [Maven](maven.md#specify-compiler-options).
 * If you run a command-line compiler, add the compiler arguments directly to the utility call or write them into an [argfile](#argfile).
 
-For example: 
+  For example:
 
-```bash
-$ kotlinc hello.kt -include-runtime -d hello.jar
-```
+  ```bash
+  $ kotlinc hello.kt -include-runtime -d hello.jar
+  ```
 
->On Windows, when you pass compiler arguments that contain delimiter characters (whitespace, `=`, `;`, `,`),
->surround these arguments with double quotes (`"`).
->```
->$ kotlinc.bat hello.kt -include-runtime -d "My Folder\hello.jar"
->```
-{style="note"}
+  > On Windows, when you pass compiler arguments that contain delimiter characters (whitespace, `=`, `;`, `,`),
+  > surround these arguments with double quotes (`"`).
+  > ```
+  > $ kotlinc.bat hello.kt -include-runtime -d "My Folder\hello.jar"
+  > ```
+  {style="note"}
 
 ## Common options
 
