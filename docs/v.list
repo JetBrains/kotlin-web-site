@@ -48,6 +48,10 @@
     <var name="kspSupportedKotlinVersion" value="2.2.0-Beta2" type="string"/>
     <var name="kspVersion" value="1.0.32" type="string"/>
 
+    <!-- Spring -->
+    <var name="springBootSupportedKotlinVersion" value="1.9.25" type="string"/>
+    <var name="springBootVersion" value="3.4.5" type="string"/>
+
     <!-- Other -->
     <var name="defaultJvmTargetVersion" value="1.8" type="string"/>
 
@@ -58,8 +62,6 @@
 
     <var name="foojayResolver" value="0.9.0" type="string"/>
     <var name="jctoolsVersion" value="3.3.0" type="string"/>
-
-    <var name="springBootVersion" value="3.4.4" type="string"/>
 
     <var name="dokkaVersion"
          value="2.0.0"

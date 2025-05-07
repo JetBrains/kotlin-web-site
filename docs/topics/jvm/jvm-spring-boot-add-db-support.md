@@ -304,12 +304,12 @@ Extend the functionality of the application to retrieve the individual messages 
         <list>
             <li>SQL query string that requires a parameter to run</li>
             <li><code>id</code>, which is a parameter of type String</li>
-            <li><code>RowMapper</code> instance is implemented by a lambda expression</li>
+            <li><code>RowMapper</code> instance, which implemented by a lambda expression</li>
         </list>
         <p>The second parameter for the <code>query()</code> function is declared as a <i>variable argument</i> (<code>vararg</code>). In Kotlin, the position of the variable arguments parameter is not required to be the last in the parameters list.</p>
     </def>
     <def title="singleOrNull() function">
-       <p>The <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/single-or-null.html"><code>singleOrNull()</code></a> function returns a single element, or <code>null</code> if the array is empty or has more than one element.</p>
+       <p>The <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/single-or-null.html"><code>singleOrNull()</code></a> function returns a single element, or <code>null</code> if the array is empty or has more than one element with the same value.</p>
     </def>
    </deflist>
     

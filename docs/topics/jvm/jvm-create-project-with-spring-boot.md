@@ -8,7 +8,7 @@
 
 The first part of the tutorial shows how to create a Spring Boot project with Gradle in IntelliJ IDEA using the Project Wizard.
 
-> This tutorial doesn't depend on using Gradle as the build system. You can follow the same steps if you use Maven.
+> This tutorial doesn't require using Gradle as the build system. You can follow the same steps if you use Maven.
 > 
 {style="note"}
 
@@ -27,7 +27,7 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**. 
 2. In the panel on the left, select **New Project** | **Spring Boot**.
-3. Specify the following fields and options in the Project Wizard window:
+3. Specify the following fields and options in the **New Project** window:
    
    * **Name**: demo
    * **Language**: Kotlin
@@ -84,8 +84,8 @@ Here is the full script with the explanation of all parts and dependencies:
 ```kotlin
 // build.gradle.kts
 plugins {
-    kotlin("jvm") version "%kotlinVersion%" // The version of Kotlin to use
-    kotlin("plugin.spring") version "%kotlinVersion%" // The Kotlin Spring plugin
+    kotlin("jvm") version "%springBootSupportedKotlinVersion%" // The version of Kotlin to use
+    kotlin("plugin.spring") version "%springBootSupportedKotlinVersion%" // The Kotlin Spring plugin
     id("org.springframework.boot") version "%springBootVersion%"
     id("io.spring.dependency-management") version "1.1.7"
 }

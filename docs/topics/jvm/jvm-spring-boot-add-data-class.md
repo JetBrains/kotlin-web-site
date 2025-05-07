@@ -12,7 +12,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
 ## Update your application
 
 1. In the same package, next to the `DemoApplication.kt` file, create a `Message.kt` file.
-3. In the `Message.kt` file, create a data class with two properties: `id` and `text`:
+2. In the `Message.kt` file, create a data class with two properties: `id` and `text`:
 
     ```kotlin
     // Message.kt
@@ -51,7 +51,7 @@ It requires changing the `MessageController` class to respond with a JSON docume
           </code-block>
        </def>
    </deflist>
-2. In the `MessageController.kt` file, instead of the `index()` function, create the `listMessages()` function returning a list of `Message` objects:
+3. In the `MessageController.kt` file, instead of the `index()` function, create the `listMessages()` function returning a list of `Message` objects:
 
     ```kotlin
     // MessageController.kt
@@ -78,8 +78,8 @@ It requires changing the `MessageController` class to respond with a JSON docume
           <p>The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and maps.<br/>
           Each collection type can be <i>read-only</i> or <i>mutable</i>:</p>
           <list>
-              <li>A <i>read-only</i> interface that provides operations for accessing collection elements.</li>
-              <li>A <i>mutable</i> interface that extends the corresponding read-only interface with write operations: adding, removing, and updating its elements.</li>
+              <li>A <i>read-only</i> collection comes with operations for accessing collection elements.</li>
+              <li>A <i>mutable</i> collection comes also with write operations for adding, removing, and updating its elements.</li>
           </list>
           <p>The corresponding factory functions are also provided by the Kotlin Standard Library to create instances of such collections.
           </p>

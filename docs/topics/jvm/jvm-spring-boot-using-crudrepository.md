@@ -207,7 +207,7 @@ class MessageController(private val service: MessageService) {
 ## Run the application
 
 Congratulations! The application is ready to run again.
-After replacing `JdbcTemplate` with `CrudRepository`, the functionality remains the same, so the application should work just as before.
+After replacing `JdbcTemplate` with `CrudRepository`, the functionality remains the same, so the application works just as before.
 
 You can now [run the POST and GET HTTP requests](jvm-spring-boot-add-db-support.md#add-messages-to-database-via-http-request) from the `requests.http` file and get the same results.
 
