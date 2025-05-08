@@ -133,7 +133,7 @@ class Bar : Foo() {
 There are some limitations:
 
 - When a function of an external base class is overloaded by signature, you can't override it in a derived class.
-- You can't override a function with default arguments.
+- You can't override a function with optional parameters.
 - Non-external classes can't be extended by external classes.
 
 ### external interfaces
