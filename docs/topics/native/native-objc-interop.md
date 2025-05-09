@@ -9,7 +9,7 @@
 >
 {style="warning"}
 
-This document covers some aspects of Kotlin/Native interoperability with Swift/Objective-C: how you can use Kotlin
+Kotlin/Native provides indirect interoperability with Swift through Objective-C. This document covers how you can use Kotlin
 declarations in Swift/Objective-C code and Objective-C declarations in Kotlin code.
 
 Some other resources you might find useful:
@@ -43,7 +43,7 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a framewor
 >
 {style="warning"}
 
-To make your Kotlin code more Objective-C/Swift-friendly, you can hide a Kotlin declaration from Objective-C and Swift
+To make your Kotlin code more Swift/Objective-C-friendly, you can hide a Kotlin declaration from Objective-C and Swift
 with `@HiddenFromObjC`. The annotation disables a function or property export to Objective-C.
 
 Alternatively, you can mark Kotlin declarations with the `internal` modifier to restrict their visibility in the
@@ -186,9 +186,9 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 | `companion` member <-  | Class method or property         | Class method or property         |                                                                                    |
 | `null`                 | `nil`                            | `nil`                            |                                                                                    |
 | `Singleton`            | `shared` or `companion` property | `shared` or `companion` property | [note](#kotlin-singletons)                                                         |
-| Primitive type         | Primitive type / `NSNumber`      |                                  | [note](#nsnumber)                                                                  |
+| Primitive type         | Primitive type / `NSNumber`      |                                  | [note](#primitive-types)                                                           |
 | `Unit` return type     | `Void`                           | `void`                           |                                                                                    |
-| `String`               | `String`                         | `NSString`                       |                                                                                    |
+| `String`               | `String`                         | `NSString`                       | [note](#strings)                                                                   |
 | `String`               | `NSMutableString`                | `NSMutableString`                | [note](#nsmutablestring)                                                           |
 | `List`                 | `Array`                          | `NSArray`                        |                                                                                    |
 | `MutableList`          | `NSMutableArray`                 | `NSMutableArray`                 |                                                                                    |
@@ -304,7 +304,7 @@ All Kotlin exceptions are unchecked, meaning that errors are caught at runtime. 
 that are handled at compile time. So, if Swift or Objective-C code calls a Kotlin method that throws an exception,
 the Kotlin method should be marked with the `@Throws` annotation, specifying a list of "expected" exception classes.
 
-When compiling to the Objective-C/Swift framework, non-`suspend` functions that have or inherit the `@Throws` annotation
+When compiling to the Swift/Objective-C framework, non-`suspend` functions that have or inherit the `@Throws` annotation
 are represented as `NSError*`-producing methods in Objective-C and as `throws` methods in Swift.
 Representations for `suspend` functions always have `NSError*`/`Error` parameter in completion handler.
 
@@ -438,7 +438,7 @@ See more examples in the Kotlin-Swift interopedia:
 * [How to access Kotlin objects using `shared`](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/classesandinterfaces/Objects.md)
 * [How to access members of Kotlin companion objects from Swift](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/classesandinterfaces/Companion%20objects.md).
 
-### NSNumber
+### Primitive types
 
 Kotlin primitive type boxes are mapped to special Swift/Objective-C classes. For example, the `kotlin.Int` box is represented
 as `KotlinInt` class instance in Swift (or `${prefix}Int` instance in Objective-C, where `prefix` is the framework names prefix).
@@ -449,17 +449,73 @@ or return value. The reason is that `NSNumber` type doesn't provide enough infor
 type, for example, `NSNumber` is statically not known to be `Byte`, `Boolean`, or `Double`. So Kotlin primitive values
 should be [cast to and from `NSNumber` manually](#casting-between-mapped-types).
 
-### NSMutableString
+### Strings
+
+When a Kotlin `String` is passed to Swift, it's first exported as an Objective-C object, and then copied one more time
+for a Swift conversion. This results in additional runtime overhead.
+
+To avoid that, access Kotlin strings in Swift directly as an Objective-C `NSString` instead.
+[See the conversion example](#see-the-conversion-example).
+
+#### NSMutableString
 
 `NSMutableString` Objective-C class is not available from Kotlin.
 All instances of `NSMutableString` are copied when passed to Kotlin.
 
 ### Collections
 
-Kotlin collections are converted to Swift/Objective-C collections as described in the [table above](#mappings).
-Swift/Objective-C collections are mapped to Kotlin in the same way, except for `NSMutableSet` and `NSMutableDictionary`.
+#### Kotlin -> Objective-C -> Swift
 
-`NSMutableSet` isn't converted to a Kotlin `MutableSet`. To pass an object to Kotlin `MutableSet`, explicitly create this
+When a Kotlin collection is passed to Swift, it's first converted to an Objective-C equivalent, and then the Swift compiler
+copies the entire collection and converts it into a Swift-native collection as described in the [table above](#mappings).
+
+This last conversion leads to performance costs. To prevent this, when using Kotlin collections in Swift,
+explicitly cast them to their Objective-C counterparts: `NSDictionary`, `NSArray`, or `NSSet`.
+
+##### See the conversion example {initial-collapse-state="collapsed" collapsible="true"}
+
+For example, the following Kotlin declaration:
+
+```kotlin
+data class Data(val map: Map<String, String>) {
+    fun getFromMap(key: String) = map[key]
+}
+```
+
+In Swift, might be used like this:
+
+```Swift
+mapEveryAccessDuration = clock.measure {
+    var totalLength = 0
+    for key in ["lorem", "ipsum", "dolor", "sit", "amet"] {
+        totalLength += data!.map[key]?.count ?? 0
+    }
+}
+```
+
+Here, `data!.map` is implicitly converted to Swift's `Dictionary`, and its string values are mapped to `String`.
+This results in a performance cost.
+
+To avoid the conversion, explicitly cast `map` to Objective-C's `NSDictionary` and access values as `NSString` instead:
+
+```Swift
+mapEveryAccessDuration = clock.measure {
+    var totalLength = 0
+    for key in ["lorem", "ipsum", "dolor", "sit", "amet"] {
+        let map: NSDictionary = data!.map as NSDictionary
+        totalLength += (map[key] as? NSString)?.length ?? 0
+    }
+}
+```
+
+This ensures that the Swift compiler doesn't perform an additional conversion step.
+
+#### Swift -> Objective-C -> Kotlin
+
+Swift/Objective-C collections are mapped to Kotlin as described in the [table above](#mappings),
+except for `NSMutableSet` and `NSMutableDictionary`.
+
+`NSMutableSet` isn't converted to a Kotlin's `MutableSet`. To pass an object to Kotlin `MutableSet`, explicitly create this
 kind of Kotlin collection. To do this, use, for example, the `mutableSetOf()` function in Kotlin or the
 `KotlinMutableSet` class in Swift and `${prefix}MutableSet` in Objective-C (`prefix` is the framework names prefix).
 The same is true for `MutableMap`.
