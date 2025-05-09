@@ -1,25 +1,17 @@
 package builds.apiReferences.templates
 
+import jetbrains.buildServer.configs.kotlin.BuildTypeSettings
 import jetbrains.buildServer.configs.kotlin.Template
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import vcsRoots.KotlinLangOrg
 
-object PrepareDokkaTemplate: Template({
-  name = "Build Custom HTML Template"
+fun BuildTypeSettings.configureReferenceTemplate() {
   artifactRules = """
       dokka-templates/** => dokka-templates
   """.trimIndent()
 
   requirements {
     doesNotContain("teamcity.agent.name", "windows")
-  }
-
-  params {
-//      param("env.ALGOLIA_INDEX_NAME", "")
-      param("env.API_REFERENCE_NAME", "")
-  }
-
-  vcs {
-    root(vcsRoots.KotlinLangOrg)
   }
 
   steps {
@@ -43,5 +35,15 @@ object PrepareDokkaTemplate: Template({
       """.trimIndent()
       dockerImage = "node:16-alpine"
     }
+  }
+}
+
+object PrepareDokkaTemplate : Template({
+  configureReferenceTemplate()
+
+  name = "Build Custom HTML Template"
+
+  vcs {
+    root(KotlinLangOrg)
   }
 })
