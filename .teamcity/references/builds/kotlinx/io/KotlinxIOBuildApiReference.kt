@@ -11,6 +11,7 @@ import references.vcsRoots.KotlinxIO
 object KotlinxIOBuildApiReference : BuildApiPages(
     apiId = KOTLINX_IO_ID,
     releaseTag = KOTLINX_IO_RELEASE_LABEL.removePrefix("v"),
+    pagesRoot = "build/dokka/html",
     stepDokkaVersionSync = {
         // TODO readme, and disable this step for other libs too
         null
@@ -25,7 +26,7 @@ object KotlinxIOBuildApiReference : BuildApiPages(
                 scriptContent = """
                     #!/bin/bash
                      set -e -u
-                    ./gradlew dokkaHtmlMultiModule --no-daemon --no-configuration-cache
+                    ./gradlew dokkaGenerate --no-daemon --no-configuration-cache
                 """.trimIndent()
             }
         }
