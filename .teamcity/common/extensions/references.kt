@@ -143,6 +143,7 @@ fun BuildTypeSettings.configureReferenceTemplate() {
 
     steps {
         script {
+            id = "step-npm-sharp-platform"
             name = "Fix npm sharp platform related issue"
             //language=sh
             scriptContent = """
@@ -150,6 +151,7 @@ fun BuildTypeSettings.configureReferenceTemplate() {
             """.trimIndent()
         }
         script {
+            id = "step-install-dependencies"
             name = "Install dependencies"
             //language=sh
             scriptContent = """
@@ -158,6 +160,7 @@ fun BuildTypeSettings.configureReferenceTemplate() {
             dockerImage = "node:16-alpine"
         }
         script {
+            id = "step-build-templates"
             name = "Build Templates"
             //language=sh
             scriptContent = """
