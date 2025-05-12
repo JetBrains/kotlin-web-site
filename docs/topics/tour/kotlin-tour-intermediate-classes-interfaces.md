@@ -286,7 +286,7 @@ interface Drawable {
 ```
 
 You create a class called `Circle` which implements the `Drawable` interface and provides implementations for all of
-its member functions:
+its members:
 
 ```kotlin
 class Circle : Drawable {
@@ -297,6 +297,7 @@ class Circle : Drawable {
     override fun resize() {
         TODO("An example implementation")
     }
+   override val color = null
 }
 ```
 
@@ -328,7 +329,7 @@ you can create an instance of the `Circle` class and delegate the implementation
 class to this instance. To do this, use the `by` keyword. For example:
 
 ```kotlin
-class RedCircle(param: Circle) : Circle by param
+class RedCircle(param: Circle) : Drawable by param
 ```
 
 Here, `param` is the name of the instance of the `Circle` class that the implementations of member functions are delegated to.
@@ -340,7 +341,7 @@ you add code only for the behavior you want to change for your child class.
 For example, if you want to change the value of the `color` property:
 
 ```kotlin
-class RedCircle(param : Circle) : Circle by param {
+class RedCircle(param : Circle) : Drawable by param {
     // No boilerplate code!
     override val color = "red"
 }
@@ -670,7 +671,7 @@ class BasicMessenger : Messenger {
     }
 }
 
-class SmartMessenger(private val basicMessenger: BasicMessenger) : Messenger by basicMessenger {
+class SmartMessenger(val basicMessenger: BasicMessenger) : Messenger by basicMessenger {
     override fun sendMessage(message: String) {
         println("Sending a smart message: $message")
         basicMessenger.sendMessage("[smart] $message")
