@@ -37,6 +37,7 @@ private fun BuildSteps.downloadAndroidSdk() = script {
 class ComposeMultiplatformCore(init: ComposeMultiplatformCore.() -> Unit) : ReferenceProject("compose-multiplatform") {
     init {
         init()
+        build()
     }
 
     fun addVersion(version: String, tagOrBranch: String) = addReference(version) {

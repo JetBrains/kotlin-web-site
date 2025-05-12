@@ -11,7 +11,7 @@ import vcsRoots.KotlinLangVcs
 const val DEFAULT_DOKKA_PATH = "build/dokka/htmlMultiModule"
 
 fun ReferenceProject.referenceVcs(version: String, vcsUrl: String, tagOrBranch: String) = GitVcsRoot {
-    id = RelativeId("${project.id}_${version.replace(".", "")}_Vcs")
+    id = RelativeId("${version.replace(".", "")}_Vcs")
     name = version
 
     url = vcsUrl
@@ -31,12 +31,12 @@ fun ReferenceProject.referenceTemplate(apiVersion: String, algoliaIndex: String,
     BuildType {
         configureReferenceTemplate()
 
-        id = RelativeId("${project.id}_${apiVersion.replace(".", "")}_Template")
+        id = RelativeId("${apiVersion.replace(".", "")}_Template")
         name = "$apiVersion templates"
         description = "Build Dokka Templates for $projectName"
 
         val templateVcs = KotlinLangVcs {
-            id = RelativeId("${project.id}_${apiVersion.replace(".", "")}_Template_Vcs")
+            id = RelativeId("${apiVersion.replace(".", "")}_Template_Vcs")
             name = "$apiVersion templates vcs"
             branch = tagOrBranch ?: VCS.branch("master")
             branchSpec = ""
@@ -64,7 +64,7 @@ fun ReferenceProject.referencePages(
     template: TemplateDep? = null,
     steps: (BuildSteps.() -> Unit)? = null
 ) = BuildType {
-    id = RelativeId("${project.id}_${version.replace(".", "")}_Build")
+    id = RelativeId("${version.replace(".", "")}_Build")
     name = "$version pages"
     description = "Build pages for $projectName"
 
