@@ -6,6 +6,7 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.RelativeId
 import templates.SCRIPT_PATH
+import templates.TemplateSearchIndex
 import vcsRoots.KotlinLangOrg
 
 private fun String.camelCase(delim: String = "-", join: String = "") =
@@ -19,8 +20,8 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
     }
 
     val projectName = projectTitle.camelCase(join = " ")
-
     val projectPrefix = urlPart.camelCase()
+
     val project = Project {
         id = RelativeId(projectPrefix)
         name = projectName
@@ -32,64 +33,69 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
         }
     }
 
-    protected val versions = mutableListOf<Pair<BuildType, String>>()
+    val versions = mutableListOf<Pair<BuildType, String>>()
 
-    fun getCurrentVersion(): Pair<BuildType, String>? = this.versions.lastOrNull()
+    val currentVersion: BuildType
+        get() = this.versions.lastOrNull()?.first
+            ?: throw IllegalStateException("Current version is not set for $projectName")
 
     fun addReference(version: String, buildReference: ProjectReferenceBuilder) {
         versions.add(buildReference() to version)
     }
 
-    fun build() {
-        val (currentVersion) = getCurrentVersion()
-            ?: throw IllegalStateException("Current version is not set for $projectName")
+    fun pagesSearchType(workingDir: String) = BuildType {
+        id = RelativeId("${projectPrefix}_Latest")
+        name = "API Pages"
+        description = "The latest stable version for $projectName"
+        artifactRules = "$workingDir/** => pages.zip"
 
-        val workingDir = "dist/api/$urlPart"
+        vcs {
+            root(KotlinLangOrg, "${SCRIPT_PATH}/")
+        }
 
-        val pages = BuildType {
-            id = RelativeId("${projectPrefix}_Latest")
-            name = "API Pages"
-            description = "The latest stable version for $projectName"
+        steps {
+            step(scriptNoRobots(workingDir))
+            step(scriptGenerateSitemap(workingDir))
+        }
 
-            artifactRules = "$workingDir/** => pages.zip"
-
-            vcs {
-                root(KotlinLangOrg, "${SCRIPT_PATH}/")
-            }
-
-            steps {
-                step(scriptNoRobots(workingDir))
-                step(scriptGenerateSitemap(workingDir))
-            }
-
-            dependencies {
-                dependency(currentVersion) {
-                    snapshot {}
-                    artifacts {
-                        artifactRules = "pages.zip!** => $workingDir"
-                        cleanDestination = true
-                    }
+        dependencies {
+            dependency(currentVersion) {
+                snapshot {}
+                artifacts {
+                    artifactRules = "pages.zip!** => $workingDir"
+                    cleanDestination = true
                 }
             }
         }
+    }
+
+    fun searchBuildType(workingDir: String, pages: BuildType) = TemplateSearchIndex {
+        id = RelativeId("${projectPrefix}_Search")
+        name = "API Search Index"
+        description = "Build search index for $projectName"
+
+        params {
+            param("env.ALGOLIA_INDEX_NAME", urlPart)
+        }
+
+        dependencies {
+            dependency(pages) {
+                snapshot {}
+                artifacts {
+                    artifactRules = "pages.zip!** => $workingDir"
+                    cleanDestination = true
+                }
+            }
+        }
+    }
+
+    fun build() {
+        val workingDir = "dist/api/$urlPart"
+        val pages = pagesSearchType(workingDir)
 
         project.apply {
             buildType(pages)
-            buildType {
-                id = RelativeId("${projectPrefix}_Search")
-                name = "API Search Index"
-                description = "Build search index for $projectName"
-
-                dependencies {
-                    dependency(pages) {
-                        snapshot {}
-                        artifacts {
-                            artifactRules = "pages.zip!** => $workingDir"
-                            cleanDestination = true
-                        }
-                    }
-                }
-            }
+            buildType(searchBuildType(workingDir, pages))
         }
 
         currentVersion.dependencies {
