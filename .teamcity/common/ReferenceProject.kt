@@ -58,7 +58,7 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
             }
 
             steps {
-                scriptNoRobots(workingDir)
+                step(scriptNoRobots(workingDir))
                 step(scriptGenerateSitemap(workingDir))
             }
 
