@@ -20,8 +20,9 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
 
     val projectName = projectTitle.camelCase(join = " ")
 
+    val projectPrefix = urlPart.camelCase()
     val project = Project {
-        id = RelativeId(urlPart.camelCase())
+        id = RelativeId(projectPrefix)
         name = projectName
         description = "Project for https://kotlinlang.org/api/$urlPart/"
 
@@ -46,7 +47,7 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
         val workingDir = "dist/api/$urlPart"
 
         val pages = BuildType {
-            id = RelativeId("${project.id}_Latest")
+            id = RelativeId("${projectPrefix}_Latest")
             name = "API Pages"
             description = "The latest stable version for $projectName"
 
@@ -75,7 +76,7 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
         project.apply {
             buildType(pages)
             buildType {
-                id = RelativeId("${project.id}_Search")
+                id = RelativeId("${projectPrefix}_Search")
                 name = "API Search Index"
                 description = "Build search index for $projectName"
 
