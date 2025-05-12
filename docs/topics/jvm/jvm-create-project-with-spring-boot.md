@@ -6,27 +6,28 @@
     <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Create a Spring Boot project with Kotlin</strong><br/><img src="icon-2-todo.svg" width="20" alt="Second step"/> Add a data class to the Spring Boot project<br/><img src="icon-3-todo.svg" width="20" alt="Third step"/> Add database support for the Spring Boot project<br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access<br/></p>
 </tldr>
 
-The first part of the tutorial shows you how to create a Spring Boot project in IntelliJ IDEA using Project Wizard.
+The first part of the tutorial shows how to create a Spring Boot project with Gradle in IntelliJ IDEA using the Project Wizard.
+
+> This tutorial doesn't require using Gradle as the build system. You can follow the same steps if you use Maven.
+> 
+{style="note"}
 
 ## Before you start
 
 Download and install the latest version of [IntelliJ IDEA Ultimate Edition](https://www.jetbrains.com/idea/download/index.html).
 
-> If you use IntelliJ IDEA Community Edition or another IDE, you can generate a Spring Boot project using a [web-based project generator](https://start.spring.io).
+> If you use IntelliJ IDEA Community Edition or another IDE, you can generate a Spring Boot project using
+> a [web-based project generator](https://start.spring.io/#!language=kotlin&type=gradle-project-kotlin).
 > 
-{style="note"}
+{style="tip"}
 
 ## Create a Spring Boot project
 
 Create a new Spring Boot project with Kotlin by using the Project Wizard in IntelliJ IDEA Ultimate Edition:
 
-> You can also create a new project using [IntelliJ IDEA with the Spring Boot plugin](https://www.jetbrains.com/help/idea/spring-boot.html).
->
-{style="note"}
-
 1. In IntelliJ IDEA, select **File** | **New** | **Project**. 
 2. In the panel on the left, select **New Project** | **Spring Boot**.
-3. Specify the following fields and options in the Project Wizard window:
+3. Specify the following fields and options in the **New Project** window:
    
    * **Name**: demo
    * **Language**: Kotlin
@@ -36,10 +37,10 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
      >
      {style="tip"}
 
-   * **Package name**: demo
+   * **Package name**: com.example.demo
    * **JDK**: Java JDK
      
-     > This tutorial uses **Amazon Corretto version 21**.
+     > This tutorial uses **Amazon Corretto version 23**.
      > If you don't have a JDK installed, you can download it from the dropdown list.
      >
      {style="note"}
@@ -83,10 +84,10 @@ Here is the full script with the explanation of all parts and dependencies:
 ```kotlin
 // build.gradle.kts
 plugins {
-    kotlin("jvm") version "1.9.24" // The version of Kotlin to use
-    kotlin("plugin.spring") version "1.9.24" // The Kotlin Spring plugin
-    id("org.springframework.boot") version "3.3.4"
-    id("io.spring.dependency-management") version "1.1.6"
+    kotlin("jvm") version "%springBootSupportedKotlinVersion%" // The version of Kotlin to use
+    kotlin("plugin.spring") version "%springBootSupportedKotlinVersion%" // The Kotlin Spring plugin
+    id("org.springframework.boot") version "%springBootVersion%"
+    id("io.spring.dependency-management") version "1.1.7"
 }
 
 group = "com.example"
@@ -139,13 +140,15 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
 3. After the dependencies section, you can see the `kotlin` plugin configuration block.
    This is where you can add extra arguments to the compiler to enable or disable various language features.
 
+Learn more about the Kotlin compiler options in [](gradle-compiler-options.md).
+
 ## Explore the generated Spring Boot application
 
 Open the `DemoApplication.kt` file:
 
 ```kotlin
 // DemoApplication.kt
-package demo
+package com.example.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -190,12 +193,12 @@ fun main(args: Array<String>) {
 The application is ready to run, but let's update its logic first.
 
 In the Spring application, a controller is used to handle the web requests.
-In the same package with `DemoApplication.kt` file, create the `MessageController.kt` file with the
+In the same package, next to the `DemoApplication.kt` file, create the `MessageController.kt` file with the
 `MessageController` class as follows:
 
 ```kotlin
 // MessageController.kt
-package demo
+package com.example.demo
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -243,7 +246,7 @@ class MessageController {
 
 The Spring application is now ready to run:
 
-1. Click the green Run icon in the gutter beside the `main()` method:
+1. In the `DemoApplication.kt` file, click the green **Run** icon in the gutter beside the `main()` method:
 
     ![Run Spring Boot application](run-spring-boot-application.png){width=706}
     

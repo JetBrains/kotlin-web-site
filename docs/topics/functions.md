@@ -141,7 +141,7 @@ reformat("This is a short String!", upperCaseFirstLetter = false, wordSeparator 
 ```
 
 You can pass a [variable number of arguments (`vararg`)](#variable-number-of-arguments-varargs) with names using the
-`spread` operator:
+_spread_ operator (prefix the array with `*`):
 
 ```kotlin
 fun foo(vararg strings: String) { /*...*/ }
@@ -224,7 +224,7 @@ subsequent parameters must be passed using named argument syntax, or, if the par
 a lambda outside the parentheses.
 
 When you call a `vararg`-function, you can pass arguments individually, for example `asList(1, 2, 3)`. If you already have
-an array and want to pass its contents to the function, use the *spread* operator (prefix the array with `*`):
+an array and want to pass its contents to the function, use the spread operator (prefix the array with `*`):
 
 ```kotlin
 val a = arrayOf(1, 2, 3)

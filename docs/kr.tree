@@ -194,7 +194,7 @@
 				<toc-element toc-title="Create a RESTful web service with a database using Spring Boot">
 					<toc-element accepts-web-file-names="jvm-spring-boot-restful.html,spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html" topic="jvm-get-started-spring-boot.md"/>
 					<toc-element toc-title="Create a Spring Boot project" topic="jvm-create-project-with-spring-boot.md"/>
-					<toc-element toc-title="Upgrade your project with data classes" topic="jvm-spring-boot-add-data-class.md"/>
+					<toc-element topic="jvm-spring-boot-add-data-class.md"/>
 					<toc-element topic="jvm-spring-boot-add-db-support.md"/>
 					<toc-element toc-title="Use Spring Data CrudRepository" topic="jvm-spring-boot-using-crudrepository.md"/>
 				</toc-element>
