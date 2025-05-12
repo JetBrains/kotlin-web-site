@@ -30,10 +30,8 @@ project {
     kotlinlang.SiteProject,
     references.BuildApiReferencesProject,
     tests.TestsProject
-  )
-
-  subProjectsOrder.forEach {
-    subProject(it)
+  ).also {
+    it.forEach { subProject(it) }
   }
 
   vcsRoot(vcsRoots.KotlinLangOrg)
