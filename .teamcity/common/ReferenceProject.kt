@@ -59,7 +59,7 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
 
             steps {
                 scriptNoRobots(workingDir)
-                scriptGenerateSitemap(workingDir)
+                step(scriptGenerateSitemap(workingDir))
             }
 
             dependencies {

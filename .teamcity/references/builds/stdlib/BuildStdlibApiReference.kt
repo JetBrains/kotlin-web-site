@@ -1,10 +1,10 @@
 package references.builds.stdlib
 
 import BuildParams.CORE_API_BUILD_ID
+import common.extensions.scriptGenerateSitemap
 import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import references.scriptGenerateSitemap
 import references.scriptNoRobots
 import templates.SCRIPT_PATH
 import vcsRoots.KotlinLangOrg

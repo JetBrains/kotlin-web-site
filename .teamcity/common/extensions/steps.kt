@@ -4,8 +4,9 @@ import jetbrains.buildServer.configs.kotlin.BuildStep
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import templates.scriptDistAnalyze
 
-fun BuildSteps.scriptGenerateSitemap(pagesRoot: String = DEFAULT_DOKKA_PATH): BuildStep = script {
+fun scriptGenerateSitemap(pagesRoot: String = DEFAULT_DOKKA_PATH): BuildStep = scriptDistAnalyze {
     //language=sh
     scriptContent += "\n" + """
         cd ../../dist
