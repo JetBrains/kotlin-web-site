@@ -51,7 +51,7 @@ class ComposeMultiplatformCore(init: ComposeMultiplatformCore.() -> Unit) : Refe
                 downloadAndroidSdk()
                 dokkaBuildHtml(version) {
                     tasks = ":mpp:apiReferences:buildApiReferencesWithStories"
-                    gradleParams += " -PapiReferences.storiesRootPath=/stories"
+                    gradleParams += " -PapiReferences.storiesRootPath=/api/${urlPart}/stories"
                     jdkHome = "%env.JDK_17_0%"
                 }
             }

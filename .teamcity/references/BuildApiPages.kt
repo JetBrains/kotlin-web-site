@@ -1,6 +1,7 @@
 package references
 
 import BuildParams.DOKKA_TEMPLATES_VERSION
+import common.extensions.scriptGenerateSitemap
 import jetbrains.buildServer.configs.kotlin.BuildStep
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType
@@ -9,7 +10,6 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.triggers.VcsTrigger
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import templates.SCRIPT_PATH
-import templates.scriptDistAnalyze
 import vcsRoots.KotlinLangOrg
 
 const val DEFAULT_DOKKA_PATH = "build/dokka/htmlMultiModule"
@@ -126,14 +126,6 @@ fun copyDokkaApiResult(
     """.trimIndent()
     dockerImage = "alpine"
 }.apply(init)
-
-fun scriptGenerateSitemap(pagesRoot: String = DEFAULT_DOKKA_PATH): BuildStep = scriptDistAnalyze {
-    //language=sh
-    scriptContent += "\n" + """
-        cd ../../dist
-        cp ./sitemap.xml "../$pagesRoot/"
-    """.trimIndent()
-}
 
 fun scriptNoRobots(pagesRoot: String, block: ScriptBuildStep.() -> Unit = {}) = ScriptBuildStep {
     name = "Add no robots for older versions"
