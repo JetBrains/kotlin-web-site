@@ -6,7 +6,8 @@
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/><img src="icon-3.svg" width="20" alt="Third step"/> <strong>Add database support for Spring Boot project</strong><br/><img src="icon-4-todo.svg" width="20" alt="Fourth step"/> Use Spring Data CrudRepository for database access</p>
 </tldr>
 
-In this part of the tutorial, you'll add and configure a database to your project using JDBC. In JVM applications, you use JDBC to interact with databases.
+In this part of the tutorial, you'll add and configure a database to your project using _Java Database Connectivity_ (JDBC).
+In JVM applications, you use JDBC to interact with databases.
 For convenience, the Spring Framework provides the `JdbcTemplate` class that simplifies the use of JDBC and helps to avoid common errors.
 
 ## Add database support
@@ -19,7 +20,7 @@ In the same package, create the `MessageService.kt` file and the `MessageService
 
 ```kotlin
 // MessageService.kt
-package demo
+package com.example.demo
 
 import org.springframework.stereotype.Service
 import org.springframework.jdbc.core.JdbcTemplate
@@ -82,7 +83,7 @@ Update `MessageController.kt` to use the new `MessageService` class:
 
 ```kotlin
 // MessageController.kt
-package demo
+package com.example.demo
 
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -131,7 +132,7 @@ while storing the messages in the database:
 
 ```kotlin
 // MessageService.kt
-package demo
+package com.example.demo
 
 import org.springframework.stereotype.Service
 import org.springframework.jdbc.core.JdbcTemplate
@@ -269,7 +270,7 @@ Extend the functionality of the application to retrieve the individual messages 
 
     ```kotlin
     // MessageService.kt
-    package demo
+    package com.example.demo
 
     import org.springframework.stereotype.Service
     import org.springframework.jdbc.core.JdbcTemplate
@@ -296,7 +297,22 @@ Extend the functionality of the application to retrieve the individual messages 
         }
     }
     ```
-   
+    
+    <deflist collapsible="true">
+    <def title="vararg argument position in the parameter list">
+        <p>The <code>query()</code> function takes three arguments:</p>
+        <list>
+            <li>SQL query string that requires a parameter to run</li>
+            <li><code>id</code>, which is a parameter of type String</li>
+            <li><code>RowMapper</code> instance, which implemented by a lambda expression</li>
+        </list>
+        <p>The second parameter for the <code>query()</code> function is declared as a <i>variable argument</i> (<code>vararg</code>). In Kotlin, the position of the variable arguments parameter is not required to be the last in the parameters list.</p>
+    </def>
+    <def title="singleOrNull() function">
+       <p>The <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/single-or-null.html"><code>singleOrNull()</code></a> function returns a single element, or <code>null</code> if the array is empty or has more than one element with the same value.</p>
+    </def>
+   </deflist>
+    
     > The `.query()` function that is used to fetch the message by its id is a [Kotlin extension function](extensions.md#extension-functions)
     > provided by the Spring Framework. It requires an additional import `import org.springframework.jdbc.core.query` as demonstrated in the code above.
     >
@@ -306,7 +322,7 @@ Extend the functionality of the application to retrieve the individual messages 
 
     ```kotlin
     // MessageController.kt
-    package demo
+    package com.example.demo
 
     import org.springframework.http.ResponseEntity
     import org.springframework.web.bind.annotation.GetMapping
@@ -343,18 +359,9 @@ Extend the functionality of the application to retrieve the individual messages 
     <def title="Retrieving a value from the context path">
        <p>The message <code>id</code> is retrieved from the context path by the Spring Framework as you annotated the new function by <code>@GetMapping(&quot;/{id}&quot;)</code>. By annotating the function argument with <code>@PathVariable</code>, you tell the framework to use the retrieved value as a function argument. The new function makes a call to <code>MessageService</code> to retrieve the individual message by its id.</p>
     </def>
-    <def title="vararg argument position in the parameter list">
-        <p>The <code>query()</code> function takes three arguments:</p>
-        <list>
-            <li>SQL query string that requires a parameter to run</li>
-            <li><code>id</code>, which is a parameter of type String</li>
-            <li><code>RowMapper</code> instance is implemented by a lambda expression</li>
-        </list>
-        <p>The second parameter for the <code>query()</code> function is declared as a <i>variable argument</i> (<code>vararg</code>). In Kotlin, the position of the variable arguments parameter is not required to be the last in the parameters list.</p>
-    </def>
     <def title="Extension function with nullable receiver">
          <p>Extensions can be defined with a nullable receiver type. If the receiver is <code>null</code>, then <code>this</code> is also <code>null</code>. So when defining an extension with a nullable receiver type, it is recommended performing a <code>this == null</code> check inside the function body.</p>
-         <p>You can also use the null-safe invocation operator (<code>?.</code>) to perform the null check as in the <code>toResponseBody</code> function above:</p>
+         <p>You can also use the null-safe invocation operator (<code>?.</code>) to perform the null check as in the <code>toResponseEntity()</code> function above:</p>
          <code-block lang="kotlin">
          this?.let { ResponseEntity.ok(it) }
          </code-block>
@@ -368,7 +375,7 @@ Here is a complete code of the application:
 
 ```kotlin
 // DemoApplication.kt
-package demo
+package com.example.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -384,7 +391,7 @@ fun main(args: Array<String>) {
 
 ```kotlin
 // Message.kt
-package demo
+package com.example.demo
 
 data class Message(val id: String?, val text: String)
 ```
@@ -392,7 +399,7 @@ data class Message(val id: String?, val text: String)
 
 ```kotlin
 // MessageService.kt
-package demo
+package com.example.demo
 
 import org.springframework.stereotype.Service
 import org.springframework.jdbc.core.JdbcTemplate
@@ -423,7 +430,7 @@ class MessageService(private val db: JdbcTemplate) {
 
 ```kotlin
 // MessageController.kt
-package demo
+package com.example.demo
 
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -475,7 +482,7 @@ The Spring application is ready to run:
 
     ```http request
     ### Get the message by its id
-    GET http://localhost:8080/f16c1d2e-08dc-455c-abfe-68440229b84f
+    GET http://localhost:8080/f910aa7e-11ee-4215-93ed-1aeeac822707
     ```
     
     > Put your message id instead of the mentioned above.

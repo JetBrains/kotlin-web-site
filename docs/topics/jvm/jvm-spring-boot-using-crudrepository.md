@@ -23,7 +23,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
 
     ```kotlin
     // Message.kt
-    package demo
+    package com.example.demo
    
     import org.springframework.data.annotation.Id
     import org.springframework.data.relational.core.mapping.Table
@@ -51,7 +51,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
 
     ```kotlin
     // MessageRepository.kt
-    package demo
+    package com.example.demo
    
     import org.springframework.data.repository.CrudRepository
     
@@ -62,7 +62,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
 
     ```kotlin
     // MessageService.kt
-    package demo
+    package com.example.demo
 
     import org.springframework.data.repository.findByIdOrNull
     import org.springframework.stereotype.Service
@@ -114,7 +114,7 @@ Here is the complete code of the application:
 
 ```kotlin
 // DemoApplication.kt
-package demo
+package com.example.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -130,7 +130,7 @@ fun main(args: Array<String>) {
 
 ```kotlin
 // Message.kt
-package demo
+package com.example.demo
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
@@ -142,7 +142,7 @@ data class Message(val text: String, @Id val id: String? = null)
 
 ```kotlin
 // MessageRepository.kt
-package demo
+package com.example.demo
 
 import org.springframework.data.repository.CrudRepository
 
@@ -152,7 +152,7 @@ interface MessageRepository : CrudRepository<Message, String>
 
 ```kotlin
 // MessageService.kt
-package demo
+package com.example.demo
 
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
@@ -170,7 +170,7 @@ class MessageService(private val db: MessageRepository) {
 
 ```kotlin
 // MessageController.kt
-package demo
+package com.example.demo
 
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -206,8 +206,10 @@ class MessageController(private val service: MessageService) {
 
 ## Run the application
 
-The application is ready to run again.
-By replacing the `JdbcTemplate` with `CrudRepository`, the functionality didn't change hence the application should work the same way as previously.
+Congratulations! The application is ready to run again.
+After replacing `JdbcTemplate` with `CrudRepository`, the functionality remains the same, so the application works just as before.
+
+You can now [run the POST and GET HTTP requests](jvm-spring-boot-add-db-support.md#add-messages-to-database-via-http-request) from the `requests.http` file and get the same results.
 
 ## What's next
 

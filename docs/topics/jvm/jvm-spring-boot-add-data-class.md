@@ -11,11 +11,12 @@ It requires changing the `MessageController` class to respond with a JSON docume
 
 ## Update your application
 
-1. In the same package, create a `Message.kt` file with a data class with two properties: `id` and `text`:
+1. In the same package, next to the `DemoApplication.kt` file, create a `Message.kt` file.
+2. In the `Message.kt` file, create a data class with two properties: `id` and `text`:
 
     ```kotlin
     // Message.kt
-    package demo
+    package com.example.demo
    
     data class Message(val id: String?, val text: String)
     ```
@@ -50,11 +51,11 @@ It requires changing the `MessageController` class to respond with a JSON docume
           </code-block>
        </def>
    </deflist>
-2. In the `MessageController.kt` file, instead of the `index()` function, create the `listMessages()` function returning a list of `Message` objects:
+3. In the `MessageController.kt` file, instead of the `index()` function, create the `listMessages()` function returning a list of `Message` objects:
 
     ```kotlin
     // MessageController.kt
-    package demo
+    package com.example.demo
    
     import org.springframework.web.bind.annotation.GetMapping
     import org.springframework.web.bind.annotation.RequestMapping
@@ -75,10 +76,10 @@ It requires changing the `MessageController` class to respond with a JSON docume
     <deflist collapsible="true">
        <def title="Collections – listOf()">
           <p>The Kotlin Standard Library provides implementations for basic collection types: sets, lists, and maps.<br/>
-          A pair of interfaces represents each collection type:</p>
+          Each collection type can be <i>read-only</i> or <i>mutable</i>:</p>
           <list>
-              <li>A <i>read-only</i> interface that provides operations for accessing collection elements.</li>
-              <li>A <i>mutable</i> interface that extends the corresponding read-only interface with write operations: adding, removing, and updating its elements.</li>
+              <li>A <i>read-only</i> collection comes with operations for accessing collection elements.</li>
+              <li>A <i>mutable</i> collection comes also with write operations for adding, removing, and updating its elements.</li>
           </list>
           <p>The corresponding factory functions are also provided by the Kotlin Standard Library to create instances of such collections.
           </p>
@@ -110,7 +111,7 @@ Here is a complete code of the `DemoApplication.kt`, `MessageController.kt`, and
 
 ```kotlin
 // DemoApplication.kt
-package demo
+package com.example.demo
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -126,7 +127,7 @@ fun main(args: Array<String>) {
 
 ```kotlin
 // MessageController.kt
-package demo
+package com.example.demo
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -147,7 +148,7 @@ class MessageController {
 
 ```kotlin
 // Message.kt
-package demo
+package com.example.demo
 
 data class Message(val id: String?, val text: String)
 ```
