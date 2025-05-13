@@ -106,7 +106,7 @@ The following table lists details of the latest Kotlin releases:
     </tr>
     <tr>
         <td><strong>2.1.21</strong>
-            <p>Released: <strong>April 28, 2025</strong></p>
+            <p>Released: <strong>May 13, 2025</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.21" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
