@@ -47,7 +47,7 @@ To make your Kotlin code more Swift/Objective-C-friendly, you can hide a Kotlin 
 with `@HiddenFromObjC`. The annotation disables a function or property export to Objective-C.
 
 Alternatively, you can mark Kotlin declarations with the `internal` modifier to restrict their visibility in the
-compilation module. Choose `@HiddenFromObjC` if you only want to hide the Kotlin declaration from Objective-C and Swift,
+compilation module. Choose `@HiddenFromObjC` if you only want to hide the Kotlin declaration from Objective-C and Swift
 but still keep it visible from other Kotlin modules.
 
 [See an example in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/HiddenFromObjC.md).
@@ -240,7 +240,7 @@ Kotlin constructors are imported as initializers to Swift/Objective-C.
 
 ### Setters
 
-Writeable Objective-C properties overriding read-only properties of the superclass are represented as `setFoo()` method
+Writeable Objective-C properties overriding read-only properties of the superclass are represented as the `setFoo()` method
 for the property `foo`. The same goes for a protocol's read-only properties that are implemented as mutable.
 
 ### Top-level functions and properties
@@ -306,9 +306,9 @@ the Kotlin method should be marked with the `@Throws` annotation, specifying a l
 
 When compiling to the Swift/Objective-C framework, non-`suspend` functions that have or inherit the `@Throws` annotation
 are represented as `NSError*`-producing methods in Objective-C and as `throws` methods in Swift.
-Representations for `suspend` functions always have `NSError*`/`Error` parameter in completion handler.
+Representations for `suspend` functions always have an `NSError*`/`Error` parameter in the completion handler.
 
-When Kotlin function called from Swift/Objective-C code throws an exception which is an instance of one of
+When the Kotlin function called from Swift/Objective-C code throws an exception which is an instance of one of
 the `@Throws`-specified classes or their subclasses, it is propagated as `NSError`.
 Other Kotlin exceptions reaching Swift/Objective-C are considered unhandled and cause program termination.
 
@@ -441,18 +441,18 @@ See more examples in the Kotlin-Swift interopedia:
 ### Primitive types
 
 Kotlin primitive type boxes are mapped to special Swift/Objective-C classes. For example, the `kotlin.Int` box is represented
-as `KotlinInt` class instance in Swift (or `${prefix}Int` instance in Objective-C, where `prefix` is the framework names prefix).
+as the `KotlinInt` class instance in Swift (or the `${prefix}Int` instance in Objective-C, where `prefix` is the framework names prefix).
 These classes are derived from `NSNumber`, so the instances are proper `NSNumber`s supporting all corresponding operations.
 
-`NSNumber` type is not automatically translated to Kotlin primitive types when used as a Swift/Objective-C parameter type
-or return value. The reason is that `NSNumber` type doesn't provide enough information about a wrapped primitive value
+The `NSNumber` type is not automatically translated to Kotlin primitive types when used as a Swift/Objective-C parameter type
+or return value. The reason is that the `NSNumber` type doesn't provide enough information about a wrapped primitive value
 type, for example, `NSNumber` is statically not known to be `Byte`, `Boolean`, or `Double`. So Kotlin primitive values
 should be [cast to and from `NSNumber` manually](#casting-between-mapped-types).
 
 ### Strings
 
-When a Kotlin `String` is passed to Swift, it's first exported as an Objective-C object, and then copied one more time
-for a Swift conversion. This results in additional runtime overhead.
+When a Kotlin `String` is passed to Swift, it's first exported as an Objective-C object, and then the Swift compiler
+copies it one more time for a Swift conversion. This results in additional runtime overhead.
 
 To avoid that, access Kotlin strings in Swift directly as an Objective-C `NSString` instead.
 [See the conversion example](#see-the-conversion-example).
@@ -555,7 +555,7 @@ foo {
 
 ### Generics
 
-Objective-C supports "lightweight generics" defined on classes, with a relatively limited feature set. Swift can import 
+Objective-C supports "lightweight generics" defined in classes, with a relatively limited feature set. Swift can import 
 generics defined on classes to help provide additional type information to the compiler.
 
 Generic feature support for Objective-C and Swift differ from Kotlin, so the translation will inevitably lose some
@@ -620,7 +620,7 @@ let variOutAny : GenVarOut<BaseData> = variOut as! GenVarOut<BaseData>
 #### Constraints
 
 In Kotlin, you can provide upper bounds for a generic type. Objective-C also supports this, but that support is unavailable 
-in more complex cases, and is currently not supported in the Kotlin - Objective-C interop. The exception here being a non-nullable
+in more complex cases and is currently not supported in the Kotlin - Objective-C interop. The exception here being a non-nullable
 upper bound will make Objective-C methods/properties non-nullable.
 
 #### To disable
@@ -726,7 +726,7 @@ The annotation instructs the Kotlin compiler to ignore conflicting overloads, in
 argument types, but different argument names, are inherited from the Objective-C class.
 
 By default, the Kotlin/Native compiler doesn't allow calling a non-designated Objective-C initializer as a `super()`
-constructor. This behaviour can be inconvenient if the designated initializers aren't marked properly in the Objective-C
+constructor. This behavior can be inconvenient if the designated initializers aren't marked properly in the Objective-C
 library. To disable these compiler checks, add the `disableDesignatedInitializerChecks = true` to the library's [`.def` file](native-definition-file.md).
 
 ## C features
@@ -736,7 +736,7 @@ such as unsafe pointers, structs, and so on.
 
 ## Unsupported
 
-Some features of Kotlin programming language are not yet mapped into the respective features of Objective-C or Swift.
+Some features of the Kotlin programming language are not yet mapped into the respective features of Objective-C or Swift.
 Currently, the following features are not properly exposed in generated framework headers:
 
 * Inline classes (arguments are mapped as either underlying primitive type or `id`)
