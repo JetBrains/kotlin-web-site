@@ -18,14 +18,15 @@ the Kotlin version you have in your projects, for example:
 When configuring your project, check the compatibility of a particular version of the Kotlin Multiplatform Gradle plugin
 (same as the Kotlin version in your project) with Gradle, Xcode, and Android Gradle plugin versions:
 
-| Kotlin Multiplatform plugin version | Gradle                                | Android Gradle plugin           | Xcode   |
-|-------------------------------------|---------------------------------------|---------------------------------|---------|
-| 2.1.20                              | %minGradleVersion%–%maxGradleVersion% | 7.4.2–%maxAndroidGradleVersion% | %xcode% |
-| 2.1.0–2.1.10                        | 7.6.3-8.10*                           | 7.4.2–8.7.2                     | 16.0    |
-| 2.0.21                              | 7.5-8.8*                              | 7.4.2–8.5                       | 16.0    |
-| 2.0.20                              | 7.5-8.8*                              | 7.4.2–8.5                       | 15.3    |
-| 2.0.0                               | 7.5-8.5                               | 7.4.2–8.3                       | 15.3    |
-| 1.9.20                              | 7.5-8.1.1                             | 7.4.2–8.2                       | 15.0    |
+| Kotlin Multiplatform plugin version | Gradle                                | Android Gradle plugin                               | Xcode   |
+|-------------------------------------|---------------------------------------|-----------------------------------------------------|---------|
+| 2.1.21                              | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% | %xcode% |
+| 2.1.20                              | 7.6.3–8.11                            | 7.4.2–8.7.2                                         | 16.0    |
+| 2.1.0–2.1.10                        | 7.6.3-8.10*                           | 7.4.2–8.7.2                                         | 16.0    |
+| 2.0.21                              | 7.5-8.8*                              | 7.4.2–8.5                                           | 16.0    |
+| 2.0.20                              | 7.5-8.8*                              | 7.4.2–8.5                                           | 15.3    |
+| 2.0.0                               | 7.5-8.5                               | 7.4.2–8.3                                           | 15.3    |
+| 1.9.20                              | 7.5-8.1.1                             | 7.4.2–8.2                                           | 15.0    |
 
 > *Kotlin 2.0.20–2.0.21 and Kotlin 2.1.0–2.1.10 are fully compatible with Gradle up to 8.6.
 > Gradle versions 8.7–8.10 are also supported, with only one exception: If you use the Kotlin Multiplatform Gradle plugin,
@@ -76,6 +77,10 @@ Starting with Gradle 8.7, the Application plugin will no longer work with the Ko
 
 If you want to use both the Kotlin Multiplatform Gradle plugin and other Gradle plugins for
 Java in your multiplatform project, see [Deprecated compatibility with Kotlin Multiplatform Gradle plugin and Java plugins](multiplatform-compatibility-guide.md#deprecated-compatibility-with-kotlin-multiplatform-gradle-plugin-and-gradle-java-plugins).
+
+If you use the [Java test fixtures](https://docs.gradle.org/current/userguide/java_testing.html#sec:java_test_fixtures) Gradle plugin with Kotlin 2.1.20
+and a Gradle version higher than 8.7, the plugin doesn't work. Instead, upgrade to [Kotlin 2.1.21](releases.md#release-details)
+where this issue is resolved.
 
 If you run into any issues, report them in our [issue tracker](https://kotl.in/issue) or ask for help in our [public Slack channel](https://kotlinlang.slack.com/archives/C19FD9681).
 
