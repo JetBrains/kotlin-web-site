@@ -26,7 +26,7 @@ object KotlinxIOBuildApiReference : BuildApiPages(
                 scriptContent = """
                     #!/bin/bash
                      set -e -u
-                    ./gradlew dokkaGenerate --no-daemon --no-configuration-cache
+                    ./gradlew :dokkaGenerate --no-daemon --no-configuration-cache
                 """.trimIndent()
             }
         }
