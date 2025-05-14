@@ -798,7 +798,7 @@
 - from:
     - /docs/mpp-build-native-binaries.html
     - /docs/reference/mpp-build-native-binaries.html
-    - /docs/multiplatform-build-native-binaries.hml
+    - /docs/multiplatform-build-native-binaries.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html
 
 - from:
@@ -830,13 +830,13 @@
 - from: /docs/multiplatform-android-layout.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-android-layout.html
 
-- from: /docs/multiplatform-multiplatform-expect-actual.html
+- from: /docs/multiplatform-expect-actual.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html
 
-- from: /docs/multiplatform-compatibility-guide.hml
+- from: /docs/multiplatform-compatibility-guide.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-compatibility-guide.html
 
-- from: /docs/multiplatform-spm-local-integration.hml
+- from: /docs/multiplatform-spm-local-integration.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-spm-local-integration.html
 
 - from:
