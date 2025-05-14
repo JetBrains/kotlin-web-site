@@ -11,25 +11,19 @@ app with [Kotlin/Wasm](wasm-overview.md) in IntelliJ IDEA, and generate artifact
 
 ## Before you start
 
-Create a project using the Kotlin Multiplatform wizard:
+1. In the [quickstart](https://www.jetbrains.com/kotlin-multiplatform/quickstart.html), complete the instructions to [set up your environment for Kotlin Multiplatform development](https://www.jetbrains.com/kotlin-multiplatform/quickstart.html#set-up-the-environment).
+2. In IntelliJ IDEA, select **File** | **New** | **Project**.
+3. In the panel on the left, select **Kotlin Multiplatform**.
+4. Specify the following fields in the **New Project** window:
 
-1. Open the [Kotlin Multiplatform wizard](https://kmp.jetbrains.com/#newProject).
-2. On the **New Project** tab, change the project name and ID to your preference. In this tutorial, we set the name to "WasmDemo" and the ID to "wasm.project.demo".
+   * **Name**: WasmDemo
+   * **Group**: wasm.project.demo
+   * **Artifact**: wasmdemo
 
-   > These are the name and ID of the project directory. You can also leave them as they are.
-   >
-   {style="tip"}
+   ![Create Compose Multiplatform project for web](create-compose-multiplatform-project-with-web.png){width=800}
 
-3. Select the **Web** option. Make sure that no other options are selected.
-4. Click the **Download** button and unpack the resulting archive.
-
-![Kotlin Multiplatform wizard](wasm-compose-web-wizard.png){width=400}
-
-## Open the project in IntelliJ IDEA
-
-1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-2. On the Welcome screen of IntelliJ IDEA, click **Open** or select **File | Open** in the menu bar.
-3. Navigate to the unpacked "WasmDemo" folder and click **Open**.
+5. Select the **Web** target.
+6. Make sure that no other options are selected and click **Create**.
 
 ## Run the application
 
@@ -41,9 +35,9 @@ Create a project using the Kotlin Multiplatform wizard:
    >
    {style="note"}
 
-2. In **composeApp** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDevelopmentRun** task.
+2. In **wasmdemo** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDevelopmentRun** task.
 
-   ![Run the Gradle task](wasm-gradle-task-window.png){width=600}
+   ![Run the Gradle task](wasm-gradle-task-window.png){width=400}
 
    Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
 
@@ -72,9 +66,9 @@ Create a project using the Kotlin Multiplatform wizard:
 
 ## Generate artifacts
 
-In **composeApp** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDistribution** task.
+In **wasmdemo** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDistribution** task.
 
-![Run the Gradle task](wasm-gradle-task-window-compose.png){width=600}
+![Run the Gradle task](wasm-gradle-task-window-compose.png){width=400}
 
 Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
 
@@ -85,7 +79,7 @@ Alternatively, you can run the following command in the terminal from the `WasmD
 Once the application task completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
 directory:
 
-![Artifacts directory](wasm-composeapp-directory.png){width=600}
+![Artifacts directory](wasm-composeapp-directory.png){width=400}
 
 ## Publish on GitHub pages
 
