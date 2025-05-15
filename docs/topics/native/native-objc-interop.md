@@ -43,12 +43,12 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a framewor
 >
 {style="warning"}
 
-To make your Kotlin code more Swift/Objective-C-friendly, you can hide a Kotlin declaration from Objective-C and Swift
-with `@HiddenFromObjC`. The annotation disables a function or property export to Objective-C.
+To make your Kotlin code more Swift/Objective-C-friendly, use the `@HiddenFromObjC` annotation to hide a Kotlin declaration
+from Objective-C and Swift. It disables the function or property export to Objective-C.
 
 Alternatively, you can mark Kotlin declarations with the `internal` modifier to restrict their visibility in the
-compilation module. Use `@HiddenFromObjC` if you only want to hide the Kotlin declaration from Objective-C and Swift
-but still keep it visible from other Kotlin modules.
+compilation module. Use `@HiddenFromObjC` if you want to hide the Kotlin declaration from Objective-C and Swift
+while keeping it visible to other Kotlin modules.
 
 [See an example in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/HiddenFromObjC.md).
 
@@ -477,42 +477,30 @@ explicitly cast them to their Objective-C counterparts: `NSDictionary`, `NSArray
 For example, the following Kotlin declaration:
 
 ```kotlin
-data class Data(val map: Map<String, String>) {
-    fun getFromMap(key: String) = map[key]
-}
+val map: Map<String, String>
 ```
 
-In Swift, might be used like this:
+In Swift, might look like this:
 
 ```Swift
-mapEveryAccessDuration = clock.measure {
-    var totalLength = 0
-    for key in ["lorem", "ipsum", "dolor", "sit", "amet"] {
-        totalLength += data!.map[key]?.count ?? 0
-    }
-}
+map[key]?.count ?? 0
 ```
 
-Here, `data!.map` is implicitly converted to Swift's `Dictionary`, and its string values are mapped to `String`.
+Here, the `map` is implicitly converted to Swift's `Dictionary`, and its string values are mapped to Swift's `String`.
 This results in a performance cost.
 
 To avoid the conversion, explicitly cast `map` to Objective-C's `NSDictionary` and access values as `NSString` instead:
 
 ```Swift
-mapEveryAccessDuration = clock.measure {
-    var totalLength = 0
-    for key in ["lorem", "ipsum", "dolor", "sit", "amet"] {
-        let map: NSDictionary = data!.map as NSDictionary
-        totalLength += (map[key] as? NSString)?.length ?? 0
-    }
-}
+let nsMap: NSDictionary = map as NSDictionary
+(nsMap[key] as? NSString)?.length ?? 0
 ```
 
 This ensures that the Swift compiler doesn't perform an additional conversion step.
 
 #### Swift -> Objective-C -> Kotlin
 
-Swift/Objective-C collections are mapped to Kotlin as described in the [table above](#mappings),
+Swift/Objective-C collections are mapped to Kotlin as described in the [mappings table](#mappings),
 except for `NSMutableSet` and `NSMutableDictionary`.
 
 `NSMutableSet` isn't converted to a Kotlin's `MutableSet`. To pass an object to Kotlin `MutableSet`, explicitly create this
