@@ -153,37 +153,10 @@ This feature is [Experimental](components-stability.md#stability-levels-explaine
 add the `kotlin.incremental.native=true` option to your `gradle.properties` file. If you face any problems,
 create an [issue in YouTrack](https://kotl.in/issue).
 
-### Customize LLVM optimization passes
+### Advanced topics
 
-The default behavior for an `-opt` compilation is to run the same LLVM optimization passes that clang would for C++.
-While this does provide good runtime performance, this may take too long to compile large apps. The LLVM optimizations
-are split into two parts; the module passes and the link-time passes. For a typical compilation, the two pipelines are
-run back to back, and the only real distinction is in the default values.
-
-To find out if one of the LLVM passes is taking too long, add the `-Xprofile-phases` option to your build, and examine
-the log output. There will be a separate section for each of the two LLVM pipelines. There is no direct way to disable a
-given pass. Instead, we must provide a new list of passes to run. This is done by using the following compiler options:
-
-| **Option**                 | **Default value for `-opt`**      |
-|----------------------------|-----------------------------------|
-| `-Xllvm-module-passes=...` | `"default<O3>"`                   |
-| `-Xllvm-lto-passes=...`    | `"internalize,globaldce,lto<O3>"` |
-
-The default values are unfolded to a long list of actual passes to run, from which we need to exclude the undesired pass
-or passes. To find out what the actual passes are, we need to run the
-[`opt`](https://llvm.org/docs/CommandGuide/opt.html) tool, which is automatically downloaded with the LLVM distribution
-in `~/.konan/dependencies/llvm-{VERSION}-{ARCH}-{OS}-dev-{BUILD}/bin`. E.g., to find out what the link-time passes are,
-we need to run
-
-    opt -print-pipeline-passes -passes="internalize,globaldce,lto<O3>" < /dev/null
-
-This prints out a warning and a very long string of passes, where the exact passes depends on the version of LLVM. There
-are two differences from what `opt` prints out and what the Kotlin/Native compiler runs. First, since `opt` is a debug
-tool, it includes one or more `verify` passes, which are not normally run. Second, Kotlin/Native disables the `devirt`
-passes, since these are already done better by the Kotlin compiler itself.
-
-After disabling any passes, we should always rerun performance tests, to check if the runtime performance degradation is
-acceptable.
+If the above tips does not solve your problems, you can consider trying
+[customizing the LLVM backend](native-llvm-passes.md).
 
 ## Windows configuration
 

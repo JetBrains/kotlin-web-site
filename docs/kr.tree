@@ -451,4 +451,5 @@
 		<toc-element toc-title="Press kit" href="https://kotlinlang.org/assets/kotlin-media-kit.pdf"/>
 		<toc-element hidden="true" topic="test-page.md"/>
 	</toc-element>
+    <toc-element topic="native-llvm-passes.md"/>
 </instance-profile>
