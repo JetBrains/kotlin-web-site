@@ -332,7 +332,7 @@ fun main() {
 
 Kotlin/Native’s [memory allocator](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/alloc/custom/README.md) can now reserve memory on a per-object basis. In some cases, it may help you avoid strict memory limitations or high memory consumption on the application's startup.
 
-The new feature is designed to replace the `-Xallocator=std` Gradle option that enabled the system memory allocator instead of the default one. Now you can disable buffering (paging of allocations) without switching memory allocators.
+The new feature is designed to replace the `-Xallocator=std` compiler option that enabled the system memory allocator instead of the default one. Now you can disable buffering (paging of allocations) without switching memory allocators.
 
 The feature is currently [Experimental](components-stability.md#stability-levels-explained).
 To enable it, set the following option in your `gradle.properties` file:
