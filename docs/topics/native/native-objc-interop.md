@@ -47,7 +47,7 @@ To make your Kotlin code more Swift/Objective-C-friendly, you can hide a Kotlin 
 with `@HiddenFromObjC`. The annotation disables a function or property export to Objective-C.
 
 Alternatively, you can mark Kotlin declarations with the `internal` modifier to restrict their visibility in the
-compilation module. Choose `@HiddenFromObjC` if you only want to hide the Kotlin declaration from Objective-C and Swift
+compilation module. Use `@HiddenFromObjC` if you only want to hide the Kotlin declaration from Objective-C and Swift
 but still keep it visible from other Kotlin modules.
 
 [See an example in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/HiddenFromObjC.md).
@@ -308,8 +308,8 @@ When compiling to the Swift/Objective-C framework, non-`suspend` functions that 
 are represented as `NSError*`-producing methods in Objective-C and as `throws` methods in Swift.
 Representations for `suspend` functions always have an `NSError*`/`Error` parameter in the completion handler.
 
-When the Kotlin function called from Swift/Objective-C code throws an exception which is an instance of one of
-the `@Throws`-specified classes or their subclasses, it is propagated as `NSError`.
+When a Kotlin function called from Swift/Objective-C code throws an exception which is an instance of one of
+the classes specified with `@Throws` or their subclasses, the exception is propagated as an `NSError`.
 Other Kotlin exceptions reaching Swift/Objective-C are considered unhandled and cause program termination.
 
 `suspend` functions without `@Throws` propagate only `CancellationException` (as `NSError`).
@@ -441,7 +441,7 @@ See more examples in the Kotlin-Swift interopedia:
 ### Primitive types
 
 Kotlin primitive type boxes are mapped to special Swift/Objective-C classes. For example, the `kotlin.Int` box is represented
-as the `KotlinInt` class instance in Swift (or the `${prefix}Int` instance in Objective-C, where `prefix` is the framework names prefix).
+as the `KotlinInt` class instance in Swift (or the `${prefix}Int` instance in Objective-C, where `prefix` is the framework's name prefix).
 These classes are derived from `NSNumber`, so the instances are proper `NSNumber`s supporting all corresponding operations.
 
 The `NSNumber` type is not automatically translated to Kotlin primitive types when used as a Swift/Objective-C parameter type
@@ -467,7 +467,7 @@ All instances of `NSMutableString` are copied when passed to Kotlin.
 #### Kotlin -> Objective-C -> Swift
 
 When a Kotlin collection is passed to Swift, it's first converted to an Objective-C equivalent, and then the Swift compiler
-copies the entire collection and converts it into a Swift-native collection as described in the [table above](#mappings).
+copies the entire collection and converts it into a Swift-native collection as described in the [mappings table](#mappings).
 
 This last conversion leads to performance costs. To prevent this, when using Kotlin collections in Swift,
 explicitly cast them to their Objective-C counterparts: `NSDictionary`, `NSArray`, or `NSSet`.
