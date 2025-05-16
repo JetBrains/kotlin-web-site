@@ -153,6 +153,11 @@ This feature is [Experimental](components-stability.md#stability-levels-explaine
 add the `kotlin.incremental.native=true` option to your `gradle.properties` file. If you face any problems,
 create an [issue in YouTrack](https://kotl.in/issue).
 
+### Advanced topics
+
+If the above tips does not solve your problems, you can consider trying
+[customizing the LLVM backend](native-llvm-passes.md).
+
 ## Windows configuration
 
 Windows Security may slow down the Kotlin/Native compiler. You can avoid this by adding the `.konan` directory,
