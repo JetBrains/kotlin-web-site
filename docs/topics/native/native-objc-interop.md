@@ -9,7 +9,7 @@
 >
 {style="warning"}
 
-This document covers some aspects of Kotlin/Native interoperability with Swift/Objective-C: how you can use Kotlin
+Kotlin/Native provides indirect interoperability with Swift through Objective-C. This document covers how you can use Kotlin
 declarations in Swift/Objective-C code and Objective-C declarations in Kotlin code.
 
 Some other resources you might find useful:
@@ -43,12 +43,12 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a framewor
 >
 {style="warning"}
 
-To make your Kotlin code more Objective-C/Swift-friendly, you can hide a Kotlin declaration from Objective-C and Swift
-with `@HiddenFromObjC`. The annotation disables a function or property export to Objective-C.
+To make your Kotlin code more Swift/Objective-C-friendly, use the `@HiddenFromObjC` annotation to hide a Kotlin declaration
+from Objective-C and Swift. It disables the function or property export to Objective-C.
 
 Alternatively, you can mark Kotlin declarations with the `internal` modifier to restrict their visibility in the
-compilation module. Choose `@HiddenFromObjC` if you only want to hide the Kotlin declaration from Objective-C and Swift,
-but still keep it visible from other Kotlin modules.
+compilation module. Use `@HiddenFromObjC` if you want to hide the Kotlin declaration from Objective-C and Swift
+while keeping it visible to other Kotlin modules.
 
 [See an example in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/overview/HiddenFromObjC.md).
 
@@ -186,9 +186,9 @@ The table below shows how Kotlin concepts are mapped to Swift/Objective-C and vi
 | `companion` member <-  | Class method or property         | Class method or property         |                                                                                    |
 | `null`                 | `nil`                            | `nil`                            |                                                                                    |
 | `Singleton`            | `shared` or `companion` property | `shared` or `companion` property | [note](#kotlin-singletons)                                                         |
-| Primitive type         | Primitive type / `NSNumber`      |                                  | [note](#nsnumber)                                                                  |
+| Primitive type         | Primitive type / `NSNumber`      |                                  | [note](#primitive-types)                                                           |
 | `Unit` return type     | `Void`                           | `void`                           |                                                                                    |
-| `String`               | `String`                         | `NSString`                       |                                                                                    |
+| `String`               | `String`                         | `NSString`                       | [note](#strings)                                                                   |
 | `String`               | `NSMutableString`                | `NSMutableString`                | [note](#nsmutablestring)                                                           |
 | `List`                 | `Array`                          | `NSArray`                        |                                                                                    |
 | `MutableList`          | `NSMutableArray`                 | `NSMutableArray`                 |                                                                                    |
@@ -240,7 +240,7 @@ Kotlin constructors are imported as initializers to Swift/Objective-C.
 
 ### Setters
 
-Writeable Objective-C properties overriding read-only properties of the superclass are represented as `setFoo()` method
+Writeable Objective-C properties overriding read-only properties of the superclass are represented as the `setFoo()` method
 for the property `foo`. The same goes for a protocol's read-only properties that are implemented as mutable.
 
 ### Top-level functions and properties
@@ -304,12 +304,12 @@ All Kotlin exceptions are unchecked, meaning that errors are caught at runtime. 
 that are handled at compile time. So, if Swift or Objective-C code calls a Kotlin method that throws an exception,
 the Kotlin method should be marked with the `@Throws` annotation, specifying a list of "expected" exception classes.
 
-When compiling to the Objective-C/Swift framework, non-`suspend` functions that have or inherit the `@Throws` annotation
+When compiling to the Swift/Objective-C framework, non-`suspend` functions that have or inherit the `@Throws` annotation
 are represented as `NSError*`-producing methods in Objective-C and as `throws` methods in Swift.
-Representations for `suspend` functions always have `NSError*`/`Error` parameter in completion handler.
+Representations for `suspend` functions always have an `NSError*`/`Error` parameter in the completion handler.
 
-When Kotlin function called from Swift/Objective-C code throws an exception which is an instance of one of
-the `@Throws`-specified classes or their subclasses, it is propagated as `NSError`.
+When a Kotlin function called from Swift/Objective-C code throws an exception which is an instance of one of
+the classes specified with `@Throws` or their subclasses, the exception is propagated as an `NSError`.
 Other Kotlin exceptions reaching Swift/Objective-C are considered unhandled and cause program termination.
 
 `suspend` functions without `@Throws` propagate only `CancellationException` (as `NSError`).
@@ -438,28 +438,72 @@ See more examples in the Kotlin-Swift interopedia:
 * [How to access Kotlin objects using `shared`](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/classesandinterfaces/Objects.md)
 * [How to access members of Kotlin companion objects from Swift](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/classesandinterfaces/Companion%20objects.md).
 
-### NSNumber
+### Primitive types
 
 Kotlin primitive type boxes are mapped to special Swift/Objective-C classes. For example, the `kotlin.Int` box is represented
-as `KotlinInt` class instance in Swift (or `${prefix}Int` instance in Objective-C, where `prefix` is the framework names prefix).
+as the `KotlinInt` class instance in Swift (or the `${prefix}Int` instance in Objective-C, where `prefix` is the framework's name prefix).
 These classes are derived from `NSNumber`, so the instances are proper `NSNumber`s supporting all corresponding operations.
 
-`NSNumber` type is not automatically translated to Kotlin primitive types when used as a Swift/Objective-C parameter type
-or return value. The reason is that `NSNumber` type doesn't provide enough information about a wrapped primitive value
+The `NSNumber` type is not automatically translated to Kotlin primitive types when used as a Swift/Objective-C parameter type
+or return value. The reason is that the `NSNumber` type doesn't provide enough information about a wrapped primitive value
 type, for example, `NSNumber` is statically not known to be `Byte`, `Boolean`, or `Double`. So Kotlin primitive values
 should be [cast to and from `NSNumber` manually](#casting-between-mapped-types).
 
-### NSMutableString
+### Strings
+
+When a Kotlin `String` is passed to Swift, it's first exported as an Objective-C object, and then the Swift compiler
+copies it one more time for a Swift conversion. This results in additional runtime overhead.
+
+To avoid that, access Kotlin strings in Swift directly as an Objective-C `NSString` instead.
+[See the conversion example](#see-the-conversion-example).
+
+#### NSMutableString
 
 `NSMutableString` Objective-C class is not available from Kotlin.
 All instances of `NSMutableString` are copied when passed to Kotlin.
 
 ### Collections
 
-Kotlin collections are converted to Swift/Objective-C collections as described in the [table above](#mappings).
-Swift/Objective-C collections are mapped to Kotlin in the same way, except for `NSMutableSet` and `NSMutableDictionary`.
+#### Kotlin -> Objective-C -> Swift
 
-`NSMutableSet` isn't converted to a Kotlin `MutableSet`. To pass an object to Kotlin `MutableSet`, explicitly create this
+When a Kotlin collection is passed to Swift, it's first converted to an Objective-C equivalent, and then the Swift compiler
+copies the entire collection and converts it into a Swift-native collection as described in the [mappings table](#mappings).
+
+This last conversion leads to performance costs. To prevent this, when using Kotlin collections in Swift,
+explicitly cast them to their Objective-C counterparts: `NSDictionary`, `NSArray`, or `NSSet`.
+
+##### See the conversion example {initial-collapse-state="collapsed" collapsible="true"}
+
+For example, the following Kotlin declaration:
+
+```kotlin
+val map: Map<String, String>
+```
+
+In Swift, might look like this:
+
+```Swift
+map[key]?.count ?? 0
+```
+
+Here, the `map` is implicitly converted to Swift's `Dictionary`, and its string values are mapped to Swift's `String`.
+This results in a performance cost.
+
+To avoid the conversion, explicitly cast `map` to Objective-C's `NSDictionary` and access values as `NSString` instead:
+
+```Swift
+let nsMap: NSDictionary = map as NSDictionary
+(nsMap[key] as? NSString)?.length ?? 0
+```
+
+This ensures that the Swift compiler doesn't perform an additional conversion step.
+
+#### Swift -> Objective-C -> Kotlin
+
+Swift/Objective-C collections are mapped to Kotlin as described in the [mappings table](#mappings),
+except for `NSMutableSet` and `NSMutableDictionary`.
+
+`NSMutableSet` isn't converted to a Kotlin's `MutableSet`. To pass an object to Kotlin `MutableSet`, explicitly create this
 kind of Kotlin collection. To do this, use, for example, the `mutableSetOf()` function in Kotlin or the
 `KotlinMutableSet` class in Swift and `${prefix}MutableSet` in Objective-C (`prefix` is the framework names prefix).
 The same is true for `MutableMap`.
@@ -499,7 +543,7 @@ foo {
 
 ### Generics
 
-Objective-C supports "lightweight generics" defined on classes, with a relatively limited feature set. Swift can import 
+Objective-C supports "lightweight generics" defined in classes, with a relatively limited feature set. Swift can import 
 generics defined on classes to help provide additional type information to the compiler.
 
 Generic feature support for Objective-C and Swift differ from Kotlin, so the translation will inevitably lose some
@@ -564,7 +608,7 @@ let variOutAny : GenVarOut<BaseData> = variOut as! GenVarOut<BaseData>
 #### Constraints
 
 In Kotlin, you can provide upper bounds for a generic type. Objective-C also supports this, but that support is unavailable 
-in more complex cases, and is currently not supported in the Kotlin - Objective-C interop. The exception here being a non-nullable
+in more complex cases and is currently not supported in the Kotlin - Objective-C interop. The exception here being a non-nullable
 upper bound will make Objective-C methods/properties non-nullable.
 
 #### To disable
@@ -670,7 +714,7 @@ The annotation instructs the Kotlin compiler to ignore conflicting overloads, in
 argument types, but different argument names, are inherited from the Objective-C class.
 
 By default, the Kotlin/Native compiler doesn't allow calling a non-designated Objective-C initializer as a `super()`
-constructor. This behaviour can be inconvenient if the designated initializers aren't marked properly in the Objective-C
+constructor. This behavior can be inconvenient if the designated initializers aren't marked properly in the Objective-C
 library. To disable these compiler checks, add the `disableDesignatedInitializerChecks = true` to the library's [`.def` file](native-definition-file.md).
 
 ## C features
@@ -680,7 +724,7 @@ such as unsafe pointers, structs, and so on.
 
 ## Unsupported
 
-Some features of Kotlin programming language are not yet mapped into the respective features of Objective-C or Swift.
+Some features of the Kotlin programming language are not yet mapped into the respective features of Objective-C or Swift.
 Currently, the following features are not properly exposed in generated framework headers:
 
 * Inline classes (arguments are mapped as either underlying primitive type or `id`)
