@@ -82,14 +82,6 @@ export const TeachLaunchCourse = () => {
                             className={textCn('rs-link', { external: true })}
                             href="https://docs.google.com/presentation/d/1Plt2cpm-GRzxHt1Vu8C90FWnuSYToucWXPLaJKlBRMc/edit?usp=drive_link"
                         >
-                            Build systems
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            className={textCn('rs-link', { external: true })}
-                            href="https://docs.google.com/presentation/d/1n8rTULotZHei3ktajyupwRpKdPDACBAZeBo2GqwYhHY/edit?usp=drive_link"
-                        >
                             Parallel and concurrent programming
                         </a>
                     </li>
@@ -106,14 +98,6 @@ export const TeachLaunchCourse = () => {
                             className={textCn('rs-link', { external: true })}
                             href="https://docs.google.com/presentation/d/11mYc_tt2c7qw72i8gaQ9vePTcd0F0LbZCS6ep9PFG28/edit?usp=drive_link"
                         >
-                            JVM + the Kotlin compiler
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            className={textCn('rs-link', { external: true })}
-                            href="https://docs.google.com/presentation/d/1_F9CVHdbXoRagLUpBGjpwS9DDbzB2K-Cfv4Pz5qKza4/edit?usp=drive_link"
-                        >
                             Exceptions
                         </a>
                     </li>
@@ -129,6 +113,22 @@ export const TeachLaunchCourse = () => {
                         <a
                             className={textCn('rs-link', { external: true })}
                             href="https://docs.google.com/presentation/d/1hZTaQ1gdStte2aeQU78UmpVzpKErdeOCRQPOYH2p3DI/edit?usp=sharing"
+                        >
+                            Build systems
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            className={textCn('rs-link', { external: true })}
+                            href="https://docs.google.com/presentation/d/1n8rTULotZHei3ktajyupwRpKdPDACBAZeBo2GqwYhHY/edit?usp=drive_link"
+                        >
+                            JVM + the Kotlin compiler
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            className={textCn('rs-link', { external: true })}
+                            href="https://docs.google.com/presentation/d/1_F9CVHdbXoRagLUpBGjpwS9DDbzB2K-Cfv4Pz5qKza4/edit?usp=drive_link"
                         >
                             Reflection (JVM)
                         </a>

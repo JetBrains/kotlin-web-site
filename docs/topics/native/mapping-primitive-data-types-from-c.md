@@ -188,7 +188,7 @@ To create project files:
     </tabs>
 
    The project file configures the C interop as an additional build step.
-   Check out the [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md) to learn about different
+   Check out the [Multiplatform Gradle DSL reference](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html) to learn about different
    ways you can configure it.
 
 2. Move your `interop.def`, `lib.h`, and `lib.def` files to the `src/nativeInterop/cinterop` directory.

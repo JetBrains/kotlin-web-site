@@ -136,9 +136,6 @@
 - from: /docs/tutorials/edu-tools-learner.html
   to: /docs/edu-tools-learner.html
 
-- from: /docs/tutorials/mpp/intro-to-kotlin-mpp.html
-  to: /docs/multiplatform.html
-
 - from: /docs/tutorials/coroutines/coroutines-basic-jvm.html
   to: /docs/coroutines-basic-jvm.html
 
@@ -235,9 +232,6 @@
 - from: /docs/reference/set-operations.html
   to: /docs/set-operations.html
 
-- from: /docs/reference/mpp-supported-platforms.html
-  to: /docs/multiplatform-supported-platforms.html
-
 - from: /docs/reference/object-declarations.html
   to: /docs/object-declarations.html
 
@@ -261,9 +255,6 @@
 
 - from: /docs/reference/server-overview.html
   to: /docs/server-overview.html
-
-- from: /docs/reference/mpp-share-on-platforms.html
-  to: /docs/multiplatform-share-on-platforms.html
 
 - from: /docs/reference/extensions.html
   to: /docs/extensions.html
@@ -298,12 +289,6 @@
 - from: /docs/reference/native/objc_interop.html
   to: /docs/native-objc-interop.html
 
-- from: /docs/reference/native/gradle_plugin.html
-  to: /docs/multiplatform-dsl-reference.html
-
-- from: /docs/reference/native/cocoapods.html
-  to: /docs/native-cocoapods.html
-
 - from: /docs/reference/native/debugging.html
   to: /docs/native-debugging.html
 
@@ -334,9 +319,6 @@
 - from: /docs/reference/generics.html
   to: /docs/generics.html
 
-- from: /docs/reference/mpp-add-dependencies.html
-  to: /docs/multiplatform-add-dependencies.html
-
 - from: /docs/reference/compatibility-guide-14.html
   to: /docs/compatibility-guide-14.html
 
@@ -349,9 +331,6 @@
 - from: /docs/reference/whatsnew1430.html
   to: /docs/whatsnew1430.html
 
-- from: /docs/reference/mpp-intro.html
-  to: /docs/multiplatform-intro.html
-
 - from: /docs/reference/multi-declarations.html
   to: /docs/multi-declarations.html
 
@@ -360,9 +339,6 @@
 
 - from: /docs/reference/whatsnew1420.html
   to: /docs/whatsnew1420.html
-
-- from: /docs/reference/multiplatform.html
-  to: /docs/multiplatform.html
 
 - from: /docs/reference/kotlin-doc.html
   to: /docs/kotlin-doc.html
@@ -394,9 +370,6 @@
 - from: /docs/reference/idioms.html
   to: /docs/idioms.html
 
-- from: /docs/reference/mpp-build-native-binaries.html
-  to: /docs/multiplatform-build-native-binaries.html
-
 - from: /docs/reference/js-interop.html
   to: /docs/js-interop.html
 
@@ -412,9 +385,6 @@
 - from: /docs/reference/kotlin-osgi.html
   to: /docs/kotlin-osgi.html
 
-- from: /docs/reference/migrating-multiplatform-project-to-14.html
-  to: /docs/migrating-multiplatform-project-to-14.html
-
 - from: /docs/reference/collection-plus-minus.html
   to: /docs/collection-plus-minus.html
 
@@ -429,12 +399,6 @@
 
 - from: /docs/reference/properties.html
   to: /docs/properties.html
-
-- from: /docs/reference/mpp-publish-lib.html
-  to: /docs/multiplatform-publish-lib.html
-
-- from: /docs/reference/building-mpp-with-gradle.html
-  to: /docs/multiplatform-intro.html
 
 - from: /docs/reference/whatsnew-plugin-20203.html
   to: /docs/whatsnew-plugin-20203.html
@@ -497,9 +461,6 @@
 
 - from: /docs/reference/js-external-declarations-with-dukat.html
   to: /docs/js-external-declarations-with-dukat.html
-
-- from: /docs/reference/mpp-configure-compilations.html
-  to: /docs/multiplatform-configure-compilations.html
 
 - from: /docs/reference/basic-types.html
   to: /docs/basic-types.html
@@ -591,9 +552,6 @@
 - from: /docs/reference/js-ir-compiler.html
   to: /docs/js-ir-compiler.html
 
-- from: /docs/reference/mpp-create-lib.html
-  to: /docs/multiplatform-create-lib.html
-
 - from: /docs/reference/collection-ordering.html
   to: /docs/collection-ordering.html
 
@@ -602,9 +560,6 @@
 
 - from: /docs/reference/java-to-kotlin-interop.html
   to: /docs/java-to-kotlin-interop.html
-
-- from: /docs/reference/mpp-dsl-reference.html
-  to: /docs/multiplatform-dsl-reference.html
 
 - from: /docs/reference/scope-functions.html
   to: /docs/scope-functions.html
@@ -652,6 +607,10 @@
 
 - from: /user-groups/support.html
   to: /docs/kug-guidelines.html#support-for-kugs-from-jetbrains
+
+- from:
+    - /docs/wasm-libraries.html
+  to: /docs/wasm-overview.html
 
 - from:
     - /docs/native-immutability.html
@@ -726,8 +685,11 @@
     - /docs/working-with-klib.html
     - /docs/multiplatform-create-lib.html
     - /docs/mpp-create-lib.html
+    - /docs/reference/mpp-create-lib.html
     - /docs/mpp-publish-lib.html
-  to: /docs/multiplatform-publish-lib.html
+    - /docs/reference/mpp-publish-lib.html
+    - /docs/multiplatform-publish-lib.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-lib-setup.html
 
 - from:
   - /docs/reference/mpp-run-tests.html
@@ -751,18 +713,22 @@
     - /docs/mpp-discover-project.html
     - /docs/reference/mpp-discover-project.html
     - /docs/reference/mpp-set-up-targets.html
+    - /docs/mpp-set-up-targets.html
     - /docs/multiplatform-set-up-targets.html
-  to: /docs/multiplatform-discover-project.html
+    - /docs/multiplatform-discover-project.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-discover-project.html
 
 - from:
     - /docs/multiplatform-mobile-android-dependencies.html
     - /docs/kmm-add-dependencies.html
     - /docs/multiplatform-mobile-add-dependencies.html
-  to: /docs/multiplatform-android-dependencies.html
+    - /docs/multiplatform-android-dependencies.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-android-dependencies.html
 
 - from:
     - /docs/multiplatform-ios-android-dependencies.html
-  to: /docs/multiplatform-ios-dependencies.html
+    - /docs/multiplatform-ios-dependencies.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ios-dependencies.html
 
 - from:
     - /docs/multiplatform-mobile-introduce-your-team.html
@@ -774,21 +740,110 @@
 - from:
     - /docs/multiplatform-mobile-plugin-releases.html
     - /docs/kmm-plugin-releases.html
-  to: /docs/multiplatform-plugin-releases.html
+    - /docs/multiplatform-plugin-releases.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-plugin-releases.html
 
-- from:
-    - /docs/wasm-libraries.html
-  to: /docs/wasm-overview.html
-
-- from:
-    - /docs/cross-platform-mobile-development.html
+- from: /docs/cross-platform-mobile-development.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/cross-platform-mobile-development.html
 
-- from:
-    - /docs/native-and-cross-platform.html
+- from: /docs/native-and-cross-platform.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/native-and-cross-platform.html
 
-- from:
-    - /docs/cross-platform-frameworks.html
+- from: /docs/cross-platform-frameworks.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/cross-platform-frameworks.html
 
+- from:
+    - /docs/tutorials/mpp/intro-to-kotlin-mpp.html
+    - /docs/reference/multiplatform.html
+    - /docs/reference/mpp-intro.html
+    - /docs/mpp-intro.html
+    - /docs/multiplatform-intro.html
+  to: /docs/multiplatform.html
+
+- from:
+    - /docs/mpp-get-started.html
+    - /docs/multiplatform-tutorials.html
+    - /docs/multiplatform-get-started.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html
+
+- from:
+    - /docs/reference/mpp-supported-platforms.html
+    - /docs/reference/mpp-dsl-reference.html
+    - /docs/mpp-dsl-reference.html
+    - /docs/mpp-supported-platforms.html
+    - /docs/multiplatform-supported-platforms.html
+    - /docs/reference/native/gradle_plugin.html
+    - /docs/reference/building-mpp-with-gradle.html
+    - /docs/multiplatform-dsl-reference.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html
+
+- from:
+    - /docs/reference/mpp-share-on-platforms.html
+    - /docs/mpp-share-on-platforms.html
+    - /docs/multiplatform-share-on-platforms.html
+  to:  https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-share-on-platforms.html
+
+- from:
+    - /docs/reference/mpp-add-dependencies.html
+    - /docs/mpp-add-dependencies.html
+    - /docs/multiplatform-add-dependencies.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-add-dependencies.html
+
+- from:
+    - /docs/reference/mpp-configure-compilations.html
+    - /docs/mpp-configure-compilations.html
+    - /docs/multiplatform-configure-compilations.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-configure-compilations.html
+
+- from:
+    - /docs/mpp-build-native-binaries.html
+    - /docs/reference/mpp-build-native-binaries.html
+    - /docs/multiplatform-build-native-binaries.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html
+
+- from:
+  - /docs/reference/native/cocoapods.html
+  - /docs/native-cocoapods.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html
+
+- from: /docs/native-cocoapods-dsl-reference.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-dsl-reference.html
+
+- from: /docs/native-cocoapods-libraries.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-libraries.html
+
+- from: /docs/native-cocoapods-xcode.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-xcode.html
+
+- from: /docs/native-spm.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-spm-export.html
+
+- from: /docs/multiplatform-direct-integration.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-direct-integration.html
+
+- from: /docs/multiplatform-advanced-project-structure.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-advanced-project-structure.html
+
+- from: /docs/multiplatform-ios-integration-overview.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ios-integration-overview.html
+
+- from: /docs/multiplatform-android-layout.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-android-layout.html
+
+- from: /docs/multiplatform-expect-actual.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html
+
+- from: /docs/multiplatform-compatibility-guide.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-compatibility-guide.html
+
+- from: /docs/multiplatform-spm-local-integration.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-spm-local-integration.html
+
+- from:
+    - /docs/migrating-multiplatform-project-to-14.html
+    - /docs/reference/migrating-multiplatform-project-to-14.html
+    - /docs/multiplatform-hierarchy.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-hierarchy.html
+
+- from: /docs/apple-privacy-manifest.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-privacy-manifest.html

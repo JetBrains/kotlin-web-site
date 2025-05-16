@@ -89,7 +89,7 @@ The new compiler option is still [Experimental](components-stability.md#stabilit
 ## Kotlin/JVM: changes to default method generation for interface functions
 
 Starting from Kotlin %kotlinEapVersion%, functions declared in interfaces are compiled to JVM default methods unless configured otherwise.
-This change affects how Kotlin's interface functions with implementations are compiled to bytecode. 
+This change affects how Kotlin's interface functions with implementations are compiled to bytecode.
 This behavior is controlled by the new stable compiler option `-jvm-default`, replacing the deprecated `-Xjvm-default` option.
 
 You can control the behavior of the `-jvm-default` option using the following values:
@@ -102,9 +102,9 @@ To configure the `-jvm-default` compiler option, set the `jvmDefault` property i
 
 ```kotlin
 kotlin {
-    compilerOptions {
-        jvmDefault = JvmDefaultMode.NO_COMPATIBILITY
-    }
+  compilerOptions {
+    jvmDefault = JvmDefaultMode.NO_COMPATIBILITY
+  }
 }
 ```
 

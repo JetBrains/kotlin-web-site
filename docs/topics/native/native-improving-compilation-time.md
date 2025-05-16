@@ -62,12 +62,12 @@ If you have a non-typical case or build configuration, you might need to choose 
   it's a common approach to distribute a Kotlin/Native binary as a universal (fat) framework.
 
   However, during local development, it's faster to build the `.framework` file only for the platform you're using.
-  To build a platform-specific framework, use the [embedAndSignAppleFrameworkForXcode](multiplatform-direct-integration.md#connect-the-framework-to-your-project) task.
+  To build a platform-specific framework, use the [embedAndSignAppleFrameworkForXcode](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-direct-integration.html#connect-the-framework-to-your-project) task.
 
 ### Build only for necessary targets
 
 Similarly to the recommendation above, don't build a binary for all native
-platforms at once. For example, compiling an [XCFramework](multiplatform-build-native-binaries.md#build-xcframeworks)
+platforms at once. For example, compiling an [XCFramework](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html#build-xcframeworks)
 (using an `*XCFramework` task) builds the same code for all targets, which takes proportionally more time than
 building for a single target.
 
@@ -83,7 +83,7 @@ For example, you don't need `iosX64` if you don't run this project on iOS simula
 
 ### Don't build unnecessary release binaries
 
-Kotlin/Native supports two build modes, [debug and release](multiplatform-build-native-binaries.md#declare-binaries).
+Kotlin/Native supports two build modes, [debug and release](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html#declare-binaries).
 Release is highly optimized, and this takes a lot of time: compilation of release binaries takes an order of magnitude
 more time than debug binaries.
 
@@ -104,13 +104,13 @@ When it's enabled, the same JVM process is used, and there is no need to warm it
 
 ### Don't use transitive export
 
-Using [`transitiveExport = true`](multiplatform-build-native-binaries.md#export-dependencies-to-binaries) disables dead
+Using [`transitiveExport = true`](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html#export-dependencies-to-binaries) disables dead
 code elimination in many cases, so the compiler has to process a lot of unused code. It increases the compilation time.
 Instead, use the `export` method explicitly for exporting the required projects and dependencies.
 
 ### Don't export modules too much
 
-Try to avoid unnecessary [module export](multiplatform-build-native-binaries.md#export-dependencies-to-binaries).
+Try to avoid unnecessary [module export](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html#export-dependencies-to-binaries).
 Each exported module negatively affects compilation time and binary size.
 
 ### Use Gradle build caching

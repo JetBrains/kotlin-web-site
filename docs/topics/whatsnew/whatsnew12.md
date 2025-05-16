@@ -54,7 +54,7 @@ actual fun hello(world: String): String =
 actual typealias URL = java.net.URL
 ```
 
-See the [multiplatform programming documentation](multiplatform-intro.md) for details and steps to build a multiplatform project.
+See the [multiplatform programming documentation](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html) for details and steps to build a multiplatform project.
 
 ## Other language features
 

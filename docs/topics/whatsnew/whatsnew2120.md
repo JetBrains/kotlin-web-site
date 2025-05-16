@@ -561,13 +561,11 @@ alongside the plugin, due to an option being effectively set twice.
 
 ## Breaking changes and deprecations
 
-
 * To align Kotlin Multiplatform with upcoming changes in Gradle, we are phasing out the `withJava()` function.
-  [Java source sets are now created by default](multiplatform-compatibility-guide.md#java-source-sets-created-by-default). If you use the [Java test fixtures](https://docs.gradle.org/current/userguide/java_testing.html#sec:java_test_fixtures) Gradle plugin,
+  [Java source sets are now created by default](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-compatibility-guide.html#java-source-sets-created-by-default). If you use the [Java test fixtures](https://docs.gradle.org/current/userguide/java_testing.html#sec:java_test_fixtures) Gradle plugin,
   upgrade directly to [Kotlin 2.1.21](releases.md#release-details) to avoid compatibility issues.
 * The JetBrains team is proceeding with the deprecation of the `kotlin-android-extensions` plugin. If you try to use it
   in your project, you'll now get a configuration error, and no plugin code will be executed.
-
 * The legacy `kotlin.incremental.classpath.snapshot.enabled` property has been removed from the Kotlin Gradle plugin.
   The property used to provide an opportunity to fall back to a built-in ABI snapshot on the JVM. The plugin now uses
   other methods to detect and avoid unnecessary recompilations, making the property obsolete.
