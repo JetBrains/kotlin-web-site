@@ -383,7 +383,7 @@ at compile time. As a consequence, common code could access platform code, which
 between platforms. In addition, some compiler settings and dependencies from common code used to leak into platform code.
 
 In Kotlin 2.0.0, our implementation of the new Kotlin K2 compiler included a redesign of the compilation scheme to ensure
-strict separation between common and platform source sets. This change is most noticeable when you use [expected and actual functions](multiplatform-expect-actual.md#expected-and-actual-functions).
+strict separation between common and platform source sets. This change is most noticeable when you use [expected and actual functions](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html#expected-and-actual-functions).
 Previously, it was possible for a function call in your common code to resolve to a function in platform code. For example:
 
 <table>
@@ -429,7 +429,7 @@ In Kotlin 2.0.0, common code doesn't have access to platform code, so both platf
 function to the `foo()` function in the common code: `common foo`.
 
 In addition to the improved consistency of behavior across platforms, we also worked hard to fix cases where there was
-conflicting behavior between IntelliJ IDEA or Android Studio and the compiler. For instance, when you used [expected and actual classes](multiplatform-expect-actual.md#expected-and-actual-classes),
+conflicting behavior between IntelliJ IDEA or Android Studio and the compiler. For instance, when you used [expected and actual classes](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html#expected-and-actual-classes),
 the following would happen:
 
 <table>
@@ -532,7 +532,7 @@ In the future, these remaining cases will be more consistent with the new compil
 
 #### Different visibility levels of expected and actual declarations
 
-Before Kotlin 2.0.0, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your
+Before Kotlin 2.0.0, if you used [expected and actual declarations](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html) in your
 Kotlin Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md). 
 Kotlin 2.0.0 now also supports different visibility levels but **only** if the actual declaration is _more_ permissive than 
 the expected declaration. For example:
@@ -774,7 +774,7 @@ Previously, the Kotlin/Native compiler resolved standard library and platform de
 inconsistencies in the way the Kotlin Gradle plugin worked across Kotlin targets.
 
 Now, each Kotlin/Native Gradle compilation explicitly includes standard library and platform dependencies in its
-compile-time library path via the `compileDependencyFiles` [compilation parameter](multiplatform-dsl-reference.md#compilation-parameters).
+compile-time library path via the `compileDependencyFiles` [compilation parameter](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#compilation-parameters).
 
 ### Tasks error in Gradle configuration cache
 

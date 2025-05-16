@@ -22,14 +22,14 @@ The key differences to the old model are:
 
   * In the old model, common and platform-specific code needed to be placed in separate modules, linked by `expectedBy` dependencies.
     Now, common and platform-specific code is placed in different source roots of the same module, making projects easier to configure.
-  * There is now a large number of [preset platform configurations](multiplatform-dsl-reference.md#targets) for different supported platforms.
-  * The [dependencies configuration](multiplatform-add-dependencies.md) has been changed; dependencies are
+  * There is now a large number of [preset platform configurations](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#targets) for different supported platforms.
+  * The [dependencies configuration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-add-dependencies.html) has been changed; dependencies are
     now specified separately for each source root.
   * Source sets can now be shared between an arbitrary subset of platforms 
   (for example, in a module that targets JS, Android and iOS, you can have a source set that is shared only between Android and iOS).
-  * [Publishing multiplatform libraries](multiplatform-publish-lib.md) is now supported.
+  * [Publishing multiplatform libraries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-lib-setup.html) is now supported.
 
-For more information, please refer to the [multiplatform programming documentation](multiplatform-intro.md).
+For more information, please refer to the [multiplatform programming documentation](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html).
 
 ## Contracts
 

@@ -10,7 +10,7 @@ tiers depending on how well the compiler supports them.
 
 Mind the following terms used in tier tables:
 
-* **Gradle target name** is a [target name](multiplatform-dsl-reference.md#targets) that is used in the
+* **Gradle target name** is a [target name](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#targets) that is used in the
     Kotlin Multiplatform Gradle plugin to enable the target.
 * **Target triple** is a target name according to the `<architecture>-<vendor>-<system>-<abi>` structure that is commonly
   used by [compilers](https://clang.llvm.org/docs/CrossCompilation.html#target-triple).

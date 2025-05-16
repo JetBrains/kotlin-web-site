@@ -105,10 +105,10 @@ to avoid the accidental use of features that have not been released as stable.
 
 ### Kotlin Multiplatform 
 
-| **Component**                                    | **Status**   | **Status since version** | **Comments**                                                               |
-|--------------------------------------------------|--------------|--------------------------|----------------------------------------------------------------------------|
-| Kotlin Multiplatform                             | Stable       | 1.9.20                   |                                                                            |
-| Kotlin Multiplatform plugin for Android Studio   | Beta         | 0.8.0                    | [Versioned separately from the language](multiplatform-plugin-releases.md) |
+| **Component**                                  | **Status** | **Status since version** | **Comments**                                                                                                                         |
+|------------------------------------------------|------------|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| Kotlin Multiplatform                           | Stable     | 1.9.20                   |                                                                                                                                      |
+| Kotlin Multiplatform plugin for Android Studio | Beta       | 0.8.0                    | [Versioned separately from the language](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-plugin-releases.html) |
 
 ### Kotlin/Native
 

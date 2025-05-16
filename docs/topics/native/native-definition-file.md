@@ -217,7 +217,7 @@ In this case, Objective-C exceptions are translated into Kotlin exceptions that 
 ### Help resolve linker errors
 
 Linker errors might occur when a Kotlin library depends on C or Objective-C libraries, for example, using the
-[CocoaPods integration](native-cocoapods.md). If dependent libraries aren't installed locally on the machine or configured
+[CocoaPods integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html). If dependent libraries aren't installed locally on the machine or configured
 explicitly in the project build script, the "Framework not found" error occurs.
 
 If you're a library author, you can help your users resolve linker errors with custom messages.

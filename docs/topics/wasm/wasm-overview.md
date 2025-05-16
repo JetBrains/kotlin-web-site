@@ -46,7 +46,7 @@ Kotlin/Wasm as its compilation target. Applications built with Kotlin/Wasm and C
 
 Additionally, you can use the most popular Kotlin libraries in Kotlin/Wasm out of the box. Like in other Kotlin and Multiplatform
 projects, you can include dependency declarations in the build script. For more information,
-see [Adding dependencies on multiplatform libraries](multiplatform-add-dependencies.md).
+see [Adding dependencies on multiplatform libraries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-add-dependencies.html).
 
 Would you like to try it yourself?
 
