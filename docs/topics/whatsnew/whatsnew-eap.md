@@ -390,7 +390,7 @@ Kotlin/JS has an experimental plugin called `js-plain-objects`, which introduced
 You can use the `copy()` function to manipulate objects.
 
 However, the initial implementation of `copy()` was not compatible with inheritance, and this
-caused issues when a `@JsPlainObject` interface was inherited from other interfaces.
+caused issues when a `@JsPlainObject` interface extended other interfaces.
 
 To avoid limitations on plain objects, the `copy()` function has been moved from the object itself to its companion object:
 
