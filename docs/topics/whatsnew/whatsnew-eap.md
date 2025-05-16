@@ -28,11 +28,11 @@ See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for de
 
 ## Language
 
-In this release, we promote some language features as stable and introduce the preview of context parameters.
+This release promotes some language features as stable and brings context parameters in preview.
 
 ### Stable features: guard conditions, non-local break and continue, and multi-dollar interpolation
 
-In Kotlin 2.1.0, we introduced several new language features in preview. 
+In Kotlin 2.1.0, several new language features were introduced in preview. 
 We're happy to announce that these language features became 
 [Stable](components-stability.md#stability-levels-explained) in this release:
 
@@ -46,18 +46,18 @@ We're happy to announce that these language features became
 
 <primary-label ref="experimental-general"/>
 
-In this release, we introduce the preview of context parameters.
+In this release, context parameters are introduced in preview.
 Context parameters allow functions and properties to declare dependencies that are implicitly available in the 
 surrounding context.
 
 This feature replaces an older experimental feature called context receivers. To migrate from context receivers to context 
 parameters, you can use assisted support in IntelliJ IDEA, as described in 
-this [blog post](https://blog.jetbrains.com/kotlin/2025/04/update-on-context-parameters/).
+the [blog post](https://blog.jetbrains.com/kotlin/2025/04/update-on-context-parameters/).
 
 #### How to declare context parameters
 
 You can declare context parameters for properties and functions using the `context` keyword
-followed by a list of parameters, each of the form `name: Type`. Let's look at an example with a dependency on the `UserService` interface:
+followed by a list of parameters, each of the form `name: Type`. Here is an example with a dependency on the `UserService` interface:
 
 ```kotlin
 // `UserService` defines the dependency required in context 
@@ -112,18 +112,18 @@ fun main() {
     // Implements `UserService` 
     val serviceA = object : UserService {
         override fun log(message: String) = println("A: $message")
-  }
+    }
 
-  // Implements `UserService`
-  val serviceB = object : UserService {
-      override fun log(message: String) = println("B: $message")
-  }
+    // Implements `UserService`
+    val serviceB = object : UserService {
+        override fun log(message: String) = println("B: $message")
+    }
 
-  // Both `serviceA` and `serviceB` match the expected `UserService` type at the call site
-  context(serviceA, serviceB) {
-      outputMessage("This will not compile")
-      // Ambiguity error
-  }
+    // Both `serviceA` and `serviceB` match the expected `UserService` type at the call site
+    context(serviceA, serviceB) {
+        outputMessage("This will not compile")
+        // Ambiguity error
+    }
 }
 ```
 
@@ -163,7 +163,7 @@ kotlin {
 
 #### Leave your feedback
 
-We plan to stabilize and improve this feature in future Kotlin releases.
+This feature is planned to be stabilized and improved in future Kotlin releases.
 We would appreciate your feedback in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-10468/Context-Parameters-expanding-extension-receivers-to-work-with-scopes).
 
 ## Kotlin compiler: unified management of compiler warnings
@@ -330,7 +330,7 @@ fun main() {
 
 <primary-label ref="experimental-opt-in"/>
 
-Kotlin/Native’s [memory allocator](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/alloc/custom/README.md) can now reserve memory on a per-object basis. In some cases, it may help you avoid strict memory limitations or high memory consumption on the application's startup.
+Kotlin/Native's [memory allocator](https://github.com/JetBrains/kotlin/blob/master/kotlin-native/runtime/src/alloc/custom/README.md) can now reserve memory on a per-object basis. In some cases, it may help you avoid strict memory limitations or high memory consumption on the application's startup.
 
 The new feature is designed to replace the `-Xallocator=std` compiler option that enabled the system memory allocator instead of the default one. Now you can disable buffering (paging of allocations) without switching memory allocators.
 
@@ -352,13 +352,13 @@ This update shouldn't affect your code, but if you encounter any issues, please 
 
 ## Kotlin/Wasm: wasmJs target separated from js target
 
-Before, the `wasmJs` target shared the same infrastructure as the `js` target, meaning that both were hosted in the same
+Before, the `wasmJs` target shared the same infrastructure as the `js` target. As a result, both targets were hosted in the same
 directory (`build/js`) and used the same NPM tasks and configurations.
 
 Now, the `wasmJs` target has its own infrastructure separate from the `js` target. This allows the
 Wasm tasks and types to be distinct from the JavaScript ones, enabling independent configuration.
 
-Additionally, the Wasm-related project files and NPM dependencies are now in a separate directory: `build/wasm`.
+Additionally, the Wasm-related project files and NPM dependencies are now in a separate `build/wasm` directory.
 
 New NPM-related tasks have been introduced for Wasm, while existing JavaScript tasks are now dedicated only to JavaScript:
 
@@ -378,15 +378,16 @@ Similarly, new Wasm-specific declarations are introduced:
 | `WasmNodeJsEnvSpec`       | `NodeJsEnvSpec`             |
 | `WasmYarnRootEnvSpec`     | `YarnRootEnvSpec`           |
 
-This change allows you to work with the Wasm target independently of the JavaScript target, simplifying the configuration.
+You can now work with the Wasm target independently of the JavaScript target, which simplifies the configuration.
 
-You don't require additional setup; this change is enabled by default.
+This change is enabled by default and requires no additional configuration.
 
 ## Kotlin/JS
 
 ### Fix for copy() in @JsPlainObject interfaces
 
-Kotlin/JS has an experimental plugin called `js-plain-objects`, which introduced a `copy()` function for interfaces annotated with `@JsPlainObject`. The `copy()`  function is useful for manipulating objects.
+Kotlin/JS has an experimental plugin called `js-plain-objects`, which introduced a `copy()` function for interfaces annotated with `@JsPlainObject`.
+You can use the `copy()` function to manipulate objects.
 
 However, the initial implementation of `copy()` was not compatible with inheritance, and this
 caused issues when a `@JsPlainObject` interface was inherited from other interfaces.
@@ -409,9 +410,8 @@ fun main() {
 }
 ```
 
-This resolves conflicts in the inheritance hierarchy and eliminates ambiguity.
-
-This change is enabled by default starting from Kotlin %kotlinEapVersion%.
+This change resolves conflicts in the inheritance hierarchy and eliminates ambiguity. 
+It is enabled by default starting from Kotlin %kotlinEapVersion%.
 
 ### Support for typealiases in files with @JsModule annotation
 
@@ -436,17 +436,18 @@ Kotlin %kotlinEapVersion% is fully compatible with Gradle 7.6.3 through 8.14. Yo
 
 ### Support for rich output in console for Kotlin Gradle plugin
 
-In Kotlin %kotlinEapVersion%, we support color and other rich output in the console during the Gradle build process, making it easier to read and understand the reported diagnostics. Rich output is available in supported terminal emulators for Linux and macOS. We’re working on adding support for Windows.
+In Kotlin %kotlinEapVersion%, we support color and other rich output in the console during the Gradle build process, making it easier to read and understand the reported diagnostics. 
+Rich output is available in supported terminal emulators for Linux and macOS. We're working on adding support for Windows.
 
 ![Gradle console](gradle-console-rich-output.png){width=600}
 
-This feature is enabled by default, but if you want to override it, you can use the following Gradle property in your `gradle.properties` file:
+This feature is enabled by default, but if you want to override it, add the following Gradle property to your `gradle.properties` file:
 
 ```
 org.gradle.console=plain
 ```
 
-For more information about this property and its options, see Gradle’s documentation on [Customizing log format](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:command_line_customizing_log_format).
+For more information about this property and its options, see Gradle's documentation on [Customizing log format](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:command_line_customizing_log_format).
 
 ### Integration of Problems API within KGP diagnostics
 
@@ -537,7 +538,7 @@ fun main() {
 }
 //sampleEnd
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.2.0"}
 
 ### Hexadecimal parsing and formatting with the HexFormat API
 
