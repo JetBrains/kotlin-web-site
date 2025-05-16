@@ -524,7 +524,6 @@ On the JVM, use the `.encodingWith()` and `.decodingWith()` extension functions 
 import kotlin.io.encoding.*
 import java.io.ByteArrayOutputStream
 
-//sampleStart
 fun main() {
     val output = ByteArrayOutputStream()
     val base64Output = output.encodingWith(Base64.Default)
@@ -536,9 +535,7 @@ fun main() {
     println(output.toString())
     // SGVsbG8gV29ybGQhIQ==
 }
-//sampleEnd
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="2.2.0"}
 
 ### Hexadecimal parsing and formatting with the HexFormat API
 
