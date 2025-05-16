@@ -1,10 +1,8 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
-<!--
 <tldr>
     <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
 </tldr>
--->
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
 
