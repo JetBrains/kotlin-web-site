@@ -21,7 +21,7 @@ Create a project using the Kotlin Multiplatform wizard:
 3. Select the **Web** option. Make sure that no other options are selected.
 4. Click the **Download** button and unpack the resulting archive.
 
-![Kotlin Multiplatform wizard](wasm-compose-web-wizard.png){width=400}
+![Kotlin Multiplatform wizard](wasm-compose-web-wizard.png){width=550}
 
 ## Open the project in IntelliJ IDEA
 
@@ -185,7 +185,7 @@ After enabling custom formatters, you can continue with the debugging tutorial.
 3. Click on the line numbers to set breakpoints on the code that you want to inspect. Only the lines
    with darker numbers can have breakpoints.
 
-   ![Set breakpoints](wasm-breakpoints.png){width=600}
+   ![Set breakpoints](wasm-breakpoints.png){width=700}
 
 4. Click on the **Click me!** button to interact with the application. This action triggers the execution of the 
    code, and the debugger pauses when the execution reaches a breakpoint.
@@ -195,7 +195,7 @@ After enabling custom formatters, you can continue with the debugging tutorial.
    * ![Step over](wasm-step-over.png){width=30}{type="joined"} Step over to execute the current line and pause on the next line.
    * ![Step out](wasm-step-out.png){width=30}{type="joined"} Step out to execute the code until it exits the current function.
 
-   ![Debug controls](wasm-debug-controls.png){width=600}
+   ![Debug controls](wasm-debug-controls.png){width=550}
 
 6. Check the **Call stack** and **Scope** panes to trace the sequence of function calls and pinpoint the location of any errors.
 
