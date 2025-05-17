@@ -2,7 +2,7 @@
 
 Ranges and progressions define sequences of values in Kotlin, supporting range operators, iteration, custom step values, and arithmetic progressions.
 
-## Ranges
+## Ranges {id="range"}
 
 Kotlin lets you easily create ranges of values using the [`.rangeTo()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/range-to.html)
 and [`.rangeUntil()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/range-until.html) functions from the 
