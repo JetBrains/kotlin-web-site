@@ -187,7 +187,7 @@ If your `when` expression **doesn't** have a subject, you **must** have an `else
 The `else` branch is evaluated when none of the other branch conditions are satisfied:
 
 ```kotlin
-when {
+val message = when {
     a > b -> "a is greater than b"
     a < b -> "a is less than b"
     else -> "a is equal to b"
