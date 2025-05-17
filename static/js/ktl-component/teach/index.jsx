@@ -259,13 +259,28 @@ const Teach = (props) => {
                                   </a>
                               </li>
                               <li className="teach-list__item">
-                                  <a href="https://plugins.jetbrains.com/plugin/21067-kotlin-onboarding-introduction" className={textCn('rs-link', {external: true})} target="_blank">
-                                      Kotlin Onboarding
+                                  <a href="https://jb.gg/academy/kotlin-onboarding" className={textCn('rs-link', {external: true})} target="_blank">
+                                      Kotlin Onboarding: Introduction
+                                  </a>
+                              </li>
+                               <li className="teach-list__item">
+                                  <a href="https://jb.gg/academy/kotlin-oop" className={textCn('rs-link', {external: true})} target="_blank">
+                                      Kotlin Onboarding: Object-Oriented Programming
+                                  </a>
+                              </li>
+                             <li className="teach-list__item">
+                                  <a href="https://jb.gg/academy/kotlin-collections" className={textCn('rs-link', {external: true})} target="_blank">
+                                      Kotlin Onboarding: Collections
+                                  </a>
+                              </li>
+                             <li className="teach-list__item">
+                                  <a href="https://jb.gg/refactoring-kotlin" className={textCn('rs-link', {external: true})} target="_blank">
+                                      Introduction to IDE Code Refactoring in Kotlin
                                   </a>
                               </li>
                               <li className="teach-list__item">
-                                  <a href="https://drive.google.com/drive/folders/1nN3LuyEfmBaSDZpnb4VA9kDuLakmVXH1" className={textCn('rs-link', {external: true})} target="_blank">
-                                      Programming in Kotlin course materials
+                                  <a href="https://jb.gg/academy/kotlin-algorithm" className={textCn('rs-link', {external: true})} target="_blank">
+                                      Algorithmic Challenges in Kotlin
                                   </a>
                               </li>
 
