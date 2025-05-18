@@ -40,7 +40,7 @@ export async function getType(url: string, filePath: string): Promise<[FileType,
         if ($('meta[http-equiv=refresh]').length)
             return ['Redirect', $];
 
-        if ($('meta[name=robots][content=noindex]').length)
+        if ($('meta[name=robots][content*=noindex]').length)
             return ['Hidden', $];
 
         if (url === '404.html' || url.match(/404\/(index\.html)?/g)) return ['NotFound', $];

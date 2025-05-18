@@ -1,16 +1,18 @@
 package vcsRoots
 
+import builds.apiReferences.VCS
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
-object KotlinLangOrg: GitVcsRoot({
-  name = "kotlinlang.org VCS root"
-  url = "ssh://git@github.com/JetBrains/kotlin-web-site"
-  branch = "master"
-  branchSpec = """
-    +:refs/heads/(*)
-    +:refs/tags/(*)
-  """.trimIndent()
-  authMethod = uploadedKey {
-    uploadedKey = "default teamcity key"
-  }
+open class KotlinLangVcs(init: GitVcsRoot.() -> Unit) : GitVcsRoot({
+    url = "ssh://git@github.com/JetBrains/kotlin-web-site"
+    branch = VCS.branch("master")
+    branchSpec = "+:refs/heads/(*)"
+    authMethod = uploadedKey {
+        uploadedKey = "default teamcity key"
+    }
+    init()
+})
+
+object KotlinLangOrg : KotlinLangVcs({
+    name = "kotlinlang.org VCS root"
 })

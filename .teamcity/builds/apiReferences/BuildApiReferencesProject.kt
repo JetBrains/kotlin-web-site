@@ -1,5 +1,6 @@
 package builds.apiReferences
 
+import BuildParams.KGP_REFERENCE
 import builds.apiReferences.kgp.KotlinGradlePluginBuildApiReference
 import builds.apiReferences.kgp.KotlinGradlePluginBuildSearchIndex
 import builds.apiReferences.kgp.KotlinGradlePluginPrepareDokkaTemplates
@@ -61,6 +62,8 @@ object BuildApiReferencesProject : Project({
     vcsRoot(KotlinxIO)
     vcsRoot(Kotlin)
     vcsRoot(KotlinKGP)
+
+    subProject(KGP_REFERENCE.project)
 
     template(PrepareDokkaTemplate)
 })
