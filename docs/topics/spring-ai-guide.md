@@ -31,7 +31,11 @@ You will use the following tools during this tutorial:
 
 ## Create the project
 
-Create a new Spring Boot project with in IntelliJ IDEA Ultimate Edition:
+> You can also use [Spring Boot's web-based project generator](https://start.spring.io/) as an alternative to generate your project.
+>
+{style="note"}
+
+Create a new Spring Boot project in IntelliJ IDEA Ultimate Edition:
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**.
 2. In the panel on the left, select **New Project** | **Spring Boot**.
@@ -48,7 +52,7 @@ Create a new Spring Boot project with in IntelliJ IDEA Ultimate Edition:
     * **Package name**: com.example.springaidemo
     * **JDK**: Java JDK
 
-      > This tutorial uses **Amazon Corretto version 23**.
+      > This tutorial uses **Oracle OpenJDK version 21.0.1**.
       > If you don't have a JDK installed, you can download it from the dropdown list.
       >
       {style="note"}
@@ -57,10 +61,10 @@ Create a new Spring Boot project with in IntelliJ IDEA Ultimate Edition:
 
    ![Create Spring Boot project](create-spring-ai-project.png){width=800}
 
-4. Ensure that you have specified all the fields and click **Next**.
+4. Make sure that you have specified all the fields and click **Next**.
 5. Select the latest stable Spring Boot version in the **Spring Boot** field.
 
-6. Select the following dependencies that will be required for the tutorial:
+6. Select the following dependencies required for this tutorial:
 
     * **Web | Spring Web**
     * **AI | OpenAI**
@@ -74,17 +78,14 @@ Create a new Spring Boot project with in IntelliJ IDEA Ultimate Edition:
    >
    {style="tip"}
 
-8. After this, you can observe the following structure in the **Project view**:
+8. After this, you can see the following structure in the **Project view**:
 
    ![Spring Boot project view](spring-ai-project-view.png){width=400}
 
    The generated Gradle project corresponds to the Maven's standard directory layout:
     * There are packages and classes under the `main/kotlin` folder that belong to the application.
     * The entry point to the application is the `main()` method of the `SpringAiDemoApplication.kt` file.
- 
-> You can also use [Spring Boot's web-based project generator](https://start.spring.io/) as an alternative to generate your project.
->
-{style="note"}
+
 
 ## Update the project configuration
 
@@ -98,8 +99,14 @@ Create a new Spring Boot project with in IntelliJ IDEA Ultimate Edition:
     }
    ```
 
-2. Click the **Sync Gradle Changes** button to synchronize the Gradle files.
-3. Update your `src/main/resources/application.properties` file with the following:
+2. Update your `springAiVersion` to `1.0.0-M6`:
+
+   ```kotlin
+   extra["springAiVersion"] = "1.0.0-M6"
+   ```
+
+3. Click the **Sync Gradle Changes** button to synchronize the Gradle files.
+4. Update your `src/main/resources/application.properties` file with the following:
 
    ```properties
    # OpenAI
@@ -113,7 +120,7 @@ Create a new Spring Boot project with in IntelliJ IDEA Ultimate Edition:
    spring.ai.vectorstore.qdrant.initialize-schema=true
    ```
 
-4. Run the `SpringAiDemoApplication.kt` file to start the Spring Boot application.
+5. Run the `SpringAiDemoApplication.kt` file to start the Spring Boot application.
    Once it's running, open the [Qdrant collections](http://localhost:6333/dashboard#/collections) page in your browser to see the following result:
    ![Qdrant collections](qdrant-collections.png){width=700}
 
@@ -140,7 +147,7 @@ Let's create a Spring `@RestController` to search documents and store them in th
     import kotlin.uuid.ExperimentalUuidApi
     import kotlin.uuid.Uuid
 
-    // Data class representing the chat request payload.
+    // Data class representing the chat request payload
     data class ChatRequest(val query: String, val topK: Int = 3)
 
     @RestController
@@ -154,7 +161,7 @@ Let's create a Spring `@RestController` to search documents and store them in th
         @OptIn(ExperimentalUuidApi::class)
         @PostMapping("/load-docs")
         fun load() {
-            // List of topics to load from the Kotlin website documentation.
+            // Loads a list of documents from the Kotlin documentation
             val kotlinStdTopics = listOf(
                 "collections-overview", "constructing-collections", "iterators", "ranges", "sequences",
                 "collection-operations", "collection-transformations", "collection-filtering", "collection-plus-minus",
@@ -164,12 +171,12 @@ Let's create a Spring `@RestController` to search documents and store them in th
             )
             // Base URL for the documents.
             val url = "https://raw.githubusercontent.com/JetBrains/kotlin-web-site/refs/heads/master/docs/topics/"
-            // Retrieve each document from the URL and add it to the vector store.
+            // Retrieves each document from the URL and adds it to the vector store
             kotlinStdTopics.forEach { topic ->
                 val data = restTemplate.getForObject("$url$topic.md", String::class.java)
                 data?.let { it ->
                     val doc = Document.builder()
-                        // Build a Document with a random UUID, the text content, and metadata.
+                        // Builds a document with a random UUID
                         .id(Uuid.random().toString())
                         .text(it)
                         .metadata("topic", topic)
@@ -221,13 +228,13 @@ Let's create a Spring `@RestController` to search documents and store them in th
    {collapsible="true"}
 
 3. Run the application.
-4. In the terminal, call the `/kotlin/load-docs` endpoint to load the documents:
+4. In the terminal, send a POST request to the `/kotlin/load-docs` endpoint to load the documents:
 
    ```bash
    curl -X POST http://localhost:8080/kotlin/load-docs
    ```
 
-5. Once the documents are loaded, you can search for them with a `GET` request:
+5. Once the documents are loaded, you can search for them with a GET request:
 
    ```Bash
    curl -X GET http://localhost:8080/kotlin/docs
@@ -241,8 +248,90 @@ Let's create a Spring `@RestController` to search documents and store them in th
 
 ## Implement an AI chat endpoint
 
-The final step is to add an endpoint that answers questions using the documents in Qdrant through Spring AI’s Retrieval-Augmented Generation (RAG) support:
+Once the documents are loaded, the final step is to add an endpoint that answers questions using the documents in Qdrant through Spring AI’s Retrieval-Augmented Generation (RAG) support:
 
-<!-- TODO: Add steps here -->
+1. Open the `KotlinSTDController.kt` file, and import the following classes:
 
+   ```kotlin
+   import org.springframework.ai.chat.client.ChatClient
+   import org.springframework.ai.chat.client.advisor.RetrievalAugmentationAdvisor
+   import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor
+   import org.springframework.ai.chat.prompt.Prompt
+   import org.springframework.ai.chat.prompt.PromptTemplate
+   import org.springframework.ai.rag.preretrieval.query.transformation.RewriteQueryTransformer
+   import org.springframework.ai.rag.retrieval.search.VectorStoreDocumentRetriever
+   import org.springframework.web.bind.annotation.RequestBody
+   ```
 
+2. Add `ChatClient.Builder` to the controller's constructor parameters:
+
+   ```kotlin
+   class KotlinSTDController(
+       private val chatClientBuilder: ChatClient.Builder,
+       private val restTemplate: RestTemplate,
+       private val vectorStore: VectorStore,
+   )
+   ```
+
+3. Inside the controller class, create a `ChatClient` and a query transformer:
+
+   ```kotlin
+   // Builds the chat client with a simple logging advisor.
+   private val chatClient = chatClientBuilder.defaultAdvisors(SimpleLoggerAdvisor()).build()
+   // Builds the query transformer used to rewrite the input query.
+   private val rqtBuilder = RewriteQueryTransformer.builder().chatClientBuilder(chatClientBuilder)
+   ```
+
+4. At the bottom of your `KotlinSTDController.kt` file, add a new `chatAsk()` endpoint, with the following logic:
+
+   ```kotlin
+       @PostMapping("/chat/ask")
+       fun chatAsk(@RequestBody request: ChatRequest): String? {
+           // Defines the prompt template with placeholders {query} and {target}.
+           val promptTemplate = PromptTemplate(
+               """
+               {query}.
+               Please provide a concise answer based on the {target} documentation.
+           """.trimIndent()
+           )
+   
+           // Creates the prompt by substituting placeholders with actual values.
+           val prompt: Prompt =
+               promptTemplate.create(mapOf("query" to request.query, "target" to "Kotlin standard library"))
+   
+           // Configures the retrieval advisor to augment the query with relevant documents.
+           val retrievalAdvisor = RetrievalAugmentationAdvisor.builder()
+               .documentRetriever(
+                   VectorStoreDocumentRetriever.builder()
+                       .similarityThreshold(0.7)
+                       .topK(request.topK)
+                       .vectorStore(vectorStore)
+                       .build()
+               )
+               .queryTransformers(rqtBuilder.promptTemplate(promptTemplate).build())
+               .build()
+   
+           // Sends the prompt to the LLM with the retrieval advisor and get the response.
+           val response = chatClient.prompt(prompt)
+               .advisors(retrievalAdvisor)
+               .call()
+               .content()
+           logger.info("Chat response generated for query: '${request.query}'")
+           return response
+       }
+   ```
+
+5. Run the application.
+6. In the terminal, send a POST request to the new endpoint to see the results:
+
+   ```bash
+   curl -X POST "http://localhost:8080/kotlin/chat/ask" \
+        -H "Content-Type: application/json" \
+        -d '{"query": "What are the performance implications of using lazy sequences in Kotlin for large datasets?", "topK": 3}'
+   ```
+
+   ![OpenAI answer to chat request](open-ai-chat-endpoint.png){width="700"}
+
+Congratulations! You now have a Kotlin app that connects to OpenAI and answers questions using context retrieved from
+documentation stored in Qdrant.
+Try experimenting with different queries or importing other documents to explore more possibilities.
