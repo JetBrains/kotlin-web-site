@@ -108,7 +108,7 @@ Create a new Spring Boot project in IntelliJ IDEA Ultimate Edition:
 3. Click the **Sync Gradle Changes** button to synchronize the Gradle files.
 4. Update your `src/main/resources/application.properties` file with the following:
 
-   ```properties
+   ```text
    # OpenAI
    spring.ai.openai.api-key=YOUR_OPENAI_API_KEY
    spring.ai.openai.chat.options.model=gpt-4o-mini
