@@ -40,10 +40,11 @@
                 </group>
                 <group>
                     <title>Tools</title>
-                    <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform" summary="Kotlin Multiplatform plugin for IJ IDEA and Android Studio">Kotlin Multiplatform IDE plugin</a>
-                    <a href="https://kmp.jetbrains.com/" summary="Quickly generate and download a multiplatform project template">New project wizard</a>
+                    <a href="https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform" summary="Kotlin Multiplatform plugin for IntelliJ IDEA and Android Studio">Kotlin Multiplatform IDE plugin</a>
+                    <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-hot-reload.html" summary="Quickly iterate on your UI with Compose Hot Reload">Compose Hot Reload</a>
                     <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html" summary="Configure Gradle build scripts for Kotlin Multiplatform projects">Gradle DSL reference</a>
                     <a href="https://klibs.io/" summary="Experimental search platform for Kotlin Multiplatform libraries developed by JetBrains">Search platform for libraries</a>
+                    <a href="https://kmp.jetbrains.com/" summary="Quickly generate and download a multiplatform project template">New project wizard</a>
                     <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/amper.html" summary="Project configuration with Amper">Amper configuration tool</a>
                 </group>
                 <group>
