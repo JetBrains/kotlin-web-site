@@ -21,7 +21,7 @@ You will use the following tools during this tutorial:
     >
     {style="tip"}
 
-2. Create an OpenAI API key on the [OpenAI platform](https://platform.openai.com/api-keys) that you will use to access the API.
+2. Create an OpenAI API key on the [OpenAI platform](https://platform.openai.com/api-keys) to access the API.
 3. Install [Docker](https://www.docker.com/) to run the Qdrant vector database locally.
 4. After installing Docker, open your terminal and run the following command to start the container:
 
@@ -31,7 +31,7 @@ You will use the following tools during this tutorial:
 
 ## Create the project
 
-> You can also use [Spring Boot's web-based project generator](https://start.spring.io/) as an alternative to generate your project.
+> You can use [Spring Boot web-based project generator](https://start.spring.io/) as an alternative to generate your project.
 >
 {style="note"}
 
@@ -78,13 +78,14 @@ Create a new Spring Boot project in IntelliJ IDEA Ultimate Edition:
    >
    {style="tip"}
 
-8. After this, you can see the following structure in the **Project view**:
+After this, you can see the following structure in the **Project view**:
 
-   ![Spring Boot project view](spring-ai-project-view.png){width=400}
+![Spring Boot project view](spring-ai-project-view.png){width=400}
 
-   The generated Gradle project corresponds to the Maven's standard directory layout:
-    * There are packages and classes under the `main/kotlin` folder that belong to the application.
-    * The entry point to the application is the `main()` method of the `SpringAiDemoApplication.kt` file.
+The generated Gradle project corresponds to the Maven's standard directory layout:
+
+* There are packages and classes under the `main/kotlin` folder that belong to the application.
+* The entry point to the application is the `main()` method of the `SpringAiDemoApplication.kt` file.
 
 
 ## Update the project configuration
@@ -119,16 +120,21 @@ Create a new Spring Boot project in IntelliJ IDEA Ultimate Edition:
    spring.ai.vectorstore.qdrant.collection-name=kotlinDocs
    spring.ai.vectorstore.qdrant.initialize-schema=true
    ```
+   
+   > Set your OpenAI API key to the `spring.ai.openai.api-key` property.
+   > 
+   {style="note"}
 
 5. Run the `SpringAiDemoApplication.kt` file to start the Spring Boot application.
-   Once it's running, open the [Qdrant collections](http://localhost:6333/dashboard#/collections) page in your browser to see the following result:
+   Once it's running, open the [Qdrant collections](http://localhost:6333/dashboard#/collections) page in your browser to see the result:
+
    ![Qdrant collections](qdrant-collections.png){width=700}
 
 ## Create a controller to load and search documents
 
-Let's create a Spring `@RestController` to search documents and store them in the Qdrant collection:
+Create a Spring `@RestController` to search documents and store them in the Qdrant collection:
 
-1. In the `src/main/kotlin/org/example/springaidemo` directory, create a new file named `KotlinSTDController.kt`, and add the following to it:
+1. In the `src/main/kotlin/org/example/springaidemo` directory, create a new file named `KotlinSTDController.kt`, and add the following code:
 
     ```kotlin
     package org.example.springaidemo
@@ -248,7 +254,7 @@ Let's create a Spring `@RestController` to search documents and store them in th
 
 ## Implement an AI chat endpoint
 
-Once the documents are loaded, the final step is to add an endpoint that answers questions using the documents in Qdrant through Spring AI’s Retrieval-Augmented Generation (RAG) support:
+Once the documents are loaded, the final step is to add an endpoint that answers questions using the documents in Qdrant through Spring AI's Retrieval-Augmented Generation (RAG) support:
 
 1. Open the `KotlinSTDController.kt` file, and import the following classes:
 
@@ -273,7 +279,7 @@ Once the documents are loaded, the final step is to add an endpoint that answers
    )
    ```
 
-3. Inside the controller class, create a `ChatClient` and a query transformer:
+3. Inside the controller class, create a `ChatClient` instance and a query transformer:
 
    ```kotlin
    // Builds the chat client with a simple logging advisor
@@ -335,3 +341,6 @@ Once the documents are loaded, the final step is to add an endpoint that answers
 Congratulations! You now have a Kotlin app that connects to OpenAI and answers questions using context retrieved from
 documentation stored in Qdrant.
 Try experimenting with different queries or importing other documents to explore more possibilities.
+
+You can view the completed project in the [Spring AI demo GitHub repository](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/springAI-demo), 
+or explore other Spring AI examples in [Kotlin AI Examples](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master).
