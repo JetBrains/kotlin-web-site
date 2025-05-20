@@ -5,6 +5,8 @@ import common.extensions.scriptNoRobots
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.RelativeId
+import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import templates.SCRIPT_PATH
 import templates.TemplateSearchIndex
 import vcsRoots.KotlinLangOrg
@@ -43,7 +45,7 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
         versions.add(buildReference() to version)
     }
 
-    fun pagesSearchType(workingDir: String) = BuildType {
+    fun apiPagesType(workingDir: String) = BuildType {
         id = RelativeId("${projectPrefix}_Latest")
         name = "API Pages"
         description = "The latest stable version for $projectName"
@@ -91,20 +93,37 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
 
     fun build() {
         val workingDir = "dist/api/$urlPart"
-        val pages = pagesSearchType(workingDir)
+        val pages = apiPagesType(workingDir)
 
         project.apply {
             buildType(pages)
             buildType(searchBuildType(workingDir, pages))
         }
 
-        currentVersion.dependencies {
-            for ((previousVersion, version) in versions) {
-                if (previousVersion == currentVersion) continue
-                artifacts(previousVersion) {
-                    buildRule = tag("release")
-                    artifactRules = "pages.zip!** => %OLD_VERSIONS_DIR%/$version/"
-                    cleanDestination = true
+        pages.triggers {
+            finishBuildTrigger {
+                buildType = currentVersion.id.toString()
+                branchFilter = "+:<default>"
+                successfulOnly = true
+            }
+        }
+
+        currentVersion.apply {
+            triggers {
+                vcs {
+                    id = "trigger-vcs-default-trigger-id"
+                    branchFilter = "+:<default>"
+                }
+            }
+
+            dependencies {
+                for ((previousVersion, version) in versions) {
+                    if (previousVersion == currentVersion) continue
+                    artifacts(previousVersion) {
+                        buildRule = tag("release")
+                        artifactRules = "pages.zip!** => %OLD_VERSIONS_DIR%/$version/"
+                        cleanDestination = true
+                    }
                 }
             }
         }
