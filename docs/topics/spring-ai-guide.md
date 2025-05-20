@@ -169,7 +169,7 @@ Let's create a Spring `@RestController` to search documents and store them in th
                 "collection-aggregate", "collection-write", "list-operations", "set-operations",
                 "map-operations", "read-standard-input", "opt-in-requirements", "scope-functions", "time-measurement",
             )
-            // Base URL for the documents.
+            // Base URL for the documents
             val url = "https://raw.githubusercontent.com/JetBrains/kotlin-web-site/refs/heads/master/docs/topics/"
             // Retrieves each document from the URL and adds it to the vector store
             kotlinStdTopics.forEach { topic ->
@@ -276,9 +276,9 @@ Once the documents are loaded, the final step is to add an endpoint that answers
 3. Inside the controller class, create a `ChatClient` and a query transformer:
 
    ```kotlin
-   // Builds the chat client with a simple logging advisor.
+   // Builds the chat client with a simple logging advisor
    private val chatClient = chatClientBuilder.defaultAdvisors(SimpleLoggerAdvisor()).build()
-   // Builds the query transformer used to rewrite the input query.
+   // Builds the query transformer used to rewrite the input query
    private val rqtBuilder = RewriteQueryTransformer.builder().chatClientBuilder(chatClientBuilder)
    ```
 
@@ -287,7 +287,7 @@ Once the documents are loaded, the final step is to add an endpoint that answers
    ```kotlin
        @PostMapping("/chat/ask")
        fun chatAsk(@RequestBody request: ChatRequest): String? {
-           // Defines the prompt template with placeholders {query} and {target}.
+           // Defines the prompt template with placeholders
            val promptTemplate = PromptTemplate(
                """
                {query}.
@@ -295,11 +295,11 @@ Once the documents are loaded, the final step is to add an endpoint that answers
            """.trimIndent()
            )
    
-           // Creates the prompt by substituting placeholders with actual values.
+           // Creates the prompt by substituting placeholders with actual values
            val prompt: Prompt =
                promptTemplate.create(mapOf("query" to request.query, "target" to "Kotlin standard library"))
    
-           // Configures the retrieval advisor to augment the query with relevant documents.
+           // Configures the retrieval advisor to augment the query with relevant documents
            val retrievalAdvisor = RetrievalAugmentationAdvisor.builder()
                .documentRetriever(
                    VectorStoreDocumentRetriever.builder()
@@ -311,7 +311,7 @@ Once the documents are loaded, the final step is to add an endpoint that answers
                .queryTransformers(rqtBuilder.promptTemplate(promptTemplate).build())
                .build()
    
-           // Sends the prompt to the LLM with the retrieval advisor and get the response.
+           // Sends the prompt to the LLM with the retrieval advisor and get the response
            val response = chatClient.prompt(prompt)
                .advisors(retrievalAdvisor)
                .call()
