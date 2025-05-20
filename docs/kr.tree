@@ -183,6 +183,7 @@
 			<toc-element topic="native-definition-file.md"/>
 			<toc-element toc-title="C interop">
 				<toc-element topic="native-c-interop.md"/>
+				<toc-element topic="native-c-interop-stability.md"/>
 				<toc-element topic="mapping-primitive-data-types-from-c.md"/>
 				<toc-element topic="mapping-struct-union-types-from-c.md"/>
 				<toc-element topic="mapping-function-pointers-from-c.md"/>

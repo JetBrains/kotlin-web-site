@@ -112,13 +112,13 @@ to avoid the accidental use of features that have not been released as stable.
 
 ### Kotlin/Native
 
-| **Component**                                | **Status** | **Status since version** | **Comments**                            |
-|----------------------------------------------|------------|--------------------------|-----------------------------------------|
-| Kotlin/Native Runtime                        | Stable     | 1.9.20                   |                                         |
-| Kotlin/Native interop with C and Objective-C | Beta       | 1.3.0                    |                                         |
-| klib binaries                                | Stable     | 1.9.20                   | Not including cinterop klibs, see below |
-| cinterop klib binaries                       | Beta       | 1.3.0                    |                                         |
-| CocoaPods integration                        | Stable     | 1.9.20                   |                                         |
+| **Component**                                | **Status** | **Status since version** | **Comments**                                                                    |
+|----------------------------------------------|------------|--------------------------|---------------------------------------------------------------------------------|
+| Kotlin/Native Runtime                        | Stable     | 1.9.20                   |                                                                                 |
+| Kotlin/Native interop with C and Objective-C | Beta       | 1.3.0                    | [Stability of using C and Objective-C libraries](native-c-interop-stability.md) |
+| klib binaries                                | Stable     | 1.9.20                   | Not including cinterop klibs, see below                                         |
+| cinterop klib binaries                       | Beta       | 1.3.0                    | [Stability of using C and Objective-C libraries](native-c-interop-stability.md) |
+| CocoaPods integration                        | Stable     | 1.9.20                   |                                                                                 |
 
 > For details about Kotlin/Native targets support, see [](native-target-support.md).
 
