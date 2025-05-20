@@ -98,10 +98,11 @@ fun scriptDropSnapshot(init: ScriptBuildStep.() -> Unit = {}): BuildStep = Scrip
     """.trimIndent()
 }.apply(init)
 
-fun scriptBuildHtml(init: GradleBuildStep.() -> Unit = {}): BuildStep = GradleBuildStep {
+fun scriptBuildHtml(version: String? = null, init: GradleBuildStep.() -> Unit = {}): BuildStep = GradleBuildStep {
     id = "step-build-dokka-html-id"
     name = "Build dokka html"
     tasks = "dokkaHtmlMultiModule"
+    gradleParams = "${if (version != null) "-PdeployVersion=\"$version\" " else ""}--no-daemon --no-configuration-cache"
     useGradleWrapper = true
 }.apply(init)
 
@@ -141,8 +142,8 @@ fun scriptNoRobots(pagesRoot: String, block: ScriptBuildStep.() -> Unit = {}) = 
     //language=sh
     scriptContent = """
         # replace with print
-        # find . -type f \( -regex "^./\d\+\.\d\+\(\.\d\)\?/.\+\.html${'$'}" \) -exec echo {} \; -exec sed -i -E 's/(<head[^>]*>)/\1<meta name="robots" content="noindex, nofollow">/g' {} \;
-        find . -type f \( -regex "^./\d\+\.\d\+\(\.\d\)\?/.\+\.html${'$'}" \) -exec sed -i -E 's/(<head[^>]*>)/\1<meta name="robots" content="noindex, nofollow">/g' {} \;
+        find . -type f \( -regex '\./\(older/\)\?[0-9]\+\.[0-9]\+\([0-9]\+\)\?.\+\.html${'$'}' \) \
+            -exec sed -i -E 's/(<head[^>]*>)/\1<meta name="robots" content="noindex, nofollow">/g' {} \;
     """.trimIndent()
     dockerImage = "alpine"
 }.apply(block)
