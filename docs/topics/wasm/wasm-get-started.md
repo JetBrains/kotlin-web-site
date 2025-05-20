@@ -23,7 +23,7 @@ Create a project using the Kotlin Multiplatform wizard:
 3. Select the **Web** option. Make sure that no other options are selected.
 4. Click the **Download** button and unpack the resulting archive.
 
-![Kotlin Multiplatform wizard](wasm-compose-web-wizard.png){width=400}
+   ![Kotlin Multiplatform wizard](wasm-compose-web-wizard.png){width=400}
 
 ## Open the project in IntelliJ IDEA
 
@@ -41,9 +41,9 @@ Create a project using the Kotlin Multiplatform wizard:
    >
    {style="note"}
 
-2. In **composeApp** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDevelopmentRun** task.
+2. In **wasmdemo** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDevelopmentRun** task.
 
-   ![Run the Gradle task](wasm-gradle-task-window.png){width=600}
+   ![Run the Gradle task](wasm-gradle-task-window.png){width=400}
 
    Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
 
@@ -72,9 +72,9 @@ Create a project using the Kotlin Multiplatform wizard:
 
 ## Generate artifacts
 
-In **composeApp** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDistribution** task.
+In **wasmdemo** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDistribution** task.
 
-![Run the Gradle task](wasm-gradle-task-window-compose.png){width=600}
+![Run the Gradle task](wasm-gradle-task-window-compose.png){width=400}
 
 Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
 
@@ -85,7 +85,7 @@ Alternatively, you can run the following command in the terminal from the `WasmD
 Once the application task completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
 directory:
 
-![Artifacts directory](wasm-composeapp-directory.png){width=600}
+![Artifacts directory](wasm-composeapp-directory.png){width=400}
 
 ## Publish on GitHub pages
 
