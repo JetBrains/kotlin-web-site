@@ -48,7 +48,7 @@ Here you'll learn how to develop a backend application with Kotlin server-side.
 
 Here you'll learn how to develop a cross-platform application using [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html).
 
-1. **[Set up your environment for cross-platform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html).**
+1. **[Set up your environment for cross-platform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html).**
 
 2. **Create your first application for iOS and Android:**
 

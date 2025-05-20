@@ -61,7 +61,7 @@ Kotlin/Native includes a set of prebuilt [platform libraries](native-platform-li
 between projects. POSIX, gzip, OpenGL, Metal, Foundation, and many other popular libraries and Apple frameworks
 are pre-imported and included as Kotlin/Native libraries in the compiler package.
 
-Kotlin/Native is a part of the [Kotlin Multiplatform](multiplatform.topic) technology that helps share common code
+Kotlin/Native is a part of the [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html) technology that helps share common code
 across multiple platforms, including Android, iOS, JVM, web, and native. Multiplatform libraries provide the necessary
 APIs for common Kotlin code and allow writing shared parts of projects in Kotlin all in one place.
 

@@ -641,7 +641,7 @@
 - from:
     - /docs/multiplatform-mobile-setup.html
     - /docs/kmm-setup.html
-  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html
 
 - from:
     - /docs/multiplatform-mobile-create-first-app.html
@@ -679,17 +679,20 @@
 
 - from:
     - /docs/tutorials/native/working-with-klib.html
-    - /docs/tutorials/mpp/multiplatform-library.html
-    - /docs/multiplatform-full-stack-app.html
-    - /docs/multiplatform-library.html
     - /docs/working-with-klib.html
-    - /docs/multiplatform-create-lib.html
-    - /docs/mpp-create-lib.html
-    - /docs/reference/mpp-create-lib.html
     - /docs/mpp-publish-lib.html
     - /docs/reference/mpp-publish-lib.html
     - /docs/multiplatform-publish-lib.html
   to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-lib-setup.html
+
+- from:
+    - /docs/tutorials/mpp/multiplatform-library.html
+    - /docs/multiplatform-full-stack-app.html
+    - /docs/multiplatform-library.html
+    - /docs/multiplatform-create-lib.html
+    - /docs/mpp-create-lib.html
+    - /docs/reference/mpp-create-lib.html
+  to: https://www.jetbrains.com/help/kotlin-multiplatform-dev/create-kotlin-multiplatform-library.html
 
 - from:
   - /docs/reference/mpp-run-tests.html
