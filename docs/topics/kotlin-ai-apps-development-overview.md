@@ -58,10 +58,10 @@ For example:
 
 * [`mcp-demo`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/mcp/mcp-demo): A desktop UI that connects to Claude and OpenAI, and presents responses using Compose Multiplatform.
 
-## Explore the examples
+## Explore examples
 
 You can explore and run examples from the [Kotlin-AI-Examples](https://github.com/Kotlin/Kotlin-AI-Examples) repository.  
-Each project is self-contained and can be used as a reference or template for building Kotlin-based AI applications.
+Each project is self-contained. You can use each project as a reference or template for building Kotlin-based AI applications.
 
 ## What's next
 
