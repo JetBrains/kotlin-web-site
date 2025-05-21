@@ -33,7 +33,7 @@ import AtlassianLogo from '../public/images/companies/atlassian.svg';
 import GoogleLogo from '../public/images/companies/google.svg';
 import JetbrainsLogo from '../assets/jetbrains-logo-dark.svg';
 import TouchlabLogo from '../public/images/companies/touchlab.svg';
-import KotzillaLogo from '../public/images/companies/kotzilla-logo.svg'
+import KotzillaLogo from '../public/images/companies/kotzilla-logo.svg';
 
 import McDonaldsLogo from '../public/images/companies/mcdonalds.svg';
 import AWSLogo from '../public/images/companies/aws.svg';
@@ -50,6 +50,7 @@ import searchConfig from '../search-config.json';
 
 import releasesDataRaw from '../data/releases.yml';
 import Script from 'next/script';
+import { KotlinPlusAiInfo } from '../blocks/main/kotlin-plus-ai';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
@@ -202,7 +203,7 @@ function Index() {
                             media={<img src={MultiplatformPreviewImage.src} alt="" />}
                         />
 
-                        <DividerLine />
+                        <KotlinPlusAiInfo/>
 
                         <InfoBlock
                             title={'Big, friendly and helpful community'}
