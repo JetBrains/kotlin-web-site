@@ -5,12 +5,13 @@ It can be used across platforms, integrates well with established AI frameworks,
 
 > This page introduces how Kotlin is used in real-world AI scenarios with working examples from
 > the [Kotlin-AI-Examples](https://github.com/Kotlin/Kotlin-AI-Examples) repository.
+> 
 {style="note"}
 
 ## Kotlin AI agentic framework – Koog
 
 [Koog](https://github.com/JetBrains/koog) is a Kotlin-based framework for creating and running AI agents locally, without requiring external services.  
-Koog is JetBrains’ innovative, open-source agentic framework that empowers developers to build AI agents within the JVM ecosystem.  
+Koog is JetBrains' innovative, open-source agentic framework that empowers developers to build AI agents within the JVM ecosystem.  
 It provides a pure Kotlin implementation for building intelligent agents that can interact with tools, handle complex workflows, and communicate with users.
 
 ## More use cases
@@ -31,7 +32,7 @@ Build AI agents in Kotlin that reason, plan, and act using language models and t
 
 ### Chain of thought prompting
 
-Implement structured prompting techniques that guide language models through multi-step reasoning:
+Implement structured prompting techniques that guide language models through multistep reasoning:
 
 * [`LangChain4j_Overview.ipynb`](https://github.com/Kotlin/Kotlin-AI-Examples/blob/master/notebooks/langchain4j/LangChain4j_Overview.ipynb): A Kotlin Notebook demonstrating chain of thought and structured output.
 
