@@ -29,6 +29,7 @@
 		<toc-element topic="native-overview.md"/>
 		<toc-element topic="js-overview.md"/>
 		<toc-element accepts-web-file-names="data-science-overview.html" topic="data-analysis-overview.md"/>
+		<toc-element topic="kotlin-ai-apps-development-overview.md"/>
 		<toc-element topic="competitive-programming.md"/>
 	</toc-element>
 	<toc-element toc-title="What's new in Kotlin">
