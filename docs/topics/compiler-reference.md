@@ -144,6 +144,14 @@ Suppresses specific warnings [globally across the whole project](whatsnew21.md#g
 kotlinc -Xsuppress-warning=NOTHING_TO_INLINE -Xsuppress-warning=NO_TAIL_CALLS_FOUND main.kt
 ```
 
+### -Xrepl
+
+Activates the Kotlin REPL.
+
+```bash
+kotlinc -Xrepl
+```
+
 ## Kotlin/JVM compiler options
 
 The Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
