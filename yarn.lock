@@ -1668,14 +1668,13 @@
     "@types/raf-schd" "^4.0.0"
     raf-schd "^4.0.2"
 
-"@rescui/button@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@rescui/button/-/button-0.10.0.tgz#1ac1b4b3f787bbb1bb3d8ce3e211b54cd19a2b7f"
-  integrity sha512-9HGXV2SGJT2EGCCXh4Bl3dDy8n9PurzlZ4XrW5O18QMLknA5KH2BP5mnZdd8tS4aqP1F8IJb9TmsBZFT+Klm2Q==
+"@rescui/button@0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@rescui/button/-/button-0.18.0.tgz#c7693562a5bad9738862dbe5659a7e4bcee0371c"
+  integrity sha512-5B+aVvL4/9KVWWatGyYcpn191ELgPNn3NSQwFnLTVsrhKjhJt6XxFRdl8jtMKzCsBT8BFGEdRsd79asAoVvDug==
   dependencies:
     "@babel/runtime-corejs3" "^7.14.0"
-    "@rescui/icons" "^0.13.0"
-    "@rescui/use-resize-observer" "^0.1.6"
+    "@rescui/use-resize-observer" "^0.2.4"
     classnames "^2.2.6"
     core-js "^3.9.1"
 
@@ -1872,13 +1871,12 @@
     bem-cn-fast "^1.0.2"
     inter-ui "^3.15.1"
 
-"@rescui/ui-contexts@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@rescui/ui-contexts/-/ui-contexts-0.4.3.tgz#eef6d7f730f0c163a8190b7b6e59c831d86b1495"
-  integrity sha512-/rEYPlzCGYAvvJViCr/PX/LWHi9V5Jgk9KfZxX+JXp0WuxujI/jQ9hHDw1YFQQnh/tcaGi+ymxjccraFcqaK5Q==
+"@rescui/ui-contexts@^0.5.0":
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/@rescui/ui-contexts/-/ui-contexts-0.5.7.tgz#3a4b45cfc0bf56f311307303c534bb509a033cfa"
+  integrity sha512-3pknPFCz3Jdjk5+buZJLfe9Iyjeapo7ASeNjvQFDe8Wx6i6tjQOFHdahvdYhEZcKCUqKCkfqAGRcGTK9ccFBAw==
   dependencies:
-    "@babel/runtime-corejs3" "^7.14.0"
-    core-js "^3.9.1"
+    "@babel/runtime-corejs3" "^7.26.0"
 
 "@rescui/use-resize-observer@0.1.4", "@rescui/use-resize-observer@^0.1.4":
   version "0.1.4"
@@ -1895,6 +1893,13 @@
   dependencies:
     "@babel/runtime-corejs3" "^7.14.0"
     core-js "^3.9.1"
+
+"@rescui/use-resize-observer@^0.2.4":
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/@rescui/use-resize-observer/-/use-resize-observer-0.2.7.tgz#a9e3637b23218c1412f848d09aa1f04b314917f1"
+  integrity sha512-//li3RTpX+i+Ke2qwBEcAt5oWhib3O/STPSYsGkA3LVw9rHrXLz34fEq3GcjpmSCEIl0vLtvJnV6LEFm4zmWSg==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.26.0"
 
 "@rollup/plugin-buble@0.21.3":
   version "0.21.3"
