@@ -8,6 +8,7 @@
 
     @media (--ktl-tm) {
         padding: 32px 24px;
+        margin: 72px 0;
     }
 }
 
