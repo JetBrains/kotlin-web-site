@@ -40,6 +40,8 @@ import AWSLogo from '../public/images/companies/aws.svg';
 import PhilipsLogo from '../public/images/companies/philips.svg';
 import AdobeLogo from '../public/images/companies/adobe.svg';
 import ForbesLogo from '../public/images/companies/forbes.svg';
+import MetaLogo from '../public/images/companies/meta.svg';
+import BlockLogo from '../public/images/companies/block.svg';
 
 import styles from './index.module.css';
 
@@ -109,6 +111,11 @@ const kotlinFoundationCompanies = [
         link: 'https://about.google/'
     },
     {
+        name: 'Meta',
+        logo: MetaLogo,
+        link: 'https://www.meta.com/'
+    },
+    {
         name: 'Gradle',
         logo: GradleLogo,
         link: 'https://gradle.org/'
@@ -128,7 +135,11 @@ const kotlinFoundationCompanies = [
         logo: KotzillaLogo,
         link: 'https://kotzilla.io/'
     },
-
+    {
+        name: 'Block',
+        logo: BlockLogo,
+        link: 'https://block.xyz/'
+    },
 ];
 
 export async function getStaticProps() {
