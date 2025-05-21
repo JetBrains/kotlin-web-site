@@ -33,7 +33,7 @@ function KotlinPlusAI() {
 
     return (
         <ThemeProvider theme="dark">
-            <div className={styles.wrapper}>
+            <div className={styles.wrapper} id="kotlin-plus-ai">
                 <h2 className={cn(classTitle, styles.introTitle)}>Kotlin + AI</h2>
                 <p className={introClass}>JetBrains is investing in AI models tailored for Kotlin, providing open data,
                     benchmarks, and AI-native tooling integrated into your workflow.</p>
