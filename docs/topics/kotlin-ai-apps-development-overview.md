@@ -1,290 +1,77 @@
 [//]: # (title: Kotlin for AI-powered apps development)
 
-Kotlin has emerged as a powerful language for developing AI-powered applications across various platforms. With its concise syntax, strong type system, and interoperability with Java and JavaScript, Kotlin provides an excellent foundation for integrating AI capabilities into your applications.
+Kotlin provides a modern and pragmatic foundation for building AI-powered applications.
+It can be used across platforms, integrates well with established AI frameworks, and supports common AI development patterns.
 
-This overview explores how you can use Kotlin for AI application development, covering key areas from retrieval-augmented generation (RAG) to embedding large language models (LLMs) in your business logic.
+This page introduces how Kotlin is used in real-world AI scenarios with working examples from the [Kotlin-AI-Examples](https://github.com/Kotlin/Kotlin-AI-Examples) repository.
 
-The key benefits of using Kotlin for AI development include:
+## Kotlin AI agentic framework – Koog
 
-* **Cross-platform compatibility**: Build AI-powered applications that run on multiple platforms with Kotlin Multiplatform
-* **Type safety**: Catch errors at compile time rather than runtime, crucial for complex AI systems
-* **Concise syntax**: Write less boilerplate code, making AI implementations cleaner and more maintainable
-* **Coroutines support**: Handle asynchronous operations elegantly, essential for AI model inference and data processing
-* **Java and JavaScript interoperability**: Leverage existing AI libraries from both ecosystems
+[Koog](https://github.com/JetBrains/koog) is a Kotlin-based framework for creating and running AI agents locally without requiring external services.
+Koog is JetBrains’ innovative, open-source agentic framework that empowers developers to build AI agents within the JVM ecosystem
+It provides a pure Kotlin implementation for building intelligent agents that can interact with tools, handle complex workflows, and communicate with users.
 
-## Creating RAG — generating relevant answers with access to external data
+## Other use cases
 
-Retrieval-Augmented Generation (RAG) enhances the capabilities of large language models by providing them with access to external data sources such as databases, documents, and knowledge bases. This approach allows AI applications to generate more accurate and contextually relevant responses.
+### Retrieval-augmented generation (RAG)
 
-RAG offers several advantages for AI applications:
+Use Kotlin to build RAG pipelines that connect language models to external sources like documentation, vector stores, or APIs:
 
-* **Improved accuracy**: Provides LLMs with up-to-date and domain-specific information
-* **Reduced hallucinations**: Grounds responses in factual data rather than model-generated content
-* **Enhanced context awareness**: Allows models to reference specific documents or data points
+* [`springAI-demo`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/springAI-demo):
+   A Spring Boot app that loads Kotlin standard library docs into a vector store and supports document-based Q&A.
+* [`langchain4j-spring-boot`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/langchain4j/langchain4j-spring-boot):
+   A minimal RAG example using LangChain4j.
 
-In Kotlin, you can implement RAG using libraries like LangChain4j and Spring AI:
+### Agent-based applications
 
-```kotlin
-// Example using LangChain4j for document-based RAG
-val documentLoader = TextDocumentLoader()
-val document = documentLoader.load("path/to/document.txt")
+Build AI agents in Kotlin that reason, plan, and act using language models and tools:
 
-// Create embeddings and store them in a vector database
-val embeddings = OpenAIEmbeddings(apiKey)
-val vectorStore = InMemoryEmbeddingStore<TextSegment>()
+* [`koog`](https://github.com/JetBrains/koog): 
+  Shows how to use Kotlin agentic framework Koog to build AI agents.
+* [`langchain4j-spring-boot`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/langchain4j/langchain4j-spring-boot):
+   Includes a simple tool-using agent built with LangChain4j.
 
-// Split document into segments and embed them
-val segments = DocumentSplitters.recursive(300, 0).split(document)
-segments.forEach { segment ->
-    vectorStore.add(embeddings.embed(segment.text()), segment)
-}
+### Chain of thought prompting
 
-// Use the RAG service to answer questions about the document
-val llm = OpenAI(apiKey)
-val response = RetrievalAugmentor.builder()
-    .retrievalChain(EmbeddingStoreRetriever.from(vectorStore, embeddings, 2))
-    .build()
-    .augment("What information is in the document?", llm)
-```
+Implement structured prompting techniques that guide language models through multi-step reasoning.
 
-Libraries like Spring AI also provide similar capabilities with a more Spring-oriented approach, allowing you to integrate RAG into your existing Spring applications.
+* [`LangChain4j_Overview.ipynb`](https://github.com/Kotlin/Kotlin-AI-Examples/blob/master/notebooks/langchain4j/LangChain4j_Overview.ipynb):
+   A Kotlin Jupyter notebook demonstrating chain of thought and structured output.
 
-## Creating AI agents, including autonomous ones
+### LLMs in backend services
 
-AI agents are systems that can perceive their environment, make decisions, and take actions to achieve specific goals. They represent a more advanced form of AI application that can operate with varying degrees of autonomy.
+Integrate LLMs into business logic or REST APIs using Kotlin and Spring:
 
-Key capabilities of AI agents in Kotlin applications:
+* [`spring-ai-examples`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/spring-ai-examples):
+   Includes classification, chat, and summarization examples.
+* [`springAI-demo`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/springAI-demo):
+   Demonstrates full integration of LLM responses with application logic.
 
-* **Task automation**: Perform complex sequences of actions without human intervention
-* **Adaptive decision-making**: Respond to changing conditions based on predefined rules or learned patterns
-* **Tool utilization**: Leverage various APIs, services, and data sources to accomplish tasks
-* **Continuous operation**: Run as background processes, monitoring for specific conditions or events
+### Multiplatform user interfaces with AI
 
-In Kotlin, you can create AI agents using libraries like ARC (Autonomous Reasoning and Control):
+Use Compose Multiplatform to build interactive AI-powered UIs in Kotlin:
 
-```kotlin
-// Example of a simple autonomous agent
-class ResearchAgent(private val llm: LanguageModel, private val tools: List<Tool>) {
-    fun performResearch(topic: String): String {
-        // Create a research plan using the language model
-        val plan = llm.generate("Create a research plan for: $topic")
-            .split("\n").filter { it.isNotEmpty() }
+* [`mcp-demo`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/mcp/mcp-demo):
+   A desktop UI that connects to Claude and OpenAI and presents responses using Compose Multiplatform.
 
-        // Execute each step of the plan using appropriate tools
-        val results = plan.map { step ->
-            val tool = tools.first { it.canHandle(step) }
-            tool.execute(step)
-        }
+## Technologies
 
-        // Synthesize findings into a coherent report
-        return llm.generate("Synthesize these findings: ${results.joinToString("\n")}")
-    }
-}
-```
+The examples use:
 
-Autonomous agents can also be designed to operate continuously, monitoring systems and taking actions without human intervention. For example, you could create an agent that monitors application metrics, analyzes them for issues, and automatically takes corrective actions when needed.
+* [LangChain4j](https://github.com/langchain4j/langchain4j) – building blocks for LLM applications in Kotlin and Java
+* [Spring AI](https://spring.io/projects/spring-ai) – AI integration for Spring applications
+* [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) – declarative UI for Kotlin apps across platforms
+* [OpenAI](https://platform.openai.com/) and [Claude](https://claude.ai/) – language model APIs
+* [Qdrant](https://qdrant.tech/) and [Weaviate](https://weaviate.io/) – vector search databases
 
-These agents leverage Kotlin's coroutines for handling long-running tasks and asynchronous operations.
+## Explore the examples
 
-## Implementing a chain of thought for your AI application
-
-Chain of thought is a technique that improves the reasoning capabilities of language models by breaking down complex problems into a series of intermediate steps. This approach enables more transparent and reliable AI reasoning, especially for complex tasks.
-
-Benefits of chain of thought reasoning in AI applications:
-
-* **Improved problem-solving**: Breaks down complex problems into manageable steps
-* **Enhanced explainability**: Makes AI reasoning more transparent and understandable
-* **Reduced errors**: Catches logical mistakes by examining each step in the reasoning process
-* **Better handling of edge cases**: Provides more robust responses for unusual or complex queries
-
-In Kotlin, you can implement chain of thought reasoning using libraries like LangChain4j and Spring AI:
-
-```kotlin
-// Example of chain of thought reasoning with LangChain4j
-val llm = OpenAI(apiKey)
-
-// Create a template that guides the model through step-by-step reasoning
-val chainOfThought = PromptTemplate.from(
-    """
-    Question: {{question}}
-
-    Let's think through this step by step:
-    1. {{step1}}
-    2. {{step2}}
-    3. {{step3}}
-
-    Based on the above reasoning, the final answer is:
-    """
-)
-
-// Generate a response using the chain of thought template
-val response = llm.generate(
-    chainOfThought.format(
-        mapOf(
-            "question" to "What is the result of (17 × 24) ÷ 8?",
-            "step1" to "Calculate 17 × 24",
-            "step2" to "Calculate the result of step 1 ÷ 8",
-            "step3" to "Simplify the result if necessary"
-        )
-    )
-)
-```
-
-You can implement chain of thought reasoning with various libraries, including Spring AI, which provides a clean integration with Spring applications. The key is to structure your prompts to guide the model through a logical reasoning process.
-
-## Embedding LLMs into business logic
-
-Large Language Models (LLMs) can be seamlessly integrated into your application's business logic to enhance functionality and provide intelligent features. This integration allows you to augment traditional software systems with AI capabilities while maintaining control over the application flow.
-
-Advantages of embedding LLMs in Kotlin business logic:
-
-* **Enhanced user experiences**: Add natural language understanding and generation to existing applications
-* **Automated decision support**: Provide AI-powered recommendations while keeping humans in the loop
-* **Content generation and analysis**: Automatically create, summarize, or analyze text-based content
-* **Personalization**: Tailor responses and experiences based on user context and history
-* **Gradual adoption**: Incrementally add AI capabilities to specific parts of your application
-
-In Kotlin, you can embed LLMs using libraries like Spring AI and LangChain4j:
-
-```kotlin
-// Example of embedding an LLM in a customer support service
-@Service
-class CustomerSupportService(
-    private val aiClient: OpenAiClient,
-    private val ticketRepository: TicketRepository,
-    private val customerRepository: CustomerRepository
-) {
-    fun handleCustomerInquiry(inquiry: String, customerId: String): SupportResponse {
-        // Retrieve customer data and history for context
-        val customer = customerRepository.findById(customerId)
-        val customerHistory = ticketRepository.findByCustomerId(customerId)
-        val context = buildCustomerContext(customer, customerHistory)
-
-        // Generate AI response using the customer context
-        val response = aiClient.prompt(
-            PromptTemplate.from(
-                "You are a customer support assistant. " +
-                "Customer context: $context. " +
-                "Customer inquiry: $inquiry. " +
-                "Provide a helpful response:"
-            )
-        ).completion
-
-        // Analyze sentiment and determine priority
-        val sentiment = analyzeSentiment(inquiry)
-        val priority = determinePriority(inquiry, sentiment, customer.tier)
-
-        // Create ticket for high-priority issues
-        if (priority > Priority.MEDIUM) {
-            createSupportTicket(inquiry, response, customerId, priority)
-        }
-
-        return SupportResponse(
-            answer = response,
-            followUpActions = suggestFollowUpActions(inquiry, response)
-        )
-    }
-}
-```
-
-You can integrate LLMs into various business processes, such as product recommendations, content generation, data analysis, and decision support systems. The key is to combine the AI capabilities with your domain-specific business logic and data sources to create intelligent applications that provide real value to users.
-
-## Integrating resources, tools, and prompts into an AI-based app
-
-Kotlin's multiplatform capabilities, especially with Compose Multiplatform, make it an excellent choice for building AI-powered applications with rich user interfaces that can integrate various resources like images, audio, video, and text.
-
-Benefits of using Kotlin and Compose Multiplatform for AI-powered UIs:
-
-* **Code sharing**: Write UI and business logic once and deploy across Android, iOS, desktop, and web
-* **Reactive UI updates**: Easily reflect AI-generated content changes in the user interface
-* **Rich media support**: Seamlessly handle various content types including text, images, audio, and video
-* **Declarative UI**: Create complex, responsive interfaces with less code using Compose's declarative paradigm
-* **Native performance**: Maintain high performance even when processing AI-generated content
-
-Here's an example of how you can create a Compose Multiplatform application that integrates AI capabilities:
-
-```kotlin
-// A ViewModel that integrates various AI services
-class AIAssistantViewModel(
-    private val llmService: LLMService,
-    private val imageGenerationService: ImageGenerationService,
-    private val audioTranscriptionService: AudioTranscriptionService
-) : ViewModel() {
-    // State management with Kotlin flows
-    private val _uiState = MutableStateFlow(AIAppUiState())
-    val uiState: StateFlow<AIAppUiState> = _uiState.asStateFlow()
-
-    // Process text prompts with the LLM service
-    fun processTextPrompt(prompt: String) {
-        viewModelScope.launch {
-            _uiState.update { it.copy(isProcessing = true) }
-            val response = llmService.generateResponse(prompt)
-
-            // Update UI state with the new conversation items
-            _uiState.update { 
-                it.copy(
-                    isProcessing = false,
-                    conversations = it.conversations + listOf(
-                        ConversationItem(isUser = true, content = prompt),
-                        ConversationItem(isUser = false, content = response)
-                    )
-                )
-            }
-        }
-    }
-
-    // Generate images from text prompts
-    fun generateImage(prompt: String) {
-        viewModelScope.launch {
-            val imageUrl = imageGenerationService.generateImage(prompt)
-            // Update UI with the generated image
-        }
-    }
-
-    // Transcribe audio files to text
-    fun transcribeAudio(audioFile: File) {
-        viewModelScope.launch {
-            val transcription = audioTranscriptionService.transcribe(audioFile)
-            // Process the transcription with the LLM
-            processTextPrompt(transcription)
-        }
-    }
-}
-```
-
-With Compose Multiplatform, you can create a consistent UI across platforms that integrates these AI capabilities:
-
-```kotlin
-@Composable
-fun AIAssistantApp(viewModel: AIAssistantViewModel) {
-    val uiState by viewModel.uiState.collectAsState()
-
-    Column(modifier = Modifier.fillMaxSize()) {
-        // Display conversation history
-        ConversationHistory(uiState.conversations)
-
-        // Text input for prompts
-        PromptInputField(
-            onSendPrompt = { viewModel.processTextPrompt(it) },
-            isProcessing = uiState.isProcessing
-        )
-
-        // Tool buttons for additional AI features
-        AIToolbar(
-            onGenerateImage = { viewModel.generateImage(it) },
-            onRecordAudio = { /* Open audio recording */ },
-            onUploadFile = { viewModel.transcribeAudio(it) }
-        )
-    }
-}
-```
-
-This example demonstrates how to integrate various AI capabilities into a Kotlin application using Compose Multiplatform for the UI. The application can handle text prompts, generate images, transcribe audio, and upload files, all while maintaining a responsive and user-friendly interface.
-
-By leveraging Kotlin's multiplatform capabilities, you can deploy this application across different platforms, including Android, iOS, desktop, and web, providing a consistent experience for your users regardless of their device.
+You can explore and run the examples from the [Kotlin-AI-Examples](https://github.com/Kotlin/Kotlin-AI-Examples) repository.
+Each project is self-contained and can be used as a reference or template for building Kotlin-based AI applications.
 
 ## What's next
 
+* Follow the []
 * Explore [LangChain4j](https://github.com/langchain4j/langchain4j) for building LLM-powered applications in Kotlin and Java
 * Learn about [Spring AI](https://spring.io/projects/spring-ai) for integrating AI capabilities into Spring applications
 * Check out [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) for building cross-platform UIs for AI applications
