@@ -46,7 +46,7 @@ function KotlinPlusAI() {
                 </div>
 
                 <div className={styles.buttons}>
-                    <Button mode="rock" size={size} href="https://www.jetbrains.com/ai/">Learn about JetBrainsAI</Button>
+                    <Button mode="rock" size={size} href="https://www.jetbrains.com/ai/">Learn about JetBrains AI</Button>
                     <Button mode="outline" size={size}
                             href="/docs/kotlin-ai-apps-development-overview.html">Build AI apps with Kotlin</Button>
                 </div>
