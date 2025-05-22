@@ -10,7 +10,7 @@ It can be used across platforms, integrates well with established AI frameworks,
 
 ## Kotlin AI agentic framework – Koog
 
-[Koog](https://github.com/JetBrains/koog) is a Kotlin-based framework for creating and running AI agents locally, without requiring external services.
+[Koog](https://koog.ai) is a Kotlin-based framework for creating and running AI agents locally, without requiring external services.
 Koog is JetBrains' innovative, open-source agentic framework that empowers developers to build AI agents within the JVM ecosystem.
 It provides a pure Kotlin implementation for building intelligent agents that can interact with tools, handle complex workflows, and communicate with users.
 
