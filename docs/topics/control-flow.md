@@ -183,6 +183,13 @@ val numericValue = when (getRandomBit()) {
 }
 ```
 
+> To simplify your `when` expressions and reduce repetition, you can try out the Experimental context-sensitive resolution feature.
+> This feature allows you to omit the type name when using enum entries or sealed class members in `when` expressions if the expected type is known.
+> 
+> For more information, see [Preview of context-sensitive resolution](whatsnew2220.md#preview-of-context-sensitive-resolution).
+> 
+{style="tip"}
+
 If your `when` expression **doesn't** have a subject, you **must** have an `else` branch or the compiler throws an error.
 The `else` branch is evaluated when none of the other branch conditions are satisfied:
 
