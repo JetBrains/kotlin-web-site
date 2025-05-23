@@ -182,8 +182,12 @@ which can be overridden to provide custom equality check implementation. Any oth
 >
 {style="note"}
 
-The `==` operation is special: it is translated to a complex expression that screens for `null`'s.
-`null == null` is always true, and `x == null` for a non-null `x` is always false and won't invoke `x.equals()`.
+The `==` operation translates `a == b` to `a?.equals(b) ?: (b === null)`, which safely handles comparisons involving `null` values.
+The behavior of the comparison depends on the nullability of the values being compared:
+
+* If `a` is `null`, the comparison returns `true` only if `b` is also `null`, and no function is called. 
+* If `a` is a nullable type and isn't `null` at runtime, the compiler calls `a.equals(b)`, even if `b` is `null`.
+* If `a` is a non-nullable type and `b` is known to be `null`, the compiler replaces the comparison with `false` at compile time and skips the function call.
 
 ### Comparison operators
 
