@@ -1,5 +1,7 @@
 [//]: # (title: What's new in Kotlin %kotlinEapVersion%)
 
+<primary-label ref="eap"/>
+
 _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 > This document doesn't cover all of the features of the Early Access Preview (EAP) release,
