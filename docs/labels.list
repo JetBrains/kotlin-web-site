@@ -9,6 +9,4 @@
     <primary-label id="beta" name="Beta" short-name="β" href="components-stability.html#stability-levels-explained" color="tangerine">The feature is in Beta. It is almost stable, but migration steps may be required in the future. We'll do our best to minimize any changes you have to make.</primary-label>
     <primary-label id="advanced" name="Advanced" short-name="☆" color="purple"></primary-label>
     <primary-label id="eap" name="EAP" short-name="EAP" color="red">This functionality is available only in the latest EAP version.</primary-label>
-
-    <secondary-label id="eap" name="EAP" color="red">This functionality is available only in the latest EAP version.</secondary-label>
 </labels>
