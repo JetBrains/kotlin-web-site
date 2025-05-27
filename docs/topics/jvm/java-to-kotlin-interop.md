@@ -270,11 +270,7 @@ making its getter and setter methods static members in that object or the class 
 
 ## Default methods in interfaces
 
-> [Default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html) are available only for JVM targets 1.8 and above.
->
-{style="note"}
-
-When targeting the JVM, Kotlin compiles functions declared in interfaces to default methods [unless configured otherwise](#compatibility-modes-for-default-methods).
+When targeting the JVM, Kotlin compiles functions declared in interfaces to [default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html) unless [configured otherwise](#compatibility-modes-for-default-methods).
 These are concrete methods in interfaces that Java classes can inherit directly, without reimplementation.
 
 Here is an example of a Kotlin interface with a default method:
@@ -323,19 +319,14 @@ public class BB8 implements Robot {
 }
 ```
 
-> The `@JvmDefault` annotation, used prior to Kotlin 1.4, is deprecated.
-> Use the `jvmDefault` compiler option to control how functions in interfaces are compiled on the JVM.
->
-{style="note"}
-
 ### Compatibility modes for default methods
 
 Kotlin provides three modes for controlling how functions declared in interfaces are compiled to JVM default methods.
 These modes determine whether the compiler generates compatibility bridges and static methods in `DefaultImpls` classes.
 
-You can control this behavior using the `jvmDefault` compiler option:
+You can control this behavior using the `-jvm-default` compiler option:
 
-> The `jvmDefault` compiler option replaces the deprecated `-Xjvm-default` option.
+> The `-jvm-default` compiler option replaces the deprecated `-Xjvm-default` option.
 >
 {style="note"}
 
@@ -354,7 +345,7 @@ Skips compatibility bridges and `DefaultImpls` classes.
 Use this mode for new codebases that don't interact with code that relies on `DefaultImpls` classes.
 This can break binary compatibility with older Kotlin code.
 
-> If interface delegation is used, all interface methods are delegated. The only exception is when methods are annotated with the deprecated `@JvmDefault` annotation.
+> If interface delegation is used, all interface methods are delegated.
 >
 {style="note"}
 
