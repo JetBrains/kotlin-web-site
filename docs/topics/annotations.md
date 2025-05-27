@@ -1,6 +1,6 @@
 [//]: # (title: Annotations)
 
-Annotations are means of attaching metadata to code. To declare an annotation, put the `annotation` modifier in front of a class:
+Annotations are a means of attaching metadata to code. To declare an annotation, put the `annotation` modifier in front of a class:
 
 ```kotlin
 annotation class Fancy
@@ -137,14 +137,14 @@ val f = @Suspendable { Fiber.sleep(10) }
 
 ## Annotation use-site targets
 
-When you're annotating a property or a primary constructor parameter, there are multiple Java elements which are
+When you're annotating a property or a primary constructor parameter, there are multiple Java elements that are
 generated from the corresponding Kotlin element, and therefore multiple possible locations for the annotation in
 the generated Java bytecode. To specify how exactly the annotation should be generated, use the following syntax:
 
 ```kotlin
-class Example(@field:Ann val foo,    // annotate Java field
-              @get:Ann val bar,      // annotate Java getter
-              @param:Ann val quux)   // annotate Java constructor parameter
+class Example(@field:Ann val foo,    // annotate only the Java field
+              @get:Ann val bar,      // annotate only the Java getter
+              @param:Ann val quux)   // annotate only the Java constructor parameter
 ```
 
 The same syntax can be used to annotate the entire file. To do this, put an annotation with the target `file` at
@@ -157,7 +157,7 @@ package org.jetbrains.demo
 ```
 
 If you have multiple annotations with the same target, you can avoid repeating the target by adding brackets after the
-target and putting all the annotations inside the brackets:
+target and putting all the annotations inside the brackets (except for the `all` meta-target):
 
 ```kotlin
 class Example {
@@ -173,23 +173,61 @@ The full list of supported use-site targets is:
   * `field`
   * `get` (property getter)
   * `set` (property setter)
+  * `all` (an experimental meta-target for properties, see [below](#all-use-site-meta-target) for its purpose and usage)
   * `receiver` (receiver parameter of an extension function or property)
+
+    To annotate the receiver parameter of an extension function, use the following syntax:
+
+    ```kotlin
+    fun @receiver:Fancy String.myExtension() { ... }
+    ```
+    
   * `param` (constructor parameter)
   * `setparam` (property setter parameter)
   * `delegate` (the field storing the delegate instance for a delegated property)
 
-To annotate the receiver parameter of an extension function, use the following syntax:
+### `all` use-site meta-target
 
-```kotlin
-fun @receiver:Fancy String.myExtension() { ... }
-```
+<primary-label ref="experimental-opt-in"/>
+
+The `all` target makes it more convenient to cover all important cases when the same annotation needs to apply
+not only to the parameter and the property or field but also to the corresponding getter and setter.
+
+Specifically, the annotation marked with `all` is propagated, if applicable:
+
+* To the constructor parameter (`param`) if the property is defined in the primary constructor.
+* To the property itself (`property`).
+* To the backing field (`field`) if the property has one.
+* To the getter (`get`).
+* To the setter parameter (`setparam`) if the property is defined as `var`.
+* To the Java-only target `RECORD_COMPONENT` if the class has the `@JvmRecord` annotation.
+
+The `all` target comes with some limitations:
+
+* It does not propagate an annotation to types, potential extension receivers, or context receivers or parameters.
+* It cannot be used with multiple annotations:
+    ```kotlin
+    @all:[A B] // forbidden, use `@all:A @all:B`
+    val x: Int = 5
+    ```
+* It cannot be used with [delegated properties](delegated-properties.md).
+
+TODO: add instructions for enabling
+
+### Defaults when no use-site targets are specified
+
+TODO: separate experimental and current behavior
+TODO: instructions for enabling the experimental behavior
 
 If you don't specify a use-site target, the target is chosen according to the `@Target` annotation of the annotation
-being used. If there are multiple applicable targets, the first applicable target from the following list is used:
+being used.
 
-  * `param`
-  * `property`
-  * `field`
+If there are multiple applicable targets, choose one or more as follows:
+
+* If you want to apply the constructor parameter target (`param`), use it.
+* If you want to apply the property or field target (`property` or `field` respectively), use `property`.
+
+If there are multiple targets, and none of `param`, `property`, or `field` are applicable, the code won't compile.
 
 ## Java annotations
 
