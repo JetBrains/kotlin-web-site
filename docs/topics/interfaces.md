@@ -120,7 +120,7 @@ both to methods for which you've inherited a single implementation (*bar()*) and
 On the JVM, functions declared in interfaces are compiled to default methods.
 You can control this behavior using the `-jvm-default` compiler option with the following values:
 
-* `enable (default)`: generates default implementations in interfaces and includes bridge functions in subclasses and `DefaultImpls` classes. Use this mode to maintain binary compatibility with older Kotlin versions.
+* `enable` (default): generates default implementations in interfaces and includes bridge functions in subclasses and `DefaultImpls` classes. Use this mode to maintain binary compatibility with older Kotlin versions.
 * `no-compatibility`: generates only default implementations in interfaces. This mode skips compatibility bridges and `DefaultImpls` classes, making it suitable for new Kotlin code.
 * `disable`: skips default methods and generates only compatibility bridges and `DefaultImpls` classes.
 
