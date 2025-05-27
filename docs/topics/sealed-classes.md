@@ -200,7 +200,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
-> To reduce repetition in `when` expressions, you can try out the Experimental context-sensitive resolution feature.
+> To reduce repetition in `when` expressions, you can try out context-sensitive resolution (currently in preview).
 > This feature allows you to omit the type name when matching sealed class members if the expected type is known.
 >
 > For more information, see [Preview of context-sensitive resolution](whatsnew2220.md#preview-of-context-sensitive-resolution).

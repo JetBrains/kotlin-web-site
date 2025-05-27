@@ -119,7 +119,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="rgb-enums-properties-kotlin"}
 
-> To reduce repetition when working with enum entries, you can try out the Experimental context-sensitive resolution feature.
+> To reduce repetition when working with enum entries, you can try out context-sensitive resolution (currently in preview).
 > This feature allows you to omit the enum class name when the expected type is known, such as in `when` expressions or when assigning to a typed variable.
 >
 > For more information, see [Preview of context-sensitive resolution](whatsnew2220.md#preview-of-context-sensitive-resolution).
