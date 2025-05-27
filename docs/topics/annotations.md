@@ -222,12 +222,13 @@ TODO: instructions for enabling the experimental behavior
 If you don't specify a use-site target, the target is chosen according to the `@Target` annotation of the annotation
 being used.
 
-If there are multiple applicable targets, choose one or more as follows:
+If there are multiple applicable targets, one or more is chosen as follows:
 
-* If you want to apply the constructor parameter target (`param`), use it.
-* If you want to apply the property or field target (`property` or `field` respectively), use `property`.
+* If the constructor parameter target (`param`) is applicable, it is used.
+* If the property target (`property`) is applicable, it is used.
+* If the field target (`field`) is applicable while `property` isn't, `field` is used.
 
-If there are multiple targets, and none of `param`, `property`, or `field` are applicable, the code won't compile.
+If there are multiple targets, and none of `param`, `property`, or `field` are applicable, the annotation is invalid.
 
 ## Java annotations
 
