@@ -321,7 +321,7 @@ public class BB8 implements Robot {
 
 ### Compatibility modes for default methods
 
-Kotlin provides three modes for controlling how functions declared in interfaces are compiled to JVM default methods.
+Kotlin provides three modes for controlling how functions in interfaces are compiled to JVM default methods.
 These modes determine whether the compiler generates compatibility bridges and static methods in `DefaultImpls` classes.
 
 You can control this behavior using the `-jvm-default` compiler option:
