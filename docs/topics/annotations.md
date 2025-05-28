@@ -216,19 +216,72 @@ TODO: add instructions for enabling
 
 ### Defaults when no use-site targets are specified
 
-TODO: separate experimental and current behavior
-TODO: instructions for enabling the experimental behavior
-
 If you don't specify a use-site target, the target is chosen according to the `@Target` annotation of the annotation
 being used.
+If there are multiple applicable targets, the first applicable target from the following list is used:
 
-If there are multiple applicable targets, one or more is chosen as follows:
+* `param`
+* `property`
+* `field`
+
+For example:
+
+```kotlin
+data class User(val username: String,
+                // @Email here is equivalent to @param:Email
+                @Email val email: String) {
+    // @Email here is equivalent to @field:Email
+    @Email val secondaryEmail: String? = null
+}
+```
+
+Kotlin %kotlinEapVersion% introduced an experimental defaulting rule which should
+make propagating annotations to parameters, fields, and properties more predictable.
+
+With the new rule, if there are multiple applicable targets, one or more is chosen as follows:
 
 * If the constructor parameter target (`param`) is applicable, it is used.
 * If the property target (`property`) is applicable, it is used.
 * If the field target (`field`) is applicable while `property` isn't, `field` is used.
 
+Using the same example:
+
+```kotlin
+data class User(val username: String,
+                // @Email here is now equivalent to @param:Email @field:Email
+                @Email val email: String) {
+    // @Email here is still equivalent to @field:Email
+    @Email val secondaryEmail: String? = null
+}
+```
+
 If there are multiple targets, and none of `param`, `property`, or `field` are applicable, the annotation is invalid.
+
+To enable the new defaulting rule, use the following line in your Gradle configuration:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xannotation-default-target=param-property")
+    }
+}
+```
+
+Whenever you'd like to use the old behavior, you can:
+
+* In a specific case, specify the necessary target explicitly, for example, using `@param:Annotation` instead of `@Annotation`.
+* For a whole project, use this flag in your Gradle build file:
+
+    ```kotlin
+    // build.gradle.kts
+    kotlin {
+        compilerOptions {
+            freeCompilerArgs.add("-Xannotation-default-target=first-only")
+        }
+    }
+    ```
+
 
 ## Java annotations
 
