@@ -119,6 +119,13 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="rgb-enums-properties-kotlin"}
 
+> To reduce repetition when working with enum entries, try out context-sensitive resolution (currently in preview).
+> This feature allows you to omit the enum class name when the expected type is known, such as in `when` expressions or when assigning to a typed variable.
+>
+> For more information, see [Preview of context-sensitive resolution](whatsnew2220.md#preview-of-context-sensitive-resolution) or the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md).
+>
+{style="tip"}
+
 You can access the constants in an enum class in a generic way using
 the [`enumValues<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-values.html) and [`enumValueOf<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-value-of.html) functions. 
 In Kotlin 2.0.0, the [`enumEntries<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.enums/enum-entries.html) function is introduced as a replacement for the [`enumValues<T>()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/enum-values.html)
