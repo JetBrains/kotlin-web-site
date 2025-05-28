@@ -176,6 +176,14 @@ fun main() {
 }
 ```
 
+> You can also store annotations in Kotlin metadata and access them using the `kotlin-metadata-jvm` library.
+> This makes it possible to access annotations in metadata without manually matching them by signature, improving reliability for overloaded declarations.
+> This feature is [Experimental](components-stability.md#stability-levels-explained) and requires opt-in.
+> 
+> For more information, see [Support for reading and writing annotations in Kotlin metadata](whatsnew2220.md#support-for-reading-and-writing-annotations-in-kotlin-metadata).
+> 
+{style="note"}
+
 ### Extract metadata from bytecode
 
 While you can retrieve metadata using reflection, another approach is to extract it from bytecode using a bytecode manipulation framework such as [ASM](https://asm.ow2.io/).
