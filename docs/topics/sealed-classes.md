@@ -200,6 +200,13 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
+> To reduce repetition in `when` expressions, try out context-sensitive resolution (currently in preview).
+> This feature allows you to omit the type name when matching sealed class members if the expected type is known.
+>
+> For more information, see [Preview of context-sensitive resolution](whatsnew2220.md#preview-of-context-sensitive-resolution) or the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md).
+> 
+{style="tip"}
+
 When using sealed classes with `when` expressions, you can also add guard conditions to include additional checks in a single branch.
 For more information, see [Guard conditions in when expressions](control-flow.md#guard-conditions-in-when-expressions).
 
