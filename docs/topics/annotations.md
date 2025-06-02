@@ -203,6 +203,7 @@ Specifically, the annotation marked with `all` is propagated, if applicable:
 * To the Java-only target `RECORD_COMPONENT` if the class has the `@JvmRecord` annotation.
 
 In the example below, the `@Email` annotation is applied to all relevant targets of each property:
+
 ```kotlin
 data class User(
     val username: String,
@@ -214,10 +215,9 @@ data class User(
     // Applies `@Email` to `property`, `field`, and `getter` (no `param` since it's not in the constructor)
     @all:Email val secondaryEmail: String? = null
 }
+```
 
-```suggestion
-
-You can use the `@all` meta-target with any property, both inside and outside the primary constructor.
+You can use the `all` meta-target with any property, both inside and outside the primary constructor.
 
 The `all` target comes with some limitations:
 
