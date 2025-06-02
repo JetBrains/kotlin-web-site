@@ -111,7 +111,9 @@ making the memory usage grow endlessly. In this case, the GC forces a stop-the-w
 
 You can monitor memory consumption yourself, check for memory leaks, and adjust memory consumption.
 
-### Check for memory leaks
+### Monitor memory consumption
+
+#### Check for memory leaks
 
 To access the memory manager metrics, call `kotlin.native.internal.GC.lastGCInfo()`. This method returns statistics for the last
 run of the garbage collector. The statistics can be useful for:
@@ -149,20 +151,77 @@ fun test() {
 }
 ```
 
+#### Track memory consumption on Apple platforms
+
+When debugging memory issues on Apple platforms, you can see how much memory is reserved by Kotlin code.
+Kotlin's share is tagged with an identifier and can be tracked through tools like VM Tracker in XCode Instruments.
+
+The feature is available only in the Kotlin/Native default memory allocator when _all_ the following conditions are met:
+
+* **Tagging enabled**. The memory should be tagged with a valid identifier. Apple recommends numbers between 240 and 255;
+  the default value is 246.
+
+  If you set up the `kotlin.native.binary.mmapTag=0` Gradle property, tagging is disabled.
+
+* **Allocation with mmap**. The allocator should use the `mmap` system call to map files into memory.
+
+  If you set up the `kotlin.native.binary.disableMmap=true` Gradle property, the default allocator uses `malloc` instead
+  of `mmap`.
+
+* **Paging enabled**. Paging of allocations (buffering) should be enabled.
+
+  If you set up the [`kotlin.native.binary.pagedAllocator=false`](#disable-buffering) Gradle property, the memory is
+  reserved on a per-object basis instead.
+
 ### Adjust memory consumption
 
-If there are no memory leaks in the program, but you still see unexpectedly high memory consumption,
-try updating Kotlin to the latest version. We're constantly improving the memory manager, so even a simple compiler
+If you experience unexpectedly high memory consumption, try the following solutions:
+
+#### Update Kotlin
+
+Update Kotlin to the latest version. We're constantly improving the memory manager, so even a simple compiler
 update might improve memory consumption.
 
-If you continue to experience high memory consumption after updating, switch to the system memory allocator by using
-the following compiler option in your Gradle build script:
+#### Disable buffering
+<primary-label ref="experimental-opt-in"/>
+
+You can disable buffering (paging of allocations), so that the memory allocator reserves memory on a per-object basis.
+In some cases, it may help you avoid strict memory limitations or high memory consumption on the application's startup.
+
+To do that, set the following option in your `gradle.properties` file:
 
 ```none
--Xallocator=std
+kotlin.native.binary.pagedAllocator=false
 ```
 
-If this doesn't improve your memory consumption, report an issue in [YouTrack](https://youtrack.jetbrains.com/newissue?project=kt).
+#### Enable support for Latin-1 strings
+<primary-label ref="experimental-opt-in"/>
+
+By default, strings in Kotlin are stored using UTF-16 encoding, where each character is represented by two bytes.
+In some cases, it leads to strings taking up twice as much space in the binary compared to the source code,
+and reading data taking up twice as much memory.
+
+To reduce the application's binary size and adjust memory consumption, you can enable support for Latin-1-encoded strings.
+The [Latin-1 (ISO 8859-1)](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) encoding represents each of the first
+256 Unicode characters by just one byte.
+
+To enable it, set the following option in your `gradle.properties` file:
+
+```none
+kotlin.native.binary.latin1Strings=true
+```
+
+With the Latin-1 support enabled, strings are stored in Latin-1 encoding as long
+as all the characters fall within its range. Otherwise, the default UTF-16 encoding is used.
+
+> While the feature is Experimental, the cinterop extension functions [`String.pin`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/pin.html),
+> [`String.usePinned`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/use-pinned.html), and
+> [`String.refTo`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/ref-to.html) become less efficient.
+> Each call to them may trigger automatic string conversion to UTF-16.
+> 
+{style="note"}
+
+If none of these options helped, create an issue in [YouTrack](https://kotl.in/issue).
 
 ## Unit tests in the background
 
