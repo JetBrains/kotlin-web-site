@@ -186,7 +186,7 @@ The full list of supported use-site targets is:
   * `setparam` (property setter parameter)
   * `delegate` (the field storing the delegate instance for a delegated property)
 
-### `all` use-site meta-target
+### `all` meta-target
 
 <primary-label ref="experimental-opt-in"/>
 
