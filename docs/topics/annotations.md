@@ -202,6 +202,19 @@ Specifically, the annotation marked with `all` is propagated, if applicable:
 * To the setter parameter (`setparam`) if the property is defined as `var`.
 * To the Java-only target `RECORD_COMPONENT` if the class has the `@JvmRecord` annotation.
 
+In the example below, the `@Email` annotation is applied to all relevant targets of each property:
+```kotlin
+data class User(
+    val username: String,
+    // Applies `@Email` to `param`, `property`, `field` and `get`
+    @all:Email val email: String,
+    // Applies `@Email` to `param`, `property`, `field`, `get`, and `set_param`
+    @all:Email var name: String,
+) {
+    // Applies `@Email` to `property`, `field`, and `getter` (no `param` since it's not in the constructor)
+    @all:Email val secondaryEmail: String? = null
+}
+
 The `all` target comes with some limitations:
 
 * It does not propagate an annotation to types, potential extension receivers, or context receivers or parameters.
