@@ -49,7 +49,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: Constructor calls and inheritance using type aliases that expand to types that use variance modifiers such as `out` are no longer allowed in K2.
-> This resolves inconsistencies where using the original type wasn't allowed but the same usage through a type alias was permitted.
+> This resolves inconsistencies where using the original type wasn't allowed, but the same usage through a type alias was permitted.
 > To migrate, use the original type explicitly where needed.
 >
 > **Deprecation cycle**:
@@ -109,6 +109,133 @@ perspective
 > - 2.1.20: report a warning for all field-targeted annotations on annotation properties
 > - 2.2.0: raise the warning to an error
 
+### Forbid reified type parameters in type aliases
+
+> **Issue**: [KTLC-5](https://youtrack.jetbrains.com/issue/KTLC-5)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `reified` modifier is no longer allowed on type parameters in type aliases.
+> Reified type parameters are only valid in inline functions, so using them in type aliases had no effect.
+> To migrate, remove the `reified` modifier from `typealias` declarations.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report a warning for reified type parameters in type aliases
+> - 2.2.0: raise the warning to an error
+
+### Correct type checks on inline value classes for Number and Comparable
+
+> **Issue**: [KTLC-21](https://youtrack.jetbrains.com/issue/KTLC-21)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Inline value classes are no longer treated as implementors of `java.lang.Number` or `java.lang.Comparable` in `is` and `as` checks.
+> These checks previously returned incorrect results when applied to boxed inline classes.
+> The optimization now applies only to primitive types and their wrappers.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: enable the new behavior
+
+### Prohibit inaccessible generic types from indirect dependencies
+
+> **Issue**: [KTLC-3](https://youtrack.jetbrains.com/issue/KTLC-3)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The K2 compiler now reports errors when using types from indirect dependencies that are not visible to the compiler.
+> This affects cases such as lambda parameters or generic type arguments, where the referenced type is not available due to a missing dependency.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report errors for inaccessible generic types in lambdas and selected usages of inaccessible generic type arguments; report warnings for inaccessible non-generic types in lambdas and inaccessible type arguments in expression and super types
+> - 2.1.0: raise the warning on inaccessible non-generic types in lambdas to an error
+> - 2.2.0: raise the warning on inaccessible type arguments in expression types to an error
+
+### Enforce visibility checks on type parameter bounds
+
+> **Issue**: [KTLC-274](https://youtrack.jetbrains.com/issue/KTLC-274)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Functions and properties can no longer use a type parameter bound that has more restrictive visibility than the declaration itself.
+> This prevents exposing inaccessible types indirectly, which previously compiled without errors but led to runtime failures or IR validation errors in some cases.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report a warning when a type parameter has a bound that is not visible from the declaration’s visibility scope
+> - 2.2.0: raise the warning to an error
+
+### Report errors when exposing private types in non-private inline functions
+
+> **Issue**: [KT-70916](https://youtrack.jetbrains.com/issue/KT-70916)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Accessing private types, functions, or properties from non-private inline functions is no longer allowed.
+> To migrate, either avoid referencing private entities, make the function private, or remove the `inline` modifier. 
+> Note that removing `inline` breaks binary compatibility.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report an error when accessing private types or members from non-private inline functions
+
+### Forbid non-local returns in default argument lambdas
+
+> **Issue**: [KTLC-286](https://youtrack.jetbrains.com/issue/KTLC-286)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Non-local return statements are no longer allowed in lambdas used as default arguments.
+> This pattern previously compiled but led to runtime crashes. To migrate, rewrite the lambda to avoid non-local returns or move the logic outside the default argument.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report an error for non-local returns in lambdas used as default argument values
+
 ## Standard library
+
+### Deprecate kotlin.native.Throws
+
+> **Issue**: [KT-72137](https://youtrack.jetbrains.com/issue/KT-72137)
+>
+> **Component**: Kotlin/Native
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: `kotlin.native.Throws` is deprecated; use the common `kotlin.Throws` annotation instead. 
+>
+> **Deprecation cycle**:
+>
+> - 1.9.0: report a warning when using `kotlin.native.Throws`
+> - 2.2.0: raise the warning to an error
+
+### Deprecate AbstractDoubleTimeSource
+> **Issue**: [KT-72137](https://youtrack.jetbrains.com/issue/KT-72137)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: `AbstractDoubleTimeSource` is deprecated; use `AbstractLongTimeSource` instead.
+>
+> **Deprecation cycle**:
+>
+> - 1.8.20: report a warning when using `AbstractDoubleTimeSource`
+> - 2.2.0: raise the warning to an error
+
 
 ## Tools
