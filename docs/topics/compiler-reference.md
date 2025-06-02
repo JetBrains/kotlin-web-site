@@ -46,19 +46,6 @@ The following options are common for all Kotlin compilers.
 
 Display the compiler version.
 
-### -nowarn
-
-Suppress the compiler from displaying warnings during compilation.
-
-### -Werror
-
-Turn any warnings into a compilation error. 
-
-### -Wextra
-
-Enable [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that
-emit warnings if true.
-
 ### -verbose
 
 Enable verbose logging output which includes details of the compilation process.
@@ -136,14 +123,6 @@ $ kotlinc @options/compiler.options hello.kt
 Enable usages of API that [requires opt-in](opt-in-requirements.md) with a requirement annotation with the given 
 fully qualified name.
 
-### -Xsuppress-warning
-
-Suppresses specific warnings [globally across the whole project](whatsnew21.md#global-warning-suppression), for example:
-
-```bash
-kotlinc -Xsuppress-warning=NOTHING_TO_INLINE -Xsuppress-warning=NO_TAIL_CALLS_FOUND main.kt
-```
-
 ### -Xrepl
 
 Activates the Kotlin REPL.
@@ -171,6 +150,70 @@ Enables the new experimental [defaulting rule for annotation use-site targets](a
 ```bash
 kotlinc -Xannotation-default-target=param-property
 ```
+
+### Warning management
+
+#### -nowarn
+
+Suppress the compiler from displaying warnings during compilation.
+
+#### -Werror
+
+Turn any warning into a compilation error.
+
+#### -Wextra
+
+Enable [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that
+emit warnings if true.
+
+#### -Xsuppress-warning
+
+Suppress specific warnings [globally across the whole project](whatsnew21.md#global-warning-suppression):
+
+```bash
+kotlinc -Xsuppress-warning=NOTHING_TO_INLINE -Xsuppress-warning=NO_TAIL_CALLS_FOUND main.kt
+```
+
+#### -Xwarning-level
+<primary-label ref="experimental-general"/>
+
+Configure the severity level of specific compiler warnings:
+
+```bash
+-Xwarning-level=DIAGNOSTIC_NAME:(error|warning|disabled)
+```
+
+* `error`: raises the specified warning to an error.
+* `warning`: emits a warning and is enabled by default.
+* `disabled`: completely suppresses the specified warning module-wide.
+
+You can adjust warning reporting in your project by combining module-wide rules with specific ones. Choose your use case:
+
+##### Suppress warnings
+
+| Command                                           | Description                                                                                        |
+|---------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| [`-nowarn`](#nowarn)                              | Suppresses all warnings during compilation.                                                        |
+| `-Xwarning-level=DIAGNOSTIC_NAME:disabled`        | Suppresses only specified warnings.  Works the same as [`-Xsuppress-warning`](#xsuppress-warning). |
+| `-nowarn -Xwarning-level=DIAGNOSTIC_NAME:warning` | Suppresses all warnings except for the specified ones.                                             |
+
+##### Raise warnings to errors
+
+| Command                                           | Description                                                  |
+|---------------------------------------------------|--------------------------------------------------------------|
+| [`-Werror`](#werror)                              | Raises all warnings to compilation errors.                   |
+| `-Xwarning-level=DIAGNOSTIC_NAME:error`           | Raises only specified warnings to errors.                    |
+| `-Werror -Xwarning-level=DIAGNOSTIC_NAME:warning` | Raises all warnings to errors except for the specified ones. |
+
+##### Enable additional compiler warnings
+
+| Command                                            | Description                                                                                          |
+|----------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| [`-Wextra`](#wextra)                               | Enables all additional declaration, expression, and type compiler checks that emit warnings if true. |
+| `-Xwarning-level=DIAGNOSTIC_NAME:warning`          | Enables only specified additional compiler checks.                                                   |
+| `-Wextra -Xwarning-level=DIAGNOSTIC_NAME:disabled` | Enables all additional checks except for the specified ones.                                         |
+
+In case you have many warnings you want to exclude from general rules, you can list them in a separate file through [`@argfile`](#argfile).
 
 ## Kotlin/JVM compiler options
 
