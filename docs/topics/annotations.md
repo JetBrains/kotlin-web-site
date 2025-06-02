@@ -173,7 +173,7 @@ The full list of supported use-site targets is:
   * `field`
   * `get` (property getter)
   * `set` (property setter)
-  * `all` (an experimental meta-target for properties, see [below](#all-use-site-meta-target) for its purpose and usage)
+  * `all` (an experimental meta-target for properties, see [below](#all-meta-target) for its purpose and usage)
   * `receiver` (receiver parameter of an extension function or property)
 
     To annotate the receiver parameter of an extension function, use the following syntax:
@@ -212,7 +212,22 @@ The `all` target comes with some limitations:
     ```
 * It cannot be used with [delegated properties](delegated-properties.md).
 
-TODO: add instructions for enabling
+To enable the `@all` meta-target in your project, use the following compiler option in the command line:
+
+```Bash
+-Xannotation-target-all
+```
+
+Or add it to the `compilerOptions {}` block of your Gradle build file:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xannotation-target-all")
+    }
+}
+```
 
 ### Defaults when no use-site targets are specified
 
