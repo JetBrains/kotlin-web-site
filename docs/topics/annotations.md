@@ -169,8 +169,8 @@ class Example {
 The full list of supported use-site targets is:
 
   * `file`
-  * `property` (annotations with this target are not visible to Java)
   * `field`
+  * `property` (annotations with this target are not visible to Java)
   * `get` (property getter)
   * `set` (property setter)
   * `all` (an experimental meta-target for properties, see [below](#all-meta-target) for its purpose and usage)
