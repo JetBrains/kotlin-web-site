@@ -10,9 +10,9 @@ On this page, we'll describe the ways to tailor the interop of your Kotlin code 
 
 A Kotlin property is compiled to the following Java elements:
 
- * a getter method, with the name calculated by prepending the `get` prefix
- * a setter method, with the name calculated by prepending the `set` prefix (only for `var` properties)
- * a private field, with the same name as the property name (only for properties with backing fields)
+ * a getter method, with the name calculated by prepending the `get` prefix.
+ * a setter method, with the name calculated by prepending the `set` prefix (only for `var` properties).
+ * a private field, with the same name as the property name (only for properties with backing fields).
 
 For example, `var firstName: String` compiles to the following Java declarations:
 
@@ -28,9 +28,9 @@ public void setFirstName(String firstName) {
 }
 ```
 
-If the name of the property starts with `is`, a different name mapping rule is used: the name of the getter will be
-the same as the property name, and the name of the setter will be obtained by replacing `is` with `set`.
-For example, for a property `isOpen`, the getter will be called `isOpen()` and the setter will be called `setOpen()`.
+If the name of the property starts with `is`, a different name mapping rule is used: the name of the getter is
+the same as the property name, and the name of the setter is obtained by replacing `is` with `set`.
+For example, for a property `isOpen`, the getter is called `isOpen()` and the setter is called `setOpen()`.
 This rule applies for properties of any type, not just `Boolean`.
 
 ## Package-level functions
@@ -109,7 +109,7 @@ org.example.Utils.getDate();
 ## Instance fields
 
 If you need to expose a Kotlin property as a field in Java, annotate it with the [`@JvmField`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-field/index.html) annotation.
-The field will have the same visibility as the underlying property. You can annotate a property with `@JvmField` if it:
+The field has the same visibility as the underlying property. You can annotate a property with `@JvmField` if it:
 * has a backing field
 * is not private
 * does not have `open`, `override` or `const` modifiers
@@ -132,14 +132,14 @@ class JavaClient {
 ```
 
 [Late-Initialized](properties.md#late-initialized-properties-and-variables) properties are also exposed as fields. 
-The visibility of the field will be the same as the visibility of `lateinit` property setter.
+The visibility of the field is the same as the visibility of the `lateinit` property setter.
 
 ## Static fields
 
-Kotlin properties declared in a named object or a companion object will have static backing fields
+Kotlin properties declared in a named object or a companion object have static backing fields
 either in that named object or in the class containing the companion object.
 
-Usually these fields are private but they can be exposed in one of the following ways:
+Usually these fields are private, but they can be exposed in one of the following ways:
 
  - [`@JvmField`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-field/index.html) annotation
  - `lateinit` modifier
@@ -210,7 +210,7 @@ int version = C.VERSION;
 As mentioned above, Kotlin represents package-level functions as static methods.
 Kotlin can also generate static methods for functions defined in named objects or companion objects if you annotate those
 functions as [`@JvmStatic`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-static/index.html).
-If you use this annotation, the compiler will generate both a static method in the enclosing class of the object and
+If you use this annotation, the compiler generates both a static method in the enclosing class of the object and
 an instance method in the object itself. For example:
 
 ```kotlin
@@ -232,7 +232,7 @@ C.Companion.callStatic(); // instance method remains
 C.Companion.callNonStatic(); // the only way it works
 ```
 
-Same for named objects:
+Similarly, for named objects:
 
 ```kotlin
 object Obj {
@@ -265,8 +265,8 @@ interface ChatBot {
 }
 ```
 
-`@JvmStatic` annotation can also be applied on a property of an object or a companion object
-making its getter and setter methods static members in that object or the class containing the companion object.
+You can also apply `@JvmStatic` annotation to the property of an object or a companion object making its getter and setter
+methods static members in that object or the class containing the companion object.
 
 ## Default methods in interfaces
 
@@ -358,15 +358,15 @@ Only compatibility bridges and `DefaultImpls` classes are generated.
 
 The Kotlin visibility modifiers map to Java in the following way:
 
-* `private` members are compiled to `private` members
+* `private` members are compiled to `private` members.
 * `private` top-level declarations are compiled to `private` top-level declarations. Package-private accessors are also included,
 if accessed from within a class. 
-* `protected` remains `protected` (note that Java allows accessing protected members from other classes in the same package
-and Kotlin doesn't, so Java classes will have broader access to the code)
-* `internal` declarations become `public` in Java. Members of `internal` classes go through name mangling, to make
+* `protected` remains `protected`. (Note that Java allows accessing protected members from other classes in the same package
+and Kotlin doesn't, so Java classes will have broader access to the code.)
+* `internal` declarations become `public` in Java. Members of `internal` classes go through name mangling, to make.
 it harder to accidentally use them from Java and to allow overloading for members with the same signature that don't see
-each other according to Kotlin rules
-* `public` remains `public`
+each other according to Kotlin rules.
+* `public` remains `public`.
 
 ## KClass
 
@@ -380,7 +380,7 @@ kotlin.jvm.JvmClassMappingKt.getKotlinClass(MainView.class)
 
 ## Handling signature clashes with @JvmName
 
-Sometimes we have a named function in Kotlin, for which we need a different JVM name in the bytecode.
+Sometimes we have a named function in Kotlin, for which we need a different JVM name in bytecode.
 The most prominent example happens due to *type erasure*:
 
 ```kotlin
@@ -400,9 +400,9 @@ fun List<String>.filterValid(): List<String>
 fun List<Int>.filterValid(): List<Int>
 ```
 
-From Kotlin they will be accessible by the same name `filterValid`, but from Java it will be `filterValid` and `filterValidInt`.
+From Kotlin, they are accessible by the same name `filterValid`, but from Java it is `filterValid` and `filterValidInt`.
 
-The same trick applies when we need to have a property `x` alongside with a function `getX()`:
+The same trick applies when we need to have a property `x` along with a function `getX()`:
 
 ```kotlin
 val x: Int
@@ -423,7 +423,7 @@ var x: Int = 23
 
 ## Overloads generation
 
-Normally, if you write a Kotlin function with default parameter values, it will be visible in Java only as a full
+Normally, if you write a Kotlin function with default parameter values, it is visible in Java only as a full
 signature, with all parameters present. If you wish to expose multiple overloads to Java callers, you can use the
 [`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html) annotation.
 
@@ -436,9 +436,8 @@ class Circle @JvmOverloads constructor(centerX: Int, centerY: Int, radius: Doubl
 }
 ```
 
-For every parameter with a default value, this will generate one additional overload, which has this parameter and
-all parameters to the right of it in the parameter list removed. In this example, the following will be
-generated:
+For every parameter with a default value, this generates one additional overload, which has this parameter and
+all parameters to the right of it in the parameter list removed. In this example, the following is generated:
 
 ```java
 // Constructors:
@@ -452,7 +451,7 @@ void draw(String label) { }
 ```
 
 Note that, as described in [Secondary constructors](classes.md#secondary-constructors), if a class has default
-values for all constructor parameters, a public constructor with no arguments will be generated for it. This works even
+values for all constructor parameters, a public constructor with no arguments is generated for it. This works even
 if the `@JvmOverloads` annotation is not specified.
 
 ## Checked exceptions
@@ -586,3 +585,57 @@ fun emptyList(): List<Nothing> = listOf()
 // is translated to
 // List emptyList() { ... }
 ```
+
+### Inline value classes
+
+<primary-label ref="experimental-general"/>
+
+If you want Java code to work smoothly with Kotlin's [inline value classes](inline-classes.md), you can use the
+[`@JvmExposeBoxed`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-expose-boxed/) annotation or the `-Xjvm-expose-boxed` compiler option. These approaches ensure Kotlin generates the 
+necessary boxed representations for Java interoperability.
+
+By default, Kotlin compiles inline value classes to use **unboxed representations**, which are often inaccessible from Java.
+For example, you can't call the constructor for the `MyInt` class from Java:
+
+```kotlin
+@JvmInline
+value class MyInt(val value: Int)
+```
+
+So the following Java code fails:
+
+```java
+MyInt input = new MyInt(5);
+```
+
+You can use the `@JvmExposeBoxed` annotation so that Kotlin generates a public constructor that you can call from Java directly.
+You can apply the annotation at the following levels to ensure fine-grained control over what's exposed to Java:
+
+* Class
+* Constructor
+* Function
+
+Before using the `@JvmExposeBoxed` annotation in your code, you must opt in by using `@OptIn(ExperimentalStdlibApi::class)`.
+For example:
+
+```kotlin
+@OptIn(ExperimentalStdlibApi::class)
+@JvmExposeBoxed
+@JvmInline
+value class MyInt(val value: Int)
+
+@OptIn(ExperimentalStdlibApi::class)
+@JvmExposeBoxed
+fun MyInt.timesTwoBoxed(): MyInt = MyInt(this.value * 2)
+```
+
+With these annotations, Kotlin generates a Java-accessible constructor for the `MyInt` class **and** a variant for the 
+extension function that uses the boxed form of the value class. So the following Java code runs successfully:
+
+```java
+MyInt input = new MyInt(5);
+MyInt output = ExampleKt.timesTwoBoxed(input);
+```
+
+To apply this behavior to all inline value classes and the functions that use them within a module, compile it with the `-Xjvm-expose-boxed` option. 
+Compiling with this option has the same effect as if every declaration in the module has the `@JvmExposeBoxed` annotation.

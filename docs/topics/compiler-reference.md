@@ -62,6 +62,8 @@ To show advanced options, use `-X`.
 
 ### -X
 
+<primary-label ref="experimental-general"/>
+
 Display information about the advanced options and exit. These options are currently unstable: 
 their names and behavior may be changed without notice.
 
@@ -124,6 +126,8 @@ Enable usages of API that [requires opt-in](opt-in-requirements.md) with a requi
 fully qualified name.
 
 ### -Xrepl
+
+<primary-label ref="experimental-general"/>
 
 Activates the Kotlin REPL.
 
@@ -217,6 +221,8 @@ Use a custom JDK home directory to include into the classpath if it differs from
 
 ### -Xjdk-release=version
 
+<primary-label ref="experimental-general"/>
+
 Specify the target version of the generated JVM bytecode. Limit the API of the JDK in the classpath to the specified Java version. 
 Automatically sets [`-jvm-target version`](#jvm-target-version).
 Possible values are `1.8`, `9`, `10`, ..., `24`.
@@ -254,6 +260,14 @@ into the classpath.
 ### -script-templates _classnames[,]_
 
 Script definition template classes. Use fully qualified class names and separate them with commas (**,**).
+
+### -Xjvm-expose-boxed
+
+<primary-label ref="experimental-general"/>
+
+Generate boxed versions of all inline value classes in the module, along with boxed variants of functions that use them,
+making both accessible from Java. For more information, see [Inline value classes](java-to-kotlin-interop.md#inline-value-classes)
+in the guide to calling Kotlin from Java.
 
 ## Kotlin/JS compiler options
 
