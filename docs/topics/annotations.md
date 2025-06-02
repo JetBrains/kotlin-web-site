@@ -186,66 +186,6 @@ The full list of supported use-site targets is:
   * `setparam` (property setter parameter)
   * `delegate` (the field storing the delegate instance for a delegated property)
 
-### `all` meta-target
-
-<primary-label ref="experimental-opt-in"/>
-
-The `all` target makes it more convenient to cover all important cases when the same annotation needs to apply
-not only to the parameter and the property or field but also to the corresponding getter and setter.
-
-Specifically, the annotation marked with `all` is propagated, if applicable:
-
-* To the constructor parameter (`param`) if the property is defined in the primary constructor.
-* To the property itself (`property`).
-* To the backing field (`field`) if the property has one.
-* To the getter (`get`).
-* To the setter parameter (`setparam`) if the property is defined as `var`.
-* To the Java-only target `RECORD_COMPONENT` if the class has the `@JvmRecord` annotation.
-
-In the example below, the `@Email` annotation is applied to all relevant targets of each property:
-
-```kotlin
-data class User(
-    val username: String,
-    // Applies `@Email` to `param`, `property`, `field` and `get`
-    @all:Email val email: String,
-    // Applies `@Email` to `param`, `property`, `field`, `get`, and `set_param`
-    @all:Email var name: String,
-) {
-    // Applies `@Email` to `property`, `field`, and `getter` (no `param` since it's not in the constructor)
-    @all:Email val secondaryEmail: String? = null
-}
-```
-
-You can use the `all` meta-target with any property, both inside and outside the primary constructor.
-
-The `all` target comes with some limitations:
-
-* It does not propagate an annotation to types, potential extension receivers, or context receivers or parameters.
-* It cannot be used with multiple annotations:
-    ```kotlin
-    @all:[A B] // forbidden, use `@all:A @all:B`
-    val x: Int = 5
-    ```
-* It cannot be used with [delegated properties](delegated-properties.md).
-
-To enable the `@all` meta-target in your project, use the following compiler option in the command line:
-
-```Bash
--Xannotation-target-all
-```
-
-Or add it to the `compilerOptions {}` block of your Gradle build file:
-
-```kotlin
-// build.gradle.kts
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xannotation-target-all")
-    }
-}
-```
-
 ### Defaults when no use-site targets are specified
 
 If you don't specify a use-site target, the target is chosen according to the `@Target` annotation of the annotation
@@ -314,6 +254,65 @@ Whenever you'd like to use the old behavior, you can:
     }
     ```
 
+### `all` meta-target
+
+<primary-label ref="experimental-opt-in"/>
+
+The `all` target makes it more convenient to cover all important cases when the same annotation needs to apply
+not only to the parameter and the property or field but also to the corresponding getter and setter.
+
+Specifically, the annotation marked with `all` is propagated, if applicable:
+
+* To the constructor parameter (`param`) if the property is defined in the primary constructor.
+* To the property itself (`property`).
+* To the backing field (`field`) if the property has one.
+* To the getter (`get`).
+* To the setter parameter (`setparam`) if the property is defined as `var`.
+* To the Java-only target `RECORD_COMPONENT` if the class has the `@JvmRecord` annotation.
+
+In the example below, the `@Email` annotation is applied to all relevant targets of each property:
+
+```kotlin
+data class User(
+    val username: String,
+    // Applies `@Email` to `param`, `property`, `field` and `get`
+    @all:Email val email: String,
+    // Applies `@Email` to `param`, `property`, `field`, `get`, and `set_param`
+    @all:Email var name: String,
+) {
+    // Applies `@Email` to `property`, `field`, and `getter` (no `param` since it's not in the constructor)
+    @all:Email val secondaryEmail: String? = null
+}
+```
+
+You can use the `all` meta-target with any property, both inside and outside the primary constructor.
+
+The `all` target comes with some limitations:
+
+* It does not propagate an annotation to types, potential extension receivers, or context receivers or parameters.
+* It cannot be used with multiple annotations:
+    ```kotlin
+    @all:[A B] // forbidden, use `@all:A @all:B`
+    val x: Int = 5
+    ```
+* It cannot be used with [delegated properties](delegated-properties.md).
+
+To enable the `@all` meta-target in your project, use the following compiler option in the command line:
+
+```Bash
+-Xannotation-target-all
+```
+
+Or add it to the `compilerOptions {}` block of your Gradle build file:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xannotation-target-all")
+    }
+}
+```
 
 ## Java annotations
 
