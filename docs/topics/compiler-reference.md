@@ -265,7 +265,8 @@ Script definition template classes. Use fully qualified class names and separate
 
 <primary-label ref="experimental-general"/>
 
-Generate boxed versions of all inline value classes in the module, making them accessible from Java. For more information, see [Inline value classes](java-to-kotlin-interop.md#inline-value-classes)
+Generate boxed versions of all inline value classes in the module, along with boxed variants of functions that use them,
+making both accessible from Java. For more information, see [Inline value classes](java-to-kotlin-interop.md#inline-value-classes)
 in the guide to calling Kotlin from Java.
 
 ## Kotlin/JS compiler options
