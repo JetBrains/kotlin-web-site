@@ -154,12 +154,23 @@ kotlinc -Xrepl
 
 ### -Xannotation-target-all
 
+<primary-label ref="experimental-general"/>
+
 Enables the experimental [`all` use-site target for annotations](annotations.md#all-meta-target):
 
 ```bash
 kotlinc -Xannotation-target-all
 ```
 
+### -Xannotation-default-target=param-property
+
+<primary-label ref="experimental-general"/>
+
+Enables the new experimental [defaulting rule for annotation use-site targets](annotations.md#defaults-when-no-use-site-targets-are-specified):
+
+```bash
+kotlinc -Xannotation-default-target=param-property
+```
 
 ## Kotlin/JVM compiler options
 
