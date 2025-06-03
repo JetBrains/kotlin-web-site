@@ -287,6 +287,8 @@ data class User(
 
 You can use the `all` meta-target with any property, both inside and outside the primary constructor.
 
+#### Limitations
+
 The `all` target comes with some limitations:
 
 * It does not propagate an annotation to types, potential extension receivers, or context receivers or parameters.
@@ -297,7 +299,9 @@ The `all` target comes with some limitations:
     ```
 * It cannot be used with [delegated properties](delegated-properties.md).
 
-To enable the `@all` meta-target in your project, use the following compiler option in the command line:
+#### How to enable
+
+To enable the `all` meta-target in your project, use the following compiler option in the command line:
 
 ```Bash
 -Xannotation-target-all
