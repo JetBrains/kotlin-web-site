@@ -113,6 +113,9 @@ You can monitor memory consumption yourself, check for memory leaks, and adjust 
 
 ### Monitor memory consumption
 
+To debug memory issues, you can check memory manager metrics. In addition, it's possible to track Kotlin's memory
+consumption on Apple platforms.
+
 #### Check for memory leaks
 
 To access the memory manager metrics, call `kotlin.native.internal.GC.lastGCInfo()`. This method returns statistics for the last
@@ -185,7 +188,7 @@ update might improve memory consumption.
 #### Disable buffering
 <primary-label ref="experimental-opt-in"/>
 
-You can disable buffering (paging of allocations), so that the memory allocator reserves memory on a per-object basis.
+You can disable buffering (paging of allocations) so that the memory allocator reserves memory on a per-object basis.
 In some cases, it may help you avoid strict memory limitations or high memory consumption on the application's startup.
 
 To do that, set the following option in your `gradle.properties` file:
@@ -198,12 +201,12 @@ kotlin.native.binary.pagedAllocator=false
 <primary-label ref="experimental-opt-in"/>
 
 By default, strings in Kotlin are stored using UTF-16 encoding, where each character is represented by two bytes.
-In some cases, it leads to strings taking up twice as much space in the binary compared to the source code,
+In some cases, it leads to strings taking up twice as much space in the binary compared to the source code
 and reading data taking up twice as much memory.
 
 To reduce the application's binary size and adjust memory consumption, you can enable support for Latin-1-encoded strings.
-The [Latin-1 (ISO 8859-1)](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) encoding represents each of the first
-256 Unicode characters by just one byte.
+The [Latin-1 (ISO 8859-1)](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) encoding represents each of the first 256
+Unicode characters by just one byte.
 
 To enable it, set the following option in your `gradle.properties` file:
 
@@ -211,13 +214,13 @@ To enable it, set the following option in your `gradle.properties` file:
 kotlin.native.binary.latin1Strings=true
 ```
 
-With the Latin-1 support enabled, strings are stored in Latin-1 encoding as long
-as all the characters fall within its range. Otherwise, the default UTF-16 encoding is used.
+With the Latin-1 support, strings are stored in Latin-1 encoding as long as all the characters fall within its range.
+Otherwise, the default UTF-16 encoding is used.
 
 > While the feature is Experimental, the cinterop extension functions [`String.pin`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/pin.html),
 > [`String.usePinned`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/use-pinned.html), and
 > [`String.refTo`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/ref-to.html) become less efficient.
-> Each call to them may trigger automatic string conversion to UTF-16.
+> Each call to them may trigger an automatic string conversion to UTF-16.
 > 
 {style="note"}
 
