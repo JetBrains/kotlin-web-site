@@ -43,7 +43,7 @@ test.describe('Main page buttons', () => {
         await expect(pageTitle).toContainText('Kotlin Multiplatform');
     });
 
-    test('Learn about JetBrains AI button', async ({ page, context }) => {
+    test('Learn about JetBrains AI button', async ({ page }) => {
         const jetbrainsAIButton = page.getByRole('link', { name: 'Learn about JetBrains AI' })
         await expect(jetbrainsAIButton).toBeVisible();
         await jetbrainsAIButton.click();
