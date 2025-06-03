@@ -1,32 +1,26 @@
 [//]: # (title: Symbolicating iOS crash reports)
 
-Debugging an iOS application crash sometimes involves analyzing crash reports.
-More info about crash reports can be found in the [Apple documentation](https://developer.apple.com/library/archive/technotes/tn2151/_index.html).
+Debugging an iOS application crash sometimes involves analyzing crash reports in detail.
 
-Crash reports generally require symbolication to become properly readable:
-symbolication turns machine code addresses into human-readable source locations.
-The document below describes some specific details of symbolicating crash reports
-from iOS applications using Kotlin.
+Crash reports typically require symbolication, the process of translating memory addresses into readable source code
+locations. This guide describes how to symbolicate crash reports for iOS applications built with Kotlin/Native.
 
-## Producing .dSYM for release Kotlin binaries
+## Get `.dSYM` files for Kotlin binaries
 
-To symbolicate addresses in Kotlin code (e.g. for stack trace elements
-corresponding to Kotlin code) `.dSYM` bundle for Kotlin code is required.
+To symbolicate addresses in Kotlin code (for example, for stack trace elements corresponding to Kotlin code), you need a
+special debug symbol (`.dSYM`) file. This file maps memory addresses in crash reports with actual locations in the
+source code, such as functions or line numbers.
 
-By default, Kotlin/Native compiler produces `.dSYM` for release
-(i.e. optimized) binaries on Darwin platforms. This can be disabled with `-Xadd-light-debug=disable`
-compiler flag. At the same time, this option is disabled by default for other platforms. To enable it, use the `-Xadd-light-debug=enable`
-compiler option.
+The Kotlin/Native compiler generates `.dSYM` files for release (optimized) binaries on Apple platforms by default.
+On other platforms, you need to explicitly enable it using the `-Xadd-light-debug` compiler option:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 kotlin {
-    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
-        binaries.all {
-            freeCompilerArgs += "-Xadd-light-debug={enable|disable}"
-        }
+    compilerOptions{
+        freeCompilerArgs.add("-Xadd-light-debug=enable")
     }
 }
 ```
@@ -36,9 +30,8 @@ kotlin {
 
 ```groovy
 kotlin {
-    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
-        binaries.all {
-            freeCompilerArgs += "-Xadd-light-debug={enable|disable}"
+    compilerOptions{
+            freeCompilerArgs.add("-Xadd-light-debug=enable")
         }
     }
 }
@@ -47,44 +40,7 @@ kotlin {
 </tab>
 </tabs>
 
-In projects created from IntelliJ IDEA or AppCode templates these `.dSYM` bundles
-are then discovered by Xcode automatically.
+When building in Xcode, the IDE looks for `.dSYM` files in standard locations and uses them automatically for
+symbolication. Xcode automatically detects `.dSYM` files in projects created from IntelliJ IDEA templates.
 
-## Make frameworks static when using rebuild from bitcode
-
-Rebuilding Kotlin-produced framework from bitcode invalidates the original `.dSYM`.
-If it is performed locally, make sure the updated `.dSYM` is used when symbolicating
-crash reports.
-
-If rebuilding is performed on App Store side, then `.dSYM` of rebuilt *dynamic* framework
-seems discarded and not downloadable from App Store Connect.
-In this case, it may be required to make the framework static.
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
-        binaries.withType<org.jetbrains.kotlin.gradle.plugin.mpp.Framework> {
-            isStatic = true
-        }
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
-        binaries.withType(org.jetbrains.kotlin.gradle.plugin.mpp.Framework) {
-            isStatic = true
-        }
-    }
-}
-```
-
-</tab>
-</tabs>
+For more information about crash reports, see the [Apple documentation](https://developer.apple.com/documentation/xcode/diagnosing-issues-using-crash-reports-and-device-logs).
