@@ -224,6 +224,7 @@ perspective
 > - 2.2.0: raise the warning to an error
 
 ### Deprecate AbstractDoubleTimeSource
+
 > **Issue**: [KT-72137](https://youtrack.jetbrains.com/issue/KT-72137)
 >
 > **Component**: kotlin-stdlib
@@ -237,5 +238,22 @@ perspective
 > - 1.8.20: report a warning when using `AbstractDoubleTimeSource`
 > - 2.2.0: raise the warning to an error
 
-
 ## Tools
+
+### Deprecation of `kotlin-android-extensions` plugin
+
+> **Issue**: [KT-72341](https://youtrack.jetbrains.com/issue/KT-72341/)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: the `kotlin-android-extensions` plugin is deprecated. Use a separate plugin, `kotlin-parcelize`,
+> for the `Parcelable` implementation generator and the Android Jetpack's [view bindings](https://developer.android.com/topic/libraries/view-binding)
+> for synthetic views instead.
+>
+> **Deprecation cycle**:
+>
+> - 1.4.20: the plugin is deprecated
+> - 2.1.20: a configuration error is introduced, and no plugin code is executed
+> - 2.2.20: the plugin is removed
