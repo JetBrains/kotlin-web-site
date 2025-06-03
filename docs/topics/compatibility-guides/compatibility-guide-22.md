@@ -9,7 +9,7 @@ warnings, this document summarizes them all, providing a complete reference for 
 
 ## Basic terms
 
-In this document we introduce several kinds of compatibility:
+In this document, we introduce several kinds of compatibility:
 
 - _source_: source-incompatible change stops code that used to compile fine (without errors or warnings) from compiling
   anymore
@@ -240,7 +240,55 @@ perspective
 
 ## Tools
 
-### Deprecation of `kotlin-android-extensions` plugin
+### Correct the setSource() function in KotlinCompileTool to replace sources instead of adding to them
+
+> **Issue**: [KT-59632](https://youtrack.jetbrains.com/issue/KT-59632)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: The [`setSource()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/set-source.html#) function in [`KotlinCompileTool`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/#) now replaces configured sources instead of adding to them.
+> If you want to add sources without replacing existing ones, use the [`source()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/source.html#) function.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: enable new behavior
+
+### Deprecate KotlinCompilationOutput#resourcesDirProvider
+
+> **Issue**: [KT-70620](https://youtrack.jetbrains.com/issue/KT-70620)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `KotlinCompilationOutput#resourcesDirProvider` field is deprecated.
+> Use `KotlinSourceSet.resources` in your Gradle build script instead to add additional resource directories.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: `KotlinCompilationOutput#resourcesDirProvider` is deprecated with a warning
+> - 2.2.0: raise the warning to an error
+
+### Change the type of annotationProcessorOptionProviders to use CommandLineArgumentProvider
+
+> **Issue**: [KT-58009](https://youtrack.jetbrains.com/issue/KT-58009)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The type of [`annotationProcessorOptionProviders`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-base-kapt/annotation-processor-option-providers.html#) in `BaseKapt` is changed from `MutableList<Any>`
+> to `MutableList<CommandLineArgumentProvider>`. 
+> This clearly defines the expected element type and prevents runtime failures caused by adding incorrect elements, such as nested lists.
+> If your code currently adds a list as a single element, use the `addAll()` function instead of the `add()` function.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: enforce new type in the API
+
+### Deprecate the `kotlin-android-extensions` plugin
 
 > **Issue**: [KT-72341](https://youtrack.jetbrains.com/issue/KT-72341/)
 >
@@ -248,7 +296,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: the `kotlin-android-extensions` plugin is deprecated. Use a separate plugin, `kotlin-parcelize`,
+> **Short summary**: The `kotlin-android-extensions` plugin is deprecated. Use a separate plugin, `kotlin-parcelize`,
 > for the `Parcelable` implementation generator and the Android Jetpack's [view bindings](https://developer.android.com/topic/libraries/view-binding)
 > for synthetic views instead.
 >
@@ -257,3 +305,37 @@ perspective
 > - 1.4.20: the plugin is deprecated
 > - 2.1.20: a configuration error is introduced, and no plugin code is executed
 > - 2.2.20: the plugin is removed
+
+### Deprecate kotlinOptions DSL
+
+> **Issue**: [KT-54110](https://youtrack.jetbrains.com/issue/KT-54110)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The ability to configure compiler options through the `kotlinOptions` DSL and the related
+> `KotlinCompile<KotlinOptions>` task interface is deprecated in favor of the new `compilerOptions` DSL.
+> As part of this deprecation, all properties in the `kotlinOptions` interface are now also individually marked as deprecated.
+> To migrate, use the `compilerOptions` DSL to configure compiler options.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a warning for `kotlinOptions` DSL
+> - 2.2.0: raise the warning to an error and deprecate all properties in `kotlinOptions`
+
+### Remove the kotlin.incremental.useClasspathSnapshot property
+
+> **Issue**: [KT-62963](https://youtrack.jetbrains.com/issue/KT-62963)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `kotlin.incremental.useClasspathSnapshot` Gradle property is removed.
+> This property controlled the deprecated JVM history-based incremental compilation mode, which has been replaced by the classpath-based approach enabled by default since Kotlin 1.8.20.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.20: deprecate the `kotlin.incremental.useClasspathSnapshot` property with a warning
+> - 2.2.0: remove the property
