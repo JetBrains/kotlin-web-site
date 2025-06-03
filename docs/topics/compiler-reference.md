@@ -166,15 +166,6 @@ Turn all warnings to compilation errors.
 Enable [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that
 emit warnings if true.
 
-#### -Xsuppress-warning
-<primary-label ref="experimental-general"/>
-
-Suppress specific warnings [globally across the whole project](whatsnew21.md#global-warning-suppression):
-
-```bash
-kotlinc -Xsuppress-warning=NOTHING_TO_INLINE -Xsuppress-warning=NO_TAIL_CALLS_FOUND main.kt
-```
-
 #### -Xwarning-level
 <primary-label ref="experimental-general"/>
 
@@ -185,8 +176,8 @@ kotlinc -Xwarning-level=DIAGNOSTIC_NAME:(error|warning|disabled)
 ```
 
 * `error`: raises only the specified warning to an error.
-* `warning`: emits a warning for the specified diagnostic, for example, [additional compiler checks](whatsnew21.md#extra-compiler-checks).
-* `disabled`: suppresses only specified warning module-wide. Works the same as [`-Xsuppress-warning`](#xsuppress-warning).
+* `warning`: emits a warning for the specified diagnostic and is enabled by default.
+* `disabled`: suppresses only the specified warning module-wide.
 
 You can adjust warning reporting in your project by combining module-wide rules with specific ones:
 
