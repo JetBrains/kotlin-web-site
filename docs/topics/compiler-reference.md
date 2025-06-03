@@ -152,6 +152,15 @@ Activates the Kotlin REPL.
 kotlinc -Xrepl
 ```
 
+### -Xannotation-target-all
+
+Enables the experimental [`all` use-site target for annotations](annotations.md#all-meta-target):
+
+```bash
+kotlinc -Xannotation-target-all
+```
+
+
 ## Kotlin/JVM compiler options
 
 The Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
