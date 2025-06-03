@@ -12,6 +12,10 @@
 Context parameters allow functions and properties to declare dependencies that are implicitly available in the
 surrounding context.
 
+With context parameters, you don't need to manually pass around values, such as services or dependencies, that are shared and rarely change across sets of function calls.
+
+Context parameters are not introduced as receivers in the body of a function. As a result, you need to use the name of the context parameters to access their members, unlike with context receivers, where the context is implicitly available.
+
 To declare context parameters for properties and functions, use the `context` keyword
 followed by a list of parameters, with each parameter declared as `name: Type`. Here is an example with a dependency on the `UserService` interface:
 
