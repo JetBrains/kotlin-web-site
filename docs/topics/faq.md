@@ -87,9 +87,8 @@ In addition, a [command line compiler](command-line.md) is available, which prov
   
 ### What build tools support Kotlin?
 
-On the JVM side, the main build tools include [Gradle](gradle.md), [Maven](maven.md), 
-[Ant](ant.md), and [Kobalt](https://beust.com/kobalt/home/index.html). There are also some build tools available
-that target client-side JavaScript. 
+On the JVM side, the main build tools include [Gradle](gradle.md), [Maven](maven.md), and [Kobalt](https://beust.com/kobalt/home/index.html).
+There are also some build tools available that target client-side JavaScript. 
 
 ### What does Kotlin compile down to?
 
