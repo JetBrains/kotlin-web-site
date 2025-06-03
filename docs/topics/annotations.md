@@ -196,11 +196,18 @@ If there are multiple applicable targets, the first applicable target from the f
 * `property`
 * `field`
 
-For example:
+Let's use the [`@Email` annotation from Jakarta Bean Validation](https://jakarta.ee/specifications/bean-validation/3.0/apidocs/jakarta/validation/constraints/email):
+
+```java
+@Target(value={METHOD,FIELD,ANNOTATION_TYPE,CONSTRUCTOR,PARAMETER,TYPE_USE})
+public @interface Email { }
+```
+
+With this annotation, consider the following example:
 
 ```kotlin
 data class User(val username: String,
-                // @Email here is equivalent to @param:Email
+                // @Email is equivalent to @param:Email
                 @Email val email: String) {
     // @Email is equivalent to @field:Email
     @Email val secondaryEmail: String? = null
@@ -269,17 +276,25 @@ Specifically, the annotation marked with `all` is propagated, if applicable:
 * To the setter parameter (`setparam`) if the property is defined as `var`.
 * To the Java-only target `RECORD_COMPONENT` if the class has the `@JvmRecord` annotation.
 
-In the example below, the `@Email` annotation is applied to all relevant targets of each property:
+Let's use the [`@Email` annotation from Jakarta Bean Validation](https://jakarta.ee/specifications/bean-validation/3.0/apidocs/jakarta/validation/constraints/email),
+which is defined as follows:
+
+```java
+@Target(value={METHOD,FIELD,ANNOTATION_TYPE,CONSTRUCTOR,PARAMETER,TYPE_USE})
+public @interface Email { }
+```
+
+In the example below, this `@Email` annotation is applied to all relevant targets:
 
 ```kotlin
 data class User(
     val username: String,
-    // Applies `@Email` to `param`, `property`, `field` and `get`
+    // Applies `@Email` to `param`, `field` and `get`
     @all:Email val email: String,
-    // Applies `@Email` to `param`, `property`, `field`, `get`, and `set_param`
+    // Applies `@Email` to `param`, `field`, `get`, and `set_param`
     @all:Email var name: String,
 ) {
-    // Applies `@Email` to `property`, `field`, and `getter` (no `param` since it's not in the constructor)
+    // Applies `@Email` to `field` and `getter` (no `param` since it's not in the constructor)
     @all:Email val secondaryEmail: String? = null
 }
 ```
