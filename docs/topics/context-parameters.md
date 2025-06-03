@@ -2,14 +2,21 @@
 
 <primary-label ref="experimental-general"/>
 
+> Context parameters replace an older experimental feature called [context receivers](whatsnew1620.md#prototype-of-context-receivers-for-kotlin-jvm).
+> To migrate from context receivers to context
+> parameters, you can use assisted support in IntelliJ IDEA, as described in
+> the related [blog post](https://blog.jetbrains.com/kotlin/2025/04/update-on-context-parameters/).
+>
+{style="tip"}
+
 Context parameters allow functions and properties to declare dependencies that are implicitly available in the
 surrounding context.
 
-You can declare context parameters for properties and functions using the `context` keyword
-followed by a list of parameters, each of the form `name: Type`. Here is an example with a dependency on the `UserService` interface:
+To declare context parameters for properties and functions, use the `context` keyword
+followed by a list of parameters, with each parameter declared as `name: Type`. Here is an example with a dependency on the `UserService` interface:
 
 ```kotlin
-// `UserService` defines the dependency required in context 
+// UserService defines the dependency required in context 
 interface UserService {
     fun log(message: String)
     fun findUserById(id: Int): String
@@ -18,34 +25,27 @@ interface UserService {
 // Declares a function with a context parameter
 context(users: UserService)
 fun outputMessage(message: String) {
-    // Uses `log` from the context
+    // Uses log from the context
     users.log("Log: $message")
 }
 
 // Declares a property with a context parameter
 context(users: UserService)
 val firstUser: String
-    // Uses `findUserById` from the context    
+    // Uses findUserById from the context    
     get() = users.findUserById(1)
 ```
 
 You can use `_` as a context parameter name. In this case, the parameter's value is available for resolution but is not accessible by name inside the block:
 
 ```kotlin
-// Uses `_` as context parameter name
+// Uses "_" as context parameter name
 context(_: UserService)
 fun logWelcome() {
-    // Resolution still finds the appropriate `log` function from UserService
+    // Resolution still finds the appropriate log function from UserService
     outputMessage("Welcome!")
 }
 ```
-
-> Context parameters replaces an older experimental feature called [context receivers](whatsnew1620.md#prototype-of-context-receivers-for-kotlin-jvm). 
-> To migrate from context receivers to context
-> parameters, you can use assisted support in IntelliJ IDEA, as described in
-> the [blog post](https://blog.jetbrains.com/kotlin/2025/04/update-on-context-parameters/).
->
-{style="tip"}
 
 #### Context parameters resolution
 
@@ -53,7 +53,7 @@ Kotlin resolves context parameters at the call site by searching for matching co
 If multiple compatible values exist at the same scope level, the compiler reports an ambiguity:
 
 ```kotlin
-// `UserService` defines the dependency required in context
+// UserService defines the dependency required in context
 interface UserService {
     fun log(message: String)
 }
@@ -65,33 +65,33 @@ fun outputMessage(message: String) {
 }
 
 fun main() {
-    // Implements `UserService` 
+    // Implements UserService 
     val serviceA = object : UserService {
         override fun log(message: String) = println("A: $message")
     }
 
-    // Implements `UserService`
+    // Implements UserService
     val serviceB = object : UserService {
         override fun log(message: String) = println("B: $message")
     }
 
-    // Both `serviceA` and `serviceB` match the expected `UserService` type at the call site
+    // Both serviceA and serviceB match the expected UserService type at the call site
     context(serviceA, serviceB) {
+        // This results in an ambiguity error
         outputMessage("This will not compile")
-        // Ambiguity error
     }
 }
 ```
 
 #### Restrictions
 
-Context parameters are in continuous improvement; some of the current restrictions are:
+Context parameters are in continuous improvement, and some of the current restrictions include:
 
-* Constructors cannot declare context parameters
-* Properties with context parameters can't have backing fields or initializers
-* Properties with context parameters can't use delegation
+* Constructors can't declare context parameters.
+* Properties with context parameters can't have backing fields or initializers.
+* Properties with context parameters can't use delegation.
 
-However, context parameters in Kotlin represent a significant improvement in managing dependencies through simplified dependency injection,
+Despite these restrictions, context parameters simplify managing dependencies through simplified dependency injection,
 improved DSL design, and scoped operations.
 
 #### How to enable context parameters
@@ -117,5 +117,5 @@ kotlin {
 >
 {style="warning"}
 
-This feature is planned to be stabilized and improved in future Kotlin releases.
+This feature is planned to be [stabilized](components-stability.md#stability-levels-explained) and improved in future Kotlin releases.
 We would appreciate your feedback in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-10468/Context-Parameters-expanding-extension-receivers-to-work-with-scopes).

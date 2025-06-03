@@ -58,7 +58,7 @@ fun main() {
 
 <primary-label ref="beta"/>
 
-In Kotlin you can define type aliases inside other declarations, as long as they
+In Kotlin, you can define type aliases inside other declarations, as long as they
 don't capture type parameters from their outer class:
 
 ```kotlin
@@ -73,16 +73,16 @@ Capturing means that the type alias refers to a type parameter defined in the ou
 
 ```kotlin
 class Graph<Node> {
-    // Incorrect because captures `Node`
+    // Incorrect because captures Node
     typealias Path = List<Node>
 }
 ```
 
-To fix this issue, extract the captured parameter and declare it explicitly in the type alias:
+To fix this issue, declare the type parameter directly in the type alias:
 
 ```kotlin
 class Graph<Node> {
-    // Correct because `Node` is a type alias' parameter
+    // Correct because Node is a type alias' parameter
     typealias Path<Node> = List<Node>
 }
 ```
@@ -92,14 +92,14 @@ and simplifying internal implementations.
 
 ### Rules for nested type aliases
 
-Nested type aliases have a few rules to ensure clear and consistent usage:
+Nested type aliases follow specific rules to ensure clear and consistent behavior:
 
-* Nested type aliases must follow all existing [type alias](type-aliases.md) rules.
+* Nested type aliases must follow all existing type alias rules.
+* In terms of visibility, the alias can't expose more than its referenced types allow.
 * Their scope is the same as [nested classes](nested-classes.md). You can define them inside classes,
   and they hide any parent type aliases with the same name as they don't override.
-* In terms of visibility, the alias can't expose more than its referenced types allow.
-* These type aliases can be internal or private, so you can introduce them just for local usage.
-* If you alias an `inner class`, Kotlin generates a constructor in the static scope for nested type aliases.
+* Nested type aliases can be marked as `internal` or `private` to limit their visibility.
+* When a type alias refers to an `inner class`, Kotlin generates a constructor in the static scope for nested type aliases.
 * Nested type aliases are not supported in Kotlin Multiplatform's [`expect/actual` declarations](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html).
 
 ### How to enable nested type aliases
