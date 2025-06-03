@@ -82,7 +82,7 @@ To fix this issue, declare the type parameter directly in the type alias:
 
 ```kotlin
 class Graph<Node> {
-    // Correct because Node is a type alias' parameter
+    // Correct because Node is a type alias parameter
     typealias Path<Node> = List<Node>
 }
 ```
