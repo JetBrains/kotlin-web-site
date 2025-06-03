@@ -202,12 +202,12 @@ For example:
 data class User(val username: String,
                 // @Email here is equivalent to @param:Email
                 @Email val email: String) {
-    // @Email here is equivalent to @field:Email
+    // @Email is equivalent to @field:Email
     @Email val secondaryEmail: String? = null
 }
 ```
 
-Kotlin %kotlinEapVersion% introduced an experimental defaulting rule which should
+Kotlin 2.2.0 introduced an experimental defaulting rule which should
 make propagating annotations to parameters, fields, and properties more predictable.
 
 With the new rule, if there are multiple applicable targets, one or more is chosen as follows:
@@ -220,9 +220,9 @@ Using the same example:
 
 ```kotlin
 data class User(val username: String,
-                // @Email here is now equivalent to @param:Email @field:Email
+                // @Email is now equivalent to @param:Email @field:Email
                 @Email val email: String) {
-    // @Email here is still equivalent to @field:Email
+    // @Email is still equivalent to @field:Email
     @Email val secondaryEmail: String? = null
 }
 ```
@@ -258,8 +258,7 @@ Whenever you'd like to use the old behavior, you can:
 
 <primary-label ref="experimental-opt-in"/>
 
-The `all` target makes it more convenient to cover all important cases when the same annotation needs to apply
-not only to the parameter and the property or field but also to the corresponding getter and setter.
+The `all` target makes it easier to apply the same annotation not only to the parameter and the property or field, but also to the corresponding getter and setter.
 
 Specifically, the annotation marked with `all` is propagated, if applicable:
 
