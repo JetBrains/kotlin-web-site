@@ -1,3 +1,5 @@
+import references.builds.compose.ComposeMultiplatformCore
+
 object BuildParams {
   const val DOKKA_TEMPLATES_VERSION = "2.0.0"
 
@@ -36,6 +38,10 @@ object BuildParams {
   const val KOTLINX_METADATA_RELEASE_TAG = KOTLIN_RELEASE_TAG
   const val KOTLINX_METADATA_TITLE = KOTLINX_METADATA_ID
 
+  val API_COMPOSE = ComposeMultiplatformCore {
+    addVersion("1.8.0", "api-reference/1.8")
+  }
+
   const val SEARCH_APP_ID = "7961PKYRXV"
   const val SEARCH_INDEX_NAME = "prod_KOTLINLANG_WEBHELP"
 
@@ -47,5 +53,6 @@ object BuildParams {
     "api/$KOTLINX_IO_ID",
     "api/$KGP_ID",
     "api/$KOTLINX_METADATA_ID",
+    "api/${API_COMPOSE.urlPart}",
   )
 }

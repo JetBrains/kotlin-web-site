@@ -33,13 +33,15 @@ import AtlassianLogo from '../public/images/companies/atlassian.svg';
 import GoogleLogo from '../public/images/companies/google.svg';
 import JetbrainsLogo from '../assets/jetbrains-logo-dark.svg';
 import TouchlabLogo from '../public/images/companies/touchlab.svg';
-import KotzillaLogo from '../public/images/companies/kotzilla-logo.svg'
+import KotzillaLogo from '../public/images/companies/kotzilla-logo.svg';
 
 import McDonaldsLogo from '../public/images/companies/mcdonalds.svg';
 import AWSLogo from '../public/images/companies/aws.svg';
 import PhilipsLogo from '../public/images/companies/philips.svg';
 import AdobeLogo from '../public/images/companies/adobe.svg';
 import ForbesLogo from '../public/images/companies/forbes.svg';
+import MetaLogo from '../public/images/companies/meta.svg';
+import BlockLogo from '../public/images/companies/block.svg';
 
 import styles from './index.module.css';
 
@@ -48,6 +50,7 @@ import searchConfig from '../search-config.json';
 
 import releasesDataRaw from '../data/releases.yml';
 import Script from 'next/script';
+import { KotlinPlusAiInfo } from '../blocks/main/kotlin-plus-ai';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
@@ -108,6 +111,11 @@ const kotlinFoundationCompanies = [
         link: 'https://about.google/'
     },
     {
+        name: 'Meta',
+        logo: MetaLogo,
+        link: 'https://www.meta.com/'
+    },
+    {
         name: 'Gradle',
         logo: GradleLogo,
         link: 'https://gradle.org/'
@@ -127,7 +135,11 @@ const kotlinFoundationCompanies = [
         logo: KotzillaLogo,
         link: 'https://kotzilla.io/'
     },
-
+    {
+        name: 'Block',
+        logo: BlockLogo,
+        link: 'https://block.xyz/'
+    },
 ];
 
 export async function getStaticProps() {
@@ -191,7 +203,7 @@ function Index() {
                             media={<img src={MultiplatformPreviewImage.src} alt="" />}
                         />
 
-                        <DividerLine />
+                        <KotlinPlusAiInfo/>
 
                         <InfoBlock
                             title={'Big, friendly and helpful community'}

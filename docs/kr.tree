@@ -29,6 +29,7 @@
 		<toc-element topic="native-overview.md"/>
 		<toc-element topic="js-overview.md"/>
 		<toc-element accepts-web-file-names="data-science-overview.html" topic="data-analysis-overview.md"/>
+		<toc-element topic="kotlin-ai-apps-development-overview.md"/>
 		<toc-element topic="competitive-programming.md"/>
 	</toc-element>
 	<toc-element toc-title="What's new in Kotlin">
@@ -160,6 +161,7 @@
 					<toc-element toc-title="Use Spring Data CrudRepository" topic="jvm-spring-boot-using-crudrepository.md"/>
 				</toc-element>
 				<!-- <toc-element id="jvm-spring-boot-restful.md" accepts-web-file-names="spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html,jvm-get-started-spring-boot.html,jvm-create-project-with-spring-boot.html,jvm-spring-boot-add-data-class.html,jvm-spring-boot-add-db-support.html,jvm-spring-boot-using-crudrepository.html"/>-->
+				<toc-element topic="spring-ai-guide.md"/>
 				<toc-element toc-title="Spring Framework Documentation for Kotlin" href="https://docs.spring.io/spring-framework/docs/current/reference/html/languages.html#languages"/>
 				<toc-element toc-title="Build a web application with Spring Boot and Kotlin – tutorial" href="https://spring.io/guides/tutorials/spring-boot-kotlin/"/>
 				<toc-element toc-title="Create a chat application with Kotlin Coroutines and RSocket – tutorial" href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/"/>

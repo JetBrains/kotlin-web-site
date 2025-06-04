@@ -1,5 +1,7 @@
 [//]: # (title: Intermediate: Extension functions)
 
+<no-index/>
+
 <tldr>
     <p><img src="icon-1.svg" width="20" alt="First step" /> <strong>Extension functions</strong><br />
         <img src="icon-2-todo.svg" width="20" alt="Second step" /> <a href="kotlin-tour-intermediate-scope-functions.md">Scope functions</a><br />

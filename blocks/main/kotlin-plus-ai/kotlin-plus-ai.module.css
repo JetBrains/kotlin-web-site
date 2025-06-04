@@ -1,0 +1,120 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.wrapper {
+    background: #19191C;
+    border-radius: 8px;
+    padding: 40px 32px;
+    margin: 96px 0;
+
+    @media (--ktl-tm) {
+        padding: 32px 24px;
+        margin: 72px 0;
+    }
+}
+
+.title, .para {
+    padding: 0;
+    margin: 0;
+}
+
+.title {
+    margin-bottom: 16px;
+}
+
+.intro {
+    max-width: 757px;
+    margin-bottom: 2ex;
+}
+
+.introTitle {
+    margin-bottom: 24px;
+}
+
+.getAI {
+    margin: 40px 0;
+}
+
+.highlight {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    display: grid;
+    grid-gap: 9px;
+    grid-template-columns: repeat(4, 1fr);
+
+    @media (--ktl-tm) {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media (--ktl-ts) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.highlightItem {
+    background: #7F52FF !important;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.getStarted {
+    margin-top: 32px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -16px;
+
+    > [type="button"] {
+        margin-bottom: 16px;
+    }
+
+    > [type="button"]:first-of-type {
+        margin-right: 16px;
+    }
+
+    @media (--ktl-ts) {
+        > [type="button"]:first-of-type {
+            margin-right: 0;
+        }
+    }
+}
+
+.buildAgents {
+    margin-top: 96px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 27px;
+
+    @media (--ktl-ds) {
+        grid-template-columns: 1fr;
+        gap: 48px;
+
+        .buildAgentsScheme {
+            grid-row: 1;
+            margin: 0;
+        }
+    }
+
+    @media (--ktl-tm) {
+        margin-top: 64px;
+    }
+}
+
+.buildAgentsScheme {
+    margin: 16px;
+    max-width: 100%;
+    height: auto;
+}
+
+.buildAgentsContent {
+    max-width: 790px;
+}
+
+@media (--ktl-tm) {
+    .titleWide {
+        font-size: 25px;
+    }
+}

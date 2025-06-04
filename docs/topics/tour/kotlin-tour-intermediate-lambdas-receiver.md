@@ -1,5 +1,7 @@
 [//]: # (title: Intermediate: Lambda expressions with receiver)
 
+<no-index/>
+
 <tldr>
     <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-intermediate-extension-functions.md">Extension functions</a><br />
         <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-intermediate-scope-functions.md">Scope functions</a><br />
