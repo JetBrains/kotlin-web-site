@@ -1,7 +1,7 @@
 [//]: # (title: Ant)
 
 > Starting with Kotlin 2.2.0, support for the Ant build system in Kotlin is deprecated.
-> We plan to remove Ant support in 2.3.0.
+> We plan to remove Ant support in Kotlin 2.3.0.
 > 
 > However, if you're interested in becoming an external maintainer for Ant,
 > leave a comment in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-75875/).
