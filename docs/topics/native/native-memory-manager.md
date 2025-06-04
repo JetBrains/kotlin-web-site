@@ -189,7 +189,7 @@ update might improve memory consumption.
 <primary-label ref="experimental-opt-in"/>
 
 You can disable buffering (paging of allocations) so that the memory allocator reserves memory on a per-object basis.
-In some cases, it may help you avoid strict memory limitations or high memory consumption on the application's startup.
+In some cases, it may help you satisfy strict memory limitations or reduce memory consumption on the application's startup.
 
 To do that, set the following option in your `gradle.properties` file:
 
