@@ -3,6 +3,7 @@
 <primary-label ref="experimental-general"/>
 
 > Context parameters replace an older experimental feature called [context receivers](whatsnew1620.md#prototype-of-context-receivers-for-kotlin-jvm).
+> You can find their main differences in the [design document for context parameters](https://github.com/Kotlin/KEEP/blob/master/proposals/context-parameters.md#summary-of-changes-from-the-previous-proposal).
 > To migrate from context receivers to context
 > parameters, you can use assisted support in IntelliJ IDEA, as described in
 > the related [blog post](https://blog.jetbrains.com/kotlin/2025/04/update-on-context-parameters/).
@@ -13,8 +14,6 @@ Context parameters allow functions and properties to declare dependencies that a
 surrounding context.
 
 With context parameters, you don't need to manually pass around values, such as services or dependencies, that are shared and rarely change across sets of function calls.
-
-Context parameters are not introduced as receivers in the body of a function. As a result, you need to use the name of the context parameters to access their members, unlike with context receivers, where the context is implicitly available.
 
 To declare context parameters for properties and functions, use the `context` keyword
 followed by a list of parameters, with each parameter declared as `name: Type`. Here is an example with a dependency on the `UserService` interface:

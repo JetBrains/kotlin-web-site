@@ -99,7 +99,6 @@ Nested type aliases follow specific rules to ensure clear and consistent behavio
 * Their scope is the same as [nested classes](nested-classes.md). You can define them inside classes,
   and they hide any parent type aliases with the same name as they don't override.
 * Nested type aliases can be marked as `internal` or `private` to limit their visibility.
-* When a type alias refers to an `inner class`, Kotlin generates a constructor in the static scope for nested type aliases.
 * Nested type aliases are not supported in Kotlin Multiplatform's [`expect/actual` declarations](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html).
 
 ### How to enable nested type aliases
