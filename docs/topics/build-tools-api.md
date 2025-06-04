@@ -17,10 +17,13 @@ Currently, the BTA supports Kotlin/JVM **only**.
 
 > The BTA itself is not yet publicly available for direct use in your own build tool integrations.
 > If you're interested in the proposal or want to share feedback, see the [KEEP](https://github.com/Kotlin/KEEP/issues/421).
+> Follow the status of its implementation in [YouTrack](https://youtrack.jetbrains.com/issue/KT-76255).
 > 
 {style="warning"}
 
 ## Integration with Gradle
+
+<primary-label ref="experimental-general"/>
 
 The Kotlin Gradle plugin (KGP) already supports the BTA.
 
@@ -81,6 +84,10 @@ For example, in KGP 2.2.0, the supported Kotlin compiler versions are:
 
 Using different compiler versions together with compiler plugins may lead to Kotlin compiler exceptions. The Kotlin team
 plans to address this in future Kotlin releases.
+
+#### Share feedback
+
+While the integration of the BTA with the Kotlin Gradle plugin is still experimental, we'd appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56574).
 
 ### Enable incremental compilation with "in process" compiler execution strategy
 
