@@ -182,7 +182,7 @@ fun main() {
 You can store annotations in Kotlin metadata and access them using the `kotlin-metadata-jvm` library.
 This removes the need to match annotations by signature, making access more reliable for overloaded declarations.
 
-To make annotations available in the metadata for your compiled files, add the following compiler option:
+To make annotations available in the metadata of your compiled files, add the following compiler option:
 
 ```kotlin
 -Xannotations-in-metadata
@@ -199,7 +199,7 @@ kotlin {
 }
 ```
 
-With this option enabled, the Kotlin compiler writes annotations into metadata alongside the JVM bytecode,
+When you enable this option, the Kotlin compiler writes annotations into metadata alongside the JVM bytecode,
 making them accessible to the `kotlin-metadata-jvm` library.
 
 The library provides the following APIs for accessing annotations:
