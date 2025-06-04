@@ -85,10 +85,6 @@ For example, in KGP 2.2.0, the supported Kotlin compiler versions are:
 Using different compiler versions together with compiler plugins may lead to Kotlin compiler exceptions. The Kotlin team
 plans to address this in future Kotlin releases.
 
-#### Share feedback
-
-While the integration of the BTA with the Kotlin Gradle plugin is still experimental, we'd appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56574).
-
 ### Enable incremental compilation with "in process" compiler execution strategy
 
 The KGP supports three [compiler execution strategies](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy).
@@ -100,6 +96,10 @@ your `gradle.properties` file:
 ```kotlin
 kotlin.compiler.execution.strategy=in-process
 ```
+
+### Share feedback
+
+While the integration of the BTA with the Kotlin Gradle plugin is still experimental, we'd appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56574).
 
 ## Integration with Maven
 
