@@ -591,36 +591,47 @@ fun emptyList(): List<Nothing> = listOf()
 <primary-label ref="experimental-general"/>
 
 Kotlin compiles [inline value classes](inline-classes.md) to use **unboxed representations**, which are often inaccessible from Java.
-For example, Java isn't able to call a constructor for the `PositiveInt` class:
+For example, Java isn't able to call a constructor for the `MyInt` class:
 
 ```kotlin
-@JvmInline value class PositiveInt(val number: Int)
+@JvmInline
+value class MyInt(val value: Int)
 ```
 
-You can apply the `@JvmExposeBoxed` annotation at the following levels to ensure fine-grained control over what's exposed to Java:
+So the following Java code fails:
+
+```java
+MyInt input = new MyInt(5);
+```
+
+You can use the [`@JvmExposeBoxed`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-expose-boxed/) annotation so that Kotlin generates a public constructor that Java can call directly.
+You can apply the annotation at the following levels to ensure fine-grained control over what's exposed to Java:
 
 * Class
 * Constructor
 * Function
 
+Before using the `@JvmExposeBoxed` annotation in your code, you must opt in by using: `@OptIn(ExperimentalStdlibApi::class)`.
 For example:
 
 ```kotlin
+@OptIn(ExperimentalStdlibApi::class)
 @JvmExposeBoxed
 @JvmInline
 value class MyInt(val value: Int)
 
+@OptIn(ExperimentalStdlibApi::class)
 @JvmExposeBoxed
 fun MyInt.timesTwoBoxed(): MyInt = MyInt(this.value * 2)
 ```
 
-With these annotations, Kotlin generates a Java-accessible constructor for the `MyInt` class **and** an overload for the 
-extension function that uses the boxed form of the value class. So you can write the following Java code:
+With these annotations, Kotlin generates a Java-accessible constructor for the `MyInt` class **and** a variant for the 
+extension function that uses the boxed form of the value class. So the following Java code runs successfully:
 
 ```java
 MyInt input = new MyInt(5);
 MyInt output = ExampleKt.timesTwoBoxed(input);
 ```
 
-To apply this behavior to all inline value classes within a module, compile it with the `-Xjvm-expose-boxed` option. 
+To apply this behavior to all inline value classes and the functions that use them within a module, compile it with the `-Xjvm-expose-boxed` option. 
 Compiling with this option has the same effect as if every declaration in the module has the `@JvmExposeBoxed` annotation.
