@@ -159,7 +159,7 @@ Suppress all warnings during compilation.
 
 #### -Werror
 
-Turn all warnings to compilation errors.
+Treat all warnings as compilation errors.
 
 #### -Wextra
 
@@ -187,7 +187,7 @@ You can adjust warning reporting in your project by combining module-wide rules 
 | `-Werror -Xwarning-level=DIAGNOSTIC_NAME:warning`  | Raise all warnings to errors except for the specified ones. |
 | `-Wextra -Xwarning-level=DIAGNOSTIC_NAME:disabled` | Enable all additional checks except for the specified ones. |
 
-In case you have many warnings you want to exclude from general rules, you can list them in a separate file through [`@argfile`](#argfile).
+If you have many warnings to exclude from the general rules, you can list them in a separate file using [`@argfile`](#argfile).
 
 ## Kotlin/JVM compiler options
 
