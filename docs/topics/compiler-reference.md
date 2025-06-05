@@ -46,19 +46,6 @@ The following options are common for all Kotlin compilers.
 
 Display the compiler version.
 
-### -nowarn
-
-Suppress the compiler from displaying warnings during compilation.
-
-### -Werror
-
-Turn any warnings into a compilation error. 
-
-### -Wextra
-
-Enable [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that
-emit warnings if true.
-
 ### -verbose
 
 Enable verbose logging output which includes details of the compilation process.
@@ -136,14 +123,6 @@ $ kotlinc @options/compiler.options hello.kt
 Enable usages of API that [requires opt-in](opt-in-requirements.md) with a requirement annotation with the given 
 fully qualified name.
 
-### -Xsuppress-warning
-
-Suppresses specific warnings [globally across the whole project](whatsnew21.md#global-warning-suppression), for example:
-
-```bash
-kotlinc -Xsuppress-warning=NOTHING_TO_INLINE -Xsuppress-warning=NO_TAIL_CALLS_FOUND main.kt
-```
-
 ### -Xrepl
 
 Activates the Kotlin REPL.
@@ -171,6 +150,44 @@ Enables the new experimental [defaulting rule for annotation use-site targets](a
 ```bash
 kotlinc -Xannotation-default-target=param-property
 ```
+
+### Warning management
+
+#### -nowarn
+
+Suppress all warnings during compilation.
+
+#### -Werror
+
+Treat all warnings as compilation errors.
+
+#### -Wextra
+
+Enable [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that
+emit warnings if true.
+
+#### -Xwarning-level
+<primary-label ref="experimental-general"/>
+
+Configure the severity level of specific compiler warnings:
+
+```bash
+kotlinc -Xwarning-level=DIAGNOSTIC_NAME:(error|warning|disabled)
+```
+
+* `error`: raises only the specified warning to an error.
+* `warning`: emits a warning for the specified diagnostic and is enabled by default.
+* `disabled`: suppresses only the specified warning module-wide.
+
+You can adjust warning reporting in your project by combining module-wide rules with specific ones:
+
+| Command                                            | Description                                                 |
+|----------------------------------------------------|-------------------------------------------------------------|
+| `-nowarn -Xwarning-level=DIAGNOSTIC_NAME:warning`  | Suppress all warnings except for the specified ones.        |
+| `-Werror -Xwarning-level=DIAGNOSTIC_NAME:warning`  | Raise all warnings to errors except for the specified ones. |
+| `-Wextra -Xwarning-level=DIAGNOSTIC_NAME:disabled` | Enable all additional checks except for the specified ones. |
+
+If you have many warnings to exclude from the general rules, you can list them in a separate file using [`@argfile`](#argfile).
 
 ## Kotlin/JVM compiler options
 
