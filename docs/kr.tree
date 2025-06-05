@@ -307,8 +307,8 @@
 				<toc-element topic="gradle-plugin-variants.md"/>
 			</toc-element>
 			<toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
-			<toc-element accepts-web-file-names="using-ant.html" topic="ant.md"/>
 			<toc-element topic="build-tools-api.md"/>
+			<toc-element accepts-web-file-names="using-ant.html" topic="ant.md"/>
 		</toc-element>
 		<toc-element toc-title="Dokka">
 			<include from="dokka.tree" origin="dokka" element-id="dokka"/>
