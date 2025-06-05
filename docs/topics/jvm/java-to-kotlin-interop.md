@@ -132,7 +132,7 @@ class JavaClient {
 ```
 
 [Late-Initialized](properties.md#late-initialized-properties-and-variables) properties are also exposed as fields. 
-The visibility of the field is the same as the visibility of `lateinit` property setter.
+The visibility of the field is the same as the visibility of the `lateinit` property setter.
 
 ## Static fields
 
@@ -265,7 +265,7 @@ interface ChatBot {
 }
 ```
 
-You can also apply `@JvmStatic` annotation on the property of an object or a companion object making its getter and setter
+You can also apply `@JvmStatic` annotation to the property of an object or a companion object making its getter and setter
 methods static members in that object or the class containing the companion object.
 
 ## Default methods in interfaces
@@ -362,7 +362,7 @@ The Kotlin visibility modifiers map to Java in the following way:
 * `private` top-level declarations are compiled to `private` top-level declarations. Package-private accessors are also included,
 if accessed from within a class. 
 * `protected` remains `protected`. (Note that Java allows accessing protected members from other classes in the same package
-and Kotlin doesn't, so Java classes will have broader access to the code).
+and Kotlin doesn't, so Java classes will have broader access to the code.)
 * `internal` declarations become `public` in Java. Members of `internal` classes go through name mangling, to make.
 it harder to accidentally use them from Java and to allow overloading for members with the same signature that don't see
 each other according to Kotlin rules.
@@ -590,8 +590,12 @@ fun emptyList(): List<Nothing> = listOf()
 
 <primary-label ref="experimental-general"/>
 
-Kotlin compiles [inline value classes](inline-classes.md) to use **unboxed representations**, which are often inaccessible from Java.
-For example, Java isn't able to call a constructor for the `MyInt` class:
+If you want Java code to work smoothly with Kotlin's [inline value classes](inline-classes.md), you can use the 
+`@JvmExposeBoxed` annotation or the `-Xjvm-expose-boxed` compiler option. These approaches ensure Kotlin generates the 
+necessary boxed representations for Java interoperability.
+
+By default, Kotlin compiles inline value classes to use **unboxed representations**, which are often inaccessible from Java.
+For example, you can't call the constructor for the `MyInt` class from Java:
 
 ```kotlin
 @JvmInline
@@ -604,14 +608,14 @@ So the following Java code fails:
 MyInt input = new MyInt(5);
 ```
 
-You can use the [`@JvmExposeBoxed`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-expose-boxed/) annotation so that Kotlin generates a public constructor that Java can call directly.
+You can use the [`@JvmExposeBoxed`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-expose-boxed/) annotation so that Kotlin generates a public constructor that you can call from Java directly.
 You can apply the annotation at the following levels to ensure fine-grained control over what's exposed to Java:
 
 * Class
 * Constructor
 * Function
 
-Before using the `@JvmExposeBoxed` annotation in your code, you must opt in by using: `@OptIn(ExperimentalStdlibApi::class)`.
+Before using the `@JvmExposeBoxed` annotation in your code, you must opt in by using `@OptIn(ExperimentalStdlibApi::class)`.
 For example:
 
 ```kotlin
