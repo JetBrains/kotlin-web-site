@@ -280,7 +280,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: The [`BaseKapt.annotationProcessorOptionProviders`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-base-kapt/annotation-processor-option-providers.html#) property is deprecated in favor of 
-> `BaseKapt.annotationProcessorOptionsProviders`, which accepts a `MutableList<CommandLineArgumentProvider>` instead of a `MutableList<Any>`.
+> `BaseKapt.annotationProcessorOptionsProviders`, which accepts a `ListProperty<CommandLineArgumentProvider>` instead of a `MutableList<Any>`.
 > This clearly defines the expected element type and prevents runtime failures caused by adding incorrect elements, such as nested lists.
 > If your current code adds a list as a single element, replace the `add()` function with the `addAll()` function.
 >
