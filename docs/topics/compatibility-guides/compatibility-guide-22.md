@@ -263,7 +263,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The `KotlinCompilationOutput#resourcesDirProvider` field is deprecated.
+> **Short summary**: The `KotlinCompilationOutput#resourcesDirProvider` property is deprecated.
 > Use `KotlinSourceSet.resources` in your Gradle build script instead to add additional resource directories.
 >
 > **Deprecation cycle**:
@@ -271,7 +271,7 @@ perspective
 > - 2.1.0: `KotlinCompilationOutput#resourcesDirProvider` is deprecated with a warning
 > - 2.2.0: raise the warning to an error
 
-### Change the type of annotationProcessorOptionProviders to use CommandLineArgumentProvider
+### Deprecate BaseKapt.annotationProcessorOptionProviders
 
 > **Issue**: [KT-58009](https://youtrack.jetbrains.com/issue/KT-58009)
 >
@@ -279,10 +279,10 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The type of [`annotationProcessorOptionProviders`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-base-kapt/annotation-processor-option-providers.html#) in `BaseKapt` is changed from `MutableList<Any>`
-> to `MutableList<CommandLineArgumentProvider>`. 
+> **Short summary**: The [`BaseKapt.annotationProcessorOptionProviders`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-base-kapt/annotation-processor-option-providers.html#) property is deprecated in favor of 
+> `BaseKapt.annotationProcessorOptionsProviders`, which accepts a `MutableList<CommandLineArgumentProvider>` instead of a `MutableList<Any>`.
 > This clearly defines the expected element type and prevents runtime failures caused by adding incorrect elements, such as nested lists.
-> If your code currently adds a list as a single element, use the `addAll()` function instead of the `add()` function.
+> If your current code adds a list as a single element, replace the `add()` function with the `addAll()` function.
 >
 > **Deprecation cycle**:
 >
@@ -304,7 +304,7 @@ perspective
 >
 > - 1.4.20: the plugin is deprecated
 > - 2.1.20: a configuration error is introduced, and no plugin code is executed
-> - 2.2.20: the plugin is removed
+> - 2.2.0: the plugin is removed
 
 ### Deprecate kotlinOptions DSL
 
