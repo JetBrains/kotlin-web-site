@@ -223,7 +223,6 @@
 			<toc-element topic="dev-server-continuous-compilation.md"/>
 			<toc-element accepts-web-file-names="debugging-kotlin-in-browser.html" topic="js-debugging.md"/>
 			<toc-element accepts-web-file-names="running-tests.html" topic="js-running-tests.md"/>
-			<toc-element topic="javascript-dce.md"/>
 			<!-- The following page is used in the Mari link service. If you wish to change it here, change the link there too -->
 			<toc-element toc-title="IR compiler" topic="js-ir-compiler.md"/>
 			<toc-element topic="js-ir-migration.md"/>
