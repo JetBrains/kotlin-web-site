@@ -173,7 +173,7 @@ The feature is available only in the Kotlin/Native default memory allocator when
 
 * **Paging enabled**. Paging of allocations (buffering) should be enabled.
 
-  If you set up the [`kotlin.native.binary.pagedAllocator=false`](#disable-buffering) Gradle property, the memory is
+  If you set up the [`kotlin.native.binary.pagedAllocator=false`](#disable-allocator-paging) Gradle property, the memory is
   reserved on a per-object basis instead.
 
 ### Adjust memory consumption
@@ -185,10 +185,10 @@ If you experience unexpectedly high memory consumption, try the following soluti
 Update Kotlin to the latest version. We're constantly improving the memory manager, so even a simple compiler
 update might improve memory consumption.
 
-#### Disable buffering
+#### Disable allocator paging 
 <primary-label ref="experimental-opt-in"/>
 
-You can disable buffering (paging of allocations) so that the memory allocator reserves memory on a per-object basis.
+You can disable paging of allocations (buffering) so that the memory allocator reserves memory on a per-object basis.
 In some cases, it may help you satisfy strict memory limitations or reduce memory consumption on the application's startup.
 
 To do that, set the following option in your `gradle.properties` file:
