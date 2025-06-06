@@ -153,10 +153,10 @@ This feature is [Experimental](components-stability.md#stability-levels-explaine
 add the `kotlin.incremental.native=true` option to your `gradle.properties` file. If you face any problems,
 create an [issue in YouTrack](https://kotl.in/issue).
 
-### Advanced topics
+### Customize LLVM
+<primary-label ref="advanced"/>
 
-If the above tips does not solve your problems, you can consider trying
-[customizing the LLVM backend](native-llvm-passes.md).
+If the above tips do not solve your problems, consider [customizing the LLVM backend](native-llvm-passes.md).
 
 ## Windows configuration
 

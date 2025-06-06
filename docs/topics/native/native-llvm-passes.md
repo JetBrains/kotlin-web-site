@@ -1,19 +1,25 @@
-[//]: # (title: Advanced tips for customizing LLVM backend)
+[//]: # (title: Tips for customizing LLVM backend)
+<primary-label ref="advanced"/>
 
-<show-structure depth="1"/>
-
-## Customizing how Kotlin/Native uses LLVM
-
-The Kotlin/Native compiler uses [LLVM](https://llvm.org/) to optimize and generate binary executables for the different
+The Kotlin/Native compiler uses [LLVM](https://llvm.org/) to optimize and generate binary executables for different
 target platforms. A noticeable part of the compilation time is also spent in LLVM, and for large apps, this can end up
-taking unacceptably long. 
+taking an unacceptably long time.
 
-Before proceeding, add the `-Xprofile-phases` compiler argument to your build and run the `linkRelease*` task and
-examine the log output. This will generate a lot of output in the build log; tens of thousands of lines. At the end of
-the log, there will be sections with LLVM profiling. Here is an excerpt from such a run of a simple Kotlin/Native
-program:
+You can customize how Kotlin/Native uses LLVM and adjust the list of optimization passes.
 
-```
+## Examine the build log
+
+Let's take a look at the build log to understand how much compilation time is spent on LLVM optimization passes:
+
+1. Add the `-Xprofile-phases` compiler argument to your build.
+2. Run the `linkRelease*` task. By default, a release binary compilation runs the same LLVM optimization passes that clang
+   would for C++.
+3. Examine the generated output in the build log. The log can contain tens of thousands of lines; sections with LLVM
+   profiling are at the end.
+
+Here is an excerpt from such a run of a simple Kotlin/Native program:
+
+```none
 Frontend: 275 msec
 PsiToIr: 1186 msec
 ...
@@ -40,37 +46,44 @@ LTOBitcodeOptimization: 1399 msec
 ...
 ```
 
-The default behavior for a release binary compilation is to run the same LLVM optimization passes that clang would for
-C++. The Kotlin/Native compiler runs two separate sequences of LLVM optimizations; the module passes and the link-time
-passes. In the above log, the two are called `ModuleBitcodeOptimization` and `LTOBitcodeOptimization`. For a typical
-compilation, the two pipelines are run back to back, and the only real distinction is in what LLVM optimization passes
-they run. In the log above, the formatted tables are output from the LLVM optimizations, with timing for each pass.
+The Kotlin/Native compiler runs two separate sequences of LLVM optimizations: the module passes and the link-time
+passes. For a typical compilation, the two pipelines are run back to back, and the only real distinction is in which
+LLVM optimization passes they run.
 
-### Customize LLVM optimization passes
+In the log above, the two LLVM optimizations are `ModuleBitcodeOptimization` and `LTOBitcodeOptimization`. The formatted
+tables are the optimizations' output with timing for each pass.
 
-If one of the passes above stands out as taking unreasonably long, one possibility is to skip that particular pass. This
-might hurt runtime performance, so we should check for changes in benchmarks performance afterward. There is no direct
-way to disable a given pass. Instead, we must provide a new list of passes to run. This is done by using the following
-compiler options:
+## Customize LLVM optimization passes
 
-| **Option**                 | **Default value for release binary** |
-|----------------------------|--------------------------------------|
-| `-Xllvm-module-passes=...` | `"default<O3>"`                      |
-| `-Xllvm-lto-passes=...`    | `"internalize,globaldce,lto<O3>"`    |
+If one of the passes above seems unreasonably long, you can skip it. However, this might hurt runtime performance, so
+you should check for changes in the benchmarks' performance afterward.
 
-The default values are unfolded to a long list of actual passes to run, from which we need to exclude the undesired pass
-or passes. To find out what the actual passes are, we need to run the
-[`opt`](https://llvm.org/docs/CommandGuide/opt.html) tool, which is automatically downloaded with the LLVM distribution
-in `~/.konan/dependencies/llvm-{VERSION}-{ARCH}-{OS}-dev-{BUILD}/bin`. E.g., to find out what the link-time passes are,
-we need to run
+There is no direct way to disable a given pass. However, you can provide a new list of passes to run by using the
+following compiler options:
 
-    opt -print-pipeline-passes -passes="internalize,globaldce,lto<O3>" < /dev/null
+| **Option**             | **Default value for release binary** |
+|------------------------|--------------------------------------|
+| `-Xllvm-module-passes` | `"default<O3>"`                      |
+| `-Xllvm-lto-passes`    | `"internalize,globaldce,lto<O3>"`    |
 
-This prints out a warning and a very long string of passes, where the exact passes depends on the version of LLVM. There
-are two differences from what `opt` prints out and what the Kotlin/Native compiler runs. First, since `opt` is a debug
-tool, it includes one or more `verify` passes, which are not normally run. Second, Kotlin/Native disables the `devirt`
-passes, since these are already done better by the Kotlin compiler itself.
+The default values are unfolded to a long list of actual passes, from which you need to exclude the undesired ones.
 
-After disabling any passes, we should always rerun performance tests, to check if the runtime performance degradation is
-acceptable.
+To get the list of actual passes, run the [`opt`](https://llvm.org/docs/CommandGuide/opt.html) tool, which is
+automatically downloaded with the LLVM distribution to the
+`~/.konan/dependencies/llvm-{VERSION}-{ARCH}-{OS}-dev-{BUILD}/bin` directory.
 
+For example, to get the list of the link-time passes, run:
+
+```bash
+opt -print-pipeline-passes -passes="internalize,globaldce,lto<O3>" < /dev/null
+```
+
+This outputs a warning and a long list of passes, which depends on the LLVM version.
+
+There are two differences between the list of passes from the `opt` tool and the passes that Kotlin/Native
+compiler actually runs:
+
+* Since `opt` is a debug tool, it includes one or more `verify` passes, which are not normally run.
+* Kotlin/Native disables the `devirt` passes since the Kotlin compiler already does them itself.
+
+After disabling any passes, always rerun performance tests to check if the runtime performance degradation is acceptable.
