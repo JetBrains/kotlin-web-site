@@ -12,7 +12,7 @@
 This document covers general aspects of Kotlin's interoperability with C. Kotlin/Native comes with a cinterop tool,
 which you can use to quickly generate everything you need to interact with an external C library.
 
-The tool analyzes C headers and produces a straightforward mapping of C types, functions, and constants into Kotlin.
+The tool analyzes C headers and produces a straightforward mapping of C types, functions, and strings into Kotlin.
 The generated stubs then can be imported into an IDE to enable code completion and navigation.
 
 > Kotlin also provides interoperability with Objective-C. Objective-C libraries are imported through the cinterop tool
@@ -401,7 +401,7 @@ and pointers to such objects' inner data could be passed to C functions.
 
 There's a couple of approaches you can take:
 
-* Use the [`usePinned`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/use-pinned.html) service function
+* Use the [`.usePinned()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/use-pinned.html) extension function
   that pins an object, executes a block, and unpins it on normal and exception paths:
 
   ```kotlin
@@ -423,10 +423,10 @@ There's a couple of approaches you can take:
   }
   ```
 
-  Here, `pinned` is an object of a special type `Pinned<T>`. It provides useful extensions like `addressOf`, which allows
-  getting the address of a pinned array body.
+  Here, `pinned` is an object of a special type `Pinned<T>`. It provides useful extensions like [`.addressOf()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/address-of.html),
+  which allows getting the address of a pinned array body.
 
-* Use the [`refTo()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/ref-to.html) function that has
+* Use the [`.refTo()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/ref-to.html) extension function that has
   similar functionality under the hood but, in certain cases, may help you reduce boilerplate code:
 
   ```kotlin
@@ -498,9 +498,9 @@ fun test() {
 
 ## What's next
 
-Learn how types, functions, and constants are mapped between Kotlin and C by completing the following tutorials:
+Learn how types, functions, and strings are mapped between Kotlin and C by completing the following tutorials:
 
 * [Mapping primitive data types from C](mapping-primitive-data-types-from-c.md)
-* [Mapping struct and union types from C](mapping-function-pointers-from-c.md)
+* [Mapping struct and union types from C](mapping-struct-union-types-from-c.md)
 * [Mapping function pointers from C](mapping-function-pointers-from-c.md)
 * [Mapping strings from C](mapping-strings-from-c.md)
