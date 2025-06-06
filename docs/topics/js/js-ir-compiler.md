@@ -7,7 +7,7 @@ Rather than directly generating JavaScript code from Kotlin source code, the Kot
 new approach. Kotlin source code is first transformed into a
 [Kotlin intermediate representation (IR)](whatsnew14.md#unified-backends-and-extensibility), 
 which is subsequently compiled into JavaScript. For Kotlin/JS, this enables aggressive optimizations, and allows improvements
-on pain points that were present in the previous compiler, such as generated code size (through dead code elimination),
+on pain points that were present in the previous compiler, such as generated code size (through [dead code elimination](#dead-code-elimination)),
 and JavaScript and TypeScript ecosystem interoperability, to name some examples.
 
 The IR compiler backend is available starting with Kotlin 1.4.0 through the Kotlin Multiplatform Gradle plugin. To enable it in your
@@ -123,6 +123,41 @@ kotlin {
     }
 }
 ```
+
+## Dead code elimination
+
+[Dead code elimination](https://wikipedia.org/wiki/Dead_code_elimination) (DCE) or _tree shaking_ reduces the size of
+the resulting JavaScript code by removing unused properties, functions, and classes.
+
+Unused declarations can appear in cases like:
+
+* A function is inlined and never gets called directly (which happens always except for a few situations).
+* A module uses a shared library. Without DCE, parts of the library that you don't use are still included in the resulting bundle.
+  For example, the Kotlin standard library contains functions for manipulating lists, arrays, char sequences,
+  adapters for DOM, and so on. All of this functionality would require about 1.3 MB as a JavaScript file. A simple
+  "Hello, world" application only requires console routines, which is only few kilobytes for the entire file.
+
+In the IR compiler, DCE is handled automatically:
+
+* DCE is disabled in _development_ bundling tasks, which corresponds to the following Gradle tasks:
+
+    * `browserDevelopmentRun`
+    * `browserDevelopmentWebpack`
+    * `nodeDevelopmentRun`
+    * `compileDevelopmentExecutableKotlinJs`
+    * `compileDevelopmentLibraryKotlinJs`
+    * Other Gradle tasks including "development" in their name
+
+* DCE is enabled you build a _production_ bundle, which corresponds to the following Gradle tasks:
+
+    * `browserProductionRun`
+    * `browserProductionWebpack`
+    * `compileProductionExecutableKotlinJs`
+    * `compileProductionLibraryKotlinJs`
+    * Other Gradle tasks including "production" in their name
+
+With the [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation) annotation, you can specify the declarations you want
+DCE to treat as roots.
 
 ## Preview: generation of TypeScript declaration files (d.ts)
 
