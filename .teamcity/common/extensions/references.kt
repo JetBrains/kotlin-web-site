@@ -175,6 +175,6 @@ fun BuildSteps.dokkaBuildHtml(version: String? = null, init: GradleBuildStep.() 
     id = "step-build-dokka-html-id"
     name = "Build dokka html"
     tasks = "dokkaHtmlMultiModule"
-    gradleParams = "${if (version != null) "-PdeployVersion=\"$version\" " else ""}--no-daemon --no-configuration-cache"
+    gradleParams = "${if (version != null) """-PdeployVersion=$version """ else ""}--no-daemon --no-configuration-cache"
     useGradleWrapper = true
 }.apply(init)
