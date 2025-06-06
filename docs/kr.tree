@@ -119,6 +119,7 @@
 				<toc-element topic="type-safe-builders.md"/>
 				<toc-element topic="using-builders-with-builder-inference.md"/>
 			</toc-element>
+			<toc-element topic="context-parameters.md"/>
 		</toc-element>
 		<toc-element topic="null-safety.md"/>
 		<toc-element topic="equality.md"/>
