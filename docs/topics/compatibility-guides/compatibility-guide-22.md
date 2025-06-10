@@ -339,3 +339,23 @@ perspective
 >
 > - 2.0.20: deprecate the `kotlin.incremental.useClasspathSnapshot` property with a warning
 > - 2.2.0: remove the property
+
+### Deprecations to Kotlin scripting
+
+> **Issues**: [KT-71685](https://youtrack.jetbrains.com/issue/KT-71685), [KT-75632](https://youtrack.jetbrains.com/issue/KT-75632/), [KT-76196](https://youtrack.jetbrains.com/issue/KT-76196/).
+>
+> **Component**: Scripting
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.2.0 deprecates support for:
+>   * REPL: To continue to use REPL via `kotlinc`, opt in with the `-Xrepl` compiler option.
+>   * JSR-223: Since the [JSR](https://jcp.org/en/jsr/detail?id=223) is in **Withdrawn** state. The JSR-223 implementation continues to work with language version 1.9 but there are no plans to migrate to the K2 compiler in the future.
+>   * The `KotlinScriptMojo` Maven plugin. You will see compiler warnings if you continue to use it.
+>
+> For more information, see our [blog post](https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/).
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: deprecate the use of REPL in `kotlinc` with a warning
+> - 2.2.0: to use REPL via `kotlinc`, opt in with the `-Xrepl` compiler option; deprecate JSR-223, support can be restored by switching to language version 1.9; deprecate the `KotlinScriptMojo` Maven plugin;
