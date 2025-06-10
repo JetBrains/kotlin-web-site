@@ -131,11 +131,11 @@ the resulting JavaScript code by removing unused properties, functions, and clas
 
 Unused declarations can appear in cases like:
 
-* A function is inlined and never gets called directly (which happens always except for a few situations).
+* A function is inlined and never gets called directly (which always happens except for a few cases).
 * A module uses a shared library. Without DCE, parts of the library that you don't use are still included in the resulting bundle.
   For example, the Kotlin standard library contains functions for manipulating lists, arrays, char sequences,
   adapters for DOM, and so on. All of this functionality would require about 1.3 MB as a JavaScript file. A simple
-  "Hello, world" application only requires console routines, which is only few kilobytes for the entire file.
+  "Hello, world" application only requires console routines, which are only a few kilobytes for the entire file.
 
 In the IR compiler, DCE is handled automatically:
 
@@ -148,7 +148,7 @@ In the IR compiler, DCE is handled automatically:
     * `compileDevelopmentLibraryKotlinJs`
     * Other Gradle tasks including "development" in their name
 
-* DCE is enabled you build a _production_ bundle, which corresponds to the following Gradle tasks:
+* DCE is enabled if you build a _production_ bundle, which corresponds to the following Gradle tasks:
 
     * `browserProductionRun`
     * `browserProductionWebpack`
