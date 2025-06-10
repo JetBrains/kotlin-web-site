@@ -127,7 +127,7 @@ They also don't apply to library implementations. In other words, for a library
 public fun createUIView(): UIView
 public fun handleThirdPartyNativeType(c: ThirdPartyNativeType)
 
-// Be careful as usual: native types are not used in the API.
+// Be careful as usual: native types are not used in the library API.
 internal fun createUIViewController(): UIViewController
 public fun getDate(): String = NSDate().toString()
 ```
