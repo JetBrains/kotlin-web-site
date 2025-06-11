@@ -33,7 +33,7 @@ function KotlinPlusAI() {
 
     return (
         <ThemeProvider theme="dark">
-            <div className={styles.wrapper} id="kotlin-plus-ai">
+            <div className={styles.wrapper} id="kotlin-plus-ai" data-testid={"kotlin-plus-ai-block"}>
                 <h2 className={cn(classTitle, styles.introTitle)}>Kotlin + AI</h2>
                 <p className={introClass}>JetBrains is investing in AI models tailored for Kotlin, providing open data,
                     benchmarks, and AI-native tooling integrated into your workflow.</p>
@@ -59,8 +59,9 @@ function KotlinPlusAI() {
                             developing a simple chat assistant or an advanced multi-step workflow, Koog gives you full
                             control with clean Kotlin code – no external services are required. Build, extend, and
                             experiment with AI agents entirely in Kotlin.</p>
-                        <Button mode="rock" size={size} className={styles.getStarted} href="https://docs.koog.ai/">Get
-                            started</Button>
+                        <Button mode="rock" size={size} className={styles.getStarted} href="https://docs.koog.ai/">
+                            Get started
+                        </Button>
                     </div>
                     <BlockScheme className={styles.buildAgentsScheme} />
                 </div>
