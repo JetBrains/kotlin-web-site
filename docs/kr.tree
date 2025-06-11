@@ -305,6 +305,7 @@
 				<toc-element topic="gradle-best-practices.md"/>
 				<toc-element toc-title="Compiler options in KGP" topic="gradle-compiler-options.md"/>
 				<toc-element toc-title="Compilation and caches in KGP" topic="gradle-compilation-and-caches.md"/>
+				<toc-element toc-title="Binary compatibility validation in KGP" topic="gradle-binary-compatibility-validation.md"/>
 				<toc-element topic="gradle-plugin-variants.md"/>
 			</toc-element>
 			<toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
