@@ -25,11 +25,11 @@ To enable binary compatibility validation, add the following to the `kotlin{}` b
 
 ```kotlin
 kotlin {
-  @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
-  abiValidation {
-    // Use the set method to ensure compatibility with older Gradle versions
-    enabled.set(true)
-  }
+    @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
+    abiValidation {
+        // Use the set method to ensure compatibility with older Gradle versions
+        enabled.set(true)
+    }
 }
 ```
 
@@ -39,8 +39,7 @@ kotlin {
 ```kotlin
 kotlin {
     abiValidation {
-        // Use the set method to ensure compatibility with older Gradle versions
-        enabled.set(true)
+        enabled = true
     }
 }
 ```
@@ -181,7 +180,7 @@ kotlin {
 kotlin {
     abiValidation {
         klib {
-            keepUnsupportedTargets.set(false)
+            keepUnsupportedTargets = false
         }
     }
 }
