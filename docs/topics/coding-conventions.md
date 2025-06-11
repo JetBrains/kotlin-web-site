@@ -21,6 +21,10 @@ the given code style.
 2. Switch on **Incorrect formatting** inspection.
 Additional inspections that verify other issues described in the style guide (such as naming conventions) are enabled by default.
 
+<!-- Replace with an external link when the guide is moved -->
+
+For more information, see the [Migrate to Kotlin code style with IntelliJ IDEA](code-style-migration-guide.md) guide.
+
 ## Source code organization
 
 ### Directory structure
