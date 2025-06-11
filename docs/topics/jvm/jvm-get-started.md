@@ -1,4 +1,4 @@
-[//]: # (title: Get started with Kotlin/JVM)
+[//]: # (title: Create a console app – tutorial)
 
 This tutorial demonstrates how to use IntelliJ IDEA for creating a console application.
 
