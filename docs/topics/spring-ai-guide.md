@@ -291,39 +291,39 @@ Once the documents are loaded, the final step is to add an endpoint that answers
 5. At the bottom of your `KotlinSTDController.kt` file, add a new `chatAsk()` endpoint, with the following logic:
 
    ```kotlin
-    @PostMapping("/chat/ask")
-    fun chatAsk(@RequestBody request: ChatRequest): String? {
-        // Defines the prompt template with placeholders
-        val promptTemplate = PromptTemplate(
-            """
-            {query}.
-            Please provide a concise answer based on the "Kotlin standard library" documentation.
-        """.trimIndent()
-        )
+   @PostMapping("/chat/ask")
+   fun chatAsk(@RequestBody request: ChatRequest): String? {
+       // Defines the prompt template with placeholders
+       val promptTemplate = PromptTemplate(
+           """
+           {query}.
+           Please provide a concise answer based on the "Kotlin standard library" documentation.
+       """.trimIndent()
+       )
 
-        // Creates the prompt by substituting placeholders with actual values
-        val prompt: Prompt =
-            promptTemplate.create(mapOf("query" to request.query))
+       // Creates the prompt by substituting placeholders with actual values
+       val prompt: Prompt =
+           promptTemplate.create(mapOf("query" to request.query))
 
-        // Configures the retrieval advisor to augment the query with relevant documents
-        val retrievalAdvisor = QuestionAnswerAdvisor.builder(vectorStore)
-            .searchRequest(
-                SearchRequest.builder()
-                    .similarityThreshold(0.7)
-                    .topK(request.topK)
-                    .build()
-            )
-            .promptTemplate(promptTemplate)
-            .build()
+       // Configures the retrieval advisor to augment the query with relevant documents
+       val retrievalAdvisor = QuestionAnswerAdvisor.builder(vectorStore)
+           .searchRequest(
+               SearchRequest.builder()
+                   .similarityThreshold(0.7)
+                   .topK(request.topK)
+                   .build()
+           )
+           .promptTemplate(promptTemplate)
+           .build()
 
-        // Sends the prompt to the LLM with the retrieval advisor and retrieves the generated content
-        val response = chatClient.prompt(prompt)
-            .advisors(retrievalAdvisor)
-            .call()
-            .content()
-        logger.info("Chat response generated for query: '${request.query}'")
-        return response
-    }
+       // Sends the prompt to the LLM with the retrieval advisor and retrieves the generated content
+       val response = chatClient.prompt(prompt)
+           .advisors(retrievalAdvisor)
+           .call()
+           .content()
+       logger.info("Chat response generated for query: '${request.query}'")
+       return response
+   }
    ```
 
 6. Run the application.
