@@ -40,7 +40,7 @@ in IntelliJ IDEA or use the following command in your project directory:
 ./gradlew checkLegacyAbi
 ```
 
-The task creates an ABI dump with errors that report any differences in your code. Check them carefully to see if you need
+The task compares ABI dumps and prints any detected differences as errors. Check the output carefully to see if you need to
 make changes to your code to preserve binary compatibility.
 
 ## Update reference ABI dump
@@ -80,7 +80,7 @@ kotlin {
     @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
     filters {
         excluded {
-            byNames.add("com.example.internal.InternalUtils")
+            byNames.add("**.InternalUtils")
             annotatedWith.add("com.example.annotations.InternalApi")
         }
 
@@ -99,13 +99,13 @@ This example:
   * Declarations annotated with `@InternalApi`.
 * Includes:
   * Everything in the `com.example.api` package.
-  * Any declarations annotated with the `@PublicApi`.
+  * Declarations annotated with the `@PublicApi`.
 
 To learn more about filtering, see the [Kotlin Gradle plugin API reference](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.dsl.abi/-abi-filters-spec/).
 
 ## Prevent inferred changes for unsupported targets
 
-In multiplatform projects, if your host system can’t compile all targets, the Kotlin Gradle plugin tries to infer ABI changes
+In multiplatform projects, if your host system can't compile all targets, the Kotlin Gradle plugin tries to infer ABI changes
 from the available targets. This helps avoid false failures when you later switch to a host that supports more targets.
 
 To disable this behavior, add the following to your `build.gradle.kts` file:
@@ -115,7 +115,7 @@ kotlin {
      @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
     abiValidation {
         klib {
-            keepUnsupportedTargets = false
+            keepUnsupportedTargets.set(false)
         }
     }
 }
