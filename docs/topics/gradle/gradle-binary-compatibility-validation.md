@@ -19,15 +19,36 @@ You can review these changes to find any potentially binary-incompatible modific
 
 To enable binary compatibility validation, add the following to the `kotlin{}` block in your `build.gradle.kts` file:
 
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
 kotlin {
-    @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
+  @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
+  abiValidation {
+    // Use the set method to ensure compatibility with older Gradle versions
+    enabled.set(true)
+  }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```kotlin
+kotlin {
     abiValidation {
         // Use the set method to ensure compatibility with older Gradle versions
         enabled.set(true)
     }
 }
 ```
+
+</tab>
+</tabs>
+
+
 
 If your project has multiple modules where you want to check for binary compatibility, configure each module separately.
 
@@ -75,22 +96,51 @@ A rule can be based on:
 
 For example:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
 kotlin {
     @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
-    filters {
-        excluded {
-            byNames.add("**.InternalUtils")
-            annotatedWith.add("com.example.annotations.InternalApi")
-        }
+    abiValidation {
+        filters {
+            excluded {
+                byNames.add("**.InternalUtils")
+                annotatedWith.add("com.example.annotations.InternalApi")
+            }
 
-        included {
-            byNames.add("com.example.api.**")
-            annotatedWith.add("com.example.annotations.PublicApi")
+            included {
+                byNames.add("com.example.api.**")
+                annotatedWith.add("com.example.annotations.PublicApi")
+            }
         }
     }
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```kotlin
+kotlin {
+    abiValidation {
+        filters {
+            excluded {
+                byNames.add("**.InternalUtils")
+                annotatedWith.add("com.example.annotations.InternalApi")
+            }
+
+            included {
+                byNames.add("com.example.api.**")
+                annotatedWith.add("com.example.annotations.PublicApi")
+            }
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 This example:
 
@@ -110,9 +160,12 @@ from the available targets. This helps avoid false failures when you later switc
 
 To disable this behavior, add the following to your `build.gradle.kts` file:
 
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
 ```kotlin
 kotlin {
-     @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
+    @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
     abiValidation {
         klib {
             keepUnsupportedTargets.set(false)
@@ -120,6 +173,22 @@ kotlin {
     }
 }
 ```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```kotlin
+kotlin {
+    abiValidation {
+        klib {
+            keepUnsupportedTargets.set(false)
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
 
 If a target is unsupported and inference is disabled, the `checkLegacyAbi` task fails because it can't generate a complete
 ABI dump. This behavior may be useful if you'd prefer the task to fail rather than risk missing a binary-incompatible change.
