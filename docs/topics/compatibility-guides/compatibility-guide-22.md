@@ -74,7 +74,7 @@ perspective
 > - 2.0.0: report a warning for accessing synthetic properties created from Kotlin getters
 > - 2.2.0: raise the warning to an error
 
-### Change the default method generation for interface functions on the JVM
+### Change default method generation for interface functions on JVM
 
 > **Issue**: [KTLC-269](https://youtrack.jetbrains.com/issue/KTLC-269)
 >
@@ -126,7 +126,7 @@ perspective
 > - 2.1.0: report a warning for reified type parameters in type aliases
 > - 2.2.0: raise the warning to an error
 
-### Correct type checks on inline value classes for Number and Comparable
+### Correct type checks on inline value classes for `Number` and `Comparable`
 
 > **Issue**: [KTLC-21](https://youtrack.jetbrains.com/issue/KTLC-21)
 >
@@ -208,7 +208,7 @@ perspective
 
 ## Standard library
 
-### Deprecate kotlin.native.Throws
+### Deprecate `kotlin.native.Throws`
 
 > **Issue**: [KT-72137](https://youtrack.jetbrains.com/issue/KT-72137)
 >
@@ -223,7 +223,7 @@ perspective
 > - 1.9.0: report a warning when using `kotlin.native.Throws`
 > - 2.2.0: raise the warning to an error
 
-### Deprecate AbstractDoubleTimeSource
+### Deprecate `AbstractDoubleTimeSource`
 
 > **Issue**: [KT-72137](https://youtrack.jetbrains.com/issue/KT-72137)
 >
@@ -240,7 +240,7 @@ perspective
 
 ## Tools
 
-### Correct the setSource() function in KotlinCompileTool to replace sources instead of adding to them
+### Correct `setSource()` function in `KotlinCompileTool` to replace sources
 
 > **Issue**: [KT-59632](https://youtrack.jetbrains.com/issue/KT-59632)
 >
@@ -255,7 +255,7 @@ perspective
 >
 > - 2.2.0: enable new behavior
 
-### Deprecate KotlinCompilationOutput#resourcesDirProvider
+### Deprecate `KotlinCompilationOutput#resourcesDirProvider` property
 
 > **Issue**: [KT-70620](https://youtrack.jetbrains.com/issue/KT-70620)
 >
@@ -271,7 +271,7 @@ perspective
 > - 2.1.0: `KotlinCompilationOutput#resourcesDirProvider` is deprecated with a warning
 > - 2.2.0: raise the warning to an error
 
-### Deprecate BaseKapt.annotationProcessorOptionProviders
+### Deprecate `BaseKapt.annotationProcessorOptionProviders` property
 
 > **Issue**: [KT-58009](https://youtrack.jetbrains.com/issue/KT-58009)
 >
@@ -288,7 +288,7 @@ perspective
 >
 > - 2.2.0: enforce new type in the API
 
-### Deprecate the `kotlin-android-extensions` plugin
+### Deprecate `kotlin-android-extensions` plugin
 
 > **Issue**: [KT-72341](https://youtrack.jetbrains.com/issue/KT-72341/)
 >
@@ -306,7 +306,7 @@ perspective
 > - 2.1.20: a configuration error is introduced, and no plugin code is executed
 > - 2.2.0: the plugin is removed
 
-### Deprecate kotlinOptions DSL
+### Deprecate `kotlinOptions` DSL
 
 > **Issue**: [KT-54110](https://youtrack.jetbrains.com/issue/KT-54110)
 >
@@ -324,7 +324,7 @@ perspective
 > - 2.0.0: report a warning for `kotlinOptions` DSL
 > - 2.2.0: raise the warning to an error and deprecate all properties in `kotlinOptions`
 
-### Remove the kotlin.incremental.useClasspathSnapshot property
+### Remove `kotlin.incremental.useClasspathSnapshot` property
 
 > **Issue**: [KT-62963](https://youtrack.jetbrains.com/issue/KT-62963)
 >
@@ -358,4 +358,217 @@ perspective
 > **Deprecation cycle**:
 >
 > - 2.1.0: deprecate the use of REPL in `kotlinc` with a warning
-> - 2.2.0: to use REPL via `kotlinc`, opt in with the `-Xrepl` compiler option; deprecate JSR-223, support can be restored by switching to language version 1.9; deprecate the `KotlinScriptMojo` Maven plugin;
+> - 2.2.0: to use REPL via `kotlinc`, opt in with the `-Xrepl` compiler option; deprecate JSR-223, support can be restored by switching to language version 1.9; deprecate the `KotlinScriptMojo` Maven plugin
+
+### Deprecate disambiguation classifier properties
+
+> **Issue**: [KT-58231](https://youtrack.jetbrains.com/issue/KT-58231)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Options that were used to control how the Kotlin Gradle plugin disambiguates source set names and
+> IDE imports became obsolete. Therefore, the following properties are now deprecated in the `KotlinTarget` interface:
+>
+> * `useDisambiguationClassifierAsSourceSetNamePrefix`
+> * `overrideDisambiguationClassifierOnIdeImport`
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a warning when the Gradle properties are used
+> - 2.1.0: raise this warning to an error
+> - 2.2.0: remove Gradle properties
+
+### Deprecate commonization parameters
+
+> **Issue**: [KT-75161](https://youtrack.jetbrains.com/issue/KT-75161)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The parameters for experimental commonization modes are deprecated in the Kotlin Gradle plugin.
+> These parameters may produce invalid compilation artifacts that are then cached. To delete affected artifacts:
+>
+> 1. Remove the following options from your `gradle.properties` file:
+>
+>    ```none
+>    kotlin.mpp.enableOptimisticNumberCommonization
+>    kotlin.mpp.enablePlatformIntegerCommonization
+>    ```
+>
+> 2. Clear the commonization cache in the `~/.konan/*/klib/commonized` directory or run the following command: 
+>
+>    ```bash
+>    ./gradlew cleanNativeDistributionCommonization
+>    ```
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: commonization parameters are deprecated with an error
+> - 2.2.20: remove commonization parameters
+
+### Deprecate support for legacy metadata compilation
+
+> **Issue**: [KT-61817](https://youtrack.jetbrains.com/issue/KT-61817)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Options that were used to set up hierarchical structure and create intermediate source sets
+> between the common and intermediate source sets became obsolete.
+> The following compiler options are removed:
+> 
+> * `isCompatibilityMetadataVariantEnabled`
+> * `withGranularMetadata`
+> * `isKotlinGranularMetadataEnabled`
+>
+> **Deprecation cycle**:
+
+> - 2.2.0: remove compiler options from the Kotlin Gradle plugin
+
+### Deprecate `KotlinCompilation.source`
+
+> **Issue**: [KT-64991](https://youtrack.jetbrains.com/issue/KT-64991)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The access to `KotlinCompilation.source` that allowed adding Kotlin source sets directly to the Kotlin
+> compilation has been deprecated.
+>
+> **Deprecation cycle**:
+>
+> - 1.9.0: report a warning when `KotlinComplation.source` is used
+> - 1.9.20: raise this warning to an error
+> - 2.2.0: remove `KotlinComplation.source` from the Kotlin Gradle plugin; attempts to use it lead to "unresolved reference"
+> errors during the buildscript compilation
+
+### Deprecate target presets APIs
+
+> **Issue**: [KT-71698](https://youtrack.jetbrains.com/issue/KT-71698)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Target presets for Kotlin Multiplatform targets became obsolete; target DSL functions like `jvm()`
+> or `iosSimulatorArm64()` now cover the same use cases. All presets-related APIs are deprecated:
+> 
+> * The `presets` property in `org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension`
+> * The `org.jetbrains.kotlin.gradle.plugin.KotlinTargetPreset` interface and all its inheritors
+> * The `fromPreset` overloads
+>
+> **Deprecation cycle**:
+>
+> - 1.9.20: report a warning on any usages of the presets-related API
+> - 2.0.0: raise this warning to an error
+> - 2.2.0: remove the presets-related API from the public API of the Kotlin Gradle plugin; sources that still use it fail
+> with "unresolved reference" errors, and binaries (for example, Gradle plugins) might fail with linkage errors unless
+> recompiled against the latest versions of the Kotlin Gradle plugin
+
+### Deprecate Apple target shortcuts
+
+> **Issue**: [KT-70615](https://youtrack.jetbrains.com/issue/KT-70615)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `ios()`, `watchos()`, and `tvos()` target shortcuts are deprecated in Kotlin Multiplatform DSL.
+> The shortcuts were designed to partially create a source set hierarchy for Apple targets. The Kotlin Multiplatform Gradle
+> plugin now provides a built-in hierarchy template. Instead of shortcuts, specify the list of targets, and then the plugin
+> automatically sets up intermediate source sets for them.
+>
+> **Deprecation cycle**:
+>
+> - 1.9.20: report a warning when target shortcuts are used; the default hierarchy template is enabled by default instead
+> - 2.1.0: report an error when target shortcuts are used
+> - 2.2.0: remove target shortcut DSL from the Kotlin Multiplatform Gradle plugin
+
+### Deprecate `publishAllLibraryVariants()` function
+
+> **Issue**: [KT-60623](https://youtrack.jetbrains.com/issue/KT-60623)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `publishAllLibraryVariants()` function is deprecated. It was designed to publish all build variants
+> for Android targets. This approach is not recommended now, as it can cause problems with variant resolution, especially
+> when multiple flavors and build types are used. Use the `publishLibraryVariants()` function, which specifies build variants,
+> instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: `publishAllLibraryVariants()` is deprecated
+
+### Deprecate `android` target
+
+> **Issue**: [KT-71608](https://youtrack.jetbrains.com/issue/KT-71608)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `android` target name is deprecated in the current Kotlin DSL. Use `androidTarget` instead.
+>
+> **Deprecation cycle**:
+>
+> - 1.9.0: introduce a deprecation warning when the `android` name is used in Kotlin Multiplatform projects 
+> - 2.1.0: raise this warning to an error
+> - 2.2.0: remove the `android` target DSL from the Kotlin Multiplatform Gradle plugin
+
+### Deprecate `konanVersion` in `CInteropProcess`
+
+> **Issue**: [KT-71069](https://youtrack.jetbrains.com/issue/KT-71069)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `konanVersion` property in the `CInteropProcess` task is deprecated.
+> Use `CInteropProcess.kotlinNativeVersion` instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report a warning when `konanVersion` is used
+> - 2.2.0: raise this warning to an error
+> - 2.3.0: remove `konanVersion` property from the Kotlin Gradle plugin
+
+### Deprecate `destinationDir` in `CInteropProcess`
+
+> **Issue**: [KT-71068](https://youtrack.jetbrains.com/issue/KT-71068)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `destinationDir` property in the `CInteropProcess` task is deprecated.
+> Use `CInteropProcess.destinationDirectory.set()` instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report a warning when `destinationDir` is used
+> - 2.2.0: raise this warning to an error
+> - 2.3.0: remove `destinationDir` from the Kotlin Gradle plugin
+
+### Deprecate `kotlinArtifacts` with a warning
+
+> **Issue**: [KT-74953](https://youtrack.jetbrains.com/issue/KT-74953)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The experimental `kotlinArtifacts` API is deprecated. Use the current DSL available in the Kotlin Gradle
+> plugin to [build final native binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html).
+> If it's not sufficient for migration, leave a comment in [this YT issue](https://youtrack.jetbrains.com/issue/KT-74953).
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a warning when `kotlinArtifacts` is used
+> - 2.3.0: raise this warning to an error
