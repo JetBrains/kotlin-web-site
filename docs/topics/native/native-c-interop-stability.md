@@ -43,6 +43,11 @@ This might matter in two cases:
 - There is a binary breaking change in platform libraries that affects some of your dependencies.
   There is typically no easy workaround, and you will need to wait until the library developer will fix this on their
   side, e.g., by updating the Kotlin version.
+  > Such binary incompatibilities manifest as linkage warnings and runtime exceptions.
+  > If you prefer to detect them at compilation time, consider raising those warnings to errors by using
+  > `-Xpartial-linkage-loglevel=ERROR` compiler flag as explained
+  > [here](whatsnew19.md#library-linkage-in-kotlin-native).
+  {style="note"}
 
 The JetBrains team, whenever updates the Xcode version used to generate the platform libraries, makes a reasonable
 effort to avoid breaking changes in platform libraries: whenever a breaking change might occur, the team conducts impact
@@ -53,13 +58,34 @@ Another potential reason for breaking changes in platform libraries is changes i
 native APIs to Kotlin.
 Just like above, the JetBrains team makes reasonable efforts to avoid breaking changes in such cases as well.
 
+### Using new Objective-C classes from platform libraries
+
+The Kotlin compiler doesn't prevent you from using Objective-C classes that are not available with your deployment
+target.
+
+For example, if your deployment target is iOS 17.0, and you use a class that appeared only in iOS 18.0, the compiler
+won't warn you, and your application might crash during launch on a device with iOS 17.0.
+Moreover, such a crash happens even when the execution never reaches those usages, so guarding them with version checks
+is not enough.
+
+See more details [here](native-objc-interop.md#strong-linking).
+
 ## Importing third-party native libraries when the Xcode version doesn't match
 
 Apart from system libraries, Kotlin/Native allows importing third-party native libraries.
 For example,
 by using [CocoaPods integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-dsl-reference.html)
 or defining a [cinterops configuration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#cinterops).
-This has implications for the compatibility of your project with different Xcode versions.
+
+This has implications for the compatibility of your project with different Xcode versions:
+(almost) any native library headers import some "standard" headers (e.g. `stdint.h`), and those standard headers come
+from Xcode.
+
+In other words, when processing a native library, the compiler typically uses some header files from the locally
+installed Xcode.
+This is the reason why the Xcode version affects specifically importing native libraries to Kotlin.
+(This is also one of the reasons why [cross-compilation from non-Mac to Apple targets is incompatible with using
+third-party native libraries](whatsnew21.md#ability-to-publish-kotlin-libraries-from-any-host)).
 
 Every Kotlin version is compatible the most with a single Xcode version.
 You can find the versions
@@ -143,6 +169,8 @@ When importing a native library to Kotlin, it gets a Kotlin package name.
 If this package name is not unique, users of your library might have a clash: for example, if the same native
 library is imported with the same package name elsewhere in the user's project or other dependencies, those two usages
 will clash.
+For example, the compilation might fail with `Linking globals named '...': symbol multiply defined!`. But there might be
+other errors or even a successful compilation.
 
 When importing a native library through the CocoaPods integration, use the
 [packageName](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-dsl-reference.html#pod-function)
