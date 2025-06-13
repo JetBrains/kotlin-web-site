@@ -107,6 +107,7 @@ There might be occasional issues, most frequently one of the two:
   (example: [KT-71694](https://youtrack.jetbrains.com/issue/KT-71694)).
 - The Kotlin API of the native library includes a type that belongs to a system library.
   I.e., everything compiles well, but some system native type is added to your native library package.
+  For example, this system type can be visible in autocompletion in the IDE when and where you don't expect it.
 
 If you develop a Kotlin library, and it compiles with an older Xcode version fine, it is safe to publish (unless you
 [use types from the third-party native library in your Kotlin library API](#using-native-types-in-library-api)).
