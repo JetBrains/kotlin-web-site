@@ -28,7 +28,7 @@ object BuildParams {
   const val KOTLIN_RELEASE_TAG = "whyoleg/dokka2-sync"
   const val KOTLIN_RELEASE_LABEL = "2.1.20"
 
-  const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_2120_LibraryReferenceLatestDocs"
+  const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_220_LibraryReferenceLatestDocs"
   const val CORE_API_TITLE = "Core API"
 
   const val KGP_RELEASE_TAG = KOTLIN_RELEASE_TAG
