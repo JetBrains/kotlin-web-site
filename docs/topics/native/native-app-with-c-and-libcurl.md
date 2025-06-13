@@ -60,8 +60,8 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the 
 
    * Targets are defined using `macosArm64`, `macosX64`, `linuxArm64`, `linuxX64`, and `mingwX64` for macOS, Linux,
      and Windows. See the complete list of [supported platforms](native-target-support.md).
-   * The entry itself defines a series of properties to indicate how the binary is generated and the entry
-     point of the applications. These can be left as default values.
+   * The `binaries {}` block defines how the binary is generated and the entry point of the application.
+     These can be left as default values.
    * C interoperability is configured as an additional step in the build. By default, all the symbols from C are
      imported to the `interop` package. You may want to import the whole package in `.kt` files. Learn more about
      [how to configure](gradle-configure-project.md#targeting-multiple-platforms) it.
@@ -100,7 +100,7 @@ In this app, you'll need the libcurl library to make some HTTP calls. To create 
     linkerOpts.linux = -L/usr/lib/x86_64-linux-gnu -lcurl
     ```
 
-   * `headers` is the list of header files to generate Kotlin stubs for. You can add multiple files to this entry,
+   * `headers` is the list of header files to generate Kotlin stubs for. You can add multiple files here,
      separating each with a space. In this case, it's only `curl.h`. The referenced files need to be available
      on the specified path (in this case, it's `/usr/include/curl`).
    * `headerFilter` shows what exactly is included. In C, all the headers are also included when one file references
@@ -127,7 +127,7 @@ In this app, you'll need the libcurl library to make some HTTP calls. To create 
 ## Add interoperability to the build process
 
 To use header files, make sure they are generated as a part of the build process. For this, add the following
-entry to the `build.gradle.kts` file:
+`compilations {}` block to the `build.gradle.kts` file:
 
 ```kotlin
 nativeTarget.apply {

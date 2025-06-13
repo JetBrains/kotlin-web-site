@@ -88,7 +88,8 @@ As you can see, C function pointers are represented in Kotlin using `CPointer<CF
 takes an optional function pointer as a parameter, while `supply_fun()` returns a function pointer.
 
 `CFunction<(Int) -> Int>` represents the function signature, and `CPointer<CFunction<...>>?` represents a nullable
-function pointer. There is an `invoke` operator extension function available for all `CPointer<CFunction<...>>` types,
+function pointer. There is an [`.invoke()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlinx.cinterop/invoke.html)
+operator extension function available for all `CPointer<CFunction<...>>` types,
 allowing you to call function pointers as if they were regular Kotlin functions.
 
 ## Pass Kotlin function as a C function pointer
