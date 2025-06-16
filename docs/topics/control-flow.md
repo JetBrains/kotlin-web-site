@@ -186,7 +186,7 @@ val numericValue = when (getRandomBit()) {
 > To simplify `when` expressions and reduce repetition, try out context-sensitive resolution (currently in preview).
 > This feature allows you to omit the type name when using enum entries or sealed class members in `when` expressions if the expected type is known.
 > 
-> For more information, see [Preview of context-sensitive resolution](whatsnew2220.md#preview-of-context-sensitive-resolution) or the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md).
+> For more information, see [Preview of context-sensitive resolution](whatsnew22.md#preview-of-context-sensitive-resolution) or the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md).
 > 
 {style="tip"}
 
