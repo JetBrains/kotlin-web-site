@@ -122,7 +122,7 @@ fun main() {
 > To reduce repetition when working with enum entries, try out context-sensitive resolution (currently in preview).
 > This feature allows you to omit the enum class name when the expected type is known, such as in `when` expressions or when assigning to a typed variable.
 >
-> For more information, see [Preview of context-sensitive resolution](whatsnew2220.md#preview-of-context-sensitive-resolution) or the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md).
+> For more information, see [Preview of context-sensitive resolution](whatsnew22.md#preview-of-context-sensitive-resolution) or the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md).
 >
 {style="tip"}
 
