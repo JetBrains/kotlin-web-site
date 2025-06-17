@@ -49,7 +49,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     val message = Message("Hello") // id is null
     ```
 
-3. Declare an interface for the `CrudRepository` that will work with the `Message` data class. Create the `MessageRepository.kt`
+2. Declare an interface for the `CrudRepository` that will work with the `Message` data class. Create the `MessageRepository.kt`
    file and add the following code to it:
 
     ```kotlin
@@ -61,7 +61,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     interface MessageRepository : CrudRepository<Message, String>
     ```
 
-4. Update the `MessageService` class. It will now use the `MessageRepository` instead of executing SQL queries:
+3. Update the `MessageService` class. It will now use the `MessageRepository` instead of executing SQL queries:
 
     ```kotlin
     // MessageService.kt
@@ -91,7 +91,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
        </def>
     </deflist>
 
-5. Update the messages table definition to generate the ids for the inserted objects. Since `id` is a string, you can use the `RANDOM_UUID()` function to generate the id value by default:
+4. Update the messages table definition to generate the ids for the inserted objects. Since `id` is a string, you can use the `RANDOM_UUID()` function to generate the id value by default:
 
     ```sql
     -- schema.sql 
@@ -101,7 +101,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     );
     ```
 
-6. Update the name of the database in the `application.properties` file located in the `src/main/resources` folder:
+5. Update the name of the database in the `application.properties` file located in the `src/main/resources` folder:
 
    ```none
    spring.application.name=demo
