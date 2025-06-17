@@ -51,18 +51,20 @@ This context forms a hierarchy that enables structured concurrency, where relate
 
 ### Asynchronous flow and shared mutable state
 
-Kotlin Coroutines provides the [`Flow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/) interface for working with asynchronous streams of values that one coroutine produces and another collects.
-This lets you process values without blocking a thread.
-For more information, see [Asynchronous flow](flow.md).
+Kotlin provides several ways for coroutines to communicate.
+Use one of the following options based on how you want to share values between coroutines:
 
-Use [`Channel`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.channels/-channel/) when you want several coroutines to send and receive values with each value delivered to only one coroutine.
-See [Channels](channels.md) and the [Coroutines and channels tutorial](coroutines-and-channels.md) for more information.
+* [`Flow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/) produces values only when a coroutine actively collects them.
+* [`Channel`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.channels/-channel/) allows multiple coroutines to send and receive values, with each value delivered to exactly one coroutine.
+* [`SharedFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-shared-flow/) continuously shares every value with all active collecting coroutines.
 
 When multiple coroutines need to access or update the same data, they _share mutable state_.
 Without coordination, this can lead to race conditions, where operations interfere with each other in unpredictable ways.
 To safely manage shared mutable state, use [`StateFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/#) to wrap the shared data.
 Then, you can update it from one coroutine and collect its latest value from others.
 <!-- Learn more in [Shared mutable state and concurrency](shared-mutable-state-and-concurrency.md). -->
+
+For more information, see [Asynchronous flow](flow.md), [Channels](channels.md), and the [Coroutines and channels tutorial](coroutines-and-channels.md).
 
 ## What's next
 
