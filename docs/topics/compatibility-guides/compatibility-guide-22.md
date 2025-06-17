@@ -556,7 +556,7 @@ perspective
 > - 2.2.0: raise this warning to an error
 > - 2.3.0: remove `destinationDir` from the Kotlin Gradle plugin
 
-### Deprecate `kotlinArtifacts` with a warning
+### Deprecate `kotlinArtifacts` API
 
 > **Issue**: [KT-74953](https://youtrack.jetbrains.com/issue/KT-74953)
 >
