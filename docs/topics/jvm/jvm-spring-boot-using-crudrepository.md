@@ -14,7 +14,8 @@ It provides several methods out of the box for interacting with a database.
 
 First, you need to adjust the `Message` class for work with the `CrudRepository` API:
 
-1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table.  
+1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table.
+   Add the `@Entity` annotation to the `Message` class to declare it as a JPA entity.
    Add the `@Id` annotation before the `id` field.
 
     > These annotations also require additional imports.
@@ -28,7 +29,8 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     import org.springframework.data.annotation.Id
     import org.springframework.data.relational.core.mapping.Table
     
-    @Table("MESSAGES")
+    @Table(name = "MESSAGES")
+    @Entity
     data class Message(@Id val id: String?, val text: String)
     ```
 
@@ -36,7 +38,8 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     you can set the default value for `id` property to null and flip the order of the data class properties: 
 
     ```kotlin
-    @Table("MESSAGES")
+    @Table(name = "MESSAGES")
+    @Entity
     data class Message(val text: String, @Id val id: String? = null)
     ```
  
@@ -46,7 +49,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     val message = Message("Hello") // id is null
     ```
 
-2. Declare an interface for the `CrudRepository` that will work with the `Message` data class. Create the `MessageRepository.kt`
+3. Declare an interface for the `CrudRepository` that will work with the `Message` data class. Create the `MessageRepository.kt`
    file and add the following code to it:
 
     ```kotlin
@@ -58,7 +61,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     interface MessageRepository : CrudRepository<Message, String>
     ```
 
-3. Update the `MessageService` class. It will now use the `MessageRepository` instead of executing SQL queries:
+4. Update the `MessageService` class. It will now use the `MessageRepository` instead of executing SQL queries:
 
     ```kotlin
     // MessageService.kt
@@ -88,7 +91,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
        </def>
     </deflist>
 
-4. Update the messages table definition to generate the ids for the inserted objects. Since `id` is a string, you can use the `RANDOM_UUID()` function to generate the id value by default:
+5. Update the messages table definition to generate the ids for the inserted objects. Since `id` is a string, you can use the `RANDOM_UUID()` function to generate the id value by default:
 
     ```sql
     -- schema.sql 
@@ -98,7 +101,7 @@ First, you need to adjust the `Message` class for work with the `CrudRepository`
     );
     ```
 
-5. Update the name of the database in the `application.properties` file located in the `src/main/resources` folder:
+6. Update the name of the database in the `application.properties` file located in the `src/main/resources` folder:
 
    ```none
    spring.application.name=demo
@@ -135,7 +138,8 @@ package com.example.demo
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Table
 
-@Table("MESSAGES")
+@Table(name = "MESSAGES")
+@Entity
 data class Message(val text: String, @Id val id: String? = null)
 ```
 {initial-collapse-state="collapsed" collapsible="true"}
