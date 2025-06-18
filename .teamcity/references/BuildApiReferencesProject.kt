@@ -1,10 +1,8 @@
 package references
 
 import BuildParams.API_COMPOSE
+import BuildParams.KGP_REFERENCE
 import jetbrains.buildServer.configs.kotlin.Project
-import references.builds.kgp.KotlinGradlePluginBuildApiReference
-import references.builds.kgp.KotlinGradlePluginBuildSearchIndex
-import references.builds.kgp.KotlinGradlePluginPrepareDokkaTemplates
 import references.builds.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
 import references.builds.kotlinx.coroutines.KotlinxCoroutinesBuildSearchIndex
 import references.builds.kotlinx.coroutines.KotlinxCoroutinesPrepareDokkaTemplates
@@ -52,18 +50,14 @@ object BuildApiReferencesProject : Project({
     buildType(BuildStdlibApiReference)
     buildType(StdlibPrepareDokkaTemplates)
 
-    buildType(KotlinGradlePluginBuildApiReference)
-    buildType(KotlinGradlePluginBuildSearchIndex)
-    buildType(KotlinGradlePluginPrepareDokkaTemplates)
-
     vcsRoot(KotlinxSerialization)
     vcsRoot(KotlinxCoroutines)
     vcsRoot(KotlinxDatetime)
     vcsRoot(KotlinxIO)
     vcsRoot(Kotlin)
-    vcsRoot(KotlinKGP)
 
     template(PrepareDokkaTemplate)
 
     subProject(API_COMPOSE.project)
+    subProject(KGP_REFERENCE.project)
 })

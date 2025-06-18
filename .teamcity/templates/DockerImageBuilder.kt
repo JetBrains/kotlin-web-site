@@ -3,6 +3,7 @@ package templates
 import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.Template
+import jetbrains.buildServer.configs.kotlin.buildFeatures.dockerRegistryConnections
 import jetbrains.buildServer.configs.kotlin.buildFeatures.dockerSupport
 import kotlinlang.builds.BuildKotlinGrammar
 
@@ -20,7 +21,7 @@ object DockerImageBuilder : Template({
   }
 
   features {
-    dockerSupport {
+    dockerRegistryConnections {
       loginToRegistry = on {
         dockerRegistryId = "PROJECT_EXT_357"
       }
