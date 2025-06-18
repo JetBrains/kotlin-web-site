@@ -1,37 +1,46 @@
 [//]: # (title: Conditions and loops)
 
+Kotlin gives you flexible tools for controlling the flow of your program. Use `if`, `when`, and loops to define clear, 
+expressive logic for your conditions.
+
 ## If expression
 
-In Kotlin, `if` is an expression: it returns a value.
-Therefore, there is no ternary operator (`condition ? then : else`) because ordinary `if` works fine in this role.
+In Kotlin, there is no ternary operator (`condition ? then : else`) because `if` serves the same purpose. Add the condition
+to check within parentheses `()` and the action to take if the result is true within curly braces `{}`. You can use `else`
+and `else if` for additional branches and checks. 
+
+You can also write `if` as an expression, which lets you assign its returned value directly to a variable.
+If you do use `if` as an expression, you must have an `else` branch.
+
+For example:
 
 ```kotlin
 fun main() {
-    val a = 2
-    val b = 3
+    val heightAlice = 160
+    val heightBob = 175
 
     //sampleStart
-    var max = a
-    if (a < b) max = b
+    var taller = heightAlice
+    if (heightAlice < heightBob) taller = heightBob
 
     // With else
-    if (a > b) {
-      max = a
+    if (heightAlice > heightBob) {
+        taller = heightAlice
     } else {
-      max = b
+        taller = heightBob
     }
 
     // As expression
-    max = if (a > b) a else b
+    taller = if (heightAlice > heightBob) heightAlice else heightBob
 
-    // You can also use `else if` in expressions:
-    val maxLimit = 1
-    val maxOrLimit = if (maxLimit > a) maxLimit else if (a > b) a else b
-  
-    println("max is $max")
-    // max is 3
-    println("maxOrLimit is $maxOrLimit")
-    // maxOrLimit is 3
+    // With `else if` as an expression:
+    val heightLimit = 150
+    val heightOrLimit = if (heightLimit > heightAlice) heightLimit else if (heightAlice > heightBob) heightAlice else heightBob
+
+    println("Taller height is $taller")
+    // Taller height is 175
+    println("Height or limit is $heightOrLimit")
+    // Height or limit is 175
     //sampleEnd
 }
 ```
@@ -40,17 +49,24 @@ fun main() {
 Branches of an `if` expression can be blocks. In this case, the last expression is the value of a block:
 
 ```kotlin
-val max = if (a > b) {
-    print("Choose a")
-    a
-} else {
-    print("Choose b")
-    b
+fun main() {
+    //sampleStart
+    val heightAlice = 160
+    val heightBob = 175
+
+    val taller = if (heightAlice > heightBob) {
+        print("Choose Alice\n")
+        heightAlice
+    } else {
+        print("Choose Bob\n")
+        heightBob
+    }
+
+    println("Taller height is $taller")
+    //sampleEnd
 }
 ```
-
-If you're using `if` as an expression, for example, for returning its value or
-assigning it to a variable, the `else` branch is mandatory.
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="if-else-blocks-kotlin"}
 
 ## When expressions and statements
 
