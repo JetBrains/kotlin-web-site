@@ -83,7 +83,7 @@
     "whatwg-fetch": "2.0.2"
   },
   "devDependencies": {
-    "@playwright/test": "1.22.2",
+    "@playwright/test": "1.53.0",
     "@types/react": "17.0.43",
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.6",
