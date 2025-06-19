@@ -172,7 +172,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 2.1.0: report a warning when a type parameter has a bound that is not visible from the declaration’s visibility scope
+> - 2.1.0: report a warning when a type parameter has a bound that is not visible from the declaration's visibility scope
 > - 2.2.0: raise the warning to an error
 
 ### Report errors when exposing private types in non-private inline functions
@@ -253,7 +253,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 2.2.0: enable new behavior
+> - 2.2.0: enable the new behavior
 
 ### Deprecate `KotlinCompilationOutput#resourcesDirProvider` property
 
@@ -286,7 +286,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 2.2.0: enforce new type in the API
+> - 2.2.0: enforce the new type in the API
 
 ### Deprecate `kotlin-android-extensions` plugin
 
@@ -406,7 +406,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 2.2.0: commonization parameters are deprecated with an error
+> - 2.2.0: derprecate commonization parameters with an error
 > - 2.2.20: remove commonization parameters
 
 ### Deprecate support for legacy metadata compilation
@@ -426,7 +426,7 @@ perspective
 > * `isKotlinGranularMetadataEnabled`
 >
 > **Deprecation cycle**:
-
+>
 > - 2.2.0: remove compiler options from the Kotlin Gradle plugin
 
 ### Deprecate `KotlinCompilation.source`
@@ -442,9 +442,9 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 1.9.0: report a warning when `KotlinComplation.source` is used
+> - 1.9.0: report a warning when `KotlinCompilation.source` is used
 > - 1.9.20: raise this warning to an error
-> - 2.2.0: remove `KotlinComplation.source` from the Kotlin Gradle plugin; attempts to use it lead to "unresolved reference"
+> - 2.2.0: remove `KotlinCompilation.source` from the Kotlin Gradle plugin; attempts to use it lead to "unresolved reference"
 > errors during the buildscript compilation
 
 ### Deprecate target presets APIs
@@ -535,9 +535,9 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 2.1.0: report a warning when `konanVersion` is used
+> - 2.1.0: report a warning when the `konanVersion` property is used
 > - 2.2.0: raise this warning to an error
-> - 2.3.0: remove `konanVersion` property from the Kotlin Gradle plugin
+> - 2.3.0: remove the `konanVersion` property from the Kotlin Gradle plugin
 
 ### Deprecate `destinationDir` in `CInteropProcess`
 
@@ -548,13 +548,13 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: The `destinationDir` property in the `CInteropProcess` task is deprecated.
-> Use `CInteropProcess.destinationDirectory.set()` instead.
+> Use the `CInteropProcess.destinationDirectory.set()` function instead.
 >
 > **Deprecation cycle**:
 >
-> - 2.1.0: report a warning when `destinationDir` is used
+> - 2.1.0: report a warning when the `destinationDir` property is used
 > - 2.2.0: raise this warning to an error
-> - 2.3.0: remove `destinationDir` from the Kotlin Gradle plugin
+> - 2.3.0: remove the `destinationDir` property from the Kotlin Gradle plugin
 
 ### Deprecate `kotlinArtifacts` API
 
@@ -570,5 +570,5 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 2.2.0: report a warning when `kotlinArtifacts` is used
+> - 2.2.0: report a warning when the `kotlinArtifacts` API is used
 > - 2.3.0: raise this warning to an error
