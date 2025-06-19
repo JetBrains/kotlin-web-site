@@ -144,11 +144,11 @@ it uses the [custom formatters API](https://firefox-source-docs.mozilla.org/devt
 
 To use this feature, ensure that custom formatters are enabled in your browser's developer tools:
 
-* In Chrome DevTools, find the custom formatters checkbox in **Settings | Preferences | Console**:
+* In Chrome DevTools, find the **Custom formatters** checkbox in **Settings | Preferences | Console**:
 
   ![Enable custom formatters in Chrome](wasm-custom-formatters-chrome.png){width=400}
 
-* In Firefox DevTools, find the custom formatters checkbox in **Settings | Advanced settings**:
+* In Firefox DevTools, find the **Enable custom formatters** checkbox in **Settings | Advanced settings**:
 
   ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=400}
 

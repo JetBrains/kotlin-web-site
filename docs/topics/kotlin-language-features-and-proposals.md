@@ -131,7 +131,7 @@ guided by pragmatic design.
 
 **kotlin.time.Instant**
 
-* KEEP proposal: [Instant and Clock](https://github.com/dkhalanskyjb/KEEP/blob/dkhalanskyjb-instant/proposals/stdlib/instant.md)
+* KEEP proposal: [Instant and Clock](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/instant.md)
 
 </td>
 </tr>
@@ -146,7 +146,7 @@ guided by pragmatic design.
 
 **Common Atomics and Atomic Arrays**
 
-* KEEP proposal: [Common atomics](https://github.com/Kotlin/KEEP/blob/mvicsokolova/common-atomics/proposals/common-atomics.md)
+* KEEP proposal: [Common atomics](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/common-atomics.md)
 * YouTrack issue: [KT-62423](https://youtrack.jetbrains.com/issue/KT-62423)
 
 </td>
@@ -162,7 +162,7 @@ guided by pragmatic design.
 
 **Improvements to annotation use-site targets on properties**
 
-* KEEP proposal: [Improvements to annotation use-site targets on properties](https://github.com/Kotlin/KEEP/blob/change-defaulting-rule/proposals/change-defaulting-rule.md)
+* KEEP proposal: [Improvements to annotation use-site targets on properties](https://github.com/Kotlin/KEEP/blob/master/proposals/annotation-target-in-properties.md)
 * YouTrack issue: [KT-19289](https://youtrack.jetbrains.com/issue/KT-19289)
 
 </td>
@@ -178,7 +178,7 @@ guided by pragmatic design.
 
 **Nested (non-capturing) type aliases**
 
-* KEEP proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/nested-typealias/proposals/nested-typealias.md)
+* KEEP proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/master/proposals/nested-typealias.md)
 * YouTrack issue: [KT-45285](https://youtrack.jetbrains.com/issue/KT-45285)
 
 </td>
@@ -336,23 +336,6 @@ guided by pragmatic design.
 
 <!-- the first td element should have the width="200" attribute -->
 
-<tr filter="stable">
-<td>
-
-**Stable**
-
-</td>
-<td>
-
-**Stabilized `@SubclassOptInRequired`**
-
-* KEEP proposal: [subclass-opt-in-required.md](https://github.com/Kotlin/KEEP/blob/master/proposals/subclass-opt-in-required.md)
-* YouTrack issue: [KT-54617](https://youtrack.jetbrains.com/issue/KT-54617)
-* Available since: 2.1.0
-
-</td>
-</tr>
-
 <tr filter="in-preview">
 <td>
 
@@ -404,6 +387,23 @@ guided by pragmatic design.
 * KEEP proposal: [enum-entries.md](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md)
 * YouTrack issue: [KT-48872](https://youtrack.jetbrains.com/issue/KT-48872)
 * Target version: 2.0.0
+
+</td>
+</tr>
+
+<tr filter="stable">
+<td>
+
+**Stable**
+
+</td>
+<td>
+
+**Stabilized `@SubclassOptInRequired`**
+
+* KEEP proposal: [subclass-opt-in-required.md](https://github.com/Kotlin/KEEP/blob/master/proposals/subclass-opt-in-required.md)
+* YouTrack issue: [KT-54617](https://youtrack.jetbrains.com/issue/KT-54617)
+* Available since: 2.1.0
 
 </td>
 </tr>
