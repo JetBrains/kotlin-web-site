@@ -89,6 +89,7 @@ export const ServerSideLayout: FC<CommunityLayoutProps> = ({ title, ogImageName,
                     productWebUrl={releasesData.latest.url}
                     hasSearch={true}
                     searchConfig={searchConfig}
+                    hasBorder={false}
                 />
 
                 <StickyHeader>
