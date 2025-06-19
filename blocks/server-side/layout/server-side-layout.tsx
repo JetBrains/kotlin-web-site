@@ -18,7 +18,7 @@ const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
 const TOP_MENU_ITEMS = [
     {
-        url: '/lp/server-side/case-studies',
+        url: '/lp/server-side/case-studies/',
         title: 'Case Studies'
     },
 ];
@@ -59,14 +59,6 @@ export const ServerSideLayout: FC<CommunityLayoutProps> = ({ title, ogImageName,
         () => (ogImageName ? ogImagePath : 'https://kotlinlang.org/assets/images/twitter/general.png'),
         [ogImageName, ogImagePath]
     );
-
-    if (activeIndex === -1) {
-        activeIndex = items.length;
-        items = [...items, {
-            url: router.pathname + '/',
-            title
-        }];
-    }
 
     return (
         <>
