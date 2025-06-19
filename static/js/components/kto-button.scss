@@ -317,7 +317,7 @@ a.kto-button:hover, a.kto-button:focus, a.kto-button:active {
   }
 }
 
-@import "static/js/components/kto-text";
+@import "../../js/components/kto-text";
 
 .page_restyled_v2 .kto-button_size_l {
   @include kto-text;
