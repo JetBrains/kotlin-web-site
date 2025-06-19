@@ -38,12 +38,12 @@ h5 {
 
 // list
 ul {
-    @extend %list%ul;
+    @extend %list_ul;
     line-height: 24px;
 }
 
 ol {
-    @extend %list%ol;
+    @extend %list_ol;
     line-height: 24px;
 }
 
@@ -78,7 +78,7 @@ code {
 .multi-language-span > code,
 p > code,
 li > code {
-    @extend %code-span%_decorated;
+    @extend %code-span_decorated;
 }
 
 .code._highlighted {
