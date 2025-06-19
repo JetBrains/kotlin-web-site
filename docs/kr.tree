@@ -334,9 +334,8 @@
 	<toc-element toc-title="Kotlin evolution and roadmap">
 		<toc-element topic="roadmap.md"/>
 		<toc-element toc-title="Language features and proposals" topic="kotlin-language-features-and-proposals.md"/>
-		<toc-element toc-title="Language evolution principles" accepts-web-file-names="kotlin-evolution.html" topic="kotlin-evolution-principles.md"/>
+		<toc-element toc-title="Language evolution principles" accepts-web-file-names="kotlin-evolution.html,compatibility-modes.html" topic="kotlin-evolution-principles.md"/>
 		<toc-element topic="components-stability.md"/>
-		<toc-element topic="compatibility-modes.md"/>
 		<toc-element hidden="true" topic="components-stability-pre-1.4.md"/>
 		<toc-element accepts-web-file-names="plugin-releases.html" topic="releases.md"/>
 	</toc-element>
