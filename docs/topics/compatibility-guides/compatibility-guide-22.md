@@ -19,8 +19,7 @@ In this document, we introduce several kinds of compatibility:
   before and after applying the change
 
 Remember that those definitions are given only for pure Kotlin. Compatibility of Kotlin code from the other languages
-perspective
-(for example, from Java) is out of the scope of this document.
+perspective (for example, from Java) is out of the scope of this document.
 
 ## Language
 
@@ -296,7 +295,7 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The `kotlin-android-extensions` plugin is deprecated. Use a separate plugin, `kotlin-parcelize`,
+> **Short summary**: The `kotlin-android-extensions` plugin is deprecated. Use a separate plugin, [`kotlin-parcelize`](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize),
 > for the `Parcelable` implementation generator and the Android Jetpack's [view bindings](https://developer.android.com/topic/libraries/view-binding)
 > for synthetic views instead.
 >
@@ -406,7 +405,7 @@ perspective
 >
 > **Deprecation cycle**:
 >
-> - 2.2.0: derprecate commonization parameters with an error
+> - 2.2.0: deprecate commonization parameters with an error
 > - 2.2.20: remove commonization parameters
 
 ### Deprecate support for legacy metadata compilation
@@ -429,7 +428,7 @@ perspective
 >
 > - 2.2.0: remove compiler options from the Kotlin Gradle plugin
 
-### Deprecate `KotlinCompilation.source`
+### Deprecate `KotlinCompilation.source` API
 
 > **Issue**: [KT-64991](https://youtrack.jetbrains.com/issue/KT-64991)
 >
@@ -437,8 +436,8 @@ perspective
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The access to `KotlinCompilation.source` that allowed adding Kotlin source sets directly to the Kotlin
-> compilation has been deprecated.
+> **Short summary**: The access to `KotlinCompilation.source` API that allowed adding Kotlin source sets directly to the
+> Kotlin compilation has been deprecated.
 >
 > **Deprecation cycle**:
 >
