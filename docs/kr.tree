@@ -181,9 +181,9 @@
 		<toc-element toc-title="Native">
 			<toc-element accepts-web-file-names="basic-kotlin-native-app.html,kotlin-native-with-clion.html,targeting-multiple-platforms.html,native-gradle.html,native-command-line-compiler.html" topic="native-get-started.md"/>
 			<toc-element topic="native-definition-file.md"/>
+			<toc-element toc-title="C and Objective-C libraries" topic="native-c-interop-stability.md"/>
 			<toc-element toc-title="C interop">
 				<toc-element topic="native-c-interop.md"/>
-				<toc-element topic="native-c-interop-stability.md"/>
 				<toc-element topic="mapping-primitive-data-types-from-c.md"/>
 				<toc-element topic="mapping-struct-union-types-from-c.md"/>
 				<toc-element topic="mapping-function-pointers-from-c.md"/>
