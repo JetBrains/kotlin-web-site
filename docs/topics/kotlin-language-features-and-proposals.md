@@ -73,7 +73,7 @@ guided by pragmatic design.
 
 <!-- KEEP DISCUSSION BLOCK -->
 
-<tr filter="exploration-and-design">
+<tr filter="keep">
 <td width="200">
 
 **KEEP discussion**
