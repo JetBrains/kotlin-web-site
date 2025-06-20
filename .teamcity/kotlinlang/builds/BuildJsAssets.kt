@@ -39,7 +39,7 @@ object BuildJsAssets: BuildType({
         
         NODE_ENV=production yarn run build
       """.trimIndent()
-      dockerImage = "node:18"
+      dockerImage = "node:lts-slim"
       dockerPull = true
     }
   }

@@ -8,7 +8,7 @@ RUN apt-get -y install curl git ruby-dev
 # see markdown.py for kramdown version
 RUN gem install kramdown -v 1.14.0
 
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 RUN apt-get install -y nodejs
 
 RUN npm install --global yarn

@@ -4,7 +4,7 @@
 
 .section-title {
     @extend %h1;
-    @extend %h1%_section-title;
+    @extend %h1_section-title;
 }
 
 .page-title {

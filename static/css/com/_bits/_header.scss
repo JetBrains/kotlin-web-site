@@ -34,14 +34,15 @@
         page-break-before: always;
         page-break-after: avoid;
     }
+}
 
-    &%_section-title {
-        padding-top: 140px;
-        margin-bottom: 45px;
-        font-size: 55px;
-        line-height: 65px;
-        font-weight: bold;
-    }
+
+%h1_section-title {
+    padding-top: 140px;
+    margin-bottom: 45px;
+    font-size: 55px;
+    line-height: 65px;
+    font-weight: bold;
 }
 
 %h2 {
