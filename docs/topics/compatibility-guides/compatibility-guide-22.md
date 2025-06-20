@@ -47,7 +47,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Constructor calls and inheritance using type aliases that expand to types that use variance modifiers such as `out` are no longer allowed in K2.
+> **Short summary**: Constructor calls and inheritance using type aliases that expand to types that use variance modifiers such as `out` are no longer supported by the K2 compiler.
 > This resolves inconsistencies where using the original type wasn't allowed, but the same usage through a type alias was permitted.
 > To migrate, use the original type explicitly where needed.
 >
@@ -215,7 +215,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: `kotlin.native.Throws` is deprecated; use the common `kotlin.Throws` annotation instead. 
+> **Short summary**: `kotlin.native.Throws` is deprecated; use the common [`kotlin.Throws`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throws/) annotation instead. 
 >
 > **Deprecation cycle**:
 >
@@ -230,7 +230,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: `AbstractDoubleTimeSource` is deprecated; use `AbstractLongTimeSource` instead.
+> **Short summary**: `AbstractDoubleTimeSource` is deprecated; use [`AbstractLongTimeSource`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.time/-abstract-long-time-source/) instead.
 >
 > **Deprecation cycle**:
 >
@@ -247,7 +247,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**: The [`setSource()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/set-source.html#) function in [`KotlinCompileTool`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/#) now replaces configured sources instead of adding to them.
+> **Short summary**: The [`setSource()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/set-source.html#) function in the [`KotlinCompileTool`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/#) interface now replaces configured sources instead of adding to them.
 > If you want to add sources without replacing existing ones, use the [`source()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/source.html#) function.
 >
 > **Deprecation cycle**:
@@ -263,7 +263,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Incompatible change type**: source
 >
 > **Short summary**: The `KotlinCompilationOutput#resourcesDirProvider` property is deprecated.
-> Use `KotlinSourceSet.resources` in your Gradle build script instead to add additional resource directories.
+> Use [`KotlinSourceSet.resources`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/resources.html) in your Gradle build script instead to add additional resource directories.
 >
 > **Deprecation cycle**:
 >
@@ -303,7 +303,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 1.4.20: the plugin is deprecated
 > - 2.1.20: a configuration error is introduced, and no plugin code is executed
-> - 2.2.0: the plugin is removed
+> - 2.2.0: the plugin code is removed
 
 ### Deprecate `kotlinOptions` DSL
 
@@ -316,7 +316,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Short summary**: The ability to configure compiler options through the `kotlinOptions` DSL and the related
 > `KotlinCompile<KotlinOptions>` task interface is deprecated in favor of the new `compilerOptions` DSL.
 > As part of this deprecation, all properties in the `kotlinOptions` interface are now also individually marked as deprecated.
-> To migrate, use the `compilerOptions` DSL to configure compiler options.
+> To migrate, use the `compilerOptions` DSL to configure compiler options. For guidance on the migration, see [Migrate from `kotlinOptions {}` to `compilerOptions {}`](gradle-compiler-options.md#migrate-from-kotlinoptions-to-compileroptions).
 >
 > **Deprecation cycle**:
 >
