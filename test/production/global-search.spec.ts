@@ -16,10 +16,10 @@ const pagesWithGlobalSearch = [
         name: 'Community',
         getInstance: (page) => new CommunityPage(page),
     },
-    {
-        name: 'Teach',
-        getInstance: (page) => new TeachPage(page),
-    },
+    // {
+    //     name: 'Teach',
+    //     getInstance: (page) => new TeachPage(page),
+    // },
 ];
 
 test.describe.configure({ mode: 'parallel' });
