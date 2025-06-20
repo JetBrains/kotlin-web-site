@@ -157,9 +157,9 @@ fun test() {
 #### Track memory consumption on Apple platforms
 
 When debugging memory issues on Apple platforms, you can see how much memory is reserved by Kotlin code.
-Kotlin's share is tagged with an identifier and can be tracked through tools like VM Tracker in XCode Instruments.
+Kotlin's share is tagged with an identifier and can be tracked through tools like VM Tracker in Xcode Instruments.
 
-The feature is available only in the Kotlin/Native default memory allocator when _all_ the following conditions are met:
+The feature is available only for the Kotlin/Native default memory allocator when _all_ the following conditions are met:
 
 * **Tagging enabled**. The memory should be tagged with a valid identifier. Apple recommends numbers between 240 and 255;
   the default value is 246.
