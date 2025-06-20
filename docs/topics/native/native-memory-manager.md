@@ -159,7 +159,7 @@ fun test() {
 When debugging memory issues on Apple platforms, you can see how much memory is reserved by Kotlin code.
 Kotlin's share is tagged with an identifier and can be tracked through tools like VM Tracker in Xcode Instruments.
 
-The feature is available only for the Kotlin/Native default memory allocator when _all_ the following conditions are met:
+The feature is available only for the default Kotlin/Native memory allocator when _all_ the following conditions are met:
 
 * **Tagging enabled**. The memory should be tagged with a valid identifier. Apple recommends numbers between 240 and 255;
   the default value is 246.
@@ -196,6 +196,11 @@ To do that, set the following option in your `gradle.properties` file:
 ```none
 kotlin.native.binary.pagedAllocator=false
 ```
+
+> With allocator paging disabled, [tracking memory consumption on Apple platforms](#track-memory-consumption-on-apple-platforms)
+> is not possible.
+> 
+{style="note"}
 
 #### Enable support for Latin-1 strings
 <primary-label ref="experimental-opt-in"/>
