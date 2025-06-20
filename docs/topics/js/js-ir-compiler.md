@@ -126,7 +126,7 @@ kotlin {
 
 ## Dead code elimination
 
-[Dead code elimination](https://wikipedia.org/wiki/Dead_code_elimination) (DCE) or _tree shaking_ reduces the size of
+[Dead code elimination](https://wikipedia.org/wiki/Dead_code_elimination) (DCE) reduces the size of
 the resulting JavaScript code by removing unused properties, functions, and classes.
 
 Unused declarations can appear in cases like:
@@ -137,21 +137,21 @@ Unused declarations can appear in cases like:
   adapters for DOM, and so on. All of this functionality would require about 1.3 MB as a JavaScript file. A simple
   "Hello, world" application only requires console routines, which are only a few kilobytes for the entire file.
 
-In the IR compiler, DCE is handled automatically:
+In the Kotlin/JS compiler, DCE is handled automatically:
 
 * DCE is disabled in _development_ bundling tasks, which corresponds to the following Gradle tasks:
 
-    * `browserDevelopmentRun`
-    * `browserDevelopmentWebpack`
-    * `nodeDevelopmentRun`
+    * `jsBrowserDevelopmentRun`
+    * `jsBrowserDevelopmentWebpack`
+    * `jsNodeDevelopmentRun`
     * `compileDevelopmentExecutableKotlinJs`
     * `compileDevelopmentLibraryKotlinJs`
     * Other Gradle tasks including "development" in their name
 
 * DCE is enabled if you build a _production_ bundle, which corresponds to the following Gradle tasks:
 
-    * `browserProductionRun`
-    * `browserProductionWebpack`
+    * `jsBrowserProductionRun`
+    * `jsBrowserProductionWebpack`
     * `compileProductionExecutableKotlinJs`
     * `compileProductionLibraryKotlinJs`
     * Other Gradle tasks including "production" in their name
