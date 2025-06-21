@@ -28,7 +28,7 @@ to explicitly specify the receiver object each time. Without these additional re
 {style="tip"}
 
 The syntax for a lambda expression with receiver is different when you define the function type. First, write the receiver
-object that you want to extend. Next, put a `.` and then complete the rest of your function type definition. For example:
+type that you want to extend. Next, put a `.` and then complete the rest of your function type definition. For example:
 
 ```kotlin
 MutableList<Int>.() -> Unit
