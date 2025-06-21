@@ -1010,7 +1010,7 @@ We've completed the deprecation cycle for several compiler options:
 
 In Kotlin 1.4.0, the `kotlin2js` and `kotlin-dce-plugin` plugins were deprecated, and they have been removed in this
 release. Instead of `kotlin2js`, use the new `org.jetbrains.kotlin.js` plugin. Dead code elimination (DCE) works when
-the Kotlin/JS Gradle plugin is [properly configured](javascript-dce.md).
+the Kotlin/JS Gradle plugin is properly configured.
 
 In Kotlin 1.6.0, we changed the deprecation level of the `KotlinGradleSubplugin` class to `ERROR`. Developers used this
 class for writing compiler plugins. In this
