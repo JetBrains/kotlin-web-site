@@ -48,8 +48,8 @@ object RuntimeError : Error
 
 This example could represent a library's API that contains error classes to let library users handle errors that it can throw. 
 If the hierarchy of such error classes includes interfaces or abstract classes visible in the public API, then nothing 
-prevents other developers from implementing or extending them in the client code. 
-Since the library doesn't know about errors declared outside of it, it can’t treat them consistently with its own classes. 
+prevents other developers from implementing or extending them in the client code.
+Since the library doesn't know about errors declared outside of it, it can't treat them consistently with its own classes. 
 However, with a **sealed** hierarchy of error classes, library authors can be sure that they know all the possible error 
 types and that other error types can't appear later.
 
