@@ -351,6 +351,12 @@
 - section: Asia
   anchorId: asia
   groups:
+  - name: Kotlin User Group Jaipur
+    country: India
+    url: https://ultra-recorder-9bc.notion.site/Kotlin-User-Group-Jaipur-21430446d5ff80a2930cf6511e31e837
+    position:
+      lat: 26.9124
+      lng: 75.7873
   - name: Astana Java & KUG
     country: Kazakhstan
     url: https://community-z.com/communities/astana-jkug
