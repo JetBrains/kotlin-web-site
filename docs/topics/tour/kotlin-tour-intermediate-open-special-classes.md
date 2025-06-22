@@ -23,18 +23,11 @@ If you can't use interfaces or abstract classes, you can explicitly make a class
 To do this, use the `open` keyword before your class declaration:
 
 ```kotlin
-open class Vehicle
+open class Vehicle(val make: String, val model: String)
 ```
 
 To create a class that inherits from another, add a colon after your class header followed by a call to the constructor
-of the parent class that you want to inherit from:
-
-```kotlin
-class Car : Vehicle
-```
-{validate="false"}
-
-In this example, the `Car` class inherits from the `Vehicle` class:
+of the parent class that you want to inherit from. In this example, the `Car` class inherits from the `Vehicle` class:
 
 ```kotlin
 open class Vehicle(val make: String, val model: String)
