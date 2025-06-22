@@ -30,7 +30,7 @@ To create a class that inherits from another, add a colon after your class heade
 of the parent class that you want to inherit from:
 
 ```kotlin
-class Car : Vehicle
+class Car : Vehicle()
 ```
 {validate="false"}
 
