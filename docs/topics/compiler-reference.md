@@ -269,6 +269,12 @@ Generate boxed versions of all inline value classes in the module, along with bo
 making both accessible from Java. For more information, see [Inline value classes](java-to-kotlin-interop.md#inline-value-classes)
 in the guide to calling Kotlin from Java.
 
+### -jvm-default _mode_
+
+Control how functions declared in interfaces are compiled to default methods on the JVM.
+Possible values are `enable`, `no-compatibility`, and `disable`.
+The default value is `enable`.
+
 ## Kotlin/JS compiler options
 
 The Kotlin compiler for JS compiles Kotlin source files into JavaScript code. 
