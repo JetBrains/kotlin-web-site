@@ -1,9 +1,11 @@
 [//]: # (title: Configure your build for EAP)
 
 <tldr>
-    <!-- <p>No preview versions are currently available</p> -->
+    <p>No preview versions are currently available.</p>
+    <!--  
     <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
     <p><a href="eap.md#build-details">Explore Kotlin EAP release details</a></p>
+    -->
 </tldr>
 
 To configure your build to use the EAP version of Kotlin, you need to: 
