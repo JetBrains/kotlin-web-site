@@ -1343,9 +1343,9 @@ Additionally, we launched a documentation survey, created new pages and tutorial
 
 ### Kotlin's documentation survey
 
-Have you used Kotlin's documentation recently? We're looking for genuine feedback to make it better.
+We're looking for genuine feedback to make the Kotlin documentation better.
 
-It takes around 15 minutes to complete, and your input will help shape the future of Kotlin docs.
+The survey takes around 15 minutes to complete, and your input will help shape the future of Kotlin docs.
 
 [Take the survey here](https://surveys.jetbrains.com/s3/Kotlin-Docs-2025).
 
