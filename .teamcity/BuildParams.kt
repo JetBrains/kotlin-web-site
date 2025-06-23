@@ -31,18 +31,13 @@ object BuildParams {
   const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_220_LibraryReferenceLatestDocs"
   const val CORE_API_TITLE = "Core API"
 
-  const val KGP_RELEASE_TAG = KOTLIN_RELEASE_TAG
-  const val KGP_RELEASE_LABEL = KOTLIN_RELEASE_LABEL
-  const val KGP_ID = "kotlin-gradle-plugin"
-  const val KGP_TITLE = "Kotlin Gradle Plugin"
-
   const val KOTLINX_METADATA_ID = "kotlinx-metadata-jvm"
   const val KOTLINX_METADATA_RELEASE_TAG = KOTLIN_RELEASE_TAG
   const val KOTLINX_METADATA_TITLE = KOTLINX_METADATA_ID
 
   val KGP_REFERENCE = KotlinGradleAPI {
     addVersion("2.1.20", VCS.branch("whyoleg/dokka2-sync"))
-//    addVersion("2.2.0", VCS.branch("2.2.0"))
+    addVersion("2.2.0", VCS.branch("2.2.0"))
   }
 
   val API_COMPOSE = ComposeMultiplatformCore {

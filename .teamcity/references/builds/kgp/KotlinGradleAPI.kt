@@ -1,9 +1,10 @@
 package references.builds.kgp
 
-import BuildParams.KGP_TITLE
 import common.ReferenceProject
 import common.extensions.apiReference
 import common.extensions.dokkaBuildHtml
+
+const val KGP_TITLE = "Kotlin Gradle Plugin"
 
 class KotlinGradleAPI(init: KotlinGradleAPI.() -> Unit) : ReferenceProject("kotlin-gradle-plugin", KGP_TITLE) {
     init {
