@@ -33,10 +33,11 @@
 		<toc-element topic="competitive-programming.md"/>
 	</toc-element>
 	<toc-element toc-title="What's new in Kotlin">
-		<toc-element toc-title="Kotlin 2.1.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2120.md"/>
+		<toc-element toc-title="Kotlin 2.2.0" accepts-web-file-names="whatsnew.html" topic="whatsnew22.md"/>
 		<toc-element toc-title="Kotlin 2.1.0" topic="whatsnew21.md"/>
-		<toc-element toc-title="Kotlin 2.2.0-RC3" topic="whatsnew-eap.md"/>
+		<toc-element toc-title="Kotlin 2.2.0-RC3" topic="whatsnew-eap.md" hidden="true"/>
 		<toc-element toc-title="Earlier versions">
+			<toc-element toc-title="Kotlin 2.1.20" topic="whatsnew2120.md"/>
 			<toc-element toc-title="Kotlin 2.0.20" topic="whatsnew2020.md"/>
 			<toc-element toc-title="Kotlin 2.0.0" topic="whatsnew20.md"/>
 			<toc-element toc-title="Kotlin 1.9.20" topic="whatsnew1920.md"/>
@@ -119,6 +120,7 @@
 				<toc-element topic="type-safe-builders.md"/>
 				<toc-element topic="using-builders-with-builder-inference.md"/>
 			</toc-element>
+			<toc-element topic="context-parameters.md"/>
 		</toc-element>
 		<toc-element topic="null-safety.md"/>
 		<toc-element topic="equality.md"/>
@@ -221,7 +223,6 @@
 			<toc-element topic="dev-server-continuous-compilation.md"/>
 			<toc-element accepts-web-file-names="debugging-kotlin-in-browser.html" topic="js-debugging.md"/>
 			<toc-element accepts-web-file-names="running-tests.html" topic="js-running-tests.md"/>
-			<toc-element topic="javascript-dce.md"/>
 			<!-- The following page is used in the Mari link service. If you wish to change it here, change the link there too -->
 			<toc-element toc-title="IR compiler" topic="js-ir-compiler.md"/>
 			<toc-element topic="js-ir-migration.md"/>
@@ -304,9 +305,11 @@
 				<toc-element topic="gradle-best-practices.md"/>
 				<toc-element toc-title="Compiler options in KGP" topic="gradle-compiler-options.md"/>
 				<toc-element toc-title="Compilation and caches in KGP" topic="gradle-compilation-and-caches.md"/>
+				<toc-element toc-title="Binary compatibility validation in KGP" topic="gradle-binary-compatibility-validation.md"/>
 				<toc-element topic="gradle-plugin-variants.md"/>
 			</toc-element>
 			<toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
+			<toc-element topic="build-tools-api.md"/>
 			<toc-element accepts-web-file-names="using-ant.html" topic="ant.md"/>
 		</toc-element>
 		<toc-element toc-title="Dokka">
@@ -377,6 +380,7 @@
 	<toc-element toc-title="Other resources">
 		<toc-element topic="faq.md"/>
 		<toc-element toc-title="Kotlin compatibility guides">
+			<toc-element topic="compatibility-guide-22.md"/>
 			<toc-element topic="compatibility-guide-21.md"/>
 			<toc-element topic="compatibility-guide-20.md"/>
 			<toc-element topic="compatibility-guide-19.md"/>
