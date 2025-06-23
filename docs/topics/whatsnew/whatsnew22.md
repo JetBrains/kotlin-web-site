@@ -1311,9 +1311,9 @@ If you encounter any issues that make you disable these feature flags, please re
     implementation continues to work with language version 1.9 but won't be migrated to use the K2 compiler in the future.
   * The `KotlinScriptMojo` Maven plugin: We didn't see enough traction with this plugin. You will see compiler warnings if you continue to use it.
 * 
-* In Kotlin 2.2.0, the [`setSource()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/set-source.html#) function in [`KotlinCompileTool`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/#) now [replaces configured sources instead of adding to them](compatibility-guide-22.md##correct-setsource-function-in-kotlincompiletool-to-replace-sources).
+* In Kotlin 2.2.0, the [`setSource()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/set-source.html#) function in [`KotlinCompileTool`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/#) now [replaces configured sources instead of adding to them](compatibility-guide-22.md#correct-setsource-function-in-kotlincompiletool-to-replace-sources).
   If you want to add sources without replacing existing ones, use the [`source()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/source.html#) function.
-* The type of [`annotationProcessorOptionProviders`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-base-kapt/annotation-processor-option-providers.html#) in `BaseKapt` has been [changed from `MutableList<Any>` to `MutableList<CommandLineArgumentProvider>`](compatibility-guide-22.md##deprecate-basekapt-annotationprocessoroptionproviders-property). If your code currently adds a list as a single element, use the `addAll()` function instead of the `add()` function.
+* The type of [`annotationProcessorOptionProviders`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-base-kapt/annotation-processor-option-providers.html#) in `BaseKapt` has been [changed from `MutableList<Any>` to `MutableList<CommandLineArgumentProvider>`](compatibility-guide-22.md#deprecate-basekapt-annotationprocessoroptionproviders-property). If your code currently adds a list as a single element, use the `addAll()` function instead of the `add()` function.
 * Following the deprecation of the dead code elimination (DCE) tool used in the legacy Kotlin/JS backend, 
   the remaining DSLs related to DCE are now removed from the Kotlin Gradle plugin:
   * The `org.jetbrains.kotlin.gradle.dsl.KotlinJsDce` interface
@@ -1325,9 +1325,9 @@ If you encounter any issues that make you disable these feature flags, please re
 
 * The deprecated `kotlin-android-extensions` plugin is [removed in Kotlin 2.2.0](compatibility-guide-22.md#deprecate-kotlin-android-extensions-plugin). 
   Use the `kotlin-parcelize` plugin for the `Parcelable` implementation generator and the Android Jetpack's [view bindings](https://developer.android.com/topic/libraries/view-binding) for synthetic views instead.
-* Experimental `kotlinArtifacts` API is [deprecated in Kotlin 2.2.0](compatibility-guide-22.md##deprecate-kotlinartifacts-api). 
+* Experimental `kotlinArtifacts` API is [deprecated in Kotlin 2.2.0](compatibility-guide-22.md#deprecate-kotlinartifacts-api). 
   Use the current DSL available in the Kotlin Gradle plugin to [build final native binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html). If it's not sufficient for migration, leave a comment in [this YT issue](https://youtrack.jetbrains.com/issue/KT-74953).
-* `KotlinCompilation.source`, deprecated in Kotlin 1.9.0, is now [removed from the Kotlin Gradle plugin](compatibility-guide-22.md#deprecate-kotlincompilation-source).
+* `KotlinCompilation.source`, deprecated in Kotlin 1.9.0, is now [removed from the Kotlin Gradle plugin](compatibility-guide-22.md#deprecate-kotlincompilation-source-api).
 * The parameters for experimental commonization modes are [deprecated in Kotlin 2.2.0](compatibility-guide-22.md#deprecate-commonization-parameters). 
   Clear the commonization cache to delete invalid compilation artifacts.
 * The deprecated `konanVersion` property is now [removed from the `CInteropProcess` task](compatibility-guide-22.md#deprecate-konanversion-in-cinteropprocess). 
