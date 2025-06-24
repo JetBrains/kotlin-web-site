@@ -11,12 +11,20 @@ Annotation processors (see [JSR 269](https://jcp.org/en/jsr/detail?id=269)) are 
 In a nutshell, you can use libraries such as [Dagger](https://google.github.io/dagger/) or
 [Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html) in your Kotlin projects.
 
-Please read below about how to apply the *kapt* plugin to your Gradle/Maven build.
+> If you encounter any issues when using kapt with the K2 compiler,
+> report them to our [issue tracker](http://kotl.in/issue) and disable the K2 mode in your `gradle.properties` file:
+> 
+> ```kotlin
+> kapt.use.k2=false
+> ```
+> 
+{style="note"}
 
 ## Use in Gradle
 
-Follow these steps:
-1. Apply the `kotlin-kapt` Gradle plugin:
+To use kapt in Gradle, follow these steps:
+
+1. Apply the `kapt` Gradle plugin:
 
    <tabs group="build-script">
    <tab title="Kotlin" group-key="kotlin">
@@ -39,7 +47,7 @@ Follow these steps:
    </tab>
    </tabs>
 
-2. Add the respective dependencies using the `kapt` configuration in your `dependencies` block:
+2. Add the respective dependencies using the `kapt` configuration in the `dependencies {}` block:
 
    <tabs group="build-script">
    <tab title="Kotlin" group-key="kotlin">
@@ -67,47 +75,14 @@ Follow these steps:
    If your project contains Java classes, `kapt` will also take care of them.
 
    If you use annotation processors for your `androidTest` or `test` sources, the respective `kapt` configurations are named
-   `kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extends `kapt`, so you can just provide the
-   `kapt` dependency and it will be available both for production sources and tests.
-
-## Try Kotlin K2 compiler
-
-> Support for K2 in the kapt compiler plugin is [Experimental](components-stability.md). Opt-in is required (see details below),
-> and you should use it only for evaluation purposes.
->
-{style="warning"}
-
-From Kotlin 1.9.20, you can try using the kapt compiler plugin with the [K2 compiler](https://blog.jetbrains.com/kotlin/2021/10/the-road-to-the-k2-compiler/),
-which brings performance improvements and many other benefits. To use the K2 compiler in your Gradle project, add the following
-option to your `gradle.properties` file:
-
-```kotlin
-kapt.use.k2=true
-```
-
-If you use the Maven build system, update your `pom.xml` file:
-
-```xml
-<configuration>
-   ...
-   <args>
-      <arg>-Xuse-k2-kapt</arg>
-   </args>
-</configuration>
-```
-
-> To enable the kapt plugin in your Maven project, see [](#use-in-maven).
->
-{style="tip"}
-
-If you encounter any issues when using kapt with the K2 compiler, please report them to our
-[issue tracker](http://kotl.in/issue).
+   `kaptAndroidTest` and `kaptTest`. Note that `kaptAndroidTest` and `kaptTest` extend `kapt`, so you can provide the
+   `kapt` dependency, and it will be available both for production sources and tests.
 
 ## Annotation processor arguments
 
-Use `arguments {}` block to pass arguments to annotation processors:
+Use the ` arguments {}` block to pass arguments to annotation processors:
 
-```groovy
+```kotlin
 kapt {
     arguments {
         arg("key", "value")
@@ -118,10 +93,10 @@ kapt {
 ## Gradle build cache support
 
 The kapt annotation processing tasks are [cached in Gradle](https://guides.gradle.org/using-build-cache/) by default.
-However,  annotation processors run arbitrary code that may not necessarily transform the task inputs into the outputs,
-might access and modify the files that are not tracked by Gradle etc. If the annotation processors used in the build cannot
-be properly cached, it is possible to disable caching for kapt entirely by adding the following lines to the build script,
-in order to avoid false-positive cache hits for the kapt tasks:
+However, annotation processors run arbitrary code that may not necessarily transform the task inputs into the outputs,
+might access and modify the files that are not tracked by Gradle. If the annotation processors used in the build cannot
+be properly cached, you can disable caching for kapt entirely by updating the build script with the `useBuildCache` property.
+This helps prevent false-positive cache hits for the kapt tasks:
 
 ```groovy
 kapt {
@@ -168,35 +143,39 @@ tasks.withType(org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask.class
 
 ### Caching for annotation processors' classloaders
 
-> Caching for annotation processors' classloaders in kapt is [Experimental](components-stability.md).
-> It may be dropped or changed at any time. Use it only for evaluation purposes.
-> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-28901).
->
-{style="warning"}
+<primary-label ref="experimental-general"/>
 
 Caching for annotation processors' classloaders helps kapt perform faster if you run many Gradle tasks consecutively.
 
 To enable this feature, use the following properties in your `gradle.properties` file:
 
 ```none
-# positive value will enable caching
-# use the same value as the number of modules that use kapt
+# gradle.properties
+#
+# Positive value will enable caching
+# Use the same value as the number of modules that use kapt
 kapt.classloaders.cache.size=5
 
-# disable for caching to work
+# Disable for caching to work
 kapt.include.compile.classpath=false
 ```
 
 If you run into any problems with caching for annotation processors, disable caching for them:
 
 ```none
-# specify annotation processors' full names to disable caching for them
+# Specify annotation processors' full names to disable caching for them
 kapt.classloaders.cache.disableForProcessors=[annotation processors full names]
 ```
 
+> If you encounter any issues with the feature, 
+> we would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-28901).
+> 
+{style="note"}
+
 ### Measure performance of annotation processors
 
-Get a performance statistics on the annotation processors execution using the `-Kapt-show-processor-timings` plugin option. 
+To get performance statistics on the annotation processors execution,
+use the `-Kapt-show-processor-timings` plugin option.
 An example output:
 
 ```text
@@ -222,33 +201,37 @@ sample/src/main/
 
 ### Measure the number of files generated with annotation processors
 
-The `kotlin-kapt` Gradle plugin can report statistics on the number of generated files for each annotation processor.
+The kapt Gradle plugin can report statistics on the number of generated files for each annotation processor.
 
-This is useful to track if there are unused annotation processors as a part of the build. 
-You can use the generated report to find modules that trigger unnecessary annotation processors and update the modules to prevent that.
+This helps track whether any unused annotation processors are included in the build.
+You can use the generated report to find modules that trigger unnecessary annotation processors and update the modules to avoid that.
 
-Enable the statistics in two steps:
-* Set the `showProcessorStats` flag to `true` in your `build.gradle(.kts)`:
+To enable the statistics:
 
-  ```kotlin
-  kapt {
-      showProcessorStats = true
-  }
-  ```
+1. Set the `showProcessorStats` property value to `true` in your `build.gradle(.kts)`:
 
-* Set the `kapt.verbose` Gradle property to `true` in your `gradle.properties`:
+   ```kotlin
+   // build.gradle.kts
+   kapt {
+       showProcessorStats = true
+   }
+   ```
 
-  ```none
-  kapt.verbose=true
-  ```
+2. Set the `kapt.verbose` Gradle property to `true` in your `gradle.properties`:
 
-> You can also enable verbose output via the [command line option `verbose`](#use-in-cli).
+   ```none
+   # gradle.properties
+   kapt.verbose=true
+   ```
+
+> You can also enable verbose output with the [command line option `verbose`](#use-in-cli).
 >
-> {style="note"}
+{style="note"}
 
-The statistics will appear in the logs with the `info` level. You'll see the `Annotation processor stats:` line followed by 
-statistics on the execution time of each annotation processor. After these lines, there will be the `Generated files report:` line 
-followed by statistics on the number of generated files for each annotation processor. For example:
+The statistics appear in the logs with the `info` level.
+You can see the `Annotation processor stats:` line followed by statistics on the execution time of each annotation processor.
+After these lines, there will be the `Generated files report:` line followed by statistics on the number of 
+generated files for each annotation processor. For example:
 
 ```text
 [INFO] Annotation processor stats:
@@ -264,23 +247,24 @@ With compile avoidance enabled, Gradle can skip annotation processing when rebui
 processing is skipped when:
 
 * The project's source files are unchanged.
-* The changes in dependencies are [ABI](https://en.wikipedia.org/wiki/Application_binary_interface) compatible.
+* The changes in dependencies are [ABI](https://en.wikipedia.org/wiki/Application_binary_interface)-compatible.
    For example, the only changes are in method bodies. 
 
 However, compile avoidance can't be used for annotation processors discovered in the compile classpath since _any changes_
 in them require running the annotation processing tasks. 
 
 To run kapt with compile avoidance:
-* Add the annotation processor dependencies to the `kapt*` configurations manually as described [above](#use-in-gradle).
-* Turn off the discovery of annotation processors in the compile classpath by adding this line to your `gradle.properties` file:
+* [Add the annotation processor dependencies to the `kapt*` configurations manually](#use-in-gradle).
+* Turn off the discovery of annotation processors in the compile classpath in the `gradle.properties` file:
 
-```none
-kapt.include.compile.classpath=false
-```
+   ```none
+   # gradle.properties
+   kapt.include.compile.classpath=false
+   ```
 
 ## Incremental annotation processing
 
-kapt supports incremental annotation processing that is enabled by default. 
+kapt supports incremental annotation processing enabled by default. 
 Currently, annotation processing can be incremental only if all annotation processors being used are incremental. 
 
 To disable incremental annotation processing, add this line to your `gradle.properties` file:
@@ -382,17 +366,6 @@ For example:
 <configuration>
    ...
    <aptMode>stubs</aptMode>
-</configuration>
-```
-
-To enable the kapt plugin with the K2 compiler, add the `-Xuse-k2-kapt` compiler option:
-
-```xml
-<configuration>
-   ...
-   <args>
-      <arg>-Xuse-k2-kapt</arg>
-   </args>
 </configuration>
 ```
 
