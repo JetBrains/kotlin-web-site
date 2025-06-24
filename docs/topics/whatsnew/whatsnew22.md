@@ -562,7 +562,7 @@ fun main() {
 ### Improved Java interop with inline value classes
 <primary-label ref="experimental-general"/>
 
-Kotlin 2.2.0 introduces a new experimental annotation: `@JvmExposeBoxed`. This annotation makes it easier to consume [inline value classes](inline-classes.md) from Java.
+Kotlin 2.2.0 introduces a new experimental annotation: [`@JvmExposeBoxed`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-expose-boxed/). This annotation makes it easier to consume [inline value classes](inline-classes.md) from Java.
 
 By default, Kotlin compiles inline value classes to use **unboxed representations**, which are more performant but often 
 hard or even impossible to use from Java. For example:
@@ -991,7 +991,7 @@ kotlin {
 }
 ```
 
-Explore the [KGP API reference](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.dsl/-abi/) to learn more about configuring the binary compatibility validator.
+Explore the [KGP API reference](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.dsl.abi/) to learn more about configuring the binary compatibility validator.
 
 #### Multiplatform limitations
 
@@ -1099,16 +1099,16 @@ of new features, such as [support for the Kotlin daemon](https://youtrack.jetbra
 
 For the KGP, using the BTA already has the following benefits:
 
-* [Improved “in process” compiler execution strategy](#improved-in-process-compiler-execution-strategy)
+* [Improved "in process" compiler execution strategy](#improved-in-process-compiler-execution-strategy)
 * [More flexibility to configure different compiler versions from Kotlin](#flexibility-to-configure-different-compiler-versions-from-kotlin)
 
-### Improved “in process” compiler execution strategy
+### Improved "in process" compiler execution strategy
 
 The KGP supports three [Kotlin compiler execution strategies](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy). 
-The “in process” strategy, which runs the compiler 
+The "in process" strategy, which runs the compiler 
 inside the Gradle daemon process, previously didn't support incremental compilation.
 
-Now, using the BTA, the “in-process” strategy **does** support incremental compilation. To use it, add the following 
+Now, using the BTA, the "in-process" strategy **does** support incremental compilation. To use it, add the following 
 property to your `gradle.properties` file:
 
 ```kotlin
@@ -1298,7 +1298,7 @@ If you encounter any issues that make you disable these feature flags, please re
   in active development for a long time, and there are no plans to maintain it further due to its relatively small user base.
   
   We plan to remove Ant support in 2.3.0. However, Kotlin remains open to [contribution](contribute.md). If you're 
-  interested in becoming an external maintainer for Ant, leave a comment with the “jetbrains-team” visibility setting in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-75875/).
+  interested in becoming an external maintainer for Ant, leave a comment with the "jetbrains-team" visibility setting in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-75875/).
 
 * Kotlin 2.2.0 raises the deprecation level of the [`kotlinOptions{}` block in Gradle to error](compatibility-guide-22.md#deprecate-kotlinoptions-dsl). 
   Use the `compilerOptions{}` block instead. For guidance on updating your build scripts, see [Migrate from `kotlinOptions{}` to `compilerOptions{}`](gradle-compiler-options.md#migrate-from-kotlinoptions-to-compileroptions).
