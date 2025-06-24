@@ -8,7 +8,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Hero section Get started button', async ({ page }) => {
-        const getStartedButton = page.getByRole('link', { name: 'Get started' }).first();
+        const getStartedButton = page.getByTestId('hero-block').getByRole('link', { name: 'Get started' });
         await expect(getStartedButton).toBeVisible();
         await getStartedButton.click();
         await expect(page.url()).toContain('/docs/getting-started.html');
@@ -26,7 +26,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Why Kotlin Get started button', async ({ page }) => {
-        const whyKotlinButton = page.locator('a[class*=\'why-kotlin\']');
+        const whyKotlinButton = page.getByTestId('why-kotlin-block').getByRole('link', { name: 'Get started' });
         await expect(whyKotlinButton).toBeVisible();
         await whyKotlinButton.click();
         await expect(page.url()).toContain('/docs/getting-started.html');
@@ -62,7 +62,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Get started in AI section', async ({ page }) => {
-        const getStartedKoogButton = page.locator('a[class*=\'kotlin-plus-ai\'] span[data-test=\'button__content\']');
+        const getStartedKoogButton = page.getByTestId('kotlin-plus-ai-block').getByRole('link', { name: 'Get started' });
         await expect(getStartedKoogButton).toBeVisible();
         await getStartedKoogButton.click();
         await expect(page.url()).toContain('/docs.koog.ai/')
