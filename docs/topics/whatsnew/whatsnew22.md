@@ -1294,6 +1294,9 @@ If you encounter any issues that make you disable these feature flags, please re
 
 ## Breaking changes and deprecations
 
+This section highlights important breaking changes and deprecations worth noting. See our [Compatibility guide](compatibility-guide-22.md)
+for a complete overview of all breaking changes and deprecations in this release.
+
 * Starting with Kotlin 2.2.0, support for the [](ant.md) build system is deprecated. Kotlin support for Ant hasn't been 
   in active development for a long time, and there are no plans to maintain it further due to its relatively small user base.
   
