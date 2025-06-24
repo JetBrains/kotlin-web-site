@@ -21,7 +21,6 @@ Download and install the latest version of [IntelliJ IDEA Ultimate Edition](http
 > 
 {style="tip"}
 
-
 ## Create a Spring Boot project
 
 Create a new Spring Boot project with Kotlin by using the Project Wizard in IntelliJ IDEA Ultimate Edition:
