@@ -275,6 +275,13 @@ Control how functions declared in interfaces are compiled to default methods on 
 Possible values are `enable`, `no-compatibility`, and `disable`.
 The default value is `enable`.
 
+
+| Mode               | Description                                                                                                             |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------|
+| `enable`           | Generates default implementations in interfaces and includes bridge functions in subclasses and `DefaultImpls` classes. |
+| `no-compatibility` | Generates only default implementations in interfaces, skipping compatibility bridges and `DefaultImpls` classes.        |
+| `disable`          | Generates only compatibility bridges and `DefaultImpls` classes, skipping default methods.                              |
+
 ## Kotlin/JS compiler options
 
 The Kotlin compiler for JS compiles Kotlin source files into JavaScript code. 
