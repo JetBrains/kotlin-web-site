@@ -45,7 +45,7 @@ Consider this example that extends the `StringBuilder` class:
 ```kotlin
 fun main() {
     // Lambda expression with receiver definition
-    fun StringBuilder.appendText() { append("Hello!") }
+    val appendText: StringBuilder.() -> Unit = { append("Hello!") }
 
     // Use the lambda expression with receiver
     val stringBuilder = StringBuilder()
@@ -136,9 +136,9 @@ fun main() {
     // Print the menu
     printMenu(mainMenu)
     // Menu: Main Menu
-    // Item: Home
-    // Item: Settings
-    // Item: Exit
+    //   Item: Home
+    //   Item: Settings
+    //   Item: Exit
 }
 //sampleEnd
 ```
