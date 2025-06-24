@@ -59,6 +59,10 @@ Create a new Spring Boot project in IntelliJ IDEA Ultimate Edition:
 
     * **Java**: 17
 
+      > If you don't have Java 17 installed, you can download it from the JDK dropdown list.
+      >
+      {style="tip"}
+
    ![Create Spring Boot project](create-spring-ai-project.png){width=800}
 
 4. Make sure that you have specified all the fields and click **Next**.
