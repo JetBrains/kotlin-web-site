@@ -16,7 +16,7 @@ object BuildParams {
   const val KOTLINX_SERIALIZATION_TITLE = KOTLINX_SERIALIZATION_ID
 
   const val KOTLINX_DATETIME_RELEASE_TAG = "whyoleg/dokka2-sync"
-  const val KOTLINX_DATETIME_RELEASE_LABEL = "v0.6.2"
+  const val KOTLINX_DATETIME_RELEASE_LABEL = "v0.7.0"
   const val KOTLINX_DATETIME_ID = "kotlinx-datetime"
   const val KOTLINX_DATETIME_TITLE = KOTLINX_DATETIME_ID
 
