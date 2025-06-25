@@ -197,11 +197,11 @@ With the new solution, you can better fine-tune warning reporting in your projec
 
 #### Suppress warnings
 
-| Command                                           | Description                                                                                                             |
-|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| [`-nowarn`](compiler-reference.md#nowarn)         | Suppresses all warnings during compilation.                                                                             |
-| `-Xwarning-level=DIAGNOSTIC_NAME:disabled`        | Suppresses only specified warnings.  Works the same as [`-Xsuppress-warning`](compiler-reference.md#xsuppress-warning). |
-| `-nowarn -Xwarning-level=DIAGNOSTIC_NAME:warning` | Suppresses all warnings except for the specified ones.                                                                  |
+| Command                                           | Description                                            |
+|---------------------------------------------------|--------------------------------------------------------|
+| [`-nowarn`](compiler-reference.md#nowarn)         | Suppresses all warnings during compilation.            |
+| `-Xwarning-level=DIAGNOSTIC_NAME:disabled`        | Suppresses only specified warnings.                    |
+| `-nowarn -Xwarning-level=DIAGNOSTIC_NAME:warning` | Suppresses all warnings except for the specified ones. |
 
 #### Raise warnings to errors
 

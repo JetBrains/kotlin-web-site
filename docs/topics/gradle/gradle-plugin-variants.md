@@ -19,7 +19,11 @@ Currently, there are the following variants of the Kotlin Gradle plugin:
 | `gradle80`     | 8.0–8.0.2                     |
 | `gradle81`     | 8.1.1                         |
 | `gradle82`     | 8.2.1–8.4                     |
-| `gradle85`     | 8.5 and higher                |
+| `gradle85`     | 8.5                           |
+| `gradle86`     | 8.6-8.7                       |
+| `gradle88`     | 8.8-8.10                      |
+| `gradle811`    | 8.11-8.12                     |
+| `gradle813`    | 8.13 and higher               |
 
 In future Kotlin releases, more variants will be added.
 

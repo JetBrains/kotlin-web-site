@@ -29,39 +29,7 @@ guided by pragmatic design.
 </td>
 <td>
 
-**Kotlin statics and static extensions**
-
-* KEEP proposal: [statics.md](https://github.com/Kotlin/KEEP/blob/statics/proposals/statics.md)
-* YouTrack issue: [KT-11968](https://youtrack.jetbrains.com/issue/KT-11968)
-
-</td>
-</tr>
-
-<tr filter="exploration-and-design">
-<td>
-
-**Exploration and design**
-
-</td>
-<td>
-
-**Collection literals**
-
-* KEEP proposal: Not defined
-* YouTrack issue: [KT-43871](https://youtrack.jetbrains.com/issue/KT-43871)
-
-</td>
-</tr>
-
-<tr filter="exploration-and-design">
-<td>
-
-**Exploration and design**
-
-</td>
-<td>
-
-**Union types for errors and exceptions**
+**Rich Errors: Error union types**
 
 * KEEP proposal: Not defined
 * YouTrack issue: [KT-68296](https://youtrack.jetbrains.com/issue/KT-68296)
@@ -96,7 +64,7 @@ guided by pragmatic design.
 **Support immutability**
 
 * KEEP notes: [immutability](https://github.com/Kotlin/KEEP/blob/master/notes/value-classes.md#immutability-and-value-classes)
-* YouTrack issue: [KT-1179](https://youtrack.jetbrains.com/issue/KT-1179)
+* YouTrack issue: [KT-77734](https://youtrack.jetbrains.com/issue/KT-77734)
 
 </td>
 </tr>
@@ -113,25 +81,10 @@ guided by pragmatic design.
 </td>
 <td>
 
-**KMP Kotlin-to-Java direct actualization**
+**Kotlin statics and static extensions**
 
-* KEEP proposal: [kmp-kotlin-to-java-direct-actualization.md](https://github.com/Kotlin/KEEP/blob/kotlin-to-java-direct-actualization/proposals/kmp-kotlin-to-java-direct-actualization.md)
-* YouTrack issue: [KT-67202](https://youtrack.jetbrains.com/issue/KT-67202)
-
-</td>
-</tr>
-
-<tr filter="keep">
-<td>
-
-**KEEP discussion**
-
-</td>
-<td>
-
-**kotlin.time.Instant**
-
-* KEEP proposal: [Instant and Clock](https://github.com/dkhalanskyjb/KEEP/blob/dkhalanskyjb-instant/proposals/stdlib/instant.md)
+* KEEP proposal: [statics.md](https://github.com/Kotlin/KEEP/blob/static-scope/proposals/static-member-type-extension.md)
+* YouTrack issue: [KT-11968](https://youtrack.jetbrains.com/issue/KT-11968)
 
 </td>
 </tr>
@@ -144,26 +97,10 @@ guided by pragmatic design.
 </td>
 <td>
 
-**Common Atomics and Atomic Arrays**
+**Collection literals**
 
-* KEEP proposal: [Common atomics](https://github.com/Kotlin/KEEP/blob/mvicsokolova/common-atomics/proposals/common-atomics.md)
-* YouTrack issue: [KT-62423](https://youtrack.jetbrains.com/issue/KT-62423)
-
-</td>
-</tr>
-
-<tr filter="keep">
-<td>
-
-**KEEP discussion**
-
-</td>
-<td>
-
-**Improvements to annotation use-site targets on properties**
-
-* KEEP proposal: [Improvements to annotation use-site targets on properties](https://github.com/Kotlin/KEEP/blob/change-defaulting-rule/proposals/change-defaulting-rule.md)
-* YouTrack issue: [KT-19289](https://youtrack.jetbrains.com/issue/KT-19289)
+* KEEP proposal: [collection-literals.md](https://github.com/Kotlin/KEEP/blob/bobko/collection-literals/proposals/collection-literals.md)
+* YouTrack issue: [KT-43871](https://youtrack.jetbrains.com/issue/KT-43871)
 
 </td>
 </tr>
@@ -176,10 +113,44 @@ guided by pragmatic design.
 </td>
 <td>
 
-**Nested (non-capturing) type aliases**
+**Explicit backing fields**
 
-* KEEP proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/nested-typealias/proposals/nested-typealias.md)
-* YouTrack issue: [KT-45285](https://youtrack.jetbrains.com/issue/KT-45285)
+* KEEP
+  proposal: [explicit-backing-fields.md](https://github.com/Kotlin/KEEP/blob/explicit-backing-fields/proposals/explicit-backing-fields.md)
+* YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-14663)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Version overloading**
+
+* KEEP
+  proposal: [version-overloading.md](https://github.com/Kotlin/KEEP/blob/version-overloading-proposal/proposals/version-overloading.md)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td>
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Unused return value checker**
+
+* KEEP
+  proposal: [unused-return-value-checker.md](https://github.com/Kotlin/KEEP/blob/underscore-for-unused-local/proposals/unused-return-value-checker.md)
+* YouTrack issue: [KT-12719](https://youtrack.jetbrains.com/issue/KT-12719)
 
 </td>
 </tr>
@@ -216,103 +187,6 @@ guided by pragmatic design.
 </td>
 </tr>
 
-<tr filter="keep">
-<td>
-
-**KEEP discussion**
-
-</td>
-<td>
-
-**Uuid**
-
-* KEEP proposal: [uuid.md](https://github.com/Kotlin/KEEP/blob/uuid/proposals/stdlib/uuid.md)
-* YouTrack issue: [KT-31880](https://youtrack.jetbrains.com/issue/KT-31880)
-
-</td>
-</tr>
-
-<tr filter="keep">
-<td>
-
-**KEEP discussion**
-
-</td>
-<td>
-
-**Improve resolution using expected type**
-
-* KEEP proposal: [improved-resolution-expected-type.md](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/improved-resolution-expected-type.md)
-* YouTrack issue: [KT-16768](https://youtrack.jetbrains.com/issue/KT-16768)
-
-</td>
-</tr>
-
-<tr filter="keep">
-<td>
-
-**KEEP discussion**
-
-</td>
-<td>
-
-**Expose boxed inline value classes in JVM**
-
-* KEEP proposal: [jvm-expose-boxed.md](https://github.com/Kotlin/KEEP/blob/jvm-expose-boxed/proposals/jvm-expose-boxed.md)
-* YouTrack issue: [KT-28135](https://youtrack.jetbrains.com/issue/KT-28135)
-
-</td>
-</tr>
-
-<tr filter="keep">
-<td>
-
-**KEEP discussion**
-
-</td>
-<td>
-
-**Explicit backing fields: both `public` and `private` type for the same property**
-
-* KEEP proposal: [explicit-backing-fields.md](https://github.com/Kotlin/KEEP/blob/explicit-backing-fields-re/proposals/explicit-backing-fields.md)
-* YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-14663)
-
-</td>
-</tr>
-
-<tr filter="keep">
-<td>
-
-**KEEP discussion**
-
-</td>
-<td>
-
-**Context parameters: support for context-dependent declarations**
-
-* KEEP proposal: [context-parameters.md](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md)
-* YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-10468)
-
-</td>
-</tr>
-
-<tr filter="keep">
-<td>
-
-**KEEP discussion**
-
-</td>
-<td>
-
-**Java synthetic property references**
-
-* KEEP proposal: [references-to-java-synthetic-properties.md](https://github.com/Kotlin/KEEP/blob/master/proposals/references-to-java-synthetic-properties.md)
-* YouTrack issue: [KT-8575](https://youtrack.jetbrains.com/issue/KT-8575)
-* Target version: 2.2.0
-
-</td>
-</tr>
-
 <!-- END OF KEEP DISCUSSION BLOCK -->
 
 <!-- IN PREVIEW BLOCK -->
@@ -325,16 +199,214 @@ guided by pragmatic design.
 </td>
 <td>
 
-**Guard conditions in when-with-subject**
+**Context parameters: support for context-dependent declarations**
 
-* KEEP proposal: [guards.md](https://github.com/Kotlin/KEEP/blob/guards/proposals/guards.md)
-* YouTrack issue: [KT-13626](https://youtrack.jetbrains.com/issue/KT-13626)
+* KEEP
+  proposal: [context-parameters.md](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md)
+* YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-10468)
+* Available since: 2.2.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
+**Improvements to annotation use-site targets on properties**
+
+* KEEP
+  proposal: [Improvements to annotation use-site targets on properties](https://github.com/Kotlin/KEEP/blob/change-defaulting-rule/proposals/change-defaulting-rule.md)
+* YouTrack issue: [KT-19289](https://youtrack.jetbrains.com/issue/KT-19289)
+* Available since: 2.2.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
+**Nested (non-capturing) type aliases**
+
+* KEEP
+  proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/nested-typealias/proposals/nested-typealias.md)
+* YouTrack issue: [KT-45285](https://youtrack.jetbrains.com/issue/KT-45285)
+* Available since: 2.2.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
+**Context-sensitive resolution**
+
+* KEEP
+  proposal: [context-sensitive-resolution.md](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md)
+* YouTrack issue: [KT-16768](https://youtrack.jetbrains.com/issue/KT-16768)
+* Available since: 2.2.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
+**Expose boxed inline value classes in JVM**
+
+* KEEP
+  proposal: [jvm-expose-boxed.md](https://github.com/Kotlin/KEEP/blob/jvm-expose-boxed/proposals/jvm-expose-boxed.md)
+* YouTrack issue: [KT-28135](https://youtrack.jetbrains.com/issue/KT-28135)
+* Available since: 2.2.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
+**kotlin.time.Instant**
+
+* KEEP proposal: [Instant and Clock](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/instant.md)
+* Available since: 2.1.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
+**Uuid**
+
+* KEEP proposal: [uuid.md](https://github.com/Kotlin/KEEP/blob/uuid/proposals/stdlib/uuid.md)
+* YouTrack issue: [KT-31880](https://youtrack.jetbrains.com/issue/KT-31880)
+* Available since: 2.0.20
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
+**Common Atomics and Atomic Arrays**
+
+* KEEP
+  proposal: [Common atomics](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/common-atomics.md)
+* YouTrack issue: [KT-62423](https://youtrack.jetbrains.com/issue/KT-62423)
+* Available since: 2.2.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
+**KMP Kotlin-to-Java direct actualization**
+
+* KEEP
+  proposal: [kmp-kotlin-to-java-direct-actualization.md](https://github.com/Kotlin/KEEP/blob/kotlin-to-java-direct-actualization/proposals/kmp-kotlin-to-java-direct-actualization.md)
+* YouTrack issue: [KT-67202](https://youtrack.jetbrains.com/issue/KT-67202)
 * Available since: 2.1.0
 
 </td>
 </tr>
 
 <!-- the first td element should have the width="200" attribute -->
+
+<!-- END OF IN PREVIEW BLOCK -->
+
+<!-- STABLE BLOCK -->
+
+<tr filter="stable">
+<td width="200">
+
+**Stable**
+
+</td>
+<td>
+
+**Guard conditions in when-with-subject**
+
+* KEEP proposal: [guards.md](https://github.com/Kotlin/KEEP/blob/guards/proposals/guards.md)
+* YouTrack issue: [KT-13626](https://youtrack.jetbrains.com/issue/KT-13626)
+* Available since: 2.2.0
+
+</td>
+</tr>
+
+<tr filter="stable">
+<td>
+
+**Stable**
+
+</td>
+<td>
+
+**Multidollar interpolation: improved handling of `$` in string literals**
+
+* KEEP proposal: [dollar-escape.md](https://github.com/Kotlin/KEEP/blob/master/proposals/dollar-escape.md)
+* YouTrack issue: [KT-2425](https://youtrack.jetbrains.com/issue/KT-2425)
+* Available since: 2.2.0
+
+</td>
+</tr>
+
+<tr filter="stable">
+<td>
+
+**Stable**
+
+</td>
+<td>
+
+**Non-local `break` and `continue`**
+
+* KEEP
+  proposal: [break-continue-in-inline-lambdas.md](https://github.com/Kotlin/KEEP/blob/master/proposals/break-continue-in-inline-lambdas.md)
+* YouTrack issue: [KT-1436](https://youtrack.jetbrains.com/issue/KT-1436)
+* Available since: 2.2.0
+
+</td>
+</tr>
 
 <tr filter="stable">
 <td>
@@ -346,50 +418,13 @@ guided by pragmatic design.
 
 **Stabilized `@SubclassOptInRequired`**
 
-* KEEP proposal: [subclass-opt-in-required.md](https://github.com/Kotlin/KEEP/blob/master/proposals/subclass-opt-in-required.md)
+* KEEP
+  proposal: [subclass-opt-in-required.md](https://github.com/Kotlin/KEEP/blob/master/proposals/subclass-opt-in-required.md)
 * YouTrack issue: [KT-54617](https://youtrack.jetbrains.com/issue/KT-54617)
 * Available since: 2.1.0
 
 </td>
 </tr>
-
-<tr filter="in-preview">
-<td>
-
-**In preview**
-
-</td>
-<td>
-
-**Multidollar interpolation: improved handling of `$` in string literals**
-
-* KEEP proposal: [dollar-escape.md](https://github.com/Kotlin/KEEP/blob/master/proposals/dollar-escape.md)
-* YouTrack issue: [KT-2425](https://youtrack.jetbrains.com/issue/KT-2425)
-* Available since: 2.1.0
-
-</td>
-</tr>
-
-<tr filter="in-preview">
-<td>
-
-**In preview**
-
-</td>
-<td>
-
-**Non-local `break` and `continue`**
-
-* KEEP proposal: [break-continue-in-inline-lambdas.md](https://github.com/Kotlin/KEEP/blob/master/proposals/break-continue-in-inline-lambdas.md)
-* YouTrack issue: [KT-1436](https://youtrack.jetbrains.com/issue/KT-1436)
-* Available since: 2.1.0
-
-</td>
-</tr>
-
-<!-- END OF IN PREVIEW BLOCK -->
-
-<!-- STABLE BLOCK -->
 
 <tr filter="stable">
 <td width="200">
@@ -475,6 +510,24 @@ guided by pragmatic design.
 
 * KEEP proposal: [context-receivers.md](https://github.com/Kotlin/KEEP/blob/master/proposals/context-receivers.md)
 * YouTrack issue: [KT-10468](https://youtrack.jetbrains.com/issue/KT-10468)
+* Replaced with [context-parameters.md](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md)
+
+</td>
+</tr>
+
+<tr filter="revoked">
+<td>
+
+**Revoked**
+
+</td>
+<td>
+
+**Java synthetic property references**
+
+* KEEP
+  proposal: [references-to-java-synthetic-properties.md](https://github.com/Kotlin/KEEP/blob/master/proposals/references-to-java-synthetic-properties.md)
+* YouTrack issue: [KT-8575](https://youtrack.jetbrains.com/issue/KT-8575)
 
 </td>
 </tr>

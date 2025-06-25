@@ -376,8 +376,10 @@
 - from: /docs/reference/type-safe-builders.html
   to: /docs/type-safe-builders.html
 
-- from: /docs/reference/javascript-dce.html
-  to: /docs/javascript-dce.html
+- from:
+  - /docs/reference/javascript-dce.html
+  - /docs/javascript-dce.html
+  to: /docs/js-ir-compiler.html
 
 - from: /docs/reference/inline-classes.html
   to: /docs/inline-classes.html

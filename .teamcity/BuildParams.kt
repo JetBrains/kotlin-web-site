@@ -15,8 +15,8 @@ object BuildParams {
   const val KOTLINX_SERIALIZATION_ID = "kotlinx.serialization"
   const val KOTLINX_SERIALIZATION_TITLE = KOTLINX_SERIALIZATION_ID
 
-  const val KOTLINX_DATETIME_RELEASE_TAG = "whyoleg/dokka2-sync"
-  const val KOTLINX_DATETIME_RELEASE_LABEL = "v0.6.2"
+  const val KOTLINX_DATETIME_RELEASE_TAG = "latest-release"
+  const val KOTLINX_DATETIME_RELEASE_LABEL = "v0.7.0"
   const val KOTLINX_DATETIME_ID = "kotlinx-datetime"
   const val KOTLINX_DATETIME_TITLE = KOTLINX_DATETIME_ID
 
@@ -31,18 +31,13 @@ object BuildParams {
   const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_220_LibraryReferenceLatestDocs"
   const val CORE_API_TITLE = "Core API"
 
-  const val KGP_RELEASE_TAG = KOTLIN_RELEASE_TAG
-  const val KGP_RELEASE_LABEL = KOTLIN_RELEASE_LABEL
-  const val KGP_ID = "kotlin-gradle-plugin"
-  const val KGP_TITLE = "Kotlin Gradle Plugin"
-
   const val KOTLINX_METADATA_ID = "kotlinx-metadata-jvm"
   const val KOTLINX_METADATA_RELEASE_TAG = KOTLIN_RELEASE_TAG
   const val KOTLINX_METADATA_TITLE = KOTLINX_METADATA_ID
 
   val KGP_REFERENCE = KotlinGradleAPI {
     addVersion("2.1.20", VCS.branch("whyoleg/dokka2-sync"))
-//    addVersion("2.2.0", VCS.branch("2.2.0"))
+    addVersion("2.2.0", VCS.branch("2.2.0"))
   }
 
   val API_COMPOSE = ComposeMultiplatformCore {
