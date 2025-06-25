@@ -8,8 +8,9 @@
 
 Annotation processors (see [JSR 269](https://jcp.org/en/jsr/detail?id=269)) are supported in Kotlin with the _kapt_ compiler plugin.
 
-In a nutshell, you can use libraries such as [Dagger](https://google.github.io/dagger/) or
-[Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html) in your Kotlin projects.
+In a nutshell, kapt helps you use libraries like [Dagger](https://google.github.io/dagger/)
+and [Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html)
+in your Kotlin projects by enabling Java-based annotation processing.
 
 > If you encounter any issues when using kapt with the K2 compiler,
 > report them to our [issue tracker](http://kotl.in/issue) and disable the K2 mode in your `gradle.properties` file:
@@ -24,7 +25,7 @@ In a nutshell, you can use libraries such as [Dagger](https://google.github.io/d
 
 To use kapt in Gradle, follow these steps:
 
-1. Apply the `kapt` Gradle plugin:
+1. Apply the `kapt` Gradle plugin in your build script file `build.gradle(.kts)`:
 
    <tabs group="build-script">
    <tab title="Kotlin" group-key="kotlin">
@@ -80,7 +81,7 @@ To use kapt in Gradle, follow these steps:
 
 ## Annotation processor arguments
 
-Use the ` arguments {}` block to pass arguments to annotation processors:
+Use the `arguments {}` block in your build script file `build.gradle(.kts)` to pass arguments to annotation processors:
 
 ```kotlin
 kapt {
@@ -153,7 +154,7 @@ To enable this feature, use the following properties in your `gradle.properties`
 ```none
 # gradle.properties
 #
-# Positive value will enable caching
+# Any positive value enables caching
 # Use the same value as the number of modules that use kapt
 kapt.classloaders.cache.size=5
 
@@ -202,12 +203,12 @@ sample/src/main/
 
 ### Measure the number of files generated with annotation processors
 
-The kapt Gradle plugin can report statistics on the number of generated files for each annotation processor.
+The `kapt` Gradle plugin can report statistics on the number of generated files for each annotation processor.
 
 This helps track whether any unused annotation processors are included in the build.
 You can use the generated report to find modules that trigger unnecessary annotation processors and update the modules to avoid that.
 
-To enable the statistics:
+To enable statistics reporting:
 
 1. Set the `showProcessorStats` property value to `true` in your `build.gradle(.kts)`:
 
@@ -231,7 +232,7 @@ To enable the statistics:
 
 The statistics appear in the logs with the `info` level.
 You can see the `Annotation processor stats:` line followed by statistics on the execution time of each annotation processor.
-After these lines, there will be the `Generated files report:` line followed by statistics on the number of 
+After these lines, there is the `Generated files report:` line followed by statistics on the number of 
 generated files for each annotation processor. For example:
 
 ```text
@@ -265,7 +266,7 @@ To run kapt with compile avoidance:
 
 ## Incremental annotation processing
 
-kapt supports incremental annotation processing enabled by default. 
+kapt supports incremental annotation processing by default. 
 Currently, annotation processing can be incremental only if all annotation processors being used are incremental. 
 
 To disable incremental annotation processing, add this line to your `gradle.properties` file:
