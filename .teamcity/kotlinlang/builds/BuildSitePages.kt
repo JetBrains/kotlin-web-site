@@ -155,7 +155,7 @@ object BuildSitePages : BuildType({
                 onDependencyFailure = FailureAction.FAIL_TO_START
             }
             artifacts {
-                artifactRules = "+:kotlin-multiplatform-dev.zip!** => _kotlin-multiplatform-dev"
+                artifactRules = "+:kotlin-multiplatform-dev.zip!** => _kotlin-multiplatform-dev/"
             }
         }
     }
