@@ -161,13 +161,6 @@ ${'$'}_9.99
 
 ### Multi-dollar string interpolation
 
-> The multi-dollar string interpolation is [Experimental](components-stability.md#stability-levels-explained)
-> and opt-in is required (see details below).
-> 
-> It may be changed at any time. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-2425).
->
-{style="warning"}
-
 Multi-dollar string interpolation allows you to specify how many consecutive dollar signs are required to trigger interpolation.
 Interpolation is the process of embedding variables or expressions directly into a string.
 
@@ -222,24 +215,7 @@ println(requestedData)
 
 Here, the `$$$` prefix allows the string to include `$` and `$$` without requiring the `${'$'}` construct for escaping.
 
-To enable the feature, use the following compiler option in the command line:
-
-```bash
-kotlinc -Xmulti-dollar-interpolation main.kt
-```
-
-Alternatively, update the `compilerOptions {}` block of your Gradle build file:
-
-```kotlin
-// build.gradle.kts
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xmulti-dollar-interpolation")
-    }
-}
-```
-
-This feature doesn't affect existing code that uses single-dollar string interpolation. 
+Multi-dollar string interpolation doesn't affect existing code that uses single-dollar string interpolation. 
 You can continue using a single `$`
 as before and apply multi-dollar signs when you need to handle literal dollar signs in strings.
 
