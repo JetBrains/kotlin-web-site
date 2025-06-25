@@ -111,8 +111,8 @@ fun main() {
 
 Note that the use of local returns in the previous three examples is similar to the use of `continue` in regular loops.
 
-There is no direct equivalent for `break`, but it can be simulated by adding another nesting lambda and non-locally
-returning from it, as long as the lambda is passed to an [inline function](inline-functions.md):
+There is no direct equivalent for `break`, but it can be simulated by adding an outer `run` lambda and non-locally
+returning from it:
 
 ```kotlin
 //sampleStart
@@ -133,7 +133,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Here, both `forEach()` extension and `run` scope function are inline functions from the Kotlin standard library.
+The non-local return here is possible since the nested `forEach()` lambda acts as an [inline function](inline-functions.md).
 
 When returning a value, the parser gives preference to the qualified return:
 
