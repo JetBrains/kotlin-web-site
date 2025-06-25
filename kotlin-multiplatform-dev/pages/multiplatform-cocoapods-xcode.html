@@ -1,0 +1,109 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:23.206801428"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Use a Kotlin project as a CocoaPods dependency | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"xcode-project-with-one-target","level":0,"title":"Xcode project with one target","anchor":"#xcode-project-with-one-target"},{"id":"xcode-project-with-several-targets","level":0,"title":"Xcode project with several targets","anchor":"#xcode-project-with-several-targets"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Use a Kotlin project as a CocoaPods dependency | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-xcode.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Use a Kotlin project as a CocoaPods dependency | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-xcode.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-xcode.html",
+    "name": "Use a Kotlin project as a CocoaPods dependency | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="multiplatform-cocoapods-xcode" data-main-title="Use a Kotlin project as a CocoaPods dependency" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Set up iOS integration///CocoaPods integration" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/development/multiplatform-cocoapods-xcode.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="multiplatform-cocoapods-xcode" id="multiplatform-cocoapods-xcode.md">Use a Kotlin project as a CocoaPods dependency</h1><div class="micro-format" data-content="{&quot;microFormat&quot;:[&quot;\u003cul class\u003d\&quot;list _bullet\&quot; id\u003d\&quot;z9tr7qp_10\&quot;\u003e\u003cli class\u003d\&quot;list__item\&quot; id\u003d\&quot;z9tr7qp_11\&quot;\u003e\u003cp\u003eBefore adding Pod dependencies, \u003ca href\u003d\&quot;multiplatform-cocoapods-overview.html#set-up-an-environment-to-work-with-cocoapods\&quot; id\u003d\&quot;z9tr7qp_13\&quot;\u003ecomplete the initial configuration\u003c/a\u003e.\u003c/p\u003e\u003c/li\u003e\u003cli class\u003d\&quot;list__item\&quot; id\u003d\&quot;z9tr7qp_12\&quot;\u003e\u003cp\u003eYou can find a sample project in our \u003ca href\u003d\&quot;https://github.com/Kotlin/kmp-with-cocoapods-multitarget-xcode-sample\&quot; id\u003d\&quot;z9tr7qp_14\&quot; data-external\u003d\&quot;true\&quot; rel\u003d\&quot;noopener noreferrer\&quot;\u003eGitHub repository\u003c/a\u003e.\u003c/p\u003e\u003c/li\u003e\u003c/ul\u003e&quot;]}"></div><p id="z9tr7qp_3">You can use an entire Kotlin project as a Pod dependency. To do that, you'll need to include such a dependency in the Podfile of your project, specifying its name and the path to the project directory with the generated Podspec.</p><p id="z9tr7qp_4">This dependency will be automatically built (and rebuilt) along with this project. Such an approach simplifies importing to Xcode by removing a need to write the corresponding Gradle tasks and Xcode build steps manually.</p><p id="z9tr7qp_5">You can add dependencies between a Kotlin project and an Xcode project with one or several targets. It's also possible to add dependencies between a Kotlin project and multiple Xcode projects. However, in this case, you need to call <code class="code" id="z9tr7qp_15">pod install</code> manually for each Xcode project. With a single Xcode project, it's done automatically.</p><aside class="prompt" data-type="note" data-title="" id="z9tr7qp_6"><ul class="list _bullet" id="z9tr7qp_16"><li class="list__item" id="z9tr7qp_17"><p>To correctly import the dependencies into the Kotlin/Native module, the Podfile must contain either <a href="https://guides.cocoapods.org/syntax/podfile.html#use_modular_headers_bang" id="z9tr7qp_19" data-external="true" rel="noopener noreferrer"><code class="code" id="z9tr7qp_21">use_modular_headers!</code></a> or <a href="https://guides.cocoapods.org/syntax/podfile.html#use_frameworks_bang" id="z9tr7qp_20" data-external="true" rel="noopener noreferrer"><code class="code" id="z9tr7qp_22">use_frameworks!</code></a> directives.</p></li><li class="list__item" id="z9tr7qp_18"><p>If you don't specify the minimum deployment target version and a dependency Pod requires a higher deployment target, you'll get an error.</p></li></ul></aside><section class="chapter"><h2 id="xcode-project-with-one-target" data-toc="xcode-project-with-one-target">Xcode project with one target</h2><p id="z9tr7qp_23">To use a Kotlin project as a Pod dependency in the Xcode project with one target:</p><ol class="list _decimal" id="z9tr7qp_24" type="1"><li class="list__item" id="z9tr7qp_25"><p id="z9tr7qp_34">Create an Xcode project if you don't have one.</p></li><li class="list__item" id="z9tr7qp_26"><p id="z9tr7qp_35">In Xcode, ensure to disable <span class="control" id="z9tr7qp_37">User Script Sandboxing</span> under <span class="control" id="z9tr7qp_38">Build Options</span> in the application target:</p><figure id="z9tr7qp_36"><img alt="Disable sandboxing CocoaPods" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/disable-sandboxing-cocoapods.png" title="Disable sandboxing CocoaPods" width="2116" height="436"></figure></li><li class="list__item" id="z9tr7qp_27"><p id="z9tr7qp_39">In the iOS part of your Kotlin project, create a Podfile.</p></li><li class="list__item" id="z9tr7qp_28"><p id="z9tr7qp_40">In the shared module's <code class="code" id="z9tr7qp_42">build.gradle(.kts)</code> file, add the path to the Podfile with <code class="code" id="z9tr7qp_43">podfile = project.file()</code>.</p><p id="z9tr7qp_41">This step helps synchronize your Xcode project with Kotlin project dependencies by calling <code class="code" id="z9tr7qp_44">pod install</code> for your Podfile.</p></li><li class="list__item" id="z9tr7qp_29"><p id="z9tr7qp_45">Specify the minimum deployment target version for the Pod library:</p><div class="code-block" data-lang="kotlin">
+kotlin {
+    iosArm64()
+
+    cocoapods {
+        version = &quot;2.0&quot;
+        summary = &quot;CocoaPods test library&quot;
+        homepage = &quot;https://github.com/JetBrains/kotlin&quot;
+        ios.deploymentTarget = &quot;16.0&quot;
+
+        pod(&quot;SDWebImage&quot;) {
+            version = &quot;5.20.0&quot;
+        }
+        podfile = project.file(&quot;../ios-app/Podfile&quot;)
+    }
+}
+</div></li><li class="list__item" id="z9tr7qp_30"><p id="z9tr7qp_47">In the Podfile, add the name and path of the Kotlin project you want to include in the Xcode project:</p><div class="code-block" data-lang="ruby">
+target 'ios-app' do
+    use_frameworks!
+    platform :ios, '16.0'
+
+    # Pods for iosApp
+    pod 'kotlin_library', :path =&gt; '../kotlin-library'
+end
+</div></li><li class="list__item" id="z9tr7qp_31"><p id="z9tr7qp_49">Run <code class="code" id="z9tr7qp_51">pod install</code> in your project directory.</p><p id="z9tr7qp_50">When you run <code class="code" id="z9tr7qp_52">pod install</code> for the first time, it creates the <code class="code" id="z9tr7qp_53">.xcworkspace</code> file. This file includes your original <code class="code" id="z9tr7qp_54">.xcodeproj</code> and the CocoaPods project.</p></li><li class="list__item" id="z9tr7qp_32"><p id="z9tr7qp_55">Close your <code class="code" id="z9tr7qp_56">.xcodeproj</code> and open the new <code class="code" id="z9tr7qp_57">.xcworkspace</code> file instead. This way you avoid issues with project dependencies.</p></li><li class="list__item" id="z9tr7qp_33"><p id="z9tr7qp_58">Run <span class="control" id="z9tr7qp_59">Build</span> | <span class="control" id="z9tr7qp_60">Reload All Gradle Projects</span> in IntelliJ IDEA (or <span class="control" id="z9tr7qp_61">File</span> | <span class="control" id="z9tr7qp_62">Sync Project with Gradle Files</span> in Android Studio) to re-import the project.</p></li></ol></section><section class="chapter"><h2 id="xcode-project-with-several-targets" data-toc="xcode-project-with-several-targets">Xcode project with several targets</h2><p id="z9tr7qp_63">To use a Kotlin project as a Pod dependency in the Xcode project with several targets:</p><ol class="list _decimal" id="z9tr7qp_64" type="1"><li class="list__item" id="z9tr7qp_65"><p id="z9tr7qp_74">Create an Xcode project if you don't have one.</p></li><li class="list__item" id="z9tr7qp_66"><p id="z9tr7qp_75">In the iOS part of your Kotlin project, create a Podfile.</p></li><li class="list__item" id="z9tr7qp_67"><p id="z9tr7qp_76">In the shared module's <code class="code" id="z9tr7qp_78">build.gradle(.kts)</code> file, add the path to your project's Podfile with <code class="code" id="z9tr7qp_79">podfile = project.file()</code>.</p><p id="z9tr7qp_77">This step helps synchronize your Xcode project with Kotlin project dependencies by calling <code class="code" id="z9tr7qp_80">pod install</code> for your Podfile.</p></li><li class="list__item" id="z9tr7qp_68"><p id="z9tr7qp_81">Add dependencies to the Pod libraries you want to use in your project with <code class="code" id="z9tr7qp_82">pod()</code>.</p></li><li class="list__item" id="z9tr7qp_69"><p id="z9tr7qp_83">For each target, specify the minimum deployment target version for the Pod library:</p><div class="code-block" data-lang="kotlin">
+kotlin {
+    iosArm64()
+    tvosArm64()
+
+    cocoapods {
+        version = &quot;2.0&quot;
+        summary = &quot;CocoaPods test library&quot;
+        homepage = &quot;https://github.com/JetBrains/kotlin&quot;
+        ios.deploymentTarget = &quot;16.0&quot;
+        tvos.deploymentTarget = &quot;16.0&quot;
+
+        pod(&quot;SDWebImage&quot;) {
+            version = &quot;5.20.0&quot;
+        }
+        // Specify the path to the Podfile
+        podfile = project.file(&quot;../severalTargetsXcodeProject/Podfile&quot;)
+    }
+}
+</div></li><li class="list__item" id="z9tr7qp_70"><p id="z9tr7qp_85">In the Podfile, add the name and path of the Kotlin project you want to include in the Xcode project:</p><div class="code-block" data-lang="ruby">
+target 'iosApp' do
+  use_frameworks!
+  platform :ios, '16.0'
+
+  # Pods for iosApp
+  pod 'kotlin_library', :path =&gt; '../kotlin-library'
+end
+
+target 'TVosApp' do
+  use_frameworks!
+  platform :tvos, '16.0'
+
+  # Pods for TVosApp
+  pod 'kotlin_library', :path =&gt; '../kotlin-library'
+end
+</div></li><li class="list__item" id="z9tr7qp_71"><p id="z9tr7qp_87">Run <code class="code" id="z9tr7qp_89">pod install</code> in your project directory.</p><p id="z9tr7qp_88">When you run <code class="code" id="z9tr7qp_90">pod install</code> for the first time, it creates the <code class="code" id="z9tr7qp_91">.xcworkspace</code> file. This file includes your original <code class="code" id="z9tr7qp_92">.xcodeproj</code> and the CocoaPods project.</p></li><li class="list__item" id="z9tr7qp_72"><p id="z9tr7qp_93">Close your <code class="code" id="z9tr7qp_94">.xcodeproj</code> and open the new <code class="code" id="z9tr7qp_95">.xcworkspace</code> file instead. This way you avoid issues with project dependencies.</p></li><li class="list__item" id="z9tr7qp_73"><p id="z9tr7qp_96">Run <span class="control" id="z9tr7qp_97">Build</span> | <span class="control" id="z9tr7qp_98">Reload All Gradle Projects</span> in IntelliJ IDEA (or <span class="control" id="z9tr7qp_99">File</span> | <span class="control" id="z9tr7qp_100">Sync Project with Gradle Files</span> in Android Studio) to re-import the project.</p></li></ol></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><ul class="list _bullet" id="z9tr7qp_101"><li class="list__item" id="z9tr7qp_102"><p><a href="multiplatform-cocoapods-libraries.html" id="z9tr7qp_105">Add dependencies on a Pod library in your Kotlin project</a></p></li><li class="list__item" id="z9tr7qp_103"><p><a href="multiplatform-direct-integration.html" id="z9tr7qp_106">See how to connect the framework to your iOS project</a></p></li><li class="list__item" id="z9tr7qp_104"><p><a href="multiplatform-cocoapods-dsl-reference.html" id="z9tr7qp_107">See the full CocoaPods Gradle plugin DSL reference</a></p></li></ul></section><div class="last-modified">Last modified: 16 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="multiplatform-cocoapods-libraries.html" class="navigation-links__prev">Add dependencies on a Pod library</a><a href="multiplatform-cocoapods-dsl-reference.html" class="navigation-links__next">CocoaPods Gradle plugin DSL reference</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:21.595452522"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Integration with the UIKit framework | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"use-compose-multiplatform-inside-a-uikit-application","level":0,"title":"Use Compose Multiplatform inside a UIKit application","anchor":"#use-compose-multiplatform-inside-a-uikit-application"},{"id":"use-uikit-inside-compose-multiplatform","level":0,"title":"Use UIKit inside Compose Multiplatform","anchor":"#use-uikit-inside-compose-multiplatform"},{"id":"map-view","level":1,"title":"Map view","anchor":"#map-view"},{"id":"camera-view","level":1,"title":"Camera view","anchor":"#camera-view"},{"id":"web-view","level":1,"title":"Web view","anchor":"#web-view"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Integration with the UIKit framework | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-uikit-integration.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Integration with the UIKit framework | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-uikit-integration.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-uikit-integration.html",
+    "name": "Integration with the UIKit framework | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-uikit-integration" data-main-title="Integration with the UIKit framework" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///iOS-specific features" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/ios/compose-uikit-integration.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-uikit-integration" id="compose-uikit-integration.md">Integration with the UIKit framework</h1><p id="-t00idr_3">Compose Multiplatform is interoperable with the <a href="https://developer.apple.com/documentation/uikit" id="-t00idr_8" data-external="true" rel="noopener noreferrer">UIKit</a> framework. You can embed Compose Multiplatform within a UIKit application as well as embed native UIKit components within Compose Multiplatform. This page provides examples both for using Compose Multiplatform inside a UIKit application and for embedding UIKit components inside Compose Multiplatform UI.</p><aside class="prompt" data-type="tip" data-title="" id="-t00idr_4"><p id="-t00idr_9">To learn about SwiftUI interoperability, see the <a href="compose-swiftui-integration.html" id="-t00idr_10">Integration with the SwiftUI framework</a> article.</p></aside><section class="chapter"><h2 id="use-compose-multiplatform-inside-a-uikit-application" data-toc="use-compose-multiplatform-inside-a-uikit-application">Use Compose Multiplatform inside a UIKit application</h2><p id="-t00idr_11">To use Compose Multiplatform inside a UIKit application, add your Compose Multiplatform code to any <a href="https://developer.apple.com/documentation/uikit/view_controllers" id="-t00idr_16" data-external="true" rel="noopener noreferrer">container view controller</a>. This example uses Compose Multiplatform inside the <code class="code" id="-t00idr_17">UITabBarController</code> class:</p><div class="code-block" data-lang="swift">
+let composeViewController = Main_iosKt.ComposeOnly()
+composeViewController.title = &quot;Compose Multiplatform inside UIKit&quot;
+
+let anotherViewController = UIKitViewController()
+anotherViewController.title = &quot;UIKit&quot;
+
+// Set up the UITabBarController
+let tabBarController = UITabBarController()
+tabBarController.viewControllers = [
+    // Wrap the created ViewControllers in a UINavigationController to set titles
+    UINavigationController(rootViewController: composeViewController),
+    UINavigationController(rootViewController: anotherViewController)
+]
+tabBarController.tabBar.items?[0].title = &quot;Compose&quot;
+tabBarController.tabBar.items?[1].title = &quot;UIKit&quot;
+</div><p id="-t00idr_13">With this code, your application should look like this:</p><figure id="-t00idr_14"><img alt="UIKit" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/uikit.png" title="UIKit" width="300" height="594"></figure><p id="-t00idr_15">Explore this code in the <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/examples/interop/ios-compose-in-uikit" id="-t00idr_18" data-external="true" rel="noopener noreferrer">sample project</a>.</p></section><section class="chapter"><h2 id="use-uikit-inside-compose-multiplatform" data-toc="use-uikit-inside-compose-multiplatform">Use UIKit inside Compose Multiplatform</h2><p id="-t00idr_19">To use UIKit elements inside Compose Multiplatform, add the UIKit elements that you want to use to a <a href="https://github.com/JetBrains/compose-multiplatform-core/blob/47c012bfe2d4570fb08432253298b8e2b6e38ade/compose/ui/ui/src/uikitMain/kotlin/androidx/compose/ui/interop/UIKitView.uikit.kt" id="-t00idr_23" data-external="true" rel="noopener noreferrer">UIKitView</a> from Compose Multiplatform. You can write this code purely in Kotlin or use Swift as well.</p><section class="chapter"><h3 id="map-view" data-toc="map-view">Map view</h3><p id="-t00idr_24">You can implement a map view in Compose Multiplatform using the UIKit's <a href="https://developer.apple.com/documentation/mapkit/mkmapview" id="-t00idr_32" data-external="true" rel="noopener noreferrer"><code class="code" id="-t00idr_35">MKMapView</code></a> component. Set the component size by using the <code class="code" id="-t00idr_33">Modifier.size()</code> or <code class="code" id="-t00idr_34">Modifier.fillMaxSize()</code> functions from Compose Multiplatform:</p><div class="code-block" data-lang="kotlin">
+UIKitView(
+    factory = { MKMapView() },
+    modifier = Modifier.size(300.dp),
+)
+</div><p id="-t00idr_26">With this code, your application should look like this:</p><figure id="-t00idr_27"><img alt="MapView" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/mapview.png" title="MapView" width="300" height="593"></figure><p id="-t00idr_28">Now, let's look at an advanced example. This code wraps UIKit's <a href="https://developer.apple.com/documentation/uikit/uitextfield/" id="-t00idr_36" data-external="true" rel="noopener noreferrer"><code class="code" id="-t00idr_37">UITextField</code></a> in Compose Multiplatform:</p><div class="code-block" data-lang="kotlin">
+@OptIn(ExperimentalForeignApi::class)
+@Composable
+fun UseUITextField(modifier: Modifier = Modifier) {
+    // Holds the state of the text in Compose
+    var message by remember { mutableStateOf(&quot;Hello, World!&quot;) }
+
+    UIKitView(
+        factory = {
+            // Creates a UITextField integrated with Compose state
+            val textField = object : UITextField(CGRectMake(0.0, 0.0, 0.0, 0.0)) {
+                @ObjCAction
+                fun editingChanged() {
+                    // Updates the Compose state when text changes in UITextField
+                    message = text ?: &quot;&quot;
+                }
+            }
+            // Adds a listener for text changes within the UITextField
+            textField.addTarget(
+                target = textField,
+                action = NSSelectorFromString(textField::editingChanged.name),
+                forControlEvents = UIControlEventEditingChanged
+            )
+            textField
+        },
+        modifier = modifier.fillMaxWidth().height(30.dp),
+        update = { textField -&gt;
+            // Updates UITextField text from Compose state
+            textField.text = message
+        }
+    )
+}
+</div><ul class="list _bullet" id="-t00idr_30"><li class="list__item" id="-t00idr_38"><p>The factory parameter contains the <code class="code" id="-t00idr_43">editingChanged()</code> function and the <code class="code" id="-t00idr_44">textField.addTarget()</code> listener to detect any changes to <code class="code" id="-t00idr_45">UITextField</code>.</p></li><li class="list__item" id="-t00idr_39"><p>The <code class="code" id="-t00idr_46">editingChanged()</code> function is annotated with <code class="code" id="-t00idr_47">@ObjCAction</code> so that it can interoperate with Objective-C code.</p></li><li class="list__item" id="-t00idr_40"><p>The <code class="code" id="-t00idr_48">action</code> parameter of the <code class="code" id="-t00idr_49">addTarget()</code> function passes the name of the <code class="code" id="-t00idr_50">editingChanged()</code> function, triggering it in response to a <code class="code" id="-t00idr_51">UIControlEventEditingChanged</code> event.</p></li><li class="list__item" id="-t00idr_41"><p>The <code class="code" id="-t00idr_52">update</code> parameter of <code class="code" id="-t00idr_53">UIKitView()</code> is called when the observable message state changes its value.</p></li><li class="list__item" id="-t00idr_42"><p>The function updates the <code class="code" id="-t00idr_54">text</code> attribute of the <code class="code" id="-t00idr_55">UITextField</code> so that the user sees the updated value.</p></li></ul><p id="-t00idr_31">Explore the code for this example in our <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/examples/interop/ios-uikit-in-compose" id="-t00idr_56" data-external="true" rel="noopener noreferrer">sample project</a>.</p></section><section class="chapter"><h3 id="camera-view" data-toc="camera-view">Camera view</h3><p id="-t00idr_57">You can implement a camera view in Compose Multiplatform using UIKit's <a href="https://developer.apple.com/documentation/avfoundation/avcapturesession" id="-t00idr_67" data-external="true" rel="noopener noreferrer"><code class="code" id="-t00idr_69">AVCaptureSession</code></a> and <a href="https://developer.apple.com/documentation/avfoundation/avcapturevideopreviewlayer" id="-t00idr_68" data-external="true" rel="noopener noreferrer"><code class="code" id="-t00idr_70">AVCaptureVideoPreviewLayer</code></a> components.</p><p id="-t00idr_58">This allows your application to access the device's camera and display a live preview.</p><p id="-t00idr_59">Here's an example of how to implement a basic camera view:</p><div class="code-block" data-lang="kotlin">
+UIKitView(
+    factory = {
+        val session = AVCaptureSession().apply {
+            val device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)!!
+            val input = AVCaptureDeviceInput.deviceInputWithDevice(device, null)!!
+            addInput(input)
+        }
+        val previewLayer = AVCaptureVideoPreviewLayer(session)
+        session.startRunning()
+
+        object : UIView() {
+            override fun layoutSubviews() {
+                super.layoutSubviews()
+                previewLayer.frame = bounds
+            }
+        }.apply {
+            layer.addSublayer(previewLayer)
+        }
+    },
+    modifier = Modifier.size(300.dp)
+)
+</div><p id="-t00idr_61">Now, let's look at an advanced example. This code captures a photo, attaches GPS metadata, and displays a live preview using a native <code class="code" id="-t00idr_71">UIView</code>:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="val capturePhotoOutput = remember { AVCapturePhotoOutput() }">
+@OptIn(ExperimentalForeignApi::class)
+@Composable
+fun RealDeviceCamera(
+    camera: AVCaptureDevice,
+    onCapture: (picture: PictureData.Camera, image: PlatformStorableImage) -&gt; Unit
+) {
+    // Initializes AVCapturePhotoOutput for photo capturing
+    val capturePhotoOutput = remember { AVCapturePhotoOutput() }
+    // ...
+    // Defines a delegate to capture callback: process image data, attach GPS, setup onCapture
+    val photoCaptureDelegate = remember {
+        object : NSObject(), AVCapturePhotoCaptureDelegateProtocol {
+            override fun captureOutput(
+                output: AVCapturePhotoOutput,
+                didFinishProcessingPhoto: AVCapturePhoto,
+                error: NSError?
+            ) {
+                val photoData = didFinishProcessingPhoto.fileDataRepresentation()
+                if (photoData != null) {
+                    val gps = locationManager.location?.toGps() ?: GpsPosition(0.0, 0.0)
+                    val uiImage = UIImage(photoData)
+                    onCapture(
+                        createCameraPictureData(
+                            name = nameAndDescription.name,
+                            description = nameAndDescription.description,
+                            gps = gps
+                        ),
+                        IosStorableImage(uiImage)
+                    )
+                }
+                capturePhotoStarted = false
+            }
+        }
+    }
+    // ...
+    // Sets up AVCaptureSession for photo capture
+    val captureSession: AVCaptureSession = remember {
+        AVCaptureSession().also { captureSession -&gt;
+            captureSession.sessionPreset = AVCaptureSessionPresetPhoto
+            val captureDeviceInput: AVCaptureDeviceInput =
+                deviceInputWithDevice(device = camera, error = null)!!
+            captureSession.addInput(captureDeviceInput)
+            captureSession.addOutput(capturePhotoOutput)
+        }
+    }
+    // Sets up AVCaptureVideoPreviewLayer for the live camera preview
+    val cameraPreviewLayer = remember {
+        AVCaptureVideoPreviewLayer(session = captureSession)
+    }
+    // ...
+    // Creates a native UIView with the native camera preview layer
+    UIKitView(
+        modifier = Modifier.fillMaxSize().background(Color.Black),
+        factory = {
+            val cameraContainer = object: UIView(frame = CGRectZero.readValue()) {
+                override fun layoutSubviews() {
+                    CATransaction.begin()
+                    CATransaction.setValue(true, kCATransactionDisableActions)
+                    layer.setFrame(frame)
+                    cameraPreviewLayer.setFrame(frame)
+                    CATransaction.commit()
+                }
+            }
+            cameraContainer.layer.addSublayer(cameraPreviewLayer)
+            cameraPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+            captureSession.startRunning()
+            cameraContainer
+        },
+    )
+    // ...
+    // Creates a Compose button that executes the capturePhotoWithSettings callback when pressed
+    CircularButton(
+        imageVector = IconPhotoCamera,
+        modifier = Modifier.align(Alignment.BottomCenter).padding(36.dp),
+        enabled = !capturePhotoStarted,
+    ) {
+        capturePhotoStarted = true
+        val photoSettings = AVCapturePhotoSettings.photoSettingsWithFormat(
+            format = mapOf(AVVideoCodecKey to AVVideoCodecTypeJPEG)
+        )
+        if (camera.position == AVCaptureDevicePositionFront) {
+            capturePhotoOutput.connectionWithMediaType(AVMediaTypeVideo)
+                ?.automaticallyAdjustsVideoMirroring = false
+            capturePhotoOutput.connectionWithMediaType(AVMediaTypeVideo)
+                ?.videoMirrored = true
+        }
+        capturePhotoOutput.capturePhotoWithSettings(
+            settings = photoSettings,
+            delegate = photoCaptureDelegate
+        )
+    }
+}
+</div><p id="-t00idr_63">The <code class="code" id="-t00idr_72">RealDeviceCamera</code> composable performs the following tasks:</p><ul class="list _bullet" id="-t00idr_64"><li class="list__item" id="-t00idr_73"><p>Sets up a native camera preview using <code class="code" id="-t00idr_81">AVCaptureSession</code> and <code class="code" id="-t00idr_82">AVCaptureVideoPreviewLayer</code>.</p></li><li class="list__item" id="-t00idr_74"><p>Creates a <code class="code" id="-t00idr_83">UIKitView</code> that hosts a custom <code class="code" id="-t00idr_84">UIView</code> subclass, which manages layout updates and embeds the preview layer.</p></li><li class="list__item" id="-t00idr_75"><p>Initializes a <code class="code" id="-t00idr_85">AVCapturePhotoOutput</code> and configures a delegate to handle photo capture.</p></li><li class="list__item" id="-t00idr_76"><p>Uses <code class="code" id="-t00idr_86">CLLocationManager</code> (through <code class="code" id="-t00idr_87">locationManager</code>) to retrieve GPS coordinates at the moment of capture.</p></li><li class="list__item" id="-t00idr_77"><p>Converts the captured image into a <code class="code" id="-t00idr_88">UIImage</code>, wraps it as a <code class="code" id="-t00idr_89">PlatformStorableImage</code>, and provides metadata such as name, description, and GPS location via <code class="code" id="-t00idr_90">onCapture</code>.</p></li><li class="list__item" id="-t00idr_78"><p>Displays a circular composable button for triggering the capture.</p></li><li class="list__item" id="-t00idr_79"><p>Applies mirroring settings when using the front-facing camera to match natural selfie behavior.</p></li><li class="list__item" id="-t00idr_80"><p>Updates the preview layout dynamically in <code class="code" id="-t00idr_91">layoutSubviews()</code> using <code class="code" id="-t00idr_92">CATransaction</code> to avoid animations.</p></li></ul><aside class="prompt" data-type="note" data-title="" id="-t00idr_65"><p id="-t00idr_93">To test on a real device, you need to add the <code class="code" id="-t00idr_94">NSCameraUsageDescription</code> key to your app's <code class="code" id="-t00idr_95">Info.plist</code> file. Without it, the app will crash at runtime.</p></aside><p id="-t00idr_66">Explore the full code for this example in the <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/examples/imageviewer" id="-t00idr_96" data-external="true" rel="noopener noreferrer">ImageViewer sample project</a>.</p></section><section class="chapter"><h3 id="web-view" data-toc="web-view">Web view</h3><p id="-t00idr_97">You can implement a web view in Compose Multiplatform using UIKit's <a href="https://developer.apple.com/documentation/webkit/wkwebview" id="-t00idr_103" data-external="true" rel="noopener noreferrer"><code class="code" id="-t00idr_106">WKWebView</code></a> component. This allows your application to display and interact with web content within the UI. Set the component size by using the <code class="code" id="-t00idr_104">Modifier.size()</code> or <code class="code" id="-t00idr_105">Modifier.fillMaxSize()</code> functions from Compose Multiplatform:</p><div class="code-block" data-lang="kotlin">
+UIKitView(
+    factory = {
+        WKWebView().apply {
+            loadRequest(NSURLRequest(URL = NSURL(string = &quot;https://www.jetbrains.com&quot;)))
+        }
+    },
+    modifier = Modifier.size(300.dp)
+)
+</div><p id="-t00idr_99">Now, let's look at an advanced example. This code configures the web view with navigation delegates and allows communication between Kotlin and JavaScript:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun WebViewWithDelegate(
+    modifier: Modifier = Modifier,
+    initialUrl: String = &quot;https://www.jetbrains.com&quot;,
+    onNavigationChange: (String) -&gt; Unit = {}
+) {
+    // Creates a delegate to listen for navigation events
+    val delegate = remember {
+        object : NSObject(), WKNavigationDelegateProtocol {
+            override fun webView(
+                webView: WKWebView,
+                didFinishNavigation: WKNavigation?
+            ) {
+                // Updates the current URL after navigation is complete
+                onNavigationChange(webView.URL?.absoluteString ?: &quot;&quot;)
+            }
+        }
+    }
+    UIKitView(
+        modifier = modifier,
+        factory = {
+            // Instantiates a WKWebView and sets its delegate
+            val webView = WKWebView().apply {
+                navigationDelegate = delegate
+                loadRequest(NSURLRequest(uRL = NSURL(string = initialUrl)))
+            }
+            webView
+        },
+        update = { webView -&gt;
+            // Reloads the web page if the URL changes
+            if (webView.URL?.absoluteString != initialUrl) {
+                webView.loadRequest(NSURLRequest(uRL = NSURL(string = initialUrl)))
+            }
+        }
+    )
+}
+</div><p id="-t00idr_101">The <code class="code" id="-t00idr_107">WebViewWithDelegate</code> composable performs the following tasks:</p><ul class="list _bullet" id="-t00idr_102"><li class="list__item" id="-t00idr_108"><p>Creates a stable delegate object implementing the <code class="code" id="-t00idr_113">WKNavigationDelegateProtocol</code> interface. This object is remembered across recompositions using Compose's <code class="code" id="-t00idr_114">remember</code>.</p></li><li class="list__item" id="-t00idr_109"><p>Instantiates a <code class="code" id="-t00idr_115">WKWebView</code>, embeds it using <code class="code" id="-t00idr_116">UIKitView</code>, and configures it assigning the remembered delegate.</p></li><li class="list__item" id="-t00idr_110"><p>Loads an initial web page provided by the <code class="code" id="-t00idr_117">initialUrl</code> parameter.</p></li><li class="list__item" id="-t00idr_111"><p>Observes navigation changes via the delegate and passes the current URL through the <code class="code" id="-t00idr_118">onNavigationChange</code> callback.</p></li><li class="list__item" id="-t00idr_112"><p>Uses the <code class="code" id="-t00idr_119">update</code> parameter to observe changes in the requested URL and reloads the web page accordingly.</p></li></ul></section></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><p id="-t00idr_120">You can also explore the way Compose Multiplatform can be <a href="compose-swiftui-integration.html" id="-t00idr_121">integrated with the SwiftUI framework</a>.</p></section><div class="last-modified">Last modified: 21 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-swiftui-integration.html" class="navigation-links__prev">Integration with the SwiftUI framework</a><a href="compose-ios-touch.html" class="navigation-links__next">Handling touch events with interop on iOS</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

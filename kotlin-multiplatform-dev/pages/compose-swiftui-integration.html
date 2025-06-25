@@ -1,0 +1,304 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:21.462844118"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Integration with the SwiftUI framework | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"use-compose-multiplatform-inside-a-swiftui-application","level":0,"title":"Use Compose Multiplatform inside a SwiftUI application","anchor":"#use-compose-multiplatform-inside-a-swiftui-application"},{"id":"use-swiftui-inside-compose-multiplatform","level":0,"title":"Use SwiftUI inside Compose Multiplatform","anchor":"#use-swiftui-inside-compose-multiplatform"},{"id":"map-view","level":1,"title":"Map view","anchor":"#map-view"},{"id":"camera-view","level":1,"title":"Camera view","anchor":"#camera-view"},{"id":"web-view","level":1,"title":"Web view","anchor":"#web-view"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Integration with the SwiftUI framework | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-swiftui-integration.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Integration with the SwiftUI framework | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-swiftui-integration.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-swiftui-integration.html",
+    "name": "Integration with the SwiftUI framework | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-swiftui-integration" data-main-title="Integration with the SwiftUI framework" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///iOS-specific features" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/ios/compose-swiftui-integration.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-swiftui-integration" id="compose-swiftui-integration.md">Integration with the SwiftUI framework</h1><p id="-fqvk0k_3">Compose Multiplatform is interoperable with the <a href="https://developer.apple.com/xcode/swiftui/" id="-fqvk0k_8" data-external="true" rel="noopener noreferrer">SwiftUI</a> framework. You can embed Compose Multiplatform within a SwiftUI application as well as embed native SwiftUI components within the Compose Multiplatform UI. This page provides examples both for using Compose Multiplatform inside SwiftUI and for embedding SwiftUI inside a Compose Multiplatform app.</p><aside class="prompt" data-type="tip" data-title="" id="-fqvk0k_4"><p id="-fqvk0k_9">To learn about UIKit interoperability, see the <a href="compose-uikit-integration.html" id="-fqvk0k_10">Integration with the UIKit framework</a> article.</p></aside><section class="chapter"><h2 id="use-compose-multiplatform-inside-a-swiftui-application" data-toc="use-compose-multiplatform-inside-a-swiftui-application">Use Compose Multiplatform inside a SwiftUI application</h2><p id="-fqvk0k_11">To use Compose Multiplatform inside a SwiftUI application, create a Kotlin function <code class="code" id="-fqvk0k_23">MainViewController()</code> that returns <a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/" id="-fqvk0k_24" data-external="true" rel="noopener noreferrer"><code class="code" id="-fqvk0k_25">UIViewController</code></a> from UIKit and contains Compose Multiplatform code:</p><div class="code-block" data-lang="kotlin">
+fun MainViewController(): UIViewController =
+    ComposeUIViewController {
+        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text(&quot;This is Compose code&quot;, fontSize = 20.sp)
+        }
+    }
+</div><p id="-fqvk0k_13"><a href="https://github.com/JetBrains/compose-multiplatform-core/blob/5b487914cc20df24187f9ddf54534dfec30f6752/compose/ui/ui/src/uikitMain/kotlin/androidx/compose/ui/window/ComposeWindow.uikit.kt" id="-fqvk0k_26" data-external="true" rel="noopener noreferrer"><code class="code" id="-fqvk0k_29">ComposeUIViewController()</code></a> is a Compose Multiplatform library function that accepts a composable function as the <code class="code" id="-fqvk0k_27">content</code> argument. The function passed in this way can call other composable functions, for example, <code class="code" id="-fqvk0k_28">Text()</code>.</p><aside class="prompt" data-type="tip" data-title="" id="-fqvk0k_14"><p id="-fqvk0k_30">Composable functions are functions that have the <code class="code" id="-fqvk0k_31">@Composable</code> annotation.</p></aside><p id="-fqvk0k_15">Next, you need a structure that represents Compose Multiplatform in SwiftUI. Create the following structure that converts a <code class="code" id="-fqvk0k_32">UIViewController</code> instance to a SwiftUI view:</p><div class="code-block" data-lang="swift">
+struct ComposeViewController: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -&gt; UIViewController {
+        return Main_iosKt.MainViewController()
+    }
+
+    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+    }
+}
+</div><p id="-fqvk0k_17">Now you can use the <code class="code" id="-fqvk0k_33">ComposeView</code> structure in other SwiftUI code.</p><p id="-fqvk0k_18"><code class="code" id="-fqvk0k_34">Main_iosKt.MainViewController</code> is a generated name. You can learn more about accessing Kotlin code from Swift on the <a href="https://kotlinlang.org/docs/native-objc-interop.html#top-level-functions-and-properties" id="-fqvk0k_35" data-external="true" rel="noopener noreferrer">Interoperability with Swift/Objective-C</a> page.</p><p id="-fqvk0k_19">In the end, your application should look like this:</p><figure id="-fqvk0k_20"><img alt="ComposeView" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-view.png" title="ComposeView" width="300" height="593"></figure><p id="-fqvk0k_21">You can use this <code class="code" id="-fqvk0k_36">ComposeView</code> in any SwiftUI view hierarchy and control its size from within SwiftUI code.</p><p id="-fqvk0k_22">If you want to embed Compose Multiplatform into your existing applications, use the <code class="code" id="-fqvk0k_37">ComposeView</code> structure wherever SwiftUI is used. For an example, see our <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/examples/interop/ios-compose-in-swiftui" id="-fqvk0k_38" data-external="true" rel="noopener noreferrer">sample project</a>.</p></section><section class="chapter"><h2 id="use-swiftui-inside-compose-multiplatform" data-toc="use-swiftui-inside-compose-multiplatform">Use SwiftUI inside Compose Multiplatform</h2><p id="-fqvk0k_39">To use SwiftUI inside Compose Multiplatform, add your Swift code to an intermediate <a href="https://developer.apple.com/documentation/uikit/uiviewcontroller/" id="-fqvk0k_50" data-external="true" rel="noopener noreferrer"><code class="code" id="-fqvk0k_51">UIViewController</code></a>. Currently, you can't write SwiftUI structures directly in Kotlin. Instead, you have to write them in Swift and pass them to a Kotlin function.</p><p id="-fqvk0k_40">To start, add an argument to your entry point function to create a <code class="code" id="-fqvk0k_52">ComposeUIViewController</code> component:</p><div class="code-block" data-lang="kotlin">
+@OptIn(ExperimentalForeignApi::class)
+fun ComposeEntryPointWithUIViewController(
+    createUIViewController: () -&gt; UIViewController
+): UIViewController =
+    ComposeUIViewController {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .windowInsetsPadding(WindowInsets.systemBars),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(&quot;How to use SwiftUI inside Compose Multiplatform&quot;)
+            UIKitViewController(
+                factory = createUIViewController,
+                modifier = Modifier.size(300.dp).border(2.dp, Color.Blue),
+            )
+        }
+    }
+</div><p id="-fqvk0k_42">In your Swift code, pass the <code class="code" id="-fqvk0k_53">createUIViewController</code> to your entry point function. You can use a <code class="code" id="-fqvk0k_54">UIHostingController</code> instance to wrap SwiftUI views:</p><div class="code-block" data-lang="swift">
+Main_iosKt.ComposeEntryPointWithUIViewController(createUIViewController: { () -&gt; UIViewController in
+    let swiftUIView = VStack {
+        Text(&quot;SwiftUI in Compose Multiplatform&quot;)
+    }
+    return UIHostingController(rootView: swiftUIView)
+})
+</div><p id="-fqvk0k_44">In the end, your application should look like this:</p><figure id="-fqvk0k_45"><img alt="UIView" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/uiview.png" title="UIView" width="300" height="592"></figure><p id="-fqvk0k_46">Explore the code for this example in the <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/examples/interop/ios-swiftui-in-compose" id="-fqvk0k_55" data-external="true" rel="noopener noreferrer">sample project</a>.</p><section class="chapter"><h3 id="map-view" data-toc="map-view">Map view</h3><p id="-fqvk0k_56">You can implement a map view in Compose Multiplatform using SwiftUI's <a href="https://developer.apple.com/documentation/mapkit/map" id="-fqvk0k_65" data-external="true" rel="noopener noreferrer"><code class="code" id="-fqvk0k_66">Map</code></a> component. This allows your application to display fully interactive SwiftUI maps.</p><p id="-fqvk0k_57">For the same <a href="#use-swiftui-inside-compose-multiplatform" id="-fqvk0k_67">Kotlin entry point function</a>, in Swift, pass the <code class="code" id="-fqvk0k_68">UIViewController</code> that wraps the <code class="code" id="-fqvk0k_69">Map</code> view using a <code class="code" id="-fqvk0k_70">UIHostingController</code>:</p><div class="code-block" data-lang="swift">
+import SwiftUI
+import MapKit
+
+Main_iosKt.ComposeEntryPointWithUIViewController(createUIViewController: {
+    let region = Binding.constant(
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194),
+            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        )
+    )
+
+    let mapView = Map(coordinateRegion: region)
+    return UIHostingController(rootView: mapView)
+})
+</div><p id="-fqvk0k_59">Now, let's look at an advanced example. This code adds a custom annotation to the SwiftUI map and allows you to update the view state from Swift:</p><div class="code-block" data-lang="swift">
+import SwiftUI
+import MapKit
+
+struct AnnotatedMapView: View {
+    // Manages map region state
+    @State private var region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 51.5074, longitude: -0.1278),
+        span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+    )
+    // Displays a map with a custom annotation
+    var body: some View {
+        Map(coordinateRegion: $region, annotationItems: [Landmark.example]) { landmark in
+            MapMarker(coordinate: landmark.coordinate, tint: .blue)
+        }
+    }
+}
+
+struct Landmark: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+
+    static let example = Landmark(
+        name: &quot;Big Ben&quot;,
+        coordinate: CLLocationCoordinate2D(latitude: 51.5007, longitude: -0.1246)
+    )
+}
+</div><p id="-fqvk0k_61">You can then wrap this annotated map in a <code class="code" id="-fqvk0k_71">UIHostingController</code> and pass it to your Compose Multiplatform code:</p><div class="code-block" data-lang="swift">
+Main_iosKt.ComposeEntryPointWithUIViewController(createUIViewController: {
+    return UIHostingController(rootView: AnnotatedMapView())
+})
+</div><p id="-fqvk0k_63">The <code class="code" id="-fqvk0k_72">AnnotatedMapView</code> performs the following tasks:</p><ul class="list _bullet" id="-fqvk0k_64"><li class="list__item" id="-fqvk0k_73"><p>Defines a SwiftUI <code class="code" id="-fqvk0k_78">Map</code> view and embeds it inside a custom view called <code class="code" id="-fqvk0k_79">AnnotatedMapView</code>.</p></li><li class="list__item" id="-fqvk0k_74"><p>Manages internal state for map positioning using <code class="code" id="-fqvk0k_80">@State</code> and <code class="code" id="-fqvk0k_81">MKCoordinateRegion</code>, allowing Compose Multiplatform to display an interactive, state-aware map.</p></li><li class="list__item" id="-fqvk0k_75"><p>Displays a <code class="code" id="-fqvk0k_82">MapMarker</code> on the map using a static <code class="code" id="-fqvk0k_83">Landmark</code> model that conforms to <code class="code" id="-fqvk0k_84">Identifiable</code>, which is required for annotations in SwiftUI.</p></li><li class="list__item" id="-fqvk0k_76"><p>Uses <code class="code" id="-fqvk0k_85">annotationItems</code> to declaratively place custom markers on the map.</p></li><li class="list__item" id="-fqvk0k_77"><p>Wraps the SwiftUI component inside a <code class="code" id="-fqvk0k_86">UIHostingController</code>, which is then passed to Compose Multiplatform as a <code class="code" id="-fqvk0k_87">UIViewController</code>.</p></li></ul></section><section class="chapter"><h3 id="camera-view" data-toc="camera-view">Camera view</h3><p id="-fqvk0k_88">You can implement a camera view in Compose Multiplatform using SwiftUI and UIKit's <a href="https://developer.apple.com/documentation/uikit/uiimagepickercontroller" id="-fqvk0k_98" data-external="true" rel="noopener noreferrer"><code class="code" id="-fqvk0k_99">UIImagePickerController</code></a>, wrapped in a SwiftUI-compatible component. This allows your application to launch the system camera and capture photos.</p><p id="-fqvk0k_89">For the same <a href="#use-swiftui-inside-compose-multiplatform" id="-fqvk0k_100">Kotlin entry point function</a>, in Swift, define a basic <code class="code" id="-fqvk0k_101">CameraView</code> using <code class="code" id="-fqvk0k_102">UIImagePickerController</code> and embed it using <code class="code" id="-fqvk0k_103">UIHostingController</code>:</p><div class="code-block" data-lang="swift">
+Main_iosKt.ComposeEntryPointWithUIViewController(createUIViewController: {
+    return UIHostingController(rootView: CameraView { image in
+        // Handle captured image here
+    })
+})
+</div><p id="-fqvk0k_91">To make this work, define <code class="code" id="-fqvk0k_104">CameraView</code> as follows:</p><div class="code-block" data-lang="swift">
+import SwiftUI
+import UIKit
+
+struct CameraView: UIViewControllerRepresentable {
+    let imageHandler: (UIImage) -&gt; Void
+    @Environment(\.presentationMode) private var presentationMode
+
+    init(imageHandler: @escaping (UIImage) -&gt; Void) {
+        self.imageHandler = imageHandler
+    }
+
+    func makeCoordinator() -&gt; Coordinator {
+        Coordinator(self)
+    }
+
+    func makeUIViewController(context: Context) -&gt; UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.delegate = context.coordinator
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
+
+    class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+        let parent: CameraView
+
+        init(_ parent: CameraView) {
+            self.parent = parent
+        }
+
+        func imagePickerController(_ picker: UIImagePickerController,
+                                   didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let image = info[.originalImage] as? UIImage {
+                parent.imageHandler(image)
+            }
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            parent.presentationMode.wrappedValue.dismiss()
+        }
+    }
+}
+</div><p id="-fqvk0k_93">Now, let's look at an advanced example. This code presents a camera view and displays a thumbnail of the captured image in the same SwiftUI view:</p><div class="code-block" data-lang="swift">
+import SwiftUI
+import UIKit
+
+struct CameraPreview: View {
+    // Controls the camera sheet visibility
+    @State private var showCamera = false
+    // Stores the captured image
+    @State private var capturedImage: UIImage?
+
+    var body: some View {
+        VStack {
+            if let image = capturedImage {
+                // Displays the captured image
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 200)
+            } else {
+                // Shows placeholder text when no image is captured
+                Text(&quot;No image captured&quot;)
+            }
+
+            // Adds a button to open the camera
+            Button(&quot;Open Camera&quot;) {
+                showCamera = true
+            }
+            // Presents CameraView as a modal sheet
+            .sheet(isPresented: $showCamera) {
+                CameraView { image in
+                    capturedImage = image
+                }
+            }
+        }
+    }
+}
+</div><p id="-fqvk0k_95">The <code class="code" id="-fqvk0k_105">CameraPreview</code> view performs the following tasks:</p><ul class="list _bullet" id="-fqvk0k_96"><li class="list__item" id="-fqvk0k_106"><p>Presents a <code class="code" id="-fqvk0k_110">CameraView</code> in a modal <code class="code" id="-fqvk0k_111">.sheet</code> when the user taps a button.</p></li><li class="list__item" id="-fqvk0k_107"><p>Uses the <code class="code" id="-fqvk0k_112">@State</code> property wrapper to store and display the captured image.</p></li><li class="list__item" id="-fqvk0k_108"><p>Embeds SwiftUI's native <code class="code" id="-fqvk0k_113">Image</code> view to preview the photo.</p></li><li class="list__item" id="-fqvk0k_109"><p>Reuses the same <code class="code" id="-fqvk0k_114">UIViewControllerRepresentable</code>-based <code class="code" id="-fqvk0k_115">CameraView</code> as before, but integrates it more deeply into the SwiftUI state system.</p></li></ul><aside class="prompt" data-type="note" data-title="" id="-fqvk0k_97"><p id="-fqvk0k_116">To test on a real device, you need to add the <code class="code" id="-fqvk0k_117">NSCameraUsageDescription</code> key to your app's <code class="code" id="-fqvk0k_118">Info.plist</code> file. Without it, the app will crash at runtime.</p></aside></section><section class="chapter"><h3 id="web-view" data-toc="web-view">Web view</h3><p id="-fqvk0k_119">You can implement a web view in Compose Multiplatform using SwiftUI by wrapping UIKit's <a href="https://developer.apple.com/documentation/webkit/wkwebview" id="-fqvk0k_128" data-external="true" rel="noopener noreferrer"><code class="code" id="-fqvk0k_130">WKWebView</code></a> component with <code class="code" id="-fqvk0k_129">UIViewRepresentable</code>. This allows you to display embedded web content with full native rendering.</p><p id="-fqvk0k_120">For the same <a href="#use-swiftui-inside-compose-multiplatform" id="-fqvk0k_131">Kotlin entry point function</a>, in Swift, define a basic <code class="code" id="-fqvk0k_132">WebView</code> embedded using <code class="code" id="-fqvk0k_133">UIHostingController</code>:</p><div class="code-block" data-lang="swift">
+Main_iosKt.ComposeEntryPointWithUIViewController(createUIViewController: {
+    let url = URL(string: &quot;https://www.jetbrains.com&quot;)!
+    return UIHostingController(rootView: WebView(url: url))
+})
+</div><p id="-fqvk0k_122">Now, let's look at an advanced example. This code adds navigation tracking and loading state display to the web view:</p><div class="code-block" data-lang="swift">
+import SwiftUI
+import UIKit
+import WebKit
+
+struct AdvancedWebView: UIViewRepresentable {
+    let url: URL
+    @Binding var isLoading: Bool
+    @Binding var currentURL: String
+
+    // Creates WKWebView with navigation delegate
+    func makeUIView(context: Context) -&gt; WKWebView {
+        let webView = WKWebView()
+        webView.navigationDelegate = context.coordinator
+        webView.load(URLRequest(url: url))
+        return webView
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {}
+
+    // Creates coordinator to handle web navigation events 
+    func makeCoordinator() -&gt; Coordinator {
+        Coordinator(isLoading: $isLoading, currentURL: $currentURL)
+    }
+
+    class Coordinator: NSObject, WKNavigationDelegate {
+        @Binding var isLoading: Bool
+        @Binding var currentURL: String
+
+        init(isLoading: Binding&lt;Bool&gt;, currentURL: Binding&lt;String&gt;) {
+            _isLoading = isLoading
+            _currentURL = currentURL
+        }
+
+        func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation?) {
+            isLoading = true
+        }
+
+        // Updates URL and indicates loading has completed
+        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation?) {
+            isLoading = false
+            currentURL = webView.url?.absoluteString ?? &quot;&quot;
+        }
+    }
+}
+</div><p id="-fqvk0k_124">Use it in a SwiftUI view as follows:</p><div class="code-block" data-lang="swift">
+struct WebViewContainer: View {
+    // Tracks loading state of web view
+    @State private var isLoading = false
+    // Tracks current URL displayed
+    @State private var currentURL = &quot;&quot;
+
+    var body: some View {
+        VStack {
+            // Displays loading indicator while loading
+            if isLoading {
+                ProgressView()
+            }
+            // Shows current URL
+            Text(&quot;URL: \(currentURL)&quot;)
+                .font(.caption)
+                .lineLimit(1)
+                .truncationMode(.middle)
+
+            // Embeds the advanced web view
+            AdvancedWebView(
+                url: URL(string: &quot;https://www.jetbrains.com&quot;)!,
+                isLoading: $isLoading,
+                currentURL: $currentURL
+            )
+        }
+    }
+}
+</div><p id="-fqvk0k_126">The <code class="code" id="-fqvk0k_134">AdvancedWebView</code> and <code class="code" id="-fqvk0k_135">WebViewContainer</code> perform the following tasks:</p><ul class="list _bullet" id="-fqvk0k_127"><li class="list__item" id="-fqvk0k_136"><p>Create a <code class="code" id="-fqvk0k_141">WKWebView</code> with a custom navigation delegate to track loading progress and URL changes.</p></li><li class="list__item" id="-fqvk0k_137"><p>Use SwiftUI's <code class="code" id="-fqvk0k_142">@State</code> bindings to dynamically update the UI in response to navigation events.</p></li><li class="list__item" id="-fqvk0k_138"><p>Display a <code class="code" id="-fqvk0k_143">ProgressView</code> spinner while a page is loading.</p></li><li class="list__item" id="-fqvk0k_139"><p>Show the current URL at the top of the view using a <code class="code" id="-fqvk0k_144">Text</code> component.</p></li><li class="list__item" id="-fqvk0k_140"><p>Use <code class="code" id="-fqvk0k_145">UIHostingController</code> to integrate this component into your Compose UI.</p></li></ul></section></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><p id="-fqvk0k_146">You can also explore the way Compose Multiplatform can be <a href="compose-uikit-integration.html" id="-fqvk0k_147">integrated with the UIKit framework</a>.</p></section><div class="last-modified">Last modified: 21 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-localization-tests.html" class="navigation-links__prev">Localization tests</a><a href="compose-uikit-integration.html" class="navigation-links__next">Integration with the UIKit framework</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

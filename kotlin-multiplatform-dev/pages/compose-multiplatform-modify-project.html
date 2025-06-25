@@ -1,0 +1,117 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:16.541056426"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Modify the project | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"add-a-new-dependency","level":0,"title":"Add a new dependency","anchor":"#add-a-new-dependency"},{"id":"enhance-the-user-interface","level":0,"title":"Enhance the user interface","anchor":"#enhance-the-user-interface"},{"id":"rerun-the-application","level":0,"title":"Rerun the application","anchor":"#rerun-the-application"},{"id":"next-step","level":0,"title":"Next step","anchor":"#next-step"},{"id":"get-help","level":0,"title":"Get help","anchor":"#get-help"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Modify the project | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-modify-project.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Modify the project | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-modify-project.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-modify-project.html",
+    "name": "Modify the project | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-multiplatform-modify-project" data-main-title="Modify the project" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Choose your use case///Create an app with shared logic and UI" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose-onboard/compose-multiplatform-modify-project.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-multiplatform-modify-project" data-annotation-ids="IntelliJ IDEA,Android Studio" id="compose-multiplatform-modify-project.md">Modify the project</h1><div class="micro-format" data-content="{&quot;microFormat&quot;:[&quot;\u003cp id\u003d\&quot;-fm7biv_11\&quot;\u003eThis tutorial uses IntelliJ IDEA, but you can also follow it in Android Studio \u0026ndash; both IDEs share the same core functionality and Kotlin Multiplatform support.\u003c/p\u003e&quot;,&quot;\u003cbr\u003e&quot;,&quot;\u003cp id\u003d\&quot;-fm7biv_13\&quot;\u003eThis is the third part of the \u003cb id\u003d\&quot;-fm7biv_15\&quot;\u003eCreate a Compose Multiplatform app with shared logic and UI\u003c/b\u003e tutorial. Before proceeding, make sure you\u0027ve completed previous steps.\u003c/p\u003e&quot;,&quot;\u003cp id\u003d\&quot;-fm7biv_14\&quot;\u003e\u003cimg alt\u003d\&quot;First step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-1-done.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;First step\&quot; id\u003d\&quot;-fm7biv_16\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e \u003ca href\u003d\&quot;compose-multiplatform-create-first-app.html\&quot; id\u003d\&quot;-fm7biv_17\&quot;\u003eCreate your Compose Multiplatform app\u003c/a\u003e\u003cbr\u003e \u003cimg alt\u003d\&quot;Second step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-2-done.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;Second step\&quot; id\u003d\&quot;-fm7biv_19\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e \u003ca href\u003d\&quot;compose-multiplatform-explore-composables.html\&quot; id\u003d\&quot;-fm7biv_20\&quot;\u003eExplore composable code\u003c/a\u003e\u003cbr\u003e \u003cimg alt\u003d\&quot;Third step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-3.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;Third step\&quot; id\u003d\&quot;-fm7biv_22\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e \u003cb id\u003d\&quot;-fm7biv_23\&quot;\u003eModify the project\u003c/b\u003e\u003cbr\u003e \u003cimg alt\u003d\&quot;Fourth step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-4-todo.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;Fourth step\&quot; id\u003d\&quot;-fm7biv_25\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e Create your own application\u003cbr\u003e\u003c/p\u003e&quot;]}"></div><p id="-fm7biv_5">Let's modify the code generated by the Kotlin Multiplatform wizard and display the current date within the <code class="code" id="-fm7biv_27">App</code> composable. To do this, you'll add a new dependency to the project, enhance the UI, and rerun the application on each platform.</p><section class="chapter"><h2 id="add-a-new-dependency" data-toc="add-a-new-dependency">Add a new dependency</h2><p id="-fm7biv_28">You could retrieve the date using platform-specific libraries and <a href="multiplatform-expect-actual.html" id="-fm7biv_32">expected and actual declarations</a>. But we recommend that you use this approach only when there's no Kotlin Multiplatform library available. In this case, you can rely on the <a href="https://github.com/Kotlin/kotlinx-datetime" id="-fm7biv_33" data-external="true" rel="noopener noreferrer">kotlinx-datetime</a> library.</p><aside class="prompt" data-type="tip" data-title="" id="-fm7biv_29"><p id="-fm7biv_34">You can explore Kotlin Multiplatform libraries available for your target platforms on <a href="https://klibs.io/" id="-fm7biv_35" data-external="true" rel="noopener noreferrer">klibs.io</a>, an experimental search service from JetBrains for discovering multiplatform libraries.</p></aside><p id="-fm7biv_30">To use the <code class="code" id="-fm7biv_36">kotlinx-datetime</code> library:</p><ol class="list _decimal" id="-fm7biv_31" type="1"><li class="list__item" id="-fm7biv_37"><p id="-fm7biv_40">Open the <code class="code" id="-fm7biv_43">composeApp/build.gradle.kts</code> file and add it as a dependency to the project.</p><div class="code-block" data-lang="kotlin">
+kotlin {
+    // ...
+    sourceSets {
+        // ...
+        commonMain.dependencies {
+            // ...
+            implementation(&quot;org.jetbrains.kotlinx:kotlinx-datetime:0.6.2&quot;)
+        }
+        wasmJsMain.dependencies {
+            implementation(npm(&quot;@js-joda/timezone&quot;, &quot;2.22.0&quot;))
+        }
+    }
+}
+
+</div><ul class="list _bullet" id="-fm7biv_42"><li class="list__item" id="-fm7biv_44"><p>The main dependency is added to the section that configures the common code source set.</p></li><li class="list__item" id="-fm7biv_45"><p>For simplicity, the version number is included directly instead of being added to the version catalog.</p></li><li class="list__item" id="-fm7biv_46"><p>To support timezones in the web target, the reference to the necessary npm package is included in <code class="code" id="-fm7biv_47">wasmJsMain</code> dependencies.</p></li></ul></li><li class="list__item" id="-fm7biv_38"><p id="-fm7biv_48">Once the dependency is added, you're prompted to resync the project. Click the <span class="control" id="-fm7biv_49">Sync Gradle Changes</span> button to synchronize Gradle files: <img alt="Synchronize Gradle files" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/gradle-sync.png" class="inline-icon-" title="Synchronize Gradle files" id="-fm7biv_50" width="50" height="27"></p></li><li class="list__item" id="-fm7biv_39"><p id="-fm7biv_51">In the <span class="control" id="-fm7biv_54">Terminal</span> tool window, run the following command:</p><div class="code-block" data-lang="bash">
+./gradlew kotlinUpgradeYarnLock
+</div><p id="-fm7biv_53">This Gradle task ensures that the <code class="code" id="-fm7biv_55">yarn.lock</code> file is updated with the latest dependency versions.</p></li></ol></section><section class="chapter"><h2 id="enhance-the-user-interface" data-toc="enhance-the-user-interface">Enhance the user interface</h2><ol class="list _decimal" id="-fm7biv_56" type="1"><li class="list__item" id="-fm7biv_57"><p id="-fm7biv_61">Open the <code class="code" id="-fm7biv_63">composeApp/src/commonMain/kotlin/App.kt</code> file and add the following function which returns a string containing the current date:</p><div class="code-block" data-lang="kotlin">
+fun todaysDate(): String {
+    fun LocalDateTime.format() = toString().substringBefore('T')
+
+    val now = Clock.System.now()
+    val zone = TimeZone.currentSystemDefault()
+    return now.toLocalDateTime(zone).format()
+}
+</div></li><li class="list__item" id="-fm7biv_58"><p id="-fm7biv_64">In the same file, modify the <code class="code" id="-fm7biv_66">App()</code> composable to include the <code class="code" id="-fm7biv_67">Text()</code> composable that invokes this function and displays the result:</p><div class="code-block" data-lang="kotlin">
+@Composable
+@Preview
+fun App() {
+    MaterialTheme {
+        var showContent by remember { mutableStateOf(false) }
+        val greeting = remember { Greeting().greet() }
+        Column(
+            modifier = Modifier
+                .safeContentPadding()
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = &quot;Today's date is ${todaysDate()}&quot;,
+                modifier = Modifier.padding(20.dp),
+                fontSize = 24.sp,
+                textAlign = TextAlign.Center
+            )
+            Button(onClick = { showContent = !showContent }) {
+                Text(&quot;Click me!&quot;)
+            }
+            AnimatedVisibility(showContent) {
+                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Image(painterResource(Res.drawable.compose_multiplatform), null)
+                    Text(&quot;Compose: $greeting&quot;)
+                }
+            }
+        }
+    }
+}
+</div></li><li class="list__item" id="-fm7biv_59"><p id="-fm7biv_68">Follow the IDE's suggestions to import the missing dependencies. Make sure to import all the missing dependencies for the <code class="code" id="-fm7biv_70">todaysDate()</code> function from the <code class="code" id="-fm7biv_71">kotlinx.datetime</code> package, <span class="control" id="-fm7biv_72">NOT</span> <code class="code" id="-fm7biv_73">kotlin.time</code>.</p><figure id="-fm7biv_69"><img alt="Unresolved references" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-unresolved-references.png" title="Unresolved references" width="1436" height="274"></figure></li><li class="list__item" id="-fm7biv_60"><p id="-fm7biv_74">Switch the web app from using an <code class="code" id="-fm7biv_76">Element</code> as a container to an HTML element with an externally specified <code class="code" id="-fm7biv_77">id</code>:</p><ol class="list _decimal" id="-fm7biv_75" type="1"><li class="list__item" id="-fm7biv_78"><p id="-fm7biv_80">In the <code class="code" id="-fm7biv_82">composeApp/src/wasmJsMain/resources/index.html</code> file, add a named element within the <code class="code" id="-fm7biv_83">&lt;body&gt;</code>:</p><div class="code-block" data-lang="markup">
+&lt;body&gt;
+&lt;div id=&quot;composeApplication&quot; style=&quot;width:400px; height: 600px;&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</div></li><li class="list__item" id="-fm7biv_79"><p id="-fm7biv_84">In the <code class="code" id="-fm7biv_86">composeApp/src/wasmJsMain/kotlin/main.kt</code> file, change the <code class="code" id="-fm7biv_87">ComposeViewport</code> call to the <code class="code" id="-fm7biv_88">String</code> variant, pointing to the ID you specified in the HTML file:</p><div class="code-block" data-lang="kotlin">
+@OptIn(ExperimentalComposeUiApi::class)
+fun main() {
+    ComposeViewport(viewportContainerId = &quot;composeApplication&quot;) {
+        App()
+    }
+}
+</div></li></ol></li></ol></section><section class="chapter"><h2 id="rerun-the-application" data-toc="rerun-the-application">Rerun the application</h2><p id="-fm7biv_89">You can now rerun the application using the same run configurations for Android, iOS, desktop, and web:</p><div class="tabs" id="-fm7biv_90" data-anchors="[desktop-app,mobile-app,web-app]"><div class="tabs__content" data-gtm="tab" id="mobile-app" data-title="Android and iOS"><figure id="-fm7biv_94"><img alt="First Compose Multiplatform app on Android and iOS" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-android-ios-2.png" title="First Compose Multiplatform app on Android and iOS" width="500" height="507"></figure></div><div class="tabs__content" data-gtm="tab" id="desktop-app" data-title="Desktop"><figure id="-fm7biv_95"><img alt="First Compose Multiplatform app on desktop" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-desktop-2.png" title="First Compose Multiplatform app on desktop" width="400" height="299"></figure></div><div class="tabs__content" data-gtm="tab" id="web-app" data-title="Web"><figure id="-fm7biv_96"><img alt="First Compose Multiplatform app on web" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-web-2.png" title="First Compose Multiplatform app on web" width="400" height="543"></figure></div></div></section><section class="chapter"><h2 id="next-step" data-toc="next-step">Next step</h2><p id="-fm7biv_97">In the next part of the tutorial, you'll learn new Compose Multiplatform concepts and create your own application from scratch.</p><p id="-fm7biv_98"><span class="control" id="-fm7biv_99"><a href="compose-multiplatform-new-project.html" id="-fm7biv_100">Proceed to the next part</a></span></p></section><section class="chapter"><h2 id="get-help" data-toc="get-help">Get help</h2><ul class="list _bullet" id="-fm7biv_101"><li class="list__item" id="-fm7biv_102"><p><span class="control" id="-fm7biv_104">Kotlin Slack</span>. Get an <a href="https://surveys.jetbrains.com/s3/kotlin-slack-sign-up" id="-fm7biv_105" data-external="true" rel="noopener noreferrer">invite</a> and join the <a href="https://kotlinlang.slack.com/archives/C3PQML5NU" id="-fm7biv_106" data-external="true" rel="noopener noreferrer">#multiplatform</a> channel.</p></li><li class="list__item" id="-fm7biv_103"><p><span class="control" id="-fm7biv_107">Kotlin issue tracker</span>. <a href="https://youtrack.jetbrains.com/newIssue?project=KT" id="-fm7biv_108" data-external="true" rel="noopener noreferrer">Report a new issue</a>.</p></li></ul></section><div class="last-modified">Last modified: 11 June 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-multiplatform-explore-composables.html" class="navigation-links__prev">Explore composable code</a><a href="compose-multiplatform-new-project.html" class="navigation-links__next">Create your own application</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

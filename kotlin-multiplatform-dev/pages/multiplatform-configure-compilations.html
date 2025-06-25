@@ -1,0 +1,266 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:23.530579422"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Configure compilations | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"configure-all-compilations","level":0,"title":"Configure all compilations","anchor":"#configure-all-compilations"},{"id":"configure-compilations-for-one-target","level":0,"title":"Configure compilations for one target","anchor":"#configure-compilations-for-one-target"},{"id":"configure-one-compilation","level":0,"title":"Configure one compilation","anchor":"#configure-one-compilation"},{"id":"create-a-custom-compilation","level":0,"title":"Create a custom compilation","anchor":"#create-a-custom-compilation"},{"id":"compilation-for-jvm","level":0,"title":"Compilation for JVM","anchor":"#compilation-for-jvm"},{"id":"configure-interop-with-native-languages","level":0,"title":"Configure interop with native languages","anchor":"#configure-interop-with-native-languages"},{"id":"compilation-for-android","level":0,"title":"Compilation for Android","anchor":"#compilation-for-android"},{"id":"compilation-of-the-source-set-hierarchy","level":0,"title":"Compilation of the source set hierarchy","anchor":"#compilation-of-the-source-set-hierarchy"},{"id":"configure-isolated-projects-feature-in-gradle","level":0,"title":"Configure Isolated Projects feature in Gradle","anchor":"#configure-isolated-projects-feature-in-gradle"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Configure compilations | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-configure-compilations.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Configure compilations | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-configure-compilations.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-configure-compilations.html",
+    "name": "Configure compilations | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="multiplatform-configure-compilations" data-main-title="Configure compilations" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compile artifacts" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/development/multiplatform-configure-compilations.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="multiplatform-configure-compilations" id="multiplatform-configure-compilations.md">Configure compilations</h1><p id="qqpeyb_2">Kotlin multiplatform projects use compilations for producing artifacts. Each target can have one or more compilations, for example, for production and test purposes.</p><p id="qqpeyb_3">For each target, default compilations include:</p><ul class="list _bullet" id="qqpeyb_4"><li class="list__item" id="qqpeyb_19"><p><code class="code" id="qqpeyb_21">main</code> and <code class="code" id="qqpeyb_22">test</code> compilations for JVM, JS, and Native targets.</p></li><li class="list__item" id="qqpeyb_20"><p>A <a href="#compilation-for-android" id="qqpeyb_23">compilation</a> per <a href="https://developer.android.com/build/build-variants" id="qqpeyb_24" data-external="true" rel="noopener noreferrer">Android build variant</a>, for Android targets.</p></li></ul><figure id="qqpeyb_5"><img alt="Compilations" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compilations.svg" title="Compilations" width="706" height="469"></figure><p id="qqpeyb_6">If you need to compile something other than production code and unit tests, for example, integration or performance tests, you can <a href="#create-a-custom-compilation" id="qqpeyb_25">create a custom compilation</a>.</p><p id="qqpeyb_7">You can configure how artifacts are produced in:</p><ul class="list _bullet" id="qqpeyb_8"><li class="list__item" id="qqpeyb_26"><p><a href="#configure-all-compilations" id="qqpeyb_29">All compilations</a> in your project at once.</p></li><li class="list__item" id="qqpeyb_27"><p><a href="#configure-compilations-for-one-target" id="qqpeyb_30">Compilations for one target</a> since one target can have multiple compilations.</p></li><li class="list__item" id="qqpeyb_28"><p><a href="#configure-one-compilation" id="qqpeyb_31">A specific compilation</a>.</p></li></ul><p id="qqpeyb_9">See the <a href="multiplatform-dsl-reference.html#compilation-parameters" id="qqpeyb_32">list of compilation parameters</a> and <a href="https://kotlinlang.org/docs/gradle-compiler-options.html" id="qqpeyb_33" data-external="true" rel="noopener noreferrer">compiler options</a> available for all or specific targets.</p><section class="chapter"><h2 id="configure-all-compilations" data-toc="configure-all-compilations">Configure all compilations</h2><p id="qqpeyb_34">This example configures a compiler option that is common across all targets:</p><div class="tabs" id="qqpeyb_35" data-group="build-script" data-anchors="[qqpeyb_36,qqpeyb_37]"><div class="tabs__content" data-gtm="tab" id="qqpeyb_36" data-sync-tabs="kotlin" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+kotlin {
+    compilerOptions {
+        allWarningsAsErrors.set(true)
+    }
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="qqpeyb_37" data-sync-tabs="groovy" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+kotlin {
+    compilerOptions {
+        allWarningsAsErrors = true
+    }
+}
+</div></div></div></section><section class="chapter"><h2 id="configure-compilations-for-one-target" data-toc="configure-compilations-for-one-target">Configure compilations for one target</h2><div class="tabs" id="qqpeyb_40" data-group="build-script" data-anchors="[qqpeyb_41,qqpeyb_42]"><div class="tabs__content" data-gtm="tab" id="qqpeyb_41" data-sync-tabs="kotlin" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+kotlin {
+    jvm {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_1_8)
+        }
+    }
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="qqpeyb_42" data-sync-tabs="groovy" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+kotlin {
+    jvm {
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_1_8
+        }
+    }
+}
+</div></div></div></section><section class="chapter"><h2 id="configure-one-compilation" data-toc="configure-one-compilation">Configure one compilation</h2><div class="tabs" id="qqpeyb_45" data-group="build-script" data-anchors="[qqpeyb_46,qqpeyb_47]"><div class="tabs__content" data-gtm="tab" id="qqpeyb_46" data-sync-tabs="kotlin" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+kotlin {
+    jvm {
+        val main by compilations.getting {
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(JvmTarget.JVM_1_8)
+                }
+            }
+        }
+    }
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="qqpeyb_47" data-sync-tabs="groovy" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+kotlin {
+    jvm {
+        compilations.main {
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget = JvmTarget.JVM_1_8
+                }
+            }
+        }
+    }
+}
+</div></div></div></section><section class="chapter"><h2 id="create-a-custom-compilation" data-toc="create-a-custom-compilation">Create a custom compilation</h2><p id="qqpeyb_50">If you need to compile something other than production code and unit tests, for example, integration or performance tests, create a custom compilation.</p><p id="qqpeyb_51">For custom compilations, you need to set up all dependencies manually. The default source set of a custom compilation does not depend on the <code class="code" id="qqpeyb_57">commonMain</code> and the <code class="code" id="qqpeyb_58">commonTest</code> source sets.</p><p id="qqpeyb_52">For example, to create a custom compilation for integration tests of the <code class="code" id="qqpeyb_59">jvm</code> target, set up an <a href="https://kotlinlang.org/docs/gradle-configure-project.html#associate-compiler-tasks" id="qqpeyb_60" data-external="true" rel="noopener noreferrer"><code class="code" id="qqpeyb_63">associateWith</code></a> relation between the <code class="code" id="qqpeyb_61">integrationTest</code> and <code class="code" id="qqpeyb_62">main</code> compilations:</p><div class="tabs" id="qqpeyb_53" data-group="build-script" data-anchors="[qqpeyb_64,qqpeyb_65]"><div class="tabs__content" data-gtm="tab" id="qqpeyb_64" data-sync-tabs="kotlin" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+kotlin {
+    jvm {
+        compilations {
+            val main by getting
+            val integrationTest by creating {
+                // Import main and its classpath as dependencies and establish internal visibility
+                associateWith(main)
+                defaultSourceSet {
+                    dependencies {
+                        implementation(kotlin(&quot;test-junit&quot;))
+                        /* ... */
+                    }
+                }
+                
+                // Create a test task to run the tests produced by this compilation:
+                testRuns.create(&quot;integration&quot;) {
+                    // Configure the test task
+                    setExecutionSourceFrom(integrationTest)
+                }
+            }
+        }
+    }
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="qqpeyb_65" data-sync-tabs="groovy" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+kotlin {
+    jvm {
+        compilations.create('integrationTest') {
+            def main = compilations.main
+            // Import main and its classpath as dependencies and establish internal visibility
+            associateWith(main)
+            defaultSourceSet {
+                dependencies {
+                    implementation kotlin('test-junit')
+                    /* ... */
+                }
+            }
+
+            // Create a test task to run the tests produced by this compilation
+            testRuns.create('integration') {
+                // Configure the test task
+                setExecutionSourceFrom(compilations.integrationTest)
+            }
+        }
+    }
+}
+</div></div></div><p id="qqpeyb_54">By associating compilations, you add the main compilation output as a dependency and establish the <code class="code" id="qqpeyb_68">internal</code> visibility between compilations.</p><p id="qqpeyb_55">Custom compilations are also necessary in other cases. For example, if you want to combine compilations for different JVM versions in your final artifact, or you have already set up source sets in Gradle and want to migrate to a multiplatform project.</p><aside class="prompt" data-type="tip" data-title="" id="qqpeyb_56"><p id="qqpeyb_69">To create custom compilations for the <a href="#compilation-for-android" id="qqpeyb_70"><code class="code" id="qqpeyb_72">androidTarget</code></a>, set up build variants through the <a href="https://developer.android.com/build/build-variants" id="qqpeyb_71" data-external="true" rel="noopener noreferrer">Android Gradle plugin</a>.</p></aside></section><section class="chapter"><h2 id="compilation-for-jvm" data-toc="compilation-for-jvm">Compilation for JVM</h2><p id="qqpeyb_73">When you declare the <code class="code" id="qqpeyb_81">jvm</code> target in your multiplatform project, the Kotlin Multiplatform plugin automatically creates Java sources sets and includes them in the compilations of the JVM target.</p><p id="qqpeyb_74">The common source sets can't include Java resources, so you should place them in the corresponding child directories of your multiplatform project. For example:</p><figure id="qqpeyb_75"><img alt="Java source files" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/java-source-paths.png" title="Java source files" width="200" height="227"></figure><p id="qqpeyb_76">Currently, the Kotlin Multiplatform plugin replaces some tasks configured by the Java plugin:</p><ul class="list _bullet" id="qqpeyb_77"><li class="list__item" id="qqpeyb_82"><p>JAR task: instead of a standard <code class="code" id="qqpeyb_85">jar</code>, it uses a target-specific task based on the artifact's name, for example, <code class="code" id="qqpeyb_86">jvmJar</code> for the <code class="code" id="qqpeyb_87">jvm()</code> target declaration and <code class="code" id="qqpeyb_88">desktopJar</code> for <code class="code" id="qqpeyb_89">jvm(&quot;desktop&quot;)</code>.</p></li><li class="list__item" id="qqpeyb_83"><p>Test task: instead of a standard <code class="code" id="qqpeyb_90">test</code>, it uses a target-specific task based on the artifact's name, for example, <code class="code" id="qqpeyb_91">jvmTest</code>.</p></li><li class="list__item" id="qqpeyb_84"><p>Resource processing: instead of <code class="code" id="qqpeyb_92">*ProcessResources</code> tasks, resources are handled by the corresponding compilation tasks.</p></li></ul><p id="qqpeyb_78">These tasks are created automatically when the target is declared. However, you can manually define the JAR task and configure it if necessary:</p><div class="tabs" id="qqpeyb_79" data-group="build-script" data-anchors="[qqpeyb_93,qqpeyb_94]"><div class="tabs__content" data-gtm="tab" id="qqpeyb_93" data-sync-tabs="kotlin" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+// Shared module's `build.gradle.kts` file
+plugins {
+    kotlin(&quot;multiplatform&quot;) version &quot;2.2.0&quot;
+}
+
+kotlin {
+    // Specify the JVM target
+    jvm {
+        // Add the task for JAR generation
+        tasks.named&lt;Jar&gt;(artifactsTaskName).configure {
+            // Configure the task
+        }
+    }
+
+    sourceSets {
+        jvmMain {
+            dependencies {
+                // Add JVM-specific dependencies
+            }
+        }
+    }
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="qqpeyb_94" data-sync-tabs="groovy" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+// Shared module's `build.gradle` file
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '2.2.0'
+}
+
+kotlin {
+    // Specify the JVM target
+    jvm {
+        // Add the task for JAR generation
+        tasks.named&lt;Jar&gt;(artifactsTaskName).configure {
+            // Configure the task
+        }
+    }
+
+    sourceSets {
+        jvmMain {
+            dependencies {
+                // Add JVM-specific dependencies
+            }
+        }
+    }
+}
+</div></div></div><p id="qqpeyb_80">This target is published by the Kotlin Multiplatform plugin and doesn't require steps that are specific to the Java plugin.</p></section><section class="chapter"><h2 id="configure-interop-with-native-languages" data-toc="configure-interop-with-native-languages">Configure interop with native languages</h2><p id="qqpeyb_97">Kotlin provides <a href="https://kotlinlang.org/docs/native-overview.html" id="qqpeyb_101" data-external="true" rel="noopener noreferrer">interoperability with native languages</a> and DSL to configure this for a specific compilation.</p><div class="table-wrapper"><table class="wide" id="qqpeyb_98"><thead><tr class="ijRowHead" id="qqpeyb_102"><th id="qqpeyb_106"><p>Native language</p></th><th id="qqpeyb_107"><p>Supported platforms</p></th><th id="qqpeyb_108"><p>Comments</p></th></tr></thead><tbody><tr id="qqpeyb_103"><td id="qqpeyb_109"><p>C</p></td><td id="qqpeyb_110"><p>All platforms</p></td><td id="qqpeyb_111"></td></tr><tr id="qqpeyb_104"><td id="qqpeyb_112"><p>Objective-C</p></td><td id="qqpeyb_113"><p>Apple platforms (macOS, iOS, watchOS, tvOS)</p></td><td id="qqpeyb_114"></td></tr><tr id="qqpeyb_105"><td id="qqpeyb_115"><p>Swift via Objective-C</p></td><td id="qqpeyb_116"><p>Apple platforms (macOS, iOS, watchOS, tvOS)</p></td><td id="qqpeyb_117"><p>Kotlin can use only Swift declarations marked with the <code class="code" id="qqpeyb_118">@objc</code> attribute.</p></td></tr></tbody></table></div><p id="qqpeyb_99">A compilation can interact with several native libraries. Configure interoperability with available properties in the <a href="https://kotlinlang.org/docs/native-definition-file.html" id="qqpeyb_119" data-external="true" rel="noopener noreferrer">definition file</a> or in the <a href="multiplatform-dsl-reference.html#cinterops" id="qqpeyb_120"><code class="code" id="qqpeyb_121">cinterops</code> block</a> of your build file:</p><div class="tabs" id="qqpeyb_100" data-group="build-script" data-anchors="[qqpeyb_122,qqpeyb_123]"><div class="tabs__content" data-gtm="tab" id="qqpeyb_122" data-sync-tabs="kotlin" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+kotlin {
+    linuxX64 { // Replace with a target you need.
+        compilations.getByName(&quot;main&quot;) {
+            val myInterop by cinterops.creating {
+                // Def-file describing the native API.
+                // The default path is src/nativeInterop/cinterop/&lt;interop-name&gt;.def
+                definitionFile.set(project.file(&quot;def-file.def&quot;))
+                
+                // Package to place the Kotlin API generated.
+                packageName(&quot;org.sample&quot;)
+                
+                // Options to be passed to compiler by cinterop tool.
+                compilerOpts(&quot;-Ipath/to/headers&quot;)
+              
+                // Directories to look for headers.
+                includeDirs.apply {
+                    // Directories for header search (an equivalent of the -I&lt;path&gt; compiler option).
+                    allHeaders(&quot;path1&quot;, &quot;path2&quot;)
+                    
+                    // Additional directories to search headers listed in the 'headerFilter' def-file option.
+                    // -headerFilterAdditionalSearchPrefix command line option equivalent.
+                    headerFilterOnly(&quot;path1&quot;, &quot;path2&quot;)
+                }
+                // A shortcut for includeDirs.allHeaders.
+                includeDirs(&quot;include/directory&quot;, &quot;another/directory&quot;)
+            }
+            
+            val anotherInterop by cinterops.creating { /* ... */ }
+        }
+    }
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="qqpeyb_123" data-sync-tabs="groovy" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+kotlin {
+    linuxX64 { // Replace with a target you need.
+        compilations.main {
+            cinterops {
+                myInterop {
+                    // Def-file describing the native API.
+                    // The default path is src/nativeInterop/cinterop/&lt;interop-name&gt;.def
+                    definitionFile = project.file(&quot;def-file.def&quot;)
+                    
+                    // Package to place the Kotlin API generated.
+                    packageName 'org.sample'
+                    
+                    // Options to be passed to compiler by cinterop tool.
+                    compilerOpts '-Ipath/to/headers'
+                    
+                    // Directories for header search (an equivalent of the -I&lt;path&gt; compiler option).
+                    includeDirs.allHeaders(&quot;path1&quot;, &quot;path2&quot;)
+                    
+                    // Additional directories to search headers listed in the 'headerFilter' def-file option.
+                    // -headerFilterAdditionalSearchPrefix command line option equivalent.
+                    includeDirs.headerFilterOnly(&quot;path1&quot;, &quot;path2&quot;)
+                    
+                    // A shortcut for includeDirs.allHeaders.
+                    includeDirs(&quot;include/directory&quot;, &quot;another/directory&quot;)
+                }
+                
+                anotherInterop { /* ... */ }
+            }
+        }
+    }
+}
+</div></div></div></section><section class="chapter"><h2 id="compilation-for-android" data-toc="compilation-for-android">Compilation for Android</h2><p id="qqpeyb_126">The compilations created for an Android target by default are tied to <a href="https://developer.android.com/build/build-variants" id="qqpeyb_131" data-external="true" rel="noopener noreferrer">Android build variants</a>: for each build variant, a Kotlin compilation is created under the same name.</p><p id="qqpeyb_127">Then, for each <a href="https://developer.android.com/build/build-variants#sourcesets" id="qqpeyb_132" data-external="true" rel="noopener noreferrer">Android source set</a> compiled for each of the variants, a Kotlin source set is created under that source set name prepended by the target name, like the Kotlin source set <code class="code" id="qqpeyb_133">androidDebug</code> for an Android source set <code class="code" id="qqpeyb_134">debug</code> and the Kotlin target named <code class="code" id="qqpeyb_135">androidTarget</code>. These Kotlin source sets are added to the variants' compilations accordingly.</p><p id="qqpeyb_128">The default source set <code class="code" id="qqpeyb_136">commonMain</code> is added to each production (application or library) variant's compilation. The <code class="code" id="qqpeyb_137">commonTest</code> source set is similarly added to the compilations of unit test and instrumented test variants.</p><p id="qqpeyb_129">Annotation processing with <a href="https://kotlinlang.org/docs/kapt.html" id="qqpeyb_138" data-external="true" rel="noopener noreferrer"><code class="code" id="qqpeyb_141">kapt</code></a> is also supported, but due to current limitations it requires that the Android target is created before the <code class="code" id="qqpeyb_139">kapt</code> dependencies are configured, which needs to be done in a top-level <code class="code" id="qqpeyb_140">dependencies {}</code> block rather than within Kotlin source set dependencies.</p><div class="code-block" data-lang="kotlin">
+kotlin {
+    androidTarget { /* ... */ }
+}
+
+dependencies {
+    kapt(&quot;com.my.annotation:processor:1.0.0&quot;)
+}
+</div></section><section class="chapter"><h2 id="compilation-of-the-source-set-hierarchy" data-toc="compilation-of-the-source-set-hierarchy">Compilation of the source set hierarchy</h2><p id="qqpeyb_142">Kotlin can build a <a href="multiplatform-share-on-platforms.html#share-code-on-similar-platforms" id="qqpeyb_148">source set hierarchy</a> with the <code class="code" id="qqpeyb_149">dependsOn</code> relation.</p><figure id="qqpeyb_143"><img alt="Source set hierarchy" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/jvm-js-main.svg" title="Source set hierarchy" width="706" height="229"></figure><p id="qqpeyb_144">If the source set <code class="code" id="qqpeyb_150">jvmMain</code> depends on a source set <code class="code" id="qqpeyb_151">commonMain</code> then:</p><ul class="list _bullet" id="qqpeyb_145"><li class="list__item" id="qqpeyb_152"><p>Whenever <code class="code" id="qqpeyb_157">jvmMain</code> is compiled for a certain target, <code class="code" id="qqpeyb_158">commonMain</code> takes part in that compilation as well and is also compiled into the same target binary form, such as JVM class files.</p></li><li class="list__item" id="qqpeyb_153"><p>Sources of <code class="code" id="qqpeyb_159">jvmMain</code> 'see' the declarations of <code class="code" id="qqpeyb_160">commonMain</code>, including internal declarations, and also see the <a href="multiplatform-add-dependencies.html" id="qqpeyb_161">dependencies</a> of <code class="code" id="qqpeyb_162">commonMain</code>, even those specified as <code class="code" id="qqpeyb_163">implementation</code> dependencies.</p></li><li class="list__item" id="qqpeyb_154"><p><code class="code" id="qqpeyb_164">jvmMain</code> can contain platform-specific implementations for the <a href="multiplatform-expect-actual.html" id="qqpeyb_165">expected declarations</a> of <code class="code" id="qqpeyb_166">commonMain</code>.</p></li><li class="list__item" id="qqpeyb_155"><p>The resources of <code class="code" id="qqpeyb_167">commonMain</code> are always processed and copied along with the resources of <code class="code" id="qqpeyb_168">jvmMain</code>.</p></li><li class="list__item" id="qqpeyb_156"><p>The <a href="multiplatform-dsl-reference.html#language-settings" id="qqpeyb_169">language settings</a> of <code class="code" id="qqpeyb_170">jvmMain</code> and <code class="code" id="qqpeyb_171">commonMain</code> should be consistent.</p></li></ul><p id="qqpeyb_146">Language settings are checked for consistency in the following ways:</p><ul class="list _bullet" id="qqpeyb_147"><li class="list__item" id="qqpeyb_172"><p><code class="code" id="qqpeyb_176">jvmMain</code> should set a <code class="code" id="qqpeyb_177">languageVersion</code> that is greater than or equal to that of <code class="code" id="qqpeyb_178">commonMain</code>.</p></li><li class="list__item" id="qqpeyb_173"><p><code class="code" id="qqpeyb_179">jvmMain</code> should enable all unstable language features that <code class="code" id="qqpeyb_180">commonMain</code> enables (there's no such requirement for bugfix features).</p></li><li class="list__item" id="qqpeyb_174"><p><code class="code" id="qqpeyb_181">jvmMain</code> should use all experimental annotations that <code class="code" id="qqpeyb_182">commonMain</code> uses.</p></li><li class="list__item" id="qqpeyb_175"><p><code class="code" id="qqpeyb_183">apiVersion</code>, bugfix language features, and <code class="code" id="qqpeyb_184">progressiveMode</code> can be set arbitrarily.</p></li></ul></section><section class="chapter"><h2 id="configure-isolated-projects-feature-in-gradle" data-toc="configure-isolated-projects-feature-in-gradle">Configure Isolated Projects feature in Gradle</h2><aside class="prompt" data-type="warning" data-title="" id="qqpeyb_185"><p id="qqpeyb_189">This feature is <a href="supported-platforms.html#general-kotlin-stability-levels" id="qqpeyb_190">Experimental</a> and is currently in a pre-alpha state with Gradle. Use it only with Gradle versions 8.10 or higher, and solely for evaluation purposes. The feature may be dropped or changed at any time. We would appreciate your feedback on it in <a href="https://youtrack.jetbrains.com/issue/KT-57279/Support-Gradle-Project-Isolation-Feature-for-Kotlin-Multiplatform" id="qqpeyb_191" data-external="true" rel="noopener noreferrer">YouTrack</a>. Opt-in is required (see details below).</p></aside><p id="qqpeyb_186">Gradle provides the <a href="https://docs.gradle.org/current/userguide/isolated_projects.html" id="qqpeyb_192" data-external="true" rel="noopener noreferrer">Isolated Projects</a> feature, which improves build performance by &quot;isolating&quot; individual projects from each other. The feature separates the build scripts and plugins between projects, allowing them to run safely in parallel.</p><p id="qqpeyb_187">To enable this feature, follow Gradle's instructions to <a href="https://docs.gradle.org/current/userguide/isolated_projects.html#how_do_i_use_it" id="qqpeyb_193" data-external="true" rel="noopener noreferrer">set the system property</a>.</p><p id="qqpeyb_188">For more information about the Isolated Projects feature, see <a href="https://docs.gradle.org/current/userguide/isolated_projects.html" id="qqpeyb_194" data-external="true" rel="noopener noreferrer">Gradle's documentation</a>.</p></section><div class="last-modified">Last modified: 25 June 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="multiplatform-spm-local-integration.html" class="navigation-links__prev">Using Kotlin from local Swift packages</a><a href="multiplatform-build-native-binaries.html" class="navigation-links__next">Build final native binaries</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

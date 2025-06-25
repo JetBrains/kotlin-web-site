@@ -1,0 +1,310 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:17.057901402"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Create your own application | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"lay-the-foundation","level":0,"title":"Lay the foundation","anchor":"#lay-the-foundation"},{"id":"support-user-input","level":0,"title":"Support user input","anchor":"#support-user-input"},{"id":"calculate-time","level":0,"title":"Calculate time","anchor":"#calculate-time"},{"id":"improve-the-style","level":0,"title":"Improve the style","anchor":"#improve-the-style"},{"id":"refactor-the-design","level":0,"title":"Refactor the design","anchor":"#refactor-the-design"},{"id":"introduce-images","level":0,"title":"Introduce images","anchor":"#introduce-images"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Create your own application | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-new-project.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Create your own application | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-new-project.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-new-project.html",
+    "name": "Create your own application | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-multiplatform-new-project" data-main-title="Create your own application" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Choose your use case///Create an app with shared logic and UI" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose-onboard/compose-multiplatform-new-project.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-multiplatform-new-project" data-annotation-ids="IntelliJ IDEA,Android Studio" id="compose-multiplatform-new-project.md">Create your own application</h1><div class="micro-format" data-content="{&quot;microFormat&quot;:[&quot;\u003cp id\u003d\&quot;-rekwup_15\&quot;\u003eThis tutorial uses IntelliJ IDEA, but you can also follow it in Android Studio \u0026ndash; both IDEs share the same core functionality and Kotlin Multiplatform support.\u003c/p\u003e&quot;,&quot;\u003cbr\u003e&quot;,&quot;\u003cp id\u003d\&quot;-rekwup_17\&quot;\u003eThis is the final part of the \u003cb id\u003d\&quot;-rekwup_19\&quot;\u003eCreate a Compose Multiplatform app with shared logic and UI\u003c/b\u003e tutorial. Before proceeding, make sure you\u0027ve completed previous steps.\u003c/p\u003e&quot;,&quot;\u003cp id\u003d\&quot;-rekwup_18\&quot;\u003e\u003cimg alt\u003d\&quot;First step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-1-done.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;First step\&quot; id\u003d\&quot;-rekwup_20\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e \u003ca href\u003d\&quot;compose-multiplatform-create-first-app.html\&quot; id\u003d\&quot;-rekwup_21\&quot;\u003eCreate your Compose Multiplatform app\u003c/a\u003e\u003cbr\u003e \u003cimg alt\u003d\&quot;Second step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-2-done.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;Second step\&quot; id\u003d\&quot;-rekwup_23\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e \u003ca href\u003d\&quot;compose-multiplatform-explore-composables.html\&quot; id\u003d\&quot;-rekwup_24\&quot;\u003eExplore composable code\u003c/a\u003e\u003cbr\u003e \u003cimg alt\u003d\&quot;Third step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-3-done.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;Third step\&quot; id\u003d\&quot;-rekwup_26\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e \u003ca href\u003d\&quot;compose-multiplatform-modify-project.html\&quot; id\u003d\&quot;-rekwup_27\&quot;\u003eModify the project\u003c/a\u003e\u003cbr\u003e \u003cimg alt\u003d\&quot;Fourth step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-4.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;Fourth step\&quot; id\u003d\&quot;-rekwup_29\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e \u003cb id\u003d\&quot;-rekwup_30\&quot;\u003eCreate your own application\u003c/b\u003e\u003cbr\u003e\u003c/p\u003e&quot;]}"></div><p id="-rekwup_5">Now that you've explored and enhanced the sample project created by the wizard, you can create your own application from scratch, using concepts you already know and introducing some new ones.</p><p id="-rekwup_6">You'll create a &quot;Local time application&quot; where users can enter their country and city, and the app will display the time in the capital city of that country. All the functionality of your Compose Multiplatform app will be implemented in common code using multiplatform libraries. It'll load and display images within a dropdown menu and will use events, styles, themes, modifiers, and layouts.</p><p id="-rekwup_7">At each stage, you can run the application on all three platforms (iOS, Android, and desktop), or you can focus on the specific platforms that best suit your needs.</p><section class="chapter"><h2 id="lay-the-foundation" data-toc="lay-the-foundation">Lay the foundation</h2><p id="-rekwup_32">To get started, implement a new <code class="code" id="-rekwup_34">App</code> composable:</p><ol class="list _decimal" id="-rekwup_33" type="1"><li class="list__item" id="-rekwup_35"><p id="-rekwup_41">In <code class="code" id="-rekwup_44">composeApp/src/commonMain/kotlin</code>, open the <code class="code" id="-rekwup_45">App.kt</code> file and replace the code with the following <code class="code" id="-rekwup_46">App</code> composable:</p><div class="code-block" data-lang="kotlin">
+@Composable
+@Preview
+fun App() {
+    MaterialTheme {
+        var timeAtLocation by remember { mutableStateOf(&quot;No location selected&quot;) }
+
+        Column(
+            modifier = Modifier
+                .safeContentPadding()
+                .fillMaxSize(),
+        ) {
+            Text(timeAtLocation)
+            Button(onClick = { timeAtLocation = &quot;13:30&quot; }) {
+                Text(&quot;Show Time At Location&quot;)
+            }
+        }
+    }
+}
+</div><ul class="list _bullet" id="-rekwup_43"><li class="list__item" id="-rekwup_47"><p>The layout is a column containing two composables. The first is a <code class="code" id="-rekwup_50">Text</code> composable, and the second is a <code class="code" id="-rekwup_51">Button</code>.</p></li><li class="list__item" id="-rekwup_48"><p>The two composables are linked by a single shared state, namely the <code class="code" id="-rekwup_52">timeAtLocation</code> property. The <code class="code" id="-rekwup_53">Text</code> composable is an observer of this state.</p></li><li class="list__item" id="-rekwup_49"><p>The <code class="code" id="-rekwup_54">Button</code> composable changes the state using the <code class="code" id="-rekwup_55">onClick</code> event handler.</p></li></ul></li><li class="list__item" id="-rekwup_36"><p id="-rekwup_56">Run the application on Android and iOS:</p><figure id="-rekwup_57"><img alt="New Compose Multiplatform app on Android and iOS" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-android-ios-3.png" title="New Compose Multiplatform app on Android and iOS" width="500" height="510"></figure><p id="-rekwup_58">When you run your application and click the button, the hardcoded time is displayed.</p></li><li class="list__item" id="-rekwup_37"><p id="-rekwup_59">Run the application on the desktop. It works, but the window is clearly too large for the UI:</p><figure id="-rekwup_60"><img alt="New Compose Multiplatform app on desktop" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-desktop-3.png" title="New Compose Multiplatform app on desktop" width="400" height="295"></figure></li><li class="list__item" id="-rekwup_38"><p id="-rekwup_61">To fix this, in <code class="code" id="-rekwup_65">composeApp/src/desktopMain/kotlin</code>, update the <code class="code" id="-rekwup_66">main.kt</code> file as follows:</p><div class="code-block" data-lang="kotlin">
+fun main() = application {
+   val state = rememberWindowState(
+       size = DpSize(400.dp, 250.dp),
+       position = WindowPosition(300.dp, 300.dp)
+   )
+   Window(
+       title = &quot;Local Time App&quot;, 
+       onCloseRequest = ::exitApplication, 
+       state = state,
+       alwaysOnTop = true
+   ) {
+       App()
+   }
+}
+</div><p id="-rekwup_63">Here, you set the title of the window and use the <code class="code" id="-rekwup_67">WindowState</code> type to give the window an initial size and position on the screen.</p><aside class="prompt" data-type="tip" data-title="" id="-rekwup_64"><p id="-rekwup_68">To see your changes in real time in the desktop app, use <a href="compose-hot-reload.html" id="-rekwup_70">Compose Hot Reload</a>:</p><ol class="list _decimal" id="-rekwup_69" type="1"><li class="list__item" id="-rekwup_71"><p>In the <code class="code" id="-rekwup_73">main.kt</code> file, click the <span class="control" id="-rekwup_74">Run</span> icon in the gutter.</p></li><li class="list__item" id="-rekwup_72"><p>Select <span class="control" id="-rekwup_75">Run 'main [desktop]' with Compose Hot Reload (Alpha)</span>. </p><figure id="-rekwup_76"><img alt="Run Compose Hot Reload from gutter" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-hot-reload-gutter-run.png" title="Run Compose Hot Reload from gutter" width="350" height="67"></figure><p> Compose Hot Reload is currently in <a href="https://kotlinlang.org/components-stability.html#stability-levels-explained" id="-rekwup_77" data-external="true" rel="noopener noreferrer">Alpha</a> so its functionality is subject to change.</p></li></ol></aside></li><li class="list__item" id="-rekwup_39"><p id="-rekwup_78">Follow the IDE's instructions to import the missing dependencies.</p></li><li class="list__item" id="-rekwup_40"><p id="-rekwup_79">Run the desktop application again. Its appearance should improve:</p><figure id="-rekwup_80"><img alt="Improved appearance of the Compose Multiplatform app on desktop" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-desktop-4.png" title="Improved appearance of the Compose Multiplatform app on desktop" width="350" height="211"></figure><section class="chapter"><div class="collapse"><div class="collapse__title"><h3 id="compose-hot-reload-demo" data-toc="compose-hot-reload-demo">Compose Hot Reload demo</h3></div><div class="collapse__content"><figure data-theme="light" id="-rekwup_82" width="1182"><img alt="Compose Hot Reload" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-hot-reload-resize.gif" width="1182" style="width: 1182px;"></figure></div></div></section></li></ol></section><section class="chapter"><h2 id="support-user-input" data-toc="support-user-input">Support user input</h2><p id="-rekwup_83">Now let users enter the name of a city to see the time at that location. The simplest way to achieve this is by adding a <code class="code" id="-rekwup_86">TextField</code> composable:</p><ol class="list _decimal" id="-rekwup_84" type="1"><li class="list__item" id="-rekwup_87"><p id="-rekwup_90">Replace the current implementation of <code class="code" id="-rekwup_93">App</code> with the one below:</p><div class="code-block" data-lang="kotlin">
+@Composable
+@Preview
+fun App() {
+    MaterialTheme {
+        var location by remember { mutableStateOf(&quot;Europe/Paris&quot;) }
+        var timeAtLocation by remember { mutableStateOf(&quot;No location selected&quot;) }
+
+        Column(
+            modifier = Modifier
+                .safeContentPadding()
+                .fillMaxSize(),
+        ) {
+            Text(timeAtLocation)
+            TextField(value = location, onValueChange = { location = it })
+            Button(onClick = { timeAtLocation = &quot;13:30&quot; }) {
+                Text(&quot;Show Time At Location&quot;)
+            }
+        }
+    }
+}
+</div><p id="-rekwup_92">The new code adds both the <code class="code" id="-rekwup_94">TextField</code> and a <code class="code" id="-rekwup_95">location</code> property. As the user types into the text field, the value of the property is incrementally updated using the <code class="code" id="-rekwup_96">onValueChange</code> event handler.</p></li><li class="list__item" id="-rekwup_88"><p id="-rekwup_97">Follow the IDE's instructions to import the missing dependencies.</p></li><li class="list__item" id="-rekwup_89"><p id="-rekwup_98">Run the application on each platform you're targeting:</p></li></ol><div class="tabs" id="-rekwup_85" data-anchors="[desktop-user-input,mobile-user-input]"><div class="tabs__content" data-gtm="tab" id="mobile-user-input" data-title="Android and iOS"><figure id="-rekwup_101"><img alt="User input in the Compose Multiplatform app on Android and iOS" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-android-ios-4.png" title="User input in the Compose Multiplatform app on Android and iOS" width="500" height="512"></figure></div><div class="tabs__content" data-gtm="tab" id="desktop-user-input" data-title="Desktop"><figure id="-rekwup_102"><img alt="User input in the Compose Multiplatform app on desktop" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-desktop-5.png" title="User input in the Compose Multiplatform app on desktop" width="350" height="209"></figure></div></div></section><section class="chapter"><h2 id="calculate-time" data-toc="calculate-time">Calculate time</h2><p id="-rekwup_103">The next step is to use the given input to calculate time. To do this, create a <code class="code" id="-rekwup_106">currentTimeAt()</code> function:</p><ol class="list _decimal" id="-rekwup_104" type="1"><li class="list__item" id="-rekwup_107"><p id="-rekwup_113">Return to the <code class="code" id="-rekwup_116">App.kt</code> file and add the following function:</p><div class="code-block" data-lang="kotlin">
+fun currentTimeAt(location: String): String? {
+    fun LocalTime.formatted() = &quot;$hour:$minute:$second&quot;
+
+    return try {
+        val time = Clock.System.now()
+        val zone = TimeZone.of(location)
+        val localTime = time.toLocalDateTime(zone).time
+        &quot;The time in $location is ${localTime.formatted()}&quot;
+    } catch (ex: IllegalTimeZoneException) {
+        null
+    }
+}
+</div><p id="-rekwup_115">This function is similar to <code class="code" id="-rekwup_117">todaysDate()</code>, which you created earlier and which is no longer required.</p></li><li class="list__item" id="-rekwup_108"><p id="-rekwup_118">Follow the IDE's instructions to import the missing dependencies.</p></li><li class="list__item" id="-rekwup_109"><p id="-rekwup_119">Adjust your <code class="code" id="-rekwup_121">App</code> composable to invoke <code class="code" id="-rekwup_122">currentTimeAt()</code>:</p><div class="code-block" data-lang="kotlin">
+@Composable
+@Preview
+fun App() {
+MaterialTheme { 
+   var location by remember { mutableStateOf(&quot;Europe/Paris&quot;) }
+   var timeAtLocation by remember { mutableStateOf(&quot;No location selected&quot;) }
+
+   Column(
+       modifier = Modifier
+           .safeContentPadding()
+           .fillMaxSize()
+       ) {
+           Text(timeAtLocation)
+           TextField(value = location, onValueChange = { location = it })
+           Button(onClick = { timeAtLocation = currentTimeAt(location) ?: &quot;Invalid Location&quot; }) {
+               Text(&quot;Show Time At Location&quot;)
+           }
+       }
+   }
+}
+</div></li><li class="list__item" id="-rekwup_110"><p id="-rekwup_123">In the <code class="code" id="-rekwup_125">wasmJsMain/kotlin/main.kt</code> file, add the following code before the <code class="code" id="-rekwup_126">main()</code> function to initialize timezone support for web:</p><div class="code-block" data-lang="kotlin">
+@JsModule(&quot;@js-joda/timezone&quot;)
+external object JsJodaTimeZoneModule
+
+private val jsJodaTz = JsJodaTimeZoneModule
+</div></li><li class="list__item" id="-rekwup_111"><p id="-rekwup_127">Run the application again and enter a valid timezone.</p></li><li class="list__item" id="-rekwup_112"><p id="-rekwup_128">Click the button. You should see the correct time:</p></li></ol><div class="tabs" id="-rekwup_105" data-anchors="[desktop-time-display,mobile-time-display]"><div class="tabs__content" data-gtm="tab" id="mobile-time-display" data-title="Android and iOS"><figure id="-rekwup_131"><img alt="Time display in the Compose Multiplatform app on Android and iOS" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-android-ios-5.png" title="Time display in the Compose Multiplatform app on Android and iOS" width="500" height="507"></figure></div><div class="tabs__content" data-gtm="tab" id="desktop-time-display" data-title="Desktop"><figure id="-rekwup_132"><img alt="Time display in the Compose Multiplatform app on desktop" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-desktop-6.png" title="Time display in the Compose Multiplatform app on desktop" width="350" height="211"></figure></div></div></section><section class="chapter"><h2 id="improve-the-style" data-toc="improve-the-style">Improve the style</h2><p id="-rekwup_133">The application is working, but there are issues with its appearance. The composables could be spaced better, and the time message could be rendered more prominently.</p><ol class="list _decimal" id="-rekwup_134" type="1"><li class="list__item" id="-rekwup_136"><p id="-rekwup_139">To address these issues, use the following version of the <code class="code" id="-rekwup_142">App</code> composable:</p><div class="code-block" data-lang="kotlin">
+@Composable
+@Preview
+fun App() {
+    MaterialTheme {
+        var location by remember { mutableStateOf(&quot;Europe/Paris&quot;) }
+        var timeAtLocation by remember { mutableStateOf(&quot;No location selected&quot;) }
+
+        Column(
+            modifier = Modifier
+                .padding(20.dp)
+                .safeContentPadding()
+                .fillMaxSize(),
+        ) {
+            Text(
+                timeAtLocation,
+                style = TextStyle(fontSize = 20.sp),
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth().align(Alignment.CenterHorizontally)
+            )
+            TextField(
+                value = location,
+                onValueChange = { location = it },
+                modifier = Modifier.padding(top = 10.dp)
+            Button(
+                onClick = { timeAtLocation = currentTimeAt(location) ?: &quot;Invalid Location&quot; },
+                modifier = Modifier.padding(top = 10.dp)
+            ) {
+                Text(&quot;Show Time&quot;)
+            }
+        }
+    }
+}
+</div><ul class="list _bullet" id="-rekwup_141"><li class="list__item" id="-rekwup_143"><p>The <code class="code" id="-rekwup_146">modifier</code> parameter adds padding all around the <code class="code" id="-rekwup_147">Column</code>, as well as at the top of the <code class="code" id="-rekwup_148">Button</code> and the <code class="code" id="-rekwup_149">TextField</code>.</p></li><li class="list__item" id="-rekwup_144"><p>The <code class="code" id="-rekwup_150">Text</code> composable fills the available horizontal space and centers its content.</p></li><li class="list__item" id="-rekwup_145"><p>The <code class="code" id="-rekwup_151">style</code> parameter customizes the appearance of the <code class="code" id="-rekwup_152">Text</code>.</p></li></ul></li><li class="list__item" id="-rekwup_137"><p id="-rekwup_153">Follow the IDE's instructions to import the missing dependencies. For <code class="code" id="-rekwup_154">Alignment</code>, use the <code class="code" id="-rekwup_155">androidx.compose.ui</code> version.</p></li><li class="list__item" id="-rekwup_138"><p id="-rekwup_156">Run the application to see how the appearance has improved:</p></li></ol><div class="tabs" id="-rekwup_135" data-anchors="[desktop-improved-style,mobile-improved-style]"><div class="tabs__content" data-gtm="tab" id="mobile-improved-style" data-title="Android and iOS"><figure id="-rekwup_159"><img alt="Improved style of the Compose Multiplatform app on Android and iOS" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-android-ios-6.png" title="Improved style of the Compose Multiplatform app on Android and iOS" width="500" height="511"></figure></div><div class="tabs__content" data-gtm="tab" id="desktop-improved-style" data-title="Desktop"><figure id="-rekwup_160"><img alt="Improved style of the Compose Multiplatform app on desktop" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-desktop-7.png" title="Improved style of the Compose Multiplatform app on desktop" width="350" height="214"></figure></div></div></section><section class="chapter"><h2 id="refactor-the-design" data-toc="refactor-the-design">Refactor the design</h2><p id="-rekwup_161">The application works, but it's susceptible to typos. For example, if a user enters &quot;Franse&quot; instead of &quot;France&quot;, the app won't be able to process that input. It would be preferable to ask users to select the country from a predefined list.</p><ol class="list _decimal" id="-rekwup_162" type="1"><li class="list__item" id="-rekwup_165"><p id="-rekwup_168">To achieve this, change the design in the <code class="code" id="-rekwup_171">App</code> composable:</p><div class="code-block" data-lang="kotlin">
+data class Country(val name: String, val zone: TimeZone)
+
+fun currentTimeAt(location: String, zone: TimeZone): String {
+    fun LocalTime.formatted() = &quot;$hour:$minute:$second&quot;
+
+    val time = Clock.System.now()
+    val localTime = time.toLocalDateTime(zone).time
+
+    return &quot;The time in $location is ${localTime.formatted()}&quot;
+}
+
+fun countries() = listOf(
+    Country(&quot;Japan&quot;, TimeZone.of(&quot;Asia/Tokyo&quot;)),
+    Country(&quot;France&quot;, TimeZone.of(&quot;Europe/Paris&quot;)),
+    Country(&quot;Mexico&quot;, TimeZone.of(&quot;America/Mexico_City&quot;)),
+    Country(&quot;Indonesia&quot;, TimeZone.of(&quot;Asia/Jakarta&quot;)),
+    Country(&quot;Egypt&quot;, TimeZone.of(&quot;Africa/Cairo&quot;)),
+)
+
+@Composable
+@Preview
+fun App(countries: List&lt;Country&gt; = countries()) {
+    MaterialTheme {
+        var showCountries by remember { mutableStateOf(false) }
+        var timeAtLocation by remember { mutableStateOf(&quot;No location selected&quot;) }
+
+        Column(
+            modifier = Modifier
+                .padding(20.dp)
+                .safeContentPadding()
+                .fillMaxSize(),
+        ) {
+            Text(
+                timeAtLocation,
+                style = TextStyle(fontSize = 20.sp),
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth().align(Alignment.CenterHorizontally)
+            )
+            Row(modifier = Modifier.padding(start = 20.dp, top = 10.dp)) {
+                DropdownMenu(
+                    expanded = showCountries,
+                    onDismissRequest = { showCountries = false }
+                ) {
+                    countries().forEach { (name, zone) -&gt;
+                        DropdownMenuItem(
+                            text = {   Text(name)},
+                            onClick = {
+                                timeAtLocation = currentTimeAt(name, zone)
+                                showCountries = false
+                            }
+                        )
+                    }
+                }
+            }
+
+            Button(modifier = Modifier.padding(start = 20.dp, top = 10.dp),
+                onClick = { showCountries = !showCountries }) {
+                Text(&quot;Select Location&quot;)
+            }
+        }
+    }
+}
+</div><ul class="list _bullet" id="-rekwup_170"><li class="list__item" id="-rekwup_172"><p>There is a <code class="code" id="-rekwup_176">Country</code> type, consisting of a name and a timezone.</p></li><li class="list__item" id="-rekwup_173"><p>The <code class="code" id="-rekwup_177">currentTimeAt()</code> function takes a <code class="code" id="-rekwup_178">TimeZone</code> as its second parameter.</p></li><li class="list__item" id="-rekwup_174"><p>The <code class="code" id="-rekwup_179">App</code> now requires a list of countries as a parameter. The <code class="code" id="-rekwup_180">countries()</code> function provides the list.</p></li><li class="list__item" id="-rekwup_175"><p><code class="code" id="-rekwup_181">DropdownMenu</code> has replaced the <code class="code" id="-rekwup_182">TextField</code>. The value of the <code class="code" id="-rekwup_183">showCountries</code> property determines the visibility of the <code class="code" id="-rekwup_184">DropdownMenu</code>. There is a <code class="code" id="-rekwup_185">DropdownMenuItem</code> for each country.</p></li></ul></li><li class="list__item" id="-rekwup_166"><p id="-rekwup_186">Follow the IDE's instructions to import the missing dependencies.</p></li><li class="list__item" id="-rekwup_167"><p id="-rekwup_187">Run the application to see the redesigned version:</p></li></ol><div class="tabs" id="-rekwup_163" data-anchors="[desktop-country-list,mobile-country-list]"><div class="tabs__content" data-gtm="tab" id="mobile-country-list" data-title="Android and iOS"><figure id="-rekwup_190"><img alt="The country list in the Compose Multiplatform app on Android and iOS" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-android-ios-7.png" title="The country list in the Compose Multiplatform app on Android and iOS" width="500" height="513"></figure></div><div class="tabs__content" data-gtm="tab" id="desktop-country-list" data-title="Desktop"><figure id="-rekwup_191"><img alt="The country list in the Compose Multiplatform app on desktop" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-desktop-8.png" title="The country list in the Compose Multiplatform app on desktop" width="350" height="267"></figure></div></div><aside class="prompt" data-type="note" data-title="" id="-rekwup_164"><p id="-rekwup_192">You can further improve the design using a dependency injection framework, such as <a href="https://insert-koin.io/" id="-rekwup_193" data-external="true" rel="noopener noreferrer">Koin</a>, to build and inject the table of locations. If the data is stored externally, you can use the <a href="https://ktor.io/docs/create-client.html" id="-rekwup_194" data-external="true" rel="noopener noreferrer">Ktor</a> library to fetch it over the network or the <a href="https://github.com/cashapp/sqldelight" id="-rekwup_195" data-external="true" rel="noopener noreferrer">SQLDelight</a> library to fetch it from a database.</p></aside></section><section class="chapter"><h2 id="introduce-images" data-toc="introduce-images">Introduce images</h2><p id="-rekwup_196">The list of country names works, but it's not visually appealing. You can improve it by replacing the names with images of national flags.</p><p id="-rekwup_197">Compose Multiplatform provides a library for accessing resources through common code across all platforms. The Kotlin Multiplatform wizard has already added and configured this library, so you can start loading resources without having to modify the build file.</p><p id="-rekwup_198">To support images in your project, you'll need to download image files, store them in the correct directory, and add code to load and display them:</p><ol class="list _decimal" id="-rekwup_199" type="1"><li class="list__item" id="-rekwup_201"><p id="-rekwup_207">Using an external resource, such as <a href="https://flagcdn.com/" id="-rekwup_208" data-external="true" rel="noopener noreferrer">Flag CDN</a>, download flags to match the list of countries you have already created. In this case, these are <a href="https://flagcdn.com/w320/jp.png" id="-rekwup_209" data-external="true" rel="noopener noreferrer">Japan</a>, <a href="https://flagcdn.com/w320/fr.png" id="-rekwup_210" data-external="true" rel="noopener noreferrer">France</a>, <a href="https://flagcdn.com/w320/mx.png" id="-rekwup_211" data-external="true" rel="noopener noreferrer">Mexico</a>, <a href="https://flagcdn.com/w320/id.png" id="-rekwup_212" data-external="true" rel="noopener noreferrer">Indonesia</a>, and <a href="https://flagcdn.com/w320/eg.png" id="-rekwup_213" data-external="true" rel="noopener noreferrer">Egypt</a>.</p></li><li class="list__item" id="-rekwup_202"><p id="-rekwup_214">Move the images to the <code class="code" id="-rekwup_216">composeApp/src/commonMain/composeResources/drawable</code> directory so that the same flags are available on all platforms:</p><figure id="-rekwup_215"><img alt="Compose Multiplatform resources project structure" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-resources-project-structure.png" title="Compose Multiplatform resources project structure" width="300" height="281"></figure></li><li class="list__item" id="-rekwup_203"><p id="-rekwup_217">Build or run the application to generate the <code class="code" id="-rekwup_218">Res</code> class with accessors for the added resources.</p></li><li class="list__item" id="-rekwup_204"><p id="-rekwup_219">Update the code in the <code class="code" id="-rekwup_222">commonMain/kotlin/.../App.kt</code> file to support images:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="data class Country(val name: String, val zone: TimeZone, val image: DrawableResource)">
+data class Country(val name: String, val zone: TimeZone, val image: DrawableResource)
+
+fun currentTimeAt(location: String, zone: TimeZone): String {
+    fun LocalTime.formatted() = &quot;$hour:$minute:$second&quot;
+
+    val time = Clock.System.now()
+    val localTime = time.toLocalDateTime(zone).time
+
+    return &quot;The time in $location is ${localTime.formatted()}&quot;
+}
+
+val defaultCountries = listOf(
+    Country(&quot;Japan&quot;, TimeZone.of(&quot;Asia/Tokyo&quot;), Res.drawable.jp),
+    Country(&quot;France&quot;, TimeZone.of(&quot;Europe/Paris&quot;), Res.drawable.fr),
+    Country(&quot;Mexico&quot;, TimeZone.of(&quot;America/Mexico_City&quot;), Res.drawable.mx),
+    Country(&quot;Indonesia&quot;, TimeZone.of(&quot;Asia/Jakarta&quot;), Res.drawable.id),
+    Country(&quot;Egypt&quot;, TimeZone.of(&quot;Africa/Cairo&quot;), Res.drawable.eg)
+)
+
+@Composable
+@Preview
+fun App(countries: List&lt;Country&gt; = defaultCountries) {
+    MaterialTheme {
+        var showCountries by remember { mutableStateOf(false) }
+        var timeAtLocation by remember { mutableStateOf(&quot;No location selected&quot;) }
+
+        Column(
+            modifier = Modifier
+                .padding(20.dp)
+                .safeContentPadding()
+                .fillMaxSize(),
+        ) {
+            Text(
+                timeAtLocation,
+                style = TextStyle(fontSize = 20.sp),
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth().align(Alignment.CenterHorizontally)
+            )
+            Row(modifier = Modifier.padding(start = 20.dp, top = 10.dp)) {
+                DropdownMenu(
+                    expanded = showCountries,
+                    onDismissRequest = { showCountries = false }
+                ) {
+                    countries.forEach { (name, zone, image) -&gt;
+                        DropdownMenuItem(
+                            text = { Row(verticalAlignment = Alignment.CenterVertically) {
+                                Image(
+                                    painterResource(image),
+                                    modifier = Modifier.size(50.dp).padding(end = 10.dp),
+                                    contentDescription = &quot;$name flag&quot;
+                                )
+                                Text(name)
+                            } },
+                            onClick = {
+                                timeAtLocation = currentTimeAt(name, zone)
+                                showCountries = false
+                            }
+                        )
+                    }
+                }
+            }
+
+            Button(modifier = Modifier.padding(start = 20.dp, top = 10.dp),
+                onClick = { showCountries = !showCountries }) {
+                Text(&quot;Select Location&quot;)
+            }
+        }
+    }
+}
+</div><ul class="list _bullet" id="-rekwup_221"><li class="list__item" id="-rekwup_223"><p>The <code class="code" id="-rekwup_227">Country</code> type stores the path to the associated image.</p></li><li class="list__item" id="-rekwup_224"><p>The list of countries passed to the <code class="code" id="-rekwup_228">App</code> includes these paths.</p></li><li class="list__item" id="-rekwup_225"><p>The <code class="code" id="-rekwup_229">App</code> displays an <code class="code" id="-rekwup_230">Image</code> in each <code class="code" id="-rekwup_231">DropdownMenuItem</code>, followed by a <code class="code" id="-rekwup_232">Text</code> composable with the name of a country.</p></li><li class="list__item" id="-rekwup_226"><p>Each <code class="code" id="-rekwup_233">Image</code> requires a <code class="code" id="-rekwup_234">Painter</code> object to fetch the data.</p></li></ul></li><li class="list__item" id="-rekwup_205"><p id="-rekwup_235">Follow the IDE's instructions to import the missing dependencies.</p></li><li class="list__item" id="-rekwup_206"><p id="-rekwup_236">Run the application to see the new behavior:</p></li></ol><div class="tabs" id="-rekwup_200" data-anchors="[desktop-flags,mobile-flags]"><div class="tabs__content" data-gtm="tab" id="mobile-flags" data-title="Android and iOS"><figure id="-rekwup_239"><img alt="The country flags in the Compose Multiplatform app on Android and iOS" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-android-ios-8.png" title="The country flags in the Compose Multiplatform app on Android and iOS" width="500" height="515"></figure></div><div class="tabs__content" data-gtm="tab" id="desktop-flags" data-title="Desktop"><figure id="-rekwup_240"><img alt="The country flags in the Compose Multiplatform app on desktop" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/first-compose-project-on-desktop-9.png" title="The country flags in the Compose Multiplatform app on desktop" width="350" height="217"></figure></div></div></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><p id="-rekwup_241">We encourage you to explore multiplatform development further and try out more projects:</p><ul class="list _bullet" id="-rekwup_242"><li class="list__item" id="-rekwup_245"><p><a href="multiplatform-integrate-in-existing-app.html" id="-rekwup_249">Make your Android app cross-platform</a></p></li><li class="list__item" id="-rekwup_246"><p><a href="multiplatform-ktor-sqldelight.html" id="-rekwup_250">Create a multiplatform app using Ktor and SQLDelight</a></p></li><li class="list__item" id="-rekwup_247"><p><a href="multiplatform-create-first-app.html" id="-rekwup_251">Share business logic between iOS and Android while keeping the UI native</a></p></li><li class="list__item" id="-rekwup_248"><p><a href="multiplatform-samples.html" id="-rekwup_252">See the curated list of sample projects</a></p></li></ul><p id="-rekwup_243">Join the community:</p><ul class="list _bullet" id="-rekwup_244"><li class="list__item" id="-rekwup_253"><p><img alt="GitHub" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/git-hub.svg" class="inline-icon-" title="GitHub" id="-rekwup_257" width="25" height="25"> <span class="control" id="-rekwup_258">Compose Multiplatform GitHub</span>: star <a href="https://github.com/JetBrains/compose-multiplatform" id="-rekwup_259" data-external="true" rel="noopener noreferrer">the repository</a> and contribute</p></li><li class="list__item" id="-rekwup_254"><p><img alt="Slack" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/slack.svg" class="inline-icon-" title="Slack" id="-rekwup_260" width="25" height="25"> <span class="control" id="-rekwup_261">Kotlin Slack</span>: Get an <a href="https://surveys.jetbrains.com/s3/kotlin-slack-sign-up" id="-rekwup_262" data-external="true" rel="noopener noreferrer">invitation</a> and join the <a href="https://kotlinlang.slack.com/archives/C3PQML5NU" id="-rekwup_263" data-external="true" rel="noopener noreferrer">#multiplatform</a> channel</p></li><li class="list__item" id="-rekwup_255"><p><img alt="Stack Overflow" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/stackoverflow.svg" class="inline-icon-" title="Stack Overflow" id="-rekwup_264" width="25" height="25"> <span class="control" id="-rekwup_265">Stack Overflow</span>: Subscribe to the <a href="https://stackoverflow.com/questions/tagged/kotlin-multiplatform" id="-rekwup_266" data-external="true" rel="noopener noreferrer">&quot;kotlin-multiplatform&quot; tag</a></p></li><li class="list__item" id="-rekwup_256"><p><img alt="YouTube" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/youtube.svg" class="inline-icon-" title="YouTube" id="-rekwup_267" width="25" height="25"> <span class="control" id="-rekwup_268">Kotlin YouTube channel</span>: Subscribe and watch videos about <a href="https://www.youtube.com/playlist?list=PLlFc5cFwUnmy_oVc9YQzjasSNoAk4hk_C" id="-rekwup_269" data-external="true" rel="noopener noreferrer">Kotlin Multiplatform</a></p></li></ul></section><div class="last-modified">Last modified: 02 June 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-multiplatform-modify-project.html" class="navigation-links__prev">Modify the project</a><a href="multiplatform-create-first-app.html" class="navigation-links__next">Create your Kotlin Multiplatform app</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

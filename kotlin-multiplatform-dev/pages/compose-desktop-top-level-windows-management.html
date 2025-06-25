@@ -1,0 +1,604 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:21.913755893"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Top-level windows management | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"open-and-close-windows","level":0,"title":"Open and close windows","anchor":"#open-and-close-windows"},{"id":"work-with-multiple-windows","level":0,"title":"Work with multiple windows","anchor":"#work-with-multiple-windows"},{"id":"minimize-a-window-to-the-system-tray","level":0,"title":"Minimize a window to the system tray","anchor":"#minimize-a-window-to-the-system-tray"},{"id":"singlewindowapplication-function","level":0,"title":"singleWindowApplication() function","anchor":"#singlewindowapplication-function"},{"id":"adaptive-window-size","level":0,"title":"Adaptive window size","anchor":"#adaptive-window-size"},{"id":"changing-the-window-state","level":0,"title":"Changing the window state","anchor":"#changing-the-window-state"},{"id":"listen-to-the-window-state","level":0,"title":"Listen to the window state","anchor":"#listen-to-the-window-state"},{"id":"dialogs","level":0,"title":"Dialogs","anchor":"#dialogs"},{"id":"draggable-window-area","level":0,"title":"Draggable window area","anchor":"#draggable-window-area"},{"id":"transparent-windows-and-other-customizations","level":0,"title":"Transparent windows and other customizations","anchor":"#transparent-windows-and-other-customizations"},{"id":"swing-interoperability","level":0,"title":"Swing interoperability","anchor":"#swing-interoperability"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Top-level windows management | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-top-level-windows-management.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Top-level windows management | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-top-level-windows-management.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-top-level-windows-management.html",
+    "name": "Top-level windows management | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-desktop-top-level-windows-management" data-main-title="Top-level windows management" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Desktop-specific components" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-desktop-top-level-windows-management.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-desktop-top-level-windows-management" id="compose-desktop-top-level-windows-management.md">Top-level windows management</h1><p id="-au54wf_2">Compose Multiplatform for desktop provides various features for managing windows. You can hide windows in the tray, make them draggable, adapt size, change position, and so on.</p><section class="chapter"><h2 id="open-and-close-windows" data-toc="open-and-close-windows">Open and close windows</h2><p id="-au54wf_15">You can use the <code class="code" id="-au54wf_21">Window()</code> function to create a regular window. To put it in a composable scope, use <code class="code" id="-au54wf_22">Window()</code> in the <code class="code" id="-au54wf_23">application</code> entry point:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="application { Window(onCloseRequest = ::exitApplication)">
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
+
+fun main() = application {
+    Window(onCloseRequest = ::exitApplication) {
+        // Content of the window
+    }
+}
+</div><p id="-au54wf_17">As a composable function, <code class="code" id="-au54wf_24">Window()</code> allows you to change its properties declaratively. For example, you can open a window with one title and change the title later:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Window(onCloseRequest = ::exitApplication, title = ">
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
+
+fun main() = application {
+    var fileName by remember { mutableStateOf(&quot;Untitled&quot;) }
+
+    Window(onCloseRequest = ::exitApplication, title = &quot;$fileName - Editor&quot;) {
+        Button(onClick = { fileName = &quot;note.txt&quot; }) {
+            Text(&quot;Save&quot;)
+        }
+    }
+}
+</div><figure data-theme="light" id="-au54wf_19" width="600"><img alt="Window properties: change title" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-properties.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-properties.animated.gif" width="600" style="width: 600px;"></figure><section class="chapter"><h3 id="add-conditions" data-toc="add-conditions">Add conditions</h3><p id="-au54wf_25">You can also open and close windows using simple <code class="code" id="-au54wf_31">if</code> conditions. In the following code sample, the application window is automatically closed after completing a task:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="if (isPerformingTask) { Window(onCloseRequest = ::exitApplication,">
+import androidx.compose.material.Text
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
+import kotlinx.coroutines.delay
+
+fun main() = application {
+    var isPerformingTask by remember { mutableStateOf(true) }
+
+    LaunchedEffect(Unit) {
+        // Do some heavy lifting
+        delay(2000) 
+        isPerformingTask = false
+    }
+    if (isPerformingTask) {
+        Window(
+            onCloseRequest = ::exitApplication,
+            title = &quot;Window 1&quot;
+        )
+        {
+            Text(&quot;Performing some tasks. Please wait!&quot;)
+        }
+    } else {
+        Window(
+            onCloseRequest = ::exitApplication,
+            title = &quot;Window 2&quot;
+        ) {
+            Text(&quot;Hello, World!&quot;)
+        }
+    }
+}
+</div><figure data-theme="light" id="-au54wf_27" width="600"><img alt="Windows with conditions" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-condition.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-condition.animated.gif" width="600" style="width: 600px;"></figure><p id="-au54wf_28">If you want to use custom logic on application exit, such as showing a dialog, you can override the close action using the <code class="code" id="-au54wf_32">onCloseRequest</code> callback. In the following code sample, instead of an imperative approach (<code class="code" id="-au54wf_33">window.close()</code>), we use a declarative approach and close the window in response to the state change (<code class="code" id="-au54wf_34">isOpen = false</code>).</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Window(onCloseRequest = { isAskingToClose = true }">
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.window.DialogWindow
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
+
+fun main() = application {
+    var isOpen by remember { mutableStateOf(true) }
+    var isAskingToClose by remember { mutableStateOf(false) }
+
+    if (isOpen) {
+        Window(
+            onCloseRequest = { isAskingToClose = true },
+            title = &quot;Important document&quot;
+        ) {
+            if (isAskingToClose) {
+                DialogWindow(
+                    onCloseRequest = { isAskingToClose = false },
+                    title = &quot;Close without saving?&quot;
+                ) {
+                    Button(
+                        onClick = { isOpen = false }
+                    ) {
+                        Text(&quot;Yes&quot;)
+                    }
+                }
+            }
+        }
+    }
+}
+</div><figure data-theme="light" id="-au54wf_30" width="600"><img alt="Close with confirmation" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-ask-to-close.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-ask-to-close.animated.gif" width="600" style="width: 600px;"></figure></section></section><section class="chapter"><h2 id="work-with-multiple-windows" data-toc="work-with-multiple-windows">Work with multiple windows</h2><p id="-au54wf_35">If an application has multiple windows, you can create a separate class for the application state and open or close windows in response to the <code class="code" id="-au54wf_39">mutableStateListOf</code> changes:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="MyApplicationState { val windows = mutableStateListOf&lt;MyWindowState&gt;()">
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.key
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.window.MenuBar
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
+
+fun main() = application {
+    val applicationState = remember { MyApplicationState() }
+
+    for (window in applicationState.windows) {
+        key(window) {
+            MyWindow(window)
+        }
+    }
+}
+
+@Composable
+private fun MyWindow(
+    state: MyWindowState
+) = Window(onCloseRequest = state::close, title = state.title) {
+    MenuBar {
+        Menu(&quot;File&quot;) {
+            Item(&quot;New window&quot;, onClick = state.openNewWindow)
+            Item(&quot;Exit&quot;, onClick = state.exit)
+        }
+    }
+}
+
+private class MyApplicationState {
+    val windows = mutableStateListOf&lt;MyWindowState&gt;()
+
+    init {
+        windows += MyWindowState(&quot;Initial window&quot;)
+    }
+
+    fun openNewWindow() {
+        windows += MyWindowState(&quot;Window ${windows.size}&quot;)
+    }
+
+    fun exit() {
+        windows.clear()
+    }
+
+    private fun MyWindowState(
+        title: String
+    ) = MyWindowState(
+        title,
+        openNewWindow = ::openNewWindow,
+        exit = ::exit,
+        windows::remove
+    )
+}
+
+private class MyWindowState(
+    val title: String,
+    val openNewWindow: () -&gt; Unit,
+    val exit: () -&gt; Unit,
+    private val close: (MyWindowState) -&gt; Unit
+) {
+    fun close() = close(this)
+}
+</div><figure data-theme="light" id="-au54wf_37" width="600"><img alt="Multiple windows" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-multiple-windows.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-multiple-windows.animated.gif" width="600" style="width: 600px;"></figure><p id="-au54wf_38">For a more complex example, see the <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/examples/notepad" id="-au54wf_40" data-external="true" rel="noopener noreferrer">notepad</a> sample.</p></section><section class="chapter"><h2 id="minimize-a-window-to-the-system-tray" data-toc="minimize-a-window-to-the-system-tray">Minimize a window to the system tray</h2><p id="-au54wf_41">To hide the window instead of closing it, you can change the <code class="code" id="-au54wf_44">windowState.isVisible</code> state:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Window(onCloseRequest = { isVisible = false },">
+import androidx.compose.material.Text
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.window.Tray
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
+import kotlinx.coroutines.delay
+
+fun main() = application {
+    var isVisible by remember { mutableStateOf(true) }
+
+    Window(
+        onCloseRequest = { isVisible = false },
+        visible = isVisible,
+        title = &quot;Counter&quot;,
+    ) {
+        var counter by remember { mutableStateOf(0) }
+        LaunchedEffect(Unit) {
+            while (true) {
+                counter++
+                delay(1000)
+            }
+        }
+        Text(counter.toString())
+    }
+
+    if (!isVisible) {
+        Tray(
+            TrayIcon,
+            tooltip = &quot;Counter&quot;,
+            onAction = { isVisible = true },
+            menu = {
+                Item(&quot;Exit&quot;, onClick = ::exitApplication)
+            },
+        )
+    }
+}
+
+object TrayIcon : Painter() {
+    override val intrinsicSize = Size(256f, 256f)
+
+    override fun DrawScope.onDraw() {
+        drawOval(Color(0xFFFFA500))
+    }
+}
+</div><figure data-theme="light" id="-au54wf_43" width="600"><img alt="Hide instead of closing" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-hide-tray.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-hide-tray.animated.gif" width="600" style="width: 600px;"></figure></section><section class="chapter"><h2 id="singlewindowapplication-function" data-toc="singlewindowapplication-function">singleWindowApplication() function</h2><p id="-au54wf_45">You can create a single window application by calling the <code class="code" id="-au54wf_50">singleWindowApplication()</code> function.</p><p id="-au54wf_46">The <code class="code" id="-au54wf_51">singleWindowApplication()</code> function is easier to use but has the following limitations:</p><ul class="list _bullet" id="-au54wf_47"><li class="list__item" id="-au54wf_52"><p>The application can have only one window.</p></li><li class="list__item" id="-au54wf_53"><p>You cannot add custom closing logic.</p></li><li class="list__item" id="-au54wf_54"><p>You cannot change the attributes of the window in runtime.</p></li></ul><div class="code-block" data-lang="kotlin">
+import androidx.compose.ui.window.singleWindowApplication
+
+fun main() = singleWindowApplication {
+    // Content of the window
+}
+</div><p id="-au54wf_49">As an alternative, you can use the <a href="#open-and-close-windows" id="-au54wf_55"><code class="code" id="-au54wf_57">Window()</code> composable</a> in the <code class="code" id="-au54wf_56">application</code> entry point.</p></section><section class="chapter"><h2 id="adaptive-window-size" data-toc="adaptive-window-size">Adaptive window size</h2><p id="-au54wf_58">When you don't know the size of the expected content and cannot specify the optimal window dimensions in advance, you can set one or both dimensions of <code class="code" id="-au54wf_61">WindowSize</code> to <code class="code" id="-au54wf_62">Dp.Unspecified</code>. Compose Multiplatform for desktop will automatically adjust the initial size of your window to fit the content:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="state = rememberWindowState(width = Dp.Unspecified, height = Dp.Unspecified)">
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.Text
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
+import androidx.compose.ui.window.rememberWindowState
+
+fun main() = application {
+    Window(
+        onCloseRequest = ::exitApplication,
+        state = rememberWindowState(width = Dp.Unspecified, height = Dp.Unspecified),
+        title = &quot;Adaptive size&quot;,
+        resizable = false
+    ) {
+        Column(Modifier.background(Color(0xFFEEEEEE))) {
+            Row {
+                Text(&quot;label 1&quot;, Modifier.size(100.dp, 100.dp).padding(10.dp).background(Color.White))
+                Text(&quot;label 2&quot;, Modifier.size(150.dp, 200.dp).padding(5.dp).background(Color.White))
+                Text(&quot;label 3&quot;, Modifier.size(200.dp, 300.dp).padding(25.dp).background(Color.White))
+            }
+        }
+    }
+}
+</div><figure id="-au54wf_60"><img alt="Adaptive window size" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-adaptive-size.png" title="Adaptive window size" width="451" height="329"></figure></section><section class="chapter"><h2 id="changing-the-window-state" data-toc="changing-the-window-state">Changing the window state</h2><p id="-au54wf_63"><code class="code" id="-au54wf_66">WindowState</code> is a separate API class for the window placement, current position, and size. The placement attribute allows you to specify how the window is placed on the screen: floating, maximized/minimized, or fullscreen. Any change of the state triggers automatic recomposition. To change the window state, use callbacks or observe it in composables:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="val state = rememberWindowState(placement = WindowPlacement.Maximized)">
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material.Checkbox
+import androidx.compose.material.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.WindowPlacement
+import androidx.compose.ui.window.WindowPosition
+import androidx.compose.ui.window.application
+import androidx.compose.ui.window.rememberWindowState
+
+fun main() = application {
+    val state = rememberWindowState(placement = WindowPlacement.Maximized)
+
+    Window(onCloseRequest = ::exitApplication, state, title = &quot;Window state&quot;) {
+        Column {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    state.placement == WindowPlacement.Fullscreen,
+                    {
+                        state.placement = if (it) {
+                            WindowPlacement.Fullscreen
+                        } else {
+                            WindowPlacement.Floating
+                        }
+                    }
+                )
+                Text(&quot;isFullscreen&quot;)
+            }
+
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    state.placement == WindowPlacement.Maximized,
+                    {
+                        state.placement = if (it) {
+                            WindowPlacement.Maximized
+                        } else {
+                            WindowPlacement.Floating
+                        }
+                    }
+                )
+                Text(&quot;isMaximized&quot;)
+            }
+
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(state.isMinimized, { state.isMinimized = !state.isMinimized })
+                Text(&quot;isMinimized&quot;)
+            }
+
+            Text(
+                &quot;Position ${state.position}&quot;,
+                Modifier.clickable {
+                    val position = state.position
+                    if (position is WindowPosition.Absolute) {
+                        state.position = position.copy(x = state.position.x + 10.dp)
+                    }
+                }
+            )
+
+            Text(
+                &quot;Size ${state.size}&quot;,
+                Modifier.clickable {
+                    state.size = state.size.copy(width = state.size.width + 10.dp)
+                }
+            )
+        }
+    }
+}
+</div><figure data-theme="light" id="-au54wf_65" width="600"><img alt="Changing the state" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-minimize.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-minimize.animated.gif" width="600" style="width: 600px;"></figure></section><section class="chapter"><h2 id="listen-to-the-window-state" data-toc="listen-to-the-window-state">Listen to the window state</h2><p id="-au54wf_67">If you need to react to the state changes and send a value to another non-composable application level, for example, write it to the database, you can use the <code class="code" id="-au54wf_69">snapshotFlow()</code> function. This function captures the current value of a composable's state.</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="LaunchedEffect(state) { snapshotFlow { state.size } .onEach(::onWindowResize)">
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.snapshotFlow
+import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.WindowPosition
+import androidx.compose.ui.window.application
+import androidx.compose.ui.window.rememberWindowState
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+
+fun main() = application {
+    val state = rememberWindowState()
+
+    Window(onCloseRequest = ::exitApplication, state) {
+        LaunchedEffect(state) {
+            snapshotFlow { state.size }
+                .onEach(::onWindowResize)
+                .launchIn(this)
+
+            snapshotFlow { state.position }
+                .filter { it.isSpecified }
+                .onEach(::onWindowRelocate)
+                .launchIn(this)
+        }
+    }
+}
+
+private fun onWindowResize(size: DpSize) {
+    println(&quot;onWindowResize $size&quot;)
+}
+
+private fun onWindowRelocate(position: WindowPosition) {
+    println(&quot;onWindowRelocate $position&quot;)
+}
+</div></section><section class="chapter"><h2 id="dialogs" data-toc="dialogs">Dialogs</h2><p id="-au54wf_70">You can use the <code class="code" id="-au54wf_73">Window()</code> composable to create a regular window and the <code class="code" id="-au54wf_74">DialogWindow()</code> composable for a modal window that locks its parent until the user closes the modal window.</p><p id="-au54wf_71">The following code sample demonstrates how to use these composables to combine regular and modal windows:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="if (isDialogOpen) { DialogWindow(onCloseRequest = { isDialogOpen = false },">
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.window.DialogWindow
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.WindowPosition
+import androidx.compose.ui.window.application
+import androidx.compose.ui.window.rememberDialogState
+
+fun main() = application {
+    Window(
+        onCloseRequest = ::exitApplication,
+    ) {
+        var isDialogOpen by remember { mutableStateOf(false) }
+
+        Button(onClick = { isDialogOpen = true }) {
+            Text(text = &quot;Open dialog&quot;)
+        }
+
+        if (isDialogOpen) {
+            DialogWindow(
+                onCloseRequest = { isDialogOpen = false },
+                state = rememberDialogState(position = WindowPosition(Alignment.Center))
+            ) {
+                // Content of the window
+            }
+        }
+    }
+}
+</div></section><section class="chapter"><h2 id="draggable-window-area" data-toc="draggable-window-area">Draggable window area</h2><p id="-au54wf_75">To add a custom draggable title bar to the undecorated window or make the whole window draggable, you can use the <code class="code" id="-au54wf_80">WindowDraggableArea()</code> composable:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="WindowDraggableArea { Box(Modifier.fillMaxWidth().height(48.dp).background(Color.DarkGray))}">
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.window.WindowDraggableArea
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
+
+fun main() = application {
+    Window(onCloseRequest = ::exitApplication, undecorated = true) {
+        WindowDraggableArea {
+            Box(Modifier.fillMaxWidth().height(48.dp).background(Color.DarkGray))
+        }
+    }
+}
+</div><p id="-au54wf_77"><code class="code" id="-au54wf_81">WindowDraggableArea()</code> can be used inside the <code class="code" id="-au54wf_82">singleWindowApplication()</code>, <code class="code" id="-au54wf_83">Window()</code>, and <code class="code" id="-au54wf_84">DialogWindow()</code> composables only. To call it in another composable function, use a <code class="code" id="-au54wf_85">WindowScope</code> as a receiver scope:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="private fun WindowScope.AppWindowTitleBar() = WindowDraggableArea {">
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.window.WindowDraggableArea
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.WindowScope
+import androidx.compose.ui.window.application
+
+fun main() = application {
+    Window(onCloseRequest = ::exitApplication, undecorated = true) {
+        AppWindowTitleBar()
+    }
+}
+
+@Composable
+private fun WindowScope.AppWindowTitleBar() = WindowDraggableArea {
+    Box(Modifier.fillMaxWidth().height(48.dp).background(Color.DarkGray))
+}
+</div><figure data-theme="light" id="-au54wf_79" width="600"><img alt="Draggable area" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-draggable-area.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-window-draggable-area.animated.gif" width="600" style="width: 600px;"></figure></section><section class="chapter"><h2 id="transparent-windows-and-other-customizations" data-toc="transparent-windows-and-other-customizations">Transparent windows and other customizations</h2><p id="-au54wf_86">To create a transparent window, pass two parameters to the <code class="code" id="-au54wf_89">Window()</code> function: <code class="code" id="-au54wf_90">transparent=true</code> and <code class="code" id="-au54wf_91">undecorated=true</code>. The window must be undecorated because it is impossible to decorate a transparent window.</p><p id="-au54wf_87">The following code sample demonstrates how to combine composables to create a transparent window with rounded corners:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Modifier.fillMaxSize().padding(5.dp).shadow(3.dp, RoundedCornerShape(20.dp))">
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Surface
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
+import androidx.compose.material.Text
+import androidx.compose.runtime.*
+
+fun main() = application {
+    var isOpen by remember { mutableStateOf(true) }
+    if (isOpen) {
+        Window(
+            onCloseRequest = { isOpen = false },
+            title = &quot;Transparent Window Example&quot;,
+            transparent = true, 
+            // Transparent window must be undecorated
+            undecorated = true, 
+        ) {
+            Surface(
+                modifier = Modifier.fillMaxSize().padding(5.dp).shadow(3.dp, RoundedCornerShape(20.dp)), 
+                color = Color.Transparent,
+                // Window with rounded corners
+                shape = RoundedCornerShape(20.dp) 
+            ) {
+                Text(&quot;Hello World!&quot;, color = Color.White)
+            }
+        }
+    }
+}
+</div></section><section class="chapter"><h2 id="swing-interoperability" data-toc="swing-interoperability">Swing interoperability</h2><p id="-au54wf_92">Compose Multiplatform for desktop uses Swing under the hood, so you can create a window using Swing directly:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="SwingUtilities.invokeLater { ComposeWindow().apply {">
+import androidx.compose.ui.awt.ComposeWindow
+import java.awt.Dimension
+import javax.swing.JFrame
+import javax.swing.SwingUtilities
+
+fun main() = SwingUtilities.invokeLater {
+    ComposeWindow().apply {
+        size = Dimension(300, 300)
+        defaultCloseOperation = JFrame.DISPOSE_ON_CLOSE
+        setContent {
+            // Content of the window
+        }
+        isVisible = true
+    }
+}
+</div><p id="-au54wf_94">You can also use the scope of a <code class="code" id="-au54wf_98">Window()</code> composable. In the following code sample, <code class="code" id="-au54wf_99">window</code> is a <code class="code" id="-au54wf_100">ComposeWindow</code> created inside <code class="code" id="-au54wf_101">Window()</code>:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="LaunchedEffect(Unit) { window.dropTarget = DropTarget().apply">
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.window.singleWindowApplication
+import java.awt.datatransfer.DataFlavor
+import java.awt.dnd.DnDConstants
+import java.awt.dnd.DropTarget
+import java.awt.dnd.DropTargetAdapter
+import java.awt.dnd.DropTargetDropEvent
+
+fun main() = singleWindowApplication {
+    LaunchedEffect(Unit) {
+        window.dropTarget = DropTarget().apply {
+            addDropTargetListener(object : DropTargetAdapter() {
+                override fun drop(event: DropTargetDropEvent) {
+                    event.acceptDrop(DnDConstants.ACTION_COPY)
+                    val fileName = event.transferable.getTransferData(DataFlavor.javaFileListFlavor)
+                    println(fileName)
+                }
+            })
+        }
+    }
+}
+</div><p id="-au54wf_96">If you need to use a dialog implemented in Swing, you can wrap it into a composable function:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="@Composable private fun FileDialog( parent: Frame? = null, ">
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.window.AwtWindow
+import androidx.compose.ui.window.application
+import java.awt.FileDialog
+import java.awt.Frame
+
+fun main() = application {
+    var isOpen by remember { mutableStateOf(true) }
+
+    if (isOpen) {
+        FileDialog(
+            onCloseRequest = {
+                isOpen = false
+                println(&quot;Result $it&quot;)
+            }
+        )
+    }
+}
+
+@Composable
+private fun FileDialog(
+    parent: Frame? = null,
+    onCloseRequest: (result: String?) -&gt; Unit
+) = AwtWindow(
+    create = {
+        object : FileDialog(parent, &quot;Choose a file&quot;, LOAD) {
+            override fun setVisible(value: Boolean) {
+                super.setVisible(value)
+                if (value) {
+                    onCloseRequest(file)
+                }
+            }
+        }
+    },
+    dispose = FileDialog::dispose
+)
+</div></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><p id="-au54wf_102">Explore the tutorials about <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/tutorials#desktop" id="-au54wf_103" data-external="true" rel="noopener noreferrer">other desktop components</a>.</p></section><div class="last-modified">Last modified: 01 October 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-desktop-components.html" class="navigation-links__prev">Desktop-only API</a><a href="compose-desktop-scrollbars.html" class="navigation-links__next">Scrollbars</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

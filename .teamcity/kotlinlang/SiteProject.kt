@@ -16,6 +16,7 @@ object SiteProject : Project({
     PdfGenerator,
     BuildSearchIndex,
     BuildReferenceDocs,
+    BuildKmpDevDocs,
     BuildWebHelpFrontend,
     BuildKotlinGrammar,
     BuildKotlinSpec,

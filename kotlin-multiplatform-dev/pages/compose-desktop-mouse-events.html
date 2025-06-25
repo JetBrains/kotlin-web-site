@@ -1,0 +1,476 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:22.276522681"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Mouse event listeners | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"click-listeners","level":0,"title":"Click listeners","anchor":"#click-listeners"},{"id":"move-listeners","level":0,"title":"Move listeners","anchor":"#move-listeners"},{"id":"enter-listeners","level":0,"title":"Enter listeners","anchor":"#enter-listeners"},{"id":"scroll-listeners","level":0,"title":"Scroll listeners","anchor":"#scroll-listeners"},{"id":"experimental-onclick-handlers","level":0,"title":"Experimental onClick handlers","anchor":"#experimental-onclick-handlers"},{"id":"experimental-ondrag-modifier","level":0,"title":"Experimental onDrag modifier","anchor":"#experimental-ondrag-modifier"},{"id":"accessing-raw-awt-events-with-swing-interoperability","level":0,"title":"Accessing raw AWT events with Swing interoperability","anchor":"#accessing-raw-awt-events-with-swing-interoperability"},{"id":"listening-for-raw-events-in-common-code-via-pointerinput","level":0,"title":"Listening for raw events in common code via pointerInput","anchor":"#listening-for-raw-events-in-common-code-via-pointerinput"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Mouse event listeners | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-mouse-events.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Mouse event listeners | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-mouse-events.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-mouse-events.html",
+    "name": "Mouse event listeners | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-desktop-mouse-events" data-main-title="Mouse event listeners" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Desktop-specific components" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-desktop-mouse-events.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-desktop-mouse-events" id="compose-desktop-mouse-events.md">Mouse event listeners</h1><p id="-9iyqrm_2">In your desktop project, you can listen to various mouse events, like clicking, moving, scrolling, or entering and exiting the input region.</p><section class="chapter"><h2 id="click-listeners" data-toc="click-listeners">Click listeners</h2><p id="-9iyqrm_12">Click listeners are available in both Compose Multiplatform for Android and Compose Multiplatform for desktop, so your code will work on both platforms. For example, here is how to set up simple click listeners with the <code class="code" id="-9iyqrm_16">onClick</code>, <code class="code" id="-9iyqrm_17">onDoubleClick</code>, and <code class="code" id="-9iyqrm_18">onLongClick</code> modifiers:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Box(modifier = Modifier.combinedClickable(onClick = { text =">
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
+import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.singleWindowApplication
+
+fun main() = singleWindowApplication(title = &quot;Mouse clicks&quot;) {
+    var count by remember { mutableIntStateOf(0) }
+    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
+        var text by remember { mutableStateOf(&quot;Click magenta box!&quot;) }
+        Column {
+            @OptIn(ExperimentalFoundationApi::class)
+            Box(modifier = Modifier
+                .background(Color.Magenta)
+                .fillMaxWidth(0.7f)
+                .fillMaxHeight(0.7f)
+                .combinedClickable(
+                    onClick = {
+                        text = &quot;Click! ${count++}&quot;
+                    },
+                    onDoubleClick = {
+                        text = &quot;Double click! ${count++}&quot;
+                    },
+                    onLongClick = {
+                        text = &quot;Long click! ${count++}&quot;
+                    }
+                )
+            )
+            Text(text = text, fontSize = 40.sp)
+        }
+    }
+}
+</div><figure data-theme="light" id="-9iyqrm_14" width="600"><img alt="Mouse click listeners" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-mouse-click-listeners.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-mouse-click-listeners.animated.gif" width="600" style="width: 600px;"></figure><p id="-9iyqrm_15">The <code class="code" id="-9iyqrm_19">combinedClickable</code> modifier supports only the primary button (left mouse button) and touch events. If you need to handle buttons differently, see the <a href="#experimental-onclick-handlers" id="-9iyqrm_20"><code class="code" id="-9iyqrm_21">Modifier.onClick</code></a> section.</p></section><section class="chapter"><h2 id="move-listeners" data-toc="move-listeners">Move listeners</h2><aside class="prompt" data-type="warning" data-title="" id="-9iyqrm_22"><p id="-9iyqrm_26">The <code class="code" id="-9iyqrm_27">onPointerEvent</code> modifier is <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="-9iyqrm_28">Experimental</a>. Opt-in is required (see details below), and you should use it only for evaluation purposes. For a <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="-9iyqrm_29">Stable</a> API, see <a href="#listening-for-raw-events-in-common-code-via-pointerinput" id="-9iyqrm_30"><code class="code" id="-9iyqrm_31">Modifier.pointerInput</code></a>.</p></aside><p id="-9iyqrm_23">To create a pointer move listener that changes the background color of the window according to the mouse pointer position, add the following code:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Box(modifier = Modifier.onPointerEvent(PointerEventType.Move) { color =">
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerEventType
+import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.window.singleWindowApplication
+
+@OptIn(ExperimentalComposeUiApi::class)
+fun main() = singleWindowApplication(title = &quot;Mouse move listeners&quot;) {
+    var color by remember { mutableStateOf(Color(0, 0, 0)) }
+    Box(modifier = Modifier
+        .wrapContentSize(Alignment.Center)
+        .fillMaxSize()
+        .background(color = color)
+        .onPointerEvent(PointerEventType.Move) {
+            val position = it.changes.first().position
+            color = Color(position.x.toInt() % 256, position.y.toInt() % 256, 0)
+        }
+    )
+}
+</div><figure data-theme="light" id="-9iyqrm_25" width="600"><img alt="Mouse move listeners" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-mouse-move-listeners.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-mouse-move-listeners.animated.gif" width="600" style="width: 600px;"></figure></section><section class="chapter"><h2 id="enter-listeners" data-toc="enter-listeners">Enter listeners</h2><aside class="prompt" data-type="warning" data-title="" id="-9iyqrm_32"><p id="-9iyqrm_36">The <code class="code" id="-9iyqrm_37">onPointerEvent</code> modifier is <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="-9iyqrm_38">Experimental</a>. Opt-in is required (see details below), and you should use it only for evaluation purposes. For a <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="-9iyqrm_39">Stable</a> API, see <a href="#listening-for-raw-events-in-common-code-via-pointerinput" id="-9iyqrm_40"><code class="code" id="-9iyqrm_41">Modifier.pointerInput</code></a>.</p></aside><p id="-9iyqrm_33">Compose Multiplatform for desktop supports handlers of the pointer entering and exiting the input region. For example, the following code will change the font style of a line on hover:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Text(modifier = Modifier.onPointerEvent(PointerEventType.Enter) { active =">
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerEventType
+import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.singleWindowApplication
+
+@OptIn(ExperimentalComposeUiApi::class)
+fun main() = singleWindowApplication(title = &quot;Mouse enter listeners&quot;) {
+    Column(
+        Modifier.background(Color.White),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        repeat(10) { index -&gt;
+            var active by remember { mutableStateOf(false) }
+            Text(modifier = Modifier
+                .fillMaxWidth()
+                .background(color = if (active) Color.Green else Color.White)
+                .onPointerEvent(PointerEventType.Enter) { active = true }
+                .onPointerEvent(PointerEventType.Exit) { active = false },
+                fontSize = 30.sp,
+                fontStyle = if (active) FontStyle.Italic else FontStyle.Normal,
+                text = &quot;Item $index&quot;,
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}
+</div><figure data-theme="light" id="-9iyqrm_35" width="600"><img alt="Mouse enter listeners" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-mouse-enter-listeners.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-mouse-enter-listeners.animated.gif" width="600" style="width: 600px;"></figure></section><section class="chapter"><h2 id="scroll-listeners" data-toc="scroll-listeners">Scroll listeners</h2><aside class="prompt" data-type="warning" data-title="" id="-9iyqrm_42"><p id="-9iyqrm_46">The <code class="code" id="-9iyqrm_47">onPointerEvent</code> modifier is <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="-9iyqrm_48">Experimental</a>. Opt-in is required (see details below), and you should use it only for evaluation purposes. For a <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="-9iyqrm_49">Stable</a> API, see <a href="#listening-for-raw-events-in-common-code-via-pointerinput" id="-9iyqrm_50"><code class="code" id="-9iyqrm_51">Modifier.pointerInput</code></a>.</p></aside><p id="-9iyqrm_43">The following code sample demonstrates how you can increase or decrease the displayed number depending on the mouse scroll direction:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Box(Modifier.onPointerEvent(PointerEventType.Scroll) { number +=">
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.PointerEventType
+import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.singleWindowApplication
+
+@OptIn(ExperimentalComposeUiApi::class)
+fun main() = singleWindowApplication(title = &quot;Mouse scroll listeners&quot;) {
+    var number by remember { mutableFloatStateOf(0f) }
+    Box(
+        Modifier
+            .fillMaxSize()
+            .onPointerEvent(PointerEventType.Scroll) {
+                number += it.changes.first().scrollDelta.y
+            },
+        contentAlignment = Alignment.Center
+    ) {
+        Text(&quot;Scroll to change the number: $number&quot;, fontSize = 30.sp)
+    }
+}
+</div><figure data-theme="light" id="-9iyqrm_45" width="600"><img alt="Mouse scroll listeners" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-mouse-scroll-listeners.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-mouse-scroll-listeners.animated.gif" width="600" style="width: 600px;"></figure></section><section class="chapter"><h2 id="experimental-onclick-handlers" data-toc="experimental-onclick-handlers">Experimental onClick handlers</h2><aside class="prompt" data-type="warning" data-title="" id="-9iyqrm_52"><p id="-9iyqrm_59">The <code class="code" id="-9iyqrm_60">onClick</code> modifier is <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="-9iyqrm_61">Experimental</a> and supported in desktop projects only. Opt-in is required (see details below), and you should use it only for evaluation purposes.</p></aside><p id="-9iyqrm_53"><code class="code" id="-9iyqrm_62">Modifier.onClick</code> provides independent callbacks for clicks, double clicks, and long clicks. It handles clicks originating from pointer events only and doesn't handle accessibility <code class="code" id="-9iyqrm_63">click</code> events out of the box.</p><p id="-9iyqrm_54">You can configure each <code class="code" id="-9iyqrm_64">onClick</code> to target specific pointer events using <code class="code" id="-9iyqrm_65">matcher: PointerMatcher</code> and <code class="code" id="-9iyqrm_66">keyboardModifiers: PointerKeyboardModifiers.() -&gt; Boolean</code>:</p><ul class="list _bullet" id="-9iyqrm_55"><li class="list__item" id="-9iyqrm_67"><p><code class="code" id="-9iyqrm_69">matcher</code> allows you to choose which mouse button should trigger a click event.</p></li><li class="list__item" id="-9iyqrm_68"><p><code class="code" id="-9iyqrm_70">keyboardModifiers</code> allows you to filter pointer events that have specified key pressed.</p></li></ul><p id="-9iyqrm_56">You can also create a chain of multiple <code class="code" id="-9iyqrm_71">onClick</code> modifiers to handle different clicks with different conditions of the matcher and keyboard modifiers. Unlike <code class="code" id="-9iyqrm_72">clickable</code>, <code class="code" id="-9iyqrm_73">onClick</code> doesn't have default <code class="code" id="-9iyqrm_74">Modifier.indication</code> and <code class="code" id="-9iyqrm_75">Modifier.semantics</code>, and it doesn't trigger a click event when you press <code class="code" id="-9iyqrm_76">Enter</code>. If necessary, add these modifiers separately. You should declare the most generic (with the least number of conditions) <code class="code" id="-9iyqrm_77">onClick</code> handlers before others to ensure correct propagation of events.</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Box(modifier = Modifier.onClick {">
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.LocalIndication
+import androidx.compose.foundation.PointerMatcher
+import androidx.compose.foundation.background
+import androidx.compose.foundation.indication
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.onClick
+import androidx.compose.material.Text
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerButton
+import androidx.compose.ui.input.pointer.isAltPressed
+import androidx.compose.ui.input.pointer.isShiftPressed
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.singleWindowApplication
+
+@OptIn(ExperimentalFoundationApi::class)
+fun main() = singleWindowApplication(title = &quot;Mouse clicks&quot;) {
+    Column {
+        var topBoxText by remember { mutableStateOf(&quot;Click me\nusing LMB or LMB + Shift&quot;) }
+        var topBoxCount by remember { mutableIntStateOf(0) }
+        // No indication on interaction
+        Box(modifier = Modifier
+            .size(300.dp, 200.dp)
+            .background(Color.LightGray)
+            // The most generic click handler (without extra conditions) should be the first one
+            .onClick {
+                // Receives all left mouse button clicks except for when Shift is pressed
+                println(&quot;Click with primary button&quot;)
+                topBoxText = &quot;LMB ${topBoxCount++}&quot;
+            }.onClick(
+                keyboardModifiers = { isShiftPressed } // Accepts clicks only when Shift is pressed
+            ) {
+                // Receives all left mouse button clicks when Shift is pressed
+                println(&quot;Click with primary button and shift pressed&quot;)
+                topBoxCount++
+                topBoxText = &quot;LMB + Shift ${topBoxCount++}&quot;
+            }
+        ) {
+            AnimatedContent(
+                targetState = topBoxText,
+                modifier = Modifier.align(Alignment.Center)
+            ) {
+                Text(text = it, textAlign = TextAlign.Center)
+            }
+        }
+
+        var bottomBoxText by remember { mutableStateOf(&quot;Click me\nusing LMB or\nRMB + Alt&quot;) }
+        var bottomBoxCount by remember { mutableStateOf(0) }
+        val interactionSource = remember { MutableInteractionSource() }
+        // With indication on interaction
+        Box(modifier = Modifier
+            .size(300.dp, 200.dp)
+            .background(Color.Yellow)
+            .onClick(
+                enabled = true,
+                interactionSource = interactionSource,
+                matcher = PointerMatcher.mouse(PointerButton.Secondary), // Right mouse button
+                keyboardModifiers = { isAltPressed }, // Accepts clicks only when Alt is pressed
+                onLongClick = { // Optional
+                    bottomBoxText = &quot;RMB Long Click + Alt ${bottomBoxCount++}&quot;
+                    println(&quot;Long Click with secondary button and Alt pressed&quot;)
+                },
+                onDoubleClick = { // Optional
+                    bottomBoxText = &quot;RMB Double Click + Alt ${bottomBoxCount++}&quot;
+                    println(&quot;Double Click with secondary button and Alt pressed&quot;)
+                },
+                onClick = {
+                    bottomBoxText = &quot;RMB Click + Alt ${bottomBoxCount++}&quot;
+                    println(&quot;Click with secondary button and Alt pressed&quot;)
+                }
+            )
+            .onClick(interactionSource = interactionSource) { // Uses default parameters
+                bottomBoxText = &quot;LMB Click ${bottomBoxCount++}&quot;
+                println(&quot;Click with primary button (mouse left button)&quot;)
+            }
+            .indication(interactionSource, LocalIndication.current)
+        ) {
+            AnimatedContent(
+                targetState = bottomBoxText,
+                modifier = Modifier.align(Alignment.Center)
+            ) {
+                Text(text = it, textAlign = TextAlign.Center)
+            }
+        }
+    }
+}
+</div><figure data-theme="light" id="-9iyqrm_58" width="600"><img alt="Modifier.onClick" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-onclick-modifier.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-onclick-modifier.animated.gif" width="600" style="width: 600px;"></figure></section><section class="chapter"><h2 id="experimental-ondrag-modifier" data-toc="experimental-ondrag-modifier">Experimental onDrag modifier</h2><aside class="prompt" data-type="warning" data-title="" id="-9iyqrm_78"><p id="-9iyqrm_86">The <code class="code" id="-9iyqrm_87">onDrag</code> modifier is <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="-9iyqrm_88">Experimental</a> and supported in desktop projects only. Opt-in is required (see details below), and you should use it only for evaluation purposes.</p></aside><p id="-9iyqrm_79">With <code class="code" id="-9iyqrm_89">Modifier.onDrag</code>, you can specify the pointer that should trigger the drag via <code class="code" id="-9iyqrm_90">matcher: PointerMatcher</code>. Similar to <code class="code" id="-9iyqrm_91">onClick</code>, you can chain together many <code class="code" id="-9iyqrm_92">onDrag</code> modifiers.</p><p id="-9iyqrm_80">You can also check the state of keyboard modifiers via <code class="code" id="-9iyqrm_93">LocalWindowInfo.current.keyboardModifier</code> for cases when keys can alter the behavior of the drag. For example, when you move an item with a simple drag, and copy/paste an item with a drag and <code class="code" id="-9iyqrm_94">Ctrl</code> pressed.</p><p id="-9iyqrm_81">The following code sample demonstrates how to handle drag events triggered by left and right mouse buttons, and with the keyboard involved:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Box(modifier = Modifier.onDrag {">
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.PointerMatcher
+import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.onDrag
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.PointerButton
+import androidx.compose.ui.input.pointer.isCtrlPressed
+import androidx.compose.ui.platform.LocalWindowInfo
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.singleWindowApplication
+
+@OptIn(ExperimentalFoundationApi::class)
+fun main() = singleWindowApplication(title = &quot;Drag&quot;) {
+    val windowInfo = LocalWindowInfo.current
+
+    Column {
+        var topBoxOffset by remember { mutableStateOf(Offset(0f, 0f)) }
+
+        Box(modifier = Modifier
+            .offset {
+                IntOffset(topBoxOffset.x.toInt(), topBoxOffset.y.toInt())
+            }
+            .size(200.dp)
+            .background(Color.Green)
+            .onDrag { // By default: enabled = true, matcher = PointerMatcher.Primary (left mouse button)
+                topBoxOffset += it
+            }
+        ) {
+            Text(text = &quot;Drag with LMB&quot;, modifier = Modifier.align(Alignment.Center))
+        }
+
+        var bottomBoxOffset by remember { mutableStateOf(Offset(0f, 0f)) }
+
+        Box(modifier = Modifier
+            .offset {
+                IntOffset(bottomBoxOffset.x.toInt(), bottomBoxOffset.y.toInt())
+            }
+            .size(200.dp)
+            .background(Color.LightGray)
+            .onDrag(
+                matcher = PointerMatcher.mouse(PointerButton.Secondary), // Right mouse button
+                onDragStart = {
+                    println(&quot;Gray Box: drag start&quot;)
+                },
+                onDragEnd = {
+                    println(&quot;Gray Box: drag end&quot;)
+                }
+            ) {
+                val keyboardModifiers = windowInfo.keyboardModifiers
+                bottomBoxOffset += if (keyboardModifiers.isCtrlPressed) it * 2f else it
+            }
+        ) {
+            Text(
+                text = &quot;Drag with RMB,\ntry with CTRL&quot;,
+                modifier = Modifier.align(Alignment.Center)
+            )
+        }
+    }
+}
+</div><figure data-theme="light" id="-9iyqrm_83" width="600"><img alt="Modifier.onDrag" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-ondrag-modifier.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-ondrag-modifier.animated.gif" width="600" style="width: 600px;"></figure><p id="-9iyqrm_84">There is also a non-modifier way to handle drags using <code class="code" id="-9iyqrm_95">suspend fun PointerInputScope.detectDragGestures</code>:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Modifier.pointerInput(Unit) { detectDragGestures(matcher = PointerMatcher.Primary)">
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.PointerMatcher
+import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.singleWindowApplication
+
+@OptIn(ExperimentalFoundationApi::class)
+fun main() = singleWindowApplication(title = &quot;Drag&quot;) {
+    var topBoxOffset by remember { mutableStateOf(Offset(0f, 0f)) }
+
+    Box(modifier = Modifier
+        .offset {
+            IntOffset(topBoxOffset.x.toInt(), topBoxOffset.y.toInt())
+        }
+        .size(200.dp)
+        .background(Color.Green)
+        .pointerInput(Unit) {
+            detectDragGestures(
+                matcher = PointerMatcher.Primary
+            ) {
+                topBoxOffset += it
+            }
+        }
+    ) {
+        Text(text = &quot;Drag with LMB&quot;, modifier = Modifier.align(Alignment.Center))
+    }
+}
+</div></section><section class="chapter"><h2 id="accessing-raw-awt-events-with-swing-interoperability" data-toc="accessing-raw-awt-events-with-swing-interoperability">Accessing raw AWT events with Swing interoperability</h2><aside class="prompt" data-type="warning" data-title="" id="-9iyqrm_96"><p id="-9iyqrm_100">The <code class="code" id="-9iyqrm_101">onPointerEvent</code> modifier is <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="-9iyqrm_102">Experimental</a>. Opt-in is required (see details below), and you should use it only for evaluation purposes. For a <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="-9iyqrm_103">Stable</a> API, see <a href="#listening-for-raw-events-in-common-code-via-pointerinput" id="-9iyqrm_104"><code class="code" id="-9iyqrm_105">Modifier.pointerInput</code></a>.</p></aside><p id="-9iyqrm_97">Compose Multiplatform for desktop uses Swing under the hood and allows to access raw AWT events:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Box(Modifier.onPointerEvent(PointerEventType.Press) { text =">
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Text
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.awt.awtEventOrNull
+import androidx.compose.ui.input.pointer.PointerEventType
+import androidx.compose.ui.input.pointer.onPointerEvent
+import androidx.compose.ui.window.singleWindowApplication
+
+@OptIn(ExperimentalComposeUiApi::class)
+fun main() = singleWindowApplication(title = &quot;Raw AWT events&quot;) {
+    var text by remember { mutableStateOf(&quot;&quot;) }
+
+    Box(
+        Modifier
+            .fillMaxSize()
+            .onPointerEvent(PointerEventType.Press) {
+                text = it.awtEventOrNull?.locationOnScreen?.toString().orEmpty()
+            },
+        contentAlignment = Alignment.Center
+    ) {
+        Text(text)
+    }
+}
+</div><figure data-theme="light" id="-9iyqrm_99" width="600"><img alt="Swing interoperability" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-raw-awt-events.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-raw-awt-events.animated.gif" width="600" style="width: 600px;"></figure></section><section class="chapter"><h2 id="listening-for-raw-events-in-common-code-via-pointerinput" data-toc="listening-for-raw-events-in-common-code-via-pointerinput">Listening for raw events in common code via pointerInput</h2><p id="-9iyqrm_106">In the snippets above we use the <code class="code" id="-9iyqrm_110">Modifier.onPointerEvent</code> function, which is a helper function that subscribes to a type of pointer events. It is a new and short variant of the <code class="code" id="-9iyqrm_111">Modifier.pointerInput</code> function. It is currently experimental and desktop-only, so you can't use it in common code.</p><p id="-9iyqrm_107">If you need to subscribe to events in common code, or if you need a stable API, you can use the <code class="code" id="-9iyqrm_112">Modifier.pointerInput</code> function:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="Column(Modifier.pointerInput(Unit) { awaitPointerEventScope {">
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Text
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.PointerEventType
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.window.singleWindowApplication
+
+fun main() = singleWindowApplication(title = &quot;Raw events via Modifier.pointerInput&quot;) {
+    val list = remember { mutableStateListOf&lt;String&gt;() }
+
+    Column(
+        Modifier
+            .fillMaxSize()
+            .pointerInput(Unit) {
+                awaitPointerEventScope {
+                    while (true) {
+                        val event = awaitPointerEvent()
+                        val position = event.changes.first().position
+                        // On each relayout, Compose will send a synthetic Move event,
+                        // so we skip it to avoid event spam
+                        if (event.type != PointerEventType.Move) {
+                            list.add(0, &quot;${event.type} $position&quot;)
+                        }
+                    }
+                }
+            },
+    ) {
+        for (item in list.take(20)) {
+            Text(item)
+        }
+    }
+}
+</div><figure data-theme="light" id="-9iyqrm_109" width="600"><img alt="Raw events via Modifier.pointerInput" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-raw-events.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-raw-events.animated.gif" width="600" style="width: 600px;"></figure></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><p id="-9iyqrm_113">Explore the tutorials about <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/tutorials#desktop" id="-9iyqrm_114" data-external="true" rel="noopener noreferrer">other desktop components</a>.</p></section><div class="last-modified">Last modified: 01 October 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-desktop-context-menus.html" class="navigation-links__prev">Context menus</a><a href="compose-desktop-keyboard.html" class="navigation-links__next">Keyboard events</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:22.090492699"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Scrollbars | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"scroll-modifiers","level":0,"title":"Scroll modifiers","anchor":"#scroll-modifiers"},{"id":"lazy-scrollable-components","level":0,"title":"Lazy scrollable components","anchor":"#lazy-scrollable-components"},{"id":"known-limitations","level":0,"title":"Known limitations","anchor":"#known-limitations"},{"id":"what-s-next","level":0,"title":"What\u0027s next?","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Scrollbars | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-scrollbars.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Scrollbars | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-scrollbars.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-scrollbars.html",
+    "name": "Scrollbars | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-desktop-scrollbars" data-main-title="Scrollbars" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Desktop-specific components" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-desktop-scrollbars.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-desktop-scrollbars" id="compose-desktop-scrollbars.md">Scrollbars</h1><p id="h89fzm_2">You can apply scrollbars to scrollable components. The scrollbar and scrollable components share a common state to synchronize with each other.</p><section class="chapter"><h2 id="scroll-modifiers" data-toc="scroll-modifiers">Scroll modifiers</h2><p id="h89fzm_7">The <code class="code" id="h89fzm_11">verticalScroll</code> and <code class="code" id="h89fzm_12">horizontalScroll</code> modifiers provide the simplest way to allow the user to scroll an element when the bounds of its contents are larger than its maximum size constraints. You can attach the <code class="code" id="h89fzm_13">VerticalScrollbar</code> composable to a scrollable component with the <code class="code" id="h89fzm_14">verticalScroll</code> modifier and the <code class="code" id="h89fzm_15">HorizontalScrollbar</code> composable to a scrollable component with the <code class="code" id="h89fzm_16">horizontalScroll</code> modifier:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="VerticalScrollbar(modifier = Modifier.align(Alignment.CenterEnd) ">
+import androidx.compose.foundation.HorizontalScrollbar
+import androidx.compose.foundation.VerticalScrollbar
+import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.rememberScrollbarAdapter
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.WindowState
+import androidx.compose.ui.window.singleWindowApplication
+
+fun main() = singleWindowApplication(
+    title = &quot;Scrollbars&quot;,
+    state = WindowState(width = 300.dp, height = 310.dp)
+) {
+    Box(
+        modifier = Modifier.fillMaxSize()
+            .background(color = Color(180, 180, 180))
+            .padding(10.dp)
+    ) {
+        val stateVertical = rememberScrollState(0)
+        val stateHorizontal = rememberScrollState(0)
+
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .verticalScroll(stateVertical)
+                .padding(end = 12.dp, bottom = 12.dp)
+                .horizontalScroll(stateHorizontal)
+        ) {
+            Column {
+                for (item in 0..30) {
+                    TextBox(&quot;Item #$item&quot;)
+                    if (item &lt; 30) {
+                        Spacer(modifier = Modifier.height(5.dp))
+                    }
+                }
+            }
+        }
+        VerticalScrollbar(
+            modifier = Modifier.align(Alignment.CenterEnd)
+                .fillMaxHeight(),
+            adapter = rememberScrollbarAdapter(stateVertical)
+        )
+        HorizontalScrollbar(
+            modifier = Modifier.align(Alignment.BottomStart)
+                .fillMaxWidth()
+                .padding(end = 12.dp),
+            adapter = rememberScrollbarAdapter(stateHorizontal)
+        )
+    }
+}
+
+@Composable
+fun TextBox(text: String = &quot;Item&quot;) {
+    Box(
+        modifier = Modifier.height(32.dp)
+            .width(400.dp)
+            .background(color = Color(0, 0, 0, 20))
+            .padding(start = 10.dp),
+        contentAlignment = Alignment.CenterStart
+    ) {
+        Text(text = text)
+    }
+}
+</div><p id="h89fzm_9">You can move scrollbars by dragging the bars and using the mouse wheel or the touchpad. To move horizontal scrollbars with the mouse, side-click the wheel or hold down <kbd class="keystroke" id="h89fzm_17" data-bypass="true"><span class="keystroke__value">Shift</span></kbd>.</p><figure data-theme="light" id="h89fzm_10" width="289"><img alt="Scrollbar" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-scrollbar.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-scrollbar.animated.gif" width="289" style="width: 289px;"></figure></section><section class="chapter"><h2 id="lazy-scrollable-components" data-toc="lazy-scrollable-components">Lazy scrollable components</h2><p id="h89fzm_18">You can also use scrollbars with lazy scrollable components such as <code class="code" id="h89fzm_21">LazyColumn</code> and <code class="code" id="h89fzm_22">LazyRow</code>. Lazy components are much more efficient when you expect a lot of items in the list since they only compose the items as they're needed.</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="VerticalScrollbar(modifier = Modifier.align(Alignment.CenterEnd) ">
+import androidx.compose.foundation.VerticalScrollbar
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollbarAdapter
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.application
+import androidx.compose.ui.window.rememberWindowState
+
+fun main() = application {
+    Window(
+        onCloseRequest = ::exitApplication,
+        title = &quot;Scrollbars&quot;,
+        state = rememberWindowState(width = 300.dp, height = 310.dp)
+    ) {
+        LazyScrollable()
+    }
+}
+
+@Composable
+fun LazyScrollable() {
+    Box(
+        modifier = Modifier.fillMaxSize()
+            .background(color = Color(180, 180, 180))
+            .padding(10.dp)
+    ) {
+
+        val state = rememberLazyListState()
+
+        LazyColumn(Modifier.fillMaxSize().padding(end = 12.dp), state) {
+            items(1000) { x -&gt;
+                TextBox(&quot;Item #$x&quot;)
+                Spacer(modifier = Modifier.height(5.dp))
+            }
+        }
+        VerticalScrollbar(
+            modifier = Modifier.align(Alignment.CenterEnd).fillMaxHeight(),
+            adapter = rememberScrollbarAdapter(
+                scrollState = state
+            )
+        )
+    }
+}
+
+@Composable
+fun TextBox(text: String = &quot;Item&quot;) {
+    Box(
+        modifier = Modifier.height(32.dp)
+            .fillMaxWidth()
+            .background(color = Color(0, 0, 0, 20))
+            .padding(start = 10.dp),
+        contentAlignment = Alignment.CenterStart
+    ) {
+        Text(text = text)
+    }
+}
+</div><figure data-theme="light" id="h89fzm_20" width="289"><img alt="Lazy scrollbar" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-lazy-scrollbar.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-lazy-scrollbar.animated.gif" width="289" style="width: 289px;"></figure></section><section class="chapter"><h2 id="known-limitations" data-toc="known-limitations">Known limitations</h2><p id="h89fzm_23">Currently, scrolling using touchscreens, touchpads, and trackpads is treated as mouse events, which can lead to glitches and limitations like the lack of pinch-to-zoom. We are continually improving input and gesture handling and plan to introduce native support for these input devices:</p><ul class="list _bullet" id="h89fzm_24"><li class="list__item" id="h89fzm_25"><p>Support touch screens natively (<a href="https://youtrack.jetbrains.com/issue/CMP-1609/" id="h89fzm_27" data-external="true" rel="noopener noreferrer">CMP-1609</a>)</p></li><li class="list__item" id="h89fzm_26"><p>Support touchpad and trackpad natively (<a href="https://youtrack.jetbrains.com/issue/CMP-1610/" id="h89fzm_28" data-external="true" rel="noopener noreferrer">CMP-1610</a>)</p></li></ul></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next?</h2><p id="h89fzm_29">Explore the tutorials about <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/tutorials#desktop" id="h89fzm_30" data-external="true" rel="noopener noreferrer">other desktop components</a>.</p></section><div class="last-modified">Last modified: 12 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-desktop-top-level-windows-management.html" class="navigation-links__prev">Top-level windows management</a><a href="compose-desktop-tooltips.html" class="navigation-links__next">Tooltips</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:20.788571701"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Manage local resource environment | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"locale","level":0,"title":"Locale","anchor":"#locale"},{"id":"theme","level":0,"title":"Theme","anchor":"#theme"},{"id":"density","level":0,"title":"Density","anchor":"#density"},{"id":"what-s-next","level":0,"title":"What\u0027s next?","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Manage local resource environment | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-resource-environment.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Manage local resource environment | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-resource-environment.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-resource-environment.html",
+    "name": "Manage local resource environment | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-resource-environment" data-main-title="Manage local resource environment" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Multiplatform resources" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-resource-environment.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-resource-environment" id="compose-resource-environment.md">Manage local resource environment</h1><p id="yf6jwc_3">You may need to manage in-app settings that allow users customize their experience, such as changing the language or theme. To dynamically update the application's resource environment, you can configure the following resource-related settings used by the application:</p><ul class="list _bullet" id="yf6jwc_4"><li class="list__item" id="yf6jwc_9"><p><a href="#locale" id="yf6jwc_12">Locale (language and region)</a></p></li><li class="list__item" id="yf6jwc_10"><p><a href="#theme" id="yf6jwc_13">Theme</a></p></li><li class="list__item" id="yf6jwc_11"><p><a href="#density" id="yf6jwc_14">Resolution density</a></p></li></ul><section class="chapter"><h2 id="locale" data-toc="locale">Locale</h2><p id="yf6jwc_15">Each platform handles locale settings such as language and region differently. As a temporary workaround, until a common public API is implemented, you need to define a common entry point in the shared code. Then, provide the corresponding declarations for each platform using the platform-specific API:</p><ul class="list _bullet" id="yf6jwc_16"><li class="list__item" id="yf6jwc_18"><p><span class="control" id="yf6jwc_22">Android</span>: <a href="https://developer.android.com/reference/android/content/res/Configuration#setLocale(java.util.Locale)" id="yf6jwc_23" data-external="true" rel="noopener noreferrer"><code class="code" id="yf6jwc_24">context.resources.configuration.locale</code></a></p></li><li class="list__item" id="yf6jwc_19"><p><span class="control" id="yf6jwc_25">iOS</span>: <a href="https://developer.apple.com/documentation/foundation/nslocale/preferredlanguages" id="yf6jwc_26" data-external="true" rel="noopener noreferrer"><code class="code" id="yf6jwc_27">NSLocale.preferredLanguages</code></a></p></li><li class="list__item" id="yf6jwc_20"><p><span class="control" id="yf6jwc_28">desktop</span>: <a href="https://developer.android.com/reference/java/util/Locale#getDefault(java.util.Locale.Category)" id="yf6jwc_29" data-external="true" rel="noopener noreferrer"><code class="code" id="yf6jwc_30">Locale.getDefault()</code></a></p></li><li class="list__item" id="yf6jwc_21"><p><span class="control" id="yf6jwc_31">web</span>: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/languages" id="yf6jwc_32" data-external="true" rel="noopener noreferrer"><code class="code" id="yf6jwc_33">window.navigator.languages</code></a></p></li></ul><ol class="list _decimal" id="yf6jwc_17" type="1"><li class="list__item" id="yf6jwc_34"><p id="yf6jwc_39">In the common source set, define the expected <code class="code" id="yf6jwc_41">LocalAppLocale</code> object with the <code class="code" id="yf6jwc_42">expect</code> keyword:</p><div class="code-block" data-lang="kotlin">
+var customAppLocale by mutableStateOf&lt;String?&gt;(null)
+expect object LocalAppLocale {
+    val current: String @Composable get
+    @Composable infix fun provides(value: String?): ProvidedValue&lt;*&gt;
+}
+
+@Composable
+fun AppEnvironment(content: @Composable () -&gt; Unit) {
+    CompositionLocalProvider(
+        LocalAppLocale provides customAppLocale,
+    ) {
+        key(customAppLocale) {
+            content()
+        }
+    }
+}
+</div></li><li class="list__item" id="yf6jwc_35"><p id="yf6jwc_43">In the Android source set, add the <code class="code" id="yf6jwc_45">actual</code> implementation that uses <code class="code" id="yf6jwc_46">context.resources.configuration.locale</code>:</p><div class="code-block" data-lang="kotlin">
+actual object LocalAppLocale {
+    private var default: Locale? = null
+    actual val current: String
+        @Composable get() = Locale.getDefault().toString()
+
+    @Composable
+    actual infix fun provides(value: String?): ProvidedValue&lt;*&gt; {
+        val configuration = LocalConfiguration.current
+
+        if (default == null) {
+            default = Locale.getDefault()
+        }
+
+        val new = when(value) {
+            null -&gt; default!!
+            else -&gt; Locale(value)
+        }
+        Locale.setDefault(new)
+        configuration.setLocale(new)
+        val resources = LocalContext.current.resources
+
+        resources.updateConfiguration(configuration, resources.displayMetrics)
+        return LocalConfiguration.provides(configuration)
+    }
+}
+</div></li><li class="list__item" id="yf6jwc_36"><p id="yf6jwc_47">In the iOS source set, add the <code class="code" id="yf6jwc_49">actual</code> implementation that modifies <code class="code" id="yf6jwc_50">NSLocale.preferredLanguages</code>:</p><div class="code-block" data-lang="kotlin">
+@OptIn(InternalComposeUiApi::class)
+actual object LocalAppLocale {
+    private const val LANG_KEY = &quot;AppleLanguages&quot;
+    private val default = NSLocale.preferredLanguages.first() as String
+    private val LocalAppLocale = staticCompositionLocalOf { default }
+    actual val current: String
+        @Composable get() = LocalAppLocale.current
+
+    @Composable
+    actual infix fun provides(value: String?): ProvidedValue&lt;*&gt; {
+        val new = value ?: default
+        if (value == null) {
+            NSUserDefaults.standardUserDefaults.removeObjectForKey(LANG_KEY)
+        } else {
+            NSUserDefaults.standardUserDefaults.setObject(arrayListOf(new), LANG_KEY)
+        }
+        return LocalAppLocale.provides(new)
+    }
+}
+</div></li><li class="list__item" id="yf6jwc_37"><p id="yf6jwc_51">In the desktop source set, add the <code class="code" id="yf6jwc_53">actual</code> implementation that uses <code class="code" id="yf6jwc_54">Locale.getDefault()</code> to update the JVM's default locale:</p><div class="code-block" data-lang="kotlin">
+actual object LocalAppLocale {
+    private var default: Locale? = null
+    private val LocalAppLocale = staticCompositionLocalOf { Locale.getDefault().toString() }
+    actual val current: String
+        @Composable get() = LocalAppLocale.current
+
+    @Composable
+    actual infix fun provides(value: String?): ProvidedValue&lt;*&gt; {
+        if (default == null) {
+            default = Locale.getDefault()
+        }
+        val new = when(value) {
+            null -&gt; default!!
+            else -&gt; Locale(value)
+        }
+        Locale.setDefault(new)
+        return LocalAppLocale.provides(new.toString())
+    }
+}
+</div></li><li class="list__item" id="yf6jwc_38"><p id="yf6jwc_55">For the web platform, bypass the read-only restriction of the <code class="code" id="yf6jwc_59">window.navigator.languages</code> property to introduce a custom locale logic:</p><div class="code-block" data-lang="kotlin">
+external object window {
+    var __customLocale: String?
+}
+
+actual object LocalAppLocale {
+    private val LocalAppLocale = staticCompositionLocalOf { Locale.current }
+    actual val current: String
+        @Composable get() = LocalAppLocale.current.toString()
+
+    @Composable
+    actual infix fun provides(value: String?): ProvidedValue&lt;*&gt; {
+        window.__customLocale = value?.replace('_', '-')
+        return LocalAppLocale.provides(Locale.current)
+    }
+}
+</div><p id="yf6jwc_57">Then, in your browser's <code class="code" id="yf6jwc_60">index.html</code>, put the following code before loading the application scripts:</p><div class="code-block" data-lang="markup">
+&lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        ...
+        &lt;script&gt;
+            var currentLanguagesImplementation = Object.getOwnPropertyDescriptor(Navigator.prototype, &quot;languages&quot;);
+            var newLanguagesImplementation = Object.assign({}, currentLanguagesImplementation, {
+                get: function () {
+                    if (window.__customLocale) {
+                        return [window.__customLocale];
+                    } else {
+                        return currentLanguagesImplementation.get.apply(this);
+                    }
+                }
+            });
+
+            Object.defineProperty(Navigator.prototype, &quot;languages&quot;, newLanguagesImplementation)
+        &lt;/script&gt;
+        &lt;script src=&quot;skiko.js&quot;&gt;&lt;/script&gt;
+        ...
+    &lt;/head&gt;
+    &lt;body&gt;&lt;/body&gt;
+    &lt;script src=&quot;composeApp.js&quot;&gt;&lt;/script&gt;
+&lt;/html&gt;
+</div></li></ol></section><section class="chapter"><h2 id="theme" data-toc="theme">Theme</h2><p id="yf6jwc_61">Compose Multiplatform defines the current theme via <code class="code" id="yf6jwc_65">isSystemInDarkTheme()</code>. Themes are handled differently across platforms:</p><ul class="list _bullet" id="yf6jwc_62"><li class="list__item" id="yf6jwc_66"><p id="yf6jwc_68">Android defines the theme via the following bitwise operation:</p><div class="code-block" data-lang="kotlin">
+    Resources.getConfiguration().uiMode and Configuration.UI_MODE_NIGHT_MASK
+</div></li><li class="list__item" id="yf6jwc_67"><p id="yf6jwc_70">iOS, desktop, and web platforms use <code class="code" id="yf6jwc_71">LocalSystemTheme.current</code>.</p></li></ul><p id="yf6jwc_63">As a temporary workaround, until a common public API is implemented, you can address this difference using the <code class="code" id="yf6jwc_72">expect-actual</code> mechanism to manage platform-specific theme customization:</p><ol class="list _decimal" id="yf6jwc_64" type="1"><li class="list__item" id="yf6jwc_73"><p id="yf6jwc_76">In the common code, define the expected <code class="code" id="yf6jwc_78">LocalAppTheme</code> object with the <code class="code" id="yf6jwc_79">expect</code> keyword:</p><div class="code-block" data-lang="kotlin">
+var customAppThemeIsDark by mutableStateOf&lt;Boolean?&gt;(null)
+expect object LocalAppTheme {
+    val current: Boolean @Composable get
+    @Composable infix fun provides(value: Boolean?): ProvidedValue&lt;*&gt;
+}
+
+@Composable
+fun AppEnvironment(content: @Composable () -&gt; Unit) {
+    CompositionLocalProvider(
+        LocalAppTheme provides customAppThemeIsDark,
+    ) {
+        key(customAppThemeIsDark) {
+            content()
+        }
+    }
+}
+</div></li><li class="list__item" id="yf6jwc_74"><p id="yf6jwc_80">In Android code, add the actual implementation that uses the <code class="code" id="yf6jwc_82">LocalConfiguration</code> API:</p><div class="code-block" data-lang="kotlin">
+ actual object LocalAppTheme {
+     actual val current: Boolean
+         @Composable get() = (LocalConfiguration.current.uiMode and UI_MODE_NIGHT_MASK) == UI_MODE_NIGHT_YES
+
+     @Composable
+     actual infix fun provides(value: Boolean?): ProvidedValue&lt;*&gt; {
+         val new = if (value == null) {
+             LocalConfiguration.current
+         } else {
+             Configuration(LocalConfiguration.current).apply {
+                 uiMode = when (value) {
+                     true -&gt; (uiMode and UI_MODE_NIGHT_MASK.inv()) or UI_MODE_NIGHT_YES
+                     false -&gt; (uiMode and UI_MODE_NIGHT_MASK.inv()) or UI_MODE_NIGHT_NO
+                 }
+             }
+         }
+         return LocalConfiguration.provides(new)
+     }
+ }
+</div></li><li class="list__item" id="yf6jwc_75"><p id="yf6jwc_83">On iOS, desktop, and web platforms, you can change <code class="code" id="yf6jwc_85">LocalSystemTheme</code> directly:</p><div class="code-block" data-lang="kotlin">
+@OptIn(InternalComposeUiApi::class)
+actual object LocalAppTheme {
+    actual val current: Boolean
+        @Composable get() = LocalSystemTheme.current == SystemTheme.Dark
+
+    @Composable
+    actual infix fun provides(value: Boolean?): ProvidedValue&lt;*&gt; {
+        val new = when(value) {
+            true -&gt; SystemTheme.Dark
+            false -&gt; SystemTheme.Light
+            null -&gt; LocalSystemTheme.current
+        }
+
+        return LocalSystemTheme.provides(new)
+    }
+}
+</div></li></ol></section><section class="chapter"><h2 id="density" data-toc="density">Density</h2><p id="yf6jwc_86">To change the application's resolution <code class="code" id="yf6jwc_88">Density</code>, you can use the common <code class="code" id="yf6jwc_89">LocalDensity</code> API, supported on all platforms:</p><div class="code-block" data-lang="kotlin">
+var customAppDensity by mutableStateOf&lt;Density?&gt;(null)
+object LocalAppDensity {
+    val current: Density
+        @Composable get() = LocalDensity.current
+
+    @Composable
+    infix fun provides(value: Density?): ProvidedValue&lt;*&gt; {
+        val new = value ?: LocalDensity.current
+        return LocalDensity.provides(new)
+    }
+}
+
+@Composable
+fun AppEnvironment(content: @Composable () -&gt; Unit) {
+    CompositionLocalProvider(
+        LocalAppDensity provides customAppDensity,
+    ) {
+        key(customAppDensity) {
+            content()
+        }
+    }
+}
+</div></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next?</h2><ul class="list _bullet" id="yf6jwc_90"><li class="list__item" id="yf6jwc_91"><p>Get more details on <a href="compose-multiplatform-resources-setup.html#qualifiers" id="yf6jwc_93">resource qualifiers</a>.</p></li><li class="list__item" id="yf6jwc_92"><p>Learn how to <a href="compose-localize-strings.html" id="yf6jwc_94">localize resources</a>.</p></li></ul></section><div class="last-modified">Last modified: 28 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-multiplatform-resources-usage.html" class="navigation-links__prev">Using multiplatform resources in your app</a><a href="compose-lifecycle.html" class="navigation-links__next">Lifecycle</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

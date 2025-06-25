@@ -1,0 +1,260 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:20.989888976"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Navigation and routing | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"setup","level":0,"title":"Setup","anchor":"#setup"},{"id":"sample-project","level":0,"title":"Sample project","anchor":"#sample-project"},{"id":"support-for-browser-navigation-in-web-apps","level":0,"title":"Support for browser navigation in web apps","anchor":"#support-for-browser-navigation-in-web-apps"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Navigation and routing | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-navigation-routing.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Navigation and routing | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-navigation-routing.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-navigation-routing.html",
+    "name": "Navigation and routing | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-navigation-routing" data-main-title="Navigation and routing" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Navigation" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-navigation-routing.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-navigation-routing" id="compose-navigation-routing.md">Navigation and routing</h1><p id="s44v1f_2">Navigation is a key part of UI applications that allows users to move between different application screens. Compose Multiplatform adopts the <a href="https://developer.android.com/guide/navigation/design#frameworks" id="s44v1f_7" data-external="true" rel="noopener noreferrer">Jetpack Compose approach to navigation</a>.</p><aside class="prompt" data-type="tip" data-title="" id="s44v1f_3"><p id="s44v1f_8">The navigation library is currently in <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="s44v1f_9">Beta</a>. You're welcome to try it in your Compose Multiplatform projects. We would appreciate your feedback in <a href="https://youtrack.jetbrains.com/newIssue?project=CMP" id="s44v1f_10" data-external="true" rel="noopener noreferrer">YouTrack</a>.</p></aside><section class="chapter"><h2 id="setup" data-toc="setup">Setup</h2><p id="s44v1f_11">To use the Navigation library, add the following dependency to your <code class="code" id="s44v1f_14">commonMain</code> source set:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="org.jetbrains.androidx.navigation:navigation-compose:2.9.0-beta03">
+kotlin {
+    // ...
+    sourceSets {
+        // ...
+        commonMain.dependencies {
+            // ...
+            implementation(&quot;org.jetbrains.androidx.navigation:navigation-compose:2.9.0-beta03&quot;)
+        }
+        // ...
+    }
+}
+</div><aside class="prompt" data-type="note" data-title="" id="s44v1f_13"><p id="s44v1f_15">Compose Multiplatform 1.8.2 requires Navigation library version 2.9.0-beta03.</p></aside></section><section class="chapter"><h2 id="sample-project" data-toc="sample-project">Sample project</h2><p id="s44v1f_16">To see the Compose Multiplatform navigation library in action, check out the <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/examples/nav_cupcake" id="s44v1f_20" data-external="true" rel="noopener noreferrer">nav_cupcake project</a>, which was converted from the <a href="https://developer.android.com/codelabs/basic-android-kotlin-compose-navigation#0" id="s44v1f_21" data-external="true" rel="noopener noreferrer">Navigate between screens with Compose</a> Android codelab.</p><p id="s44v1f_17">Just as with Jetpack Compose, to implement navigation, you should:</p><ol class="list _decimal" id="s44v1f_18" type="1"><li class="list__item" id="s44v1f_22"><p><a href="https://github.com/JetBrains/compose-multiplatform/blob/a6961385ccf0dee7b6d31e3f73d2c8ef91005f1a/examples/nav_cupcake/composeApp/src/commonMain/kotlin/org/jetbrains/nav_cupcake/CupcakeScreen.kt#L50" id="s44v1f_25" data-external="true" rel="noopener noreferrer">List routes</a> that should be included in the navigation graph. Each route must be a unique string that defines a path.</p></li><li class="list__item" id="s44v1f_23"><p><a href="https://github.com/JetBrains/compose-multiplatform/blob/a6961385ccf0dee7b6d31e3f73d2c8ef91005f1a/examples/nav_cupcake/composeApp/src/commonMain/kotlin/org/jetbrains/nav_cupcake/CupcakeScreen.kt#L89" id="s44v1f_26" data-external="true" rel="noopener noreferrer">Create a <code class="code" id="s44v1f_27">NavHostController</code> instance</a> as your main composable property to manage navigation.</p></li><li class="list__item" id="s44v1f_24"><p><a href="https://github.com/JetBrains/compose-multiplatform/blob/a6961385ccf0dee7b6d31e3f73d2c8ef91005f1a/examples/nav_cupcake/composeApp/src/commonMain/kotlin/org/jetbrains/nav_cupcake/CupcakeScreen.kt#L109" id="s44v1f_28" data-external="true" rel="noopener noreferrer">Add a <code class="code" id="s44v1f_30">NavHost</code> composable</a> to your app: </p><ol class="list _decimal" id="s44v1f_29" type="1"><li class="list__item" id="s44v1f_31"><p>Choose the starting destination from the list of routes you defined earlier.</p></li><li class="list__item" id="s44v1f_32"><p>Create a navigation graph, either directly, as part of creating a <code class="code" id="s44v1f_33">NavHost</code>, or programmatically, using the <code class="code" id="s44v1f_34">NavController.createGraph()</code> function.</p></li></ol></li></ol><p id="s44v1f_19">Each back stack entry (each navigation route included in the graph) implements the <code class="code" id="s44v1f_35">LifecycleOwner</code> interface. A switch between different screens of the app makes it change its state from <code class="code" id="s44v1f_36">RESUMED</code> to <code class="code" id="s44v1f_37">STARTED</code> and back. <code class="code" id="s44v1f_38">RESUMED</code> is also described as &quot;settled&quot;: navigation is considered finished when the new screen is prepared and active. See the <a href="compose-lifecycle.html" id="s44v1f_39">Lifecycle</a> page for details of the current implementation in Compose Multiplatform.</p></section><section class="chapter"><h2 id="support-for-browser-navigation-in-web-apps" data-toc="support-for-browser-navigation-in-web-apps" data-annotation-ids="Experimental">Support for browser navigation in web apps</h2><p id="s44v1f_41">Compose Multiplatform for web fully supports the common Navigation library APIs, and on top of that allows your apps to receive navigational input from the browser. Users can use the <span class="control" id="s44v1f_48">Back</span> and <span class="control" id="s44v1f_49">Forward</span> buttons in the browser to move between navigation routes reflected in the browser history, as well as use the address bar to understand where they are and get to a destination directly.</p><p id="s44v1f_42">To bind the web app to the navigation graph defined in your common code, you can use the <code class="code" id="s44v1f_50">window.bindToNavigation()</code> method in your Kotlin/Wasm code. You can use the same method in Kotlin/JS, but wrap it in the <code class="code" id="s44v1f_51">onWasmReady {}</code> block to ensure that the Wasm application is initialized and Skia is ready to render graphics. Here is an example of how to set this up:</p><div class="code-block" data-lang="kotlin">
+//commonMain source set
+@Composable
+fun App(
+    onNavHostReady: suspend (NavController) -&gt; Unit = {}
+) {
+    val navController = rememberNavController()
+    NavHost(...) {
+        //...
+    }
+    LaunchedEffect(navController) {
+        onNavHostReady(navController)
+    }
+}
+
+//wasmJsMain source set
+@OptIn(ExperimentalComposeUiApi::class)
+@ExperimentalBrowserHistoryApi
+fun main() {
+    val body = document.body ?: return
+    ComposeViewport(body) {
+        App(
+          onNavHostReady = { window.bindToNavigation(it) }
+        )
+    }
+}
+
+//jsMain source set
+@OptIn(ExperimentalComposeUiApi::class)
+@ExperimentalBrowserHistoryApi
+fun main() {
+    onWasmReady {
+        val body = document.body ?: return@onWasmReady
+        ComposeViewport(body) {
+            App(
+                onNavHostReady = { window.bindToNavigation(it) }
+            )
+        }
+    }
+}
+</div><p id="s44v1f_44">After a <code class="code" id="s44v1f_52">window.bindToNavigation(navController)</code> call:</p><ul class="list _bullet" id="s44v1f_45"><li class="list__item" id="s44v1f_53"><p>The URL displayed in the browser reflects the current route (in the URL fragment, after the <code class="code" id="s44v1f_55">#</code> character).</p></li><li class="list__item" id="s44v1f_54"><p>The app parses URLs entered manually to translate them into destinations within the app.</p></li></ul><p id="s44v1f_46">By default, when using type-safe navigation, a destination is translated into a URL fragment according to the <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/kotlinx.serialization/-serial-name/" id="s44v1f_56" data-external="true" rel="noopener noreferrer"><code class="code" id="s44v1f_59">kotlinx.serialization</code> default</a> with appended arguments: <code class="code" id="s44v1f_57">&lt;app package&gt;.&lt;serializable type&gt;/&lt;argument1&gt;/&lt;argument2&gt;</code>. For example, <code class="code" id="s44v1f_58">example.org#org.example.app.StartScreen/123/Alice%2520Smith</code>.</p><section class="chapter"><h3 id="customize-translating-routes-into-urls-and-back" data-toc="customize-translating-routes-into-urls-and-back">Customize translating routes into URLs and back</h3><p id="s44v1f_60">As Compose Multiplatform apps are single-page apps, the framework manipulates the address bar to imitate usual web navigation. If you would like to make your URLs more readable and isolate implementation from URL patterns, you can assign the name to a screen directly or develop fully custom processing for destination routes:</p><ul class="list _bullet" id="s44v1f_61"><li class="list__item" id="s44v1f_63"><p id="s44v1f_65">To simply make a URL readable, use the <code class="code" id="s44v1f_67">@SerialName</code> annotation to explicitly set the serial name for a serializable object or class:</p><div class="code-block" data-lang="kotlin">
+// Instead of using the app package and object name,
+// this route will be translated to the URL simply as &quot;#start&quot;
+@Serializable @SerialName(&quot;start&quot;) data object StartScreen
+</div></li><li class="list__item" id="s44v1f_64"><p id="s44v1f_68">To fully construct every URL, you can use the optional <code class="code" id="s44v1f_69">getBackStackEntryRoute</code> lambda.</p></li></ul><section class="chapter"><h4 id="full-url-customization" data-toc="full-url-customization">Full URL customization</h4><p id="s44v1f_70">To implement a fully custom route to URL transformation:</p><ol class="list _decimal" id="s44v1f_71" type="1"><li class="list__item" id="s44v1f_79"><p>Pass the optional <code class="code" id="s44v1f_81">getBackStackEntryRoute</code> lambda to the <code class="code" id="s44v1f_82">window.bindToNavigation()</code> function to specify how routes should be converted into URL fragments when necessary.</p></li><li class="list__item" id="s44v1f_80"><p>If needed, add code that catches URL fragments in the address bar (when someone clicks or pastes your app's URL) and translates URLs into routes to navigate users accordingly.</p></li></ol><p id="s44v1f_72">Here's an example of a simple type-safe navigation graph to use with the following samples of web code (<code class="code" id="s44v1f_83">commonMain/kotlin/org.example.app/App.kt</code>):</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="NavHost(navController = navController, startDestination = StartScreen)">
+// Serializable object and classes for route arguments in the navigation graph
+@Serializable data object StartScreen
+@Serializable data class Id(val id: Long)
+@Serializable data class Patient(val name: String, val age: Long)
+
+@Composable
+internal fun App(
+    onNavHostReady: suspend (NavController) -&gt; Unit = {}
+) = AppTheme {
+    val navController = rememberNavController()
+    NavHost(
+        navController = navController,
+        startDestination = StartScreen
+    ) {
+        composable&lt;StartScreen&gt; {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text(&quot;Starting screen&quot;)
+                // Button that opens the 'Id' screen with a suitable parameter
+                Button(onClick = { navController.navigate(Id(222)) }) {
+                    Text(&quot;Pass 222 as a parameter to the ID screen&quot;)
+                }
+                // Button that opens the 'Patient' screen with suitable parameters
+                Button(onClick = { navController.navigate(Patient( &quot;Jane Smith-Baker&quot;, 33)) }) {
+                    Text(&quot;Pass 'Jane Smith-Baker' and 33 to the Person screen&quot;)
+                }
+            }
+        }
+        composable&lt;Id&gt; {...}
+        composable&lt;Patient&gt; {...}
+    }
+    LaunchedEffect(navController) {
+        onNavHostReady(navController)
+    }
+}
+</div><p id="s44v1f_74">In <code class="code" id="s44v1f_84">wasmJsMain/kotlin/main.kt</code>, add the lambda to the <code class="code" id="s44v1f_85">.bindToNavigation()</code> call:</p><div class="code-block" data-lang="kotlin">
+@OptIn(
+    ExperimentalComposeUiApi::class,
+    ExperimentalBrowserHistoryApi::class,
+    ExperimentalSerializationApi::class
+)
+fun main() {
+    val body = document.body ?: return
+    ComposeViewport(body) {
+        App(
+            onNavHostReady = { navController -&gt;
+                window.bindToNavigation(navController) { entry -&gt;
+                    val route = entry.destination.route.orEmpty()
+                    when {
+                        // Identifies the route using its serial descriptor
+                        route.startsWith(StartScreen.serializer().descriptor.serialName) -&gt; {
+                            // Sets the corresponding URL fragment to &quot;#start&quot;
+                            // instead of &quot;#org.example.app.StartScreen&quot;
+                            //
+                            // This string must always start with the `#` character to keep
+                            // the processing at the front end
+                            &quot;#start&quot;
+                        }
+                        route.startsWith(Id.serializer().descriptor.serialName) -&gt; {
+                            // Accesses the route arguments
+                            val args = entry.toRoute&lt;Id&gt;()
+
+                            // Sets the corresponding URL fragment to &quot;#find_id_222&quot;
+                            // instead of &quot;#org.example.app.ID%2F222&quot;
+                            &quot;#find_id_${args.id}&quot;
+                        }
+                        route.startsWith(Patient.serializer().descriptor.serialName) -&gt; {
+                            val args = entry.toRoute&lt;Patient&gt;()
+                            // Sets the corresponding URL fragment to &quot;#patient_Jane%20Smith-Baker_33&quot;
+                            // instead of &quot;#org.company.app.Patient%2FJane%2520Smith-Baker%2F33&quot;
+                            &quot;#patient_${args.name}_${args.age}&quot;
+                        }
+                        // Doesn't set a URL fragment for all other routes
+                        else -&gt; &quot;&quot;
+                    }
+                }
+            }
+        )
+    }
+}
+</div><aside class="prompt" data-type="note" data-title="" id="s44v1f_76"><p id="s44v1f_86">Make sure that every string that corresponds to a route starts with the <code class="code" id="s44v1f_87">#</code> character to keep the data within URL fragments. Otherwise, when users copy and paste the URL, the browser will try to access a wrong endpoint instead of passing the control to your app.</p></aside><p id="s44v1f_77">If your URLs have custom formatting, you should add the reverse processing to match manually entered URLs to destination routes. The code that does the matching needs to run before the <code class="code" id="s44v1f_88">window.bindToNavigation()</code> call binds <code class="code" id="s44v1f_89">window.location</code> to the navigation graph:</p><div class="tabs" id="s44v1f_78" data-anchors="[s44v1f_90,s44v1f_91]"><div class="tabs__content" data-gtm="tab" id="s44v1f_90" data-title="Kotlin/Wasm"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+        @OptIn(
+            ExperimentalComposeUiApi::class,
+            ExperimentalBrowserHistoryApi::class,
+            ExperimentalSerializationApi::class
+        )
+        fun main() {
+            val body = document.body ?: return
+            ComposeViewport(body) {
+                App(
+                    onNavHostReady = { navController -&gt;
+                        // Accesses the fragment substring of the current URL
+                        val initRoute = window.location.hash.substringAfter('#', &quot;&quot;)
+                        when {
+                            // Identifies the corresponding route and navigates to it
+                            initRoute.startsWith(&quot;start&quot;) -&gt; {
+                                navController.navigate(StartScreen)
+                            }
+                            initRoute.startsWith(&quot;find_id&quot;) -&gt; {
+                                // Parses the string to extract route parameters before navigating to it
+                                val id = initRoute.substringAfter(&quot;find_id_&quot;).toLong()
+                                navController.navigate(Id(id))
+                            }
+                            initRoute.startsWith(&quot;patient&quot;) -&gt; {
+                                val name = initRoute.substringAfter(&quot;patient_&quot;).substringBefore(&quot;_&quot;)
+                                val id = initRoute.substringAfter(&quot;patient_&quot;).substringAfter(&quot;_&quot;).toLong()
+                                navController.navigate(Patient(name, id))
+                            }
+                        }
+                        window.bindToNavigation(navController) { ... }
+                    }
+                )
+            }
+        }
+        </div></div><div class="tabs__content" data-gtm="tab" id="s44v1f_91" data-title="Kotlin/JS"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+        @OptIn(
+            ExperimentalComposeUiApi::class,
+            ExperimentalBrowserHistoryApi::class,
+            ExperimentalSerializationApi::class
+        )
+        fun main() {
+            onWasmReady {
+                val body = document.body ?: return@onWasmReady
+                ComposeViewport(body) {
+                    App(
+                        onNavHostReady = { navController -&gt;
+                            // Accesses the fragment substring of the current URL
+                            val initRoute = window.location.hash.substringAfter('#', &quot;&quot;)
+                            when {
+                                // Identifies the corresponding route and navigates to it
+                                initRoute.startsWith(&quot;start&quot;) -&gt; {
+                                    navController.navigate(StartScreen)
+                                }
+                                initRoute.startsWith(&quot;find_id&quot;) -&gt; {
+                                    // Parses the string to extract route parameters before navigating to it
+                                    val id = initRoute.substringAfter(&quot;find_id_&quot;).toLong()
+                                    navController.navigate(Id(id))
+                                }
+                                initRoute.startsWith(&quot;patient&quot;) -&gt; {
+                                    val name = initRoute.substringAfter(&quot;patient_&quot;).substringBefore(&quot;_&quot;)
+                                    val id = initRoute.substringAfter(&quot;patient_&quot;).substringAfter(&quot;_&quot;).toLong()
+                                    navController.navigate(Patient(name, id))
+                                }
+                            }
+                            window.bindToNavigation(navController) { ... }
+                        }
+                    )
+                }
+            }
+        }
+        </div></div></div></section></section></section><div class="last-modified">Last modified: 24 June 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-navigation.html" class="navigation-links__prev">Navigation in Compose</a><a href="compose-navigation-deep-links.html" class="navigation-links__next">Deep links</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

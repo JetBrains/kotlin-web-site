@@ -67,7 +67,7 @@ object BuildSitePages : BuildType({
             //language=bash
             scriptContent = """
                 cp -fR _webhelp/reference/* build/docs/
-                #cp -fR _webhelp/mobile build/docs/
+                cp -fR _kotlin-multiplatform-dev/* build/docs/kotlin-multiplatform-dev/
                 
                 mv build dist
                 
@@ -147,6 +147,15 @@ object BuildSitePages : BuildType({
             }
             artifacts {
                 artifactRules = "+:docs.zip!** => _webhelp/reference/"
+            }
+        }
+
+        dependency(BuildKmpDevDocs) {
+            snapshot {
+                onDependencyFailure = FailureAction.FAIL_TO_START
+            }
+            artifacts {
+                artifactRules = "+:kotlin-multiplatform-dev.zip!** => _kotlin-multiplatform-dev"
             }
         }
     }

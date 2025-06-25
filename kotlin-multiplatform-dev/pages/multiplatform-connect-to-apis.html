@@ -1,0 +1,155 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:21.86021944"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Use platform-specific APIs | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"kotlin-multiplatform-libraries","level":0,"title":"Kotlin multiplatform libraries","anchor":"#kotlin-multiplatform-libraries"},{"id":"expected-and-actual-functions-and-properties","level":0,"title":"Expected and actual functions and properties","anchor":"#expected-and-actual-functions-and-properties"},{"id":"interfaces-in-common-code","level":0,"title":"Interfaces in common code","anchor":"#interfaces-in-common-code"},{"id":"what-s-next","level":0,"title":"What\u0027s next?","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Use platform-specific APIs | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Use platform-specific APIs | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-connect-to-apis.html",
+    "name": "Use platform-specific APIs | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="multiplatform-connect-to-apis" data-main-title="Use platform-specific APIs" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Share code" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/development/multiplatform-connect-to-apis.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="multiplatform-connect-to-apis" id="multiplatform-connect-to-apis.md">Use platform-specific APIs</h1><p id="sc9it4_2">In this article, you'll learn how to use platform-specific APIs when developing multiplatform applications and libraries.</p><section class="chapter"><h2 id="kotlin-multiplatform-libraries" data-toc="kotlin-multiplatform-libraries">Kotlin multiplatform libraries</h2><p id="sc9it4_7">Before writing code that uses a platform-specific API, check whether you can use a multiplatform library instead. This type of library provides a common Kotlin API that has a different implementation for different platforms.</p><p id="sc9it4_8">There are already many libraries available that you can use to implement networking, logging, and analytics, as well as access device functionality and more. For more information, see <a href="https://github.com/terrakok/kmm-awesome" id="sc9it4_9" data-external="true" rel="noopener noreferrer">this curated list</a>.</p></section><section class="chapter"><h2 id="expected-and-actual-functions-and-properties" data-toc="expected-and-actual-functions-and-properties">Expected and actual functions and properties</h2><p id="sc9it4_10">Kotlin provides a language mechanism to access platform-specific APIs while developing common logic: <a href="multiplatform-expect-actual.html" id="sc9it4_16">expected and actual declarations</a>.</p><p id="sc9it4_11">With this mechanism, the common source set of a multiplatform module defines an expected declaration, and every platform source set must provide the actual declaration that corresponds to the expected declaration. The compiler ensures that every declaration marked with the <code class="code" id="sc9it4_17">expect</code> keyword in the common source set has the corresponding declarations marked with the <code class="code" id="sc9it4_18">actual</code> keyword in all targeted platform source sets.</p><p id="sc9it4_12">This works for most Kotlin declarations, such as functions, classes, interfaces, enumerations, properties, and annotations. This section focuses on using expected and actual functions and properties.</p><figure id="sc9it4_13"><img alt="Using expected and actual functions and properties" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/expect-functions-properties.svg" title="Using expected and actual functions and properties" width="700" height="700"></figure><p id="sc9it4_14">In this example, you'll define an expected <code class="code" id="sc9it4_19">platform()</code> function in the common source set and provide the actual implementations in the platform source sets. While generating the code for a specific platform, the Kotlin compiler merges the expected and actual declarations. It generates one <code class="code" id="sc9it4_20">platform()</code> function with its actual implementation. The expected and actual declarations should be defined in the same package and merged into <span class="emphasis" id="sc9it4_21">one declaration</span> in the resulting platform code. Any invocation of the expected <code class="code" id="sc9it4_22">platform()</code> function in the generated platform code will call the correct actual implementation.</p><section class="chapter"><h3 id="example-generate-a-uuid" data-toc="example-generate-a-uuid">Example: generate a UUID</h3><p id="sc9it4_23">Let's assume that you are developing iOS and Android applications using Kotlin Multiplatform and you want to generate a universally unique identifier (UUID).</p><p id="sc9it4_24">To do so, declare the expected function <code class="code" id="sc9it4_35">randomUUID()</code> with the <code class="code" id="sc9it4_36">expect</code> keyword in the common source set of your Kotlin Multiplatform module. Do <span class="control" id="sc9it4_37">not</span> include any implementation code.</p><div class="code-block" data-lang="kotlin">
+// In the common source set:
+expect fun randomUUID(): String
+</div><p id="sc9it4_26">In each platform-specific source set (iOS and Android), provide the actual implementation for the <code class="code" id="sc9it4_38">randomUUID()</code> function expected in the common module. Use the <code class="code" id="sc9it4_39">actual</code> keyword to mark these actual implementations.</p><figure id="sc9it4_27"><img alt="Generating UUID with expected and actual declarations" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/expect-generate-uuid.svg" title="Generating UUID with expected and actual declarations" width="700" height="700"></figure><p id="sc9it4_28">The following snippets show the implementations for Android and iOS. Platform-specific code uses the <code class="code" id="sc9it4_40">actual</code> keyword and the same name for the function:</p><div class="code-block" data-lang="kotlin">
+// In the android source set:
+import java.util.*
+
+actual fun randomUUID() = UUID.randomUUID().toString()
+</div><div class="code-block" data-lang="kotlin">
+// In the iOS source set:
+import platform.Foundation.NSUUID
+
+actual fun randomUUID(): String = NSUUID().UUIDString()
+</div><p id="sc9it4_31">The Android implementation uses the APIs available on Android, while the iOS implementation uses the APIs available on iOS. You can access iOS APIs from Kotlin/Native code.</p><p id="sc9it4_32">While producing the resulting platform code for Android, the Kotlin compiler automatically merges the expected and actual declarations and generates a single <code class="code" id="sc9it4_41">randomUUID()</code> function with its actual Android-specific implementation. The same process is repeated for iOS.</p><p id="sc9it4_33">For simplicity, this and the following examples use the simplified source set names &quot;common&quot;, &quot;ios&quot;, and &quot;android&quot;. Typically, this implies <code class="code" id="sc9it4_42">commonMain</code>, <code class="code" id="sc9it4_43">iosMain</code>, and <code class="code" id="sc9it4_44">androidMain</code>, and similar logic can be defined in the test source sets <code class="code" id="sc9it4_45">commonTest</code>, <code class="code" id="sc9it4_46">iosTest</code>, and <code class="code" id="sc9it4_47">androidTest</code>.</p><p id="sc9it4_34">Similar to expected and actual functions, expected and actual properties allow you to use different values on different platforms. Expected and actual functions and properties are most useful for simple cases.</p></section></section><section class="chapter"><h2 id="interfaces-in-common-code" data-toc="interfaces-in-common-code">Interfaces in common code</h2><p id="sc9it4_48">If the platform-specific logic is too big and complex, you can simplify your code by defining an interface to represent it in the common code and then providing different implementations in the platform source sets.</p><figure id="sc9it4_49"><img alt="Using interfaces" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/expect-interfaces.svg" title="Using interfaces" width="700" height="700"></figure><p id="sc9it4_50">The implementations in the platform source sets use their corresponding dependencies:</p><div class="code-block" data-lang="kotlin">
+// In the commonMain source set:
+interface Platform {
+    val name: String
+}
+</div><div class="code-block" data-lang="kotlin">
+// In the androidMain source set:
+import android.os.Build
+
+class AndroidPlatform : Platform {
+    override val name: String = &quot;Android ${Build.VERSION.SDK_INT}&quot;
+}
+</div><div class="code-block" data-lang="kotlin">
+// In the iosMain source set:
+import platform.UIKit.UIDevice
+
+class IOSPlatform : Platform {
+    override val name: String = UIDevice.currentDevice.systemName() + &quot; &quot; + UIDevice.currentDevice.systemVersion
+}
+</div><p id="sc9it4_54">To inject the appropriate platform implementations when you need a common interface, you can choose one of the following options, each of which is explained in more detail below:</p><ul class="list _bullet" id="sc9it4_55"><li class="list__item" id="sc9it4_59"><p><a href="#expected-and-actual-functions" id="sc9it4_62">Use expected and actual functions</a></p></li><li class="list__item" id="sc9it4_60"><p><a href="#different-entry-points" id="sc9it4_63">Provide implementations through different entry points</a></p></li><li class="list__item" id="sc9it4_61"><p><a href="#dependency-injection-framework" id="sc9it4_64">Use a dependency injection framework</a></p></li></ul><section class="chapter"><h3 id="expected-and-actual-functions" data-toc="expected-and-actual-functions">Expected and actual functions</h3><p id="sc9it4_65">Define an expected function that returns a value of this interface, and then define actual functions that return its subclasses:</p><div class="code-block" data-lang="kotlin">
+// In the commonMain source set:
+interface Platform
+
+expect fun platform(): Platform
+</div><div class="code-block" data-lang="kotlin">
+// In the androidMain source set:
+class AndroidPlatform : Platform
+
+actual fun platform() = AndroidPlatform()
+</div><div class="code-block" data-lang="kotlin">
+// In the iosMain source set:
+class IOSPlatform : Platform
+
+actual fun platform() = IOSPlatform()
+</div><p id="sc9it4_69">When you call the <code class="code" id="sc9it4_70">platform()</code> function in the common code, it can work with an object of the <code class="code" id="sc9it4_71">Platform</code> type. When you run this common code on Android, the <code class="code" id="sc9it4_72">platform()</code> call returns an instance of the <code class="code" id="sc9it4_73">AndroidPlatform</code> class. When you run it on iOS, <code class="code" id="sc9it4_74">platform()</code> returns an instance of the <code class="code" id="sc9it4_75">IOSPlatform</code> class.</p></section><section class="chapter"><h3 id="different-entry-points" data-toc="different-entry-points">Different entry points</h3><p id="sc9it4_76">If you control the entry points, you can construct implementations of each platform artifact without using expected and actual declarations. To do so, define the platform implementations in the shared Kotlin Multiplatform module, but instantiate them in the platform modules:</p><div class="code-block" data-lang="kotlin">
+// Shared Kotlin Multiplatform module
+// In the commonMain source set:
+interface Platform
+
+fun application(p: Platform) {
+    // application logic
+}
+</div><div class="code-block" data-lang="kotlin">
+// In the androidMain source set:
+class AndroidPlatform : Platform
+</div><div class="code-block" data-lang="kotlin">
+// In the iosMain source set:
+class IOSPlatform : Platform
+</div><div class="code-block" data-lang="kotlin">
+// In the androidApp platform module:
+import android.app.Application
+import mysharedpackage.*
+
+class MyApp : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        application(AndroidPlatform())
+    }
+}
+</div><div class="code-block" data-lang="swift">
+// In the iosApp platform module (in Swift):
+import shared
+
+@main
+struct iOSApp : App {
+    init() {
+        application(IOSPlatform())
+    }
+}
+</div><p id="sc9it4_82">On Android, you should create an instance of <code class="code" id="sc9it4_84">AndroidPlatform</code> and pass it to the <code class="code" id="sc9it4_85">application()</code> function, while on iOS, you should similarly create and pass an instance of <code class="code" id="sc9it4_86">IOSPlatform</code>. These entry points don't need to be the entry points of your applications, but this is where you can call the specific functionality of your shared module.</p><p id="sc9it4_83">Providing the right implementations with expected and actual functions or directly through entry points works well for simple scenarios. However, if you use a dependency injection framework in your project, we recommend using it in simple cases to ensure consistency.</p></section><section class="chapter"><h3 id="dependency-injection-framework" data-toc="dependency-injection-framework">Dependency injection framework</h3><p id="sc9it4_87">A modern application typically uses a dependency injection (DI) framework to create a loosely coupled architecture. The DI framework allows injecting dependencies into components based on the current environment.</p><p id="sc9it4_88">Any DI framework that supports Kotlin Multiplatform can help you inject different dependencies for different platforms.</p><p id="sc9it4_89">For example, <a href="https://insert-koin.io/" id="sc9it4_98" data-external="true" rel="noopener noreferrer">Koin</a> is a dependency injection framework that supports Kotlin Multiplatform:</p><div class="code-block" data-lang="kotlin">
+// In the common source set:
+import org.koin.dsl.module
+
+interface Platform
+
+expect val platformModule: Module
+</div><div class="code-block" data-lang="kotlin">
+// In the androidMain source set:
+class AndroidPlatform : Platform
+
+actual val platformModule: Module = module {
+    single&lt;Platform&gt; {
+        AndroidPlatform()
+    }
+}
+</div><div class="code-block" data-lang="kotlin">
+// In the iosMain source set:
+class IOSPlatform : Platform
+
+actual val platformModule = module {
+    single&lt;Platform&gt; { IOSPlatform() }
+}
+</div><p id="sc9it4_93">Here, Koin DSLs create modules that define components for injection. You declare a module in common code with the <code class="code" id="sc9it4_99">expect</code> keyword and then provide a platform-specific implementation for each platform using the <code class="code" id="sc9it4_100">actual</code> keyword. The framework takes care of selecting the correct implementation at runtime.</p><p id="sc9it4_94">When you use a DI framework, you inject all of the dependencies through this framework. The same logic applies to handling platform dependencies. We recommend continuing to use DI if you already have it in your project, rather than using the expected and actual functions manually. This way, you can avoid mixing two different ways of injecting dependencies.</p><p id="sc9it4_95">You also don't have to always implement the common interface in Kotlin. You can do it in another language, like Swift, in a different <span class="emphasis" id="sc9it4_101">platform module</span>. If you choose this approach, you should then provide the implementation from the iOS platform module using the DI framework:</p><figure id="sc9it4_96"><img alt="Using dependency injection framework" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/expect-di-framework.svg" title="Using dependency injection framework" width="700" height="700"></figure><p id="sc9it4_97">This approach only works if you put the implementations in the platform modules. It isn't very scalable, as your Kotlin Multiplatform module can't be self-sufficient, and you'll need to implement the common interface in a different module.</p></section></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next?</h2><ul class="list _bullet" id="sc9it4_102"><li class="list__item" id="sc9it4_103"><p>See a video walkthrough of <a href="https://youtu.be/bSNumV04y_w" id="sc9it4_105" data-external="true" rel="noopener noreferrer">Using Platform-Specific APIs in KMP Apps</a>.</p></li><li class="list__item" id="sc9it4_104"><p>For more examples and information on the expect/actual mechanism, see <a href="multiplatform-expect-actual.html" id="sc9it4_106">Expected and actual declarations</a>.</p></li></ul></section><div class="last-modified">Last modified: 16 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="multiplatform-expect-actual.html" class="navigation-links__prev">Expected and actual declarations</a><a href="multiplatform-hierarchy.html" class="navigation-links__next">Hierarchical project structure</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

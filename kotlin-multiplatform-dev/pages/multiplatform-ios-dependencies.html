@@ -1,0 +1,164 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:22.364392535"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Adding iOS dependencies | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"with-cinterop","level":0,"title":"With cinterop","anchor":"#with-cinterop"},{"id":"with-cocoapods","level":0,"title":"With CocoaPods","anchor":"#with-cocoapods"},{"id":"what-s-next","level":0,"title":"What\u0027s next?","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Adding iOS dependencies | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ios-dependencies.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Adding iOS dependencies | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ios-dependencies.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ios-dependencies.html",
+    "name": "Adding iOS dependencies | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="multiplatform-ios-dependencies" data-main-title="Adding iOS dependencies" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Add dependencies" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/development/multiplatform-ios-dependencies.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="multiplatform-ios-dependencies" id="multiplatform-ios-dependencies.md">Adding iOS dependencies</h1><p id="-7ip1wf_2">Apple SDK dependencies (such as Foundation or Core Bluetooth) are available as a set of prebuilt libraries in Kotlin Multiplatform projects. They do not require any additional configuration.</p><p id="-7ip1wf_3">You can also reuse other libraries and frameworks from the iOS ecosystem in your iOS source sets. Kotlin supports interoperability with Objective-C dependencies and Swift dependencies if their APIs are exported to Objective-C with the <code class="code" id="-7ip1wf_8">@objc</code> attribute. Pure Swift dependencies are not yet supported.</p><p id="-7ip1wf_4">To handle iOS dependencies in Kotlin Multiplatform projects, you can manage them with the <a href="#with-cinterop" id="-7ip1wf_9">cinterop tool</a> or use the <a href="#with-cocoapods" id="-7ip1wf_10">CocoaPods dependency manager</a> (pure Swift pods are not supported).</p><section class="chapter"><h2 id="with-cinterop" data-toc="with-cinterop">With cinterop</h2><p id="-7ip1wf_11">You can use the cinterop tool to create Kotlin bindings for Objective-C or Swift declarations. This will allow you to call them from the Kotlin code.</p><p id="-7ip1wf_12">The steps differ a bit for <a href="#add-a-library" id="-7ip1wf_16">libraries</a> and <a href="#add-a-framework" id="-7ip1wf_17">frameworks</a>, but the general workflow looks like this:</p><ol class="list _decimal" id="-7ip1wf_13" type="1"><li class="list__item" id="-7ip1wf_18"><p>Download your dependency.</p></li><li class="list__item" id="-7ip1wf_19"><p>Build it to get its binaries.</p></li><li class="list__item" id="-7ip1wf_20"><p>Create a special <code class="code" id="-7ip1wf_22">.def</code> <a href="https://kotlinlang.org/docs/native-definition-file.html" id="-7ip1wf_23" data-external="true" rel="noopener noreferrer">definition file</a> that describes this dependency to cinterop.</p></li><li class="list__item" id="-7ip1wf_21"><p>Adjust your build script to generate bindings during the build.</p></li></ol><section class="chapter"><h3 id="add-a-library" data-toc="add-a-library">Add a library</h3><ol class="list _decimal" id="-7ip1wf_24" type="1"><li class="list__item" id="-7ip1wf_28"><p id="-7ip1wf_35">Download the library source code and place it somewhere where you can reference it from your project.</p></li><li class="list__item" id="-7ip1wf_29"><p id="-7ip1wf_36">Build a library (library authors usually provide a guide on how to do this) and get a path to the binaries.</p></li><li class="list__item" id="-7ip1wf_30"><p id="-7ip1wf_37">In your project, create a <code class="code" id="-7ip1wf_38">.def</code> file, for example <code class="code" id="-7ip1wf_39">DateTools.def</code>.</p></li><li class="list__item" id="-7ip1wf_31"><p id="-7ip1wf_40">Add the first string to this file: <code class="code" id="-7ip1wf_41">language = Objective-C</code>. If you want to use a pure C dependency, omit the language property.</p></li><li class="list__item" id="-7ip1wf_32"><p id="-7ip1wf_42">Provide values for two mandatory properties:</p><ul class="list _bullet" id="-7ip1wf_43"><li class="list__item" id="-7ip1wf_46"><p><code class="code" id="-7ip1wf_48">headers</code> describes which headers will be processed by cinterop.</p></li><li class="list__item" id="-7ip1wf_47"><p><code class="code" id="-7ip1wf_49">package</code> sets the name of the package these declarations should be put into.</p></li></ul><p id="-7ip1wf_44">For example:</p><div class="code-block" data-lang="none">
+headers = DateTools.h
+package = DateTools
+</div></li><li class="list__item" id="-7ip1wf_33"><p id="-7ip1wf_50">Add information about interoperability with this library to the build script:</p><ul class="list _bullet" id="-7ip1wf_51"><li class="list__item" id="-7ip1wf_53"><p>Pass the path to the <code class="code" id="-7ip1wf_56">.def</code> file. This path can be omitted if your <code class="code" id="-7ip1wf_57">.def</code> file has the same name as cinterop and is placed in the <code class="code" id="-7ip1wf_58">src/nativeInterop/cinterop/</code> directory.</p></li><li class="list__item" id="-7ip1wf_54"><p>Tell cinterop where to look for header files using the <code class="code" id="-7ip1wf_59">includeDirs</code> option.</p></li><li class="list__item" id="-7ip1wf_55"><p>Configure linking to library binaries.</p></li></ul><div class="tabs" id="-7ip1wf_52" data-group="build-script" data-anchors="[-7ip1wf_60,-7ip1wf_61]"><div class="tabs__content" data-gtm="tab" id="-7ip1wf_60" data-sync-tabs="kotlin" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+kotlin {
+    iosArm64() {
+        compilations.getByName(&quot;main&quot;) {
+            val DateTools by cinterops.creating {
+                // Path to the .def file
+                definitionFile.set(project.file(&quot;src/nativeInterop/cinterop/DateTools.def&quot;))
+
+                // Directories for header search (an analogue of the -I&lt;path&gt; compiler option)
+                includeDirs(&quot;include/this/directory&quot;, &quot;path/to/another/directory&quot;)
+            }
+            val anotherInterop by cinterops.creating { /* ... */ }
+        }
+
+        binaries.all {
+            // Linker options required to link to the library.
+            linkerOpts(&quot;-L/path/to/library/binaries&quot;, &quot;-lbinaryname&quot;)
+        }
+    }
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="-7ip1wf_61" data-sync-tabs="groovy" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+kotlin {
+    iosArm64 {
+        compilations.main {
+            cinterops {
+                DateTools {
+                    // Path to the .def file
+                    definitionFile = project.file(&quot;src/nativeInterop/cinterop/DateTools.def&quot;)
+
+                    // Directories for header search (an analogue of the -I&lt;path&gt; compiler option)
+                    includeDirs(&quot;include/this/directory&quot;, &quot;path/to/another/directory&quot;)
+                }
+                anotherInterop { /* ... */ }
+            }
+        }
+
+        binaries.all {
+            // Linker options required to link to the library.
+            linkerOpts &quot;-L/path/to/library/binaries&quot;, &quot;-lbinaryname&quot;
+        }
+    }
+}
+</div></div></div></li><li class="list__item" id="-7ip1wf_34"><p id="-7ip1wf_64">Build the project.</p></li></ol><p id="-7ip1wf_25">Now you can use this dependency in your Kotlin code. To do that, import the package you've set up in the <code class="code" id="-7ip1wf_65">package</code> property in the <code class="code" id="-7ip1wf_66">.def</code> file. For the example above, this will be:</p><div class="code-block" data-lang="kotlin">
+import DateTools.*
+</div><aside class="prompt" data-type="tip" data-title="" id="-7ip1wf_27"><p id="-7ip1wf_67">See the sample project that <a href="https://github.com/Kotlin/kotlin-hands-on-intro-kotlin-native" id="-7ip1wf_68" data-external="true" rel="noopener noreferrer">uses the cinterop tool and the libcurl library</a>.</p></aside></section><section class="chapter"><h3 id="add-a-framework" data-toc="add-a-framework">Add a framework</h3><ol class="list _decimal" id="-7ip1wf_69" type="1"><li class="list__item" id="-7ip1wf_73"><p id="-7ip1wf_80">Download the framework source code and place it somewhere that you can reference it from your project.</p></li><li class="list__item" id="-7ip1wf_74"><p id="-7ip1wf_81">Build the framework (framework authors usually provide a guide on how to do this) and get a path to the binaries.</p></li><li class="list__item" id="-7ip1wf_75"><p id="-7ip1wf_82">In your project, create a <code class="code" id="-7ip1wf_83">.def</code> file, for example <code class="code" id="-7ip1wf_84">MyFramework.def</code>.</p></li><li class="list__item" id="-7ip1wf_76"><p id="-7ip1wf_85">Add the first string to this file: <code class="code" id="-7ip1wf_86">language = Objective-C</code>. If you want to use a pure C dependency, omit the language property.</p></li><li class="list__item" id="-7ip1wf_77"><p id="-7ip1wf_87">Provide values for these two mandatory properties:</p><ul class="list _bullet" id="-7ip1wf_88"><li class="list__item" id="-7ip1wf_91"><p><code class="code" id="-7ip1wf_93">modules</code> &ndash; the name of the framework that should be processed by the cinterop.</p></li><li class="list__item" id="-7ip1wf_92"><p><code class="code" id="-7ip1wf_94">package</code> &ndash; the name of the package these declarations should be put into.</p></li></ul><p id="-7ip1wf_89">For example:</p><div class="code-block" data-lang="none">
+modules = MyFramework
+package = MyFramework
+</div></li><li class="list__item" id="-7ip1wf_78"><p id="-7ip1wf_95">Add information about interoperability with the framework to the build script:</p><ul class="list _bullet" id="-7ip1wf_96"><li class="list__item" id="-7ip1wf_98"><p>Pass the path to the .def file. This path can be omitted if your <code class="code" id="-7ip1wf_100">.def</code> file has the same name as the cinterop and is placed in the <code class="code" id="-7ip1wf_101">src/nativeInterop/cinterop/</code> directory.</p></li><li class="list__item" id="-7ip1wf_99"><p>Pass the framework name to the compiler and linker using the <code class="code" id="-7ip1wf_102">-framework</code> option. Pass the path to the framework sources and binaries to the compiler and linker using the <code class="code" id="-7ip1wf_103">-F</code> option.</p></li></ul><div class="tabs" id="-7ip1wf_97" data-group="build-script" data-anchors="[-7ip1wf_104,-7ip1wf_105]"><div class="tabs__content" data-gtm="tab" id="-7ip1wf_104" data-sync-tabs="kotlin" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+kotlin {
+    iosArm64() {
+        compilations.getByName(&quot;main&quot;) {
+            val DateTools by cinterops.creating {
+                // Path to the .def file
+                definitionFile.set(project.file(&quot;src/nativeInterop/cinterop/DateTools.def&quot;))
+
+                compilerOpts(&quot;-framework&quot;, &quot;MyFramework&quot;, &quot;-F/path/to/framework/&quot;)
+            }
+            val anotherInterop by cinterops.creating { /* ... */ }
+        }
+
+        binaries.all {
+            // Tell the linker where the framework is located.
+            linkerOpts(&quot;-framework&quot;, &quot;MyFramework&quot;, &quot;-F/path/to/framework/&quot;)
+        }
+   }
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="-7ip1wf_105" data-sync-tabs="groovy" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+kotlin {
+    iosArm64 {
+        compilations.main {
+            cinterops {
+                DateTools {
+                    // Path to the .def file
+                    definitionFile = project.file(&quot;src/nativeInterop/cinterop/MyFramework.def&quot;)
+
+                    compilerOpts(&quot;-framework&quot;, &quot;MyFramework&quot;, &quot;-F/path/to/framework/&quot;)
+                }
+                anotherInterop { /* ... */ }
+            }
+        }
+
+        binaries.all {
+            // Tell the linker where the framework is located.
+            linkerOpts(&quot;-framework&quot;, &quot;MyFramework&quot;, &quot;-F/path/to/framework/&quot;)
+        }
+    }
+}
+</div></div></div></li><li class="list__item" id="-7ip1wf_79"><p id="-7ip1wf_108">Build the project.</p></li></ol><p id="-7ip1wf_70">Now you can use this dependency in your Kotlin code. To do this, import the package you've set up in the package property in the <code class="code" id="-7ip1wf_109">.def</code> file. For the example above, this will be:</p><div class="code-block" data-lang="kotlin">
+import MyFramework.*
+</div><p id="-7ip1wf_72">Learn more about <a href="https://kotlinlang.org/docs/native-objc-interop.html" id="-7ip1wf_110" data-external="true" rel="noopener noreferrer">Swift/Objective-C interop</a> and <a href="multiplatform-dsl-reference.html#cinterops" id="-7ip1wf_111">configuring cinterop from Gradle</a>.</p></section></section><section class="chapter"><h2 id="with-cocoapods" data-toc="with-cocoapods">With CocoaPods</h2><ol class="list _decimal" id="-7ip1wf_112" type="1"><li class="list__item" id="-7ip1wf_116"><p id="-7ip1wf_119">Perform <a href="multiplatform-cocoapods-overview.html#set-up-an-environment-to-work-with-cocoapods" id="-7ip1wf_120">initial CocoaPods integration setup</a>.</p></li><li class="list__item" id="-7ip1wf_117"><p id="-7ip1wf_121">Add a dependency on a Pod library from the CocoaPods repository that you want to use by including the <code class="code" id="-7ip1wf_125">pod()</code> function call in <code class="code" id="-7ip1wf_126">build.gradle(.kts)</code> of your project.</p><div class="tabs" id="-7ip1wf_122" data-group="build-script" data-anchors="[-7ip1wf_127,-7ip1wf_128]"><div class="tabs__content" data-gtm="tab" id="-7ip1wf_127" data-sync-tabs="kotlin" data-title="Kotlin"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+kotlin {
+    cocoapods {
+        version = &quot;2.0&quot;
+        //..
+        pod(&quot;SDWebImage&quot;) {
+            version = &quot;5.20.0&quot;
+        }
+    }
+}
+</div></div><div class="tabs__content" data-gtm="tab" id="-7ip1wf_128" data-sync-tabs="groovy" data-title="Groovy"><div class="code-block" data-lang="groovy" data-title="Groovy">
+kotlin {
+    cocoapods {
+        version = '2.0'
+        //..
+        pod('SDWebImage') {
+            version = '5.20.0'
+        }
+    }
+}
+</div></div></div><p id="-7ip1wf_123">You can add the following dependencies on a Pod library:</p><ul class="list _bullet" id="-7ip1wf_124"><li class="list__item" id="-7ip1wf_131"><p><a href="multiplatform-cocoapods-libraries.html#from-the-cocoapods-repository" id="-7ip1wf_136">From the CocoaPods repository</a></p></li><li class="list__item" id="-7ip1wf_132"><p><a href="multiplatform-cocoapods-libraries.html#on-a-locally-stored-library" id="-7ip1wf_137">On a locally stored library</a></p></li><li class="list__item" id="-7ip1wf_133"><p><a href="multiplatform-cocoapods-libraries.html#from-a-custom-git-repository" id="-7ip1wf_138">From a custom Git repository</a></p></li><li class="list__item" id="-7ip1wf_134"><p><a href="multiplatform-cocoapods-libraries.html#from-a-custom-podspec-repository" id="-7ip1wf_139">From a custom Podspec repository</a></p></li><li class="list__item" id="-7ip1wf_135"><p><a href="multiplatform-cocoapods-libraries.html#with-custom-cinterop-options" id="-7ip1wf_140">With custom cinterop options</a></p></li></ul></li><li class="list__item" id="-7ip1wf_118"><p id="-7ip1wf_141">Run <span class="control" id="-7ip1wf_142">Build</span> | <span class="control" id="-7ip1wf_143">Reload All Gradle Projects</span> in IntelliJ IDEA (or <span class="control" id="-7ip1wf_144">File</span> | <span class="control" id="-7ip1wf_145">Sync Project with Gradle Files</span> in Android Studio) to re-import the project.</p></li></ol><p id="-7ip1wf_113">To use the dependency in your Kotlin code, import the package <code class="code" id="-7ip1wf_146">cocoapods.&lt;library-name&gt;</code>. For the example above, it's:</p><div class="code-block" data-lang="kotlin">
+import cocoapods.SDWebImage.*
+</div><aside class="prompt" data-type="tip" data-title="" id="-7ip1wf_115"><ul class="list _bullet" id="-7ip1wf_147"><li class="list__item" id="-7ip1wf_148"><p>See the sample project with <a href="https://github.com/Kotlin/kmp-with-cocoapods-multitarget-xcode-sample" id="-7ip1wf_150" data-external="true" rel="noopener noreferrer">different Pod dependencies set up in a Kotlin project</a>.</p></li><li class="list__item" id="-7ip1wf_149"><p>Check out the sample project where <a href="https://github.com/Kotlin/kmp-with-cocoapods-multitarget-xcode-sample" id="-7ip1wf_151" data-external="true" rel="noopener noreferrer">an Xcode project with several targets depends on a Kotlin library</a>.</p></li></ul></aside></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next?</h2><p id="-7ip1wf_152">Check out other resources on adding dependencies in multiplatform projects and learn more about:</p><ul class="list _bullet" id="-7ip1wf_153"><li class="list__item" id="-7ip1wf_154"><p><a href="https://kotlinlang.org/docs/native-platform-libs.html" id="-7ip1wf_157" data-external="true" rel="noopener noreferrer">Connecting platform libraries</a></p></li><li class="list__item" id="-7ip1wf_155"><p><a href="multiplatform-add-dependencies.html" id="-7ip1wf_158">Adding dependencies on multiplatform libraries or other multiplatform projects</a></p></li><li class="list__item" id="-7ip1wf_156"><p><a href="multiplatform-android-dependencies.html" id="-7ip1wf_159">Adding Android dependencies</a></p></li></ul></section><div class="last-modified">Last modified: 25 June 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="multiplatform-android-dependencies.html" class="navigation-links__prev">Adding Android dependencies</a><a href="multiplatform-ios-integration-overview.html" class="navigation-links__next">iOS integration methods</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:21.748922618"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Expected and actual declarations | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"rules-for-expected-and-actual-declarations","level":0,"title":"Rules for expected and actual declarations","anchor":"#rules-for-expected-and-actual-declarations"},{"id":"different-approaches-for-using-expected-and-actual-declarations","level":0,"title":"Different approaches for using expected and actual declarations","anchor":"#different-approaches-for-using-expected-and-actual-declarations"},{"id":"advanced-use-cases","level":0,"title":"Advanced use cases","anchor":"#advanced-use-cases"},{"id":"what-s-next","level":0,"title":"What\u0027s next?","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Expected and actual declarations | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Expected and actual declarations | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html",
+    "name": "Expected and actual declarations | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="multiplatform-expect-actual" data-main-title="Expected and actual declarations" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Share code" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/development/multiplatform-expect-actual.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="multiplatform-expect-actual" id="multiplatform-expect-actual.md">Expected and actual declarations</h1><p id="ky48ji_2">Expected and actual declarations allow you to access platform-specific APIs from Kotlin Multiplatform modules. You can provide platform-agnostic APIs in the common code.</p><aside class="prompt" data-type="tip" data-title="" id="ky48ji_3"><p id="ky48ji_8">This article describes the language mechanism of expected and actual declarations. For general recommendations on different ways to use platform-specific APIs, see <a href="multiplatform-connect-to-apis.html" id="ky48ji_9">Use platform-specific APIs</a>.</p></aside><section class="chapter"><h2 id="rules-for-expected-and-actual-declarations" data-toc="rules-for-expected-and-actual-declarations">Rules for expected and actual declarations</h2><p id="ky48ji_10">To define expected and actual declarations, follow these rules:</p><ol class="list _decimal" id="ky48ji_11" type="1"><li class="list__item" id="ky48ji_20"><p>In the common source set, declare a standard Kotlin construct. This can be a function, property, class, interface, enumeration, or annotation.</p></li><li class="list__item" id="ky48ji_21"><p>Mark this construct with the <code class="code" id="ky48ji_23">expect</code> keyword. This is your <span class="emphasis" id="ky48ji_24">expected declaration</span>. These declarations can be used in the common code, but shouldn't include any implementation. Instead, the platform-specific code provides this implementation.</p></li><li class="list__item" id="ky48ji_22"><p>In each platform-specific source set, declare the same construct in the same package and mark it with the <code class="code" id="ky48ji_25">actual</code> keyword. This is your <span class="emphasis" id="ky48ji_26">actual declaration</span>, which typically contains an implementation using platform-specific libraries.</p></li></ol><p id="ky48ji_12">During compilation for a specific target, the compiler tries to match each <span class="emphasis" id="ky48ji_27">actual</span> declaration it finds with the corresponding <span class="emphasis" id="ky48ji_28">expected</span> declaration in the common code. The compiler ensures that:</p><ul class="list _bullet" id="ky48ji_13"><li class="list__item" id="ky48ji_29"><p>Every expected declaration in the common source set has a matching actual declaration in every platform-specific source set.</p></li><li class="list__item" id="ky48ji_30"><p>Expected declarations don't contain any implementation.</p></li><li class="list__item" id="ky48ji_31"><p>Every actual declaration shares the same package as the corresponding expected declaration, such as <code class="code" id="ky48ji_32">org.mygroup.myapp.MyType</code>.</p></li></ul><p id="ky48ji_14">While generating the resulting code for different platforms, the Kotlin compiler merges the expected and actual declarations that correspond to each other. It generates one declaration with its actual implementation for each platform. Every use of the expected declaration in the common code calls the correct actual declaration in the resulting platform code.</p><p id="ky48ji_15">You can declare actual declarations when you use intermediate source sets shared between different target platforms. Consider, for example, <code class="code" id="ky48ji_33">iosMain</code> as an intermediate source set shared between the <code class="code" id="ky48ji_34">iosX64Main</code>, <code class="code" id="ky48ji_35">iosArm64Main</code>, and <code class="code" id="ky48ji_36">iosSimulatorArm64Main</code> platform source sets. Only <code class="code" id="ky48ji_37">iosMain</code> typically contains the actual declarations and not the platform source sets. The Kotlin compiler will then use these actual declarations to produce the resulting code for the corresponding platforms.</p><p id="ky48ji_16">The IDE assists with common issues, including:</p><ul class="list _bullet" id="ky48ji_17"><li class="list__item" id="ky48ji_38"><p>Missing declarations</p></li><li class="list__item" id="ky48ji_39"><p>Expected declarations that contain implementations</p></li><li class="list__item" id="ky48ji_40"><p>Mismatched declaration signatures</p></li><li class="list__item" id="ky48ji_41"><p>Declarations in different packages</p></li></ul><p id="ky48ji_18">You can also use the IDE to navigate from expected to actual declarations. Select the gutter icon to view actual declarations or use <a href="https://www.jetbrains.com/help/idea/navigating-through-the-source-code.html#go_to_implementation" id="ky48ji_42" data-external="true" rel="noopener noreferrer">shortcuts</a>.</p><figure id="ky48ji_19"><img alt="IDE navigation from expected to actual declarations" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/expect-actual-gutter.png" title="IDE navigation from expected to actual declarations" width="500" height="102"></figure></section><section class="chapter"><h2 id="different-approaches-for-using-expected-and-actual-declarations" data-toc="different-approaches-for-using-expected-and-actual-declarations">Different approaches for using expected and actual declarations</h2><p id="ky48ji_43">Let's explore the different options of using the expect/actual mechanism to solve the problem of accessing platform APIs while still providing a way to work with them in the common code.</p><p id="ky48ji_44">Consider a Kotlin Multiplatform project where you need to implement the <code class="code" id="ky48ji_48">Identity</code> type, which should contain the user's login name and the current process ID. The project has the <code class="code" id="ky48ji_49">commonMain</code>, <code class="code" id="ky48ji_50">jvmMain</code>, and <code class="code" id="ky48ji_51">nativeMain</code> source sets to make the application work on the JVM and in native environments like iOS.</p><section class="chapter"><h3 id="expected-and-actual-functions" data-toc="expected-and-actual-functions">Expected and actual functions</h3><p id="ky48ji_52">You can define an <code class="code" id="ky48ji_56">Identity</code> type and a factory function <code class="code" id="ky48ji_57">buildIdentity()</code>, which is declared in the common source set and implemented differently in platform source sets:</p><ol class="list _decimal" id="ky48ji_53" type="1"><li class="list__item" id="ky48ji_58"><p id="ky48ji_61">In <code class="code" id="ky48ji_63">commonMain</code>, declare a simple type and expect a factory function:</p><div class="code-block" data-lang="kotlin">
+package identity
+
+class Identity(val userName: String, val processID: Long)
+
+expect fun buildIdentity(): Identity
+</div></li><li class="list__item" id="ky48ji_59"><p id="ky48ji_64">In the <code class="code" id="ky48ji_66">jvmMain</code> source set, implement a solution using standard Java libraries:</p><div class="code-block" data-lang="kotlin">
+package identity
+
+import java.lang.System
+import java.lang.ProcessHandle
+
+actual fun buildIdentity() = Identity(
+    System.getProperty(&quot;user.name&quot;) ?: &quot;None&quot;,
+    ProcessHandle.current().pid()
+)
+</div></li><li class="list__item" id="ky48ji_60"><p id="ky48ji_67">In the <code class="code" id="ky48ji_69">nativeMain</code> source set, implement a solution with <a href="https://en.wikipedia.org/wiki/POSIX" id="ky48ji_70" data-external="true" rel="noopener noreferrer">POSIX</a> using native dependencies:</p><div class="code-block" data-lang="kotlin">
+package identity
+
+import kotlinx.cinterop.toKString
+import platform.posix.getlogin
+import platform.posix.getpid
+
+actual fun buildIdentity() = Identity(
+    getlogin()?.toKString() ?: &quot;None&quot;,
+    getpid().toLong()
+)
+</div></li></ol><p id="ky48ji_54">Here, platform functions return platform-specific <code class="code" id="ky48ji_71">Identity</code> instances.</p><aside class="prompt" data-type="note" data-title="" id="ky48ji_55"><p id="ky48ji_72">Starting with Kotlin 1.9.0, using <code class="code" id="ky48ji_73">getlogin()</code> and <code class="code" id="ky48ji_74">getpid()</code> functions requires the <code class="code" id="ky48ji_75">@OptIn</code> annotation.</p></aside></section><section class="chapter"><h3 id="interfaces-with-expected-and-actual-functions" data-toc="interfaces-with-expected-and-actual-functions">Interfaces with expected and actual functions</h3><p id="ky48ji_76">If the factory function becomes too large, consider using a common <code class="code" id="ky48ji_83">Identity</code> interface and implementing it differently on different platforms.</p><p id="ky48ji_77">A <code class="code" id="ky48ji_84">buildIdentity()</code> factory function should return <code class="code" id="ky48ji_85">Identity</code>, but this time, it's an object implementing the common interface:</p><ol class="list _decimal" id="ky48ji_78" type="1"><li class="list__item" id="ky48ji_86"><p id="ky48ji_88">In <code class="code" id="ky48ji_90">commonMain</code>, define the <code class="code" id="ky48ji_91">Identity</code> interface and the <code class="code" id="ky48ji_92">buildIdentity()</code> factory function:</p><div class="code-block" data-lang="kotlin">
+// In the commonMain source set:
+expect fun buildIdentity(): Identity
+
+interface Identity {
+    val userName: String
+    val processID: Long
+}
+</div></li><li class="list__item" id="ky48ji_87"><p id="ky48ji_93">Create platform-specific implementations of the interface without additional use of expected and actual declarations:</p><div class="code-block" data-lang="kotlin">
+// In the jvmMain source set:
+actual fun buildIdentity(): Identity = JVMIdentity()
+
+class JVMIdentity(
+    override val userName: String = System.getProperty(&quot;user.name&quot;) ?: &quot;none&quot;,
+    override val processID: Long = ProcessHandle.current().pid()
+) : Identity
+</div><div class="code-block" data-lang="kotlin">
+// In the nativeMain source set:
+actual fun buildIdentity(): Identity = NativeIdentity()
+
+class NativeIdentity(
+    override val userName: String = getlogin()?.toKString() ?: &quot;None&quot;,
+    override val processID: Long = getpid().toLong()
+) : Identity
+</div></li></ol><p id="ky48ji_79">These platform functions return platform-specific <code class="code" id="ky48ji_96">Identity</code> instances, which are implemented as <code class="code" id="ky48ji_97">JVMIdentity</code> and <code class="code" id="ky48ji_98">NativeIdentity</code> platform types.</p><section class="chapter"><h4 id="expected-and-actual-properties" data-toc="expected-and-actual-properties">Expected and actual properties</h4><p id="ky48ji_99">You can modify the previous example and expect a <code class="code" id="ky48ji_104">val</code> property to store an <code class="code" id="ky48ji_105">Identity</code>.</p><p id="ky48ji_100">Mark this property as <code class="code" id="ky48ji_106">expect val</code> and then actualize it in the platform source sets:</p><div class="code-block" data-lang="kotlin">
+//In commonMain source set:
+expect val identity: Identity
+
+interface Identity {
+    val userName: String
+    val processID: Long
+}
+</div><div class="code-block" data-lang="kotlin">
+//In jvmMain source set:
+actual val identity: Identity = JVMIdentity()
+
+class JVMIdentity(
+    override val userName: String = System.getProperty(&quot;user.name&quot;) ?: &quot;none&quot;,
+    override val processID: Long = ProcessHandle.current().pid()
+) : Identity
+</div><div class="code-block" data-lang="kotlin">
+//In nativeMain source set:
+actual val identity: Identity = NativeIdentity()
+
+class NativeIdentity(
+    override val userName: String = getlogin()?.toKString() ?: &quot;None&quot;,
+    override val processID: Long = getpid().toLong()
+) : Identity
+</div></section><section class="chapter"><h4 id="expected-and-actual-objects" data-toc="expected-and-actual-objects">Expected and actual objects</h4><p id="ky48ji_107">When <code class="code" id="ky48ji_111">IdentityBuilder</code> is expected to be a singleton on each platform, you can define it as an expected object and let the platforms actualize it:</p><div class="code-block" data-lang="kotlin">
+// In the commonMain source set:
+expect object IdentityBuilder {
+    fun build(): Identity
+}
+
+class Identity(
+    val userName: String,
+    val processID: Long
+)
+</div><div class="code-block" data-lang="kotlin">
+// In the jvmMain source set:
+actual object IdentityBuilder {
+    actual fun build() = Identity(
+        System.getProperty(&quot;user.name&quot;) ?: &quot;none&quot;,
+        ProcessHandle.current().pid()
+    )
+}
+</div><div class="code-block" data-lang="kotlin">
+// In the nativeMain source set:
+actual object IdentityBuilder {
+    actual fun build() = Identity(
+        getlogin()?.toKString() ?: &quot;None&quot;,
+        getpid().toLong()
+    )
+}
+</div></section><section class="chapter"><h4 id="recommendations-on-dependency-injection" data-toc="recommendations-on-dependency-injection">Recommendations on dependency injection</h4><p id="ky48ji_112">To create a loosely coupled architecture, many Kotlin projects adopt the dependency injection (DI) framework. The DI framework allows injecting dependencies into components based on the current environment.</p><p id="ky48ji_113">For example, you might inject different dependencies in testing and in production or when deploying to the cloud compared to hosting locally. As long as a dependency is expressed through an interface, any number of different implementations can be injected, either at compile time or at runtime.</p><p id="ky48ji_114">The same principle applies when the dependencies are platform-specific. In the common code, a component can express its dependencies using regular <a href="https://kotlinlang.org/docs/interfaces.html" id="ky48ji_117" data-external="true" rel="noopener noreferrer">Kotlin interfaces</a>. The DI framework can then be configured to inject a platform-specific implementation, for example, from the JVM or an iOS module.</p><p id="ky48ji_115">This means that expected and actual declarations are only needed in the configuration of the DI framework. See <a href="multiplatform-connect-to-apis.html#dependency-injection-framework" id="ky48ji_118">Use platform-specific APIs</a> for examples.</p><p id="ky48ji_116">With this approach, you can adopt Kotlin Multiplatform simply by using interfaces and factory functions. If you already use the DI framework to manage dependencies in your project, we recommend using the same approach for managing platform dependencies.</p></section></section><section class="chapter"><h3 id="expected-and-actual-classes" data-toc="expected-and-actual-classes">Expected and actual classes</h3><aside class="prompt" data-type="warning" data-title="" id="ky48ji_119"><p id="ky48ji_131">Expected and actual classes are in <a href="supported-platforms.html#general-kotlin-stability-levels" id="ky48ji_132">Beta</a>. They are almost stable, but migration steps may be required in the future. We'll do our best to minimize any further changes for you to make.</p></aside><p id="ky48ji_120">You can use expected and actual classes to implement the same solution:</p><div class="code-block" data-lang="kotlin">
+// In the commonMain source set:
+expect class Identity() {
+    val userName: String
+    val processID: Int
+}
+</div><div class="code-block" data-lang="kotlin">
+// In the jvmMain source set:
+actual class Identity {
+    actual val userName: String = System.getProperty(&quot;user.name&quot;) ?: &quot;None&quot;
+    actual val processID: Long = ProcessHandle.current().pid()
+}
+</div><div class="code-block" data-lang="kotlin">
+// In the nativeMain source set:
+actual class Identity {
+    actual val userName: String = getlogin()?.toKString() ?: &quot;None&quot;
+    actual val processID: Long = getpid().toLong()
+}
+</div><p id="ky48ji_124">You might have already seen this approach in demonstration materials. However, using classes in simple cases where interfaces would be sufficient is <span class="emphasis" id="ky48ji_133">not recommended</span>.</p><p id="ky48ji_125">With interfaces, you don't limit your design to one implementation per target platform. Also, it's much easier to substitute a fake implementation in tests or provide multiple implementations on a single platform.</p><p id="ky48ji_126">As a general rule, rely on standard language constructs wherever possible instead of using expected and actual declarations.</p><p id="ky48ji_127">If you do decide to use expected and actual classes, the Kotlin compiler will warn you about the Beta status of the feature. To suppress this warning, add the following compiler option to your Gradle build file:</p><div class="code-block" data-lang="kotlin">
+kotlin {
+    compilerOptions {
+        // Common compiler options applied to all Kotlin source sets
+        freeCompilerArgs.add(&quot;-Xexpect-actual-classes&quot;)
+    }
+}
+</div><section class="chapter"><h4 id="inheritance-from-platform-classes" data-toc="inheritance-from-platform-classes">Inheritance from platform classes</h4><p id="ky48ji_134">There are special cases when using the <code class="code" id="ky48ji_139">expect</code> keyword with classes may be the best approach. Let's say that the <code class="code" id="ky48ji_140">Identity</code> type already exists on the JVM:</p><div class="code-block" data-lang="kotlin">
+open class Identity {
+    val login: String = System.getProperty(&quot;user.name&quot;) ?: &quot;none&quot;
+    val pid: Long = ProcessHandle.current().pid()
+}
+</div><p id="ky48ji_136">To fit it in the existing codebase and frameworks, your implementation of the <code class="code" id="ky48ji_141">Identity</code> type can inherit from this type and reuse its functionality:</p><ol class="list _decimal" id="ky48ji_137" type="1"><li class="list__item" id="ky48ji_142"><p id="ky48ji_145">To solve this problem, declare a class in <code class="code" id="ky48ji_147">commonMain</code> using the <code class="code" id="ky48ji_148">expect</code> keyword:</p><div class="code-block" data-lang="kotlin">
+expect class CommonIdentity() {
+    val userName: String
+    val processID: Long
+}
+</div></li><li class="list__item" id="ky48ji_143"><p id="ky48ji_149">In <code class="code" id="ky48ji_151">nativeMain</code>, provide an actual declaration that implements the functionality:</p><div class="code-block" data-lang="kotlin">
+actual class CommonIdentity {
+    actual val userName = getlogin()?.toKString() ?: &quot;None&quot;
+    actual val processID = getpid().toLong()
+}
+</div></li><li class="list__item" id="ky48ji_144"><p id="ky48ji_152">In <code class="code" id="ky48ji_154">jvmMain</code>, provide an actual declaration that inherits from the platform-specific base class:</p><div class="code-block" data-lang="kotlin">
+actual class CommonIdentity : Identity() {
+    actual val userName = login
+    actual val processID = pid
+}
+</div></li></ol><p id="ky48ji_138">Here, the <code class="code" id="ky48ji_155">CommonIdentity</code> type is compatible with your own design while taking advantage of the existing type on the JVM.</p></section><section class="chapter"><h4 id="application-in-frameworks" data-toc="application-in-frameworks">Application in frameworks</h4><p id="ky48ji_156">As a framework author, you can also find expected and actual declarations useful for your framework.</p><p id="ky48ji_157">If the example above is part of a framework, the user has to derive a type from <code class="code" id="ky48ji_165">CommonIdentity</code> to provide a display name.</p><p id="ky48ji_158">In this case, the expected declaration is abstract and declares an abstract method:</p><div class="code-block" data-lang="kotlin">
+// In commonMain of the framework codebase:
+expect abstract class CommonIdentity() {
+    val userName: String
+    val processID: Long
+    abstract val displayName: String
+}
+</div><p id="ky48ji_160">Similarly, actual implementations are abstract and declare the <code class="code" id="ky48ji_166">displayName</code> method:</p><div class="code-block" data-lang="kotlin">
+// In nativeMain of the framework codebase:
+actual abstract class CommonIdentity {
+    actual val userName = getlogin()?.toKString() ?: &quot;None&quot;
+    actual val processID = getpid().toLong()
+    actual abstract val displayName: String
+}
+</div><div class="code-block" data-lang="kotlin">
+// In jvmMain of the framework codebase:
+actual abstract class CommonIdentity : Identity() {
+    actual val userName = login
+    actual val processID = pid
+    actual abstract val displayName: String
+}
+</div><p id="ky48ji_163">The framework users need to write common code that inherits from the expected declaration and implement the missing method themselves:</p><div class="code-block" data-lang="kotlin">
+// In commonMain of the users' codebase:
+class MyCommonIdentity : CommonIdentity() {
+    override val displayName = &quot;Admin&quot;
+}
+</div></section></section></section><section class="chapter"><h2 id="advanced-use-cases" data-toc="advanced-use-cases">Advanced use cases</h2><p id="ky48ji_167">There are a number of special cases regarding expected and actual declarations.</p><section class="chapter"><h3 id="using-type-aliases-to-satisfy-actual-declarations" data-toc="using-type-aliases-to-satisfy-actual-declarations">Using type aliases to satisfy actual declarations</h3><p id="ky48ji_172">The implementation of an actual declaration does not have to be written from scratch. It can be an existing type, such as a class provided by a third-party library.</p><p id="ky48ji_173">You can use this type as long as it meets all the requirements associated with the expected declaration. For example, consider these two expected declarations:</p><div class="code-block" data-lang="kotlin">
+expect enum class Month {
+    JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY,
+    AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
+}
+
+expect class MyDate {
+    fun getYear(): Int
+    fun getMonth(): Month
+    fun getDayOfMonth(): Int
+}
+</div><p id="ky48ji_175">Within a JVM module, the <code class="code" id="ky48ji_180">java.time.Month</code> enum can be used to implement the first expected declaration and the <code class="code" id="ky48ji_181">java.time.LocalDate</code> class to implement the second. However, there's no way to add the <code class="code" id="ky48ji_182">actual</code> keyword directly to these types.</p><p id="ky48ji_176">Instead, you can use <a href="https://kotlinlang.org/docs/type-aliases.html" id="ky48ji_183" data-external="true" rel="noopener noreferrer">type aliases</a> to connect the expected declarations and the platform-specific types:</p><div class="code-block" data-lang="kotlin">
+actual typealias Month = java.time.Month
+actual typealias MyDate = java.time.LocalDate
+</div><p id="ky48ji_178">In this case, define the <code class="code" id="ky48ji_184">typealias</code> declaration in the same package as the expected declaration and create the referred class elsewhere.</p><aside class="prompt" data-type="note" data-title="" id="ky48ji_179"><p id="ky48ji_185">Since the <code class="code" id="ky48ji_186">LocalDate</code> type uses the <code class="code" id="ky48ji_187">Month</code> enum, you need to declare both of them as expected classes in the common code.</p></aside></section><section class="chapter"><h3 id="expanded-visibility-in-actual-declarations" data-toc="expanded-visibility-in-actual-declarations">Expanded visibility in actual declarations</h3><p id="ky48ji_188">You can make actual implementations more visible than the corresponding expected declaration. This is useful if you don't want to expose your API as public for common clients.</p><p id="ky48ji_189">Currently, the Kotlin compiler issues an error in the case of visibility changes. You can suppress this error by applying <code class="code" id="ky48ji_195">@Suppress(&quot;ACTUAL_WITHOUT_EXPECT&quot;)</code> to the actual type alias declaration. Starting with Kotlin 2.0, this limitation will not apply.</p><p id="ky48ji_190">For example, if you declare the following expected declaration in the common source set:</p><div class="code-block" data-lang="kotlin">
+internal expect class Messenger {
+    fun sendMessage(message: String)
+}
+</div><p id="ky48ji_192">You can use the following actual implementation in a platform-specific source set as well:</p><div class="code-block" data-lang="kotlin">
+@Suppress(&quot;ACTUAL_WITHOUT_EXPECT&quot;)
+public actual typealias Messenger = MyMessenger
+</div><p id="ky48ji_194">Here, an internal expected class has an actual implementation with an existing public <code class="code" id="ky48ji_196">MyMessenger</code> using type aliases.</p></section><section class="chapter"><h3 id="additional-enumeration-entries-on-actualization" data-toc="additional-enumeration-entries-on-actualization">Additional enumeration entries on actualization</h3><p id="ky48ji_197">When an enumeration is declared with <code class="code" id="ky48ji_206">expect</code> in the common source set, each platform module should have a corresponding <code class="code" id="ky48ji_207">actual</code> declaration. These declarations must contain the same enum constants, but they can also have additional constants.</p><p id="ky48ji_198">This is useful when you actualize an expected enum with an existing platform enum. For example, consider the following enumeration in the common source set:</p><div class="code-block" data-lang="kotlin">
+// In the commonMain source set:
+expect enum class Department { IT, HR, Sales }
+</div><p id="ky48ji_200">When you provide an actual declaration for <code class="code" id="ky48ji_208">Department</code> in platform source sets, you can add extra constants:</p><div class="code-block" data-lang="kotlin">
+// In the jvmMain source set:
+actual enum class Department { IT, HR, Sales, Legal }
+</div><div class="code-block" data-lang="kotlin">
+// In the nativeMain source set:
+actual enum class Department { IT, HR, Sales, Marketing }
+</div><p id="ky48ji_203">However, in this case, these extra constants in the platform source sets won't match with those in the common code. Therefore, the compiler requires you to handle all additional cases.</p><p id="ky48ji_204">The function that implements the <code class="code" id="ky48ji_209">when</code> construction on <code class="code" id="ky48ji_210">Department</code> requires an <code class="code" id="ky48ji_211">else</code> clause:</p><div class="code-block" data-lang="kotlin">
+// An else clause is required:
+fun matchOnDepartment(dept: Department) {
+    when (dept) {
+        Department.IT -&gt; println(&quot;The IT Department&quot;)
+        Department.HR -&gt; println(&quot;The HR Department&quot;)
+        Department.Sales -&gt; println(&quot;The Sales Department&quot;)
+        else -&gt; println(&quot;Some other department&quot;)
+    }
+}
+</div></section><section class="chapter"><h3 id="expected-annotation-classes" data-toc="expected-annotation-classes">Expected annotation classes</h3><p id="ky48ji_212">Expected and actual declarations can be used with annotations. For example, you can declare an <code class="code" id="ky48ji_221">@XmlSerializable</code> annotation, which must have a corresponding actual declaration in each platform source set:</p><div class="code-block" data-lang="kotlin">
+@Target(AnnotationTarget.CLASS)
+@Retention(AnnotationRetention.RUNTIME)
+expect annotation class XmlSerializable()
+
+@XmlSerializable
+class Person(val name: String, val age: Int)
+</div><p id="ky48ji_214">It might be helpful to reuse existing types on a particular platform. For example, on the JVM, you can define your annotation using the existing type from the <a href="https://javaee.github.io/jaxb-v2/" id="ky48ji_222" data-external="true" rel="noopener noreferrer">JAXB specification</a>:</p><div class="code-block" data-lang="kotlin">
+import javax.xml.bind.annotation.XmlRootElement
+
+actual typealias XmlSerializable = XmlRootElement
+</div><p id="ky48ji_216">There is an additional consideration when using <code class="code" id="ky48ji_223">expect</code> with annotation classes. Annotations are used to attach metadata to code and do not appear as types in signatures. It's not essential for an expected annotation to have an actual class on a platform where it's never required.</p><p id="ky48ji_217">You only need to provide an <code class="code" id="ky48ji_224">actual</code> declaration on platforms where the annotation is used. This behavior isn't enabled by default, and it requires the type to be marked with <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-optional-expectation/" id="ky48ji_225" data-external="true" rel="noopener noreferrer"><code class="code" id="ky48ji_226">OptionalExpectation</code></a>.</p><p id="ky48ji_218">Take the <code class="code" id="ky48ji_227">@XmlSerializable</code> annotation declared above and add <code class="code" id="ky48ji_228">OptionalExpectation</code>:</p><div class="code-block" data-lang="kotlin">
+@OptIn(ExperimentalMultiplatform::class)
+@Target(AnnotationTarget.CLASS)
+@Retention(AnnotationRetention.RUNTIME)
+@OptionalExpectation
+expect annotation class XmlSerializable()
+</div><p id="ky48ji_220">If an actual declaration is missing on a platform where it's not required, the compiler won't generate an error.</p></section></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next?</h2><p id="ky48ji_229">For general recommendations on different ways to use platform-specific APIs, see <a href="multiplatform-connect-to-apis.html" id="ky48ji_230">Use platform-specific APIs</a>.</p></section><div class="last-modified">Last modified: 16 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="multiplatform-share-on-platforms.html" class="navigation-links__prev">Share code on platforms</a><a href="multiplatform-connect-to-apis.html" class="navigation-links__next">Use platform-specific APIs</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:21.292311981"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Manage regional formats | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"locale-formatting-patterns","level":0,"title":"Locale formatting patterns","anchor":"#locale-formatting-patterns"},{"id":"ensure-consistent-formatting","level":0,"title":"Ensure consistent formatting","anchor":"#ensure-consistent-formatting"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Manage regional formats | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-regional-format.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Manage regional formats | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-regional-format.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-regional-format.html",
+    "name": "Manage regional formats | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-regional-format" data-main-title="Manage regional formats" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Localization" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-regional-format.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-regional-format" id="compose-regional-format.md">Manage regional formats</h1><p id="d62qad_3">Text fields and related components, such as date and time pickers, automatically apply locale-specific formatting patterns. These include the formatting of numbers, dates, times, and currencies. The patterns are determined by the system's locale or a custom locale set within your application, ensuring consistent data display across platforms.</p><section class="chapter"><h2 id="locale-formatting-patterns" data-toc="locale-formatting-patterns">Locale formatting patterns</h2><p id="d62qad_7">Formatting in Compose Multiplatform respects platform-specific locale conventions for:</p><ul class="list _bullet" id="d62qad_8"><li class="list__item" id="d62qad_12"><p>Numeric separators. Thousands can get separated by a comma or a period: <code class="code" id="d62qad_15">1,234.56</code> in <code class="code" id="d62qad_16">en-US</code> and <code class="code" id="d62qad_17">1.234,56</code> in <code class="code" id="d62qad_18">de-DE</code>.</p></li><li class="list__item" id="d62qad_13"><p>Date/Time patterns. The date of December 1 looks like <code class="code" id="d62qad_19">12/1/20</code> in <code class="code" id="d62qad_20">en-US</code>, while the same date in <code class="code" id="d62qad_21">fr-CA</code> looks like <code class="code" id="d62qad_22">2020-12-01</code>.</p></li><li class="list__item" id="d62qad_14"><p>Currency symbols and placement. The local currency symbol can be placed either before or after the digits: <code class="code" id="d62qad_23">$5,001</code> in <code class="code" id="d62qad_24">en-US</code> and <code class="code" id="d62qad_25">5.001,00 &euro;</code> in <code class="code" id="d62qad_26">fr-FR</code>.</p></li></ul><p id="d62qad_9">These regional formats work out of the box for both system locales and custom locale overrides defined in your app.</p><p id="d62qad_10">Formatting is currently implemented using the <code class="code" id="d62qad_27">kotlinx-datetime</code> library on iOS and the JDK API on Android and desktop. Here is an example of managing localized date and currency values in the iOS source set:</p><div class="code-block" data-lang="kotlin">
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import kotlinx.datetime.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.todayIn
+import platform.Foundation.NSNumber
+import platform.Foundation.NSNumberFormatter
+import platform.Foundation.NSNumberFormatterCurrencyStyle
+import platform.Foundation.NSLocale
+import platform.Foundation.currentLocale
+
+@Composable
+fun RegionalFormatExample() {
+    val currentLocale = NSLocale.current
+    val languageCode = currentLocale.languageCode 
+    val countryCode = currentLocale.countryCode 
+
+    // Sample value to format as currency
+    val amount = 1234.56
+
+    // Uses NSNumberFormatter for currency formatting on iOS
+    val currencyFormatter = NSNumberFormatter().apply { 
+        numberStyle = NSNumberFormatterCurrencyStyle
+        locale = currentLocale
+    }
+    val formattedCurrency = currencyFormatter.stringFromNumber(NSNumber(amount)) 
+
+    // Gets current date using `kotlinx-datetime`
+    val today = Clock.System.todayIn(TimeZone.currentSystemDefault())
+    val formattedDate = today.toString()
+
+    Column {
+        Text(&quot;Current language: $languageCode&quot;)
+        Text(&quot;Current country: $countryCode&quot;)
+        Text(&quot;Amount: $amount&quot;)
+        Text(&quot;Formatted currency: $formattedCurrency&quot;)
+        Text(&quot;Today's date: $formattedDate&quot;)
+    }
+}
+</div></section><section class="chapter"><h2 id="ensure-consistent-formatting" data-toc="ensure-consistent-formatting">Ensure consistent formatting</h2><p id="d62qad_28">Although there is no common API for a unified multiplatform solution, the formatting behavior is still consistent in most cases. To ensure the formatting is correct for all supported regions:</p><ul class="list _bullet" id="d62qad_29"><li class="list__item" id="d62qad_30"><p>Test edge cases such as large numbers, negative values, or zeroes.</p></li><li class="list__item" id="d62qad_31"><p>Verify formatting for all supported locales on all target platforms.</p></li></ul></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><p id="d62qad_32">Learn how to manage the application's <a href="compose-resource-environment.html" id="d62qad_33">resource environment</a> like in-app theme and language.</p></section><div class="last-modified">Last modified: 28 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-localize-strings.html" class="navigation-links__prev">Localizing strings</a><a href="compose-rtl.html" class="navigation-links__next">Working with RTL languages</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:20.493988833"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Working with modifiers | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"chaining-modifiers","level":0,"title":"Chaining modifiers","anchor":"#chaining-modifiers"},{"id":"built-in-modifiers","level":0,"title":"Built-in modifiers","anchor":"#built-in-modifiers"},{"id":"scoped-modifiers","level":0,"title":"Scoped modifiers","anchor":"#scoped-modifiers"},{"id":"extracting-and-reusing-modifiers","level":0,"title":"Extracting and reusing modifiers","anchor":"#extracting-and-reusing-modifiers"},{"id":"custom-modifiers","level":0,"title":"Custom modifiers","anchor":"#custom-modifiers"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Working with modifiers | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-layout-modifiers.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Working with modifiers | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-layout-modifiers.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-layout-modifiers.html",
+    "name": "Working with modifiers | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-layout-modifiers" data-main-title="Working with modifiers" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Implementing layouts" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-layout-modifiers.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-layout-modifiers" id="compose-layout-modifiers.md">Working with modifiers</h1><p id="z98bqaf_3">Modifiers allow you to decorate or augment a composable. Using modifiers, you can:</p><ul class="list _bullet" id="z98bqaf_4"><li class="list__item" id="z98bqaf_11"><p>Change the composable's size, layout, behavior, and appearance.</p></li><li class="list__item" id="z98bqaf_12"><p>Add information, such as accessibility labels.</p></li><li class="list__item" id="z98bqaf_13"><p>Handle user input.</p></li><li class="list__item" id="z98bqaf_14"><p>Add high-level interactions like making elements clickable, scrollable, draggable, or zoomable.</p></li></ul><section class="chapter"><h2 id="chaining-modifiers" data-toc="chaining-modifiers">Chaining modifiers</h2><p id="z98bqaf_15">Modifiers can be chained together to apply multiple effects:</p><div class="code-block" data-lang="kotlin">
+@Composable
+private fun Greeting(name: String) {
+    Column(
+        // Chained `Modifier` functions:
+        modifier = Modifier
+            // `Modifier.padding(24.dp)` adds padding around the column
+            .padding(24.dp)
+            // `Modifier.fillMaxWidth()` makes the column expand to fill the available width
+            .fillMaxWidth()
+    ) {
+        Text(text = &quot;Hello,&quot;)
+        Text(text = name)
+    }
+}
+</div><p id="z98bqaf_17"><span class="control" id="z98bqaf_18">The order of modifier functions in the chain is significant</span>. Each function makes changes to the <code class="code" id="z98bqaf_19">Modifier</code> returned by the previous function, so the sequence of calls directly affects the composable's final behavior and appearance.</p></section><section class="chapter"><h2 id="built-in-modifiers" data-toc="built-in-modifiers">Built-in modifiers</h2><p id="z98bqaf_20">Compose Multiplatform provides built-in modifiers, such as <code class="code" id="z98bqaf_24">size</code>, <code class="code" id="z98bqaf_25">padding</code>, and <code class="code" id="z98bqaf_26">offset</code>, for handling common layout and positioning tasks.</p><section class="chapter"><h3 id="size-modifiers" data-toc="size-modifiers">Size modifiers</h3><p id="z98bqaf_27">To set a fixed size, use the <code class="code" id="z98bqaf_29">size</code> modifier. When constraints need to be overridden, use the <code class="code" id="z98bqaf_30">requiredSize</code> modifier:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun Card() {
+    // Sets the row size to 400x100 dp
+    Row(modifier = Modifier.size(width = 400.dp, height = 100.dp)
+    ) {
+        Image(
+            // Sets the required size to 150x150 dp and overrides the parent`s 100 dp limit
+            modifier = Modifier.requiredSize(150.dp)
+        )
+        Column {
+            // The content takes the remaining space within the row
+        }
+    }
+}
+</div></section><section class="chapter"><h3 id="padding-modifiers" data-toc="padding-modifiers">Padding modifiers</h3><p id="z98bqaf_31">Add padding around an element with the <code class="code" id="z98bqaf_33">padding</code> modifier. You can also apply padding dynamically in relation to baselines using <code class="code" id="z98bqaf_34">paddingFromBaseline</code>:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun Card() {
+    Row {
+        Column {
+            // Applies padding to adjust the position relative to the baseline
+            Text(
+                text = &quot;Title&quot;,
+                modifier = Modifier.paddingFromBaseline(top = 50.dp)
+            )
+            // Follows the default arrangement as there is no padding specified
+            Text(text = &quot;Subtitle&quot;)
+        }
+    }
+}
+</div></section><section class="chapter"><h3 id="offset-modifiers" data-toc="offset-modifiers">Offset modifiers</h3><p id="z98bqaf_35">To adjust the position of a layout from its original position, use the <code class="code" id="z98bqaf_37">offset</code> modifier. Specify the offset in the X and Y axes:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun Card() {
+    Row {
+        Column {
+            // Positions the text normally with no offsets applied
+            Text(text = &quot;Title&quot;)
+            
+            // Moves the text slightly to the right with the 4.dp offset along the X-axis,
+            // while keeping the original vertical position
+            Text(
+                text = &quot;Subtitle&quot;,
+                modifier = Modifier.offset(x = 4.dp)
+            )
+        }
+    }
+}
+</div></section></section><section class="chapter"><h2 id="scoped-modifiers" data-toc="scoped-modifiers">Scoped modifiers</h2><p id="z98bqaf_38">Scoped modifiers, also called parent data modifiers, notify the parent layout of specific requirements for a child. For example, to match the size of a parent <code class="code" id="z98bqaf_42">Box</code>, use the <code class="code" id="z98bqaf_43">matchParentSize</code> modifier:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun MatchParentSizeComposable() {
+    Box {
+        // Takes size of its parent Box
+        Spacer(
+            Modifier
+                .matchParentSize() 
+                .background(Color.LightGray)
+        )
+        // The largest child, determines the Box size
+        Card()
+    }
+}
+</div><p id="z98bqaf_40">Another example of a scoped modifier is <code class="code" id="z98bqaf_44">weight</code>, available within the <code class="code" id="z98bqaf_45">RowScope</code> or <code class="code" id="z98bqaf_46">ColumnScope</code>. It determines how much space a composable should occupy relative to its siblings:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun Card() {
+    Row(
+        // Takes the full width of its parent
+        modifier = Modifier.fillMaxWidth() 
+    ) {
+        Image(
+            /* Placeholder for loading an image */,
+            // Assigns a weight of 1f to occupy one fraction of the available space 
+            modifier = Modifier.weight(1f) 
+        )
+        
+        Column(
+            // Assigns a weight of 2f, taking twice the width compared to the Image
+            modifier = Modifier.weight(2f)
+        ) {
+            // Content inside the column
+        }
+    }
+}
+</div></section><section class="chapter"><h2 id="extracting-and-reusing-modifiers" data-toc="extracting-and-reusing-modifiers">Extracting and reusing modifiers</h2><p id="z98bqaf_47">When you chain modifiers together, you can extract the chain into variables or functions for reuse. This improves code readability and may enhance performance by reusing modifier instances.</p><div class="code-block" data-lang="kotlin">
+val commonModifier = Modifier
+    .padding(16.dp)
+    .background(Color.LightGray)
+
+@Composable
+fun Example() {
+    // Applies the reusable modifier with padding and background color
+    Text(&quot;Reusable modifier&quot;, modifier = commonModifier)
+
+    // Reuses the same modifier for the Button
+    Button(
+        onClick = { /* Do something */ },
+        modifier = commonModifier
+    )
+    {
+        Text(&quot;Button with the same modifier&quot;)
+    }
+}
+</div></section><section class="chapter"><h2 id="custom-modifiers" data-toc="custom-modifiers">Custom modifiers</h2><p id="z98bqaf_49">While Compose Multiplatform provides many built-in modifiers for common use-cases right out of the box, you can also create your own custom modifiers.</p><p id="z98bqaf_50">There are several approaches to creating custom modifiers:</p><ul class="list _bullet" id="z98bqaf_51"><li class="list__item" id="z98bqaf_52"><p><a href="https://developer.android.com/develop/ui/compose/custom-modifiers#chain-existing" id="z98bqaf_55" data-external="true" rel="noopener noreferrer">Chaining existing modifiers</a></p></li><li class="list__item" id="z98bqaf_53"><p><a href="https://developer.android.com/develop/ui/compose/custom-modifiers#create_a_custom_modifier_using_a_composable_modifier_factory" id="z98bqaf_56" data-external="true" rel="noopener noreferrer">Using a composable modifier factory</a></p></li><li class="list__item" id="z98bqaf_54"><p><a href="https://developer.android.com/develop/ui/compose/custom-modifiers#implement-custom" id="z98bqaf_57" data-external="true" rel="noopener noreferrer">Lower the level <code class="code" id="z98bqaf_58">Modifier.Node</code> API</a></p></li></ul></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><p id="z98bqaf_59">Learn more about modifiers in <a href="https://developer.android.com/develop/ui/compose/modifiers" id="z98bqaf_60" data-external="true" rel="noopener noreferrer">Jetpack Compose documentation</a>.</p></section><div class="last-modified">Last modified: 16 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-layout.html" class="navigation-links__prev">Layout basics</a><a href="compose-adaptive-layouts.html" class="navigation-links__next">Adaptive layouts</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

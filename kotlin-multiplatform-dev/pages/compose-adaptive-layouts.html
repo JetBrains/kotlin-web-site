@@ -1,0 +1,68 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:20.537555408"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Adaptive layouts | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"designing-adaptive-layouts","level":0,"title":"Designing adaptive layouts","anchor":"#designing-adaptive-layouts"},{"id":"using-window-size-classes","level":0,"title":"Using window size classes","anchor":"#using-window-size-classes"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Adaptive layouts | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-adaptive-layouts.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Adaptive layouts | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-adaptive-layouts.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-adaptive-layouts.html",
+    "name": "Adaptive layouts | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-adaptive-layouts" data-main-title="Adaptive layouts" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Implementing layouts" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-adaptive-layouts.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-adaptive-layouts" id="compose-adaptive-layouts.md">Adaptive layouts</h1><p id="lhkf4u_3">To provide a consistent user experience on all types of devices, adapt your app's UI to different display sizes, orientations, and input modes.</p><section class="chapter"><h2 id="designing-adaptive-layouts" data-toc="designing-adaptive-layouts">Designing adaptive layouts</h2><p id="lhkf4u_7">Follow these key guidelines when designing adaptive layouts:</p><ul class="list _bullet" id="lhkf4u_8"><li class="list__item" id="lhkf4u_9"><p>Prefer <a href="https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts" id="lhkf4u_13" data-external="true" rel="noopener noreferrer">canonical layouts</a> patterns like list-detail, feed, and supporting pane.</p></li><li class="list__item" id="lhkf4u_10"><p>Maintain consistency by reusing shared styles for padding, typography, and other design elements. Keep navigation patterns consistent across devices while following platform-specific guidelines.</p></li><li class="list__item" id="lhkf4u_11"><p>Break complex layouts into reusable composables for flexibility and modularity.</p></li><li class="list__item" id="lhkf4u_12"><p>Adjust for screen density and orientation.</p></li></ul></section><section class="chapter"><h2 id="using-window-size-classes" data-toc="using-window-size-classes">Using window size classes</h2><p id="lhkf4u_14">Window size classes are predefined thresholds, also referred to as breakpoints, that categorize different screen sizes to help you design, develop, and test adaptive layouts.</p><p id="lhkf4u_15">Window size classes categorize the display area available to your app into three categories for both width and height: compact, medium, and expanded. As you make layout changes, test the layout behavior across all window sizes, especially at the different breakpoint thresholds.</p><p id="lhkf4u_16">To use <code class="code" id="lhkf4u_20">WindowSizeClass</code> classes, add the <code class="code" id="lhkf4u_21">material3.adaptive</code> dependency to the common source set in your module's <code class="code" id="lhkf4u_22">build.gradle.kts</code> file:</p><div class="code-block" data-lang="kotlin">
+commonMain.dependencies {
+    implementation(&quot;org.jetbrains.compose.material3.adaptive:adaptive:1.1.2&quot;)
+}
+</div><p id="lhkf4u_18">The <code class="code" id="lhkf4u_23">WindowSizeClass</code> API allows you to change your app's layout based on the available display space. For example, you can manage visibility of the top app bar depending on the window height:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun MyApp(
+    windowSizeClass: WindowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
+) {
+    // Determines whether the top app bar should be displayed
+    val showTopAppBar = windowSizeClass.isHeightAtLeastBreakpoint(WindowSizeClass.HEIGHT_DP_MEDIUM_LOWER_BOUND)
+
+    // Uses bar visibility to define UI 
+    MyScreen(
+        showTopAppBar = showTopAppBar,
+        /* ... */
+    )
+}
+</div></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><p id="lhkf4u_24">Learn more about adaptive layouts in the <a href="https://developer.android.com/develop/ui/compose/layouts/adaptive" id="lhkf4u_25" data-external="true" rel="noopener noreferrer">Jetpack Compose documentation</a>.</p></section><div class="last-modified">Last modified: 20 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-layout-modifiers.html" class="navigation-links__prev">Working with modifiers</a><a href="compose-multiplatform-resources.html" class="navigation-links__next">Resources overview</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

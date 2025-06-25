@@ -1,0 +1,172 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:21.16299013"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Drag-and-drop operations | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"creating-a-drag-source","level":0,"title":"Creating a drag source","anchor":"#creating-a-drag-source"},{"id":"creating-a-drop-target","level":0,"title":"Creating a drop target","anchor":"#creating-a-drop-target"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Drag-and-drop operations | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-drag-drop.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Drag-and-drop operations | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-drag-drop.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-drag-drop.html",
+    "name": "Drag-and-drop operations | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-drag-drop" data-main-title="Drag-and-drop operations" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-drag-drop.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-drag-drop" id="compose-drag-drop.md">Drag-and-drop operations</h1><aside class="prompt" data-type="note" data-title="" id="-l5h826_2"><p id="-l5h826_8">Currently, drag-and-drop operations are not supported in Compose Multiplatform for web. Stay tuned for future releases.</p></aside><p id="-l5h826_3">You can enable your Compose Multiplatform app to accept data that users drag into it from other applications or allow users to drag data out of your app. To implement this, use the <code class="code" id="-l5h826_9">dragAndDropSource</code> and <code class="code" id="-l5h826_10">dragAndDropTarget</code> modifiers to specify particular composables as potential sources or destinations for drag operations.</p><aside class="prompt" data-type="warning" data-title="" id="-l5h826_4"><p id="-l5h826_11">Both <code class="code" id="-l5h826_12">dragAndDropSource</code> and <code class="code" id="-l5h826_13">dragAndDropTarget</code> modifiers are experimental, subject to change, and require an opt-in annotation.</p></aside><section class="chapter"><h2 id="creating-a-drag-source" data-toc="creating-a-drag-source">Creating a drag source</h2><p id="-l5h826_14">To prepare a composable to be a drag source:</p><ol class="list _decimal" id="-l5h826_15" type="1"><li class="list__item" id="-l5h826_18"><p>Choose the trigger for the drag event with the <code class="code" id="-l5h826_21">detectDragGestures()</code> function (for example, <code class="code" id="-l5h826_22">onDragStart</code>).</p></li><li class="list__item" id="-l5h826_19"><p>Call the <code class="code" id="-l5h826_23">startTransfer()</code> function and describe the drag-and-drop session with a <code class="code" id="-l5h826_24">DragAndDropTransferData()</code> call.</p></li><li class="list__item" id="-l5h826_20"><p>Describe the data that is supposed to be dragged to the target with a <code class="code" id="-l5h826_25">DragAndDropTransferable()</code> call.</p></li></ol><p id="-l5h826_16">Example of a <code class="code" id="-l5h826_26">Box()</code> composable that allows users to drag a string from it:</p><div class="code-block" data-lang="kotlin">
+val exportedText = &quot;Hello, drag and drop!&quot;
+
+Box(Modifier
+    .dragAndDropSource(
+        // Creates a visual representation of the data being dragged
+        // (white rectangle with the exportedText string centered on it).
+        drawDragDecoration = {
+            drawRect(
+                color = Color.White, 
+                topLeft = Offset(x = 0f, y = size.height/4),
+                size = Size(size.width, size.height/2)
+            )
+            val textLayoutResult = textMeasurer.measure(
+                text = AnnotatedString(exportedText),
+                layoutDirection = layoutDirection,
+                density = this
+            )
+            drawText(
+                textLayoutResult = textLayoutResult,
+                topLeft = Offset(
+                    x = (size.width - textLayoutResult.size.width) / 2,
+                    y = (size.height - textLayoutResult.size.height) / 2,
+                )
+            )
+        }
+    ) {
+        detectDragGestures(
+            onDragStart = { offset -&gt;
+                startTransfer(
+                    // Defines transferable data and supported transfer actions.
+                    // When an action is concluded, prints the result into
+                    // system output with onTransferCompleted().    
+                    DragAndDropTransferData(
+                        transferable = DragAndDropTransferable(
+                            StringSelection(exportedText)
+                        ),
+
+                        // List of actions supported by this drag source. A type of action
+                        // is passed to the drop target together with data.
+                        // The target can use this to reject an inappropriate drop operation
+                        // or to interpret user expectations.
+                        supportedActions = listOf(
+                            DragAndDropTransferAction.Copy,
+                            DragAndDropTransferAction.Move,
+                            DragAndDropTransferAction.Link,
+                        ),
+                        dragDecorationOffset = offset,
+                        onTransferCompleted = { action -&gt; 
+                            println(&quot;Action at the source: $action&quot;)
+                        }
+                    )
+                )
+            },
+            onDrag = { _, _ -&gt; },
+        )
+    }
+    .size(200.dp)
+    .background(Color.LightGray)
+) {
+    Text(&quot;Drag Me&quot;, Modifier.align(Alignment.Center))
+}
+</div></section><section class="chapter"><h2 id="creating-a-drop-target" data-toc="creating-a-drop-target">Creating a drop target</h2><p id="-l5h826_27">To prepare a composable to be a drag-and-drop target:</p><ol class="list _decimal" id="-l5h826_28" type="1"><li class="list__item" id="-l5h826_31"><p>Describe the conditions for the composable to be the target of a drop in the <code class="code" id="-l5h826_34">shouldStartDragAndDrop</code> lambda.</p></li><li class="list__item" id="-l5h826_32"><p>Create (and <code class="code" id="-l5h826_35">remember</code>) the <code class="code" id="-l5h826_36">DragAndDropTarget</code> object that will contain your overrides for drag event handlers.</p></li><li class="list__item" id="-l5h826_33"><p>Write the necessary overrides: for example, <code class="code" id="-l5h826_37">onDrop</code> for parsing the received data or <code class="code" id="-l5h826_38">onEntered</code> when a draggable object enters the composable.</p></li></ol><p id="-l5h826_29">Example of a <code class="code" id="-l5h826_39">Box()</code> composable that is ready to display text dropped into it:</p><div class="code-block" data-lang="kotlin">
+var showTargetBorder by remember { mutableStateOf(false) }
+var targetText by remember { mutableStateOf(&quot;Drop Here&quot;) }
+val coroutineScope = rememberCoroutineScope()
+val dragAndDropTarget = remember {
+    object: DragAndDropTarget {
+
+        // Highlights the border of a potential drop target
+        override fun onStarted(event: DragAndDropEvent) {
+            showTargetBorder = true
+        }
+
+        override fun onEnded(event: DragAndDropEvent) {
+            showTargetBorder = false
+        }
+
+        override fun onDrop(event: DragAndDropEvent): Boolean {
+            // Prints the type of action into system output every time
+            // a drag-and-drop operation is concluded.
+            println(&quot;Action at the target: ${event.action}&quot;)
+
+            val result = (targetText == &quot;Drop here&quot;)
+
+            // Changes the text to the value dropped into the composable.
+            targetText = event.awtTransferable.let {
+                if (it.isDataFlavorSupported(DataFlavor.stringFlavor))
+                    it.getTransferData(DataFlavor.stringFlavor) as String
+                else
+                    it.transferDataFlavors.first().humanPresentableName
+            }
+
+            // Reverts the text of the drop target to the initial
+            // value after 2 seconds.
+            coroutineScope.launch {
+                delay(2000)
+                targetText = &quot;Drop here&quot;
+            }
+            return result
+        }
+    }
+}
+
+Box(Modifier
+    .size(200.dp)
+    .background(Color.LightGray)
+    .then(
+        if (showTargetBorder)
+            Modifier.border(BorderStroke(3.dp, Color.Black))
+        else
+            Modifier
+    )
+    .dragAndDropTarget(
+        // With &quot;true&quot; as the value of shouldStartDragAndDrop,
+        // drag-and-drop operations are enabled unconditionally.    
+        shouldStartDragAndDrop = { true },
+        target = dragAndDropTarget
+    )
+) {
+    Text(targetText, Modifier.align(Alignment.Center))
+}
+</div></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><p id="-l5h826_40">For more details on implementation and common use cases, see the <a href="https://developer.android.com/develop/ui/compose/touch-input/user-interactions/drag-and-drop" id="-l5h826_41" data-external="true" rel="noopener noreferrer">Drag and drop</a> article about the corresponding modifiers in the Jetpack Compose documentation.</p></section><div class="last-modified">Last modified: 12 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-navigation-deep-links.html" class="navigation-links__prev">Deep links</a><a href="compose-test.html" class="navigation-links__next">Testing Compose Multiplatform UI</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

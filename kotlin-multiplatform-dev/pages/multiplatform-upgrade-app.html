@@ -1,0 +1,366 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:18.550752001"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Share more logic between iOS and Android | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"add-more-dependencies","level":0,"title":"Add more dependencies","anchor":"#add-more-dependencies"},{"id":"create-api-requests","level":0,"title":"Create API requests","anchor":"#create-api-requests"},{"id":"update-native-android-and-ios-ui","level":0,"title":"Update native Android and iOS UI","anchor":"#update-native-android-and-ios-ui"},{"id":"next-step","level":0,"title":"Next step","anchor":"#next-step"},{"id":"get-help","level":0,"title":"Get help","anchor":"#get-help"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Share more logic between iOS and Android | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-upgrade-app.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Share more logic between iOS and Android | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-upgrade-app.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-upgrade-app.html",
+    "name": "Share more logic between iOS and Android | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="multiplatform-upgrade-app" data-main-title="Share more logic between iOS and Android" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Choose your use case///Create an app with shared logic and native UI" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/multiplatform-onboard/multiplatform-upgrade-app.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="multiplatform-upgrade-app" data-annotation-ids="IntelliJ IDEA,Android Studio" id="multiplatform-upgrade-app.md">Share more logic between iOS and Android</h1><div class="micro-format" data-content="{&quot;microFormat&quot;:[&quot;\u003cp id\u003d\&quot;-1zrm0g_12\&quot;\u003eThis tutorial uses IntelliJ IDEA, but you can also follow it in Android Studio \u0026ndash; both IDEs share the same core functionality and Kotlin Multiplatform support.\u003c/p\u003e&quot;,&quot;\u003cbr\u003e&quot;,&quot;\u003cp id\u003d\&quot;-1zrm0g_14\&quot;\u003eThis is the fourth part of the \u003cb id\u003d\&quot;-1zrm0g_16\&quot;\u003eCreate a Kotlin Multiplatform app with shared logic and native UI\u003c/b\u003e tutorial. Before proceeding, make sure you\u0027ve completed previous steps.\u003c/p\u003e&quot;,&quot;\u003cp id\u003d\&quot;-1zrm0g_15\&quot;\u003e\u003cimg alt\u003d\&quot;First step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-1-done.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;First step\&quot; id\u003d\&quot;-1zrm0g_17\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e \u003ca href\u003d\&quot;multiplatform-create-first-app.html\&quot; id\u003d\&quot;-1zrm0g_18\&quot;\u003eCreate your Kotlin Multiplatform app\u003c/a\u003e\u003cbr\u003e \u003cimg alt\u003d\&quot;Second step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-2-done.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;Second step\&quot; id\u003d\&quot;-1zrm0g_20\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e \u003ca href\u003d\&quot;multiplatform-update-ui.html\&quot; id\u003d\&quot;-1zrm0g_21\&quot;\u003eUpdate the user interface\u003c/a\u003e\u003cbr\u003e \u003cimg alt\u003d\&quot;Third step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-3-done.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;Third step\&quot; id\u003d\&quot;-1zrm0g_23\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e \u003ca href\u003d\&quot;multiplatform-dependencies.html\&quot; id\u003d\&quot;-1zrm0g_24\&quot;\u003eAdd dependencies\u003c/a\u003e\u003cbr\u003e \u003cimg alt\u003d\&quot;Fourth step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-4.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;Fourth step\&quot; id\u003d\&quot;-1zrm0g_26\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e \u003cb id\u003d\&quot;-1zrm0g_27\&quot;\u003eShare more logic\u003c/b\u003e\u003cbr\u003e \u003cimg alt\u003d\&quot;Fifth step\&quot; src\u003d\&quot;https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/icon-5-todo.svg\&quot; class\u003d\&quot;inline-icon-\&quot; title\u003d\&quot;Fifth step\&quot; id\u003d\&quot;-1zrm0g_29\&quot; width\u003d\&quot;20\&quot; height\u003d\&quot;20\&quot;\u003e Wrap up your project\u003cbr\u003e\u003c/p\u003e&quot;]}"></div><p id="-1zrm0g_5">Now that you've implemented common logic using external dependencies, you can start adding more complex logic. Network requests and data serialization are the <a href="https://kotlinlang.org/lp/multiplatform/" id="-1zrm0g_31" data-external="true" rel="noopener noreferrer">most popular use cases</a> for sharing code using Kotlin Multiplatform. Learn how to implement these in your first application, so that after completing this onboarding journey you can use them in future projects.</p><p id="-1zrm0g_6">The updated app will retrieve data over the internet from the <a href="https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs" id="-1zrm0g_32" data-external="true" rel="noopener noreferrer">SpaceX API</a> and display the date of the last successful launch of a SpaceX rocket.</p><section class="chapter"><h2 id="add-more-dependencies" data-toc="add-more-dependencies">Add more dependencies</h2><p id="-1zrm0g_33">You'll need to add the following multiplatform libraries in your project:</p><ul class="list _bullet" id="-1zrm0g_34"><li class="list__item" id="-1zrm0g_38"><p><a href="https://github.com/Kotlin/kotlinx.coroutines" id="-1zrm0g_41" data-external="true" rel="noopener noreferrer"><code class="code" id="-1zrm0g_42">kotlinx.coroutines</code></a>, to use coroutines for asynchronous code, which allows simultaneous operations.</p></li><li class="list__item" id="-1zrm0g_39"><p><a href="https://github.com/Kotlin/kotlinx.serialization" id="-1zrm0g_43" data-external="true" rel="noopener noreferrer"><code class="code" id="-1zrm0g_44">kotlinx.serialization</code></a>, to deserialize JSON responses into objects of entity classes used to process network operations.</p></li><li class="list__item" id="-1zrm0g_40"><p><a href="https://ktor.io/" id="-1zrm0g_45" data-external="true" rel="noopener noreferrer">Ktor</a>, a framework to create an HTTP client for retrieving data over the internet.</p></li></ul><section class="chapter"><h3 id="kotlinx-coroutines" data-toc="kotlinx-coroutines">kotlinx.coroutines</h3><p id="-1zrm0g_46">To add <code class="code" id="-1zrm0g_49">kotlinx.coroutines</code> to your project, specify a dependency in the common source set. To do so, add the following line to the <code class="code" id="-1zrm0g_50">build.gradle.kts</code> file of the shared module:</p><div class="code-block" data-lang="kotlin">
+kotlin {
+    // ... 
+    sourceSets {
+        commonMain.dependencies {
+           // ...
+           implementation(&quot;org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2&quot;)
+        }
+    }
+}
+</div><p id="-1zrm0g_48">The Multiplatform Gradle plugin automatically adds a dependency to the platform-specific (iOS and Android) parts of <code class="code" id="-1zrm0g_51">kotlinx.coroutines</code>.</p></section><section class="chapter"><h3 id="kotlinx-serialization" data-toc="kotlinx-serialization">kotlinx.serialization</h3><p id="-1zrm0g_52">To use the <code class="code" id="-1zrm0g_54">kotlinx.serialization</code> library, set up a corresponding Gradle plugin. To do that, add the following line to the existing <code class="code" id="-1zrm0g_55">plugins {}</code> block at the very beginning of the <code class="code" id="-1zrm0g_56">build.gradle.kts</code> file in the shared module:</p><div class="code-block" data-lang="kotlin">
+plugins {
+    // ...
+    kotlin(&quot;plugin.serialization&quot;) version &quot;2.2.0&quot;
+}
+</div></section><section class="chapter"><h3 id="ktor" data-toc="ktor">Ktor</h3><p id="-1zrm0g_57">You need to add the core dependency (<code class="code" id="-1zrm0g_61">ktor-client-core</code>) to the common source set of the shared module. You also need to add supporting dependencies:</p><ul class="list _bullet" id="-1zrm0g_58"><li class="list__item" id="-1zrm0g_62"><p>Add the <code class="code" id="-1zrm0g_65">ContentNegotiation</code> functionality (<code class="code" id="-1zrm0g_66">ktor-client-content-negotiation</code>), which allows serializing and deserializing the content in a specific format.</p></li><li class="list__item" id="-1zrm0g_63"><p>Add the <code class="code" id="-1zrm0g_67">ktor-serialization-kotlinx-json</code> dependency to instruct Ktor to use the JSON format and <code class="code" id="-1zrm0g_68">kotlinx.serialization</code> as a serialization library. Ktor will expect JSON data and deserialize it into a data class when receiving responses.</p></li><li class="list__item" id="-1zrm0g_64"><p>Provide the platform engines by adding dependencies on the corresponding artifacts in the platform source sets (<code class="code" id="-1zrm0g_69">ktor-client-android</code>, <code class="code" id="-1zrm0g_70">ktor-client-darwin</code>).</p></li></ul><div class="code-block" data-lang="kotlin">
+kotlin {
+    // ...
+    val ktorVersion = &quot;3.2.0&quot;
+
+    sourceSets {
+        commonMain.dependencies {
+            // ...
+
+            implementation(&quot;io.ktor:ktor-client-core:$ktorVersion&quot;)
+            implementation(&quot;io.ktor:ktor-client-content-negotiation:$ktorVersion&quot;)
+            implementation(&quot;io.ktor:ktor-serialization-kotlinx-json:$ktorVersion&quot;)
+        }
+        androidMain.dependencies {
+            implementation(&quot;io.ktor:ktor-client-android:$ktorVersion&quot;)
+        }
+        iosMain.dependencies {
+            implementation(&quot;io.ktor:ktor-client-darwin:$ktorVersion&quot;)
+        }
+    }
+}
+</div><p id="-1zrm0g_60">Synchronize the Gradle files by clicking the <span class="control" id="-1zrm0g_71">Sync Gradle Changes</span> button.</p></section></section><section class="chapter"><h2 id="create-api-requests" data-toc="create-api-requests">Create API requests</h2><p id="-1zrm0g_72">You'll need the <a href="https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs" id="-1zrm0g_77" data-external="true" rel="noopener noreferrer">SpaceX API</a> to retrieve data, and you'll use a single method to get the list of all launches from the <span class="control" id="-1zrm0g_78">v4/launches</span> endpoint.</p><section class="chapter"><h3 id="add-a-data-model" data-toc="add-a-data-model">Add a data model</h3><p id="-1zrm0g_79">In <code class="code" id="-1zrm0g_82">shared/src/commonMain/kotlin</code>, create a new <code class="code" id="-1zrm0g_83">RocketLaunch.kt</code> file and add a data class which stores data from the SpaceX API:</p><div class="code-block" data-lang="kotlin">
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class RocketLaunch (
+    @SerialName(&quot;flight_number&quot;)
+    val flightNumber: Int,
+    @SerialName(&quot;name&quot;)
+    val missionName: String,
+    @SerialName(&quot;date_utc&quot;)
+    val launchDateUTC: String,
+    @SerialName(&quot;success&quot;)
+    val launchSuccess: Boolean?,
+)
+</div><ul class="list _bullet" id="-1zrm0g_81"><li class="list__item" id="-1zrm0g_84"><p>The <code class="code" id="-1zrm0g_86">RocketLaunch</code> class is marked with the <code class="code" id="-1zrm0g_87">@Serializable</code> annotation, so that the <code class="code" id="-1zrm0g_88">kotlinx.serialization</code> plugin can automatically generate a default serializer for it.</p></li><li class="list__item" id="-1zrm0g_85"><p>The <code class="code" id="-1zrm0g_89">@SerialName</code> annotation allows you to redefine field names, making it possible to declare properties in data classes with more readable names.</p></li></ul></section><section class="chapter"><h3 id="connect-http-client" data-toc="connect-http-client">Connect HTTP client</h3><ol class="list _decimal" id="-1zrm0g_90" type="1"><li class="list__item" id="-1zrm0g_91"><p id="-1zrm0g_98">In <code class="code" id="-1zrm0g_99">shared/src/commonMain/kotlin</code>, create a new <code class="code" id="-1zrm0g_100">RocketComponent</code> class.</p></li><li class="list__item" id="-1zrm0g_92"><p id="-1zrm0g_101">Add the <code class="code" id="-1zrm0g_104">httpClient</code> property to retrieve rocket launch information through an HTTP GET request:</p><div class="code-block" data-lang="kotlin">
+import io.ktor.client.*
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.serialization.kotlinx.json.*
+import kotlinx.serialization.json.Json
+
+class RocketComponent {
+    private val httpClient = HttpClient {
+        install(ContentNegotiation) {
+            json(Json {
+                prettyPrint = true
+                isLenient = true
+                ignoreUnknownKeys = true
+            })
+        }
+    }
+}
+</div><ul class="list _bullet" id="-1zrm0g_103"><li class="list__item" id="-1zrm0g_105"><p>The <a href="https://ktor.io/docs/serialization-client.html#register_json" id="-1zrm0g_107" data-external="true" rel="noopener noreferrer">ContentNegotiation Ktor plugin</a> and the JSON serializer deserialize the result of the GET request.</p></li><li class="list__item" id="-1zrm0g_106"><p>The JSON serializer here is configured in a way that it prints JSON in a more readable manner with the <code class="code" id="-1zrm0g_108">prettyPrint</code> property. It is more flexible when reading malformed JSON with <code class="code" id="-1zrm0g_109">isLenient</code>, and it ignores keys that haven't been declared in the rocket launch model with <code class="code" id="-1zrm0g_110">ignoreUnknownKeys</code>.</p></li></ul></li><li class="list__item" id="-1zrm0g_93"><p id="-1zrm0g_111">Add the <code class="code" id="-1zrm0g_113">getDateOfLastSuccessfulLaunch()</code> suspending function to <code class="code" id="-1zrm0g_114">RocketComponent</code>:</p><div class="code-block" data-lang="kotlin">
+private suspend fun getDateOfLastSuccessfulLaunch(): String {
+    // ...
+}
+</div></li><li class="list__item" id="-1zrm0g_94"><p id="-1zrm0g_115">Call the <code class="code" id="-1zrm0g_118">httpClient.get()</code> function to retrieve information about rocket launches:</p><div class="code-block" data-lang="kotlin">
+import io.ktor.client.request.*
+import io.ktor.client.call.*
+
+private suspend fun getDateOfLastSuccessfulLaunch(): String {
+    val rockets: List&lt;RocketLaunch&gt; = httpClient.get(&quot;https://api.spacexdata.com/v4/launches&quot;).body()
+}
+</div><ul class="list _bullet" id="-1zrm0g_117"><li class="list__item" id="-1zrm0g_119"><p><code class="code" id="-1zrm0g_121">httpClient.get()</code> is also a suspending function because it needs to retrieve data over the network asynchronously without blocking threads.</p></li><li class="list__item" id="-1zrm0g_120"><p>Suspending functions can only be called from coroutines or other suspending functions. This is why <code class="code" id="-1zrm0g_122">getDateOfLastSuccessfulLaunch()</code> was marked with the <code class="code" id="-1zrm0g_123">suspend</code> keyword. The network request is executed in the HTTP client's thread pool.</p></li></ul></li><li class="list__item" id="-1zrm0g_95"><p id="-1zrm0g_124">Update the function again to find the last successful launch in the list:</p><div class="code-block" data-lang="kotlin">
+private suspend fun getDateOfLastSuccessfulLaunch(): String {
+    val rockets: List&lt;RocketLaunch&gt; = httpClient.get(&quot;https://api.spacexdata.com/v4/launches&quot;).body()
+    val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
+}
+</div><p id="-1zrm0g_126">The list of rocket launches is sorted by date from oldest to newest.</p></li><li class="list__item" id="-1zrm0g_96"><p id="-1zrm0g_127">Convert the launch date from UTC to your local date and format the output:</p><div class="code-block" data-lang="kotlin">
+import kotlinx.datetime.Instant
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
+
+private suspend fun getDateOfLastSuccessfulLaunch(): String {
+    val rockets: List&lt;RocketLaunch&gt; =
+        httpClient.get(&quot;https://api.spacexdata.com/v4/launches&quot;).body()
+    val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
+    val date = Instant.parse(lastSuccessLaunch.launchDateUTC)
+        .toLocalDateTime(TimeZone.currentSystemDefault())
+
+    return &quot;${date.month} ${date.dayOfMonth}, ${date.year}&quot;
+}
+</div><p id="-1zrm0g_129">The date will be in the &quot;MMMM DD, YYYY&quot; format, for example, OCTOBER 5, 2022.</p></li><li class="list__item" id="-1zrm0g_97"><p id="-1zrm0g_130">Add another suspending function, <code class="code" id="-1zrm0g_132">launchPhrase()</code>, which will create a message using the <code class="code" id="-1zrm0g_133">getDateOfLastSuccessfulLaunch()</code> function:</p><div class="code-block" data-lang="kotlin">
+suspend fun launchPhrase(): String =
+    try {
+        &quot;The last successful launch was on ${getDateOfLastSuccessfulLaunch()} 🚀&quot;
+    } catch (e: Exception) {
+        println(&quot;Exception during getting the date of the last successful launch $e&quot;)
+        &quot;Error occurred&quot;
+    }
+</div></li></ol></section><section class="chapter"><h3 id="create-the-flow" data-toc="create-the-flow">Create the flow</h3><p id="-1zrm0g_134">You can use flows instead of suspending functions. They emit a sequence of values instead of a single value that suspending functions return.</p><ol class="list _decimal" id="-1zrm0g_135" type="1"><li class="list__item" id="-1zrm0g_136"><p id="-1zrm0g_139">Open the <code class="code" id="-1zrm0g_140">Greeting.kt</code> file in the <code class="code" id="-1zrm0g_141">shared/src/commonMain/kotlin</code> directory.</p></li><li class="list__item" id="-1zrm0g_137"><p id="-1zrm0g_142">Add a <code class="code" id="-1zrm0g_144">rocketComponent</code> property to the <code class="code" id="-1zrm0g_145">Greeting</code> class. The property will store the message with the last successful launch date:</p><div class="code-block" data-lang="kotlin">
+private val rocketComponent = RocketComponent()
+</div></li><li class="list__item" id="-1zrm0g_138"><p id="-1zrm0g_146">Change the <code class="code" id="-1zrm0g_149">greet()</code> function to return a <code class="code" id="-1zrm0g_150">Flow</code>:</p><div class="code-block" data-lang="kotlin">
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlin.time.Duration.Companion.seconds
+
+class Greeting {
+    // ...
+    fun greet(): Flow&lt;String&gt; = flow {
+        emit(if (Random.nextBoolean()) &quot;Hi!&quot; else &quot;Hello!&quot;)
+        delay(1.seconds)
+        emit(&quot;Guess what this is! &gt; ${platform.name.reversed()}&quot;)
+        delay(1.seconds)
+        emit(daysPhrase())
+        emit(rocketComponent.launchPhrase())
+    }
+}
+</div><ul class="list _bullet" id="-1zrm0g_148"><li class="list__item" id="-1zrm0g_151"><p>The <code class="code" id="-1zrm0g_153">Flow</code> is created here with the <code class="code" id="-1zrm0g_154">flow()</code> builder function, which wraps all the statements.</p></li><li class="list__item" id="-1zrm0g_152"><p>The <code class="code" id="-1zrm0g_155">Flow</code> emits strings with a delay of one second between each emission. The last element is only emitted after the network response returns, so the exact delay depends on your network.</p></li></ul></li></ol></section><section class="chapter"><h3 id="add-internet-access-permission" data-toc="add-internet-access-permission">Add internet access permission</h3><p id="-1zrm0g_156">To access the internet, the Android application needs the appropriate permission. Since all network requests are made from the shared module, it makes sense to add the internet access permission to its manifest.</p><p id="-1zrm0g_157">Update your <code class="code" id="-1zrm0g_159">composeApp/src/androidMain/AndroidManifest.xml</code> file with the access permission:</p><div class="code-block" data-lang="markup">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
+    ...
+&lt;/manifest&gt;
+</div></section></section><section class="chapter"><h2 id="update-native-android-and-ios-ui" data-toc="update-native-android-and-ios-ui">Update native Android and iOS UI</h2><p id="-1zrm0g_160">You've already updated the API of the shared module by changing the return type of the <code class="code" id="-1zrm0g_163">greet()</code> function to <code class="code" id="-1zrm0g_164">Flow</code>. Now you need to update native (iOS, Android) parts of the project so that they can properly handle the result of calling the <code class="code" id="-1zrm0g_165">greet()</code> function.</p><section class="chapter"><h3 id="android-app" data-toc="android-app">Android app</h3><p id="-1zrm0g_166">As both the shared module and the Android application are written in Kotlin, using shared code from Android is straightforward.</p><section class="chapter"><h4 id="introduce-a-view-model" data-toc="introduce-a-view-model">Introduce a view model</h4><p id="-1zrm0g_169">Now that the application is becoming more complex, it's time to introduce a view model to the <a href="https://developer.android.com/guide/components/activities/intro-activities" id="-1zrm0g_171" data-external="true" rel="noopener noreferrer">Android activity</a> called <code class="code" id="-1zrm0g_172">MainActivity</code>. It invokes the <code class="code" id="-1zrm0g_173">App()</code> function that implements the UI. The view model will manage the data from the activity and won't disappear when the activity undergoes a lifecycle change.</p><ol class="list _decimal" id="-1zrm0g_170" type="1"><li class="list__item" id="-1zrm0g_174"><p id="-1zrm0g_179">Add the following dependencies to your <code class="code" id="-1zrm0g_181">composeApp/build.gradle.kts</code> file:</p><div class="code-block" data-lang="kotlin">
+androidMain.dependencies {
+    // ...
+    implementation(&quot;androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2&quot;)
+    implementation(&quot;androidx.lifecycle:lifecycle-runtime-compose:2.6.2&quot;)
+    implementation(&quot;androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2&quot;)
+}
+</div></li><li class="list__item" id="-1zrm0g_175"><p id="-1zrm0g_182">In the <code class="code" id="-1zrm0g_185">composeApp/src/androidMain/kotlin/com/jetbrains/greeting/greetingkmp</code> directory, create a new <code class="code" id="-1zrm0g_186">MainViewModel</code> Kotlin class:</p><div class="code-block" data-lang="kotlin">
+import androidx.lifecycle.ViewModel
+
+class MainViewModel : ViewModel() {
+    // ...
+}
+</div><p id="-1zrm0g_184">This class extends Android's <code class="code" id="-1zrm0g_187">ViewModel</code> class, which ensures the correct behavior regarding lifecycle and configuration changes.</p></li><li class="list__item" id="-1zrm0g_176"><p id="-1zrm0g_188">Create a <code class="code" id="-1zrm0g_191">greetingList</code> value of the <a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/" id="-1zrm0g_192" data-external="true" rel="noopener noreferrer">StateFlow</a> type and its backing property:</p><div class="code-block" data-lang="kotlin">
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+
+class MainViewModel : ViewModel() {
+    private val _greetingList = MutableStateFlow&lt;List&lt;String&gt;&gt;(listOf())
+    val greetingList: StateFlow&lt;List&lt;String&gt;&gt; get() = _greetingList
+}
+</div><ul class="list _bullet" id="-1zrm0g_190"><li class="list__item" id="-1zrm0g_193"><p><code class="code" id="-1zrm0g_195">StateFlow</code> here extends the <code class="code" id="-1zrm0g_196">Flow</code> interface but has a single value or state.</p></li><li class="list__item" id="-1zrm0g_194"><p>The private backing property <code class="code" id="-1zrm0g_197">_greetingList</code> ensures that only clients of this class can access the read-only <code class="code" id="-1zrm0g_198">greetingList</code> property.</p></li></ul></li><li class="list__item" id="-1zrm0g_177"><p id="-1zrm0g_199">In the <code class="code" id="-1zrm0g_202">init</code> function of the View Model, collect all the strings from the <code class="code" id="-1zrm0g_203">Greeting().greet()</code> flow:</p><div class="code-block" data-lang="kotlin">
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+
+class MainViewModel : ViewModel() {
+   private val _greetingList = MutableStateFlow&lt;List&lt;String&gt;&gt;(listOf())
+   val greetingList: StateFlow&lt;List&lt;String&gt;&gt; get() = _greetingList
+
+   init {
+       viewModelScope.launch {
+           Greeting().greet().collect { phrase -&gt;
+                //...
+           }
+       }
+   }
+}
+</div><p id="-1zrm0g_201">Since the <code class="code" id="-1zrm0g_204">collect()</code> function is suspended, the <code class="code" id="-1zrm0g_205">launch</code> coroutine is used within the view model's scope. This means that the launch coroutine will run only during the correct phases of the view model's lifecycle.</p></li><li class="list__item" id="-1zrm0g_178"><p id="-1zrm0g_206">Inside the <code class="code" id="-1zrm0g_209">collect</code> trailing lambda, update the value of <code class="code" id="-1zrm0g_210">_greetingList</code> to append the collected <code class="code" id="-1zrm0g_211">phrase</code> to the list of phrases in <code class="code" id="-1zrm0g_212">list</code>:</p><div class="code-block" data-lang="kotlin">
+import kotlinx.coroutines.flow.update
+
+class MainViewModel : ViewModel() {
+    //...
+
+    init {
+        viewModelScope.launch {
+            Greeting().greet().collect { phrase -&gt;
+                _greetingList.update { list -&gt; list + phrase }
+            }
+        }
+    }
+}
+</div><p id="-1zrm0g_208">The <code class="code" id="-1zrm0g_213">update()</code> function will update the value automatically.</p></li></ol></section><section class="chapter"><h4 id="use-the-view-model-s-flow" data-toc="use-the-view-model-s-flow">Use the view model's flow</h4><ol class="list _decimal" id="-1zrm0g_214" type="1"><li class="list__item" id="-1zrm0g_215"><p id="-1zrm0g_217">In <code class="code" id="-1zrm0g_220">composeApp/src/androidMain/kotlin</code>, open the <code class="code" id="-1zrm0g_221">App.kt</code> file and update it, replacing the previous implementation:</p><div class="code-block" data-lang="kotlin">
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.viewmodel.compose.viewModel
+
+@Composable
+fun App(mainViewModel: MainViewModel = viewModel()) {
+    MaterialTheme {
+        val greetings by mainViewModel.greetingList.collectAsStateWithLifecycle()
+
+        Column(
+            modifier = Modifier
+                .safeContentPadding()
+                .fillMaxSize(),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            greetings.forEach { greeting -&gt;
+                Text(greeting)
+                HorizontalDivider()
+            }
+        }
+    }
+}
+</div><ul class="list _bullet" id="-1zrm0g_219"><li class="list__item" id="-1zrm0g_222"><p>The <code class="code" id="-1zrm0g_224">collectAsStateWithLifecycle()</code> function calls on <code class="code" id="-1zrm0g_225">greetingList</code> to collect the value from the ViewModel's flow and represent it as a composable state in a lifecycle-aware manner.</p></li><li class="list__item" id="-1zrm0g_223"><p>When a new flow is created, the compose state will change and display a scrollable <code class="code" id="-1zrm0g_226">Column</code> with greeting phrases arranged vertically and separated by dividers.</p></li></ul></li><li class="list__item" id="-1zrm0g_216"><p id="-1zrm0g_227">To see the results, rerun your <span class="control" id="-1zrm0g_229">composeApp</span> configuration:</p><figure id="-1zrm0g_228"><img alt="Final results" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/multiplatform-mobile-upgrade-android.png" title="Final results" width="300" height="626"></figure></li></ol></section></section><section class="chapter"><h3 id="ios-app" data-toc="ios-app">iOS app</h3><p id="-1zrm0g_230">For the iOS part of the project, you'll make use of the <a href="https://en.wikipedia.org/wiki/Model–view–viewmodel" id="-1zrm0g_235" data-external="true" rel="noopener noreferrer">Model&ndash;view&ndash;viewmodel</a> pattern again to connect the UI to the shared module, which contains all the business logic.</p><p id="-1zrm0g_231">The module is already imported in the <code class="code" id="-1zrm0g_236">ContentView.swift</code> file with the <code class="code" id="-1zrm0g_237">import Shared</code> declaration.</p><section class="chapter"><h4 id="introducing-a-viewmodel" data-toc="introducing-a-viewmodel">Introducing a ViewModel</h4><ol class="list _decimal" id="-1zrm0g_238" type="1"><li class="list__item" id="-1zrm0g_240"><p id="-1zrm0g_242">In <code class="code" id="-1zrm0g_244">iosApp/iOSApp.swift</code>, update the entry point for your app:</p><div class="code-block" data-lang="swift">
+@main
+struct iOSApp: App {
+    var body: some Scene {
+        WindowGroup {
+            ContentView(viewModel: ContentView.ViewModel())
+        }
+    }
+}
+</div></li><li class="list__item" id="-1zrm0g_241"><p id="-1zrm0g_245">In <code class="code" id="-1zrm0g_248">iosApp/ContentView.swift</code>, create a <code class="code" id="-1zrm0g_249">ViewModel</code> class for <code class="code" id="-1zrm0g_250">ContentView</code>, which will prepare and manage data for it. Call the <code class="code" id="-1zrm0g_251">startObserving()</code> function within a <code class="code" id="-1zrm0g_252">task()</code> call to support concurrency:</p><div class="code-block" data-lang="swift">
+import SwiftUI
+import Shared
+
+struct ContentView: View {
+    @ObservedObject private(set) var viewModel: ViewModel
+
+    var body: some View {
+        ListView(phrases: viewModel.greetings)
+            .task { await self.viewModel.startObserving() }
+    }
+}
+
+extension ContentView {
+    @MainActor
+    class ViewModel: ObservableObject {
+        @Published var greetings: Array&lt;String&gt; = []
+
+        func startObserving() {
+            // ...
+        }
+    }
+}
+
+struct ListView: View {
+    let phrases: Array&lt;String&gt;
+
+    var body: some View {
+        List(phrases, id: \.self) {
+            Text($0)
+        }
+    }
+}
+</div><ul class="list _bullet" id="-1zrm0g_247"><li class="list__item" id="-1zrm0g_253"><p><code class="code" id="-1zrm0g_258">ViewModel</code> is declared as an extension to <code class="code" id="-1zrm0g_259">ContentView</code>, as they are closely connected.</p></li><li class="list__item" id="-1zrm0g_254"><p><code class="code" id="-1zrm0g_260">ViewModel</code> has a <code class="code" id="-1zrm0g_261">greetings</code> property that is an array of <code class="code" id="-1zrm0g_262">String</code> phrases. SwiftUI connects the ViewModel (<code class="code" id="-1zrm0g_263">ContentView.ViewModel</code>) with the view (<code class="code" id="-1zrm0g_264">ContentView</code>).</p></li><li class="list__item" id="-1zrm0g_255"><p><code class="code" id="-1zrm0g_265">ContentView.ViewModel</code> is declared as an <code class="code" id="-1zrm0g_266">ObservableObject</code>.</p></li><li class="list__item" id="-1zrm0g_256"><p>The <code class="code" id="-1zrm0g_267">@Published</code> wrapper is used for the <code class="code" id="-1zrm0g_268">greetings</code> property.</p></li><li class="list__item" id="-1zrm0g_257"><p>The <code class="code" id="-1zrm0g_269">@ObservedObject</code> property wrapper is used to subscribe to the ViewModel.</p></li></ul></li></ol><p id="-1zrm0g_239">Now the ViewModel will emit signals whenever this property changes.</p></section><section class="chapter"><h4 id="choose-a-library-to-consume-flows-from-ios" data-toc="choose-a-library-to-consume-flows-from-ios">Choose a library to consume flows from iOS</h4><p id="-1zrm0g_270">In this tutorial, you will use the <a href="https://github.com/rickclephas/KMP-NativeCoroutines" id="-1zrm0g_272" data-external="true" rel="noopener noreferrer">KMP-NativeCoroutines</a> library to help you work with flows in iOS. It is an open-source solution that supports cancellation and generics with flows, which the Kotlin/Native compiler doesn't provide by default yet.</p><p id="-1zrm0g_271">The KMP-NativeCoroutines library helps you consume suspending functions and flows from iOS by generating the necessary wrappers. KMP-NativeCoroutines supports Swift's <code class="code" id="-1zrm0g_273">async</code>/<code class="code" id="-1zrm0g_274">await</code> functionality as well as Combine and RxSwift. Using KMP-NativeCoroutines requires adding an SPM or CocoaPod dependency in iOS projects.</p></section><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="configure-kmp-nativecoroutines" data-toc="configure-kmp-nativecoroutines">Configure KMP-NativeCoroutines</h4></div><div class="collapse__content"><aside class="prompt" data-type="note" data-title="" id="-1zrm0g_275"><p id="-1zrm0g_280">We recommend using the latest version of the library. Check the <a href="https://github.com/rickclephas/KMP-NativeCoroutines/releases" id="-1zrm0g_281" data-external="true" rel="noopener noreferrer">KMP-NativeCoroutines repository</a> to see whether a newer version of the plugin is available.</p></aside><ol class="list _decimal" id="-1zrm0g_276" type="1"><li class="list__item" id="-1zrm0g_282"><p id="-1zrm0g_286">In the <code class="code" id="-1zrm0g_288">build.gradle.kts</code> file of the <span class="emphasis" id="-1zrm0g_289">whole project</span>, add the KSP (Kotlin Symbol Processor) and KMP-NativeCoroutines plugins to the <code class="code" id="-1zrm0g_290">plugins {}</code> block:</p><div class="code-block" data-lang="kotlin">
+plugins {
+    // ...
+    id(&quot;com.google.devtools.ksp&quot;).version(&quot;2.1.21-2.0.1&quot;).apply(false)
+    id(&quot;com.rickclephas.kmp.nativecoroutines&quot;).version(&quot;1.0.0-ALPHA-43&quot;).apply(false)
+}
+</div></li><li class="list__item" id="-1zrm0g_283"><p id="-1zrm0g_291">In the <span class="emphasis" id="-1zrm0g_293">shared</span> <code class="code" id="-1zrm0g_294">build.gradle.kts</code> file, configure the KMP-NativeCoroutines plugin:</p><div class="code-block" data-lang="kotlin">
+plugins {
+    // ...
+    id(&quot;com.google.devtools.ksp&quot;)
+    id(&quot;com.rickclephas.kmp.nativecoroutines&quot;)
+}
+</div></li><li class="list__item" id="-1zrm0g_284"><p id="-1zrm0g_295">In the <span class="emphasis" id="-1zrm0g_297">shared</span> <code class="code" id="-1zrm0g_298">build.gradle.kts</code> file, opt-in to the experimental <code class="code" id="-1zrm0g_299">@ObjCName</code> annotation:</p><div class="code-block" data-lang="kotlin">
+kotlin {
+    // ...
+    sourceSets{
+        all {
+            languageSettings.optIn(&quot;kotlin.experimental.ExperimentalObjCName&quot;)
+        }
+        // ...
+    }
+}
+</div></li><li class="list__item" id="-1zrm0g_285"><p id="-1zrm0g_300">Click the <span class="control" id="-1zrm0g_301">Sync Gradle Changes</span> button to synchronize the Gradle files.</p></li></ol><section class="chapter"><h5 id="mark-the-flow-with-kmp-nativecoroutines" data-toc="mark-the-flow-with-kmp-nativecoroutines">Mark the flow with KMP-NativeCoroutines</h5><ol class="list _decimal" id="-1zrm0g_302" type="1"><li class="list__item" id="-1zrm0g_303"><p id="-1zrm0g_305">Open the <code class="code" id="-1zrm0g_306">Greeting.kt</code> file in the <code class="code" id="-1zrm0g_307">shared/src/commonMain/kotlin</code> directory.</p></li><li class="list__item" id="-1zrm0g_304"><p id="-1zrm0g_308">Add the <code class="code" id="-1zrm0g_310">@NativeCoroutines</code> annotation to the <code class="code" id="-1zrm0g_311">greet()</code> function. This will ensure that the plugin generates the right code to support correct flow handling on iOS:</p><div class="code-block" data-lang="kotlin">
+ import com.rickclephas.kmp.nativecoroutines.NativeCoroutines
+
+ class Greeting {
+     // ...
+
+     @NativeCoroutines
+     fun greet(): Flow&lt;String&gt; = flow {
+         // ...
+     }
+ }
+</div></li></ol></section><section class="chapter"><h5 id="import-the-library-using-spm-in-xcode" data-toc="import-the-library-using-spm-in-xcode">Import the library using SPM in XCode</h5><ol class="list _decimal" id="-1zrm0g_312" type="1"><li class="list__item" id="-1zrm0g_314"><p id="-1zrm0g_320">Go to <span class="control" id="-1zrm0g_321">File</span> | <span class="control" id="-1zrm0g_322">Open Project in Xcode</span>.</p></li><li class="list__item" id="-1zrm0g_315"><p id="-1zrm0g_323">In Xcode, right-click the <code class="code" id="-1zrm0g_324">iosApp</code> project in the left-hand menu and select <span class="control" id="-1zrm0g_325">Add Package Dependencies</span>.</p></li><li class="list__item" id="-1zrm0g_316"><p id="-1zrm0g_326">In the search bar, enter the package name:</p><div class="code-block" data-lang="none">
+https://github.com/rickclephas/KMP-NativeCoroutines.git
+</div><figure id="-1zrm0g_328"><img alt="Importing KMP-NativeCoroutines" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/multiplatform-import-kmp-nativecoroutines.png" title="Importing KMP-NativeCoroutines" width="700" height="408"></figure></li><li class="list__item" id="-1zrm0g_317"><p id="-1zrm0g_329">In the <span class="control" id="-1zrm0g_330">Dependency Rule</span> dropdown, select the <span class="control" id="-1zrm0g_331">Exact Version</span> item and enter the <code class="code" id="-1zrm0g_332">1.0.0-ALPHA-43</code> version in the adjacent field.</p></li><li class="list__item" id="-1zrm0g_318"><p id="-1zrm0g_333">Click the <span class="control" id="-1zrm0g_334">Add Package</span> button: Xcode will fetch the package from GitHub and open another window to choose package products.</p></li><li class="list__item" id="-1zrm0g_319"><p id="-1zrm0g_335">Add &quot;KMPNativeCoroutinesAsync&quot; and &quot;KMPNativeCoroutinesCore&quot; to your app as shown, then click <span class="control" id="-1zrm0g_337">Add Package</span>:</p><figure id="-1zrm0g_336"><img alt="Add KMP-NativeCoroutines packages" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/multiplatform-add-package.png" title="Add KMP-NativeCoroutines packages" width="500" height="229"></figure></li></ol><p id="-1zrm0g_313">This should install the parts of the KMP-NativeCoroutines package necessary to work with the <code class="code" id="-1zrm0g_338">async/await</code> mechanism.</p></section><section class="chapter"><h5 id="consume-the-flow-using-the-kmp-nativecoroutines-library" data-toc="consume-the-flow-using-the-kmp-nativecoroutines-library">Consume the flow using the KMP-NativeCoroutines library</h5><ol class="list _decimal" id="-1zrm0g_339" type="1"><li class="list__item" id="-1zrm0g_340"><p id="-1zrm0g_343">In <code class="code" id="-1zrm0g_346">iosApp/ContentView.swift</code>, update the <code class="code" id="-1zrm0g_347">startObserving()</code> function to consume the flow using KMP-NativeCoroutine's <code class="code" id="-1zrm0g_348">asyncSequence()</code> function for the <code class="code" id="-1zrm0g_349">Greeting().greet()</code> function:</p><div class="code-block" data-lang="swift">
+func startObserving() async {
+    do {
+        let sequence = asyncSequence(for: Greeting().greet())
+        for try await phrase in sequence {
+            self.greetings.append(phrase)
+        }
+    } catch {
+        print(&quot;Failed with error: \(error)&quot;)
+    }
+}
+</div><p id="-1zrm0g_345">The loop and the <code class="code" id="-1zrm0g_350">await</code> mechanism here are used here to iterate through the flow and update the <code class="code" id="-1zrm0g_351">greetings</code> property every time the flow emits a value.</p></li><li class="list__item" id="-1zrm0g_341"><p id="-1zrm0g_352">Make sure <code class="code" id="-1zrm0g_354">ViewModel</code> is marked with the <code class="code" id="-1zrm0g_355">@MainActor</code> annotation. The annotation ensures that all asynchronous operations within <code class="code" id="-1zrm0g_356">ViewModel</code> run on the main thread to comply with the Kotlin/Native requirement:</p><div class="code-block" data-lang="swift">
+// ...
+import KMPNativeCoroutinesAsync
+import KMPNativeCoroutinesCore
+
+// ...
+extension ContentView {
+    @MainActor
+    class ViewModel: ObservableObject {
+        @Published var greetings: Array&lt;String&gt; = []
+
+        func startObserving() async {
+            do {
+                let sequence = asyncSequence(for: Greeting().greet())
+                for try await phrase in sequence {
+                    self.greetings.append(phrase)
+                }
+            } catch {
+                print(&quot;Failed with error: \(error)&quot;)
+            }
+        }
+    }
+}
+</div></li><li class="list__item" id="-1zrm0g_342"><p id="-1zrm0g_357">Rerun the <span class="control" id="-1zrm0g_359">iosApp</span> configuration from IntelliJ IDEA to make sure your app's logic is synced:</p><figure id="-1zrm0g_358"><img alt="Final results" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/multiplatform-mobile-upgrade-ios.png" title="Final results" width="300" height="598"></figure></li></ol></section></div></div></section></section></section><section class="chapter"><h2 id="next-step" data-toc="next-step">Next step</h2><p id="-1zrm0g_360">In the final part of the tutorial, you'll wrap up your project and see what steps to take next.</p><p id="-1zrm0g_361"><span class="control" id="-1zrm0g_363"><a href="multiplatform-wrap-up.html" id="-1zrm0g_364">Proceed to the next part</a></span></p><section class="chapter"><h3 id="see-also" data-toc="see-also">See also</h3><ul class="list _bullet" id="-1zrm0g_365"><li class="list__item" id="-1zrm0g_366"><p>Explore various approaches to <a href="https://kotlinlang.org/docs/composing-suspending-functions.html" id="-1zrm0g_369" data-external="true" rel="noopener noreferrer">composition of suspending functions</a>.</p></li><li class="list__item" id="-1zrm0g_367"><p>Learn more about the <a href="https://kotlinlang.org/docs/native-objc-interop.html" id="-1zrm0g_370" data-external="true" rel="noopener noreferrer">interoperability with Objective-C frameworks and libraries</a>.</p></li><li class="list__item" id="-1zrm0g_368"><p>Complete this tutorial on <a href="multiplatform-ktor-sqldelight.html" id="-1zrm0g_371">networking and data storage</a>.</p></li></ul></section></section><section class="chapter"><h2 id="get-help" data-toc="get-help">Get help</h2><ul class="list _bullet" id="-1zrm0g_372"><li class="list__item" id="-1zrm0g_373"><p><span class="control" id="-1zrm0g_375">Kotlin Slack</span>. Get an <a href="https://surveys.jetbrains.com/s3/kotlin-slack-sign-up" id="-1zrm0g_376" data-external="true" rel="noopener noreferrer">invite</a> and join the <a href="https://kotlinlang.slack.com/archives/C3PQML5NU" id="-1zrm0g_377" data-external="true" rel="noopener noreferrer">#multiplatform</a> channel.</p></li><li class="list__item" id="-1zrm0g_374"><p><span class="control" id="-1zrm0g_378">Kotlin issue tracker</span>. <a href="https://youtrack.jetbrains.com/newIssue?project=KT" id="-1zrm0g_379" data-external="true" rel="noopener noreferrer">Report a new issue</a>.</p></li></ul></section><div class="last-modified">Last modified: 13 June 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="multiplatform-dependencies.html" class="navigation-links__prev">Add dependencies to your project</a><a href="multiplatform-wrap-up.html" class="navigation-links__next">Wrap up your project</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

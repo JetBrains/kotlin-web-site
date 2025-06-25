@@ -1,0 +1,72 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:20.462316694"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Layout basics | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"composable-functions","level":0,"title":"Composable functions","anchor":"#composable-functions"},{"id":"column-row-and-box","level":0,"title":"Column, Row, and Box","anchor":"#column-row-and-box"},{"id":"modifiers","level":0,"title":"Modifiers","anchor":"#modifiers"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Layout basics | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-layout.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Layout basics | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-layout.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-layout.html",
+    "name": "Layout basics | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-layout" data-main-title="Layout basics" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Implementing layouts" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-layout.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-layout" id="compose-layout.md">Layout basics</h1><p id="-dcj82i_3">To effectively build user interfaces in Compose Multiplatform, it's important to understand the key concepts of layout construction, including core principles, layout phases, and common components and tools available for structuring your UI.</p><section class="chapter"><h2 id="composable-functions" data-toc="composable-functions">Composable functions</h2><p id="-dcj82i_8">You can build user interfaces by defining a set of composable functions. These functions take in data and emit UI elements. The <code class="code" id="-dcj82i_11">@Composable</code> annotation informs the Compose compiler that the function converts data into a UI.</p><p id="-dcj82i_9">A simple composable function that displays text:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun Greeting(name: String) {
+    Text(text = &quot;Hello, $name!&quot;)
+}
+</div></section><section class="chapter"><h2 id="column-row-and-box" data-toc="column-row-and-box">Column, Row, and Box</h2><p id="-dcj82i_12">To structure your layouts, you can use these basic building blocks:</p><ul class="list _bullet" id="-dcj82i_13"><li class="list__item" id="-dcj82i_14"><p id="-dcj82i_18">Use <code class="code" id="-dcj82i_19">Column</code> to place items vertically on the screen.</p></li><li class="list__item" id="-dcj82i_15"><p id="-dcj82i_20">Use <code class="code" id="-dcj82i_21">Row</code> to place items horizontally on the screen.</p></li><li class="list__item" id="-dcj82i_16"><p id="-dcj82i_22">Use <code class="code" id="-dcj82i_23">Box</code> to stack elements on top of each other.</p></li><li class="list__item" id="-dcj82i_17"><p id="-dcj82i_24">Use the <code class="code" id="-dcj82i_26">FlowRow</code> and <code class="code" id="-dcj82i_27">FlowColumn</code> versions of <code class="code" id="-dcj82i_28">Row</code> and <code class="code" id="-dcj82i_29">Column</code> to build responsive layouts. Items automatically flow into the next line when the container runs out of space, creating multiple rows or columns:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun ResponsiveLayout() {
+    FlowRow {
+        Text(text = &quot;Item 1&quot;)
+        Text(text = &quot;Item 2&quot;)
+        Text(text = &quot;Item 3&quot;)
+    }
+}
+</div></li></ul></section><section class="chapter"><h2 id="modifiers" data-toc="modifiers">Modifiers</h2><p id="-dcj82i_30">Modifiers allow you to decorate or adjust the behavior of composables in a declarative way. They are essential for customizing layouts and interactions by providing control over dimensions, alignment, padding, interaction behaviors, and much more.</p><p id="-dcj82i_31">For example, you can add padding and center alignment to text:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun ModifierExample() {
+    Text(
+        text = &quot;Hello with padding&quot;,
+        modifier = Modifier.padding(16.dp)
+    )
+}
+</div><p id="-dcj82i_33">Learn more in <a href="compose-layout-modifiers.html" id="-dcj82i_34">Working with modifiers</a>.</p></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><ul class="list _bullet" id="-dcj82i_35"><li class="list__item" id="-dcj82i_36"><p>For a deep dive on layouts, see <a href="https://developer.android.com/develop/ui/compose/layouts" id="-dcj82i_38" data-external="true" rel="noopener noreferrer">Jetpack Compose documentation</a>.</p></li><li class="list__item" id="-dcj82i_37"><p>Learn about the <a href="compose-lifecycle.html" id="-dcj82i_39">lifecycle</a> of components.</p></li></ul></section><div class="last-modified">Last modified: 16 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-platform-specifics.html" class="navigation-links__prev">Default UI behavior on different platforms</a><a href="compose-layout-modifiers.html" class="navigation-links__next">Working with modifiers</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

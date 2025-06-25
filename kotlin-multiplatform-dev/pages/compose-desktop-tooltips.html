@@ -1,0 +1,109 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:22.163532072"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Tooltips | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"what-s-next","level":0,"title":"What\u0027s next?","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Tooltips | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-tooltips.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Tooltips | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-tooltips.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-tooltips.html",
+    "name": "Tooltips | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-desktop-tooltips" data-main-title="Tooltips" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Desktop-specific components" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-desktop-tooltips.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-desktop-tooltips" id="compose-desktop-tooltips.md">Tooltips</h1><p id="-klh88h_2">You can add a tooltip to any component using the <code class="code" id="-klh88h_8">TooltipArea</code> composable. <code class="code" id="-klh88h_9">TooltipArea</code> is similar to the <code class="code" id="-klh88h_10">Box</code> component and can show a tooltip.</p><p id="-klh88h_3">The <code class="code" id="-klh88h_11">TooltipArea</code> composable has the following main parameters:</p><ul class="list _bullet" id="-klh88h_4"><li class="list__item" id="-klh88h_12"><p><code class="code" id="-klh88h_15">tooltip</code>, composable content of the tooltip.</p></li><li class="list__item" id="-klh88h_13"><p><code class="code" id="-klh88h_16">tooltipPlacement</code>, defines the tooltip position. You can specify an anchor (the mouse cursor or the component), an offset, and an alignment.</p></li><li class="list__item" id="-klh88h_14"><p><code class="code" id="-klh88h_17">delayMillis</code>, time in milliseconds after which the tooltip is shown. The default value is 500 ms.</p></li></ul><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="TooltipArea(tooltip = { Surface( ">
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.TooltipArea
+import androidx.compose.foundation.TooltipPlacement
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.DpOffset
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.WindowState
+import androidx.compose.ui.window.singleWindowApplication
+
+@OptIn(ExperimentalFoundationApi::class)
+fun main() = singleWindowApplication(
+    WindowState(width = 300.dp, height = 350.dp),
+    title = &quot;Tooltip Example&quot;
+) {
+    val buttons = listOf(&quot;Button A&quot;, &quot;Button B&quot;, &quot;Button C&quot;, &quot;Button D&quot;, &quot;Button E&quot;, &quot;Button F&quot;)
+    Column(Modifier.fillMaxSize(), Arrangement.spacedBy(5.dp)) {
+        buttons.forEachIndexed { index, name -&gt;
+            // Wrap the button in TooltipArea
+            TooltipArea(
+                tooltip = {
+                    // Composable tooltip content:
+                    Surface(
+                        modifier = Modifier.shadow(4.dp),
+                        color = Color(255, 255, 210),
+                        shape = RoundedCornerShape(4.dp)
+                    ) {
+                        Text(
+                            text = &quot;Tooltip for $name&quot;,
+                            modifier = Modifier.padding(10.dp)
+                        )
+                    }
+                },
+                modifier = Modifier.padding(start = 40.dp),
+                delayMillis = 600, // In milliseconds
+                tooltipPlacement = TooltipPlacement.CursorPoint(
+                    alignment = Alignment.BottomEnd,
+                    offset = if (index % 2 == 0) DpOffset(
+                        (-16).dp,
+                        0.dp
+                    ) else DpOffset.Zero // Tooltip offset
+                )
+            ) {
+                Button(onClick = {}) { Text(text = name) }
+            }
+        }
+    }
+}
+</div><figure data-theme="light" id="-klh88h_6" width="288"><img alt="Tooltips" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-tooltips.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-tooltips.animated.gif" width="288" style="width: 288px;"></figure><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next?</h2><p id="-klh88h_18">Explore the tutorials about <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/tutorials#desktop" id="-klh88h_19" data-external="true" rel="noopener noreferrer">other desktop components</a>.</p></section><div class="last-modified">Last modified: 01 October 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-desktop-scrollbars.html" class="navigation-links__prev">Scrollbars</a><a href="compose-desktop-context-menus.html" class="navigation-links__next">Context menus</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

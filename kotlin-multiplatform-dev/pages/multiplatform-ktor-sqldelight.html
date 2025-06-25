@@ -1,0 +1,740 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:19.530881146"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Create a multiplatform app using Ktor and SQLDelight | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"create-a-project","level":0,"title":"Create a project","anchor":"#create-a-project"},{"id":"add-gradle-dependencies","level":0,"title":"Add Gradle dependencies","anchor":"#add-gradle-dependencies"},{"id":"create-an-application-data-model","level":0,"title":"Create an application data model","anchor":"#create-an-application-data-model"},{"id":"configure-sqldelight-and-implement-cache-logic","level":0,"title":"Configure SQLDelight and implement cache logic","anchor":"#configure-sqldelight-and-implement-cache-logic"},{"id":"implement-an-api-service","level":0,"title":"Implement an API service","anchor":"#implement-an-api-service"},{"id":"build-an-sdk","level":0,"title":"Build an SDK","anchor":"#build-an-sdk"},{"id":"create-the-android-application","level":0,"title":"Create the Android application","anchor":"#create-the-android-application"},{"id":"create-the-ios-application","level":0,"title":"Create the iOS application","anchor":"#create-the-ios-application"},{"id":"what-s-next","level":0,"title":"What\u0027s next?","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Create a multiplatform app using Ktor and SQLDelight | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Create a multiplatform app using Ktor and SQLDelight | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html",
+    "name": "Create a multiplatform app using Ktor and SQLDelight | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="multiplatform-ktor-sqldelight" data-main-title="Create a multiplatform app using Ktor and SQLDelight" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Choose your use case" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/development/multiplatform-ktor-sqldelight.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="multiplatform-ktor-sqldelight" data-annotation-ids="IntelliJ IDEA,Android Studio" id="multiplatform-ktor-sqldelight.md">Create a multiplatform app using Ktor and SQLDelight</h1><div class="micro-format" data-content="{&quot;microFormat&quot;:[&quot;\u003cp id\u003d\&quot;-vygtl4_21\&quot;\u003eThis tutorial uses IntelliJ IDEA, but you can also follow it in Android Studio \u0026ndash; both IDEs share the same core functionality and Kotlin Multiplatform support.\u003c/p\u003e&quot;]}"></div><p id="-vygtl4_5">This tutorial demonstrates how to use IntelliJ IDEA to create an advanced mobile application for iOS and Android using Kotlin Multiplatform. This application is going to:</p><ul class="list _bullet" id="-vygtl4_6"><li class="list__item" id="-vygtl4_22"><p>Retrieve data over the internet from the public <a href="https://docs.spacexdata.com/?version=latest" id="-vygtl4_25" data-external="true" rel="noopener noreferrer">SpaceX API</a> using Ktor</p></li><li class="list__item" id="-vygtl4_23"><p>Save the data in a local database using SQLDelight.</p></li><li class="list__item" id="-vygtl4_24"><p>Display a list of SpaceX rocket launches together with the launch date, results, and a detailed description of the launch.</p></li></ul><p id="-vygtl4_7">The application will include a module with shared code for both the iOS and Android platforms. The business logic and data access layers will be implemented only once in the shared module, while the UI of both applications will be native.</p><figure id="-vygtl4_8"><img alt="Emulator and Simulator" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/android-and-ios.png" title="Emulator and Simulator" width="600" height="611"></figure><p id="-vygtl4_9">You will use the following multiplatform libraries in the project:</p><ul class="list _bullet" id="-vygtl4_10"><li class="list__item" id="-vygtl4_26"><p><a href="https://ktor.io/docs/create-client.html" id="-vygtl4_31" data-external="true" rel="noopener noreferrer">Ktor</a> as an HTTP client for retrieving data over the internet.</p></li><li class="list__item" id="-vygtl4_27"><p><a href="https://github.com/Kotlin/kotlinx.serialization" id="-vygtl4_32" data-external="true" rel="noopener noreferrer"><code class="code" id="-vygtl4_33">kotlinx.serialization</code></a> to deserialize JSON responses into objects of entity classes.</p></li><li class="list__item" id="-vygtl4_28"><p><a href="https://github.com/Kotlin/kotlinx.coroutines" id="-vygtl4_34" data-external="true" rel="noopener noreferrer"><code class="code" id="-vygtl4_35">kotlinx.coroutines</code></a> to write asynchronous code.</p></li><li class="list__item" id="-vygtl4_29"><p><a href="https://github.com/cashapp/sqldelight" id="-vygtl4_36" data-external="true" rel="noopener noreferrer">SQLDelight</a> to generate Kotlin code from SQL queries and create a type-safe database API.</p></li><li class="list__item" id="-vygtl4_30"><p><a href="https://insert-koin.io/" id="-vygtl4_37" data-external="true" rel="noopener noreferrer">Koin</a> to provide platform-specific database drivers via dependency injection.</p></li></ul><aside class="prompt" data-type="note" data-title="" id="-vygtl4_11"><p id="-vygtl4_38">You can find the <a href="https://github.com/kotlin-hands-on/kmm-networking-and-data-storage" id="-vygtl4_39" data-external="true" rel="noopener noreferrer">template project</a> as well as the source code of the <a href="https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final" id="-vygtl4_40" data-external="true" rel="noopener noreferrer">final application</a> in our GitHub repository.</p></aside><section class="chapter"><h2 id="create-a-project" data-toc="create-a-project">Create a project</h2><ol class="list _decimal" id="-vygtl4_41" type="1"><li class="list__item" id="-vygtl4_42"><p id="-vygtl4_49">In the <a href="quickstart.html" id="-vygtl4_50">quickstart</a>, complete the instructions to <a href="quickstart.html#set-up-the-environment" id="-vygtl4_51">set up your environment for Kotlin Multiplatform development</a>.</p></li><li class="list__item" id="-vygtl4_43"><p id="-vygtl4_52">In IntelliJ IDEA, select <span class="control" id="-vygtl4_53">File</span> | <span class="control" id="-vygtl4_54">New</span> | <span class="control" id="-vygtl4_55">Project</span>.</p></li><li class="list__item" id="-vygtl4_44"><p id="-vygtl4_56">In the panel on the left, select <span class="control" id="-vygtl4_57">Kotlin Multiplatform</span>.</p></li><li class="list__item" id="-vygtl4_45"><p id="-vygtl4_58">Specify the following fields in the <span class="control" id="-vygtl4_61">New Project</span> window:</p><ul class="list _bullet" id="-vygtl4_59"><li class="list__item" id="-vygtl4_62"><p><span class="control" id="-vygtl4_65">Name</span>: SpaceTutorial</p></li><li class="list__item" id="-vygtl4_63"><p><span class="control" id="-vygtl4_66">Group</span>: com.jetbrains.spacetutorial</p></li><li class="list__item" id="-vygtl4_64"><p><span class="control" id="-vygtl4_67">Artifact</span>: spacetutorial</p></li></ul><figure id="-vygtl4_60"><img alt="Create Ktor and SQLDelight Multiplatform project" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/create-ktor-sqldelight-multiplatform-project.png" title="Create Ktor and SQLDelight Multiplatform project" width="800" height="771"></figure></li><li class="list__item" id="-vygtl4_46"><p id="-vygtl4_68">Select <span class="control" id="-vygtl4_69">Android</span> and <span class="control" id="-vygtl4_70">iOS</span> targets.</p></li><li class="list__item" id="-vygtl4_47"><p id="-vygtl4_71">For iOS, select the <span class="control" id="-vygtl4_72">Do not share UI</span> option. You will implement a native UI for both platforms.</p></li><li class="list__item" id="-vygtl4_48"><p id="-vygtl4_73">Once you've specified all the fields and targets, click <span class="control" id="-vygtl4_74">Create</span>.</p></li></ol></section><section class="chapter"><h2 id="add-gradle-dependencies" data-toc="add-gradle-dependencies">Add Gradle dependencies</h2><p id="-vygtl4_75">To add a multiplatform library to the shared module, you need to add dependency instructions (<code class="code" id="-vygtl4_81">implementation</code>) to the <code class="code" id="-vygtl4_82">dependencies {}</code> block of the relevant source sets in the <code class="code" id="-vygtl4_83">build.gradle.kts</code> file.</p><p id="-vygtl4_76">Both the <code class="code" id="-vygtl4_84">kotlinx.serialization</code> and SQLDelight libraries also require additional configuration.</p><p id="-vygtl4_77">Change or add lines in the version catalog in the <code class="code" id="-vygtl4_85">gradle/libs.versions.toml</code> file to reflect all needed dependencies:</p><ol class="list _decimal" id="-vygtl4_78" type="1"><li class="list__item" id="-vygtl4_86"><p id="-vygtl4_93">In the <code class="code" id="-vygtl4_95">[versions]</code> block, check the AGP version and add the rest:</p><div class="code-collapse" data-lang="none" data-is-expanded="false" data-synopsis="[versions]">
+[versions]
+agp = &quot;8.2.2&quot;
+...
+coroutinesVersion = &quot;1.10.2&quot;
+dateTimeVersion = &quot;0.6.2&quot;
+koin = &quot;4.1&quot;
+ktor = &quot;3.2.0&quot;
+sqlDelight = &quot;2.1.0&quot;
+lifecycleViewmodelCompose = &quot;2.7.0&quot;
+material3 = &quot;1.2.0&quot;
+</div></li><li class="list__item" id="-vygtl4_87"><p id="-vygtl4_96">In the <code class="code" id="-vygtl4_98">[libraries]</code> block, add the following library references:</p><div class="code-collapse" data-lang="none" data-is-expanded="false" data-synopsis="[libraries]">
+[libraries]
+...
+android-driver = { module = &quot;app.cash.sqldelight:android-driver&quot;, version.ref = &quot;sqlDelight&quot; }
+koin-androidx-compose = { module = &quot;io.insert-koin:koin-androidx-compose&quot;, version.ref = &quot;koin&quot; }
+koin-core = { module = &quot;io.insert-koin:koin-core&quot;, version.ref = &quot;koin&quot; }
+kotlinx-coroutines-core = { module = &quot;org.jetbrains.kotlinx:kotlinx-coroutines-core&quot;, version.ref = &quot;coroutinesVersion&quot; }
+kotlinx-datetime = { module = &quot;org.jetbrains.kotlinx:kotlinx-datetime&quot;, version.ref = &quot;dateTimeVersion&quot; }
+ktor-client-android = { module = &quot;io.ktor:ktor-client-android&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-content-negotiation = { module = &quot;io.ktor:ktor-client-content-negotiation&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-core = { module = &quot;io.ktor:ktor-client-core&quot;, version.ref = &quot;ktor&quot; }
+ktor-client-darwin = { module = &quot;io.ktor:ktor-client-darwin&quot;, version.ref = &quot;ktor&quot; }
+ktor-serialization-kotlinx-json = { module = &quot;io.ktor:ktor-serialization-kotlinx-json&quot;, version.ref = &quot;ktor&quot; }
+native-driver = { module = &quot;app.cash.sqldelight:native-driver&quot;, version.ref = &quot;sqlDelight&quot; }
+runtime = { module = &quot;app.cash.sqldelight:runtime&quot;, version.ref = &quot;sqlDelight&quot; }
+androidx-lifecycle-viewmodel-compose = { group = &quot;androidx.lifecycle&quot;, name = &quot;lifecycle-viewmodel-compose&quot;, version.ref = &quot;lifecycleViewmodelCompose&quot; }
+androidx-compose-material3 = { module = &quot;androidx.compose.material3:material3&quot;, version.ref=&quot;material3&quot; }
+</div></li><li class="list__item" id="-vygtl4_88"><p id="-vygtl4_99">In the <code class="code" id="-vygtl4_101">[plugins]</code> block, specify the necessary Gradle plugins:</p><div class="code-block" data-lang="none">
+[plugins]
+...
+kotlinxSerialization = { id = &quot;org.jetbrains.kotlin.plugin.serialization&quot;, version.ref = &quot;kotlin&quot; }
+sqldelight = { id = &quot;app.cash.sqldelight&quot;, version.ref = &quot;sqlDelight&quot; }
+</div></li><li class="list__item" id="-vygtl4_89"><p id="-vygtl4_102">Once the dependencies are added, you're prompted to resync the project. Click the <span class="control" id="-vygtl4_103">Sync Gradle Changes</span> button to synchronize Gradle files: <img alt="Synchronize Gradle files" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/gradle-sync.png" class="inline-icon-" title="Synchronize Gradle files" id="-vygtl4_104" width="50" height="27"></p></li><li class="list__item" id="-vygtl4_90"><p id="-vygtl4_105">At the very beginning of the <code class="code" id="-vygtl4_107">shared/build.gradle.kts</code> file, add the following lines to the <code class="code" id="-vygtl4_108">plugins {}</code> block:</p><div class="code-block" data-lang="kotlin">
+plugins {
+    // ...
+    alias(libs.plugins.kotlinxSerialization)
+    alias(libs.plugins.sqldelight)
+}
+</div></li><li class="list__item" id="-vygtl4_91"><p id="-vygtl4_109">In the same <code class="code" id="-vygtl4_112">shared/build.gradle.kts</code> file, refer to all the required dependencies:</p><div class="code-block" data-lang="kotlin">
+kotlin {
+    // ...
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation(libs.kotlinx.coroutines.core)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.runtime)
+            implementation(libs.kotlinx.datetime)
+            implementation(libs.koin.core)
+        }
+        androidMain.dependencies {
+            implementation(libs.ktor.client.android)
+            implementation(libs.android.driver)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+            implementation(libs.native.driver)
+        }
+    }
+}
+</div><ul class="list _bullet" id="-vygtl4_111"><li class="list__item" id="-vygtl4_113"><p>The common source set requires a core artifact of each library, as well as the Ktor <a href="https://ktor.io/docs/serialization-client.html" id="-vygtl4_115" data-external="true" rel="noopener noreferrer">serialization feature</a> to use <code class="code" id="-vygtl4_116">kotlinx.serialization</code> for processing network requests and responses.</p></li><li class="list__item" id="-vygtl4_114"><p>The iOS and Android source sets also need SQLDelight and Ktor platform drivers.</p></li></ul></li><li class="list__item" id="-vygtl4_92"><p id="-vygtl4_117">Once the dependencies are added, click the <span class="control" id="-vygtl4_118">Sync Gradle Changes</span> button to synchronize Gradle files once again.</p></li></ol><p id="-vygtl4_79">After the Gradle sync, you are done with the project configuration and can start writing code.</p><aside class="prompt" data-type="tip" data-title="" id="-vygtl4_80"><p id="-vygtl4_119">For an in-depth guide on multiplatform dependencies, see <a href="multiplatform-add-dependencies.html" id="-vygtl4_120">Dependency on Kotlin Multiplatform libraries</a>.</p></aside></section><section class="chapter"><h2 id="create-an-application-data-model" data-toc="create-an-application-data-model">Create an application data model</h2><p id="-vygtl4_121">The tutorial app will contain the public <code class="code" id="-vygtl4_128">SpaceXSDK</code> class as the facade over networking and cache services. The application data model will have three entity classes with:</p><ul class="list _bullet" id="-vygtl4_122"><li class="list__item" id="-vygtl4_129"><p>General information about the launch</p></li><li class="list__item" id="-vygtl4_130"><p>Links to images of mission patches</p></li><li class="list__item" id="-vygtl4_131"><p>URLs of articles related to the launch</p></li></ul><aside class="prompt" data-type="note" data-title="" id="-vygtl4_123"><p id="-vygtl4_132">Not all of this data will end up in the UI by the end of this tutorial. We're using the data model to showcase serialization. But you can play around with links and patches to extend the example into something more informative!</p></aside><p id="-vygtl4_124">Create the necessary data classes:</p><ol class="list _decimal" id="-vygtl4_125" type="1"><li class="list__item" id="-vygtl4_133"><p id="-vygtl4_135">In the <code class="code" id="-vygtl4_136">shared/src/commonMain/kotlin/com/jetbrains/spacetutorial</code> directory, create the <code class="code" id="-vygtl4_137">entity</code> directory with the <code class="code" id="-vygtl4_138">Entity.kt</code> file inside.</p></li><li class="list__item" id="-vygtl4_134"><p id="-vygtl4_139">Declare all the data classes for basic entities:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="data class RocketLaunch" data-disable-link-processing="true">import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toInstant
+import kotlinx.datetime.toLocalDateTime
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class RocketLaunch(
+    @SerialName(&quot;flight_number&quot;)
+    val flightNumber: Int,
+    @SerialName(&quot;name&quot;)
+    val missionName: String,
+    @SerialName(&quot;date_utc&quot;)
+    val launchDateUTC: String,
+    @SerialName(&quot;details&quot;)
+    val details: String?,
+    @SerialName(&quot;success&quot;)
+    val launchSuccess: Boolean?,
+    @SerialName(&quot;links&quot;)
+    val links: Links
+) {
+    var launchYear = launchDateUTC.toInstant().toLocalDateTime(TimeZone.UTC).year
+}
+
+@Serializable
+data class Links(
+    @SerialName(&quot;patch&quot;)
+    val patch: Patch?,
+    @SerialName(&quot;article&quot;)
+    val article: String?
+)
+
+@Serializable
+data class Patch(
+    @SerialName(&quot;small&quot;)
+    val small: String?,
+    @SerialName(&quot;large&quot;)
+    val large: String?
+)</div></li></ol><p id="-vygtl4_126">Each serializable class must be marked with the <code class="code" id="-vygtl4_141">@Serializable</code> annotation. The <code class="code" id="-vygtl4_142">kotlinx.serialization</code> plugin automatically generates a default serializer for <code class="code" id="-vygtl4_143">@Serializable</code> classes unless you explicitly pass a link to a serializer in the annotation argument.</p><p id="-vygtl4_127">The <code class="code" id="-vygtl4_144">@SerialName</code> annotation allows you to redefine field names, which helps to access properties in data classes using more readable identifiers.</p></section><section class="chapter"><h2 id="configure-sqldelight-and-implement-cache-logic" data-toc="configure-sqldelight-and-implement-cache-logic">Configure SQLDelight and implement cache logic</h2><section class="chapter"><h3 id="configure-sqldelight" data-toc="configure-sqldelight">Configure SQLDelight</h3><p id="-vygtl4_149">The SQLDelight library allows you to generate a type-safe Kotlin database API from SQL queries. During compilation, the generator validates the SQL queries and turns them into Kotlin code that can be used in the shared module.</p><p id="-vygtl4_150">The SQLDelight dependency is already included in the project. To configure the library, open the <code class="code" id="-vygtl4_155">shared/build.gradle.kts</code> file and add the <code class="code" id="-vygtl4_156">sqldelight {}</code> block in the end. This block contains a list of databases and their parameters:</p><div class="code-block" data-lang="kotlin">
+sqldelight {
+    databases {
+        create(&quot;AppDatabase&quot;) {
+            packageName.set(&quot;com.jetbrains.spacetutorial.cache&quot;)
+        }
+    }
+}
+</div><p id="-vygtl4_152">The <code class="code" id="-vygtl4_157">packageName</code> parameter specifies the package name for the generated Kotlin sources.</p><p id="-vygtl4_153">Sync the Gradle project files when prompted.</p><aside class="prompt" data-type="tip" data-title="" id="-vygtl4_154"><p id="-vygtl4_158">Consider installing the official <a href="https://plugins.jetbrains.com/plugin/8191-sqldelight" id="-vygtl4_159" data-external="true" rel="noopener noreferrer">SQLDelight plugin</a> to work with <code class="code" id="-vygtl4_160">.sq</code> files.</p></aside></section><section class="chapter"><h3 id="generate-the-database-api" data-toc="generate-the-database-api">Generate the database API</h3><p id="-vygtl4_161">First, create the <code class="code" id="-vygtl4_163">.sq</code> file with all the necessary SQL queries. By default, the SQLDelight plugin looks for <code class="code" id="-vygtl4_164">.sq</code> files in the <code class="code" id="-vygtl4_165">sqldelight</code> folder of the source set:</p><ol class="list _decimal" id="-vygtl4_162" type="1"><li class="list__item" id="-vygtl4_166"><p id="-vygtl4_174">In the <code class="code" id="-vygtl4_175">shared/src/commonMain</code> directory, create a new <code class="code" id="-vygtl4_176">sqldelight</code> directory.</p></li><li class="list__item" id="-vygtl4_167"><p id="-vygtl4_177">Inside the <code class="code" id="-vygtl4_178">sqldelight</code> directory, create a new directory with the name <code class="code" id="-vygtl4_179">com/jetbrains/spacetutorial/cache</code> to create nested directories for the package.</p></li><li class="list__item" id="-vygtl4_168"><p id="-vygtl4_180">Inside the <code class="code" id="-vygtl4_181">cache</code> directory, create the <code class="code" id="-vygtl4_182">AppDatabase.sq</code> file (with the same name as the database you specified in the <code class="code" id="-vygtl4_183">build.gradle.kts</code> file). All the SQL queries for your application will be stored in this file.</p></li><li class="list__item" id="-vygtl4_169"><p id="-vygtl4_184">The database will contain a table with data about launches. Add the following code for creating the table to the <code class="code" id="-vygtl4_186">AppDatabase.sq</code> file:</p><div class="code-block" data-lang="plaintext">
+import kotlin.Boolean;
+
+CREATE TABLE Launch (
+    flightNumber INTEGER NOT NULL,
+    missionName TEXT NOT NULL,
+    details TEXT,
+    launchSuccess INTEGER AS Boolean DEFAULT NULL,
+    launchDateUTC TEXT NOT NULL,
+    patchUrlSmall TEXT,
+    patchUrlLarge TEXT,
+    articleUrl TEXT
+);
+</div></li><li class="list__item" id="-vygtl4_170"><p id="-vygtl4_187">Add the <code class="code" id="-vygtl4_189">insertLaunch</code> function for inserting data into the table:</p><div class="code-block" data-lang="plaintext">
+insertLaunch:
+INSERT INTO Launch(flightNumber, missionName, details, launchSuccess, launchDateUTC, patchUrlSmall, patchUrlLarge, articleUrl)
+VALUES(?, ?, ?, ?, ?, ?, ?, ?);
+</div></li><li class="list__item" id="-vygtl4_171"><p id="-vygtl4_190">Add the <code class="code" id="-vygtl4_192">removeAllLaunches</code> function for clearing data in the table:</p><div class="code-block" data-lang="plaintext">
+removeAllLaunches:
+DELETE FROM Launch;
+</div></li><li class="list__item" id="-vygtl4_172"><p id="-vygtl4_193">Declare the <code class="code" id="-vygtl4_195">selectAllLaunchesInfo</code> function for retrieving data:</p><div class="code-block" data-lang="plaintext">
+selectAllLaunchesInfo:
+SELECT Launch.*
+FROM Launch;
+</div></li><li class="list__item" id="-vygtl4_173"><p id="-vygtl4_196">Generate the corresponding <code class="code" id="-vygtl4_199">AppDatabase</code> interface (which you will initialize with database drivers later on). To do that, run the following command in the terminal:</p><div class="code-block" data-lang="bash">
+./gradlew generateCommonMainAppDatabaseInterface
+</div><p id="-vygtl4_198">The generated Kotlin code is stored in the <code class="code" id="-vygtl4_200">shared/build/generated/sqldelight</code> directory.</p></li></ol></section><section class="chapter"><h3 id="create-factories-for-platform-specific-database-drivers" data-toc="create-factories-for-platform-specific-database-drivers">Create factories for platform-specific database drivers</h3><p id="-vygtl4_201">To initialize the <code class="code" id="-vygtl4_205">AppDatabase</code> interface, you will pass an <code class="code" id="-vygtl4_206">SqlDriver</code> instance to it. SQLDelight provides multiple platform-specific implementations of the SQLite driver, so you need to create these instances separately for each platform.</p><p id="-vygtl4_202">While you can achieve this with <a href="multiplatform-expect-actual.html" id="-vygtl4_207">expected and actual interfaces</a>, in this project, you will use <a href="https://insert-koin.io/" id="-vygtl4_208" data-external="true" rel="noopener noreferrer">Koin</a> to try dependency injection in Kotlin Multiplatform.</p><ol class="list _decimal" id="-vygtl4_203" type="1"><li class="list__item" id="-vygtl4_209"><p id="-vygtl4_215">Create an interface for database drivers. To do this, in the <code class="code" id="-vygtl4_216">shared/src/commonMain/kotlin</code> directory, create a directory with the name <code class="code" id="-vygtl4_217">com/jetbrains/spacetutorial/cache</code> (this will add the <code class="code" id="-vygtl4_218">cache</code> directory to the package).</p></li><li class="list__item" id="-vygtl4_210"><p id="-vygtl4_219">Create the <code class="code" id="-vygtl4_221">DatabaseDriverFactory</code> interface inside the <code class="code" id="-vygtl4_222">cache</code> directory:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.spacetutorial.cache
+
+import app.cash.sqldelight.db.SqlDriver
+
+interface DatabaseDriverFactory {
+    fun createDriver(): SqlDriver
+}
+</div></li><li class="list__item" id="-vygtl4_211"><p id="-vygtl4_223">Create the class implementing this interface for Android: in the <code class="code" id="-vygtl4_224">shared/src/androidMain/kotlin</code> directory, create the <code class="code" id="-vygtl4_225">com.jetbrains.spacetutorial.cache</code> package with the <code class="code" id="-vygtl4_226">DatabaseDriverFactory.kt</code> file inside.</p></li><li class="list__item" id="-vygtl4_212"><p id="-vygtl4_227">On Android, the SQLite driver is implemented by the <code class="code" id="-vygtl4_229">AndroidSqliteDriver</code> class. In the <code class="code" id="-vygtl4_230">DatabaseDriverFactory.kt</code> file, pass the database information and the context link to the <code class="code" id="-vygtl4_231">AndroidSqliteDriver</code> class constructor:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.spacetutorial.cache
+
+import android.content.Context
+import app.cash.sqldelight.db.SqlDriver
+import app.cash.sqldelight.driver.android.AndroidSqliteDriver
+
+class AndroidDatabaseDriverFactory(private val context: Context) : DatabaseDriverFactory {
+    override fun createDriver(): SqlDriver {
+        return AndroidSqliteDriver(AppDatabase.Schema, context, &quot;launch.db&quot;)
+    }
+}
+</div></li><li class="list__item" id="-vygtl4_213"><p id="-vygtl4_232">For iOS, in the <code class="code" id="-vygtl4_233">shared/src/iosMain/kotlin</code> directory, create a directory with the name <code class="code" id="-vygtl4_234">com/jetbrains/spacetutorial/cache</code>.</p></li><li class="list__item" id="-vygtl4_214"><p id="-vygtl4_235">Inside this directory, create the <code class="code" id="-vygtl4_237">DatabaseDriverFactory.kt</code> file and add this code:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.spacetutorial.cache
+
+import app.cash.sqldelight.db.SqlDriver
+import app.cash.sqldelight.driver.native.NativeSqliteDriver
+
+class IOSDatabaseDriverFactory : DatabaseDriverFactory {
+    override fun createDriver(): SqlDriver {
+        return NativeSqliteDriver(AppDatabase.Schema, &quot;launch.db&quot;)
+    }
+}
+</div></li></ol><p id="-vygtl4_204">You will implement instances of these drivers later in the platform-specific code of your project.</p></section><section class="chapter"><h3 id="implement-cache" data-toc="implement-cache">Implement cache</h3><p id="-vygtl4_238">So far, you have added factories for platform database drivers and an <code class="code" id="-vygtl4_240">AppDatabase</code> interface to perform database operations. Now, create a <code class="code" id="-vygtl4_241">Database</code> class, which will wrap the <code class="code" id="-vygtl4_242">AppDatabase</code> interface and contain the caching logic.</p><ol class="list _decimal" id="-vygtl4_239" type="1"><li class="list__item" id="-vygtl4_243"><p id="-vygtl4_247">In the common source set <code class="code" id="-vygtl4_248">shared/src/commonMain/kotlin</code>, create a new <code class="code" id="-vygtl4_249">Database</code> class in the <code class="code" id="-vygtl4_250">com.jetbrains.spacetutorial.cache</code> directory. It will contain logic common to both platforms.</p></li><li class="list__item" id="-vygtl4_244"><p id="-vygtl4_251">To provide a driver for <code class="code" id="-vygtl4_254">AppDatabase</code>, pass an abstract <code class="code" id="-vygtl4_255">DatabaseDriverFactory</code> instance to the <code class="code" id="-vygtl4_256">Database</code> class constructor:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.spacetutorial.cache
+
+internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
+    private val database = AppDatabase(databaseDriverFactory.createDriver())
+    private val dbQuery = database.appDatabaseQueries
+}
+</div><p id="-vygtl4_253">This class's <a href="https://kotlinlang.org/docs/visibility-modifiers.html#class-members" id="-vygtl4_257" data-external="true" rel="noopener noreferrer">visibility</a> is set to internal, which means it is only accessible from within the multiplatform module.</p></li><li class="list__item" id="-vygtl4_245"><p id="-vygtl4_258">Inside the <code class="code" id="-vygtl4_260">Database</code> class, implement some data handling operations. First, create the <code class="code" id="-vygtl4_261">getAllLaunches</code> function to return a list of all the rocket launches. The <code class="code" id="-vygtl4_262">mapLaunchSelecting</code> function is used to map the result of the database query to <code class="code" id="-vygtl4_263">RocketLaunch</code> objects:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="internal fun getAllLaunches()">
+import com.jetbrains.spacetutorial.entity.Links
+import com.jetbrains.spacetutorial.entity.Patch
+import com.jetbrains.spacetutorial.entity.RocketLaunch
+
+internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
+    // ...
+
+    internal fun getAllLaunches(): List&lt;RocketLaunch&gt; {
+        return dbQuery.selectAllLaunchesInfo(::mapLaunchSelecting).executeAsList()
+    }
+
+    private fun mapLaunchSelecting(
+        flightNumber: Long,
+        missionName: String,
+        details: String?,
+        launchSuccess: Boolean?,
+        launchDateUTC: String,
+        patchUrlSmall: String?,
+        patchUrlLarge: String?,
+        articleUrl: String?
+    ): RocketLaunch {
+        return RocketLaunch(
+            flightNumber = flightNumber.toInt(),
+            missionName = missionName,
+            details = details,
+            launchDateUTC = launchDateUTC,
+            launchSuccess = launchSuccess,
+            links = Links(
+                patch = Patch(
+                    small = patchUrlSmall,
+                    large = patchUrlLarge
+                ),
+                article = articleUrl
+            )
+        )
+    }
+}
+</div></li><li class="list__item" id="-vygtl4_246"><p id="-vygtl4_264">Add the <code class="code" id="-vygtl4_266">clearAndCreateLaunches</code> function to clear the database and insert new data:</p><div class="code-block" data-lang="kotlin">
+internal class Database(databaseDriverFactory: DatabaseDriverFactory) {
+    // ...
+
+    internal fun clearAndCreateLaunches(launches: List&lt;RocketLaunch&gt;) {
+        dbQuery.transaction {
+            dbQuery.removeAllLaunches()
+            launches.forEach { launch -&gt;
+                dbQuery.insertLaunch(
+                    flightNumber = launch.flightNumber.toLong(),
+                    missionName = launch.missionName,
+                    details = launch.details,
+                    launchSuccess = launch.launchSuccess ?: false,
+                    launchDateUTC = launch.launchDateUTC,
+                    patchUrlSmall = launch.links.patch?.small,
+                    patchUrlLarge = launch.links.patch?.large,
+                    articleUrl = launch.links.article
+                )
+            }
+        }
+    }
+}
+</div></li></ol></section></section><section class="chapter"><h2 id="implement-an-api-service" data-toc="implement-an-api-service">Implement an API service</h2><p id="-vygtl4_267">To retrieve data over the internet, you'll use the <a href="https://github.com/r-spacex/SpaceX-API/tree/master/docs#rspacex-api-docs" id="-vygtl4_270" data-external="true" rel="noopener noreferrer">SpaceX public API</a> and a single method to retrieve the list of all launches from the <code class="code" id="-vygtl4_271">v5/launches</code> endpoint.</p><p id="-vygtl4_268">Create a class that will connect the application to the API:</p><ol class="list _decimal" id="-vygtl4_269" type="1"><li class="list__item" id="-vygtl4_272"><p id="-vygtl4_275">In the common source set <code class="code" id="-vygtl4_276">shared/src/commonMain/kotlin</code>, create a directory with the name <code class="code" id="-vygtl4_277">com/jetbrains/spacetutorial/network</code>.</p></li><li class="list__item" id="-vygtl4_273"><p id="-vygtl4_278">Inside the <code class="code" id="-vygtl4_281">network</code> directory, create the <code class="code" id="-vygtl4_282">SpaceXApi</code> class:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.spacetutorial.network
+
+import io.ktor.client.HttpClient
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
+
+class SpaceXApi {
+    private val httpClient = HttpClient {
+        install(ContentNegotiation) {
+            json(Json {
+                ignoreUnknownKeys = true
+                useAlternativeNames = false
+            })
+        }
+    }
+}
+</div><ul class="list _bullet" id="-vygtl4_280"><li class="list__item" id="-vygtl4_283"><p>This class executes network requests and deserializes JSON responses into entities from the <code class="code" id="-vygtl4_285">com.jetbrains.spacetutorial.entity</code> package. The Ktor <code class="code" id="-vygtl4_286">HttpClient</code> instance initializes and stores the <code class="code" id="-vygtl4_287">httpClient</code> property.</p></li><li class="list__item" id="-vygtl4_284"><p>This code uses the <a href="https://ktor.io/docs/serialization-client.html" id="-vygtl4_288" data-external="true" rel="noopener noreferrer">Ktor <code class="code" id="-vygtl4_290">ContentNegotiation</code> plugin</a> to deserialize the result of a <code class="code" id="-vygtl4_289">GET</code> request. The plugin processes the request and the response payload as JSON, serializing and deserializing them as needed.</p></li></ul></li><li class="list__item" id="-vygtl4_274"><p id="-vygtl4_291">Declare the data retrieval function that returns the list of rocket launches:</p><div class="code-block" data-lang="kotlin">
+class SpaceXApi {
+    // ...
+
+    suspend fun getAllLaunches(): List&lt;RocketLaunch&gt; {
+        return httpClient.get(&quot;https://api.spacexdata.com/v5/launches&quot;).body()
+    }
+}
+</div><ul class="list _bullet" id="-vygtl4_293"><li class="list__item" id="-vygtl4_294"><p>The <code class="code" id="-vygtl4_296">getAllLaunches</code> function has the <code class="code" id="-vygtl4_297">suspend</code> modifier because it contains a call of the suspend function <code class="code" id="-vygtl4_298">HttpClient.get()</code>. The <code class="code" id="-vygtl4_299">get()</code> function includes an asynchronous operation to retrieve data over the internet and can only be called from a coroutine or another suspend function. The network request will be executed in the HTTP client's thread pool.</p></li><li class="list__item" id="-vygtl4_295"><p>The URL for sending a GET request is passed as an argument to the <code class="code" id="-vygtl4_300">get()</code> function.</p></li></ul></li></ol></section><section class="chapter"><h2 id="build-an-sdk" data-toc="build-an-sdk">Build an SDK</h2><p id="-vygtl4_301">Your iOS and Android applications will communicate with the SpaceX API through the shared module, which will provide a public class, <code class="code" id="-vygtl4_304">SpaceXSDK</code>.</p><ol class="list _decimal" id="-vygtl4_302" type="1"><li class="list__item" id="-vygtl4_305"><p id="-vygtl4_307">In the common source set <code class="code" id="-vygtl4_311">shared/src/commonMain/kotlin</code>, in the <code class="code" id="-vygtl4_312">com.jetbrains.spacetutorial</code> directory, create the <code class="code" id="-vygtl4_313">SpaceXSDK</code> class. This class will be the facade for the <code class="code" id="-vygtl4_314">Database</code> and <code class="code" id="-vygtl4_315">SpaceXApi</code> classes.</p><p id="-vygtl4_308">To create a <code class="code" id="-vygtl4_316">Database</code> class instance, provide a <code class="code" id="-vygtl4_317">DatabaseDriverFactory</code> instance:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.spacetutorial
+
+import com.jetbrains.spacetutorial.cache.Database
+import com.jetbrains.spacetutorial.cache.DatabaseDriverFactory
+import com.jetbrains.spacetutorial.network.SpaceXApi
+
+class SpaceXSDK(databaseDriverFactory: DatabaseDriverFactory, val api: SpaceXApi) { 
+    private val database = Database(databaseDriverFactory)
+}
+</div><p id="-vygtl4_310">You will inject the correct database driver in the platform-specific code through the <code class="code" id="-vygtl4_318">SpaceXSDK</code> class constructor.</p></li><li class="list__item" id="-vygtl4_306"><p id="-vygtl4_319">Add the <code class="code" id="-vygtl4_321">getLaunches</code> function, which uses the created database and the API to get the launches list:</p><div class="code-block" data-lang="kotlin">
+import com.jetbrains.spacetutorial.entity.RocketLaunch
+
+class SpaceXSDK(databaseDriverFactory: DatabaseDriverFactory, val api: SpaceXApi) {
+    // ...
+
+    @Throws(Exception::class)
+    suspend fun getLaunches(forceReload: Boolean): List&lt;RocketLaunch&gt; {
+        val cachedLaunches = database.getAllLaunches()
+        return if (cachedLaunches.isNotEmpty() &amp;&amp; !forceReload) {
+            cachedLaunches
+        } else {
+            api.getAllLaunches().also {
+                database.clearAndCreateLaunches(it)
+            }
+        }
+    }
+}
+</div></li></ol><ul class="list _bullet" id="-vygtl4_303"><li class="list__item" id="-vygtl4_322"><p>The class contains one function for getting all launch information. Depending on the value of <code class="code" id="-vygtl4_325">forceReload</code>, it returns cached values or loads the data from the internet and then updates the cache with the results. If there is no cached data, it loads the data from the internet regardless of the <code class="code" id="-vygtl4_326">forceReload</code> flag's value.</p></li><li class="list__item" id="-vygtl4_323"><p>Clients of your SDK could use a <code class="code" id="-vygtl4_327">forceReload</code> flag to load the latest information about the launches, enabling the pull-to-refresh gesture for users.</p></li><li class="list__item" id="-vygtl4_324"><p>All Kotlin exceptions are unchecked, while Swift has only checked errors (see <a href="https://kotlinlang.org/docs/native-objc-interop.html#errors-and-exceptions" id="-vygtl4_328" data-external="true" rel="noopener noreferrer">Interoperability with Swift/Objective-C</a> for details). Thus, to make your Swift code aware of expected exceptions, Kotlin functions called from Swift should be marked with the <code class="code" id="-vygtl4_329">@Throws</code> annotation specifying a list of potential exception classes.</p></li></ul></section><section class="chapter"><h2 id="create-the-android-application" data-toc="create-the-android-application">Create the Android application</h2><p id="-vygtl4_330">IntelliJ IDEA handles the initial Gradle configuration for you, so the <code class="code" id="-vygtl4_339">shared</code> module is already connected to your Android application.</p><p id="-vygtl4_331">Before implementing the UI and the presentation logic, add all the required UI dependencies to the <code class="code" id="-vygtl4_340">composeApp/build.gradle.kts</code> file:</p><div class="code-block" data-lang="kotlin">
+kotlin {
+// ...
+    sourceSets {
+        androidMain.dependencies {
+            implementation(libs.androidx.compose.material3)
+            implementation(libs.koin.androidx.compose)
+            implementation(libs.androidx.lifecycle.viewmodel.compose)
+        }
+        // ... 
+    }
+}
+</div><p id="-vygtl4_333">Sync the Gradle project files when prompted.</p><section class="chapter"><h3 id="add-internet-access-permission" data-toc="add-internet-access-permission">Add internet access permission</h3><p id="-vygtl4_341">To access the internet, an Android application needs the appropriate permission. In the <code class="code" id="-vygtl4_343">composeApp/src/androidMain/AndroidManifest.xml</code> file, add the <code class="code" id="-vygtl4_344">&lt;uses-permission&gt;</code> tag:</p><div class="code-block" data-lang="markup">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+    &lt;!--...--&gt;
+&lt;/manifest&gt;
+</div></section><section class="chapter"><h3 id="add-dependency-injection" data-toc="add-dependency-injection">Add dependency injection</h3><p id="-vygtl4_345">The Koin dependency injection lets you declare modules (sets of components) that you can use in different contexts. In this project, you will create two modules: one for the Android application and another for the iOS app. Then, you will start Koin for each native UI using the corresponding module.</p><p id="-vygtl4_346">Declare a Koin module that will contain the components for the Android app:</p><ol class="list _decimal" id="-vygtl4_347" type="1"><li class="list__item" id="-vygtl4_349"><p id="-vygtl4_352">In the <code class="code" id="-vygtl4_356">composeApp/src/androidMain/kotlin</code> directory, create the <code class="code" id="-vygtl4_357">AppModule.kt</code> file in the <code class="code" id="-vygtl4_358">com.jetbrains.spacetutorial</code> package.</p><p id="-vygtl4_353">In that file, declare the module as two <a href="https://insert-koin.io/docs/reference/koin-core/definitions#defining-a-singleton" id="-vygtl4_359" data-external="true" rel="noopener noreferrer">singletons</a>, one for the <code class="code" id="-vygtl4_360">SpaceXApi</code> class and one for the <code class="code" id="-vygtl4_361">SpaceXSDK</code> class:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.spacetutorial
+
+import com.jetbrains.spacetutorial.cache.AndroidDatabaseDriverFactory
+import com.jetbrains.spacetutorial.network.SpaceXApi
+import org.koin.android.ext.koin.androidContext
+import org.koin.dsl.module
+
+val appModule = module { 
+    single&lt;SpaceXApi&gt; { SpaceXApi() }
+    single&lt;SpaceXSDK&gt; {
+        SpaceXSDK(
+            databaseDriverFactory = AndroidDatabaseDriverFactory(
+                androidContext()
+            ), api = get()
+        )
+    }
+}
+</div><p id="-vygtl4_355">The <code class="code" id="-vygtl4_362">SpaceXSDK</code> class constructor is injected with the platform-specific <code class="code" id="-vygtl4_363">AndroidDatabaseDriverFactory</code> class. The <code class="code" id="-vygtl4_364">get()</code> function resolves dependencies within the module: in place of the <code class="code" id="-vygtl4_365">api</code> parameter for <code class="code" id="-vygtl4_366">SpaceXSDK()</code>, Koin will pass the <code class="code" id="-vygtl4_367">SpaceXApi</code> singleton declared earlier.</p></li><li class="list__item" id="-vygtl4_350"><p id="-vygtl4_368">Create a custom <code class="code" id="-vygtl4_371">Application</code> class, which will start the Koin module.</p><p id="-vygtl4_369">Next to the <code class="code" id="-vygtl4_372">AppModule.kt</code> file, create the <code class="code" id="-vygtl4_373">Application.kt</code> file with the following code, specifying the module you declared in the <code class="code" id="-vygtl4_374">modules()</code> function call:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.spacetutorial
+
+import android.app.Application
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.GlobalContext.startKoin
+
+class MainApplication : Application() {
+    override fun onCreate() {
+        super.onCreate()
+
+        startKoin {
+            androidContext(this@MainApplication)
+            modules(appModule)
+        }
+    }
+}
+</div></li><li class="list__item" id="-vygtl4_351"><p id="-vygtl4_375">Specify the <code class="code" id="-vygtl4_377">MainApplication</code> class you created in the <code class="code" id="-vygtl4_378">&lt;application&gt;</code> tag of your <code class="code" id="-vygtl4_379">AndroidManifest.xml</code> file:</p><div class="code-block" data-lang="markup">
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    ...
+    &lt;application
+        ...
+        android:name=&quot;com.jetbrains.spacetutorial.MainApplication&quot;&gt;
+        ...
+    &lt;/application&gt;
+&lt;/manifest&gt;
+</div></li></ol><p id="-vygtl4_348">Now, you are ready to implement the UI that will use the information provided by the platform-specific database driver.</p></section><section class="chapter"><h3 id="prepare-the-view-model-with-the-list-of-launches" data-toc="prepare-the-view-model-with-the-list-of-launches">Prepare the view model with the list of launches</h3><p id="-vygtl4_380">You will implement the Android UI using Jetpack Compose and Material 3. First, you'll create the view model that uses the SDK to get the list of launches. Then, you'll set up the Material theme, and finally, you'll write the composable function that brings it all together.</p><ol class="list _decimal" id="-vygtl4_381" type="1"><li class="list__item" id="-vygtl4_382"><p id="-vygtl4_386">In the <code class="code" id="-vygtl4_389">composeApp/src/androidMain</code> source set, in the <code class="code" id="-vygtl4_390">com.jetbrains.spacetutorial</code> package, create the <code class="code" id="-vygtl4_391">RocketLaunchViewModel.kt</code> file:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.spacetutorial
+
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.ViewModel
+import com.jetbrains.spacetutorial.entity.RocketLaunch
+
+class RocketLaunchViewModel(private val sdk: SpaceXSDK) : ViewModel() {
+    private val _state = mutableStateOf(RocketLaunchScreenState())
+    val state: State&lt;RocketLaunchScreenState&gt; = _state
+
+}
+
+data class RocketLaunchScreenState(
+    val isLoading: Boolean = false,
+    val launches: List&lt;RocketLaunch&gt; = emptyList()
+)
+</div><p id="-vygtl4_388">A <code class="code" id="-vygtl4_392">RocketLaunchScreenState</code> instance will store data received from the SDK and the current state of the request.</p></li><li class="list__item" id="-vygtl4_383"><p id="-vygtl4_393">Add the <code class="code" id="-vygtl4_395">loadLaunches</code> function that will call the <code class="code" id="-vygtl4_396">getLaunches</code> function of the SDK in a coroutine scope of this view model:</p><div class="code-block" data-lang="kotlin">
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+
+class RocketLaunchViewModel(private val sdk: SpaceXSDK) : ViewModel() {
+    //...
+
+    fun loadLaunches() {
+        viewModelScope.launch { 
+            _state.value = _state.value.copy(isLoading = true, launches = emptyList())
+            try {
+                val launches = sdk.getLaunches(forceReload = true)
+                _state.value = _state.value.copy(isLoading = false, launches = launches)
+            } catch (e: Exception) {
+                _state.value = _state.value.copy(isLoading = false, launches = emptyList())
+            }
+        }
+    }
+}
+</div></li><li class="list__item" id="-vygtl4_384"><p id="-vygtl4_397">Then add a <code class="code" id="-vygtl4_399">loadLaunches()</code> call to the <code class="code" id="-vygtl4_400">init {}</code> block of the class to request data from the API as soon as the <code class="code" id="-vygtl4_401">RocketLaunchViewModel</code> object is created:</p><div class="code-block" data-lang="kotlin">
+class RocketLaunchViewModel(private val sdk: SpaceXSDK) : ViewModel() {
+    // ...
+
+    init {
+        loadLaunches()
+    }
+}
+</div></li><li class="list__item" id="-vygtl4_385"><p id="-vygtl4_402">Now, in the <code class="code" id="-vygtl4_404">AppModule.kt</code> file, specify the view model in the Koin module:</p><div class="code-block" data-lang="kotlin">
+import org.koin.androidx.viewmodel.dsl.viewModel
+
+val appModule = module {
+    // ...
+    viewModel { RocketLaunchViewModel(sdk = get()) }
+}
+</div></li></ol></section><section class="chapter"><h3 id="build-the-material-theme" data-toc="build-the-material-theme">Build the Material Theme</h3><p id="-vygtl4_405">You will build your main <code class="code" id="-vygtl4_407">App()</code> composable around the <code class="code" id="-vygtl4_408">AppTheme</code> function supplied by a Material Theme:</p><ol class="list _decimal" id="-vygtl4_406" type="1"><li class="list__item" id="-vygtl4_409"><p id="-vygtl4_413">You can generate a theme for your Compose app using the <a href="https://m3.material.io/theme-builder#/custom" id="-vygtl4_414" data-external="true" rel="noopener noreferrer">Material Theme Builder</a>. When you're done picking colors, click <span class="control" id="-vygtl4_415">Export</span> in the top right corner and select the <span class="control" id="-vygtl4_416">Jetpack Compose (Theme.kt)</span> option.</p></li><li class="list__item" id="-vygtl4_410"><p id="-vygtl4_417">Unpack the archive and copy the <code class="code" id="-vygtl4_419">theme</code> folder into the <code class="code" id="-vygtl4_420">composeApp/src/androidMain/kotlin/com/jetbrains/spacetutorial</code> directory.</p><figure id="-vygtl4_418"><img alt="theme directory location" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/theme-directory.png" title="theme directory location" width="299" height="328"></figure></li><li class="list__item" id="-vygtl4_411"><p id="-vygtl4_421">In each theme file, <code class="code" id="-vygtl4_423">Color.kt</code> and <code class="code" id="-vygtl4_424">Theme.kt</code>, make sure that the package line refers to your package:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.spacetutorial.theme
+</div></li><li class="list__item" id="-vygtl4_412"><p id="-vygtl4_425">In the <code class="code" id="-vygtl4_427">Color.kt</code> file, add two variables for colors you are going to use for successful and unsuccessful launches:</p><div class="code-block" data-lang="kotlin">
+val app_theme_successful = Color(0xff4BB543)
+val app_theme_unsuccessful = Color(0xffFC100D)
+</div></li></ol></section><section class="chapter"><h3 id="implement-the-presentation-logic" data-toc="implement-the-presentation-logic">Implement the presentation logic</h3><p id="-vygtl4_428">Create the main <code class="code" id="-vygtl4_431">App()</code> composable for your application, and call it from a <code class="code" id="-vygtl4_432">ComponentActivity</code> class:</p><ol class="list _decimal" id="-vygtl4_429" type="1"><li class="list__item" id="-vygtl4_433"><p id="-vygtl4_438">Open the <code class="code" id="-vygtl4_441">App.kt</code> file next to the <code class="code" id="-vygtl4_442">theme</code> directory in the <code class="code" id="-vygtl4_443">com.jetbrains.spacetutorial</code> package and add the <code class="code" id="-vygtl4_444">App()</code> composable function:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.spacetutorial
+
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
+import org.koin.androidx.compose.koinViewModel
+
+@OptIn(
+    ExperimentalMaterial3Api::class
+)
+@Composable
+fun App() {
+    val viewModel = koinViewModel&lt;RocketLaunchViewModel&gt;()
+    val state by remember { viewModel.state }
+    val pullToRefreshState = rememberPullToRefreshState()
+    if (pullToRefreshState.isRefreshing) {
+        viewModel.loadLaunches()
+        pullToRefreshState.endRefresh()
+    }
+}
+</div><p id="-vygtl4_440">Here, you are using the <a href="https://insert-koin.io/docs/4.1/reference/koin-compose/compose/#viewmodel-for-composable" id="-vygtl4_445" data-external="true" rel="noopener noreferrer">Koin ViewModel API</a> to refer to the <code class="code" id="-vygtl4_446">viewModel</code> you declared in the Android Koin module.</p></li><li class="list__item" id="-vygtl4_434"><p id="-vygtl4_447">Now add the UI code that will implement the loading screen, the column of launch results, and the pull-to-refresh action:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="import com.jetbrains.spacetutorial.theme.AppTheme">
+package com.jetbrains.spacetutorial
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.*
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import com.jetbrains.spacetutorial.entity.RocketLaunch
+import com.jetbrains.spacetutorial.theme.AppTheme
+import com.jetbrains.spacetutorial.theme.app_theme_successful
+import com.jetbrains.spacetutorial.theme.app_theme_unsuccessful
+import kotlinx.coroutines.launch
+import org.koin.androidx.compose.koinViewModel
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun App() {
+val viewModel = koinViewModel&lt;RocketLaunchViewModel&gt;()
+val state by remember { viewModel.state }
+val coroutineScope = rememberCoroutineScope()
+var isRefreshing by remember { mutableStateOf(false) }
+val pullToRefreshState = rememberPullToRefreshState()
+
+    AppTheme {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Text(
+                            &quot;SpaceX Launches&quot;,
+                            style = MaterialTheme.typography.headlineLarge
+                        )
+                    }
+                )
+            }
+        ) { padding -&gt;
+            PullToRefreshBox(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(padding),
+                state = pullToRefreshState,
+                isRefreshing = isRefreshing,
+                onRefresh = {
+                    isRefreshing = true
+                    coroutineScope.launch {
+                        viewModel.loadLaunches()
+                        isRefreshing = false
+                    }
+                }
+            ) {
+                if (state.isLoading &amp;&amp; !isRefreshing) {
+                    Column(
+                        verticalArrangement = Arrangement.Center,
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.fillMaxSize()
+                    ) {
+                        Text(&quot;Loading...&quot;, style = MaterialTheme.typography.bodyLarge)
+                    }
+                } else {
+                    LazyColumn {
+                        items(state.launches) { launch: RocketLaunch -&gt;
+                            Column(modifier = Modifier.padding(16.dp)) {
+                                Text(
+                                    text = &quot;${launch.missionName} - ${launch.launchYear}&quot;,
+                                    style = MaterialTheme.typography.headlineSmall
+                                )
+                                Spacer(Modifier.height(8.dp))
+                                Text(
+                                    text = if (launch.launchSuccess == true) &quot;Successful&quot; else &quot;Unsuccessful&quot;,
+                                    color = if (launch.launchSuccess == true) app_theme_successful else app_theme_unsuccessful
+                                )
+                                Spacer(Modifier.height(8.dp))
+                                val details = launch.details
+                                if (details != null &amp;&amp; details.isNotBlank()) {
+                                    Text(details)
+                                }
+                            }
+                            HorizontalDivider()
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+</div></li><li class="list__item" id="-vygtl4_435"><p id="-vygtl4_449">Remove the <code class="code" id="-vygtl4_450">import App</code> line in the <code class="code" id="-vygtl4_451">MainActivity.kt</code> file in the <code class="code" id="-vygtl4_452">com.jetbrains.spacetutorial</code> package so that the <code class="code" id="-vygtl4_453">setContent()</code> function refers to the <code class="code" id="-vygtl4_454">App()</code> composable you just created in that package.</p></li><li class="list__item" id="-vygtl4_436"><p id="-vygtl4_455">Finally, specify your <code class="code" id="-vygtl4_457">MainActivity</code> class in the <code class="code" id="-vygtl4_458">AndroidManifest.xml</code> file:</p><div class="code-block" data-lang="markup">
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    ...
+
+    &lt;application
+        ...
+        &lt;activity
+            ...
+            android:name=&quot;com.jetbrains.spacetutorial.MainActivity&quot;&gt;
+            ...
+        &lt;/activity&gt;
+    &lt;/application&gt;
+&lt;/manifest&gt;
+</div></li><li class="list__item" id="-vygtl4_437"><p id="-vygtl4_459">Run your Android app: select <span class="control" id="-vygtl4_461">composeApp</span> from the run configurations menu, choose an emulator, and click the run button. The app automatically runs the API request and displays the list of launches (the background color depends on the Material Theme you generated):</p><figure id="-vygtl4_460"><img alt="Android application" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/android-application.png" title="Android application" width="350" height="740"></figure></li></ol><p id="-vygtl4_430">You've just created an Android application that has its business logic implemented in the Kotlin Multiplatform module, and its UI made using native Jetpack Compose.</p></section></section><section class="chapter"><h2 id="create-the-ios-application" data-toc="create-the-ios-application">Create the iOS application</h2><p id="-vygtl4_462">For the iOS part of the project, you'll make use of <a href="https://developer.apple.com/xcode/swiftui/" id="-vygtl4_468" data-external="true" rel="noopener noreferrer">SwiftUI</a> to build the user interface and the <a href="https://en.wikipedia.org/wiki/Model–view–viewmodel" id="-vygtl4_469" data-external="true" rel="noopener noreferrer">Model View View-Model</a> pattern.</p><p id="-vygtl4_463">IntelliJ IDEA generates an iOS project that is already connected to the shared module. The Kotlin module is exported with the name specified in the <code class="code" id="-vygtl4_470">shared/build.gradle.kts</code> file (<code class="code" id="-vygtl4_471">baseName = &quot;Shared&quot;</code>), and imported using a regular <code class="code" id="-vygtl4_472">import</code> statement: <code class="code" id="-vygtl4_473">import Shared</code>.</p><section class="chapter"><h3 id="add-the-dynamic-linking-flag-for-sqldelight" data-toc="add-the-dynamic-linking-flag-for-sqldelight">Add the dynamic linking flag for SQLDelight</h3><p id="-vygtl4_474">By default, IntelliJ IDEA generates projects set up for static linking of iOS frameworks.</p><p id="-vygtl4_475">To use the native SQLDelight driver on iOS, add the dynamic linker flag that allows Xcode tooling to find the system-provided SQLite binary:</p><ol class="list _decimal" id="-vygtl4_476" type="1"><li class="list__item" id="-vygtl4_477"><p>In IntelliJ IDEA, select the <span class="control" id="-vygtl4_481">File</span> | <span class="control" id="-vygtl4_482">Open Project in Xcode</span> option to open your project in Xcode.</p></li><li class="list__item" id="-vygtl4_478"><p>In Xcode, double-click the project name to open its settings.</p></li><li class="list__item" id="-vygtl4_479"><p>Switch to the <span class="control" id="-vygtl4_483">Build Settings</span> tab and search for the <span class="control" id="-vygtl4_484">Other Linker Flags</span> field.</p></li><li class="list__item" id="-vygtl4_480"><p>Double-click the field value, click <span class="control" id="-vygtl4_485">+</span>, and add the <code class="code" id="-vygtl4_486">-lsqlite3</code> string.</p></li></ol></section><section class="chapter"><h3 id="prepare-a-koin-class-for-ios-dependency-injection" data-toc="prepare-a-koin-class-for-ios-dependency-injection">Prepare a Koin class for iOS dependency injection</h3><p id="-vygtl4_487">To use Koin classes and functions in Swift code, create a special <code class="code" id="-vygtl4_490">KoinComponent</code> class and declare the Koin module for iOS.</p><ol class="list _decimal" id="-vygtl4_488" type="1"><li class="list__item" id="-vygtl4_491"><p id="-vygtl4_494">In the <code class="code" id="-vygtl4_495">shared/src/iosMain/kotlin/</code> source set, create a file with the name <code class="code" id="-vygtl4_496">com/jetbrains/spacetutorial/KoinHelper.kt</code> (it will appear next to the <code class="code" id="-vygtl4_497">cache</code> folder).</p></li><li class="list__item" id="-vygtl4_492"><p id="-vygtl4_498">Add the <code class="code" id="-vygtl4_500">KoinHelper</code> class, which will wrap the <code class="code" id="-vygtl4_501">SpaceXSDK</code> class with a lazy Koin injection:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.spacetutorial
+
+import org.koin.core.component.KoinComponent
+import com.jetbrains.spacetutorial.entity.RocketLaunch
+import org.koin.core.component.inject
+
+class KoinHelper : KoinComponent {
+    private val sdk: SpaceXSDK by inject&lt;SpaceXSDK&gt;()
+
+    suspend fun getLaunches(forceReload: Boolean): List&lt;RocketLaunch&gt; {
+        return sdk.getLaunches(forceReload = forceReload)
+    }
+}
+</div></li><li class="list__item" id="-vygtl4_493"><p id="-vygtl4_502">Add the <code class="code" id="-vygtl4_504">initKoin</code> function, which you will use in Swift to initialize and start the iOS Koin module:</p><div class="code-block" data-lang="kotlin">
+import com.jetbrains.spacetutorial.cache.IOSDatabaseDriverFactory
+import com.jetbrains.spacetutorial.network.SpaceXApi
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
+
+fun initKoin() {
+    startKoin {
+        modules(module {
+            single&lt;SpaceXApi&gt; { SpaceXApi() }
+            single&lt;SpaceXSDK&gt; {
+                SpaceXSDK(
+                    databaseDriverFactory = IOSDatabaseDriverFactory(), api = get()
+                )
+            }
+        })
+    }
+}
+</div></li></ol><p id="-vygtl4_489">Now, you can start the Koin module in your iOS app to use the native database driver with the common <code class="code" id="-vygtl4_505">SpaceXSDK</code> class.</p></section><section class="chapter"><h3 id="implement-the-ui" data-toc="implement-the-ui">Implement the UI</h3><p id="-vygtl4_506">First, you'll create a <code class="code" id="-vygtl4_508">RocketLaunchRow</code> SwiftUI view for displaying an item from the list. It will be based on the <code class="code" id="-vygtl4_509">HStack</code> and <code class="code" id="-vygtl4_510">VStack</code> views. There will be extensions on the <code class="code" id="-vygtl4_511">RocketLaunchRow</code> structure with useful helpers for displaying the data.</p><ol class="list _decimal" id="-vygtl4_507" type="1"><li class="list__item" id="-vygtl4_512"><p id="-vygtl4_519">In IntelliJ IDEA, make sure you are in <span class="control" id="-vygtl4_520">Project</span> view.</p></li><li class="list__item" id="-vygtl4_513"><p id="-vygtl4_521">Create a new Swift file in the <code class="code" id="-vygtl4_522">iosApp</code> folder and name it <code class="code" id="-vygtl4_523">RocketLaunchRow</code>.</p></li><li class="list__item" id="-vygtl4_514"><p id="-vygtl4_524">Update the <code class="code" id="-vygtl4_527">RocketLaunchRow.swift</code> file with the following code:</p><div class="code-block" data-lang="swift">
+import SwiftUI
+import Shared
+
+struct RocketLaunchRow: View {
+    var rocketLaunch: RocketLaunch
+
+    var body: some View {
+        HStack() {
+            VStack(alignment: .leading, spacing: 10.0) {
+                Text(&quot;\(rocketLaunch.missionName) - \(String(rocketLaunch.launchYear))&quot;).font(.system(size: 18)).bold()
+                Text(launchText).foregroundColor(launchColor)
+                Text(&quot;Launch year: \(String(rocketLaunch.launchYear))&quot;)
+                Text(&quot;\(rocketLaunch.details ?? &quot;&quot;)&quot;)
+            }
+            Spacer()
+        }
+    }
+}
+
+extension RocketLaunchRow {
+    private var launchText: String {
+        if let isSuccess = rocketLaunch.launchSuccess {
+            return isSuccess.boolValue ? &quot;Successful&quot; : &quot;Unsuccessful&quot;
+        } else {
+            return &quot;No data&quot;
+        }
+    }
+
+    private var launchColor: Color {
+        if let isSuccess = rocketLaunch.launchSuccess {
+            return isSuccess.boolValue ? Color.green : Color.red
+        } else {
+            return Color.gray
+        }
+    }
+}
+</div><p id="-vygtl4_526">The list of launches will be displayed in the <code class="code" id="-vygtl4_528">ContentView</code> view, which is already included in the project.</p></li><li class="list__item" id="-vygtl4_515"><p id="-vygtl4_529">Create an extension to the <code class="code" id="-vygtl4_532">ContentView</code> class with a <code class="code" id="-vygtl4_533">ViewModel</code> class which will prepare and manage the data. Add the following code to the <code class="code" id="-vygtl4_534">ContentView.swift</code> file:</p><div class="code-block" data-lang="swift">
+extension ContentView {
+    enum LoadableLaunches {
+        case loading
+        case result([RocketLaunch])
+        case error(String)
+    }
+
+    @MainActor
+    class ViewModel: ObservableObject {
+        @Published var launches = LoadableLaunches.loading
+    }
+}
+</div><ul class="list _bullet" id="-vygtl4_531"><li class="list__item" id="-vygtl4_535"><p>The view model (<code class="code" id="-vygtl4_536">ContentView.ViewModel</code>) connects with the view (<code class="code" id="-vygtl4_537">ContentView</code>) via the <a href="https://developer.apple.com/documentation/combine" id="-vygtl4_538" data-external="true" rel="noopener noreferrer">Combine framework</a>: </p><ul class="list _bullet" id="-vygtl4_539"><li class="list__item" id="-vygtl4_540"><p>The <code class="code" id="-vygtl4_542">ContentView.ViewModel</code> class is declared as an <code class="code" id="-vygtl4_543">ObservableObject</code>.</p></li><li class="list__item" id="-vygtl4_541"><p>The <code class="code" id="-vygtl4_544">@Published</code> attribute is used for the <code class="code" id="-vygtl4_545">launches</code> property, so the view model will emit signals whenever this property changes.</p></li></ul></li></ul></li><li class="list__item" id="-vygtl4_516"><p id="-vygtl4_546">Remove the <code class="code" id="-vygtl4_547">ContentView_Previews</code> structure: you won't need to implement a preview that should be compatible with your view model.</p></li><li class="list__item" id="-vygtl4_517"><p id="-vygtl4_548">Update the body of the <code class="code" id="-vygtl4_551">ContentView</code> class to display the list of launches and add the reload functionality.</p><ul class="list _bullet" id="-vygtl4_549"><li class="list__item" id="-vygtl4_552"><p>This is the UI groundwork: you will implement the <code class="code" id="-vygtl4_554">loadLaunches</code> function in the next phase of the tutorial.</p></li><li class="list__item" id="-vygtl4_553"><p>The <code class="code" id="-vygtl4_555">viewModel</code> property is marked with the <code class="code" id="-vygtl4_556">@ObservedObject</code> attribute to subscribe to the view model.</p></li></ul><div class="code-block" data-lang="swift">
+struct ContentView: View {
+    @ObservedObject private(set) var viewModel: ViewModel
+
+    var body: some View {
+        NavigationView {
+            listView()
+            .navigationBarTitle(&quot;SpaceX Launches&quot;)
+            .navigationBarItems(trailing:
+                Button(&quot;Reload&quot;) {
+                    self.viewModel.loadLaunches(forceReload: true)
+            })
+        }
+    }
+
+    private func listView() -&gt; AnyView {
+        switch viewModel.launches {
+        case .loading:
+            return AnyView(Text(&quot;Loading...&quot;).multilineTextAlignment(.center))
+        case .result(let launches):
+            return AnyView(List(launches) { launch in
+                RocketLaunchRow(rocketLaunch: launch)
+            })
+        case .error(let description):
+            return AnyView(Text(description).multilineTextAlignment(.center))
+        }
+    }
+}
+</div></li><li class="list__item" id="-vygtl4_518"><p id="-vygtl4_557">The <code class="code" id="-vygtl4_559">RocketLaunch</code> class is used as a parameter for initializing the <code class="code" id="-vygtl4_560">List</code> view, so it needs to <a href="https://developer.apple.com/documentation/swift/identifiable" id="-vygtl4_561" data-external="true" rel="noopener noreferrer">conform to the <code class="code" id="-vygtl4_564">Identifiable</code> protocol</a>. The class already has a property named <code class="code" id="-vygtl4_562">id</code>, so all you should do is add an extension to the bottom of <code class="code" id="-vygtl4_563">ContentView.swift</code>:</p><div class="code-block" data-lang="swift">
+extension RocketLaunch: Identifiable { }
+</div></li></ol></section><section class="chapter"><h3 id="load-the-data" data-toc="load-the-data">Load the data</h3><p id="-vygtl4_565">To retrieve the data about the rocket launches in the view model, you'll need an instance of the <code class="code" id="-vygtl4_569">KoinHelper</code> class from the Multiplatform library. It will allow you to call the SDK function with the correct database driver.</p><ol class="list _decimal" id="-vygtl4_566" type="1"><li class="list__item" id="-vygtl4_570"><p id="-vygtl4_574">In the <code class="code" id="-vygtl4_576">ContentView.swift</code> file, expand the <code class="code" id="-vygtl4_577">ViewModel</code> class to include a <code class="code" id="-vygtl4_578">KoinHelper</code> object and the <code class="code" id="-vygtl4_579">loadLaunches</code> function:</p><div class="code-block" data-lang="swift">
+extension ContentView {
+    // ...
+    @MainActor
+    class ViewModel: ObservableObject {
+        // ...
+        let helper: KoinHelper = KoinHelper()
+
+        init() {
+            self.loadLaunches(forceReload: false)
+        }
+
+        func loadLaunches(forceReload: Bool) {
+            // TODO: retrieve data
+        }
+    }
+}
+</div></li><li class="list__item" id="-vygtl4_571"><p id="-vygtl4_580">Call the <code class="code" id="-vygtl4_583">KoinHelper.getLaunches()</code> function (which will proxy the call to the <code class="code" id="-vygtl4_584">SpaceXSDK</code> class) and save the result in the <code class="code" id="-vygtl4_585">launches</code> property:</p><div class="code-block" data-lang="swift">
+func loadLaunches(forceReload: Bool) {
+    Task {
+        do {
+            self.launches = .loading
+            let launches = try await helper.getLaunches(forceReload: forceReload)
+            self.launches = .result(launches)
+        } catch {
+            self.launches = .error(error.localizedDescription)
+        }
+    }
+}
+</div><ul class="list _bullet" id="-vygtl4_582"><li class="list__item" id="-vygtl4_586"><p>When you compile a Kotlin module into an Apple framework, <a href="https://kotlinlang.org/docs/whatsnew14.html#support-for-kotlin-s-suspending-functions-in-swift-and-objective-c" id="-vygtl4_588" data-external="true" rel="noopener noreferrer">suspending functions</a> can be called using the Swift's <code class="code" id="-vygtl4_589">async</code>/<code class="code" id="-vygtl4_590">await</code> mechanism.</p></li><li class="list__item" id="-vygtl4_587"><p>Since the <code class="code" id="-vygtl4_591">getLaunches</code> function is marked with the <code class="code" id="-vygtl4_592">@Throws(Exception::class)</code> annotation in Kotlin, any exceptions that are instances of the <code class="code" id="-vygtl4_593">Exception</code> class or its subclass will be propagated to Swift as <code class="code" id="-vygtl4_594">NSError</code>. Therefore, all such exceptions can be caught by the <code class="code" id="-vygtl4_595">loadLaunches()</code> function.</p></li></ul></li><li class="list__item" id="-vygtl4_572"><p id="-vygtl4_596">Go to the app's entry point, the <code class="code" id="-vygtl4_598">iOSApp.swift</code> file, and initialize the Koin module, the view, and the view model:</p><div class="code-block" data-lang="swift">
+import SwiftUI
+import Shared
+
+@main
+struct iOSApp: App {
+    init() {
+        KoinHelperKt.doInitKoin()
+    }
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView(viewModel: .init())
+        }
+    }
+}
+</div></li><li class="list__item" id="-vygtl4_573"><p id="-vygtl4_599">In IntelliJ IDEA, switch to the <span class="control" id="-vygtl4_600">iosApp</span> configuration, choose an emulator, and run it to see the result:</p></li></ol><figure id="-vygtl4_567"><img alt="iOS Application" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/ios-application.png" title="iOS Application" width="350" height="691"></figure><aside class="prompt" data-type="note" data-title="" id="-vygtl4_568"><p id="-vygtl4_601">You can find the final version of the project <a href="https://github.com/kotlin-hands-on/kmm-networking-and-data-storage/tree/final" id="-vygtl4_602" data-external="true" rel="noopener noreferrer">on the <code class="code" id="-vygtl4_603">final</code> branch</a>.</p></aside></section></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next?</h2><p id="-vygtl4_604">This tutorial features some potentially resource-heavy operations, like parsing JSON and making requests to the database in the main thread. To learn about how to write concurrent code and optimize your app, see the <a href="https://kotlinlang.org/docs/coroutines-guide.html" id="-vygtl4_607" data-external="true" rel="noopener noreferrer">Coroutines guide</a>.</p><p id="-vygtl4_605">You can also check out these additional learning materials:</p><ul class="list _bullet" id="-vygtl4_606"><li class="list__item" id="-vygtl4_608"><p><a href="https://ktor.io/docs/http-client-engines.html#mpp-config" id="-vygtl4_612" data-external="true" rel="noopener noreferrer">Use the Ktor HTTP client in multiplatform projects</a></p></li><li class="list__item" id="-vygtl4_609"><p><a href="https://insert-koin.io/docs/setup/why" id="-vygtl4_613" data-external="true" rel="noopener noreferrer">Read about Koin and dependency injection</a></p></li><li class="list__item" id="-vygtl4_610"><p><a href="multiplatform-integrate-in-existing-app.html" id="-vygtl4_614">Make your Android application work on iOS</a></p></li><li class="list__item" id="-vygtl4_611"><p><a href="multiplatform-discover-project.html" id="-vygtl4_615">Learn more about multiplatform project structure</a>.</p></li></ul></section><div class="last-modified">Last modified: 27 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="multiplatform-integrate-in-existing-app.html" class="navigation-links__prev">Make your Android application work on iOS &ndash; tutorial</a><a href="create-kotlin-multiplatform-library.html" class="navigation-links__next">Create your Kotlin Multiplatform library &ndash; tutorial</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

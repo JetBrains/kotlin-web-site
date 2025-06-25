@@ -1,0 +1,223 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:21.332424264"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Working with RTL languages | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"layout-mirroring","level":0,"title":"Layout mirroring","anchor":"#layout-mirroring"},{"id":"forcing-layout-direction","level":0,"title":"Forcing layout direction","anchor":"#forcing-layout-direction"},{"id":"handling-text-input-in-rtl-layouts","level":0,"title":"Handling text input in RTL layouts","anchor":"#handling-text-input-in-rtl-layouts"},{"id":"fonts-for-web-targets","level":0,"title":"Fonts for web targets","anchor":"#fonts-for-web-targets"},{"id":"accessibility-in-rtl-layouts","level":0,"title":"Accessibility in RTL layouts","anchor":"#accessibility-in-rtl-layouts"},{"id":"known-issues","level":0,"title":"Known issues","anchor":"#known-issues"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Working with RTL languages | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-rtl.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Working with RTL languages | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-rtl.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-rtl.html",
+    "name": "Working with RTL languages | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-rtl" data-main-title="Working with RTL languages" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Localization" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-rtl.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-rtl" id="compose-rtl.md">Working with RTL languages</h1><p id="eslgc0_3">Compose Multiplatform provides support for Right-to-Left (RTL) languages such as Arabic, Hebrew, and Persian. The framework automatically handles most RTL requirements and adjusts layouts, alignment, and text input behavior according to the system's locale settings when RTL languages are used.</p><section class="chapter"><h2 id="layout-mirroring" data-toc="layout-mirroring">Layout mirroring</h2><p id="eslgc0_10">When the system locale is configured for an RTL language, Compose Multiplatform automatically mirrors most UI components. Adjustments include changes to paddings, alignments, and component positions:</p><ul class="list _bullet" id="eslgc0_11"><li class="list__item" id="eslgc0_12"><p id="eslgc0_16"><span class="control" id="eslgc0_17">Paddings, margins, and alignments</span><br> Default paddings and alignments are reversed. For example, in <code class="code" id="eslgc0_19">Modifier.padding(start: Dp, top: Dp, end: Dp, bottom: Dp)</code>, the LTR <code class="code" id="eslgc0_20">start</code> padding corresponds to the left side, and the <code class="code" id="eslgc0_21">end</code> padding corresponds to the right side; whereas in RTL languages, <code class="code" id="eslgc0_22">start</code> corresponds to the right side, and <code class="code" id="eslgc0_23">end</code> corresponds to the left side.</p></li><li class="list__item" id="eslgc0_13"><p id="eslgc0_24"><span class="control" id="eslgc0_25">Component alignment</span><br> For UI elements like text, navigation items, and icons, the default <code class="code" id="eslgc0_27">Start</code> alignment becomes <code class="code" id="eslgc0_28">End</code> in RTL mode.</p></li><li class="list__item" id="eslgc0_14"><p id="eslgc0_29"><span class="control" id="eslgc0_30">Horizontally scrollable lists</span><br> Horizontal lists reverse their item alignment and scroll direction.</p></li><li class="list__item" id="eslgc0_15"><p id="eslgc0_32"><span class="control" id="eslgc0_33">Button positioning</span><br> Common UI patterns, such as the position of <span class="control" id="eslgc0_35">Cancel</span> and <span class="control" id="eslgc0_36">Confirm</span> buttons, adjust to RTL expectations.</p></li></ul></section><section class="chapter"><h2 id="forcing-layout-direction" data-toc="forcing-layout-direction">Forcing layout direction</h2><p id="eslgc0_37">You may need to keep the original orientation of some UI elements, such as logos or icons, regardless of layout direction. You can explicitly set the layout direction for an entire app or individual components, overriding the system's default locale-based layout behavior.</p><p id="eslgc0_38">To exclude an element from automatic mirroring and enforce a specific orientation, you can use <code class="code" id="eslgc0_40">LayoutDirection.Rtl</code> or <code class="code" id="eslgc0_41">LayoutDirection.Ltr</code>. To specify a layout direction within a scope, use the <code class="code" id="eslgc0_42">CompositionLocalProvider()</code>, which ensures that the layout direction applies to all child components in the composition:</p><div class="code-block" data-lang="kotlin">
+CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+    Column(modifier = Modifier.fillMaxWidth()) {
+        // Components in this block will be laid out left-to-right
+        Text(&quot;LTR Latin&quot;)
+        TextField(&quot;Hello world\nHello world&quot;)
+    }
+}
+</div></section><section class="chapter"><h2 id="handling-text-input-in-rtl-layouts" data-toc="handling-text-input-in-rtl-layouts">Handling text input in RTL layouts</h2><p id="eslgc0_43">Compose Multiplatform provides support for various scenarios of text input in RTL layouts, including mixed-direction content, special characters, numbers, and emojis.</p><p id="eslgc0_44">When you design an application that supports an RTL layout, consider the following aspects. Testing them can help you identify potential localization issues.</p><section class="chapter"><h3 id="cursor-behavior" data-toc="cursor-behavior">Cursor behavior</h3><p id="eslgc0_48">The cursor should behave intuitively within RTL layouts, aligning with the logical direction of characters. For example:</p><ul class="list _bullet" id="eslgc0_49"><li class="list__item" id="eslgc0_50"><p>When typing in Arabic, the cursor moves right-to-left, but inserting LTR content follows left-to-right behavior.</p></li><li class="list__item" id="eslgc0_51"><p>Operations like text selection, deletion, and insertion respect the text's natural directional flow.</p></li></ul></section><section class="chapter"><h3 id="bidi-text" data-toc="bidi-text">BiDi text</h3><p id="eslgc0_52">Compose Multiplatform uses the <a href="https://www.w3.org/International/articles/inline-bidi-markup/uba-basics" id="eslgc0_58" data-external="true" rel="noopener noreferrer">Unicode Bidirectional Algorithm</a> to manage and render bidirectional (BiDi) text, aligning punctuation and numbers.</p><p id="eslgc0_53">The text should be displayed in the expected visual order: punctuation and numbers are aligned correctly, the Arabic script flows from right to left, and English flows from left to right.</p><p id="eslgc0_54">The following test sample includes text with Latin and Arabic letters, and their bidirectional combination:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="item { CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {">
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.dp
+import org.jetbrains.compose.ui.tooling.preview.Preview
+
+// Arabic text for &quot;Hello World&quot;
+private val helloWorldArabic = &quot;مرحبا بالعالم&quot;
+
+// Bidirectional text
+private val bidiText = &quot;Hello $helloWorldArabic world&quot;
+
+@Composable
+@Preview
+fun App() {
+    MaterialTheme {
+        LazyColumn(
+            Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            item {
+                CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+                    Column(modifier = Modifier.fillMaxWidth()) {
+                        Text(&quot;Latin and BiDi in LTR&quot;)
+                        TextField(&quot;Hello world&quot;)
+                        TextField(bidiText)
+                    }
+                }
+            }
+            item {
+                CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+                    Column(modifier = Modifier.fillMaxWidth()) {
+                        Text(&quot;Arabic and BiDi in RTL&quot;)
+                        TextField(helloWorldArabic)
+                        TextField(bidiText)
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Wrap function for BasicTextField() to reduce code duplication
+@Composable
+internal fun TextField(
+    text: String = &quot;&quot;
+) {
+    val state = rememberSaveable { mutableStateOf(text) }
+
+    BasicTextField(
+        modifier = Modifier
+            .border(1.dp, Color.LightGray, RoundedCornerShape(8.dp))
+            .padding(8.dp),
+        value = state.value,
+        singleLine = false,
+        onValueChange = { state.value = it },
+    )
+}
+</div><figure id="eslgc0_56"><img alt="BiDi text" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-rtl-bidi.png" title="BiDi text" width="600" height="268"></figure><p id="eslgc0_57">Compose Multiplatform also ensures proper alignment and spacing in complex BiDi cases, including multi-line wrapping and nesting of BiDi content.</p></section><section class="chapter"><h3 id="numbers-and-emojis" data-toc="numbers-and-emojis">Numbers and emojis</h3><p id="eslgc0_59">Numbers should be displayed consistently based on the direction of the surrounding text. Eastern Arabic numerals align naturally in RTL text, and Western Arabic numerals follow typical LTR behavior.</p><p id="eslgc0_60">Emojis should adapt to both RTL and LTR contexts, maintaining proper alignment and spacing within the text.</p><p id="eslgc0_61">The following test sample includes emojis, Eastern and Western Arabic numerals, and bidirectional text:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="item { CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {">
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.dp
+import org.jetbrains.compose.ui.tooling.preview.Preview
+
+// Arabic text for &quot;Hello World&quot; with emojis
+private val helloWorldArabic = &quot;مرحبا بالعالم 🌎👋&quot;
+
+// Bidirectional text with numbers and emojis
+private val bidiText = &quot;67890 Hello $helloWorldArabic 🎉&quot;
+
+@Composable
+@Preview
+fun App() {
+    MaterialTheme {
+        LazyColumn(
+            Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            item {
+                CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+                    Column(modifier = Modifier.fillMaxWidth()) {
+                        TextField(&quot;Hello world 👋🌎&quot;)
+                        TextField(&quot;Numbers: 🔢12345&quot;)
+                        TextField(bidiText)
+                    }
+                }
+            }
+            item {
+                CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+                    Column(modifier = Modifier.fillMaxWidth()) {
+                        TextField(helloWorldArabic)
+                        TextField(&quot;الأرقام: 🔢١٢٣٤٥&quot;)
+                        TextField(bidiText)
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Wrap function for BasicTextField() to reduce code duplication
+@Composable
+internal fun TextField(
+    text: String = &quot;&quot;
+) {
+    val state = rememberSaveable { mutableStateOf(text) }
+
+    BasicTextField(
+        modifier = Modifier
+            .border(1.dp, Color.LightGray, RoundedCornerShape(8.dp))
+            .padding(8.dp),
+        value = state.value,
+        singleLine = false,
+        onValueChange = { state.value = it },
+    )
+}
+</div><figure id="eslgc0_63"><img alt="Numbers and emojis" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-rtl-emoji.png" title="Numbers and emojis" width="600" height="271"></figure></section></section><section class="chapter"><h2 id="fonts-for-web-targets" data-toc="fonts-for-web-targets">Fonts for web targets</h2><p id="eslgc0_64">Web targets lack built-in fonts for rendering characters for certain locales, such as Arabic and Chinese. To address this, you need to add custom fallback fonts to resources and preload them, as they are not enabled automatically.</p><p id="eslgc0_65">To preload fallback fonts, use the <code class="code" id="eslgc0_68">FontFamily.Resolver.preload()</code> method. For example:</p><div class="code-block" data-lang="kotlin">
+val fontFamilyResolver = LocalFontFamilyResolver.current
+val fontsLoaded = remember { mutableStateOf(false) }
+
+if (fontsLoaded.value) {
+   app.Content()
+}
+
+LaunchedEffect(Unit) {
+   val notoEmojisBytes = loadEmojisFontAsBytes()
+   val fontFamily = FontFamily(listOf(Font(&quot;NotoColorEmoji&quot;, notoEmojisBytes)))
+   fontFamilyResolver.preload(fontFamily)
+   fontsLoaded.value = true
+}
+</div><p id="eslgc0_67">For details on preloading resources for web targets, refer to the section about the <a href="compose-multiplatform-resources-usage.html#preload-resources-using-the-compose-multiplatform-preload-api" id="eslgc0_69">preload API</a>.</p></section><section class="chapter"><h2 id="accessibility-in-rtl-layouts" data-toc="accessibility-in-rtl-layouts">Accessibility in RTL layouts</h2><p id="eslgc0_70">Compose Multiplatform supports accessibility features for RTL layouts, including proper text direction and order for screen readers and handling of gestures.</p><section class="chapter"><h3 id="screen-readers" data-toc="screen-readers">Screen readers</h3><p id="eslgc0_73">Screen readers automatically adapt to RTL layouts, keeping the logical reading order for users:</p><ul class="list _bullet" id="eslgc0_74"><li class="list__item" id="eslgc0_76"><p>RTL text is read from right to left, and mixed-direction text follows standard BiDi rules.</p></li><li class="list__item" id="eslgc0_77"><p>Punctuation and numbers are announced in the correct sequence.</p></li></ul><p id="eslgc0_75">In complex layouts, it's necessary to define traversal semantics to ensure the correct reading order for screen readers.</p></section><section class="chapter"><h3 id="focus-based-navigation" data-toc="focus-based-navigation">Focus-based navigation</h3><p id="eslgc0_78">Focus navigation in RTL layouts follows the layout's mirrored structure:</p><ul class="list _bullet" id="eslgc0_79"><li class="list__item" id="eslgc0_82"><p>Focus moves from right to left and top to bottom, following the natural flow of RTL content.</p></li><li class="list__item" id="eslgc0_83"><p>Gestures like swipes or taps are automatically adjusted to the mirrored layout.</p></li></ul><p id="eslgc0_80">You can also define traversal semantics to ensure correct navigation between different traversal groups with the swipe-up or swipe-down accessibility gestures.</p><p id="eslgc0_81">For details on how to define traversal semantics and set traversal indexes, refer to the <a href="whats-new-compose-180.html#accessibility-for-container-views" id="eslgc0_84">Accessibility</a> section.</p></section></section><section class="chapter"><h2 id="known-issues" data-toc="known-issues">Known issues</h2><p id="eslgc0_85">We keep improving support for RTL languages and plan to address the following known issues:</p><ul class="list _bullet" id="eslgc0_86"><li class="list__item" id="eslgc0_87"><p>Fix caret position while typing non-RTL characters in RTL layout (<a href="https://youtrack.jetbrains.com/issue/CMP-3096" id="eslgc0_90" data-external="true" rel="noopener noreferrer">CMP-3096</a>)</p></li><li class="list__item" id="eslgc0_88"><p>Fix caret position for Arabic digits (<a href="https://youtrack.jetbrains.com/issue/CMP-2772" id="eslgc0_91" data-external="true" rel="noopener noreferrer">CMP-2772</a>)</p></li><li class="list__item" id="eslgc0_89"><p>Fix <code class="code" id="eslgc0_92">TextDirection.Content</code> (<a href="https://youtrack.jetbrains.com/issue/CMP-2446" id="eslgc0_93" data-external="true" rel="noopener noreferrer">CMP-2446</a>)</p></li></ul></section><div class="last-modified">Last modified: 28 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-regional-format.html" class="navigation-links__prev">Manage regional formats</a><a href="compose-localization-tests.html" class="navigation-links__next">Localization tests</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

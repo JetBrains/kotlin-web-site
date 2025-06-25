@@ -1,0 +1,143 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:21.191071517"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Testing Compose Multiplatform UI | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"how-compose-multiplatform-testing-is-different-from-jetpack-compose","level":0,"title":"How Compose Multiplatform testing is different from Jetpack Compose","anchor":"#how-compose-multiplatform-testing-is-different-from-jetpack-compose"},{"id":"writing-and-running-tests-with-compose-multiplatform","level":0,"title":"Writing and running tests with Compose Multiplatform","anchor":"#writing-and-running-tests-with-compose-multiplatform"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Testing Compose Multiplatform UI | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-test.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Testing Compose Multiplatform UI | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-test.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-test.html",
+    "name": "Testing Compose Multiplatform UI | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-test" data-main-title="Testing Compose Multiplatform UI" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-test.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-test" id="compose-test.md">Testing Compose Multiplatform UI</h1><p id="-g7545e_2">UI testing in Compose Multiplatform is implemented using the same finders, assertions, actions, and matchers as the Jetpack Compose testing API. If you're not familiar with them, read the <a href="https://developer.android.com/jetpack/compose/testing" id="-g7545e_7" data-external="true" rel="noopener noreferrer">Jetpack Compose guide</a> before you continue with this article.</p><aside class="prompt" data-type="warning" data-title="" id="-g7545e_3"><p id="-g7545e_8">The API is <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="-g7545e_9">Experimental</a>. It may change in the future.</p></aside><section class="chapter"><h2 id="how-compose-multiplatform-testing-is-different-from-jetpack-compose" data-toc="how-compose-multiplatform-testing-is-different-from-jetpack-compose">How Compose Multiplatform testing is different from Jetpack Compose</h2><p id="-g7545e_10">Compose Multiplatform common test API does not rely on JUnit's <code class="code" id="-g7545e_12">TestRule</code> class. Instead, you call the <code class="code" id="-g7545e_13">runComposeUiTest</code> function and invoke the test functions on the <code class="code" id="-g7545e_14">ComposeUiTest</code> receiver.</p><p id="-g7545e_11">However, JUnit-based API is available for <a href="compose-desktop-ui-testing.html" id="-g7545e_15">desktop targets</a>.</p></section><section class="chapter"><h2 id="writing-and-running-tests-with-compose-multiplatform" data-toc="writing-and-running-tests-with-compose-multiplatform">Writing and running tests with Compose Multiplatform</h2><p id="-g7545e_16">First, add the source set for tests and the necessary dependencies to the module. Then, write and run the example test and try to customize it.</p><section class="chapter"><h3 id="create-the-test-source-set-and-add-the-testing-library-to-dependencies" data-toc="create-the-test-source-set-and-add-the-testing-library-to-dependencies">Create the test source set and add the testing library to dependencies</h3><p id="-g7545e_19">To provide concrete examples, the instructions on this page follow the project structure generated by the <a href="https://kmp.jetbrains.com/" id="-g7545e_23" data-external="true" rel="noopener noreferrer">Kotlin Multiplatform wizard</a>. If you are adding tests to an existing project, you may have to replace <code class="code" id="-g7545e_24">composeApp</code> in paths and commands with the module name you are testing (<code class="code" id="-g7545e_25">shared</code>, for example).</p><p id="-g7545e_20">Create a common test source set and add the necessary dependencies:</p><ol class="list _decimal" id="-g7545e_21" type="1"><li class="list__item" id="-g7545e_26"><p id="-g7545e_29">Create a directory for the common test source set: <code class="code" id="-g7545e_30">composeApp/src/commonTest/kotlin</code>.</p></li><li class="list__item" id="-g7545e_27"><p id="-g7545e_31">In the <code class="code" id="-g7545e_33">composeApp/build.gradle.kts</code> file, add the following dependencies:</p><div class="code-block" data-lang="kotlin">
+kotlin {
+    //...
+    sourceSets { 
+        val desktopTest by getting
+
+        // Adds common test dependencies
+        commonTest.dependencies {
+            implementation(kotlin(&quot;test&quot;))
+
+            @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+            implementation(compose.uiTest)
+        }
+
+        // Adds the desktop test dependency
+        desktopTest.dependencies { 
+            implementation(compose.desktop.currentOs)
+        }
+    }
+}
+</div></li><li class="list__item" id="-g7545e_28"><p id="-g7545e_34">If you need to run instrumented (emulator) tests for Android, amend your Gradle configuration as follows:</p><ol class="list _decimal" id="-g7545e_35" type="1"><li class="list__item" id="-g7545e_36"><p id="-g7545e_39">Add the following code to the <code class="code" id="-g7545e_41">androidTarget {}</code> block to configure the instrumented test source set to depend on a common test source set. Then, follow the IDE's suggestions to add any missing imports.</p><div class="code-block" data-lang="kotlin">
+kotlin {
+    //...
+    androidTarget { 
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        instrumentedTestVariant.sourceSetTree.set(KotlinSourceSetTree.test)
+        //...
+    }
+    //... 
+}
+</div></li><li class="list__item" id="-g7545e_37"><p id="-g7545e_42">Add the following code to the <code class="code" id="-g7545e_44">android.defaultConfig {}</code> block to configure the Android test instrumentation runner:</p><div class="code-block" data-lang="kotlin">
+android {
+    //...
+    defaultConfig {
+        //...
+        testInstrumentationRunner = &quot;androidx.test.runner.AndroidJUnitRunner&quot;
+    }
+}
+</div></li><li class="list__item" id="-g7545e_38"><p id="-g7545e_45">Add the required dependencies for <code class="code" id="-g7545e_47">androidTarget</code>:</p><div class="code-block" data-lang="kotlin">
+kotlin {
+     // ...
+     androidTarget {
+         // ...
+         dependencies { 
+             androidTestImplementation(&quot;androidx.compose.ui:ui-test-junit4-android:1.8.2&quot;)
+             debugImplementation(&quot;androidx.compose.ui:ui-test-manifest:1.8.2&quot;)
+         }
+     }
+ }
+</div></li></ol></li></ol><p id="-g7545e_22">Now, you are ready to write and run common tests for the Compose Multiplatform UI.</p></section><section class="chapter"><h3 id="write-and-run-common-tests" data-toc="write-and-run-common-tests">Write and run common tests</h3><p id="-g7545e_48">In the <code class="code" id="-g7545e_52">composeApp/src/commonTest/kotlin</code> directory, create a file named <code class="code" id="-g7545e_53">ExampleTest.kt</code> and copy the following code into it:</p><div class="code-block" data-lang="kotlin">
+import androidx.compose.material.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.test.*
+import kotlin.test.Test
+
+class ExampleTest {
+
+    @OptIn(ExperimentalTestApi::class)
+    @Test
+    fun myTest() = runComposeUiTest {
+        // Declares a mock UI to demonstrate API calls
+        //
+        // Replace with your own declarations to test the code of your project
+        setContent {
+            var text by remember { mutableStateOf(&quot;Hello&quot;) }
+            Text(
+                text = text,
+                modifier = Modifier.testTag(&quot;text&quot;)
+            )
+            Button(
+                onClick = { text = &quot;Compose&quot; },
+                modifier = Modifier.testTag(&quot;button&quot;)
+            ) {
+                Text(&quot;Click me&quot;)
+            }
+        }
+
+        // Tests the declared UI with assertions and actions of the Compose Multiplatform testing API
+        onNodeWithTag(&quot;text&quot;).assertTextEquals(&quot;Hello&quot;)
+        onNodeWithTag(&quot;button&quot;).performClick()
+        onNodeWithTag(&quot;text&quot;).assertTextEquals(&quot;Compose&quot;)
+    }
+}
+</div><p id="-g7545e_50">To run tests:</p><div class="tabs" id="-g7545e_51" data-anchors="[-g7545e_54,-g7545e_55,-g7545e_56,-g7545e_57]"><div class="tabs__content" data-gtm="tab" id="-g7545e_54" data-title="iOS Simulator"><p id="-g7545e_58">You have two options:</p><ul class="list _bullet" id="-g7545e_59"><li class="list__item" id="-g7545e_60"><p id="-g7545e_62">In Android Studio, you can click the green run icon in the gutter next to the <code class="code" id="-g7545e_63">myTest()</code> function, choose <span class="control" id="-g7545e_64">Run</span> and the iOS target for the test.</p></li><li class="list__item" id="-g7545e_61"><p id="-g7545e_65">Run the following command in the terminal:</p><div class="code-block" data-lang="bash">
+./gradlew :composeApp:iosSimulatorArm64Test
+</div></li></ul></div><div class="tabs__content" data-gtm="tab" id="-g7545e_55" data-title="Android Emulator"><p id="-g7545e_67">Run this command in the terminal:</p><div class="code-block" data-lang="bash" data-title="Shell">
+./gradlew :composeApp:connectedAndroidTest
+</div><p id="-g7545e_69">Currently, you cannot run common Compose Multiplatform tests using <code class="code" id="-g7545e_70">android (local)</code> test configurations, so gutter icons in Android Studio, for example, won't be helpful.</p></div><div class="tabs__content" data-gtm="tab" id="-g7545e_56" data-title="Desktop"><p id="-g7545e_71">You have two options:</p><ul class="list _bullet" id="-g7545e_72"><li class="list__item" id="-g7545e_73"><p id="-g7545e_75">Click the green run icon in the gutter next to the <code class="code" id="-g7545e_76">myTest()</code> function and choose <span class="control" id="-g7545e_77">Run&nbsp;|&nbsp;desktop</span>.</p></li><li class="list__item" id="-g7545e_74"><p id="-g7545e_78">Run the following command in the terminal:</p><div class="code-block" data-lang="bash">
+./gradlew :composeApp:desktopTest
+</div></li></ul></div><div class="tabs__content" data-gtm="tab" id="-g7545e_57" data-title="Wasm (headless browser)"><p id="-g7545e_80">Run this command in the terminal:</p><div class="code-block" data-lang="bash" data-title="Shell">
+./gradlew :composeApp:wasmJsTest
+</div></div></div></section></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><p id="-g7545e_82">Now that you got the hang of Compose Multiplatform UI testing, you may want to check out more testing-related resources:</p><ul class="list _bullet" id="-g7545e_83"><li class="list__item" id="-g7545e_84"><p>For a general overview of testing in a Kotlin Multiplatform project, see <a href="multiplatform-discover-project.html#integration-with-tests" id="-g7545e_88">Understand basic project structure</a> and the <a href="multiplatform-run-tests.html" id="-g7545e_89">Test your multiplatform app</a> tutorial.</p></li><li class="list__item" id="-g7545e_85"><p>For details on setting up and running JUnit-based tests for desktop targets, see <a href="compose-desktop-ui-testing.html" id="-g7545e_90">Testing Compose Multiplatform UI with JUnit</a>.</p></li><li class="list__item" id="-g7545e_86"><p>For localization tests, see <a href="compose-localization-tests.html#testing-locales-on-different-platforms" id="-g7545e_91">Testing locales on different platforms</a>.</p></li><li class="list__item" id="-g7545e_87"><p>More advanced testing in Android Studio, including automation, is covered in the <a href="https://developer.android.com/studio/test" id="-g7545e_92" data-external="true" rel="noopener noreferrer">Test your app</a> article in the Android Studio documentation.</p></li></ul></section><div class="last-modified">Last modified: 18 June 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-drag-drop.html" class="navigation-links__prev">Drag-and-drop operations</a><a href="compose-localize-strings.html" class="navigation-links__next">Localizing strings</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

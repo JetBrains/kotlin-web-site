@@ -1,0 +1,318 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:20.683465464"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Using multiplatform resources in your app | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"importing-the-generated-class","level":0,"title":"Importing the generated class","anchor":"#importing-the-generated-class"},{"id":"customizing-accessor-class-generation","level":0,"title":"Customizing accessor class generation","anchor":"#customizing-accessor-class-generation"},{"id":"resource-usage","level":0,"title":"Resource usage","anchor":"#resource-usage"},{"id":"images","level":1,"title":"Images","anchor":"#images"},{"id":"strings","level":1,"title":"Strings","anchor":"#strings"},{"id":"fonts","level":1,"title":"Fonts","anchor":"#fonts"},{"id":"raw-files","level":1,"title":"Raw files","anchor":"#raw-files"},{"id":"generated-maps-for-resources-and-string-ids","level":1,"title":"Generated maps for resources and string IDs","anchor":"#generated-maps-for-resources-and-string-ids"},{"id":"compose-multiplatform-resources-as-android-assets","level":1,"title":"Compose Multiplatform resources as Android assets","anchor":"#compose-multiplatform-resources-as-android-assets"},{"id":"preloading-of-resources-for-web-targets","level":0,"title":"Preloading of resources for web targets","anchor":"#preloading-of-resources-for-web-targets"},{"id":"preload-resources-using-browser-features","level":1,"title":"Preload resources using browser features","anchor":"#preload-resources-using-browser-features"},{"id":"preload-resources-using-the-compose-multiplatform-preload-api","level":1,"title":"Preload resources using the Compose Multiplatform preload API","anchor":"#preload-resources-using-the-compose-multiplatform-preload-api"},{"id":"interaction-with-other-libraries-and-resources","level":0,"title":"Interaction with other libraries and resources","anchor":"#interaction-with-other-libraries-and-resources"},{"id":"accessing-multiplatform-resources-from-external-libraries","level":1,"title":"Accessing multiplatform resources from external libraries","anchor":"#accessing-multiplatform-resources-from-external-libraries"},{"id":"remote-files","level":1,"title":"Remote files","anchor":"#remote-files"},{"id":"using-java-resources","level":1,"title":"Using Java resources","anchor":"#using-java-resources"},{"id":"what-s-next","level":0,"title":"What\u0027s next?","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Using multiplatform resources in your app | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-resources-usage.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Using multiplatform resources in your app | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-resources-usage.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-resources-usage.html",
+    "name": "Using multiplatform resources in your app | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-multiplatform-resources-usage" data-main-title="Using multiplatform resources in your app" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Multiplatform resources" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-multiplatform-resources-usage.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-multiplatform-resources-usage" id="compose-multiplatform-resources-usage.md">Using multiplatform resources in your app</h1><p id="efssxu_3">When you've <a href="compose-multiplatform-resources-setup.html" id="efssxu_11">set up the resources for your project</a>, build the project to generate the special <code class="code" id="efssxu_12">Res</code> class which provides access to resources. To regenerate the <code class="code" id="efssxu_13">Res</code> class and all the resource accessors, build the project again or re-import the project in the IDE.</p><p id="efssxu_4">After that, you can use the generated class to access the configured multiplatform resources from your code or from external libraries.</p><section class="chapter"><h2 id="importing-the-generated-class" data-toc="importing-the-generated-class">Importing the generated class</h2><p id="efssxu_14">To use the prepared resources, import the generated class, for example:</p><div class="code-block" data-lang="kotlin">
+import project.composeapp.generated.resources.Res
+import project.composeapp.generated.resources.example_image
+</div><p id="efssxu_16">Here:</p><ul class="list _bullet" id="efssxu_17"><li class="list__item" id="efssxu_18"><p><code class="code" id="efssxu_22">project</code> is the name of your project</p></li><li class="list__item" id="efssxu_19"><p><code class="code" id="efssxu_23">composeapp</code> is the module where you placed the resource directories</p></li><li class="list__item" id="efssxu_20"><p><code class="code" id="efssxu_24">Res</code> is the default name for the generated class</p></li><li class="list__item" id="efssxu_21"><p><code class="code" id="efssxu_25">example_image</code> is the name of an image file in the <code class="code" id="efssxu_26">composeResources/drawable</code> directory (<code class="code" id="efssxu_27">example_image.png</code>, for example).</p></li></ul></section><section class="chapter"><h2 id="customizing-accessor-class-generation" data-toc="customizing-accessor-class-generation">Customizing accessor class generation</h2><p id="efssxu_28">You can customize the generated <code class="code" id="efssxu_32">Res</code> class to suit your needs using Gradle settings.</p><p id="efssxu_29">In the <code class="code" id="efssxu_33">compose.resources {}</code> block of the <code class="code" id="efssxu_34">build.gradle.kts</code> file, you can specify several settings that affect the way the <code class="code" id="efssxu_35">Res</code> class is generated for your project. An example configuration looks like this:</p><div class="code-block" data-lang="kotlin">
+compose.resources {
+    publicResClass = false
+    packageOfResClass = &quot;me.sample.library.resources&quot;
+    generateResClass = auto
+}
+</div><ul class="list _bullet" id="efssxu_31"><li class="list__item" id="efssxu_36"><p><code class="code" id="efssxu_39">publicResClass</code> set to <code class="code" id="efssxu_40">true</code> makes the generated <code class="code" id="efssxu_41">Res</code> class public. By default, the generated class is <a href="https://kotlinlang.org/docs/visibility-modifiers.html" id="efssxu_42" data-external="true" rel="noopener noreferrer">internal</a>.</p></li><li class="list__item" id="efssxu_37"><p><code class="code" id="efssxu_43">packageOfResClass</code> allows you to assign the generated <code class="code" id="efssxu_44">Res</code> class to a particular package (to access within the code, as well as for isolation in a final artifact). By default, Compose Multiplatform assigns the <code class="code" id="efssxu_45">{group name}.{module name}.generated.resources</code> package to the class.</p></li><li class="list__item" id="efssxu_38"><p><code class="code" id="efssxu_46">generateResClass</code> set to <code class="code" id="efssxu_47">always</code> makes the project unconditionally generate the <code class="code" id="efssxu_48">Res</code> class. This may be useful when the resource library is only available transitively. By default, Compose Multiplatform uses the <code class="code" id="efssxu_49">auto</code> value to generate the <code class="code" id="efssxu_50">Res</code> class only if the current project has an explicit <code class="code" id="efssxu_51">implementation</code> or <code class="code" id="efssxu_52">api</code> dependency on the resource library.</p></li></ul></section><section class="chapter"><h2 id="resource-usage" data-toc="resource-usage">Resource usage</h2><section class="chapter"><h3 id="images" data-toc="images">Images</h3><p id="efssxu_59">You can access drawable resources as simple images, rasterized images or XML vectors. SVG images are supported on all platforms <span class="control" id="efssxu_63">except</span> Android.</p><ul class="list _bullet" id="efssxu_60"><li class="list__item" id="efssxu_64"><p id="efssxu_67">To access drawable resources as <code class="code" id="efssxu_71">Painter</code> images, use the <code class="code" id="efssxu_72">painterResource()</code> function:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun painterResource(resource: DrawableResource): Painter {...}
+</div><p id="efssxu_69">The <code class="code" id="efssxu_73">painterResource()</code> function takes a resource path and returns a <code class="code" id="efssxu_74">Painter</code> value. The function works synchronously on all targets except for web. For the web target, it returns an empty <code class="code" id="efssxu_75">Painter</code> for the first recomposition that is replaced with the loaded image in subsequent recompositions.</p><ul class="list _bullet" id="efssxu_70"><li class="list__item" id="efssxu_76"><p><code class="code" id="efssxu_78">painterResource()</code> loads either a <code class="code" id="efssxu_79">BitmapPainter</code> for rasterized image formats, such as <code class="code" id="efssxu_80">.png</code>, <code class="code" id="efssxu_81">.jpg</code>, <code class="code" id="efssxu_82">.bmp</code>, <code class="code" id="efssxu_83">.webp</code>, or a <code class="code" id="efssxu_84">VectorPainter</code> for the Android XML vector drawable format.</p></li><li class="list__item" id="efssxu_77"><p>XML vector drawables have the same format as <a href="https://developer.android.com/reference/android/graphics/drawable/VectorDrawable" id="efssxu_85" data-external="true" rel="noopener noreferrer">Android</a>, except that they don't support external references to Android resources.</p></li></ul></li><li class="list__item" id="efssxu_65"><p id="efssxu_86">To access drawable resources as an <code class="code" id="efssxu_88">ImageBitmap</code> rasterized image, use the <code class="code" id="efssxu_89">imageResource()</code> function:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun imageResource(resource: DrawableResource): ImageBitmap {...}
+</div></li><li class="list__item" id="efssxu_66"><p id="efssxu_90">To access drawable resources as an <code class="code" id="efssxu_92">ImageVector</code> XML vector, use the <code class="code" id="efssxu_93">vectorResource()</code> function:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun vectorResource(resource: DrawableResource): ImageVector {...}
+</div></li></ul><p id="efssxu_61">Here's an example of how you can access images in your Compose Multiplatform code:</p><div class="code-block" data-lang="kotlin">
+Image(
+    painter = painterResource(Res.drawable.my_icon),
+    contentDescription = null
+)
+</div></section><section class="chapter"><h3 id="strings" data-toc="strings">Strings</h3><p id="efssxu_94">Store all string resources in XML files in <code class="code" id="efssxu_100">composeResources/values</code> directories. A static accessor is generated for each item in each file.</p><p id="efssxu_95">For more information on how to localize strings for different locales, refer to the <a href="compose-localize-strings.html" id="efssxu_101">guide on localizing strings</a>.</p><section class="chapter"><h4 id="simple-strings" data-toc="simple-strings">Simple strings</h4><p id="efssxu_102">To store a simple string, add a <code class="code" id="efssxu_109">&lt;string&gt;</code> element to your XML:</p><div class="code-block" data-lang="markup">
+&lt;resources&gt;
+    &lt;string name=&quot;app_name&quot;&gt;My awesome app&lt;/string&gt;
+    &lt;string name=&quot;title&quot;&gt;Some title&lt;/string&gt;
+&lt;/resources&gt;
+</div><p id="efssxu_104">To get string resources as a <code class="code" id="efssxu_110">String</code>, use the following code:</p><div class="tabs" id="efssxu_105" data-anchors="[efssxu_111,efssxu_112]"><div class="tabs__content" data-gtm="tab" id="efssxu_111" data-title="From composable code"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+@Composable
+fun stringResource(resource: StringResource): String {...}
+
+@Composable
+fun stringResource(resource: StringResource, vararg formatArgs: Any): String {...}
+</div><p id="efssxu_114">For example:</p><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+Text(stringResource(Res.string.app_name))
+</div></div><div class="tabs__content" data-gtm="tab" id="efssxu_112" data-title="From non-composable code"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+suspend fun getString(resource: StringResource): String
+
+suspend fun getString(resource: StringResource, vararg formatArgs: Any): String
+</div><p id="efssxu_117">For example:</p><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+coroutineScope.launch {
+    val appName = getString(Res.string.app_name)
+}
+</div></div></div><p id="efssxu_106">You can use special symbols in string resources:</p><ul class="list _bullet" id="efssxu_107"><li class="list__item" id="efssxu_119"><p><code class="code" id="efssxu_122">\n</code> &ndash; for a new line</p></li><li class="list__item" id="efssxu_120"><p><code class="code" id="efssxu_123">\t</code> &ndash; for a tab symbol</p></li><li class="list__item" id="efssxu_121"><p><code class="code" id="efssxu_124">\uXXXX</code> &ndash; for a specific Unicode character</p></li></ul><p id="efssxu_108">You don't need to escape special XML characters like &quot;@&quot; or &quot;?&quot; as you do <a href="https://developer.android.com/guide/topics/resources/string-resource#escaping_quotes" id="efssxu_125" data-external="true" rel="noopener noreferrer">for Android strings</a>.</p></section><section class="chapter"><h4 id="string-templates" data-toc="string-templates">String templates</h4><p id="efssxu_126">Currently, arguments have basic support for string resources. When creating a template, use the <code class="code" id="efssxu_132">%&lt;number&gt;</code> format to place arguments within the string and include a <code class="code" id="efssxu_133">$d</code> or <code class="code" id="efssxu_134">$s</code> suffix to indicate that it is a variable placeholder and not simple text. For example:</p><div class="code-block" data-lang="markup">
+&lt;resources&gt;
+    &lt;string name=&quot;str_template&quot;&gt;Hello, %2$s! You have %1$d new messages.&lt;/string&gt;
+&lt;/resources&gt;
+</div><p id="efssxu_128">After creating and importing the string template resource, you can refer to it while passing the arguments for placeholders in the correct order:</p><div class="code-block" data-lang="kotlin">
+Text(stringResource(Res.string.str_template, 100, &quot;User_name&quot;))
+</div><p id="efssxu_130">There is no difference between the <code class="code" id="efssxu_135">$s</code> and <code class="code" id="efssxu_136">$d</code> suffixes, and no others are supported. You can put the <code class="code" id="efssxu_137">%1$s</code> placeholder in the resource string and use it to display a fractional number, for example:</p><div class="code-block" data-lang="kotlin">
+Text(stringResource(Res.string.str_template, &quot;User_name&quot;, 100.1f))
+</div></section><section class="chapter"><h4 id="string-arrays" data-toc="string-arrays">String arrays</h4><p id="efssxu_138">You can group related strings into an array and automatically access them as a <code class="code" id="efssxu_142">List&lt;String&gt;</code> object:</p><div class="code-block" data-lang="markup">
+&lt;resources&gt;
+    &lt;string name=&quot;app_name&quot;&gt;My awesome app&lt;/string&gt;
+    &lt;string name=&quot;title&quot;&gt;Some title&lt;/string&gt;
+    &lt;string-array name=&quot;str_arr&quot;&gt;
+        &lt;item&gt;item \u2605&lt;/item&gt;
+        &lt;item&gt;item \u2318&lt;/item&gt;
+        &lt;item&gt;item \u00BD&lt;/item&gt;
+    &lt;/string-array&gt;
+&lt;/resources&gt;
+</div><p id="efssxu_140">To get the corresponding list, use the following code:</p><div class="tabs" id="efssxu_141" data-anchors="[efssxu_143,efssxu_144]"><div class="tabs__content" data-gtm="tab" id="efssxu_143" data-title="From composable code"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+@Composable
+fun stringArrayResource(resource: StringArrayResource): List&lt;String&gt; {...}
+</div><p id="efssxu_146">For example:</p><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+val arr = stringArrayResource(Res.array.str_arr)
+if (arr.isNotEmpty()) Text(arr[0])
+</div></div><div class="tabs__content" data-gtm="tab" id="efssxu_144" data-title="From non-composable code"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+suspend fun getStringArray(resource: StringArrayResource): List&lt;String&gt;
+</div><p id="efssxu_149">For example:</p><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+coroutineScope.launch {
+    val appName = getStringArray(Res.array.str_arr)
+}
+</div></div></div></section><section class="chapter"><h4 id="plurals" data-toc="plurals">Plurals</h4><p id="efssxu_151">When your UI displays quantities of something, you might want to support grammatical agreement for different numbers of the same thing (one <span class="emphasis" id="efssxu_158">book</span>, many <span class="emphasis" id="efssxu_159">books</span>, and so on) without creating programmatically unrelated strings.</p><p id="efssxu_152">The concept and base implementation in Compose Multiplatform are the same as for quantity strings on Android. See <a href="https://developer.android.com/guide/topics/resources/string-resource#Plurals" id="efssxu_160" data-external="true" rel="noopener noreferrer">the Android documentation</a> for more about best practices and nuances of using plurals in your project.</p><ul class="list _bullet" id="efssxu_153"><li class="list__item" id="efssxu_161"><p>The supported variants are <code class="code" id="efssxu_163">zero</code>, <code class="code" id="efssxu_164">one</code>, <code class="code" id="efssxu_165">two</code>, <code class="code" id="efssxu_166">few</code>, <code class="code" id="efssxu_167">many</code>, and <code class="code" id="efssxu_168">other</code>. Note that not all variants are even considered for every language: for example, <code class="code" id="efssxu_169">zero</code> is ignored for English because it is the same as any other plural except 1. Rely on a language specialist to know what distinctions the language actually insists upon.</p></li><li class="list__item" id="efssxu_162"><p>It's often possible to avoid quantity strings by using quantity-neutral formulations such as &quot;Books: 1&quot;. If this doesn't worsen the user experience,</p></li></ul><p id="efssxu_154">To define a plural, add a <code class="code" id="efssxu_170">&lt;plurals&gt;</code> element to any <code class="code" id="efssxu_171">.xml</code> file in your <code class="code" id="efssxu_172">composeResources/values</code> directory. A <code class="code" id="efssxu_173">plurals</code> collection is a simple resource referenced using the name attribute (not the name of the XML file). As such, you can combine <code class="code" id="efssxu_174">plurals</code> resources with other simple resources in one XML file under one <code class="code" id="efssxu_175">&lt;resources&gt;</code> element:</p><div class="code-block" data-lang="markup">
+&lt;resources&gt;
+    &lt;string name=&quot;app_name&quot;&gt;My awesome app&lt;/string&gt;
+    &lt;string name=&quot;title&quot;&gt;Some title&lt;/string&gt;
+    &lt;plurals name=&quot;new_message&quot;&gt;
+        &lt;item quantity=&quot;one&quot;&gt;%1$d new message&lt;/item&gt;
+        &lt;item quantity=&quot;other&quot;&gt;%1$d new messages&lt;/item&gt;
+    &lt;/plurals&gt;
+&lt;/resources&gt;
+</div><p id="efssxu_156">To access a plural as a <code class="code" id="efssxu_176">String</code>, use the following code:</p><div class="tabs" id="efssxu_157" data-anchors="[efssxu_177,efssxu_178]"><div class="tabs__content" data-gtm="tab" id="efssxu_177" data-title="From composable code"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+@Composable
+fun pluralStringResource(resource: PluralStringResource, quantity: Int): String {...}
+
+@Composable
+fun pluralStringResource(resource: PluralStringResource, quantity: Int, vararg formatArgs: Any): String {...}
+</div><p id="efssxu_180">For example:</p><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+Text(pluralStringResource(Res.plurals.new_message, 1, 1))
+</div></div><div class="tabs__content" data-gtm="tab" id="efssxu_178" data-title="From non-composable code"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+suspend fun getPluralString(resource: PluralStringResource, quantity: Int): String
+
+suspend fun getPluralString(resource: PluralStringResource, quantity: Int, vararg formatArgs: Any): String
+</div><p id="efssxu_183">For example:</p><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+coroutineScope.launch {
+    val appName = getPluralString(Res.plurals.new_message, 1, 1)
+}
+</div></div></div></section></section><section class="chapter"><h3 id="fonts" data-toc="fonts">Fonts</h3><p id="efssxu_185">Store custom fonts in the <code class="code" id="efssxu_191">composeResources/font</code> directory as <code class="code" id="efssxu_192">*.ttf</code> or <code class="code" id="efssxu_193">*.otf</code> files.</p><p id="efssxu_186">To load a font as a <code class="code" id="efssxu_194">Font</code> type, use the <code class="code" id="efssxu_195">Font()</code> function:</p><div class="code-block" data-lang="kotlin">
+@Composable
+fun Font(
+    resource: FontResource,
+    weight: FontWeight = FontWeight.Normal,
+    style: FontStyle = FontStyle.Normal
+): Font
+</div><p id="efssxu_188">For example:</p><div class="code-block" data-lang="kotlin">
+val fontAwesome = FontFamily(Font(Res.font.font_awesome))
+</div><p id="efssxu_190">To support special characters like emojis or Arabic script in web targets, you need to add the corresponding fonts to resources and <a href="#preload-resources-using-the-compose-multiplatform-preload-api" id="efssxu_196">preload fallback fonts</a>.</p></section><section class="chapter"><h3 id="raw-files" data-toc="raw-files">Raw files</h3><p id="efssxu_197">To load any raw file as a byte array, use the <code class="code" id="efssxu_203">Res.readBytes(path)</code> function:</p><div class="code-block" data-lang="kotlin">
+suspend fun readBytes(path: String): ByteArray
+</div><p id="efssxu_199">You can place raw files in the <code class="code" id="efssxu_204">composeResources/files</code> directory and create any hierarchy inside it.</p><p id="efssxu_200">For example, to access raw files, use the following code:</p><div class="tabs" id="efssxu_201" data-anchors="[efssxu_205,efssxu_206]"><div class="tabs__content" data-gtm="tab" id="efssxu_205" data-title="From composable code"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+var bytes by remember {
+    mutableStateOf(ByteArray(0))
+}
+LaunchedEffect(Unit) {
+    bytes = Res.readBytes(&quot;files/myDir/someFile.bin&quot;)
+}
+Text(bytes.decodeToString())
+</div></div><div class="tabs__content" data-gtm="tab" id="efssxu_206" data-title="From non-composable code"><div class="code-block" data-lang="kotlin" data-title="Kotlin">
+coroutineScope.launch {
+    val bytes = Res.readBytes(&quot;files/myDir/someFile.bin&quot;)
+}
+</div></div></div><section class="chapter"><h4 id="convert-byte-arrays-into-images" data-toc="convert-byte-arrays-into-images">Convert byte arrays into images</h4><p id="efssxu_209">If the file you are reading is a bitmap (JPEG, PNG, BMP, WEBP) or an XML vector image, you can use the following functions to convert them into <code class="code" id="efssxu_214">ImageBitmap</code> or <code class="code" id="efssxu_215">ImageVector</code> objects suitable for the <code class="code" id="efssxu_216">Image()</code> composable.</p><p id="efssxu_210">Access the raw files as shown in the <a href="#raw-files" id="efssxu_217">Raw files</a> section, then pass the result to a composable:</p><div class="code-block" data-lang="kotlin">
+// bytes = Res.readBytes(&quot;files/example.png&quot;)
+Image(bytes.decodeToImageBitmap(), null)
+
+// bytes = Res.readBytes(&quot;files/example.xml&quot;)
+Image(bytes.decodeToImageVector(LocalDensity.current), null)
+</div><p id="efssxu_212">On every platform except Android, you can also turn an SVG file into a <code class="code" id="efssxu_218">Painter</code> object:</p><div class="code-block" data-lang="kotlin">
+// bytes = Res.readBytes(&quot;files/example.svg&quot;)
+Image(bytes.decodeToSvgPainter(LocalDensity.current), null)
+</div></section></section><section class="chapter"><h3 id="generated-maps-for-resources-and-string-ids" data-toc="generated-maps-for-resources-and-string-ids">Generated maps for resources and string IDs</h3><p id="efssxu_219">For ease of access, Compose Multiplatform also maps resources with string IDs. You can access them by using the filename as the key:</p><div class="code-block" data-lang="kotlin">
+val Res.allDrawableResources: Map&lt;String, DrawableResource&gt;
+val Res.allStringResources: Map&lt;String, StringResource&gt;
+val Res.allStringArrayResources: Map&lt;String, StringArrayResource&gt;
+val Res.allPluralStringResources: Map&lt;String, PluralStringResource&gt;
+val Res.allFontResources: Map&lt;String, FontResource&gt;
+</div><p id="efssxu_221">An example of passing a mapped resource to a composable:</p><div class="code-block" data-lang="kotlin">
+Image(painterResource(Res.allDrawableResources[&quot;compose_multiplatform&quot;]!!), null)
+</div></section><section class="chapter"><h3 id="compose-multiplatform-resources-as-android-assets" data-toc="compose-multiplatform-resources-as-android-assets">Compose Multiplatform resources as Android assets</h3><p id="efssxu_223">Starting with Compose Multiplatform 1.8.2, all multiplatform resources are packed into Android assets. This enables Android Studio to generate previews for Compose Multiplatform composables in Android source sets.</p><aside class="prompt" data-type="warning" data-title="" id="efssxu_224"><p id="efssxu_232">Android Studio previews are available only for composables in an Android source set. They also require one of the latest versions of AGP: 8.5.2, 8.6.0-rc01, or 8.7.0-alpha04.</p></aside><p id="efssxu_225">Using Multiplatform resources as Android assets also makes possible direct access from WebViews and media player components on Android, since resources can be reached by a simple path, for example <code class="code" id="efssxu_233">Res.getUri(&quot;files/index.html&quot;)</code>.</p><p id="efssxu_226">An example of an Android composable displaying a resource HTML page with a link to a resource image:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="AndroidView(factory = { WebView(it).apply">
+// androidMain/kotlin/com/example/webview/App.kt
+@OptIn(ExperimentalResourceApi::class)
+@Composable
+@Preview
+fun App() {
+    MaterialTheme {
+        val uri = Res.getUri(&quot;files/webview/index.html&quot;)
+
+        // Adding a WebView inside AndroidView with layout as full screen.
+        AndroidView(factory = {
+            WebView(it).apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
+            }
+        }, update = {
+            it.loadUrl(uri)
+        })
+    }
+}
+</div><p id="efssxu_228">The example works with this simple HTML file:</p><div class="code-collapse" data-lang="markup" data-is-expanded="false" data-synopsis="&lt;title&gt;Cat Resource&lt;/title&gt;">
+&lt;html&gt;
+&lt;header&gt;
+    &lt;title&gt;
+        Cat Resource
+    &lt;/title&gt;
+&lt;/header&gt;
+&lt;body&gt;
+    &lt;img src=&quot;cat.jpg&quot;&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</div><p id="efssxu_230">Both resource files in this example are located in the <code class="code" id="efssxu_234">commonMain</code> source set:</p><figure id="efssxu_231"><img alt="File structure of the composeResources directory" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-resources-android-webview.png" title="File structure of the composeResources directory" width="230" height="173"></figure></section></section><section class="chapter"><h2 id="preloading-of-resources-for-web-targets" data-toc="preloading-of-resources-for-web-targets">Preloading of resources for web targets</h2><p id="efssxu_235">The web resources like fonts and images are loaded asynchronously using the <code class="code" id="efssxu_240">fetch</code> API. During the initial load or with slower network connections, resource fetching can cause visual glitches, such as <a href="https://fonts.google.com/knowledge/glossary/fout" id="efssxu_241" data-external="true" rel="noopener noreferrer">FOUT</a> or displaying placeholders instead of images.</p><p id="efssxu_236">A typical example of this issue is when a <code class="code" id="efssxu_242">Text()</code> component contains text in a custom font, but the font with the necessary glyphs is still loading. In this case, users may temporarily see the text in default font or even empty boxes and question marks instead of characters. Similarly, for images or drawables, users may observe a placeholder like a blank or black box until the resource is fully loaded.</p><p id="efssxu_237">To prevent visual glitches, you can use built-in browser features for preloading of resources, the Compose Multiplatform preload API, or a combination of both.</p><section class="chapter"><h3 id="preload-resources-using-browser-features" data-toc="preload-resources-using-browser-features">Preload resources using browser features</h3><p id="efssxu_243">In modern browsers, you can preload resources using the <code class="code" id="efssxu_249">&lt;link&gt;</code> tag with the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel/preload" id="efssxu_250" data-external="true" rel="noopener noreferrer"><code class="code" id="efssxu_251">rel=&quot;preload&quot;</code> attribute</a>. This attribute instructs the browser to prioritize downloading and caching resources like fonts and images before the application starts, ensuring that these resources are available early.</p><p id="efssxu_244">For example, to enable in-browser preloading of a font:</p><ol class="list _decimal" id="efssxu_245" type="1"><li class="list__item" id="efssxu_252"><p>Build your application's web distribution:</p></li></ol><div class="code-block" data-lang="bash">
+   ./gradlew :composeApp:wasmJsBrowserDistribution
+</div><ol class="list _decimal" id="efssxu_247" type="1" start="2"><li class="list__item" id="efssxu_253"><p>Find the required resource in the generated <code class="code" id="efssxu_256">dist</code> directory and save the path.</p></li><li class="list__item" id="efssxu_254"><p>Open the <code class="code" id="efssxu_257">wasmJsMain/resources/index.html</code> file and add a <code class="code" id="efssxu_258">&lt;link&gt;</code> tag inside the <code class="code" id="efssxu_259">&lt;head&gt;</code> element.</p></li><li class="list__item" id="efssxu_255"><p>Set the <code class="code" id="efssxu_260">href</code> attribute to the resource path:</p></li></ol><div class="code-block" data-lang="markup">
+&lt;link rel=&quot;preload&quot; href=&quot;./composeResources/username.composeapp.generated.resources/font/FiraMono-Regular.ttf&quot; as=&quot;fetch&quot; type=&quot;font/ttf&quot; crossorigin/&gt;
+</div></section><section class="chapter"><h3 id="preload-resources-using-the-compose-multiplatform-preload-api" data-toc="preload-resources-using-the-compose-multiplatform-preload-api" data-annotation-ids="Experimental">Preload resources using the Compose Multiplatform preload API</h3><p id="efssxu_262">Even if you preloaded the resources in the browser, they are cached as raw bytes that still need to be converted into a format suitable for rendering, such as <code class="code" id="efssxu_267">FontResource</code> and <code class="code" id="efssxu_268">DrawableResource</code>. When the application requests the resource for the first time, the conversion is done asynchronously, which may again result in flickering. To further optimize the experience, Compose Multiplatform resources have their own internal cache for higher-level representations of the resources, that can also be preloaded.</p><p id="efssxu_263">Compose Multiplatform 1.8.2 introduces an experimental API for preloading font and image resources on web targets: <code class="code" id="efssxu_269">preloadFont()</code>, <code class="code" id="efssxu_270">preloadImageBitmap()</code>, and <code class="code" id="efssxu_271">preloadImageVector()</code>.</p><p id="efssxu_264">Additionally, you can set fallback fonts different from the default bundled option if you require special characters like emojis. To specify a fallback font, use the <code class="code" id="efssxu_272">FontFamily.Resolver.preload()</code> method.</p><p id="efssxu_265">The following example demonstrates how to use preloading and a fallback font:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="fontFamilyResolver.preload(FontFamily(listOf(emojiFont)))">
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.runtime.*
+import androidx.compose.ui.*
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalFontFamilyResolver
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.window.CanvasBasedWindow
+import components.resources.demo.shared.generated.resources.*
+import components.resources.demo.shared.generated.resources.NotoColorEmoji
+import components.resources.demo.shared.generated.resources.Res
+import components.resources.demo.shared.generated.resources.Workbench_Regular
+import components.resources.demo.shared.generated.resources.font_awesome
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.configureWebResources
+import org.jetbrains.compose.resources.demo.shared.UseResources
+import org.jetbrains.compose.resources.preloadFont
+
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalResourceApi::class, InternalComposeUiApi::class)
+fun main() {
+    configureWebResources {
+        // Overrides the resource location
+        resourcePathMapping { path -&gt; &quot;./$path&quot; }
+    }
+    CanvasBasedWindow(&quot;Resources + K/Wasm&quot;) {
+        val font1 by preloadFont(Res.font.Workbench_Regular)
+        val font2 by preloadFont(Res.font.font_awesome, FontWeight.Normal, FontStyle.Normal)
+        val emojiFont = preloadFont(Res.font.NotoColorEmoji).value
+        var fontsFallbackInitialized by remember { mutableStateOf(false) }
+
+        // Uses the preloaded resource for the app's content
+        UseResources()
+
+        if (font1 != null &amp;&amp; font2 != null &amp;&amp; emojiFont != null &amp;&amp; fontsFallbackInitialized) {
+            println(&quot;Fonts are ready&quot;)
+        } else {
+            // Displays the progress indicator to address a FOUT or the app being temporarily non-functional during loading
+            Box(modifier = Modifier.fillMaxSize().background(Color.White.copy(alpha = 0.8f)).clickable {  }) {
+                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            }
+            println(&quot;Fonts are not ready yet&quot;)
+        }
+
+        val fontFamilyResolver = LocalFontFamilyResolver.current
+        LaunchedEffect(fontFamilyResolver, emojiFont) {
+            if (emojiFont != null) {
+                // Preloads a fallback font with emojis to render missing glyphs that are not supported by the bundled font
+                fontFamilyResolver.preload(FontFamily(listOf(emojiFont)))
+                fontsFallbackInitialized = true
+            }
+        }
+    }
+}
+</div></section></section><section class="chapter"><h2 id="interaction-with-other-libraries-and-resources" data-toc="interaction-with-other-libraries-and-resources">Interaction with other libraries and resources</h2><section class="chapter"><h3 id="accessing-multiplatform-resources-from-external-libraries" data-toc="accessing-multiplatform-resources-from-external-libraries">Accessing multiplatform resources from external libraries</h3><p id="efssxu_276">If you want to process multiplatform resources using other libraries included in your project, you can pass platform-specific file paths to these other APIs. To get a platform-specific path, call the <code class="code" id="efssxu_280">Res.getUri()</code> function with the project path to the resource:</p><div class="code-block" data-lang="kotlin">
+val uri = Res.getUri(&quot;files/my_video.mp4&quot;)
+</div><p id="efssxu_278">Now that the <code class="code" id="efssxu_281">uri</code> variable contains the absolute path to the file, any external library can use that path to access the file in a manner that suits it.</p><p id="efssxu_279">For Android-specific uses, multiplatform resources are also <a href="#compose-multiplatform-resources-as-android-assets" id="efssxu_282">packed as Android assets</a>.</p></section><section class="chapter"><h3 id="remote-files" data-toc="remote-files">Remote files</h3><p id="efssxu_283">In the context of the resource library, only files that are part of the application are considered resources.</p><p id="efssxu_284">You can load remote files from the internet using their URL using specialized libraries:</p><ul class="list _bullet" id="efssxu_285"><li class="list__item" id="efssxu_286"><p><a href="https://github.com/qdsfdhvh/compose-imageloader" id="efssxu_289" data-external="true" rel="noopener noreferrer">Compose ImageLoader</a></p></li><li class="list__item" id="efssxu_287"><p><a href="https://github.com/Kamel-Media/Kamel" id="efssxu_290" data-external="true" rel="noopener noreferrer">Kamel</a></p></li><li class="list__item" id="efssxu_288"><p><a href="https://ktor.io/" id="efssxu_291" data-external="true" rel="noopener noreferrer">Ktor client</a></p></li></ul></section><section class="chapter"><h3 id="using-java-resources" data-toc="using-java-resources">Using Java resources</h3><p id="efssxu_292">While you can use Java resources with Compose Multiplatform, they don't benefit from extended features provided by the framework: generated accessors, multimodule support, localization, and so on. Consider transitioning fully to the multiplatform resource library to unlock that potential.</p><p id="efssxu_293">With Compose Multiplatform 1.8.2, the resources API available in the <code class="code" id="efssxu_295">compose.ui</code> package is deprecated. If you still need to work with Java resources, copy the following implementation to your project to ensure that your code works after you upgrade to Compose Multiplatform 1.7.0 or above:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="internal fun painterResource(resourcePath: String): Painter">
+@Composable
+internal fun painterResource(
+    resourcePath: String
+): Painter = when (resourcePath.substringAfterLast(&quot;.&quot;)) {
+    &quot;svg&quot; -&gt; rememberSvgResource(resourcePath)
+    &quot;xml&quot; -&gt; rememberVectorXmlResource(resourcePath)
+    else -&gt; rememberBitmapResource(resourcePath)
+}
+
+@Composable
+internal fun rememberBitmapResource(path: String): Painter {
+    return remember(path) { BitmapPainter(readResourceBytes(path).decodeToImageBitmap()) }
+}
+
+@Composable
+internal fun rememberVectorXmlResource(path: String): Painter {
+    val density = LocalDensity.current
+    val imageVector = remember(density, path) { readResourceBytes(path).decodeToImageVector(density) }
+    return rememberVectorPainter(imageVector)
+}
+
+@Composable
+internal fun rememberSvgResource(path: String): Painter {
+    val density = LocalDensity.current
+    return remember(density, path) { readResourceBytes(path).decodeToSvgPainter(density) }
+}
+
+private object ResourceLoader
+private fun readResourceBytes(resourcePath: String) =
+    ResourceLoader.javaClass.classLoader.getResourceAsStream(resourcePath).readAllBytes()
+</div></section></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next?</h2><ul class="list _bullet" id="efssxu_296"><li class="list__item" id="efssxu_297"><p>Check out the official <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/components/resources/demo" id="efssxu_299" data-external="true" rel="noopener noreferrer">demo project</a> that shows how resources can be handled in a Compose Multiplatform project targeting iOS, Android, and desktop.</p></li><li class="list__item" id="efssxu_298"><p>Learn how to manage the application's <a href="compose-resource-environment.html" id="efssxu_300">resource environment</a> like in-app theme and language.</p></li></ul></section><div class="last-modified">Last modified: 28 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-multiplatform-resources-setup.html" class="navigation-links__prev">Setup and configuration for multiplatform resources</a><a href="compose-resource-environment.html" class="navigation-links__next">Manage local resource environment</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

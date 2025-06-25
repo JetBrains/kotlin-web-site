@@ -1,0 +1,98 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:22.921388716"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Support for desktop accessibility features | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"enabling-accessibility-on-windows","level":0,"title":"Enabling accessibility on Windows","anchor":"#enabling-accessibility-on-windows"},{"id":"example-custom-button-with-semantic-rules","level":0,"title":"Example: Custom button with semantic rules","anchor":"#example-custom-button-with-semantic-rules"},{"id":"what-s-next","level":0,"title":"What\u0027s next?","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Support for desktop accessibility features | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-accessibility.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Support for desktop accessibility features | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-accessibility.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-accessibility.html",
+    "name": "Support for desktop accessibility features | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-desktop-accessibility" data-main-title="Support for desktop accessibility features" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Desktop-specific components" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-desktop-accessibility.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-desktop-accessibility" id="compose-desktop-accessibility.md">Support for desktop accessibility features</h1><p id="-ptuq77_2">Compose Multiplatform builds on top of <a href="https://developer.android.com/jetpack/compose" id="-ptuq77_7" data-external="true" rel="noopener noreferrer">Jetpack Compose</a>, making most accessibility features available in common code across all platforms. The current status of accessibility support on desktop is as follows:</p><div class="table-wrapper"><table class="wide" id="-ptuq77_3"><thead><tr class="ijRowHead" id="-ptuq77_8"><th id="-ptuq77_12"><p>Platform</p></th><th id="-ptuq77_13"><p>Accessibility status</p></th></tr></thead><tbody><tr id="-ptuq77_9"><td id="-ptuq77_14"><p>MacOS</p></td><td id="-ptuq77_15"><p>Fully supported</p></td></tr><tr id="-ptuq77_10"><td id="-ptuq77_16"><p>Windows</p></td><td id="-ptuq77_17"><p>Supported via Java Access Bridge</p></td></tr><tr id="-ptuq77_11"><td id="-ptuq77_18"><p>Linux</p></td><td id="-ptuq77_19"><p>Not supported</p></td></tr></tbody></table></div><section class="chapter"><h2 id="enabling-accessibility-on-windows" data-toc="enabling-accessibility-on-windows">Enabling accessibility on Windows</h2><p id="-ptuq77_20">Accessibility on Windows is provided via Java Access Bridge, which is disabled by default. To develop accessibility features on Windows, enable Java Access Bridge with the following command:</p><div class="code-block" data-lang="bash">
+%JAVA_HOME%\bin\jabswitch.exe /enable
+</div><p id="-ptuq77_22">To create a native distribution that includes accessibility features, add the <code class="code" id="-ptuq77_24">jdk.accessibility</code> module using the <code class="code" id="-ptuq77_25">modules</code> DSL method:</p><div class="code-block" data-lang="kotlin">
+compose.desktop {
+    application {
+        nativeDistributions {
+            modules(&quot;jdk.accessibility&quot;)
+        }
+    }
+}
+</div></section><section class="chapter"><h2 id="example-custom-button-with-semantic-rules" data-toc="example-custom-button-with-semantic-rules">Example: Custom button with semantic rules</h2><p id="-ptuq77_26">Let's create a simple app with a custom button and specify explanatory text for screen reader tools. With a screen reader enabled, you will hear the &quot;Click to increment value&quot; text from the button description:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis=".clickable { count += 1 } .semantics(mergeDescendants = true)">
+import androidx.compose.foundation.*
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Text
+import androidx.compose.runtime.*
+import androidx.compose.ui.*
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.*
+import androidx.compose.ui.unit.*
+import androidx.compose.ui.window.*
+
+fun main() = singleWindowApplication(
+    title = &quot;Custom Button&quot;, state = WindowState(size = DpSize(300.dp, 200.dp))
+) {
+    var count by remember { mutableStateOf(0) }
+
+    Box(modifier = Modifier.padding(50.dp)) {
+        Box(modifier = Modifier
+            .background(Color.LightGray)
+            .fillMaxSize()
+            .clickable { count += 1 }
+            // Uses text from the content  
+            .semantics(mergeDescendants = true) {
+                // Assigns the type of UI element
+                role = Role.Button
+                // Adds some help text to button
+                contentDescription = &quot;Click to increment value&quot;
+            }
+        ) {
+            val text = when (count) {
+                0 -&gt; &quot;Click Me!&quot;
+                1 -&gt; &quot;Clicked&quot;
+                else -&gt; &quot;Clicked $count times&quot;
+            }
+            Text(text, modifier = Modifier.align(Alignment.Center), fontSize = 24.sp)
+        }
+    }
+}
+</div><p id="-ptuq77_28">To test accessibility information for the elements in your application on macOS, you can use <a href="https://developer.apple.com/documentation/accessibility/accessibility-inspector" id="-ptuq77_33" data-external="true" rel="noopener noreferrer">Accessibility Inspector</a> (<span class="control" id="-ptuq77_34">Xcode</span> | <span class="control" id="-ptuq77_35">Open Developer Tool</span> | <span class="control" id="-ptuq77_36">Accessibility Inspector</span>):</p><figure id="-ptuq77_29"><img alt="Accessibility inspector on mcOS" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-accessibility-macos.png" title="Accessibility inspector on mcOS" width="700" height="450"></figure><p id="-ptuq77_30">On Windows, you can use the <span class="control" id="-ptuq77_37">Show Speech History</span> feature in <a href="https://www.freedomscientific.com/Products/Blindness/JAWS" id="-ptuq77_38" data-external="true" rel="noopener noreferrer">JAWS</a> or the <span class="control" id="-ptuq77_39">Speech Viewer</span> in <a href="https://www.nvaccess.org/" id="-ptuq77_40" data-external="true" rel="noopener noreferrer">NVDA</a>:</p><figure id="-ptuq77_31"><img alt="Accessibility on Windows" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-accessibility.png" title="Accessibility on Windows" width="600" height="274"></figure><p id="-ptuq77_32">For more examples, refer to the <a href="https://developer.android.com/develop/ui/compose/accessibility" id="-ptuq77_41" data-external="true" rel="noopener noreferrer">Accessibility in Jetpack Compose</a> guide.</p></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next?</h2><p id="-ptuq77_42">Explore the tutorials about <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/tutorials#desktop" id="-ptuq77_43" data-external="true" rel="noopener noreferrer">other desktop components</a>.</p></section><div class="last-modified">Last modified: 03 December 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-native-distribution.html" class="navigation-links__prev">Native distributions</a><a href="compose-desktop-ui-testing.html" class="navigation-links__next">Testing Compose Multiplatform UI with JUnit</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

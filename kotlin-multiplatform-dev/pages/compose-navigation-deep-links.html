@@ -1,0 +1,242 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:21.068809951"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Deep links | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"setup","level":0,"title":"Setup","anchor":"#setup"},{"id":"register-deep-links-schemas-in-the-operating-system","level":0,"title":"Register deep links schemas in the operating system","anchor":"#register-deep-links-schemas-in-the-operating-system"},{"id":"assign-deep-links-to-destinations","level":0,"title":"Assign deep links to destinations","anchor":"#assign-deep-links-to-destinations"},{"id":"handle-received-deep-links","level":0,"title":"Handle received deep links","anchor":"#handle-received-deep-links"},{"id":"result","level":0,"title":"Result","anchor":"#result"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Deep links | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-navigation-deep-links.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Deep links | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-navigation-deep-links.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-navigation-deep-links.html",
+    "name": "Deep links | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-navigation-deep-links" data-main-title="Deep links" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Navigation" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-navigation-deep-links.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-navigation-deep-links" id="compose-navigation-deep-links.md">Deep links</h1><p id="v0xcqx_2">Deep linking is a navigation mechanism that allows the operating system to handle custom links by taking the user to a specific destination in the corresponding app.</p><p id="v0xcqx_3">Deep links are a more general case of app links (as they are called on Android) or universal links (the iOS term): these are verified connections of the app with a specific web address. To learn about them specifically, see documentation on <a href="https://developer.android.com/training/app-links" id="v0xcqx_13" data-external="true" rel="noopener noreferrer">Android App Links</a> and <a href="https://developer.apple.com/documentation/xcode/allowing-apps-and-websites-to-link-to-your-content/" id="v0xcqx_14" data-external="true" rel="noopener noreferrer">iOS universal links</a>.</p><p id="v0xcqx_4">Deep links can also be useful for getting outside input into the app, for example, in the case of OAuth authorization: you can parse the deep link and get the OAuth token without necessarily visually navigating the users.</p><aside class="prompt" data-type="warning" data-title="" id="v0xcqx_5"><p id="v0xcqx_15">Since outside input can be malicious, be sure to follow the <a href="https://developer.android.com/privacy-and-security/risks/unsafe-use-of-deeplinks" id="v0xcqx_16" data-external="true" rel="noopener noreferrer">security guidelines</a> to properly mitigate risks associated with processing raw deep link URIs.</p></aside><p id="v0xcqx_6">To implement a deep link in Compose Multiplatform:</p><ol class="list _decimal" id="v0xcqx_7" type="1"><li class="list__item" id="v0xcqx_17"><p><a href="#register-deep-links-schemas-in-the-operating-system" id="v0xcqx_20">Register your deep link schema in the app configuration</a></p></li><li class="list__item" id="v0xcqx_18"><p><a href="#assign-deep-links-to-destinations" id="v0xcqx_21">Assign specific deep links to destinations in the navigation graph</a></p></li><li class="list__item" id="v0xcqx_19"><p><a href="#handle-received-deep-links" id="v0xcqx_22">Handle deep links received by the app</a></p></li></ol><section class="chapter"><h2 id="setup" data-toc="setup">Setup</h2><p id="v0xcqx_23">To use deep links with Compose Multiplatform, set up the dependencies as follows.</p><p id="v0xcqx_24">List these versions, libraries, and plugins in your Gradle catalog:</p><div class="code-block" data-lang="ini">
+[versions]
+compose-multiplatform = &quot;1.8.2&quot;
+agp = &quot;8.9.0&quot;
+
+# The multiplatform Navigation library version with deep link support 
+androidx-navigation = &quot;2.9.0-beta03&quot;
+
+# Minimum Kotlin version to use with Compose Multiplatform 1.8.0
+kotlin = &quot;2.1.0&quot;
+
+# Serialization library necessary to implement type-safe routes
+kotlinx-serialization = &quot;1.7.3&quot;
+
+[libraries]
+navigation-compose = { module = &quot;org.jetbrains.androidx.navigation:navigation-compose&quot;, version.ref = &quot;androidx-navigation&quot; }
+kotlinx-serialization-json = { module = &quot;org.jetbrains.kotlinx:kotlinx-serialization-json&quot;, version.ref = &quot;kotlinx-serialization&quot; }
+
+[plugins]
+multiplatform = { id = &quot;org.jetbrains.kotlin.multiplatform&quot;, version.ref = &quot;kotlin&quot; }
+compose-compiler = { id = &quot;org.jetbrains.kotlin.plugin.compose&quot;, version.ref = &quot;kotlin&quot; }
+compose = { id = &quot;org.jetbrains.compose&quot;, version.ref = &quot;compose-multiplatform&quot; }
+kotlinx-serialization = { id = &quot;org.jetbrains.kotlin.plugin.serialization&quot;, version.ref = &quot;kotlin&quot; }
+android-application = { id = &quot;com.android.application&quot;, version.ref = &quot;agp&quot; }
+</div><p id="v0xcqx_26">Add the additional dependencies to the shared module's <code class="code" id="v0xcqx_28">build.gradle.kts</code>:</p><div class="code-block" data-lang="kotlin">
+plugins {
+    // ...
+    alias(libs.plugins.kotlinx.serialization)
+}
+
+// ...
+
+kotlin {
+    // ...
+    sourceSets {
+        commonMain.dependencies {
+            // ...
+            implementation(libs.androidx.navigation.compose)
+            implementation(libs.kotlinx.serialization.json)
+        }
+    }
+}
+</div></section><section class="chapter"><h2 id="register-deep-links-schemas-in-the-operating-system" data-toc="register-deep-links-schemas-in-the-operating-system">Register deep links schemas in the operating system</h2><p id="v0xcqx_29">Each operating system has its own way of handling deep links. It's more reliable to refer to the documentation for your particular targets:</p><ul class="list _bullet" id="v0xcqx_30"><li class="list__item" id="v0xcqx_31"><p id="v0xcqx_35">For Android apps, deep link schemes are declared as intent filters in the <code class="code" id="v0xcqx_36">AndroidManifest.xml</code> file. See <a href="https://developer.android.com/training/app-links/deep-linking?hl=en#adding-filters" id="v0xcqx_37" data-external="true" rel="noopener noreferrer">Android documentation</a> to learn how to properly set up intent filters.</p></li><li class="list__item" id="v0xcqx_32"><p id="v0xcqx_38">For iOS and macOS apps, deep link schemes are declared in <code class="code" id="v0xcqx_40">Info.plist</code> files, in the <a href="https://developer.apple.com/documentation/bundleresources/information-property-list/cfbundleurltypes" id="v0xcqx_41" data-external="true" rel="noopener noreferrer">CFBundleURLTypes</a> key.</p><aside class="prompt" data-type="note" data-title="" id="v0xcqx_39"><p id="v0xcqx_42">Compose Multiplatform <a href="compose-native-distribution.html#information-property-list-on-macos" id="v0xcqx_43">provides a Gradle DSL</a> to add values to a macOS app's <code class="code" id="v0xcqx_44">Info.plist</code>. For iOS, you can edit the file directly in your KMP project or <a href="https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app#Register-your-URL-scheme" id="v0xcqx_45" data-external="true" rel="noopener noreferrer">register schemes using the Xcode GUI</a>.</p></aside></li><li class="list__item" id="v0xcqx_33"><p id="v0xcqx_46">For Windows apps, deep link schemes can be declared by adding <a href="https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa767914(v=vs.85)" id="v0xcqx_48" data-external="true" rel="noopener noreferrer">keys with necessary information to the Windows registry</a> (for Windows 8 and earlier) or by specifying the <a href="https://learn.microsoft.com/en-us/windows/apps/develop/launch/handle-uri-activation" id="v0xcqx_49" data-external="true" rel="noopener noreferrer">extension in the package manifest</a> (for Windows 10 and 11). This can be done with an installation script or a third-party distribution package generator like <a href="https://conveyor.hydraulic.dev/" id="v0xcqx_50" data-external="true" rel="noopener noreferrer">Hydraulic Conveyor</a>. Compose Multiplatform does not support configuring this within the project itself.</p><aside class="prompt" data-type="tip" data-title="" id="v0xcqx_47"><p id="v0xcqx_51">Make sure you're not using one of the <a href="https://learn.microsoft.com/en-us/windows/apps/develop/launch/reserved-uri-scheme-names#reserved-uri-scheme-names" id="v0xcqx_52" data-external="true" rel="noopener noreferrer">schemes reserved by Windows</a>.</p></aside></li><li class="list__item" id="v0xcqx_34"><p id="v0xcqx_53">For Linux, deep link schemes can be registered in a <code class="code" id="v0xcqx_54">.desktop</code> file included in the distribution.</p></li></ul></section><section class="chapter"><h2 id="assign-deep-links-to-destinations" data-toc="assign-deep-links-to-destinations">Assign deep links to destinations</h2><p id="v0xcqx_55">A destination declared as a part of a navigation graph has an optional <code class="code" id="v0xcqx_60">deepLinks</code> parameter which can hold the list of corresponding <code class="code" id="v0xcqx_61">NavDeepLink</code> objects. Each <code class="code" id="v0xcqx_62">NavDeeplink</code> describes a URI pattern that should match a destination &ndash; you can define multiple URI patterns that should lead to the same screen.</p><p id="v0xcqx_56">There is no limit to the number of deep links you can define for a route.</p><section class="chapter"><h3 id="general-uri-patterns-for-deep-links" data-toc="general-uri-patterns-for-deep-links">General URI patterns for deep links</h3><p id="v0xcqx_63">A general URI pattern should match the entire URI. You can use placeholders for parameters to extract them from the received URI within the destination.</p><p id="v0xcqx_64">Rules for general URI patterns:</p><ul class="list _bullet" id="v0xcqx_65"><li class="list__item" id="v0xcqx_66"><p>URIs without a scheme are assumed to start with <code class="code" id="v0xcqx_70">http://</code> or <code class="code" id="v0xcqx_71">https://</code>. So <code class="code" id="v0xcqx_72">uriPattern = &quot;example.com&quot;</code> matches <code class="code" id="v0xcqx_73">http://example.com</code> and <code class="code" id="v0xcqx_74">https://example.com</code>.</p></li><li class="list__item" id="v0xcqx_67"><p><code class="code" id="v0xcqx_75">{placeholder}</code> matches one or more characters (<code class="code" id="v0xcqx_76">example.com/name={name}</code> matches <code class="code" id="v0xcqx_77">https://example.com/name=Bob</code>). To match zero or more characters, use the <code class="code" id="v0xcqx_78">.*</code> wildcard (<code class="code" id="v0xcqx_79">example.com/name={.*}</code> matches <code class="code" id="v0xcqx_80">https://example.com/name=</code> as well as any value of <code class="code" id="v0xcqx_81">name</code>).</p></li><li class="list__item" id="v0xcqx_68"><p>Parameters for path placeholders are required while matching query placeholders is optional. For example, the pattern <code class="code" id="v0xcqx_82">example.com/users/{id}?arg1={arg1}&amp;arg2={arg2}</code>: </p><ul class="list _bullet" id="v0xcqx_83"><li class="list__item" id="v0xcqx_84"><p>Doesn't match <code class="code" id="v0xcqx_87">http://www.example.com/users?arg1=one&amp;arg2=two</code> because the required part of the path (<code class="code" id="v0xcqx_88">id</code>) is missing.</p></li><li class="list__item" id="v0xcqx_85"><p>Matches both <code class="code" id="v0xcqx_89">http://www.example.com/users/4?arg2=two</code> and <code class="code" id="v0xcqx_90">http://www.example.com/users/4?arg1=one</code>.</p></li><li class="list__item" id="v0xcqx_86"><p>Also matches <code class="code" id="v0xcqx_91">http://www.example.com/users/4?other=random</code> because extraneous query parameters don't affect matching.</p></li></ul></li><li class="list__item" id="v0xcqx_69"><p>If several composables have a <code class="code" id="v0xcqx_92">navDeepLink</code> that matches the received URI, behavior is indeterminate. Make sure that your deep link patterns don't intersect. If you need multiple composables to handle the same deep link pattern, consider adding path or query parameters, or use an intermediate destination to route the user predictably.</p></li></ul></section><section class="chapter"><h3 id="generated-uri-pattern-for-a-route-type" data-toc="generated-uri-pattern-for-a-route-type">Generated URI pattern for a route type</h3><p id="v0xcqx_93">You can avoid writing out the URI pattern fully: the Navigation library can automatically generate a URI pattern based on the parameters of a route.</p><p id="v0xcqx_94">To use this approach, define a deep link like this:</p><div class="code-block" data-lang="kotlin">
+composable&lt;PlantDetail&gt;(
+    deepLinks = listOf(
+        navDeepLink&lt;PlantDetail&gt;(basePath = &quot;demo://example.com/plant&quot;)
+    )
+) { ... }
+</div><p id="v0xcqx_96">Here <code class="code" id="v0xcqx_103">PlantDetail</code> is the route type you're using for the destination, and the &quot;plant&quot; in <code class="code" id="v0xcqx_104">basePath</code> is the serial name of the <code class="code" id="v0xcqx_105">PlantDetail</code> data class.</p><p id="v0xcqx_97">The rest of the URI pattern will be generated as follows:</p><ul class="list _bullet" id="v0xcqx_98"><li class="list__item" id="v0xcqx_106"><p>Required parameters are appended as path parameters (example: <code class="code" id="v0xcqx_110">/{id}</code>)</p></li><li class="list__item" id="v0xcqx_107"><p>Parameters with a default value (optional parameters) are appended as query parameters (example: <code class="code" id="v0xcqx_111">?name={name}</code>)</p></li><li class="list__item" id="v0xcqx_108"><p>Collections are appended as query parameters (example: <code class="code" id="v0xcqx_112">?items={value1}&amp;items={value2}</code>)</p></li><li class="list__item" id="v0xcqx_109"><p>The order of parameters matches the order of the fields in the route definition.</p></li></ul><p id="v0xcqx_99">So, for example, this route type:</p><div class="code-block" data-lang="kotlin">
+@Serializable data class PlantDetail(
+  val id: String,
+  val name: String,
+  val colors: List&lt;String&gt;,
+  val latinName: String? = null,
+)
+</div><p id="v0xcqx_101">has the following generated URI pattern generated by the library:</p><div class="code-block" data-lang="none">
+&lt;basePath&gt;/{id}/{name}/?colors={color1}&amp;colors={color2}&amp;latinName={latinName}
+</div></section><section class="chapter"><h3 id="example-of-adding-deep-links-to-a-destination" data-toc="example-of-adding-deep-links-to-a-destination">Example of adding deep links to a destination</h3><p id="v0xcqx_113">In this example we assign several deep links to a destination and then extract parameter values from the received URIs:</p><div class="code-block" data-lang="kotlin">
+@Serializable @SerialName(&quot;dlscreen&quot;) data class DeepLinkScreen(val name: String)
+
+// ...
+
+val firstBasePath = &quot;demo://example1.org&quot;
+
+NavHost(
+    navController = navController,
+    startDestination = FirstScreen
+) {
+    // ...
+    
+    composable&lt;DeepLinkScreen&gt;(
+        deepLinks = listOf(
+            // This composable should handle links both for demo://example1.org and demo://example2.org
+            navDeepLink { uriPattern = &quot;$firstBasePath?name={name}&quot; },
+            navDeepLink { uriPattern = &quot;demo://example2.org/name={name}&quot; },
+            // The generated pattern only handles the parameters,
+            // so we add the serial name for the route type
+            navDeepLink&lt;Screen3&gt;(basePath = &quot;$firstBasePath/dlscreen&quot;),
+        )
+    ) {
+        // If the app receives the URI `demo://example1.org/dlscreen/Jane/`,
+        // it matches the generated URI pattern (name is a required parameter and is given in the path),
+        // and you can map it to the route type automatically
+        val deeplink: DeepLinkScreen = backStackEntry.toRoute()
+        val nameGenerated = deeplink.name
+        
+        // If the app receives a URI matching only a general pattern,
+        // like `demo://example1.com/?name=Jane`
+        // you need to parse the URI directly
+        val nameGeneral = backStackEntry.arguments?.read { getStringOrNull(&quot;name&quot;) }
+        
+        // Composable content
+    }
+}
+</div><p id="v0xcqx_115">For web, deep links work a bit differently: since Compose Multiplatform for Web makes single-page apps, you need to put all parameters of the deep link URI pattern in a URL fragment (after the <code class="code" id="v0xcqx_119">#</code> character), and make sure that all parameters are URL-encoded.</p><p id="v0xcqx_116">You can still use the <code class="code" id="v0xcqx_120">backStackEntry.toRoute()</code> method to parse the parameters if the URL fragment conforms to the URI pattern rules. For details on accessing and parsing a URL in a web app, as well as particulars on navigation in the browser, see <a href="compose-navigation-routing.html#support-for-browser-navigation-in-web-apps" id="v0xcqx_121">Support for browser navigation in web apps</a>.</p><div class="code-block" data-lang="kotlin">
+composable&lt;DeepLinkScreen&gt;(
+        deepLinks = listOf(
+            // For the default Compose Multiplatform setup, localhost:8080
+            // is the local dev endpoint that runs with the wasmJsBrowserDevelopmentRun Gradle task
+            navDeepLink { uriPattern = &quot;localhost:8080/#dlscreen%2F{name}&quot; },
+        )
+    ) { ... }
+</div><aside class="prompt" data-type="tip" data-title="" id="v0xcqx_118"><p id="v0xcqx_122">Like with any other single-page web app, you can avoid using URL fragments on the web. To do that, you have to configure your web server to redirect appropriate requests to the app and rewrite the <a href="compose-navigation-routing.html#full-url-customization" id="v0xcqx_123">default mapping of navigation route to the browser address</a>.</p></aside></section></section><section class="chapter"><h2 id="handle-received-deep-links" data-toc="handle-received-deep-links">Handle received deep links</h2><p id="v0xcqx_124">On Android, the deep link URIs sent to the app are available as a part of the <code class="code" id="v0xcqx_130">Intent</code> that triggered the deep link. A cross-platform implementation needs a universal way to listen for deep links.</p><p id="v0xcqx_125">Let's create a bare-bones implementation:</p><ol class="list _decimal" id="v0xcqx_126" type="1"><li class="list__item" id="v0xcqx_131"><p>Declare a singleton in common code for storing and caching the URIs with a listener for external URIs.</p></li><li class="list__item" id="v0xcqx_132"><p>Where necessary, implement platform-specific calls sending URIs received from the operating system.</p></li><li class="list__item" id="v0xcqx_133"><p>Set up the listener for new deep links in the main composable.</p></li></ol><section class="chapter"><h3 id="declare-a-singleton-with-a-uri-listener" data-toc="declare-a-singleton-with-a-uri-listener">Declare a singleton with a URI listener</h3><p id="v0xcqx_134">In <code class="code" id="v0xcqx_136">commonMain</code>, declare the singleton object at the top level:</p><div class="code-block" data-lang="kotlin">
+object ExternalUriHandler {
+    // Storage for when a URI arrives before the listener is set up
+    private var cached: String? = null
+    
+    var listener: ((uri: String) -&gt; Unit)? = null
+        set(value) {
+            field = value
+            if (value != null) {
+                // When a listener is set and `cached` is not empty,
+                // immediately invoke the listener with the cached URI
+                cached?.let { value.invoke(it) }
+                cached = null
+            }
+        }
+
+    // When a new URI arrives, cache it.
+    // If the listener is already set, invoke it and clear the cache immediately.
+    fun onNewUri(uri: String) {
+        cached = uri
+        listener?.let {
+            it.invoke(uri)
+            cached = null
+        }
+    }
+}
+</div></section><section class="chapter"><h3 id="implement-platform-specific-calls-to-the-singleton" data-toc="implement-platform-specific-calls-to-the-singleton">Implement platform-specific calls to the singleton</h3><p id="v0xcqx_137">Both for desktop JVM and for iOS you need to explicitly pass the URI received from the system.</p><p id="v0xcqx_138">In <code class="code" id="v0xcqx_143">jvmMain/.../main.kt</code>, parse the command-line arguments for every necessary operating system and pass the received URI on to the singleton:</p><div class="code-block" data-lang="kotlin">
+// Import the singleton
+import org.company.app.ExternalUriHandler
+
+fun main() {
+    if(System.getProperty(&quot;os.name&quot;).indexOf(&quot;Mac&quot;) &gt; -1) {
+        Desktop.getDesktop().setOpenURIHandler { uri -&gt;
+            ExternalUriHandler.onNewUri(uri.uri.toString())
+        }
+    }
+    else {
+        ExternalUriHandler.onNewUri(args.getOrNull(0).toString())
+    }
+
+    application {
+         // ...
+    }
+}
+</div><p id="v0xcqx_140">For iOS, in Swift code add an <code class="code" id="v0xcqx_144">application()</code> variant that handles incoming URIs:</p><div class="code-block" data-lang="swift">
+// Imports the KMP module to access the singleton
+import ComposeApp
+
+func application(
+    _ application: UIApplication,
+    open uri: URL,
+    options: [UIApplication.OpenURLOptionsKey: Any] = [:]
+) -&gt; Bool {
+    // Sends the full URI on to the singleton
+    ExternalUriHandler.shared.onNewUri(uri: uri.absoluteString)    
+        return true
+    }
+</div><aside class="prompt" data-type="tip" data-title="" id="v0xcqx_142"><p id="v0xcqx_145">For naming conventions for accessing singletons from Swift, see <a href="https://kotlinlang.org/docs/native-objc-interop.html#kotlin-singletons" id="v0xcqx_146" data-external="true" rel="noopener noreferrer">Kotlin/Native documentation</a>.</p></aside></section><section class="chapter"><h3 id="set-up-the-listener" data-toc="set-up-the-listener">Set up the listener</h3><p id="v0xcqx_147">You can use a <code class="code" id="v0xcqx_149">DisposableEffect(Unit)</code> to set up the listener and clean it up after the composable is no longer active. For example:</p><div class="code-block" data-lang="kotlin">
+internal fun App(navController: NavHostController = rememberNavController()) = AppTheme {
+
+    // The effect is produced only once, as `Unit` never changes
+    DisposableEffect(Unit) {
+        // Sets up the listener to call `NavController.navigate()`
+        // for the composable that has a matching `navDeepLink` listed
+        ExternalUriHandler.listener = { uri -&gt;
+            navController.navigate(NavUri(uri))
+        }
+        // Removes the listener when the composable is no longer active
+        onDispose {
+            ExternalUriHandler.listener = null
+        }
+    }
+
+    // Reusing the example from earlier in this article
+    NavHost(
+        navController = navController,
+        startDestination = FirstScreen
+    ) {
+        // ...
+
+        composable&lt;DeepLinkScreen&gt;(
+            deepLinks = listOf(
+                navDeepLink { uriPattern = &quot;$firstBasePath?name={name}&quot; },
+                navDeepLink { uriPattern = &quot;demo://example2.com/name={name}&quot; },
+            )
+        ) {
+            // Composable content
+        }
+    }
+}
+</div></section></section><section class="chapter"><h2 id="result" data-toc="result">Result</h2><p id="v0xcqx_150">Now you can see the full workflow: when the user opens a <code class="code" id="v0xcqx_152">demo://</code> URI, the operating system matches it with the registered scheme. Then:</p><ul class="list _bullet" id="v0xcqx_151"><li class="list__item" id="v0xcqx_153"><p>If the app handling the deep link is closed, the singleton receives the URI and caches it. When the main composable function starts, it calls the singleton and navigates to the deep link matching the cached URI.</p></li><li class="list__item" id="v0xcqx_154"><p>If the app handling the deep link is open, the listener is already set up, so when the singleton receives the URI the app immediately navigates to it.</p></li></ul></section><div class="last-modified">Last modified: 07 May 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-navigation-routing.html" class="navigation-links__prev">Navigation and routing</a><a href="compose-drag-drop.html" class="navigation-links__next">Drag-and-drop operations</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

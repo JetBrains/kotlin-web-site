@@ -1,0 +1,79 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:24.619285713"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Project configuration with Amper | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"how-amper-works","level":0,"title":"How Amper works","anchor":"#how-amper-works"},{"id":"try-amper","level":0,"title":"Try Amper","anchor":"#try-amper"},{"id":"what-s-next","level":0,"title":"What\u0027s next","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Project configuration with Amper | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/amper.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Project configuration with Amper | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/amper.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/amper.html",
+    "name": "Project configuration with Amper | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="amper" data-main-title="Project configuration with Amper" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Tools" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/tools/amper.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="amper" id="amper.md">Project configuration with Amper</h1><p id="-uemys2_2"><a href="https://github.com/JetBrains/amper/tree/HEAD" id="-uemys2_8" data-external="true" rel="noopener noreferrer">Amper</a> is a new tool created by JetBrains to help you configure projects for building, packaging, publishing, and more. With Amper, you can spend less time dealing with build systems and focus on addressing real business challenges instead.</p><p id="-uemys2_3">Amper lets you create configuration files for Kotlin Multiplatform applications that work on the JVM, Android, iOS, macOS, and Linux, as well as for multiplatform libraries that work with all of these supported targets.</p><aside class="prompt" data-type="warning" data-title="" id="-uemys2_4"><p id="-uemys2_9">Amper is currently <a href="supported-platforms.html#general-kotlin-stability-levels" id="-uemys2_10">Experimental</a>. You're welcome to try it in your Kotlin Multiplatform projects. We would appreciate your feedback in <a href="https://youtrack.jetbrains.com/issues/AMPER" id="-uemys2_11" data-external="true" rel="noopener noreferrer">YouTrack</a>.</p></aside><section class="chapter"><h2 id="how-amper-works" data-toc="how-amper-works">How Amper works</h2><p id="-uemys2_12">Amper currently uses Gradle as the backend and YAML as the frontend defining the project configuration. It supports custom tasks, CocoaPods, library publishing to Maven, and packaging desktop apps through the Gradle interop.</p><p id="-uemys2_13">With Amper, you can set up a configuration for platform-specific applications and shared Kotlin libraries. They are declared as modules in a <code class="code" id="-uemys2_18">.yaml</code> module manifest file using a special declarative DSL.</p><p id="-uemys2_14">The core concept of this DSL is Kotlin Multiplatform. Amper allows you to configure Kotlin Multiplatform projects quickly and easily without having to dive deep into complex Gradle concepts. The Amper DSL offers a special syntax enabling you to work with multiplatform configurations, including dependencies, settings, and so on.</p><p id="-uemys2_15">Here is an example of Amper's manifest file for a Kotlin Multiplatform shared library that can be used with JVM, Android, and iOS applications:</p><div class="code-block" data-lang="yaml">
+product:
+  type: lib
+  platforms: [ jvm, android, iosArm64, iosSimulatorArm64, iosX64 ]
+
+# Shared Compose Multiplatform dependencies:
+dependencies:
+  - org.jetbrains.compose.foundation:foundation:1.5.0-rc01: exported
+  - org.jetbrains.compose.material3:material3:1.5.0-rc01: exported
+
+# Android-only dependencies  
+dependencies@android:
+  # Integration compose with activities
+  - androidx.activity:activity-compose:1.7.2: exported
+  - androidx.appcompat:appcompat:1.6.1: exported
+
+# iOS-only dependencies with a dependency on a CocoaPod
+# Note that CocoaPods dependencies are not yet implemented in the prototype
+dependencies@ios:
+  - pod: 'FirebaseCore'
+    version: '~&gt; 6.6'
+
+settings:
+  # Enable Kotlin serialization
+  kotlin:
+    serialization: json
+
+  # Enable Compose Multiplatform framework
+  compose: enabled
+</div><ul class="list _bullet" id="-uemys2_17"><li class="list__item" id="-uemys2_19"><p>The <code class="code" id="-uemys2_22">product</code> section defines the project type and the list of targeted platforms.</p></li><li class="list__item" id="-uemys2_20"><p>The <code class="code" id="-uemys2_23">dependencies</code> section adds not only Kotlin and Maven dependencies, but also platform-specific package managers, such as CocoaPods and Swift Package Manager.</p></li><li class="list__item" id="-uemys2_21"><p>The <code class="code" id="-uemys2_24">@platform</code> qualifier marks platform-specific sections, including dependencies and settings.</p></li></ul></section><section class="chapter"><h2 id="try-amper" data-toc="try-amper">Try Amper</h2><p id="-uemys2_25">You can try Amper in one of the following ways:</p><ul class="list _bullet" id="-uemys2_26"><li class="list__item" id="-uemys2_29"><p>Use <a href="https://www.jetbrains.com/idea/nextversion/" id="-uemys2_31" data-external="true" rel="noopener noreferrer">IntelliJ IDEA</a> 2023.3 and later for JVM and Android projects (starting with build 233.11555).</p></li><li class="list__item" id="-uemys2_30"><p>Use <a href="https://docs.gradle.org/current/userguide/userguide.html" id="-uemys2_32" data-external="true" rel="noopener noreferrer">Gradle</a> to build Amper projects from the command line or your CI/CD tool.</p></li></ul><p id="-uemys2_27">Follow <a href="https://github.com/JetBrains/amper/tree/HEAD/docs/Tutorial.md" id="-uemys2_33" data-external="true" rel="noopener noreferrer">this tutorial</a> to create your first Kotlin Multiplatform project with Amper. Explore the <a href="https://github.com/JetBrains/amper/tree/HEAD/docs/Documentation.md" id="-uemys2_34" data-external="true" rel="noopener noreferrer">documentation</a> to learn more about Amper's functionality and design.</p><p id="-uemys2_28">Feel free to submit any feedback you might have to our <a href="https://youtrack.jetbrains.com/issues/AMPER" id="-uemys2_35" data-external="true" rel="noopener noreferrer">issue tracker</a>. Your input will help us shape the future of Amper.</p></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next</h2><ul class="list _bullet" id="-uemys2_36"><li class="list__item" id="-uemys2_37"><p>Check out the <a href="https://blog.jetbrains.com/blog/2023/11/09/amper-improving-the-build-tooling-user-experience" id="-uemys2_40" data-external="true" rel="noopener noreferrer">JetBrains blog</a> to learn more about our motivation behind creating Amper, its use cases, the current state of the project, and its future.</p></li><li class="list__item" id="-uemys2_38"><p>See the <a href="https://github.com/JetBrains/amper/tree/HEAD/docs/FAQ.md" id="-uemys2_41" data-external="true" rel="noopener noreferrer">Amper FAQ</a> to find answers to the most popular questions.</p></li><li class="list__item" id="-uemys2_39"><p>Read the <a href="https://github.com/JetBrains/amper/tree/HEAD/docs/Documentation.md" id="-uemys2_42" data-external="true" rel="noopener noreferrer">Amper documentation</a>, which covers different aspects of Amper's functionality and design.</p></li></ul></section><div class="last-modified">Last modified: 17 April 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="multiplatform-dsl-reference.html" class="navigation-links__prev">Multiplatform Gradle DSL reference</a><a href="multiplatform-compatibility-guide.html" class="navigation-links__next">Compatibility guide for Kotlin Multiplatform</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:22.992479182"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Swing interoperability | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"swing-interop-use-cases-and-limitations","level":0,"title":"Swing interop use cases and limitations","anchor":"#swing-interop-use-cases-and-limitations"},{"id":"use-compose-multiplatform-in-a-swing-application","level":0,"title":"Use Compose Multiplatform in a Swing application","anchor":"#use-compose-multiplatform-in-a-swing-application"},{"id":"use-swing-in-a-compose-multiplatform-application","level":0,"title":"Use Swing in a Compose Multiplatform application","anchor":"#use-swing-in-a-compose-multiplatform-application"},{"id":"layout-with-nested-swing-and-compose-multiplatform-components","level":0,"title":"Layout with nested Swing and Compose Multiplatform components","anchor":"#layout-with-nested-swing-and-compose-multiplatform-components"},{"id":"what-s-next","level":0,"title":"What\u0027s next?","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Swing interoperability | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-swing-interoperability.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Swing interoperability | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-swing-interoperability.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-desktop-swing-interoperability.html",
+    "name": "Swing interoperability | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="compose-desktop-swing-interoperability" data-main-title="Swing interoperability" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Compose Multiplatform UI framework///Desktop-specific components" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/compose/compose-desktop-swing-interoperability.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="compose-desktop-swing-interoperability" id="compose-desktop-swing-interoperability.md">Swing interoperability</h1><p id="f6h5xs_2">Here, you'll learn about using Swing components in the Compose Multiplatform application and vice versa, the limitations and advantages of this interoperability, and when you should or shouldn't use this approach.</p><p id="f6h5xs_3">The interoperability between Compose Multiplatform and Swing aims to help you:</p><ul class="list _bullet" id="f6h5xs_4"><li class="list__item" id="f6h5xs_11"><p>Simplify and smooth the migration process of Swing applications to Compose Multiplatform.</p></li><li class="list__item" id="f6h5xs_12"><p>Enhance Compose Multiplatform applications using Swing components when no Compose analogues are available.</p></li></ul><p id="f6h5xs_5">In many cases, it's more effective to implement a missing component directly in Compose Multiplatform (and contribute it to the community) rather than using a Swing component within a Compose Multiplatform application.</p><section class="chapter"><h2 id="swing-interop-use-cases-and-limitations" data-toc="swing-interop-use-cases-and-limitations">Swing interop use cases and limitations</h2><section class="chapter"><h3 id="compose-multiplatform-component-in-a-swing-app" data-toc="compose-multiplatform-component-in-a-swing-app">Compose Multiplatform component in a Swing app</h3><p id="f6h5xs_15">The first use case involves adding a Compose Multiplatform component to a Swing application. You can achieve it using the <code class="code" id="f6h5xs_20">ComposePanel</code> Swing component to render the Compose Multiplatform part of the application. From Swing's perspective, <code class="code" id="f6h5xs_21">ComposePanel</code> is another Swing component, and handles it accordingly.</p><p id="f6h5xs_16">Note that all Compose Multiplatform components, including popups, tooltips, and context menus, are rendered within Swing's <code class="code" id="f6h5xs_22">ComposePanel</code> and positioned and resized inside it. Therefore, consider replacing these components with Swing-based implementations, or try two new experimental features:</p><dl id="f6h5xs_17" data-style="title-top"><dt id="f6h5xs_23" data-expandable="false"><a href="#experimental-off-screen-rendering" id="f6h5xs_27">Off-screen rendering</a></dt><dd><p id="f6h5xs_26">Allows rendering of compose panels directly on Swing components.</p></dd><dt id="f6h5xs_24" data-expandable="false"><a href="#experimental-separate-views-for-popups" id="f6h5xs_30">Separate platform views for popups, dialogs, and dropdowns</a></dt><dd><p id="f6h5xs_29">Popups are no longer limited by the initial composable canvas or the app window.</p></dd></dl><p id="f6h5xs_18">Here are several scenarios for using <code class="code" id="f6h5xs_31">ComposePanel</code>:</p><ul class="list _bullet" id="f6h5xs_19"><li class="list__item" id="f6h5xs_32"><p>Embed animated objects or a whole panel of animated objects into your application (for example, selection of emoticons or a toolbar with animated reactions to events).</p></li><li class="list__item" id="f6h5xs_33"><p>Implement an interactive rendering area such as graphics or infographics in your application, which is easier and more convenient to accomplish using Compose Multiplatform.</p></li><li class="list__item" id="f6h5xs_34"><p>Integrate a complex rendering area (potentially even animated) into your application, which is simpler with Compose Multiplatform.</p></li><li class="list__item" id="f6h5xs_35"><p>Replace complex parts of the user interface in your Swing-based application, as Compose Multiplatform provides a convenient component layout system and a wide range of built-in components and options for quickly creating custom components.</p></li></ul></section><section class="chapter"><h3 id="swing-component-in-a-compose-multiplatform-app" data-toc="swing-component-in-a-compose-multiplatform-app">Swing component in a Compose Multiplatform app</h3><p id="f6h5xs_36">Another use case is when you need to use a component that exists in Swing but has no analog in Compose Multiplatform. If creating its new implementation from scratch is too time-consuming, try <code class="code" id="f6h5xs_41">SwingPanel</code>. The <code class="code" id="f6h5xs_42">SwingPanel</code> function serves as a wrapper that manages the size, position, and rendering of a Swing component placed on top of a Compose Multiplatform component.</p><p id="f6h5xs_37">Note that the Swing component within <code class="code" id="f6h5xs_43">SwingPanel</code> will always be layered above the Compose Multiplatform component, so anything positioned underneath your <code class="code" id="f6h5xs_44">SwingPanel</code> will be clipped by the Swing component. To avoid clipping and overlapping issues, try <a href="#experimental-interop-blending" id="f6h5xs_45">experimental interop blending</a>. If there is still a risk of incorrect rendering, you can redesign the UI accordingly or avoid using <code class="code" id="f6h5xs_46">SwingPanel</code> and try implementing the missing component, contributing to technology development.</p><p id="f6h5xs_38">Here are scenarios for using <code class="code" id="f6h5xs_47">SwingPanel</code>:</p><ul class="list _bullet" id="f6h5xs_39"><li class="list__item" id="f6h5xs_48"><p>Your application does not require popups, tooltips, or context menus, or at least they are not inside your <code class="code" id="f6h5xs_50">SwingPanel</code>.</p></li><li class="list__item" id="f6h5xs_49"><p><code class="code" id="f6h5xs_51">SwingPanel</code> remains in a fixed position. In this case, you reduce the risk of glitches and artifacts when the Swing component's position changes. However, this condition is not mandatory and should be tested for each particular case.</p></li></ul><p id="f6h5xs_40">Compose Multiplatform and Swing can be combined in both ways, allowing for flexible UI design. You can place a <code class="code" id="f6h5xs_52">SwingPanel</code> inside a <code class="code" id="f6h5xs_53">ComposePanel</code>, which can also be inside another <code class="code" id="f6h5xs_54">SwingPanel</code>. However, before using such nested combinations, consider potential rendering glitches. Refer to <a href="#layout-with-nested-swing-and-compose-multiplatform-components" id="f6h5xs_55">Layout with nested <code class="code" id="f6h5xs_56">SwingPanel</code> and <code class="code" id="f6h5xs_57">ComposePanel</code></a> for a code sample.</p></section></section><section class="chapter"><h2 id="use-compose-multiplatform-in-a-swing-application" data-toc="use-compose-multiplatform-in-a-swing-application">Use Compose Multiplatform in a Swing application</h2><p id="f6h5xs_58"><code class="code" id="f6h5xs_63">ComposePanel</code> allows you to create a UI with Compose Multiplatform within a Swing-based application. Add an instance of <code class="code" id="f6h5xs_64">ComposePanel</code> to your Swing layout and define the composition inside <code class="code" id="f6h5xs_65">setContent</code>:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="composePanel.setContent { ComposeContent() }">
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.awt.ComposePanel
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import java.awt.BorderLayout
+import java.awt.Dimension
+import javax.swing.JButton
+import javax.swing.JFrame
+import javax.swing.SwingUtilities
+import javax.swing.WindowConstants
+
+val northClicks = mutableStateOf(0)
+val westClicks = mutableStateOf(0)
+val eastClicks = mutableStateOf(0)
+
+fun main() = SwingUtilities.invokeLater {
+    val window = JFrame()
+
+    // Creates ComposePanel
+    val composePanel = ComposePanel()
+    window.defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE
+    window.title = &quot;SwingComposeWindow&quot;
+
+    window.contentPane.add(actionButton(&quot;NORTH&quot;, action = { northClicks.value++ }), BorderLayout.NORTH)
+    window.contentPane.add(actionButton(&quot;WEST&quot;, action = { westClicks.value++ }), BorderLayout.WEST)
+    window.contentPane.add(actionButton(&quot;EAST&quot;, action = { eastClicks.value++ }), BorderLayout.EAST)
+    window.contentPane.add(
+        actionButton(
+            text = &quot;SOUTH/REMOVE COMPOSE&quot;,
+            action = {
+                window.contentPane.remove(composePanel)
+            }
+        ),
+        BorderLayout.SOUTH
+    )
+
+    // Adds ComposePanel to JFrame
+    window.contentPane.add(composePanel, BorderLayout.CENTER)
+
+    // Sets the content
+    composePanel.setContent {
+        ComposeContent()
+    }
+
+    window.setSize(800, 600)
+    window.isVisible = true
+}
+
+fun actionButton(text: String, action: () -&gt; Unit): JButton {
+    val button = JButton(text)
+    button.toolTipText = &quot;Tooltip for $text button.&quot;
+    button.preferredSize = Dimension(100, 100)
+    button.addActionListener { action() }
+    return button
+}
+
+@Composable
+fun ComposeContent() {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Row {
+            Counter(&quot;West&quot;, westClicks)
+            Spacer(modifier = Modifier.width(25.dp))
+            Counter(&quot;North&quot;, northClicks)
+            Spacer(modifier = Modifier.width(25.dp))
+            Counter(&quot;East&quot;, eastClicks)
+        }
+    }
+}
+
+@Composable
+fun Counter(text: String, counter: MutableState&lt;Int&gt;) {
+    Surface(
+        modifier = Modifier.size(130.dp, 130.dp),
+        color = Color(180, 180, 180),
+        shape = RoundedCornerShape(4.dp)
+    ) {
+        Column {
+            Box(
+                modifier = Modifier.height(30.dp).fillMaxWidth(),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(text = &quot;${text}Clicks: ${counter.value}&quot;)
+            }
+            Spacer(modifier = Modifier.height(25.dp))
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Button(onClick = { counter.value++ }) {
+                    Text(text = text, color = Color.White)
+                }
+            }
+        }
+    }
+}
+</div><figure data-theme="light" id="f6h5xs_60" width="799"><img alt="IntegrationWithSwing" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-swing-composepanel.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-swing-composepanel.animated.gif" width="799" style="width: 799px;"></figure><section class="chapter"><h3 id="experimental-off-screen-rendering" data-toc="experimental-off-screen-rendering">Experimental off-screen rendering</h3><p id="f6h5xs_66">An experimental mode allows rendering compose panels directly on Swing components. This prevents transitional rendering issues when panels are shown, hidden, or resized. It also enables proper layering when combining Swing components and compose panels: a Swing component can be shown above or beneath a <code class="code" id="f6h5xs_72">ComposePanel</code>.</p><aside class="prompt" data-type="warning" data-title="" id="f6h5xs_67"><p id="f6h5xs_73">Off-screen rendering is <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="f6h5xs_74">Experimental</a>, and you should use it only for evaluation purposes.</p></aside><p id="f6h5xs_68">To enable off-screen rendering, use the <code class="code" id="f6h5xs_75">compose.swing.render.on.graphics</code> system property. The property must be set before executing any Compose code in your application, so it is recommended to enable it using the <code class="code" id="f6h5xs_76">-D</code> command-line JVM argument at startup:</p><div class="code-block" data-lang="bash">
+-Dcompose.swing.render.on.graphics=true
+</div><p id="f6h5xs_70">Alternatively, use <code class="code" id="f6h5xs_77">System.setProperty()</code> at the entry point:</p><div class="code-block" data-lang="kotlin">
+fun main() {
+    System.setProperty(&quot;compose.swing.render.on.graphics&quot;, &quot;true&quot;)
+    ...
+}
+</div></section><section class="chapter"><h3 id="experimental-separate-views-for-popups" data-toc="experimental-separate-views-for-popups">Experimental separate views for popups</h3><p id="f6h5xs_78">It can be important that popup elements such as tooltips and dropdown menus are not limited by the initial composable canvas or the app window. For example, when the composable view does not occupy the full screen but needs to spawn an alert dialog.</p><aside class="prompt" data-type="warning" data-title="" id="f6h5xs_79"><p id="f6h5xs_85">Creating separate views or windows for popups is <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="f6h5xs_86">Experimental</a>. Opt-in is required (see details below), and you should use it only for evaluation purposes.</p></aside><p id="f6h5xs_80">To create separate views or windows for popups on desktop, set the <code class="code" id="f6h5xs_87">compose.layers.type</code> system property. Supported values:</p><ul class="list _bullet" id="f6h5xs_81"><li class="list__item" id="f6h5xs_88"><p><code class="code" id="f6h5xs_90">WINDOW</code> creates <code class="code" id="f6h5xs_91">Popup</code> and <code class="code" id="f6h5xs_92">Dialog</code> components as separate undecorated windows.</p></li><li class="list__item" id="f6h5xs_89"><p><code class="code" id="f6h5xs_93">COMPONENT</code> creates <code class="code" id="f6h5xs_94">Popup</code> or <code class="code" id="f6h5xs_95">Dialog</code> as a separate Swing component in the same window. Note that the setting requires enabled off-screen rendering (see the <a href="#experimental-off-screen-rendering" id="f6h5xs_96">Experimental off-screen rendering</a> section), and off-screen rendering only works for <code class="code" id="f6h5xs_97">ComposePanel</code> components, not full window applications.</p></li></ul><p id="f6h5xs_82">Note that popups and dialogs are still unable to draw anything outside their own bounds (for example, the shadow of the topmost container).</p><p id="f6h5xs_83">Here is an example of the code that uses the <code class="code" id="f6h5xs_98">COMPONENT</code> property:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="@OptIn(ExperimentalComposeUiApi::class) fun main()">
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.awt.ComposePanel
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
+import javax.swing.JFrame
+import javax.swing.JLayeredPane
+import javax.swing.SwingUtilities
+import javax.swing.WindowConstants
+
+@OptIn(ExperimentalComposeUiApi::class)
+fun main() = SwingUtilities.invokeLater {
+    System.setProperty(&quot;compose.swing.render.on.graphics&quot;, &quot;true&quot;)
+    System.setProperty(&quot;compose.layers.type&quot;, &quot;COMPONENT&quot;)
+
+    val window = JFrame()
+    window.defaultCloseOperation = WindowConstants.EXIT_ON_CLOSE
+
+    val contentPane = JLayeredPane()
+    contentPane.layout = null
+
+    val composePanel = ComposePanel()
+    composePanel.setBounds(200, 200, 200, 200)
+    composePanel.setContent {
+        ComposeContent()
+    }
+    
+    // Uses the full window for dialogs
+    composePanel.windowContainer = contentPane
+    contentPane.add(composePanel)
+
+    window.contentPane.add(contentPane)
+    window.setSize(800, 600)
+    window.isVisible = true
+}
+
+@Composable
+fun ComposeContent() {
+    Box(Modifier.fillMaxSize().background(Color.Green)) {
+        Dialog(onDismissRequest = {}) {
+            Box(Modifier.size(100.dp).background(Color.Yellow))
+        }
+    }
+}
+</div></section></section><section class="chapter"><h2 id="use-swing-in-a-compose-multiplatform-application" data-toc="use-swing-in-a-compose-multiplatform-application">Use Swing in a Compose Multiplatform application</h2><p id="f6h5xs_99"><code class="code" id="f6h5xs_104">SwingPanel</code> allows you to create a UI with Swing within a Compose Multiplatform application. Use the <code class="code" id="f6h5xs_105">factory</code> parameter of <code class="code" id="f6h5xs_106">SwingPanel</code> to create a Swing <code class="code" id="f6h5xs_107">JPanel</code>:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="factory = { JPanel().apply { layout = BoxLayout(this, BoxLayout.Y_AXIS)">
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.awt.SwingPanel
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.singleWindowApplication
+import java.awt.Component
+import javax.swing.BoxLayout
+import javax.swing.JButton
+import javax.swing.JPanel
+
+fun main() = singleWindowApplication(title = &quot;SwingPanel&quot;) {
+    val counter = remember { mutableStateOf(0) }
+
+    val inc: () -&gt; Unit = { counter.value++ }
+    val dec: () -&gt; Unit = { counter.value-- }
+
+    Box(
+        modifier = Modifier.fillMaxWidth().height(60.dp).padding(top = 20.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(&quot;Counter: ${counter.value}&quot;)
+    }
+
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            modifier = Modifier.padding(top = 80.dp, bottom = 20.dp)
+        ) {
+            Button(&quot;1. Compose Button: increment&quot;, inc)
+            Spacer(modifier = Modifier.height(20.dp))
+
+            SwingPanel(
+                background = Color.LightGray,
+                modifier = Modifier.size(270.dp, 90.dp),
+                factory = {
+                    JPanel().apply {
+                        layout = BoxLayout(this, BoxLayout.Y_AXIS)
+                        add(actionButton(&quot;1. Swing Button: decrement&quot;, dec))
+                        add(actionButton(&quot;2. Swing Button: decrement&quot;, dec))
+                        add(actionButton(&quot;3. Swing Button: decrement&quot;, dec))
+                    }
+                }
+            )
+
+            Spacer(modifier = Modifier.height(20.dp))
+            Button(&quot;2. Compose Button: increment&quot;, inc)
+        }
+    }
+}
+
+@Composable
+fun Button(text: String = &quot;&quot;, action: (() -&gt; Unit)? = null) {
+    Button(
+        modifier = Modifier.size(270.dp, 30.dp),
+        onClick = { action?.invoke() }
+    ) {
+        Text(text)
+    }
+}
+
+fun actionButton(
+    text: String,
+    action: () -&gt; Unit
+): JButton {
+    val button = JButton(text)
+    button.alignmentX = Component.CENTER_ALIGNMENT
+    button.addActionListener { action() }
+
+    return button
+}
+</div><figure data-theme="light" id="f6h5xs_101" width="600"><img alt="SwingPanel" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-swingpanel.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-swingpanel.animated.gif" width="600" style="width: 600px;"></figure><section class="chapter"><h3 id="update-swing-components-when-compose-state-changes" data-toc="update-swing-components-when-compose-state-changes">Update Swing components when Compose state changes</h3><p id="f6h5xs_108">To keep a Swing component up to date, provide an <code class="code" id="f6h5xs_111">update: (T) -&gt; Unit</code> callback, which is invoked whenever the composable state changes or the layout is inflated. The following code sample demonstrates how to update a Swing component within a <code class="code" id="f6h5xs_112">SwingPanel</code> whenever the composable state changes:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="factory = { JPanel().apply { add(swingLabel, BorderLayout.CENTER)} }, update = {">
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.awt.SwingPanel
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.application
+import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.rememberWindowState
+import java.awt.BorderLayout
+import javax.swing.JPanel
+import javax.swing.JLabel
+
+val swingLabel = JLabel()
+
+fun main() = application {
+    Window(
+        onCloseRequest = ::exitApplication,
+        state = rememberWindowState(width = 400.dp, height = 200.dp),
+        title = &quot;SwingLabel&quot;
+    ) {
+        val clicks = remember { mutableStateOf(0) }
+        Column(
+            modifier = Modifier.fillMaxSize().padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            SwingPanel(
+                modifier = Modifier.fillMaxWidth().height(40.dp),
+                factory = {
+                    JPanel().apply {
+                        add(swingLabel, BorderLayout.CENTER)
+                    }
+                },
+                update = {
+                    swingLabel.text = &quot;SwingLabel clicks: ${clicks.value}&quot;
+                }
+            )
+            Spacer(modifier = Modifier.height(40.dp))
+            Row (
+                modifier = Modifier.height(40.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Button(onClick = { clicks.value++ }) {
+                    Text(text = &quot;Increment&quot;)
+                }
+                Spacer(modifier = Modifier.width(20.dp))
+                Button(onClick = { clicks.value-- }) {
+                    Text(text = &quot;Decrement&quot;)
+                }
+            }
+        }
+    }
+}
+</div><figure data-theme="light" id="f6h5xs_110" width="600"><img alt="SwingLabel" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-swinglabel.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-swinglabel.animated.gif" width="600" style="width: 600px;"></figure></section><section class="chapter"><h3 id="experimental-interop-blending" data-toc="experimental-interop-blending">Experimental interop blending</h3><p id="f6h5xs_113">By default, the interop view implemented using the <code class="code" id="f6h5xs_120">SwingPanel</code> wrapper is rectangular and in the foreground, on top of any Compose Multiplatform components. To make popup elements easier to use, we introduced experimental support for interop blending.</p><aside class="prompt" data-type="warning" data-title="" id="f6h5xs_114"><p id="f6h5xs_121">Interop blending is <a href="supported-platforms.html#compose-multiplatform-ui-framework-stability-levels" id="f6h5xs_122">Experimental</a>, and you should use it only for evaluation purposes.</p></aside><p id="f6h5xs_115">To enable this experimental feature, set the <code class="code" id="f6h5xs_123">compose.interop.blending</code> system property to <code class="code" id="f6h5xs_124">true</code>. The property must be enabled before executing any Compose code in your application, so set it via the <code class="code" id="f6h5xs_125">-Dcompose.interop.blending=true</code> command-line JVM argument or use <code class="code" id="f6h5xs_126">System.setProperty()</code> at the entry point:</p><div class="code-block" data-lang="kotlin">
+fun main() {
+    System.setProperty(&quot;compose.interop.blending&quot;, &quot;true&quot;)
+    ...
+}
+</div><p id="f6h5xs_117">With interop blending enabled, you can rely on Swing in the following use cases:</p><ul class="list _bullet" id="f6h5xs_118"><li class="list__item" id="f6h5xs_127"><p><span class="control" id="f6h5xs_129">Clipping</span>. You're no longer limited by a rectangular shape: the <code class="code" id="f6h5xs_130">clip</code> and <code class="code" id="f6h5xs_131">shadow</code> modifiers work correctly with <code class="code" id="f6h5xs_132">SwingPanel</code>.</p></li><li class="list__item" id="f6h5xs_128"><p><span class="control" id="f6h5xs_133">Overlapping</span>. It is possible to draw any Compose Multiplatform content on top of a <code class="code" id="f6h5xs_134">SwingPanel</code> and interact with it as usual.</p></li></ul><p id="f6h5xs_119">For details and known limitations, see the <a href="https://github.com/JetBrains/compose-multiplatform-core/pull/915" id="f6h5xs_135" data-external="true" rel="noopener noreferrer">description on GitHub</a>.</p></section></section><section class="chapter"><h2 id="layout-with-nested-swing-and-compose-multiplatform-components" data-toc="layout-with-nested-swing-and-compose-multiplatform-components">Layout with nested Swing and Compose Multiplatform components</h2><p id="f6h5xs_136">With interoperability, you can combine Swing and Compose Multiplatform in both ways: adding Swing components to a Compose Multiplatform application and adding Compose Multiplatform components to a Swing application. If you want to nest several components and freely combine approaches, this scenario is also supported.</p><p id="f6h5xs_137">The following code sample demonstrates how to add a <code class="code" id="f6h5xs_140">SwingPanel</code> to a <code class="code" id="f6h5xs_141">ComposePanel</code>, which is already inside another <code class="code" id="f6h5xs_142">SwingPanel</code>, creating a Swing-Compose Multiplatform-Swing structure:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="fun SwingComponent() : JPanel { return JPanel().apply {">
+import androidx.compose.foundation.*
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.awt.*
+import androidx.compose.ui.*
+import androidx.compose.ui.draw.*
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.window.*
+import androidx.compose.ui.unit.*
+import java.awt.BorderLayout
+import java.awt.Dimension
+import java.awt.Insets
+import javax.swing.*
+import javax.swing.border.EmptyBorder
+
+val Gray = java.awt.Color(64, 64, 64)
+val DarkGray = java.awt.Color(32, 32, 32)
+val LightGray = java.awt.Color(210, 210, 210)
+
+data class Item(
+    val text: String,
+    val icon: ImageVector,
+    val color: Color,
+    val state: MutableState&lt;Boolean&gt; = mutableStateOf(false)
+)
+val panelItemsList = listOf(
+    Item(text = &quot;Person&quot;, icon = Icons.Filled.Person, color = Color(10, 232, 162)),
+    Item(text = &quot;Favorite&quot;, icon = Icons.Filled.Favorite, color = Color(150, 232, 150)),
+    Item(text = &quot;Search&quot;, icon = Icons.Filled.Search, color = Color(232, 10, 162)),
+    Item(text = &quot;Settings&quot;, icon = Icons.Filled.Settings, color = Color(232, 162, 10)),
+    Item(text = &quot;Close&quot;, icon = Icons.Filled.Close, color = Color(232, 100, 100))
+)
+val itemSize = 50.dp
+
+fun java.awt.Color.toCompose(): Color {
+    return Color(red, green, blue)
+}
+
+fun main() = application {
+    Window(
+        onCloseRequest = ::exitApplication,
+        state = rememberWindowState(width = 500.dp, height = 500.dp),
+        title = &quot;Layout&quot;
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize().background(color = Gray.toCompose()).padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = &quot;Compose Area&quot;, color = LightGray.toCompose())
+            Spacer(modifier = Modifier.height(40.dp))
+            SwingPanel(
+                background = DarkGray.toCompose(),
+                modifier = Modifier.fillMaxSize(),
+                factory = {
+                    ComposePanel().apply {
+                        setContent {
+                            Box {
+                                SwingPanel(
+                                    modifier = Modifier.fillMaxSize(),
+                                    factory = { SwingComponent() }
+                                )
+                                Box (
+                                    modifier = Modifier.align(Alignment.TopStart)
+                                        .padding(start = 20.dp, top = 80.dp)
+                                        .background(color = DarkGray.toCompose())
+                                ) {
+                                    SwingPanel(
+                                        modifier = Modifier.size(itemSize * panelItemsList.size, itemSize),
+                                        factory = {
+                                            ComposePanel().apply {
+                                                setContent {
+                                                    ComposeOverlay()
+                                                }
+                                            }
+                                        }
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            )
+        }
+    }
+}
+
+fun SwingComponent() : JPanel {
+    return JPanel().apply {
+        background = DarkGray
+        border = EmptyBorder(20, 20, 20, 20)
+        layout = BorderLayout()
+        add(
+            JLabel(&quot;TextArea Swing Component&quot;).apply {
+                foreground = LightGray
+                verticalAlignment = SwingConstants.NORTH
+                horizontalAlignment = SwingConstants.CENTER
+                preferredSize = Dimension(40, 160)
+            },
+            BorderLayout.NORTH
+        )
+        add(
+            JTextArea().apply {
+                background = LightGray
+                lineWrap = true
+                wrapStyleWord = true
+                margin = Insets(10, 10, 10, 10)
+                text = &quot;The five boxing wizards jump quickly. &quot; +
+                &quot;Crazy Fredrick bought many very exquisite opal jewels. &quot; +
+                &quot;Pack my box with five dozen liquor jugs.\n&quot; +
+                &quot;Cozy sphinx waves quart jug of bad milk. &quot; +
+                &quot;The jay, pig, fox, zebra and my wolves quack!&quot;
+            },
+            BorderLayout.CENTER
+        )
+    }
+}
+
+@Composable
+fun ComposeOverlay() {
+    Box(
+        modifier = Modifier.fillMaxSize().
+            background(color = DarkGray.toCompose()),
+        contentAlignment = Alignment.Center
+    ) {
+        Row(
+            modifier = Modifier.background(
+                shape = RoundedCornerShape(4.dp),
+                color = Color.DarkGray.copy(alpha = 0.5f)
+            )
+        ) {
+            for (item in panelItemsList) {
+                SelectableItem(
+                    text = item.text,
+                    icon = item.icon,
+                    color = item.color,
+                    selected = item.state
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun SelectableItem(
+    text: String,
+    icon: ImageVector,
+    color: Color,
+    selected: MutableState&lt;Boolean&gt;
+) {
+    Box(
+        modifier = Modifier.size(itemSize)
+            .clickable { selected.value = !selected.value },
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            modifier = Modifier.alpha(if (selected.value) 1.0f else 0.5f),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Icon(modifier = Modifier.size(32.dp), imageVector = icon, contentDescription = null, tint = color)
+            Text(text = text, color = Color.White, fontSize = 10.sp)
+        }
+    }
+}
+</div><figure data-theme="light" id="f6h5xs_139" width="600"><img alt="Swing layout" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-swing-layout.png" class="js-gif article__bordered-element" data-gif-src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/compose-desktop-swing-layout.animated.gif" width="600" style="width: 600px;"></figure></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next?</h2><p id="f6h5xs_143">Explore the tutorials about <a href="https://github.com/JetBrains/compose-multiplatform/tree/master/tutorials#desktop" id="f6h5xs_144" data-external="true" rel="noopener noreferrer">other desktop-specific components</a>.</p></section><div class="last-modified">Last modified: 29 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="compose-desktop-ui-testing.html" class="navigation-links__prev">Testing Compose Multiplatform UI with JUnit</a><a href="compose-compiler.html" class="navigation-links__next">Updating Compose compiler</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>

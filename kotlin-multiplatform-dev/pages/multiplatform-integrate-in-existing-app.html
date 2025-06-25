@@ -1,0 +1,302 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="built-on" content="2025-06-25T13:01:19.013357215"><meta name="build-number" content="637"><script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&amp;l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5P98');
+</script>
+<script src="https://resources.jetbrains.com/storage/help-app/v6/analytics.js"></script>
+<title>Make your Android application work on iOS &ndash; tutorial | Kotlin Multiplatform Documentation</title><script type="application/json" id="virtual-toc-data">[{"id":"prepare-an-environment-for-development","level":0,"title":"Prepare an environment for development","anchor":"#prepare-an-environment-for-development"},{"id":"make-your-code-cross-platform","level":0,"title":"Make your code cross-platform","anchor":"#make-your-code-cross-platform"},{"id":"make-your-cross-platform-application-work-on-ios","level":0,"title":"Make your cross-platform application work on iOS","anchor":"#make-your-cross-platform-application-work-on-ios"},{"id":"enjoy-the-results-update-the-logic-only-once","level":0,"title":"Enjoy the results – update the logic only once","anchor":"#enjoy-the-results-update-the-logic-only-once"},{"id":"what-else-to-share","level":0,"title":"What else to share?","anchor":"#what-else-to-share"},{"id":"what-s-next","level":0,"title":"What\u0027s next?","anchor":"#what-s-next"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.css" rel="stylesheet"><link rel="manifest" href="https://www.jetbrains.com/site.webmanifest"><link rel="icon" type="image/x-icon" sizes="16x16" href="https://resources.jetbrains.com/storage/ui/favicons/favicon.ico"><link rel="icon" type="image/png" sizes="32x32" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-57x57.png"><link rel="icon" type="image/png" sizes="96x96" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-60x60.png"><link rel="icon" type="image/png" sizes="300x300" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-72x72.png"><link rel="icon" type="image/png" sizes="500x500" href="https://resources.jetbrains.com/storage/ui/favicons/apple-touch-icon-76x76.png"><meta name="image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- Open Graph --><meta property="og:title" content="Make your Android application work on iOS &ndash; tutorial | Kotlin Multiplatform"><meta property="og:description" content=""><meta property="og:image" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><meta property="og:site_name" content="Kotlin Multiplatform Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@kotlin"><meta name="twitter:title" content="Make your Android application work on iOS &ndash; tutorial | Kotlin Multiplatform"><meta name="twitter:description" content=""><meta name="twitter:creator" content="@kotlin"><meta name="twitter:image:src" content="https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png"><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html#webpage",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html",
+    "name": "Make your Android application work on iOS &ndash; tutorial | Kotlin Multiplatform",
+    "description": "",
+    "image": "https://resources.jetbrains.com/storage/products/jetbrains/img/meta/preview.png",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/#website",
+    "url": "https://www.jetbrains.com/help/kotlin-multiplatform-dev/",
+    "name": "Kotlin Multiplatform Help"
+}</script><!-- End Schema.org --><meta name="msapplication-TileColor" content="#000000"/>
+<meta name="msapplication-TileImage"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"/>
+<meta name="msapplication-square70x70logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"/>
+<meta name="msapplication-square150x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"/>
+<meta name="msapplication-wide310x150logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"/>
+<meta name="msapplication-square310x310logo"
+      content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"/>
+<script>document.cookie="wh_theme=light;expires="+(new Date(Date.now()+500000000).toUTCString())+"; path=/;";</script>
+<style>
+<!--slack icon-->
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]{position:relative;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"] svg{visibility:hidden;}
+[data-test="footer-socials"] [data-test="button"][title*="Kotlin Multiplatform Development Feed"]::before{
+display:block;content:"";position:absolute;top:0;bottom:0;left:0;right:0;
+background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="%23fff"><path d="M9.586 6.601h1.9v-1.9a1.837 1.837 0 00-1.9-1.9 1.9 1.9 0 000 3.8zm1.9 7.6v4.7a1.837 1.837 0 01-1.9 1.9 1.9 1.9 0 01-1.9-1.9v-4.7a1.899 1.899 0 011.9-1.9 1.837 1.837 0 011.9 1.9zm-5.864 1.773a1.839 1.839 0 01-.737.127 1.9 1.9 0 010-3.8h1.9v1.9a1.839 1.839 0 01-1.163 1.773zm3.963-4.673h-4.7a1.9 1.9 0 010-3.8h4.7a1.838 1.838 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9zm11.4-1.9a1.967 1.967 0 00-1.9-1.9 1.899 1.899 0 00-1.9 1.9v1.9h1.9a1.9 1.9 0 001.9-1.9zm-5.862 1.773a1.839 1.839 0 01-.738.127 1.9 1.9 0 01-1.9-1.9v-4.7a1.839 1.839 0 011.9-1.9 1.898 1.898 0 011.9 1.9v4.7a1.837 1.837 0 01-1.162 1.773zm-.738 9.628a1.839 1.839 0 001.9-1.9 1.9 1.9 0 00-1.9-1.9h-1.9v1.9a1.899 1.899 0 001.9 1.9zm4.7-4.7h-4.7a1.9 1.9 0 110-3.8h4.7a1.836 1.836 0 011.9 1.9 1.9 1.9 0 01-1.9 1.9z"/></svg>') no-repeat center;background-size:20px 20px;}
+[data-test="footer-socials"]+.jb-footer__legal{flex-basis:100%;margin-top:8px;}
+
+<!--Drop any switches and set default theme-->
+.wh-header__switchers{display:none!important}
+</style></head><body data-id="multiplatform-integrate-in-existing-app" data-main-title="Make your Android application work on iOS – tutorial" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs="Choose your use case" data-edit-url="https://github.com/JetBrains/kotlin-multiplatform-dev-docs/edit/master/topics/multiplatform-integrate-in-existing-app.md"><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Kotlin Multiplatform  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="multiplatform-integrate-in-existing-app" data-annotation-ids="IntelliJ IDEA,Android Studio" id="multiplatform-integrate-in-existing-app.md">Make your Android application work on iOS – tutorial</h1><div class="micro-format" data-content="{&quot;microFormat&quot;:[&quot;\u003cp id\u003d\&quot;-c0w97_15\&quot;\u003eThis tutorial uses Android Studio, but you can also follow it in IntelliJ IDEA \u0026ndash; both IDEs share the same core functionality and Kotlin Multiplatform support.\u003c/p\u003e&quot;]}"></div><p id="-c0w97_5">Learn how to make your existing Android application cross-platform so that it works both on Android and iOS. You'll be able to write code and test it for both Android and iOS only once, in one place.</p><p id="-c0w97_6">This tutorial uses a <a href="https://github.com/Kotlin/kmp-integration-sample" id="-c0w97_16" data-external="true" rel="noopener noreferrer">sample Android application</a> with a single screen for entering a username and password. The credentials are validated and saved to an in-memory database.</p><p id="-c0w97_7">To make your application work on both iOS and Android, you'll first make your code cross-platform by moving some of it to a shared module. After that you'll use your cross-platform code in the Android application, and then you'll use the same code in a new iOS application.</p><aside class="prompt" data-type="tip" data-title="" id="-c0w97_8"><p id="-c0w97_17">If you aren't familiar with Kotlin Multiplatform, learn how to <a href="quickstart.html" id="-c0w97_18">create a cross-platform application from scratch</a> first.</p></aside><section class="chapter"><h2 id="prepare-an-environment-for-development" data-toc="prepare-an-environment-for-development">Prepare an environment for development</h2><ol class="list _decimal" id="-c0w97_19" type="1"><li class="list__item" id="-c0w97_20"><p id="-c0w97_23">In the <a href="quickstart.html" id="-c0w97_25">quickstart</a>, complete the instructions to <a href="quickstart.html#set-up-the-environment" id="-c0w97_26">set up your environment for Kotlin Multiplatform development</a>.</p><aside class="prompt" data-type="note" data-title="" id="-c0w97_24"><p id="-c0w97_27">You will need a Mac with macOS to complete certain steps in this tutorial, which include writing iOS-specific code and running an iOS application. These steps can't be performed on other operating systems, such as Microsoft Windows. This is due to an Apple requirement.</p></aside></li><li class="list__item" id="-c0w97_21"><p id="-c0w97_28">In Android Studio, create a new project from version control:</p><div class="code-block" data-lang="plaintext">
+https://github.com/Kotlin/kmp-integration-sample
+</div><aside class="prompt" data-type="tip" data-title="" id="-c0w97_30"><p id="-c0w97_31">The <code class="code" id="-c0w97_32">master</code> branch contains the project's initial state &ndash; a simple Android application. To see the final state with the iOS application and the shared module, switch to the <code class="code" id="-c0w97_33">final</code> branch.</p></aside></li><li class="list__item" id="-c0w97_22"><p id="-c0w97_34">Switch from the <span class="control" id="-c0w97_36">Android</span> view to the <span class="control" id="-c0w97_37">Project</span> view:</p><figure id="-c0w97_35"><img alt="Project view" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/switch-to-project.png" title="Project view" width="513" height="376"></figure></li></ol></section><section class="chapter"><h2 id="make-your-code-cross-platform" data-toc="make-your-code-cross-platform">Make your code cross-platform</h2><p id="-c0w97_38">To make your code cross-platform, you'll follow these steps:</p><ol class="list _decimal" id="-c0w97_39" type="1"><li class="list__item" id="-c0w97_46"><p><a href="#decide-what-code-to-make-cross-platform" id="-c0w97_52">Decide what code to make cross-platform</a></p></li><li class="list__item" id="-c0w97_47"><p><a href="#create-a-shared-module-for-cross-platform-code" id="-c0w97_53">Create a shared module for cross-platform code</a></p></li><li class="list__item" id="-c0w97_48"><p><a href="#add-code-to-the-shared-module" id="-c0w97_54">Test the code sharing</a></p></li><li class="list__item" id="-c0w97_49"><p><a href="#add-a-dependency-on-the-shared-module-to-your-android-application" id="-c0w97_55">Add a dependency on the shared module to your Android application</a></p></li><li class="list__item" id="-c0w97_50"><p><a href="#make-the-business-logic-cross-platform" id="-c0w97_56">Make the business logic cross-platform</a></p></li><li class="list__item" id="-c0w97_51"><p><a href="#run-your-cross-platform-application-on-android" id="-c0w97_57">Run your cross-platform application on Android</a></p></li></ol><section class="chapter"><h3 id="decide-what-code-to-make-cross-platform" data-toc="decide-what-code-to-make-cross-platform">Decide what code to make cross-platform</h3><p id="-c0w97_58">Decide which code of your Android application is better to share for iOS and which to keep native. A simple rule is: share what you want to reuse as much as possible. The business logic is often the same for both Android and iOS, so it's a great candidate for reuse.</p><p id="-c0w97_59">In your sample Android application, the business logic is stored in the package <code class="code" id="-c0w97_61">com.jetbrains.simplelogin.androidapp.data</code>. Your future iOS application will use the same logic, so you should make it cross-platform, as well.</p><figure id="-c0w97_60"><img alt="Business logic to share" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/business-logic-to-share.png" title="Business logic to share" width="366" height="516"></figure></section><section class="chapter"><h3 id="create-a-shared-module-for-cross-platform-code" data-toc="create-a-shared-module-for-cross-platform-code">Create a shared module for cross-platform code</h3><p id="-c0w97_62">The cross-platform code used for both iOS and Android will be stored in a shared module. Starting with the Meerkat version, Android Studio provides a wizard for creating such shared modules.</p><p id="-c0w97_63">Create a shared module and connect it to both the existing Android application and your future iOS application:</p><ol class="list _decimal" id="-c0w97_64" type="1"><li class="list__item" id="-c0w97_65"><p id="-c0w97_70">In Android Studio, select <span class="control" id="-c0w97_71">File</span> | <span class="control" id="-c0w97_72">New</span> | <span class="control" id="-c0w97_73">New Module</span> from the main menu.</p></li><li class="list__item" id="-c0w97_66"><p id="-c0w97_74">In the list of templates, select <span class="control" id="-c0w97_76">Kotlin Multiplatform Shared Module</span>. Leave the library name <code class="code" id="-c0w97_77">shared</code> and enter the package name:</p><div class="code-block" data-lang="none">
+com.jetbrains.simplelogin.shared
+</div></li><li class="list__item" id="-c0w97_67"><p id="-c0w97_78">Click <span class="control" id="-c0w97_79">Finish</span>. The wizard creates a shared module, changes the build script accordingly, and starts a Gradle sync.</p></li><li class="list__item" id="-c0w97_68"><p id="-c0w97_80">When the setup is complete, you will see the following file structure in the <code class="code" id="-c0w97_82">shared</code> directory:</p><figure id="-c0w97_81"><img alt="Final file structure inside the shared directory" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/shared-directory-structure.png" title="Final file structure inside the shared directory" width="341" height="691"></figure></li><li class="list__item" id="-c0w97_69"><p id="-c0w97_83">Make sure that the <code class="code" id="-c0w97_84">kotlin.androidLibrary.minSdk</code> property in the <code class="code" id="-c0w97_85">shared/build.gradle.kts</code> file matches the value of the same property in the <code class="code" id="-c0w97_86">app/build.gradle.kts</code> file.</p></li></ol></section><section class="chapter"><h3 id="add-code-to-the-shared-module" data-toc="add-code-to-the-shared-module">Add code to the shared module</h3><p id="-c0w97_87">Now that you have a shared module, add some common code to be shared in the <code class="code" id="-c0w97_90">commonMain/kotlin/com.jetbrains.simplelogin.shared</code> directory:</p><ol class="list _decimal" id="-c0w97_88" type="1"><li class="list__item" id="-c0w97_91"><p id="-c0w97_93">Create a new <code class="code" id="-c0w97_95">Greeting</code> class with the following code:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.simplelogin.shared
+
+class Greeting {
+    private val platform = getPlatform()
+
+    fun greet(): String {
+        return &quot;Hello, ${platform.name}!&quot;
+    }
+}
+</div></li><li class="list__item" id="-c0w97_92"><p id="-c0w97_96">Replace the code in created files with the following:</p><ul class="list _bullet" id="-c0w97_97"><li class="list__item" id="-c0w97_98"><p id="-c0w97_101">In <code class="code" id="-c0w97_103">commonMain/Platform.kt</code>:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.simplelogin.shared
+
+interface Platform {
+    val name: String
+}
+
+expect fun getPlatform(): Platform
+</div></li><li class="list__item" id="-c0w97_99"><p id="-c0w97_104">In <code class="code" id="-c0w97_106">androidMain/Platform.android.kt</code>:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.simplelogin.shared
+
+import android.os.Build
+
+class AndroidPlatform : Platform {
+    override val name: String = &quot;Android ${Build.VERSION.SDK_INT}&quot;
+}
+
+actual fun getPlatform(): Platform = AndroidPlatform()
+</div></li><li class="list__item" id="-c0w97_100"><p id="-c0w97_107">In <code class="code" id="-c0w97_109">iosMain/Platform.ios.kt</code>:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.simplelogin.shared
+
+import platform.UIKit.UIDevice
+
+class IOSPlatform: Platform {
+    override val name: String = UIDevice.currentDevice.systemName() + &quot; &quot; + UIDevice.currentDevice.systemVersion
+}
+
+actual fun getPlatform(): Platform = IOSPlatform()
+</div></li></ul></li></ol><p id="-c0w97_89">If you want to better understand the layout of the resulting project, see the <a href="multiplatform-discover-project.html" id="-c0w97_110">basics of Kotlin Multiplatform project structure</a>.</p></section><section class="chapter"><h3 id="add-a-dependency-on-the-shared-module-to-your-android-application" data-toc="add-a-dependency-on-the-shared-module-to-your-android-application">Add a dependency on the shared module to your Android application</h3><p id="-c0w97_111">To use cross-platform code in your Android application, connect the shared module to it, move the business logic code there, and make this code cross-platform.</p><ol class="list _decimal" id="-c0w97_112" type="1"><li class="list__item" id="-c0w97_113"><p id="-c0w97_120">Add a dependency on the shared module to the <code class="code" id="-c0w97_122">app/build.gradle.kts</code> file:</p><div class="code-block" data-lang="kotlin">
+dependencies {
+    // ...
+    implementation(project(&quot;:shared&quot;))
+}
+</div></li><li class="list__item" id="-c0w97_114"><p id="-c0w97_123">Sync the Gradle files as suggested by the IDE or using the <span class="control" id="-c0w97_124">File</span> | <span class="control" id="-c0w97_125">Sync Project with Gradle Files</span> menu item.</p></li><li class="list__item" id="-c0w97_115"><p id="-c0w97_126">In the <code class="code" id="-c0w97_127">app/src/main/java/</code> directory, open the <code class="code" id="-c0w97_128">LoginActivity.kt</code> file in the <code class="code" id="-c0w97_129">com.jetbrains.simplelogin.androidapp.ui.login</code> package.</p></li><li class="list__item" id="-c0w97_116"><p id="-c0w97_130">To make sure that the shared module is successfully connected to your application, dump the <code class="code" id="-c0w97_132">greet()</code> function result to the log by adding a <code class="code" id="-c0w97_133">Log.i()</code> call to the <code class="code" id="-c0w97_134">onCreate()</code> method:</p><div class="code-block" data-lang="kotlin">
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+
+    Log.i(&quot;Login Activity&quot;, &quot;Hello from shared module: &quot; + (Greeting().greet()))
+
+    // ...
+}
+</div></li><li class="list__item" id="-c0w97_117"><p id="-c0w97_135">Follow Android Studio's suggestions to import missing classes.</p></li><li class="list__item" id="-c0w97_118"><p id="-c0w97_136">In the toolbar, click the <code class="code" id="-c0w97_138">app</code> dropdown, then click the debug icon:</p><figure id="-c0w97_137"><img alt="App from list to debug" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/app-list-android.png" title="App from list to debug" width="300" height="123"></figure></li><li class="list__item" id="-c0w97_119"><p id="-c0w97_139">In the <span class="control" id="-c0w97_141">Logcat</span> tool window, search for &quot;Hello&quot; in the log, and you'll find the greeting from the shared module:</p><figure id="-c0w97_140"><img alt="Greeting from the shared module" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/shared-module-greeting.png" title="Greeting from the shared module" width="700" height="104"></figure></li></ol></section><section class="chapter"><h3 id="make-the-business-logic-cross-platform" data-toc="make-the-business-logic-cross-platform">Make the business logic cross-platform</h3><p id="-c0w97_142">You can now extract the business logic code to the Kotlin Multiplatform shared module and make it platform-independent. This is necessary for reusing the code for both Android and iOS.</p><ol class="list _decimal" id="-c0w97_143" type="1"><li class="list__item" id="-c0w97_145"><p id="-c0w97_149">Move the business logic code <code class="code" id="-c0w97_151">com.jetbrains.simplelogin.androidapp.data</code> from the <code class="code" id="-c0w97_152">app</code> directory to the <code class="code" id="-c0w97_153">com.jetbrains.simplelogin.shared</code> package in the <code class="code" id="-c0w97_154">shared/src/commonMain</code> directory.</p><figure id="-c0w97_150"><img alt="Drag and drop the package with the business logic code" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/moving-business-logic.png" title="Drag and drop the package with the business logic code" width="300" height="634"></figure></li><li class="list__item" id="-c0w97_146"><p id="-c0w97_155">When Android Studio asks what you'd like to do, select to move the package and then approve the refactoring.</p><figure id="-c0w97_156"><img alt="Refactor the business logic package" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/refactor-business-logic-package.png" title="Refactor the business logic package" width="300" height="139"></figure></li><li class="list__item" id="-c0w97_147"><p id="-c0w97_157">Ignore all warnings about platform-dependent code and click <span class="control" id="-c0w97_159">Refactor Anyway</span>.</p><figure id="-c0w97_158"><img alt="Warnings about platform-dependent code" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/warnings-android-specific-code.png" title="Warnings about platform-dependent code" width="450" height="338"></figure></li><li class="list__item" id="-c0w97_148"><p id="-c0w97_160">Remove Android-specific code by replacing it with cross-platform Kotlin code or connecting to Android-specific APIs using <a href="multiplatform-connect-to-apis.html" id="-c0w97_163">expected and actual declarations</a>. See the following sections for details:</p><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="replace-android-specific-code-with-cross-platform-code" data-toc="replace-android-specific-code-with-cross-platform-code">Replace Android-specific code with cross-platform code</h4></div><div class="collapse__content"><p id="-c0w97_164">To make your code work well on both Android and iOS, replace all JVM dependencies with Kotlin dependencies in the moved <code class="code" id="-c0w97_166">data</code> directory wherever possible.</p><ol class="list _decimal" id="-c0w97_165" type="1"><li class="list__item" id="-c0w97_167"><p id="-c0w97_171">In the <code class="code" id="-c0w97_174">LoginDataSource</code> class, replace <code class="code" id="-c0w97_175">IOException</code> in the <code class="code" id="-c0w97_176">login()</code> function with <code class="code" id="-c0w97_177">RuntimeException</code>. <code class="code" id="-c0w97_178">IOException</code> is not available in Kotlin/JVM.</p><div class="code-block" data-lang="kotlin">
+// Before
+return Result.Error(IOException(&quot;Error logging in&quot;, e))
+</div><div class="code-block" data-lang="kotlin">
+// After
+return Result.Error(RuntimeException(&quot;Error logging in&quot;, e))
+</div></li><li class="list__item" id="-c0w97_168"><p id="-c0w97_179">Remove the import directive for <code class="code" id="-c0w97_181">IOException</code> as well:</p><div class="code-block" data-lang="kotlin">
+import java.io.IOException
+</div></li><li class="list__item" id="-c0w97_169"><p id="-c0w97_182">In the <code class="code" id="-c0w97_185">LoginDataValidator</code> class, replace the <code class="code" id="-c0w97_186">Patterns</code> class from the <code class="code" id="-c0w97_187">android.utils</code> package with a Kotlin regular expression matching the pattern for email validation:</p><div class="code-block" data-lang="kotlin">
+// Before
+private fun isEmailValid(email: String) = Patterns.EMAIL_ADDRESS.matcher(email).matches()
+</div><div class="code-block" data-lang="kotlin">
+// After
+private fun isEmailValid(email: String) = emailRegex.matches(email)
+
+companion object {
+    private val emailRegex = 
+        (&quot;[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}&quot; +
+            &quot;\\@&quot; +
+            &quot;[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}&quot; +
+            &quot;(&quot; +
+            &quot;\\.&quot; +
+            &quot;[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}&quot; +
+            &quot;)+&quot;).toRegex()
+}
+</div></li><li class="list__item" id="-c0w97_170"><p id="-c0w97_188">Remove the import directive for the <code class="code" id="-c0w97_190">Patterns</code> class:</p><div class="code-block" data-lang="kotlin">
+import android.util.Patterns
+</div></li></ol></div></div></section><section class="chapter"><div class="collapse"><div class="collapse__title"><h4 id="connect-to-platform-specific-apis-from-the-cross-platform-code" data-toc="connect-to-platform-specific-apis-from-the-cross-platform-code">Connect to platform-specific APIs from the cross-platform code</h4></div><div class="collapse__content"><p id="-c0w97_191">In the <code class="code" id="-c0w97_196">LoginDataSource</code> class, a universally unique identifier (UUID) for <code class="code" id="-c0w97_197">fakeUser</code> is generated using the <code class="code" id="-c0w97_198">java.util.UUID</code> class, which is not available for iOS.</p><div class="code-block" data-lang="kotlin">
+val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(), &quot;Jane Doe&quot;)
+</div><p id="-c0w97_193">Even though the Kotlin standard library provides an <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/" id="-c0w97_199" data-external="true" rel="noopener noreferrer">experimental class for UUID generation</a>, let's use platform-specific functionality for this case to practice doing that.</p><p id="-c0w97_194">Provide the <code class="code" id="-c0w97_200">expect</code> declaration for the <code class="code" id="-c0w97_201">randomUUID()</code> function in the shared code and its <code class="code" id="-c0w97_202">actual</code> implementations for each platform &ndash; Android and iOS &ndash; in the corresponding source sets. You can learn more about <a href="multiplatform-connect-to-apis.html" id="-c0w97_203">connecting to platform-specific APIs</a>.</p><ol class="list _decimal" id="-c0w97_195" type="1"><li class="list__item" id="-c0w97_204"><p id="-c0w97_209">Change the <code class="code" id="-c0w97_211">java.util.UUID.randomUUID()</code> call in the <code class="code" id="-c0w97_212">login()</code> function to a <code class="code" id="-c0w97_213">randomUUID()</code> call, which you will implement for each platform:</p><div class="code-block" data-lang="kotlin">
+val fakeUser = LoggedInUser(randomUUID(), &quot;Jane Doe&quot;)
+</div></li><li class="list__item" id="-c0w97_205"><p id="-c0w97_214">Create the <code class="code" id="-c0w97_216">Utils.kt</code> file in the <code class="code" id="-c0w97_217">com.jetbrains.simplelogin.shared</code> package of the <code class="code" id="-c0w97_218">shared/src/commonMain</code> directory and provide the <code class="code" id="-c0w97_219">expect</code> declaration:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.simplelogin.shared
+
+expect fun randomUUID(): String
+</div></li><li class="list__item" id="-c0w97_206"><p id="-c0w97_220">Create the <code class="code" id="-c0w97_222">Utils.android.kt</code> file in the <code class="code" id="-c0w97_223">com.jetbrains.simplelogin.shared</code> package of the <code class="code" id="-c0w97_224">shared/src/androidMain</code> directory and provide the <code class="code" id="-c0w97_225">actual</code> implementation for <code class="code" id="-c0w97_226">randomUUID()</code> in Android:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.simplelogin.shared
+
+import java.util.*
+
+actual fun randomUUID() = UUID.randomUUID().toString()
+</div></li><li class="list__item" id="-c0w97_207"><p id="-c0w97_227">Create the <code class="code" id="-c0w97_229">Utils.ios.kt</code> file in the <code class="code" id="-c0w97_230">com.jetbrains.simplelogin.shared</code> of the <code class="code" id="-c0w97_231">shared/src/iosMain</code> directory and provide the <code class="code" id="-c0w97_232">actual</code> implementation for <code class="code" id="-c0w97_233">randomUUID()</code> in iOS:</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.simplelogin.shared
+
+import platform.Foundation.NSUUID
+
+actual fun randomUUID(): String = NSUUID().UUIDString()
+</div></li><li class="list__item" id="-c0w97_208"><p id="-c0w97_234">Import the <code class="code" id="-c0w97_236">randomUUID</code> function in the <code class="code" id="-c0w97_237">LoginDataSource.kt</code> file of the <code class="code" id="-c0w97_238">shared/src/commonMain</code> directory:</p><div class="code-block" data-lang="kotlin">
+import com.jetbrains.simplelogin.shared.randomUUID
+</div></li></ol></div></div></section></li></ol><p id="-c0w97_144">Now, Kotlin will use platform-specific implementations of UUID for Android and iOS.</p></section><section class="chapter"><h3 id="run-your-cross-platform-application-on-android" data-toc="run-your-cross-platform-application-on-android">Run your cross-platform application on Android</h3><p id="-c0w97_239">Run your cross-platform application for Android to make sure it works.</p><figure id="-c0w97_240"><img alt="Android login application" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/android-login.png" title="Android login application" width="300" height="643"></figure></section></section><section class="chapter"><h2 id="make-your-cross-platform-application-work-on-ios" data-toc="make-your-cross-platform-application-work-on-ios">Make your cross-platform application work on iOS</h2><p id="-c0w97_241">Once you've made your Android application cross-platform, you can create an iOS application and reuse the shared business logic in it.</p><ol class="list _decimal" id="-c0w97_242" type="1"><li class="list__item" id="-c0w97_247"><p><a href="#create-an-ios-project-in-xcode" id="-c0w97_251">Create an iOS project in Xcode</a></p></li><li class="list__item" id="-c0w97_248"><p><a href="#configure-the-ios-project-to-use-a-kmp-framework" id="-c0w97_252">Configure the iOS project to use a KMP framework</a></p></li><li class="list__item" id="-c0w97_249"><p><a href="#set-up-an-ios-run-configuration-in-android-studio" id="-c0w97_253">Set up an iOS run configuration in Android Studio</a></p></li><li class="list__item" id="-c0w97_250"><p><a href="#use-the-shared-module-in-the-ios-project" id="-c0w97_254">Use the shared module in the iOS project</a></p></li></ol><section class="chapter"><h3 id="create-an-ios-project-in-xcode" data-toc="create-an-ios-project-in-xcode">Create an iOS project in Xcode</h3><ol class="list _decimal" id="-c0w97_255" type="1"><li class="list__item" id="-c0w97_260"><p id="-c0w97_264">In Xcode, click <span class="control" id="-c0w97_265">File</span> | <span class="control" id="-c0w97_266">New</span> | <span class="control" id="-c0w97_267">Project</span>.</p></li><li class="list__item" id="-c0w97_261"><p id="-c0w97_268">Select a template for an iOS app and click <span class="control" id="-c0w97_270">Next</span>.</p><figure id="-c0w97_269"><img alt="iOS project template" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/ios-project-wizard-1.png" title="iOS project template" width="700" height="497"></figure></li><li class="list__item" id="-c0w97_262"><p id="-c0w97_271">As the product name, specify &quot;simpleLoginIOS&quot; and click <span class="control" id="-c0w97_273">Next</span>.</p><figure id="-c0w97_272"><img alt="iOS project settings" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/ios-project-wizard-2.png" title="iOS project settings" width="700" height="499"></figure></li><li class="list__item" id="-c0w97_263"><p id="-c0w97_274">As the location for your project, select the directory that stores your cross-platform application, for example, <code class="code" id="-c0w97_275">kmp-integration-sample</code>.</p></li></ol><p id="-c0w97_256">In Android Studio, you'll get the following structure:</p><figure id="-c0w97_257"><img alt="iOS project in Android Studio" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/ios-project-in-as.png" title="iOS project in Android Studio" width="194" height="120"></figure><p id="-c0w97_258">You can rename the <code class="code" id="-c0w97_276">simpleLoginIOS</code> directory to <code class="code" id="-c0w97_277">iosApp</code> for consistency with other top-level directories of your cross-platform project. To do that, close Xcode and then rename the <code class="code" id="-c0w97_278">simpleLoginIOS</code> directory to <code class="code" id="-c0w97_279">iosApp</code>. If you rename the folder with Xcode open, you'll get a warning and may corrupt your project.</p><figure id="-c0w97_259"><img alt="Renamed iOS project directory in Android Studio" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/ios-directory-renamed-in-as.png" title="Renamed iOS project directory in Android Studio" width="194" height="120"></figure></section><section class="chapter"><h3 id="configure-the-ios-project-to-use-a-kmp-framework" data-toc="configure-the-ios-project-to-use-a-kmp-framework">Configure the iOS project to use a KMP framework</h3><p id="-c0w97_280">You can set up integration between the iOS app and the framework built by Kotlin Multiplatform directly. Alternatives to this method are covered in the <a href="multiplatform-ios-integration-overview.html" id="-c0w97_282">iOS integration methods overview</a>, but they are beyond the scope of this tutorial.</p><ol class="list _decimal" id="-c0w97_281" type="1"><li class="list__item" id="-c0w97_283"><p id="-c0w97_290">In Xcode, open the iOS project settings by double-clicking the project name in the <span class="control" id="-c0w97_291">Project</span> navigator.</p></li><li class="list__item" id="-c0w97_284"><p id="-c0w97_292">In the <span class="control" id="-c0w97_293">Targets</span> section on the left, select <span class="control" id="-c0w97_294">simpleLoginIOS</span>, then click the <span class="control" id="-c0w97_295">Build Phases</span> tab.</p></li><li class="list__item" id="-c0w97_285"><p id="-c0w97_296">Click the <span class="control" id="-c0w97_299">+</span> icon and select <span class="control" id="-c0w97_300">New Run Script Phase</span>.</p><figure id="-c0w97_297"><img alt="Add a run script phase" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/xcode-run-script-phase-1.png" title="Add a run script phase" width="700" height="263"></figure><p id="-c0w97_298">The new phase is created at the bottom of the list.</p></li><li class="list__item" id="-c0w97_286"><p id="-c0w97_301">Click the <span class="control" id="-c0w97_304">&gt;</span> icon to expand the created <span class="control" id="-c0w97_305">Run Script</span> item, then paste the following script in the text field:</p><div class="code-block" data-lang="plaintext">
+cd &quot;$SRCROOT/..&quot;
+./gradlew :shared:embedAndSignAppleFrameworkForXcode
+</div><figure id="-c0w97_303"><img alt="Add the script" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/xcode-add-run-phase-2.png" title="Add the script" width="700" height="333"></figure></li><li class="list__item" id="-c0w97_287"><p id="-c0w97_306">Move the <span class="control" id="-c0w97_308">Run Script</span> phase higher in the order, placing it before the <span class="control" id="-c0w97_309">Compile Sources</span> phase:</p><figure id="-c0w97_307"><img alt="Move the Run Script phase" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/xcode-run-script-phase-3.png" title="Move the Run Script phase" width="700" height="292"></figure></li><li class="list__item" id="-c0w97_288"><p id="-c0w97_310">Click the <span class="control" id="-c0w97_313">Build Settings</span> tab, then find and disable the <span class="control" id="-c0w97_314">User Script Sandboxing</span> option under <span class="control" id="-c0w97_315">Build Options</span>:</p><figure id="-c0w97_311"><img alt="User Script Sandboxing" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/disable-sandboxing-in-xcode-project-settings.png" title="User Script Sandboxing" width="700" height="169"></figure><aside class="prompt" data-type="note" data-title="" id="-c0w97_312"><p id="-c0w97_316">If you have a custom build configuration different from the default <code class="code" id="-c0w97_317">Debug</code> or <code class="code" id="-c0w97_318">Release</code>, on the <span class="control" id="-c0w97_319">Build Settings</span> tab, add the <code class="code" id="-c0w97_320">KOTLIN_FRAMEWORK_BUILD_TYPE</code> setting under <span class="control" id="-c0w97_321">User-Defined</span> and set it to <code class="code" id="-c0w97_322">Debug</code> or <code class="code" id="-c0w97_323">Release</code>.</p></aside></li><li class="list__item" id="-c0w97_289"><p id="-c0w97_324">Build the project in Xcode (<span class="control" id="-c0w97_326">Product</span> | <span class="control" id="-c0w97_327">Build</span> in the main menu). If everything is configured correctly, the project should build successfully (you can safely ignore the &quot;build phase will be run during every build&quot; warning)</p><aside class="prompt" data-type="tip" data-title="" id="-c0w97_325"><p id="-c0w97_328">Build may fail if you built the project before disabling the <span class="control" id="-c0w97_330">User Script Sandboxing</span> option: the Gradle daemon process may be sandboxed and needs to be restarted. Stop it before building the project again by running this command in the project directory (<code class="code" id="-c0w97_331">kmp-integration-sample</code> in our example):</p><div class="code-block" data-lang="bash">
+./gradlew --stop
+</div></aside></li></ol></section><section class="chapter"><h3 id="set-up-an-ios-run-configuration-in-android-studio" data-toc="set-up-an-ios-run-configuration-in-android-studio">Set up an iOS run configuration in Android Studio</h3><p id="-c0w97_332">Once you've made sure that Xcode is set up correctly, return to Android Studio:</p><ol class="list _decimal" id="-c0w97_333" type="1"><li class="list__item" id="-c0w97_334"><p id="-c0w97_336">Select <span class="control" id="-c0w97_337">File | Sync Project with Gradle Files</span> in the main menu. Android Studio automatically generates a run configuration called <span class="control" id="-c0w97_338">simpleLoginIOS</span>.</p></li><li class="list__item" id="-c0w97_335"><p id="-c0w97_339">In the list of run configurations, select <span class="control" id="-c0w97_341">simpleLoginIOS</span>. Choose an iOS emulator and then click <span class="control" id="-c0w97_342">Run</span>.</p><p> <img alt="The iOS run configuration in the list of run configurations" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/ios-run-configuration-simplelogin.png" class="inline-icon-" title="The iOS run configuration in the list of run configurations" id="-c0w97_340" width="400" height="30"></p></li></ol></section><section class="chapter"><h3 id="use-the-shared-module-in-the-ios-project" data-toc="use-the-shared-module-in-the-ios-project">Use the shared module in the iOS project</h3><p id="-c0w97_343">The <code class="code" id="-c0w97_346">build.gradle.kts</code> file of the <code class="code" id="-c0w97_347">shared</code> module defines the <code class="code" id="-c0w97_348">binaries.framework.baseName</code> property for each iOS target as <code class="code" id="-c0w97_349">sharedKit</code>. This is the name of the framework that Kotlin Multiplatform builds for the iOS app to consume.</p><p id="-c0w97_344">To test the integration, add a call to common code in Swift code:</p><ol class="list _decimal" id="-c0w97_345" type="1"><li class="list__item" id="-c0w97_350"><p id="-c0w97_358">In Android Studio, open the <code class="code" id="-c0w97_360">iosApp/simpleloginIOS/ContentView.swift</code> file and import the framework:</p><div class="code-block" data-lang="swift">
+import sharedKit
+</div></li><li class="list__item" id="-c0w97_351"><p id="-c0w97_361">To check that it is properly connected, change the <code class="code" id="-c0w97_363">ContentView</code> structure to use the <code class="code" id="-c0w97_364">greet()</code> function from the shared module of your cross-platform app:</p><div class="code-block" data-lang="swift">
+struct ContentView: View {
+    var body: some View {
+        Text(Greeting().greet())
+        .padding()
+    }
+}
+</div></li><li class="list__item" id="-c0w97_352"><p id="-c0w97_365">Run the app using the Android Studio iOS run configuration to see the result:</p><figure id="-c0w97_366"><img alt="Greeting from the shared module" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/xcode-iphone-hello.png" title="Greeting from the shared module" width="300" height="595"></figure></li><li class="list__item" id="-c0w97_353"><p id="-c0w97_367">Update code in the <code class="code" id="-c0w97_369">ContentView.swift</code> file again to use the business logic from the shared module to render the application UI:</p><div class="code-collapse" data-lang="kotlin" data-is-expanded="false" data-synopsis="import SwiftUI" data-disable-link-processing="true">import SwiftUI
+import sharedKit
+
+struct ContentView: View {
+    @State private var username: String = &quot;&quot;
+    @State private var password: String = &quot;&quot;
+
+    @ObservedObject var viewModel: ContentView.ViewModel
+
+    var body: some View {
+        VStack(spacing: 15.0) {
+            ValidatedTextField(titleKey: &quot;Username&quot;, secured: false, text: $username, errorMessage: viewModel.formState.usernameError, onChange: {
+                viewModel.loginDataChanged(username: username, password: password)
+            })
+            ValidatedTextField(titleKey: &quot;Password&quot;, secured: true, text: $password, errorMessage: viewModel.formState.passwordError, onChange: {
+                viewModel.loginDataChanged(username: username, password: password)
+            })
+            Button(&quot;Login&quot;) {
+                viewModel.login(username: username, password: password)
+            }.disabled(!viewModel.formState.isDataValid || (username.isEmpty &amp;&amp; password.isEmpty))
+        }
+        .padding(.all)
+    }
+}
+
+struct ValidatedTextField: View {
+    let titleKey: String
+    let secured: Bool
+    @Binding var text: String
+    let errorMessage: String?
+    let onChange: () -&gt; ()
+
+    @ViewBuilder var textField: some View {
+        if secured {
+            SecureField(titleKey, text: $text)
+        }  else {
+            TextField(titleKey, text: $text)
+        }
+    }
+
+    var body: some View {
+        ZStack {
+            textField
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocapitalization(.none)
+                .onChange(of: text) { _ in
+                    onChange()
+                }
+            if let errorMessage = errorMessage {
+                HStack {
+                    Spacer()
+                    FieldTextErrorHint(error: errorMessage)
+                }.padding(.horizontal, 5)
+            }
+        }
+    }
+}
+
+struct FieldTextErrorHint: View {
+    let error: String
+    @State private var showingAlert = false
+
+    var body: some View {
+        Button(action: { self.showingAlert = true }) {
+            Image(systemName: &quot;exclamationmark.triangle.fill&quot;)
+                .foregroundColor(.red)
+        }
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text(&quot;Error&quot;), message: Text(error), dismissButton: .default(Text(&quot;Got it!&quot;)))
+        }
+    }
+}
+
+extension ContentView {
+
+    struct LoginFormState {
+        let usernameError: String?
+        let passwordError: String?
+        var isDataValid: Bool {
+            get { return usernameError == nil &amp;&amp; passwordError == nil }
+        }
+    }
+
+    class ViewModel: ObservableObject {
+        @Published var formState = LoginFormState(usernameError: nil, passwordError: nil)
+
+        let loginValidator: LoginDataValidator
+        let loginRepository: LoginRepository
+
+        init(loginRepository: LoginRepository, loginValidator: LoginDataValidator) {
+            self.loginRepository = loginRepository
+            self.loginValidator = loginValidator
+        }
+
+        func login(username: String, password: String) {
+            if let result = loginRepository.login(username: username, password: password) as? ResultSuccess  {
+                print(&quot;Successful login. Welcome, \(result.data.displayName)&quot;)
+            } else {
+                print(&quot;Error while logging in&quot;)
+            }
+        }
+
+        func loginDataChanged(username: String, password: String) {
+            formState = LoginFormState(
+                usernameError: (loginValidator.checkUsername(username: username) as? LoginDataValidator.ResultError)?.message,
+                passwordError: (loginValidator.checkPassword(password: password) as? LoginDataValidator.ResultError)?.message)
+        }
+    }
+}</div></li><li class="list__item" id="-c0w97_354"><p id="-c0w97_370">In the <code class="code" id="-c0w97_372">simpleLoginIOSApp.swift</code> file, import the <code class="code" id="-c0w97_373">sharedKit</code> module and specify the arguments for the <code class="code" id="-c0w97_374">ContentView()</code> function:</p><div class="code-block" data-lang="swift">
+import SwiftUI
+import sharedKit
+
+@main
+struct SimpleLoginIOSApp: App {
+    var body: some Scene {
+        WindowGroup {
+            ContentView(viewModel: .init(loginRepository: LoginRepository(dataSource: LoginDataSource()), loginValidator: LoginDataValidator()))
+        }
+    }
+}
+</div></li><li class="list__item" id="-c0w97_355"><p id="-c0w97_375">Run the iOS run configuration again to see that the iOS app shows the login form.</p></li><li class="list__item" id="-c0w97_356"><p id="-c0w97_376">Enter &quot;Jane&quot; as the username and &quot;password&quot; as the password.</p></li><li class="list__item" id="-c0w97_357"><p id="-c0w97_377">As you have <a href="#configure-the-ios-project-to-use-a-kmp-framework" id="-c0w97_379">set up the integration earlier</a>, the iOS app validates input using common code:</p><figure id="-c0w97_378"><img alt="Simple login application" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/xcode-iphone-login.png" title="Simple login application" width="300" height="597"></figure></li></ol></section></section><section class="chapter"><h2 id="enjoy-the-results-update-the-logic-only-once" data-toc="enjoy-the-results-update-the-logic-only-once">Enjoy the results &ndash; update the logic only once</h2><p id="-c0w97_380">Now your application is cross-platform. You can update the business logic in the <code class="code" id="-c0w97_383">shared</code> module and see results on both Android and iOS.</p><ol class="list _decimal" id="-c0w97_381" type="1"><li class="list__item" id="-c0w97_384"><p id="-c0w97_386">Change the validation logic for a user's password: &quot;password&quot; shouldn't be a valid option. To do that, update the <code class="code" id="-c0w97_388">checkPassword()</code> function of the <code class="code" id="-c0w97_389">LoginDataValidator</code> class (to find it quickly, press <span class="control" id="-c0w97_390">Shift</span> twice, paste the name of the class, and switch to the <span class="control" id="-c0w97_391">Classes</span> tab):</p><div class="code-block" data-lang="kotlin">
+package com.jetbrains.simplelogin.shared.data
+
+class LoginDataValidator {
+//...
+    fun checkPassword(password: String): Result {
+        return when {
+            password.length &lt; 5 -&gt; Result.Error(&quot;Password must be &gt;5 characters&quot;)
+            password.lowercase() == &quot;password&quot; -&gt; Result.Error(&quot;Password shouldn't be \&quot;password\&quot;&quot;)
+            else -&gt; Result.Success
+        }
+    }
+//...
+}
+</div></li><li class="list__item" id="-c0w97_385"><p id="-c0w97_392">Run both the iOS and Android applications from Android Studio to see the changes:</p><figure id="-c0w97_393"><img alt="Android and iOS applications password error" src="https://resources.jetbrains.com/help/img/kotlin-multiplatform-dev/android-iphone-password-error.png" title="Android and iOS applications password error" width="600" height="624"></figure></li></ol><p id="-c0w97_382">You can review the <a href="https://github.com/Kotlin/kmp-integration-sample/tree/final" id="-c0w97_394" data-external="true" rel="noopener noreferrer">final code for this tutorial</a>.</p></section><section class="chapter"><h2 id="what-else-to-share" data-toc="what-else-to-share">What else to share?</h2><p id="-c0w97_395">You've shared the business logic of your application, but you can also decide to share other layers of your application. For example, the <code class="code" id="-c0w97_396">ViewModel</code> class code is almost the same for <a href="https://github.com/Kotlin/kmp-integration-sample/blob/final/app/src/main/java/com/jetbrains/simplelogin/androidapp/ui/login/LoginViewModel.kt" id="-c0w97_397" data-external="true" rel="noopener noreferrer">Android</a> and <a href="https://github.com/Kotlin/kmp-integration-sample/blob/final/iosApp/SimpleLoginIOS/ContentView.swift#L84" id="-c0w97_398" data-external="true" rel="noopener noreferrer">iOS applications</a>, and you can share it if your mobile applications should have the same presentation layer.</p></section><section class="chapter"><h2 id="what-s-next" data-toc="what-s-next">What's next?</h2><p id="-c0w97_399">Once you've made your Android application cross-platform, you can move on and:</p><ul class="list _bullet" id="-c0w97_400"><li class="list__item" id="-c0w97_405"><p><a href="multiplatform-add-dependencies.html" id="-c0w97_408">Add dependencies on multiplatform libraries</a></p></li><li class="list__item" id="-c0w97_406"><p><a href="multiplatform-android-dependencies.html" id="-c0w97_409">Add Android dependencies</a></p></li><li class="list__item" id="-c0w97_407"><p><a href="multiplatform-ios-dependencies.html" id="-c0w97_410">Add iOS dependencies</a></p></li></ul><p id="-c0w97_401">You can use Compose Multiplatform to create a unified UI across all platforms:</p><ul class="list _bullet" id="-c0w97_402"><li class="list__item" id="-c0w97_411"><p><a href="compose-multiplatform-and-jetpack-compose.html" id="-c0w97_414">Learn about Compose Multiplatform and Jetpack Compose</a></p></li><li class="list__item" id="-c0w97_412"><p><a href="compose-multiplatform-resources.html" id="-c0w97_415">Explore available resources for Compose Multiplatform</a></p></li><li class="list__item" id="-c0w97_413"><p><a href="compose-multiplatform-create-first-app.html" id="-c0w97_416">Create an app with shared logic and UI</a></p></li></ul><p id="-c0w97_403">You can also check out community resources:</p><ul class="list _bullet" id="-c0w97_404"><li class="list__item" id="-c0w97_417"><p><a href="https://www.youtube.com/watch?v=vb-Pt8SdfEE&amp;t=1s" id="-c0w97_419" data-external="true" rel="noopener noreferrer">Video: How to migrate an Android project to Kotlin Multiplatform</a></p></li><li class="list__item" id="-c0w97_418"><p><a href="https://www.youtube.com/watch?v=X6ckI1JWjqo" id="-c0w97_420" data-external="true" rel="noopener noreferrer">Video: 3 ways to get your Kotlin JVM code ready for Kotlin Multiplatform</a></p></li></ul></section><div class="last-modified">Last modified: 02 June 2025</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="multiplatform-wrap-up.html" class="navigation-links__prev">Wrap up your project</a><a href="multiplatform-ktor-sqldelight.html" class="navigation-links__next">Create a multiplatform app using Ktor and SQLDelight</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b454/app.js"></script></body></html>
