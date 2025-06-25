@@ -93,9 +93,10 @@ kapt {
 ## Gradle build cache support
 
 The kapt annotation processing tasks are [cached in Gradle](https://guides.gradle.org/using-build-cache/) by default.
-However, annotation processors run arbitrary code that may not necessarily transform the task inputs into the outputs,
-might access and modify the files that are not tracked by Gradle. If the annotation processors used in the build cannot
-be properly cached, you can disable caching for kapt entirely by updating the build script with the `useBuildCache` property.
+However, annotation processors can run arbitrary code, which may not reliably transform task inputs into outputs,
+or may access and modify files that Gradle doesn't track.
+If the annotation processors used in the build cannot be properly cached,
+you can disable caching for kapt entirely by specifying the `useBuildCache` property in the build script.
 This helps prevent false-positive cache hits for the kapt tasks:
 
 ```groovy
