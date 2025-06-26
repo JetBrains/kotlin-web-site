@@ -179,7 +179,7 @@ val KClass<*>.jsonSchema : String
     {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
       "$id": "https://example.com/product.schema.json",
-      "$dynamicAnchor": "meta"
+      "$dynamicAnchor": "meta",
       "title": "$${simpleName ?: qualifiedName ?: "unknown"}",
       "type": "object"
     }
