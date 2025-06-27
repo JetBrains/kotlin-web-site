@@ -917,11 +917,11 @@ kotlin {
 ## Module name
 
 To adjust the name for the JavaScript _module_ (which is generated in `build/js/packages/myModuleName`), including
-the corresponding `.js` and `.d.ts` files, use the `moduleName` option:
+the corresponding `.js` and `.d.ts` files, use the `outputModuleName` option:
 
 ```groovy
 js {
-    moduleName = "myModuleName"
+    outputModuleName = "myModuleName"
 }
 ```
 
