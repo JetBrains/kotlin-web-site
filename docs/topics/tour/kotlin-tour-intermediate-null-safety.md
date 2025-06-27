@@ -605,7 +605,8 @@ fun main() {
 ```kotlin
 data class User(val username: String, val isActive: Boolean)
 
-fun getActiveUsernames(users: List<User>): List<String> = users.mapNotNull { user -> user.username.takeIf { user.isActive } }
+fun getActiveUsernames(users: List<User>): List<String> =
+    users.mapNotNull { user -> user.username.takeIf { user.isActive } }
 
 fun main() {
     val allUsers = listOf(
