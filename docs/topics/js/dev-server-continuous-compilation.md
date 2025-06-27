@@ -1,15 +1,19 @@
 [//]: # (title: Development server and continuous compilation)
 
 Instead of manually compiling and executing a Kotlin/JS project every time you want to see the changes you made,
-you can use the _continuous compilation_ mode. Instead of using the regular `run` command, invoke the Gradle wrapper
+you can use the _continuous compilation_ mode. Instead of using the regular `jsBrowserDevelopmentRun` (for `browser`) and `jsNodeDevelopmentRun` (for `nodejs`) command, invoke the Gradle wrapper
 in _continuous_ mode:
 
 ```bash
-./gradlew run --continuous
+ # for `browser` project
+./gradlew jsBrowserDevelopmentRun --continuous
+
+ # for `nodejs` project
+./gradlew jsNodeDevelopmentRun --continuous
 ```
 
 If you are working in IntelliJ IDEA, you can pass the same flag via the _run configuration_. After running the Gradle
-`run` task for the first time from the IDE, IntelliJ IDEA automatically generates a run configuration for it,
+run task for the first time from the IDE, IntelliJ IDEA automatically generates a run configuration for it,
 which you can edit:
 
 ![Editing run configurations in IntelliJ IDEA](edit-configurations.png){width=700}
