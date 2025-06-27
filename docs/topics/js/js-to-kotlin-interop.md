@@ -21,8 +21,9 @@ alert(myModule.foo());
 ```
 
 This is not applicable when you compile your Kotlin module to JavaScript modules like UMD (which is the default setting
-for both `browser` and `nodejs` targets), CommonJS or AMD. In this case, your declarations will be exposed in the format
-specified by your chosen JavaScript module system. When using UMD or CommonJS, for example, your call site could look
+for both `browser` and `nodejs` targets), ESM, CommonJS or AMD.
+In this case, your declarations will be exposed in the format specified by your chosen JavaScript module system.
+When using UMD, ESM or CommonJS, for example, your call site could look
 like this:
 
 ```javascript
@@ -33,8 +34,9 @@ Check the article on [JavaScript Modules](js-modules.md) for more information on
 
 ## Package structure
 
-Kotlin exposes its package structure to JavaScript, so unless you define your declarations in the root package,
-you have to use fully qualified names in JavaScript. For example:
+For most of the module systems, Kotlin exposes its package structure to JavaScript,
+so unless you define your declarations in the root package, you have to use fully qualified names in JavaScript.
+For example:
 
 ```kotlin
 package my.qualified.packagename
@@ -52,6 +54,15 @@ Or, in the case of using `plain` as a module system setting:
 
 ```javascript
 alert(myModule.my.qualified.packagename.foo());
+```
+
+However, there is an exception for `ES` modules.
+It loses the package information to improve the final application bundle-size.
+So the consumption of the Kotlin declarations with ES modules looks like this:
+```javascript
+import { foo } from 'myModule';
+
+alert(foo());
 ```
 
 ### @JsName annotation
@@ -179,7 +190,7 @@ See how Kotlin types are mapped to JavaScript ones:
 | `List`, `MutableList`                                            | `KtList`, `KtMutableList` | Exposes an `Array` via `KtList.asJsReadonlyArrayView` or `KtMutableList.asJsArrayView`.    |
 | `Map`, `MutableMap`                                              | `KtMap`, `KtMutableMap`   | Exposes an ES2015 `Map` via `KtMap.asJsReadonlyMapView` or `KtMutableMap.asJsMapView`.     |
 | `Set`, `MutableSet`                                              | `KtSet`, `KtMutableSet`   | Exposes an ES2015 `Set` via `KtSet.asJsReadonlySetView` or `KtMutableSet.asJsSetView`.     |
-| `Unit`                                                           | Undefined                 | Exportable when used as return type, but not when used as parameter type.                  |
+| `Unit`                                                           | undefined                 | Exportable when used as return type, but not when used as parameter type.                  |
 | `Any`                                                            | `Object`                  |                                                                                            |
 | `Throwable`                                                      | `Error`                   |                                                                                            |
 | `enum class Type`                                                | `Type`                    | Enum entries are exposed as static class properties (`Type.ENTRY`).                        |
