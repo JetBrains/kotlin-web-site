@@ -514,17 +514,17 @@ In 2.1.20, the Compose compiler relaxes some restrictions on `@Composable` funct
 In addition, the Compose compiler Gradle plugin is set to include source information by default, aligning the behavior
 on all platforms with Android.
 
-### Support for default arguments in open `@Composable` functions
+### Support for optional parameters in open `@Composable` functions
 
-The compiler previously restricted default arguments in open `@Composable` functions due to incorrect compiler output,
-which would result in crashes at runtime. The underlying issue is now resolved, and default arguments are fully supported
+The compiler previously restricted optional parameters in open `@Composable` functions due to incorrect compiler output,
+which would result in crashes at runtime. The underlying issue is now resolved, and optional parameters are fully supported
 when used with Kotlin 2.1.20 or newer.
 
-Compose compiler allowed default arguments in open functions before [version 1.5.8](https://developer.android.com/jetpack/androidx/releases/compose-compiler#1.5.8),
+Compose compiler allowed optional parameters in open functions before [version 1.5.8](https://developer.android.com/jetpack/androidx/releases/compose-compiler#1.5.8),
 so the support depends on project configuration:
 
 * If an open composable function is compiled with Kotlin version 2.1.20 or newer, the compiler generates correct wrappers
-  for default arguments. This includes wrappers compatible with pre-1.5.8 binaries, meaning that downstream libraries
+  for optional parameters. This includes wrappers compatible with pre-1.5.8 binaries, meaning that downstream libraries
   will also be able to use this open function.
 * If the open composable function is compiled with Kotlin older than 2.1.20, Compose uses a compatibility mode, which
   might result in runtime crashes. When using the compatibility mode, the compiler emits a warning to highlight potential
