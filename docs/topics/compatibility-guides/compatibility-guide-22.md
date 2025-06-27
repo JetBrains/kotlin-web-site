@@ -190,7 +190,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.0: report an error when accessing private types or members from non-private inline functions
 
-### Forbid non-local returns in default argument lambdas
+### Forbid non-local returns in lambdas used as parameter's default value
 
 > **Issue**: [KTLC-286](https://youtrack.jetbrains.com/issue/KTLC-286)
 >
@@ -198,12 +198,12 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Non-local return statements are no longer allowed in lambdas used as default arguments.
-> This pattern previously compiled but led to runtime crashes. To migrate, rewrite the lambda to avoid non-local returns or move the logic outside the default argument.
+> **Short summary**: Non-local return statements are no longer allowed in lambdas used as parameter's default value.
+> This pattern previously compiled but led to runtime crashes. To migrate, rewrite the lambda to avoid non-local returns or move the logic outside the default value.
 >
 > **Deprecation cycle**:
 >
-> - 2.2.0: report an error for non-local returns in lambdas used as default argument values
+> - 2.2.0: report an error for non-local returns in lambdas used as parameter's default value
 
 ## Standard library
 
