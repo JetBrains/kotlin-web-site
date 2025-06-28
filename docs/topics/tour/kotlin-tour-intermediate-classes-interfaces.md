@@ -610,7 +610,7 @@ fun main() {
 You have a simple messaging app that has some basic functionality, but you want to add some functionality for 
 _smart_ messages without significantly duplicating your code.
 
-In the code below, define a class called `SmartMessenger` that inherits from the `BasicMessenger` class but delegates 
+In the code below, define a class called `SmartMessenger` that inherits from the `Messenger` interface but delegates 
 the implementation to an instance of the `BasicMessenger` class. 
 
 In the `SmartMessenger` class, override the `sendMessage()` function to send smart messages. The function must accept
