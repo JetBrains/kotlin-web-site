@@ -58,8 +58,8 @@ tables are the optimizations' output with timing for each pass.
 If one of the passes above seems unreasonably long, you can skip it. However, this might hurt runtime performance, so
 you should check for changes in the benchmarks' performance afterward.
 
-There is no direct way to disable a given pass. However, you can provide a new list of passes to run by using the
-following compiler options:
+Currently, there is no direct way to [disable a given pass](https://youtrack.jetbrains.com/issue/KT-69212).
+However, you can provide a new list of passes to run by using the following compiler options:
 
 | **Option**             | **Default value for release binary** |
 |------------------------|--------------------------------------|
