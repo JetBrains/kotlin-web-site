@@ -91,13 +91,12 @@ native libraries is most affected by this . It often doesn't work at all with an
 
 #### Xcode version is older than recommended
 
-Typically, Kotlin works well with older Xcode versions. There might be occasional issues, most often when
-the Kotlin API of the native library:
+Typically, Kotlin works well with older Xcode versions. There might be occasional issues that most often result in:
 
-* Refers to a non-existent type as in [KT-71694](https://youtrack.jetbrains.com/issue/KT-71694).
-* Includes a type that belongs to a system library.
-  In this case, everything compiles well, but some system native type is added to your native library package.
-  For example, this system type can be visible in autocompletion in the IDE when you don't expect it.
+* The Kotlin API referring to a non-existent type as in [KT-71694](https://youtrack.jetbrains.com/issue/KT-71694).
+* A type from a system library is included in the Kotlin API of the native library.
+  In this case, the project compiles successfully, but a system native type is added to your native library package.
+  For example, you can then see this type unexpectedly in IDE autocompletion.
 
 If your Kotlin library successfully compiles with an older Xcode version, it's safe to publish unless you
 [use types from a third-party library in your Kotlin library API](#using-native-types-in-library-api).
@@ -146,7 +145,7 @@ compatibility issues.
 
 #### Use custom package name
 
-Using custom package names for third-party native libraries might help to prevent compatibility issues.
+Using custom package names for third-party native libraries might help prevent compatibility issues.
 
 When a native library is imported to Kotlin, it gets a Kotlin package name. If it's not unique,
 library users might get a clash. For example, if a native library is imported with the same package name elsewhere
@@ -179,7 +178,7 @@ with other Kotlin versions, specifically:
   Using a native library in the Kotlin library normally shouldn't affect its backward compatibility.
   But it opens the possibility of more compiler bugs affecting compatibility.
 
-#### Add static libraries
+#### Avoid embedding static libraries
 
 When importing a native library, it's possible to include the associated [static library](native-definition-file.md#include-a-static-library)
 (`.a` file) using the `-staticLibrary` compiler option or the `staticLibraries` property in a `.def` file.
