@@ -1,8 +1,8 @@
 [//]: # (title: Tips for customizing LLVM backend)
 <primary-label ref="advanced"/>
 
-The Kotlin/Native compiler uses [LLVM](https://llvm.org/) to optimize and generate binary executables for different
-target platforms. A noticeable part of the compilation time is also spent in LLVM, and for large apps, this can end up
+The Kotlin/Native compiler uses [LLVM](https://llvm.org/) to optimize and generate binary executables for different target platforms.
+A noticeable part of the compilation time is also spent in LLVM, and for large apps, this can end up
 taking an unacceptably long time.
 
 You can customize how Kotlin/Native uses LLVM and adjust the list of optimization passes.
@@ -11,9 +11,43 @@ You can customize how Kotlin/Native uses LLVM and adjust the list of optimizatio
 
 Let's take a look at the build log to understand how much compilation time is spent on LLVM optimization passes:
 
-1. Add the `-Xprofile-phases` compiler argument to your build.
-2. Run the `linkRelease*` task. By default, a release binary compilation runs the same LLVM optimization passes that clang
-   would for C++.
+1. Run the `linkRelease*` Gradle task with `-Pkotlin.internal.compiler.arguments.log.level=warning` option to make Gradle
+   output LLVM profiling details, for example:
+
+   ```bash
+   ./gradlew linkReleaseExecutableMacosArm64 -Pkotlin.internal.compiler.arguments.log.level=warning
+   ```
+
+   While executing, the task prints the necessary compiler arguments, for example:
+
+   ```none
+   > Task :linkReleaseExecutableMacosArm64
+   Run in-process tool "konanc"
+   Entry point method = org.jetbrains.kotlin.cli.utilities.MainKt.daemonMain
+   Classpath = [
+           /Users/user/.konan/kotlin-native-prebuilt-macos-aarch64-2.2.0/konan/lib/kotlin-native-compiler-embeddable.jar
+           /Users/user/.konan/kotlin-native-prebuilt-macos-aarch64-2.2.0/konan/lib/trove4j.jar
+   ]
+   Arguments = [
+           -Xinclude=...
+           -library
+           /Users/user/.konan/kotlin-native-prebuilt-macos-aarch64-2.2.0/klib/common/stdlib
+           -no-endorsed-libs
+           -nostdlib
+           ...
+   ]
+   ```
+
+2. Run the command line compiler with the provided arguments plus the `-Xprofile-phases` argument, for example:
+
+   ```bash
+   /Users/user/.konan/kotlin-native-prebuilt-macos-aarch64-2.2.0/bin/kotlinc-native \
+   -Xinclude=... \
+   -library /Users/user/.konan/kotlin-native-prebuilt-macos-aarch64-2.2.0/klib/common/stdlib \
+   ... \
+   -Xprofile-phases
+   ```
+
 3. Examine the generated output in the build log. The log can contain tens of thousands of lines; sections with LLVM
    profiling are at the end.
 
@@ -50,13 +84,13 @@ The Kotlin/Native compiler runs two separate sequences of LLVM optimizations: th
 passes. For a typical compilation, the two pipelines are run back to back, and the only real distinction is in which
 LLVM optimization passes they run.
 
-In the log above, the two LLVM optimizations are `ModuleBitcodeOptimization` and `LTOBitcodeOptimization`. The formatted
-tables are the optimizations' output with timing for each pass.
+In the log above, the two LLVM optimizations are `ModuleBitcodeOptimization` and `LTOBitcodeOptimization`.
+The formatted tables are the optimizations' output with timing for each pass.
 
 ## Customize LLVM optimization passes
 
-If one of the passes above seems unreasonably long, you can skip it. However, this might hurt runtime performance, so
-you should check for changes in the benchmarks' performance afterward.
+If one of the passes above seems unreasonably long, you can skip it. However, this might hurt runtime performance,
+so you should check for changes in the benchmarks' performance afterward.
 
 Currently, there is no direct way to [disable a given pass](https://youtrack.jetbrains.com/issue/KT-69212).
 However, you can provide a new list of passes to run by using the following compiler options:
