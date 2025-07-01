@@ -93,17 +93,21 @@ class Person(
 
 Much like regular properties, properties declared in the primary constructor can be mutable (`var`) or read-only (`val`).
 
-When you declare a parameter without a `val` or `var` in the primary constructor, it is simply a constructor parameter, and **not a property in the class**. The parameter is only accessible within the constructor's scope.  
+Plain constructor parameters (that are not properties) are accessible in:
+* The class header.
+* Initialized properties within the class body.
+* Initializer blocks.
+
+For example:
 
 ```kotlin
-// The following will not compile 
+// width and height are plain constructor parameters
 class RectangleWithParameters(width: Int, height: Int) {
-    fun area() = width * height
-}
+    val perimeter = 2 * width + 2 * height
 
-// The following will compile
-class RectangleWithProperties(val width: Int, val height: Int) {
-    fun area() = width * height
+    init {
+        println("Rectangle created with width = $width and height = $height")
+    }
 }
 ```
 
