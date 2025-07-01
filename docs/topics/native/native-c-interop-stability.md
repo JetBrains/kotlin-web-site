@@ -1,7 +1,7 @@
-[//]: # (title: Support for C and Objective-C libraries)
+[//]: # (title: Stability of C and Objective-C library import)
 <primary-label ref="beta"/>
 
-Kotlin/Native provides [the ability to use C](native-c-interop.md) and [Objective-C](native-objc-interop.md) libraries.
+Kotlin/Native provides [the ability to import C](native-c-interop.md) and [Objective-C](native-objc-interop.md) libraries.
 Support for these libraries is currently [in Beta](components-stability.md#kotlin-native).
 
 One of the main reasons for the Beta status is that using C and Objective-C libraries might affect the compatibility
