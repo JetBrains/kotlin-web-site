@@ -74,7 +74,7 @@ the `sendNotification()` function because this function doesn't expect that `add
 The compiler reports an error as a result: 
 
 ```text
-Type mismatch: inferred type is String? but String was expected
+Argument type mismatch: actual type is 'String?', but 'String' was expected.
 ```
 
 From the beginner tour, you already know that you can perform a null check with an if condition or use the [Elvis operator `?:`](kotlin-tour-null-safety.md#use-elvis-operator). 
