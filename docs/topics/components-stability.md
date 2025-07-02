@@ -2,12 +2,12 @@
 
 The Kotlin language and toolset are divided into many components such as the compilers for the JVM, JS and Native targets,
 the Standard Library, various accompanying tools and so on.
-Many of these components were officially released as **Stable**, which means that they were evolved 
+Many of these components were officially released as **Stable**, which means that they were evolved
 in a backward-compatible way following the [principles of _Comfortable Updates_ and _Keeping the Language Modern_](kotlin-evolution-principles.md).
 
-Following the _Feedback Loop_ principle, we release many things early for the community to try out, 
+Following the _Feedback Loop_ principle, we release many things early for the community to try out,
 so a number of components are not yet released as **Stable**.
-Some of them are at a very early stage, some are more mature. 
+Some of them are at a very early stage, some are more mature.
 We mark them as **Experimental**, **Alpha** or **Beta** depending on how quickly each component evolves
 and the level of risk users take on when adopting it.
 
@@ -16,22 +16,22 @@ and the level of risk users take on when adopting it.
 Here's a quick guide to these stability levels and their meaning:
 
 **Experimental** means "try it only in toy projects":
-  * We are just trying out an idea and want some users to play with it and give feedback. If it doesn't work out, we may drop it any minute.
+* We are just trying out an idea and want some users to play with it and give feedback. If it doesn't work out, we may drop it any minute.
 
-**Alpha** means "use at your own risk, expect migration issues": 
-  * We intend to productize this idea, but it hasn't reached its final shape yet.
+**Alpha** means "use at your own risk, expect migration issues":
+* We intend to productize this idea, but it hasn't reached its final shape yet.
 
-**Beta** means "you can use it, we'll do our best to minimize migration issues for you": 
-  * It's almost done, user feedback is especially important now.
-  * Still, it's not 100% finished, so changes are possible (including ones based on your own feedback).
-  * Watch for deprecation warnings in advance for the best update experience.
+**Beta** means "you can use it, we'll do our best to minimize migration issues for you":
+* It's almost done, user feedback is especially important now.
+* Still, it's not 100% finished, so changes are possible (including ones based on your own feedback).
+* Watch for deprecation warnings in advance for the best update experience.
 
 We collectively refer to _Experimental_, _Alpha_ and _Beta_ as **pre-stable** levels.
 
 <a name="stable"/>
 
 **Stable** means "use it even in most conservative scenarios":
-  * It's done. We will be evolving it according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
+* It's done. We will be evolving it according to our strict [backward compatibility rules](https://kotlinfoundation.org/language-committee-guidelines/).
 
 Please note that stability levels do not say anything about how soon a component will be released as Stable. Similarly, they do not indicate how much a component will be changed before release. They only say how fast a component is changing and how much risk of update issues users are running.
 
@@ -61,13 +61,13 @@ A stable component may have an experimental subcomponent, for example:
 * a stable command-line tool may have experimental options.
 
 We make sure to document precisely which subcomponents are not **Stable**.
-We also do our best to warn users where possible and ask to opt them in explicitly 
+We also do our best to warn users where possible and ask to opt them in explicitly
 to avoid the accidental use of features that have not been released as stable.
 
 ## Current stability of Kotlin components
 
 > By default, all new components have Experimental status.
-> 
+>
 {style="note"}
 
 ### Kotlin compiler
@@ -103,7 +103,7 @@ to avoid the accidental use of features that have not been released as stable.
 | kotlinx-datetime      | Alpha      | 0.2.0                    |              |
 | kotlinx-io            | Alpha      | 0.2.0                    |              |
 
-### Kotlin Multiplatform 
+### Kotlin Multiplatform
 
 | **Component**                                  | **Status** | **Status since version** | **Comments**                                                                                                                         |
 |------------------------------------------------|------------|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
@@ -112,13 +112,13 @@ to avoid the accidental use of features that have not been released as stable.
 
 ### Kotlin/Native
 
-| **Component**                                | **Status** | **Status since version** | **Comments**                                                                      |
-|----------------------------------------------|------------|--------------------------|-----------------------------------------------------------------------------------|
-| Kotlin/Native Runtime                        | Stable     | 1.9.20                   |                                                                                   |
-| Kotlin/Native interop with C and Objective-C | Beta       | 1.3.0                    | [Stability of C and Objective-C libraries support](native-c-interop-stability.md) |
-| klib binaries                                | Stable     | 1.9.20                   | Not including cinterop klibs, see below                                           |
-| cinterop klib binaries                       | Beta       | 1.3.0                    | [Stability of C and Objective-C libraries support](native-c-interop-stability.md) |
-| CocoaPods integration                        | Stable     | 1.9.20                   |                                                                                   |
+| **Component**                                | **Status** | **Status since version** | **Comments**                                                                   |
+|----------------------------------------------|------------|--------------------------|--------------------------------------------------------------------------------|
+| Kotlin/Native Runtime                        | Stable     | 1.9.20                   |                                                                                |
+| Kotlin/Native interop with C and Objective-C | Beta       | 1.3.0                    | [Stability of C and Objective-C library import](native-c-interop-stability.md) |
+| klib binaries                                | Stable     | 1.9.20                   | Not including cinterop klibs, see below                                        |
+| cinterop klib binaries                       | Beta       | 1.3.0                    | [Stability of C and Objective-C library import](native-c-interop-stability.md) |
+| CocoaPods integration                        | Stable     | 1.9.20                   |                                                                                |
 
 For more information about the level of support for different targets, see [](native-target-support.md).
 
