@@ -22,14 +22,14 @@
             <br/>
         </li>
         <li>
-            <a href="https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/"><b>Coroutines (kotlinx.coroutines)</b></a>
+            <a href="https://kotlinlang.org/api/kotlinx.coroutines/"><b>Coroutines (kotlinx.coroutines)</b></a>
             <br/>
             <p>A powerful library for asynchronous programming using Kotlin coroutines. It offers high-level coroutine builders, concurrency primitives, structured concurrency, and integration with reactive libraries and frameworks.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx.coroutines">kotlinx.coroutines</a>
             <br/>
         </li>
         <li>
-            <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/"><b>Serialization (kotlinx.serialization)</b></a>
+            <a href="https://kotlinlang.org/api/kotlinx.serialization/"><b>Serialization (kotlinx.serialization)</b></a>
             <br/>
             <p>A multiplatform serialization library. It provides a type-safe, compile-time mechanism for converting Kotlin objects to and from a variety of formats such as JSON, CBOR, and Protocol Buffers.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx.serialization">kotlinx.serialization</a>
