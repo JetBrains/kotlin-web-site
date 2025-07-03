@@ -1,25 +1,28 @@
 [//]: # (title: Debugging Kotlin/Native)
 
-Currently, the Kotlin/Native compiler produces debug info compatible with the DWARF 2 specification, so modern debugger tools can
-perform the following operations:
-- breakpoints
-- stepping
-- inspection of type information
-- variable inspection
+The Kotlin/Native compiler can generate binaries with debug info, as well as create debug symbol files for symbolicating
+crash reports.
 
->Supporting the DWARF 2 specification means that the debugger tool recognizes Kotlin as C89, because before the DWARF 5 specification, there is no identifier for the Kotlin language type in specification.
+The debug info is compatible with the DWARF 2 specification, so modern debugger tools, like lldb and gdb can:
+
+* [Set breakpoints](#breakpoints)
+* [Perform stepping](#stepping)
+* [Inspect variable and type information](#variable-inspection)
+
+> Supporting the DWARF 2 specification means that the debugger tool recognizes Kotlin as C89, because before the DWARF 5
+> specification, there is no identifier for the Kotlin language type in specification.
 >
 {style="note"}
 
-## Produce binaries with debug info with Kotlin/Native compiler
+## Generate binaries with debug info
 
-To produce binaries with the Kotlin/Native compiler, use the ``-g`` option on the command line.
+To produce binaries with debug info, compile your Kotlin/Native binary with the `-g` option from the command line:
 
 ```bash
 0:b-debugger-fixes:minamoto@unit-703(0)# cat - > hello.kt
 fun main(args: Array<String>) {
   println("Hello world")
-  println("I need your clothes, your boots and your motocycle")
+  println("I need your clothes, your boots and your motorcycle")
 }
 0:b-debugger-fixes:minamoto@unit-703(0)# dist/bin/konanc -g hello.kt -o terminator
 KtFile: hello.kt
@@ -35,7 +38,7 @@ Process 28473 stopped
     frame #0: 0x00000001000012e4 terminator.kexe`kfun:main(kotlin.Array<kotlin.String>) at hello.kt:2
    1    fun main(args: Array<String>) {
 -> 2      println("Hello world")
-   3      println("I need your clothes, your boots and your motocycle")
+   3      println("I need your clothes, your boots and your motorcycle")
    4    }
 (lldb) n
 Hello world
@@ -44,10 +47,56 @@ Process 28473 stopped
     frame #0: 0x00000001000012f0 terminator.kexe`kfun:main(kotlin.Array<kotlin.String>) at hello.kt:3
    1    fun main(args: Array<String>) {
    2      println("Hello world")
--> 3      println("I need your clothes, your boots and your motocycle")
+-> 3      println("I need your clothes, your boots and your motorcycle")
    4    }
 (lldb)
 ```
+
+## Debugging iOS applications
+
+Debugging iOS application sometimes involves analyzing crash reports in detail.
+Crash reports typically require symbolication, the process of translating memory addresses into readable source code locations.
+
+To symbolicate addresses in Kotlin code (for example, for stack trace elements corresponding to Kotlin code), you need a
+special debug symbol (`.dSYM`) file.
+This file maps memory addresses in crash reports with actual locations in the source code, such as functions or line numbers.
+
+The Kotlin/Native compiler generates `.dSYM` files for release (optimized) binaries on Apple platforms by default.
+On other platforms, you need to explicitly enable it using the `-Xadd-light-debug` compiler option:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+        binaries.all {
+            freeCompilerArgs += "-Xadd-light-debug=enable"
+        }
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
+        binaries.all {
+            freeCompilerArgs += "-Xadd-light-debug=enable"
+        }
+    }
+}
+```
+
+</tab>
+</tabs>
+
+When building in Xcode, the IDE looks for `.dSYM` files in standard locations and uses them automatically for symbolication.
+Xcode automatically detects `.dSYM` files in projects created from IntelliJ IDEA templates.
+
+For more information about crash reports, see the [Apple documentation](https://developer.apple.com/documentation/xcode/diagnosing-issues-using-crash-reports-and-device-logs).
 
 ## Breakpoints
 
@@ -95,7 +144,7 @@ _``-n`` is optional, this flag is applied by default_
     ```
 
 - by name __unusable__, because ``:`` is a separator for the breakpoint by location
-    
+
     ```bash
     (gdb) b kfun:main(kotlin.Array<kotlin.String>)
     No source file named kfun.
@@ -125,8 +174,7 @@ Stepping functions works mostly the same way as for C/C++ programs.
 ## Variable inspection
 
 Variable inspections for `var` variables works out of the box for primitive types.
-For non-primitive types there are custom pretty printers for lldb in
-`konan_lldb.py`:
+For non-primitive types, there are custom pretty printers for lldb in `konan_lldb.py`:
 
 ```bash
 λ cat main.kt | nl
@@ -174,8 +222,7 @@ Process 4985 launched: './program.kexe' (x86_64)
 ```
 
 Getting representation of the object variable (var) could also be done using the
-built-in runtime function `Konan_DebugPrint` (this approach also works for gdb,
-using a module of command syntax):
+built-in runtime function `Konan_DebugPrint` (this approach also works for gdb, using a module of command syntax):
 
 ```bash
 0:b-debugger-fixes:minamoto@unit-703(0)# cat ../debugger-plugin/1.kt | nl -p
@@ -213,7 +260,6 @@ Process 80496 launched: './program.kexe' (x86_64)
 (lldb) expression -- (int32_t)Konan_DebugPrint(a_variable)
 (a_variable) one is 1(int32_t) $0 = 0
 (lldb)
-
 ```
 
 ## Known issues

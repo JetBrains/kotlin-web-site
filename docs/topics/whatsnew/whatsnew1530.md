@@ -524,7 +524,7 @@ kotlin {
 
 When you declare XCFrameworks, these new Gradle tasks will be registered:
 * `assembleXCFramework`
-* `assembleDebugXCFramework` (additionally debug artifact that [contains dSYMs](native-ios-symbolication.md))
+* `assembleDebugXCFramework` (additionally debug artifact that [contains dSYMs](native-debugging.md#debugging-ios-applications))
 * `assembleReleaseXCFramework`
 
 Learn more about XCFrameworks in [this WWDC video](https://developer.apple.com/videos/play/wwdc2019/416/).
