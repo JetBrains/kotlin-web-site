@@ -396,11 +396,10 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-filter"}
 
-The `.filter()` function accepts a lambda expression as a predicate that will be used on each element of the list.
-The element will be kept only if the predicate returns true:
+The `.filter()` function accepts a lambda expression as a predicate and applies it to each element of the list. The function keeps an element only if the predicate returns `true`:
 
-* `{ x -> x > 0 }` for a given element, returns true if is positive.
-* `{ x -> x < 0 }` for a given element, returns true if is negative.
+* `{ x -> x > 0 }` returns `true` if the element is positive.
+* `{ x -> x < 0 }` returns `true` if the element is negative.
 
 This example demonstrates two ways of passing a lambda expression to a function:
 
