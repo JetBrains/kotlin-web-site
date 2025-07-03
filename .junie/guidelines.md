@@ -264,7 +264,16 @@ The Kotlin Website employs a hybrid architecture that combines two different app
    - Asset management: Webpack-bundled JavaScript, SCSS styles, Jinja2 templates
    - Build process: Flask development server for development, Flask-Frozen for production
 
-3. **Integration Between Approaches**:
+3. **Flask Pages with React Components**:
+   - Some Flask-based pages use React components for enhanced interactivity
+   - The `/education/` page is a prime example of this approach
+   - Flask handles routing and data preparation
+   - React components are server-side rendered using Node.js
+   - Data is passed from Flask to React through props
+   - The rendered HTML is included in the Flask template
+   - This approach combines the benefits of server-side rendering with React's component model
+
+4. **Integration Between Approaches**:
    - Webpack dev server proxies requests to both Next.js and Flask servers
    - Both Next.js and Flask Freeze generate static HTML files for production
    - Flask application configures routes to serve Next.js-generated content
@@ -493,6 +502,62 @@ The search index generation is integrated into the TeamCity CI/CD pipeline:
 
 The search index, sitemap, and statistics are automatically rebuilt from time to time to ensure they stay up-to-date with the website content.
 
+### Flask-React Integration System
+
+The project includes a specialized system for integrating React components with Flask templates. This system allows for enhanced interactivity in Flask-rendered pages while maintaining the benefits of server-side rendering.
+
+#### Integration Process
+
+1. **Flask Template**: A Flask template includes a React component using a custom Jinja2 tag:
+   ```html
+   {% ktl_component "componentName" prop1=value1 prop2=value2 %}
+   ```
+
+2. **Jinja2 Extension**: The `KTLComponentExtension` class in `src/ktl_components.py` processes the tag
+   - Parses the component name and props
+   - Calls Node.js to render the React component
+   - Returns the rendered HTML to be included in the template
+
+3. **Server-Side Rendering**: Node.js renders the React component using:
+   - `scripts/react-renderer/compile.js` - Sets up Babel configuration
+   - `scripts/react-renderer/compile.mjs` - Imports and renders the component
+   - React's `renderToString` function to convert the component to HTML
+
+4. **Client-Side Hydration**: After the page loads, JavaScript initializes the React components:
+   - `static/js/ktl-component/index.js` finds component placeholders in the DOM
+   - It initializes the appropriate React component with the same props
+   - This enables interactivity after the initial server-side render
+
+#### Education Page Example
+
+The `/education/` page is a prime example of this integration:
+
+1. **Flask Route**: Defined in `kotlin-website.py`:
+   ```python
+   @app.route('/education/')
+   def education_page():
+       return render_template(
+           'pages/education/index.html',
+           universities_count=len(site_data['universities']),
+           countries_count=get_countries_size()
+       )
+   ```
+
+2. **Template**: Located at `templates/pages/education/index.html`:
+   ```html
+   {% extends 'base.html' %}
+   {% block page_outer_content %}
+       {% ktl_component "teach" path=request.path countriesCount=countries_count universitiesCount=universities_count %}
+   {% endblock %}
+   ```
+
+3. **React Component**: Located at `static/js/ktl-component/teach/index.jsx`:
+   - Receives props: `path`, `countriesCount`, `universitiesCount`
+   - Renders various sections including an interactive map
+   - Uses sub-components for different parts of the page
+
+This approach allows for complex, interactive UI components within Flask-rendered pages, combining the benefits of both frameworks.
+
 ### Dokka Template Generator System
 
 The project includes a custom template generator for Dokka, which is used to create personalized HTML templates for API documentation. This system allows the Kotlin website to maintain a consistent look and feel across all API documentation pages while providing library-specific customizations.
@@ -562,3 +627,253 @@ node ./scripts/dokka/generate-templates.js
 ```
 
 This will process all templates in the `dokka-templates` directory and update them with rendered components.
+
+### Grammar Reference Generation System
+
+The project includes a specialized system for generating and rendering the Kotlin grammar reference page. This system transforms the formal Kotlin grammar definition into a user-friendly HTML page that documents the language syntax.
+
+#### Generation Workflow
+
+The grammar reference generation involves multiple components across different repositories:
+
+1. **Grammar Definition**: The Kotlin grammar is defined in ANTLR format in the [kotlin-spec repository](https://github.com/Kotlin/kotlin-spec/tree/release/grammar/src/main/antlr)
+2. **Grammar Generator**: The [website-grammar-generator](https://github.com/Kotlin/website-grammar-generator) tool processes the ANTLR grammar to generate `grammar.xml`
+3. **XML Processing**: The Flask application reads and processes `grammar.xml` to create a structured data representation
+4. **HTML Rendering**: The data is passed to a Jinja2 template that renders it as HTML
+5. **Client-Side Enhancement**: JavaScript adds navigation features to the rendered page
+
+#### Key Components
+
+1. **Grammar XML File**:
+   - Generated by the website-grammar-generator tool
+   - Expected to be in the project root directory as `grammar.xml`
+   - Contains structured representation of the Kotlin grammar
+
+2. **Flask Route and Processing**:
+   - Route defined in `kotlin-website.py`:
+     ```python
+     @app.route('/docs/reference/grammar.html')
+     def grammar():
+         grammar = get_grammar(build_mode)
+         if grammar is None:
+             return "Grammar file not found", 404
+         return render_template('pages/grammar.html', kotlinGrammar=grammar)
+     ```
+   - Processing logic in `src/grammar.py`:
+     - Parses the XML file using ElementTree
+     - Transforms XML nodes into a structured data format
+     - Handles different types of grammar elements (declarations, descriptions, etc.)
+
+3. **HTML Template**:
+   - Located at `templates/pages/grammar.html`
+   - Renders the grammar data as HTML with proper formatting and styling
+   - Creates links between related grammar elements
+   - Includes a table of contents for navigation
+
+4. **Client-Side JavaScript**:
+   - Located at `static/js/page/grammar.js`
+   - Initializes a navigation tree and table of contents
+   - Enhances the user experience with better navigation
+
+#### TeamCity Integration
+
+The grammar reference generation is integrated into the TeamCity CI/CD pipeline:
+
+1. **Build Configuration**: `BuildKotlinGrammar` in the TeamCity configuration
+2. **Build Steps**:
+   - Clone the kotlin-spec repository to access the grammar definition
+   - Run the website-grammar-generator tool to generate grammar.xml
+   - Place the generated file in the project root
+3. **Dependencies**: This build is a dependency for the main website build
+
+#### Usage in Development
+
+During local development, the grammar.xml file needs to be present in the project root for the grammar page to render correctly. If the file is missing, the page will display an error message.
+
+### Data Files
+
+The Kotlin Website uses a centralized data files system to manage content and configuration across the website. This system provides a structured way to store and access data that is used by various components of the website, including Flask routes, Jinja2 templates, and Next.js components.
+The data files are stored in the `data/` directory at the project root. These files are primarily in YAML format and contain structured data that defines various aspects of the website:
+
+1. **Configuration Files**:
+   - `releases.yml` - Information about Kotlin releases, including the latest version
+   - `_nav.yml` - Navigation structure for the website
+   - `release-banner.yml` - Configuration for release announcement banners
+
+2. **Content Files**:
+   - `events.yml` - List of Kotlin community events with details like dates, locations, and speakers
+   - `universities.yml` - List of universities teaching Kotlin, with courses and geographical information
+   - `user-groups.yml` - List of Kotlin User Groups worldwide with contact information
+   - `videos.yml` - Collection of Kotlin-related videos
+   - `testimonials.yml` - User testimonials about Kotlin
+
+3. **API Data**:
+   - `cities.json` - Geographical data for cities
+   - `kotlinconf.yml` - Information about KotlinConf events
+   - `api.yml` - API-related configuration
+
+#### Data Loading and Processing
+
+The data files are loaded and processed in two different ways, depending on which part of the system uses them:
+
+1. **Flask Application**:
+   - The `get_site_data()` function in `kotlin-website.py` loads all YAML files from the `data/` directory
+   - Files starting with `_` are excluded from the general loading process
+   - Each file is loaded into a dictionary with the filename (without extension) as the key
+   - The loaded data is stored in the `site_data` variable, which is made available to the entire application
+   - The data is also made available to Jinja2 templates through the context processor `add_data_to_context()`
+
+2. **Next.js Components**:
+   - Next.js components directly import data files using ES6 import syntax
+   - For example: `import releasesDataRaw from '../data/releases.yml'`
+   - This is possible because the Next.js configuration includes loaders for YAML files
+   - The imported data can be used directly in React components
+
+#### Data Usage Examples
+
+The data files are used throughout the website for various purposes:
+
+1. **Flask Routes**:
+   - The `/education/` route uses university data to display the number of universities and countries
+   - The `/data/universities.json` endpoint serves university data as JSON
+   - The `/data/cities.json` endpoint serves city data as JSON
+   - The `/data/kotlinconf.json` endpoint serves KotlinConf data as JSON
+
+2. **Jinja2 Templates**:
+   - Templates access data through the `data` variable in the template context
+   - For example, `base.html` uses `data.releases.latest.url` to set the product URL in the header
+   - Navigation templates use data to build the site navigation structure
+
+3. **Next.js Components**:
+   - The homepage imports `releases.yml` to display the latest Kotlin version
+   - The user groups page imports `user-groups.yml` to display Kotlin User Groups on a map
+   - The 404 page imports `releases.yml` to provide links to the latest Kotlin version
+
+#### Data Validation
+
+Some data files have associated JSON Schema files in the `data/schemas/` directory that define the expected structure of the data. These schemas are used for validation in GitHub Actions workflows to ensure that the data files conform to the expected format.
+
+For example, the `user-groups.yml` file has a corresponding schema in `data/schemas/user-groups.json` that defines the expected structure of user group entries.
+
+#### Adding or Updating Data
+
+To add or update data in the website:
+
+1. **Identify the appropriate data file** based on the type of content you want to add or update
+2. **Follow the existing structure** of the file to ensure consistency
+3. **Validate your changes** against any associated JSON Schema if available
+4. **Test your changes** locally to ensure they appear correctly on the website
+5. **Submit a pull request** with your changes
+
+For some data files, there are specific instructions in the README.md file for adding or updating content, such as the process for adding a Kotlin User Group or a community event.
+
+#### Data Files in CI/CD
+
+The data files are an integral part of the CI/CD pipeline:
+
+1. **Validation Workflows**:
+   - GitHub Actions workflows validate data files against their schemas
+   - For example, the `validate-user-groups-data.yml` workflow validates the user-groups.yml file
+   - The `validate-events-data.yml` workflow validates the events.yml file
+
+2. **Build Process**:
+   - The data files are included in the build process and deployed with the website
+   - Some data files may be transformed or processed during the build
+   - For example, YAML files may be converted to JSON for consumption by client-side JavaScript
+
+### Redirect System
+
+The Kotlin Website includes a comprehensive redirect system that handles URL redirects for deprecated or moved pages. This system is particularly important for maintaining backward compatibility with external links and bookmarks.
+
+#### Redirect Files Structure
+
+Redirect files are stored in the `redirects/` directory at the project root. These files are in YAML format and contain mappings from source URLs to target URLs:
+
+```yaml
+- from: /old/path.html
+  to: /new/path.html
+- from: /another/old/path.html
+  to: /another/new/path.html
+```
+
+Each entry in a redirect file contains:
+- `from`: The source URL path that should be redirected
+- `to`: The target URL path where the user should be redirected to
+
+The `from` field can also be a list of URLs, all of which will redirect to the same target:
+
+```yaml
+- from: 
+  - /old/path1.html
+  - /old/path2.html
+  to: /new/path.html
+```
+
+#### Redirect Processing
+
+The redirect system works through several components:
+
+1. **Redirect Loading**:
+   - The `generate_redirect_pages()` function in `kotlin-website.py` loads all YAML files from the `redirects/` directory
+   - Each file is parsed to extract the redirect mappings
+
+2. **URL Rule Creation**:
+   - For each redirect mapping, a Flask URL rule is created
+   - The rule maps the source URL to a `RedirectTemplateView` that renders the redirect.html template
+
+3. **Redirect Rendering**:
+   - When a user accesses a redirected URL, the `redirect.html` template is rendered
+   - The template includes:
+     - A JavaScript redirect that preserves hash fragments
+     - A meta refresh tag for browsers with JavaScript disabled
+     - A fallback meta refresh with a 1-second delay
+
+4. **Standard Library Redirects**:
+   - The `stdlib-redirects.yml` file contains thousands of redirects for the Kotlin Standard Library API
+   - These redirects ensure that links to older API documentation versions still work
+   - The redirects are loaded into the `site_data["core"]` variable for use in templates
+
+#### Redirect Generation
+
+For some parts of the website, redirects are generated automatically:
+
+1. **Standard Library Redirects**:
+   - The `scripts/stdlib/generate-redirects.js` script generates redirects for the Standard Library API
+   - It uses the `redirect-collector.js` module to collect and process redirects
+   - The generated redirects are written to `redirects/stdlib-redirects.yml`
+
+2. **Page Metadata Redirects**:
+   - Pages can include a `redirect_path` in their metadata
+   - When a page with this metadata is accessed, the user is automatically redirected to the specified path
+   - This is handled in the `process_page()` function in `kotlin-website.py`
+
+#### Redirect Tracking
+
+The build process includes tracking and reporting of redirects:
+
+1. **Redirect Reports**:
+   - The `scripts/dist/analyzer/reports/write.ts` script generates a report of all redirect files
+   - The report is saved as `files-redirects.txt` in the `reports/` directory
+
+2. **File Type Statistics**:
+   - Redirects are counted as a separate file type in the `file-types.csv` report
+   - This helps track the number of redirects in the website
+
+#### Usage in Development
+
+When developing the website, you may need to add or modify redirects:
+
+1. **Adding a New Redirect**:
+   - Identify the appropriate redirect file or create a new one
+   - Add an entry with the `from` and `to` URLs
+   - Ensure the paths start with a forward slash (`/`)
+
+2. **Testing Redirects**:
+   - Start the development server
+   - Access the source URL to verify that it redirects correctly
+   - Check that hash fragments are preserved in the redirect
+
+3. **Debugging Redirects**:
+   - If a redirect isn't working, check that the URL rule was created correctly
+   - Verify that the redirect file was loaded and parsed correctly
+   - Check for conflicting routes or URL patterns
