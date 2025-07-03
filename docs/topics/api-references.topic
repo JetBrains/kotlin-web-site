@@ -59,7 +59,7 @@
         <li>
             <a href="https://kotlinlang.org/api/kotlin-gradle-plugin/"><b>Kotlin Gradle Plugins (kotlin-gradle-plugin)</b></a>
             <br/>
-            <p>A set of Gradle plugins for compiling, testing, and packaging Kotlin code. These plugins simplify multiplatform builds, manage dependencies, and integrate with IDEs and CI systems.</p>
+            <p>The Kotlin Gradle plugins for compiling, testing, and packaging Kotlin code. These plugins simplify JVM and multiplatform builds, manage dependencies, and integrate with IDEs and CI systems.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin">kotlin-gradle-plugin</a>
             <br/>
         </li>
