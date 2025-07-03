@@ -8,14 +8,14 @@
 
     <list columns="2">
         <li>
-            <a href="https://kotlinlang.org/api/latest/jvm/stdlib/"><b>Standard Library (stdlib)</b></a>
+            <a href="https://kotlinlang.org/api/core/kotlin-stdlib/"><b>Standard Library (stdlib)</b></a>
             <br/>
             <p>The Kotlin Standard Library provides core functionality for Kotlin programming. It includes essential APIs such as collections, text and string processing, I/O, ranges, sequences, and more, and is available on all supported platforms.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin">kotlin</a>
             <br/>
         </li>
         <li>
-            <a href="https://kotlinlang.org/api/latest/kotlin.test/"><b>Test Library (kotlin.test)</b></a>
+            <a href="https://kotlinlang.org/api/core/kotlin-test/"><b>Test Library (kotlin.test)</b></a>
             <br/>
             <p>A multiplatform testing library that provides common testing annotations and utility functions. It supports integration with popular test frameworks on each platform and offers a unified testing experience across the Kotlin ecosystem.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin">kotlin</a>
@@ -31,7 +31,7 @@
         <li>
             <a href="https://kotlinlang.org/api/kotlinx.serialization/kotlinx-serialization-core/"><b>Serialization (kotlinx.serialization)</b></a>
             <br/>
-            <p>A multiplatform JSON and binary serialization library. It provides a type-safe, compile-time mechanism for converting Kotlin objects to and from a variety of formats such as JSON, CBOR, and Protocol Buffers.</p>
+            <p>A multiplatform serialization library. It provides a type-safe, compile-time mechanism for converting Kotlin objects to and from a variety of formats such as JSON, CBOR, and Protocol Buffers.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx.serialization">kotlinx.serialization</a>
             <br/>
         </li>
