@@ -459,11 +459,11 @@ creating a hierarchy of exceptions can help making the code clearer and more spe
 You can achieve this by using an [abstract class](classes.md#abstract-classes) or a
 [sealed class](sealed-classes.md#constructors) as a base for common exception features and creating specific 
 subclasses for detailed exception types.
-Additionally, custom exceptions with optional parameters offer flexibility, allowing initialization with varied messages,
+Additionally, custom exceptions including parameters with default values offer flexibility, allowing initialization with varied messages,
 which enables more granular error handling.
 
 Let's look at an example using the sealed class `AccountException` as the base for an exception hierarchy, 
-and class `APIKeyExpiredException`, a subclass, which showcases the use of optional parameters for improved exception detail:
+and class `APIKeyExpiredException`, a subclass, which showcases the use of parameters with default values for improved exception detail:
 
 ```kotlin
 //sampleStart
