@@ -1128,7 +1128,7 @@ class Point(val x: Double, val y: Double) {
 ```
 
 If you have an object with multiple overloaded constructors that don't call different superclass constructors and
-can't be reduced to a single constructor with default argument values, prefer to replace the overloaded constructors with
+can't be reduced to a single constructor including parameters with default values, prefer to replace the overloaded constructors with
 factory functions.
 
 ### Platform types
