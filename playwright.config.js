@@ -9,6 +9,7 @@ const config = {
         baseURL: process.env.BASE_URL || 'http://localhost:9000',
         trace: 'off',
         ignoreHTTPSErrors: true,
+        headless: process.env.HEADED ? false : true,
     },
     projects: [
         {
