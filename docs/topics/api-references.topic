@@ -8,14 +8,14 @@
 
     <list columns="2">
         <li>
-            <a href="https://kotlinlang.org/api/core/kotlin-stdlib/"><b>Standard Library (stdlib)</b></a>
+            <a href="https://kotlinlang.org/api/core/kotlin-stdlib/"><b>Standard library (stdlib)</b></a>
             <br/>
-            <p>The Kotlin Standard Library provides core functionality for Kotlin programming. It includes essential APIs such as collections, text and string processing, I/O, ranges, sequences, and more, and is available on all supported platforms.</p>
+            <p>The Kotlin Standard library provides core functionality for Kotlin programming. It includes essential APIs such as collections, text and string processing, I/O, ranges, sequences, and more, and is available on all supported platforms.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin">kotlin</a>
             <br/>
         </li>
         <li>
-            <a href="https://kotlinlang.org/api/core/kotlin-test/"><b>Test Library (kotlin.test)</b></a>
+            <a href="https://kotlinlang.org/api/core/kotlin-test/"><b>Test library (kotlin.test)</b></a>
             <br/>
             <p>A multiplatform testing library that provides common testing annotations and utility functions. It supports integration with popular test frameworks on each platform and offers a unified testing experience across the Kotlin ecosystem.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin">kotlin</a>
@@ -36,16 +36,16 @@
             <br/>
         </li>
         <li>
-            <a href="https://kotlinlang.org/api/kotlinx-io/"><b>Kotlin I/O Library (kotlinx-io)</b></a>
+            <a href="https://kotlinlang.org/api/kotlinx-io/"><b>Kotlin I/O library (kotlinx-io)</b></a>
             <br/>
             <p>A multiplatform library for low-level I/O operations. It defines abstractions for reading from and writing to binary streams and buffers, designed to be efficient and portable across all Kotlin platforms.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx-io">kotlinx-io</a>
             <br/>
         </li>
         <li>
-            <a href="https://kotlinlang.org/api/kotlinx-datetime/"><b>Date and Time (kotlinx-datetime)</b></a>
+            <a href="https://kotlinlang.org/api/kotlinx-datetime/"><b>Date and time (kotlinx-datetime)</b></a>
             <br/>
-            <p>A multiplatform date and time library built on top of the java.time API for JVM and a native implementation for other platforms. It offers a consistent and concise API for working with time-based values.</p>
+            <p>A multiplatform library for calendar-based computations. It provides representations of date values and supports timezone-specific operations.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx-datetime">kotlinx-datetime</a>
             <br/>
         </li>
@@ -57,7 +57,7 @@
             <br/>
         </li>
         <li>
-            <a href="https://kotlinlang.org/api/kotlin-gradle-plugin/"><b>Kotlin Gradle Plugins (kotlin-gradle-plugin)</b></a>
+            <a href="https://kotlinlang.org/api/kotlin-gradle-plugin/"><b>Kotlin Gradle plugins (kotlin-gradle-plugin)</b></a>
             <br/>
             <p>The Kotlin Gradle plugins for compiling, testing, and packaging Kotlin code. These plugins simplify JVM and multiplatform builds, manage dependencies, and integrate with IDEs and CI systems.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin">kotlin-gradle-plugin</a>
