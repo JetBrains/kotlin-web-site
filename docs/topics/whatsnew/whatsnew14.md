@@ -165,14 +165,14 @@ val colors = listOf(
 
 Kotlin 1.4 supports more cases for using callable references:
 
-* References to functions with optional parameters
+* References to functions that include parameters with default values
 * Function references in `Unit`-returning functions 
 * References that adapt based on the number of arguments in a function
 * Suspend conversion on callable references 
 
-#### References to functions with optional parameters
+#### References to functions that include parameters with default values
 
-Now you can use callable references to functions with optional parameters. If the callable reference
+Now you can use callable references to functions including parameters with default values. If the callable reference
 to the function `foo` takes no arguments, the default value `0` is used.
 
 ```kotlin

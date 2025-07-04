@@ -53,7 +53,7 @@ fun read(
 ) { /*...*/ }
 ```
 
-Such parameters are sometimes referred as _optional parameters_.
+Such parameters are also referred to as _optional parameters_.
 
 A default value is set by appending `=` to the type.
 
@@ -82,7 +82,7 @@ fun foo(
 foo(baz = 1) // The default value bar = 0 is used
 ```
 
-If the last parameter after all optional parameters has a functional type,
+If the last parameter after all parameters with default values has a functional type,
 then you can pass the corresponding [lambda](lambdas.md#lambda-expression-syntax) argument either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
 
 ```kotlin
