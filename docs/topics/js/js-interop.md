@@ -94,7 +94,7 @@ external class MyClass {
 
 ### Declare parameters with default values
 
-If you are writing an external declaration for a JavaScript function which has a parameter with default values, use `definedExternally`.
+If you are writing an external declaration for a JavaScript function which has a parameter with a default value, use `definedExternally`.
 This delegates the generation of the default values to the JavaScript function itself:
 
 ```kotlin
