@@ -5,15 +5,15 @@ This directory contains end-to-end tests for the education section of the Kotlin
 ## Test Files
 
 - `education.spec.ts`: Tests for the main education page (`/education/`)
-- `why-teach.spec.ts`: Tests for the "Why Teach Kotlin" page (`/education/why-teach-kotlin.html`)
+- `why.spec.ts`: Tests for the "Why Teach Kotlin" page (`/education/why-teach-kotlin.html`)
 - `courses.spec.ts`: Tests for the courses page (`/education/courses.html`)
 
 ## Page Objects
 
 The tests use page objects to encapsulate page-specific logic:
 
-- `test/page/teach-page.ts`: Page object for the main education page
-- `test/page/why-teach-page.ts`: Page object for the "Why Teach Kotlin" page
+- `test/page/education.ts`: Page object for the main education page
+- `test/page/why-page.ts`: Page object for the "Why Teach Kotlin" page
 - `test/page/courses-page.ts`: Page object for the courses page
 
 ## Test Types
