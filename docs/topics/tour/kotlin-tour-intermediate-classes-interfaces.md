@@ -363,7 +363,7 @@ basic features but also unique behaviors. In the code sample below, complete the
 so that the child class `SmartLight` can compile successfully.
 
 Then, create another child class called `SmartThermostat` that inherits from the `SmartDevice` class and implements 
-`turnOn()` and `turnOff()` functions that return print statements describing which thermostat is heating or turned off.
+`turnOn()` and `turnOff()` functions that trigger print statements describing which thermostat is heating or turned off.
 Finally, add another function called `adjustTemperature()` that accepts a temperature measurement as an input and prints:
 `$name thermostat set to $temperature°C.`
 

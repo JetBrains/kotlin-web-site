@@ -15,7 +15,7 @@ This section focuses on structuring your Gradle projects to improve clarity, mai
 Use Kotlin DSL instead of the traditional Groovy DSL. You avoid learning another language and gain the benefits of strict
 typing. Strict typing lets IDEs provide better support for refactoring and auto-completion, making development more efficient.
 
-Find more information in [Gradle’s Kotlin DSL primer](https://docs.gradle.org/current/userguide/kotlin_dsl.html).
+Find more information in [Gradle's Kotlin DSL primer](https://docs.gradle.org/current/userguide/kotlin_dsl.html).
 
 Read Gradle's [blog](https://blog.gradle.org/kotlin-dsl-is-now-the-default-for-new-gradle-builds) about Kotlin DSL becoming
 the default for Gradle builds.
