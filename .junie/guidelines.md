@@ -320,6 +320,69 @@ The TeamCity configuration is defined in the `.teamcity/` directory using Kotlin
 - Use code splitting and lazy loading for large components
 - Optimize images and assets for web delivery
 
+### CSS Modules in React Components
+
+The Kotlin Website uses CSS Modules for styling React components. CSS Modules provide local scoping of CSS by automatically creating unique class names when styles are imported into JavaScript/TypeScript files.
+
+#### How CSS Modules Work
+
+1. **File Naming**: CSS Module files use the `.module.css` extension (e.g., `layout.module.css`)
+2. **Importing Styles**: Components import styles from CSS Module files:
+   ```typescript
+   import styles from './layout.module.css';
+   ```
+3. **Using Styles**: Components apply styles using the imported object:
+   ```typescript
+   <div className={styles.wrapper}>
+     {children}
+   </div>
+   ```
+4. **Generated Class Names**: During build time, CSS Modules generate unique class names by adding a hash to the original class name:
+   ```html
+   <!-- Original class in CSS file: .wrapper -->
+   <!-- Generated class in HTML: -->
+   <div class="layout_wrapper_SNPG7">
+     <!-- content -->
+   </div>
+   ```
+
+The hash (e.g., `_SNPG7`) ensures that class names are unique across the application, preventing style conflicts between components.
+
+#### Testing with CSS Modules
+
+When writing tests for components that use CSS Modules, avoid using the generated class names with hashes as selectors, as these hashes can change between builds. Instead:
+
+1. **Use Data Attributes**: Add data attributes to elements for testing purposes:
+   ```typescript
+   <div className={styles.wrapper} data-test="layout-wrapper">
+     {children}
+   </div>
+   ```
+
+2. **Use the `testSelector` Utility**: The project provides a utility function for selecting elements with data-test attributes:
+   ```typescript
+   import { testSelector } from '../../utils';
+   
+   // In your test:
+   const wrapper = page.locator(testSelector('layout-wrapper'));
+   ```
+
+3. **Use Stable Selectors**: If data attributes aren't available, use other stable selectors like element types, IDs, or non-hashed class names.
+
+❌ **Avoid This**:
+```typescript
+// Using CSS Module class names with hashes (unstable)
+const element = page.locator('[class*="ktl-quotes-slider-module_quotes-slider"]');
+```
+
+✅ **Do This Instead**:
+```typescript
+// Using data-test attributes (stable)
+const element = page.locator(testSelector('quotes-slider'));
+```
+
+This approach ensures that tests remain stable even when the CSS Module hashes change between builds.
+
 ### File Structure
 
 The repository is organized with the following top-level directories:

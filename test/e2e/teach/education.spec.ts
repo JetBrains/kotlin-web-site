@@ -46,7 +46,7 @@ test.describe('Education landing page content and interactions', async () => {
         expect(await block.screenshot()).toMatchSnapshot('launch-course-text.png');
     });
 
-    test('Should display features section with three features', async ({ page }) => {
+    test('Should display features section with features', async ({ page }) => {
         // Check if the features section is visible
         const featuresSection = page.locator('.teach-features');
         await expect(featuresSection).toBeVisible();
@@ -113,6 +113,7 @@ test.describe('Education landing page content and interactions', async () => {
         await expect(marker).toBeVisible();
         await expect(marker).not.toHaveClass('teach-map-marker__active');
 
+        // !!!ATTENTION!!!: marker.click and marker.hover don't work for Google Maps.
         await marker.scrollIntoViewIfNeeded();
         const box = await marker.boundingBox();
         await page.mouse.move(box.x, box.y);
@@ -162,15 +163,73 @@ test.describe('Education landing page content and interactions', async () => {
     });
 
     test('Should have a working YouTube player', async ({ page }) => {
+        // Check if the YouTube player container is visible
         const youtubePlayer = page.locator('.teach-video');
         await expect(youtubePlayer).toBeVisible();
+
+        // Check if the player is in "show video" mode
+        await expect(youtubePlayer.locator('[class*="ktl-youtube-player-module_preview"]')).toBeVisible();
+
+        // Check if the play button is visible
+        const playButton = youtubePlayer.locator('[class*="ktl-youtube-player-module_play-button"]');
+        await expect(playButton).toBeVisible();
+
+        // Click the play button to start the video
+        await playButton.click();
+
+        // After clicking, the play button should be hidden and the video should be playing
+        await expect(playButton).toBeHidden();
+
+        // Check if the iframe is loaded correctly
+        const iframe = youtubePlayer.locator('iframe');
+        await expect(iframe).toBeVisible();
+
+        // Check if the iframe has the correct src attribute (YouTube embed URL)
+        const iframeSrc = await iframe.getAttribute('src');
+        expect(iframeSrc).toBeTruthy();
+        expect(iframeSrc).toContain('youtube.com');
+        expect(iframeSrc).toContain('PLlFc5cFwUnmzT4cgLOGJYGnY6j0W2xoFA');
     });
 
     test('Should have a working subscription form', async ({ page }) => {
+        const email = 'test@example.com';
+
+        await page.route('https://forms-service.jetbrains.com/marketo', route => {
+            if (route.request().method() !== 'POST') route.continue();
+            route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify({ 'success': true, 'cause': [] })
+            });
+        });
+
+        await page.route(`https://account.jetbrains.com/services/acceptAgreement?email=${encodeURIComponent(email)}&type=mkt.newsletter.visitor`, route => {
+            if (route.request().method() !== 'POST') route.continue();
+            route.fulfill({
+                status: 200,
+                contentType: 'application/json',
+                body: JSON.stringify({ 'status': 'OK' })
+            });
+        });
+
+        // Locate the subscription form
         const subscriptionForm = page.locator('.teach-subscription-section');
         await expect(subscriptionForm).toBeVisible();
-    });
 
+        // Find the form elements
+        await subscriptionForm.locator('input[name="Email"]').fill(email);
+
+        // Check the privacy checkbox by clicking its label
+        await subscriptionForm.locator('.teach-subscription-form__checkbox label').click();
+
+        // Submit the form
+        await subscriptionForm.locator('button[type="submit"]').click();
+
+        // Verify that the form shows the submitted state (check icon appears)
+        await expect(subscriptionForm.locator('.teach-subscription-form__submitted-icon')).toBeVisible();
+
+        expect(await subscriptionForm.screenshot()).toMatchSnapshot('subscription-form.png');
+    });
 
     test('Should have action buttons for educators', async ({ page }) => {
         // Look for the "Connect with us" section which contains the CTA buttons
@@ -179,13 +238,8 @@ test.describe('Education landing page content and interactions', async () => {
         const title = connectUs.getByText('Connect with us');
         await expect(title).toBeVisible();
 
-        // Check for the Slack signup button
-        const slackButton = connectUs.locator(`a[href="${SIGNUP_LINK}"]`);
-        await expect(slackButton).toBeVisible();
-
-        // Check for the email button
-        const emailButton = connectUs.locator(`a[href="${MAILTO_LINK}"]`);
-        await expect(emailButton).toBeVisible();
+        await expect(connectUs.locator(`a[href="${SIGNUP_LINK}"]`)).toBeVisible();
+        await expect(connectUs.locator(`a[href="${MAILTO_LINK}"]`)).toBeVisible();
 
         expect(await connectUs.screenshot()).toMatchSnapshot('connect-us.png');
     });
