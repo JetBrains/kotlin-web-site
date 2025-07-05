@@ -126,6 +126,6 @@
     "test:e2e:debug": "PWDEBUG=1 playwright test test/e2e  --project=chromium",
     "test:e2e:update": "playwright test test/e2e --update-snapshots",
     "test:e2e:new": "playwright codegen localhost:9000",
-    "test:education": "HEADED=true npx playwright test test/e2e/education.spec.ts --headed"
+    "test:education": "HEADED=true npx playwright test test/e2e/teach/education.spec.ts --headed"
   }
 }

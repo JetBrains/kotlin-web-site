@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { CoursesPage } from '../../page/teach/courses-page';
-import { ELEMENT_PADDING_OFFSET, MICRO_ANIMATION_TIMEOUT, RESOLUTIONS } from '../visual-constants';
+import { ELEMENT_PADDING_OFFSET, RESOLUTIONS } from '../visual-constants';
 import { closeExternalBanners, getElementScreenshotWithPadding } from '../utils';
 
 test.describe('Courses page appearance and functionality', async () => {
