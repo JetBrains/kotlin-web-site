@@ -202,7 +202,7 @@ val filesSize = files?.size ?: run {
 println(filesSize)
 ```
 
-## Execute a expression if null
+## Execute an expression if null
 
 ```kotlin
 val values = ...
