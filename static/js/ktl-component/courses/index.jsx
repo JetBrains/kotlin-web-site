@@ -12,7 +12,7 @@ import {TeachMap} from '../teach/components/teach-map/teach-map.jsx';
 const Courses = ({universities, path}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <div>
+    <div data-test="teach-courses">
       <TeachTopMenu path={path} />
 
       <section className="ktl-layout ktl-layout--center">
