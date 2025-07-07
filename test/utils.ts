@@ -1,6 +1,6 @@
 import { BrowserContext, expect, Locator, Page } from '@playwright/test';
 
-export const testSelector = (name) => `[data-test="${name}"]`;
+export const testSelector = (name: string) => `[data-test="${name}"]`;
 
 export function isStaging(baseURL: string): boolean {
     const { hostname } = new URL(baseURL);

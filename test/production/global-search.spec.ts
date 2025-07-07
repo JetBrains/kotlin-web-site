@@ -1,8 +1,8 @@
-import { test } from '@playwright/test';
+import { Page, test } from '@playwright/test';
 
 import { IndexPage } from '../page/index-page';
 import { CommunityPage } from '../page/community-page';
-import { TeachPage } from '../page/teach-page';
+import { TeachPage } from '../page/teach/education';
 import { closeCookiesConsentBanner } from '../utils';
 
 const SEARCH_STRING = 'Community';
@@ -10,22 +10,22 @@ const SEARCH_STRING = 'Community';
 const pagesWithGlobalSearch = [
     {
         name: 'Index',
-        getInstance: (page) => new IndexPage(page),
+        getInstance: (page: Page) => new IndexPage(page)
     },
     {
         name: 'Community',
-        getInstance: (page) => new CommunityPage(page),
+        getInstance: (page: Page) => new CommunityPage(page)
     },
     // {
     //     name: 'Teach',
-    //     getInstance: (page) => new TeachPage(page),
-    // },
+    //     getInstance: (page: Page) => new TeachPage(page)
+    // }
 ];
 
 test.describe.configure({ mode: 'parallel' });
 
 test.describe('Global Search Component', async () => {
-    test.beforeEach(async ({ context , baseURL}) => {
+    test.beforeEach(async ({ context, baseURL }) => {
         await closeCookiesConsentBanner(context, baseURL);
     });
 
