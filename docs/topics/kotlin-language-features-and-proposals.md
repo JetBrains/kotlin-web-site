@@ -47,7 +47,7 @@ guided by pragmatic design.
 
 **Name-based destructuring**
 
-* KEEP proposal: Not defined
+* KEEP proposal: [name-based-destructuring.md](https://github.com/Kotlin/KEEP/blob/name-based-destructuring/proposals/name-based-destructuring.md)
 * YouTrack issue: [KT-19627](https://youtrack.jetbrains.com/issue/KT-19627)
 
 </td>
