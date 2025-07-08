@@ -66,7 +66,7 @@ test.describe('Education landing page content and interactions', async () => {
         const block = page.locator('.teach-top-buttons');
 
         // Check the "Join Educators Community" button visibility and link
-        const join = block.getByRole('link', { name: 'Join Educators Сommunity', exact: true });
+        const join = block.getByRole('link', { name: 'Join Educators Community', exact: true });
         await expect(join).toBeVisible();
         await expect(join).toHaveAttribute('href', SIGNUP_LINK);
 
