@@ -639,3 +639,27 @@ MyInt output = ExampleKt.timesTwoBoxed(input);
 
 To apply this behavior to all inline value classes and the functions that use them within a module, compile it with the `-Xjvm-expose-boxed` option. 
 Compiling with this option has the same effect as if every declaration in the module has the `@JvmExposeBoxed` annotation.
+
+> The `@JvmExposeBoxed` annotation doesn't automatically generate boxed representations for inherited functions.
+> 
+> To generate the necessary representation for an inherited function, override it in the implementing or extending class:
+> 
+> ```kotlin
+> interface Test {
+>     fun test(p: UInt): UInt = p
+> }
+>
+> // Doesn't generate a boxed representation for the test() function
+> @OptIn(ExperimentalStdlibApi::class)
+> @JvmExposeBoxed
+> class TestClass : Test
+> 
+> // Generates a boxed representation for the test() function
+> @OptIn(ExperimentalStdlibApi::class)
+> @JvmExposeBoxed
+> class TestClass : Test {
+>     override fun test(p: UInt): UInt = super.test(p)
+> }
+> ```
+> 
+{style="note"}
