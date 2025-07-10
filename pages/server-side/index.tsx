@@ -1,6 +1,7 @@
 import React from 'react';
 import { ServerSideLayout } from '../../blocks/server-side/layout/server-side-layout';
 import FeaturesSection from '../../blocks/server-side/features-section';
+import CustomerLogoMarqueeSection from '../../blocks/server-side/customer-logo-marquee';
 
 function Index() {
     return (
@@ -8,6 +9,7 @@ function Index() {
             <h1>Server side</h1>
 
             <FeaturesSection />
+            <CustomerLogoMarqueeSection />
         </ServerSideLayout>
     );
 }
