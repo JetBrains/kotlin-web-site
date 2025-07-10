@@ -7,7 +7,7 @@ export class CommunityPage implements PageWithGlobalSearch {
     readonly page: Page;
     readonly globalSearch: GlobalSearch;
 
-    constructor(page) {
+    constructor(page: Page) {
         this.page = page;
         this.globalSearch = new GlobalSearch(this.page);
     }
