@@ -1,0 +1,12 @@
+.section {
+    --marquee-gap: 64px;
+    padding: 48px 0;
+}
+
+.list :global(.cmn-ui-marquee__group) {
+    align-items: center;
+}
+
+.logo {
+    height: 48px;
+}

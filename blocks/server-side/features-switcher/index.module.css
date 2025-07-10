@@ -1,0 +1,195 @@
+.slideshow {
+  position: relative;
+  display: flex;
+  --slideshow-tab-width: 360px;
+  --slideshow-tab-lg-width: 264px;
+}
+
+.offsettop12 {
+  margin-top: 12px;
+}
+
+@media (max-width: 992px) {
+  .slideshow {
+    padding: 16px;
+  }
+}
+
+.slides {
+  position: relative;
+  flex: 1 1 auto;
+  width: calc(100% - var(--slideshow-tab-width));
+}
+
+@media (max-width: 1200px) {
+  .slides {
+    width: calc(100% - var(--slideshow-tab-lg-width));
+  }
+}
+
+@media (max-width: 768px) {
+  .slides {
+    width: 100%;
+  }
+}
+
+.slide {
+  top: 0;
+  right: 0;
+  /*bottom: 0;*/
+  left: 0;
+  width: 100%;
+  /*height: 100%;*/
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.slideVisible {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s linear 0s, visibility 0s linear 0s;
+}
+
+.slideHidden {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s linear 0s, visibility 0s linear 0.5s;
+}
+
+.slidesPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: var(--slideshow-tab-width);
+  min-height: fit-content;
+}
+
+@media (max-width: 1200px) {
+  .slidesPanel {
+    width: var(--slideshow-tab-lg-width);
+  }
+}
+
+.slidesSwitcher {
+  list-style: none;
+  position: relative;
+  overflow-y: auto;
+  flex-shrink: 1;
+  flex-grow: 1;
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 32px;
+  margin-top: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+@media (max-width: 992px) {
+  .slidesSwitcher {
+    padding-right: 16px;
+  }
+}
+
+.tab {
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 auto;
+  width: 100%;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  background-color: rgba(107, 87, 255, 0.20);
+}
+
+@media (max-width: 992px) {
+  .tab {
+    padding: 16px;
+    border-radius: 16px;
+  }
+}
+
+.tab:focus {
+  outline: none;
+}
+
+.tab:focus[data-focus-method='key'] {
+  box-shadow: rgba(107, 87, 255, 0.80) 0 0 0 4px;
+}
+
+.tab:hover {
+  border: 1px solid rgba(107, 87, 255, 0.80);
+}
+
+.tabActive {
+  background-color: rgba(107, 87, 255, 0.80);
+}
+
+.tabTitle {
+  position: relative;
+}
+
+.tabDescription {
+  position: relative;
+  margin-top: 16px;
+}
+
+.tabIcon {
+  margin-bottom: 16px;
+}
+
+.tabIcon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.imageContainer {
+  height: 100%;
+  max-height: 476px;
+  background-color: #000000;
+}
+
+@media (max-width: 1200px) {
+  .imageContainer {
+    max-height: unset;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top left;
+}
+
+.copyButton {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+.tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+.codeBlock {
+  width: 100%;
+  padding: 16px 16px 66px;
+  border-radius: 16px;
+  overflow: auto;
+  background-color: #282a36; /* Dracula theme background */
+}
+
+.codeBlock :global(pre) {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
