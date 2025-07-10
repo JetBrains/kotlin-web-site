@@ -586,7 +586,7 @@ fun emptyList(): List<Nothing> = listOf()
 // List emptyList() { ... }
 ```
 
-### Inline value classes
+## Inline value classes
 
 <primary-label ref="experimental-general"/>
 
