@@ -1,0 +1,277 @@
+.wrapper {
+  padding: 0;
+  font-family: var(--ktl-font-family-inter);
+}
+
+.featureIcon img {
+  display: block;
+}
+
+.featureContent {
+  display: block;
+}
+
+@media (min-width: 1200px) {
+  .featureContent {
+    padding-right: 32px;
+  }
+}
+
+.topMobileButtons {
+  display: grid;
+  grid-gap: 16px;
+  margin-bottom: 32px;
+  margin-top: 32px;
+}
+
+@media (min-width: 768px) {
+  .topMobileButtons {
+    display: none;
+  }
+}
+
+.topButtons {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .topButtons {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-areas: "a a";
+    grid-auto-columns: min-content;
+  }
+}
+
+.link {
+  text-decoration: underline;
+}
+
+.teachLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.teachLink:hover {
+  text-decoration: none;
+}
+
+.universitiesTopNumbers {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .universitiesTop {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .universitiesTopNumbers {
+    display: flex;
+  }
+
+  .universitiesTopTitleMobile {
+    display: none;
+  }
+}
+
+.video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #e3e3e3;
+}
+
+.form {
+  background: #e3e3e3;
+  height: 160px;
+}
+
+.universitiesLogos {
+  border-top: 1px solid rgba(39, 40, 44, 0.2);
+  display: block;
+  padding: 32px 0;
+}
+
+.universitiesMap {
+  display: none;
+}
+
+.universitiesBottom {
+  display: none;
+}
+
+.universitiesBottom br {
+  display: none;
+}
+
+.universitiesMobileButton {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .universitiesBottom {
+    text-align: center;
+    display: block;
+  }
+  .universitiesMap {
+    display: block;
+    height: 600px;
+    background: #e3e3e3;
+  }
+  .universitiesMobileButton {
+    display: none;
+  }
+}
+
+@media (min-width: 1400px) {
+  .universitiesBottom br {
+    display: block;
+  }
+}
+
+.logos img {
+  display: block;
+}
+
+.logosStanford {
+  height: 42px;
+}
+
+.logosHopkins {
+  height: 56px;
+}
+
+.logosCambridge {
+  height: 26px;
+}
+
+.logosImperial {
+  height: 32px;
+}
+
+.logosChicago {
+  height: 26px;
+}
+
+@media (min-width: 768px) {
+  .logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.resourcesTopImage {
+  width: 116px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .resourcesTop {
+    display: flex;
+    align-items: center;
+  }
+  .resourcesTopImage {
+    margin-bottom: 0;
+    margin-right: 26px;
+    margin-top: 24px;
+  }
+}
+
+.links {
+  display: grid;
+  grid-gap: 32px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.links a {
+  text-decoration: none;
+  color: rgba(39, 40, 44, 1);
+}
+
+.links a:hover {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .links {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 48px;
+    grid-template-areas:
+    "left center1 right1"
+    "left center2 right2";
+  }
+
+  .firstList {
+    grid-area: left;
+  }
+
+  .secondList {
+    grid-area: center1;
+  }
+
+  .thirdList {
+    grid-area: center2;
+  }
+
+  .fourthList {
+    grid-area: right1;
+  }
+
+  .fifthList {
+    grid-area: right2;
+  }
+}
+
+.listItem:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.sublist {
+  margin-left: 16px;
+  margin-top: 8px;
+}
+
+.dimmedText {
+  color: rgba(39, 40, 44, 0.5);
+}
+
+@media (max-width: 767px) {
+  .features {
+    display: grid;
+    grid-gap: 32px;
+  }
+
+  .logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .logosLogo {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 48px;
+  }
+
+  .logosLogo:last-child {
+    width: 100%;
+  }
+
+  .subscriptionSection {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .mapWrapper {
+    display: none;
+  }
+
+  .universitiesTopTitle {
+    display: none;
+  }
+}

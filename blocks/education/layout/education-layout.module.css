@@ -1,0 +1,17 @@
+.sticky {
+  width: 100%;
+}
+
+.topMenu {
+  width: 100%;
+}
+
+.slackButton {
+  margin-left: auto;
+}
+
+@media (max-width: 767px) {
+  .slackButton {
+    display: none;
+  }
+}

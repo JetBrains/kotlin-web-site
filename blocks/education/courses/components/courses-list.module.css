@@ -1,0 +1,36 @@
+.coursesList {
+  /* Main container styles */
+}
+
+.coursesListItem {
+  border-top: 1px solid rgba(39, 40, 44, 0.2);
+  padding: 16px 0;
+}
+
+.coursesListHeader {
+  display: none;
+  padding-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .coursesListHeader, .coursesListItem {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 32px;
+  }
+
+  .cellFirst {
+    grid-column: 1 / 3;
+    grid-row: row;
+  }
+
+  .cellSecond {
+    grid-column: 3 / 5;
+    grid-row: row;
+  }
+
+  .cellThird {
+    grid-column: 5 / 12;
+    grid-row: row;
+  }
+}

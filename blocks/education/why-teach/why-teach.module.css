@@ -1,0 +1,81 @@
+.whyTeachGridNav {
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .whyTeachGrid {
+    display: flex;
+  }
+  
+  .whyTeachGridContent {
+    max-width: 70%;
+  }
+  
+  .whyTeachGridNav {
+    display: block;
+    margin-left: 96px;
+  }
+}
+
+.whyTeachNav {
+  position: sticky;
+  top: 96px;
+}
+
+.whyTeachNavItem:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.whyTeachNavLink:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.quoteSectionInfo {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .quoteSectionGrid {
+    display: flex;
+  }
+  
+  .quoteSectionContent {
+    max-width: 70%;
+  }
+  
+  .quoteSectionInfo {
+    display: block;
+    margin-left: 32px;
+  }
+}
+
+.withAnchor:before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 0;
+  height: 96px;
+  margin-top: -96px;
+}
+
+.link {
+  text-decoration: none;
+  color: rgba(39, 40, 44, 0.5);
+  transition: color .3s;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: rgba(39, 40, 44, 1);
+}
+
+.link .rsLink {
+  --rs-link-color: rgba(39, 40, 44, .5);
+  --rs-underline-color: rgba(39, 40, 44, .5);
+}
+
+.link .rsLink:hover {
+  --rs-link-color: rgba(39, 40, 44, 1);
+  --rs-underline-color: rgba(39, 40, 44, 1);
+}
