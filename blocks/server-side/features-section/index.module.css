@@ -1,0 +1,13 @@
+.exposedFeatureCard {
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(107, 87, 255, 0.20);
+  backdrop-filter: blur(8px);
+  box-sizing: border-box;
+}
+
+.exposedFeatureCardIcon svg {
+  width: 48px;
+  height: 48px;
+}
+

@@ -1,0 +1,73 @@
+.carousel {
+  /* Styles for the carousel container */
+
+}
+
+.slide {
+  /*width: calc(100vw - 44px - 78px);*/
+}
+
+.featureCard {
+  border-radius: 24px 24px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  background: var(--rs-color-white-t5);
+}
+
+.content {
+  padding: 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(126, 66, 255, 0.8);
+  border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 16px;
+  }
+}
+
+.contentIcon {
+  width: 48px;
+}
+
+.contentIcon svg {
+  width: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.copyButton {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+.codeBlock {
+  width: 100%;
+  padding: 16px 16px 66px;
+  border-radius: 16px;
+  margin-top: 32px;
+  box-sizing: border-box;
+  overflow: auto;
+  background-color: #282a36; /* Dracula theme background */
+}
+
+.codeBlock :global(pre) {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
