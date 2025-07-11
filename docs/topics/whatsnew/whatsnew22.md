@@ -17,6 +17,10 @@ The Kotlin 2.2.0 release is here! Here are the main highlights:
 * **Standard library**: [stable Base64 and HexFormat APIs](#stable-base64-encoding-and-decoding).
 * **Documentation**: our [documentation survey is open](https://surveys.jetbrains.com/s3/Kotlin-Docs-2025), and [notable improvements have been made to the Kotlin documentation](#documentation-updates).
 
+You can also watch this video of the Kotlin Language Evolution team discussing new features and answering questions:
+
+<video src="https://www.youtube.com/watch?v=jne3923lWtw" title="What's new in Kotlin 2.2.0"/>
+
 ## IDE support
 
 The Kotlin plugins that support 2.2.0 are bundled in the latest versions of IntelliJ IDEA and Android Studio.
