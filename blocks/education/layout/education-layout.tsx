@@ -3,11 +3,11 @@ import React, { FC, useCallback, useMemo } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import GlobalHeader, { EDUCATION_TITLE, EDUCATION_URL } from '@jetbrains/kotlin-web-site-ui/out/components/header';
+import GlobalHeader from '@jetbrains/kotlin-web-site-ui/out/components/header';
 import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 import TopMenu from '@jetbrains/kotlin-web-site-ui/out/components/top-menu';
 import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
-import Button from '@rescui/button';
+import { Button } from '@rescui/button';
 import { SlackIcon } from '@rescui/icons';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
@@ -24,7 +24,9 @@ interface ReleasesData {
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
-// Constants for the education section are imported from the header component
+// Constants for the education section
+const EDUCATION_URL = '/education/';
+const EDUCATION_TITLE = 'Teach';
 
 const TOP_MENU_ITEMS = [
   {
@@ -131,7 +133,7 @@ export const EducationLayout: FC<EducationLayoutProps> = ({ title, ogImageName, 
               icon={<SlackIcon />}
               href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
             >
               Join Educators
             </Button>

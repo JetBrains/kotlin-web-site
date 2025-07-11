@@ -21,8 +21,9 @@ export async function closeExternalBanners(context: BrowserContext, page: Page, 
     if (baseUrl.startsWith('https://kotlinlang.org/')) {
         await closeCookiesConsentBanner(context, baseUrl);
     } else {
-        await page.frameLocator('#webpack-dev-server-client-overlay')
-            .locator('[aria-label="Dismiss"]')
-            .click();
+        const overlay = page.frameLocator('#webpack-dev-server-client-overlay');
+        const dismissButton = overlay.locator('[aria-label="Dismiss"]');
+        const isVisible = await dismissButton.isVisible().catch(() => false);
+        if (isVisible) await dismissButton.click();
     }
 }

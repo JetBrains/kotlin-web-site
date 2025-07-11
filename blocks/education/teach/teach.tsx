@@ -18,7 +18,7 @@ import styles from './teach.module.css';
 import { TeachCtaBlock } from '../../../static/js/ktl-component/teach/components/teach-cta-block';
 import { TeachNumbers } from '../../../static/js/ktl-component/teach/components/teach-numbers';
 import { TeachQuotes } from '../../../static/js/ktl-component/teach/components/teach-quotes';
-import { SubscriptionForm } from '../../../static/js/ktl-component/teach/components/subscription-form';
+import { SubscriptionForm } from '../../education/subscription-form';
 import { TeachMap } from '../../../static/js/ktl-component/teach/components/teach-map/teach-map.jsx';
 import { TeachLaunchCourse } from '../../../static/js/ktl-component/teach/components/teach-launch-course';
 
@@ -42,7 +42,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
             icon={<SlackIcon />}
             href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
             target="_blank"
-            rel="noopener"
+            rel="noreferrer noopener"
             className="teach-cta-block-button"
           >
             Join Educators Community
@@ -124,7 +124,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
               icon={<SlackIcon />}
               href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
               target="_blank"
-              rel="noopener"
+              rel="noreferrer noopener"
               className="teach-cta-block-button"
             >
               Join Educators Community

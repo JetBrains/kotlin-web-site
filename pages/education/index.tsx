@@ -23,7 +23,7 @@ interface EducationPageProps {
 export default function EducationPage({ universitiesCount, countriesCount }: EducationPageProps) {
   return (
     <EducationLayout 
-      title="Teach Computer Science with Kotlin" 
+      title="Kotlin for Education" 
       description="Kotlin is a modern programming language that is concise, safe, and fully interoperable with Java. Learn how to teach Kotlin in your computer science courses."
       ogImageName="education.png"
     >
