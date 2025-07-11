@@ -24,9 +24,7 @@ interface ReleasesData {
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
-// Define constants for the education section
-const EDUCATION_URL = '/education/';
-const EDUCATION_TITLE = 'Teach';
+// Constants for the education section are imported from the header component
 
 const TOP_MENU_ITEMS = [
   {

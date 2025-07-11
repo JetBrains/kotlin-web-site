@@ -48,9 +48,11 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
             Join Educators Community
           </Button>
 
-          <Button mode="outline" href="/education/why-teach-kotlin/" className="teach-cta-block-button">
-            Why Teach Kotlin&nbsp;→
-          </Button>
+          <Link href="/education/why-teach-kotlin/">
+            <Button mode="outline" className="teach-cta-block-button">
+              Why Teach Kotlin&nbsp;→
+            </Button>
+          </Link>
         </div>
 
         <div className={`${styles.features} ktl-row ktl-offset-top-l`}>
@@ -223,17 +225,21 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                   <br />
                   We'll send you a Kotlin T-shirt and stickers for your students.
                 </p>
-                <Button size="l" mode="outline" href="/education/courses/">
-                  All universities
-                </Button>
+                <Link href="/education/courses/">
+                  <Button size="l" mode="outline">
+                    All universities
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
 
           <div className={styles.universitiesMobileButton}>
-            <Button mode="outline" href="/education/courses/">
-              Learn more&nbsp;→
-            </Button>
+            <Link href="/education/courses/">
+              <Button mode="outline">
+                Learn more&nbsp;→
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -263,27 +269,27 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                   </Link>
                 </li>
                 <li className={styles.listItem}>
-                  <a href="https://jb.gg/academy/kotlin-onboarding" className={textCn('rs-link', {external: true})} target="_blank">
+                  <a href="https://jb.gg/academy/kotlin-onboarding" className={textCn('rs-link', {external: true})} target="_blank" rel="noreferrer">
                     Kotlin Onboarding: Introduction
                   </a>
                 </li>
                 <li className={styles.listItem}>
-                  <a href="https://jb.gg/academy/kotlin-oop" className={textCn('rs-link', {external: true})} target="_blank">
+                  <a href="https://jb.gg/academy/kotlin-oop" className={textCn('rs-link', {external: true})} target="_blank" rel="noreferrer">
                     Kotlin Onboarding: Object-Oriented Programming
                   </a>
                 </li>
                 <li className={styles.listItem}>
-                  <a href="https://jb.gg/academy/kotlin-collections" className={textCn('rs-link', {external: true})} target="_blank">
+                  <a href="https://jb.gg/academy/kotlin-collections" className={textCn('rs-link', {external: true})} target="_blank" rel="noreferrer">
                     Kotlin Onboarding: Collections
                   </a>
                 </li>
                 <li className={styles.listItem}>
-                  <a href="https://jb.gg/refactoring-kotlin" className={textCn('rs-link', {external: true})} target="_blank">
+                  <a href="https://jb.gg/refactoring-kotlin" className={textCn('rs-link', {external: true})} target="_blank" rel="noreferrer">
                     Introduction to IDE Code Refactoring in Kotlin
                   </a>
                 </li>
                 <li className={styles.listItem}>
-                  <a href="https://jb.gg/academy/kotlin-algorithm" className={textCn('rs-link', {external: true})} target="_blank">
+                  <a href="https://jb.gg/academy/kotlin-algorithm" className={textCn('rs-link', {external: true})} target="_blank" rel="noreferrer">
                     Algorithmic Challenges in Kotlin
                   </a>
                 </li>
@@ -295,7 +301,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                       <a
                         href="https://www.atomickotlin.com/exercises/"
                         target="_blank"
-                        rel="noopener"
+                        rel="noreferrer"
                         className={textCn('rs-link', {external: true})}
                       >
                         Hands-on exercises
@@ -305,7 +311,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                       <a
                         href="https://github.com/svtk/AtomicKotlinCourse"
                         target="_blank"
-                        rel="noopener"
+                        rel="noreferrer"
                         className={textCn('rs-link', {external: true})}
                       >
                         Course project
@@ -315,7 +321,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                       <a
                         href="https://www.jetbrains.com/help/education/educator-start-guide.html"
                         target="_blank"
-                        rel="noopener"
+                        rel="noreferrer"
                         className={textCn('rs-link', {external: true})}
                       >
                         Educator start guide
@@ -328,6 +334,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                   <a
                     href="https://docs.google.com/document/d/1XIJaV3zhn-tJhDc_6Kr00lmTo5zCBuES3Yt67wX752M/edit"
                     target="_blank"
+                    rel="noreferrer"
                     className={textCn('rs-link', {external: true})}
                   >
                     Kotlin curriculum for beginners
@@ -338,7 +345,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                   <a
                     href="https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-education&utm_content=button_1&utm_term=22.03.23"
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     className={textCn('rs-link', {external: true})}
                   >
                     Kotlin tracks by JetBrains Academy
@@ -354,7 +361,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                   <a
                     href="https://www.jetbrains.com/community/education/#students"
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     className={textCn('rs-link', {external: true})}
                   >
                     Free educational licenses for students and teachers
@@ -364,7 +371,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                   <a
                     href="https://plugins.jetbrains.com/plugin/10081-jetbrains-academy"
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     className={textCn('rs-link', {external: true})}
                   >
                     JetBrains Academy plugin
@@ -382,7 +389,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                 <li className={styles.listItem}>
                   <a href="https://www.jetbrains.com/code-with-me/"
                      target="_blank"
-                     rel="noopener"
+                     rel="noreferrer"
                      className={textCn('rs-link', {external: true})}>
                     Code With Me
                   </a>
@@ -396,7 +403,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                 <li className={styles.listItem}>
                   <a
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     href="https://www.oreilly.com/library/view/introduction-to-kotlin/9781491964125/"
                     className={textCn('rs-link', {external: true})}>
                     Introduction to Kotlin Programming
@@ -405,7 +412,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                 <li className={styles.listItem}>
                   <a
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     href="https://www.oreilly.com/library/view/advanced-kotlin-programming/9781491964149/"
                     className={textCn('rs-link', {external: true})}
                   >
@@ -415,7 +422,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                 <li className={styles.listItem}>
                   <a
                     target="_blank"
-                    rel="noopener"
+                    rel="noreferrer"
                     href="https://www.coursera.org/learn/kotlin-for-java-developers"
                     className={textCn('rs-link', {external: true})}
                   >
@@ -431,6 +438,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                 <li className={styles.listItem}>
                   <a href="https://developer.android.com/courses/android-basics-compose/course"
                      target="_blank"
+                     rel="noreferrer"
                      className={textCn('rs-link', {external: true})}>
                     Android Basics with Compose course
                   </a>
@@ -439,6 +447,7 @@ export const Teach: FC<TeachProps> = ({ countriesCount, universitiesCount }) => 
                 <li className={styles.listItem}>
                   <a href="https://developer.android.com/teach"
                      target="_blank"
+                     rel="noreferrer"
                      className={textCn('rs-link', {external: true})}>
                     Android Development with Kotlin course
                   </a>

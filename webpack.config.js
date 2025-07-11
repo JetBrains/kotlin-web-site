@@ -171,6 +171,12 @@ module.exports = (params = {}) => {
             req.headers.host = nextJSHost;
           }
         },
+        '/education/**': {
+          target: `http://${nextJSHost}`,
+          bypass: function (req) {
+            req.headers.host = nextJSHost;
+          }
+        },
         '/_next/**': {
           target: `http://${nextJSHost}`,
           bypass: function (req) {
