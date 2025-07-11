@@ -59,6 +59,10 @@ Create a new Spring Boot project in IntelliJ IDEA Ultimate Edition:
 
     * **Java**: 17
 
+      > If you don't have Java 17 installed, you can download it from the JDK dropdown list.
+      >
+      {style="tip"}
+
    ![Create Spring Boot project](create-spring-ai-project.png){width=800}
 
 4. Make sure that you have specified all the fields and click **Next**.
@@ -100,10 +104,10 @@ The generated Gradle project corresponds to the Maven's standard directory layou
     }
    ```
 
-2. Update your `springAiVersion` to `1.0.0-M6`:
+2. Set `springAiVersion` to `1.0.0`:
 
    ```kotlin
-   extra["springAiVersion"] = "1.0.0-M6"
+   extra["springAiVersion"] = "1.0.0"
    ```
 
 3. Click the **Sync Gradle Changes** button to synchronize the Gradle files.
@@ -122,7 +126,7 @@ The generated Gradle project corresponds to the Maven's standard directory layou
    ```
    
    > Set your OpenAI API key to the `spring.ai.openai.api-key` property.
-   > 
+   >
    {style="note"}
 
 5. Run the `SpringAiDemoApplication.kt` file to start the Spring Boot application.
@@ -152,9 +156,6 @@ Create a Spring `@RestController` to search documents and store them in the Qdra
     import org.springframework.web.client.RestTemplate
     import kotlin.uuid.ExperimentalUuidApi
     import kotlin.uuid.Uuid
-
-    // Data class representing the chat request payload
-    data class ChatRequest(val query: String, val topK: Int = 3)
 
     @RestController
     @RequestMapping("/kotlin")
@@ -249,7 +250,7 @@ Create a Spring `@RestController` to search documents and store them in the Qdra
    ![GET request results](spring-ai-get-results.png){width="700"}
 
 > You can also view the results on the [Qdrant collections](http://localhost:6333/dashboard#/collections) page.
-> 
+>
 {style="tip"}
 
 ## Implement an AI chat endpoint
@@ -260,16 +261,21 @@ Once the documents are loaded, the final step is to add an endpoint that answers
 
    ```kotlin
    import org.springframework.ai.chat.client.ChatClient
-   import org.springframework.ai.chat.client.advisor.RetrievalAugmentationAdvisor
    import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor
+   import org.springframework.ai.chat.client.advisor.vectorstore.QuestionAnswerAdvisor
    import org.springframework.ai.chat.prompt.Prompt
    import org.springframework.ai.chat.prompt.PromptTemplate
-   import org.springframework.ai.rag.preretrieval.query.transformation.RewriteQueryTransformer
-   import org.springframework.ai.rag.retrieval.search.VectorStoreDocumentRetriever
    import org.springframework.web.bind.annotation.RequestBody
    ```
 
-2. Add `ChatClient.Builder` to the controller's constructor parameters:
+2. Define a `ChatRequest` data class:
+
+   ```kotlin
+   // Represents the request payload for chat queries
+   data class ChatRequest(val query: String, val topK: Int = 3)
+   ```
+
+3. Add `ChatClient.Builder` to the controller's constructor parameters:
 
    ```kotlin
    class KotlinSTDController(
@@ -279,56 +285,53 @@ Once the documents are loaded, the final step is to add an endpoint that answers
    )
    ```
 
-3. Inside the controller class, create a `ChatClient` instance and a query transformer:
+4. Inside the controller class, create a `ChatClient` instance:
 
    ```kotlin
    // Builds the chat client with a simple logging advisor
    private val chatClient = chatClientBuilder.defaultAdvisors(SimpleLoggerAdvisor()).build()
-   // Builds the query transformer used to rewrite the input query
-   private val rqtBuilder = RewriteQueryTransformer.builder().chatClientBuilder(chatClientBuilder)
    ```
 
-4. At the bottom of your `KotlinSTDController.kt` file, add a new `chatAsk()` endpoint, with the following logic:
+5. At the bottom of your `KotlinSTDController.kt` file, add a new `chatAsk()` endpoint, with the following logic:
 
    ```kotlin
-       @PostMapping("/chat/ask")
-       fun chatAsk(@RequestBody request: ChatRequest): String? {
-           // Defines the prompt template with placeholders
-           val promptTemplate = PromptTemplate(
-               """
-               {query}.
-               Please provide a concise answer based on the {target} documentation.
-           """.trimIndent()
+   @PostMapping("/chat/ask")
+   fun chatAsk(@RequestBody request: ChatRequest): String? {
+       // Defines the prompt template with placeholders
+       val promptTemplate = PromptTemplate(
+           """
+           {query}.
+           Please provide a concise answer based on the "Kotlin standard library" documentation.
+       """.trimIndent()
+       )
+
+       // Creates the prompt by substituting placeholders with actual values
+       val prompt: Prompt =
+           promptTemplate.create(mapOf("query" to request.query))
+
+       // Configures the retrieval advisor to augment the query with relevant documents
+       val retrievalAdvisor = QuestionAnswerAdvisor.builder(vectorStore)
+           .searchRequest(
+               SearchRequest.builder()
+                   .similarityThreshold(0.7)
+                   .topK(request.topK)
+                   .build()
            )
-   
-           // Creates the prompt by substituting placeholders with actual values
-           val prompt: Prompt =
-               promptTemplate.create(mapOf("query" to request.query, "target" to "Kotlin standard library"))
-   
-           // Configures the retrieval advisor to augment the query with relevant documents
-           val retrievalAdvisor = RetrievalAugmentationAdvisor.builder()
-               .documentRetriever(
-                   VectorStoreDocumentRetriever.builder()
-                       .similarityThreshold(0.7)
-                       .topK(request.topK)
-                       .vectorStore(vectorStore)
-                       .build()
-               )
-               .queryTransformers(rqtBuilder.promptTemplate(promptTemplate).build())
-               .build()
-   
-           // Sends the prompt to the LLM with the retrieval advisor and get the response
-           val response = chatClient.prompt(prompt)
-               .advisors(retrievalAdvisor)
-               .call()
-               .content()
-           logger.info("Chat response generated for query: '${request.query}'")
-           return response
-       }
+           .promptTemplate(promptTemplate)
+           .build()
+
+       // Sends the prompt to the LLM with the retrieval advisor and retrieves the generated content
+       val response = chatClient.prompt(prompt)
+           .advisors(retrievalAdvisor)
+           .call()
+           .content()
+       logger.info("Chat response generated for query: '${request.query}'")
+       return response
+   }
    ```
 
-5. Run the application.
-6. In the terminal, send a POST request to the new endpoint to see the results:
+6. Run the application.
+7. In the terminal, send a POST request to the new endpoint to see the results:
 
    ```bash
    curl -X POST "http://localhost:8080/kotlin/chat/ask" \
@@ -342,5 +345,5 @@ Congratulations! You now have a Kotlin app that connects to OpenAI and answers q
 documentation stored in Qdrant.
 Try experimenting with different queries or importing other documents to explore more possibilities.
 
-You can view the completed project in the [Spring AI demo GitHub repository](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/springAI-demo), 
+You can view the completed project in the [Spring AI demo GitHub repository](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/springAI-demo),
 or explore other Spring AI examples in [Kotlin AI Examples](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master).

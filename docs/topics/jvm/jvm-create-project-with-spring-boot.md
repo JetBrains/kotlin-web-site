@@ -46,6 +46,10 @@ Create a new Spring Boot project with Kotlin by using the Project Wizard in Inte
      {style="note"}
    
    * **Java**: 17
+   
+     > If you don't have Java 17 installed, you can download it from the JDK dropdown list.
+     >
+     {style="tip"}
 
    ![Create Spring Boot project](create-spring-boot-project.png){width=800}
 

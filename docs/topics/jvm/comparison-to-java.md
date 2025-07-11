@@ -45,7 +45,7 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Data classes](data-classes.md)
 * [Coroutines](coroutines-overview.md)
 * [Top-level functions](functions.md)
-* [Default arguments](functions.md#default-arguments)
+* [Parameters with default values](functions.md#parameters-with-default-values)
 * [Named parameters](functions.md#named-arguments)
 * [Infix functions](functions.md#infix-notation)
 * [Expect and actual declarations](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html)

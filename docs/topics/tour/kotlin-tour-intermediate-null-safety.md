@@ -191,7 +191,6 @@ In both of these examples, if all items are `null` values, an empty list is retu
 Kotlin also provides functions that you can use to find values in collections. If a value isn't found, they return `null`
 values instead of triggering an error:
 
-* [`singleOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/single-or-null.html) looks for only one item by its exact value. If one doesn't exist or there are multiple items with the same value, returns a `null` value.
 * [`maxOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/max-or-null.html) finds the highest value. If one doesn't exist, returns a `null` value.
 * [`minOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/min-or-null.html) finds the lowest value. If one doesn't exist, returns a `null` value.
 
@@ -202,12 +201,7 @@ fun main() {
 //sampleStart
     // Temperatures recorded over a week
     val temperatures = listOf(15, 18, 21, 21, 19, 17, 16)
-
-    // Check if there was exactly one day with 30 degrees
-    val singleHotDay = temperatures.singleOrNull()
-    println("Single hot day with 30 degrees: ${singleHotDay ?: "None"}")
-    // Single hot day with 30 degrees: None
-
+  
     // Find the highest temperature of the week
     val maxTemperature = temperatures.maxOrNull()
     println("Highest temperature recorded: ${maxTemperature ?: "No data"}")
@@ -224,16 +218,38 @@ fun main() {
 
 This example uses the Elvis operator `?:` to return a printed statement if the functions return a `null` value.
 
-> The `singleOrNull()`, `maxOrNull()`, and `minOrNull()` functions are designed to be used with collections that **don't**
+> The `maxOrNull()`, and `minOrNull()` functions are designed to be used with collections that **don't**
 > contain `null` values. Otherwise, you can't tell whether the function couldn't find the desired value or whether it
 > found a `null` value.
 >
 {style="note"}
 
-Some functions use a lambda expression to transform a collection and return `null` values if they can't 
+You can use the [`singleOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/single-or-null.html) function with a lambda expression to find a single item that matches a condition.
+If one doesn't exist or there are multiple items that match, the function returns a `null` value:
+
+```kotlin
+fun main() {
+//sampleStart
+    // Temperatures recorded over a week
+    val temperatures = listOf(15, 18, 21, 21, 19, 17, 16)
+
+    // Check if there was exactly one day with 30 degrees
+    val singleHotDay = temperatures.singleOrNull{ it == 30 }
+    println("Single hot day with 30 degrees: ${singleHotDay ?: "None"}")
+    // Single hot day with 30 degrees: None
+//sampleEnd
+}
+```
+{kotlin-runnable="true" id="kotlin-tour-null-safety-singleornull"}
+
+> The `singleOrNull()` function is designed to be used with collections that **don't** contain `null` values.
+>
+{style="note"}
+
+Some functions use a lambda expression to transform a collection and return `null` values if they can't
 fulfill their purpose.
 
-For example, to transform a collection with a lambda expression and return the first value that isn't `null`, use the 
+To transform a collection with a lambda expression and return the first value that isn't `null`, use the 
 [`firstNotNullOfOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/first-not-null-of-or-null.html) function. If no such value exists, the function returns a `null` value:
 
 ```kotlin
@@ -255,7 +271,7 @@ fun main() {
 ```
 {kotlin-runnable="true" id="kotlin-tour-null-safety-firstnotnullofornull"}
 
-To use a lambda function to process each collection item sequentially and create an accumulated value (or return a 
+To use a lambda expression to process each collection item sequentially and create an accumulated value (or return a 
 `null` value if the collection is empty) use the [`reduceOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/reduce-or-null.html) function:
 
 ```kotlin

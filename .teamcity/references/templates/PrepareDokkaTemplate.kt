@@ -26,14 +26,14 @@ fun BuildTypeSettings.configureReferenceTemplate() {
       scriptContent = """
         yarn install --frozen-lockfile
       """.trimIndent()
-      dockerImage = "node:16-alpine"
+      dockerImage = "node:18-alpine"
     }
     script {
       name = "Build Templates"
       scriptContent = """
         node ./scripts/dokka/generate-templates.js
       """.trimIndent()
-      dockerImage = "node:16-alpine"
+      dockerImage = "node:18-alpine"
     }
   }
 }

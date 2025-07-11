@@ -40,10 +40,10 @@ fun powerOf(
 ) { /*...*/ }
 ```
 
-### Default arguments
+### Parameters with default values
 
-Function parameters can have default values, which are used when you skip the corresponding argument. This reduces the number
-of overloads:
+Function parameters can have default values, which are used when you skip the corresponding argument.
+This reduces the number of overloads:
 
 ```kotlin
 fun read(
@@ -52,6 +52,8 @@ fun read(
     len: Int = b.size,
 ) { /*...*/ }
 ```
+
+Such parameters are also referred to as _optional parameters_.
 
 A default value is set by appending `=` to the type.
 
@@ -68,7 +70,7 @@ class B : A() {
 }
 ```
 
-If a default parameter precedes a parameter with no default value, the default value can only be used by calling
+If a parameter with default value precedes a parameter with no default value, the default value can only be used by calling
 the function with [named arguments](#named-arguments):
 
 ```kotlin
@@ -80,8 +82,8 @@ fun foo(
 foo(baz = 1) // The default value bar = 0 is used
 ```
 
-If the last argument after default parameters is a [lambda](lambdas.md#lambda-expression-syntax),
-you can pass it either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
+If the last parameter after all parameters with default values has a functional type,
+then you can pass the corresponding [lambda](lambdas.md#lambda-expression-syntax) argument either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
 
 ```kotlin
 fun foo(
@@ -247,7 +249,7 @@ for the call). Infix functions must meet the following requirements:
 * They must be member functions or [extension functions](extensions.md).
 * They must have a single parameter.
 * The parameter must not [accept variable number of arguments](#variable-number-of-arguments-varargs) and must have
-no [default value](#default-arguments).
+no [default value](#parameters-with-default-values).
 
 ```kotlin
 infix fun Int.shl(x: Int): Int { ... }

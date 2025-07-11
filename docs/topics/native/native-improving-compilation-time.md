@@ -157,3 +157,8 @@ create an [issue in YouTrack](https://kotl.in/issue).
 
 Windows Security may slow down the Kotlin/Native compiler. You can avoid this by adding the `.konan` directory,
 which is located in `%\USERPROFILE%` by default, to Windows Security exclusions. Learn how to [add exclusions to Windows Security](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
+
+## LLVM configuration
+<primary-label ref="advanced"/>
+
+If the above tips didn't help with improving compilation time, consider [customizing the LLVM backend](native-llvm-passes.md).

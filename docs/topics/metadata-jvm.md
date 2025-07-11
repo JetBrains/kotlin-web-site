@@ -176,6 +176,78 @@ fun main() {
 }
 ```
 
+### Write and read annotations in metadata
+<primary-label ref="experimental-general"/>
+
+You can store annotations in Kotlin metadata and access them using the `kotlin-metadata-jvm` library.
+This removes the need to match annotations by signature, making access more reliable for overloaded declarations.
+
+To make annotations available in the metadata of your compiled files, add the following compiler option:
+
+```kotlin
+-Xannotations-in-metadata
+```
+
+Alternatively, add it to the `compilerOptions {}` block of your Gradle build file:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xannotations-in-metadata")
+    }
+}
+```
+
+When you enable this option, the Kotlin compiler writes annotations into metadata alongside the JVM bytecode,
+making them accessible to the `kotlin-metadata-jvm` library.
+
+The library provides the following APIs for accessing annotations:
+
+* `KmClass.annotations`
+* `KmFunction.annotations`
+* `KmProperty.annotations`
+* `KmConstructor.annotations`
+* `KmPropertyAccessorAttributes.annotations`
+* `KmValueParameter.annotations`
+* `KmFunction.extensionReceiverAnnotations`
+* `KmProperty.extensionReceiverAnnotations`
+* `KmProperty.backingFieldAnnotations`
+* `KmProperty.delegateFieldAnnotations`
+* `KmEnumEntry.annotations`
+
+These APIs are [Experimental](components-stability.md#stability-levels-explained).
+To opt in, use the `@OptIn(ExperimentalAnnotationsInMetadata::class)` annotation.
+
+Here's an example of reading annotations from Kotlin metadata:
+
+```kotlin
+@file:OptIn(ExperimentalAnnotationsInMetadata::class)
+
+import kotlin.metadata.ExperimentalAnnotationsInMetadata
+import kotlin.metadata.jvm.KotlinClassMetadata
+
+annotation class Label(val value: String)
+
+@Label("Message class")
+class Message
+
+fun main() {
+    val metadata = Message::class.java.getAnnotation(Metadata::class.java)
+    val kmClass = (KotlinClassMetadata.readStrict(metadata) as KotlinClassMetadata.Class).kmClass
+    println(kmClass.annotations)
+    // [@Label(value = StringValue("Message class"))]
+}
+```
+
+> If you use the `kotlin-metadata-jvm` library in your projects, we recommend updating and testing your code to support annotations.
+> Otherwise, when annotations in metadata become [enabled by default](https://youtrack.jetbrains.com/issue/KT-75736) in a future Kotlin version,
+> your projects may produce invalid or incomplete metadata.
+>
+> If you experience any problems, please report them in our [issue tracker](https://youtrack.jetbrains.com/issue/KT-31857).
+>
+{style="warning"}
+
 ### Extract metadata from bytecode
 
 While you can retrieve metadata using reflection, another approach is to extract it from bytecode using a bytecode manipulation framework such as [ASM](https://asm.ow2.io/).

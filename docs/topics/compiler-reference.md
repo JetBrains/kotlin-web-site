@@ -46,19 +46,6 @@ The following options are common for all Kotlin compilers.
 
 Display the compiler version.
 
-### -nowarn
-
-Suppress the compiler from displaying warnings during compilation.
-
-### -Werror
-
-Turn any warnings into a compilation error. 
-
-### -Wextra
-
-Enable [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that
-emit warnings if true.
-
 ### -verbose
 
 Enable verbose logging output which includes details of the compilation process.
@@ -74,6 +61,8 @@ Display usage information and exit. Only standard options are shown.
 To show advanced options, use `-X`.
 
 ### -X
+
+<primary-label ref="experimental-general"/>
 
 Display information about the advanced options and exit. These options are currently unstable: 
 their names and behavior may be changed without notice.
@@ -136,13 +125,73 @@ $ kotlinc @options/compiler.options hello.kt
 Enable usages of API that [requires opt-in](opt-in-requirements.md) with a requirement annotation with the given 
 fully qualified name.
 
-### -Xsuppress-warning
+### -Xrepl
 
-Suppresses specific warnings [globally across the whole project](whatsnew21.md#global-warning-suppression), for example:
+<primary-label ref="experimental-general"/>
+
+Activates the Kotlin REPL.
 
 ```bash
-kotlinc -Xsuppress-warning=NOTHING_TO_INLINE -Xsuppress-warning=NO_TAIL_CALLS_FOUND main.kt
+kotlinc -Xrepl
 ```
+
+### -Xannotation-target-all
+
+<primary-label ref="experimental-general"/>
+
+Enables the experimental [`all` use-site target for annotations](annotations.md#all-meta-target):
+
+```bash
+kotlinc -Xannotation-target-all
+```
+
+### -Xannotation-default-target=param-property
+
+<primary-label ref="experimental-general"/>
+
+Enables the new experimental [defaulting rule for annotation use-site targets](annotations.md#defaults-when-no-use-site-targets-are-specified):
+
+```bash
+kotlinc -Xannotation-default-target=param-property
+```
+
+### Warning management
+
+#### -nowarn
+
+Suppress all warnings during compilation.
+
+#### -Werror
+
+Treat all warnings as compilation errors.
+
+#### -Wextra
+
+Enable [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that
+emit warnings if true.
+
+#### -Xwarning-level
+<primary-label ref="experimental-general"/>
+
+Configure the severity level of specific compiler warnings:
+
+```bash
+kotlinc -Xwarning-level=DIAGNOSTIC_NAME:(error|warning|disabled)
+```
+
+* `error`: raises only the specified warning to an error.
+* `warning`: emits a warning for the specified diagnostic and is enabled by default.
+* `disabled`: suppresses only the specified warning module-wide.
+
+You can adjust warning reporting in your project by combining module-wide rules with specific ones:
+
+| Command                                            | Description                                                 |
+|----------------------------------------------------|-------------------------------------------------------------|
+| `-nowarn -Xwarning-level=DIAGNOSTIC_NAME:warning`  | Suppress all warnings except for the specified ones.        |
+| `-Werror -Xwarning-level=DIAGNOSTIC_NAME:warning`  | Raise all warnings to errors except for the specified ones. |
+| `-Wextra -Xwarning-level=DIAGNOSTIC_NAME:disabled` | Enable all additional checks except for the specified ones. |
+
+If you have many warnings to exclude from the general rules, you can list them in a separate file using [`@argfile`](#argfile).
 
 ## Kotlin/JVM compiler options
 
@@ -172,9 +221,11 @@ Use a custom JDK home directory to include into the classpath if it differs from
 
 ### -Xjdk-release=version
 
+<primary-label ref="experimental-general"/>
+
 Specify the target version of the generated JVM bytecode. Limit the API of the JDK in the classpath to the specified Java version. 
 Automatically sets [`-jvm-target version`](#jvm-target-version).
-Possible values are `1.8`, `9`, `10`, ..., `21`.
+Possible values are `1.8`, `9`, `10`, ..., `24`.
 
 > This option is [not guaranteed](https://youtrack.jetbrains.com/issue/KT-29974) to be effective for each JDK distribution.
 >
@@ -182,7 +233,7 @@ Possible values are `1.8`, `9`, `10`, ..., `21`.
 
 ### -jvm-target _version_
 
-Specify the target version of the generated JVM bytecode. Possible values are `1.8`, `9`, `10`, ..., `21`.
+Specify the target version of the generated JVM bytecode. Possible values are `1.8`, `9`, `10`, ..., `24`.
 The default value is `%defaultJvmTargetVersion%`.
 
 ### -java-parameters
@@ -209,6 +260,24 @@ into the classpath.
 ### -script-templates _classnames[,]_
 
 Script definition template classes. Use fully qualified class names and separate them with commas (**,**).
+
+### -Xjvm-expose-boxed
+
+<primary-label ref="experimental-general"/>
+
+Generate boxed versions of all inline value classes in the module, along with boxed variants of functions that use them,
+making both accessible from Java. For more information, see [Inline value classes](java-to-kotlin-interop.md#inline-value-classes)
+in the guide to calling Kotlin from Java.
+
+### -jvm-default _mode_
+
+Control how functions declared in interfaces are compiled to default methods on the JVM.
+
+| Mode               | Description                                                                                                                       |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `enable`           | Generates default implementations in interfaces and includes bridge functions in subclasses and `DefaultImpls` classes. (Default) |
+| `no-compatibility` | Generates only default implementations in interfaces, skipping compatibility bridges and `DefaultImpls` classes.                  |
+| `disable`          | Generates only compatibility bridges and `DefaultImpls` classes, skipping default methods.                                        |
 
 ## Kotlin/JS compiler options
 

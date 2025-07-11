@@ -183,6 +183,13 @@ val numericValue = when (getRandomBit()) {
 }
 ```
 
+> To simplify `when` expressions and reduce repetition, try out context-sensitive resolution (currently in preview).
+> This feature allows you to omit the type name when using enum entries or sealed class members in `when` expressions if the expected type is known.
+> 
+> For more information, see [Preview of context-sensitive resolution](whatsnew22.md#preview-of-context-sensitive-resolution) or the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md).
+> 
+{style="tip"}
+
 If your `when` expression **doesn't** have a subject, you **must** have an `else` branch or the compiler throws an error.
 The `else` branch is evaluated when none of the other branch conditions are satisfied:
 
@@ -262,11 +269,6 @@ The scope of a variable introduced as the subject is restricted to the body of t
 
 ### Guard conditions in when expressions
 
-> Guard conditions are an [experimental feature](components-stability.md#stability-levels-explained) that may be changed at any time.
-> We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-71140/Guard-conditions-in-when-expressions-feedback).
->
-{style="warning"}
-
 Guard conditions allow you to include 
 more than one condition to the branches of a `when` expression, making complex control flow more explicit and concise.
 You can use guard conditions in `when` expressions or statements with a subject.
@@ -325,16 +327,6 @@ when (animal) {
 
 You can use guard conditions in any `when` expression or statement with a subject, except the case when you have multiple conditions separated by a comma.
 For example, `0, 1 -> print("x == 0 or x == 1")`.
-
-> To enable guard conditions in CLI, run the following command:
->
-> `kotlinc -Xwhen-guards main.kt`
->
-> To enable guard conditions in Gradle, add the following line to the `build.gradle.kts` file:
->
-> `kotlin.compilerOptions.freeCompilerArgs.add("-Xwhen-guards")`
->
-{style="note"}
 
 ## For loops
 

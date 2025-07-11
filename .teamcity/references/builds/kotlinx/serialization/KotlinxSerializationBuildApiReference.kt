@@ -8,7 +8,10 @@ import references.scriptBuildHtml
 import references.vcsRoots.KotlinxSerialization
 
 object KotlinxSerializationBuildApiReference : BuildApiPages(
-    apiId = KOTLINX_SERIALIZATION_ID, releaseTag = KOTLINX_SERIALIZATION_RELEASE_LABEL, init = {
+    apiId = KOTLINX_SERIALIZATION_ID,
+    releaseTag = KOTLINX_SERIALIZATION_RELEASE_LABEL,
+    pagesRoot = "build/dokka/html",
+    init = {
         vcs {
             root(KotlinxSerialization)
         }
@@ -18,6 +21,6 @@ object KotlinxSerializationBuildApiReference : BuildApiPages(
     },
     stepBuildHtml = {
         scriptBuildHtml {
-            tasks = ":dokkaHtmlMultiModule"
+            tasks = ":dokkaGenerate"
         }
     })

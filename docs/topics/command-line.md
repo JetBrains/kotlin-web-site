@@ -108,10 +108,8 @@ kotlin -classpath hello.jar HelloKt
 
 ## Run the REPL
 
-You can run the compiler without parameters to have an interactive shell. In this shell, you can type any valid Kotlin code
+Run the compiler with the [`-Xrepl` compiler option](compiler-reference.md#xrepl) to have an interactive shell. In this shell, you can type any valid Kotlin code
 and see the results.
-
-<img src="kotlin-shell.png" alt="Shell" width="500"/>
 
 ## Run scripts
 
