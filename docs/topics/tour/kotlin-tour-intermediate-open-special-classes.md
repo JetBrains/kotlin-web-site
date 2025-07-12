@@ -29,8 +29,31 @@ open class Vehicle
 To create a class that inherits from another, add a colon after your class header followed by a call to the constructor
 of the parent class that you want to inherit from:
 
+If you can't use interfaces or abstract classes, you can explicitly make a class inheritable by declaring it as **open**.
+To do this, use the `open` keyword before your class declaration:
+
 ```kotlin
-class Car : Vehicle
+open class Vehicle(val make: String, val model: String)
+```
+
+To create a class that inherits from another, add a colon after your class header followed by a call to the constructor
+of the parent class that you want to inherit from. In this example, the `Car` class inherits from the `Vehicle` class:
+
+```kotlin
+open class Vehicle(val make: String, val model: String)
+
+class Car(make: String, model: String, val numberOfDoors: Int) : Vehicle(make, model)
+
+fun main() {
+    // Creates an instance of the Car class
+    val car = Car("Toyota", "Corolla", 4)
+
+    // Prints the details of the car
+    println("Car Info: Make - ${car.make}, Model - ${car.model}, Number of doors - ${car.numberOfDoors}")
+    // Car Info: Make - Toyota, Model - Corolla, Number of doors - 4
+}
+```
+class Car : Vehicle()
 ```
 {validate="false"}
 
