@@ -104,14 +104,14 @@ directory:
 
 ## What's next?
 
-Join the Kotlin/Wasm community in Kotlin Slack:
+* [Learn how to share UIs between iOS and Android using Compose Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html)
+* Try more Kotlin/Wasm examples:
 
-<a href="https://slack-chats.kotlinlang.org/c/webassembly"><img src="join-slack-channel.svg" width="500" alt="Join the Kotlin/Wasm community" style="block"/></a>
+  * [Compose image viewer](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-imageviewer)
+  * [Jetsnack application](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-jetsnack)
+  * [Node.js example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/nodejs-example)
+  * [WASI example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example)
+  * [Compose example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-example)
+* Join the Kotlin/Wasm community in Kotlin Slack:
 
-Try more Kotlin/Wasm examples:
-
-* [Compose image viewer](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-imageviewer)
-* [Jetsnack application](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-jetsnack)
-* [Node.js example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/nodejs-example)
-* [WASI example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/wasi-example)
-* [Compose example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-example)
+  <a href="https://slack-chats.kotlinlang.org/c/webassembly"><img src="join-slack-channel.svg" width="500" alt="Join the Kotlin/Wasm community" style="block"/></a>
