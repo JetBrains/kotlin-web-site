@@ -71,8 +71,8 @@ fun main() {
 
 As `customers` is a mutable variable, its value can be reassigned after declaration.
 
-> We recommend that you declare all variables as read-only (`val`) by default. Declare mutable variables (`var`) only if 
-> necessary.
+> We recommend declaring all variables as read-only (`val`) by default. Only use mutable variables (`var`) if you really
+> need to. That way, you're less likely to accidentally change something that wasn't meant to change.
 > 
 {style="note"}
 
