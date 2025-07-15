@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Solutions tab functionality', () => {
+test.describe('Play tab', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
         await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
