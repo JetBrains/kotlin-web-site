@@ -311,9 +311,9 @@ In this section, you'll learn how to create a Kotlin/Native application using th
 
 To install the compiler:
 
-1. Go to the Kotlin's [GitHub releases](%kotlinLatestUrl%) page.
+1. Go to the Kotlin's [GitHub releases](%kotlinLatestUrl%) page and scroll down to the **Assets** section.
 2. Look for a file with `kotlin-native` in the name and download one that is suitable for your operating system,
-   for example `kotlin-native-prebuilt-linux-x86_64-2.0.21.tar.gz`.
+   for example `kotlin-native-prebuilt-linux-x86_64-%kotlinVersion%.tar.gz`.
 3. Unpack the archive to a directory of your choice.
 4. Open your shell profile and add the path to the compiler's `/bin` directory to the `PATH` environment variable: 
 
