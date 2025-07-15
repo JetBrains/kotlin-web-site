@@ -137,7 +137,7 @@
 				<toc-element topic="jvm-spring-boot-add-db-support.md"/>
 				<toc-element toc-title="Use Spring Data CrudRepository" topic="jvm-spring-boot-using-crudrepository.md"/>
 			</toc-element>
-			<toc-element topic="spring-ai-guide.md"/>
+			<toc-element toc-title="Build a Kotlin app that uses Spring AI – tutorial" topic="spring-ai-guide.md"/>
 		</toc-element>
 		<toc-element toc-title="Web development">
 			<toc-element toc-title="WebAssembly (Wasm)">
@@ -223,7 +223,6 @@
 		<toc-element toc-title="Swift/Objective-C and C interop">
 			<toc-element topic="native-definition-file.md"/>
 			<toc-element toc-title="C and Objective-C library import" topic="native-c-interop-stability.md"/>
-			<toc-element toc-title="Objective-C interop">
 			<toc-element toc-title="Swift/Objective-C interop">
 				<toc-element topic="native-objc-interop.md"/>
 				<toc-element topic="apple-framework.md"/>
