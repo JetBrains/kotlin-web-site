@@ -20,6 +20,9 @@ object KotlinMultiplatform: BuildType ({
         script {
             name = "Build documentation"
             scriptContent = """
+                #!/bin/bash
+                set -e -x -u
+                
                 docker run --rm -v %teamcity.build.checkoutDir%:/opt/sources \
                 registry.jetbrains.team/p/writerside/builder/writerside-builder:latest \
                 /bin/bash -c "export DISPLAY=:99 && Xvfb :99 & /opt/builder/bin/idea.sh helpbuilderinspect \
@@ -32,5 +35,7 @@ object KotlinMultiplatform: BuildType ({
         }
     }
 
-
+    requirements {
+        equals("container.engine","docker")
+    }
 })
