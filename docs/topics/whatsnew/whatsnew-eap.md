@@ -58,7 +58,7 @@ fun test(e: Example) = when (e) {
 }
 ```
 
-With the new feature enabled, the `when` expression in this example compiles to a single `invokedynamic` type switch 
+With the new feature enabled, the `when` expression in this example compiles to a single `invokedynamic` type switch
 instead of multiple `instanceof` checks.
 
 To enable this feature, compile your Kotlin code with JVM target 21 or above and add the following compiler option:
@@ -112,7 +112,7 @@ Note that in some cases, stack protection might come with a performance cost.
 Kotlin %kotlinEapVersion% introduces the `smallBinary` option that can help you decrease the binary size for iOS targets.
 The new option effectively sets `-Oz` as the default optimization argument for the compiler during the LLVM compilation phase.
 
-With the `smallBinary` option enabled, you can make release binaries smaller and improve build time. However, it might 
+With the `smallBinary` option enabled, you can make release binaries smaller and improve build time. However, it might
 affect runtime performance in some cases.
 
 #### How to enable smaller binary size
@@ -128,15 +128,15 @@ For a specific binary, set the `binaryOption("smallBinary", "true")` in your `bu
 
 ```kotlin
 kotlin {
-   listOf(
-       iosX64(),
-       iosArm64(),
-       iosSimulatorArm64(),
-   ).forEach {
-       it.binaries.framework {
-           binaryOption("smallBinary", "true")
-       }
-   }
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64(),
+    ).forEach {
+        it.binaries.framework {
+            binaryOption("smallBinary", "true")
+        }
+    }
 }
 ```
 
@@ -144,7 +144,7 @@ The Kotlin team is grateful to [Troels Lund](https://github.com/troelsbjerre) fo
 
 ### Improved debugger object summaries
 
-Kotlin/Native now generates clearer object summaries for debugger tools like LLDB and GDB. This improves the 
+Kotlin/Native now generates clearer object summaries for debugger tools like LLDB and GDB. This improves the
 readability of the produced debug information and streamlines your debugging experience.
 
 Previously, if you inspected an object such as:
@@ -172,6 +172,8 @@ With Kotlin %kotlinEapVersion%, the debugger shows richer details, including the
 (int32_t) point->x = 1
 ```
 
+The Kotlin team is grateful to [Nikita Nazarov](https://github.com/nikita-nazarov) for his help in implementing this feature.
+
 For more information on debugging in Kotlin/Native, see the [documentation](native-debugging.md).
 
 ## Kotlin/Wasm: separated npm dependencies
@@ -196,11 +198,11 @@ tooling and the user dependencies have separate directories:
 
 Also, the lock files inside the project directory contain only user-defined dependencies.
 
-This improvement keeps your lock files focused only on your own dependencies, helps maintain a cleaner project, and 
+This improvement keeps your lock files focused only on your own dependencies, helps maintain a cleaner project, and
 reduces unnecessary changes to your files.
 
 This change is enabled by default for the `wasm-js` target. The change is not yet implemented for the `js` target. While
-there are plans to implement it in future releases, the behavior of the npm dependencies remains the same for the `js` 
+there are plans to implement it in future releases, the behavior of the npm dependencies remains the same for the `js`
 target in Kotlin %kotlinEapVersion%.
 
 ## Kotlin/JS: new DSL function for cleaner arguments
@@ -211,7 +213,7 @@ When running a Kotlin/JS application with Node.js, the arguments passed to your 
 * The path to your script.
 * The actual command-line arguments you provided.
 
-However, the expected behavior for `args` was to include only the command-line arguments. To achieve this, you had to 
+However, the expected behavior for `args` was to include only the command-line arguments. To achieve this, you had to
 manually skip the first two arguments using the `drop()` function inside your `build.gradle.kts` file or in your Kotlin code:
 
 ```kotlin
@@ -229,7 +231,7 @@ With this function, the arguments only include the command-line arguments and ex
 ```kotlin
 fun main(args: Array<String>) {
     // No need for drop() and only your custom arguments are included 
-    println(args.joinToString(", ")) 
+    println(args.joinToString(", "))
 }
 ```
 
