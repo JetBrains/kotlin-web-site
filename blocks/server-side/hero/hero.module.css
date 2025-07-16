@@ -1,0 +1,57 @@
+.wrapper {
+    background: #000000;
+    padding: 96px 0 72px 0;
+    color: #fff;
+    position: relative;
+    /*background-image: url("../../../public/images/server-side/server-side-hero.png");*/
+}
+
+.content {
+    max-width: 816px;
+    position: relative;
+    z-index: 2;
+}
+
+.heroImage {
+    width: 880px;
+    height: 855px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.heroTitle {
+    margin: 0;
+}
+
+.heroSubtitle {
+    margin: 56px 0 0;
+}
+
+.featuresList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+    margin-top: 32px;
+}
+
+.feature {
+    background: rgba(126, 66, 255, 0.20);
+    backdrop-filter: blur(40px);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    padding: 24px 32px;
+}
+
+.featureTitle {
+    margin: 0;
+    padding: 0;
+}
+
+.buttons {
+    margin-top: 56px;
+    display: flex;
+    gap: 24px;
+}

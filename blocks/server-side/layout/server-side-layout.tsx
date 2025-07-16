@@ -60,6 +60,14 @@ export const ServerSideLayout: FC<CommunityLayoutProps> = ({ title, ogImageName,
         [ogImageName, ogImagePath]
     );
 
+    if (activeIndex === -1) {
+        activeIndex = items.length;
+        items = [...items, {
+            url: router.pathname + '/',
+            title,
+        }];
+    }
+
     return (
         <>
             <Head>

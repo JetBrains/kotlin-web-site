@@ -1,10 +1,13 @@
 import React from 'react';
 import { ServerSideLayout } from '../../blocks/server-side/layout/server-side-layout';
+import { ServerSideHero } from '../../blocks/server-side/hero/hero';
+import { ServerSidePerformance } from '../../blocks/server-side/performance/performance';
 
 function Index() {
     return (
         <ServerSideLayout title={'Server Side'} ogImageName={'community.png'}>
-            <h1>Server side</h1>
+            <ServerSideHero />
+            <ServerSidePerformance />
         </ServerSideLayout>
     );
 }
