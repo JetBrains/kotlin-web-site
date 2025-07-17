@@ -586,7 +586,7 @@ fun emptyList(): List<Nothing> = listOf()
 // List emptyList() { ... }
 ```
 
-### Inline value classes
+## Inline value classes
 
 <primary-label ref="experimental-general"/>
 
@@ -639,3 +639,29 @@ MyInt output = ExampleKt.timesTwoBoxed(input);
 
 To apply this behavior to all inline value classes and the functions that use them within a module, compile it with the `-Xjvm-expose-boxed` option. 
 Compiling with this option has the same effect as if every declaration in the module has the `@JvmExposeBoxed` annotation.
+
+### Inherited functions
+
+The `@JvmExposeBoxed` annotation doesn't automatically generate boxed representations for inherited functions.
+ 
+To generate the necessary representation for an inherited function, override it in the implementing or extending class:
+ 
+```kotlin
+interface IdTransformer {
+    fun transformId(rawId: UInt): UInt = rawId
+}
+
+// Doesn't generate a boxed representation for the transformId() function
+@OptIn(ExperimentalStdlibApi::class)
+@JvmExposeBoxed
+class LightweightTransformer : IdTransformer
+
+// Generates a boxed representation for the transformId() function
+@OptIn(ExperimentalStdlibApi::class)
+@JvmExposeBoxed
+class DefaultTransformer : IdTransformer {
+    override fun transformId(rawId: UInt): UInt = super.transformId(rawId)
+}
+```
+
+To learn how inheritance works in Kotlin and how to call superclass implementations using the `super` keyword, see [Inheritance](inheritance.md#calling-the-superclass-implementation).
