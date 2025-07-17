@@ -55,4 +55,8 @@ object KotlinWithCoroutines: BuildType ({
             """.trimIndent()
         }
     }
+
+    requirements {
+        equals("container.engine","docker")
+    }
 })
