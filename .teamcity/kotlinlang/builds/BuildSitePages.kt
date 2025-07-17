@@ -1,6 +1,7 @@
 package kotlinlang.builds
 
 import BuildParams.API_URLS
+import documentation.builds.KotlinWithCoroutines
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
@@ -141,13 +142,26 @@ object BuildSitePages : BuildType({
             }
         }
 
-        dependency(BuildReferenceDocs) {
+        dependency(KotlinWithCoroutines) {
             snapshot {
                 onDependencyFailure = FailureAction.FAIL_TO_START
+                onDependencyCancel = FailureAction.CANCEL
             }
             artifacts {
-                artifactRules = "+:docs.zip!** => _webhelp/reference/"
+                artifactRules = """
+                    +:webHelpImages.zip!** => _/webhelp/reference/images/
+                    +:webHelpKR2.zip!** => _/webhelp/reference/
+                """.trimIndent()
             }
         }
+
+//        dependency(BuildReferenceDocs) {
+//            snapshot {
+//                onDependencyFailure = FailureAction.FAIL_TO_START
+//            }
+//            artifacts {
+//                artifactRules = "+:docs.zip!** => _webhelp/reference/"
+//            }
+//        }
     }
 })
