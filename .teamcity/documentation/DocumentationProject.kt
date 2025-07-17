@@ -2,7 +2,7 @@ package documentation
 
 import documentation.builds.KotlinMultiplatform
 import documentation.builds.KotlinWithCoroutines
-import documentation.vcsRoots.KotlinMultiplatformVCS
+import documentation.vcsRoots.*
 import jetbrains.buildServer.configs.kotlin.Project
 
 object DocumentationProject: Project({
@@ -19,4 +19,9 @@ object DocumentationProject: Project({
     }
 
     vcsRoot(KotlinMultiplatformVCS)
+    vcsRoot(KotlinReferenceRoot)
+    vcsRoot(KotlinxCoroutinesRoot)
+    vcsRoot(KotlinxLincheckRoot)
+    vcsRoot(DokkaRoot)
+    vcsRoot(APIGuidelinesRoot)
 })
