@@ -44,7 +44,7 @@ object KotlinWithCoroutines: BuildType ({
                 #!/bin/bash
                 set -e -x -u
                 
-                docker run --rm -v %teamcity.build.checkoutDir%/docs:/opt/sources \
+                docker run --rm -v %teamcity.build.checkoutDir%:/opt/sources \
                 registry.jetbrains.team/p/writerside/builder/writerside-builder:latest \
                 /bin/bash -c "export DISPLAY=:99 && Xvfb :99 & /opt/builder/bin/idea.sh helpbuilderinspect \
                 --source-dir /opt/sources \
