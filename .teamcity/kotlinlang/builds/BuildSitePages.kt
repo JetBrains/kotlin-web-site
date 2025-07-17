@@ -149,8 +149,8 @@ object BuildSitePages : BuildType({
             }
             artifacts {
                 artifactRules = """
-                    +:webHelpImages.zip!** => _/webhelp/reference/images/
-                    +:webHelpKR2.zip!** => _/webhelp/reference/
+                    +:webHelpImages.zip!** => _webhelp/reference/images/
+                    +:webHelpKR2.zip!** => _webhelp/reference/
                 """.trimIndent()
             }
         }
