@@ -663,3 +663,5 @@ class DefaultTransformer : IdTransformer {
     override fun transformId(rawId: UInt): UInt = super.transformId(rawId)
 }
 ```
+
+To learn how inheritance works in Kotlin and how to call superclass implementations using the `super` keyword, see [Inheritance](inheritance.md#calling-the-superclass-implementation).
