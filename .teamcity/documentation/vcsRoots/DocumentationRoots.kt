@@ -63,7 +63,7 @@ object DokkaRoot: GitVcsRoot ({
 object APIGuidelinesRoot: GitVcsRoot ({
     name = "API Guidelines"
     url = "https://github.com/Kotlin/api-guidelines.git"
-    branch = "refs/heads/master"
+    branch = "refs/heads/main"
     branchSpec = "+:refs/heads/*"
     checkoutPolicy = AgentCheckoutPolicy.AUTO
     authMethod = uploadedKey {
