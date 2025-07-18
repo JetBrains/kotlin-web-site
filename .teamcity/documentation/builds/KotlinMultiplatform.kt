@@ -42,11 +42,11 @@ object KotlinMultiplatform: BuildType ({
             """.trimIndent()
             dockerImage = "registry.jetbrains.team/p/writerside/builder/writerside-builder:$dockerImageTag"
             dockerRunParameters = """
-                --rm -v %teamcity.build.checkoutDir%:/opt/sources \
-                -e SOURCE_DIR=/opt/sources \
-                -e PRODUCT=kotlin-multiplatform-docs/mpd \
-                -e RUNNER=teamcity \
-                -e FRONTEND=https://kotlinlang.org/docs/static/v3/ \
+                -v %teamcity.build.checkoutDir%:/opt/sources 
+                -e SOURCE_DIR=/opt/sources 
+                -e PRODUCT=kotlin-multiplatform-docs/mpd 
+                -e RUNNER=teamcity 
+                -e FRONTEND=https://kotlinlang.org/docs/static/v3/ 
                 -e OUTPUT_DIR=/opt/sources/artifacts
             """.trimIndent()
         }
