@@ -280,8 +280,10 @@
 - from: /docs/reference/native/faq.html
   to: /docs/native-faq.html
 
-- from: /docs/reference/native/ios_symbolication.html
-  to: /docs/native-ios-symbolication.html
+- from:
+  - /docs/reference/native/ios_symbolication.html
+  - /docs/native-ios-symbolication.html
+  to: /docs/native-debugging.html
 
 - from: /docs/reference/native/immutability.html
   to: /docs/native-immutability.html
