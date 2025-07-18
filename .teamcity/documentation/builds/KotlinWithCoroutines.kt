@@ -5,6 +5,9 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object KotlinWithCoroutines: BuildType ({
+    val dockerImageTag = "2.1.2176-p8483"
+    val frontend = "https://kotlinlang.org/docs/static/v3/"
+
     name = "Kotlin Reference with coroutines"
     description = "Kotlin Reference with coroutines documentation build"
 
@@ -39,19 +42,15 @@ object KotlinWithCoroutines: BuildType ({
 
     steps {
         script {
-            name = "Build documentation"
+            name = "Build Kotlin Reference with coroutines documentation with the docker"
             scriptContent = """
-                #!/bin/bash
-                set -e -x -u
-                
                 docker run --rm -v %teamcity.build.checkoutDir%:/opt/sources \
-                registry.jetbrains.team/p/writerside/builder/writerside-builder:latest \
-                /bin/bash -c "export DISPLAY=:99 && Xvfb :99 & /opt/builder/bin/idea.sh helpbuilderinspect \
-                --source-dir /opt/sources \
-                --product kotlin-reference/kr \
-                --runner teamcity \
-                --frontend-url https://kotlinlang.org/docs/static/v3/ \
-                --output-dir /opt/sources/artifacts"
+                -e SOURCE_DIR=/opt/sources \
+                -e MODULE_INSTANCE=kotlin-reference-docs/kr \
+                -e RUNNER=teamcity \
+                -e FRONTEND=$frontend \
+                -e OUTPUT_DIR=/opt/sources/artifacts \
+                registry.jetbrains.team/p/writerside/builder/writerside-builder:$dockerImageTag
             """.trimIndent()
         }
     }
