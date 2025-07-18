@@ -9,7 +9,7 @@ object KotlinWithCoroutines: WritersideBuilder(
     module = "kotlin-reference",
     instance = "kr",
     customInit = {
-        name ="Kotlin Reference wit coroutines"
+        name ="Kotlin Reference with coroutines"
         vcs {
             root(KotlinReferenceRoot, """
             +:docs => docs
