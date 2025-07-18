@@ -46,7 +46,7 @@ object KotlinWithCoroutines: BuildType ({
             scriptContent = """
                 docker run --rm -v %teamcity.build.checkoutDir%:/opt/sources \
                 -e SOURCE_DIR=/opt/sources \
-                -e MODULE_INSTANCE=kotlin-reference-docs/kr \
+                -e MODULE_INSTANCE=kotlin-reference/kr \
                 -e RUNNER=teamcity \
                 -e FRONTEND=$frontend \
                 -e OUTPUT_DIR=/opt/sources/artifacts \
