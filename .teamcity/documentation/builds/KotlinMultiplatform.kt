@@ -37,6 +37,7 @@ object KotlinMultiplatform: BuildType ({
 //        }
         script {
             name = "Build KMP Documentation with the docker"
+            scriptContent = """"""
             dockerImage = "registry.jetbrains.team/p/writerside/builder/writerside-builder:$dockerImageTag"
             dockerRunParameters = """
                 --rm -v %teamcity.build.checkoutDir%:/opt/sources \
