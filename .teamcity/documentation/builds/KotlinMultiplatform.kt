@@ -38,16 +38,13 @@ object KotlinMultiplatform: BuildType ({
         script {
             name = "Build KMP Documentation with the docker"
             scriptContent = """
-                docker run
-            """.trimIndent()
-            dockerImage = "registry.jetbrains.team/p/writerside/builder/writerside-builder:$dockerImageTag"
-            dockerRunParameters = """
-                -v %teamcity.build.checkoutDir%:/opt/sources 
-                -e SOURCE_DIR=/opt/sources 
-                -e PRODUCT=kotlin-multiplatform-docs/mpd 
-                -e RUNNER=teamcity 
-                -e FRONTEND=https://kotlinlang.org/docs/static/v3/ 
-                -e OUTPUT_DIR=/opt/sources/artifacts
+                docker run --rm -v %teamcity.build.checkoutDir%:/opt/sources \
+                -e SOURCE_DIR=/opt/sources \
+                -e PRODUCT=kotlin-multiplatform-docs/mpd \
+                -e RUNNER=teamcity \
+                -e FRONTEND=https://kotlinlang.org/docs/static/v3/ \
+                -e OUTPUT_DIR=/opt/sources/artifacts \
+                registry.jetbrains.team/p/writerside/builder/writerside-builder:$dockerImageTag \
             """.trimIndent()
         }
     }
