@@ -475,7 +475,7 @@ fun main() {
         visitEnd()
     }.toByteArray()
 
-    // Writes the generated class file to disk
+    // Writes the generated .class file to disk
     java.io.File("Hello.class").writeBytes(classBytes)
 
     println("Metadata and .class file created successfully.")

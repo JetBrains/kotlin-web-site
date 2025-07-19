@@ -977,8 +977,8 @@ Kotlin/Native targets do not require additional test dependencies, and the `kotl
 ```kotlin
 kotlin {
     sourceSets {
-         commonTest.dependencies {
-             implementation(kotlin("test")) // This brings all the platform dependencies automatically
+        commonTest.dependencies {
+            implementation(kotlin("test")) // This brings all the platform dependencies automatically
         }
     }
 }

@@ -197,7 +197,7 @@ the same as the C version. All the calls you'd expect in the libcurl library are
 
 > This is a line-by-line literal translation. You could also write this in a more Kotlin idiomatic way.
 >
-{type="tip"}
+{style="tip"}
 
 ## Compile and run the application
 
