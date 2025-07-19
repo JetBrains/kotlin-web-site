@@ -36,6 +36,7 @@
 			https://kotlinlang.org/assets/images/apple-touch-icon-114x114.png?v2,
 			https://kotlinlang.org/assets/images/apple-touch-icon-144x144.png?v2
 		</custom-favicons>
+		<llms-txt single-file="true"/>
 	</variables>
 	<build-profile instance="kr"/>
 </buildprofiles>
