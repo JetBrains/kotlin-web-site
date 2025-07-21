@@ -1,19 +1,14 @@
 import React from 'react';
 
+import Script from 'next/script';
 import Link from 'next/link';
 
 import { ThemeProvider } from '@rescui/ui-contexts';
 import { Button } from '@rescui/button';
 
 import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
-import '@jetbrains/kotlin-web-site-ui/out/components/layout';
-
-import GlobalHeader from '@jetbrains/kotlin-web-site-ui/out/components/header';
+import { YoutubePlayer } from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
 import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
-import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
-import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
-
-import { Layout } from '../components/layout/layout';
 
 import { HeroSection } from '../blocks/main/hero/hero';
 import { LatestNews } from '../blocks/main/latest-news';
@@ -22,8 +17,9 @@ import { InfoBlock } from '../blocks/main/info-block/info-block';
 import { DividerLine } from '../blocks/main/divider-line/divider-line';
 import { FoundationLearnMoreButton, FoundationPreview } from '../blocks/main/foundation-preview/foundation-preview';
 import { WhyKotlin } from '../blocks/main/why-kotlin/why-kotlin';
+import { KotlinPlusAiInfo } from '../blocks/main/kotlin-plus-ai';
 
-import { StickyHeader } from '../components/sticky-header/sticky-header';
+import { Layout } from '../components/layout';
 
 import MultiplatformPreviewImage from '../public/images/main/multiplatform-preview.svg';
 
@@ -44,15 +40,6 @@ import MetaLogo from '../public/images/companies/meta.svg';
 import BlockLogo from '../public/images/companies/block.svg';
 
 import styles from './index.module.css';
-
-import searchConfig from '../search-config.json';
-
-
-import releasesDataRaw from '../data/releases.yml';
-import Script from 'next/script';
-import { KotlinPlusAiInfo } from '../blocks/main/kotlin-plus-ai';
-
-const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
 const kotlinUsageHighlightsCases = [
     {
@@ -146,27 +133,14 @@ export async function getStaticProps() {
     return { props: { isDarkTheme: true } };
 }
 
+const OG_DESCRIPTION = 'Kotlin is a concise and multiplatform programming language by JetBrains. Enjoy coding and build server-side, mobile, web, and desktop applications efficiently.' as const;
+
 function Index() {
     const isTS = useTS();
 
     return (
-        <Layout
-            title={'Kotlin Programming Language'}
-            ogImageName={'general.png'}
-            description={
-                'Kotlin is a concise and multiplatform programming language by JetBrains. Enjoy coding and build server-side, mobile, web, and desktop applications efficiently.'
-            }
-        >
+        <Layout title="Kotlin Programming Language" description={OG_DESCRIPTION}>
             <ThemeProvider theme="dark">
-                <StickyHeader>
-                    <GlobalHeader
-                        productWebUrl={releasesData.latest.url}
-                        hasSearch={true}
-                        searchConfig={searchConfig}
-                        darkHeader
-                    ></GlobalHeader>
-                </StickyHeader>
-
                 <HeroSection title={'Kotlin'}>
                     Concise. Multiplatform. Fun.
                 </HeroSection>
@@ -249,10 +223,6 @@ function Index() {
                         }
                     />
                 </div>
-            </ThemeProvider>
-
-            <ThemeProvider theme={'dark'}>
-                <GlobalFooter />
             </ThemeProvider>
 
             <Script src={'https://cdn.optimizely.com/js/26633200186.js'} strategy={"beforeInteractive"}/>

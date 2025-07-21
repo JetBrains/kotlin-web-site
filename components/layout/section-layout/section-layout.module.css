@@ -1,0 +1,29 @@
+.sectionWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionContent {
+    flex: 1;
+}
+
+/* Sticky section navigation styles */
+.sticky {
+    background-color: var(--section-nav-bg, #fff);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Top menu styles */
+.topMenu {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Extra content in top menu (e.g., buttons) */
+.topMenuExtra {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}

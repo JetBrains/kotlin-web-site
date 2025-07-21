@@ -38,7 +38,7 @@ const Teach = (props) => {
                       icon={<SlackIcon />}
                       href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
                       target="_blank"
-                      rel="noopener"
+                      rel="noopener noreferrer"
                       className="teach-cta-block-button"
                   >
                       Join Educators Community
@@ -118,7 +118,7 @@ const Teach = (props) => {
                           icon={<SlackIcon />}
                           href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
                           target="_blank"
-                          rel="noopener"
+                          rel="noopener noreferrer"
                           className="teach-cta-block-button"
                       >
                           Join Educators Community
@@ -291,7 +291,7 @@ const Teach = (props) => {
                                           <a
                                               href="https://www.atomickotlin.com/exercises/"
                                               target="_blank"
-                                              rel="noopener"
+                                              rel="noopener noreferrer"
                                               className={textCn('rs-link', {external: true})}
                                           >
                                               Hands-on exercises
@@ -301,7 +301,7 @@ const Teach = (props) => {
                                           <a
                                               href="https://github.com/svtk/AtomicKotlinCourse"
                                               target="_blank"
-                                              rel="noopener"
+                                              rel="noopener noreferrer"
                                               className={textCn('rs-link', {external: true})}
                                           >
                                               Course project
@@ -311,7 +311,7 @@ const Teach = (props) => {
                                           <a
                                               href="https://www.jetbrains.com/help/education/educator-start-guide.html"
                                               target="_blank"
-                                              rel="noopener"
+                                              rel="noopener noreferrer"
                                               className={textCn('rs-link', {external: true})}
                                           >
                                               Educator start guide
@@ -334,7 +334,7 @@ const Teach = (props) => {
                                   <a
                                       href="https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-education&utm_content=button_1&utm_term=22.03.23"
                                       target="_blank"
-                                      rel="noopener"
+                                      rel="noopener noreferrer"
                                       className={textCn('rs-link', {external: true})}
                                   >
                                       Kotlin tracks by JetBrains Academy
@@ -350,7 +350,7 @@ const Teach = (props) => {
                                   <a
                                       href="https://www.jetbrains.com/community/education/#students"
                                       target="_blank"
-                                      rel="noopener"
+                                      rel="noopener noreferrer"
                                       className={textCn('rs-link', {external: true})}
                                   >
                                       Free educational licenses for students and teachers
@@ -360,7 +360,7 @@ const Teach = (props) => {
                                   <a
                                       href="https://plugins.jetbrains.com/plugin/10081-jetbrains-academy"
                                       target="_blank"
-                                      rel="noopener"
+                                      rel="noopener noreferrer"
                                       className={textCn('rs-link', {external: true})}
                                   >
                                       JetBrains Academy plugin
@@ -378,7 +378,7 @@ const Teach = (props) => {
                               <li className="teach-list__item">
                                   <a href="https://www.jetbrains.com/code-with-me/"
                                      target="_blank"
-                                     rel="noopener"
+                                     rel="noopener noreferrer"
                                      className={textCn('rs-link', {external: true})}>
                                       Code With Me
                                   </a>
@@ -392,7 +392,7 @@ const Teach = (props) => {
                               <li className="teach-list__item">
                                   <a
                                       target="_blank"
-                                      rel="noopener"
+                                      rel="noopener noreferrer"
                                       href="https://www.oreilly.com/library/view/introduction-to-kotlin/9781491964125/"
                                       className={textCn('rs-link', {external: true})}>
                                       Introduction to Kotlin Programming
@@ -401,7 +401,7 @@ const Teach = (props) => {
                               <li className="teach-list__item">
                                   <a
                                       target="_blank"
-                                      rel="noopener"
+                                      rel="noopener noreferrer"
                                       href="https://www.oreilly.com/library/view/advanced-kotlin-programming/9781491964149/"
                                       className={textCn('rs-link', {external: true})}
                                   >
@@ -411,7 +411,7 @@ const Teach = (props) => {
                               <li className="teach-list__item">
                                   <a
                                       target="_blank"
-                                      rel="noopener"
+                                      rel="noopener noreferrer"
                                       href="https://www.coursera.org/learn/kotlin-for-java-developers"
                                       className={textCn('rs-link', {external: true})}
                                   >

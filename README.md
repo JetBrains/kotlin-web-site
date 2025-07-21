@@ -173,6 +173,18 @@ You can find all pages in the [pages](pages) directory.
 - **Blocks**. Blocks are groups of components joined together to form a relatively complex, distinct section of an interface.
 - **Pages**. Each page is associated with a route based on its file name.
 
+### Layout Architecture
+
+The Kotlin website uses a hierarchical layout system with three main components:
+
+1. **PageMetadata**: The foundation component that handles metadata and basic page structure
+2. **PageLayout**: Extends PageMetadata and adds header and footer
+3. **SectionLayout**: Extends PageLayout and adds section-specific navigation and styling
+
+This architecture eliminates duplication, improves maintainability, and ensures a consistent user experience across the website. The layout components are located in the `/components/layout` directory.
+
+For detailed documentation and usage examples, see [Layout Components Usage Guide](docs/layout-components-usage.md) and [Layout Architecture](docs/layout-architecture.md).
+
 ### Images in Next.js
 
 Notice that using `next/image` is not possible because Next.js does not support importing images to HTML files (SSG).

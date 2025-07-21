@@ -1,23 +1,22 @@
-import React, { FC, useCallback, useMemo } from 'react';
-
-import Head from 'next/head';
-
-import GlobalHeader, { COMMUNITY_TITLE, COMMUNITY_URL } from '@jetbrains/kotlin-web-site-ui/out/components/header';
-import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
-import TopMenu from '@jetbrains/kotlin-web-site-ui/out/components/top-menu';
-import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
-import Button from '@rescui/button';
-import { ThemeProvider } from '@rescui/ui-contexts';
+import React, { FC, useCallback } from 'react';
 import { useRouter } from 'next/router';
-import { StickyHeader } from '../../../components/sticky-header/sticky-header';
-import styles from './community-layout.module.css';
-import releasesDataRaw from '../../../data/releases.yml';
-import searchConfig from '../../../search-config.json';
+import Button from '@rescui/button';
+import { SectionLayout } from '../../../components/layout/section-layout';
+import { NavigationItem } from '../../../components/layout/layout-types';
 import { CommunityAddEvent } from '../event-list/event-list';
+import { addTrailingSlash } from '../../../components/layout/url-utils';
+import styles from './community-layout.module.css';
 
-const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
+/**
+ * Community section URL and title
+ */
+export const COMMUNITY_URL = '/community/';
+export const COMMUNITY_TITLE = 'Community';
 
-const TOP_MENU_ITEMS = [
+/**
+ * Community section navigation items
+ */
+const COMMUNITY_NAV_ITEMS: NavigationItem[] = [
     {
         url: '/community/',
         title: 'Overview'
@@ -28,6 +27,10 @@ const TOP_MENU_ITEMS = [
     }
 ];
 
+/**
+ * Community layout props interface
+ * @deprecated Use SectionLayoutProps from '../../../components/layout/types/layout-types' instead
+ */
 interface CommunityLayoutProps {
     title: string;
     description?: string;
@@ -35,121 +38,74 @@ interface CommunityLayoutProps {
     children: React.ReactNode;
 }
 
-export const CommunityLayout: FC<CommunityLayoutProps> = ({ title, ogImageName, description, children }) => {
-    const theme = 'dark';
+/**
+ * Community layout component
+ * This is a wrapper around SectionLayout that maintains backward compatibility
+ * while using the new layout architecture
+ * 
+ * @deprecated Use SectionLayout directly with section="community" instead
+ */
+export const CommunityLayout: FC<CommunityLayoutProps> = ({ 
+    title, 
+    ogImageName, 
+    description, 
+    children 
+}) => {
     const router = useRouter();
     const pathname = addTrailingSlash(router.pathname);
-
-    let items = TOP_MENU_ITEMS;
-
-    let activeIndex = useMemo(
-        () => items.map((item) => item.url).indexOf(pathname),
-        [pathname, items]
-    );
-
-    const linkHandler = useCallback(
-        (event, url) => {
-            event.preventDefault();
-            router.push(url);
-        },
-        [router]
-    );
-
-    const ogImagePath = useMemo(
-        () => `https://kotlinlang.org/assets/images/open-graph/${ogImageName ? ogImageName : 'general.png'}`,
-        [ogImageName]
-    );
-
-    const ogImageTwitterPath = useMemo(
-        () => (ogImageName ? ogImagePath : 'https://kotlinlang.org/assets/images/twitter/general.png'),
-        [ogImageName, ogImagePath]
-    );
-
+    
+    // Create a copy of the navigation items
+    let items = [...COMMUNITY_NAV_ITEMS];
+    
+    // Handle active menu items that aren't in the predefined list
+    const activeIndex = items.map((item) => item.url).indexOf(pathname);
     if (activeIndex === -1) {
-        activeIndex = items.length;
         items = [...items, {
-            url: router.pathname + '/',
+            url: pathname,
             title,
         }];
     }
-
+    
+    // Create the top menu extra content
+    const topMenuExtra = pathname === '/community/events/' ? (
+        <CommunityAddEvent
+            className={styles.add}
+            size="s"
+            href="https://github.com/JetBrains/kotlin-web-site/blob/master/README.md#community-events"
+        />
+    ) : undefined;
+    
+    // Create the CTA block configuration
+    const ctaBlock = {
+        topTitle: 'Help us improve',
+        mainTitle: (
+            <>
+                Give us your feedback or ask any questions
+                <br />
+                you have about the Kotlin community
+            </>
+        ),
+        buttonText: 'Write to us',
+        buttonLink: 'mailto:kug@jetbrains.com'
+    };
+    
     return (
-        <>
-            <Head>
-                <title>{title}</title>
-
-                <meta property="og:title" content={title} />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={'https://kotlinlang.org' + router.pathname} />
-
-                <meta property="og:image" content={ogImagePath} />
-
-                {description && <meta property="og:description" content={description} />}
-                <meta property="og:site_name" content="Kotlin" />
-
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:site" content="@kotlin" />
-                <meta name="twitter:title" content={title} />
-                {description && <meta name="twitter:description" content={description} />}
-                <meta name="twitter:image:src" content={ogImageTwitterPath} />
-            </Head>
-
-            <GlobalHeader
-                currentUrl={COMMUNITY_URL}
-                currentTitle={COMMUNITY_TITLE}
-                productWebUrl={releasesData.latest.url}
-                hasSearch={true}
-                searchConfig={searchConfig}
-            />
-
-            <StickyHeader>
-                <div className={styles.sticky}>
-                    <TopMenu
-                        className={styles.topMenu}
-                        homeUrl={COMMUNITY_URL}
-                        title={COMMUNITY_TITLE}
-                        activeIndex={activeIndex}
-                        items={items}
-                        linkHandler={linkHandler}
-                        mobileOverview={false}
-                    >
-                        {pathname === '/community/events/' && (
-                            <CommunityAddEvent
-                                className={styles.add}
-                                size="s"
-                                href="https://github.com/JetBrains/kotlin-web-site/blob/master/README.md#community-events"
-                            />
-                        )}
-                    </TopMenu>
-                </div>
-            </StickyHeader>
-
+        <SectionLayout
+            title={title}
+            description={description}
+            ogImageName={ogImageName}
+            section="community"
+            theme="dark"
+            showHeader={true}
+            showFooter={true}
+            stickyHeader={true}
+            sectionTitle={COMMUNITY_TITLE}
+            sectionUrl={COMMUNITY_URL}
+            items={items}
+            ctaBlock={ctaBlock}
+            topMenuExtra={topMenuExtra}
+        >
             {children}
-
-            <CtaBlock
-                topTitle={'Help us improve'}
-                buttons={
-                    <Button size="l" mode="rock" href="mailto:kug@jetbrains.com">
-                        Write to us
-                    </Button>
-                }
-                mainTitle={
-                    <>
-                        Give us your feedback or ask any questions
-                        <br />
-                        you have about the Kotlin community
-                    </>
-                }
-            />
-
-
-            <ThemeProvider theme={theme}>
-                <GlobalFooter />
-            </ThemeProvider>
-        </>
+        </SectionLayout>
     );
 };
-
-function addTrailingSlash(path: string): string {
-    return path.endsWith('/') ? path : `${path}/`;
-}

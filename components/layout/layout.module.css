@@ -2,10 +2,6 @@
     display: block;
 }
 
-.darkTheme {
-    background: #19191C;
-}
-
 .wrapper {
     min-height: 100vh;
     display: flex;

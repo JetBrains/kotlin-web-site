@@ -1,8 +1,9 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
-import { EducationLayout } from '../../blocks/education/layout/education-layout';
+import { Index } from '../../blocks/education/layout';
 import { Courses } from '../../blocks/education/courses/courses';
 import universitiesDataRaw from '../../data/universities.yml';
+import { SectionLayout } from '../../components/layout/section-layout';
 
 interface University {
   title: string;
@@ -21,13 +22,13 @@ interface CoursesPageProps {
 
 export default function CoursesPage({ universities }: CoursesPageProps) {
   return (
-    <EducationLayout 
+    <SectionLayout
       title="Universities That Teach Kotlin" 
       description="Explore the list of universities around the world that include Kotlin in their computer science courses. Find courses in your country or region."
-      ogImageName="education-courses.png"
+      ogImage="education-courses.png"
     >
       <Courses universities={universities} />
-    </EducationLayout>
+    </SectionLayout>
   );
 }
 

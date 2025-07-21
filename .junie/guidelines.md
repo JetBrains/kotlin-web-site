@@ -544,7 +544,7 @@ The Kotlin Website employs a hybrid architecture that combines two different app
 1. **Next.js-based Pages**:
    - Modern, interactive pages built with Next.js and React
    - Written in TypeScript (.tsx files)
-   - Located in `pages/` directory (e.g., `index.tsx`, `404.tsx`)
+   - Located in `pages/` directory (e.g., `page-metadata.tsx`, `404.tsx`)
    - UI components located in `components/` directory (reusable UI elements)
    - Page sections located in `blocks/` directory (larger page components)
    - Styled with CSS Modules
@@ -1142,7 +1142,7 @@ The data files are loaded and processed in two different ways, depending on whic
 
 2. **Next.js Components**:
    - Next.js components directly import data files using ES6 import syntax
-   - For example: `import releasesDataRaw from '../data/releases.yml'`
+   - For example: `import releasesData from '../data/releases.yml'`
    - This is possible because the Next.js configuration includes loaders for YAML files
    - The imported data can be used directly in React components as JavaScript objects
    - This approach allows for static site generation with the data embedded in the built pages

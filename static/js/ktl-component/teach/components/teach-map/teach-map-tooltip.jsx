@@ -21,7 +21,7 @@ export const TeachMapTooltip = ({university, onClose}) => {
         <div>Course:</div>
         {university.courses.map(course => (
           <div key={`${course.url}-${course.name}`}>
-            <a href={course.url} target="_blank" rel="noopener">
+            <a href={course.url} target="_blank" rel="noopener noreferrer">
               {course.name}
             </a>
           </div>

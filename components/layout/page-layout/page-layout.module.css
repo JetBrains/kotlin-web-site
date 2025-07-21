@@ -1,0 +1,11 @@
+.pageWrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.stickyHeader {
+    position: sticky;
+    top: 0;
+    z-index: 901;
+}

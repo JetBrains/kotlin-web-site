@@ -3,7 +3,7 @@ import React from 'react';
 import { useTextStyles } from '@rescui/typography';
 import './teach-launch-course.scss';
 
-import Button from '@rescui/button';
+import {Button} from '@rescui/button';
 
 import classNames from 'classnames';
 
@@ -20,7 +20,7 @@ export const TeachLaunchCourse = () => {
                     <Button
                         href="https://drive.google.com/drive/folders/1nN3LuyEfmBaSDZpnb4VA9kDuLakmVXH1?usp=drive_link"
                         target="_blank"
-                        rel="noopener"
+                        rel="noopener noreferrer"
                         size="l"
                         className="teach-launch-course__button"
                     >
@@ -152,7 +152,7 @@ export const TeachLaunchCourse = () => {
                     <li>
                         <a
                             className={textCn('rs-link', { external: true })}
-                            href=" https://forms.gle/UJ91acwMAk17qax7A"
+                            href="https://forms.gle/UJ91acwMAk17qax7A"
                         >
                             Quizzes
                         </a>
