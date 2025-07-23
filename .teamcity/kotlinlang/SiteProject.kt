@@ -15,7 +15,6 @@ object SiteProject : Project({
     FetchBlogNews,
     PdfGenerator,
     BuildSearchIndex,
-    BuildReferenceDocs,
     BuildWebHelpFrontend,
     BuildKotlinGrammar,
     BuildKotlinSpec,
