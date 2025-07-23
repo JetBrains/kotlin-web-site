@@ -202,6 +202,7 @@
 				<toc-element toc-title="Integration with ARC" accepts-web-file-names="native-ios-integration.html" topic="native-arc-integration.md"/>
 				<toc-element toc-title="Migration guide" topic="native-migration-guide.md"/>
 			</toc-element>
+			<toc-element toc-title="Binary options" topic="native-binary-options.md"/>
 			<toc-element topic="native-debugging.md"/>
 			<toc-element topic="native-ios-symbolication.md"/>
 			<toc-element toc-title="Reference and tips">
