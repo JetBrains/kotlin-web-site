@@ -301,7 +301,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-ranges"}
 
 Check a value's type using the `is` or `!is` keywords. Due to [smart casts](typecasts.md#smart-casts), you can access the member functions 
-and properties of the type directly.
+and properties of the type directly:
 
 ```kotlin
 fun hasPrefix(input: Any): Boolean = when (input) {
@@ -358,7 +358,8 @@ fun main() {
 
 The scope of a variable introduced as the subject is restricted to the body of the `when` expression or statement.
 
-### Guard conditions in when expressions
+### Guard conditions {id="guard-conditions-in-when-expressions"}
+<primary-label ref="experimental-general"/>
 
 Guard conditions allow you to include 
 more than one condition to the branches of a `when` expression, making complex control flow more explicit and concise.
@@ -374,25 +375,42 @@ sealed interface Animal {
 
 fun feedAnimal(animal: Animal) {
     when (animal) {
-        // Branch with only primary condition. Calls `feedDog()` when `animal` is `Dog`
+        // Branch with only primary condition. 
+        // Calls `feedDog()` when `animal` is `Dog`
         is Animal.Dog -> feedDog()
-        // Branch with both primary and guard conditions. Calls `feedCat()` when `animal` is `Cat` and not `mouseHunter`
+        // Branch with both primary and guard conditions. 
+        // Calls `feedCat()` when `animal` is `Cat` and not `mouseHunter`
         is Animal.Cat if !animal.mouseHunter -> feedCat()
         // Prints "Unknown animal" if none of the above conditions match
         else -> println("Unknown animal")
     }
 }
+
+fun main() {
+    val animals = listOf(
+        Animal.Dog("Beagle"),
+        Animal.Cat(mouseHunter = false),
+        Animal.Cat(mouseHunter = true)
+    )
+
+    animals.forEach { feedAnimal(it) }
+    // Feeding a dog
+    // Feeding a cat
+    // Unknown animal
+}
 ```
 
-In a single `when` expression, you can combine branches with and without guard conditions. 
-The code in a branch with a guard condition runs only if both the primary condition and the guard condition evaluate to true.
-If the primary condition does not match, the guard condition is not evaluated. 
+In a single `when` expression or statement, you can combine branches with and without guard conditions. 
+The code in a branch with a guard condition runs only if both the primary condition and the guard condition evaluate to `true`.
+If the primary condition doesn't match, the guard condition isn't evaluated. 
 
-If you use guard conditions in `when` statements without an `else` branch, and none of the conditions matches, none of the branches is executed. 
+Since `when` statements don't need to cover all cases, using guard conditions in `when` statements without an 
+`else` branch means that if no conditions match, nothing happens. 
 
-Otherwise, if you use guard conditions in `when` expressions without an `else` branch, the compiler requires you to declare all the possible cases to avoid runtime errors.
+In contrast, `when` expressions must cover all cases. If you use guard conditions in `when` expressions without an `else` branch,
+the compiler requires you to handle every possible case to avoid runtime errors.
 
-Additionally, guard conditions support `else if`:
+Guard conditions also support `else if`:
 
 ```kotlin
 when (animal) {
@@ -417,7 +435,25 @@ when (animal) {
 ```
 
 You can use guard conditions in any `when` expression or statement with a subject, except the case when you have multiple conditions separated by a comma.
-For example, `0, 1 -> print("x == 0 or x == 1")`.
+For example:
+
+```kotlin
+0, 1 -> print("x == 0 or x == 1")
+```
+
+> To enable guard conditions in CLI, run the following command:
+>
+> `kotlinc -Xwhen-guards main.kt`
+>
+> To enable guard conditions in Gradle, add the following line to your `build.gradle.kts` file:
+>
+> `kotlin.compilerOptions.freeCompilerArgs.add("-Xwhen-guards")`
+>
+{style="note"}
+
+#### Leave feedback
+
+We would appreciate your feedback on guard conditions in [YouTrack](https://youtrack.jetbrains.com/issue/KT-71140/Guard-conditions-in-when-expressions-feedback).
 
 ## For loops
 
