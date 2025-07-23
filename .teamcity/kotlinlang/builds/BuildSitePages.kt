@@ -154,14 +154,5 @@ object BuildSitePages : BuildType({
                 """.trimIndent()
             }
         }
-
-//        dependency(BuildReferenceDocs) {
-//            snapshot {
-//                onDependencyFailure = FailureAction.FAIL_TO_START
-//            }
-//            artifacts {
-//                artifactRules = "+:docs.zip!** => _webhelp/reference/"
-//            }
-//        }
     }
 })
