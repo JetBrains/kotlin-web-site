@@ -14,7 +14,7 @@ test.describe('Community Kotlin User Groups page', () => {
             await expect(page.url()).toContain('/community/');
         });
 
-        test('KUG Guidelines button opens the related page', async ({ page, context }) => {
+        test('KUG Guidelines button opens the related page', async ({ page }) => {
             const kugGuidelinesButton = page.getByRole('link', { name: 'KUG Guidelines' });
             await expect(kugGuidelinesButton).toBeVisible();
             await kugGuidelinesButton.click();
