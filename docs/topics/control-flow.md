@@ -89,9 +89,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-conditions-when-statement"}
 
-You can use `when` in a few different ways. Firstly, you can use `when` either as an **expression** or a **statement**.
-As an expression, `when` returns a value you can use later in your code. As a statement, `when` completes an action
-without returning a result:
+You can use `when` either as an **expression** or a **statement**.  As an expression, `when` returns a value you can use
+later in your code. As a statement, `when` completes an action without returning a result:
 
 <table>
    <tr>
@@ -400,6 +399,12 @@ fun main() {
 }
 ```
 
+You can't use guard conditions when you have multiple conditions separated by a comma. For example:
+
+```kotlin
+0, 1 -> print("x == 0 or x == 1")
+```
+
 In a single `when` expression or statement, you can combine branches with and without guard conditions. 
 The code in a branch with a guard condition runs only if both the primary condition and the guard condition evaluate to `true`.
 If the primary condition doesn't match, the guard condition isn't evaluated. 
@@ -409,6 +414,15 @@ Since `when` statements don't need to cover all cases, using guard conditions in
 
 In contrast, `when` expressions must cover all cases. If you use guard conditions in `when` expressions without an `else` branch,
 the compiler requires you to handle every possible case to avoid runtime errors.
+
+Combine multiple guard conditions within a single branch using the boolean operators `&&` (AND) or `||` (OR).
+Use parentheses around the boolean expressions to [avoid confusion](coding-conventions.md#guard-conditions-in-when-expression):
+
+```kotlin
+when (animal) {
+    is Animal.Cat if (!animal.mouseHunter && animal.hungry) -> feedCat()
+}
+```
 
 Guard conditions also support `else if`:
 
@@ -423,22 +437,6 @@ when (animal) {
     // Prints "Unknown animal" if none of the above conditions match
     else -> println("Unknown animal")
 }
-```
-
-Combine multiple guard conditions within a single branch using the boolean operators `&&` (AND) or `||` (OR).
-Use parentheses around the boolean expressions to [avoid confusion](coding-conventions.md#guard-conditions-in-when-expression):
-
-```kotlin
-when (animal) {
-    is Animal.Cat if (!animal.mouseHunter && animal.hungry) -> feedCat()
-}
-```
-
-You can use guard conditions in any `when` expression or statement with a subject, except the case when you have multiple conditions separated by a comma.
-For example:
-
-```kotlin
-0, 1 -> print("x == 0 or x == 1")
 ```
 
 > To enable guard conditions in CLI, run the following command:
