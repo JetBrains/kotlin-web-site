@@ -1,6 +1,6 @@
 [//]: # (title: Conditions and loops)
 
-Kotlin gives you flexible tools for controlling the flow of your program. Use `if`, `when`, and loops to define clear, 
+Kotlin gives you flexible tools to control your program's flow. Use `if`, `when`, and loops to define clear, 
 expressive logic for your conditions.
 
 ## If expression
@@ -557,9 +557,9 @@ default, whereas ranges and arrays are compiled into index-based loops.
 
 You can create your own iterators. Iterators must have:
 
-* a member or an extension function `iterator()` that returns `Iterator<>`, which has:
-  * a member or an extension function `next()`.
-  * a member or an extension function `hasNext()` that returns `Boolean`.
+* A member or an extension function `iterator()` that returns `Iterator<>`, which has:
+  * A member or an extension function `next()`.
+  * A member or an extension function `hasNext()` that returns `Boolean`.
 
 The easiest way to create your own iterator for a class is to inherit from the [`Iterable<T>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/) interface and override the
 `iterator()`, `next()`, and `hasNext()` functions that are already there. For example:
@@ -631,17 +631,50 @@ The difference between them is the condition checking time:
 
 * `while` checks the condition and, if it's satisfied, processes the body and then returns to the condition check.
 * `do-while` processes the body and then checks the condition. If it's satisfied, the loop repeats. So, the body of `do-while`
-runs at least once regardless of the condition. 
+runs at least once regardless of the condition.
+
+For a `while` loop, place the condition to check in parentheses `()` and the body within curly braces `{}`:
 
 ```kotlin
-while (x > 0) {
-    x--
-}
+fun main() {
+    var carsInGarage = 0
+    val maxCapacity = 3
+//sampleStart
+    while (carsInGarage < maxCapacity) {
+        println("Car entered. Cars now in garage: ${++carsInGarage}")
+    }
+    // Car entered. Cars now in garage: 1
+    // Car entered. Cars now in garage: 2
+    // Car entered. Cars now in garage: 3
 
-do {
-    val y = retrieveData()
-} while (y != null) // y is visible here!
+    println("Garage is full!")
+    // Garage is full!
+//sampleEnd
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-while-loop"}
+
+For a `do-while` loop, place the body within curly braces `{}` first before the condition to check in parentheses `()`:
+
+```kotlin
+import kotlin.random.Random
+
+fun main() {
+    var roll: Int
+//sampleStart
+    do {
+        roll = Random.nextInt(1, 7)
+        println("Rolled a $roll")
+    } while (roll != 6)
+    // Rolled a 2
+    // Rolled a 6
+    
+    println("Got a 6! Game over.")
+    // Got a 6! Game over.
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-do-while-loop"}
 
 ## Break and continue in loops
 
