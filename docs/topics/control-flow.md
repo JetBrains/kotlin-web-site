@@ -10,7 +10,7 @@ to check within parentheses `()` and the action to take if the result is true wi
 and `else if` for additional branches and checks. 
 
 You can also write `if` as an expression, which lets you assign its returned value directly to a variable.
-If you do use `if` as an expression, you must have an `else` branch.
+If you use `if` as an expression, you must have an `else` branch.
 
 For example:
 
@@ -46,7 +46,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="if-else-if-kotlin"}
 
-Branches of an `if` expression can be blocks. In this case, the last expression is the value of a block:
+Each branch in an `if` expression can be a block, where the value of the last expression becomes the result:
 
 ```kotlin
 fun main() {
@@ -156,10 +156,10 @@ when { ... }
 Depending on how you use `when`, there are different requirements for whether you need to cover all possible cases in your
 branches.
 
-### when as a statement
+### Statements
 
 If you use `when` as a statement, you don't need to cover all possible cases. In this example, some cases aren't covered,
-so nothing happens. However, no error occurs:
+so no code is run. However, no error occurs:
 
 ```kotlin
 fun main() {
@@ -178,7 +178,7 @@ fun main() {
 In a `when` statement, the values of individual branches are ignored. Just like with `if`, each branch can be a block, 
 and its value is the value of the last expression in the block.
 
-### when as an expression
+### Expressions
 
 If you use `when` as an expression, you **must** cover all possible cases. In other words, it must be _exhaustive_.
 The value of the first matching branch becomes the value of the overall expression. If you don't cover all cases, 
@@ -247,7 +247,7 @@ fun main() {
 `when` expressions and statements offer different ways to simplify your code, handle multiple conditions, and perform 
 type checks.
 
-You can group multiple conditions into a single branch using commas: 
+Group multiple conditions into a single branch using commas: 
 
 ```kotlin
 fun main() {
@@ -262,7 +262,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-multiple-cases"}
 
-You can also use expressions that evaluate to `true` or `false` as branch conditions:
+Use expressions that evaluate to `true` or `false` as branch conditions:
 
 ```kotlin
 fun main() {
@@ -316,7 +316,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-type-checks"}
 
-You can use `when` instead of a traditional `if`-`else` `if` chain.
+Use `when` instead of a traditional `if`-`else` `if` chain.
 Without a subject, the branch conditions are simply boolean expressions. The first branch with a `true` condition runs:
 
 ```kotlin
@@ -339,7 +339,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-when-replace-if"}
 
-Finally, you can capture the subject in a variable by using the following syntax:
+Finally, capture the subject in a variable by using the following syntax:
 
 ```kotlin
 fun main() {
@@ -364,7 +364,7 @@ Guard conditions allow you to include
 more than one condition to the branches of a `when` expression, making complex control flow more explicit and concise.
 You can use guard conditions in `when` expressions or statements with a subject.
 
-To include a guard condition in a branch, place it after the primary condition, separated by `if`:
+Place a guard condition after the primary condition in the same branch, separated by `if`:
 
 ```kotlin
 sealed interface Animal {
@@ -412,7 +412,7 @@ If the primary condition doesn't match, the guard condition isn't evaluated.
 Since `when` statements don't need to cover all cases, using guard conditions in `when` statements without an 
 `else` branch means that if no conditions match, nothing happens. 
 
-In contrast, `when` expressions must cover all cases. If you use guard conditions in `when` expressions without an `else` branch,
+Unlike statements, `when` expressions must cover all cases. If you use guard conditions in `when` expressions without an `else` branch,
 the compiler requires you to handle every possible case to avoid runtime errors.
 
 Combine multiple guard conditions within a single branch using the boolean operators `&&` (AND) or `||` (OR).
@@ -533,7 +533,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop-array"}
 
-Alternatively, you can use the `withIndex` library function:
+Alternatively, you can use the [`.withIndex`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/with-index.html) library function:
 
 ```kotlin
 fun main() {
