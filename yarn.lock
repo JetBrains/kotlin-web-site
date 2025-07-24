@@ -1433,10 +1433,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@^4.9.0":
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.9.0.tgz#94c0a95ed81612e87825639ee153c4119c8413c4"
-  integrity sha512-7gtddUYdlmcWd1S5r4sBhL2oZ+h3wpB49PEUsDUmDzZPfFSntBcVLc7JKOzV87iVWyyOuvOc9F3MbbRf9o97PQ==
+"@jetbrains/kotlin-web-site-ui@4.9.2":
+  version "4.9.2"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.9.2.tgz#7c95215771c4c76d882c0eb17289dc49e8d8f5e7"
+  integrity sha512-iyFvIYrEzHBJ6uePtUo1JW9vCdxQaKkdd9uNQdPasaRGGqisWUeRO9Ao9GUlZNKQF6+z7YtvqCcLKpVDbAqx2Q==
 
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
@@ -4471,6 +4471,11 @@ extend@3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
+
+"false@0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/false/-/false-0.0.4.tgz#8f55de5af5c03f50bf68aed57ed80e3d2176a517"
+  integrity sha512-CPAG3ud9Cz8NvLKlsTLr/F1aoJL6tPyhNTzaDFzS5CX6id21hVuS5sBK8wlTLuvFklpvH1idvPbW8Lbri3G7qA==
 
 fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
   version "3.1.3"
