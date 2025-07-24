@@ -103,9 +103,10 @@ Modern debuggers provide several ways to set a breakpoint, see below for a tool-
   Breakpoint 2: address = 0x00000001000012e4
   ```
 
-* By regex, you might find it useful for debugging generated artifacts, like lambda (with the `#` symbol in the name):
+* By regex. You might find it useful for debugging generated artifacts, like lambda (with the `#` symbol in the name):
 
   ```bash
+  (lldb) b -r main\(
   3: regex = 'main\(', locations = 1
     3.1: where = terminator.kexe`kfun:main(kotlin.Array<kotlin.String>) + 4 at hello.kt:2, address = terminator.kexe[0x00000001000012e4], unresolved, hit count = 0
   ```
