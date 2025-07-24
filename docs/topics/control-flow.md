@@ -455,84 +455,180 @@ We would appreciate your feedback on guard conditions in [YouTrack](https://yout
 
 ## For loops
 
-The `for` loop iterates through anything that provides an iterator. This is equivalent to the `foreach` loop in languages like C#.
+Use the `for` loop to iterate through a [collection](collections-overview.md), [array](arrays.md), or [range](ranges.md).
+
 The syntax of `for` is the following:
 
 ```kotlin
 for (item in collection) print(item)
 ```
 
-The body of `for` can be a block.
+The body of `for` can be a block with curly braces `{}`.
 
 ```kotlin
-for (item: Int in ints) {
-    // ...
+fun main() {
+    val shoppingList = listOf("Milk", "Bananas", "Bread")
+    //sampleStart
+    println("Things to buy:")
+    for (item in shoppingList) {
+        println("- $item")
+    }
+    // Things to buy:
+    // - Milk
+    // - Bananas
+    // - Bread
+    //sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop"}
 
-As mentioned before, `for` iterates through anything that provides an iterator. This means that it:
+### Ranges
 
-* has a member or an extension function `iterator()` that returns `Iterator<>`, which:
-  * has a member or an extension function `next()`
-  * has a member or an extension function `hasNext()` that returns `Boolean`.
-
-All of these three functions need to be marked as `operator`.
-
-To iterate over a range of numbers, use a [range expression](ranges.md):
+To iterate over a range of numbers, use a [range expression](ranges.md) with `..` and `..<` operators:
 
 ```kotlin
 fun main() {
 //sampleStart
-    for (i in 1..3) {
+    println("Closed-ended range:")
+    for (i in 1..6) {
         print(i)
     }
+    // Closed-ended range:
+    // 123456
+  
+    println("\nOpen-ended range:")
+    for (i in 1..<6) {
+        print(i)
+    }
+    // Open-ended range:
+    // 12345
+  
+    println("\nReverse order in steps of 2:")
     for (i in 6 downTo 0 step 2) {
         print(i)
     }
-    // 1236420
+    // Reverse order in steps of 2:
+    // 6420
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop-range"}
 
-A `for` loop over a range or an array is compiled to an index-based loop that does not create an iterator object.
+### Arrays
 
-If you want to iterate through an array or a list with an index, you can do it this way:
+If you want to iterate through an array or a list with an index, you can use the `indices` property:
 
 ```kotlin
 fun main() {
-val array = arrayOf("a", "b", "c")
-//sampleStart
-    for (i in array.indices) {
-        print(array[i])
+    val routineSteps = arrayOf("Wake up", "Brush teeth", "Make coffee")
+    //sampleStart
+    for (i in routineSteps.indices) {
+        println(routineSteps[i])
     }
-    // abc
-//sampleEnd
+    // Wake up
+    // Brush teeth
+    // Make coffee
+    //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop-array"}
 
 Alternatively, you can use the `withIndex` library function:
 
 ```kotlin
 fun main() {
-    val array = arrayOf("a", "b", "c")
-//sampleStart
-    for ((index, value) in array.withIndex()) {
-        println("the element at $index is $value")
+    val routineSteps = arrayOf("Wake up", "Brush teeth", "Make coffee")
+    //sampleStart
+    for ((index, value) in routineSteps.withIndex()) {
+        println("The step at $index is \"$value\"")
     }
-    // the element at 0 is a
-    // the element at 1 is b
-    // the element at 2 is c
-//sampleEnd
+    // The step at 0 is "Wake up"
+    // The step at 1 is "Brush teeth"
+    // The step at 2 is "Make coffee"
+    //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop-array-index"}
+
+### Iterators
+
+The `for` loop iterates through anything that provides an [iterator](iterators.md). Collections provide iterators by 
+default, whereas ranges and arrays are compiled into index-based loops.
+
+You can create your own iterators. Iterators must have:
+
+* a member or an extension function `iterator()` that returns `Iterator<>`, which has:
+  * a member or an extension function `next()`.
+  * a member or an extension function `hasNext()` that returns `Boolean`.
+
+The easiest way to create your own iterator for a class is to inherit from the [`Iterable<T>`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-iterable/) interface and override the
+`iterator()`, `next()`, and `hasNext()` functions that are already there. For example:
+
+```kotlin
+class Booklet(val totalPages: Int) : Iterable<Int> {
+    override fun iterator(): Iterator<Int> {
+        return object : Iterator<Int> {
+            var current = 1
+            override fun hasNext() = current <= totalPages
+            override fun next() = current++
+        }
+    }
+}
+
+fun main() {
+    val booklet = Booklet(3)
+    for (page in booklet) {
+        println("Reading page $page")
+    }
+    // Reading page 1
+    // Reading page 2
+    // Reading page 3
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop-inherit-iterator"}
+
+> Learn more about [interfaces](interfaces.md) and [inheritance](inheritance.md).
+> 
+{style="tip"}
+
+Alternatively, you can create the functions from scratch. In this case, add the `operator` keywords to the functions:
+
+```kotlin
+//sampleStart
+class Booklet(val totalPages: Int) {
+    operator fun iterator(): Iterator<Int> {
+        return object {
+            var current = 1
+
+            operator fun hasNext() = current <= totalPages
+            operator fun next() = current++
+        }.let {
+            object : Iterator<Int> {
+                override fun hasNext() = it.hasNext()
+                override fun next() = it.next()
+            }
+        }
+    }
+}
+//sampleEnd
+
+fun main() {
+    val booklet = Booklet(3)
+    for (page in booklet) {
+        println("Reading page $page")
+    }
+    // Reading page 1
+    // Reading page 2
+    // Reading page 3
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-for-loop-iterator-from-scratch"}
 
 ## While loops
 
 `while` and `do-while` loops process their body continuously while their condition is satisfied.
 The difference between them is the condition checking time:
+
 * `while` checks the condition and, if it's satisfied, processes the body and then returns to the condition check.
 * `do-while` processes the body and then checks the condition. If it's satisfied, the loop repeats. So, the body of `do-while`
 runs at least once regardless of the condition. 
