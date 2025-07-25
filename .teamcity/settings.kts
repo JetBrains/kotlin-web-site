@@ -29,7 +29,8 @@ project {
   subProjectsOrder = arrayListOf(
     kotlinlang.SiteProject,
     references.BuildApiReferencesProject,
-    tests.TestsProject
+    tests.TestsProject,
+    documentation.DocumentationProject,
   ).also {
     it.forEach { subProject(it) }
   }
