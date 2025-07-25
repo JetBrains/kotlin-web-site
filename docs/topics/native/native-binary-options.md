@@ -50,7 +50,8 @@ You can set binary options for your project in your `build.gradle.kts` file:
 
 ### In the command-line compiler
 
-You can pass binary options as `-Xbinary=$option=$value` directly in the command line when executing the [Kotlin/Native compiler](native-get-started.md#using-the-command-line-compiler),
+You can pass binary options as `-Xbinary=$option=$value` directly in the command line when executing
+the [Kotlin/Native compiler](native-get-started.md#using-the-command-line-compiler),
 for example:
 
 ```bash
@@ -59,28 +60,214 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true tracking-pauses
 
 ## Binary options
 
-| Option                                                                                          | Values                                                                                                                                                                         | Description                                                                                                                                                                                               | Status                                                   |
-|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
-| [`smallBinary`](whatsnew-eap.md#smaller-binary-size-for-ios-targets)                            | <list><li>`true`</li><li>`false` (default)</li></list>                                                                                                                         | Decreases the binary size for iOS targets.                                                                                                                                                                | Experimental since 2.2.20                                |
-| [`stackProtector`](whatsnew-eap.md#support-for-stack-canaries-in-binaries)                      | <list><li>`yes`</li><li>`strong`</li><li>`all`</li><li>`no` (default)</li></list>                                                                                              | Enables stack canaries: use `yes` for vulnerable functions, `all` for all functions, and `strong` to utilize stronger heuristic.                                                                          | Available since 2.2.20                                   |
-| [`pagedAllocator`](native-memory-manager.md#disable-allocator-paging)                           | <list><li>`true` (default)</li><li>`false`</li></list>                                                                                                                         | Controls paging of allocations (buffering). When `false`, the memory allocator reserves memory on a per-object basis.                                                                                     | Experimental since 2.2.0                                 |
-| [`latin1Strings`](native-memory-manager.md#enable-support-for-latin-1-strings)                  | <list><li>`true`</li><li>`false` (default)</li></list>                                                                                                                         | Controls support for Latin-1-encoded strings to reduce application binary size and adjust memory consumption.                                                                                             | Experimental since 2.2.0                                 |
-| [`mmapTag`](native-memory-manager.md#track-memory-consumption-on-apple-platforms)               | `UInt`                                                                                                                                                                         | Controls memory tagging, necessary for memory consumption tracking on Apple platforms. Values `240`-`255` are available (default is `246`); `0` disables tagging                                          | Available since 2.2.0                                    |
-| `disableMmap`                                                                                   | <list><li>`true`</li><li>`false` (default)</li></list>                                                                                                                         | Controls the default allocator. When `true`, uses the `malloc` memory allocator instead of `mmap`.                                                                                                        | Available since 2.2.0                                    |
-| `gc`                                                                                            | <list><li>[`cms`](native-memory-manager.md#optimize-gc-performance)</li><li>[`noop`](native-memory-manager.md#disable-garbage-collection)</li><li>`stms` (default)</li></list> | Controls garbage collection behavior: `cms` enables concurrent marking to decrease GC pause time, `noop` disables garbage collection.                                                                     | `cms` is Experimental since 2.0.20                       |
-| [`gcMarkSingleThreaded`](native-memory-manager.md#garbage-collector)                            | <list><li>`true`</li><li>`false` (default)</li></list>                                                                                                                         | Disables parallelization of the mark phase in garbage collection. May increase GC pause time on large heaps.                                                                                              | Available since 1.7.20                                   |
-| [`enableSafepointSignposts`](native-memory-manager.md#monitor-gc-performance)                   | <list><li>`true`</li><li>`false` (default)</li></list>                                                                                                                         | Enables tracking GC-related pauses in the project for debugging in Xcode Instruments.                                                                                                                     | Available since 2.0.20                                   |
-| `preCodegenInlineThreshold`                                                                     | `UInt`                                                                                                                                                                         | Configures the inlining optimization pass, which comes before the actual code generation phase. The recommended number of tokens is 40.                                                                   | Experimental since 2.1.20                                |
-| [`objcDisposeOnMain`](native-arc-integration.md#deinitializers)                                 | <list><li>`true` (default)</li><li>`false`</li></list>                                                                                                                         | Controls deinitialization of Swift/Objective-C objects. When `false`, deinitialization happens on a special GC thread instead of the main one.                                                            | Available since 1.9.0                                    |
-| [`appStateTracking`](native-arc-integration.md#support-for-background-state-and-app-extensions) | <list><li>`enabled`</li><li>`disabled` (default)</li></list>                                                                                                                   | Controls timer-based invocation of the garbage collector. When `enabled`, GC is called only when memory consumption becomes too high.                                                                     | Experimental since 1.7.20                                |
-| `bundleId`                                                                                      | <list><li>`String`</li></list>                                                                                                                                                 | Sets bundle ID (`CFBundleIdentifier`) in the `Info.plst` file.                                                                                                                                            | Available since 1.7.20                                   |
-| `bundleShortVersionString`                                                                      | <list><li>`String`</li></list>                                                                                                                                                 | Sets short bundle version (`CFBundleShortVersionString`) in the `Info.plst` file.                                                                                                                         | Available since 1.7.20                                   |
-| `bundleVersion`                                                                                 | <list><li>`String`</li></list>                                                                                                                                                 | Sets bundle version (`CFBundleVersion`) in the `Info.plst` file.                                                                                                                                          | Available since 1.7.20                                   |
-| `sourceInfoType`                                                                                | <list><li>`libbacktrace`</li><li>`coresymbolication`</li><li>`noop` (default)</li></list>                                                                                      | Controls stack trace generation. `libbacktrace` enables better stack traces with file locations and line numbers.                                                                                         | Experimental since 1.6.20                                |
-| `memoryModel`                                                                                   | <list><li>`experimental` (default)</li><li>`relaxed`</li><li>`strict`</li></list>                                                                                              | Controls the memory manager behavior.                                                                                                                                                                     | The experimental mode is enabled by default since 1.7.20 |
-| `unitSuspendFunctionObjCExport`                                                                 | <list><li>`proper` (default)</li><li>`legacy`</li></list>                                                                                                                      | Controls how Unit-returning suspend functions are presented in Swift. When set to `proper`, such functions are translated to `async` Swift functions with the `Void` return type instead of `KotlinUnit`. | Enabled by default in 1.7.0                              |
-| `objcExportSuspendFunctionLaunchThreadRestriction`                                              | <list><li>`none` (default)</li><li>`main`</li></list>                                                                                                                          | Controls the restriction on calling Kotlin suspend functions from Swift/Objective-C from threads other than the main one.                                                                                 | Enabled by default in 2.0.20                             |
+<table column-width="fixed">
+    <tr>
+        <td width="240">Option</td>
+        <td width="150">Values</td>
+        <td>Description</td>
+        <td width="110">Status</td>
+    </tr>
+    <tr>
+        <td><a href="whatsnew-eap.md" anchor="smaller-binary-size-for-ios-targets"><code>smallBinary</code></a></td>
+        <td>
+            <list>
+                <li><code>true</code></li>
+                <li><code>false</code> (default)</li>
+            </list>
+        </td>
+        <td>Decreases the binary size for iOS targets.</td>
+        <td>Experimental since 2.2.20</td>
+    </tr>
+    <tr>
+        <td><a href="whatsnew-eap.md" anchor="support-for-stack-canaries-in-binaries"><code>stackProtector</code></a></td>
+        <td>
+            <list>
+                <li><code>yes</code></li>
+                <li><code>strong</code></li>
+                <li><code>all</code></li>
+                <li><code>no</code> (default)</li>
+            </list>
+        </td>
+        <td>Enables stack canaries: use <code>yes</code> for vulnerable functions, <code>all</code> for all functions, and <code>strong</code> to utilize stronger heuristic.</td>
+        <td>Available since 2.2.20</td>
+    </tr>
+    <tr>
+        <td><a href="native-memory-manager.md" anchor="disable-allocator-paging"><code>pagedAllocator</code></a></td>
+        <td>
+            <list>
+                <li><code>true</code> (default)</li>
+                <li><code>false</code></li>
+            </list>
+        </td>
+        <td>Controls paging of allocations (buffering). When <code>false</code>, the memory allocator reserves memory on a per-object basis.</td>
+        <td>Experimental since 2.2.0</td>
+    </tr>
+    <tr>
+        <td><a href="native-memory-manager.md" anchor="enable-support-for-latin-1-strings"><code>latin1Strings</code></a></td>
+        <td>
+            <list>
+                <li><code>true</code></li>
+                <li><code>false</code> (default)</li>
+            </list>
+        </td>
+        <td>Controls support for Latin-1-encoded strings to reduce application binary size and adjust memory consumption.</td>
+        <td>Experimental since 2.2.0</td>
+    </tr>
+    <tr>
+        <td><a href="native-memory-manager.md" anchor="track-memory-consumption-on-apple-platforms"><code>mmapTag</code></a></td>
+        <td><code>UInt</code></td>
+        <td>Controls memory tagging, necessary for memory consumption tracking on Apple platforms. Values <code>240</code>-<code>255</code> are available (default is <code>246</code>); <code>0</code> disables tagging</td>
+        <td>Available since 2.2.0</td>
+    </tr>
+    <tr>
+        <td><code>disableMmap</code></td>
+        <td>
+            <list>
+                <li><code>true</code></li>
+                <li><code>false</code> (default)</li>
+            </list>
+        </td>
+        <td>Controls the default allocator. When <code>true</code>, uses the <code>malloc</code> memory allocator instead of <code>mmap</code>.</td>
+        <td>Available since 2.2.0</td>
+    </tr>
+    <tr>
+        <td><code>gc</code></td>
+        <td>
+            <list>
+                <li><a href="native-memory-manager.md" anchor="optimize-gc-performance"><code>cms</code></a></li>
+                <li><a href="native-memory-manager.md" anchor="disable-garbage-collection"><code>noop</code></a></li>
+                <li><code>stms</code> (default)</li>
+            </list>
+        </td>
+        <td>Controls garbage collection behavior: <code>cms</code> enables concurrent marking to decrease GC pause time, <code>noop</code> disables garbage collection.</td>
+        <td><code>cms</code> is Experimental since 2.0.20</td>
+    </tr>
+    <tr>
+        <td><a href="native-memory-manager.md" anchor="garbage-collector"><code>gcMarkSingleThreaded</code></a></td>
+        <td>
+            <list>
+                <li><code>true</code></li>
+                <li><code>false</code> (default)</li>
+            </list>
+        </td>
+        <td>Disables parallelization of the mark phase in garbage collection. May increase GC pause time on large heaps.</td>
+        <td>Available since 1.7.20</td>
+    </tr>
+    <tr>
+        <td><a href="native-memory-manager.md" anchor="monitor-gc-performance"><code>enableSafepointSignposts</code></a></td>
+        <td>
+            <list>
+                <li><code>true</code></li>
+                <li><code>false</code> (default)</li>
+            </list>
+        </td>
+        <td>Enables tracking GC-related pauses in the project for debugging in Xcode Instruments.</td>
+        <td>Available since 2.0.20</td>
+    </tr>
+    <tr>
+        <td><code>preCodegenInlineThreshold</code></td>
+        <td><code>UInt</code></td>
+        <td>Configures the inlining optimization pass, which comes before the actual code generation phase. The recommended number of tokens is 40.</td>
+        <td>Experimental since 2.1.20</td>
+    </tr>
+    <tr>
+        <td><a href="native-arc-integration.md" anchor="deinitializers"><code>objcDisposeOnMain</code></a></td>
+        <td>
+            <list>
+                <li><code>true</code> (default)</li>
+                <li><code>false</code></li>
+            </list>
+        </td>
+        <td>Controls deinitialization of Swift/Objective-C objects. When <code>false</code>, deinitialization happens on a special GC thread instead of the main one.</td>
+        <td>Available since 1.9.0</td>
+    </tr>
+    <tr>
+        <td><a href="native-arc-integration.md" anchor="support-for-background-state-and-app-extensions"><code>appStateTracking</code></a></td>
+        <td>
+            <list>
+                <li><code>enabled</code></li>
+                <li><code>disabled</code> (default)</li>
+            </list>
+        </td>
+        <td>Controls timer-based invocation of the garbage collector. When <code>enabled</code>, GC is called only when memory consumption becomes too high.</td>
+        <td>Experimental since 1.7.20</td>
+    </tr>
+    <tr>
+        <td><code>bundleId</code></td>
+        <td>
+            <list>
+                <li><code>String</code></li>
+            </list>
+        </td>
+        <td>Sets bundle ID (<code>CFBundleIdentifier</code>) in the <code>Info.plst</code> file.</td>
+        <td>Available since 1.7.20</td>
+    </tr>
+    <tr>
+        <td><code>bundleShortVersionString</code></td>
+        <td>
+            <list>
+                <li><code>String</code></li>
+            </list>
+        </td>
+        <td>Sets short bundle version (<code>CFBundleShortVersionString</code>) in the <code>Info.plst</code> file.</td>
+        <td>Available since 1.7.20</td>
+    </tr>
+    <tr>
+        <td><code>bundleVersion</code></td>
+        <td>
+            <list>
+                <li><code>String</code></li>
+            </list>
+        </td>
+        <td>Sets bundle version (<code>CFBundleVersion</code>) in the <code>Info.plst</code> file.</td>
+        <td>Available since 1.7.20</td>
+    </tr>
+    <tr>
+        <td><code>sourceInfoType</code></td>
+        <td>
+            <list>
+                <li><code>libbacktrace</code></li>
+                <li><code>coresymbolication</code></li>
+                <li><code>noop</code> (default)</li>
+            </list>
+        </td>
+        <td>Controls stack trace generation. <code>libbacktrace</code> enables better stack traces with file locations and line numbers.</td>
+        <td>Experimental since 1.6.20</td>
+    </tr>
+    <tr>
+        <td><code>memoryModel</code></td>
+        <td>
+            <list>
+                <li><code>experimental</code> (default)</li>
+                <li><code>relaxed</code></li>
+                <li><code>strict</code></li>
+            </list>
+        </td>
+        <td>Controls the memory manager behavior.</td>
+        <td>The experimental mode is enabled by default since 1.7.20</td>
+    </tr>
+    <tr>
+        <td><code>unitSuspendFunctionObjCExport</code></td>
+        <td>
+            <list>
+                <li><code>proper</code> (default)</li>
+                <li><code>legacy</code></li>
+            </list>
+        </td>
+        <td>Controls how Unit-returning suspend functions are presented in Swift. When set to <code>proper</code>, such functions are translated to <code>async</code> Swift functions with the <code>Void</code> return type instead of <code>KotlinUnit</code>.</td>
+        <td>Enabled by default in 1.7.0</td>
+    </tr>
+    <tr>
+        <td><code>objcExportSuspendFunctionLaunchThreadRestriction</code></td>
+        <td>
+            <list>
+                <li><code>none</code> (default)</li>
+                <li><code>main</code></li>
+            </list>
+        </td>
+        <td>Controls the restriction on calling Kotlin suspend functions from Swift/Objective-C from threads other than the main one.</td>
+        <td>Enabled by default in 2.0.20</td>
+    </tr>
+</table>
 
-> For more information on stability levels, see the [documentation](components-stability.md#stability-levels-explained).
->
-{style="tip"}
+For more information on stability levels, see the [documentation](components-stability.md#stability-levels-explained).
