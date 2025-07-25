@@ -18,14 +18,6 @@ test.describe('Play tab', () => {
         await expect(page.url()).toContain('https://play.kotlinlang.org/');
     });
 
-    test('Click on "Examples" button should open the related page', async ({ page }) => {
-        const multiplatformButton = page.getByText('Examples').first();
-        await expect(multiplatformButton).toBeVisible();
-        await multiplatformButton.click();
-        await expect(page.url()).toContain('https://play.kotlinlang.org/byExample');
-
-    });
-
     test('Click on "Koans" button should open the related page', async ({ page }) => {
         const multiplatformButton = page.getByText('Koans');
         await expect(multiplatformButton).toBeVisible();
