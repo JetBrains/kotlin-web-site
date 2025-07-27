@@ -86,6 +86,10 @@ library in it.
    java -jar hello.jar
    ```
 
+> To compile a Kotlin/Native application, use the [Kotlin/Native compiler](native-get-started.md#using-the-command-line-compiler).
+> 
+{style="note"}
+
 ## Compile a library
 
 If you're developing a library to be used by other Kotlin applications, you can build the **.jar** file without including
@@ -105,6 +109,10 @@ kotlin -classpath hello.jar HelloKt
 ```
 
 `HelloKt` is the main class name that the Kotlin compiler generates for the file named `hello.kt`.
+
+> To compile a Kotlin/Native library, use the [Kotlin/Native compiler](native-libraries.md#kotlin-compiler-specifics).
+>
+{style="note"}
 
 ## Run the REPL
 

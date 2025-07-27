@@ -24,7 +24,7 @@ object BuildReferenceDocs : BuildType({
   """.trimIndent()
 
   params {
-    param("WEBHELP_FRONTEND_VERSION", "6.22.0-fix-mermaid")
+    param("WEBHELP_FRONTEND_VERSION", "6.24.0-api-nav")
     param("WH_DOCS_PATH_REGEX", "docs")
     param("WH_PROJECT_NAME", "kotlin-reference")
   }

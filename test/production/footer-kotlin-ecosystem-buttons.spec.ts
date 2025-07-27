@@ -121,7 +121,7 @@ test.describe('Footer kotlin ecosystem buttons', () => {
     });
 
     test('Kotlin Foundation link should navigate to Kotlin Foundation homepage', async ({ page }) => {
-        const kotlinFoundationLink = page.getByRole('link', { name: 'Kotlin Foundation' });
+        const kotlinFoundationLink = page.getByRole('link', { name: 'Kotlin Foundation' }).last();
         await expect(kotlinFoundationLink).toBeVisible();
         await kotlinFoundationLink.click();
         await page.waitForLoadState();

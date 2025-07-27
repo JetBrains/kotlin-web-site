@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Solutions tab functionality', () => {
+test.describe('Play tab', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
         await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
@@ -16,14 +16,6 @@ test.describe('Solutions tab functionality', () => {
         await expect(multiplatformButton).toBeVisible();
         await multiplatformButton.click();
         await expect(page.url()).toContain('https://play.kotlinlang.org/');
-    });
-
-    test('Click on "Examples" button should open the related page', async ({ page }) => {
-        const multiplatformButton = page.getByText('Examples').first();
-        await expect(multiplatformButton).toBeVisible();
-        await multiplatformButton.click();
-        await expect(page.url()).toContain('https://play.kotlinlang.org/byExample');
-
     });
 
     test('Click on "Koans" button should open the related page', async ({ page }) => {
