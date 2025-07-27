@@ -21,19 +21,11 @@ test.describe('Community Kotlin User Groups page', () => {
             await expect(page.url()).toContain('/docs/kug-guidelines.html');
         });
 
-        // The test fails in case we click on the link (it has some additional parameters). To investigate the link after click.
-        test('Start a New KUG button opens the related page', async ({ page, context }) => {
+        test('Start a New KUG button opens the related page', async ({ page }) => {
             const startKugButton = page.getByRole('link', { name: 'Start a New KUG' });
             await expect(startKugButton).toBeVisible();
-            // const newPagePromise = context.waitForEvent('page');
-            // await startKugButton.click();
-            // const newPage = await newPagePromise;
-            // await newPage.waitForLoadState();
-            // await expect(newPage.url()).toContain('https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group');
-
-        // The test passes in case we don't click on this link.
-            const href = await startKugButton.getAttribute('href');
-            expect(href).toBe('https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group');
+            await startKugButton.click();
+            await expect(page.url()).toContain('https://surveys.jetbrains.com/s3/submit-a-local-kotlin-user-group');
         });
 
         test('Write to us button on the KUGs page contains the related e-mail', async ({ page }) => {
