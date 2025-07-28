@@ -1,0 +1,50 @@
+.ecosystemCard {
+    background: #19191C;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    padding: 32px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.cards {
+    display: grid;
+    grid-gap: 16px;
+}
+
+.bigCards {
+    display: grid;
+    grid-gap: 16px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 16px;
+}
+
+@media (min-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 32px;
+    }
+
+    .bigCards {
+        grid-gap: 32px;
+    }
+
+    .grid {
+        grid-gap: 32px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+    .bigCards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

@@ -11,7 +11,7 @@ import { Button } from '@rescui/button';
 
 import Img from 'next/image';
 
-import heroImg from '../../../public/images/server-side/server-side-hero.webp'
+import heroImg from './images/hero-graphics.webp'
 
 export const ServerSideHero: FC = ({}) => {
 
@@ -20,17 +20,16 @@ export const ServerSideHero: FC = ({}) => {
     return (
         <div className={styles.wrapper}>
 
-            <Img className={styles.heroImage} src={heroImg} alt={'Server-side graphic'}></Img>
+            <Img className={styles.heroImage} src={heroImg} alt={'Server-side graphic'} width={1000} height={1000} />
 
             <div className={cn('ktl-layout', 'ktl-layout--center')}>
                 <div className={styles.content}>
                     <h1 className={cn(textCn('rs-hero'), styles.heroTitle)}>
-                        Modern backend<br /> development on JVM<br /> with Kotlin
+                        Modern backend<br /> development <br /> with Kotlin
                     </h1>
 
                     <p className={cn(textCn('rs-subtitle-2'), styles.heroSubtitle)}>
-                        Kotlin is a modern, pragmatic language built<br />
-                        for backend development. It gives you:
+                        Kotlin is a pragmatic language designed for building robust backends on the JVM. It offers
                     </p>
 
                     <div className={styles.featuresList}>

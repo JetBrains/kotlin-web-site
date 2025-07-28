@@ -1,0 +1,18 @@
+.card {
+    background: #3F2180;
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    padding: 24px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.cardTitle {
+    padding: 0;
+    margin: 0 0 16px;
+}
+
+.cardDescription {
+    margin: 0;
+    padding: 0;
+}

@@ -1,100 +1,149 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import SwipeableViews from 'react-swipeable-views';
 import { Button } from '@rescui/button';
 import { CodeHighlight } from '../../../components/code-highlight/code-highlight';
 
+import { ArrowLeftIcon, ArrowRightIcon } from '@rescui/icons';
+
 import styles from './index.module.css';
 
 interface FeatureSlideItem {
-  id: string;
-  icon: ImgSrc;
-  title: React.ReactNode;
-  description: React.ReactNode;
-  codeSample: string;
+    id: string;
+    icon: ImgSrc;
+    title: React.ReactNode;
+    description: React.ReactNode;
+    codeSample: string;
 }
 
 interface CopyCodeButtonProps {
-  codeSample: string;
+    codeSample: string;
 }
 
 const CopyCodeButton: FC<CopyCodeButtonProps> = ({ codeSample }) => {
-  const handleCopy = () => {
-    navigator.clipboard.writeText(codeSample);
-  };
+    const handleCopy = () => {
+        navigator.clipboard.writeText(codeSample);
+    };
 
-  return (
-    <Button
-      size="xs"
-      mode="rock"
-      theme="dark"
-      onClick={handleCopy}
-      className={styles.copyButton}
-    >
-      Copy Kotlin code
-    </Button>
-  );
+    return (
+        <Button
+            size="xs"
+            mode="rock"
+            theme="dark"
+            onClick={handleCopy}
+            className={styles.copyButton}
+        >
+            Copy Kotlin code
+        </Button>
+    );
 };
 
 interface FeatureCardProps {
-  icon: ImgSrc;
-  title: React.ReactNode;
-  description: React.ReactNode;
-  codeSample: string;
-  className?: string;
+    icon: ImgSrc;
+    title: React.ReactNode;
+    description: React.ReactNode;
+    codeSample: string;
+    className?: string;
 }
 
 const FeatureCard: FC<FeatureCardProps> = ({
-  icon,
-  title,
-  description,
-  codeSample,
-  className
-}) => {
-  const textCn = useTextStyles();
+                                               icon,
+                                               title,
+                                               description,
+                                               codeSample,
+                                               className
+                                           }) => {
+    const textCn = useTextStyles();
 
-  return (
-    <div className={classNames(styles.featureCard, className)}>
-      <div className={styles.content}>
-        <div className={styles.contentText}>
-          <div className={styles.contentIcon}>
-              <img className="" src={icon.src} alt="404"/>
-          </div>
-          <h3 className={classNames(textCn('rs-h3'), 'jb-offset-top-16')}>{title}</h3>
-          <p
-            className={classNames(
-              textCn('rs-text-2', { hardness: 'hard' }),
-              'jb-offset-top-8'
-            )}
-          >
-            {description}
-          </p>
+    return (
+        <div className={classNames(styles.featureCard, className)}>
+            <div className={styles.content}>
+                <div className={styles.contentText}>
+                    <div className={styles.contentIcon}>
+                        <img className="" src={icon.src} alt="404" />
+                    </div>
+                    <h3 className={classNames(textCn('rs-h3'), 'jb-offset-top-16')}>{title}</h3>
+                    <p
+                        className={classNames(
+                            textCn('rs-text-2', { hardness: 'hard' }),
+                            'jb-offset-top-8'
+                        )}
+                    >
+                        {description}
+                    </p>
+                </div>
+            </div>
+            <div className={styles.imageWrapper}>
+                <CopyCodeButton codeSample={codeSample} />
+                <CodeHighlight code={codeSample} className={styles.codeBlock} />
+            </div>
         </div>
-      </div>
-      <div className={styles.imageWrapper}>
-        <CopyCodeButton codeSample={codeSample} />
-        <CodeHighlight code={codeSample} className={styles.codeBlock} />
-      </div>
-    </div>
-  );
+    );
 };
 
 interface FeaturesCarouselProps {
-  featuresData: FeatureSlideItem[];
-  className?: string;
+    featuresData: FeatureSlideItem[];
+    className?: string;
 }
 
-export const FeaturesCarousel: FC<FeaturesCarouselProps> = ({ featuresData, className }) => (
-  <SwipeableViews className={classNames(styles.carousel, className)}>
-    {featuresData.map(feature => (
-      <FeatureCard
-        className={styles.slide}
-        key={feature.id}
-        {...feature}
-      />
-    ))}
-  </SwipeableViews>
-);
+export const FeaturesCarousel: FC<FeaturesCarouselProps> = ({ featuresData, className }) => {
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handleChangeIndex = (index: number) => {
+        setActiveIndex(index);
+    };
+
+    const handlePrev = () => {
+        setActiveIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
+    };
+
+    const handleNext = () => {
+        setActiveIndex((prevIndex) => (prevIndex < featuresData.length - 1 ? prevIndex + 1 : prevIndex));
+    };
+
+    return (
+        <div className={classNames(styles.carouselContainer, className)}>
+            <SwipeableViews
+                className={styles.carousel}
+                index={activeIndex}
+                onChangeIndex={handleChangeIndex}
+            >
+                {featuresData.map(feature => (
+                    <FeatureCard
+                        className={styles.slide}
+                        key={feature.id}
+                        {...feature}
+                    />
+                ))}
+            </SwipeableViews>
+
+            <div className={styles.controls}>
+                <Button
+                    size="s"
+                    mode="outline"
+                    onClick={handlePrev}
+                    disabled={activeIndex === 0}
+                    className={styles.navButton}
+                    icon={<ArrowLeftIcon theme={'dark'} />}
+                />
+
+                <div className={styles.indicator}>
+                    {activeIndex + 1}/{featuresData.length}
+                </div>
+
+                <Button
+                    size="s"
+                    mode="outline"
+                    onClick={handleNext}
+                    disabled={activeIndex === featuresData.length - 1}
+                    className={styles.navButton}
+                    theme={'dark'}
+                    icon={<ArrowRightIcon theme={'dark'} />}
+                />
+            </div>
+        </div>
+    );
+};
 
 export default FeaturesCarousel;

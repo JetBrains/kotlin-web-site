@@ -16,7 +16,7 @@ const CustomerLogoMarqueeSection: React.FC = () => {
                         rel="noopener noreferrer"
                         className={styles.logoLink}
                     >
-                        <img src={item.id.src} alt="Netflix logo" className={styles.logo} />
+                        <img src={item.id.src} alt={item.link} className={styles.logo} />
                     </a>
                 ))}
             </Marquee>

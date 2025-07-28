@@ -116,7 +116,9 @@ export const ServerSideLayout: FC<CommunityLayoutProps> = ({ title, ogImageName,
                     </div>
                 </StickyHeader>
 
-                {children}
+                <div className={styles.contentWrapper}>
+                    {children}
+                </div>
 
                 <GlobalFooter />
             </ThemeProvider>

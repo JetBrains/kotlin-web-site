@@ -3,7 +3,7 @@
     width: 100%;
     overflow: hidden;
     display: flex;
-    --marquee-gap: 64px;
+    --marquee-gap: 80px;
 }
 
 .fadingEdges {
@@ -21,8 +21,9 @@
     align-items: center;
     justify-content: space-around;
     min-width: 100%;
-    animation: scroll 30s linear infinite;
+    animation: scroll 60s linear infinite;
     gap: var(--marquee-gap);
+    flex-shrink: 0;
 }
 
 .group:nth-child(1) {

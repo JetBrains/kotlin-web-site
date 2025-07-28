@@ -1,3 +1,40 @@
-.wrapper {
-    background: #000000;
+.cards {
+    display: grid;
+    grid-gap: 16px;
+}
+
+.videos {
+    display: grid;
+    grid-gap: 16px;
+}
+
+.videoCard {
+    border-radius: 16px;
+    overflow: hidden;
+    background: #19191C;
+    border: 1px solid rgba(255, 255, 255, 0.20)
+}
+
+.videoCardDescription {
+    padding: 32px;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 32px;
+    }
+
+    .videos {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 32px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
