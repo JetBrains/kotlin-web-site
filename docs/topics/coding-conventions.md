@@ -865,10 +865,26 @@ Omit semicolons whenever possible.
 
 ### String templates
 
-Don't use curly braces when inserting a simple variable into a string template. Use curly braces only for longer expressions.
+Don't use curly braces when inserting a simple variable into a string template. Use curly braces only for longer expressions:
 
 ```kotlin
 println("$name has ${children.size} children")
+```
+
+Use [multi-dollar string interpolation](strings.md#multi-dollar-string-interpolation)
+to treat the dollar sign chars `$` as string literals:
+
+```kotlin
+val KClass<*>.jsonSchema : String
+get() = $$"""
+    {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "https://example.com/product.schema.json",
+      "$dynamicAnchor": "meta",
+      "title": "$${simpleName ?: qualifiedName ?: "unknown"}",
+      "type": "object"
+    }
+    """
 ```
 
 ## Idiomatic use of language features
@@ -1112,7 +1128,7 @@ class Point(val x: Double, val y: Double) {
 ```
 
 If you have an object with multiple overloaded constructors that don't call different superclass constructors and
-can't be reduced to a single constructor with default argument values, prefer to replace the overloaded constructors with
+can't be reduced to a single constructor including parameters with default values, prefer to replace the overloaded constructors with
 factory functions.
 
 ### Platform types

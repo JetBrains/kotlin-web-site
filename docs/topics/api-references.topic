@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       id="api-references" title="API references">
+
+    <p>Welcome to the Kotlin API References page. Here you'll find links to the API documentation for the official Kotlin libraries and tools.</p>
+
+    <list columns="2">
+        <li>
+            <a href="https://kotlinlang.org/api/core/kotlin-stdlib/"><b>Standard library (stdlib)</b></a>
+            <br/>
+            <p>The Kotlin Standard library provides core functionality for Kotlin programming, including essential APIs such as collections, text and string processing, ranges, sequences, and more. It extends platform-specific APIs and provides a Kotlin-first API for working with them.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin">kotlin</a>
+            <br/>
+        </li>
+        <li>
+            <a href="https://kotlinlang.org/api/core/kotlin-test/"><b>Test library (kotlin.test)</b></a>
+            <br/>
+            <p>A multiplatform testing library that provides common testing annotations and utility functions. It supports integration with popular test frameworks on each platform and offers a unified testing experience across the Kotlin ecosystem.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin">kotlin</a>
+            <br/>
+        </li>
+        <li>
+            <a href="https://kotlinlang.org/api/kotlinx.coroutines/"><b>Coroutines (kotlinx.coroutines)</b></a>
+            <br/>
+            <p>A powerful library for asynchronous programming using Kotlin coroutines. It offers tools to support structured concurrency, asynchronous streams, synchronization primitives like mutexes and semaphores, testing, and more.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx.coroutines">kotlinx.coroutines</a>
+            <br/>
+        </li>
+        <li>
+            <a href="https://kotlinlang.org/api/kotlinx.serialization/"><b>Serialization (kotlinx.serialization)</b></a>
+            <br/>
+            <p>A multiplatform serialization library. It provides a type-safe, compile-time mechanism for converting Kotlin objects to and from a variety of formats such as JSON, CBOR, and Protocol Buffers.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx.serialization">kotlinx.serialization</a>
+            <br/>
+        </li>
+        <li>
+            <a href="https://kotlinlang.org/api/kotlinx-io/"><b>Kotlin I/O library (kotlinx-io)</b></a>
+            <br/>
+            <p>A multiplatform library for low-level I/O operations. It defines abstractions for reading from and writing to binary streams and buffers, designed to be efficient and portable across all Kotlin platforms.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx-io">kotlinx-io</a>
+            <br/>
+        </li>
+        <li>
+            <a href="https://kotlinlang.org/api/kotlinx-datetime/"><b>Date and time (kotlinx-datetime)</b></a>
+            <br/>
+            <p>A multiplatform library for calendar-based computations. It provides representations of date values and supports timezone-specific operations.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/Kotlin/kotlinx-datetime">kotlinx-datetime</a>
+            <br/>
+        </li>
+        <li>
+            <a href="https://kotlinlang.org/api/kotlinx-metadata-jvm/"><b>JVM Metadata (kotlin-metadata-jvm)</b></a>
+            <br/>
+            <p>A library for reading and writing Kotlin metadata stored in JVM class files. It is primarily used by tools such as annotation processors, static analyzers, and compiler plugins.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin/tree/master/libraries/kotlinx-metadata">kotlinx-metadata</a>
+            <br/>
+        </li>
+        <li>
+            <a href="https://kotlinlang.org/api/kotlin-gradle-plugin/"><b>Kotlin Gradle plugins (kotlin-gradle-plugin)</b></a>
+            <br/>
+            <p>The Kotlin Gradle plugins for compiling, testing, and packaging Kotlin code. These plugins simplify JVM and multiplatform builds, manage dependencies, and integrate with IDEs and CI systems.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin">kotlin-gradle-plugin</a>
+            <br/>
+        </li>
+        <li>
+            <a href="https://api.ktor.io/"><b>Ktor</b></a>
+            <br/>
+            <p>A framework for building asynchronous clients and servers in connected systems using Kotlin. Ktor is designed for scalability and flexibility and is deeply integrated with coroutines for non-blocking I/O and structured concurrency.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/ktorio/ktor">ktor</a>
+            <br/>
+        </li>
+    </list>
+</topic>

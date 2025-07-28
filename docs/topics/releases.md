@@ -31,8 +31,11 @@ new features before they are released. See [Early Access Preview](eap.md) for de
 
 ## Update to a new Kotlin version
 
-To upgrade your project to a new release, you need to update your build script file.
-For example, to update to Kotlin %kotlinVersion%, change the version of the Kotlin Gradle plugin in your
+To upgrade your project to a new release, update the Kotlin version in your build system.
+
+### Gradle
+
+To update to Kotlin %kotlinVersion%, change the version of the Kotlin Gradle plugin in your
 `build.gradle(.kts)` file:
 
 <tabs group="build-script">
@@ -66,10 +69,43 @@ plugins {
 </tab>
 </tabs>
 
-If you have projects created with earlier Kotlin versions, change the Kotlin version in your projects and update kotlinx
-libraries if necessary.
+If you have projects created with earlier Kotlin versions, check if you also need to [update the version of any kotlinx
+libraries](gradle-configure-project.md#set-a-dependency-on-a-kotlinx-library).
 
-If you are migrating to the new language release, Kotlin plugin's migration tools will help you with the migration.
+If you are migrating to a new language release, the Kotlin plugin's migration tools will help you with the process.
+
+> To learn more about how to work with Gradle in your project, see [Configure a Gradle project](gradle-configure-project.md).
+> 
+{style="tip"}
+
+### Maven
+
+To update to Kotlin %kotlinVersion%, change the version in your `pom.xml` file:
+
+```xml
+<properties>
+    <kotlin.version>%kotlinVersion%</kotlin.version>
+</properties>
+```
+
+Alternatively, you can change the version of the `kotlin-maven-plugin` in your `pom.xml` file:
+
+```xml
+<plugins>
+    <plugin>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-maven-plugin</artifactId>
+        <version>%kotlinVersion%</version>
+    </plugin>
+</plugins>
+```
+
+If you have projects created with earlier Kotlin versions, check if you also need to [update the version of any kotlinx
+libraries](maven.md#set-dependencies).
+
+> To learn more about how to work with Maven in your project, see [Maven](maven.md).
+>
+{style="tip"}
 
 ## IDE support
 
@@ -104,6 +140,16 @@ The following table lists details of the latest Kotlin releases:
         <th>Build info</th>
         <th>Build highlights</th>
     </tr>
+    <tr>
+        <td><strong>2.2.0</strong>
+            <p>Released: <strong>June 23, 2025</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A language release including both new and stable language features, tooling updates, performance improvements for different platforms, and important fixes.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0">changelog</a>.</p>
+        </td>
+    </tr> 
     <tr>
         <td><strong>2.1.21</strong>
             <p>Released: <strong>May 13, 2025</strong></p>

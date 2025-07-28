@@ -36,9 +36,12 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 7. Click **Create**.
 
-    > If you chose the Gradle build system, you have in your project a build script file: `build.gradle(.kts)`. It includes 
-    > the `kotlin("jvm")` plugin and dependencies required for your console application. Make sure that you use the latest 
+    > If you chose the Gradle build system, you have in your project a build script file: `build.gradle(.kts)`. It includes
+    > the `kotlin("jvm")` plugin and dependencies required for your console application. Make sure that you use the latest
     > version of the plugin:
+    > 
+    > <tabs group="build-script">
+    > <tab title="Kotlin" group-key="kotlin">
     > 
     > ```kotlin
     > plugins {
@@ -46,6 +49,19 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
     >     application
     > }
     > ```
+    > 
+    > </tab>
+    > <tab title="Groovy" group-key="groovy">
+    > 
+    > ```groovy
+    > plugins {
+    >     id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+    >     id 'application'
+    > }
+    > ```
+    > 
+    > </tab>
+    > </tabs>
     > 
     {style="note"}
 

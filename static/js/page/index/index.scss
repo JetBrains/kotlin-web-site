@@ -1,10 +1,10 @@
-@import 'static/css/_config';
-@import 'static/css/_utils';
-@import 'static/css/com/_bits/_pre';
-@import 'static/css/com/_bits/_code';
-@import 'static/css/com/_syntax-highlight/_syntax-highlight_dark';
-@import "static/js/components/-vars-spaces";
-@import "static/js/components/kto-text";
+@import '../../../css/_config';
+@import '../../../css/_utils';
+@import '../../../css/com/_bits/_pre';
+@import '../../../css/com/_bits/_code';
+@import '../../../css/com/_syntax-highlight/_syntax-highlight_dark';
+@import "../../../js/components/-vars-spaces";
+@import "../../../js/components/kto-text";
 
 a, a:hover  {
   color: #7F52FF;

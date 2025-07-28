@@ -10,9 +10,9 @@ On this page, we'll describe the ways to tailor the interop of your Kotlin code 
 
 A Kotlin property is compiled to the following Java elements:
 
- * a getter method, with the name calculated by prepending the `get` prefix
- * a setter method, with the name calculated by prepending the `set` prefix (only for `var` properties)
- * a private field, with the same name as the property name (only for properties with backing fields)
+ * a getter method, with the name calculated by prepending the `get` prefix.
+ * a setter method, with the name calculated by prepending the `set` prefix (only for `var` properties).
+ * a private field, with the same name as the property name (only for properties with backing fields).
 
 For example, `var firstName: String` compiles to the following Java declarations:
 
@@ -28,9 +28,9 @@ public void setFirstName(String firstName) {
 }
 ```
 
-If the name of the property starts with `is`, a different name mapping rule is used: the name of the getter will be
-the same as the property name, and the name of the setter will be obtained by replacing `is` with `set`.
-For example, for a property `isOpen`, the getter will be called `isOpen()` and the setter will be called `setOpen()`.
+If the name of the property starts with `is`, a different name mapping rule is used: the name of the getter is
+the same as the property name, and the name of the setter is obtained by replacing `is` with `set`.
+For example, for a property `isOpen`, the getter is called `isOpen()` and the setter is called `setOpen()`.
 This rule applies for properties of any type, not just `Boolean`.
 
 ## Package-level functions
@@ -109,7 +109,7 @@ org.example.Utils.getDate();
 ## Instance fields
 
 If you need to expose a Kotlin property as a field in Java, annotate it with the [`@JvmField`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-field/index.html) annotation.
-The field will have the same visibility as the underlying property. You can annotate a property with `@JvmField` if it:
+The field has the same visibility as the underlying property. You can annotate a property with `@JvmField` if it:
 * has a backing field
 * is not private
 * does not have `open`, `override` or `const` modifiers
@@ -132,14 +132,14 @@ class JavaClient {
 ```
 
 [Late-Initialized](properties.md#late-initialized-properties-and-variables) properties are also exposed as fields. 
-The visibility of the field will be the same as the visibility of `lateinit` property setter.
+The visibility of the field is the same as the visibility of the `lateinit` property setter.
 
 ## Static fields
 
-Kotlin properties declared in a named object or a companion object will have static backing fields
+Kotlin properties declared in a named object or a companion object have static backing fields
 either in that named object or in the class containing the companion object.
 
-Usually these fields are private but they can be exposed in one of the following ways:
+Usually these fields are private, but they can be exposed in one of the following ways:
 
  - [`@JvmField`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-field/index.html) annotation
  - `lateinit` modifier
@@ -210,7 +210,7 @@ int version = C.VERSION;
 As mentioned above, Kotlin represents package-level functions as static methods.
 Kotlin can also generate static methods for functions defined in named objects or companion objects if you annotate those
 functions as [`@JvmStatic`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-static/index.html).
-If you use this annotation, the compiler will generate both a static method in the enclosing class of the object and
+If you use this annotation, the compiler generates both a static method in the enclosing class of the object and
 an instance method in the object itself. For example:
 
 ```kotlin
@@ -232,7 +232,7 @@ C.Companion.callStatic(); // instance method remains
 C.Companion.callNonStatic(); // the only way it works
 ```
 
-Same for named objects:
+Similarly, for named objects:
 
 ```kotlin
 object Obj {
@@ -265,24 +265,17 @@ interface ChatBot {
 }
 ```
 
-`@JvmStatic` annotation can also be applied on a property of an object or a companion object
-making its getter and setter methods static members in that object or the class containing the companion object.
+You can also apply `@JvmStatic` annotation to the property of an object or a companion object making its getter and setter
+methods static members in that object or the class containing the companion object.
 
 ## Default methods in interfaces
 
->Default methods are available only for targets JVM 1.8 and above.
->
-{style="note"}
-
-Starting from JDK 1.8, interfaces in Java can contain [default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html).
-To make all non-abstract members of Kotlin interfaces default for the Java classes implementing them, compile the Kotlin 
-code with the `-Xjvm-default=all` compiler option.
+When targeting the JVM, Kotlin compiles functions declared in interfaces to [default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html) unless [configured otherwise](#compatibility-modes-for-default-methods).
+These are concrete methods in interfaces that Java classes can inherit directly, without reimplementation.
 
 Here is an example of a Kotlin interface with a default method:
 
 ```kotlin
-// compile with -Xjvm-default=all
-
 interface Robot {
     fun move() { println("~walking~") }  // will be default in the Java interface
     fun speak(): Unit
@@ -326,79 +319,54 @@ public class BB8 implements Robot {
 }
 ```
 
-> Prior to Kotlin 1.4, to generate default methods, you could use the `@JvmDefault` annotation on these methods.
-> Compiling with `-Xjvm-default=all` in 1.4+ generally works as if you annotated all non-abstract methods of interfaces
-> with `@JvmDefault`and compiled with `-Xjvm-default=enable`. However, there are cases when their behavior differs.
-> Detailed information about the changes in default methods generation in Kotlin 1.4 is provided in [this post](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/)
-> on the Kotlin blog.
->
-{style="note"}
-
 ### Compatibility modes for default methods
 
-If there are clients that use your Kotlin interfaces compiled without the `-Xjvm-default=all` option, then they may
-be binary-incompatible with the code compiled with this option. To avoid breaking the compatibility with such clients, 
-use the `-Xjvm-default=all` mode and mark interfaces with the [`@JvmDefaultWithCompatibility`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-default-with-compatibility/) annotation. 
-This allows you to add this annotation to all interfaces in the public API once, and you won't need to use any annotations for new non-public code.
+Kotlin provides three modes for controlling how functions in interfaces are compiled to JVM default methods.
+These modes determine whether the compiler generates compatibility bridges and static methods in `DefaultImpls` classes.
 
-> Starting from Kotlin 1.6.20, you can compile modules in the default mode (the `-Xjvm-default=disable` compiler option) against 
-> modules compiled with the `-Xjvm-default=all` or `-Xjvm-default=all-compatibility` modes.
+You can control this behavior using the `-jvm-default` compiler option:
+
+> The `-jvm-default` compiler option replaces the deprecated `-Xjvm-default` option.
 >
 {style="note"}
 
 Learn more about compatibility modes:
 
-#### disable {initial-collapse-state="collapsed" collapsible="true"}
+#### enable {initial-collapse-state="collapsed" collapsible="true"}
 
-Default behavior. Do not generate JVM default methods and prohibit `@JvmDefault` annotation usage.
+Default behavior.
+Generates default implementations in interfaces and includes compatibility bridges and `DefaultImpls` classes.
+This mode maintains compatibility with older compiled Kotlin code.
 
-#### all {initial-collapse-state="collapsed" collapsible="true"}
+#### no-compatibility {initial-collapse-state="collapsed" collapsible="true"}
 
-Generate JVM default methods for all interface declarations with bodies in the module. Do not generate [`DefaultImpls`](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/) stubs 
-for interface declarations with bodies, which are generated by default in the `disable` mode. 
+Generates only default implementations in interfaces.
+Skips compatibility bridges and `DefaultImpls` classes.
+Use this mode for new codebases that don't interact with code that relies on `DefaultImpls` classes.
+This can break binary compatibility with older Kotlin code.
 
-If interface inherits a method with body from an interface compiled in the `disable` mode and doesn't override it, 
-then a `DefaultImpls` stub will be generated for it.
-
-__Breaks binary compatibility__ if some client code relies on the presence of `DefaultImpls` classes.
-
-> If interface delegation is used, all interface methods are delegated. The only exception are methods annotated with the deprecated `@JvmDefault` annotation.
+> If interface delegation is used, all interface methods are delegated.
 >
 {style="note"}
 
-#### all-compatibility {initial-collapse-state="collapsed" collapsible="true"}
+#### disable {initial-collapse-state="collapsed" collapsible="true"}
 
-In addition to the `all` mode, generate compatibility stubs in the [`DefaultImpls`](https://blog.jetbrains.com/kotlin/2020/07/kotlin-1-4-m3-generating-default-methods-in-interfaces/)
-classes. Compatibility stubs could be useful for 
-library and runtime authors to keep backward binary compatibility for existing clients compiled against previous library versions. 
-`all` and `all-compatibility` modes are changing the library ABI surface that clients will use after the recompilation of the library. 
-In that sense, clients might be incompatible with previous library versions. 
-This usually means that you need a proper library versioning, for example, major version increase in SemVer.
-
-The compiler generates all the members of `DefaultImpls` with the `@Deprecated` annotation: you shouldn't use these 
-members in Java code, because the compiler generates them only for compatibility purposes.
-
-In case of inheritance from a Kotlin interface compiled in `all` or `all-compatibility` modes,
-`DefaultImpls` compatibility stubs will invoke the default method of the interface with standard JVM runtime resolution semantics.
-
-Perform additional compatibility checks for classes inheriting generic interfaces where in some cases additional implicit method 
-with specialized signatures was generated in the `disable` mode:
-unlike in the `disable` mode, the compiler will report an error if you don't override such method explicitly and don't annotate the class 
-with `@JvmDefaultWithoutCompatibility` (see [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-39603) for more details).
+Disables default implementations in interfaces.
+Only compatibility bridges and `DefaultImpls` classes are generated.
 
 ## Visibility
 
 The Kotlin visibility modifiers map to Java in the following way:
 
-* `private` members are compiled to `private` members
+* `private` members are compiled to `private` members.
 * `private` top-level declarations are compiled to `private` top-level declarations. Package-private accessors are also included,
 if accessed from within a class. 
-* `protected` remains `protected` (note that Java allows accessing protected members from other classes in the same package
-and Kotlin doesn't, so Java classes will have broader access to the code)
-* `internal` declarations become `public` in Java. Members of `internal` classes go through name mangling, to make
+* `protected` remains `protected`. (Note that Java allows accessing protected members from other classes in the same package
+and Kotlin doesn't, so Java classes will have broader access to the code.)
+* `internal` declarations become `public` in Java. Members of `internal` classes go through name mangling, to make.
 it harder to accidentally use them from Java and to allow overloading for members with the same signature that don't see
-each other according to Kotlin rules
-* `public` remains `public`
+each other according to Kotlin rules.
+* `public` remains `public`.
 
 ## KClass
 
@@ -412,7 +380,7 @@ kotlin.jvm.JvmClassMappingKt.getKotlinClass(MainView.class)
 
 ## Handling signature clashes with @JvmName
 
-Sometimes we have a named function in Kotlin, for which we need a different JVM name in the bytecode.
+Sometimes we have a named function in Kotlin, for which we need a different JVM name in bytecode.
 The most prominent example happens due to *type erasure*:
 
 ```kotlin
@@ -432,9 +400,9 @@ fun List<String>.filterValid(): List<String>
 fun List<Int>.filterValid(): List<Int>
 ```
 
-From Kotlin they will be accessible by the same name `filterValid`, but from Java it will be `filterValid` and `filterValidInt`.
+From Kotlin, they are accessible by the same name `filterValid`, but from Java it is `filterValid` and `filterValidInt`.
 
-The same trick applies when we need to have a property `x` alongside with a function `getX()`:
+The same trick applies when we need to have a property `x` along with a function `getX()`:
 
 ```kotlin
 val x: Int
@@ -455,7 +423,7 @@ var x: Int = 23
 
 ## Overloads generation
 
-Normally, if you write a Kotlin function with default parameter values, it will be visible in Java only as a full
+Normally, if you write a Kotlin function with default parameter values, it is visible in Java only as a full
 signature, with all parameters present. If you wish to expose multiple overloads to Java callers, you can use the
 [`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html) annotation.
 
@@ -468,9 +436,8 @@ class Circle @JvmOverloads constructor(centerX: Int, centerY: Int, radius: Doubl
 }
 ```
 
-For every parameter with a default value, this will generate one additional overload, which has this parameter and
-all parameters to the right of it in the parameter list removed. In this example, the following will be
-generated:
+For every parameter with a default value, this generates one additional overload, which has this parameter and
+all parameters to the right of it in the parameter list removed. In this example, the following is generated:
 
 ```java
 // Constructors:
@@ -484,7 +451,7 @@ void draw(String label) { }
 ```
 
 Note that, as described in [Secondary constructors](classes.md#secondary-constructors), if a class has default
-values for all constructor parameters, a public constructor with no arguments will be generated for it. This works even
+values for all constructor parameters, a public constructor with no arguments is generated for it. This works even
 if the `@JvmOverloads` annotation is not specified.
 
 ## Checked exceptions
@@ -618,3 +585,83 @@ fun emptyList(): List<Nothing> = listOf()
 // is translated to
 // List emptyList() { ... }
 ```
+
+## Inline value classes
+
+<primary-label ref="experimental-general"/>
+
+If you want Java code to work smoothly with Kotlin's [inline value classes](inline-classes.md), you can use the
+[`@JvmExposeBoxed`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-expose-boxed/) annotation or the `-Xjvm-expose-boxed` compiler option. These approaches ensure Kotlin generates the 
+necessary boxed representations for Java interoperability.
+
+By default, Kotlin compiles inline value classes to use **unboxed representations**, which are often inaccessible from Java.
+For example, you can't call the constructor for the `MyInt` class from Java:
+
+```kotlin
+@JvmInline
+value class MyInt(val value: Int)
+```
+
+So the following Java code fails:
+
+```java
+MyInt input = new MyInt(5);
+```
+
+You can use the `@JvmExposeBoxed` annotation so that Kotlin generates a public constructor that you can call from Java directly.
+You can apply the annotation at the following levels to ensure fine-grained control over what's exposed to Java:
+
+* Class
+* Constructor
+* Function
+
+Before using the `@JvmExposeBoxed` annotation in your code, you must opt in by using `@OptIn(ExperimentalStdlibApi::class)`.
+For example:
+
+```kotlin
+@OptIn(ExperimentalStdlibApi::class)
+@JvmExposeBoxed
+@JvmInline
+value class MyInt(val value: Int)
+
+@OptIn(ExperimentalStdlibApi::class)
+@JvmExposeBoxed
+fun MyInt.timesTwoBoxed(): MyInt = MyInt(this.value * 2)
+```
+
+With these annotations, Kotlin generates a Java-accessible constructor for the `MyInt` class **and** a variant for the 
+extension function that uses the boxed form of the value class. So the following Java code runs successfully:
+
+```java
+MyInt input = new MyInt(5);
+MyInt output = ExampleKt.timesTwoBoxed(input);
+```
+
+To apply this behavior to all inline value classes and the functions that use them within a module, compile it with the `-Xjvm-expose-boxed` option. 
+Compiling with this option has the same effect as if every declaration in the module has the `@JvmExposeBoxed` annotation.
+
+### Inherited functions
+
+The `@JvmExposeBoxed` annotation doesn't automatically generate boxed representations for inherited functions.
+ 
+To generate the necessary representation for an inherited function, override it in the implementing or extending class:
+ 
+```kotlin
+interface IdTransformer {
+    fun transformId(rawId: UInt): UInt = rawId
+}
+
+// Doesn't generate a boxed representation for the transformId() function
+@OptIn(ExperimentalStdlibApi::class)
+@JvmExposeBoxed
+class LightweightTransformer : IdTransformer
+
+// Generates a boxed representation for the transformId() function
+@OptIn(ExperimentalStdlibApi::class)
+@JvmExposeBoxed
+class DefaultTransformer : IdTransformer {
+    override fun transformId(rawId: UInt): UInt = super.transformId(rawId)
+}
+```
+
+To learn how inheritance works in Kotlin and how to call superclass implementations using the `super` keyword, see [Inheritance](inheritance.md#calling-the-superclass-implementation).

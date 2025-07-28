@@ -135,7 +135,7 @@ Kotlin supports the following operators and special symbols:
      - `*` is also used to [pass an array to a vararg parameter](functions.md#variable-number-of-arguments-varargs).
  * `=`
      - assignment operator.
-     - is used to specify [default values for parameters](functions.md#default-arguments).
+     - is used to specify [default values for parameters](functions.md#parameters-with-default-values).
  * `+=`, `-=`, `*=`, `/=`, `%=` - [augmented assignment operators](operator-overloading.md#augmented-assignments).
  * `++`, `--` - [increment and decrement operators](operator-overloading.md#increments-and-decrements).
  * `&&`, `||`, `!` - logical 'and', 'or', 'not' operators (for bitwise operations, use the corresponding [infix functions](numbers.md#operations-on-numbers) instead).

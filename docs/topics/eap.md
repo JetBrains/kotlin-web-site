@@ -44,7 +44,7 @@ In this channel, you can also get notifications about new EAP builds.
 
 ## Build details
 
-<!--_No preview versions are currently available._-->  
+<!-- _No preview versions are currently available._ -->
 
 <table>
     <tr>
@@ -52,13 +52,23 @@ In this channel, you can also get notifications about new EAP builds.
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.2.0-RC3</strong>
-            <p>Released: <strong>June 16, 2025</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0-RC3" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.2.20-Beta1</strong>
+            <p>Released: <strong>July 10, 2025</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.20-Beta1" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A language release with previews of new features and tooling updates.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0-RC3">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.2.0-RC3</a>.</p>
+            <p>A tooling release containing improvements and bug fixes.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.20-Beta1">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.2.20-Beta1</a>.</p>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>2.2.10-RC</strong>
+            <p>Released: <strong>July 18, 2025</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.10-RC" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 2.2.0.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.10-RC">changelog</a>.</p>
         </td>
     </tr>
 </table>
