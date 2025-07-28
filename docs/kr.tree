@@ -335,6 +335,7 @@
 		</toc-element>
 		<toc-element toc-title="Kotlin compiler plugins">
 			<toc-element toc-title="All-open" topic="all-open-plugin.md"/>
+			<toc-element toc-title="Kotlin-spring" topic="kotlin-spring-plugin.md"/>
 			<toc-element toc-title="No-arg" topic="no-arg-plugin.md"/>
 			<toc-element toc-title="SAM with receiver" topic="sam-with-receiver-plugin.md"/>
 			<toc-element toc-title="kapt" topic="kapt.md"/>
