@@ -76,6 +76,5 @@ test.describe('Footer social media buttons', () => {
         await expect(youTubeButton).toBeVisible();
         const href = await youTubeButton.getAttribute('href');
         expect(href).toBe('https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw')
-
     });
 });
