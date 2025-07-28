@@ -16,6 +16,16 @@ test.describe('Main page buttons', () => {
         await expect(pageTitle).toContainText('Get started with Kotlin');
     });
 
+    test('Develop by JetBrains link should navigate to JetBrains homepage', async ({ page, context }) => {
+        const jetBrainsLink = page.getByTestId('hero-block').getByRole('link', { name: 'JetBrains' });
+        await expect(jetBrainsLink).toBeVisible();
+        const newPagePromise = context.waitForEvent('page');
+        await jetBrainsLink.click();
+        const newPage = await newPagePromise;
+        await newPage.waitForLoadState();
+        await expect(newPage.url()).toContain('https://www.jetbrains.com/');
+    });
+
     test('Kotlin blog button', async ({ page }) => {
         const blogButton = page.getByRole('link', { name: 'Kotlin blog' });
         await expect(blogButton).toBeVisible();
