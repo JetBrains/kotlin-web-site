@@ -16,7 +16,7 @@ export const ServerSidePerformance: FC = ({}) => {
 
     return (
         <section className="ktl-layout ktl-layout--center">
-            <div className="ktl-container ktl-offset-top-l">
+            <div className="ktl-container section-offset">
                 <h2 className={cn(textCn('rs-h1'))}>
                     Performance: optimized for high-load
                 </h2>

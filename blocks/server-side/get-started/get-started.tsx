@@ -35,9 +35,9 @@ export const GetStarted: FC = ({}) => {
                                     <img src={ktorLogo.src} alt="Ktor Logo" />
                                 </div>
                                 <div className={styles.title}>
-                                    <h3 className={textCn('rs-h3')}>
+                                    <h2 className={textCn('rs-h2')}>
                                         Ktor quick start
-                                    </h3>
+                                    </h2>
                                 </div>
                                 <div className={styles.text}>
                                     <p className={textCn('rs-text-2')}>
@@ -51,15 +51,15 @@ export const GetStarted: FC = ({}) => {
                             </div>
                         </div>
 
-                        <div className={cn("ktl-col-12 ktl-col-md-6", styles.mobileSpacer)}>
+                        <div className={cn("ktl-col-12 ktl-col-md-6", "spacer-md")}>
                             <div className={styles.card}>
                                 <div className={styles.image}>
                                     <img src={springLogo.src} alt="Spring Logo" />
                                 </div>
                                 <div className={styles.title}>
-                                    <h3 className={textCn('rs-h3')}>
+                                    <h2 className={textCn('rs-h2')}>
                                         Go server-side with Spring
-                                    </h3>
+                                    </h2>
                                 </div>
                                 <div className={styles.text}>
                                     <p className={textCn('rs-text-2')}>

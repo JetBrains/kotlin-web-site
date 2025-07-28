@@ -25,7 +25,7 @@ export const HowToStart: FC = ({}) => {
 
     return (
         <section className="ktl-layout ktl-layout--center">
-            <div className="ktl-container ktl-offset-top-xxl">
+            <div className="ktl-container section-offset">
 
                 <h2 className={cn(textCn('rs-h1'))}>
                     How to start – incremental adoption in Java projects
@@ -68,7 +68,7 @@ export const HowToStart: FC = ({}) => {
 
                     </div>
 
-                    <div className="ktl-col">
+                    <div className={cn("ktl-col", styles.codeSample)}>
                         <CodeHighlight code={codeSample} className={styles.codeBlock} />
                     </div>
 

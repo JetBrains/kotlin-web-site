@@ -52,3 +52,9 @@
     font-size: 14px;
     line-height: 1.5;
 }
+
+@media (max-width: 1000px) {
+    .codeSample {
+        margin-top: 32px;
+    }
+}

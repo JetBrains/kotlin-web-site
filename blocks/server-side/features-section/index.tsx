@@ -13,7 +13,7 @@ const FeaturesSection: FC = () => {
 
     return (
         <section className="ktl-layout ktl-layout--center">
-            <div className="ktl-container ktl-offset-top-l">
+            <div className="ktl-container section-offset">
                 <h2 className={classNames(textCn('rs-h1'))}>
                     Safety: fewer production bugs and crashes
                 </h2>

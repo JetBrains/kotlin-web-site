@@ -10,6 +10,8 @@ import { FavoriteTools } from '../../blocks/server-side/favorite-tools/favorite-
 import { AdditionalMaterials } from '../../blocks/server-side/additional-materials/additional-materials';
 import { GetStarted } from '../../blocks/server-side/get-started/get-started';
 
+import './styles.css';
+
 function Index() {
     return (
         <ServerSideLayout title={'Server Side'} ogImageName={'community.png'}>

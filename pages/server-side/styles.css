@@ -1,0 +1,19 @@
+/*Spacer*/
+
+@media (max-width: 1024px) {
+    .spacer-md {
+        margin-top: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .spacer-md {
+        margin-top: 16px;
+    }
+}
+
+
+.section-offset {
+    margin-top: 72px;
+    padding-bottom: 72px;
+}

@@ -13,7 +13,7 @@ export const AdditionalMaterials: FC = ({}) => {
 
     return (
         <section className="ktl-layout ktl-layout--center">
-            <div className="ktl-container ktl-offset-top-xxl">
+            <div className="ktl-container section-offset">
 
                 <h2 className={cn(textCn('rs-h1'))}>
                     Additional materials
@@ -25,7 +25,7 @@ export const AdditionalMaterials: FC = ({}) => {
                 </h3>
 
                 <div className="ktl-row">
-                    <div className="ktl-col-8">
+                    <div className="ktl-col-12 ktl-col-md-8">
                         <YoutubePlayer
                             mode={0}
                             id="hQrFfwT1IMo"
