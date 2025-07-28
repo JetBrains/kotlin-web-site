@@ -9,7 +9,7 @@ annotations like `@Configuration` or `@Service`. The `all-open` plugin allows yo
 
 Kotlin provides `all-open` plugin support both for Gradle and Maven with the complete IDE integration.
 
-> For Spring, you can use the [`kotlin-spring` compiler plugin](#spring-support).
+> For the Spring applications with Kotlin, you can use the [`kotlin-spring` compiler plugin](kotlin-spring-plugin.md).
 >
 {style="note"}
 
@@ -114,73 +114,6 @@ Add the plugin in your `pom.xml` file:
 ```
 
 Please refer to the [Gradle section](#gradle) for the detailed information about how all-open annotations work.
-
-## Spring support
-
-If you use Spring, you can enable the `kotlin-spring` compiler plugin instead of specifying Spring annotations manually.
-The `kotlin-spring` is a wrapper on top of `all-open`, and it behaves exactly the same way.
-
-Add the `spring` plugin in your `build.gradle(.kts)` file:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-plugins {
-    id("org.jetbrains.kotlin.plugin.spring") version "%kotlinVersion%"
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-plugins {
-    id "org.jetbrains.kotlin.plugin.spring" version "%kotlinVersion%"
-}
-```
-
-</tab>
-</tabs>
-
-In Maven, the `spring` plugin is provided by the `kotlin-maven-allopen` plugin dependency, so to enable it in your 
-`pom.xml` file:
-
-```xml
-<compilerPlugins>
-    <plugin>spring</plugin>
-</compilerPlugins>
-
-<dependencies>
-    <dependency>
-        <groupId>org.jetbrains.kotlin</groupId>
-        <artifactId>kotlin-maven-allopen</artifactId>
-        <version>${kotlin.version}</version>
-    </dependency>
-</dependencies>
-```
-
-The plugin specifies the following annotations: 
-* [`@Component`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Component.html)
-* [`@Async`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/annotation/Async.html)
-* [`@Transactional`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html)
-* [`@Cacheable`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/cache/annotation/Cacheable.html)
-* [`@SpringBootTest`](https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html)
-
-Thanks to meta-annotations support, classes annotated with [`@Configuration`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/Configuration.html),
-[`@Controller`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Controller.html),
-[`@RestController`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/bind/annotation/RestController.html),
-[`@Service`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/stereotype/Service.html)
-or [`@Repository`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Repository.html)
-are automatically opened since these annotations are meta-annotated with
-[`@Component`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Component.html).
- 
-Of course, you can use both `kotlin-allopen` and `kotlin-spring` in the same project.
-
-> If you generate the project template by the [start.spring.io](https://start.spring.io/#!language=kotlin)
-> service, the `kotlin-spring` plugin will be enabled by default.
->
-{style="note"}
 
 ## Command-line compiler
 
