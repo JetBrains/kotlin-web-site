@@ -34,7 +34,7 @@ Check the article on [JavaScript Modules](js-modules.md) for more information on
 
 ## Package structure
 
-For most of the module systems, Kotlin exposes its package structure to JavaScript,
+For most of the module systems (CommonJS, Plain, and UMD), Kotlin exposes its package structure to JavaScript,
 so unless you define your declarations in the root package, you have to use fully qualified names in JavaScript.
 For example:
 
@@ -56,8 +56,8 @@ Or, in the case of using `plain` as a module system setting:
 alert(myModule.my.qualified.packagename.foo());
 ```
 
-However, there is an exception for `ES` modules.
-It loses the package information to improve the final application bundle-size.
+Targeting ECMAScript Modules (ESM) instead loses package information,
+to improve the application bundle size and to match the typical layout of ESM packages.
 So the consumption of the Kotlin declarations with ES modules looks like this:
 ```javascript
 import { foo } from 'myModule';
