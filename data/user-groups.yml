@@ -222,6 +222,12 @@
     position:
       lat: 48.1351253
       lng: 11.5819806
+  - name: Paphos KUG
+    country: Cyprus
+    url: https://www.meetup.com/pafos-coders-designers/
+    position:
+      lat: 34.7745909
+      lng: 32.4190263
   - name: Odessa KUG
     country: Ukraine
     url: https://www.facebook.com/groups/557764034687880/
