@@ -252,7 +252,9 @@ function Index() {
             </ThemeProvider>
 
             <ThemeProvider theme={'dark'}>
-                <GlobalFooter />
+                <div data-testid={'footer'}>
+                    <GlobalFooter />
+                </div>
             </ThemeProvider>
 
             <Script src={'https://cdn.optimizely.com/js/26633200186.js'} strategy={"beforeInteractive"}/>
