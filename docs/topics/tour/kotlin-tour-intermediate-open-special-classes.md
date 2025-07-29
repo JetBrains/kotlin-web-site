@@ -382,8 +382,8 @@ In the example:
 * `Email` is an inline value class that has one property in the class header: `address`.
 * The `sendEmail()` function accepts objects with type `Email` and prints a string to the standard output.
 * The `main()` function:
-    * Creates an instance of the `Email` class called `email`.
-    * Calls the `sendEmail()` function on the `email` object.
+    * Creates an instance of the `Email` class called `myEmail`.
+    * Calls the `sendEmail()` function on the `myEmail` object.
 
 By using an inline value class, you make the class inlined and can use it directly in your code without creating an object.
 This can significantly reduce memory footprint and improve your code's runtime performance.
