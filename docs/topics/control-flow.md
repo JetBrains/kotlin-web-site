@@ -5,12 +5,12 @@ expressive logic for your conditions.
 
 ## If expression
 
-In Kotlin, there is no ternary operator (`condition ? then : else`) because `if` serves the same purpose. Add the condition
-to check within parentheses `()` and the action to take if the result is true within curly braces `{}`. You can use `else`
-and `else if` for additional branches and checks. 
+To use `if` in Kotlin, add the condition to check within parentheses `()` and the action to take if the result is true
+within curly braces `{}`. You can use `else` and `else if` for additional branches and checks.
 
 You can also write `if` as an expression, which lets you assign its returned value directly to a variable.
-If you use `if` as an expression, you must have an `else` branch.
+In this form, an `else` branch is required. The `if ` expression serves the same purpose as the ternary operator 
+(`condition ? then : else`) found in other languages.
 
 For example:
 
@@ -71,8 +71,8 @@ fun main() {
 ## When expressions and statements
 
 `when` is a conditional expression that runs code based on multiple possible values or conditions. It's
-similar to the `switch` statement in Java, C, and similar languages. `when` evaluates its argument against each branch 
-in order until one branch condition is satisfied. For example:
+similar to the `switch` statement in Java, C, and similar languages. `when` evaluates its argument and compares the result
+against each branch in order until one branch condition is satisfied. For example:
 
 ```kotlin
 fun main() {
@@ -154,7 +154,7 @@ when { ... }
 </table>
 
 Depending on how you use `when`, there are different requirements for whether you need to cover all possible cases in your
-branches.
+branches. In other words, whether it needs to be _exhaustive_ or not.
 
 ### Statements
 
@@ -180,9 +180,8 @@ and its value is the value of the last expression in the block.
 
 ### Expressions
 
-If you use `when` as an expression, you **must** cover all possible cases. In other words, it must be _exhaustive_.
-The value of the first matching branch becomes the value of the overall expression. If you don't cover all cases, 
-the compiler throws an error.
+If you use `when` as an expression, you **must** cover all possible cases. The value of the first matching branch becomes
+the value of the overall expression. If you don't cover all cases, the compiler throws an error.
 
 If your `when` expression has a subject, you can use an `else` branch to make sure that all possible cases are covered, but
 it isn't mandatory. For example, if your subject is a `Boolean`, [`enum` class](enum-classes.md), [`sealed` class](sealed-classes.md),
@@ -360,9 +359,8 @@ The scope of a variable introduced as the subject is restricted to the body of t
 ### Guard conditions {id="guard-conditions-in-when-expressions"}
 <primary-label ref="experimental-general"/>
 
-Guard conditions allow you to include 
-more than one condition to the branches of a `when` expression, making complex control flow more explicit and concise.
-You can use guard conditions in `when` expressions or statements with a subject.
+Guard conditions allow you to include more than one condition to the branches of a `when` expression or statement, making complex 
+control flow more explicit and concise. You can use guard conditions with `when` as long as it has a subject.
 
 Place a guard condition after the primary condition in the same branch, separated by `if`:
 
