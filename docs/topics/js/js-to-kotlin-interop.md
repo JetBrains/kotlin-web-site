@@ -14,28 +14,28 @@ all declarations are available to JavaScript via the `myModule` object. For exam
 fun foo() = "Hello"
 ```
 
-Can be called from JavaScript like this:
+This function can be called from JavaScript like this:
 
 ```javascript
 alert(myModule.foo());
 ```
 
-This is not applicable when you compile your Kotlin module to JavaScript modules like UMD (which is the default setting
-for both `browser` and `nodejs` targets), ESM, CommonJS or AMD.
-In this case, your declarations will be exposed in the format specified by your chosen JavaScript module system.
-When using UMD, ESM or CommonJS, for example, your call site could look
+Calling the function directly like this is not applicable when you compile your Kotlin module to JavaScript modules like UMD (the default setting
+for both `browser` and `nodejs` targets), ESM, CommonJS, or AMD.
+In these cases, your declarations are exposed according to the chosen JavaScript module system.
+For example, when using UMD, ESM, or CommonJS, your call site would look
 like this:
 
 ```javascript
 alert(require('myModule').foo());
 ```
 
-Check the article on [JavaScript Modules](js-modules.md) for more information on the topic of JavaScript module systems.
+For more information about JavaScript module systems, see [JavaScript Modules](js-modules.md).
 
 ## Package structure
 
-For most of the module systems (CommonJS, Plain, and UMD), Kotlin exposes its package structure to JavaScript,
-so unless you define your declarations in the root package, you have to use fully qualified names in JavaScript.
+For most of the module systems (CommonJS, Plain, and UMD), Kotlin exposes its package structure to JavaScript.
+Unless you define your declarations in the root package, you have to use fully qualified names in JavaScript.
 For example:
 
 ```kotlin
@@ -44,21 +44,22 @@ package my.qualified.packagename
 fun foo() = "Hello"
 ```
 
-When using UMD or CommonJS, for example, your callsite could look like this:
+For example, when using UMD or CommonJS, your call site could look like this:
 
 ```javascript
 alert(require('myModule').my.qualified.packagename.foo())
 ```
 
-Or, in the case of using `plain` as a module system setting:
+When using `plain` as a module system setting, the call site would be:
 
 ```javascript
 alert(myModule.my.qualified.packagename.foo());
 ```
 
-Targeting ECMAScript Modules (ESM) instead loses package information,
-to improve the application bundle size and to match the typical layout of ESM packages.
-So the consumption of the Kotlin declarations with ES modules looks like this:
+When targeting ECMAScript Modules (ESM), package information is not preserved
+to improve the application bundle size and match the typical layout of ESM packages.
+In this case, the consumption of the Kotlin declarations with ES modules looks like this:
+
 ```javascript
 import { foo } from 'myModule';
 
