@@ -1,5 +1,6 @@
 [//]: # (title: Testing page)
-[//]: # (description: This page is for testing purposes only.)
+
+<web-summary>This page is for testing purposes only.</web-summary>
 
 <no-index/>
 
