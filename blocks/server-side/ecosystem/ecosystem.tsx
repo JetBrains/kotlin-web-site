@@ -49,7 +49,9 @@ export const Ecosystem: FC = ({}) => {
                         <div className={styles.ecosystemCard} key={card.title}>
                             <img src={card.src.src} alt="" />
                             <p className={textCn('rs-text-2')}>{card.text}</p>
-                            <a className={textCn('rs-link')} href={card.linkHref}>{card.linkText}</a>
+                            <p className={textCn('rs-text-2')}>
+                                <a className={textCn('rs-link', {external:true, mode: 'standalone'})} href={card.linkHref}>{card.linkText}</a>
+                            </p>
                         </div>
                     ))}
                 </div>
