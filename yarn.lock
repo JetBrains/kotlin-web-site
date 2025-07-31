@@ -6929,6 +6929,11 @@ react-scrollbar-size@5.0.0:
   resolved "https://registry.yarnpkg.com/react-scrollbar-size/-/react-scrollbar-size-5.0.0.tgz#29892779dfcb9077ce18e2483d1dba6400c58fb0"
   integrity sha512-Ly3OuRMz4yDFViTh+ANH6TrG8EqrgjC1uxxm2a/95+2Ijy3XT+bWtzm4QmgZUcUVg+8BCKzmPMM7z39ZtucDIQ==
 
+react-snap-carousel@0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/react-snap-carousel/-/react-snap-carousel-0.5.1.tgz#7cc274796cf19f6217d3e4c8f001264c30171a48"
+  integrity sha512-t8FMtBUUIi65ie2B1ton1ew3LxONMNBeJXOZUCmg9lGZnT25H8vEj8Z0+UeWVmT9mgSdEKTnySWVWWeCzE90KA==
+
 react-style-singleton@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-style-singleton/-/react-style-singleton-2.2.1.tgz#f99e420492b2d8f34d38308ff660b60d0b1205b4"

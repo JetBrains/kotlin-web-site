@@ -8,6 +8,7 @@ import { CodeHighlight } from '../../../components/code-highlight/code-highlight
 import { ArrowLeftIcon, ArrowRightIcon } from '@rescui/icons';
 
 import styles from './index.module.css';
+import { SnapCarousel } from '../../../components/snap-carousel/snap-carousel';
 
 interface FeatureSlideItem {
     id: string;
@@ -104,11 +105,8 @@ export const FeaturesCarousel: FC<FeaturesCarouselProps> = ({ featuresData, clas
 
     return (
         <div className={classNames(styles.carouselContainer, className)}>
-            <SwipeableViews
-                className={styles.carousel}
-                index={activeIndex}
-                onChangeIndex={handleChangeIndex}
-            >
+
+            <SnapCarousel>
                 {featuresData.map(feature => (
                     <FeatureCard
                         className={styles.slide}
@@ -116,32 +114,7 @@ export const FeaturesCarousel: FC<FeaturesCarouselProps> = ({ featuresData, clas
                         {...feature}
                     />
                 ))}
-            </SwipeableViews>
-
-            <div className={styles.controls}>
-                <Button
-                    size="s"
-                    mode="outline"
-                    onClick={handlePrev}
-                    disabled={activeIndex === 0}
-                    className={styles.navButton}
-                    icon={<ArrowLeftIcon theme={'dark'} />}
-                />
-
-                <div className={styles.indicator}>
-                    {activeIndex + 1}/{featuresData.length}
-                </div>
-
-                <Button
-                    size="s"
-                    mode="outline"
-                    onClick={handleNext}
-                    disabled={activeIndex === featuresData.length - 1}
-                    className={styles.navButton}
-                    theme={'dark'}
-                    icon={<ArrowRightIcon theme={'dark'} />}
-                />
-            </div>
+            </SnapCarousel>
         </div>
     );
 };
