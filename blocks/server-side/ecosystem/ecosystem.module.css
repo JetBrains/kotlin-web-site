@@ -24,10 +24,6 @@
 }
 
 @media (min-width: 768px) {
-    .cards {
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 32px;
-    }
 
     .bigCards {
         grid-gap: 32px;
@@ -39,12 +35,24 @@
 
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1001px) {
     .bigCards {
         grid-template-columns: repeat(2, 1fr);
     }
 
     .grid {
         grid-template-columns: repeat(4, 1fr);
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 32px;
+    }
+}
+
+@media (min-width: 1191px) {
+    .cards {
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 32px;
     }
 }
