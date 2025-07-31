@@ -20,8 +20,8 @@ This function can be called from JavaScript like this:
 alert(myModule.foo());
 ```
 
-Calling the function directly like this is not applicable when you compile your Kotlin module to JavaScript modules like UMD (the default setting
-for both `browser` and `nodejs` targets), ESM, CommonJS, or AMD.
+Calling the function directly like this is not applicable when you compile your Kotlin module to JavaScript modules like [UMD](https://github.com/umdjs/umd) (the default setting
+for both `browser` and `nodejs` targets), [ESM](https://tc39.es/ecma262/#sec-modules), [CommonJS](https://nodejs.org/api/modules.html#modules-commonjs-modules), or [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD).
 In these cases, your declarations are exposed according to the chosen JavaScript module system.
 For example, when using UMD, ESM, or CommonJS, your call site would look
 like this:
