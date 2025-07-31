@@ -39,7 +39,7 @@
 
 .codeBlock {
     width: 100%;
-    padding: 16px 16px 66px;
+    padding: 32px 32px 66px;
     border-radius: 16px;
     box-sizing: border-box;
     overflow: auto;
@@ -50,11 +50,15 @@
     margin: 0;
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 2;
 }
 
 @media (max-width: 1000px) {
     .codeSample {
         margin-top: 32px;
+    }
+
+    .codeBlock {
+        padding: 16px 16px 66px;
     }
 }

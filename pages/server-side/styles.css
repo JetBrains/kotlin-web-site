@@ -16,4 +16,13 @@
 .section-offset {
     margin-top: 72px;
     padding-bottom: 72px;
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        height: 72px;
+        margin-top: -72px;
+        visibility: hidden;
+    }
 }

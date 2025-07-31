@@ -33,7 +33,7 @@ export const HowToStart: FC = ({}) => {
 
                 <h3 className={textCn('rs-subtitle-2')}>
                     Because of Kotlin’s full interoperability with Java, <br />
-                    teams can introduce it gradually:
+                    teams can introduce it gradually
                 </h3>
 
                 <div className="ktl-row ktl-offset-top-l">
@@ -43,7 +43,7 @@ export const HowToStart: FC = ({}) => {
                             <div className={styles.item}>
                                 <ArrowRightIcon theme={'dark'} className={styles.icon} />
                                 <p className={cn(textCn('rs-text-2'), styles.title)}>
-                                    Full interop with Java allows using any JVM library or framework
+                                    Start using Kotlin for your tests.
                                 </p>
                             </div>
                             <div className={styles.item}>
@@ -69,7 +69,7 @@ export const HowToStart: FC = ({}) => {
                     </div>
 
                     <div className={cn("ktl-col", styles.codeSample)}>
-                        <CodeHighlight code={codeSample} className={styles.codeBlock} />
+                        <CodeHighlight code={codeSample} className={styles.codeBlock} language={'text'} />
                     </div>
 
                 </div>

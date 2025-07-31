@@ -16,7 +16,7 @@ export const ServerSidePerformance: FC = ({}) => {
 
     return (
         <section className="ktl-layout ktl-layout--center">
-            <div className="ktl-container section-offset">
+            <div className="ktl-container section-offset" id={'performance'}>
                 <h2 className={cn(textCn('rs-h1'))}>
                     Performance: optimized for high-load
                 </h2>
@@ -29,12 +29,12 @@ export const ServerSidePerformance: FC = ({}) => {
                 <div className={cn(styles.cards, 'ktl-offset-top-xl')}>
                     <Card
                         title={'Kotlin coroutines'}
-                        description={'Run 10,000+ lightweight tasks on just a few threads.'}
+                        description={'Run 10,000+ lightweight tasks on just a few threads'}
                     />
 
                     <Card
                         title={'Inline functions'}
-                        description={'Less overhead as the compiler copies function bodies at the call site.'}
+                        description={'Less overhead as the compiler copies function bodies at the call site'}
                     />
 
                     <Card
@@ -44,7 +44,7 @@ export const ServerSidePerformance: FC = ({}) => {
 
                     <Card
                         title={'The JVM'}
-                        description={'Decades of fine-tuning for high throughput and low latency.'}
+                        description={'Decades of fine-tuning for high throughput and low latency'}
                     />
                 </div>
 

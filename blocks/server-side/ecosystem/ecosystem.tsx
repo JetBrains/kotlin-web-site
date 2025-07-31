@@ -15,7 +15,7 @@ export const Ecosystem: FC = ({}) => {
 
     return (
         <section className="ktl-layout ktl-layout--center">
-            <div className="ktl-container section-offset">
+            <div className="ktl-container section-offset" id={'ecosystem'}>
 
                 <h2 className={cn(textCn('rs-h1'))}>
                     Rich JVM ecosystem for backend development

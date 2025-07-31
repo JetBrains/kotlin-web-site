@@ -18,6 +18,9 @@
   display: flex;
   flex-direction: column;
   background: var(--rs-color-white-t5);
+  &:hover {
+    outline: 1px solid #7E42FF;
+  }
 }
 
 .content {

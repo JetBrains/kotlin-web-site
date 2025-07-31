@@ -97,7 +97,7 @@
   overflow: hidden;
   flex: 0 0 auto;
   width: 100%;
-  padding: 24px;
+  padding: 16px;
   border-radius: 24px;
   border: 1px solid transparent;
   cursor: pointer;
@@ -130,15 +130,12 @@
 
 .tabTitle {
   position: relative;
+  margin: 0;
 }
 
 .tabDescription {
   position: relative;
-  margin-top: 16px;
-}
-
-.tabIcon {
-  margin-bottom: 16px;
+  margin: 8px 0 0;
 }
 
 .tabIcon svg {
@@ -181,7 +178,7 @@
 
 .codeBlock {
   width: 100%;
-  padding: 16px 16px 66px;
+  padding: 32px 32px 92px;
   border-radius: 16px;
   overflow: auto;
   background-color: #282a36; /* Dracula theme background */
@@ -191,5 +188,5 @@
   margin: 0;
   font-family: 'JetBrains Mono', monospace;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 2;
 }

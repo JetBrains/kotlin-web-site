@@ -4,16 +4,17 @@ import { codeToHtml } from 'shiki';
 interface CodeHighlightProps {
     code: string;
     className?: string;
+    language?: string;
 }
 
-export const CodeHighlight: FC<CodeHighlightProps> = ({ code, className = '' }) => {
+export const CodeHighlight: FC<CodeHighlightProps> = ({ code, className = '', language = 'kotlin' }) => {
     const [highlightedCode, setHighlightedCode] = React.useState<string>('');
 
     React.useEffect(() => {
         const highlight = async () => {
             const html = await codeToHtml(code, {
                 theme: 'dracula',
-                lang: 'kotlin',
+                lang: language,
             });
             setHighlightedCode(html);
         };

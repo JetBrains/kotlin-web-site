@@ -62,15 +62,6 @@ export const FeaturesSwitcher: FC<FeaturesSwitcherProps> = ({ slides, className 
                                 onClick={() => setCurrentSlideIndex(i)}
                                 className={classNames(styles.tab, i === currentSlideIndex ? styles.tabActive : '')}
                             >
-                                {i === currentSlideIndex && (
-                                    <div
-                                        className={classNames(
-                                            styles.tabIcon
-                                        )}
-                                    >
-                                        <img src={slide.icon.src} alt="" />
-                                    </div>
-                                )}
 
                                 <p className={classNames(textCn('rs-h3'), styles.tabTitle)}>{slide.title}</p>
 

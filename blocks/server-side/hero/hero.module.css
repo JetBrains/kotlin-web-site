@@ -44,6 +44,10 @@
     display: flex;
     align-items: center;
     padding: 24px 32px;
+    text-decoration: none;
+    &:hover {
+        outline: 1px solid #7E42FF;
+    }
 }
 
 .featureTitle {

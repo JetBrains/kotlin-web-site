@@ -10,6 +10,7 @@ import '@jetbrains/kotlin-web-site-ui/out/components/layout';
 import { Button } from '@rescui/button';
 
 import Img from 'next/image';
+import Link from 'next/link';
 
 import heroImg from './images/hero-graphics.webp'
 
@@ -29,23 +30,23 @@ export const ServerSideHero: FC = ({}) => {
                     </h1>
 
                     <p className={cn(textCn('rs-subtitle-2'), styles.heroSubtitle)}>
-                        Kotlin is a pragmatic language designed for building robust backends on the JVM. It offers
+                        Kotlin is a perfect fit for building backends on JVM. It's trusted by major tech companies to build scalable and reliable server-side applications
                     </p>
 
                     <div className={styles.featuresList}>
 
-                        <div className={styles.feature}>
+                        <Link href={'#safety'} className={styles.feature}>
                             <p className={cn(textCn('rs-subtitle-2'), styles.featureTitle)}>Safety</p>
-                        </div>
-                        <div className={styles.feature}>
+                        </Link>
+                        <Link href={'#performance'} className={styles.feature}>
                             <p className={cn(textCn('rs-subtitle-2'), styles.featureTitle)}>Runtime performance</p>
-                        </div>
-                        <div className={styles.feature}>
+                        </Link>
+                        <Link href={'#ecosystem'} className={styles.feature}>
                             <p className={cn(textCn('rs-subtitle-2'), styles.featureTitle)}>Access to the rich JVM ecosystem</p>
-                        </div>
-                        <div className={styles.feature}>
+                        </Link>
+                        <Link href={'#tools'} className={styles.feature}>
                             <p className={cn(textCn('rs-subtitle-2'), styles.featureTitle)}>Great developer experience</p>
-                        </div>
+                        </Link>
 
                     </div>
 

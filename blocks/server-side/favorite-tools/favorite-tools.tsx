@@ -12,13 +12,19 @@ import { ArrowTopRightIcon } from '@rescui/icons';
 import ToolsImage1 from './images/tools-screen-1.png';
 import ToolsImage2 from './images/tools-screen-2.png';
 
+import IdeaLogo from './images/intellij-idea.svg'
+import MavenLogo from './images/maven.svg';
+import GradleLogo from './images/gradle.svg';
+import AntLogo from './images/ant.svg';
+import BazelLogo from './images/bazel.svg';
+
 export const FavoriteTools: FC = ({}) => {
 
     const textCn = useTextStyles();
 
     return (
         <section className="ktl-layout ktl-layout--center">
-            <div className="ktl-container section-offset">
+            <div className="ktl-container section-offset" id={'tools'}>
 
                 <h2 className={cn(textCn('rs-h1'))}>
                     Use your favorite tools
@@ -29,7 +35,7 @@ export const FavoriteTools: FC = ({}) => {
                         <Image src={ToolsImage1} alt={'IDE support'} className={styles.image} />
                     </div>
                     <div className="ktl-col-12 ktl-col-sm-4">
-                        <h3 className={cn(textCn('rs-h3'), styles.sectionTitle)}>
+                        <h3 className={cn(textCn('rs-h3'), styles.sectionTitle, "spacer-md")}>
                             IDE support
                         </h3>
 
@@ -43,7 +49,14 @@ export const FavoriteTools: FC = ({}) => {
                         <Button
                             href={'https://www.jetbrains.com/idea/download/?_gl=1*1ujcke8*_gcl_au*MTA0OTU3NjY2Mi4xNzUyMjQzNjU3*_ga*MTg1NzExNDA3My4xNzUyMjQzNjY0*_ga_9J976DJZ68*czE3NTMyNzIzOTYkbzgkZzAkdDE3NTMyNzIzOTYkajYwJGwwJGgw'}
                             size={'l'} mode={'outline'} icon={<ArrowTopRightIcon />}
-                            iconPosition={'right'}>Download</Button>
+                            iconPosition={'right'}
+                        >
+                            Download
+                        </Button>
+
+                        <div className={styles.logos}>
+                            <img src={IdeaLogo.src} alt="IntelliJ IDEA logo" />
+                        </div>
                     </div>
                 </div>
 
@@ -64,8 +77,15 @@ export const FavoriteTools: FC = ({}) => {
                             <a className={textCn('rs-link')} href={'https://github.com/bazelbuild/rules_kotlin'}>Bazel
                                 ↗</a>
                         </p>
+
+                        <div className={styles.logos}>
+                            <img src={MavenLogo.src} alt="Maven logo" />
+                            <img src={GradleLogo.src} alt="Gradle logo" />
+                            <img src={AntLogo.src} alt="Ant logo" />
+                            <img src={BazelLogo.src} alt="Bazel logo" />
+                        </div>
                     </div>
-                    <div className="ktl-col-12 ktl-col-sm-8">
+                    <div className="ktl-col-12 ktl-col-sm-8 spacer-md">
                         <Image src={ToolsImage2} alt={'Build tools'} className={styles.image} />
                     </div>
                 </div>

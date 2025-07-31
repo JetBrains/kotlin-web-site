@@ -6,3 +6,15 @@
 .sectionTitle {
     margin-top: 0;
 }
+
+.logos {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 24px;
+    margin-top: 24px;
+    align-items: center;
+
+    & > img {
+        max-height: max-content;
+    }
+}
