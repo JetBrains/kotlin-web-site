@@ -395,7 +395,7 @@ Now that you know the fundamentals of Kotlin control flow, it's time to learn ho
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="loops-exercise-1"}
 
-You have a program that counts pizza slices until there’s a whole pizza with 8 slices. Refactor this program in two ways:
+You have a program that counts pizza slices until there's a whole pizza with 8 slices. Refactor this program in two ways:
 
 * Use a `while` loop.
 * Use a `do-while` loop.

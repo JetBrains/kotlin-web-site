@@ -157,7 +157,7 @@ See [Functions](functions.md).
 
 In Kotlin, you declare a variable starting with a keyword, `val` or `var`, followed by the name of the variable.
 
-Use the `val` keyword to declare variables that are assigned a value only once. These are immutable, read-only local variables that can’t be reassigned a different value
+Use the `val` keyword to declare variables that are assigned a value only once. These are immutable, read-only local variables that can't be reassigned a different value
 after initialization: 
 
 ```kotlin
@@ -713,4 +713,3 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-is-operator-logic"}
 
 See [Classes](classes.md) and [Type casts](typecasts.md).
-

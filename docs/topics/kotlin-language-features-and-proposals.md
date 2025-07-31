@@ -220,7 +220,7 @@ guided by pragmatic design.
 **Improvements to annotation use-site targets on properties**
 
 * KEEP
-  proposal: [Improvements to annotation use-site targets on properties](https://github.com/Kotlin/KEEP/blob/change-defaulting-rule/proposals/change-defaulting-rule.md)
+  proposal: [Improvements to annotation use-site targets on properties](https://github.com/Kotlin/KEEP/blob/master/proposals/annotation-target-in-properties.md)
 * YouTrack issue: [KT-19289](https://youtrack.jetbrains.com/issue/KT-19289)
 * Available since: 2.2.0
 
@@ -238,7 +238,7 @@ guided by pragmatic design.
 **Nested (non-capturing) type aliases**
 
 * KEEP
-  proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/nested-typealias/proposals/nested-typealias.md)
+  proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/master/proposals/nested-typealias.md)
 * YouTrack issue: [KT-45285](https://youtrack.jetbrains.com/issue/KT-45285)
 * Available since: 2.2.0
 
