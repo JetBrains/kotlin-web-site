@@ -1,5 +1,6 @@
 [//]: # (title: Create a Spring Boot project with Kotlin)
-[//]: # (description: Create a Spring Boot application with Kotlin using IntelliJ IDEA.)
+
+<web-summary>Create a Spring Boot application with Kotlin using IntelliJ IDEA.</web-summary>
 
 <tldr>
     <p>This is the first part of the <strong>Get started with Spring Boot and Kotlin</strong> tutorial:</p><br/>

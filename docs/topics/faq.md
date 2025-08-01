@@ -1,5 +1,6 @@
 [//]: # (title: FAQ)
-[//]: # (description: Kotlin is a concise multiplatform programming language developed by JetBrains.)
+
+<web-summary>Kotlin is a concise multiplatform programming language developed by JetBrains.</web-summary>
 
 ### What is Kotlin?
 
