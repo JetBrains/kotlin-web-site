@@ -10,8 +10,6 @@ import {
 import { getElementScreenshotWithPadding } from './utils';
 import os from 'os';
 
-const MAX_DIFF_PIXEL_RATIO = 0.011;
-
 test.describe('WebHelp page appearance', async () => {
     test.beforeEach(async ({ page }) => {
         const webHelpPage = new WebHelpPage(page, '/docs/test-page.html');
@@ -102,10 +100,7 @@ test.describe('WebHelp page appearance', async () => {
         test(`Should render layout of the article properly on ${resolutionName}`, async ({ page }) => {
             await page.setViewportSize(resolution);
             const screenshot = await page.screenshot({ fullPage: true });
-            expect(screenshot).toMatchSnapshot({
-                name: `layout_${resolutionName}.png`,
-                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
-            });
+            expect(screenshot).toMatchSnapshot(`layout_${resolutionName}.png`);
         });
 
         test(`Should render micro format properly on ${resolutionName}`, async ({ page }) => {
@@ -162,10 +157,7 @@ test.describe('WebHelp page appearance', async () => {
             await page.setViewportSize(resolution);
             const codeBlock = page.locator(testSelector('code-block')).filter({ hasText: 'MessageService' }).first();
             const screenshot = await codeBlock.screenshot();
-            expect(screenshot).toMatchSnapshot({
-                name: `code-block_${resolutionName}.png`,
-                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
-            });
+            expect(screenshot).toMatchSnapshot(`code-block_${resolutionName}.png`);
         });
 
         test(`Should render hovered codeblock properly on ${resolutionName}`, async ({ page }) => {
@@ -173,10 +165,7 @@ test.describe('WebHelp page appearance', async () => {
             const codeBlock = page.locator(testSelector('code-block')).filter({ hasText: 'MessageService' }).first();
             await codeBlock.hover();
             const screenshot = await codeBlock.screenshot();
-            expect(screenshot).toMatchSnapshot({
-                name: `code-block_hovered_${resolutionName}.png`,
-                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
-            });
+            expect(screenshot).toMatchSnapshot(`code-block_hovered_${resolutionName}.png`);
         });
 
         test(`Should render expandable codeblock properly on ${resolutionName}`, async ({ page }) => {
@@ -184,10 +173,7 @@ test.describe('WebHelp page appearance', async () => {
             const codeBlock = page.locator(testSelector('code-collapse')).filter({ hasText: 'package' }).first();
             const codeBlockElement = await codeBlock.elementHandle();
             const screenshot = await getElementScreenshotWithPadding(page, codeBlockElement, ELEMENT_PADDING_OFFSET);
-            expect(screenshot).toMatchSnapshot({
-                name: `code-block_expandable_${resolutionName}.png`,
-                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
-            });
+            expect(screenshot).toMatchSnapshot(`code-block_expandable_${resolutionName}.png`);
         });
 
         test(`Should render expandable codeblock when expanded properly on ${resolutionName}`, async ({ page }) => {
@@ -197,10 +183,7 @@ test.describe('WebHelp page appearance', async () => {
             await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT_LONG);
             const codeBlockElement = await codeBlock.elementHandle();
             const screenshot = await getElementScreenshotWithPadding(page, codeBlockElement, ELEMENT_PADDING_OFFSET);
-            expect(screenshot).toMatchSnapshot({
-                name: `code-block_expandable_expanded_${resolutionName}.png`,
-                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
-            });
+            expect(screenshot).toMatchSnapshot(`code-block_expandable_expanded_${resolutionName}.png`);
         });
 
         test(`Should render collapsed codeblock properly on ${resolutionName}`, async ({ page }) => {
@@ -213,10 +196,7 @@ test.describe('WebHelp page appearance', async () => {
             await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT_LONG);
             const codeBlockElement = await codeBlock.elementHandle();
             const screenshot = await getElementScreenshotWithPadding(page, codeBlockElement, ELEMENT_PADDING_OFFSET);
-            expect(screenshot).toMatchSnapshot({
-                name: `code-block_expandable_${resolutionName}.png`,
-                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
-            });
+            expect(screenshot).toMatchSnapshot(`code-block_expandable_${resolutionName}.png`);
         });
 
         test(`Should render playground properly on ${resolutionName}`, async ({ page }) => {
@@ -271,10 +251,7 @@ test.describe('WebHelp page appearance', async () => {
             await page.setViewportSize(resolution);
             const element = page.locator('div.table').filter({ hasText: 'Dependencies' }).first();
             const screenshot = await element.screenshot();
-            expect(screenshot).toMatchSnapshot({
-                name: `table_complex_codeblocks_${resolutionName}.png`,
-                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
-            });
+            expect(screenshot).toMatchSnapshot(`table_complex_codeblocks_${resolutionName}.png`);
         });
 
         test(`Should render ordered list properly on ${resolutionName}`, async ({ page }) => {
@@ -339,10 +316,7 @@ test.describe('WebHelp page appearance', async () => {
             await page.locator('dt').first().click();
             await page.waitForTimeout(MICRO_ANIMATION_TIMEOUT);
             const screenshot = await getElementScreenshotWithPadding(page, element, ELEMENT_PADDING_OFFSET);
-            expect(screenshot).toMatchSnapshot({
-                name: `definition-list_expanded_${resolutionName}.png`,
-                maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO
-            });
+            expect(screenshot).toMatchSnapshot(`definition-list_expanded_${resolutionName}.png`);
         });
 
         test(`Should render markdown image properly on ${resolutionName}`, async ({ page }) => {
