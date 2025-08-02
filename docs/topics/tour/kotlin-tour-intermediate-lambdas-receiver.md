@@ -136,9 +136,9 @@ fun main() {
     // Print the menu
     printMenu(mainMenu)
     // Menu: Main Menu
-    // Item: Home
-    // Item: Settings
-    // Item: Exit
+    //   Item: Home
+    //   Item: Settings
+    //   Item: Exit
 }
 //sampleEnd
 ```
