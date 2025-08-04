@@ -1,6 +1,6 @@
 [//]: # (title: No-arg compiler plugin)
 
-The *no-arg* compiler plugin generates an additional zero-argument constructor for classes with a specific annotation. 
+The `no-arg` compiler plugin generates an additional zero-argument constructor for classes with a specific annotation. 
 
 The generated constructor is synthetic, so it can't be directly called from Java or Kotlin, but it can be called using reflection.
 
