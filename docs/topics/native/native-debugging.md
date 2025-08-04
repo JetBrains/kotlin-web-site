@@ -1,16 +1,16 @@
 [//]: # (title: Debugging Kotlin/Native)
 
-The Kotlin/Native compiler can generate binaries with debug info, as well as create debug symbol files for [symbolicating
+The Kotlin/Native compiler can generate binaries with debug information, as well as create debug symbol files for [symbolicating
 crash reports](#debug-ios-applications).
 
-The debug info is compatible with the DWARF 2 specification, so modern debugger tools, like LLDB and GDB can:
+The debug information is compatible with the DWARF 2 specification, so modern debugger tools, like LLDB and GDB can:
 
 * [Set breakpoints](#set-breakpoints)
 * [Use stepping](#use-stepping)
-* [Inspect variable and type information](#variable-inspection)
+* [Inspect variable and type information](#inspect-variables)
 
 > Supporting the DWARF 2 specification means that the debugger tool recognizes Kotlin as C89, because before the DWARF 5
-> specification, there is no identifier for the Kotlin language type in specification.
+> specification, there is no identifier for the Kotlin language type in the specification.
 >
 {style="note"}
 
@@ -32,7 +32,7 @@ To enable debugging, you need to produce binaries that include debug information
   kotlinc-native hello.kt -g -o terminator
   ```
 
-Then launch your debugger tool, for example:
+Then launch your debugger tool. For example:
 
 ```bash
 lldb terminator.kexe
@@ -103,7 +103,7 @@ Modern debuggers provide several ways to set a breakpoint, see below for a tool-
   Breakpoint 2: address = 0x00000001000012e4
   ```
 
-* By regex. You might find it useful for debugging generated artifacts, like lambda (with the `#` symbol in the name):
+* By regex. You might find it useful for debugging generated artifacts, like a lambda (with the `#` symbol in the name):
 
   ```bash
   (lldb) b -r main\(
@@ -242,7 +242,7 @@ Process 80496 launched: './program.kexe' (x86_64)
 
 ## Debug iOS applications
 
-Debugging iOS application sometimes involves analyzing crash reports in detail.
+Debugging iOS applications sometimes involves analyzing crash reports in detail.
 Crash reports typically require symbolication, the process of translating memory addresses into readable source code locations.
 
 To symbolicate addresses in Kotlin code (for example, for stack trace elements corresponding to Kotlin code), you need a
