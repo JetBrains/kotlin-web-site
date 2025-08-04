@@ -3,7 +3,8 @@
 The Kotlin/Native compiler can generate binaries with debug information, as well as create debug symbol files for [symbolicating
 crash reports](#debug-ios-applications).
 
-The debug information is compatible with the DWARF 2 specification, so modern debugger tools, like LLDB and GDB can:
+The debug information is compatible with the [DWARF](https://dwarfstd.org/index.html) 2 specification, so modern debugger
+tools, like LLDB and GDB can:
 
 * [Set breakpoints](#set-breakpoints)
 * [Use stepping](#use-stepping)
@@ -202,7 +203,7 @@ Process 4985 launched: './program.kexe' (x86_64)
 (lldb) 
 ```
 
-Getting representation of the object variable (var) could also be done using the
+Getting representation of the object variable (`var`) could also be done using the
 built-in runtime function `Konan_DebugPrint` (this approach also works for GDB, using a module-specific syntax):
 
 ```bash
