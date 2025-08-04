@@ -3,7 +3,7 @@
 The Kotlin/Native compiler can generate binaries with debug information, as well as create debug symbol files for [symbolicating
 crash reports](#debug-ios-applications).
 
-The debug information is compatible with the [DWARF](https://dwarfstd.org/index.html) 2 specification, so modern debugger
+The debug information is compatible with the [DWARF 2](https://dwarfstd.org/download.html) specification, so modern debugger
 tools, like LLDB and GDB can:
 
 * [Set breakpoints](#set-breakpoints)
@@ -80,7 +80,7 @@ Process 28473 stopped
 
 ## Set breakpoints
 
-Modern debuggers provide several ways to set a breakpoint, see below for a tool-by-tool breakdown:
+Modern debuggers provide several ways to set a breakpoint. See below for a tool-by-tool breakdown:
 
 ### LLDB
 
