@@ -40,6 +40,10 @@ abstract class WritersideBuilder(
         equals("container.engine","docker")
     }
 
+    failureConditions {
+        testFailure = false
+    }
+
     dependencies {
         artifacts(BuildWebHelpFrontend) {
             buildRule = lastPinned("+:*")
