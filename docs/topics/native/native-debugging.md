@@ -14,9 +14,12 @@ The debug information is compatible with the DWARF 2 specification, so modern de
 >
 {style="note"}
 
-## Generate binaries with debug info
+## Generate binaries with debug information
 
-To enable debugging, you need to produce binaries that include debug information. You can do that:
+When debugging in IntelliJ IDEA, Android Studio, or Xcode, binaries with debug information are generated automatically
+(unless the build is configured differently).
+
+You can enable debugging manually and produce binaries that include debug information by:
 
 * **Using Gradle tasks**. To get debug binaries, use `linkDebug*` Gradle tasks, for example:
 
@@ -121,7 +124,7 @@ Modern debuggers provide several ways to set a breakpoint, see below for a tool-
   struct ktype:kotlin.Unit &kfun:main(kotlin.Array<kotlin.String>);
   ```
 
-* By name is _unusable_ because `:` is a separator for the breakpoint by location:
+* By name is _not_ possible because `:` is a separator for the breakpoint by location:
 
   ```bash
   (gdb) b kfun:main(kotlin.Array<kotlin.String>)
@@ -200,7 +203,7 @@ Process 4985 launched: './program.kexe' (x86_64)
 ```
 
 Getting representation of the object variable (var) could also be done using the
-built-in runtime function `Konan_DebugPrint` (this approach also works for GDB, using a module of command syntax):
+built-in runtime function `Konan_DebugPrint` (this approach also works for GDB, using a module-specific syntax):
 
 ```bash
 0:b-debugger-fixes:minamoto@unit-703(0)# cat ../debugger-plugin/1.kt | nl -p
@@ -242,15 +245,19 @@ Process 80496 launched: './program.kexe' (x86_64)
 
 ## Debug iOS applications
 
-Debugging iOS applications sometimes involves analyzing crash reports in detail.
-Crash reports typically require symbolication, the process of translating memory addresses into readable source code locations.
+Debugging iOS applications sometimes involves analyzing crash reports in detail. Crash reports typically require
+symbolication, the process of translating memory addresses into readable source code locations.
 
 To symbolicate addresses in Kotlin code (for example, for stack trace elements corresponding to Kotlin code), you need a
-special debug symbol (`.dSYM`) file.
-This file maps memory addresses in crash reports with actual locations in the source code, such as functions or line numbers.
+special debug symbol (`.dSYM`) file. This file maps memory addresses in crash reports with actual locations in the source
+code, such as functions or line numbers.
 
 The Kotlin/Native compiler generates `.dSYM` files for release (optimized) binaries on Apple platforms by default.
-On other platforms, you need to explicitly enable it using the `-Xadd-light-debug` compiler option:
+When building in Xcode, the IDE looks for `.dSYM` files in standard locations and uses them automatically for symbolication.
+Xcode automatically detects `.dSYM` files in projects created from IntelliJ IDEA templates.
+
+On other platforms, you can add debug information into the produced binaries (which increases their size)
+using the `-Xadd-light-debug` compiler option:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -280,9 +287,6 @@ kotlin {
 
 </tab>
 </tabs>
-
-When building in Xcode, the IDE looks for `.dSYM` files in standard locations and uses them automatically for symbolication.
-Xcode automatically detects `.dSYM` files in projects created from IntelliJ IDEA templates.
 
 For more information about crash reports, see the [Apple documentation](https://developer.apple.com/documentation/xcode/diagnosing-issues-using-crash-reports-and-device-logs).
 
