@@ -2,6 +2,7 @@ package documentation.builds
 
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import kotlinlang.builds.BuildWebHelpFrontend
 
 abstract class WritersideBuilder(
     module: String,
@@ -9,7 +10,7 @@ abstract class WritersideBuilder(
     customInit: BuildType.() -> Unit = {}
 ): BuildType({
     val dockerImageTag = "2.1.2176-p8483"
-    val frontend = "/docs/static/v3/"
+    val frontend = "file:///opt/static/"
 
     name = "${instance.uppercase()} documentation build"
     description = "Build $module/$instance documentation with the docker"
@@ -21,8 +22,10 @@ abstract class WritersideBuilder(
     steps {
         script {
             name = "Build $module/$instance documentation with the docker"
+            // language=sh
             scriptContent = """
                 docker run --rm -v %teamcity.build.checkoutDir%:/opt/sources \
+                -v %teamcity.build.checkoutDir%/static:/opt/static \
                 -e SOURCE_DIR=/opt/sources \
                 -e MODULE_INSTANCE=$module/$instance \
                 -e RUNNER=teamcity \
@@ -35,6 +38,14 @@ abstract class WritersideBuilder(
 
     requirements {
         equals("container.engine","docker")
+    }
+
+    dependencies {
+        artifacts(BuildWebHelpFrontend) {
+            buildRule = lastPinned("+:*")
+            cleanDestination = true
+            artifactRules = "+:static.zip!** => static/"
+        }
     }
 
     customInit()
