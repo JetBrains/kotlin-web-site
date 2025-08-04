@@ -9,7 +9,7 @@ abstract class WritersideBuilder(
     customInit: BuildType.() -> Unit = {}
 ): BuildType({
     val dockerImageTag = "2.1.2176-p8483"
-    val frontend = "https://kotlinlang.org/docs/static/v3/"
+    val frontend = "/docs/static/v3/"
 
     name = "${instance.uppercase()} documentation build"
     description = "Build $module/$instance documentation with the docker"
