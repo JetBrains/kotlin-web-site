@@ -2,7 +2,8 @@
 
 If you create a Spring application with Kotlin,
 you can enable the `kotlin-spring` compiler plugin to avoid adding certain Spring annotations manually.
-This plugin is a preconfigured wrapper around the [`all-open` plugin](all-open-plugin.md) and behaves the same way.
+This plugin is a preconfigured wrapper around the [`all-open` plugin](all-open-plugin.md) and behaves the same way: 
+it markes all classes and methods as `open` if they are annotated with Spring annotations.
 
 You can use both `kotlin-allopen` and `kotlin-spring` in the same project.
 
