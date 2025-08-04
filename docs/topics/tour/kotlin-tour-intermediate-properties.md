@@ -204,7 +204,7 @@ In these functions:
 * The `operator` keyword marks these functions as operator functions, enabling them to overload the `get()` and `set()` functions.
 * The `thisRef` parameter refers to the object **containing** the delegated property. By default, the type is set to `Any?`, but you may need to declare a more specific type.
 * The `property` parameter refers to the property whose value is accessed or changed. You can use this parameter to access information
-like the property's name or type. By default, the type is set to `KProperty<*>`. You don't need to worry about changing this in your code.
+like the property's name or type. By default, the type is set to `KProperty<*>` but you can also use `Any?`. You don't need to worry about changing this in your code.
 
 The `getValue()` function has a return type of `String` by default, but you can adjust this if you want.
 
@@ -230,7 +230,7 @@ want from the `get()` function of the delegated property to the `getValue()` ope
 class CachedStringDelegate {
     var cachedValue: String? = null
 
-    operator fun getValue(thisRef: Any?, property: KProperty<*>): String {
+    operator fun getValue(thisRef: Any?, property: Any?): String {
         if (cachedValue == null) {
             cachedValue = "Default Value"
             println("Computed and cached: $cachedValue")
@@ -253,7 +253,7 @@ Now you can delegate the property that you want to cache (`val displayName`) to 
 class CachedStringDelegate {
     var cachedValue: String? = null
 
-    operator fun getValue(thisRef: User, property: KProperty<*>): String {
+    operator fun getValue(thisRef: User, property: Any?): String {
         if (cachedValue == null) {
             cachedValue = "${thisRef.firstName} ${thisRef.lastName}"
             println("Computed and cached: $cachedValue")
