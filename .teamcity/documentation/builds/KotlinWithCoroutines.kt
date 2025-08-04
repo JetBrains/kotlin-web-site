@@ -1,6 +1,8 @@
 package documentation.builds
 
 import documentation.vcsRoots.*
+import jetbrains.buildServer.configs.kotlin.CheckoutMode
+
 //import jetbrains.buildServer.configs.kotlin.BuildType
 //import jetbrains.buildServer.configs.kotlin.FailureAction
 //import jetbrains.buildServer.configs.kotlin.buildSteps.script
@@ -15,7 +17,6 @@ object KotlinWithCoroutines: WritersideBuilder(
             +:docs => docs
             +:.git => .git
             +:.gitmodules => .gitmodules
-            +:docs-test-submodule => docs-test-submodule
         """.trimIndent())
             root(KotlinxCoroutinesRoot,"""
             +:docs => kotlinx.coroutines/docs
@@ -33,6 +34,9 @@ object KotlinWithCoroutines: WritersideBuilder(
             +:docs => api-guidelines/docs
             +:.git => api-guidelines/.git
         """.trimIndent())
+
+            checkoutMode = CheckoutMode.ON_AGENT
+            cleanCheckout = true
         }
     }
 )
