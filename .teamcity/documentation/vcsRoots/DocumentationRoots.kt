@@ -5,7 +5,7 @@ import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 // KmpRoots
 object KotlinMultiplatformVCS: GitVcsRoot ({
     name = "Kotlin Multiplatform root"
-    url = "ssh://git@github.com:JetBrains/kotlin-multiplatform-dev-docs.git"
+    url = "git@github.com:JetBrains/kotlin-multiplatform-dev-docs.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
     checkoutPolicy = AgentCheckoutPolicy.NO_MIRRORS
@@ -17,7 +17,7 @@ object KotlinMultiplatformVCS: GitVcsRoot ({
 // Kotlin Reference With Coroutine Roots
 object KotlinReferenceRoot: GitVcsRoot ({
     name = "Kotlin Reference"
-    url = "ssh://git@github.com:JetBrains/kotlin-web-site.git"
+    url = "git@github.com:JetBrains/kotlin-web-site.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
     checkoutPolicy = AgentCheckoutPolicy.NO_MIRRORS
@@ -29,7 +29,7 @@ object KotlinReferenceRoot: GitVcsRoot ({
 
 object KotlinxCoroutinesRoot: GitVcsRoot ({
     name = "Kotlinx Coroutines"
-    url = "ssh://git@github.com:Kotlin/kotlinx.coroutines.git"
+    url = "git@github.com:Kotlin/kotlinx.coroutines.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
     checkoutPolicy = AgentCheckoutPolicy.NO_MIRRORS
@@ -40,7 +40,7 @@ object KotlinxCoroutinesRoot: GitVcsRoot ({
 
 object KotlinxLincheckRoot: GitVcsRoot ({
     name = "Kotlinx Lincheck"
-    url = "ssh://git@github.com:JetBrains/lincheck.git"
+    url = "git@github.com:JetBrains/lincheck.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
     checkoutPolicy = AgentCheckoutPolicy.NO_MIRRORS
@@ -51,7 +51,7 @@ object KotlinxLincheckRoot: GitVcsRoot ({
 
 object DokkaRoot: GitVcsRoot ({
     name = "Dokka"
-    url = "ssh://git@github.com:Kotlin/dokka.git"
+    url = "git@github.com:Kotlin/dokka.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
     checkoutPolicy = AgentCheckoutPolicy.NO_MIRRORS
@@ -62,7 +62,7 @@ object DokkaRoot: GitVcsRoot ({
 
 object APIGuidelinesRoot: GitVcsRoot ({
     name = "API Guidelines"
-    url = "ssh://git@github.com:Kotlin/api-guidelines.git"
+    url = "git@github.com:Kotlin/api-guidelines.git"
     branch = "refs/heads/main"
     branchSpec = "+:refs/heads/*"
     checkoutPolicy = AgentCheckoutPolicy.NO_MIRRORS
