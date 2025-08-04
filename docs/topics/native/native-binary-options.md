@@ -24,7 +24,7 @@ You can set binary options for your project in your `build.gradle.kts` file:
 
   ```kotlin
   kotlin {
-      iosX64("ios") {
+      iosArm64 {
           binaries {
               executable {
                   binaryOption("smallBinary", "true")
@@ -38,7 +38,7 @@ You can set binary options for your project in your `build.gradle.kts` file:
 
   ```kotlin
   kotlin {
-      iosX64("ios") {
+      iosArm64 {
           compilations.configureEach {
               compilerOptions.configure {
                   freeCompilerArgs.add("-Xbinary=smallBinary=true")
@@ -234,40 +234,68 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true tracking-pauses
         <td>Controls stack trace generation. <code>libbacktrace</code> enables better stack traces with file locations and line numbers.</td>
         <td>Experimental since 1.6.20</td>
     </tr>
-    <tr>
-        <td><code>memoryModel</code></td>
+    <!-- <tr>
+        <td><code>objcExportReportNameCollisions</code></td>
         <td>
             <list>
-                <li><code>experimental</code> (default)</li>
-                <li><code>relaxed</code></li>
-                <li><code>strict</code></li>
+                <li><code>true</code></li>
+                <li><code>false</code> (default)</li>
             </list>
         </td>
-        <td>Controls the memory manager behavior.</td>
-        <td>The experimental mode is enabled by default since 1.7.20</td>
+        <td>When <code>enabled</code>, reports warnings in case name collisions occur during Objective-C export.</td>
+        <td></td>
     </tr>
     <tr>
-        <td><code>unitSuspendFunctionObjCExport</code></td>
+        <td><code>objcExportErrorOnNameCollisions</code></td>
         <td>
             <list>
-                <li><code>proper</code> (default)</li>
-                <li><code>legacy</code></li>
+                <li><code>true</code></li>
+                <li><code>false</code> (default)</li>
             </list>
         </td>
-        <td>Controls how Unit-returning suspend functions are presented in Swift. When set to <code>proper</code>, such functions are translated to <code>async</code> Swift functions with the <code>Void</code> return type instead of <code>KotlinUnit</code>.</td>
-        <td>Enabled by default in 1.7.0</td>
+        <td>When <code>true</code>, issues errors in case name collisions occur during Objective-C export.</td>
+        <td></td>
     </tr>
     <tr>
-        <td><code>objcExportSuspendFunctionLaunchThreadRestriction</code></td>
+        <td><code>debugCompilationDir</code></td>
+        <td><code>String</code></td>
+        <td>Specifies the directory path to use for debug information in the compiled binary.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code>fixedBlockPageSize</code></td>
+        <td><code>UInt</code></td>
+        <td>Controls the page size for fixed memory blocks in the memory allocator. Affects memory allocation performance and fragmentation.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code>gcMutatorsCooperate</code></td>
         <td>
             <list>
-                <li><code>none</code> (default)</li>
-                <li><code>main</code></li>
+                <li><code>true</code></li>
+                <li><code>false</code> (default)</li>
             </list>
         </td>
-        <td>Controls the restriction on calling Kotlin suspend functions from Swift/Objective-C from threads other than the main one.</td>
-        <td>Enabled by default in 2.0.20</td>
+        <td>Controls cooperation between mutator threads and the garbage collector.</td>
+        <td></td>
     </tr>
+    <tr>
+        <td><code>auxGCThreads</code></td>
+        <td><code>UInt</code></td>
+        <td>Specifies the number of auxiliary threads to use for garbage collection.</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code>sanitizer</code></td>
+        <td>
+            <list>
+                <li><code>address</code></li>
+                <li><code>thread</code></li>
+            </list>
+        </td>
+        <td>Enables runtime sanitizers for detecting various issues like memory errors, data races, and undefined behavior.</td>
+        <td>Experimental</td>
+    </tr> -->
 </table>
 
 For more information on stability levels, see the [documentation](components-stability.md#stability-levels-explained).
