@@ -93,7 +93,7 @@ in the Kotlin Gradle DSL).
     ```kotlin
     dependencies {
         implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:%serializationVersion%")
-    } 
+    }
     ```
 
     </tab>
@@ -102,7 +102,7 @@ in the Kotlin Gradle DSL).
     ```groovy
     dependencies {
         implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:%serializationVersion%'
-    } 
+    }
     ```
 
     </tab>
@@ -115,30 +115,30 @@ and its format-specific subpackages, such as `kotlinx.serialization.json`.
 
 1. Make a class serializable by annotating it with `@Serializable`.
 
-   ```kotlin
-   import kotlinx.serialization.Serializable
-   
-   @Serializable
-   data class Data(val a: Int, val b: String)
-   ```
+    ```kotlin
+    import kotlinx.serialization.Serializable
+    
+    @Serializable
+    data class Data(val a: Int, val b: String)
+    ```
 
 2. Serialize an instance of this class by calling `Json.encodeToString()`.
 
-   ```kotlin
-   import kotlinx.serialization.Serializable
-   import kotlinx.serialization.json.Json
-   import kotlinx.serialization.encodeToString
-   
-   @Serializable
-   data class Data(val a: Int, val b: String)
-   
-   fun main() {
-      val json = Json.encodeToString(Data(42, "str"))
-   }
-   ```
-   
+    ```kotlin
+    import kotlinx.serialization.Serializable
+    import kotlinx.serialization.json.Json
+    import kotlinx.serialization.encodeToString
+    
+    @Serializable
+    data class Data(val a: Int, val b: String)
+    
+    fun main() {
+        val json = Json.encodeToString(Data(42, "str"))
+    }
+    ```
+
    As a result, you get a string containing the state of this object in the JSON format: `{"a": 42, "b": "str"}`
-   
+
    > You can also serialize object collections, such as lists, in a single call:
    > 
    > ```kotlin
@@ -150,18 +150,18 @@ and its format-specific subpackages, such as `kotlinx.serialization.json`.
 
 3. Use the `decodeFromString()` function to deserialize an object from JSON:
 
-   ```kotlin
-   import kotlinx.serialization.Serializable
-   import kotlinx.serialization.json.Json
-   import kotlinx.serialization.decodeFromString
-   
-   @Serializable
-   data class Data(val a: Int, val b: String)
-   
-   fun main() {
-      val obj = Json.decodeFromString<Data>("""{"a":42, "b": "str"}""")
-   }
-   ```
+    ```kotlin
+    import kotlinx.serialization.Serializable
+    import kotlinx.serialization.json.Json
+    import kotlinx.serialization.decodeFromString
+    
+    @Serializable
+    data class Data(val a: Int, val b: String)
+    
+    fun main() {
+        val obj = Json.decodeFromString<Data>("""{"a":42, "b": "str"}""")
+    }
+    ```
 
 That's it! You have successfully serialized objects into JSON strings and deserialized them back into objects.
 
