@@ -291,7 +291,7 @@ data class User(
     val username: String,
     // Applies `@Email` to `param`, `field` and `get`
     @all:Email val email: String,
-    // Applies `@Email` to `param`, `field`, `get`, and `set_param`
+    // Applies `@Email` to `param`, `field`, `get`, and `setparam`
     @all:Email var name: String,
 ) {
     // Applies `@Email` to `field` and `getter` (no `param` since it's not in the constructor)

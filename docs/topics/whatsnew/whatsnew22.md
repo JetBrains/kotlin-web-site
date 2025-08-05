@@ -235,7 +235,7 @@ This feature tells the compiler to apply the annotation to all relevant parts of
 
 * **`get`**: the getter method.
 
-* **`set_param`**: the parameter of the setter method, if the property is defined as `var`.
+* **`setparam`**: the parameter of the setter method, if the property is defined as `var`.
 
 * **`RECORD_COMPONENT`**: if the class is a `@JvmRecord`, the annotation applies to the [Java record component](#improved-support-for-annotating-jvm-records). This behavior mimics the way Java handles annotations on record components.
 
@@ -247,12 +247,12 @@ In the example below, the `@Email` annotation is applied to all relevant targets
 data class User(
     val username: String,
 
-    // Applies @Email to param, property, field,
-    // get, and set_param (if var)
+    // Applies @Email to `param`, `property`, `field`,
+    // `get`, and `setparam` (if var)
     @all:Email val email: String,
 ) {
-    // Applies @Email to property, field, and getter 
-    // (no param since it's not in the constructor)
+    // Applies @Email to `property`, `field`, and `get`
+    // (no `param` since it's not in the constructor)
     @all:Email val secondaryEmail: String? = null
 }
 ```
@@ -1333,7 +1333,7 @@ for a complete overview of all breaking changes and deprecations in this release
 * The deprecated `kotlin-android-extensions` plugin is [removed in Kotlin 2.2.0](compatibility-guide-22.md#deprecate-kotlin-android-extensions-plugin). 
   Use the `kotlin-parcelize` plugin for the `Parcelable` implementation generator and the Android Jetpack's [view bindings](https://developer.android.com/topic/libraries/view-binding) for synthetic views instead.
 * Experimental `kotlinArtifacts` API is [deprecated in Kotlin 2.2.0](compatibility-guide-22.md#deprecate-kotlinartifacts-api). 
-  Use the current DSL available in the Kotlin Gradle plugin to [build final native binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html). If it's not sufficient for migration, leave a comment in [this YT issue](https://youtrack.jetbrains.com/issue/KT-74953).
+  Use the current DSL available in the Kotlin Gradle plugin to [build final native binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html). If it's not sufficient for migration, leave a comment in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-74953).
 * `KotlinCompilation.source`, deprecated in Kotlin 1.9.0, is now [removed from the Kotlin Gradle plugin](compatibility-guide-22.md#deprecate-kotlincompilation-source-api).
 * The parameters for experimental commonization modes are [deprecated in Kotlin 2.2.0](compatibility-guide-22.md#deprecate-commonization-parameters). 
   Clear the commonization cache to delete invalid compilation artifacts.

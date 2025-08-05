@@ -21,7 +21,7 @@ configuration of compiler options. It is available for [Kotlin Multiplatform](ht
 With the Gradle DSL, you can configure compiler options within the build script at three levels: 
 * **[Extension level](#extension-level)**, in the `kotlin {}` block for all targets and shared source sets.
 * **[Target level](#target-level)**, in the block for a specific target.
-* **[Compilation unit level](#compilation-unit-level),** usually in a specific compilation task.
+* **[Compilation unit level](#compilation-unit-level)**, usually in a specific compilation task.
 
 ![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
 
@@ -57,7 +57,7 @@ kotlin {
     compilerOptions {
         optIn.add("kotlin.RequiresOptIn")
     }
-}    
+}
 ```
 
 ### Target level
@@ -67,7 +67,7 @@ in the `compilerOptions {}` block inside the `target {}` block:
 
 ```kotlin
 kotlin {
-    target { 
+    target {
         compilerOptions {
             optIn.add("kotlin.RequiresOptIn")
         }
@@ -83,7 +83,7 @@ specific target. For example, `jvm { compilerOptions {}}`. For more information,
 You can configure compiler options for a specific compilation unit or task in a `compilerOptions {}` 
 block inside the task configuration:
 
-```Kotlin
+```kotlin
 tasks.named<KotlinJvmCompile>("compileKotlin"){
     compilerOptions {
         optIn.add("kotlin.RequiresOptIn")
@@ -93,7 +93,7 @@ tasks.named<KotlinJvmCompile>("compileKotlin"){
 
 You can also access and configure compiler options at a compilation unit level via `KotlinCompilation`:
 
-```Kotlin
+```kotlin
 kotlin {
     target {
         val main by compilations.getting {
@@ -293,8 +293,8 @@ Update it to:
 
 ```kotlin
 plugins {
-  id("com.android.application")
-  kotlin("android")
+    id("com.android.application")
+    kotlin("android")
 }
 
 kotlin {

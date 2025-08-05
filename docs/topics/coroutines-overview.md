@@ -33,7 +33,7 @@ The `suspend` keyword marks functions that can perform long-running operations a
 
 To launch new coroutines, use coroutine builders like [`.launch()`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html) and [`.async()`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html).
 These builders are extension functions on [`CoroutineScope`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/),
-which defines the coroutine’s lifecycle and provides the coroutine context.
+which defines the coroutine's lifecycle and provides the coroutine context.
 
 You can learn more about these builders in [Coroutine basics](coroutines-basics.md) and [Composing suspend functions](coroutines-and-channels.md).
 
