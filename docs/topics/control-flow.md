@@ -356,7 +356,6 @@ fun main() {
 The scope of a variable introduced as the subject is restricted to the body of the `when` expression or statement.
 
 ### Guard conditions {id="guard-conditions-in-when-expressions"}
-<primary-label ref="experimental-general"/>
 
 Guard conditions allow you to include more than one condition to the branches of a `when` expression or statement, making complex 
 control flow more explicit and concise. You can use guard conditions with `when` as long as it has a subject.
@@ -369,6 +368,10 @@ sealed interface Animal {
     data class Dog(val breed: String) : Animal
 }
 
+fun feedDog() = println("Feeding a dog")
+fun feedCat() = println("Feeding a cat")
+
+//sampleStart
 fun feedAnimal(animal: Animal) {
     when (animal) {
         // Branch with only primary condition
@@ -394,7 +397,9 @@ fun main() {
     // Feeding a cat
     // Unknown animal
 }
+//sampleEnd
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.2" id="kotlin-when-guard-conditions"}
 
 You can't use guard conditions when you have multiple conditions separated by a comma. For example:
 
@@ -435,20 +440,6 @@ when (animal) {
     else -> println("Unknown animal")
 }
 ```
-
-> To enable guard conditions in CLI, run the following command:
->
-> `kotlinc -Xwhen-guards main.kt`
->
-> To enable guard conditions in Gradle, add the following line to your `build.gradle.kts` file:
->
-> `kotlin.compilerOptions.freeCompilerArgs.add("-Xwhen-guards")`
->
-{style="note"}
-
-#### Leave feedback
-
-We would appreciate your feedback on guard conditions in [YouTrack](https://youtrack.jetbrains.com/issue/KT-71140/Guard-conditions-in-when-expressions-feedback).
 
 ## For loops
 

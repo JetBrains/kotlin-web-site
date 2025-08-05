@@ -385,9 +385,9 @@ In Kotlin 2.1.0, several new language features were introduced in preview.
 We're happy to announce that the following language features are now
 [Stable](components-stability.md#stability-levels-explained) in this release:
 
-* [Guard conditions in `when` with a subject](whatsnew21.md#guard-conditions-in-when-with-a-subject)
-* [Non-local `break` and `continue`](whatsnew21.md#non-local-break-and-continue)
-* [Multi-dollar interpolation: improved handling of `$` in string literals](whatsnew21.md#multi-dollar-string-interpolation)
+* [Guard conditions in `when` with a subject](control-flow.md#guard-conditions-in-when-expressions)
+* [Non-local `break` and `continue`](inline-functions.md#break-and-continue)
+* [Multi-dollar interpolation: improved handling of `$` in string literals](strings.md#multi-dollar-string-interpolation)
 
 [See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
 
