@@ -139,7 +139,7 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Tooling: [Provide out-of-the-box debugging experience for Kotlin/Wasm targets](https://youtrack.jetbrains.com/issue/KT-71276)
 * ✅ Library ecosystem: [Implement new Dokka Gradle plugin based on Dokkatoo](https://youtrack.jetbrains.com/issue/KT-71293)
 * ✅ Library ecosystem: [New multiplatform API for the standard library: Atomics](https://youtrack.jetbrains.com/issue/KT-62423)
-* ✅ Library ecosystem: [Expand Library authors’ guidelines](https://youtrack.jetbrains.com/issue/KT-71299)
+* ✅ Library ecosystem: [Expand Library authors' guidelines](https://youtrack.jetbrains.com/issue/KT-71299)
 
 ### New items
 

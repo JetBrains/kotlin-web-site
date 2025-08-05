@@ -60,7 +60,7 @@ fun main(){
 {kotlin-runnable="true" id="kotlin-tour-object-declarations"}
 
 The object has a member function called `takeParams` that accepts `username` and `password` variables as parameters
-and returns a string to the console. The `DoAuth` object is only created when the function is called for the first time.
+and prints a string to the console. The `DoAuth` object is only created when the function is called for the first time.
 
 > Objects can inherit from classes and interfaces. For example:
 > 

@@ -396,7 +396,7 @@ external fun <T : JsAny> processData(data: JsArray<T>): T
 ## Exception handling
 
 You can use Kotlin `try-catch` expression to catch JavaScript exceptions.
-However, accessing specific details about the thrown value in Kotlin/Wasm isn’t possible by default.
+However, accessing specific details about the thrown value in Kotlin/Wasm isn't possible by default.
 
 You can configure the `JsException` type to include the original error message and stack trace from JavaScript.
 To do so, add the following compiler option to your `build.gradle.kts` file:
@@ -417,7 +417,7 @@ This behavior depends on the `WebAssembly.JSTag` API, which is only available in
 * **Firefox:** Supported from version 129
 * **Safari:** Not yet supported
 
-Here’s an example demonstrating this behavior:
+Here's an example demonstrating this behavior:
 
 ```kotlin
 external object JSON {

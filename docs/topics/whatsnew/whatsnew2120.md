@@ -390,7 +390,7 @@ import java.util.concurrent.atomic.*
 //sampleStart
 @OptIn(ExperimentalAtomicApi::class)
 fun main() {
-    // Converts Kotlin AtomicInt to Java's AtomicInteger
+    // Converts Kotlin's AtomicInt to Java's AtomicInteger
     val kotlinAtomic = AtomicInt(42)
     val javaAtomic: AtomicInteger = kotlinAtomic.asJavaAtomic()
     println("Java atomic value: ${javaAtomic.get()}")

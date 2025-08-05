@@ -126,7 +126,7 @@ fun main() {
 {kotlin-runnable="true" id="kotlin-tour-scope-function-let-non-null"}
 
 The example:
-* Creates a variable called `confirm`.
+* Creates variables called `address` and `confirm`.
 * Uses a safe call for the `let` scope function on the `address` variable.
 * Creates a temporary scope within the `let` scope function.
 * Passes the `sendNotification()` function as a lambda expression into the `let` scope function.
@@ -176,22 +176,22 @@ use member functions on your class instance all in the same place in your code:
 
 ```kotlin
 class Client() {
-  var token: String? = null
-  fun connect() = println("connected!")
-  fun authenticate() = println("authenticated!")
-  fun getData(): String = "Mock data"
+    var token: String? = null
+    fun connect() = println("connected!")
+    fun authenticate() = println("authenticated!")
+    fun getData(): String = "Mock data"
 }
 //sampleStart
 val client = Client().apply {
-  token = "asdf"
-  connect()
-  authenticate()
+    token = "asdf"
+    connect()
+    authenticate()
 }
 
 fun main() {
-  client.getData()
-  // connected!
-  // authenticated!
+    client.getData()
+    // connected!
+    // authenticated!
 }
 //sampleEnd
 ```
@@ -288,7 +288,7 @@ The example:
 * Uses the `.map()` extension function on the `medals` variable.
 * Passes a lambda expression to the `.map()` function that refers to `medals` via the `it` keyword and calls the `.uppercase()` extension function on it.
 * Uses the `.filter()` extension function on the `medals` variable.
-* Passes a lambda expression as a predicate to the `.filter()` function that refers to `medals` via the `it` keyword and checks if the length of the list contained in the `medals` variable is longer than 4 items.
+* Passes a lambda expression as a predicate to the `.filter()` function that refers to `medals` via the `it` keyword and checks if the item in the list has more than 4 characters.
 * Uses the `.reversed()` extension function on the `medals` variable.
 * Assigns the result to the `reversedLongUpperCaseMedals` variable.
 * Prints the list contained in the `reversedLongUpperCaseMedals` variable.
