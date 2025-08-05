@@ -750,7 +750,7 @@ kotlin {
 }
 ```
 
-[Learn more about crash report symbolication](native-ios-symbolication.md).
+[Learn more about crash report symbolication](native-debugging.md#debug-ios-applications).
 
 ### Performance improvements
 

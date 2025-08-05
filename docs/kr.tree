@@ -203,7 +203,6 @@
 				<toc-element toc-title="Migration guide" topic="native-migration-guide.md"/>
 			</toc-element>
 			<toc-element topic="native-debugging.md"/>
-			<toc-element topic="native-ios-symbolication.md"/>
 			<toc-element toc-title="Reference and tips">
 				<toc-element toc-title="Target support" topic="native-target-support.md"/>
 				<toc-element toc-title="Improving compilation time" topic="native-improving-compilation-time.md"/>
