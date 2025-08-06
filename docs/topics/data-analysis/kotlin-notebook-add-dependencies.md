@@ -22,6 +22,10 @@ However, Kotlin Notebook has a simplified method to load popular libraries in th
 ```kotlin
 // Replace libraryName with the library dependency you want to add
 %use libraryName
+// You may specify a version
+%use libraryName(version)
+// Example: kotlinx.datetime:0.7.1
+%use datetime(0.7.1)
 ```
 
 You can also use the autocompletion feature in Kotlin Notebook to quickly access available libraries:
