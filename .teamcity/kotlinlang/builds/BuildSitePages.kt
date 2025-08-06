@@ -1,6 +1,7 @@
 package kotlinlang.builds
 
 import BuildParams.API_URLS
+import documentation.builds.KotlinMultiplatform
 import documentation.builds.KotlinWithCoroutines
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
@@ -68,7 +69,7 @@ object BuildSitePages : BuildType({
             //language=bash
             scriptContent = """
                 cp -fR _webhelp/reference/* build/docs/
-                #cp -fR _webhelp/mobile build/docs/
+                cp -fR _webhelp/multiplatform build/docs/multiplatform
                 
                 mv build dist
                 
@@ -151,6 +152,19 @@ object BuildSitePages : BuildType({
                 artifactRules = """
                     +:webHelpImages.zip!** => _webhelp/reference/images/
                     +:webHelpKR2.zip!** => _webhelp/reference/
+                """.trimIndent()
+            }
+        }
+
+        dependency(KotlinMultiplatform) {
+            snapshot {
+                onDependencyFailure = FailureAction.FAIL_TO_START
+                onDependencyCancel = FailureAction.CANCEL
+            }
+            artifacts {
+                artifactRules = """
+                    +:webHelpImages.zip!** => _webhelp/multiplatform/images/
+                    +:webHelpMPD2.zip!** => _webhelp/multiplatform/
                 """.trimIndent()
             }
         }
