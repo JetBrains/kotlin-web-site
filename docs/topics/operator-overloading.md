@@ -176,18 +176,15 @@ For the assignment operations, for example `a += b`, the compiler performs the f
 | `a != b` | `!(a?.equals(b) ?: (b === null))` |
 
 These operators only work with the function [`equals(other: Any?): Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/equals.html), 
-which can be overridden to provide custom equality check implementation. Any other function with the same name (like `equals(other: Foo)`) will not be called.
+which you can override to provide a custom equality check implementation.
+Any other function with the same name (like `equals(other: Foo)`) is ignored.
 
-> `===` and `!==` (identity checks) are not overloadable, so no conventions exist for them.
+> `===` and `!==` (identity checks) aren't overloadable, so no conventions exist for them.
 >
 {style="note"}
 
-The `==` operation translates `a == b` to `a?.equals(b) ?: (b === null)`, which safely handles comparisons involving `null` values.
-The behavior of the comparison depends on the nullability of the values being compared:
-
-* If `a` is `null`, the comparison returns `true` only if `b` is also `null`, and no function is called. 
-* If `a` is a nullable type and isn't `null` at runtime, the compiler calls `a.equals(b)`, even if `b` is `null`.
-* If `a` is a non-nullable type and `b` is known to be `null`, the compiler replaces the comparison with `false` at compile time and skips the function call.
+Kotlin calls `.equals()` when neither operand is the `null` literal and the comparison isn’t between two floating-point types.
+Otherwise, `===` is used for `null` literal checks, and non-null floating-point values are compared by numeric value.
 
 ### Comparison operators
 
