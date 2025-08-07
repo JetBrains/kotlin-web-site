@@ -56,7 +56,21 @@ specify the ID and URL of each repository in the `<repositories>` element:
 
 ## Set dependencies
 
-Kotlin has an extensive standard library that can be used in your applications.
+To add a dependency on a library, include it in the `<dependencies>` element:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.jetbrains.kotlinx</groupId>
+        <artifactId>kotlinx-serialization-json</artifactId>
+        <version>%serializationVersion%</version>
+    </dependency>
+</dependencies>
+```
+
+### Dependency on the standard library
+
+Kotlin has an extensive standard library that you can use in your applications.
 To use the standard library in your project, add the following dependency to your `pom.xml` file:
 
 ```xml
@@ -75,12 +89,55 @@ To use the standard library in your project, add the following dependency to you
 > * 1.8, use `kotlin-stdlib-jdk7` or `kotlin-stdlib-jdk8`, respectively.
 > * 1.2, use `kotlin-stdlib-jre7` or `kotlin-stdlib-jre8`, respectively.
 >
-{style="note"} 
+{style="note"}
+
+### Dependencies on test libraries
 
 If your project uses [Kotlin reflection](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/index.html)
-or testing facilities, you need to add the corresponding dependencies as well.
-The artifact IDs are `kotlin-reflect` for the reflection library, and `kotlin-test` and `kotlin-test-junit`
+or testing frameworks, add the relevant dependencies.
+Use `kotlin-reflect` for the reflection library, and `kotlin-test` and `kotlin-test-junit`
 for the testing libraries.
+
+For example:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-reflect</artifactId>
+        <version>${kotlin.version}</version>
+    </dependency>
+</dependencies>
+```
+
+### Dependency on a kotlinx library
+
+Depending on the kotlinx library, you can either add the base artifact name or the name with a `-jvm` suffix. Refer to 
+the library's README file on [klibs.io](https://klibs.io/).
+
+For example, to add a dependency on `kotlinx.coroutines`:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.jetbrains.kotlinx</groupId>
+        <artifactId>kotlinx-coroutines-core</artifactId>
+        <version>%coroutinesVersion%</version>
+    </dependency>
+</dependencies>
+```
+
+To add a dependency on `kotlinx-datetime`:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.jetbrains.kotlinx</groupId>
+        <artifactId>kotlinx-datetime-jvm</artifactId>
+        <version>%dateTimeVersion%</version>
+    </dependency>
+</dependencies>
+```
 
 ## Compile Kotlin-only source code
 
