@@ -13,7 +13,7 @@ import quotes from './quotes.json';
 export const WhyTeach = ({path}) => {
 
   return (
-    <div className="teach-wrapper">
+    <div className="teach-wrapper" data-test="teach-why-teach-page">
       <TeachTopMenu path={path}/>
 
       <div className="ktl-layout ktl-layout--center">

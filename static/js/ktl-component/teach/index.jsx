@@ -15,7 +15,7 @@ import './style.scss';
 import {SubscriptionForm} from './components/subscription-form';
 import {TeachMap} from './components/teach-map/teach-map.jsx';
 import {SlackIcon} from "@rescui/icons";
-import Button from "@rescui/button";
+import { Button } from "@rescui/button";
 import { TeachLaunchCourse } from "./components/teach-launch-course";
 
 import { useTextStyles } from '@rescui/typography';
@@ -41,7 +41,7 @@ const Teach = (props) => {
                       rel="noopener"
                       className="teach-cta-block-button"
                   >
-                      Join Educators Сommunity
+                      Join Educators Community
                   </Button>
 
                   <Button mode="outline" href="why-teach-kotlin.html" className="teach-cta-block-button">
@@ -121,7 +121,7 @@ const Teach = (props) => {
                           rel="noopener"
                           className="teach-cta-block-button"
                       >
-                          Join Educators Сommunity
+                          Join Educators Community
                       </Button>
 
                       <Button size="l" mode="outline" href="why-teach-kotlin.html" className="teach-cta-block-button">
