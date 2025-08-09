@@ -37,7 +37,7 @@ Create a project using the Kotlin Multiplatform wizard:
    >
    {style="note"}
 
-2. In **composeApp** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDevelopmentRun** task.
+2. In **wasmdemo** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDevelopmentRun** task.
 
    ![Run the Gradle task](wasm-gradle-task-window.png){width=450}
 
@@ -84,7 +84,7 @@ build file. For more information about how to configure your browser for debuggi
 #### Enable access to project's sources
 
 By default, browsers can't access some of the project's sources necessary for debugging. To provide access, you can configure the Webpack DevServer
-to serve these sources. In the `ComposeApp` directory, add the following code snippets to your `build.gradle.kts` file.
+to serve these sources. In the `WasmDemo` root directory, add the following code snippets to your `build.gradle.kts` file.
 
 Add this import as a top-level declaration:
 
@@ -110,10 +110,10 @@ The resulting code block looks like this:
 kotlin {
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
-        moduleName = "composeApp"
+        moduleName = "wasmDemo"
         browser {
             commonWebpackConfig {
-                outputFileName = "composeApp.js"
+                outputFileName = "wasmDemo.js"
                 devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
                     static = (static ?: mutableListOf()).apply { 
                         // Serve sources to debug inside browser

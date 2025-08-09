@@ -295,20 +295,21 @@ class Circle : Drawable {
     override fun draw() {
         TODO("An example implementation")
     }
-    
+
     override fun resize() {
         TODO("An example implementation")
     }
-   override val color = null
+
+    override val color = null
 }
 ```
 
-If you wanted to create a child class of the `Circle` class which had the same behavior **except** for the value of the
-`color` property, you still need to add implementations for each member function of the `Circle` class:
+If you wanted to create a new class which implements the `Drawable` interface, and have the same behavior with `Circle`
+class **except** for the value of the `color` property, you still need to add implementations for each member function
+of the `Drawable` interface:
 
 ```kotlin
-class RedCircle(val circle: Circle) : Circle {
-
+class RedCircle(val circle: Circle) : Drawable {
     // Start of boilerplate code
     override fun draw() {
         circle.draw()
@@ -317,8 +318,8 @@ class RedCircle(val circle: Circle) : Circle {
     override fun resize() {
         circle.resize()
     }
-
     // End of boilerplate code
+
     override val color = "red"
 }
 ```
@@ -327,8 +328,8 @@ You can see that if you have a large number of member functions in the `Drawable
 code in the `RedCircle` class can be very large. However, there is an alternative.
 
 In Kotlin, you can use delegation to delegate the interface implementation to an instance of a class. For example,
-you can create an instance of the `Circle` class and delegate the implementations of the member functions of the `Circle`
-class to this instance. To do this, use the `by` keyword. For example:
+you can create an instance of the `Circle` class and delegate the implementations of the member functions of the
+`Drawable` interface to this instance. To do this, use the `by` keyword. For example:
 
 ```kotlin
 class RedCircle(param: Circle) : Drawable by param

@@ -110,7 +110,7 @@ For example:
 ```kotlin
 @Target(AnnotationTarget.CLASS, AnnotationTarget.PROPERTY)
 @java.lang.annotation.Target(ElementType.CLASS, ElementType.RECORD_COMPONENT)
-annotation class exampleClass
+annotation class ExampleClass
 ```
 
 You can now apply `@ExampleClass` to Kotlin classes and properties, as well as Java classes and record components.
