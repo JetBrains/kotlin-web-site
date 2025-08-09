@@ -44,7 +44,8 @@ object E2EProductionTest : BuildType({
 
     features {
         notifications {
-            enabled = !DslContext.projectName.lowercase().contains("playground")
+            enabled = DslContext.parentProjectId.equals("Kotlin_KotlinSites_Playground")
+//            enabled = !DslContext.projectName.lowercase().contains("playground")
             notifierSettings = slackNotifier {
                 connection = "PROJECT_EXT_486"
                 sendTo = "#kotlin-web-site-e2e-tests"
