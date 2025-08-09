@@ -1,0 +1,28 @@
+/*Spacer*/
+
+@media (max-width: 1024px) {
+    .spacer-md {
+        margin-top: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .spacer-md {
+        margin-top: 16px;
+    }
+}
+
+
+.section-offset {
+    margin-top: 72px;
+    padding-bottom: 72px;
+    position: relative;
+
+    &:before {
+        content: '';
+        display: block;
+        height: 72px;
+        margin-top: -72px;
+        visibility: hidden;
+    }
+}
