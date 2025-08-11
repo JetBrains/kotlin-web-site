@@ -179,12 +179,12 @@ These operators only work with the function [`equals(other: Any?): Boolean`](htt
 which you can override to provide a custom equality check implementation.
 Any other function with the same name (like `equals(other: Foo)`) is ignored.
 
+Kotlin calls `.equals()` when neither operand is the `null` literal and the comparison isn't between two floating-point types.
+Otherwise, Kotlin uses `===` for `null` literal checks and compares non-null floating-point values by numeric value.
+
 > `===` and `!==` (identity checks) aren't overloadable, so no conventions exist for them.
 >
 {style="note"}
-
-Kotlin calls `.equals()` when neither operand is the `null` literal and the comparison isn’t between two floating-point types.
-Otherwise, `===` is used for `null` literal checks, and non-null floating-point values are compared by numeric value.
 
 ### Comparison operators
 
