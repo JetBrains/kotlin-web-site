@@ -1,7 +1,7 @@
 [//]: # (title: Kotlin/Native binary options)
 
-This page lists helpful Kotlin/Native binary options that you can use to configure Kotlin/Native projects and the ways
-to set them up in your project.
+This page lists helpful Kotlin/Native binary options that you can use to configure Kotlin/Native [final binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html)
+and the ways to set them up in your project.
 
 ## How to enable
 
@@ -26,7 +26,7 @@ You can set binary options for your project in your `build.gradle.kts` file:
   kotlin {
       iosArm64 {
           binaries {
-              executable {
+              framework {
                   binaryOption("smallBinary", "true")
               }
           }
@@ -55,15 +55,19 @@ the [Kotlin/Native compiler](native-get-started.md#using-the-command-line-compil
 for example:
 
 ```bash
-kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true tracking-pauses
+kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
 ```
 
 ## Binary options
 
+> This table is not an exhaustive list of all the existing options, only the most notable ones.
+>
+{style="note"}
+
 <table column-width="fixed">
     <tr>
         <td width="240">Option</td>
-        <td width="150">Values</td>
+        <td width="170">Values</td>
         <td>Description</td>
         <td width="110">Status</td>
     </tr>
@@ -134,12 +138,20 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true tracking-pauses
         <td><code>gc</code></td>
         <td>
             <list>
+                <li><code>pmcs</code> (default)</li>
+                <li><code>stwms</code></li>
                 <li><a href="native-memory-manager.md" anchor="optimize-gc-performance"><code>cms</code></a></li>
                 <li><a href="native-memory-manager.md" anchor="disable-garbage-collection"><code>noop</code></a></li>
-                <li><code>stms</code> (default)</li>
             </list>
         </td>
-        <td>Controls garbage collection behavior: <code>cms</code> enables concurrent marking to decrease GC pause time, <code>noop</code> disables garbage collection.</td>
+        <td>Controls garbage collection behavior:
+            <list>
+                <li><code>pmcs</code> uses parallel mark concurrent sweep</li>
+                <li><code>stwms</code> uses simple stop-the-world mark and sweep</li>
+                <li><code>cms</code> enables concurrent marking that helps decrease GC pause time</li>
+                <li><code>noop</code> disables garbage collection</li>
+            </list>
+        </td>
         <td><code>cms</code> is Experimental since 2.0.20</td>
     </tr>
     <tr>
@@ -167,7 +179,10 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true tracking-pauses
     <tr>
         <td><code>preCodegenInlineThreshold</code></td>
         <td><code>UInt</code></td>
-        <td>Configures the inlining optimization pass, which comes before the actual code generation phase. The recommended number of tokens is 40.</td>
+        <td>
+            <p>Configures inlining optimization pass in the Kotlin IR compiler, which comes before the actual code generation phase (disabled by default).</p> 
+            <p>The recommended number of tokens (code units parsed by the compiler) is 40.</p>
+        </td>
         <td>Experimental since 2.1.20</td>
     </tr>
     <tr>
@@ -189,7 +204,10 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true tracking-pauses
                 <li><code>disabled</code> (default)</li>
             </list>
         </td>
-        <td>Controls timer-based invocation of the garbage collector. When <code>enabled</code>, GC is called only when memory consumption becomes too high.</td>
+        <td>
+            <p>Controls timer-based invocation of the garbage collector when the application runs in the background.</p>
+            <p>When <code>enabled</code>, GC is called only when memory consumption becomes too high.</p>
+       </td>
         <td>Experimental since 1.7.20</td>
     </tr>
     <tr>
@@ -227,11 +245,14 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true tracking-pauses
         <td>
             <list>
                 <li><code>libbacktrace</code></li>
-                <li><code>coresymbolication</code></li>
+                <li><code>coresymbolication</code> (Apple targets)</li>
                 <li><code>noop</code> (default)</li>
             </list>
         </td>
-        <td>Controls stack trace generation. <code>libbacktrace</code> enables better stack traces with file locations and line numbers.</td>
+        <td>
+            <p>Adds file locations and line numbers to exception stack traces.</p>
+            <p><code>coresymbolication</code> is only available for Apple targets and enabled by default for macOS and Apple simulators in debug mode.</p>
+        </td>
         <td>Experimental since 1.6.20</td>
     </tr>
     <!-- <tr>
@@ -298,4 +319,10 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true tracking-pauses
     </tr> -->
 </table>
 
-For more information on stability levels, see the [documentation](components-stability.md#stability-levels-explained).
+> For more information on stability levels, see the [documentation](components-stability.md#stability-levels-explained).
+> 
+{style="tip"}
+
+## What's next
+
+Learn how to [build final native binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html).
