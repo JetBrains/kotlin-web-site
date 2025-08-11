@@ -26,11 +26,9 @@ Mind the following terms used in tier tables:
 
 | Gradle target name      | Target triple                 | Running tests | Description                                    |
 |-------------------------|-------------------------------|---------------|------------------------------------------------|
-| Apple macOS hosts only: |                               |               |                                                |
-| `macosX64`              | `x86_64-apple-macos`          | ✅             | Apple macOS on x86_64 platforms                |
+| Apple macOS hosts only: |                               |               |                                                ||
 | `macosArm64`            | `aarch64-apple-macos`         | ✅             | Apple macOS on Apple Silicon platforms         |
 | `iosSimulatorArm64`     | `aarch64-apple-ios-simulator` | ✅             | Apple iOS simulator on Apple Silicon platforms |
-| `iosX64`                | `x86_64-apple-ios-simulator`  | ✅             | Apple iOS simulator on x86-64 platforms        |
 | `iosArm64`              | `aarch64-apple-ios`           |               | Apple iOS and iPadOS on ARM64 platforms        |
 
 ## Tier 2
@@ -43,6 +41,8 @@ Mind the following terms used in tier tables:
 | `linuxX64`              | `x86_64-unknown-linux-gnu`        | ✅             | Linux on x86_64 platforms                          |
 | `linuxArm64`            | `aarch64-unknown-linux-gnu`       |               | Linux on ARM64 platforms                           |
 | Apple macOS hosts only: |                                   |               |                                                    |
+| `macosX64`              | `x86_64-apple-macos`              | ✅             | Apple macOS on x86_64 platforms                    |
+| `iosX64`                | `x86_64-apple-ios-simulator`      | ✅             | Apple iOS simulator on x86-64 platforms            |
 | `watchosSimulatorArm64` | `aarch64-apple-watchos-simulator` | ✅             | Apple watchOS simulator on Apple Silicon platforms |
 | `watchosX64`            | `x86_64-apple-watchos-simulator`  | ✅             | Apple watchOS 64-bit simulator on x86_64 platforms |
 | `watchosArm32`          | `armv7k-apple-watchos`            |               | Apple watchOS on ARM32 platforms                   |
