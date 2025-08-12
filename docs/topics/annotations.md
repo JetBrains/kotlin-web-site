@@ -289,12 +289,12 @@ In the example below, this `@Email` annotation is applied to all relevant target
 ```kotlin
 data class User(
     val username: String,
-    // Applies `@Email` to `param`, `field` and `get`
+    // Applies @Email to param, field and get
     @all:Email val email: String,
-    // Applies `@Email` to `param`, `field`, `get`, and `set_param`
+    // Applies @Email to param, field, get, and set_param
     @all:Email var name: String,
 ) {
-    // Applies `@Email` to `field` and `getter` (no `param` since it's not in the constructor)
+    // Applies @Email to field and getter (no param since it's not in the constructor)
     @all:Email val secondaryEmail: String? = null
 }
 ```
@@ -308,7 +308,7 @@ The `all` target comes with some limitations:
 * It does not propagate an annotation to types, potential extension receivers, or context receivers or parameters.
 * It cannot be used with multiple annotations:
     ```kotlin
-    @all:[A B] // forbidden, use `@all:A @all:B`
+    @all:[A B] // forbidden, use @all:A @all:B
     val x: Int = 5
     ```
 * It cannot be used with [delegated properties](delegated-properties.md).
