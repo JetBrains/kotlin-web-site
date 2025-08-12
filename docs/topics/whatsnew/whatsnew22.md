@@ -1,8 +1,10 @@
 [//]: # (title: What's new in Kotlin 2.2.0)
 
+<web-summary>Discover what's new in Kotlin 2.2.0. Learn what's new across the language, performance, and tooling.</web-summary>
+
 _[Released: June 23, 2025](releases.md#release-details)_
 
-<tldr>For details about bug fix releases after this version, see the <a href="https://github.com/JetBrains/kotlin/releases">changelog</a></tldr>
+<tldr><p>For details about bug fix releases after this version, see the <a href="https://github.com/JetBrains/kotlin/releases">changelog</a></p></tldr>
 
 The Kotlin 2.2.0 release is here! Here are the main highlights:
 

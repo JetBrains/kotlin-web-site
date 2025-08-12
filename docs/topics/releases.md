@@ -1,5 +1,7 @@
 [//]: # (title: Kotlin releases)
 
+<web-summary>Browse the available Kotlin releases. Explore language, tooling, and bug fix releases, along with upgrade guidance for your build system.</web-summary>
+
 <tldr>
     <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
     <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin %kotlinVersion%</a> for details</p>
