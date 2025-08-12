@@ -23,7 +23,7 @@ test.describe('Community page, overview tab, rest buttons', () => {
         await awesomeKotlinButton.click();
         const newPage = await newPagePromise;
         await newPage.waitForLoadState();
-        await expect(newPage.url()).toContain('https://kotlin.link/');
+        await expect(newPage.url()).toContain('github.com/Heapy/awesome-kotlin');
     });
 
     test('All KUGs button at the join section opens the KUGs page', async ({ page }) => {

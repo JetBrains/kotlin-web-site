@@ -7,7 +7,7 @@ the Kotlin standard library.
 ## Why Kotlin/Native?
 
 Kotlin/Native is primarily designed to allow compilation for platforms on which _virtual machines_ are not desirable or
-possible, such as embedded devices or iOS. It's ideal for situations when you need to to produce a self-contained
+possible, such as embedded devices or iOS. It's ideal for situations when you need to produce a self-contained
 program that doesn't require an additional runtime or a virtual machine.
 
 It's easy to include compiled Kotlin code in existing projects written in C, C++, Swift, Objective-C, and other languages.

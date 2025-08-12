@@ -1,10 +1,10 @@
 package tests.buildTypes
 
+import documentation.builds.KotlinWithCoroutines
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import kotlinlang.builds.BuildJsAssets
-import kotlinlang.builds.BuildReferenceDocs
 import references.builds.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
 import references.builds.kotlinx.serialization.KotlinxSerializationBuildApiReference
 
@@ -17,9 +17,12 @@ object E2ETests : BuildType({
     }
 
     dependencies {
-        artifacts(BuildReferenceDocs) {
+        artifacts(KotlinWithCoroutines) {
             cleanDestination = true
-            artifactRules = "+:docs.zip!** => dist/docs/"
+            artifactRules = """
+                +:webHelpImages.zip!** => dist/docs/images/
+                +:webHelpKR2.zip!** => dist/docs/
+            """.trimIndent()
         }
 
         dependency(BuildJsAssets) {

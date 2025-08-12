@@ -1,5 +1,5 @@
 export const settings = {
-  key: 'AIzaSyAMF-gJllft62W5l9xfgE6DBhaa6YmIJs0',
+  key: 'AIzaSyD4Lyv4gCOMhDlWrdlcn3pOLSwCpnDtn9k',
   defaultCenter: {
     lat: 20,
     lng: 0

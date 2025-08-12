@@ -4,7 +4,7 @@
     <p>This is the third part of the <strong>Mapping Kotlin and C</strong> tutorial series. Before proceeding, make sure you've completed the previous steps.</p>
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="mapping-primitive-data-types-from-c.md">Mapping primitive data types from C</a><br/>
         <img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="mapping-struct-union-types-from-c.md">Mapping struct and union types from C</a><br/>
-        <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Mapping function pointers</strong><br/>
+        <img src="icon-3.svg" width="20" alt="Third step"/> <strong>Mapping function pointers from C</strong><br/>
         <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> <a href="mapping-strings-from-c.md">Mapping strings from C</a><br/>
     </p>
 </tldr>
@@ -30,7 +30,7 @@ In this tutorial, you'll:
 To understand the mapping between Kotlin and C, let's declare two functions: one that accepts a function pointer as a
 parameter and another that returns a function pointer.
 
-In the [first part of the series](mapping-primitive-data-types-from-c.md) of the series, you've already created a C library with the
+In the [first part of the series](mapping-primitive-data-types-from-c.md), you've already created a C library with the
 necessary files. For this step, update the declarations in the `interop.def` file after the `---` separator:
 
 ```c 

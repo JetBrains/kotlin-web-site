@@ -316,7 +316,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0" validate="false"}
 
 The `!!` operator is particularly useful 
-when you are confident that a value is not `null` and there’s no chance of getting an NPE, but the compiler cannot guarantee this due to certain rules. 
+when you are confident that a value is not `null` and there's no chance of getting an NPE, but the compiler cannot guarantee this due to certain rules. 
 In such cases, you can use the `!!` operator to explicitly tell the compiler that the value is not `null`.
 
 ## Nullable receiver

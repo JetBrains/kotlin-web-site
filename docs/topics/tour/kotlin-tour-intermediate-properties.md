@@ -204,7 +204,7 @@ In these functions:
 * The `operator` keyword marks these functions as operator functions, enabling them to overload the `get()` and `set()` functions.
 * The `thisRef` parameter refers to the object **containing** the delegated property. By default, the type is set to `Any?`, but you may need to declare a more specific type.
 * The `property` parameter refers to the property whose value is accessed or changed. You can use this parameter to access information
-like the property's name or type. By default, the type is set to `Any?`. You don't need to worry about changing this in your code.
+like the property's name or type. By default, the type is set to `KProperty<*>` but you can also use `Any?`. You don't need to worry about changing this in your code.
 
 The `getValue()` function has a return type of `String` by default, but you can adjust this if you want.
 
@@ -646,24 +646,24 @@ fun main() {
 import kotlin.properties.Delegates.observable
 
 class Budget(val totalBudget: Int) {
-  var remainingBudget: Int by observable(totalBudget) { _, oldValue, newValue ->
-    if (newValue < totalBudget * 0.2) {
-      println("Warning: Your remaining budget ($newValue) is below 20% of your total budget.")
-    } else if (newValue > oldValue) {
-      println("Good news: Your remaining budget increased to $newValue.")
+    var remainingBudget: Int by observable(totalBudget) { _, oldValue, newValue ->
+        if (newValue < totalBudget * 0.2) {
+            println("Warning: Your remaining budget ($newValue) is below 20% of your total budget.")
+        } else if (newValue > oldValue) {
+            println("Good news: Your remaining budget increased to $newValue.")
+        }
     }
-  }
 }
 
 fun main() {
-  val myBudget = Budget(totalBudget = 1000)
-  myBudget.remainingBudget = 800
-  myBudget.remainingBudget = 150
-  // Warning: Your remaining budget (150) is below 20% of your total budget.
-  myBudget.remainingBudget = 50
-  // Warning: Your remaining budget (50) is below 20% of your total budget.
-  myBudget.remainingBudget = 300
-  // Good news: Your remaining budget increased to 300.
+    val myBudget = Budget(totalBudget = 1000)
+    myBudget.remainingBudget = 800
+    myBudget.remainingBudget = 150
+    // Warning: Your remaining budget (150) is below 20% of your total budget.
+    myBudget.remainingBudget = 50
+    // Warning: Your remaining budget (50) is below 20% of your total budget.
+    myBudget.remainingBudget = 300
+    // Good news: Your remaining budget increased to 300.
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-4"}

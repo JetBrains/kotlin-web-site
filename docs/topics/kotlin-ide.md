@@ -1,5 +1,6 @@
 [//]: # (title: IDEs for Kotlin development)
-[//]: # (description: JetBrains provides official Kotlin IDE support for IntelliJ IDEA and Android Studio.)
+
+<web-summary>JetBrains provides official Kotlin IDE support for IntelliJ IDEA and Android Studio.</web-summary>
 
 JetBrains provides the official Kotlin support for the following IDEs and code editors:
 [IntelliJ IDEA](#intellij-idea) and [Android Studio](#android-studio).

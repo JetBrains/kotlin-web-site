@@ -1,5 +1,7 @@
 [//]: # (title: Nullability in Java and Kotlin)
-[//]: # (description: Learn how to migrate nullable constructions from Java to Kotlin. This guide covers support for nullable types in Kotlin, how Kotlin treats nullable annotations from Java, and more.)
+
+<web-summary>Learn how to migrate nullable constructions from Java to Kotlin. This guide covers support for nullable types in Kotlin, 
+how Kotlin treats nullable annotations from Java, and more.</web-summary>
 
 _Nullability_ is the ability of a variable to hold a `null` value.
 When a variable contains `null`, an attempt to dereference the variable leads to a `NullPointerException`.

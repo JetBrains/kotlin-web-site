@@ -98,6 +98,12 @@ test.describe('WebHelp page appearance', async () => {
         expect(await lightbox.count()).toBe(0);
     });
 
+    test('External link should opens in the same tab', async({page}) => {
+        const externalLink = page.getByText('external link').first();
+
+        await expect(externalLink).not.toHaveAttribute('target', /_blank/i);
+    })
+
     for (const [resolutionName, resolution] of Object.entries(RESOLUTIONS)) {
         test(`Should render layout of the article properly on ${resolutionName}`, async ({ page }) => {
             await page.setViewportSize(resolution);

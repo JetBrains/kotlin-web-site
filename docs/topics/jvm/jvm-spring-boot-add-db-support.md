@@ -1,5 +1,6 @@
 [//]: # (title: Add database support for Spring Boot project)
-[//]: # (description: Add a database support for Sprint Boot project written in Kotlin using JDBC template.)
+
+<web-summary>Add a database support for Sprint Boot project written in Kotlin using JDBC template.</web-summary>
 
 <tldr>
     <p>This is the third part of the <strong>Getting started with Spring Boot and Kotlin</strong> tutorial. Before proceeding, make sure you've completed previous steps:</p><br/>

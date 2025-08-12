@@ -11,14 +11,14 @@ test.describe('Footer kotlin ecosystem buttons', () => {
     });
 
     test('Contributing to Kotlin button should navigate to Contributing page', async ({ page }) => {
-        const contributingButton = page.getByRole('link', { name: 'Contributing to Kotlin' });
+        const contributingButton = page.getByTestId('footer').getByRole('link', { name: 'Contributing to Kotlin' });
         await expect(contributingButton).toBeVisible();
         await contributingButton.click();
         await expect(page.url()).toContain('/docs/contribute.html');
     });
 
     test('Releases button should navigate to Releases page', async ({ page }) => {
-        const releasesButton = page.getByRole('link', { name: 'Releases' });
+        const releasesButton = page.getByTestId('footer').getByRole('link', { name: 'Releases' });
         await expect(releasesButton).toBeVisible();
         await releasesButton.click();
         await expect(page.url()).toContain('/releases.html');
@@ -26,21 +26,21 @@ test.describe('Footer kotlin ecosystem buttons', () => {
 
     // Without click on the button, but it checks that the button contains the right link. Playwright can't check the PDF.
     test('Press Kit button should navigate to Press Kit page', async ({ page }) => {
-        const pressKitButton = page.getByRole('link', { name: 'Press Kit' });
+        const pressKitButton = page.getByTestId('footer').getByRole('link', { name: 'Press Kit' });
         await expect(pressKitButton).toBeVisible();
         const href = await pressKitButton.getAttribute('href');
         expect(href).toBe('https://kotlinlang.org/assets/kotlin-media-kit.pdf');
         });
 
     test('Security button should navigate to Security page', async ({ page }) => {
-        const securityButton = page.getByRole('link', { name: 'Security' });
+        const securityButton = page.getByTestId('footer').getByRole('link', { name: 'Security' });
         await expect(securityButton).toBeVisible();
         await securityButton.click();
         await expect(page.url()).toContain('/security.html');
     });
 
     test('Blog button should navigate to Kotlin Blog page', async ({ page, context }) => {
-        const blogButton = page.getByRole('link', { name: 'Blog' }).last();
+        const blogButton = page.getByTestId('footer').getByRole('link', { name: 'Blog' });
         await expect(blogButton).toBeVisible();
         const pagePromise = context.waitForEvent('page');
         await blogButton.click();
@@ -50,7 +50,7 @@ test.describe('Footer kotlin ecosystem buttons', () => {
     });
 
     test('Issue Tracker button should navigate to the YouTrack page', async ({ page, context }) => {
-        const issueTrackerButton = page.getByRole('link', { name: 'Issue Tracker' });
+        const issueTrackerButton = page.getByTestId('footer').getByRole('link', { name: 'Issue Tracker' });
         await expect(issueTrackerButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await issueTrackerButton.click();
@@ -60,7 +60,7 @@ test.describe('Footer kotlin ecosystem buttons', () => {
     });
 
     test('Brand Assets button should navigate to Brand Assets page', async ({ page, context }) => {
-        const brandAssetsButton = page.getByRole('link', { name: 'Brand Assets' });
+        const brandAssetsButton = page.getByTestId('footer').getByRole('link', { name: 'Brand Assets' });
         await expect(brandAssetsButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await brandAssetsButton.click();
@@ -70,7 +70,7 @@ test.describe('Footer kotlin ecosystem buttons', () => {
     });
 
     test('Careers button should navigate to Careers page', async ({ page, context }) => {
-        const careersButton = page.getByRole('link', { name: 'Careers' });
+        const careersButton = page.getByTestId('footer').getByRole('link', { name: 'Careers' });
         await expect(careersButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await careersButton.click();
@@ -80,7 +80,7 @@ test.describe('Footer kotlin ecosystem buttons', () => {
     });
 
     test('Kotlin Merch button should navigate to Kotlin Merch page', async ({ page, context }) => {
-        const kotlinMerchButton = page.getByRole('link', { name: 'Kotlin Merch' });
+        const kotlinMerchButton = page.getByTestId('footer').getByRole('link', { name: 'Kotlin Merch' });
         await expect(kotlinMerchButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await kotlinMerchButton.click();
@@ -90,7 +90,7 @@ test.describe('Footer kotlin ecosystem buttons', () => {
     });
 
     test('Opt-Out button should navigate to Opt-Out page', async ({ page }) => {
-        const optOutButton = page.getByRole('link', { name: 'Opt-Out' });
+        const optOutButton = page.getByTestId('footer').getByRole('link', { name: 'Opt-Out' });
         await expect(optOutButton).toBeVisible();
         await optOutButton.click();
         const cookieSettingsPopup = page.locator('#ch2-settings-dialog');
@@ -100,7 +100,7 @@ test.describe('Footer kotlin ecosystem buttons', () => {
 
     // Click on the JetBrains logo button in footer.
     test('JetBrains logo button should navigate to JetBrains homepage', async ({ page, context }) => {
-        const jetBrainsLink = page.getByRole('link', { name: 'JetBrains' }).nth(3);
+        const jetBrainsLink = page.getByTestId('footer').getByRole('link', { name: 'jetbrains.com link' });
         await expect(jetBrainsLink).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await jetBrainsLink.click();
@@ -111,7 +111,7 @@ test.describe('Footer kotlin ecosystem buttons', () => {
 
     // Click on the last JetBrains link on the page. It's here: "Supported and developed by JetBrains."
     test('JetBrains link should navigate to JetBrains homepage', async ({ page, context }) => {
-        const jetBrainsLink = page.getByRole('link', { name: 'JetBrains' }).last();
+        const jetBrainsLink = page.getByTestId('footer').getByRole('link', { name: 'JetBrains' }).last();
         await expect(jetBrainsLink).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await jetBrainsLink.click();
@@ -121,7 +121,7 @@ test.describe('Footer kotlin ecosystem buttons', () => {
     });
 
     test('Kotlin Foundation link should navigate to Kotlin Foundation homepage', async ({ page }) => {
-        const kotlinFoundationLink = page.getByRole('link', { name: 'Kotlin Foundation' }).last();
+        const kotlinFoundationLink = page.getByTestId('footer').getByRole('link', { name: 'Kotlin Foundation' });
         await expect(kotlinFoundationLink).toBeVisible();
         await kotlinFoundationLink.click();
         await page.waitForLoadState();
@@ -129,7 +129,7 @@ test.describe('Footer kotlin ecosystem buttons', () => {
     });
 
     test('Apache 2 license link should navigate to related page on GitHub', async ({ page, context }) => {
-        const apacheLicenseLink = page.getByRole('link', { name: 'Apache 2 license' });
+        const apacheLicenseLink = page.getByTestId('footer').getByRole('link', { name: 'Apache 2 license' });
         await expect(apacheLicenseLink).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await apacheLicenseLink.click();

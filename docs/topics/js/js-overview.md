@@ -41,10 +41,10 @@ It also includes a UI library called Silk, a set of versatile widgets for modern
 Kobweb also supports site export, generating page snapshots
 for SEO and automatic search indexing. Additionally, Kobweb makes it easy to create DOM-based UIs that efficiently update in response to state changes.
 
-Visit the [Kobweb](https://kobweb.varabyte.com/) site for documentation and examples.
+Visit the [Kobweb site](https://kobweb.varabyte.com/) for documentation and examples.
 
 For updates and discussions about the framework, join the [#kobweb](https://kotlinlang.slack.com/archives/C04RTD72RQ8) and
-[#compose-web](https://kotlinlang.slack.com/archives/C01F2HV7868) channels in the Kotlin Slack.
+[#compose-web](https://kotlinlang.slack.com/archives/C01F2HV7868) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
 ### KVision
 
@@ -53,7 +53,7 @@ that can be used as building blocks for your application's user interface. You c
 models to build your frontend, use connectors for Ktor, Spring Boot, and other frameworks to integrate it with your server-side
 applications, and share code using [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html).
 
-[Visit KVision site](https://kvision.io) for documentation, tutorials, and examples.
+Visit the [KVision site](https://kvision.io) for documentation, tutorials, and examples.
 
 For updates and discussions about the framework, join the [#kvision](https://kotlinlang.slack.com/messages/kvision) and
 [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
@@ -64,7 +64,7 @@ _fritz2_ is a standalone framework for building reactive web user interfaces. It
 and rendering HTML elements, and it makes use of Kotlin's coroutines and flows to express components and their data bindings.
 It provides state management, validation, routing, and more out of the box, and integrates with Kotlin Multiplatform projects.
 
-[Visit fritz2 site](https://www.fritz2.dev) for documentation, tutorials, and examples.
+Visit the [fritz2 site](https://www.fritz2.dev) for documentation, tutorials, and examples.
 
 For updates and discussions about the framework, join the [#fritz2](https://kotlinlang.slack.com/messages/fritz2) and
 [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
@@ -75,7 +75,7 @@ _Doodle_ is a vector-based UI framework for Kotlin/JS. Doodle applications use t
 user interfaces instead of relying on DOM, CSS, or Javascript. By using this approach, Doodle gives you precise control
 over the rendering of arbitrary UI elements, vector shapes, gradients, and custom visualizations.
 
-[Visit Doodle site](https://nacular.github.io/doodle/) for documentation, tutorials, and examples.
+Visit the [Doodle site](https://nacular.github.io/doodle/) for documentation, tutorials, and examples.
 
 For updates and discussions about the framework, join the [#doodle](https://kotlinlang.slack.com/messages/doodle) and
 [#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).

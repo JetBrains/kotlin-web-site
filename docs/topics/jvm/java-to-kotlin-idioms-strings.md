@@ -1,5 +1,7 @@
 [//]: # (title: Strings in Java and Kotlin)
-[//]: # (description: Learn how to migrate from Java String to Kotlin String. This guide covers Java StringBuilder, string concatenation and splitting strings, multiline strings, streams, and other topics.)
+
+<web-summary>Learn how to migrate from Java String to Kotlin String. This guide covers Java StringBuilder, 
+string concatenation and splitting strings, multiline strings, streams, and other topics.</web-summary>
 
 This guide contains examples of how to perform typical tasks with strings in Java and Kotlin.
 It will help you migrate from Java to Kotlin and write your code in the authentically Kotlin way.

@@ -1,5 +1,6 @@
 [//]: # (title: Get started with Spring Boot and Kotlin)
-[//]: # (description: Get started with Spring Boot and Kotlin. Create a Spring Boot application with Kotlin.)
+
+<web-summary>Get started with Spring Boot and Kotlin. Create a Spring Boot application with Kotlin.</web-summary>
 
 Get started with Spring Boot and Kotlin by completing this tutorial: it walks you through the process of creating a simple 
 application with Spring Boot and adding a database to store the information.  

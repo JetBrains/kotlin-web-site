@@ -11,7 +11,7 @@ test.describe('Footer social media buttons', () => {
     });
 
     test('GitHub button should navigate to Kotlin GitHub page', async ({ page, context }) => {
-        const githubButton = page.getByRole('link', { name: 'Kotlin on GitHub' });
+        const githubButton = page.getByTestId('footer').getByRole('link', { name: 'Kotlin on GitHub' });
         await expect(githubButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await githubButton.click();
@@ -21,7 +21,7 @@ test.describe('Footer social media buttons', () => {
     });
 
     test('Twitter/X button should navigate to Kotlin Twitter page', async ({ page, context }) => {
-        const twitterButton = page.getByRole('link', { name: 'Kotlin on Twitter' });
+        const twitterButton = page.getByTestId('footer').getByRole('link', { name: 'Kotlin on Twitter' });
         await expect(twitterButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await twitterButton.click();
@@ -31,7 +31,7 @@ test.describe('Footer social media buttons', () => {
     });
 
     test('Bluesky button should navigate to Bluesky page', async ({ page, context }) => {
-        const blueskyButton = page.getByRole('link', { name: 'Kotlin on Bluesky' });
+        const blueskyButton = page.getByTestId('footer').getByRole('link', { name: 'Kotlin on Bluesky' });
         await expect(blueskyButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await blueskyButton.click();
@@ -41,7 +41,7 @@ test.describe('Footer social media buttons', () => {
     });
 
     test('Slack button should navigate to Kotlin Slack Sign-up page', async ({ page, context }) => {
-        const slackButton = page.getByRole('link', { name: 'Kotlin Slack' });
+        const slackButton = page.getByTestId('footer').getByRole('link', { name: 'Kotlin Slack' });
         await expect(slackButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await slackButton.click();
@@ -51,7 +51,7 @@ test.describe('Footer social media buttons', () => {
     });
 
     test('Reddit button should navigate to Kotlin on Reddit', async ({ page, context }) => {
-        const redditButton = page.getByRole('link', { name: 'Kotlin on Reddit' });
+        const redditButton = page.getByTestId('footer').getByRole('link', { name: 'Kotlin on Reddit' });
         await expect(redditButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await redditButton.click();
@@ -61,7 +61,7 @@ test.describe('Footer social media buttons', () => {
     });
 
     test('Stackoverflow button should navigate to Kotlin on Stackoverflow', async ({ page, context }) => {
-        const stackoverflowButton = page.getByRole('link', { name: 'Kotlin on Stack Overflow' });
+        const stackoverflowButton = page.getByTestId('footer').getByRole('link', { name: 'Kotlin on Stack Overflow' });
         await expect(stackoverflowButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await stackoverflowButton.click();
@@ -72,7 +72,7 @@ test.describe('Footer social media buttons', () => {
 
 //Without click on YouTube button, because of YouTube Cookies page, but it checks that the button contains the right link.
     test('YouTube button should navigate to Kotlin on YouTube', async ({ page }) => {
-        const youTubeButton = page.getByRole('link', { name: ' Kotlin on YouTube' });
+        const youTubeButton = page.getByTestId('footer').getByRole('link', { name: ' Kotlin on YouTube' });
         await expect(youTubeButton).toBeVisible();
         const href = await youTubeButton.getAttribute('href');
         expect(href).toBe('https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw')

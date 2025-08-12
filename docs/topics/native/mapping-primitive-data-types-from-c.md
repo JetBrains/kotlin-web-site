@@ -4,7 +4,7 @@
     <p>This is the first part of the <strong>Mapping Kotlin and C</strong> tutorial series.</p>
     <p><img src="icon-1.svg" width="20" alt="First step"/> <strong>Mapping primitive data types from C</strong><br/>
        <img src="icon-2-todo.svg" width="20" alt="Second step"/> <a href="mapping-struct-union-types-from-c.md">Mapping struct and union types from C</a><br/>
-       <img src="icon-3-todo.svg" width="20" alt="Third step"/> <a href="mapping-function-pointers-from-c.md">Mapping function pointers</a><br/>
+       <img src="icon-3-todo.svg" width="20" alt="Third step"/> <a href="mapping-function-pointers-from-c.md">Mapping function pointers from C</a><br/>
        <img src="icon-4-todo.svg" width="20" alt="Fourth step"/> <a href="mapping-strings-from-c.md">Mapping strings from C</a><br/>
     </p>
 </tldr>
