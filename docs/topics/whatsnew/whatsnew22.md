@@ -2,6 +2,8 @@
 
 _[Released: June 23, 2025](releases.md#release-details)_
 
+<tldr>For details about bug fix releases after this version, see the <a href="https://github.com/JetBrains/kotlin/releases">changelog</a></tldr>
+
 The Kotlin 2.2.0 release is here! Here are the main highlights:
 
 * **Language**: new language features in preview, including [context parameters](#preview-of-context-parameters). 
