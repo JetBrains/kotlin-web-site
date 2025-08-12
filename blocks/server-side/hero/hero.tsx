@@ -51,8 +51,8 @@ export const ServerSideHero: FC = ({}) => {
                     </div>
 
                     <div className={styles.buttons}>
-                        <Button mode={'rock'} size={'l'}>Get started</Button>
-                        <Button mode={'outline'} size={'l'}>Who uses Kotlin</Button>
+                        <Button mode={'rock'} size={'l'} href={'#get-started'}>Get started</Button>
+                        <Button mode={'outline'} size={'l'} href={'https://kotlinlang.org/lp/server-side/case-studies/'}>Who uses Kotlin</Button>
                     </div>
                 </div>
 

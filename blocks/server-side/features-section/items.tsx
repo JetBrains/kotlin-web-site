@@ -24,7 +24,7 @@ export const featureSlideshowItems: FeatureSlideItem[] = [
 // explicit nullable types (String?) and enforced compile-time checks (?.)
 
 val length: Int? = b?.length 
-// b.length <-- won't compile, length can only access safely
+// b.length <-- won't compile, as the length can only be accessed safely
 
 if (b != null && b.length > 0) {
     print("String of length \${b.length}")
@@ -67,7 +67,7 @@ println(updatedConfig) //Config(host = "localhost", port = 8081)
 - Reified generics keep type parameters at runtime, eliminating type erasure.
 `,
         codeSample: `// Features like sealed classes, smart casts, and inline value classes 
-// enforce exhaustive, compile-time checking of code paths;
+// enforce exhaustive, compile-time checking of code paths.
 
 @JvmInline value class UserId(val id: String)  // explicit type-safety for primitive types
 

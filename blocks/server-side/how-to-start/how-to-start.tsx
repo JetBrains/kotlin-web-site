@@ -69,7 +69,7 @@ export const HowToStart: FC = ({}) => {
                     </div>
 
                     <div className={cn("ktl-col", styles.codeSample)}>
-                        <CodeHighlight code={codeSample} className={styles.codeBlock} language={'text'} />
+                        <CodeHighlight code={codeSample} className={styles.codeBlock} />
                     </div>
 
                 </div>

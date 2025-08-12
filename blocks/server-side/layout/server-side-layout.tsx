@@ -2,7 +2,7 @@ import React, { FC, useCallback, useMemo } from 'react';
 
 import Head from 'next/head';
 
-import GlobalHeader, { SERVER_SIDE_TITLE } from '@jetbrains/kotlin-web-site-ui/out/components/header';
+import GlobalHeader, { SERVER_SIDE_TITLE, SERVER_SIDE_URL } from '@jetbrains/kotlin-web-site-ui/out/components/header';
 import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 import TopMenu from '@jetbrains/kotlin-web-site-ui/out/components/top-menu';
 import { ThemeProvider } from '@rescui/ui-contexts';
@@ -60,14 +60,6 @@ export const ServerSideLayout: FC<CommunityLayoutProps> = ({ title, ogImageName,
         [ogImageName, ogImagePath]
     );
 
-    if (activeIndex === -1) {
-        activeIndex = items.length;
-        items = [...items, {
-            url: router.pathname + '/',
-            title,
-        }];
-    }
-
     return (
         <>
             <Head>
@@ -92,7 +84,7 @@ export const ServerSideLayout: FC<CommunityLayoutProps> = ({ title, ogImageName,
             <ThemeProvider theme={theme}>
 
                 <GlobalHeader
-                    currentUrl={'COMMUNITY_URL'}
+                    currentUrl={SERVER_SIDE_URL}
                     currentTitle={SERVER_SIDE_TITLE}
                     productWebUrl={releasesData.latest.url}
                     hasSearch={true}
@@ -104,14 +96,14 @@ export const ServerSideLayout: FC<CommunityLayoutProps> = ({ title, ogImageName,
                     <div className={styles.sticky}>
                         <TopMenu
                             className={styles.topMenu}
-                            homeUrl={'COMMUNITY_URL'}
+                            homeUrl={SERVER_SIDE_URL}
                             title={SERVER_SIDE_TITLE}
                             activeIndex={activeIndex}
                             items={items}
                             linkHandler={linkHandler}
-                            mobileOverview={false}
+                            mobileOverview={true}
                         >
-                            <Button>Get started</Button>
+                            <Button href={'#get-started'}>Get started</Button>
                         </TopMenu>
                     </div>
                 </StickyHeader>

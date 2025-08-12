@@ -26,6 +26,11 @@
     box-sizing: border-box;
     border-radius: 16px;
     height: 100%;
+    display: block;
+    text-decoration: none;
+     &:hover {
+        outline: 1px solid #7E42FF;
+    }
 }
 
 @media (max-width: 1024px) {

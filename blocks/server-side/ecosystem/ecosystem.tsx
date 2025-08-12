@@ -9,6 +9,8 @@ import { Card } from '../card/card';
 
 import { primaryCardsData, secondaryCardsData } from './ecosystem-data';
 
+import Link from 'next/link'
+
 export const Ecosystem: FC = ({}) => {
 
     const textCn = useTextStyles();
@@ -46,23 +48,23 @@ export const Ecosystem: FC = ({}) => {
 
                 <div className={cn(styles.bigCards, "ktl-offset-top-l")}>
                     {primaryCardsData.map((card) => (
-                        <div className={styles.ecosystemCard} key={card.title}>
+                        <Link className={styles.ecosystemCard} key={card.title} href={card.linkHref}>
                             <img src={card.src.src} alt="" />
                             <p className={textCn('rs-text-2')}>{card.text}</p>
                             <p className={textCn('rs-text-2')}>
                                 <a className={textCn('rs-link', {external:true, mode: 'standalone'})} href={card.linkHref}>{card.linkText}</a>
                             </p>
-                        </div>
+                        </Link>
                     ))}
                 </div>
 
                 <div className={cn(styles.grid, 'ktl-offset-top-m')}>
                     {secondaryCardsData.map((card) => (
                         <div key={card.title}>
-                            <div className={styles.ecosystemCard}>
+                            <Link className={styles.ecosystemCard} href={card.linkHref}>
                                 <img src={card.src.src} alt="" />
                                 <p className={textCn('rs-text-2')}>{card.text}</p>
-                            </div>
+                            </Link>
                         </div>
                     ))}
                 </div>
