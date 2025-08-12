@@ -1,6 +1,6 @@
 [//]: # (title: Kotlin releases)
 
-<web-summary>Browse the available Kotlin releases. Explore language, tooling, and bug fix releases, along with upgrade guidance for your build system.</web-summary>
+<web-summary>Learn about the different types of releases in the Kotlin release cycle and read upgrade guidance for your build system.</web-summary>
 
 <tldr>
     <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
