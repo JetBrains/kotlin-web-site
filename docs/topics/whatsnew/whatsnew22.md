@@ -4,7 +4,7 @@
 
 _[Released: June 23, 2025](releases.md#release-details)_
 
-<tldr><p>For details about bug fix releases after this version, see the <a href="https://github.com/JetBrains/kotlin/releases">changelog</a></p></tldr>
+<tldr><p>For details about bug fix release 2.2.10, see the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.10">changelog</a></p></tldr>
 
 The Kotlin 2.2.0 release is here! Here are the main highlights:
 
