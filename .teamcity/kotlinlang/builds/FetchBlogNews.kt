@@ -3,6 +3,7 @@ package kotlinlang.builds
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.CheckoutMode
+import jetbrains.buildServer.configs.kotlin.DslContext
 import jetbrains.buildServer.configs.kotlin.buildFeatures.notifications
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.triggers.schedule
@@ -78,6 +79,7 @@ object FetchBlogNews : BuildType({
 
     features {
         notifications {
+            enabled = !DslContext.projectName.lowercase().contains("playground")
             notifierSettings = slackNotifier {
                 connection = "PROJECT_EXT_486"
                 sendTo = "#kotlin-web-site-e2e-tests"
