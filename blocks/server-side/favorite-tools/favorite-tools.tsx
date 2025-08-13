@@ -47,7 +47,7 @@ export const FavoriteTools: FC = ({}) => {
                         </p>
 
                         <Button
-                            href={'https://www.jetbrains.com/idea/download/?_gl=1*1ujcke8*_gcl_au*MTA0OTU3NjY2Mi4xNzUyMjQzNjU3*_ga*MTg1NzExNDA3My4xNzUyMjQzNjY0*_ga_9J976DJZ68*czE3NTMyNzIzOTYkbzgkZzAkdDE3NTMyNzIzOTYkajYwJGwwJGgw'}
+                            href={'https://www.jetbrains.com/idea/download/'}
                             size={'l'} mode={'outline'} icon={<ArrowTopRightIcon />}
                             iconPosition={'right'}
                         >
