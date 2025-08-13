@@ -32,7 +32,7 @@ export const GetStarted: FC = ({}) => {
 
                     <div className="ktl-row ktl-offset-top-l">
                         <div className="ktl-col-12 ktl-col-md-6">
-                            <Link className={styles.card} href={'https://ktor.io/quickstart/'}>
+                            <Link className={styles.card} href={'https://ktor.io/docs/welcome.html'}>
                                 <div className={styles.image}>
                                     <img src={ktorLogo.src} alt="Ktor Logo" />
                                 </div>
