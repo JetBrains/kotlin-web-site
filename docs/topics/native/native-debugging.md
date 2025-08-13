@@ -28,7 +28,7 @@ You can enable debugging manually and produce binaries that include debug inform
   ./gradlew linkDebugFrameworkNative
   ```
 
-  The tasks differ depending on the binary type (for example, `linkDebugSharedNative`) or your target (for example, `linkDebugExecutableMacosX64`).
+  The tasks differ depending on the binary type (for example, `linkDebugSharedNative`) or your target (for example, `linkDebugExecutableMacosArm64`).
 
 * **Using the command-line compiler**. In the command line, compile your Kotlin/Native binary with the `-g` option:
 
