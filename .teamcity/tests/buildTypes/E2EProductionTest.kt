@@ -1,7 +1,7 @@
 package tests.buildTypes
 
+import common.extensions.isProjectPlayground
 import jetbrains.buildServer.configs.kotlin.BuildType
-import jetbrains.buildServer.configs.kotlin.DslContext
 import jetbrains.buildServer.configs.kotlin.buildFeatures.notifications
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
@@ -44,7 +44,7 @@ object E2EProductionTest : BuildType({
 
     features {
         notifications {
-            enabled = !DslContext.projectName.lowercase().contains("playground")
+            enabled = !isProjectPlayground()
             notifierSettings = slackNotifier {
                 connection = "PROJECT_EXT_486"
                 sendTo = "#kotlin-web-site-e2e-tests"
