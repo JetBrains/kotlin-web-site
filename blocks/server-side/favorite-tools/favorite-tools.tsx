@@ -9,8 +9,8 @@ import Image from 'next/image';
 
 import { ArrowTopRightIcon } from '@rescui/icons';
 
-import ToolsImage1 from './images/tools-screen-1.png';
-import ToolsImage2 from './images/tools-screen-2.png';
+import ToolsImage1 from './images/tools-screen-2.webp';
+import ToolsImage2 from './images/tools-screen-2.webp';
 
 import IdeaLogo from './images/intellij-idea.svg'
 import MavenLogo from './images/maven.svg';
