@@ -176,14 +176,15 @@ For the assignment operations, for example `a += b`, the compiler performs the f
 | `a != b` | `!(a?.equals(b) ?: (b === null))` |
 
 These operators only work with the function [`equals(other: Any?): Boolean`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/equals.html), 
-which can be overridden to provide custom equality check implementation. Any other function with the same name (like `equals(other: Foo)`) will not be called.
+which you can override to provide a custom equality check implementation.
+Any other function with the same name (like `equals(other: Foo)`) is ignored.
 
-> `===` and `!==` (identity checks) are not overloadable, so no conventions exist for them.
+Kotlin calls `.equals()` when neither operand compares directly to `null` in the `==` expression and the comparison isn't between two floating-point types.
+Otherwise, Kotlin uses `===` for direct `null` comparisons and compares non-null floating-point values by numeric value.
+
+> `===` and `!==` (identity checks) aren't overloadable, so no conventions exist for them.
 >
 {style="note"}
-
-The `==` operation is special: it is translated to a complex expression that screens for `null`'s.
-`null == null` is always true, and `x == null` for a non-null `x` is always false and won't invoke `x.equals()`.
 
 ### Comparison operators
 
