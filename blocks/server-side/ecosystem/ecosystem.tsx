@@ -49,10 +49,10 @@ export const Ecosystem: FC = ({}) => {
                 <div className={cn(styles.bigCards, "ktl-offset-top-l")}>
                     {primaryCardsData.map((card) => (
                         <Link className={styles.ecosystemCard} key={card.title} href={card.linkHref}>
-                            <img src={card.src.src} alt="" />
+                            <img src={card.src.src} alt={`${card.title} Logo`} />
                             <p className={textCn('rs-text-2')}>{card.text}</p>
                             <p className={textCn('rs-text-2')}>
-                                <a className={textCn('rs-link', {external:true, mode: 'standalone'})} href={card.linkHref}>{card.linkText}</a>
+                                <span className={textCn('rs-link', {external:true, mode: 'standalone'})}>{card.linkText}</span>
                             </p>
                         </Link>
                     ))}
@@ -62,8 +62,8 @@ export const Ecosystem: FC = ({}) => {
                     {secondaryCardsData.map((card) => (
                         <div key={card.title}>
                             <Link className={styles.ecosystemCard} href={card.linkHref}>
-                                <img src={card.src.src} alt="" />
-                                <p className={textCn('rs-text-2')}>{card.text}</p>
+                                <img src={card.src.src} alt={`${card.title} Logo`} />
+                                <div className={textCn('rs-text-2')}>{card.text}</div>
                             </Link>
                         </div>
                     ))}
