@@ -27,7 +27,7 @@ interface LogoItem {
 const logos: LogoItem[] = [
     {
         id: doordash,
-        link: 'https://kotlinlang.org/lp/server-side/case-studies/doordash/',
+        link: 'https://kotlinlang.org/lp/server-side/case-studies/doordash',
     },
     {
         id: kingfisher,
@@ -63,11 +63,11 @@ const logos: LogoItem[] = [
     },
     {
         id: expediaGroup,
-        link: 'https://kotlinlang.org/lp/server-side/case-studies/expedia/',
+        link: 'https://kotlinlang.org/lp/server-side/case-studies/expedia',
     },
     {
         id: faire,
-        link: 'https://kotlinlang.org/lp/server-side/case-studies/faire/',
+        link: 'https://kotlinlang.org/lp/server-side/case-studies/faire',
     },
     {
         id: flux,
@@ -91,7 +91,7 @@ const logos: LogoItem[] = [
     },
     {
         id: novatec,
-        link: 'https://kotlinlang.org/lp/server-side/case-studies/novatec/',
+        link: 'https://kotlinlang.org/lp/server-side/case-studies/novatec',
     },
     {
         id: olx,
