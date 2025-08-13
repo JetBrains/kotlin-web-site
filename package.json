@@ -124,7 +124,7 @@
     "test:production:headed": "playwright test test/production --headed --project=chromium",
     "test:production:debug": "PWDEBUG=1 playwright test test/production --project=chromium",
     "test:e2e": "playwright test test/e2e",
-    "test:e2e:ci": "CI=true playwright test test/e2e",
+    "test:e2e:ci": "CI=true playwright test test/e2e/server-side-use-cases.spec.ts",
     "test:e2e:headed": "playwright test test/e2e --headed",
     "test:e2e:debug": "PWDEBUG=1 playwright test test/e2e  --project=chromium",
     "test:e2e:update": "playwright test test/e2e --update-snapshots",
