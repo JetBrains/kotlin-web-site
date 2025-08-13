@@ -32,7 +32,7 @@ export const GetStarted: FC = ({}) => {
 
                     <div className="ktl-row ktl-offset-top-l">
                         <div className="ktl-col-12 ktl-col-md-6">
-                            <Link className={styles.card} href={'https://ktor.io/quickstart/?_gl=1*1pr0cj8*_gcl_au*MTEzNjExNjg1Ni4xNzUxNjIwNjkw*_ga*NDA0MDE1ODA3LjE3NTE2MjA2OTA.*_ga_9J976DJZ68*czE3NTQ5OTE2ODEkbzIxJGcxJHQxNzU0OTkyODMzJGo1OSRsMCRoMA..'}>
+                            <Link className={styles.card} href={'https://ktor.io/quickstart/'}>
                                 <div className={styles.image}>
                                     <img src={ktorLogo.src} alt="Ktor Logo" />
                                 </div>
@@ -54,7 +54,7 @@ export const GetStarted: FC = ({}) => {
                         </div>
 
                         <div className={cn("ktl-col-12 ktl-col-md-6", "spacer-md")}>
-                            <Link className={styles.card} href={'https://kotlinlang.org/docs/jvm-get-started-spring-boot.html'}>
+                            <Link className={styles.card} href={'/docs/jvm-get-started-spring-boot.html'}>
                                 <div className={styles.image}>
                                     <img src={springLogo.src} alt="Spring Logo" />
                                 </div>
