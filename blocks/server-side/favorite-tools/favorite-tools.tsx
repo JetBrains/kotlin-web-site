@@ -50,6 +50,7 @@ export const FavoriteTools: FC = ({}) => {
                             href={'https://www.jetbrains.com/idea/download/'}
                             size={'l'} mode={'outline'} icon={<ArrowTopRightIcon />}
                             iconPosition={'right'}
+                            data-testid={'download-idea-button'}
                         >
                             Download
                         </Button>

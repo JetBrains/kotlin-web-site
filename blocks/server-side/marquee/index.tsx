@@ -36,7 +36,7 @@ export const Marquee: React.FC<MarqueeProps> = ({
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <div className={`${styles.group} ${isPaused ? styles.paused : ''}`}>{children}</div>
+            <div className={`${styles.group} ${isPaused ? styles.paused : ''}`} data-testid={'marquee-component'}>{children}</div>
             <div className={`${styles.group} ${styles.duplicate} ${isPaused ? styles.paused : ''}`}>{children}</div>
         </div>
     );
