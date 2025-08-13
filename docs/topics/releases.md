@@ -2,7 +2,7 @@
 
 <tldr>
     <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
-    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin %kotlinVersion%</a> for details</p>
+    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.2.0</a> for details</p>
 </tldr>
 
 Since Kotlin 2.0.0, we ship the following types of releases:
