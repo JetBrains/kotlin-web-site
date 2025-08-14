@@ -2566,6 +2566,85 @@
   resolved "https://registry.yarnpkg.com/@webpack-cli/serve/-/serve-2.0.5.tgz#325db42395cd49fe6c14057f9a900e427df8810e"
   integrity sha512-lqaoKnRYBdo1UgDX8uF24AfGMifWK19TxPmM5FHc2vAGxrJ/qtyUyFBWoY1tISZdelsQ5fBcOusifo5o5wSJxQ==
 
+"@webteam/bem-cn-fast@^1.1.6":
+  version "1.1.6"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/bem-cn-fast/-/bem-cn-fast-1.1.6.tgz#2ef71bfea950cda6d10c58cae2cad0ab58ce301e"
+  integrity sha512-hoyc4MkY/6MgmoGDduGhFxfmqsSNYbB0pK5ApXcG0qgxmkgkHGQ+5ExSaHh80lDJ5/UpGDSanhaafqWHvR1CUw==
+  dependencies:
+    bem-cn-fast "^1.0.2"
+
+"@webteam/colors@^1.0.42":
+  version "1.0.42"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/colors/-/colors-1.0.42.tgz#89b0c014de0a9e526a983cd9f374b4ba1f1aab18"
+  integrity sha512-55KOdUkkKS9x6mtQ2//uEx5QKUY6CQZK+dE/Pr+5dH5o/KzSFjgXpBRYhugBqgghV0hoUqe18pwocKQj814RmA==
+
+"@webteam/list@^5.2.4":
+  version "5.2.4"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/list/-/list-5.2.4.tgz#1dac1f49f7666682927c94dfcfd9d70ebd933e03"
+  integrity sha512-T6WqDCR8MZqzfNZSb+ehcEGkIn+3vZkTN3oVATNCxxZZ/XnmVKrmh4kP0PJtsQ6LcR+bEppDMoRv0J4TtUFwdg==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.11.0"
+    "@webteam/bem-cn-fast" "^1.1.6"
+    classnames "^2.2.6"
+    core-js "^3"
+
+"@webteam/toggle@^2.2.4":
+  version "2.2.4"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/toggle/-/toggle-2.2.4.tgz#574124a42fa535eab3179c3f5c7f06fb2582e394"
+  integrity sha512-cLkXqgyYQXdq9gAqxr4ASBOIPKHfIeOLxNDdFj+KwZ88ATX/fz6pE5eplID++5Z856nB7m/iRYeW8rqpTyjF/Q==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.11.0"
+    "@webteam/bem-cn-fast" "^1.1.6"
+    "@webteam/list" "^5.2.4"
+    classnames "^2.2.6"
+    core-js "^3"
+
+"@webteam/ui-contexts@0.10.10":
+  version "0.10.10"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/ui-contexts/-/ui-contexts-0.10.10.tgz#01e356a3ee43933040d86046350b7ae095d6ae3e"
+  integrity sha512-xmNwQ/HngYpmWDkITpqZuoQa0P0SvIDLt5ZfHzcFNP7kA3q/cPoNB7EMUK+NQ05tj2fvXgbH36+m2YhtsdB+LA==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.11.0"
+    "@webteam/colors" "^1.0.42"
+    core-js "^3"
+
+"@webteam/use-async-data@^0.4.0":
+  version "0.4.0"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/use-async-data/-/use-async-data-0.4.0.tgz#8b0cc32585d7eb17102a1076e6a357b47b3c3fcb"
+  integrity sha512-WYObCgGBj3K1691sq9Js4u0K1C5fj49Y2+oFSz7YlsTyLvBMTVcncQGlep3M9XV4Cj+/cpD5lo+QgL+FlNC4cQ==
+  dependencies:
+    swr "^2.3.0"
+
+"@webteam/use-fetch@^0.5.0":
+  version "0.5.0"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/use-fetch/-/use-fetch-0.5.0.tgz#e6a3243a09b60e9bd510bd40c964aee80d26871f"
+  integrity sha512-Zrofsip7mT60xzntxu433Ohfttkf4RsMjX4/HcVAE43LQF5P71gsmLfu7lw7gASAkzsCOfP4lMNAY9AzqeT5pg==
+  dependencies:
+    "@webteam/use-async-data" "^0.4.0"
+
+"@webteam/youtube-player@^0.13.0":
+  version "0.13.0"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/youtube-player/-/youtube-player-0.13.0.tgz#6d2850e42aef62f00699f4dbf98c5ce5baa581ed"
+  integrity sha512-T1lCMJEaJ78gxHK+MiR7MmUq4WPw7K5+Vuh9JCBHfCAaJfgSQvkINSdtdVYIKeMGHnr5yJhIPdTzBsVvvfTyYg==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.11.0"
+    bem-cn-fast "^1.0.2"
+    classnames "^2.2.6"
+    core-js "^3"
+
+"@webteam/youtube-playlist@1.8.3":
+  version "1.8.3"
+  resolved "https://packages.jetbrains.team/npm/p/wt/npm/@webteam/youtube-playlist/-/youtube-playlist-1.8.3.tgz#6de3849efeb44de44c1657dcd02a08cdbd510b49"
+  integrity sha512-LcMWfkINU5oZp9GC+pzKUPRg4Wq4ciVcCSXl8fUJ2H18R9pwHqQtGzjcLeDrG15++VYM1M/GzGjsOkBLZO5yig==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.11.0"
+    "@webteam/toggle" "^2.2.4"
+    "@webteam/use-fetch" "^0.5.0"
+    "@webteam/youtube-player" "^0.13.0"
+    bem-cn-fast "^1.0.2"
+    classnames "^2.2.6"
+    core-js "^3"
+
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
@@ -3875,7 +3954,7 @@ depd@~1.1.2:
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha512-7emPTl6Dpo6JRXOXjLRxck+FlLRX5847cLKEn00PLAgc3g2hTZZgr+e4c2v6QpSmLeFP3n5yUo7ft6avBK/5jQ==
 
-dequal@^2.0.0:
+dequal@^2.0.0, dequal@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
   integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
@@ -7996,6 +8075,14 @@ svgo@^2.2.0:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
+swr@^2.3.0:
+  version "2.3.6"
+  resolved "https://registry.npmjs.org/swr/-/swr-2.3.6.tgz#5fee0ee8a0762a16871ee371075cb09422b64f50"
+  integrity sha512-wfHRmHWk/isGNMwlLGlZX5Gzz/uTgo0o2IRuTMcf4CPuPFJZlq0rDaKUx+ozB5nBOReNV1kiOyzMfj+MBMikLw==
+  dependencies:
+    dequal "^2.0.3"
+    use-sync-external-store "^1.4.0"
+
 tapable@^2.1.1, tapable@^2.2.0:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.1.tgz#1967a73ef4060a82f12ab96af86d52fdb76eeca0"
@@ -8344,6 +8431,11 @@ use-sidecar@^1.1.2:
   dependencies:
     detect-node-es "^1.1.0"
     tslib "^2.0.0"
+
+use-sync-external-store@^1.4.0:
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.5.0.tgz#55122e2a3edd2a6c106174c27485e0fd59bcfca0"
+  integrity sha512-Rb46I4cGGVBmjamjphe8L/UnvJD+uPPtTkNvX5mZgqdbavhI4EbgIWJiIHXJ8bc/i9EQGPRh4DwEURJ552Do0A==
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
