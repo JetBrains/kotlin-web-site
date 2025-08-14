@@ -330,7 +330,6 @@ Before using the default hierarchy, consider carefully any potential conflicts i
 source set or if you renamed the `js("web")` target. To resolve these conflicts, rename the conflicting source set or target, or 
 don't use the default hierarchy.
 
-
 ### Stable cross-platform compilation for Kotlin libraries
 
 Kotlin %kotlinEapVersion% completes an important [roadmap item](https://youtrack.jetbrains.com/issue/KT-71290), stabilizing
@@ -388,7 +387,7 @@ Already available in Swift and Objective-C, it's now supported in Kotlin as well
 
 The implementation of stack protection in Kotlin/Native follows the behavior of the stack protector in [Clang](https://clang.llvm.org/docs/ClangCommandLineReference.html#cmdoption-clang-fstack-protector).
 
-To enable stack canaries, add the following property to your `gradle.properties` file:
+To enable stack canaries, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
 
 ```none
 kotlin.native.binary.stackProtector=yes
@@ -401,10 +400,10 @@ The property enables the feature for all the Kotlin functions that are vulnerabl
 
 Note that in some cases, stack protection might come with a performance cost.
 
-### Smaller binary size for iOS targets
+### Smaller binary size for release binaries
 <primary-label ref="experimental-general"/> 
 
-Kotlin %kotlinEapVersion% introduces the `smallBinary` option that can help you decrease the binary size for iOS targets.
+Kotlin %kotlinEapVersion% introduces the `smallBinary` option that can help you decrease the binary size for release binaries.
 The new option effectively sets `-Oz` as the default optimization argument for the compiler during the LLVM compilation phase.
 
 With the `smallBinary` option enabled, you can make release binaries smaller and improve build time. However, it might
@@ -413,26 +412,10 @@ affect runtime performance in some cases.
 #### How to enable smaller binary size
 
 The new feature is currently [Experimental](components-stability.md#stability-levels-explained). To try it out in your
-project, use the `-Xbinary=smallBinary=true` compiler option or update your `gradle.properties` file with:
+project, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
 
 ```none
 kotlin.native.binary.smallBinary=true
-```
-
-For a specific binary, set the `binaryOption("smallBinary", "true")` in your `build.gradle(.kts)` file. For example:
-
-```kotlin
-kotlin {
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64(),
-    ).forEach {
-        it.binaries.framework {
-            binaryOption("smallBinary", "true")
-        }
-    }
-}
 ```
 
 The Kotlin team is grateful to [Troels Lund](https://github.com/troelsbjerre) for his help in implementing this feature.

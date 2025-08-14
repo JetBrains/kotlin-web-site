@@ -72,14 +72,14 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td width="110">Status</td>
     </tr>
     <tr>
-        <td><a href="whatsnew-eap.md" anchor="smaller-binary-size-for-ios-targets"><code>smallBinary</code></a></td>
+        <td><a href="whatsnew-eap.md" anchor="smaller-binary-size-for-release-binaries"><code>smallBinary</code></a></td>
         <td>
             <list>
                 <li><code>true</code></li>
                 <li><code>false</code> (default)</li>
             </list>
         </td>
-        <td>Decreases the binary size for iOS targets.</td>
+        <td>Decreases the binary size for release binaries.</td>
         <td>Experimental since 2.2.20</td>
     </tr>
     <tr>
