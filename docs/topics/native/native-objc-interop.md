@@ -512,7 +512,7 @@ The same is true for `MutableMap`.
 
 ### Function types
 
-Kotlin function-typed objects (for example, lambdas) are converted to functions in Swift and blocks in Objective-C.
+Kotlin function-typed objects (for example, lambdas) are converted to closures in Swift and blocks in Objective-C.
 [See an example of a Kotlin function with a lambda in the Kotlin-Swift interopedia](https://github.com/kotlin-hands-on/kotlin-swift-interopedia/blob/main/docs/functionsandproperties/Functions%20returning%20function%20type.md).
 
 However, there is a difference in how types of parameters and return values are mapped when translating a function and a
@@ -534,12 +534,43 @@ func foo(block: (KotlinInt) -> KotlinUnit)
 
 And you can call it like this:
 
-```kotlin
+```swift
 foo {
     bar($0 as! Int32)
     return KotlinUnit()
 }
 ```
+
+#### Explicit names in block types
+
+You can add explicit names to Kotlin's block types for exported Objective-C headers. Without them, Xcode's autocompletion
+suggests calling such functions with no names in the block, and the generated block triggers Clang warnings.
+
+To enable block parameter names, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
+
+```none
+kotlin.native.binary.objcExportBlockExplicitParameterNames=true
+```
+
+For example, for the following Kotlin code:
+
+```kotlin
+// Kotlin:
+fun greetUser(block: (name: String) -> Unit) = block("John")
+```
+
+Kotlin forwards the parameter names from Kotlin function types to Objective-C block types, so Xcode uses them in suggestions:
+
+```objc
+// Objective-C:
+greetUserBlock:^(NSString *name) {
+    // ...
+};
+```
+
+> This option affects Objective-C interop only and generally doesn't change behavior when calling Kotlin code from Swift.
+>
+{style="note"}
 
 ### Generics
 
