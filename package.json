@@ -107,12 +107,17 @@
     "webpack-dev-server": "^4.3.1",
     "yaml-loader": "0.7.0"
   },
+  "optionalDependencies": {
+    "@webteam/ui-contexts": "0.10.10",
+    "@webteam/youtube-playlist": "1.8.3"
+  },
   "resolutions": {
     "sharp": "^0.28.3"
   },
   "scripts": {
     "build": "yarn run build:production && yarn run next-build-static",
     "build:production": "NODE_ENV=production webpack  --mode production",
+    "install:ignore-optional": "yarn install --ignore-optional",
     "postinstall": "cd node_modules/codemirror && rollup -c",
     "start": "webpack serve",
     "next-dev": "next dev",

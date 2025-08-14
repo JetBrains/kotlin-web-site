@@ -139,12 +139,36 @@ You can:
 
 ## Local development
 
-#### preliminaries: python3 installed
+For full development tooling, you need to connect to the WebTeam registry.
+You can work without it, but some UI components will not be displayed.
+
+#### Option 1: Connect to Space registry (recommended for full functionality)
+Visit [the registry](https://jetbrains.team/p/wt/packages/npm/npm) page in Space:
+- On the top right, click Connect;
+- Click Generate personal token;
+- Copy your personal token.
+Add your personal token to the environmental variable. This step differs based on your OS.
+
+##### For macOS:
+Add your token to the ~/.zshenv file:
+- Open the Terminal;
+- Use this command to access .zshenv file `nano ~/.zshenv`;
+- Replace your_token with your actual Space token and use this command to add an environment variable: `export WEBTEAM_UI_NPM_TOKEN=yourtoken`.
+
+Then install frontend dependencies `yarn install`.
+
+#### Option 2: Ignore optional dependecies
+
+Add an environment variable `export USE_FALLBACK_FOR_INTERNAL_PACKAGES=1`.
+Then install npm dependencies without optional ones:
+```bash
+yarn run install:ignore-optional
+```
+
+### Buld the website
+preliminaries: python3 installed
 
 ```
-# install frontend dependencies
-yarn install
-
 # at first start you need to build the static
 yarn run next-build-static
 
