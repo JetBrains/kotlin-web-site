@@ -344,7 +344,7 @@ you can now remove it from your `gradle.properties` file.
 
 Unfortunately, a few limitations are still present. You still need to use a Mac machine if:
 
-* Your library has a [cinterop dependency](native-c-interop.md).
+* Your library or any dependent modules have [cinterop dependencies](native-c-interop.md).
 * You have a [CocoaPods integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html) set up in your project.
 * You need to build or test [final binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html) for Apple targets.
 
