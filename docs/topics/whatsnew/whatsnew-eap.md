@@ -225,7 +225,7 @@ The key features are:
 The feature is currently [Experimental](components-stability.md#stability-levels-explained) and works only in 
 projects that use [direct integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-direct-integration.html)
 to connect the iOS framework to the Xcode project. This is a standard configuration for Kotlin Multiplatform projects 
-created with Kotlin Multiplatform plugin in IntelliJ IDEA or through the [web wizard](https://kmp.jetbrains.com/).
+created with the Kotlin Multiplatform plugin in IntelliJ IDEA or through the [web wizard](https://kmp.jetbrains.com/).
 
 To try out Swift export, configure your Xcode project:
 
@@ -233,11 +233,11 @@ To try out Swift export, configure your Xcode project:
 2. On the **Build Phases** tab, locate the **Run Script** phase with the `embedAndSignAppleFrameworkForXcode` task.
 3. Adjust the script to feature the `embedSwiftExportForXcode` task instead in the run script phase:
 
-  ```bash
-  ./gradlew :<Shared module name>:embedSwiftExportForXcode
-  ```
+   ```bash
+   ./gradlew :<Shared module name>:embedSwiftExportForXcode
+   ```
 
-  ![Add the Swift export script](xcode-swift-export-run-script-phase.png){width=700}
+   ![Add the Swift export script](xcode-swift-export-run-script-phase.png){width=700}
 
 4. Build the project. Swift modules are generated in the build output directory.
 
@@ -383,8 +383,6 @@ Starting with %kotlinEapVersion%, Kotlin adds support for stack canaries in the 
 stack protection, this security feature protects against stack smashing, mitigating some common application vulnerabilities.
 Already available in Swift and Objective-C, it's now supported in Kotlin as well.
 
-#### How to enable stack canaries
-
 The implementation of stack protection in Kotlin/Native follows the behavior of the stack protector in [Clang](https://clang.llvm.org/docs/ClangCommandLineReference.html#cmdoption-clang-fstack-protector).
 
 To enable stack canaries, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
@@ -408,8 +406,6 @@ The new option effectively sets `-Oz` as the default optimization argument for t
 
 With the `smallBinary` option enabled, you can make release binaries smaller and improve build time. However, it might
 affect runtime performance in some cases.
-
-#### How to enable smaller binary size
 
 The new feature is currently [Experimental](components-stability.md#stability-levels-explained). To try it out in your
 project, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
