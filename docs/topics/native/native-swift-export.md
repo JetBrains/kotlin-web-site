@@ -64,8 +64,6 @@ kotlin {
 }
 ```
 
-{initial-collapse-state="collapsed" collapsible="true"}
-
 The Kotlin compiler automatically generates all the necessary files (including `swiftmodule` files,
 static `a` library, and header and `modulemap` files) and copies them into the app's build directory, which you can
 access from Xcode.
@@ -102,7 +100,7 @@ IDEA or through the [web wizard](https://kmp.jetbrains.com/).
 Other known issues:
 
 * When exported to Swift, Kotlin generic type parameters are type-erased to their upper bounds.
-* Functional types defined in Kotlin can be passed to Swift, but not vice versa.
+* Swift closures can be passed into Kotlin, but Kotlin cannot export functional types to Swift.
 * Cross-language inheritance is not supported, so Swift classes cannot directly subclass from Kotlin-exported classes or
   interfaces.
 * No IDE migration tips or automation are available.
@@ -111,12 +109,12 @@ Other known issues:
 
   ```kotlin
   swiftExport {
-        moduleName = "Shared"
+      moduleName = "Shared"
 
-        export("org.jetbrains.kotlinx:kotlinx-datetime:%dateTimeVersion%") {
-            moduleName = "KotlinDateTime"
-            flattenPackage = "kotlinx.datetime"
-        }
+      export("org.jetbrains.kotlinx:kotlinx-datetime:%dateTimeVersion%") {
+          moduleName = "KotlinDateTime"
+          flattenPackage = "kotlinx.datetime"
+      }
   }
 
   // Add a separate opt-in block at the module level
