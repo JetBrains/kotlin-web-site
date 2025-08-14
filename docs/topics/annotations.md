@@ -183,7 +183,7 @@ The full list of supported use-site targets is:
     ```
     
   * `param` (constructor parameter)
-  * `set_param` (property setter parameter)
+  * `setparam` (property setter parameter)
   * `delegate` (the field storing the delegate instance for a delegated property)
 
 ### Defaults when no use-site targets are specified
@@ -273,7 +273,7 @@ Specifically, the annotation marked with `all` is propagated, if applicable:
 * To the property itself (`property`).
 * To the backing field (`field`) if the property has one.
 * To the getter (`get`).
-* To the setter parameter (`set_param`) if the property is defined as `var`.
+* To the setter parameter (`setparam`) if the property is defined as `var`.
 * To the Java-only target `RECORD_COMPONENT` if the class has the `@JvmRecord` annotation.
 
 Let's use the [`@Email` annotation from Jakarta Bean Validation](https://jakarta.ee/specifications/bean-validation/3.0/apidocs/jakarta/validation/constraints/email),
@@ -291,7 +291,7 @@ data class User(
     val username: String,
     // Applies @Email to param, field and get
     @all:Email val email: String,
-    // Applies @Email to param, field, get, and set_param
+    // Applies @Email to param, field, get, and setparam
     @all:Email var name: String,
 ) {
     // Applies @Email to field and getter (no param since it's not in the constructor)
