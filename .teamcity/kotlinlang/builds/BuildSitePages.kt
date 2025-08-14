@@ -107,7 +107,7 @@ object BuildSitePages : BuildType({
                 if [[ "%teamcity.build.branch%" == "<default>" ]]; then
                   url="https://branch-.kotlin-web-site.labs.jb.gg"
                 else
-                  sanitized_branch=$(echo "%teamcity.build.branch%" | sed 's/[^a-zA-Z0-9 ]/-/g')
+                  sanitized_branch=$(echo "%teamcity.build.branch%" | sed 's/[^a-zA-Z0-9]\+/-/g')
                   url="https://branch-${'$'}{sanitized_branch}.kotlin-web-site.labs.jb.gg"
                 fi
                 
