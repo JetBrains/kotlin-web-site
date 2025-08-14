@@ -14,7 +14,7 @@ Here are some details of this EAP release:
 
 * Kotlin Multiplatform: [Swift export available by default](#swift-export-available-by-default), [shared source set for `js` and `wasmJs` targets](#shared-source-set-for-js-and-wasmjs-targets), [stable cross-platform compilation for Kotlin libraries](#stable-cross-platform-compilation-for-kotlin-libraries), and a [new approach for declaring common dependencies](#new-approach-for-declaring-common-dependencies).
 * Language: [improved overload resolution when passing lambdas to overloads with suspend function types](#improved-overload-resolution-for-lambdas-with-suspend-function-types).
-* Kotlin/Native: [support for stack canaries in binaries](#support-for-stack-canaries-in-binaries) and [smaller binary size for iOS targets](#smaller-binary-size-for-ios-targets).
+* Kotlin/Native: [support for stack canaries in binaries](#support-for-stack-canaries-in-binaries) and [smaller binary size for iOS targets](#smaller-binary-size-for-release-binaries).
 * Kotlin/Wasm: [improved exception handling in Kotlin/Wasm and JavaScript interop](#improved-exception-handling-in-kotlin-wasm-and-javascript-interop).
 * Kotlin/JS: [`Long` values compiled into JavaScript `BigInt`](#usage-of-bigint-type-to-represent-kotlin-s-long-type).
 
