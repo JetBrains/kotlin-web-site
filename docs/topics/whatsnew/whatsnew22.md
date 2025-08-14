@@ -235,7 +235,7 @@ This feature tells the compiler to apply the annotation to all relevant parts of
 
 * **`get`**: the getter method.
 
-* **`set_param`**: the parameter of the setter method, if the property is defined as `var`.
+* **`setparam`**: the parameter of the setter method, if the property is defined as `var`.
 
 * **`RECORD_COMPONENT`**: if the class is a `@JvmRecord`, the annotation applies to the [Java record component](#improved-support-for-annotating-jvm-records). This behavior mimics the way Java handles annotations on record components.
 
@@ -248,7 +248,7 @@ data class User(
     val username: String,
 
     // Applies @Email to param, property, field,
-    // get, and set_param (if var)
+    // get, and setparam (if var)
     @all:Email val email: String,
 ) {
     // Applies @Email to property, field, and getter 
