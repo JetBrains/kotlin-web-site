@@ -21,12 +21,7 @@ export const ServerSidePerformance: FC = ({}) => {
                     Performance: optimized for high-load
                 </h2>
 
-                <h3 className={textCn('rs-subtitle-2')}>
-                    From lightweight concurrency to efficient memory use, <br />
-                    Kotlin and JVM combo brings serious advantage
-                </h3>
-
-                <div className={cn(styles.cards, 'ktl-offset-top-xl')}>
+                <div className={cn(styles.cards)}>
                     <Card
                         title={'Kotlin coroutines'}
                         description={'Run 10,000+ lightweight tasks on just a few threads'}
