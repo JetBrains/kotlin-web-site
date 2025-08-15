@@ -1,3 +1,4 @@
+const path = require('path');
 const packageJSON = require('./package.json');
 
 const withPlugins = require('next-compose-plugins');
@@ -12,6 +13,20 @@ let transpiledPackages = [
     '@rescui/dropdown',
     '@rescui/menu'
 ];
+
+if (process.env.USE_FALLBACK_FOR_INTERNAL_PACKAGES !== '1') {
+    transpiledPackages.push(
+        '@webteam/youtube-playlist',
+        '@webteam/ui-contexts',
+        '@webteam/colors',
+        '@webteam/toggle',
+        '@webteam/youtube-player',
+        '@webteam/use-fetch',
+        '@webteam/use-async-data',
+        '@webteam/bem-cn-fast',
+        '@webteam/list'
+    )
+}
 
 const withTranspile = nextTranspileModules(transpiledPackages);
 
@@ -43,6 +58,17 @@ const nextConfig = {
             test: /\.md$/,
             type: 'asset/source'
         });
+
+        const useFallbackForInternalPackages = process.env.USE_FALLBACK_FOR_INTERNAL_PACKAGES === '1';
+
+        config.resolve.alias = config.resolve.alias || {};
+
+        if (useFallbackForInternalPackages) {
+            config.resolve.alias['@webteam'] = path.resolve(
+                __dirname,
+                'components/webteam-fallback'
+            );
+        }
 
         return config;
     },
