@@ -36,7 +36,7 @@ kotlin {
 </tab>
 <tab title="Groovy" group-key="groovy">
 
-```kotlin
+```groovy
 kotlin {
     abiValidation {
         enabled = true
@@ -56,7 +56,7 @@ If your project has multiple modules where you want to check for binary compatib
 To check for potentially binary incompatible issues after making changes to your code, run the `checkLegacyAbi` Gradle task
 in IntelliJ IDEA or use the following command in your project directory:
 
-```kotlin
+```bash
 ./gradlew checkLegacyAbi
 ```
 
@@ -68,7 +68,7 @@ make changes to your code to preserve binary compatibility.
 To update the reference ABI dump that Gradle uses to check your latest changes, run the `updateLegacyAbi` task in IntelliJ 
 IDEA or use the following command in your project directory:
 
-```kotlin
+```bash
 ./gradlew updateLegacyAbi
 ```
 
@@ -121,7 +121,7 @@ kotlin {
 </tab>
 <tab title="Groovy" group-key="groovy">
 
-```kotlin
+```groovy
 kotlin {
     abiValidation {
         filters {
@@ -177,7 +177,7 @@ kotlin {
 </tab>
 <tab title="Groovy" group-key="groovy">
 
-```kotlin
+```groovy
 kotlin {
     abiValidation {
         klib {

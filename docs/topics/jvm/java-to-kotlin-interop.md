@@ -363,7 +363,7 @@ The Kotlin visibility modifiers map to Java in the following way:
 if accessed from within a class. 
 * `protected` remains `protected`. (Note that Java allows accessing protected members from other classes in the same package
 and Kotlin doesn't, so Java classes will have broader access to the code.)
-* `internal` declarations become `public` in Java. Members of `internal` classes go through name mangling, to make.
+* `internal` declarations become `public` in Java. Members of `internal` classes go through name mangling, to make
 it harder to accidentally use them from Java and to allow overloading for members with the same signature that don't see
 each other according to Kotlin rules.
 * `public` remains `public`.
