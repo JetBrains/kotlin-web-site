@@ -111,13 +111,13 @@
     "@webteam/ui-contexts": "0.10.10",
     "@webteam/youtube-playlist": "1.8.3"
   },
-  "resolutions": {
+  "overrides": {
     "sharp": "^0.28.3"
   },
   "scripts": {
-    "build": "yarn run build:production && yarn run next-build-static",
-    "build:production": "NODE_ENV=production webpack  --mode production",
-    "install:ignore-optional": "yarn install --ignore-optional",
+    "build": "npm run build:production && npm run next-build-static",
+    "build:production": "NODE_ENV=production webpack --mode production",
+    "install:ignore-optional": "npm ci --no-optional",
     "postinstall": "cd node_modules/codemirror && rollup -c",
     "start": "webpack serve",
     "next-dev": "next dev",
@@ -134,6 +134,5 @@
     "test:e2e:debug": "PWDEBUG=1 playwright test test/e2e  --project=chromium",
     "test:e2e:update": "playwright test test/e2e --update-snapshots",
     "test:e2e:new": "playwright codegen localhost:9000"
-  },
-  "packageManager": "yarn@4.9.2"
+  }
 }

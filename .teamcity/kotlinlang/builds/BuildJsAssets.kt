@@ -35,9 +35,9 @@ object BuildJsAssets: BuildType({
         #   [cause]: TypeError: Invalid URL
         export NODE_OPTIONS=--no-experimental-fetch
         
-        yarn install --frozen-lockfile
+        npm ci
         
-        NODE_ENV=production yarn run build
+        NODE_ENV=production npm run build
       """.trimIndent()
       dockerImage = "node:lts-slim"
       dockerPull = true

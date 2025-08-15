@@ -155,14 +155,14 @@ Add your token to the ~/.zshenv file:
 - Use this command to access .zshenv file `nano ~/.zshenv`;
 - Replace your_token with your actual Space token and use this command to add an environment variable: `export WEBTEAM_UI_NPM_TOKEN=yourtoken`.
 
-Then install frontend dependencies `yarn install`.
+Then install frontend dependencies `npm install`.
 
 #### Option 2: Ignore optional dependecies
 
 Add an environment variable `export USE_FALLBACK_FOR_INTERNAL_PACKAGES=1`.
 Then install npm dependencies without optional ones:
 ```bash
-yarn run install:ignore-optional
+npm run install:ignore-optional
 ```
 
 ### Buld the website
@@ -170,13 +170,13 @@ preliminaries: python3 installed
 
 ```
 # at first start you need to build the static
-yarn run next-build-static
+npm run next-build-static
 
 # run NextJS server
-yarn run next-dev
+npm run next-dev
 
 # run webpack dev server for everything else
-yarn start
+npm run start
 
 # install dependencies for the python server
 pip  install --no-build-isolation -r requirements.txt
@@ -220,19 +220,19 @@ To run tests locally:
 
 ## Run Tests
 
-- `yarn test` to run all tests in headless mode locally.
-- `yarn test:e2e` to run e2e tests locally, visual tests are also included.
-- `yarn test:e2e:skip-visual` to run e2e tests without visual tests locally.
-- `yarn test:production` to run the subset of e2e tests that are meant to check the production locally.
+- `npm run test` to run all tests in headless mode locally.
+- `npm run test:e2e` to run e2e tests locally, visual tests are also included.
+- `npm run test:e2e:skip-visual` to run e2e tests without visual tests locally.
+- `npm run test:production` to run the subset of e2e tests that are meant to check the production locally.
 
 There are also additional options to run tests:
-- `yarn run test:e2e:ci` or `yarn test:production:ci` to run tests in CI environments.
-- `yarn test:e2e:headed` or `yarn test:production:headed` to run tests in headed mode locally.
-- `yarn test:e2e:debug` or `yarn test:production:debug` to run e2e tests in headed mode with debug locally.
+- `npm run test:e2e:ci` or `npm run test:production:ci` to run tests in CI environments.
+- `npm run test:e2e:headed` or `npm run test:production:headed` to run tests in headed mode locally.
+- `npm run test:e2e:debug` or `npm run test:production:debug` to run e2e tests in headed mode with debug locally.
 
 To ease the process of adding and maintaining e2e tests:
-- `yarn test:e2e:new` to generate the test for the user interactions.
-- `yarn test:e2e:update`  to update screenshots when something on page has changed intentionally.
+- `npm run test:e2e:new` to generate the test for the user interactions.
+- `npm run test:e2e:update`  to update screenshots when something on page has changed intentionally.
 
 ## Write Tests
 
@@ -244,7 +244,7 @@ To run these tests locally, follow the next steps:
 1. Create the `dist` folder in the project.
 2. Open the last successful build of [Reference Docs](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildReferenceDocs?branch=&mode=builds#all-projects) on TeamCity.
 3. Download the artifacts of this build and place them in the `dist` folder.
-4. Run the tests locally with the following command `yarn run test:e2e`
+4. Run the tests locally with the following command `npm run test:e2e`
 5. Run the tests in docker container with the following command `docker compose -f docker-compose-e2e-statics.yml up --build  --exit-code-from playwright`
 
 ## API references tests
