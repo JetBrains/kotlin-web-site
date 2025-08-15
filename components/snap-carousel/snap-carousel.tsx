@@ -20,8 +20,10 @@ export const SnapCarousel = ({ children }: SnapCarouselProps) => {
             React.Children.map(children, (child, index) => {
                 if (React.isValidElement(child)) {
                     const isChildFunction = typeof child.type === 'function';
+
                     return React.cloneElement(child, {
                         ...(isChildFunction && { isActive: activePageIndex === index }),
+                        // @ts-ignore
                         className: cn(styles.slide, child.props.className)
                     });
                 }
