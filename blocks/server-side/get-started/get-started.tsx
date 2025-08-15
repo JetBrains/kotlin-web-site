@@ -18,7 +18,7 @@ export const GetStarted: FC = ({}) => {
     const textCn = useTextStyles();
 
     return (
-        <section className={cn(styles.wrapper)}>
+        <section className={cn(styles.wrapper)} data-testid={'get-started-block'}>
 
             <div className={cn('ktl-layout', 'ktl-layout--center')} id={'get-started'}>
 
@@ -32,7 +32,7 @@ export const GetStarted: FC = ({}) => {
 
                     <div className="ktl-row ktl-offset-top-l">
                         <div className="ktl-col-12 ktl-col-md-6">
-                            <Link className={styles.card} href={'https://ktor.io/docs/welcome.html'}>
+                            <Link className={styles.card}  data-testid={'ktor-get-started-link'} href={'https://ktor.io/docs/welcome.html'}>
                                 <div className={styles.image}>
                                     <img src={ktorLogo.src} alt="Ktor Logo" />
                                 </div>
@@ -54,7 +54,7 @@ export const GetStarted: FC = ({}) => {
                         </div>
 
                         <div className={cn("ktl-col-12 ktl-col-md-6", "spacer-md")}>
-                            <Link className={styles.card} href={'/docs/jvm-get-started-spring-boot.html'}>
+                            <Link className={styles.card}  data-testid={'spring-get-started-link'} href={'/docs/jvm-get-started-spring-boot.html'}>
                                 <div className={styles.image}>
                                     <img src={springLogo.src} alt="Spring Logo" />
                                 </div>

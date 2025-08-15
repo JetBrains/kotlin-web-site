@@ -6,7 +6,7 @@ import logos from './customer-logo-marquee-data';
 
 const CustomerLogoMarqueeSection: React.FC = () => {
     return (
-        <section className={styles.section}>
+        <section className={styles.section} data-testid={'customers-block'}>
             <Marquee className={styles.list} pauseOnHover hasFadingEdges>
                 {logos.map((item, index) => (
                     <a
@@ -15,6 +15,7 @@ const CustomerLogoMarqueeSection: React.FC = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.logoLink}
+                        data-testid="customers-link"
                     >
                         <img src={item.id.src} alt={item.link} className={styles.logo} />
                     </a>

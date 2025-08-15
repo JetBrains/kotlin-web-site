@@ -108,7 +108,7 @@ export const ServerSideLayout: FC<CommunityLayoutProps> = ({ title, ogImageName,
                     </div>
                 </StickyHeader>
 
-                <div className={styles.contentWrapper}>
+                <div className={styles.contentWrapper} data-testid={'server-side-page'}>
                     {children}
                 </div>
 
