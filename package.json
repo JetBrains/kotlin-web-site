@@ -134,5 +134,6 @@
     "test:e2e:debug": "PWDEBUG=1 playwright test test/e2e  --project=chromium",
     "test:e2e:update": "playwright test test/e2e --update-snapshots",
     "test:e2e:new": "playwright codegen localhost:9000"
-  }
+  },
+  "packageManager": "yarn@4.9.2"
 }
