@@ -72,7 +72,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td width="110">Status</td>
     </tr>
     <tr>
-        <td><a href="whatsnew-eap.md" anchor="smaller-binary-size-for-release-binaries"><code>smallBinary</code></a></td>
+        <td><a href="whatsnew-eap.md#smaller-binary-size-for-release-binaries"><code>smallBinary</code></a></td>
         <td>
             <list>
                 <li><code>true</code></li>
@@ -83,7 +83,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td>Experimental since 2.2.20</td>
     </tr>
     <tr>
-        <td><a href="whatsnew-eap.md" anchor="support-for-stack-canaries-in-binaries"><code>stackProtector</code></a></td>
+        <td><a href="whatsnew-eap.md#support-for-stack-canaries-in-binaries"><code>stackProtector</code></a></td>
         <td>
             <list>
                 <li><code>yes</code></li>
@@ -96,7 +96,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td>Available since 2.2.20</td>
     </tr>
     <tr>
-        <td><a href="native-memory-manager.md" anchor="disable-allocator-paging"><code>pagedAllocator</code></a></td>
+        <td><a href="native-memory-manager.md#disable-allocator-paging"><code>pagedAllocator</code></a></td>
         <td>
             <list>
                 <li><code>true</code> (default)</li>
@@ -107,7 +107,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td>Experimental since 2.2.0</td>
     </tr>
     <tr>
-        <td><a href="native-memory-manager.md" anchor="enable-support-for-latin-1-strings"><code>latin1Strings</code></a></td>
+        <td><a href="native-memory-manager.md#enable-support-for-latin-1-strings"><code>latin1Strings</code></a></td>
         <td>
             <list>
                 <li><code>true</code></li>
@@ -118,7 +118,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td>Experimental since 2.2.0</td>
     </tr>
     <tr>
-        <td><a href="native-memory-manager.md" anchor="track-memory-consumption-on-apple-platforms"><code>mmapTag</code></a></td>
+        <td><a href="native-memory-manager.md#track-memory-consumption-on-apple-platforms"><code>mmapTag</code></a></td>
         <td><code>UInt</code></td>
         <td>Controls memory tagging, necessary for memory consumption tracking on Apple platforms. Values <code>240</code>-<code>255</code> are available (default is <code>246</code>); <code>0</code> disables tagging</td>
         <td>Available since 2.2.0</td>
@@ -140,8 +140,8 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
             <list>
                 <li><code>pmcs</code> (default)</li>
                 <li><code>stwms</code></li>
-                <li><a href="native-memory-manager.md" anchor="optimize-gc-performance"><code>cms</code></a></li>
-                <li><a href="native-memory-manager.md" anchor="disable-garbage-collection"><code>noop</code></a></li>
+                <li><a href="native-memory-manager.md#optimize-gc-performance"><code>cms</code></a></li>
+                <li><a href="native-memory-manager.md#disable-garbage-collection"><code>noop</code></a></li>
             </list>
         </td>
         <td>Controls garbage collection behavior:
@@ -155,7 +155,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td><code>cms</code> is Experimental since 2.0.20</td>
     </tr>
     <tr>
-        <td><a href="native-memory-manager.md" anchor="garbage-collector"><code>gcMarkSingleThreaded</code></a></td>
+        <td><a href="native-memory-manager.md#garbage-collector"><code>gcMarkSingleThreaded</code></a></td>
         <td>
             <list>
                 <li><code>true</code></li>
@@ -166,7 +166,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td>Available since 1.7.20</td>
     </tr>
     <tr>
-        <td><a href="native-memory-manager.md" anchor="monitor-gc-performance"><code>enableSafepointSignposts</code></a></td>
+        <td><a href="native-memory-manager.md#monitor-gc-performance"><code>enableSafepointSignposts</code></a></td>
         <td>
             <list>
                 <li><code>true</code></li>
@@ -186,7 +186,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td>Experimental since 2.1.20</td>
     </tr>
     <tr>
-        <td><a href="native-arc-integration.md" anchor="deinitializers"><code>objcDisposeOnMain</code></a></td>
+        <td><a href="native-arc-integration.md#deinitializers"><code>objcDisposeOnMain</code></a></td>
         <td>
             <list>
                 <li><code>true</code> (default)</li>
@@ -197,7 +197,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td>Available since 1.9.0</td>
     </tr>
     <tr>
-        <td><a href="native-arc-integration.md" anchor="support-for-background-state-and-app-extensions"><code>appStateTracking</code></a></td>
+        <td><a href="native-arc-integration.md#support-for-background-state-and-app-extensions"><code>appStateTracking</code></a></td>
         <td>
             <list>
                 <li><code>enabled</code></li>
