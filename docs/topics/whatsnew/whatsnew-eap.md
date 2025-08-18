@@ -399,7 +399,7 @@ The property enables the feature for all the Kotlin functions that are vulnerabl
 Note that in some cases, stack protection might come with a performance cost.
 
 ### Smaller binary size for release binaries
-<primary-label ref="experimental-general"/> 
+<primary-label ref="experimental-opt-in"/> 
 
 Kotlin %kotlinEapVersion% introduces the `smallBinary` option that can help you decrease the binary size for release binaries.
 The new option effectively sets `-Oz` as the default optimization argument for the compiler during the LLVM compilation phase.
