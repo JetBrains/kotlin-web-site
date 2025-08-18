@@ -96,8 +96,8 @@ let index = array.index(of: "element")
 Documentation is essential for understanding any API. Providing documentation for
 the shared Kotlin API allows you to communicate with its users on matters of usage, dos and don'ts, and so on.
 
-By default, [KDocs](kotlin-doc.md) comments are not translated into corresponding comments when generating
-an Objective-C header. For example, the following Kotlin code with KDoc:
+When generating Objective-C headers, [KDoc](kotlin-doc.md) comments from Kotlin code are translated into corresponding
+comments. For example, the following Kotlin code with KDoc:
 
 ```kotlin
 /**
@@ -107,40 +107,7 @@ an Objective-C header. For example, the following Kotlin code with KDoc:
 fun printSum(a: Int, b: Int) = println(a.toLong() + b)
 ```
 
-Will produce an Objective-C declaration without any comments:
-
-```objc
-+ (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
-```
-
-To enable export of KDoc comments, add the following compiler option to your `build.gradle(.kts)`:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
-        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
-        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
-    }
-}
-```
-
-</tab>
-</tabs>
-
-After that, the Objective-C header will contain a corresponding comment:
+Will produce an Objective-C header with the corresponding comment:
 
 ```objc
 /**
@@ -150,21 +117,29 @@ After that, the Objective-C header will contain a corresponding comment:
 + (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
 ```
 
-You'll be able to see comments on classes and methods in autocompletion, for example, in Xcode. If you go to the
+You can see comments on classes and methods in autocompletion, for example, in Xcode. If you go to the
 definition of functions (in the `.h` file), you'll see comments on `@param`, `@return`, and so on.
 
 Known limitations:
 
-> The ability to export KDoc comments to generated Objective-C headers is [Experimental](components-stability.md).
-> It may be dropped or changed at any time.
-> Opt-in is required (see the details below), and you should use it only for evaluation purposes.
-> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-38600).
->
-{style="warning"}
-
-* Dependency documentation is not exported unless it is compiled with `-Xexport-kdoc` itself. The feature is Experimental,
-  so libraries compiled with this option might be incompatible with other compiler versions.
+* Dependency documentation is not exported unless it is compiled with `-Xexport-kdoc` itself.
 * KDoc comments are mostly exported as is. Many KDoc features, for example `@property`, are not supported.
+
+If necessary, you can disable KDoc publication in the `binaries {}` DSL in your Gradle build file:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    iosArm64 {
+        binaries {
+            framework { 
+                baseName = "sdk"
+                exportKdoc.set(false)
+            }
+        }
+    }
+}
+```
 
 ## Mappings
 
