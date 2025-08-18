@@ -289,7 +289,7 @@ In the example below, this `@Email` annotation is applied to all relevant target
 ```kotlin
 data class User(
     val username: String,
-    // Applies @Email to param, field and get
+    // Applies @Email to param, field, and get
     @all:Email val email: String,
     // Applies @Email to param, field, get, and setparam
     @all:Email var name: String,
