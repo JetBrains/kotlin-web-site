@@ -50,10 +50,10 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Compiler</strong></td>
         <td>
             <list>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1">Kotlin/Wasm: prototype multithreading support using a new threads proposal</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-75371">Finalize JSpecify support</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-75372">Deprecate K1 compiler</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-75370">Promote Kotlin/Wasm (<code>wasm-js</code> target) to Beta</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1">Kotlin/Wasm: prototype multithreading support using a new threads proposal</a></li>
             </list>
         </td>
     </tr>
@@ -127,7 +127,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
 > 
 {style="note"}
 
-## What's changed since September 2024
+## What's changed since February 2025
 
 ### Completed items
 
