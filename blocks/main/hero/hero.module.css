@@ -122,6 +122,10 @@
         background-color: rgba(126, 66, 255, 0.40);
         overflow: hidden;
 
+        &[data-banner-variant] {
+            display: none;
+        }
+
         .bannerContent {
             text-align: left;
             min-width: 0;
