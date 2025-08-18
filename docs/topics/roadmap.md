@@ -17,12 +17,13 @@ Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the JetBr
 
 The goal of this roadmap is to give you the big picture.
 Here's a list of our key focus areas – the most important directions we are focused on delivering:
-<!-- TODO -->
-* **Language evolution**: more efficient data handling, increased abstraction, enhanced performance with clear code. 
-* **Kotlin Multiplatform**: becoming the foundation for modern multiplatform apps by delivering a delightful iOS experience,
-  maturing the web targets, and providing exceptional IDE tooling.
+
+* **Language evolution**: keep Kotlin both pragmatic and expressive with meaningful language improvements
+  that emphasize semantics over syntax changes.
+* **Kotlin Multiplatform**: build the foundation for modern multiplatform apps with solid iOS support,
+  mature web targets, and reliable IDE tooling.
 * **Staying agnostic**: support developers no matter their tools or targets.
-* **Experience of third-party ecosystem authors**: simplified development and publication process for Kotlin libraries, tools, and frameworks.
+* **Ecosystem support**: simplify the development and publication process for Kotlin libraries, tools, and frameworks.
 
 ## Kotlin roadmap by subsystem
 
