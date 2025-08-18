@@ -61,7 +61,11 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
                                         </a>
                                     </div>
                                 </div>
-                                {(heroBannerList||[]).map(banner => <div className={styles.banner} data-banner-variant={banner.variant || null}>
+                                {(heroBannerList||[]).map((banner, i) => <div
+                                    key={banner.variant || i}
+                                    className={styles.banner}
+                                    data-banner-variant={banner.variant || null}
+                                >
                                     <div className={cn(styles.bannerContent)}>
                                         <h5 className={cn(darkTextCn('rs-h2'), styles.bannerTitle)}>{banner.title}</h5>
                                         <p className={cn(darkTextCn('rs-text-2'), styles.bannerCaption)}>{banner.caption}</p>
