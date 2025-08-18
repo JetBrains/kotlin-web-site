@@ -324,7 +324,17 @@ This update simplifies code sharing between the `js` and `wasmJs` targets. It is
   a website, it will work on all browsers out of the box: modern browsers use `wasmJs`, and older browsers use `js`.
 
 To try this feature, use the [default hierarchy template](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-hierarchy.html#default-hierarchy-template)
-in the `kotlin {}` block of your `build.gradle(.kts)` file.
+in the `kotlin {}` block of your `build.gradle(.kts)` file:
+
+```kotlin
+kotlin {
+    js()
+    wasmJs()
+
+    // Enables the default source set hierarchy, including webMain and webTest
+    applyDefaultHierarchyTemplate()
+}
+```
 
 Before using the default hierarchy, consider carefully any potential conflicts if you have projects with a custom shared
 source set or if you renamed the `js("web")` target. To resolve these conflicts, rename the conflicting source set or target, or 
@@ -344,7 +354,7 @@ you can now remove it from your `gradle.properties` file.
 
 Unfortunately, a few limitations are still present. You still need to use a Mac machine if:
 
-* Your library has a [cinterop dependency](native-c-interop.md).
+* Your library or any dependent modules have [cinterop dependencies](native-c-interop.md).
 * You have a [CocoaPods integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html) set up in your project.
 * You need to build or test [final binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html) for Apple targets.
 

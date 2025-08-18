@@ -5,9 +5,9 @@
 <vars>
 
     <!-- Kotlin -->
-    <var name="kotlinVersion" value="2.2.0" type="string"/>
-    <var name="kotlinReleaseDate" value="June 23, 2025" type="string"/>
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0" type="string"/>
+    <var name="kotlinVersion" value="2.2.10" type="string"/>
+    <var name="kotlinReleaseDate" value="August 14, 2025" type="string"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.2.10" type="string"/>
     <var name="kotlinLatestWhatsnew" value="whatsnew22.md" type="string"/>
 
     <var name="languageVersion" value="2.1" type="string"/>
