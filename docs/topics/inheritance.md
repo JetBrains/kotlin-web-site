@@ -43,10 +43,11 @@ class MyView : View {
 ## Open keyword
 
 In Kotlin, the `open` keyword indicates that a class or a member (function or property) can be overridden in subclasses.
-By default, Kotlin classes and their members are _final_, meaning they cannot be inherited or overridden unless explicitly marked as `open`:
+By default, Kotlin classes and their members are _final_, meaning they cannot be inherited from (for classes) or overridden 
+(for members) unless you explicitly mark them as `open`:
 
 ```kotlin
-// Base class with the 'open' keyword to allow inheritance
+// Base class with the open keyword to allow inheritance
 open class Person(
     val name: String
 ) {
@@ -56,7 +57,7 @@ open class Person(
     }
 }
 
-// Subclass inheriting from 'Person' and overriding the 'introduce()' function
+// Subclass inheriting from Person and overriding the introduce() function
 class Student(
     name: String,
     val school: String
@@ -67,16 +68,13 @@ class Student(
 }
 ```
 
-In addition, you need to add the `open` keyword to every property
-or function that can be overridden.
-
 If you override a member of a base class, the overriding member
-will also be open by default. If you want to change this and forbid the subclasses of your
+is also open by default. If you want to change this and forbid the subclasses of your
 class from overriding your implementation, you can explicitly mark the overriding
 member as `final`:
 
 ```kotlin
-// Base class with the 'open' keyword to allow inheritance
+// Base class with the open keyword to allow inheritance
 open class Person(val name: String) {
     // Open function that can be overridden in a subclass
     open fun introduce() {
@@ -84,9 +82,9 @@ open class Person(val name: String) {
     }
 }
 
-// Subclass inheriting from 'Person' and overriding the 'introduce()' function
+// Subclass inheriting from Person and overriding the introduce() function
 class Student(name: String, val school: String) : Person(name) {
-    // The 'final' keyword prevents further overriding in subclasses
+    // The final keyword prevents further overriding in subclasses
     final override fun introduce() {
         println("Hi, I'm $name, and I study at $school.")
     }
