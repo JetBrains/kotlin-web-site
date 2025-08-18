@@ -294,7 +294,7 @@ data class User(
     // Applies @Email to param, field, get, and setparam
     @all:Email var name: String,
 ) {
-    // Applies @Email to field and getter (no param since it's not in the constructor)
+    // Applies @Email to field and getter (not param since it's not in the constructor)
     @all:Email val secondaryEmail: String? = null
 }
 ```
