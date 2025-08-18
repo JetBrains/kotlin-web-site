@@ -78,7 +78,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td>
             <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1" target="_blank">Support Kotlin LSP and VCS</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-71282" target="_blank">Improve Kotlin + JPA experience</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTIJ-35208" target="_blank">Improve Kotlin + JPA experience</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1" target="_blank">Support Kotlin JS\WASM in Gradle project isolation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-75374" target="_blank">Improve development experience for Kotlin/Wasm projects in IntelliJ IDEA</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-75376" target="_blank">Improve performance of imports</a></li>
@@ -155,7 +155,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Multiplatform: [Kotlin/JS: Extend possibilities for exporting Kotlin declarations to JavaScript](https://youtrack.jetbrains.com/issue/KT-1)
 * 🆕 Multiplatform: [Kotlin/JS: Improve onboarding materials for Kotlin/JS](https://youtrack.jetbrains.com/issue/KT-1)
 * 🆕 Tooling: [Support Kotlin LSP and VCS](https://youtrack.jetbrains.com/issue/KT-1)
-* 🆕 Tooling: [Improve Kotlin + JPA experience](https://youtrack.jetbrains.com/issue/KT-71282)
+* 🆕 Tooling: [Improve Kotlin + JPA experience](https://youtrack.jetbrains.com/issue/KTIJ-35208)
 * 🆕 Tooling: [Support Kotlin JS\WASM in Gradle project isolation](https://youtrack.jetbrains.com/issue/KT-1)
 * 🆕 Ecosystem: [Implement KDoc machine-readable representation](https://youtrack.jetbrains.com/issue/KT-1)
 * 🆕 Ecosystem: [Stabilize Kotlin Notebooks](https://youtrack.jetbrains.com/issue/KT-1)
