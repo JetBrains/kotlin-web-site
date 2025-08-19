@@ -97,7 +97,7 @@ Documentation is essential for understanding any API. Providing documentation fo
 the shared Kotlin API allows you to communicate with its users on matters of usage, dos and don'ts, and so on.
 
 When generating Objective-C headers, [KDoc](kotlin-doc.md) comments from Kotlin code are translated into corresponding
-comments. For example, the following Kotlin code with KDoc:
+Objective-C comments. For example, the following Kotlin code with KDoc:
 
 ```kotlin
 /**
@@ -122,7 +122,8 @@ definition of functions (in the `.h` file), you'll see comments on `@param`, `@r
 
 Known limitations:
 
-* Dependency documentation is not exported unless it is compiled with `-Xexport-kdoc` itself.
+* Dependency documentation is not exported unless it is compiled with the `-Xexport-kdoc` option. Libraries compiled with
+  this compiler option might be incompatible with other compiler versions.
 * KDoc comments are mostly exported as is. Many KDoc features, for example `@property`, are not supported.
 
 If necessary, you can disable KDoc publication in the `binaries {}` DSL in your Gradle build file:
