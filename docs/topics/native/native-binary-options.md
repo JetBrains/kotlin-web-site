@@ -1,7 +1,7 @@
 [//]: # (title: Kotlin/Native binary options)
 
 This page lists helpful Kotlin/Native binary options that you can use to configure Kotlin/Native [final binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html)
-and the ways to set them up in your project.
+and the ways to set up binary options in your project.
 
 ## How to enable
 
