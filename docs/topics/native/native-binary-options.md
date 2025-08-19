@@ -9,7 +9,7 @@ You can enable binary options in the `gradle.properties` file, your build file, 
 
 ### In Gradle properties
 
-You can set binary options in your project's `gradle.properties` file using `kotlin.native.binary`, for example:
+You can set binary options in your project's `gradle.properties` file using the `kotlin.native.binary` property. For example:
 
 ```none
 kotlin.native.binary.gc=cms
@@ -20,7 +20,7 @@ kotlin.native.binary.latin1Strings=true
 
 You can set binary options for your project in your `build.gradle.kts` file:
 
-* For specific binaries using the `binaryOption` attribute, for example:
+* For specific binaries using the `binaryOption` attribute. For example:
 
   ```kotlin
   kotlin {
@@ -34,7 +34,7 @@ You can set binary options for your project in your `build.gradle.kts` file:
   }
   ```
 
-* As `-Xbinary=$option=$value` compiler options in the `freeCompilerArgs` attribute, for example:
+* As `-Xbinary=$option=$value` compiler options in the `freeCompilerArgs` attribute. For example:
 
   ```kotlin
   kotlin {
@@ -51,8 +51,8 @@ You can set binary options for your project in your `build.gradle.kts` file:
 ### In the command-line compiler
 
 You can pass binary options as `-Xbinary=$option=$value` directly in the command line when executing
-the [Kotlin/Native compiler](native-get-started.md#using-the-command-line-compiler),
-for example:
+the [Kotlin/Native compiler](native-get-started.md#using-the-command-line-compiler).
+For example:
 
 ```bash
 kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
@@ -92,7 +92,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
                 <li><code>no</code> (default)</li>
             </list>
         </td>
-        <td>Enables stack canaries: use <code>yes</code> for vulnerable functions, <code>all</code> for all functions, and <code>strong</code> to utilize stronger heuristic.</td>
+        <td>Enables stack canaries: use <code>yes</code> for vulnerable functions, <code>all</code> for all functions, and <code>strong</code> to use a stronger heuristic.</td>
         <td>Available since 2.2.20</td>
     </tr>
     <tr>
@@ -120,7 +120,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
     <tr>
         <td><a href="native-memory-manager.md#track-memory-consumption-on-apple-platforms"><code>mmapTag</code></a></td>
         <td><code>UInt</code></td>
-        <td>Controls memory tagging, necessary for memory consumption tracking on Apple platforms. Values <code>240</code>-<code>255</code> are available (default is <code>246</code>); <code>0</code> disables tagging</td>
+        <td>Controls memory tagging, necessary for memory consumption tracking on Apple platforms. Values <code>240</code>-<code>255</code> are available (default is <code>246</code>); <code>0</code> disables tagging.</td>
         <td>Available since 2.2.0</td>
     </tr>
     <tr>
