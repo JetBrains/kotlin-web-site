@@ -20,7 +20,7 @@ Here's a list of our key focus areas – the most important directions we are fo
 
 * **Language evolution**: keep Kotlin both pragmatic and expressive with meaningful language improvements
   that emphasize semantics over syntax changes.
-* **Kotlin Multiplatform**: build the foundation for modern multiplatform apps with solid iOS support,
+* **Multiplatform**: build the foundation for modern multiplatform apps with solid iOS support,
   mature web targets, and reliable IDE tooling.
 * **Staying agnostic**: support developers no matter their tools or targets.
 * **Ecosystem support**: simplify the development and publication process for Kotlin libraries, tools, and frameworks.
@@ -70,7 +70,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64570" target="_blank">Unify inline semantics between all Kotlin targets</a></li>
                 <!-- TODO --> <li><a href="https://youtrack.jetbrains.com/issue/KT-71279" target="_blank">Enable incremental compilation of klib artifacts by default</a></li>
             </list>
-            <tip><p><a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/kotlin-multiplatform-roadmap.html" target="_blank">Kotlin Multiplatform development roadmap</a></p></tip>
+            <tip><p><a href="https://jb.gg/kmp-roadmap-2025" target="_blank">Kotlin Multiplatform development roadmap</a></p></tip>
          </td>
     </tr>
     <tr id="tooling">
