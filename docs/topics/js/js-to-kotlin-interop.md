@@ -14,27 +14,29 @@ all declarations are available to JavaScript via the `myModule` object. For exam
 fun foo() = "Hello"
 ```
 
-Can be called from JavaScript like this:
+This function can be called from JavaScript like this:
 
 ```javascript
 alert(myModule.foo());
 ```
 
-This is not applicable when you compile your Kotlin module to JavaScript modules like UMD (which is the default setting
-for both `browser` and `nodejs` targets), CommonJS or AMD. In this case, your declarations will be exposed in the format
-specified by your chosen JavaScript module system. When using UMD or CommonJS, for example, your call site could look
+Calling the function directly like this is not applicable when you compile your Kotlin module to JavaScript modules like [UMD](https://github.com/umdjs/umd) (the default setting
+for both `browser` and `nodejs` targets), [ESM](https://tc39.es/ecma262/#sec-modules), [CommonJS](https://nodejs.org/api/modules.html#modules-commonjs-modules), or [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD).
+In these cases, your declarations are exposed according to the chosen JavaScript module system.
+For example, when using UMD, ESM, or CommonJS, your call site would look
 like this:
 
 ```javascript
 alert(require('myModule').foo());
 ```
 
-Check the article on [JavaScript Modules](js-modules.md) for more information on the topic of JavaScript module systems.
+For more information about JavaScript module systems, see [JavaScript Modules](js-modules.md).
 
 ## Package structure
 
-Kotlin exposes its package structure to JavaScript, so unless you define your declarations in the root package,
-you have to use fully qualified names in JavaScript. For example:
+For most of the module systems (CommonJS, Plain, and UMD), Kotlin exposes its package structure to JavaScript.
+Unless you define your declarations in the root package, you have to use fully qualified names in JavaScript.
+For example:
 
 ```kotlin
 package my.qualified.packagename
@@ -42,16 +44,26 @@ package my.qualified.packagename
 fun foo() = "Hello"
 ```
 
-When using UMD or CommonJS, for example, your callsite could look like this:
+For example, when using UMD or CommonJS, your call site could look like this:
 
 ```javascript
 alert(require('myModule').my.qualified.packagename.foo())
 ```
 
-Or, in the case of using `plain` as a module system setting:
+When using `plain` as a module system setting, the call site would be:
 
 ```javascript
 alert(myModule.my.qualified.packagename.foo());
+```
+
+When targeting ECMAScript Modules (ESM), package information is not preserved
+to improve the application bundle size and match the typical layout of ESM packages.
+In this case, the consumption of the Kotlin declarations with ES modules looks like this:
+
+```javascript
+import { foo } from 'myModule';
+
+alert(foo());
 ```
 
 ### @JsName annotation
@@ -179,7 +191,7 @@ See how Kotlin types are mapped to JavaScript ones:
 | `List`, `MutableList`                                            | `KtList`, `KtMutableList` | Exposes an `Array` via `KtList.asJsReadonlyArrayView` or `KtMutableList.asJsArrayView`.    |
 | `Map`, `MutableMap`                                              | `KtMap`, `KtMutableMap`   | Exposes an ES2015 `Map` via `KtMap.asJsReadonlyMapView` or `KtMutableMap.asJsMapView`.     |
 | `Set`, `MutableSet`                                              | `KtSet`, `KtMutableSet`   | Exposes an ES2015 `Set` via `KtSet.asJsReadonlySetView` or `KtMutableSet.asJsSetView`.     |
-| `Unit`                                                           | Undefined                 | Exportable when used as return type, but not when used as parameter type.                  |
+| `Unit`                                                           | undefined                 | Exportable when used as return type, but not when used as parameter type.                  |
 | `Any`                                                            | `Object`                  |                                                                                            |
 | `Throwable`                                                      | `Error`                   |                                                                                            |
 | `enum class Type`                                                | `Type`                    | Enum entries are exposed as static class properties (`Type.ENTRY`).                        |
