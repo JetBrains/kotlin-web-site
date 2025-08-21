@@ -1,7 +1,7 @@
 [//]: # (title: Kotlin/JavaScript)
 
 Kotlin/JavaScript (Kotlin/JS) lets you transpile your Kotlin code, the Kotlin standard library, and any compatible dependencies
-to JavaScript. As a result, your Kotlin applications can run in any environment that supports JavaScript.
+to JavaScript. This way, your Kotlin applications can run in any environment that supports JavaScript.
 
 The current implementation of Kotlin/JS targets the [ES5](https://www.ecma-international.org/ecma-262/5.1/) and [ES2015](https://262.ecma-international.org/6.0/) standards.
 
@@ -9,8 +9,8 @@ The recommended way to use Kotlin/JS is through the [Kotlin Multiplatform Gradle
 It allows you to configure and manage Kotlin projects targeting JavaScript from a single place. 
 
 Using Kotlin/JS through the Kotlin Multiplatform Gradle plugin gives you access to features
-such as controlling your application's bundling, adding JavaScript dependencies directly from npm, and more.
-To get an overview of the available configuration options, check out the [Set up a Kotlin/JS project](js-project-setup.md) guide.
+such as controlling your application's bundling and adding JavaScript dependencies directly from npm.
+To get an overview of the available configuration options, see [Set up a Kotlin/JS project](js-project-setup.md).
 
 ## Use cases for Kotlin/JS
 
@@ -39,9 +39,9 @@ There are many ways to use Kotlin/JS. Here are some common scenarios:
        
        These wrappers also support complementary libraries, like
        [React Redux](https://react-redux.js.org/), [React Router](https://reactrouter.com/), and [styled-components](https://styled-components.com/). 
-       Besides these libraries, you can also use third-party React components and component libraries through interoperability with the JavaScript ecosystem.
+       Besides these libraries, you can use third-party React components and component libraries through interoperability with the JavaScript ecosystem.
   
-     * You can use any available [Kotlin/JS frameworks](#kotlin-js-frameworks),
+     * Use [Kotlin/JS frameworks](js-frameworks.md),
        which integrate with the Kotlin ecosystem and support concise and expressive code.
 
 *  **Building multiplatform applications that support older browsers**
