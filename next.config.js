@@ -10,7 +10,16 @@ let transpiledPackages = [
   ...(Object.keys(packageJSON.dependencies).filter(it => it.includes('@rescui/'))),
   // transitive deps needed too:
     '@rescui/dropdown',
-    '@rescui/menu'
+    '@rescui/menu',
+    '@webteam/youtube-playlist',
+    '@webteam/ui-contexts',
+    '@webteam/colors',
+    '@webteam/toggle',
+    '@webteam/youtube-player',
+    '@webteam/use-fetch',
+    '@webteam/use-async-data',
+    '@webteam/bem-cn-fast',
+    '@webteam/list'
 ];
 
 const withTranspile = nextTranspileModules(transpiledPackages);
