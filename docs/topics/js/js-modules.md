@@ -4,7 +4,7 @@ You can compile your Kotlin projects to JavaScript modules for various popular m
 following configurations for JavaScript modules:
 
 - [ES Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), the standard way to
-  declare a module in the modern JavaScript (with the `import/export` JavaScript syntax). 
+  declare a module in JavaScript (with the `import/export` JavaScript syntax). 
   It's used by default if the `target` is set to `es2015`.
 - [Unified Module Definitions (UMD)](https://github.com/umdjs/umd), which is compatible with both *AMD* and *CommonJS*.
     UMD modules are also able to be executed without being imported or when no module system is present. This is the default option for the `browser` and `nodejs` targets.

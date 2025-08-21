@@ -47,7 +47,7 @@ This type of minification is automatically applied when you build your Kotlin/JS
 
 ```kotlin
 kotlin {
-    js(IR) {
+    js {
         compilations.all {
             compileTaskProvider.configure {
                 compilerOptions.freeCompilerArgs.add("-Xir-minimized-member-names=false")
@@ -72,7 +72,7 @@ Unused declarations can appear in cases like:
 
 In the Kotlin/JS compiler, DCE is handled automatically:
 
-* DCE is disabled in _development_ bundling tasks, which corresponds to the following Gradle tasks:
+* DCE is disabled in _development_ bundling tasks, which correspond to the following Gradle tasks:
 
   * `jsBrowserDevelopmentRun`
   * `jsBrowserDevelopmentWebpack`
