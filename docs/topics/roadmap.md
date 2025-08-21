@@ -50,7 +50,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Compiler</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1">Kotlin/Wasm: prototype multithreading support using a new threads proposal</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80304">Kotlin/Wasm: prototype multithreading support using a new threads proposal</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-75371">Finalize JSpecify support</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-75372">Deprecate K1 compiler</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-75370">Promote Kotlin/Wasm (<code>wasm-js</code> target) to Beta</a></li>
@@ -61,14 +61,14 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Multiplatform</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1">Support coroutines in Swift Export</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1">Kotlin/JS: Compile to the modern JavaScript</a></li> 
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1">Kotlin/JS: Extend possibilities for exporting Kotlin declarations to JavaScript</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1">Kotlin/JS: Improve onboarding materials for Kotlin/JS</a></li> 
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80305">Support coroutines in Swift Export</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80308">Kotlin/JS: Compile to the modern JavaScript</a></li> 
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80310">Kotlin/JS: Extend possibilities for exporting Kotlin declarations to JavaScript</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80307">Kotlin/JS: Improve onboarding materials for Kotlin/JS</a></li> 
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71278">Enable Concurrent Mark and Sweep (CMS) GC by default</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71281">Implement the next generation distribution format of multiplatform libraries</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64570" target="_blank">Unify inline semantics between all Kotlin targets</a></li>
-                <!-- TODO --> <li><a href="https://youtrack.jetbrains.com/issue/KT-71279" target="_blank">Enable incremental compilation of klib artifacts by default</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-71279" target="_blank">Enable incremental compilation of klib artifacts by default</a></li>
             </list>
             <tip><p><a href="https://jb.gg/kmp-roadmap-2025" target="_blank">Kotlin Multiplatform development roadmap</a></p></tip>
          </td>
@@ -77,9 +77,9 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Tooling</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1" target="_blank">Support Kotlin LSP and VCS</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80322" target="_blank">Support Kotlin LSP and VCS</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTIJ-35208" target="_blank">Improve Kotlin + JPA experience</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1" target="_blank">Support Kotlin JS\WASM in Gradle project isolation</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80311" target="_blank">Support Kotlin JS\WASM in Gradle project isolation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-75374" target="_blank">Improve development experience for Kotlin/Wasm projects in IntelliJ IDEA</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-75376" target="_blank">Improve performance of imports</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-31316" target="_blank">IntelliJ IDEA K2 mode complete release</a></li>
@@ -93,10 +93,10 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Ecosystem</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1">Implement KDoc machine-readable representation</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1">Stabilize Kotlin Notebooks</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1">Release Kotlin DataFrame 1.0</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-1">Release Kandy 0.9</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80323">Implement KDoc machine-readable representation</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80324">Stabilize Kotlin Notebooks</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80327">Release Kotlin DataFrame 1.0</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80328">Release Kandy 0.9</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-12719" target="_blank">Introduce default warnings/errors for Kotlin functions that return non-unit values that are unused</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71298" target="_blank">New multiplatform API for the standard library: Support for Unicode and codepoints</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71300" target="_blank">Stabilize the <code>kotlinx-io</code> library</a></li>
@@ -105,9 +105,10 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             </list>
             <p><b>Ktor:</b></p>
             <list>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-8316">Support OpenAPI specification for the Ktor Client and Server Application</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-6622">Improve Ktor Administration & Observability</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-7958">WebRTC Client</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTOR-1501">Add gRPC support to Ktor with a generator plugin and tutorial</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTOR-7158">Make project structuring for the backend applications simple</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KTOR-3937">Publish CLI generator to SNAP</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTOR-6026">Create Kubernetes Generator Plugin</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTOR-6621">Make Dependency Injection Usage Simple</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTOR-7938">HTTP/3 Support</a></li>
@@ -144,23 +145,29 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Tooling: [Kotlin Notebook: Smoother access and improved experience](https://youtrack.jetbrains.com/issue/KTNB-898)
 * ✅ Tooling: [Support resources in XCFrameworks](https://youtrack.jetbrains.com/issue/KT-75377)
 * ✅ Ecosystem: [Refine the Dokka HTML output UI](https://youtrack.jetbrains.com/issue/KT-71295)
+* ✅ Ecosystem: [Make project structuring for the backend applications simple](https://youtrack.jetbrains.com/issue/KTOR-7158)
+* ✅ Ecosystem: [Publish CLI generator to SNAP](https://youtrack.jetbrains.com/issue/KTOR-3937)
+* ✅ Ecosystem: [Make Dependency Injection Usage Simple](https://youtrack.jetbrains.com/issue/KTOR-6621)
 
 ### New items
 
 We've **added** the following items to the roadmap:
 
-* 🆕 Compiler: [Kotlin/Wasm: prototype multithreading support using a new threads proposal](https://youtrack.jetbrains.com/issue/KT-1)
-* 🆕 Multiplatform: [Support coroutines in Swift Export](https://youtrack.jetbrains.com/issue/KT-1)
-* 🆕 Multiplatform: [Kotlin/JS: Compile to the modern JavaScript](https://youtrack.jetbrains.com/issue/KT-1)
-* 🆕 Multiplatform: [Kotlin/JS: Extend possibilities for exporting Kotlin declarations to JavaScript](https://youtrack.jetbrains.com/issue/KT-1)
-* 🆕 Multiplatform: [Kotlin/JS: Improve onboarding materials for Kotlin/JS](https://youtrack.jetbrains.com/issue/KT-1)
-* 🆕 Tooling: [Support Kotlin LSP and VCS](https://youtrack.jetbrains.com/issue/KT-1)
+* 🆕 Compiler: [Kotlin/Wasm: prototype multithreading support using a new threads proposal](https://youtrack.jetbrains.com/issue/KT-80304)
+* 🆕 Multiplatform: [Support coroutines in Swift Export](https://youtrack.jetbrains.com/issue/KT-80305)
+* 🆕 Multiplatform: [Kotlin/JS: Compile to the modern JavaScript](https://youtrack.jetbrains.com/issue/KT-80308)
+* 🆕 Multiplatform: [Kotlin/JS: Extend possibilities for exporting Kotlin declarations to JavaScript](https://youtrack.jetbrains.com/issue/KT-80310)
+* 🆕 Multiplatform: [Kotlin/JS: Improve onboarding materials for Kotlin/JS](https://youtrack.jetbrains.com/issue/KT-80307)
+* 🆕 Tooling: [Support Kotlin LSP and VCS](https://youtrack.jetbrains.com/issue/KT-80322)
 * 🆕 Tooling: [Improve Kotlin + JPA experience](https://youtrack.jetbrains.com/issue/KTIJ-35208)
-* 🆕 Tooling: [Support Kotlin JS\WASM in Gradle project isolation](https://youtrack.jetbrains.com/issue/KT-1)
-* 🆕 Ecosystem: [Implement KDoc machine-readable representation](https://youtrack.jetbrains.com/issue/KT-1)
-* 🆕 Ecosystem: [Stabilize Kotlin Notebooks](https://youtrack.jetbrains.com/issue/KT-1)
-* 🆕 Ecosystem: [Release Kotlin DataFrame 1.0](https://youtrack.jetbrains.com/issue/KT-1)
-* 🆕 Ecosystem: [Release Kandy 0.9](https://youtrack.jetbrains.com/issue/KT-1)
+* 🆕 Tooling: [Support Kotlin JS\WASM in Gradle project isolation](https://youtrack.jetbrains.com/issue/KT-80311)
+* 🆕 Ecosystem: [Implement KDoc machine-readable representation](https://youtrack.jetbrains.com/issue/KT-80323)
+* 🆕 Ecosystem: [Stabilize Kotlin Notebooks](https://youtrack.jetbrains.com/issue/KT-80324)
+* 🆕 Ecosystem: [Release Kotlin DataFrame 1.0](https://youtrack.jetbrains.com/issue/KT-80327)
+* 🆕 Ecosystem: [Release Kandy 0.9](https://youtrack.jetbrains.com/issue/KT-80328)
+* 🆕 Ecosystem: [Support OpenAPI specification for the Ktor Client and Server Application](https://youtrack.jetbrains.com/issue/KTOR-8316)
+* 🆕 Ecosystem: [Improve Ktor Administration & Observability](https://youtrack.jetbrains.com/issue/KTOR-6622)
+* 🆕 Ecosystem: [WebRTC Client](https://youtrack.jetbrains.com/issue/KTOR-7958)
 
 ### Removed items
 
@@ -168,6 +175,7 @@ We've **removed** the following items from the roadmap:
 
 * ❌ Compiler: [Kotlin/Wasm: Switch `wasm-wasi` target of libraries to WASI Preview 2](https://youtrack.jetbrains.com/issue/KT-64568)
 * ❌ Compiler: [Kotlin/Wasm: Support Component Model](https://youtrack.jetbrains.com/issue/KT-64569)
+* ❌ Ecosystem: [Publish to Snap](https://youtrack.jetbrains.com/issue/KTOR-3937)
 
 > Some items were removed from the roadmap but not dropped completely. In some cases, we've merged previous roadmap items
 > with the current ones.
