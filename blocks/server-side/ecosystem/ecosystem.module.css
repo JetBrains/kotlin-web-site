@@ -28,6 +28,15 @@
     grid-gap: 16px;
 }
 
+.cardLogo {
+    margin-bottom: 32px;
+    height: 40px;
+}
+
+.tag {
+    margin-top: 12px;
+}
+
 @media (min-width: 768px) {
 
     .bigCards {

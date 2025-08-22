@@ -30,67 +30,66 @@ export const primaryCardsData = [
 ];
 
 export const secondaryCardsData = [
-  {
-    title: 'Micronaut',
-    src: micronaut,
-    text:
-      'Build your next Kotlin microservice application with ease and test it, too.',
-    linkHref:
-      'https://guides.micronaut.io/creating-your-first-micronaut-app-kotlin/guide/index.html',
-    linkText: 'Learn more'
-  },
-  {
-    title: 'Quarkus',
-    src: quarkus,
-    text:
-      'Looking to implement the next cloud-native service with Kotlin? Try Quarkus!',
-    linkHref: 'https://quarkus.io/guides/kotlin',
-    linkText: 'Learn more'
-  },
-  {
-    title: 'Vaadin',
-    src: vaadin,
-    text:
-      'Create web applications with great-looking UI using Java and Kotlin.',
-    linkHref: 'https://vaadin.com/kotlin',
-    linkText: 'Learn more'
-  },
-  {
-    title: 'Cuba platform',
-    src: cubaPlatform,
-    text:
-      'This full-stack framework with a wide range of add-ons is a great fit for business application development with Kotlin.',
-    linkHref: 'http://cuba-platform.com/kotlin',
-    linkText: 'Learn more'
-  },
-  {
-    title: 'Vert.x',
-    src: vertx,
-    text: 'A tool-kit for building reactive applications on the JVM.',
-    linkHref: 'https://vertx.io/docs/vertx-core/kotlin/',
-    linkText: 'Learn more'
-  },
-  {
-    title: 'HTTP4K',
-    src: http4k,
-    text:
-      'The HTTP toolkit written in pure Kotlin. Enables the serving and consuming of HTTP services in a functional and consistent way.',
-    linkHref: 'https://www.http4k.org/',
-    linkText: 'Learn more'
-  },
-  {
-    title: 'Javalin',
-    src: javalin,
-    text: 'A lightweight Java and Kotlin framework.',
-    linkHref: 'https://javalin.io/',
-    linkText: 'Learn more'
-  },
-  {
-    title: 'Apache Kafka',
-    src: kafkaLogo,
-    text:
-      'Build event-driven, scalable applications effortlessly in Kotlin using Apache Kafka, the industry-standard platform for real-time data streaming.',
-    linkHref: 'https://kafka.apache.org/',
-    linkText: 'Learn more'
-  }
+    {
+        title: 'Micronaut',
+        src: micronaut,
+        text:
+            'Build your next Kotlin microservice application with ease and test it, too.',
+        linkHref:
+            'https://guides.micronaut.io/creating-your-first-micronaut-app-kotlin/guide/index.html',
+        linkText: 'Learn more'
+    },
+    {
+        title: 'Quarkus',
+        src: quarkus,
+        text:
+            'Looking to implement the next cloud-native service with Kotlin? Try Quarkus!',
+        linkHref: 'https://quarkus.io/guides/kotlin',
+        linkText: 'Learn more'
+    },
+    {
+        title: 'Vaadin',
+        src: vaadin,
+        text:
+            'Create web applications with great-looking UI using Java and Kotlin.',
+        linkHref: 'https://vaadin.com/kotlin',
+        linkText: 'Learn more'
+    },
+    {
+        title: 'Koog',
+        src: null,
+        text:
+            'A Kotlin-based framework designed to build and run AI agents entirely in idiomatic Kotlin.',
+        linkHref: 'https://docs.koog.ai/',
+        linkText: 'Learn more'
+    },
+    {
+        title: 'Vert.x',
+        src: vertx,
+        text: 'A tool-kit for building reactive applications on the JVM.',
+        linkHref: 'https://vertx.io/docs/vertx-core/kotlin/',
+        linkText: 'Learn more'
+    },
+    {
+        title: 'HTTP4K',
+        src: http4k,
+        text:
+            'The HTTP toolkit written in pure Kotlin. Enables the serving and consuming of HTTP services in a functional and consistent way.',
+        linkHref: 'https://www.http4k.org/',
+        linkText: 'Learn more'
+    },
+    {
+        title: 'Apache Kafka',
+        src: kafkaLogo,
+        text:
+            'Build event-driven, scalable applications effortlessly in Kotlin using Apache Kafka, the industry-standard platform for real-time data streaming.',
+        linkHref: 'https://kafka.apache.org/',
+        linkText: 'Learn more'
+    },
+    {
+        title: 'MCP Kotlin SDK',
+        src: null,
+        text: 'A Kotlin SDK for building MCP clients and servers across JVM, WebAssembly, and iOS, with full support for standard transports and protocol events.',
+        linkHref: 'https://github.com/modelcontextprotocol/kotlin-sdk'
+    }
 ];

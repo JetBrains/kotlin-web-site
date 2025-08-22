@@ -67,7 +67,7 @@ export const ServerSidePerformance: FC = ({}) => {
                             />
                         </div>
                         <p className={cn(textCn('rs-text-2'), styles.videoCardDescription)}>
-                            Watch the full story on Kotlin coroutines from their creator, Roman Elizarov.
+                           Watch Adobe’s talk on using coroutines to scale under massive load.
                         </p>
                     </div>
 

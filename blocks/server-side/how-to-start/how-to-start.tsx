@@ -49,7 +49,7 @@ export const HowToStart: FC = ({}) => {
                             <div className={styles.item}>
                                 <ArrowRightIcon theme={'dark'} className={styles.icon} />
                                 <p className={cn(textCn('rs-text-2'), styles.title)}>
-                                    Implement new services from scratch in Kotlin using your existing framework (Spring, Quarkus, JEE, etc.).
+                                    Implement new services from scratch in Kotlin using your existing framework (Spring, Quarkus, Jakarta EE, etc.).
                                 </p>
                             </div>
                             <div className={styles.item}>

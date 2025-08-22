@@ -4,12 +4,13 @@ import cn from 'classnames';
 
 import styles from './ecosystem.module.css';
 import { useTextStyles } from '@rescui/typography';
+import { Tag, presets } from '@rescui/tag';
 
 import { Card } from '../card/card';
 
 import { primaryCardsData, secondaryCardsData } from './ecosystem-data';
 
-import Link from 'next/link'
+import Link from 'next/link';
 
 export const Ecosystem: FC = ({}) => {
 
@@ -25,17 +26,17 @@ export const Ecosystem: FC = ({}) => {
 
                 <div className={cn(styles.cards)}>
                     <Card
-                        title={'Seamless Java Integration'}
+                        title={'Seamless Java integration'}
                         description={'Full interop with Java allows using any JVM library or framework'}
                     />
 
                     <Card
-                        title={'Enhanced Java Frameworks with Kotlin'}
+                        title={'Enhanced Java frameworks with Kotlin'}
                         description={'Kotlin takes frameworks that were originally written in Java and enhances them with expressive features, making the API clearer and more intuitive'}
                     />
 
                     <Card
-                        title={'Gradual Kotlin Adoption'}
+                        title={'Gradual Kotlin adoption'}
                         description={'100% interoperability between Java and Kotlin allows you to adopt Kotlin incrementally and on your own terms'}
                     />
 
@@ -46,13 +47,16 @@ export const Ecosystem: FC = ({}) => {
                 </div>
 
 
-                <div className={cn(styles.bigCards, "ktl-offset-top-l")}>
+                <div className={cn(styles.bigCards, 'ktl-offset-top-l')}>
                     {primaryCardsData.map((card) => (
                         <Link className={styles.ecosystemCard} key={card.title} href={card.linkHref}>
                             <img src={card.src.src} alt={`${card.title} Logo`} />
                             <p className={textCn('rs-text-2')}>{card.text}</p>
                             <p className={textCn('rs-text-2')}>
-                                <span className={textCn('rs-link', {external:true, mode: 'standalone'})}>{card.linkText}</span>
+                                <span className={textCn('rs-link', {
+                                    external: true,
+                                    mode: 'standalone'
+                                })}>{card.linkText}</span>
                             </p>
                         </Link>
                     ))}
@@ -62,8 +66,17 @@ export const Ecosystem: FC = ({}) => {
                     {secondaryCardsData.map((card) => (
                         <div key={card.title}>
                             <Link className={styles.ecosystemCard} href={card.linkHref}>
-                                <img src={card.src.src} alt={`${card.title} Logo`} />
+                                <div className={styles.cardLogo}>
+                                    {card.src?.src ? <img src={card.src.src} alt={`${card.title} Logo`} /> :
+                                        <div className={textCn('rs-h3')}>{card.title}</div>}
+                                </div>
                                 <div className={textCn('rs-text-2')}>{card.text}</div>
+
+                                {!card.src?.src &&
+                                    <div className={styles.tag}>
+                                        <Tag {...presets['classic-light']}>by JetBrains</Tag>
+                                    </div>
+                                }
                             </Link>
                         </div>
                     ))}

@@ -1785,6 +1785,11 @@
   resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.1.9.tgz#8d3fff387526c9d235be3c6673a92b8eebaa67d2"
   integrity sha512-ZgMmIuCJERqPsfCY+7I9UvOIWEypyiZ4VdDdHPb/HUy9lxPpfNzV7Fs/RalBJP4wtgsfwR24d4IlYNhpJcunTA==
 
+"@rescui/colors@^0.2.10":
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.2.10.tgz#3f1d59c3a49f43ac1761d45b9c1628fb492a218a"
+  integrity sha512-Ek3d8OepizUnoGi7AybzWmRUmgfeaQCdkWiUNKaMpsmvSoZbpMZDfs/lJrhdGMh8z+xyD1KRNM+fRm4z36C6+A==
+
 "@rescui/dropdown-menu@^0.6.1":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@rescui/dropdown-menu/-/dropdown-menu-0.6.1.tgz#5d0b132358a177deb9bba3ce5261308406945426"
@@ -1905,16 +1910,14 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
-"@rescui/tag@^0.6.2":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@rescui/tag/-/tag-0.6.2.tgz#43317b5ab3243b656c354f0cbb8d1a26099fa425"
-  integrity sha512-ydMla/TDW6cr7n7j+DevtgaH/qwObHy/kb712tGrk8RFkMgvUAXp0gITOSqyauV2De5gHa+hUWtMIbwk/+Y+xg==
+"@rescui/tag@^0.11.1":
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/@rescui/tag/-/tag-0.11.1.tgz#2c9214f802fde01590a8e39e08ce5412b53a0092"
+  integrity sha512-sUPlBkhyeXbn6NdoZ2167IiuJKvWTaoM1SH12H4PrnOLr0WfCYPTtx4Bb5IwYnAwFj0aAMgXrScw7SrkJ4QfXQ==
   dependencies:
-    "@babel/runtime-corejs3" "^7.14.0"
-    "@rescui/colors" "^0.1.6"
-    "@rescui/icons" "^0.11.2"
+    "@babel/runtime-corejs3" "^7.26.0"
+    "@rescui/colors" "^0.2.10"
     classnames "^2.3.1"
-    core-js "^3.9.1"
 
 "@rescui/tooltip@^0.5.1":
   version "0.5.1"
