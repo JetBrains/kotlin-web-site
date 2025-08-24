@@ -193,7 +193,7 @@ You can render mathematical formulas and equations using the LaTeX format, a typ
 
 With Kotlin Notebook, you can visualize structured data with data frames:
 
-1. Add the [Kotlin DataFrame](https://kotlin.github.io/dataframe/gettingstarted.html) library to your notebook:
+1. Add the [Kotlin DataFrame](https://kotlin.github.io/dataframe/quickstart.html) library to your notebook:
 
    ```none
    %use dataframe
