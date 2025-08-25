@@ -41,8 +41,8 @@ export const Ecosystem: FC = ({}) => {
                     />
 
                     <Card
-                        title={'Robust web framework ecosystem'}
-                        description={'Quickly develop powerful backend solutions with the most popular frameworks'}
+                        title={'Rich framework ecosystem'}
+                        description={'Quickly develop backend solutions with the most popular frameworks, including Spring, Hibernate, Ktor, Koog, MCP Kotlin SDK, and others.'}
                     />
                 </div>
 

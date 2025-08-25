@@ -30,7 +30,7 @@ export const ServerSideHero: FC = ({}) => {
                     </h1>
 
                     <p className={cn(textCn('rs-subtitle-2'), styles.heroSubtitle)} data-testid={'hero-block-subtitle'}>
-                        Kotlin is a perfect fit for building backends on JVM. It's trusted by major tech companies to build scalable and reliable server-side applications
+                        Kotlin is a perfect fit for building backends on the JVM, including AI-powered services, and is trusted by major tech companies worldwide.
                     </p>
 
                     <div className={styles.featuresList}>

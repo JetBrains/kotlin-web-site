@@ -12,7 +12,7 @@ import { ArrowTopRightIcon } from '@rescui/icons';
 import ToolsImage1 from './images/tools-screen-2.webp';
 import ToolsImage2 from './images/tools-screen-2.webp';
 
-import IdeaLogo from './images/intellij-idea.svg'
+import IdeaLogo from './images/intellij-idea.svg';
 import MavenLogo from './images/maven.svg';
 import GradleLogo from './images/gradle.svg';
 import AntLogo from './images/ant.svg';
@@ -35,15 +35,15 @@ export const FavoriteTools: FC = ({}) => {
                         <Image src={ToolsImage1} alt={'IDE support'} className={styles.image} />
                     </div>
                     <div className="ktl-col-12 ktl-col-sm-4">
-                        <h3 className={cn(textCn('rs-h3'), styles.sectionTitle, "spacer-md")}>
+                        <h3 className={cn(textCn('rs-h3'), styles.sectionTitle, 'spacer-md')}>
                             IDE support
                         </h3>
 
                         <p className={textCn('rs-text-2')}>
-                            For a Java developer, getting started with Kotlin is very easy. Kotlin is natively supported
-                            in IntelliJ IDEA, and the automated Java-to-Kotlin converter is there to help you with your
-                            first steps. The powerful refactoring, navigation, and static code analysis features make
-                            programming in Kotlin a pleasure!
+                            IntelliJ IDEA is the best environment for Kotlin developers, created by JetBrains – the
+                            makers of Kotlin. It makes coding easier with features like smart navigation, refactoring,
+                            and code analysis. The built-in AI assistant Junie helps by converting Java to clean Kotlin
+                            and generating tests quickly.
                         </p>
 
                         <Button
