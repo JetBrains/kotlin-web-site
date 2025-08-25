@@ -59,7 +59,7 @@ fun main() {
         return notNull.length
     }
 
-    println(strLength(neverNull)) // 18
+    println(strLength("neverNull")) // 9
     println(strLength(nullable))  // Throws a compiler error
 }
 ```
