@@ -20,15 +20,15 @@ can help you create a domain-specific language.
 ## Lambda expressions with receiver
 
 In the beginner tour, you learned how to use [lambda expressions](kotlin-tour-functions.md#lambda-expressions). Lambda expressions can also have a receiver. 
-In this case, lambda expressions can access any member functions or properties of the receiver object without having
-to explicitly specify the receiver object each time. Without these additional references, your code is easier to read and maintain.
+In this case, lambda expressions can access any member functions or properties of the receiver without having
+to explicitly specify the receiver each time. Without these additional references, your code is easier to read and maintain.
 
 > Lambda expressions with receiver are also known as function literals with receiver.
 >
 {style="tip"}
 
 The syntax for a lambda expression with receiver is different when you define the function type. First, write the receiver
-type that you want to extend. Next, put a `.` and then complete the rest of your function type definition. For example:
+that you want to extend. Next, put a `.` and then complete the rest of your function type definition. For example:
 
 ```kotlin
 MutableList<Int>.() -> Unit
@@ -36,34 +36,48 @@ MutableList<Int>.() -> Unit
 
 This function type has:
 
-* `MutableList<Int>` as the receiver type.
+* `MutableList<Int>` as the receiver.
 * No function parameters within the parentheses `()`.
 * No return value: `Unit`.
 
-Consider this example that extends the `StringBuilder` class:
+Consider this example that draws shapes on a canvas:
 
 ```kotlin
-fun main() {
-    // Lambda expression with receiver definition
-    fun StringBuilder.appendText() { append("Hello!") }
+class Canvas {
+    fun drawCircle() = println("🟠 Drawing a circle")
+    fun drawSquare() = println("🟥 Drawing a square")
+}
 
+// Lambda expression with receiver definition
+fun render(block: Canvas.() -> Unit): Canvas {
+    val canvas = Canvas()
     // Use the lambda expression with receiver
-    val stringBuilder = StringBuilder()
-    stringBuilder.appendText()
-    println(stringBuilder.toString())
-    // Hello!
+    canvas.block()
+    return canvas
+}
+
+fun main() {
+    render {
+        drawCircle()
+        // 🟠 Drawing a circle
+        drawSquare()
+        // 🟥 Drawing a square
+    }
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-intermediate-tour-lambda-expression-with-receiver"}
 
 In this example:
 
-* The `StringBuilder` class is the receiver type.
-* The function type of the lambda expression has no function parameters `()` and has no return value `Unit`.
-* The lambda expression calls the `append()` member function from the `StringBuilder` class and uses the string `"Hello!"` as the function parameter.
-* An instance of the `StringBuilder` class is created.
-* The lambda expression assigned to `appendText` is called on the `stringBuilder` instance.
-* The `stringBuilder` instance is converted to string with the `toString()` function and printed via the `println()` function.
+* The `Canvas` class has two functions that simulate drawing a circle or a square.
+* The `render()` function takes a `block` parameter and returns an instance of the `Canvas` class.
+* The `block` parameter is a lambda expression with receiver, where the `Canvas` class is the receiver.
+* The `render()` function creates an instance of the `Canvas` class and calls the `block()` lambda expression on the `canvas` instance, using it as the receiver.
+* The `main()` function calls the `render()` function with a lambda expression, which is passed to the `block` parameter.
+* Inside the lambda passed to the `render()` function, the program calls the `drawCircle()` and `drawSquare()` functions on an instance of the `Canvas` class.
+
+  Because the `drawCircle()` and `drawSquare()` functions are called in the lambda expression with receiver, they can be called
+  directly as if they are inside the `Canvas` class.
 
 Lambda expressions with receiver are helpful when you want to create a domain-specific language (DSL). Since you have
 access to the receiver object's member functions and properties without explicitly referencing the receiver, your code 
@@ -85,8 +99,7 @@ class Menu(val name: String) {
 ```
 
 Let's use a lambda expression with receiver passed as a function parameter (`init`) to the `menu()` function that builds 
-a menu as a starting point. You'll notice that the code follows a similar approach to the previous example with the 
-`StringBuilder` class:
+a menu as a starting point:
 
 ```kotlin
 fun menu(name: String, init: Menu.() -> Unit): Menu {

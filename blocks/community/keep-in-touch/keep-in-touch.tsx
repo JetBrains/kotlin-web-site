@@ -29,7 +29,7 @@ export const KeepInTouch: FC<KeepInTouchProps> = ({ links }) => {
                 <div className={classNames(styles.resources, 'ktl-offset-top-l')}>
                     <h3 className="ktl-h3">Other resources:</h3>
                     <a
-                        href="https://kotlin.link/"
+                        href="https://github.com/Heapy/awesome-kotlin"
                         target="_blank"
                         rel="noreferrer noopener"
                         className="rs-link rs-link_external ktl-text-1"

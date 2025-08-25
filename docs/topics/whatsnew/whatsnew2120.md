@@ -467,9 +467,9 @@ Starting with Kotlin 2.1.20, the standard library provides the ability to repres
 was previously only available in [`kotlinx-datetime`](https://kotlinlang.org/api/kotlinx-datetime/), an official Kotlin
 library.
 
-The [`kotlinx.datetime.Clock`](https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/kotlinx.datetime/-clock/) interface
-is introduced to the standard library as `kotlin.time.Clock` and the [`kotlinx.datetime.Instant`](https://kotlinlang.org/api/kotlinx-datetime/kotlinx-datetime/kotlinx.datetime/-instant/)
-class as `kotlin.time.Instant`. These concepts naturally align with the `time` package in the standard library because
+The `kotlinx.datetime.Clock` interface
+is introduced to the standard library as [`kotlin.time.Clock`](https://kotlinlang.org/api/core/2.1/kotlin-stdlib/kotlin.time/-clock/) and the `kotlinx.datetime.Instant`
+class as [`kotlin.time.Instant`](https://kotlinlang.org/api/core/2.1/kotlin-stdlib/kotlin.time/-instant/). These concepts naturally align with the `time` package in the standard library because
 they're only concerned with moments in time compared to a more complex calendar and timezone functionality that remains
 in `kotlinx-datetime`.
 
@@ -479,9 +479,9 @@ moment for system processes.
 
 To provide interoperability with other languages, additional converter functions are available:
 
-* `.toKotlinInstant()` converts a time value to a `kotlin.time.Instant` instance.
-* `.toJavaInstant()` converts the `kotlin.time.Instant` value to a `java.time.Instant` value.
-* `Instant.toJSDate()` converts the `kotlin.time.Instant` value to an instance of the JS `Date` class. This conversion
+* [`.toKotlinInstant()`](https://kotlinlang.org/api/core/2.1/kotlin-stdlib/kotlin.time/to-kotlin-instant.html) converts a time value to a `kotlin.time.Instant` instance.
+* [`.toJavaInstant()`](https://kotlinlang.org/api/core/2.1/kotlin-stdlib/kotlin.time/to-java-instant.html) converts the `kotlin.time.Instant` value to a `java.time.Instant` value.
+* [`Instant.toJSDate()`](https://kotlinlang.org/api/core/2.1/kotlin-stdlib/kotlin.time/to-j-s-date.html) converts the `kotlin.time.Instant` value to an instance of the JS `Date` class. This conversion
   is not precise; JS uses millisecond precision to represent dates, while Kotlin allows for nanosecond resolution.
 
 The new time features of the standard library are still [Experimental](components-stability.md#stability-levels-explained).
