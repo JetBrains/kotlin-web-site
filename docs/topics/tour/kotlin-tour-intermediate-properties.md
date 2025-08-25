@@ -92,7 +92,7 @@ fun main() {
     // Exception in thread "main" java.lang.StackOverflowError
 }
 ```
-{validate ="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-stackoverflow"}
+{validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-properties-stackoverflow"}
 
 To fix this, you can use the backing field in your `set()` function instead by referencing it with the `field` keyword:
 

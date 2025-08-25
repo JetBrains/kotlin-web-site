@@ -256,8 +256,6 @@ function Index() {
                     <GlobalFooter />
                 </div>
             </ThemeProvider>
-
-            <Script src={'https://cdn.optimizely.com/js/26633200186.js'} strategy={"afterInteractive"}/>
         </Layout>
     );
 }
