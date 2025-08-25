@@ -21,7 +21,7 @@ Additional attributes of the annotation can be specified by annotating the annot
 
 ```kotlin
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
-        AnnotationTarget.TYPE_PARAMETER, AnnotationTarget.VALUE_PARAMETER, 
+        AnnotationTarget.TYPE_PARAMETER, AnnotationTarget.VALUE_PARAMETER,
         AnnotationTarget.EXPRESSION)
 @Retention(AnnotationRetention.SOURCE)
 @MustBeDocumented
@@ -105,7 +105,7 @@ annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any>)
 ## Instantiation
 
 In Java, an annotation type is a form of an interface, so you can implement it and use an instance.
-As an alternative to this mechanism, Kotlin lets you call a constructor of an annotation class in arbitrary code 
+As an alternative to this mechanism, Kotlin lets you call a constructor of an annotation class in arbitrary code
 and similarly use the resulting instance.
 
 ```kotlin
@@ -181,7 +181,7 @@ The full list of supported use-site targets is:
     ```kotlin
     fun @receiver:Fancy String.myExtension() { ... }
     ```
-    
+
   * `param` (constructor parameter)
   * `setparam` (property setter parameter)
   * `delegate` (the field storing the delegate instance for a delegated property)
@@ -399,7 +399,7 @@ public @interface AnnWithArrayValue {
 @AnnWithArrayValue("abc", "foo", "bar") class C
 ```
 
-For other arguments that have an array type, you need to use the array literal syntax or 
+For other arguments that have an array type, you need to use the array literal syntax or
 `arrayOf(...)`:
 
 ``` java
@@ -410,7 +410,7 @@ public @interface AnnWithArrayMethod {
 ```
 
 ```kotlin
-@AnnWithArrayMethod(names = ["abc", "foo", "bar"]) 
+@AnnWithArrayMethod(names = ["abc", "foo", "bar"])
 class C
 ```
 
