@@ -22,7 +22,7 @@ test.describe('Solutions tab', () => {
         const serverSideButton = page.getByText('Server-side').first();
         await expect(serverSideButton).toBeVisible();
         await serverSideButton.click();
-        await expect(page.url()).toContain('/lp/server-side/');
+        await expect(page.url()).toContain('/server-side/');
     });
 
     test('Click on "Data science" button should open the related page', async ({ page }) => {
