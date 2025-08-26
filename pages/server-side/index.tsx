@@ -14,7 +14,7 @@ import './styles.css';
 
 function Index() {
     return (
-        <ServerSideLayout title={'Server Side'} ogImageName={'community.png'}>
+        <ServerSideLayout title={'Server Side'} ogImageName={'server-side.png'}>
             <ServerSideHero />
             <CustomerLogoMarqueeSection />
             <FeaturesSection />
