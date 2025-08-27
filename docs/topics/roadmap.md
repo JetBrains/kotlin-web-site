@@ -80,6 +80,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80322" target="_blank">Support Kotlin LSP and VS Code</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTIJ-35208" target="_blank">Improve Kotlin + JPA experience</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80311" target="_blank">Support Kotlin JS\WASM in Gradle project isolation</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTNB-1133" target="_blank">Kotlin Notebooks: support new use cases</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-75374" target="_blank">Improve development experience for Kotlin/Wasm projects in IntelliJ IDEA</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-75376" target="_blank">Improve performance of imports</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTIJ-31316" target="_blank">IntelliJ IDEA K2 mode complete release</a></li>
@@ -161,6 +162,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Tooling: [Support Kotlin LSP and VS Code](https://youtrack.jetbrains.com/issue/KT-80322)
 * 🆕 Tooling: [Improve Kotlin + JPA experience](https://youtrack.jetbrains.com/issue/KTIJ-35208)
 * 🆕 Tooling: [Support Kotlin JS\WASM in Gradle project isolation](https://youtrack.jetbrains.com/issue/KT-80311)
+* 🆕 Tooling: [Kotlin Notebooks: support new use cases](https://youtrack.jetbrains.com/issue/KTNB-1133)
 * 🆕 Ecosystem: [Implement KDoc machine-readable representation](https://youtrack.jetbrains.com/issue/KT-80323)
 * 🆕 Ecosystem: [Stabilize Kotlin Notebooks](https://youtrack.jetbrains.com/issue/KT-80324)
 * 🆕 Ecosystem: [Release Kotlin DataFrame 1.0](https://youtrack.jetbrains.com/issue/KT-80327)
