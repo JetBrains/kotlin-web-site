@@ -642,7 +642,7 @@ Kotlin Multiplatform (KMP) offers two approaches for web development:
 * JavaScript-based (using the Kotlin/JS compiler)
 * WebAssembly-based (using the Kotlin/Wasm compiler)
 
-Both approaches use the Kotlin Multiplatform plugin but target different environments.
+Both approaches use the Kotlin Multiplatform plugin but target different use cases.
 The sections below explain how to configure each target in your Gradle build and when to use them.
 
 ### Targeting JavaScript
