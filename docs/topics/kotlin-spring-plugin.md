@@ -1,13 +1,20 @@
 [//]: # (title: Kotlin-spring compiler plugin)
 
-If you create a Spring application with Kotlin,
-you can enable the `kotlin-spring` compiler plugin to avoid adding certain Spring annotations manually.
+The `kotlin-spring` compiler plugin configures Kotlin projects for Spring
+by automatically making certain Spring-annotated classes and members `open` at compile time.
+
 This plugin is a preconfigured wrapper around the [`all-open` plugin](all-open-plugin.md) and behaves the same way: 
-it markes all classes and methods as `open` if they are annotated with Spring annotations.
+it makes all classes and methods as `open` if they are annotated with Spring annotations.
+You can use both `all-open` and `kotlin-spring` in the same project.
 
-You can use both `kotlin-allopen` and `kotlin-spring` in the same project.
+> If you generate a project template using [start.spring.io](https://start.spring.io/#!language=kotlin),
+> the `kotlin-spring` plugin is enabled by default.
+>
+{style="note"}
 
-The plugin specifies the following Spring annotations:
+### Supported Spring annotations
+
+The plugin specifies classes and its members as open for the following Spring annotations:
 * [`@Component`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Component.html)
 * [`@Async`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/annotation/Async.html)
 * [`@Transactional`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/transaction/annotation/Transactional.html)
@@ -22,21 +29,18 @@ or [`@Repository`](https://docs.spring.io/spring-framework/docs/current/javadoc-
 are automatically opened because these annotations are meta-annotated with
 [`@Component`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Component.html).
 
-> If you generate a project template using [start.spring.io](https://start.spring.io/#!language=kotlin),
-> the `kotlin-spring` plugin is enabled by default.
->
-{style="note"}
+## Apply the plugin
 
 ### Gradle 
 
-Add the `kotlin-spring` plugin to your `build.gradle(.kts)` file:
+Add the `kotlin-spring` plugin in the `plugins {}` block of your `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 plugins {
-    id("org.jetbrains.kotlin.plugin.spring") version "%kotlinVersion%"
+    id("plugin.spring") version "%kotlinVersion%"
 }
 ```
 
@@ -55,7 +59,7 @@ plugins {
 ### Maven
 
 In Maven, support for the `kotlin-spring` plugin is provided by the `kotlin-maven-allopen` plugin.
-Add it to your pom.xml file:
+Add it to your `pom.xml` file:
 
 ```xml
 <plugin>
@@ -79,6 +83,31 @@ Add it to your pom.xml file:
 </plugin>
 ```
 
+## Use the kotlin-spring plugin
+
+When the plugin is applied, classes annotated with common Spring annotations are treated as `open` at compile time.
+You can create classes with Spring annotations without adding the `open` keyword:
+
+```kotlin
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+
+@RestController
+@RequestMapping("/")
+class MessageController {
+    // This class and all its members are open 
+    @GetMapping
+    fun listMessages() = listOf(
+        Message("1", "Hello!"),
+        Message("2", "Bonjour!"),
+        Message("3", "Privet!"),
+    )
+}
+```
+
 ## What's next?
 
-* [Get started with Spring Boot and Kotlin](jvm-get-started-spring-boot.md) and create a Spring Boot application.
+* For JPA entities that require a zero-argument constructor, use the [`kotlin-jpa` plugin](kotlin-jpa-plugin.md),
+  which configures the `no-arg` plugin with JPA annotations such as `@Entity`, `@Embeddable`, and `@MappedSuperclass`.
+* Create your first Spring Boot application using the [Get started with Spring Boot and Kotlin](jvm-get-started-spring-boot.md) tutorial.
