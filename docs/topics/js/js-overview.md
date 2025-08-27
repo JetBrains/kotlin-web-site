@@ -80,9 +80,10 @@ Share your use cases, experiences, and questions with the Kotlin/JS community in
 
 Explore the fundamentals and initial steps to start working with Kotlin/JS:
 
-* If you're new to Kotlin, start by reviewing the [basic syntax](basic-syntax.md) and explore the [Kotlin tour](kotlin-tour-welcome.md).
+* If you're new to Kotlin, start by reviewing the [basic syntax](basic-syntax.md) and exploring the [Kotlin tour](kotlin-tour-welcome.md).
 * Check out the list of [Kotlin/JS sample projects](#sample-projects-for-kotlin-js) for inspiration. These samples contain 
   useful code snippets and patterns that can help you get started with your projects.
+* If you’re new to Kotlin/JS, start with the setup guide before exploring more advanced topics:
 
 <a href="js-project-setup.md"><img src="js-set-up-project.svg" width="600" alt="Set up a Kotlin/JS project" style="block"/></a>
 
