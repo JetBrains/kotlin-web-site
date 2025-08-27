@@ -691,36 +691,6 @@ Use Kotlin/JS if your goal is to:
 
 For more information, see [Choose the right web target for a Kotlin Multiplatform project](https://arc.net/l/quote/flyjowty).
 
-#### Kotlin and Java sources for JavaScript
-
-This plugin only works for Kotlin files, so it is recommended that you keep Kotlin and Java files separate (if the
-project contains Java files). If you don't store them separately, specify the source folder in the `sourceSets{}` block:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    sourceSets["main"].apply {
-        kotlin.srcDir("src/main/myKotlin")
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    sourceSets {
-        main.kotlin.srcDirs += 'src/main/myKotlin'
-    }
-}
-```
-
-</tab>
-</tabs>
-
 ### Targeting WebAssembly
 
 As with JavaScript, use the `kotlin-multiplatform` plugin when targeting WebAssembly (Wasm):
@@ -746,9 +716,10 @@ plugins {
 </tab>
 </tabs>
 
-Depending on your requirements, you can target **`wasmJs`** for running in browsers or Node.js, and **`wasmWasi`** for running in WASI (WebAssembly System Interface) environments. 
+Depending on your requirements, you can target **`wasmJs`** for running in browsers or `nodejs`, and **`wasmWasi`** for running in
+Wasm environments supporting WASI (WebAssembly System Interface), such as Wasmtime, WasmEdge, and so on.
 
-Configure the WebAssembly target for web browsers:
+Configure the WebAssembly target for web browsers or Node.js:
 
 ```kotlin
 kotlin {
@@ -778,6 +749,36 @@ kotlin {
 
 Use Kotlin/Wasm if you want to share both logic and UI across multiple platforms. For more information, 
 see [Choose the right web target for a Kotlin Multiplatform project](https://arc.net/l/quote/flyjowty).
+
+### Kotlin and Java sources for the web target
+
+The KGP only works for Kotlin files, so it is recommended that you keep Kotlin and Java files separate (if the
+project contains Java files). If you don't store them separately, specify the source folder in the `sourceSets{}` block:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    sourceSets["main"].apply {
+        kotlin.srcDir("src/main/myKotlin")
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    sourceSets {
+        main.kotlin.srcDirs += 'src/main/myKotlin'
+    }
+}
+```
+
+</tab>
+</tabs>
 
 ## Triggering configuration actions with the KotlinBasePlugin interface
 
