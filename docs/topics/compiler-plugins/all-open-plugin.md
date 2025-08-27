@@ -1,26 +1,47 @@
 [//]: # (title: All-open compiler plugin)
 
-Kotlin has classes and their members `final` by default, which makes it inconvenient to use frameworks and libraries such
-as Spring AOP that require classes to be `open`. The `all-open` compiler plugin adapts Kotlin to the requirements of those
-frameworks and makes classes annotated with a specific annotation and their members open without the explicit `open` keyword.
+In Kotlin, classes and their members are `final` by default. This can cause issues with frameworks and libraries that rely on
+subclassing and runtime proxies, which require classes to be `open`.
 
-For instance, when you use Spring, you don't need all the classes to be open, but only classes annotated with specific
-annotations like `@Configuration` or `@Service`. The `all-open` plugin allows you to specify such annotations.
+The `all-open` compiler plugin makes classes and their members open without using the `open` keyword at the compile time. 
+To use it, create an annotation, add it in the plugin options, and annotate the classes you want to make open:
 
-Kotlin provides `all-open` plugin support both for Gradle and Maven with the complete IDE integration.
+```kotlin
+@YourAnnotation
+class MyService {
+    // This class and all its members are open now
+    fun doWork() { /* ... */ }
+}
+```
 
-> For the Spring applications with Kotlin, you can use the [`kotlin-spring` compiler plugin](kotlin-spring-plugin.md).
+If a class or any of its superclasses is annotated with a configured annotation, the class and its members become `open`.
+
+> For Spring applications with Kotlin, you can use the [`kotlin-spring` compiler plugin](kotlin-spring-plugin.md).
 >
 {style="note"}
 
-## Gradle
+## Create an annotation
 
-Add the plugin in your `build.gradle(.kts)` file:
+Before enabling the `all-open` plugin, create an annotation to mark the classes you want to make open:
+
+```kotlin
+package com.example
+
+annotation class AllOpenMarker()
+```
+
+
+## Apply the plugin
+
+### Gradle
+
+To enable the plugin, add it to the `plugins {}` block of your `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
+// build.gradle.kts
 plugins {
     kotlin("plugin.allopen") version "%kotlinVersion%"
 }
@@ -30,6 +51,7 @@ plugins {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
+// build.gradle
 plugins {
     id "org.jetbrains.kotlin.plugin.allopen" version "%kotlinVersion%"
 }
@@ -38,15 +60,16 @@ plugins {
 </tab>
 </tabs>
 
-Then specify the list of annotations that will make classes open:
+Then specify an annotation or a list of annotations that make classes open:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 allOpen {
-    annotation("com.my.Annotation")
-    // annotations("com.another.Annotation", "com.third.Annotation")
+    annotation("com.example.AllOpenMarker")
+    // You can specify multiple annotations:
+    // annotations("com.example.AllOpenMarker", "com.anotherPackage.OtherAnnotation")
 }
 ```
 
@@ -55,8 +78,9 @@ allOpen {
 
 ```groovy
 allOpen {
-    annotation("com.my.Annotation")
-    // annotations("com.another.Annotation", "com.third.Annotation")
+    annotation("com.example.AllOpenMarker")
+    // You can specify multiple annotations:
+    // annotations("com.example.AllOpenMarker", "com.anotherPackage.OtherAnnotation")
 }
 ```
 
@@ -64,23 +88,7 @@ allOpen {
 </tabs>
 
 
-If the class (or any of its superclasses) is annotated with `com.my.Annotation`, the class itself and all its members
-will become open.
-
-It also works with meta-annotations:
-
-```kotlin
-@com.my.Annotation
-annotation class MyFrameworkAnnotation
-
-@MyFrameworkAnnotation
-class MyClass // will be all-open
-```
-
-`MyFrameworkAnnotation` is annotated with the all-open meta-annotation `com.my.Annotation`, so it becomes an all-open
-annotation as well.
-
-## Maven
+### Maven
 
 Add the plugin in your `pom.xml` file:
 
@@ -92,14 +100,13 @@ Add the plugin in your `pom.xml` file:
 
     <configuration>
         <compilerPlugins>
-            <!-- Or "spring" for the Spring support -->
             <plugin>all-open</plugin>
         </compilerPlugins>
 
         <pluginOptions>
-            <!-- Each annotation is placed on its own line -->
-            <option>all-open:annotation=com.my.Annotation</option>
-            <option>all-open:annotation=com.their.AnotherAnnotation</option>
+            <!-- Add multiple lines for multiple annotations  -->
+            <option>all-open:annotation=com.example.AllOpenMarker</option>
+            <option>all-open:annotation=com.anotherPackage.OtherAnnotation</option>
         </pluginOptions>
     </configuration>
 
@@ -113,8 +120,47 @@ Add the plugin in your `pom.xml` file:
 </plugin>
 ```
 
-Please refer to the [Gradle section](#gradle) for the detailed information about how all-open annotations work.
+## Use the all-open plugin
 
+If the class (or any of its superclasses) is annotated with created `com.example.AllOpenMarker`,
+the class itself and all its members become open:
+
+```kotlin
+// Use the AllOpenMarker annotation in your project
+package com.example
+
+fun main() {
+    // 
+}
+
+@AllOpenMarker
+class TestClass {
+    // This class and all its members are open
+}
+```
+
+It also works with meta-annotations. If you mark another annotation with `AllOpenMarker`,
+all classes and members annotated with it become open:
+
+```kotlin
+package com.example
+
+// An annotation marked with a previously created annotation
+@AllOpenMarker
+annotation class AnotherAllOpenMarker()
+
+@AllOpenMarker
+class NewClass {
+    // This class and all its members are open
+}
+
+@AnotherAllOpenMarker
+class AnotherClass {
+    // This class and all its members are open as well
+}
+```
+
+<!-- 
 ## Command-line compiler
 
 All-open compiler plugin JAR is available in the binary distribution of the Kotlin compiler. You can attach the plugin
@@ -135,3 +181,8 @@ You can specify all-open annotations directly, using the `annotation` plugin opt
 ```
 
 Presets that available for the `all-open` plugin are: `spring`, `micronaut`, and `quarkus`.
+-->
+
+## What's next?
+
+* Explore the source code of the [all-open compiler plugin](https://github.com/JetBrains/kotlin/tree/master/plugins/allopen)
