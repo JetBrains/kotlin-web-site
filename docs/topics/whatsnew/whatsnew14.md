@@ -660,7 +660,7 @@ kotlin {
 
 For more detailed information about how to configure the new backend, check out the [Kotlin/JS IR compiler documentation](js-ir-compiler.md).
 
-With the new [@JsExport](js-to-kotlin-interop.md#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-ir-compiler.md#preview-generation-of-typescript-declaration-files-d-ts) from Kotlin code**, the Kotlin/JS IR compiler backend improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
+With the new [@JsExport](js-to-kotlin-interop.md#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-project-setup.md#generation-of-typescript-declaration-files-d-ts) from Kotlin code**, the Kotlin/JS IR compiler backend improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
 
 [Learn more about the available features in the Kotlin/JS IR compiler backend](js-ir-compiler.md).
 
