@@ -44,6 +44,8 @@ Inside the `kotlin {}` block, you can manage the following aspects:
 
 * [Target execution environment](#execution-environments): browser or Node.js 
 * [Support for ES2015 features](#support-for-es2015-features): classes, modules, and generators
+* [Configure output granularity](#configure-output-granularity)
+* [Generation of TypeScript declaration files](#generation-of-typescript-declaration-files-d-ts)
 * [Project dependencies](#dependencies): Maven and npm
 * [Run configuration](#run-task)
 * [Test configuration](#test-task)
@@ -92,7 +94,7 @@ features:
 
 * Modules that simplify your codebase and improve maintainability.
 * Classes that allow incorporating OOP principles, resulting in cleaner and more intuitive code.
-* Generators for compiling [suspend functions](composing-suspending-functions.md) that improve the final bundle size
+* Generators for compiling [suspend functions](https://kotlinlang.org/docs/composing-suspending-functions.html) that improve the final bundle size
   and help with debugging.
 
 You can enable all the supported ES2015 features at once by adding the `es2015` compilation target to your
@@ -107,6 +109,60 @@ tasks.withType<KotlinJsCompile>().configureEach {
 ```
 
 [Learn more about ES2015 (ECMAScript 2015, ES6) in the official documentation](https://262.ecma-international.org/6.0/).
+
+## Configure output granularity
+
+You can choose how the compiler outputs `.js` files in your project:
+
+* **One per module**. By default, the JS compiler outputs separate `.js` files for each project module as a
+  compilation result.
+* **One per project**. You can compile the whole project into a single `.js` file by adding the following line to the
+  `gradle.properties` file:
+
+  ```none
+  kotlin.js.ir.output.granularity=whole-program // 'per-module' is the default
+  ```
+
+* **One per file**. You can set up a more granular output that generates one (or two, if the file contains exported
+  declarations) JavaScript file per each Kotlin file. To enable the per-file compilation mode:
+  1. Set `es2015` as the [compilation target](#support-for-es2015-features)
+     to support ES2015 features in your project.
+  2. Add the following line to the `gradle.properties` file:
+     ```none
+     kotlin.js.ir.output.granularity=per-file // 'per-module' is the default
+     ```
+
+## Generation of TypeScript declaration files (`d.ts`)
+<primary-label ref="experimental-opt-in"/>
+
+The Kotlin/JS compiler can generate TypeScript definitions from your Kotlin code. These definitions can be
+used by JavaScript tools and IDEs when working on hybrid applications to:
+
+* Provide autocompletion
+* Support static analyzers
+* Simplify the addition of Kotlin code in JavaScript and TypeScript projects
+
+Generating TypeScript definitions is especially valuable for the [business logic sharing use cases](js-overview.md#use-cases-for-kotlin-js).
+
+The compiler collects any top-level declarations marked with [`@JsExport`](js-to-kotlin-interop.md#jsexport-annotation) and automatically
+generates TypeScript definitions in a `.d.ts` file.
+
+To generate TypeScript definitions, explicitly configure it in your Gradle build file.
+Add the `generateTypeScriptDefinitions()` function to your `build.gradle.kts` file in the [`js {}` block](js-project-setup.md#execution-environments):
+
+```kotlin
+kotlin {
+    js {
+        binaries.executable()
+        browser {
+        }
+        generateTypeScriptDefinitions()
+    }
+}
+```
+
+You can find the definitions in the `build/js/packages/<package_name>/kotlin` directory alongside the corresponding
+un-webpacked JavaScript code.
 
 ## Dependencies
 
