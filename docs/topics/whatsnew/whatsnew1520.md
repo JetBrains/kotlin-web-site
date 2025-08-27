@@ -187,7 +187,7 @@ for Kotlin/JS.
 
 ### Migration guide for the JS IR backend
 
-The new [migration guide for the JS IR backend](js-ir-migration.md) identifies issues you may encounter during migration
+The new migration guide for the JS IR backend identifies issues you may encounter during migration
 and provides solutions for them. If you find any issues that aren't covered in the guide, please report them to our [issue tracker](http://kotl.in/issue).
 
 ## Gradle
