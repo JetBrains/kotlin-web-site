@@ -126,7 +126,7 @@ fields. This means that you need to write the `get()` and `set()` functions your
 field means that they can't hold any state.
 
 To declare an extension property, write the name of the class that you want to extend followed by a `.` and the name of
-your property. Just like with normal class properties, you need to declare a receiver type for your property. 
+your property. Just like with normal class properties, you need to declare a type for your property. 
 For example:
 
 ```kotlin
@@ -135,7 +135,7 @@ val String.lastChar: Char
 {validate="false"}
 
 Extension properties are most useful when you want a property to contain a computed value without using inheritance.
-You can think of extension properties working like a function with only one parameter: the receiver object.
+You can think of extension properties working like a function with only one parameter: the receiver.
 
 For example, let's say that you have a data class called `Person` with two properties: `firstName` and `lastName`.
 
