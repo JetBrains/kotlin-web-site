@@ -47,6 +47,30 @@
 			<toc-element topic="typecasts.md"/>
 			<toc-element topic="type-aliases.md"/>
 		</toc-element>
+        <toc-element toc-title="Collections">
+            <toc-element toc-title="Overview" topic="collections-overview.md"/>
+            <toc-element toc-title="Create" topic="constructing-collections.md"/>
+            <toc-element toc-title="Traverse" topic="iterators.md"/>
+            <toc-element toc-title="Order" topic="collection-ordering.md"/>
+            <toc-element toc-title="Group" topic="collection-grouping.md"/>
+            <toc-element toc-title="Transform" topic="collection-transformations.md"/>
+            <toc-element toc-title="Filter" topic="collection-filtering.md"/>
+            <toc-element toc-title="Retrieve">
+                <toc-element topic="collection-parts.md"/>
+                <toc-element topic="collection-elements.md"/>
+            </toc-element>
+            <toc-element toc-title="Operations and operators">
+                <toc-element toc-title="Operations overview" topic="collection-operations.md"/>
+                <toc-element topic="collection-aggregate.md"/>
+                <toc-element toc-title="Write operations" topic="collection-write.md"/>
+                <toc-element topic="list-operations.md"/>
+                <toc-element topic="set-operations.md"/>
+                <toc-element topic="map-operations.md"/>
+                <toc-element topic="collection-plus-minus.md"/>
+            </toc-element>
+            <toc-element topic="sequences.md"/>
+            <toc-element topic="ranges.md"/>
+        </toc-element>
 		<toc-element toc-title="Control flow">
 			<toc-element topic="control-flow.md"/>
 			<toc-element topic="returns.md"/>
@@ -54,34 +78,35 @@
 		<toc-element toc-title="Error handling" topic="exceptions.md"/>
 		<toc-element toc-title="Functions">
 			<toc-element topic="functions.md"/>
+            <toc-element topic="scope-functions.md"/>
 			<toc-element toc-title="Lambdas" topic="lambdas.md"/>
 			<toc-element topic="this-expressions.md"/>
 			<toc-element toc-title="Builders">
 				<toc-element topic="type-safe-builders.md"/>
 				<toc-element topic="using-builders-with-builder-inference.md"/>
 			</toc-element>
+            <toc-element topic="inline-functions.md"/>
+            <toc-element topic="operator-overloading.md"/>
 			<toc-element topic="context-parameters.md"/>
-			<toc-element topic="inline-functions.md"/>
-			<toc-element topic="operator-overloading.md"/>
 		</toc-element>
 		<toc-element toc-title="Classes and interfaces">
+            <toc-element topic="extensions.md"/>
 			<toc-element topic="classes.md"/>
 			<toc-element topic="data-classes.md"/>
-			<toc-element topic="extensions.md"/>
 			<toc-element topic="interfaces.md"/>
 			<toc-element topic="delegation.md"/>
 			<toc-element topic="inheritance.md"/>
 			<toc-element topic="object-declarations.md"/>
+            <toc-element toc-title="Properties">
+                <toc-element topic="properties.md"/>
+                <toc-element topic="delegated-properties.md"/>
+            </toc-element>
 			<toc-element toc-title="Special classes and interfaces">
 				<toc-element topic="sealed-classes.md"/>
 				<toc-element topic="enum-classes.md"/>
 				<toc-element topic="inline-classes.md"/>
 				<toc-element topic="nested-classes.md"/>
 				<toc-element topic="fun-interfaces.md"/>
-			</toc-element>
-			<toc-element toc-title="Properties">
-				<toc-element topic="properties.md"/>
-				<toc-element topic="delegated-properties.md"/>
 			</toc-element>
 		</toc-element>
 		<toc-element topic="null-safety.md"/>
@@ -93,6 +118,8 @@
 		</toc-element>
 		<toc-element topic="reflection.md"/>
 		<toc-element accepts-web-file-names="multi-declarations.html" topic="destructuring-declarations.md"/>
+        <toc-element toc-title="Reading standard input" topic="read-standard-input.md"/>
+        <toc-element topic="time-measurement.md"/>
 		<toc-element toc-title="Language reference">
 			<toc-element toc-title="Grammar" href="https://kotlinlang.org/docs/reference/grammar.html"/>
 			<toc-element href="https://kotlinlang.org/spec/" toc-title="Language specification"/>
@@ -238,36 +265,7 @@
 		</toc-element>
 	</toc-element>
 	<toc-element toc-title="Libraries">
-		<toc-element toc-title="Standard library">
-			<toc-element toc-title="Collections">
-				<toc-element toc-title="Overview" topic="collections-overview.md"/>
-				<toc-element toc-title="Create" topic="constructing-collections.md"/>
-				<toc-element toc-title="Traverse" topic="iterators.md"/>
-				<toc-element toc-title="Order" topic="collection-ordering.md"/>
-				<toc-element toc-title="Group" topic="collection-grouping.md"/>
-				<toc-element toc-title="Transform" topic="collection-transformations.md"/>
-				<toc-element toc-title="Filter" topic="collection-filtering.md"/>
-				<toc-element toc-title="Retrieve">
-					<toc-element topic="collection-parts.md"/>
-					<toc-element topic="collection-elements.md"/>
-				</toc-element>
-				<toc-element toc-title="Operations and operators">
-					<toc-element toc-title="Operations overview" topic="collection-operations.md"/>
-					<toc-element topic="collection-aggregate.md"/>
-					<toc-element toc-title="Write operations" topic="collection-write.md"/>
-					<toc-element topic="list-operations.md"/>
-					<toc-element topic="set-operations.md"/>
-					<toc-element topic="map-operations.md"/>
-					<toc-element topic="collection-plus-minus.md"/>
-				</toc-element>
-				<toc-element topic="sequences.md"/>
-				<toc-element topic="ranges.md"/>
-			</toc-element>
-			<toc-element topic="read-standard-input.md"/>
-			<toc-element topic="opt-in-requirements.md"/>
-			<toc-element topic="scope-functions.md"/>
-			<toc-element topic="time-measurement.md"/>
-		</toc-element>
+        <toc-element topic="opt-in-requirements.md"/>
 		<toc-element toc-title="Coroutines (kotlinx.coroutines)">
 			<include from="kc.tree" origin="coroutines" element-id="coroutines"/>
 		</toc-element>
