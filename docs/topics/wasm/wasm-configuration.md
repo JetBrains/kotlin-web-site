@@ -2,9 +2,8 @@
 
 <primary-label ref="beta"/> 
 
-Ensure your browser supports 
-the new [WebAssembly proposals](https://webassembly.org/roadmap/) to use Kotlin/Wasm effectively. 
-This page provides details about the proposals, supported browsers, and configuration recommendations for efficient development.
+This page provides details about the [WebAssembly proposals](https://webassembly.org/roadmap/), supported browsers, and configuration recommendations 
+for efficient development with Kotlin/Wasm.
 
 ## Browser versions
 
