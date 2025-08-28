@@ -1,39 +1,38 @@
 [//]: # (title: Get started with Kotlin/Wasm and Compose Multiplatform)
 
-> Kotlin/Wasm is in [Alpha](components-stability.md). It may be changed at any time.
-> 
-> [Join the Kotlin/Wasm community.](https://slack-chats.kotlinlang.org/c/webassembly)
->
-{style="note"}
+<primary-label ref="beta"/> 
 
 This tutorial demonstrates how to run a [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) 
-app with [Kotlin/Wasm](wasm-overview.md) in IntelliJ IDEA, and generate artifacts to publish as a site on [GitHub pages](https://pages.github.com/).
+app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts to publish on a site.
 
-## Before you start
+## Create a project
 
-Create a project using the Kotlin Multiplatform wizard:
+1. [Set up your environment for Kotlin Multiplatform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html#set-up-the-environment).
+2. In IntelliJ IDEA, select **File | New | Project**.
+3. In the panel on the left, select **Kotlin Multiplatform**.
 
-1. Open the [Kotlin Multiplatform wizard](https://kmp.jetbrains.com/#newProject).
-2. On the **New Project** tab, change the project name and ID to your preference. In this tutorial, we set the name to "WasmDemo" and the ID to "wasm.project.demo".
-
-   > These are the name and ID of the project directory. You can also leave them as they are.
+   > If you're not using the Kotlin Multiplatform IDE plugin, you can generate the same project using the [KMP web wizard](https://kmp.jetbrains.com/?android=true&ios=true&iosui=compose&desktop=true&web=true&includeTests=true).
    >
-   {style="tip"}
+   {style="note"}
 
-3. Select the **Web** option. Make sure that no other options are selected.
-4. Click the **Download** button and unpack the resulting archive.
+4. Specify the following fields in the **New Project** window:
 
-   ![Kotlin Multiplatform wizard](wasm-compose-web-wizard.png){width=400}
+   * **Name:** WasmDemo
+   * **Group:** wasm.project.demo
+   * **Artifact:** wasmdemo
 
-## Open the project in IntelliJ IDEA
+   > If you use the web wizard, specify "WasmDemo" as Project Name and "wasm.project.demo" as Project ID.
+   >
+   {style="note"}
 
-1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-2. On the Welcome screen of IntelliJ IDEA, click **Open** or select **File | Open** in the menu bar.
-3. Navigate to the unpacked "WasmDemo" folder and click **Open**.
+5. Select the **Web** target. Make sure that no other options are selected.
+6. Click **Create**.
+
+   ![Kotlin Multiplatform wizard](wasm-kmp-wizard.png){width=600}
 
 ## Run the application
 
-1. In IntelliJ IDEA, open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
+1. Open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
    
    You can find the Gradle tasks in the Gradle tool window once the project loads.
 
@@ -64,11 +63,11 @@ Create a project using the Kotlin Multiplatform wizard:
 
    You see a "Click me!" button. Click it:
 
-   ![Click me](wasm-composeapp-browser-clickme.png){width=650}
+   ![Click me](wasm-composeapp-browser-clickme.png){width=600}
 
    Now you see the Compose Multiplatform logo:
 
-   ![Compose app in browser](wasm-composeapp-browser.png){width=650}
+   ![Compose app in browser](wasm-composeapp-browser.png){width=600}
 
 ## Generate artifacts
 
@@ -87,20 +86,22 @@ directory:
 
 ![Artifacts directory](wasm-composeapp-directory.png){width=400}
 
-## Publish on GitHub pages
+## Publish the application
 
-1. Copy all the contents in your `productionExecutable` directory into the repository where you want to create a site.
-2. Follow GitHub's instructions for [creating your site](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site).
+Use the generated artifacts to deploy your Kotlin/Wasm application. 
+Select a hosting platform of your preference
+and follow the instructions to publish the artifacts. 
+Some options are:
 
-   > It can take up to 10 minutes for changes to your site to publish after you push the changes to GitHub.
-   >
-   {style="note"}
+* [GitHub pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site)
+* [Cloudflare](https://developers.cloudflare.com/pages/get-started/)
+* [Apache HTTP Server](https://httpd.apache.org/docs/2.4/getting-started.html)
 
-3. In a browser, navigate to your GitHub pages domain.
+Once your site is created, open the browser and navigate to your platform's page domain. For example, GitHub pages:
 
-   ![Navigate to GitHub pages](wasm-composeapp-github-clickme.png){width=650}
+   ![Navigate to GitHub pages](wasm-composeapp-github-clickme.png){width=600}
 
-   Congratulations! You have published your artifacts on GitHub pages.
+   Congratulations! You have published your artifacts.
 
 ## What's next?
 
@@ -114,4 +115,11 @@ directory:
   * [Compose example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/compose-example)
 * Join the Kotlin/Wasm community in Kotlin Slack:
 
-  <a href="https://slack-chats.kotlinlang.org/c/webassembly"><img src="join-slack-channel.svg" width="500" alt="Join the Kotlin/Wasm community" style="block"/></a>
+Try more Kotlin/Wasm examples:
+
+* [KotlinConf application](https://github.com/JetBrains/kotlinconf-app)
+* [Compose image viewer](https://github.com/JetBrains/compose-multiplatform/tree/master/examples/imageviewer)
+* [Jetsnack application](https://github.com/JetBrains/compose-multiplatform/tree/master/examples/jetsnack)
+* [Node.js example](https://github.com/Kotlin/kotlin-wasm-nodejs-template)
+* [WASI example](https://github.com/Kotlin/kotlin-wasm-wasi-template)
+* [Compose example](https://github.com/Kotlin/kotlin-wasm-compose-template)

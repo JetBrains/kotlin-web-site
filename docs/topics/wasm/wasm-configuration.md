@@ -1,20 +1,19 @@
-[//]: # (title: Troubleshooting)
+[//]: # (title: Supported versions and configuration)
 
-> Kotlin/Wasm is [Alpha](components-stability.md). It may be changed at any time. Use it in scenarios before production.
-> We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
->
-{style="note"}
+<primary-label ref="beta"/> 
 
-Kotlin/Wasm relies on new [WebAssembly proposals](https://webassembly.org/roadmap/) like [garbage collection](#garbage-collection-proposal) and 
-[exception handling](#exception-handling-proposal) to introduce improvements and new features within WebAssembly. 
-
-However, to ensure these features work properly, you need an environment that supports the new proposals. 
-In some cases, you may need to set up the environment to make it compatible with the proposals.
+Ensure your browser supports 
+the new [WebAssembly proposals](https://webassembly.org/roadmap/) to use Kotlin/Wasm effectively. 
+This page provides details about the proposals, supported browsers, and configuration recommendations for efficient development.
 
 ## Browser versions
 
-To run applications built with Kotlin/Wasm in a browser, you need a browser version supporting the new 
-[WebAssembly garbage collection (WasmGC) feature](https://github.com/WebAssembly/gc). Check if the browser version supports 
+Kotlin/Wasm relies on new WebAssembly proposals, such as [garbage collection (WasmGC)](#garbage-collection-proposal) and
+[exception handling](#exception-handling-proposal), to introduce improvements and new features within WebAssembly.
+
+To ensure these features work properly, you need an environment that supports the new proposals.
+In some cases, you may need to set up the environment to make it compatible with the proposals. 
+Check if your browser version supports 
 the new WasmGC by default or if you need to make changes to the environment.
 
 ### Chrome 
@@ -146,3 +145,54 @@ kotlin.incremental.wasm=true
 > Your insights help make the feature stable and enabled by default sooner.
 >
 {style="note"}
+
+## Diagnostics in fully qualified class names
+
+On Kotlin/Wasm, the compiler does not store fully qualified names (FQNs) of classes in the generated binary by default,
+to avoid increasing the application size.
+
+For this reason, the compiler reports an error when you call the `KClass::qualifiedName` property in Kotlin/Wasm projects,
+unless you explicitly enable the qualified names feature.
+
+This diagnostic is enabled by default, and errors are reported automatically. To disable the diagnostic and allow `qualifiedName` in
+Kotlin/Wasm, instruct the compiler to store fully qualified names for all classes by adding the following option to your
+`build.gradle.kts` file:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+   wasmJs {
+       ...
+       compilerOptions {
+           freeCompilerArgs.add("-Xwasm-kclass-fqn")
+       }
+   }
+}
+```
+
+Keep in mind that enabling this option increases the application size.
+
+## Array out-of-bounds access and traps
+
+In Kotlin/Wasm, accessing an array with an index outside its bounds triggers a WebAssembly trap instead of a regular Kotlin exception. 
+The trap immediately stops the current stack of execution. 
+
+When running in a JavaScript environment, such traps appear as 
+`WebAssembly.RuntimeError` and can be caught on the JavaScript side.
+
+## Experimental annotations
+
+Kotlin/Wasm provides several experimental annotations for general WebAssembly interoperability and specific [JavaScript interoperability](wasm-js-interop.md).
+
+* [`@WasmImport`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.wasm/-wasm-import/) and 
+  [`@WasmExport`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.wasm/-wasm-export/) 
+  let you call functions defined outside a Kotlin/Wasm module or expose Kotlin functions to the host or other Wasm modules.
+
+* [`@ExperimentalJsExport`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.js/-experimental-js-export/) applies 
+  to the Kotlin/JS API for exporting Kotlin declarations to JavaScript.
+
+Because these mechanisms are still evolving, all annotations are marked as experimental. 
+You must explicitly [opt in to use them](opt-in-requirements.md), and their design or behavior may change in future Kotlin 
+versions.
+
+

@@ -1,10 +1,6 @@
 [//]: # (title: Get started with Kotlin/Wasm and WASI)
 
-> Kotlin/Wasm is in [Alpha](components-stability.md). It may be changed at any time.
->
-> [Join the Kotlin/Wasm community.](https://slack-chats.kotlinlang.org/c/webassembly)
->
-{style="note"}
+<primary-label ref="beta"/> 
 
 This tutorial demonstrates how to run a simple [Kotlin/Wasm](wasm-overview.md) application using the [WebAssembly System Interface (WASI)](https://wasi.dev/) 
 in various WebAssembly virtual machines.
