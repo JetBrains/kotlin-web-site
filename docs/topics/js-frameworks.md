@@ -40,6 +40,18 @@ For documentation and examples, see the [Kilua repository](https://github.com/rj
 
 For updates and discussions about the framework, join the [#kilua](https://kotlinlang.slack.com/archives/C06UAH52PA7) channel in the Kotlin Slack.
 
+## Kotlin React
+
+[React](https://react.dev/) is the component-based library for web and native user interfaces. 
+It is one of the most popular solutions for building Web user interfaces;
+that means a lot of existing components, learning materials, and an active community.
+
+[Kotlin React](https://github.com/JetBrains/kotlin-wrappers/blob/master/docs/guide/react.md) is a Kotlin wrapper for React
+that allows combining the power of the React ecosystem with the type-safety and eloquence of Kotlin.
+
+For updates and discussions about the library, join the [#react](https://kotlinlang.slack.com/messages/react) and
+[#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+
 ## KVision
 
 [KVision](https://kvision.io) is an object-oriented web framework for building Kotlin/JS applications with ready-to-use UI components.
