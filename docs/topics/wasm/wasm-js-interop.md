@@ -1,5 +1,7 @@
 [//]: # (title: Interoperability with JavaScript)
 
+<primary-label ref="beta"/> 
+
 Kotlin/Wasm allows you to use both JavaScript code in Kotlin and Kotlin code in JavaScript.
 
 As with [Kotlin/JS](js-overview.md), the Kotlin/Wasm compiler also has interoperability with JavaScript. If you are 
@@ -395,10 +397,23 @@ external fun <T : JsAny> processData(data: JsArray<T>): T
 
 ## Exception handling
 
-You can use Kotlin `try-catch` expression to catch JavaScript exceptions.
-However, accessing specific details about the thrown value in Kotlin/Wasm isn't possible by default.
+You can use Kotlin `try-catch` expressions to catch JavaScript exceptions in Kotlin/Wasm code.
+The caught exceptions include detailed information:
 
-You can configure the `JsException` type to include the original error message and stack trace from JavaScript.
+* When exceptions are thrown from JavaScript: you can see more detailed information on Kotlin's side.
+  When such an exception propagates through Kotlin back to JS, it's no longer wrapped into WebAssembly.
+* When exceptions are thrown from Kotlin: they can now be caught on JavaScript's side as JS errors.
+
+This exception handling works automatically in modern browsers
+that support the [`WebAssembly.JSTag`](https://webassembly.github.io/exception-handling/js-api/#dom-webassembly-jstag)
+feature:
+
+* Chrome 115+
+* Firefox 129+
+* Safari 18.4+
+
+In older browsers, you have to configure the `JsException`
+type to include the original error message and stack trace from JavaScript.
 To do so, add the following compiler option to your `build.gradle.kts` file:
 
 ```kotlin
@@ -411,13 +426,7 @@ kotlin {
 }
 ```
 
-This behavior depends on the `WebAssembly.JSTag` API, which is only available in certain browsers:
-
-* **Chrome:** Supported from version 115
-* **Firefox:** Supported from version 129
-* **Safari:** Not yet supported
-
-Here's an example demonstrating this behavior:
+Here's an example demonstrating the exception handling behavior:
 
 ```kotlin
 external object JSON {
@@ -442,12 +451,6 @@ fun main() {
     }
 }
 ```
-
-With the `-Xwasm-attach-js-exception` compiler option enabled, the `JsException` type provides specific details from the JavaScript error.
-Without enabling this compiler option, `JsException` includes only a generic message stating that an exception was thrown while running JavaScript code.
-
-If you try to use a JavaScript `try-catch` expression to catch Kotlin/Wasm exceptions, it looks like a
-generic `WebAssembly.Exception` without directly accessible messages and data.
 
 ## Kotlin/Wasm and Kotlin/JS interoperability differences
 

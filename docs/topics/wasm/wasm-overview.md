@@ -1,11 +1,6 @@
 [//]: # (title: Kotlin/Wasm)
 
-> Kotlin/Wasm is in [Alpha](components-stability.md).
-> It may be changed at any time. You can use it in scenarios before production. We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56492).
->
-> [Join the Kotlin/Wasm community](https://slack-chats.kotlinlang.org/c/webassembly).
->
-{style="note"}
+<primary-label ref="beta"/> 
 
 Kotlin/Wasm has the power to compile your Kotlin code into [WebAssembly (Wasm)](https://webassembly.org/) format. 
 With Kotlin/Wasm, you can create applications that run on
@@ -20,6 +15,12 @@ web applications built with [Compose Multiplatform](https://www.jetbrains.com/lp
 browser in standalone Wasm virtual machines. In the outside-of-browser case,
 [WebAssembly System Interface (WASI)](https://wasi.dev/) provides access to platform APIs, which you can also utilize.
 
+> To run applications built with Kotlin/Wasm in a browser, you need a [browser version](wasm-configuration) that supports 
+> WebAssembly's garbage collection
+> and legacy exception handling proposals. To check the browser support status, see the [WebAssembly
+> roadmap](https://webassembly.org/roadmap/).
+>
+{style="tip"}
 
 ## Kotlin/Wasm and Compose Multiplatform
 
@@ -37,12 +38,6 @@ Kotlin/Wasm as its compilation target. Applications built with Kotlin/Wasm and C
 [Explore our online demo of an application built with Compose Multiplatform and Kotlin/Wasm](https://zal.im/wasm/jetsnack/)
 
 ![Kotlin/Wasm demo](wasm-demo.png){width=700}
-
-> To run applications built with Kotlin/Wasm in a browser, you need a browser version that supports the new garbage collection
-> and legacy exception handling proposals. To check the browser support status, see the [WebAssembly
-> roadmap](https://webassembly.org/roadmap/).
->
-{style="tip"}
 
 Additionally, you can use the most popular Kotlin libraries in Kotlin/Wasm out of the box. Like in other Kotlin and Multiplatform
 projects, you can include dependency declarations in the build script. For more information,
