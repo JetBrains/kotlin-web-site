@@ -321,7 +321,7 @@ In such cases, you can use the `!!` operator to explicitly tell the compiler tha
 
 ## Nullable receiver
 
-You can use extension functions with a [nullable receiver type](extensions.md#nullable-receiver), 
+You can use extension functions with a [nullable receiver type](extensions.md#nullable-receivers), 
 allowing these functions to be called on variables that might be `null`.
 
 By defining an extension function on a nullable receiver type, you can handle `null` values within the function itself 
