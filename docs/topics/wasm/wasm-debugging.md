@@ -78,7 +78,7 @@ If you previously added this configuration
 to your `build.gradle.kts` file, you should remove it to avoid conflicts.
 
 > This tutorial uses the Chrome browser, but you should be able to follow these steps with other browsers. For more information,
-> see [Browser versions](wasm-configuration#browser-versions).
+> see [Browser versions](wasm-configuration.md#browser-versions).
 >
 {style="tip"}
 
