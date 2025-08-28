@@ -407,9 +407,9 @@ of how these functions work in order to use them in your code.
 | Function | Access to `x` via | Return value  | Use case                                                                                     |
 |----------|-------------------|---------------|----------------------------------------------------------------------------------------------|
 | `let`    | `it`              | Lambda result | Perform null checks in your code and later perform further actions with the returned object. |
-| `apply`  | `this`            | `x`           | Initialize objects at the time of creation.                                                  |
+| `apply`  | `this`            | `this`        | Initialize objects at the time of creation.                                                  |
 | `run`    | `this`            | Lambda result | Initialize objects at the time of creation **AND** compute a result.                         |
-| `also`   | `it`              | `x`           | Complete additional actions before returning the object.                                     |
+| `also`   | `it`              | `this`        | Complete additional actions before returning the object.                                     |
 | `with`   | `this`            | Lambda result | Call multiple functions on an object.                                                        |
 
 For more information about scope functions, see [Scope functions](scope-functions.md).
