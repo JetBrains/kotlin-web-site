@@ -1,42 +1,85 @@
 [//]: # (title: Extensions)
 
-Kotlin provides the ability to extend a class or an interface with new functionality
-without having to inherit from the class or use design patterns such as _Decorator_.
-This is done via special declarations called _extensions_.
+Kotlin _extensions_ let you extend a class or an interface with new functionality without inheriting or using 
+design patterns like _Decorator_.
 
-For example, you can write new functions for a class or an interface from a third-party library that you can't modify.
-Such functions can be called in the usual way, as if they were methods of the original class.
-This mechanism is called an _extension function_. There are also _extension properties_ that let you define
-new properties for existing classes.
+You can write _extension functions_ for a class or an interface from a third-party library that you can't modify.
+You call these functions as if they were member functions of the original class.
+
+For example, with the [`.orEmpty()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/or-empty.html) extension function:
+
+```kotlin
+fun main() {
+//sampleStart
+    // nullableString is null
+    val nullableString: String? = null
+    // Calls .orEmpty() extension function on nullableString
+    val nonNullString = nullableString.orEmpty()
+
+    println("Is the string empty? ${nonNullString == ""}") 
+    // Is the string empty? true
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-isorempty"}
+
+There are also [_extension properties_](#extension-properties) that let you define new properties for existing classes.
 
 ## Extension functions
 
-To declare an extension function, prefix its name with a _receiver type_, which refers to the type being extended.
-The following adds a `swap` function to `MutableList<Int>`:
+Extension functions are always called on a receiver. The receiver has to have the same type as the class being extended.
+In the `.orEmpty()` example, the receiver is the `nonNullString` variable that has `String?` type. 
+
+To declare an extension function, prefix its name with a _receiver type_. In this example, the `.truncate()` function extends the `String` class so the
+receiver type is `String`:
 
 ```kotlin
-fun MutableList<Int>.swap(index1: Int, index2: Int) {
-    val tmp = this[index1] // 'this' corresponds to the list
-    this[index1] = this[index2]
-    this[index2] = tmp
+fun String.truncate(maxLength: Int): String {
+    return if (this.length <= maxLength) this else take(maxLength - 3) + "..."
+}
+
+fun main() {
+    val shortUsername = "KotlinFan42"
+    val longUsername = "JetBrainsLoverForever"
+
+    println("Short username: ${shortUsername.truncate(15)}") // KotlinFan42
+    println("Long username:  ${longUsername.truncate(15)}")  // JetBrainsLov...
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-truncate"}
+
+The `this` keyword inside an extension function corresponds to the receiver.
+
+```kotlin
+fun Map<String, Int>.mostVoted(): String? {
+    return maxByOrNull { (key, value) -> value }?.key
+}
+
+fun main() {
+    val poll = mapOf(
+        "Cats" to 37,
+        "Dogs" to 58,
+        "Birds" to 22
+    )
+
+    println("Top choice: ${poll.mostVoted()}") // Dogs
 }
 ```
 
-The `this` keyword inside an extension function corresponds to the receiver object (the one that is passed before the dot).
-Now, you can call such a function on any `MutableList<Int>`:
-
 ```kotlin
-val list = mutableListOf(1, 2, 3)
-list.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'list'
-```
+fun <T> List<T>.endpoints(): Pair<T, T> {
+    return first() to last()
+}
 
-This function makes sense for any `MutableList<T>`, and you can make it generic:
+fun main() {
+    val cities = listOf("Paris", "London", "Berlin", "Prague")
+    val temperatures = listOf(21.0, 19.5, 22.3)
 
-```kotlin
-fun <T> MutableList<T>.swap(index1: Int, index2: Int) {
-    val tmp = this[index1] // 'this' corresponds to the list
-    this[index1] = this[index2]
-    this[index2] = tmp
+    val cityEndpoints = cities.endpoints()
+    val tempEndpoints = temperatures.endpoints()
+
+    println("First and last cities: $cityEndpoints")      // (Paris, Prague)
+    println("First and last temperatures: $tempEndpoints") // (21.0, 22.3)
 }
 ```
 
