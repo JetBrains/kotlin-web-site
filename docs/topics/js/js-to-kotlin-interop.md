@@ -210,7 +210,7 @@ See how Kotlin types are mapped to JavaScript ones:
 |------------------------------------------------------------------|---------------------------|-----------------------------------------------------------------------------------------|
 | `Byte`, `Short`, `Int`, `Float`, `Double`                        | `Number`                  |                                                                                         |
 | `Char`                                                           | `Number`                  | The number represents the character's code.                                             |
-| `Long`                                                           | `BigInt`                  |                                                                                         |
+| `Long`                                                           | `BigInt`                  | `Long` only works when `BigInt` is used.                                                |
 | `Boolean`                                                        | `Boolean`                 |                                                                                         |
 | `String`                                                         | `String`                  |                                                                                         |
 | `Array`                                                          | `Array`                   |                                                                                         |
