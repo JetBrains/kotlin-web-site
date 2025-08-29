@@ -20,7 +20,7 @@ for SEO and automatic search indexing. Additionally, it enables the creation of 
 For documentation and examples, see the [Kobweb docs](https://kobweb.varabyte.com/docs/getting-started/what-is-kobweb) site.
 
 For updates and discussions about the framework, join the [#kobweb](https://kotlinlang.slack.com/archives/C04RTD72RQ8) and
-[#compose-web](https://kotlinlang.slack.com/archives/C01F2HV7868) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+[#compose-web](https://kotlinlang.slack.com/archives/C01F2HV7868) channels in [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
 ## Kilua
 
@@ -38,19 +38,19 @@ KVision users (component-based API that allows some imperative interaction with 
 
 For documentation and examples, see the [Kilua repository](https://github.com/rjaros/kilua?tab=readme-ov-file#building-and-running-the-examples) on GitHub.
 
-For updates and discussions about the framework, join the [#kilua](https://kotlinlang.slack.com/archives/C06UAH52PA7) channel in the Kotlin Slack.
+For updates and discussions about the framework, join the [#kilua](https://kotlinlang.slack.com/archives/C06UAH52PA7) channel in [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
 ## Kotlin React
 
-[React](https://react.dev/) is the component-based library for web and native user interfaces. 
-It is one of the most popular solutions for building Web user interfaces;
-that means a lot of existing components, learning materials, and an active community.
+[React](https://react.dev/) is a component-based library, widely used for web and native user interfaces. 
+It offers a large ecosystem of components, 
+learning materials, and an active community.
 
 [Kotlin React](https://github.com/JetBrains/kotlin-wrappers/blob/master/docs/guide/react.md) is a Kotlin wrapper for React
-that allows combining the power of the React ecosystem with the type-safety and eloquence of Kotlin.
+that combines the React ecosystem with the type-safety and expressiveness of Kotlin.
 
 For updates and discussions about the library, join the [#react](https://kotlinlang.slack.com/messages/react) and
-[#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+[#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
 ## KVision
 
@@ -64,7 +64,7 @@ In addition, you can share code using [Kotlin Multiplatform](https://www.jetbrai
 For documentation, tutorials, and examples, see the [KVision docs](https://kvision.io/#docs) site.
 
 For updates and discussions about the framework, join the [#kvision](https://kotlinlang.slack.com/messages/kvision) and
-[#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+[#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
 ## fritz2
 
@@ -76,7 +76,7 @@ Out of the box, fritz2 offers state management, validation, routing, and more. I
 For documentation, tutorials, and examples, see the [fritz2 docs](https://www.fritz2.dev/docs/) site.
 
 For updates and discussions about the framework, join the [#fritz2](https://kotlinlang.slack.com/messages/fritz2) and
-[#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+[#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
 ## Doodle
 
@@ -87,4 +87,4 @@ over the rendering of arbitrary UI elements, vector shapes, gradients, and custo
 For documentation, tutorials, and examples, see the [Doodle docs](https://nacular.github.io/doodle/docs/introduction/) site.
 
 For updates and discussions about the framework, join the [#doodle](https://kotlinlang.slack.com/messages/doodle) and
-[#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in the [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
+[#javascript](https://kotlinlang.slack.com/archives/C0B8L3U69) channels in [Kotlin Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
