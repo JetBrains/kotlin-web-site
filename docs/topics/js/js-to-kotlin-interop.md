@@ -161,9 +161,6 @@ and setter methods static members in that object or the class containing the com
 
 Kotlin/JS uses JavaScript's built-in `BigInt` type to represent Kotlin's `Long` values when compiling to modern JavaScript (ES2020).
 
-This change enables [exporting the `Long` type to JavaScript](#usage-of-long-in-exported-declarations),
-simplifying the interoperability between Kotlin and JavaScript.
-
 To enable the usage of `BigInt` type, you need to add the following compiler option to your
 `build.gradle(.kts)` file:
 
