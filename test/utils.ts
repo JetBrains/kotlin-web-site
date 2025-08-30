@@ -1,6 +1,6 @@
-import { BrowserContext } from '@playwright/test';
+import { BrowserContext, expect, Locator, Page } from '@playwright/test';
 
-export const testSelector = (name) => `[data-test="${name}"]`;
+export const testSelector = (name: string) => `[data-test="${name}"]`;
 
 export function isStaging(baseURL: string): boolean {
     const { hostname } = new URL(baseURL);
@@ -14,3 +14,16 @@ export const closeCookiesConsentBanner = async (context: BrowserContext, baseURL
     await page.click('button.ch2-btn.ch2-btn-primary');
     await page.close();
 };
+
+const TRANSITION_TIMEOUT = 2000;
+
+export async function checkAnchor(anchor: Locator, page: Page) {
+    const href = await anchor.getAttribute('href');
+    await anchor.click();
+    await page.waitForTimeout(TRANSITION_TIMEOUT);
+    await expect(page).toHaveURL(new RegExp(`.*${href}$`));
+
+    const targetId = href.split('#').pop() || '';
+    const targetElement = page.locator(`#${targetId}`);
+    await expect(targetElement).toBeInViewport();
+}

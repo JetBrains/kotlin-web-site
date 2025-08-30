@@ -1,17 +1,30 @@
-FROM mcr.microsoft.com/playwright:v1.22.2-focal
+FROM python:3.8-slim
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
-RUN apt-get -y install python3.8 python3-pip git ruby-dev
+RUN apt-get -y install curl git ruby-dev
 
+# see markdown.py for kramdown version
 RUN gem install kramdown -v 1.14.0
+
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+RUN apt-get install -y nodejs
+
+RUN npm install --global yarn
+
+# Install Playwright dependencies
+RUN apt-get -y install wget gnupg
+RUN npx playwright@1.53.0 install-deps
 
 WORKDIR /var/www
 
-COPY requirements.txt ./
+COPY requirements.txt package.json yarn.lock ./
 RUN pip install -r requirements.txt
 
-COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
+
+RUN yarn playwright install
 
 COPY playwright.config.js .
 COPY . .
@@ -20,4 +33,4 @@ RUN yarn build
 
 EXPOSE 8080
 
-ENTRYPOINT ["python3.8", "kotlin-website.py"]
+ENTRYPOINT ["python", "kotlin-website.py"]

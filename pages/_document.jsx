@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import cn from 'classnames';
 
 export default class MyDocument extends Document {
     render() {
@@ -6,7 +7,7 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head />
-                <body className={pageProps.isDarkTheme ? 'dark-theme' : ''}>
+                <body className={cn(pageProps.isDarkTheme ? 'dark-theme' : '', 'nextjs')}>
                     <Main />
                     <NextScript />
                 </body>

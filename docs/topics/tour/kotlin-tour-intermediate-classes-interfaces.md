@@ -155,7 +155,7 @@ only support single inheritance. If you need to inherit from multiple sources, c
 Interfaces are similar to classes, but they have some differences:
 
 * You can't create an instance of an interface. They don't have a constructor or header.
-* Their functions and properties are implicitly inheritable by default. In Kotlin, we say that they are "open".
+* Their functions and properties are implicitly inheritable by default. In Kotlin, we say that they are "open."
 * You don't need to mark their functions as `abstract` if you don't give them an implementation.
 
 Similar to abstract classes, you use interfaces to define a set of functions and properties that classes can inherit and
@@ -269,87 +269,184 @@ For more information about interfaces and interface inheritance, see [Interfaces
 
 ## Delegation
 
-Interfaces are useful, but if your interface contains many functions, child classes may end up with a lot of 
-boilerplate code. When you only want to override a small part of your parent's behavior, you need to repeat yourself a lot.
+Interfaces are useful, but if your interface contains many functions, its child classes can end up with a lot of 
+boilerplate code. If you only want to override a small part of a class's behavior, you need to repeat yourself a lot.
 
 > Boilerplate code is a chunk of code that is reused with little or no alteration in multiple parts of a software project.
 > 
 {style="tip"}
 
-For example, let's say that you have an interface called `Drawable` that contains a number of functions and one property
+For example, let's say that you have an interface called `DrawingTool` that contains a number of functions and one property
 called `color`:
 
 ```kotlin
-interface Drawable {
-    fun draw()
-    fun resize()
-    val color: String?
+interface DrawingTool {
+    val color: String
+    fun draw(shape: String)
+    fun erase(area: String)
+    fun getToolInfo(): String
 }
 ```
 
-You create a class called `Circle` which implements the `Drawable` interface and provides implementations for all of
+You create a class called `PenTool` which implements the `DrawingTool` interface and provides implementations for all of
 its members:
 
 ```kotlin
-class Circle : Drawable {
-    override fun draw() {
-        TODO("An example implementation")
+class PenTool : DrawingTool {
+    override val color: String = "black"
+
+    override fun draw(shape: String) {
+        println("Drawing $shape using a pen in $color")
     }
-    
-    override fun resize() {
-        TODO("An example implementation")
+
+    override fun erase(area: String) {
+        println("Erasing $area with pen tool")
     }
-   override val color = null
+
+    override fun getToolInfo(): String {
+        return "PenTool(color=$color)"
+    }
 }
 ```
 
-If you wanted to create a child class of the `Circle` class which had the same behavior **except** for the value of the
-`color` property, you still need to add implementations for each member function of the `Circle` class:
+You want to create a class like `PenTool` with the same behavior but a different `color` value. 
+One approach is to create a new class that expects an object implementing the `DrawingTool` interface as a parameter,
+like a `PenTool` class instance. Then, inside the class, you can override the `color` property.
+
+But in this scenario, you need to add implementations for each member of the `DrawingTool` interface:
 
 ```kotlin
-class RedCircle(val circle: Circle) : Circle {
+interface DrawingTool {
+    val color: String
+    fun draw(shape: String)
+    fun erase(area: String)
+    fun getToolInfo(): String
+}
 
-    // Start of boilerplate code
-    override fun draw() {
-        circle.draw()
+class PenTool : DrawingTool {
+    override val color: String = "black"
+
+    override fun draw(shape: String) {
+        println("Drawing $shape using a pen in $color")
     }
 
-    override fun resize() {
-        circle.resize()
+    override fun erase(area: String) {
+        println("Erasing $area with pen tool")
     }
 
-    // End of boilerplate code
-    override val color = "red"
+    override fun getToolInfo(): String {
+        return "PenTool(color=$color)"
+    }
+}
+//sampleStart
+class CanvasSession(val tool: DrawingTool) : DrawingTool {
+    override val color: String = "blue"
+
+    override fun draw(shape: String) {
+        tool.draw(shape)
+    }
+
+    override fun erase(area: String) {
+        tool.erase(area)
+    }
+
+    override fun getToolInfo(): String {
+        return tool.getToolInfo()
+    }
+}
+//sampleEnd
+fun main() {
+    val pen = PenTool()
+    val session = CanvasSession(pen)
+
+    println("Pen color: ${pen.color}")
+    // Pen color: black
+
+    println("Session color: ${session.color}")
+    // Session color: blue
+
+    session.draw("circle")
+    // Drawing circle with pen in black
+
+    session.erase("top-left corner")
+    // Erasing top-left corner with pen tool
+
+    println(session.getToolInfo())
+    // PenTool(color=black)
 }
 ```
+{kotlin-runnable="true" id="kotlin-tour-interface-non-delegation"}
 
-You can see that if you have a large number of member functions in the `Drawable` interface, the amount of boilerplate
-code in the `RedCircle` class can be very large. However, there is an alternative.
+You can see that if you have a large number of member functions in the `DrawingTool` interface, the amount of boilerplate
+code in the `CanvasSession` class can be large. However, there is an alternative.
 
-In Kotlin, you can use delegation to delegate the interface implementation to an instance of a class. For example,
-you can create an instance of the `Circle` class and delegate the implementations of the member functions of the `Circle`
-class to this instance. To do this, use the `by` keyword. For example:
+In Kotlin, you can delegate the interface implementation to a class instance using the `by` keyword. For example:
 
 ```kotlin
-class RedCircle(param: Circle) : Drawable by param
+class CanvasSession(val tool: DrawingTool) : DrawingTool by tool
 ```
 
-Here, `param` is the name of the instance of the `Circle` class that the implementations of member functions are delegated to.
+Here, `tool` is the name of the `PenTool` class instance where the implementations of member functions are delegated to.
 
-Now you don't have to add implementations for the member functions in the `RedCircle` class. The compiler does
-this for you automatically from the `Circle` class. This saves you from having to write a lot of boilerplate code. Instead,
+Now you don't have to add implementations for the member functions in the `CanvasSession` class. The compiler does
+this for you automatically from the `PenTool` class. This saves you from having to write a lot of boilerplate code. Instead,
 you add code only for the behavior you want to change for your child class. 
 
 For example, if you want to change the value of the `color` property:
 
 ```kotlin
-class RedCircle(param : Circle) : Drawable by param {
+interface DrawingTool {
+    val color: String
+    fun draw(shape: String)
+    fun erase(area: String)
+    fun getToolInfo(): String
+}
+
+class PenTool : DrawingTool {
+    override val color: String = "black"
+
+    override fun draw(shape: String) {
+        println("Drawing $shape using a pen in $color")
+    }
+
+    override fun erase(area: String) {
+        println("Erasing $area with pen tool")
+    }
+
+    override fun getToolInfo(): String {
+        return "PenTool(color=$color)"
+    }
+}
+
+//sampleStart
+class CanvasSession(val tool: DrawingTool) : DrawingTool by tool {
     // No boilerplate code!
-    override val color = "red"
+    override val color: String = "blue"
+}
+//sampleEnd
+fun main() {
+    val pen = PenTool()
+    val session = CanvasSession(pen)
+
+    println("Pen color: ${pen.color}")
+    // Pen color: black
+
+    println("Session color: ${session.color}")
+    // Session color: blue
+
+    session.draw("circle")
+    // Drawing circle with pen in black
+
+    session.erase("top-left corner")
+    // Erasing top-left corner with pen tool
+
+    println(session.getToolInfo())
+    // PenTool(color=black)
 }
 ```
+{kotlin-runnable="true" id="kotlin-tour-interface-delegation"}
 
-If you want to, you can also override the behavior of an inherited member function in the `RedCircle` class, but now
+If you want to, you can also override the behavior of an inherited member function in the `CanvasSession` class, but now
 you don't have to add new lines of code for every inherited member function.
 
 For more information, see [Delegation](delegation.md).

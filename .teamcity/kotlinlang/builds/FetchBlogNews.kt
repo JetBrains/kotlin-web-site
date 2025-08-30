@@ -1,5 +1,6 @@
 package kotlinlang.builds
 
+import common.extensions.isProjectPlayground
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.CheckoutMode
@@ -78,6 +79,7 @@ object FetchBlogNews : BuildType({
 
     features {
         notifications {
+            enabled = !isProjectPlayground()
             notifierSettings = slackNotifier {
                 connection = "PROJECT_EXT_486"
                 sendTo = "#kotlin-web-site-e2e-tests"

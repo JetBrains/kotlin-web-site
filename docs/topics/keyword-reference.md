@@ -70,7 +70,7 @@ as identifiers in other contexts:
  * `file` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `finally` begins a block that [is always executed when a try block exits](exceptions.md).
  * `get`
-     - declares the [getter of a property](properties.md#getters-and-setters).
+     - declares the [getter of a property](properties.md).
      - is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `import` [imports a declaration from another package into the current file](packages.md).
  * `init` begins an [initializer block](classes.md#constructors).
@@ -78,7 +78,7 @@ as identifiers in other contexts:
  * `property` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `receiver` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `set`
-     - declares the [setter of a property](properties.md#getters-and-setters).
+     - declares the [setter of a property](properties.md).
      - is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
 * `setparam` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
 * `value` with the `class` keyword declares an [inline class](inline-classes.md).
