@@ -117,7 +117,7 @@ Will produce an Objective-C header with the corresponding comment:
 + (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
 ```
 
-You can see comments on classes and methods in autocompletion, for example, in Xcode. If you go to the
+You can see comments on classes and methods in autocompletion, for example in Xcode. If you go to the
 definition of functions (in the `.h` file), you'll see comments on `@param`, `@return`, and so on.
 
 Known limitations:
@@ -130,11 +130,14 @@ If necessary, you can disable KDoc publication in the `binaries {}` DSL in your 
 
 ```kotlin
 // build.gradle.kts
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 kotlin {
     iosArm64 {
         binaries {
-            framework { 
+            framework {
                 baseName = "sdk"
+                @OptIn(ExperimentalKotlinGradlePluginApi::class)
                 exportKdoc.set(false)
             }
         }
