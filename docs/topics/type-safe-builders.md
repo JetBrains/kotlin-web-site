@@ -242,6 +242,35 @@ html {
 }
 ```
 
+The same principle applies when a member of an implicit receiver and a declaration from a [context parameter](context-parameters.md) share the same name.
+The compiler reports a warning unless you specify the receiver explicitly:
+
+```kotlin
+@DslMarker
+annotation class HtmlTagMarker
+
+@HtmlTagMarker
+interface Head {
+    fun title() = "title from receiver"
+}
+
+context(head: Head)
+fun title() = head.title()
+
+fun test(head: Head) {
+    with(head) {
+        // Reports a warning for ambiguity between receiver and context parameter
+        title()
+        
+        // Calls the context parameter explicitly
+        head.title()
+        
+        // Calls the receiver’s member explicitly
+        this@Head.title()
+    }
+}
+```
+
 You can also apply the `@DslMarker` annotation directly to [function types](lambdas.md#function-types).
 Simply annotate the `@DslMarker` annotation with `@Target(AnnotationTarget.TYPE)`:
 
