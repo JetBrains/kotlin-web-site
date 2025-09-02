@@ -156,12 +156,12 @@ C.Companion.callNonStatic(); // The only way it works
 It's also possible to apply the `@JsStatic` annotation to a property of an object or a companion object, making its getter
 and setter methods static members in that object or the class containing the companion object.
 
-### Usage of `BigInt` type to represent Kotlin's `Long` type
+### Use `BigInt` type to represent Kotlin's `Long` type
 <primary-label ref="experimental-general"/>
 
-Kotlin/JS uses JavaScript's built-in `BigInt` type to represent Kotlin's `Long` values when compiling to modern JavaScript (ES2020).
+Kotlin/JS uses JavaScript's built-in `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
 
-To enable the usage of `BigInt` type, you need to add the following compiler option to your
+To enable support for the `BigInt` type, you need to add the following compiler option to your
 `build.gradle(.kts)` file:
 
 ```kotlin
@@ -176,16 +176,16 @@ kotlin {
 }
 ```
 
-This feature is [Experimental](components-stability.md#stability-levels-explained). Please
-report any problems in our issue tracker, [YouTrack](https://youtrack.jetbrains.com/issue/KT-57128/KJS-Use-BigInt-to-represent-Long-values-in-ES6-mode).
+This feature is [Experimental](components-stability.md#stability-levels-explained). Share your feedback in our issue tracker, 
+[YouTrack](https://youtrack.jetbrains.com/issue/KT-57128/KJS-Use-BigInt-to-represent-Long-values-in-ES6-mode).
 
-#### Usage of `Long` in exported declarations
+#### Use `Long` in exported declarations
 
-Given that Kotlin's `Long` type can be compiled to JavaScript's `BigInt` type, Kotlin/JS supports exporting `Long` values to JavaScript.
+Since Kotlin's `Long` type can compile to JavaScript's `BigInt` type, Kotlin/JS supports exporting `Long` values to JavaScript.
 
 To enable this feature:
 
-1. Allow exporting `Long` in Kotlin/JS. Add the following compiler argument to the `freeCompilerArgs` attribute
+1. Allow exporting `Long` in Kotlin/JS. Add the following compiler option to the `freeCompilerArgs` attribute
    in your `build.gradle(.kts)` file:
 
  ```kotlin
@@ -193,14 +193,14 @@ To enable this feature:
 kotlin {
     js {
         ...
-        compilerOptions {                   
-       freeCompilerArgs.add("-XXLanguage:+JsAllowLongInExportedDeclarations")
+        compilerOptions { 
+            freeCompilerArgs.add("-XXLanguage:+JsAllowLongInExportedDeclarations")
         }
     }
 }
 ```
 
-2. Enable the `BigInt` type. See how to enable it in [Usage of `BigInt` type to represent Kotlin's `Long` type](#usage-of-bigint-type-to-represent-kotlin-s-long-type).
+2. Enable the `BigInt` type. See how to enable it in [Usage of `BigInt` type to represent Kotlin's `Long` type](#use-bigint-type-to-represent-kotlin-s-long-type).
 
 ## Kotlin types in JavaScript
 
@@ -210,7 +210,7 @@ See how Kotlin types are mapped to JavaScript ones:
 |------------------------------------------------------------------|---------------------------|-----------------------------------------------------------------------------------------|
 | `Byte`, `Short`, `Int`, `Float`, `Double`                        | `Number`                  |                                                                                         |
 | `Char`                                                           | `Number`                  | The number represents the character's code.                                             |
-| `Long`                                                           | `BigInt`                  | It works only with the `-Xes-long-as-bigint` flag turned on.                                                |
+| `Long`                                                           | `BigInt`                  | Needs the `-Xes-long-as-bigint` compiler option configured.                             |
 | `Boolean`                                                        | `Boolean`                 |                                                                                         |
 | `String`                                                         | `String`                  |                                                                                         |
 | `Array`                                                          | `Array`                   |                                                                                         |
