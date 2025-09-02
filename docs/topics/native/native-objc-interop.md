@@ -541,12 +541,13 @@ foo {
 }
 ```
 
-#### Explicit names in function types
+#### Explicit parameter names in Objective-C block types
 
-You can add explicit names to Kotlin's function types for exported Objective-C headers. Without them, Xcode's autocompletion
-suggests calling such functions without parameter names, and the generated function triggers Clang warnings.
+You can add explicit parameter names to Kotlin's function types for exported Objective-C headers. Xcode's autocompletion
+suggests calling such functions with no parameter names in the Objective-C block, and the generated block triggers Clang
+warnings.
 
-To enable parameter names, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
+To enable explicit parameter names, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
 
 ```none
 kotlin.native.binary.objcExportBlockExplicitParameterNames=true
