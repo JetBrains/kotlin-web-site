@@ -257,16 +257,15 @@ interface Head {
 context(head: Head)
 fun title() = head.title()
 
-fun test(head: Head) {
+fun read(head: Head) {
     with(head) {
-        // Reports a warning for ambiguity between receiver and context parameter
-        title()
-        
-        // Calls the context parameter explicitly
-        head.title()
-        
-        // Calls the receiver’s member explicitly
-        this@Head.title()
+        context(head) {
+            // Reports a warning for ambiguity between receiver and context parameter
+            title()
+
+            // Calls the context parameter explicitly
+            head.title()
+        }
     }
 }
 ```
