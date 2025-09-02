@@ -9,6 +9,7 @@ import aws from './logos/aws.svg'
 import corda from './logos/c-rda.svg'
 import expediaGroup from './logos/expedia grour.svg'
 import faire from './logos/faire-dark.svg'
+import google from './logos/google.svg'
 import flux from './logos/flux.svg'
 import intuit from './logos/intuit.svg'
 import ktor from './logos/ktor.svg'
@@ -25,6 +26,10 @@ interface LogoItem {
 }
 
 const logos: LogoItem[] = [
+    {
+        id: google,
+        link: 'https://youtu.be/o14wGByBRAQ?si=TmqJBtfZw2F8-IEw&t=7',
+    },
     {
         id: doordash,
         link: 'https://kotlinlang.org/lp/server-side/case-studies/doordash',
