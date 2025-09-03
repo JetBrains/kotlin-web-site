@@ -23,13 +23,13 @@ Current Swift export features are:
 * **Module name customization**. You can customize the resulting Swift module names in the Gradle configuration of your
   Kotlin project.
 
-## How to enable
+## Enable Swift export
 
 The feature is currently [Experimental](components-stability.md#stability-levels-explained) and not ready for production.
-To try it out, [configure the build file](#kotlin-project-configuration) in your Kotlin project and [set up Xcode](#xcode-project-configuration)
+To try it out, [configure the build file](#configure-kotlin-project) in your Kotlin project and [set up Xcode](#configure-xcode-project)
 to integrate Swift export.
 
-### Kotlin project configuration
+### Configure Kotlin project
 
 You can use the following build file in your project as a starting point for setting up Swift export:
 
@@ -41,18 +41,18 @@ kotlin {
     iosSimulatorArm64()
 
     swiftExport {
-        // Root module name
+        // Set the root module name
         moduleName = "Shared"
 
-        // Collapse rule
+        // Set the collapse rule
         // Removes package prefix from generated Swift code
         flattenPackage = "com.example.sandbox"
 
-        // Export external modules
+        // Configure external modules export
         export(project(":subproject")) {
-            // Exported module name
+            // Set the name for the exported module 
             moduleName = "Subproject"
-            // Collapse exported dependency rule
+            // Set the collapse rule for the exported dependency 
             flattenPackage = "com.subproject.library"
         }
 
@@ -73,7 +73,7 @@ access from Xcode.
 >
 {style="tip"}
 
-### Xcode project configuration
+### Configure Xcode project
 
 To configure Xcode to integrate Swift export into your project:
 
