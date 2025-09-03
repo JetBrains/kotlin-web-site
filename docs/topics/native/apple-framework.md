@@ -137,17 +137,17 @@ Let's first create a Kotlin library:
 
     The `binaries {}` block configures the project to generate a dynamic or shared library.
 
-    Kotlin/Native supports the `iosArm64`, `iosX64`, and `iosSimulatorArm64` targets for iOS, as well as `macosX64` and
-    `macosArm64` targets for macOS. So, you can replace the `iosArm64()` with the respective Gradle function for your
+    Kotlin/Native supports the `iosArm64`, `iosX64`, and `iosSimulatorArm64` targets for iOS, as well as `macosArm64` and
+    `macosX64` targets for macOS. So, you can replace the `iosArm64()` with the respective Gradle function for your
     target platform:
 
     | Target platform/device | Gradle function       |
     |------------------------|-----------------------|
-    | macOS x86_64           | `macosX64()`          | 
     | macOS ARM64            | `macosArm64()`        |
-    | iOS ARM64              | `iosArm64()`          | 
-    | iOS Simulator (x86_64) | `iosX64()`            |
+    | macOS x86_64           | `macosX64()`          |
+    | iOS ARM64              | `iosArm64()`          |
     | iOS Simulator (ARM64)  | `iosSimulatorArm64()` |
+    | iOS Simulator (x86_64) | `iosX64()`            |
 
     For information on other supported Apple targets, see [Kotlin/Native target support](native-target-support.md).
 

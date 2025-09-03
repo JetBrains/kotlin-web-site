@@ -14,10 +14,10 @@ Mind the following terms used in tier tables:
     Kotlin Multiplatform Gradle plugin to enable the target.
 * **Target triple** is a target name according to the `<architecture>-<vendor>-<system>-<abi>` structure that is commonly
   used by [compilers](https://clang.llvm.org/docs/CrossCompilation.html#target-triple).
-* **Running tests** indicates out of the box support for running tests in Gradle and IDE.
+* **Running tests** indicates out-of-the-box support for running tests in Gradle and IDE.
   
-    This is only available on a native host for the specific target. For example, you can run `macosX64` and `iosX64` tests
-    only on macOS x86-64 host.
+  This is only available on a native host for the specific target. For example, you can run `macosX64` and `iosX64` tests
+  only on the macOS x86-64 host.
 
 ## Tier 1
 
@@ -27,22 +27,22 @@ Mind the following terms used in tier tables:
 | Gradle target name      | Target triple                 | Running tests | Description                                    |
 |-------------------------|-------------------------------|---------------|------------------------------------------------|
 | Apple macOS hosts only: |                               |               |                                                |
-| `macosX64`              | `x86_64-apple-macos`          | ✅             | Apple macOS on x86_64 platforms                |
 | `macosArm64`            | `aarch64-apple-macos`         | ✅             | Apple macOS on Apple Silicon platforms         |
 | `iosSimulatorArm64`     | `aarch64-apple-ios-simulator` | ✅             | Apple iOS simulator on Apple Silicon platforms |
-| `iosX64`                | `x86_64-apple-ios-simulator`  | ✅             | Apple iOS simulator on x86-64 platforms        |
 | `iosArm64`              | `aarch64-apple-ios`           |               | Apple iOS and iPadOS on ARM64 platforms        |
 
 ## Tier 2
 
-* The target is regularly tested on CI to be able to compile, but may not be automatically tested to be able to run.
-* We're doing our best to provide a source and [binary compatibility between compiler releases](https://youtrack.jetbrains.com/issue/KT-42293).
+* The target is regularly tested on CI to be able to compile but may not be automatically tested to be able to run.
+* We're doing our best to provide source and [binary compatibility between compiler releases](https://youtrack.jetbrains.com/issue/KT-42293).
 
 | Gradle target name      | Target triple                     | Running tests | Description                                        |
 |-------------------------|-----------------------------------|---------------|----------------------------------------------------|
 | `linuxX64`              | `x86_64-unknown-linux-gnu`        | ✅             | Linux on x86_64 platforms                          |
 | `linuxArm64`            | `aarch64-unknown-linux-gnu`       |               | Linux on ARM64 platforms                           |
 | Apple macOS hosts only: |                                   |               |                                                    |
+| `macosX64`              | `x86_64-apple-macos`              | ✅             | Apple macOS on x86_64 platforms                    |
+| `iosX64`                | `x86_64-apple-ios-simulator`      | ✅             | Apple iOS simulator on x86-64 platforms            |
 | `watchosSimulatorArm64` | `aarch64-apple-watchos-simulator` | ✅             | Apple watchOS simulator on Apple Silicon platforms |
 | `watchosX64`            | `x86_64-apple-watchos-simulator`  | ✅             | Apple watchOS 64-bit simulator on x86_64 platforms |
 | `watchosArm32`          | `armv7k-apple-watchos`            |               | Apple watchOS on ARM32 platforms                   |
@@ -76,7 +76,7 @@ Mind the following terms used in tier tables:
 We don't recommend library authors to test more targets or provide stricter guarantees than the Kotlin/Native compiler
 does. You can use the following approach when considering support for native targets:
 
-* Support all the targets from tier 1, 2, and 3.
-* Regularly test targets from tier 1 and 2 that support running tests out of the box.
+* Support all the targets from tiers 1, 2, and 3.
+* Regularly test targets from tiers 1 and 2 that support running tests out of the box.
 
 The Kotlin team uses this approach in the official Kotlin libraries, for example, [kotlinx.coroutines](coroutines-guide.md) and [kotlinx.serialization](serialization.md).
