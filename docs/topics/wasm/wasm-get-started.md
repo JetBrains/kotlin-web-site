@@ -58,25 +58,22 @@ Now you see the Compose Multiplatform logo:
 
 Generate your project's artifacts to publish on a site:
 
-1. In the list of run configurations, click **Edit Configurations**.
+1. Open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
+2. In **wasmdemo** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDistribution** task.
 
-   ![Edit configurations](wasm-edit-configurations.png){width=400}
+   > You need at least Java 11 as your Gradle JVM for the tasks to load successfully.
+   >
+   {style="note"}
 
-2. Click the **+** button above the list of configurations and then select **Gradle**.
+   ![Run the Gradle task](wasm-gradle-task-window-compose.png){width=400}
 
-   ![Add configurations](wasm-add-new-configuration.png){width=600}
+   Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
 
-3. Type the following configuration option in the **Run** text field:
-
+    ```bash
+    ./gradlew wasmJsBrowserDistribution
     ```
-    composeApp:wasmJsBrowserDistribution
-    ```
 
-4. Click **Run**.
-
-   ![Run browser configuration](wasm-run-browser-configuration.png){width=600}
-
-Once the run configuration completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
+Once the application task completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
 directory:
 
 ![Artifacts directory](wasm-composeapp-directory.png){width=400}

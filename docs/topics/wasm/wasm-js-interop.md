@@ -398,33 +398,12 @@ external fun <T : JsAny> processData(data: JsArray<T>): T
 ## Exception handling
 
 You can use Kotlin `try-catch` expressions to catch JavaScript exceptions in Kotlin/Wasm code.
-The caught exceptions include detailed information:
+Exception handling works as follows:
 
-* When exceptions are thrown from JavaScript: you can see more detailed information on Kotlin's side.
-  When such an exception propagates through Kotlin back to JS, it's no longer wrapped into WebAssembly.
-* When exceptions are thrown from Kotlin: they can now be caught on JavaScript's side as JS errors.
+* Exceptions thrown from JavaScript: detailed information is available on the Kotlin side.
+  If such an exception propagates back to JavaScript, it's no longer wrapped into WebAssembly.
 
-This exception handling works automatically in modern browsers
-that support the [`WebAssembly.JSTag`](https://webassembly.github.io/exception-handling/js-api/#dom-webassembly-jstag)
-feature:
-
-* Chrome 115+
-* Firefox 129+
-* Safari 18.4+
-
-In older browsers, you have to configure the `JsException`
-type to include the original error message and stack trace from JavaScript.
-To do so, add the following compiler option to your `build.gradle.kts` file:
-
-```kotlin
-kotlin {
-    wasmJs {
-        compilerOptions {
-            freeCompilerArgs.add("-Xwasm-attach-js-exception")
-        }
-    }
-}
-```
+* Exceptions thrown from Kotlin: they can be caught on JavaScript's side as regular JS errors.
 
 Here's an example demonstrating the exception handling behavior:
 
@@ -448,6 +427,30 @@ fun main() {
 
         // Prints the full JavaScript stack trace 
         e.printStackTrace()
+    }
+}
+```
+
+This exception handling works automatically in modern browsers
+that support the [`WebAssembly.JSTag`](https://webassembly.github.io/exception-handling/js-api/#dom-webassembly-jstag)
+feature:
+
+* Chrome 115+
+* Firefox 129+
+* Safari 18.4+
+
+### Exception handling in older browsers {initial-collapse-state="collapsed" collapsible="true"}
+
+To use exception handling in older browsers, you have to configure the `JsException`
+type to include the original error message and stack trace from JavaScript.
+To do so, add the following compiler option to your `build.gradle.kts` file:
+
+```kotlin
+kotlin {
+    wasmJs {
+        compilerOptions {
+            freeCompilerArgs.add("-Xwasm-attach-js-exception")
+        }
     }
 }
 ```

@@ -17,9 +17,11 @@ The Kotlin Multiplatform project you created contains a Compose Multiplatform ap
 You can debug this application
 in IntelliJ IDEA out of the box, without additional configurations.
 
-> Debugging Kotlin/Wasm code in IntelliJ IDEA is available starting from version 2025.3 of the IDE. If you created the
+> * Debugging Kotlin/Wasm code in IntelliJ IDEA is available starting from version 2025.3 of the IDE. If you created the
 > `WasmDemo` project in a different version of IntelliJ IDEA, switch to version 2025.3 and open the project there 
 > to continue this tutorial.
+> * To debug Kotlin/Wasm code in IntelliJ IDEA, you must have the JavaScript Debugger plugin installed. [See more information
+> about the plugin and how to install it.](https://www.jetbrains.com/help/idea/debugging-javascript-in-chrome.html#ws_js_debugging_chrome_before_you_start)
 >
 {style="note"}
 
@@ -32,8 +34,7 @@ in IntelliJ IDEA out of the box, without additional configurations.
 
    ![Set breakpoints](wasm-breakpoints-intellij.png){width=650}
 
-3. In the list of run configurations, click **Edit configurations** | **+** | **Gradle** and
-   select `wasmJsBrowserDevelopmentRun` from the **Run** list.
+3. In the list of run configurations, select `wasmJsBrowserDevelopmentRun`.
 4. Run the code in debug mode by clicking the debug icon at the top of the screen. Make sure
    you run the `wasmJsBrowserDevelopmentRun` configuration.
 
@@ -121,8 +122,8 @@ you still need to ensure that custom formatters are enabled in your browser's de
 This feature is supported in Firefox and Chromium-based browsers as
 it uses the [custom formatters API](https://firefox-source-docs.mozilla.org/devtools-user/custom_formatters/index.html).
 
-Given that custom formatters work by default for Kotlin/Wasm development builds,
-you need to adjust your Gradle configuration if you have specific requirements for production builds. 
+Given that custom formatters work by default only for Kotlin/Wasm development builds,
+you need to adjust your Gradle configuration if you want to use them for production builds.
 Add the following compiler option to the `wasmJs {}` block:
 
 ```kotlin
