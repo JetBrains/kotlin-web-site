@@ -1,11 +1,11 @@
-[//]: # (title: Interoperbility with Swift using Swift export)
+[//]: # (title: Interoperability with Swift using Swift export)
 
 <primary-label ref="experimental-general"/>
 
 Kotlin provides experimental support for Swift export. It allows you to export Kotlin sources
 directly and call Kotlin code from Swift idiomatically, eliminating the need for Objective-C headers.
 
-Swift export makes multiplatform development for Apple targets easier. For example, if you have a Kotlin module
+Swift export makes multiplatform development for Apple targets more streamlined. For example, if you have a Kotlin module
 with top-level functions, Swift export enables clean, module-specific imports, removing the confusing Objective-C
 underscores and mangled names.
 
@@ -65,7 +65,7 @@ kotlin {
 ```
 
 The Kotlin compiler automatically generates all the necessary files (including `swiftmodule` files,
-static `a` library, and header and `modulemap` files) and copies them into the app's build directory, which you can
+static `.a` library, a header file, and a `modulemap` file) and copies them into the app's build directory, which you can
 access from Xcode.
 
 > You can also clone our [public sample](https://github.com/Kotlin/swift-export-sample) with Swift export already set
@@ -75,11 +75,11 @@ access from Xcode.
 
 ### Xcode project configuration
 
-To configure Xcode to integrate Swift export in your project:
+To configure Xcode to integrate Swift export into your project:
 
 1. In Xcode, open the project settings.
 2. On the **Build Phases** tab, locate the **Run Script** phase with the `embedAndSignAppleFrameworkForXcode` task.
-3. Adjust the script to feature the `embedSwiftExportForXcode` task instead in the run script phase:
+3. Replace the script with the `embedSwiftExportForXcode` task in the run script phase:
 
    ```bash
    ./gradlew :<Shared module name>:embedSwiftExportForXcode
@@ -87,7 +87,7 @@ To configure Xcode to integrate Swift export in your project:
 
    ![Add the Swift export script](xcode-swift-export-run-script-phase.png){width=700}
 
-4. Build the project. Swift modules are generated in the build output directory.
+4. Build the project. The build generates Swift modules in the output directory.
 
 ## Current limitations
 
@@ -104,7 +104,7 @@ Other known issues:
 * Cross-language inheritance is not supported, so Swift classes cannot directly subclass from Kotlin-exported classes or
   interfaces.
 * No IDE migration tips or automation are available.
-* When using declarations that require opt-in, it's necessary to add an explicit `optIn` compiler option at the _module
+* When using declarations that require opt-in, you must add an explicit `optIn` compiler option at the _module
   level_ to your Gradle build file. For example, for the `kotlinx.datetime` library:
 
   ```kotlin
@@ -156,7 +156,7 @@ The table below shows how Kotlin concepts are mapped to Swift.
 
 #### Classes
 
-Swift export supports only final classes that directly inherit from `Any` (like `class Foo()`).
+Swift export supports only final classes that directly inherit from `Any`, like `class Foo()`.
 They are translated to Swift classes that inherit from a special `KotlinBase` class:
 
 ```kotlin
@@ -187,7 +187,7 @@ public class MyClass : KotlinRuntime.KotlinBase {
 
 #### Objects
 
-Objects are translated to Swift classes with private `init` and static `shared` accessor:
+Objects are translated to Swift classes with a private `init` and static `shared` accessor:
 
 ```kotlin
 // Kotlin
@@ -208,9 +208,9 @@ public class O : KotlinRuntime.KotlinBase {
 }
 ```
 
-#### Typealiases
+#### Type aliases
 
-Kotlin typealiases are exported as is:
+Kotlin type aliases are exported as is:
 
 ```kotlin
 // Kotlin
@@ -304,7 +304,7 @@ public class Foo : KotlinRuntime.KotlinBase {
 
 #### kotlin.Nothing
 
-`Nothing` is translated to the `Never` type:
+The Kotlin `Nothing` type is translated to the `Never` type:
 
 ```kotlin
 // Kotlin
@@ -326,7 +326,7 @@ public func baz(input: Swift.Never) -> Void {
 
 #### Classifier types
 
-Swift export currently supports only a limited number of reference types, namely final classes that directly inherit from `Any`.
+Swift export currently supports only final classes that directly inherit from `Any`.
 
 ### Packages
 
