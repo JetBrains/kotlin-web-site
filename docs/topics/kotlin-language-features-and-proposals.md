@@ -23,22 +23,6 @@ guided by pragmatic design.
 <!-- EXPLORATION AND DESIGN BLOCK -->
 
 <tr filter="exploration-and-design">
-<td width="200">
-
-**Exploration and design**
-
-</td>
-<td>
-
-**Rich Errors: Error union types**
-
-* KEEP proposal: Not defined
-* YouTrack issue: [KT-68296](https://youtrack.jetbrains.com/issue/KT-68296)
-
-</td>
-</tr>
-
-<tr filter="exploration-and-design">
 <td>
 
 **Exploration and design**
@@ -73,6 +57,57 @@ guided by pragmatic design.
 <!-- END OF EXPLORATION AND DESIGN BLOCK -->
 
 <!-- KEEP DISCUSSION BLOCK -->
+
+<tr filter="keep">
+<td width="200">
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Improve compile-time constants**
+
+* KEEP proposal: [improve-compile-time-constants.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0444-improve-compile-time-constants.md)
+* YouTrack issue: [KT-22505](https://youtrack.jetbrains.com/issue/KT-68296)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td width="200">
+
+<tr filter="keep">
+<td width="200">
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**`CoroutineContext` as context parameter**
+
+* KEEP proposal: [CoroutineContext-context-parameter.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0443-suspend-CoroutineContext-context-parameter.md)
+* YouTrack issue: [KT-15555](https://youtrack.jetbrains.com/issue/KT-15555)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td width="200">
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Rich Errors: motivation and rationale**
+
+* KEEP proposal: [rich-errors-motivation.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0441-rich-errors-motivation.md)
+* YouTrack issue: [KT-68296](https://youtrack.jetbrains.com/issue/KT-68296)
+
+</td>
+</tr>
 
 <tr filter="keep">
 <td width="200">
@@ -194,6 +229,25 @@ guided by pragmatic design.
 
 <tr filter="in-preview">
 <td width="200">
+
+**In preview**
+
+</td>
+<td>
+
+**Data flow-based exhaustiveness checking**
+
+* KEEP
+  proposal: [dfa-exhaustiveness.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0442-dfa-exhaustiveness.md)
+* YouTrack issue: [KT-8781](https://youtrack.jetbrains.com/issue/KT-8781)
+* Stability level: [Beta](components-stability.md#stability-levels-explained)
+* Available since: 2.2.20
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
 
 **In preview**
 
