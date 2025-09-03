@@ -23,7 +23,7 @@ guided by pragmatic design.
 <!-- EXPLORATION AND DESIGN BLOCK -->
 
 <tr filter="exploration-and-design">
-<td>
+<td width="200">
 
 **Exploration and design**
 
