@@ -242,34 +242,6 @@ html {
 }
 ```
 
-The same principle applies when a member of an implicit receiver and a declaration from a [context parameter](context-parameters.md) share the same name.
-The compiler reports a warning unless you specify the receiver explicitly:
-
-```kotlin
-@DslMarker
-annotation class HtmlTagMarker
-
-@HtmlTagMarker
-interface Head {
-    fun title() = "title from receiver"
-}
-
-context(head: Head)
-fun title() = head.title()
-
-fun read(head: Head) {
-    with(head) {
-        context(head) {
-            // Reports a warning for ambiguity between receiver and context parameter
-            title()
-
-            // Calls the context parameter explicitly
-            head.title()
-        }
-    }
-}
-```
-
 You can also apply the `@DslMarker` annotation directly to [function types](lambdas.md#function-types).
 Simply annotate the `@DslMarker` annotation with `@Target(AnnotationTarget.TYPE)`:
 
@@ -302,6 +274,36 @@ html {
 ```
 
 Only the nearest receiver's members and extensions are accessible within a lambda, preventing unintended interactions between nested scopes.
+
+When a member of an implicit receiver and a declaration from a [context parameter](context-parameters.md) are both in a scope with the same name,
+the compiler reports a warning because the implicit receiver is shadowed by the context parameter.
+To resolve this, use a `this` qualifier to explicitly call the receiver, or use `contextOf<T>()` to call the context declaration:
+
+```kotlin
+interface HtmlTag {
+    fun setAttribute(name: String, value: String)
+}
+
+// Declares a top-level function with the same name available through a context parameter
+context(tag: HtmlTag)
+fun setAttribute(name: String, value: String) { tag.setAttribute(name, value) }
+
+fun test(head: HtmlTag, extraInfo: HtmlTag) {
+    with(head) {
+        // Introduces a context value of the same type in an inner scope
+        context(extraInfo) {
+            // Reports a warning: uses an implicit receiver shadowed by a context parameter.
+            setAttribute("user", "1234")
+
+            // Calls the receiver's member explicitly
+            this.setAttribute("user", "1234")
+
+            // Calls the context declaration explicitly
+            contextOf<HtmlTag>().setAttribute("user", "1234")
+        }
+    }
+}
+```
 
 ### Full definition of the com.example.html package
 
