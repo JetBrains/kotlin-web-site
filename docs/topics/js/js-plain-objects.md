@@ -1,31 +1,35 @@
-[//]: # (title: JS Plain Objects compiler plugin)
+[//]: # (title: JS plain objects compiler plugin)
 
 <primary-label ref="experimental-general"/>
 
-This page explains how to use the JS Plain Objects Kotlin compiler plugin for Kotlin/JS projects. 
-The plugin helps you create and copy plain JavaScript objects in a type-safe way.
+The JavaScript (JS) plain objects compiler plugin (`js-plain-objects`) lets you create and copy plain JS objects in a type-safe way.
 
-> The `js-plain-objects` compiler plugin only works with the new K2 Kotlin compiler.
+Here you can find information about plain JS objects and how to use the `js-plain-objects` compiler plugin for your Kotlin/JS projects.
+
+> The `js-plain-objects` plugin only works with the new K2 Kotlin compiler.
 >
 {style="warning"}
 
-## What is a "plain JavaScript object"?
+## Plain JS objects
 
-A plain object is a simple JavaScript object created via an object literal (`{}`) that contains data properties.
-Many JS APIs accept/return such objects for configuration or data exchange.
+A plain object is a simple JS object created via an object literal (`{}`) that contains data properties.
+Many JS APIs accept/return Plain JS objects for configuration or data exchange.
 
-With this plugin, you declare a Kotlin external interface to describe the object shape and annotate it with `@JsPlainObject`.
+With the `js-plain-objects` plugin, you declare a Kotlin external interface to describe the object shape and annotate it with `@JsPlainObject`.
 The compiler then generates convenient functions to build and copy such objects while preserving Kotlin type safety.
 
 ## Enable the plugin
 
-Add the Gradle plugin to your project (Kotlin DSL shown):
+Add the `js-plain-objects` plugin to your project's Gradle configuration file, as the following Kotlin DSL shows:
+
+<tabs group="js-plain-objects">
+<tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 // build.gradle.kts
 plugins {
-    kotlin("multiplatform") version "%kotlin.version%"
-    kotlin("plugin.js-plain-objects") version "%kotlin.version%"
+    kotlin("multiplatform") version "%kotlinVersion%"
+    kotlin("plugin.js-plain-objects") version "%kotlinVersion%"
 }
 
 kotlin {
@@ -35,13 +39,14 @@ kotlin {
 }
 ```
 
-Groovy DSL:
+</tab>
+<tab title="Groovy" group-key="groovy">
 
 ```groovy
 // build.gradle
 plugins {
-    id 'org.jetbrains.kotlin.multiplatform' version '%kotlin.version%'
-    id 'org.jetbrains.kotlin.plugin.js-plain-objects' version '%kotlin.version%'
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.plugin.js-plain-objects' version '%kotlinVersion%'
 }
 
 kotlin {
@@ -51,8 +56,12 @@ kotlin {
 }
 ```
 
+</tab>
+</tabs>
+
 ## Declare a plain object type
 
+Once you have enabled the `js-plain-objects` plugin, you can declare a plain object type. 
 Annotate an external interface with `@JsPlainObject`. For example:
 
 ```kotlin
@@ -60,11 +69,12 @@ Annotate an external interface with `@JsPlainObject`. For example:
 external interface User {
     val name: String
     val age: Int
-    val email: String? // you can use nullable types to declare a property as optional
+    // You can use nullable types to declare a property as optional
+    val email: String? 
 }
 ```
 
-When the plugin processes such an interface, it generates a companion object with two helper functions:
+When the plugin processes such an interface, it generates a companion object with two helper functions for creating and copying objects:
 
 ```kotlin
 @JsPlainObject
@@ -85,14 +95,15 @@ external interface User {
 }
 ```
 
-Notes:
-- `name` and `age` are declared without nullability mark, so they are required.
-- `email` is declared as nullable, so it's optional and can be skipped during creation.
-- The operator `invoke` builds a new plain JS object with the provided properties.
-- The `copy` function creates a new object by shallow-copying `source` and overriding any specified properties.
-- The companion is marked with `@JsExport.Ignore` to avoid leaking these helpers into JS exports.
+From the previous example:
 
-## Usage
+* `name` and `age` are declared without a nullability mark, so they are required.
+* `email` is declared as nullable, so it's optional and can be skipped during creation.
+* The operator `invoke` builds a new plain JS object with the provided properties.
+* The `copy` function creates a new object by shallow-copying `source` and overriding any specified properties.
+* The companion is marked with `@JsExport.Ignore` to avoid leaking these helpers into JS exports.
+
+## Use plain objects
 
 Create and copy objects using the generated helpers:
 
@@ -108,23 +119,24 @@ fun main() {
 }
 ```
 
-The Kotlin code compiles to JavaScript similar to:
+The Kotlin code compiles to JavaScript:
 
 ```javascript
-function main() {
-  var user = { name: "Name", age: 10 };
-  var copy = Object.assign({}, user, { age: 11, email: "some@user.com" });
+function main () {
+    var user = { name: "Name", age: 10 };
+    var copy = Object.assign({}, user, { age: 11, email: "some@user.com" });
 
-  println(JSON.stringify(user));
-  // { "name": "Name", "age": 10 }
-  println(JSON.stringify(copy));
-  // { "name": "Name", "age": 11, "email": "some@user.com" }
+    println(JSON.stringify(user));
+    // { "name": "Name", "age": 10 }
+    println(JSON.stringify(copy));
+    // { "name": "Name", "age": 11, "email": "some@user.com" }
 }
 ```
 
-Any JavaScript objects created with this approach are safer. You will have a compile-time error if you use a wrong
-property name or value type, and zero-cost since the generated code is inlined as a simple object literal and `Object.assign` calls.
+Any JavaScript objects created with this approach are safe. When you use a wrong
+property name or value type, you encounter compile-time errors. This approach is also zero-cost 
+since the generated code is inlined as a simple object literal and `Object.assign` calls.
 
-## See also
+## What's next
 
-Learn more in the [Use JavaScript code from Kotlin](js-interop.md) and [dynamic type](dynamic-type.md) documentation that covers the interoperability with JavaScript in detail.
+Learn more about interoperability with JavaScript in the [Use JavaScript code from Kotlin](js-interop.md) and [dynamic type](dynamic-type.md) documentation.
