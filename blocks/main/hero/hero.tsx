@@ -1,8 +1,8 @@
 import React, { FC, ReactNode } from 'react';
-import Button from '@rescui/button';
+import { Button } from '@rescui/button';
 import cn from 'classnames';
 
-import { useTextStyles, createTextCn } from '@rescui/typography';
+import { createTextCn } from '@rescui/typography';
 import { ThemeProvider } from '@rescui/ui-contexts';
 import  heroBannerDataRaw from '../../../data/hero-banner.yml';
 
@@ -22,17 +22,16 @@ interface Props {
 }
 
 type HeroBannerData = {
-    isActive: boolean;
     title: string;
     caption: string;
+    variant?: string;
     buttonLabel: string;
     buttonUrl: string;
-}
+}[];
 
-const heroBannerData = heroBannerDataRaw as HeroBannerData;
+const heroBannerList = heroBannerDataRaw as HeroBannerData;
 
 export const HeroSection: FC<Props> = ({ children, title }) => {
-    const textCn = useTextStyles();
     const darkTextCn = createTextCn('dark');
 
     return (
@@ -62,14 +61,18 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
                                         </a>
                                     </div>
                                 </div>
-                                {heroBannerData.isActive && <div className={styles.banner}>
-                                    <div className={styles.bannerContent}>
-                                        <h5 className={cn(darkTextCn('rs-h2'), styles.bannerTitle)}>{heroBannerData.title}</h5>
-                                        <p className={cn(darkTextCn('rs-text-2'), styles.bannerCaption)}>{heroBannerData.caption}</p>
+                                {(heroBannerList||[]).map((banner, i) => <div
+                                    key={banner.variant || i}
+                                    className={styles.banner}
+                                    data-banner-variant={banner.variant || null}
+                                >
+                                    <div className={cn(styles.bannerContent)}>
+                                        <h5 className={cn(darkTextCn('rs-h2'), styles.bannerTitle)}>{banner.title}</h5>
+                                        <p className={cn(darkTextCn('rs-text-2'), styles.bannerCaption)}>{banner.caption}</p>
                                     </div>
-                                    <Button mode="outline" size="m" href={heroBannerData.buttonUrl}
-                                            className={styles.bannerButton}>{heroBannerData.buttonLabel}</Button>
-                                </div>}
+                                    <Button mode="outline" size="m" href={banner.buttonUrl}
+                                            className={styles.bannerButton}>{banner.buttonLabel}</Button>
+                                </div>)}
                             </div>
                         </div>
 

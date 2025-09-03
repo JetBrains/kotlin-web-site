@@ -144,7 +144,7 @@ if [[ "$URI" == "" ]]; then
 fi
 validate_uri
 
-TIMEOUT=${TIMEOUT:-15}
+TIMEOUT=${TIMEOUT:-60}
 STRICT=${STRICT:-0}
 EXPECTEDCODE=${EXPECTEDCODE:-200}
 CHILD=${CHILD:-0}

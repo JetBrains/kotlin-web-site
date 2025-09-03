@@ -21,7 +21,7 @@ Additional attributes of the annotation can be specified by annotating the annot
 
 ```kotlin
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION,
-        AnnotationTarget.TYPE_PARAMETER, AnnotationTarget.VALUE_PARAMETER, 
+        AnnotationTarget.TYPE_PARAMETER, AnnotationTarget.VALUE_PARAMETER,
         AnnotationTarget.EXPRESSION)
 @Retention(AnnotationRetention.SOURCE)
 @MustBeDocumented
@@ -105,7 +105,7 @@ annotation class Ann(val arg1: KClass<*>, val arg2: KClass<out Any>)
 ## Instantiation
 
 In Java, an annotation type is a form of an interface, so you can implement it and use an instance.
-As an alternative to this mechanism, Kotlin lets you call a constructor of an annotation class in arbitrary code 
+As an alternative to this mechanism, Kotlin lets you call a constructor of an annotation class in arbitrary code
 and similarly use the resulting instance.
 
 ```kotlin
@@ -181,7 +181,7 @@ The full list of supported use-site targets is:
     ```kotlin
     fun @receiver:Fancy String.myExtension() { ... }
     ```
-    
+
   * `param` (constructor parameter)
   * `setparam` (property setter parameter)
   * `delegate` (the field storing the delegate instance for a delegated property)
@@ -289,12 +289,12 @@ In the example below, this `@Email` annotation is applied to all relevant target
 ```kotlin
 data class User(
     val username: String,
-    // Applies `@Email` to `param`, `field` and `get`
+    // Applies @Email to param, field, and get
     @all:Email val email: String,
-    // Applies `@Email` to `param`, `field`, `get`, and `set_param`
+    // Applies @Email to param, field, get, and setparam
     @all:Email var name: String,
 ) {
-    // Applies `@Email` to `field` and `getter` (no `param` since it's not in the constructor)
+    // Applies @Email to field and getter (not param since it's not in the constructor)
     @all:Email val secondaryEmail: String? = null
 }
 ```
@@ -308,7 +308,7 @@ The `all` target comes with some limitations:
 * It does not propagate an annotation to types, potential extension receivers, or context receivers or parameters.
 * It cannot be used with multiple annotations:
     ```kotlin
-    @all:[A B] // forbidden, use `@all:A @all:B`
+    @all:[A B] // forbidden, use @all:A @all:B
     val x: Int = 5
     ```
 * It cannot be used with [delegated properties](delegated-properties.md).
@@ -399,7 +399,7 @@ public @interface AnnWithArrayValue {
 @AnnWithArrayValue("abc", "foo", "bar") class C
 ```
 
-For other arguments that have an array type, you need to use the array literal syntax or 
+For other arguments that have an array type, you need to use the array literal syntax or
 `arrayOf(...)`:
 
 ``` java
@@ -410,7 +410,7 @@ public @interface AnnWithArrayMethod {
 ```
 
 ```kotlin
-@AnnWithArrayMethod(names = ["abc", "foo", "bar"]) 
+@AnnWithArrayMethod(names = ["abc", "foo", "bar"])
 class C
 ```
 

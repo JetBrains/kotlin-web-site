@@ -63,9 +63,9 @@ don't capture type parameters from their outer class:
 
 ```kotlin
 class Dijkstra {
-   typealias VisitedNodes = Set<Node>
+    typealias VisitedNodes = Set<Node>
 
-   private fun step(visited: VisitedNodes, ...) = ...
+    private fun step(visited: VisitedNodes, ...) = ...
 }
 ```
 
@@ -119,5 +119,3 @@ kotlin {
     }
 }
 ```
-
-
