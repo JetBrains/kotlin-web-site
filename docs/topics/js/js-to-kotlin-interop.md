@@ -156,35 +156,81 @@ C.Companion.callNonStatic(); // The only way it works
 It's also possible to apply the `@JsStatic` annotation to a property of an object or a companion object, making its getter
 and setter methods static members in that object or the class containing the companion object.
 
+### Use `BigInt` type to represent Kotlin's `Long` type
+<primary-label ref="experimental-general"/>
+
+Kotlin/JS uses JavaScript's built-in `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
+
+To enable support for the `BigInt` type, you need to add the following compiler option to your
+`build.gradle(.kts)` file:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    js {
+        ...
+        compilerOptions {
+            freeCompilerArgs.add("-Xes-long-as-bigint")
+        }
+    }
+}
+```
+
+This feature is [Experimental](components-stability.md#stability-levels-explained). Share your feedback in our issue tracker, 
+[YouTrack](https://youtrack.jetbrains.com/issue/KT-57128/KJS-Use-BigInt-to-represent-Long-values-in-ES6-mode).
+
+#### Use `Long` in exported declarations
+
+Since Kotlin's `Long` type can compile to JavaScript's `BigInt` type, Kotlin/JS supports exporting `Long` values to JavaScript.
+
+To enable this feature:
+
+1. Allow exporting `Long` in Kotlin/JS. Add the following compiler option to the `freeCompilerArgs` attribute
+   in your `build.gradle(.kts)` file:
+
+ ```kotlin
+// build.gradle.kts
+kotlin {
+    js {
+        ...
+        compilerOptions { 
+            freeCompilerArgs.add("-XXLanguage:+JsAllowLongInExportedDeclarations")
+        }
+    }
+}
+```
+
+2. Enable the `BigInt` type. See how to enable it in [Use of `BigInt` type to represent Kotlin's `Long` type](#use-bigint-type-to-represent-kotlin-s-long-type).
+
 ## Kotlin types in JavaScript
 
 See how Kotlin types are mapped to JavaScript ones:
 
-| Kotlin                                                           | JavaScript                | Comments                                                                                   |
-|------------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------|
-| `Byte`, `Short`, `Int`, `Float`, `Double`                        | `Number`                  |                                                                                            |
-| `Char`                                                           | `Number`                  | The number represents the character's code.                                                |
-| `Long`                                                           | Not supported             | There is no 64-bit integer number type in JavaScript, so it is emulated by a Kotlin class. |
-| `Boolean`                                                        | `Boolean`                 |                                                                                            |
-| `String`                                                         | `String`                  |                                                                                            |
-| `Array`                                                          | `Array`                   |                                                                                            |
-| `ByteArray`                                                      | `Int8Array`               |                                                                                            |
-| `ShortArray`                                                     | `Int16Array`              |                                                                                            |
-| `IntArray`                                                       | `Int32Array`              |                                                                                            |
-| `CharArray`                                                      | `UInt16Array`             | Carries the property `$type$ == "CharArray"`.                                              |
-| `FloatArray`                                                     | `Float32Array`            |                                                                                            |
-| `DoubleArray`                                                    | `Float64Array`            |                                                                                            |
-| `LongArray`                                                      | `Array<kotlin.Long>`      | Carries the property `$type$ == "LongArray"`. Also see Kotlin's Long type comment.         |
-| `BooleanArray`                                                   | `Int8Array`               | Carries the property `$type$ == "BooleanArray"`.                                           |
-| `List`, `MutableList`                                            | `KtList`, `KtMutableList` | Exposes an `Array` via `KtList.asJsReadonlyArrayView` or `KtMutableList.asJsArrayView`.    |
-| `Map`, `MutableMap`                                              | `KtMap`, `KtMutableMap`   | Exposes an ES2015 `Map` via `KtMap.asJsReadonlyMapView` or `KtMutableMap.asJsMapView`.     |
-| `Set`, `MutableSet`                                              | `KtSet`, `KtMutableSet`   | Exposes an ES2015 `Set` via `KtSet.asJsReadonlySetView` or `KtMutableSet.asJsSetView`.     |
-| `Unit`                                                           | Undefined                 | Exportable when used as return type, but not when used as parameter type.                  |
-| `Any`                                                            | `Object`                  |                                                                                            |
-| `Throwable`                                                      | `Error`                   |                                                                                            |
-| `enum class Type`                                                | `Type`                    | Enum entries are exposed as static class properties (`Type.ENTRY`).                        |
-| Nullable `Type?`                                                 | `Type | null | undefined` |                                                                                            |
-| All other Kotlin types, except for those marked with `@JsExport` | Not supported             | Includes Kotlin's [unsigned integer types](unsigned-integer-types.md).                     |
+| Kotlin                                                           | JavaScript                | Comments                                                                              |
+|------------------------------------------------------------------|---------------------------|---------------------------------------------------------------------------------------|
+| `Byte`, `Short`, `Int`, `Float`, `Double`                        | `Number`                  |                                                                                       |
+| `Char`                                                           | `Number`                  | The number represents the character's code.                                           |
+| `Long`                                                           | `BigInt`                  | Needs the [`-Xes-long-as-bigint` compiler option](compiler-reference.md#xes-long-as-bigint) configured. |
+| `Boolean`                                                        | `Boolean`                 |                                                                                       |
+| `String`                                                         | `String`                  |                                                                                       |
+| `Array`                                                          | `Array`                   |                                                                                       |
+| `ByteArray`                                                      | `Int8Array`               |                                                                                       |
+| `ShortArray`                                                     | `Int16Array`              |                                                                                       |
+| `IntArray`                                                       | `Int32Array`              |                                                                                       |
+| `CharArray`                                                      | `UInt16Array`             | Carries the property `$type$ == "CharArray"`.                                         |
+| `FloatArray`                                                     | `Float32Array`            |                                                                                       |
+| `DoubleArray`                                                    | `Float64Array`            |                                                                                       |
+| `LongArray`                                                      | `Array<kotlin.Long>`      | Carries the property `$type$ == "LongArray"`. Also see Kotlin's Long type comment.    |
+| `BooleanArray`                                                   | `Int8Array`               | Carries the property `$type$ == "BooleanArray"`.                                      |
+| `List`, `MutableList`                                            | `KtList`, `KtMutableList` | Exposes an `Array` via `KtList.asJsReadonlyArrayView` or `KtMutableList.asJsArrayView`. |
+| `Map`, `MutableMap`                                              | `KtMap`, `KtMutableMap`   | Exposes an ES2015 `Map` via `KtMap.asJsReadonlyMapView` or `KtMutableMap.asJsMapView`. |
+| `Set`, `MutableSet`                                              | `KtSet`, `KtMutableSet`   | Exposes an ES2015 `Set` via `KtSet.asJsReadonlySetView` or `KtMutableSet.asJsSetView`. |
+| `Unit`                                                           | Undefined                 | Exportable when used as return type, but not when used as parameter type.             |
+| `Any`                                                            | `Object`                  |                                                                                       |
+| `Throwable`                                                      | `Error`                   |                                                                                       |
+| `enum class Type`                                                | `Type`                    | Enum entries are exposed as static class properties (`Type.ENTRY`).                   |
+| Nullable `Type?`                                                 | `Type                     | null                                                                                  | undefined` |                                                                                            |
+| All other Kotlin types, except for those marked with `@JsExport` | Not supported             | Includes Kotlin's [unsigned integer types](unsigned-integer-types.md).                |
 
 Additionally, it is important to know that:
 
