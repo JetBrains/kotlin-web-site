@@ -357,6 +357,12 @@ Add variable and function names that you declared in Kotlin code into the source
 
 Add the specified prefix to paths in the source map.
 
+### -Xes-long-as-bigint
+
+<primary-label ref="experimental-general"/>
+
+Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
+
 ## Kotlin/Native compiler options
 
 Kotlin/Native compiler compiles Kotlin source files into native binaries for the [supported platforms](native-overview.md#target-platforms). 
