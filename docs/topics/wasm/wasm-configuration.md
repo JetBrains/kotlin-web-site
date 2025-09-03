@@ -174,21 +174,37 @@ Keep in mind that enabling this option increases the application size.
 ## Array out-of-bounds access and traps
 
 In Kotlin/Wasm, accessing an array with an index outside its bounds triggers a WebAssembly trap instead of a regular Kotlin exception. 
-The trap immediately stops the current stack of execution. 
+The trap immediately stops the current stack of execution.
 
-When running in a JavaScript environment, such traps appear as 
+You can avoid such traps by using the following compiler option in the command line when linking an executable:
+
+```
+-Xwasm-enable-array-range-checks
+```
+
+Or add it to the `compilerOptions {}` block of your Gradle build file:
+
+```kotlin
+// build.gradle.kts
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xwasm-enable-array-range-checks")
+    }
+}
+```
+
+With the compiler option enabled, an `IndexOutOfBoundsException` is thrown instead of a trap. 
+
+When running in a JavaScript environment, these traps appear as
 `WebAssembly.RuntimeError` and can be caught on the JavaScript side.
+
+See more details and share your feedback in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-73452/K-Wasm-turning-on-range-checks-by-default).
 
 ## Experimental annotations
 
-Kotlin/Wasm provides several experimental annotations for general WebAssembly interoperability and specific [JavaScript interoperability](wasm-js-interop.md).
+Kotlin/Wasm provides several experimental annotations for general WebAssembly interoperability.
 
-* [`@WasmImport`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.wasm/-wasm-import/) and 
-  [`@WasmExport`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.wasm/-wasm-export/) 
-  let you call functions defined outside a Kotlin/Wasm module or expose Kotlin functions to the host or other Wasm modules.
-
-* [`@ExperimentalJsExport`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.js/-experimental-js-export/) applies 
-  to the Kotlin/JS API for exporting Kotlin declarations to JavaScript.
+[`@WasmImport`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.wasm/-wasm-import/) and [`@WasmExport`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.wasm/-wasm-export/) let you call functions defined outside a Kotlin/Wasm module and expose Kotlin functions to the host or other Wasm modules, respectively.
 
 Because these mechanisms are still evolving, all annotations are marked as experimental. 
 You must explicitly [opt in to use them](opt-in-requirements.md), and their design or behavior may change in future Kotlin 

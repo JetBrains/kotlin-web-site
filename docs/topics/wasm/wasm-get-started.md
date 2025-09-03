@@ -11,7 +11,7 @@ app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts to publish
 2. In IntelliJ IDEA, select **File | New | Project**.
 3. In the panel on the left, select **Kotlin Multiplatform**.
 
-   > If you're not using the Kotlin Multiplatform IDE plugin, you can generate the same project using the [KMP web wizard](https://kmp.jetbrains.com/?android=true&ios=true&iosui=compose&desktop=true&web=true&includeTests=true).
+   > If you're not using the Kotlin Multiplatform IDE plugin, you can generate the same project using the [KMP web wizard](https://kmp.jetbrains.com/?web=true&webui=compose&includeTests=true).
    >
    {style="note"}
 
@@ -32,56 +32,51 @@ app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts to publish
 
 ## Run the application
 
-1. Open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
-   
-   You can find the Gradle tasks in the Gradle tool window once the project loads.
+Once the project loads, select **composeApp [wasmJs]** in the list of run configurations and click **Run**.
 
-   > You need at least Java 11 as your Gradle JVM for the tasks to load successfully.
-   >
-   {style="note"}
+![Run the Compose Multiplatform app on web](compose-run-web-black.png){width=300}
 
-2. In **wasmdemo** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDevelopmentRun** task.
+The web application opens automatically in your browser. Alternatively, you can type the following URL in your browser when the run is finished:
 
-   ![Run the Gradle task](wasm-gradle-task-window.png){width=400}
-
-   Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
-
-   ```bash
-   ./gradlew wasmJsBrowserDevelopmentRun -t
-   ```
-
-3. Once the application starts, open the following URL in your browser:
-
-   ```bash
+```shell
    http://localhost:8080/
-   ```
+```
+> The port number can vary because the 8080 port may be unavailable.
+> You can find the actual port number in the Gradle build console.
+>
+{style="tip"}
 
-   > The port number can vary because the 8080 port may be unavailable. You can find the actual port number printed
-   > in the Gradle build console.
-   >
-   {style="tip"}
+You see a "Click me!" button. Click it:
 
-   You see a "Click me!" button. Click it:
+![Click me](wasm-composeapp-browser-clickme.png){width=600}
 
-   ![Click me](wasm-composeapp-browser-clickme.png){width=600}
+Now you see the Compose Multiplatform logo:
 
-   Now you see the Compose Multiplatform logo:
-
-   ![Compose app in browser](wasm-composeapp-browser.png){width=600}
+![Compose app in browser](wasm-composeapp-browser.png){width=600}
 
 ## Generate artifacts
 
-In **wasmdemo** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDistribution** task.
+Generate your project's artifacts to publish on a site:
 
-![Run the Gradle task](wasm-gradle-task-window-compose.png){width=400}
+1. In the list of run configurations, click **Edit Configurations**.
 
-Alternatively, you can run the following command in the terminal from the `WasmDemo` root directory:
+   ![Edit configurations](wasm-edit-configurations.png){width=400}
 
-```bash
-./gradlew wasmJsBrowserDistribution
-```
+2. Click the **+** button above the list of configurations and then select **Gradle**.
 
-Once the application task completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
+   ![Add configurations](wasm-add-new-configuration.png){width=600}
+
+3. Type the following configuration option in the **Run** text field:
+
+    ```
+    composeApp:wasmJsBrowserDistribution
+    ```
+
+4. Click **Run**.
+
+   ![Run browser configuration](wasm-run-browser-configuration.png){width=600}
+
+Once the run configuration completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
 directory:
 
 ![Artifacts directory](wasm-composeapp-directory.png){width=400}
@@ -94,7 +89,7 @@ and follow the instructions to publish the artifacts.
 Some options are:
 
 * [GitHub pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site)
-* [Cloudflare](https://developers.cloudflare.com/pages/get-started/)
+* [Cloudflare](https://developers.cloudflare.com/workers/)
 * [Apache HTTP Server](https://httpd.apache.org/docs/2.4/getting-started.html)
 
 Once your site is created, open the browser and navigate to your platform's page domain. For example, GitHub pages:
