@@ -155,8 +155,7 @@ Stepping through functions works mostly the same way as for C/C++ programs.
 
 ## Inspect variables
 
-Variable inspection for `var` variables works out of the box for primitive types.
-For non-primitive types, there are custom pretty printers for LLDB in `konan_lldb.py`:
+Variable inspection for `var` variables works out of the box for both primitive and non-primitive types.
 
 ```bash
 $ cat -n main.kt
@@ -173,7 +172,7 @@ $ lldb ./program.kexe -o 'b main.kt:5' -o
 (lldb) target create "./program.kexe"
 Current executable set to './program.kexe' (x86_64).
 (lldb) b main.kt:5
-Breakpoint 1: where = program.kexe`kfun:main(kotlin.Array<kotlin.String>) + 289 at main.kt:5, address = 0x000000000040af11
+Breakpoint 1: where = program.kexe`kfun:main(kotlin.Array<kotlin.String>) + 289 at main.kt:5
 (lldb) r
 Process 4985 stopped
 * thread #1, name = 'program.kexe', stop reason = breakpoint 1.1
@@ -190,21 +189,14 @@ Process 4985 launched: './program.kexe' (x86_64)
 (lldb) fr var
 (int) x = 1
 (int) y = 2
-(ObjHeader *) p = 0x00000000007643d8
-(lldb) command script import dist/tools/konan_lldb.py
-(lldb) fr var
-(int) x = 1
-(int) y = 2
-(ObjHeader *) p = [x: ..., y: ...]
-(lldb) p p
-(ObjHeader *) $2 = [x: ..., y: ...]
-(lldb) script lldb.frame.FindVariable("p").GetChildMemberWithName("x").Dereference().GetValue()
-'1'
-(lldb) 
+(ObjHeader *) p = Point(x=1, y=2)
+
+(lldb) v p->x
+(int32_t) p->x = 1
 ```
 
-Getting representation of the object variable (`var`) could also be done using the
-built-in runtime function `Konan_DebugPrint` (this approach also works for GDB, using a module-specific syntax):
+You can get representation of the object variable (`var`) using the built-in runtime function `Konan_DebugPrint`
+(this approach also works for GDB, using a module-specific syntax):
 
 ```bash
 $ cat -n ../debugger-plugin/1.kt
