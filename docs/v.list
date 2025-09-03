@@ -5,9 +5,9 @@
 <vars>
 
     <!-- Kotlin -->
-    <var name="kotlinVersion" value="2.2.10" type="string"/>
-    <var name="kotlinReleaseDate" value="August 14, 2025" type="string"/>
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.2.10" type="string"/>
+    <var name="kotlinVersion" value="2.2.20" type="string"/>
+    <var name="kotlinReleaseDate" value="September 10, 2025" type="string"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.2.20" type="string"/>
     <var name="kotlinLatestWhatsnew" value="whatsnew22.md" type="string"/>
 
     <var name="languageVersion" value="2.1" type="string"/>
@@ -29,7 +29,7 @@
 
     <var name="ktorVersion" value="3.2.3" type="string"/>
 
-    <var name="lombokVersion" value="8.13.1" type="string"/>
+    <var name="lombokVersion" value="8.14.2" type="string"/>
 
     <var name="sqlDelightVersion" value="2.1.0" type="string"/>
 
@@ -38,14 +38,14 @@
     <var name="maxGradleVersion" value="8.14" type="string"/>
 
     <var name="minAndroidGradleVersion" value="7.3.1" type="string"/>
-    <var name="maxAndroidGradleVersion" value="8.10.0" type="string"/>
+    <var name="maxAndroidGradleVersion" value="8.11.1" type="string"/>
 
     <var name="gradleVersion" value="8.14" type="string"/>
     <var name="gradleLanguageVersion" value="KOTLIN_2_1" type="string"/>
     <var name="gradleApiVersion" value="KOTLIN_2_1" type="string"/>
 
     <!-- KSP -->
-    <var name="kspSupportedKotlinVersion" value="2.2.0" type="string"/>
+    <var name="kspSupportedKotlinVersion" value="2.2.10" type="string"/>
     <var name="kspVersion" value="2.0.2" type="string"/>
 
     <!-- Spring -->
