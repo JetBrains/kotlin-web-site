@@ -1,3 +1,12 @@
+- lang: en
+  startDate: '2025-09-19'
+  endDate: '2025-09-19'
+  location: Maasmechelen, Belgium
+  online: false
+  speaker: Duncan McGregor, Simon Vergauwen, Dmitry Kandalov, Brent Thuys, Jonathan Steylaerts, Alejandro Serrano Mena, Ivan Canet
+  title: 'KTConf'
+  subject: 'New Kotlin developer conference in Terhills hotel, Maasmechelen, Belgium with a sick line-up of speakers.'
+  url: https://ktconf.be
 - lang: fr
   startDate: '2025-03-08'
   endDate: '2025-03-08'
