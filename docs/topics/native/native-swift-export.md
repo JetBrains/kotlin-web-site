@@ -99,6 +99,9 @@ IDEA or through the [web wizard](https://kmp.jetbrains.com/).
 
 Other known issues:
 
+* Swift export breaks when modules have the same name in Gradle coordinates, for example SQLDelight's Runtime module and Compose Runtime module ([KT-80185](https://youtrack.jetbrains.com/issue/KT-80185)).
+* Types that inherit from `List`, `Set`, or `Map` are ignored during the export ([KT-80416](https://youtrack.jetbrains.com/issue/KT-80416)).
+* Inheritors of `List`, `Set`, or `Map` cannot be instantiated on the Swift side ([KT-80417](https://youtrack.jetbrains.com/issue/KT-80417)).
 * When exported to Swift, Kotlin generic type parameters are type-erased to their upper bounds.
 * Swift closures can be passed into Kotlin, but Kotlin cannot export functional types to Swift.
 * Cross-language inheritance is not supported, so Swift classes cannot directly subclass from Kotlin-exported classes or
@@ -127,30 +130,30 @@ Other known issues:
 
 The table below shows how Kotlin concepts are mapped to Swift.
 
-| Kotlin                 | Swift                          | Notes                                                |
-|------------------------|--------------------------------|------------------------------------------------------|
-| `class`                | `class`                        | [note](#classes)                                     |
-| `object`               | `class` with `shared` property | [note](#objects)                                     |
-| `typealias`            | `typealias`                    | [note](#typealiases)                                 |
-| Function               | Function                       | [note](#functions)                                   |
-| Property               | Property                       | [note](#properties)                                  |
-| Constructor            | Initializer                    | [note](#constructors)                                |
-| Package                | Nested enum                    | [note](#packages)                                    |
-| `Boolean`              | `Bool`                         |                                                      |
-| `Char`                 | `Unicode.UTF16.CodeUnit`       |                                                      |
-| `Byte`                 | `Int8`                         |                                                      |
-| `Short`                | `Int16`                        |                                                      |
-| `Int`                  | `Int32`                        |                                                      |
-| `Long`                 | `Int64`                        |                                                      |
-| `UByte`                | `UInt8`                        |                                                      |
-| `UShort`               | `UInt16`                       |                                                      |
-| `UInt`                 | `UInt32`                       |                                                      |
-| `ULong`                | `UInt64`                       |                                                      |
-| `Float`                | `Float`                        |                                                      |
-| `Double`               | `Double`                       |                                                      |
-| `Any`                  | `KotlinBase` class             |                                                      |
-| `Unit`                 | `Void`                         |                                                      |
-| `Nothing`              | `Never`                        | [note](#kotlin-nothing)                              |
+| Kotlin                 | Swift                          | Notes                   |
+|------------------------|--------------------------------|-------------------------|
+| `class`                | `class`                        | [note](#classes)        |
+| `object`               | `class` with `shared` property | [note](#objects)        |
+| `typealias`            | `typealias`                    | [note](#type-aliases)   |
+| Function               | Function                       | [note](#functions)      |
+| Property               | Property                       | [note](#properties)     |
+| Constructor            | Initializer                    | [note](#constructors)   |
+| Package                | Nested enum                    | [note](#packages)       |
+| `Boolean`              | `Bool`                         |                         |
+| `Char`                 | `Unicode.UTF16.CodeUnit`       |                         |
+| `Byte`                 | `Int8`                         |                         |
+| `Short`                | `Int16`                        |                         |
+| `Int`                  | `Int32`                        |                         |
+| `Long`                 | `Int64`                        |                         |
+| `UByte`                | `UInt8`                        |                         |
+| `UShort`               | `UInt16`                       |                         |
+| `UInt`                 | `UInt32`                       |                         |
+| `ULong`                | `UInt64`                       |                         |
+| `Float`                | `Float`                        |                         |
+| `Double`               | `Double`                       |                         |
+| `Any`                  | `KotlinBase` class             |                         |
+| `Unit`                 | `Void`                         |                         |
+| `Nothing`              | `Never`                        | [note](#kotlin-nothing) |
 
 ### Declarations
 
@@ -224,8 +227,7 @@ public typealias MyInt = Swift.Int32
 
 #### Functions
 
-Swift export supports only simple top-level functions and methods.
-Extensions, `suspend`, `inline`, and `operator` subtypes are not supported.
+Swift export supports simple top-level functions and methods:
 
 ```kotlin
 // Kotlin
@@ -244,6 +246,21 @@ public func baz() -> Swift.Int64 {
     // ...
 }
 ```
+
+Extension functions are also supported. The receiver parameter of the extension function is moved into ordinary parameters
+in the first position:
+
+```kotlin
+// Kotlin
+fun Int.foo(): Unit = TODO()
+```
+
+```swift
+// Swift
+func foo(_ receiver: Int32) {}
+```
+
+Functions with `suspend`, `inline`, and `operator` keywords are not supported.
 
 #### Properties
 
