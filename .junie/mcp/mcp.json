@@ -6,7 +6,7 @@
     },
     "jetbrains": {
       "command": "npx",
-      "args": ["-y", "@jetbrains/mcp-proxy"]
+      "args": ["mcp-remote", "http://127.0.0.1:64342/sse"]
     },
     "playwright": {
       "command": "npx",

@@ -138,6 +138,19 @@ You can:
 [slack-url]: https://slack.kotlinlang.org
 
 ## Local development
+For the frontend development, you need to connect to the WebTeam registry.
+Visit [the registry](https://jetbrains.team/p/wt/packages/npm/npm) page in Space:
+- On the top right, click Connect;
+- Click Generate personal token;
+- Copy your personal token.
+- Add your personal token to the environmental variable. This step differs based on your OS.
+
+##### For macOS:
+Add your token to the ~/.zshenv file:
+- Open the Terminal;
+- Use this command to access .zshenv file `nano ~/.zshenv`;
+- Replace your_token with your actual Space token and use this command to add an environment variable: `export WEBTEAM_UI_NPM_TOKEN=yourtoken`.
+Then install frontend dependencies `npm install`.
 
 #### preliminaries: python3 installed
 

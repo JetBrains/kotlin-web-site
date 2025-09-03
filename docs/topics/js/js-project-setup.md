@@ -100,7 +100,7 @@ You can enable all the supported ES2015 features at once by adding the `es2015` 
 
 ```kotlin
 tasks.withType<KotlinJsCompile>().configureEach {
-    kotlinOptions {
+    compilerOptions {
         target = "es2015"
     }
 }

@@ -142,7 +142,7 @@ Create a Spring `@RestController` to search documents and store them in the Qdra
 
     ```kotlin
     package org.example.springaidemo
-    
+
     // Imports the required Spring and utility classes
     import org.slf4j.LoggerFactory
     import org.springframework.ai.document.Document
@@ -160,10 +160,10 @@ Create a Spring `@RestController` to search documents and store them in the Qdra
     @RestController
     @RequestMapping("/kotlin")
     class KotlinSTDController(
-    private val restTemplate: RestTemplate,
-    private val vectorStore: VectorStore,
+        private val restTemplate: RestTemplate,
+        private val vectorStore: VectorStore,
     ) {
-    private val logger = LoggerFactory.getLogger(this::class.java)
+        private val logger = LoggerFactory.getLogger(this::class.java)
 
         @OptIn(ExperimentalUuidApi::class)
         @PostMapping("/load-docs")
@@ -215,19 +215,18 @@ Create a Spring `@RestController` to search documents and store them in the Qdra
 
    ```kotlin
    package org.example.springaidemo
-   
+
    import org.springframework.boot.autoconfigure.SpringBootApplication
    import org.springframework.boot.runApplication
    import org.springframework.context.annotation.Bean
    import org.springframework.web.client.RestTemplate
-   
+
    @SpringBootApplication
    class SpringAiDemoApplication {
-   
        @Bean
        fun restTemplate(): RestTemplate = RestTemplate()
    }
-   
+
    fun main(args: Array<String>) {
        runApplication<SpringAiDemoApplication>(*args)
    }

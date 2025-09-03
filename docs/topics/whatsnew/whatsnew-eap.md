@@ -14,7 +14,7 @@ Here are some details of this EAP release:
 
 * Kotlin Multiplatform: [Swift export available by default](#swift-export-available-by-default), [shared source set for `js` and `wasmJs` targets](#shared-source-set-for-js-and-wasmjs-targets), [stable cross-platform compilation for Kotlin libraries](#stable-cross-platform-compilation-for-kotlin-libraries), and a [new approach for declaring common dependencies](#new-approach-for-declaring-common-dependencies).
 * Language: [improved overload resolution when passing lambdas to overloads with suspend function types](#improved-overload-resolution-for-lambdas-with-suspend-function-types).
-* Kotlin/Native: [support for stack canaries in binaries](#support-for-stack-canaries-in-binaries) and [smaller binary size for iOS targets](#smaller-binary-size-for-ios-targets).
+* Kotlin/Native: [support for stack canaries in binaries](#support-for-stack-canaries-in-binaries) and [smaller binary size for iOS targets](#smaller-binary-size-for-release-binaries).
 * Kotlin/Wasm: [improved exception handling in Kotlin/Wasm and JavaScript interop](#improved-exception-handling-in-kotlin-wasm-and-javascript-interop).
 * Kotlin/JS: [`Long` values compiled into JavaScript `BigInt`](#usage-of-bigint-type-to-represent-kotlin-s-long-type).
 
@@ -225,7 +225,7 @@ The key features are:
 The feature is currently [Experimental](components-stability.md#stability-levels-explained) and works only in 
 projects that use [direct integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-direct-integration.html)
 to connect the iOS framework to the Xcode project. This is a standard configuration for Kotlin Multiplatform projects 
-created with Kotlin Multiplatform plugin in IntelliJ IDEA or through the [web wizard](https://kmp.jetbrains.com/).
+created with the Kotlin Multiplatform plugin in IntelliJ IDEA or through the [web wizard](https://kmp.jetbrains.com/).
 
 To try out Swift export, configure your Xcode project:
 
@@ -233,11 +233,11 @@ To try out Swift export, configure your Xcode project:
 2. On the **Build Phases** tab, locate the **Run Script** phase with the `embedAndSignAppleFrameworkForXcode` task.
 3. Adjust the script to feature the `embedSwiftExportForXcode` task instead in the run script phase:
 
-  ```bash
-  ./gradlew :<Shared module name>:embedSwiftExportForXcode
-  ```
+   ```bash
+   ./gradlew :<Shared module name>:embedSwiftExportForXcode
+   ```
 
-  ![Add the Swift export script](xcode-swift-export-run-script-phase.png){width=700}
+   ![Add the Swift export script](xcode-swift-export-run-script-phase.png){width=700}
 
 4. Build the project. Swift modules are generated in the build output directory.
 
@@ -324,12 +324,21 @@ This update simplifies code sharing between the `js` and `wasmJs` targets. It is
   a website, it will work on all browsers out of the box: modern browsers use `wasmJs`, and older browsers use `js`.
 
 To try this feature, use the [default hierarchy template](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-hierarchy.html#default-hierarchy-template)
-in the `kotlin {}` block of your `build.gradle(.kts)` file.
+in the `kotlin {}` block of your `build.gradle(.kts)` file:
+
+```kotlin
+kotlin {
+    js()
+    wasmJs()
+
+    // Enables the default source set hierarchy, including webMain and webTest
+    applyDefaultHierarchyTemplate()
+}
+```
 
 Before using the default hierarchy, consider carefully any potential conflicts if you have projects with a custom shared
 source set or if you renamed the `js("web")` target. To resolve these conflicts, rename the conflicting source set or target, or 
 don't use the default hierarchy.
-
 
 ### Stable cross-platform compilation for Kotlin libraries
 
@@ -344,7 +353,7 @@ you can now remove it from your `gradle.properties` file.
 
 Unfortunately, a few limitations are still present. You still need to use a Mac machine if:
 
-* Your library has a [cinterop dependency](native-c-interop.md).
+* Your library or any dependent modules have [cinterop dependencies](native-c-interop.md).
 * You have a [CocoaPods integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html) set up in your project.
 * You need to build or test [final binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html) for Apple targets.
 
@@ -384,11 +393,9 @@ Starting with %kotlinEapVersion%, Kotlin adds support for stack canaries in the 
 stack protection, this security feature protects against stack smashing, mitigating some common application vulnerabilities.
 Already available in Swift and Objective-C, it's now supported in Kotlin as well.
 
-#### How to enable stack canaries
-
 The implementation of stack protection in Kotlin/Native follows the behavior of the stack protector in [Clang](https://clang.llvm.org/docs/ClangCommandLineReference.html#cmdoption-clang-fstack-protector).
 
-To enable stack canaries, add the following property to your `gradle.properties` file:
+To enable stack canaries, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
 
 ```none
 kotlin.native.binary.stackProtector=yes
@@ -401,38 +408,20 @@ The property enables the feature for all the Kotlin functions that are vulnerabl
 
 Note that in some cases, stack protection might come with a performance cost.
 
-### Smaller binary size for iOS targets
-<primary-label ref="experimental-general"/> 
+### Smaller binary size for release binaries
+<primary-label ref="experimental-opt-in"/> 
 
-Kotlin %kotlinEapVersion% introduces the `smallBinary` option that can help you decrease the binary size for iOS targets.
+Kotlin %kotlinEapVersion% introduces the `smallBinary` option that can help you decrease the binary size for release binaries.
 The new option effectively sets `-Oz` as the default optimization argument for the compiler during the LLVM compilation phase.
 
 With the `smallBinary` option enabled, you can make release binaries smaller and improve build time. However, it might
 affect runtime performance in some cases.
 
-#### How to enable smaller binary size
-
 The new feature is currently [Experimental](components-stability.md#stability-levels-explained). To try it out in your
-project, use the `-Xbinary=smallBinary=true` compiler option or update your `gradle.properties` file with:
+project, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
 
 ```none
 kotlin.native.binary.smallBinary=true
-```
-
-For a specific binary, set the `binaryOption("smallBinary", "true")` in your `build.gradle(.kts)` file. For example:
-
-```kotlin
-kotlin {
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64(),
-    ).forEach {
-        it.binaries.framework {
-            binaryOption("smallBinary", "true")
-        }
-    }
-}
 ```
 
 The Kotlin team is grateful to [Troels Lund](https://github.com/troelsbjerre) for his help in implementing this feature.

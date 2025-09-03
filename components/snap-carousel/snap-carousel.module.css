@@ -1,0 +1,41 @@
+.block {
+    display: flex;
+    width: 100%;
+}
+
+.carousel {
+    --slides-gap: 32px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+
+    position: relative;
+    display: flex;
+    gap: 32px;
+
+    &::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+    }
+}
+
+.slide {
+    flex: 0 0 auto;
+    width: 100%;
+    scroll-snap-align: center;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+}
