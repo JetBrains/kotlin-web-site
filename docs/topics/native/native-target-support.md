@@ -34,7 +34,7 @@ Mind the following terms used in tier tables:
 ## Tier 2
 
 * The target is regularly tested on CI to be able to compile but may not be automatically tested to be able to run.
-* We're doing our best to provide a source and [binary compatibility between compiler releases](https://youtrack.jetbrains.com/issue/KT-42293).
+* We're doing our best to provide source and [binary compatibility between compiler releases](https://youtrack.jetbrains.com/issue/KT-42293).
 
 | Gradle target name      | Target triple                     | Running tests | Description                                        |
 |-------------------------|-----------------------------------|---------------|----------------------------------------------------|
