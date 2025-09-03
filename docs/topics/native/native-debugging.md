@@ -45,14 +45,14 @@ lldb terminator.kexe
 The debugger outputs:
 
 ```bash
-0:b-debugger-fixes:minamoto@unit-703(0)# cat - > hello.kt
+$ cat - > hello.kt
 fun main(args: Array<String>) {
   println("Hello world")
   println("I need your clothes, your boots and your motorcycle")
 }
-0:b-debugger-fixes:minamoto@unit-703(0)# dist/bin/konanc -g hello.kt -o terminator
+$ dist/bin/konanc -g hello.kt -o terminator
 KtFile: hello.kt
-0:b-debugger-fixes:minamoto@unit-703(0)# lldb terminator.kexe
+$ lldb terminator.kexe
 (lldb) target create "terminator.kexe"
 Current executable set to 'terminator.kexe' (x86_64).
 (lldb) b kfun:main(kotlin.Array<kotlin.String>)
@@ -159,17 +159,17 @@ Variable inspection for `var` variables works out of the box for primitive types
 For non-primitive types, there are custom pretty printers for LLDB in `konan_lldb.py`:
 
 ```bash
-λ cat main.kt | nl
+$ cat -n main.kt
      1  fun main(args: Array<String>) {
      2      var x = 1
      3      var y = 2
      4      var p = Point(x, y)
      5      println("p = $p")
      6  }
-       
-     7  data class Point(val x: Int, val y: Int)
+     7 
+     8  data class Point(val x: Int, val y: Int)
 
-λ lldb ./program.kexe -o 'b main.kt:5' -o
+$ lldb ./program.kexe -o 'b main.kt:5' -o
 (lldb) target create "./program.kexe"
 Current executable set to './program.kexe' (x86_64).
 (lldb) b main.kt:5
@@ -207,7 +207,7 @@ Getting representation of the object variable (`var`) could also be done using t
 built-in runtime function `Konan_DebugPrint` (this approach also works for GDB, using a module-specific syntax):
 
 ```bash
-0:b-debugger-fixes:minamoto@unit-703(0)# cat ../debugger-plugin/1.kt | nl -p
+$ cat -n ../debugger-plugin/1.kt
      1  fun foo(a:String, b:Int) = a + b
      2  fun one() = 1
      3  fun main(arg:Array<String>) {
@@ -220,7 +220,7 @@ built-in runtime function `Konan_DebugPrint` (this approach also works for GDB, 
     10    println(c_variable)
     11    println(d_variable)
     12  }
-0:b-debugger-fixes:minamoto@unit-703(0)# lldb ./program.kexe -o 'b -f 1.kt -l 9' -o r
+$ lldb ./program.kexe -o 'b -f 1.kt -l 9' -o r
 (lldb) target create "./program.kexe"
 Current executable set to './program.kexe' (x86_64).
 (lldb) b -f 1.kt -l 9
