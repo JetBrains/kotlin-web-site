@@ -560,7 +560,7 @@ For example, for the following Kotlin code:
 fun greetUser(block: (name: String) -> Unit) = block("John")
 ```
 
-Kotlin forwards the parameter names from Kotlin function types to Objective-C block types, so Xcode uses them in suggestions:
+Kotlin forwards the parameter names from Kotlin function types to Objective-C block types, allowing Xcode to use them in suggestions:
 
 ```objc
 // Objective-C:
