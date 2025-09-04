@@ -195,6 +195,7 @@
 				<toc-element topic="native-objc-interop.md"/>
 				<toc-element topic="apple-framework.md"/>
 			</toc-element>
+			<toc-element toc-title="Swift interop" topic="native-swift-export.md"/>
 			<toc-element topic="native-libraries.md"/>
 			<toc-element topic="native-platform-libs.md"/>
 			<toc-element toc-title="Memory manager">
