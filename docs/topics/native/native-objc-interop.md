@@ -39,9 +39,7 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a framewor
 
 ### Hide Kotlin declarations from Objective-C and Swift
 
-> The `@HiddenFromObjC` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
->
-{style="warning"}
+<primary-label ref="experimental-opt-in"/>
 
 To make your Kotlin code more Swift/Objective-C-friendly, use the `@HiddenFromObjC` annotation to hide a Kotlin declaration
 from Objective-C and Swift. It disables the function or property export to Objective-C.
@@ -54,9 +52,7 @@ while keeping it visible to other Kotlin modules.
 
 ### Use refining in Swift
 
-> The `@ShouldRefineInSwift` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
->
-{style="warning"}
+<primary-label ref="experimental-opt-in"/>
 
 `@ShouldRefineInSwift` helps to replace a Kotlin declaration with a wrapper written in Swift. The annotation marks a
 function or property as `swift_private` in the generated Objective-C API. Such declarations get the `__` prefix,
@@ -70,9 +66,7 @@ the Xcode autocomplete.
 
 ### Change declaration names
 
-> The `@ObjCName` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
->
-{style="warning"}
+<primary-label ref="experimental-opt-in"/>
 
 To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use the
 custom Objective-C and Swift name for the annotated class, interface, or another Kotlin entity:
@@ -337,11 +331,7 @@ switch color {
 
 ### Suspending functions
 
-> Support for calling `suspend` functions from Swift code as `async` is [Experimental](components-stability.md).
-> It may be dropped or changed at any time.
-> Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47610).
->
-{style="warning"}
+<primary-label ref="experimental-opt-in"/>
 
 Kotlin's [suspending functions](coroutines-basics.md) (`suspend`) are presented in the generated Objective-C headers as
 functions with callbacks, or [completion handlers](https://developer.apple.com/documentation/swift/calling_objective-c_apis_asynchronously)
