@@ -305,7 +305,7 @@ As a consequence of the stable JS IR compiler backend, the old one is deprecated
 
 Incremental compilation is enabled by default along with the stable JS IR compiler.
 
-If you still use the old compiler, switch your project to the new backend with the help of our [migration guide](js-ir-migration.md).
+If you still use the old compiler, switch your project to the new backend.
 
 ### New settings for reporting that yarn.lock has been updated
 
