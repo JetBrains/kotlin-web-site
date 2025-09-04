@@ -247,6 +247,26 @@ fun main() {
 Creating a copy of an instance is safer than modifying the original instance because any code that relies on the
 original instance isn't affected by the copy and what you do with it.
 
+> The copy() function creates a **deep copy** of the instance at the top level, but it does **not** perform a **recursive deep copy**.
+> If a property is a reference type (like a list or another object), both the original and the copied instance will share that reference.
+> For example:
+> ```kotlin
+> data class Person(val name: String, val tags: MutableList<String>)
+> 
+> fun main() {
+>     val p1 = Person("Alex", mutableListOf("admin"))
+>     val p2 = p1.copy()
+> 
+>     p2.tags.add("manager")
+> 
+>     println(p1) // Person(name=Alex, tags=[admin, manager])
+>     println(p2) // Person(name=Alex, tags=[admin, manager])
+> }
+> ```
+> As you can see, modifying `p2.tags` also changes `p1.tags` because the list reference is shared.
+> 
+{style="tip"}
+
 For more information about data classes, see [Data classes](data-classes.md).
 
 The last chapter of this tour is about Kotlin's [null safety](kotlin-tour-null-safety.md).
