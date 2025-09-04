@@ -175,7 +175,7 @@ In the last section you can read through the full definition of this package.
 ## Scope control: @DslMarker
 
 When using DSLs, one might have come across the problem that too many functions can be called in the context. 
-You can call methods of every available implicit receiver inside a lambda and therefore get an inconsistent result, 
+You can call methods of every available [implicit receiver](lambdas.md#function-literals-with-receiver) inside a lambda and therefore get an inconsistent result, 
 like the tag `head` inside another `head`: 
 
 ```kotlin
@@ -275,7 +275,7 @@ html {
 
 Only the nearest receiver's members and extensions are accessible within a lambda, preventing unintended interactions between nested scopes.
 
-When a member of an implicit receiver and a declaration from a [context parameter](context-parameters.md) are both in a scope with the same name,
+When both a member of an implicit receiver and a declaration from a [context parameter](context-parameters.md) are in a scope with the same name,
 the compiler reports a warning because the implicit receiver is shadowed by the context parameter.
 To resolve this, use a `this` qualifier to explicitly call the receiver, or use `contextOf<T>()` to call the context declaration:
 
@@ -284,7 +284,8 @@ interface HtmlTag {
     fun setAttribute(name: String, value: String)
 }
 
-// Declares a top-level function with the same name available through a context parameter
+// Declares a top-level function with the same name,
+// which is available through a context parameter
 context(tag: HtmlTag)
 fun setAttribute(name: String, value: String) { tag.setAttribute(name, value) }
 
@@ -292,7 +293,8 @@ fun test(head: HtmlTag, extraInfo: HtmlTag) {
     with(head) {
         // Introduces a context value of the same type in an inner scope
         context(extraInfo) {
-            // Reports a warning: uses an implicit receiver shadowed by a context parameter.
+            // Reports a warning:
+            // Uses an implicit receiver shadowed by a context parameter
             setAttribute("user", "1234")
 
             // Calls the receiver's member explicitly
