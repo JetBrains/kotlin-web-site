@@ -195,47 +195,6 @@ Process 4985 launched: './program.kexe' (x86_64)
 (int32_t) p->x = 1
 ```
 
-You can get representation of the object variable (`var`) using the built-in runtime function `Konan_DebugPrint`
-(this approach also works for GDB, using a module-specific syntax):
-
-```bash
-$ cat -n ../debugger-plugin/1.kt
-     1  fun foo(a:String, b:Int) = a + b
-     2  fun one() = 1
-     3  fun main(arg:Array<String>) {
-     4    var a_variable = foo("(a_variable) one is ", 1)
-     5    var b_variable = foo("(b_variable) two is ", 2)
-     6    var c_variable = foo("(c_variable) two is ", 3)
-     7    var d_variable = foo("(d_variable) two is ", 4)
-     8    println(a_variable)
-     9    println(b_variable)
-    10    println(c_variable)
-    11    println(d_variable)
-    12  }
-$ lldb ./program.kexe -o 'b -f 1.kt -l 9' -o r
-(lldb) target create "./program.kexe"
-Current executable set to './program.kexe' (x86_64).
-(lldb) b -f 1.kt -l 9
-Breakpoint 1: where = program.kexe`kfun:main(kotlin.Array<kotlin.String>) + 463 at 1.kt:9, address = 0x0000000100000dbf
-(lldb) r
-(a_variable) one is 1
-Process 80496 stopped
-* thread #1, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
-    frame #0: 0x0000000100000dbf program.kexe`kfun:main(kotlin.Array<kotlin.String>) at 1.kt:9
-   6      var c_variable = foo("(c_variable) two is ", 3)
-   7      var d_variable = foo("(d_variable) two is ", 4)
-   8      println(a_variable)
--> 9      println(b_variable)
-   10     println(c_variable)
-   11     println(d_variable)
-   12   }
-
-Process 80496 launched: './program.kexe' (x86_64)
-(lldb) expression -- (int32_t)Konan_DebugPrint(a_variable)
-(a_variable) one is 1(int32_t) $0 = 0
-(lldb)
-```
-
 ## Debug iOS applications
 
 Debugging iOS applications sometimes involves analyzing crash reports in detail. Crash reports typically require
