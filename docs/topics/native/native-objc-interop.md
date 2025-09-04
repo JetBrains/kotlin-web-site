@@ -117,8 +117,9 @@ Will produce an Objective-C header with the corresponding comment:
 + (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
 ```
 
-You can see comments on classes and methods in autocompletion, for example in Xcode. If you go to the
-definition of functions (in the `.h` file), you'll see comments on `@param`, `@return`, and so on.
+KDoc comments are embedded into klibs and extracted from klibs into the produced Apple frameworks.
+As a result, comments on classes and methods appear during autocompletion, for example in Xcode.
+If you go to the definition of functions (in the `.h` file), you'll see comments on `@param`, `@return`, and so on.
 
 Known limitations:
 
@@ -126,7 +127,8 @@ Known limitations:
   this compiler option might be incompatible with other compiler versions.
 * KDoc comments are mostly exported as is. Many KDoc features, for example `@property`, are not supported.
 
-If necessary, you can disable KDoc publication in the `binaries {}` DSL in your Gradle build file:
+If necessary, you can disable the export of Kdoc comments from klibs to the produced Apple frameworks in the `binaries {}`
+block of your Gradle build file:
 
 ```kotlin
 // build.gradle.kts
