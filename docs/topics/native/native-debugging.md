@@ -155,7 +155,7 @@ Stepping through functions works mostly the same way as for C/C++ programs.
 
 ## Inspect variables
 
-Variable inspection for `var` variables works out of the box for both primitive and non-primitive types.
+Variable inspection for `var` variables works out of the box for both primitive and non-primitive types:
 
 ```bash
 $ cat -n main.kt
