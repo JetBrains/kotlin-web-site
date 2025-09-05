@@ -439,22 +439,6 @@ feature:
 * Firefox 129+
 * Safari 18.4+
 
-### Exception handling in older browsers {initial-collapse-state="collapsed" collapsible="true"}
-
-To use exception handling in older browsers, you have to configure the `JsException`
-type to include the original error message and stack trace from JavaScript.
-To do so, add the following compiler option to your `build.gradle.kts` file:
-
-```kotlin
-kotlin {
-    wasmJs {
-        compilerOptions {
-            freeCompilerArgs.add("-Xwasm-attach-js-exception")
-        }
-    }
-}
-```
-
 ## Kotlin/Wasm and Kotlin/JS interoperability differences
 
 Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interoperability, there are key differences to consider:

@@ -34,9 +34,9 @@ in IntelliJ IDEA out of the box, without additional configurations.
 
    ![Set breakpoints](wasm-breakpoints-intellij.png){width=650}
 
-3. In the list of run configurations, select `wasmJsBrowserDevelopmentRun`.
+3. In the list of run configurations, select **composeApp[wasmJs]**.
 4. Run the code in debug mode by clicking the debug icon at the top of the screen. Make sure
-   you run the `wasmJsBrowserDevelopmentRun` configuration.
+   you run the **composeApp[wasmJs]** configuration.
 
    ![Run in debug mode](wasm-debug-run-configurations.png){width=600}
 
