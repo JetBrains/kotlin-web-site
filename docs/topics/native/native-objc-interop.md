@@ -39,9 +39,7 @@ Kotlin modules can be used in Swift/Objective-C code if compiled into a framewor
 
 ### Hide Kotlin declarations from Objective-C and Swift
 
-> The `@HiddenFromObjC` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
->
-{style="warning"}
+<primary-label ref="experimental-opt-in"/>
 
 To make your Kotlin code more Swift/Objective-C-friendly, use the `@HiddenFromObjC` annotation to hide a Kotlin declaration
 from Objective-C and Swift. It disables the function or property export to Objective-C.
@@ -54,9 +52,7 @@ while keeping it visible to other Kotlin modules.
 
 ### Use refining in Swift
 
-> The `@ShouldRefineInSwift` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
->
-{style="warning"}
+<primary-label ref="experimental-opt-in"/>
 
 `@ShouldRefineInSwift` helps to replace a Kotlin declaration with a wrapper written in Swift. The annotation marks a
 function or property as `swift_private` in the generated Objective-C API. Such declarations get the `__` prefix,
@@ -70,9 +66,7 @@ the Xcode autocomplete.
 
 ### Change declaration names
 
-> The `@ObjCName` annotation is [Experimental](components-stability.md#stability-levels-explained) and requires [opt-in](opt-in-requirements.md).
->
-{style="warning"}
+<primary-label ref="experimental-opt-in"/>
 
 To avoid renaming Kotlin declarations, use the `@ObjCName` annotation. It instructs the Kotlin compiler to use the
 custom Objective-C and Swift name for the annotated class, interface, or another Kotlin entity:
@@ -96,8 +90,8 @@ let index = array.index(of: "element")
 Documentation is essential for understanding any API. Providing documentation for
 the shared Kotlin API allows you to communicate with its users on matters of usage, dos and don'ts, and so on.
 
-By default, [KDocs](kotlin-doc.md) comments are not translated into corresponding comments when generating
-an Objective-C header. For example, the following Kotlin code with KDoc:
+When generating Objective-C headers, [KDoc](kotlin-doc.md) comments from Kotlin code are translated into corresponding
+Objective-C comments. For example, the following Kotlin code with KDoc:
 
 ```kotlin
 /**
@@ -107,40 +101,7 @@ an Objective-C header. For example, the following Kotlin code with KDoc:
 fun printSum(a: Int, b: Int) = println(a.toLong() + b)
 ```
 
-Will produce an Objective-C declaration without any comments:
-
-```objc
-+ (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
-```
-
-To enable export of KDoc comments, add the following compiler option to your `build.gradle(.kts)`:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-kotlin {
-    targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
-        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
-    }
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-kotlin {
-    targets.withType(org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget) {
-        compilations.get("main").compilerOptions.options.freeCompilerArgs.add("-Xexport-kdoc")
-    }
-}
-```
-
-</tab>
-</tabs>
-
-After that, the Objective-C header will contain a corresponding comment:
+Will produce an Objective-C header with the corresponding comment:
 
 ```objc
 /**
@@ -150,21 +111,35 @@ After that, the Objective-C header will contain a corresponding comment:
 + (void)printSumA:(int32_t)a b:(int32_t)b __attribute__((swift_name("printSum(a:b:)")));
 ```
 
-You'll be able to see comments on classes and methods in autocompletion, for example, in Xcode. If you go to the
-definition of functions (in the `.h` file), you'll see comments on `@param`, `@return`, and so on.
+KDoc comments are embedded into klibs and extracted from klibs into the produced Apple frameworks.
+As a result, comments on classes and methods appear during autocompletion, for example in Xcode.
+If you go to the definition of functions in the `.h` file, you'll see comments on `@param`, `@return`, and similar tags.
 
 Known limitations:
 
-> The ability to export KDoc comments to generated Objective-C headers is [Experimental](components-stability.md).
-> It may be dropped or changed at any time.
-> Opt-in is required (see the details below), and you should use it only for evaluation purposes.
-> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-38600).
->
-{style="warning"}
+* Dependency documentation is not exported unless it is compiled with the `-Xexport-kdoc` option. Libraries compiled with
+  this compiler option might be incompatible with other compiler versions.
+* KDoc comments are mostly exported as is, but many KDoc block tags, such as `@property`, are not supported.
 
-* Dependency documentation is not exported unless it is compiled with `-Xexport-kdoc` itself. The feature is Experimental,
-  so libraries compiled with this option might be incompatible with other compiler versions.
-* KDoc comments are mostly exported as is. Many KDoc features, for example `@property`, are not supported.
+If necessary, you can disable the export of KDoc comments from klibs to the produced Apple frameworks in the `binaries {}`
+block of your Gradle build file:
+
+```kotlin
+// build.gradle.kts
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
+kotlin {
+    iosArm64 {
+        binaries {
+            framework {
+                baseName = "sdk"
+                @OptIn(ExperimentalKotlinGradlePluginApi::class)
+                exportKdoc.set(false)
+            }
+        }
+    }
+}
+```
 
 ## Mappings
 
@@ -356,11 +331,7 @@ switch color {
 
 ### Suspending functions
 
-> Support for calling `suspend` functions from Swift code as `async` is [Experimental](components-stability.md).
-> It may be dropped or changed at any time.
-> Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-47610).
->
-{style="warning"}
+<primary-label ref="experimental-opt-in"/>
 
 Kotlin's [suspending functions](coroutines-basics.md) (`suspend`) are presented in the generated Objective-C headers as
 functions with callbacks, or [completion handlers](https://developer.apple.com/documentation/swift/calling_objective-c_apis_asynchronously)
