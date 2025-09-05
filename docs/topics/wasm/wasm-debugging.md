@@ -75,7 +75,7 @@ allowing you to set breakpoints, inspect variables,
 and step through Kotlin code without extra setup.
 
 The configuration to serve the Kotlin/Wasm project sources in the browser is now included in the Kotlin Gradle plugin.
-If you [previously added this configuration](whatsnew2220.md#support-for-debugging-in-browsers-without-configuration)
+If you previously added this configuration
 to your `build.gradle.kts` file, you should remove it to avoid conflicts.
 
 > This tutorial uses the Chrome browser, but you should be able to follow these steps with other browsers. For more information,
