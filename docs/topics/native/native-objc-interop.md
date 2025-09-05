@@ -113,7 +113,7 @@ Will produce an Objective-C header with the corresponding comment:
 
 KDoc comments are embedded into klibs and extracted from klibs into the produced Apple frameworks.
 As a result, comments on classes and methods appear during autocompletion, for example in Xcode.
-If you go to the definition of functions (in the `.h` file), you'll see comments on `@param`, `@return`, and similar tags.
+If you go to the definition of functions in the `.h` file, you'll see comments on `@param`, `@return`, and similar tags.
 
 Known limitations:
 
