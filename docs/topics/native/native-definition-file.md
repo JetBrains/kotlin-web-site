@@ -171,10 +171,7 @@ in the interop itself.
 
 ### Include a static library
 
-> This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
-> Use it only for evaluation purposes.
->
-{style="warning"}
+<primary-label ref="experimental-general"/>
 
 Sometimes it's more convenient to ship a static library with your product, rather than assume it is available within
 the user's environment. To include a static library into `.klib`, use `staticLibrary` and `libraryPaths` properties:
