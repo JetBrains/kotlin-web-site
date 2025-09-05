@@ -117,6 +117,13 @@ kotlin {
 In this example, Gradle's [Distribution](https://docs.gradle.org/current/userguide/distribution_plugin.html#distribution_plugin)
 plugin is applied on the first `executable {}` block.
 
+> After configuring your JVM binary information, be sure to use the `runJvm` task and *not* the legacy `jvmRun` task.
+>
+> You may also wish to see [KT-75240](https://youtrack.jetbrains.com/issue/KT-75240) which requests that the behavoir of the two
+> tasks are better aligned.
+>
+{style="note"}
+
 If you run into any issues, report them in our [issue tracker](https://kotl.in/issue) or let us know in our [public Slack channel](https://kotlinlang.slack.com/archives/C19FD9681).
 
 ## Kotlin/Native
