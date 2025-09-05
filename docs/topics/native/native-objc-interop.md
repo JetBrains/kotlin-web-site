@@ -113,15 +113,15 @@ Will produce an Objective-C header with the corresponding comment:
 
 KDoc comments are embedded into klibs and extracted from klibs into the produced Apple frameworks.
 As a result, comments on classes and methods appear during autocompletion, for example in Xcode.
-If you go to the definition of functions (in the `.h` file), you'll see comments on `@param`, `@return`, and so on.
+If you go to the definition of functions (in the `.h` file), you'll see comments on `@param`, `@return`, and similar tags.
 
 Known limitations:
 
 * Dependency documentation is not exported unless it is compiled with the `-Xexport-kdoc` option. Libraries compiled with
   this compiler option might be incompatible with other compiler versions.
-* KDoc comments are mostly exported as is. Many KDoc features, for example `@property`, are not supported.
+* KDoc comments are mostly exported as is, but many KDoc block tags, such as `@property`, are not supported.
 
-If necessary, you can disable the export of Kdoc comments from klibs to the produced Apple frameworks in the `binaries {}`
+If necessary, you can disable the export of KDoc comments from klibs to the produced Apple frameworks in the `binaries {}`
 block of your Gradle build file:
 
 ```kotlin
