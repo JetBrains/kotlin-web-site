@@ -220,7 +220,7 @@ the same as the C version. All the calls you'd expect in the libcurl library are
 You can see the actual output because the call `curl_easy_perform` prints the result to the standard output. You could
 hide this using `curl_easy_setopt`.
 
-> You can get the full project code in our [GitHub repository](https://github.com/Kotlin/kotlin-hands-on-intro-kotlin-native).
+> You can get the full project code in our [GitHub repository](https://github.com/kotlin-hands-on/intro-kotlin-native).
 >
 {style="note"}
 
