@@ -25,7 +25,7 @@ app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts to publish
    >
    {style="note"}
 
-5. Select the **Web** target. Make sure that no other options are selected.
+5. Select the **Web** target and the **Share UI** tab. Make sure that no other options are selected.
 6. Click **Create**.
 
    ![Kotlin Multiplatform wizard](wasm-kmp-wizard.png){width=600}
