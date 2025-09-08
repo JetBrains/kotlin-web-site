@@ -405,7 +405,7 @@ Exception handling works as follows:
 
 * Exceptions thrown from Kotlin: they can be caught on JavaScript's side as regular JS errors.
 
-Here's an example demonstrating the exception handling behavior:
+Here's an example that demonstrates catching a JavaScript exception on the Kotlin side:
 
 ```kotlin
 external object JSON {

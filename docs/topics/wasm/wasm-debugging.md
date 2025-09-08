@@ -11,19 +11,19 @@ application built with Kotlin/Wasm.
 1. [Set up your environment for Kotlin Multiplatform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html#set-up-the-environment).
 2. Follow the instructions to [create a Kotlin Multiplatform project targeting Kotlin/Wasm](wasm-get-started.md#create-a-project).
 
+> * Debugging Kotlin/Wasm code in IntelliJ IDEA is available starting from version 2025.3 of the IDE. If you created the
+    > `WasmDemo` project in a different version of IntelliJ IDEA, switch to version 2025.3 and open the project there
+    > to continue this tutorial.
+> * To debug Kotlin/Wasm code in IntelliJ IDEA, you must have the JavaScript Debugger plugin installed. [See more information
+    > about the plugin and how to install it.](https://www.jetbrains.com/help/idea/debugging-javascript-in-chrome.html#ws_js_debugging_chrome_before_you_start)
+>
+{style="note"}
+
 ## Debug in IntelliJ IDEA
 
 The Kotlin Multiplatform project you created contains a Compose Multiplatform application powered by Kotlin/Wasm.
 You can debug this application
-in IntelliJ IDEA out of the box, without additional configurations.
-
-> * Debugging Kotlin/Wasm code in IntelliJ IDEA is available starting from version 2025.3 of the IDE. If you created the
-> `WasmDemo` project in a different version of IntelliJ IDEA, switch to version 2025.3 and open the project there 
-> to continue this tutorial.
-> * To debug Kotlin/Wasm code in IntelliJ IDEA, you must have the JavaScript Debugger plugin installed. [See more information
-> about the plugin and how to install it.](https://www.jetbrains.com/help/idea/debugging-javascript-in-chrome.html#ws_js_debugging_chrome_before_you_start)
->
-{style="note"}
+in IntelliJ IDEA out of the box, without additional configuration.
 
 1. In IntelliJ IDEA, open the Kotlin file to debug. In this tutorial, we'll work with the `Greeting.kt` file from the following directory
    of the Kotlin Multiplatform project:
@@ -35,14 +35,17 @@ in IntelliJ IDEA out of the box, without additional configurations.
    ![Set breakpoints](wasm-breakpoints-intellij.png){width=650}
 
 3. In the list of run configurations, select **composeApp[wasmJs]**.
-4. Run the code in debug mode by clicking the debug icon at the top of the screen. Make sure
-   you run the **composeApp[wasmJs]** configuration.
+4. Run the code in debug mode by clicking the debug icon at the top of the screen.
 
    ![Run in debug mode](wasm-debug-run-configurations.png){width=600}
 
-   Once the application starts, it opens in a new browser window, and the **Debug** panel appears automatically in IntelliJ IDEA.
+   Once the application starts, it opens in a new browser window.
 
    ![Compose app in browser](wasm-composeapp-browser.png){width=600}
+
+   Also, the **Debug** panel opens automatically in IntelliJ IDEA.
+
+   ![Compose app debugger](wasm-debug-pane.png){width=600}
 
 ### Inspect your application
 
@@ -58,21 +61,21 @@ in IntelliJ IDEA out of the box, without additional configurations.
     * ![Step into](wasm-debug-step-into.png){width=30}{type="joined"} Step into to investigate a function more deeply.
     * ![Step out](wasm-debug-step-out.png){width=30}{type="joined"} Step out to execute the code until it exits the current function.
 
-3. Check the **Threads & Variables** pane to trace the sequence of function calls and pinpoint the location of any errors.
+3. Check the **Threads & Variables** pane. It helps you trace the sequence of function calls and pinpoint the location of any errors.
 
    ![Check Threads & Variables](wasm-debug-panes-intellij.png){width=700}
 
-4. Make changes to your code and run the application again to verify that everything works as expected.
-5. Click on the line numbers with breakpoints to remove the breakpoints.
+4. Make changes to your code and run the application again to verify how it works.
+5. When you're done debugging, click on the line numbers with breakpoints to remove the breakpoints.
 
 ## Debug in your browser
 
 You can also debug this Compose Multiplatform application
 in your browser without additional configuration. 
 
-When you run development tasks (`*DevRun`), Kotlin automatically serves the source files to the browser,
+When you run development Gradle tasks (`*DevRun`), Kotlin automatically serves the source files to the browser,
 allowing you to set breakpoints, inspect variables,
-and step through Kotlin code without extra setup.
+and step through Kotlin code.
 
 The configuration to serve the Kotlin/Wasm project sources in the browser is now included in the Kotlin Gradle plugin.
 If you previously added this configuration
@@ -91,15 +94,14 @@ to your `build.gradle.kts` file, you should remove it to avoid conflicts.
 3. Switch to the **Sources** tab and select the Kotlin file to debug. In this tutorial, we'll work with the `Greeting.kt` file.
 
 4. Click on the line numbers to set breakpoints on the code that you want to inspect. Only the lines
-   with darker numbers can have breakpoints.
+   with darker numbers can have breakpoints — in this example, 4, 7, 8, and 9.
 
    ![Set breakpoints](wasm-breakpoints-browser.png){width=700}
 
-5. Follow the instructions from Debugging in IntelliJ IDEA to [inspect your application](#inspect-your-application).
+5. Inspect your application similar to [debugging in IntelliJ IDEA](#inspect-your-application).
 
-   > When debugging in your browser, the panes to trace the sequence of function
-   > calls and pinpoint any errors are **Scope** and **Call Stack**.
-   {style="tip"}
+    When debugging in your browser, the panes to trace the sequence of function
+    calls and pinpoint any errors are **Scope** and **Call Stack**.
 
    ![Check the call stack](wasm-debug-scope.png){width=450}
 
@@ -108,7 +110,7 @@ to your `build.gradle.kts` file, you should remove it to avoid conflicts.
 Custom formatters help display and locate variable values in a more user-friendly and comprehensible manner when debugging Kotlin/Wasm code
 in your browser.
 
-Custom formatters are enabled by default in development builds, but
+Custom formatters are enabled by default in Kotlin/Wasm development builds, but
 you still need to ensure that custom formatters are enabled in your browser's developer tools:
 
 * In Chrome DevTools, find the **Custom formatters** checkbox in **Settings | Preferences | Console**:
@@ -119,8 +121,8 @@ you still need to ensure that custom formatters are enabled in your browser's de
 
   ![Enable custom formatters in Firefox](wasm-custom-formatters-firefox.png){width=400}
 
-This feature is supported in Firefox and Chromium-based browsers as
-it uses the [custom formatters API](https://firefox-source-docs.mozilla.org/devtools-user/custom_formatters/index.html).
+This feature uses the [custom formatters API](https://firefox-source-docs.mozilla.org/devtools-user/custom_formatters/index.html),
+and is supported in Firefox and Chromium-based browsers.
 
 Given that custom formatters work by default only for Kotlin/Wasm development builds,
 you need to adjust your Gradle configuration if you want to use them for production builds.

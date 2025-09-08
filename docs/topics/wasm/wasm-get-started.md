@@ -3,7 +3,7 @@
 <primary-label ref="beta"/> 
 
 This tutorial demonstrates how to run a [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) 
-app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts to publish on a site.
+app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts to publish as part of a website.
 
 ## Create a project
 
@@ -36,32 +36,33 @@ Once the project loads, select **composeApp [wasmJs]** in the list of run config
 
 ![Run the Compose Multiplatform app on web](compose-run-web-black.png){width=300}
 
-The web application opens automatically in your browser. Alternatively, you can type the following URL in your browser when the run is finished:
+The web application opens automatically in your browser. Alternatively, you can open the following URL in your browser when the run is finished:
 
 ```shell
    http://localhost:8080/
 ```
 > The port number can vary because the 8080 port may be unavailable.
-> You can find the actual port number in the Gradle build console.
+> You can find the actual port number in the output of the Gradle build.
 >
 {style="tip"}
 
-You see a "Click me!" button. Click it:
+Click the "Click me!" button:
 
 ![Click me](wasm-composeapp-browser-clickme.png){width=600}
 
-Now you see the Compose Multiplatform logo:
+It reveals the Compose Multiplatform logo:
 
 ![Compose app in browser](wasm-composeapp-browser.png){width=600}
 
 ## Generate artifacts
 
-Generate your project's artifacts to publish on a site:
+Generate your project's artifacts to publish on a website:
 
 1. Open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
 2. In **wasmdemo** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDistribution** task.
 
-   > You need at least Java 11 as your Gradle JVM for the tasks to load successfully.
+   > You need at least Java 11 as your Gradle JVM for the tasks to load successfully, and we recommend at least 
+   > Java 17 for Compose Multiplatform projects in general.
    >
    {style="note"}
 
@@ -81,9 +82,9 @@ directory:
 ## Publish the application
 
 Use the generated artifacts to deploy your Kotlin/Wasm application. 
-Select a hosting platform of your preference
-and follow the instructions to publish the artifacts. 
-Some options are:
+Select a publishing option of your preference
+and follow the instructions to deploy the artifacts. 
+Some alternatives are:
 
 * [GitHub pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site)
 * [Cloudflare](https://developers.cloudflare.com/workers/)

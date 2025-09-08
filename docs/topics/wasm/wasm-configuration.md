@@ -7,11 +7,10 @@ for efficient development with Kotlin/Wasm.
 
 ## Browser versions
 
-Kotlin/Wasm relies on new WebAssembly proposals, such as [garbage collection (WasmGC)](#garbage-collection-proposal) and
+Kotlin/Wasm relies on the latest WebAssembly proposals, such as [garbage collection (WasmGC)](#garbage-collection-proposal) and
 [exception handling](#exception-handling-proposal), to introduce improvements and new features within WebAssembly.
 
-To ensure these features work properly, you need an environment that supports the new proposals.
-In some cases, you may need to set up the environment to make it compatible with the proposals. 
+To make sure these features work properly, provide an environment that supports the latest proposals.
 Check if your browser version supports 
 the new WasmGC by default or if you need to make changes to the environment.
 
@@ -176,7 +175,10 @@ Keep in mind that enabling this option increases the application size.
 In Kotlin/Wasm, accessing an array with an index outside its bounds triggers a WebAssembly trap instead of a regular Kotlin exception. 
 The trap immediately stops the current stack of execution.
 
-You can avoid such traps by using the following compiler option in the command line when linking an executable:
+When running in a JavaScript environment, these traps appear as
+`WebAssembly.RuntimeError` and can be caught on the JavaScript side.
+
+You can avoid such traps in Kotlin/Wasm environments by using the following compiler option in the command line when linking an executable:
 
 ```
 -Xwasm-enable-array-range-checks
@@ -195,9 +197,6 @@ kotlin {
 
 With the compiler option enabled, an `IndexOutOfBoundsException` is thrown instead of a trap. 
 
-When running in a JavaScript environment, these traps appear as
-`WebAssembly.RuntimeError` and can be caught on the JavaScript side.
-
 See more details and share your feedback in this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-73452/K-Wasm-turning-on-range-checks-by-default).
 
 ## Experimental annotations
@@ -213,7 +212,7 @@ versions.
 ## Reloads during debugging
 
 [Debugging](wasm-debugging.md) your applications in [modern browsers](#browser-versions) works out of the box.
-When you run development tasks (`*DevRun`), Kotlin automatically serves the source files to the browser.
+When you run development Gradle tasks (`*DevRun`), Kotlin automatically serves the source files to the browser.
 
 However, serving sources by default may cause [repeated reloads of the application in the browser before Kotlin compilation and bundling are complete](https://youtrack.jetbrains.com/issue/KT-80582/Multiple-reloads-when-using-webpack-dev-server-after-2.2.20-Beta2#focus=Comments-27-12596427.0-0).
 As a workaround, adjust your webpack configuration to ignore Kotlin source files and disable watching for served static files. Add a `.js` file with the following content into the `webpack.config.d` directory at the root of your project:

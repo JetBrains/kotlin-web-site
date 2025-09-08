@@ -15,7 +15,7 @@ web applications built with [Compose Multiplatform](https://www.jetbrains.com/lp
 browser in standalone Wasm virtual machines. In the outside-of-browser case,
 [WebAssembly System Interface (WASI)](https://wasi.dev/) provides access to platform APIs, which you can also utilize.
 
-> To run applications built with Kotlin/Wasm in a browser, you need a [browser version](wasm-configuration.md#browser-versions) that supports 
+> To run applications built with Kotlin/Wasm in a browser, your users need a [browser version](wasm-configuration.md#browser-versions) that supports 
 > WebAssembly's garbage collection
 > and legacy exception handling proposals. To check the browser support status, see the [WebAssembly
 > roadmap](https://webassembly.org/roadmap/).
