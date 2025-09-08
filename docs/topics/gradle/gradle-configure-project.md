@@ -635,9 +635,26 @@ Learn more about [Kotlin Multiplatform for different platforms](https://www.jetb
 
 It's recommended to use Android Studio for creating Android applications. [Learn how to use the Android Gradle plugin](https://developer.android.com/studio/releases/gradle-plugin).
 
-## Targeting JavaScript
+## Targeting the web
 
-When targeting JavaScript, use the `kotlin-multiplatform` plugin as well. [Learn more about setting up a Kotlin/JS project](js-project-setup.md)
+Kotlin, through Kotlin Multiplatform, offers two approaches for web development:
+
+* JavaScript-based (using the Kotlin/JS compiler)
+* WebAssembly-based (using the Kotlin/Wasm compiler)
+
+Both approaches use the Kotlin Multiplatform plugin but support different use cases.
+The sections below explain how to configure each target in your Gradle build and when to use them.
+
+### Targeting JavaScript
+
+Use Kotlin/JS if your goal is to:
+
+* Share business logic with a JavaScript/TypeScript codebase
+* Build non-shareable web apps with Kotlin
+
+For more information, see [Choose the right web target for a Kotlin Multiplatform project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/choosing-web-target.html).
+
+When targeting JavaScript, use the `kotlin-multiplatform` plugin:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -660,9 +677,84 @@ plugins {
 </tab>
 </tabs>
 
-### Kotlin and Java sources for JavaScript
+Configure the JavaScript target by specifying whether it should run in the browser or the Node.js environment:
 
-This plugin only works for Kotlin files, so it is recommended that you keep Kotlin and Java files separate (if the
+```kotlin
+kotlin {
+    js().browser {  // or js().nodejs
+        /* ... */
+    }
+}
+```
+
+> See [further details about the Gradle configuration for JavaScript](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#web-targets) and learn more about [setting up a Kotlin/JS project](js-project-setup.md).
+>
+{style="note"}
+
+### Targeting WebAssembly
+
+Use Kotlin/Wasm if you want to share both logic and UI across multiple platforms. For more information,
+see [Choose the right web target for a Kotlin Multiplatform project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/choosing-web-target.html).
+
+As with JavaScript, use the `kotlin-multiplatform` plugin when targeting WebAssembly (Wasm):
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    kotlin("multiplatform") version "%kotlinVersion%"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+```
+
+</tab>
+</tabs>
+
+Depending on your requirements, you can target:
+
+* **`wasmJs`**: for running in browsers or Node.js
+* **`wasmWasi`**: for running in Wasm environments supporting [WASI (WebAssembly System Interface)](https://wasi.dev/), such as Wasmtime, WasmEdge, and so on.
+
+Configure the `wasmJs` target for web browsers or Node.js:
+
+```kotlin
+kotlin {
+    wasmJs {
+        browser { // or nodejs
+            /* ... */
+        }
+    }
+}
+```
+
+For WASI environments, configure the `wasmWasi` target:
+
+```kotlin
+kotlin {
+    wasmWasi {
+        nodejs {
+            /* ... */
+        }
+    }
+}
+```
+
+> [See further details about the Gradle configuration for Wasm](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#web-targets).
+>
+{style="note"}
+
+### Kotlin and Java sources for the web target
+
+The KGP only works for Kotlin files, so it is recommended that you keep Kotlin and Java files separate (if the
 project contains Java files). If you don't store them separately, specify the source folder in the `sourceSets{}` block:
 
 <tabs group="build-script">

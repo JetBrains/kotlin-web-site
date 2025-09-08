@@ -307,7 +307,7 @@ Many well-known frameworks and libraries are already available for the IR backen
 [doodle](https://github.com/nacular/doodle), and others. If you're using them in your project, you can already build it
 with the IR backend and see the benefits it brings.
 
-If you're writing your own library, [compile it in the 'both' mode](js-ir-compiler.md#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility)
+If you're writing your own library, compile it in the 'both' mode
 so that your clients can also use it with the new compiler.
 
 

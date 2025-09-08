@@ -637,7 +637,7 @@ Aside from the performance improvement, this changes the way `Char` is exported 
 
 ### Improvements to export and TypeScript declaration generation
 
-Kotlin 1.6.20 is bringing multiple fixes and improvements to the export mechanism (the [`@JsExport`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-js-export/) annotation), including the [generation of TypeScript declarations (`.d.ts`)](js-ir-compiler.md#preview-generation-of-typescript-declaration-files-d-ts).
+Kotlin 1.6.20 is bringing multiple fixes and improvements to the export mechanism (the [`@JsExport`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/-js-export/) annotation), including the [generation of TypeScript declarations (`.d.ts`)](js-project-setup.md#generation-of-typescript-declaration-files-d-ts)
 We've added the ability to export interfaces and enums, and we've fixed the export behavior in some corner cases that were reported to us previously.
 For more details, see the [list of export improvements in YouTrack](https://youtrack.jetbrains.com/issues?q=Project:%20Kotlin%20issue%20id:%20KT-45434,%20KT-44494,%20KT-37916,%20KT-43191,%20KT-46961,%20KT-40236).
 
