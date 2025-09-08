@@ -1,0 +1,22 @@
+name: E2E Tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Start test container
+        run: ./scripts/test/up.sh
+
+      - name: Run E2E tests
+        run: ./scripts/test/run.sh
+
+      - name: Stop test container
+        if: always()
+        run: ./scripts/test/stop.sh

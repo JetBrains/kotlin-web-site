@@ -49,20 +49,20 @@ import org.jetbrains.kotlin.buildtools.api.ExperimentalBuildToolsApi
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
-	kotlin("jvm") version "2.2.0"
+    kotlin("jvm") version "2.2.0"
 }
 
 group = "org.jetbrains.example"
 version = "1.0-SNAPSHOT"
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 kotlin {
-	jvmToolchain(8)
-	@OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
-	compilerVersion.set("2.1.21") // <-- different version than 2.2.0
+    jvmToolchain(8)
+    @OptIn(ExperimentalBuildToolsApi::class, ExperimentalKotlinGradlePluginApi::class)
+    compilerVersion.set("2.1.21") // <-- different version than 2.2.0
 }
 ```
 

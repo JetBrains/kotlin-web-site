@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { testSelector } from '../utils';
 
 test.describe('Solutions tab', () => {
     test.beforeEach(async ({ page }) => {
@@ -12,21 +13,21 @@ test.describe('Solutions tab', () => {
     });
 
     test('Click on "Multiplatform" button should open the related page', async ({ page }) => {
-        const multiplatformButton = page.getByText('Multiplatform').first();
+        const multiplatformButton = page.locator(testSelector("header")).getByText('Multiplatform').first();
         await expect(multiplatformButton).toBeVisible();
         await multiplatformButton.click();
         await expect(page.url()).toContain('https://www.jetbrains.com/kotlin-multiplatform/');
     });
 
     test('Click on "Server-side" button should open the related page', async ({ page }) => {
-        const serverSideButton = page.getByText('Server-side').first();
+        const serverSideButton = page.locator(testSelector("header")).getByText('Server-side').first();
         await expect(serverSideButton).toBeVisible();
         await serverSideButton.click();
-        await expect(page.url()).toContain('/lp/server-side/');
+        await expect(page.url()).toContain('/server-side/');
     });
 
     test('Click on "Data science" button should open the related page', async ({ page }) => {
-        const dataScienceButton = page.getByText('Data science');
+        const dataScienceButton = page.locator(testSelector("header")).getByText('Data science');
         await expect(dataScienceButton).toBeVisible();
         await dataScienceButton.click();
         // We need a timeout here because of redirect to another URL.
@@ -35,7 +36,7 @@ test.describe('Solutions tab', () => {
     });
 
     test('Click on "Android" button should open the related page', async ({ page }) => {
-        const androidButton = page.getByText('Android').first();
+        const androidButton = page.locator(testSelector("header")).getByText('Android').first();
         await expect(androidButton).toBeVisible();
         await androidButton.click();
         await expect(page.url()).toContain('/docs/android-overview.html');

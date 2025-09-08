@@ -205,6 +205,7 @@ guided by pragmatic design.
 * KEEP
   proposal: [context-parameters.md](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md)
 * YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-10468)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
 </td>
@@ -223,6 +224,7 @@ guided by pragmatic design.
 * KEEP
   proposal: [Improvements to annotation use-site targets on properties](https://github.com/Kotlin/KEEP/blob/master/proposals/annotation-target-in-properties.md)
 * YouTrack issue: [KT-19289](https://youtrack.jetbrains.com/issue/KT-19289)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
 </td>
@@ -241,6 +243,7 @@ guided by pragmatic design.
 * KEEP
   proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/master/proposals/nested-typealias.md)
 * YouTrack issue: [KT-45285](https://youtrack.jetbrains.com/issue/KT-45285)
+* Stability level: [Beta](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
 </td>
@@ -259,6 +262,7 @@ guided by pragmatic design.
 * KEEP
   proposal: [context-sensitive-resolution.md](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md)
 * YouTrack issue: [KT-16768](https://youtrack.jetbrains.com/issue/KT-16768)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
 </td>
@@ -274,9 +278,9 @@ guided by pragmatic design.
 
 **Expose boxed inline value classes in JVM**
 
-* KEEP
-  proposal: [jvm-expose-boxed.md](https://github.com/Kotlin/KEEP/blob/jvm-expose-boxed/proposals/jvm-expose-boxed.md)
+* KEEP proposal: [jvm-expose-boxed.md](https://github.com/Kotlin/KEEP/blob/jvm-expose-boxed/proposals/jvm-expose-boxed.md)
 * YouTrack issue: [KT-28135](https://youtrack.jetbrains.com/issue/KT-28135)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
 </td>
@@ -293,6 +297,7 @@ guided by pragmatic design.
 **kotlin.time.Instant**
 
 * KEEP proposal: [Instant and Clock](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/instant.md)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.1.0
 
 </td>
@@ -310,6 +315,7 @@ guided by pragmatic design.
 
 * KEEP proposal: [uuid.md](https://github.com/Kotlin/KEEP/blob/uuid/proposals/stdlib/uuid.md)
 * YouTrack issue: [KT-31880](https://youtrack.jetbrains.com/issue/KT-31880)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.0.20
 
 </td>
@@ -328,6 +334,7 @@ guided by pragmatic design.
 * KEEP
   proposal: [Common atomics](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/common-atomics.md)
 * YouTrack issue: [KT-62423](https://youtrack.jetbrains.com/issue/KT-62423)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
 </td>
@@ -346,6 +353,7 @@ guided by pragmatic design.
 * KEEP
   proposal: [kmp-kotlin-to-java-direct-actualization.md](https://github.com/Kotlin/KEEP/blob/kotlin-to-java-direct-actualization/proposals/kmp-kotlin-to-java-direct-actualization.md)
 * YouTrack issue: [KT-67202](https://youtrack.jetbrains.com/issue/KT-67202)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.1.0
 
 </td>

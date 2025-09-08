@@ -392,7 +392,7 @@ fun main() {
 {kotlin-runnable="true" id="kotlin-tour-scope-function-with-after"}
 
 This example:
-* Uses the `with` scope function with the `mainMonitorSecondaryBufferBackedCanvas` instance as the receiver object.
+* Uses the `with` scope function with the `mainMonitorSecondaryBufferBackedCanvas` instance as the receiver.
 * Creates a temporary scope within the `with` scope function so that you don't have to explicitly refer to the `mainMonitorSecondaryBufferBackedCanvas` instance when calling its member functions.
 * Passes a lambda expression to the `with` scope function that calls a sequence of member functions with different function parameters.
 

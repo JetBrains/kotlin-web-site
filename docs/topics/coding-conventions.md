@@ -172,9 +172,9 @@ in method names are also allowed in test code.
 
 ```kotlin
 class MyTestCase {
-     @Test fun `ensure everything works`() { /*...*/ }
-     
-     @Test fun ensureEverythingWorks_onAndroid() { /*...*/ }
+    @Test fun `ensure everything works`() { /*...*/ }
+
+    @Test fun ensureEverythingWorks_onAndroid() { /*...*/ }
 }
 ```
 
@@ -214,7 +214,7 @@ class C {
     private val _elementList = mutableListOf<Element>()
 
     val elementList: List<Element>
-         get() = _elementList
+        get() = _elementList
 }
 ```
 
@@ -302,9 +302,9 @@ abstract class Foo<out T : Any> : IFoo {
 
 class FooImpl : Foo() {
     constructor(x: String) : this(x) { /*...*/ }
-    
+
     val x = object : IFoo { /*...*/ } 
-} 
+}
 ```
 
 ### Class headers
@@ -606,10 +606,10 @@ If the parameter list is too long to fit on a line, put the arrow on a separate 
 
 ```kotlin
 foo {
-   context: Context,
-   environment: Env
-   ->
-   context.configureEnv(environment)
+    context: Context,
+    environment: Env
+    ->
+    context.configureEnv(environment)
 }
 ```
 
@@ -876,15 +876,15 @@ to treat the dollar sign chars `$` as string literals:
 
 ```kotlin
 val KClass<*>.jsonSchema : String
-get() = $$"""
-    {
-      "$schema": "https://json-schema.org/draft/2020-12/schema",
-      "$id": "https://example.com/product.schema.json",
-      "$dynamicAnchor": "meta",
-      "title": "$${simpleName ?: qualifiedName ?: "unknown"}",
-      "type": "object"
-    }
-    """
+    get() = $$"""
+        {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "$id": "https://example.com/product.schema.json",
+            "$dynamicAnchor": "meta",
+            "title": "$${simpleName ?: qualifiedName ?: "unknown"}",
+            "type": "object"
+        }
+        """
 ```
 
 ## Idiomatic use of language features
@@ -986,7 +986,7 @@ else
 when(x) {
     0 -> return "zero"
     else -> return "nonzero"
-}    
+}
 ```
 
 ### if versus when
@@ -1060,25 +1060,25 @@ indentation, or `trimMargin` when internal indentation is required:
 ```kotlin
 fun main() {
 //sampleStart
-   println("""
-    Not
-    trimmed
-    text
-    """
-   )
+    println("""
+     Not
+     trimmed
+     text
+     """
+    )
 
-   println("""
-    Trimmed
-    text
-    """.trimIndent()
-   )
+    println("""
+     Trimmed
+     text
+     """.trimIndent()
+    )
 
-   println()
+    println()
 
-   val a = """Trimmed to margin text:
-          |if(a > 1) {
-          |    return a
-          |}""".trimMargin()
+    val a = """Trimmed to margin text:
+            |if(a > 1) {
+            |    return a
+            |}""".trimMargin()
 
    println(a)
 //sampleEnd
