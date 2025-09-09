@@ -11,11 +11,12 @@ application built with Kotlin/Wasm.
 1. [Set up your environment for Kotlin Multiplatform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html#set-up-the-environment).
 2. Follow the instructions to [create a Kotlin Multiplatform project targeting Kotlin/Wasm](wasm-get-started.md#create-a-project).
 
-> * Debugging Kotlin/Wasm code in IntelliJ IDEA is available starting from version 2025.3 of the IDE. If you created the
-    > `WasmDemo` project in a different version of IntelliJ IDEA, switch to version 2025.3 and open the project there
-    > to continue this tutorial.
+> * Debugging Kotlin/Wasm code in IntelliJ IDEA is available starting from version 2025.3 of the IDE, currently in the [Early Access Program (EAP)](https://www.jetbrains.com/resources/eap/)
+> and on the way to becoming stable. If you created the
+> `WasmDemo` project in a different version of IntelliJ IDEA, switch to version 2025.3 and open the project there
+> to continue this tutorial.
 > * To debug Kotlin/Wasm code in IntelliJ IDEA, you must have the JavaScript Debugger plugin installed. [See more information
-    > about the plugin and how to install it.](https://www.jetbrains.com/help/idea/debugging-javascript-in-chrome.html#ws_js_debugging_chrome_before_you_start)
+> about the plugin and how to install it.](https://www.jetbrains.com/help/idea/debugging-javascript-in-chrome.html#ws_js_debugging_chrome_before_you_start)
 >
 {style="note"}
 
