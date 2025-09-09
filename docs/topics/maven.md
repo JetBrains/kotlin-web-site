@@ -221,7 +221,7 @@ The _Kotlin compiler execution strategy_ defines where the Kotlin compiler runs.
 | Kotlin daemon (default) | Inside its own daemon process         |
 | In process              | Inside the Maven process              |
 
-By default, the Kotlin daemon is used. You can switch to the "in process" strategy by setting the following
+By default, the [Kotlin daemon](kotlin-daemon.md) is used. You can switch to the "in process" strategy by setting the following
 property in your `pom.xml` file:
 
 ```xml

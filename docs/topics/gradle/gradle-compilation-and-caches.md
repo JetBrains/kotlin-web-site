@@ -70,7 +70,7 @@ starts using it.
 
 ## The Kotlin daemon and how to use it with Gradle
 
-The Kotlin daemon:
+The [Kotlin daemon](kotlin-daemon.md):
 * Runs with the Gradle daemon to compile the project.
 * Runs separately from the Gradle daemon when you compile the project with an IntelliJ IDEA built-in build system.
 
