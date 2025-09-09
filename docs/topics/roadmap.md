@@ -13,7 +13,20 @@
 
 Welcome to the Kotlin roadmap! Get a sneak peek into the priorities of the JetBrains Team.
 
-## Key priorities
+## **Top priority: Fixing IRRELEVANT AUTO-COMPLETE ([KTIJ-32954](https://youtrack.jetbrains.com/issue/KTIJ-32954/))**
+
+![](https://youtrack.jetbrains.com/api/files/74-2973223?sign=MTc1NzYzNTIwMDAwMHwxMS0xODMzNzN8NzQtMjk3MzIyM3xQSE9STkF6S0xoVHAxUzhSRnR6QWJHWTZocFc3TktDRG5tUTNCQmc4WHpFDQo&updated=1757343279190)
+
+----
+
+![](https://youtrack.jetbrains.com/api/files/74-2973997?sign=MTc1NzYzNTIwMDAwMHwxMS0xODMzNzN8NzQtMjk3Mzk5N3wzZ1RISWpoTmxvbEEyVWlTTGFlUXZJdzg3ZXBoSllfbHJQb3ctWVl6N3d3DQo&updated=1757405721155)
+
+----
+
+![](https://youtrack.jetbrains.com/api/files/74-2973224?sign=MTc1NzYzNTIwMDAwMHwxMS0xODMzNzN8NzQtMjk3MzIyNHxJZjJPQ0NaYjF5ZEdxU3lfVlhlUHJNanhlZzFzYVVHUXVDbWh5VVdhTkd3DQo&updated=1757343279194)
+
+
+## Other "Key" priorities
 
 The goal of this roadmap is to give you the big picture.
 Here's a list of our key focus areas – the most important directions we are focused on delivering:
