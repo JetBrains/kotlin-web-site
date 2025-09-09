@@ -1,0 +1,49 @@
+items:
+  - caseType: server-side
+    logos:
+      - /images/case-studies/google.svg
+    description: >
+      DoorDash accelerated backend development with Kotlin.
+      Learn how teams scaled microservices and improved DX.
+    signature:
+      line1: "**Alex Ivanov**"
+      line2: "Head of Backend at DoorDash"
+    readMoreUrl: https://kotlinlang.org/lp/server-side/case-studies/doordash
+    platforms: [backend]
+    media:
+      type: youtube
+      url: https://youtu.be/o14wGByBRAQ
+
+  - caseType: multiplatform
+    logos:
+      - /images/case-studies/google.svg
+      - /images/case-studies/google.svg
+    description: >
+      A single codebase for Android, iOS, and Desktop with **Compose Multiplatform** —
+      shared UI layer and reusable business logic.
+    exploreUrl: https://kotlinlang.org
+    platforms: [android, ios, desktop, compose-multi-platform]
+    media:
+      type: image
+      path: ./images/cases/kmp-hero.png
+
+  - caseType: server-side
+    description: >
+      Short story without a logo — like Twitter. Supports **bold text**
+      and [links](https://example.com) in the description.
+    signature:
+      line1: "**@kotlin**, Official Account"
+      line2: "Twitter"
+    platforms: [backend]
+
+  - caseType: server-side
+    logos:
+      - /images/case-studies/google.svg
+    description: >
+      Infra teams adopt Kotlin for the backend to improve code readability
+      and service reliability.
+    readMoreUrl: https://example.com/full-story
+    platforms: [backend, frontend]
+    media:
+      type: image
+      path: /images/case-studies/google.svg

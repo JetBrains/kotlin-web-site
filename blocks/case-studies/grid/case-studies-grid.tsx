@@ -1,22 +1,22 @@
 import React from 'react';
 
+import caseStudiesDataRaw from '../../../data/case-studies/case-studies.yml';
+import { CaseStudyCard } from '../card/case-studies-card';
+
 export const CaseStudiesGrid: React.FC = () => {
-    // Placeholder items; in future this could be driven by data files
-    const items = [
-        { id: 1, title: 'Company A', summary: 'Using Kotlin for server-side microservices.' },
-        { id: 2, title: 'Company B', summary: 'Migrated Android app to Kotlin.' },
-        { id: 3, title: 'Company C', summary: 'Kotlin Multiplatform for shared code.' }
-    ];
 
     return (
-        <section data-testid="case-studies-grid" aria-label="Case Studies Grid">
+        <section data-testid="case-studies-grid" aria-label="Case Studies Grid" style={{ backgroundColor: '#f9f9f9' }}>
             <h2>Case studies</h2>
+            {JSON.stringify(caseStudiesDataRaw, null, 2)}
+
+
             <div role="list">
-                {items.map((it) => (
-                    <article key={it.id} role="listitem" aria-label={it.title}>
-                        <h3>{it.title}</h3>
-                        <p>{it.summary}</p>
-                    </article>
+                <hr />
+                {caseStudiesDataRaw.items.map((it) => (
+                        <CaseStudyCard
+                            item={{ ...it }}
+                        />
                 ))}
             </div>
         </section>

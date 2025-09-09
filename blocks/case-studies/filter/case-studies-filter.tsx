@@ -74,10 +74,8 @@ export const CaseStudiesFilter: React.FC = () => {
                                 return (
                                     <Checkbox
                                         key={opt.id}
-                                        id={id}
                                         checked={checked}
                                         onChange={() => toggleCodeShared(opt.id)}
-                                        label={<span className={darkTextCn('rs-text-2')}>{opt.label}</span>}
                                         mode="classic"
                                         size="m"
                                     />
@@ -96,10 +94,8 @@ export const CaseStudiesFilter: React.FC = () => {
                                 return (
                                     <Checkbox
                                         key={opt.id}
-                                        id={id}
                                         checked={checked}
                                         onChange={() => toggleUiTech(opt.id)}
-                                        label={<span className={darkTextCn('rs-text-2')}>{opt.label}</span>}
                                         mode="classic"
                                         size="m"
                                     />
