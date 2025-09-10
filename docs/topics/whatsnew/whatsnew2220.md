@@ -225,8 +225,8 @@ Kotlin 2.2.20 introduces several improvements to [Kotlin contracts](https://kotl
 
 * [Support for generics in contract type assertions](#support-for-generics-in-contract-type-assertions).
 * [Support for contracts inside property accessors and specific operator functions](#support-for-contracts-inside-property-accessors-and-specific-operator-functions).
-* [Support for the `returnsNotNull()` function in contracts](#support-for-the-returnsnotnull-function-in-contracts), allowing you to assume conditions are true when passed inside lambdas.
-* [New `holdsIn` keyword](#new-holdsin-keyword) as a way to ensure a non-null return value when a condition is met.
+* [Support for the `returnsNotNull()` function in contracts](#support-for-the-returnsnotnull-function-in-contracts) as a way to ensure a non-null return value when a condition is met.
+* [New `holdsIn` keyword](#new-holdsin-keyword), allowing you to assume conditions are true when passed inside lambdas.
 
 These improvements are [Experimental](components-stability.md#stability-levels-explained). To opt in, you still need to 
 use the `@OptIn(ExperimentalContracts::class)` annotation when declaring contracts. The `holdsIn` keyword and the `returnsNotNull()`
