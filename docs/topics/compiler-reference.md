@@ -9,7 +9,7 @@ These compilers are used by:
 * Maven, when you call `mvn compile` or `mvn test-compile` in a console or in the IDE.
 
 You can also run Kotlin compilers manually from the command line as described 
-in the [Working with command-line compiler](command-line.md) tutorial. 
+in the [Working with command-line compiler](command-line.md) tutorial.
 
 ## Compiler options
 
@@ -37,6 +37,12 @@ For details, see [Maven](maven.md#specify-compiler-options).
   > $ kotlinc.bat hello.kt -include-runtime -d "My Folder\hello.jar"
   > ```
   {style="note"}
+
+## Schema for compiler options
+
+A common schema for all compiler options is published under [`org.jetbrains.kotlin:kotlin-compiler-arguments-description`](https://central.sonatype.com/artifact/org.jetbrains.kotlin/kotlin-compiler-arguments-description)
+as a JAR artifact. This artifact includes both a code representation and a JSON equivalent of all compiler option
+descriptions (for non-Kotlin consumers). As well as metadata, such as the version in which each option was introduced or stabilized.
 
 ## Common options
 
@@ -356,6 +362,11 @@ Add variable and function names that you declared in Kotlin code into the source
 ### -source-map-prefix
 
 Add the specified prefix to paths in the source map.
+
+### -Xes-long-as-bigint
+<primary-label ref="experimental-general"/>
+
+Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
 
 ## Kotlin/Native compiler options
 

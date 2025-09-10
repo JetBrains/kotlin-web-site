@@ -2,7 +2,7 @@
 
 <tldr>
     <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
-    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.2.0</a> and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>.</p>
+    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.2.20</a> <!--and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>-->.</p>
 </tldr>
 
 Since Kotlin 2.0.0, we ship the following types of releases:
@@ -139,6 +139,16 @@ The following table lists details of the latest Kotlin releases:
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
+    </tr>
+    <tr>
+        <td><strong>2.2.20</strong>
+            <p>Released: <strong>September 10, 2025</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.20" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A tooling release for Kotlin 2.2.0 that contains important changes for web development and other improvements.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.20">changelog</a>.</p>
+        </td>
     </tr>
     <tr>
         <td><strong>2.2.10</strong>

@@ -50,7 +50,8 @@ In the following table, there are the minimum and maximum **fully supported** ve
 
 | KGP version   | Gradle min and max versions           | AGP min and max versions                            |
 |---------------|---------------------------------------|-----------------------------------------------------|
-| 2.2.0         | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 2.2.20        | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 2.2.0-2.2.10  | 7.6.3-8.14                            | 7.3.1-8.10.0                                        |
 | 2.1.20-2.1.21 | 7.6.3–8.12.1                          | 7.3.1–8.7.2                                         |
 | 2.1.0–2.1.10  | 7.6.3–8.10*                           | 7.3.1–8.7.2                                         |
 | 2.0.20–2.0.21 | 6.8.3–8.8*                            | 7.1.3–8.5                                           |
@@ -851,6 +852,45 @@ kotlin {
 
 </tab>
 </tabs>
+
+### Configure dependencies at the top level
+<primary-label ref="experimental-opt-in"/>
+
+You can configure common dependencies in multiplatform projects using a top-level `dependencies {}` block.
+Dependencies declared here behave as if they were added to the `commonMain` or `commonTest` source sets.
+
+To use the top-level `dependencies {}` block, opt in by adding the `@OptIn(ExperimentalKotlinGradlePluginApi::class)`
+annotation before the block:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    dependencies {
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    dependencies {
+        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Add platform-specific dependencies inside the `sourceSets {}` block of the corresponding target.
+
+You can share your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-76446).
 
 ### Dependency types
 
