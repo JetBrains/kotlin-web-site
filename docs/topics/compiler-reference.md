@@ -199,6 +199,34 @@ You can adjust warning reporting in your project by combining module-wide rules 
 
 If you have many warnings to exclude from the general rules, you can list them in a separate file using [`@argfile`](#argfile).
 
+### -Xdata-flow-based-exhaustiveness
+<primary-label ref="experimental-general"/>
+
+Enables data-flow–based exhaustiveness checks for `when` expressions.
+
+### -Xallow-reified-type-in-catch
+<primary-label ref="experimental-general"/>
+
+Enables support for reified `Throwable` type parameters in `catch` clauses of `inline` functions.
+
+### Kotlin contract options
+<primary-label ref="experimental-general"/>
+
+The following options enable experimental Kotlin contract features.
+
+#### -Xallow-contracts-on-more-functions
+
+Enables contracts in additional declarations, including property accessors, specific operator functions,
+and type assertions on generic types.
+
+#### -Xallow-condition-implies-returns-contracts
+
+Allows using the `returnsNotNull()` function in contracts to assume a non-null return value for specified conditions.
+
+#### -Xallow-holdsin-contract
+
+Allows using the `holdsIn` keyword in contracts to assume that a boolean condition is `true` inside a lambda.
+
 ## Kotlin/JVM compiler options
 
 The Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
