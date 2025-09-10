@@ -38,7 +38,7 @@
 		<toc-element topic="coding-conventions.md"/>
 		<toc-element topic="idioms.md"/>
 		<toc-element toc-title="Types">
-			<toc-element toc-title="Overview" topic="types-overview.md"/>
+			<toc-element toc-title="Overview" topic="types-overview.md" accepts-web-file-names="basic-types.html"/>
 			<toc-element topic="numbers.md"/>
 			<toc-element topic="unsigned-integer-types.md"/>
 			<toc-element topic="booleans.md"/>
@@ -149,6 +149,7 @@
                 <toc-element accepts-web-file-names="wasm-troubleshooting.html" topic="wasm-configuration.md"/>
 			</toc-element>
 			<toc-element toc-title="Kotlin/JS">
+                <toc-element toc-title="Overview" topic="js-overview.md"/>
                 <toc-element accepts-web-file-names="command-line-library-js.html,working-with-javascript.html,setting-up.html,kotlin-to-javascript.html,create-library-js.html,getting-started-with-intellij-idea.html,getting-started-with-maven.html" topic="js-project-setup.md"/>
                 <toc-element topic="running-kotlin-js.md"/>
                 <toc-element topic="dev-server-continuous-compilation.md"/>
