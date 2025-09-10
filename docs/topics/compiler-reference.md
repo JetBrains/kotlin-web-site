@@ -202,19 +202,17 @@ If you have many warnings to exclude from the general rules, you can list them i
 ### -Xdata-flow-based-exhaustiveness
 <primary-label ref="experimental-general"/>
 
-Enables experimental [data-flow–based exhaustiveness checks for `when` expressions](whatsnew2220.md#data-flow-based-exhaustiveness-checks-for-when-expressions).
+Enables data-flow–based exhaustiveness checks for `when` expressions.
 
 ### -Xallow-reified-type-in-catch
 <primary-label ref="experimental-general"/>
 
-Enables experimental support for [reified `Throwable` type parameters in `catch` clauses](whatsnew2220.md##support-for-reified-types-in-catch-clauses) of `inline` functions.
+Enables support for reified `Throwable` type parameters in `catch` clauses of `inline` functions.
 
 ### Kotlin contract options
 <primary-label ref="experimental-general"/>
 
 The following options enable experimental Kotlin contract features.
-
-For more information, see [Improved Kotlin contracts](whatsnew2220.md#improved-kotlin-contracts).
 
 #### -Xallow-contracts-on-more-functions
 
