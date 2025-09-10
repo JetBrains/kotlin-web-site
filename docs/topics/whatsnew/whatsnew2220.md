@@ -549,7 +549,7 @@ from your `gradle.properties` file.
 >
 {style="tip"}
 
-For more information about Swift export, see its [README](https://github.com/JetBrains/kotlin/tree/master/docs/swift-export#readme).
+For more information about Swift export, see our [documentation](native-swift-export.md).
 
 #### Leave feedback
 
