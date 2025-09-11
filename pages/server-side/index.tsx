@@ -14,7 +14,13 @@ import './styles.css';
 
 function Index() {
     return (
-        <ServerSideLayout title={'Server Side'} ogImageName={'server-side.png'}>
+        <ServerSideLayout
+            title={'Kotlin for server-side'}
+            ogImageName={'server-side.png'}
+            description={
+                'Build scalable server-side apps with Kotlin, from web backends to AI-powered services. Use Spring, Ktor, and the vast Java ecosystem'
+            }
+        >
             <ServerSideHero />
             <CustomerLogoMarqueeSection />
             <FeaturesSection />
