@@ -1,0 +1,67 @@
+# CaseItem (data contract for a single case study entry)
+#
+# Required fields:
+# - id: string — unique identifier of the case
+# - description: string — markdown-enabled text (supports **bold** and [links](https://example.com))
+# - type: string — one of: multiplatform | server-side
+#
+# Optional fields:
+# - logo: list (0–2) of image paths (strings)
+#     Use up to two logos. Paths can be absolute (starting with "/") or full URLs.
+#
+# - signature: object — author or source of the quote
+#     line1: string — supports markdown (e.g., **Name Surname**, Role)
+#     line2: string — plain text
+#
+# - destination: string — either internal or external
+#     internal: the card points to an internal MDX page (see pageContentPath)
+#     external: the card points to an external resource (see externalUrl)
+#
+# - externalUrl: string — external link for the card (used when destination: external)
+#
+# - platforms: list of strings — platform tags shown on the card
+#     Examples: android, ios, desktop, frontend, backend, compose-multiplatform
+#
+# - media: object — media block for the card
+#     type: youtube | image
+#     When type: youtube
+#       url: string — YouTube link
+#     When type: image
+#       path: string — image path relative to /public/ directory
+#
+# - featuredOnMainPage: boolean — mark this case to be highlighted on the main page
+#
+# - slug: string — optional URL segment for the internal case page; if omitted, id is used
+#     Use a single URL segment (no slashes, no section prefix).
+#
+# - pageContentPath: string — path to the detailed case content in MDX (used when destination: internal)
+
+caseItem:
+  id: doordash        # required: unique identifier
+  type: server-side        # required: multiplatform | server-side
+  description: >        # required: markdown-supported text
+    **Case description** supporting [links](https://example.com) and emphasis.
+  logo:        # optional: list of 0–2 image paths (strings)
+    - /images/case-studies/google.svg
+    - /images/case-studies/google.svg
+  signature:        # optional
+    line1: "**Name Surname**"
+    line2: "Position at Company or note"
+  destination: external      # optional: internal | external
+  externalUrl: https://example.com/full-story        # optional
+  platforms:        # optional
+    - android
+    - ios
+    - desktop
+    - frontend
+    - backend
+    - compose-multiplatform
+  media:        # optional
+    type: youtube        # required: youtube | image
+    url: https://youtu.be/o14wGByBRAQ?si=TmqJBtfZw2F8-IEw&t=7
+    # when type: image
+          # type: image
+          # path: ./images/case-studies/google.svg
+  featuredOnMainPage: false   # optional: mark case as selected for the main page
+  slug: example-slug        # optional: if not set, id will be used
+  pageContentPath: ./content/case-studies/doordash/index.mdx
