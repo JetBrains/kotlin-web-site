@@ -69,6 +69,8 @@ export const ServerSideLayout: FC<CommunityLayoutProps> = ({ title, ogImageName,
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={'https://kotlinlang.org' + router.pathname} />
 
+                {description && <meta name="description" content={description} />}
+
                 <meta property="og:image" content={ogImagePath} />
 
                 {description && <meta property="og:description" content={description} />}
