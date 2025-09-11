@@ -99,6 +99,31 @@ val jack = User(name = "Jack", age = 1)
 val olderJack = jack.copy(age = 2)
 ```
 
+The `copy()` function creates a _shallow_ copy of the instance. In other words, it doesn't copy components recursively.
+As a result, references to other objects are shared.
+
+For example, if a property holds a mutable list, changes made through the "original" value are also visible through the copy,
+and changes made through the copy are visible through the original:
+
+```kotlin
+data class Employee(val name: String, val roles: MutableList<String>)
+
+fun main() {
+    val original = Employee("Jamie", mutableListOf("developer"))
+    val duplicate = original.copy()
+
+    duplicate.roles.add("team lead")
+
+    println(original) 
+    // Employee(name=Jamie, roles=[developer, team lead])
+    println(duplicate) 
+    // Employee(name=Jamie, roles=[developer, team lead])
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+As you can see, modifying the `duplicate.roles` property also changes the `original.roles` property because both properties share the same list reference.
+
 ## Data classes and destructuring declarations
 
 _Component functions_ generated for data classes make it possible to use them in [destructuring declarations](destructuring-declarations.md):
