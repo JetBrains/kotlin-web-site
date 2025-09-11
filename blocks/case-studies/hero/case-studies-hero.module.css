@@ -1,0 +1,24 @@
+.wrapper {
+  background: #000000;
+  color: #ffffff;
+  padding: 96px 0 72px 0;
+}
+
+.content {
+  max-width: 816px;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 24px;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    margin-top: 32px;
+  }
+}
