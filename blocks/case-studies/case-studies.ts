@@ -32,4 +32,6 @@ interface CaseCardItem {
     caseType: CaseType;
     platforms?: Platform[];
     media?: Media;
+    /** Optional: selected for the home page */
+    featuredOnHome?: boolean;
 }

@@ -1,6 +1,7 @@
 // TypeScript React
 import React from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
+import styles from './case-studies-card.module.css';
 
 type Platform =
     | 'android'
@@ -29,9 +30,11 @@ export interface CaseCardItem {
     signature?: Signature;
     readMoreUrl?: string;                // "Read the full story →"
     exploreUrl?: string;                 // "Explore the stories"
-    caseType: CaseType;
+    type: CaseType;
     platforms?: Platform[];              // platform icons row
     media?: Media;                       // youtube or local image
+    /** Optional: mark case as selected for the home page */
+    featuredOnHome?: boolean;
 }
 
 /**
@@ -99,20 +102,20 @@ export const CaseStudyCard: React.FC<Props> = ({ item, className }) => {
     const mediaImgSrc = item.media?.type === 'image' ? resolveAssetPath(item.media.path) : undefined;
 
     return (
-        <article className={classNames('cs-card', className)}>
+        <article className={cn(styles.card, className)}>
             {/* Header: type badge and logos (0–2) */}
-            <header className="cs-card__header">
-        <span className={classNames('cs-card__badge', badgeClass[item.caseType])}>
-          {badgeText[item.caseType]}
+            <header className={styles.header}>
+        <span className={cn(styles.badge, styles[badgeClass[item.type]])}>
+          {badgeText[item.type]}
         </span>
 
                 {(logoSrc1 || logoSrc2) && (
-                    <div className={classNames('cs-card__logos', { 'cs-card__logos--double': Boolean(logoSrc1 && logoSrc2) })}>
+                    <div className={cn(styles.logos, { [styles.logosDouble]: Boolean(logoSrc1 && logoSrc2) })}>
                         {logoSrc1 && (
-                            <img className="cs-card__logo" src={logoSrc1} alt="Logo" />
+                            <img className={styles.logo} src={logoSrc1} alt="Logo" />
                         )}
                         {logoSrc2 && (
-                            <img className="cs-card__logo cs-card__logo--second" src={logoSrc2} alt="Second logo" />
+                            <img className={cn(styles.logo, styles.logoSecond)} src={logoSrc2} alt="Second logo" />
                         )}
                     </div>
                 )}
@@ -120,11 +123,11 @@ export const CaseStudyCard: React.FC<Props> = ({ item, className }) => {
 
             {/* Media (optional): YouTube or Image */}
             {hasMedia && (
-                <div className="cs-card__media">
+                <div className={styles.media}>
                     {isYoutube && mediaUrl && (
-                        <div className="cs-card__media-video">
+                        <div className={styles.mediaVideo}>
                             <iframe
-                                className="cs-card__iframe"
+                                className={styles.iframe}
                                 src={toYoutubeEmbedUrl(mediaUrl)}
                                 title="Case study video"
                                 frameBorder={0}
@@ -134,38 +137,38 @@ export const CaseStudyCard: React.FC<Props> = ({ item, className }) => {
                         </div>
                     )}
                     {!isYoutube && mediaImgSrc && (
-                        <img className="cs-card__media-image" src={mediaImgSrc} alt="Case media" />
+                        <img className={styles.mediaImage} src={mediaImgSrc} alt="Case media" />
                     )}
                 </div>
             )}
 
             {/* Description (markdown) */}
             <div
-                className="cs-card__description"
+                className={styles.description}
                 dangerouslySetInnerHTML={{ __html: mdToHtml(item.description) }}
             />
 
             {/* Signature (optional) */}
             {item.signature && (
-                <div className="cs-card__signature">
+                <div className={styles.signature}>
                     <div
-                        className="cs-card__signature-line1"
+                        className={styles.signatureLine1}
                         dangerouslySetInnerHTML={{ __html: mdToHtml(item.signature.line1) }}
                     />
-                    <div className="cs-card__signature-line2">{item.signature.line2}</div>
+                    <div className={styles.signatureLine2}>{item.signature.line2}</div>
                 </div>
             )}
 
             {/* Platforms (optional) */}
             {item.platforms && item.platforms.length > 0 && (
-                <div className="cs-card__platforms" aria-label="Platforms">
+                <div className={styles.platforms} aria-label="Platforms">
                     {item.platforms.map((p) => {
                         const iconSrc = platformIconPath(p);
                         // We render icon + label; if icon path 404s, the label remains visible
                         return (
-                            <span key={p} className="cs-card__platform">
-                <img className="cs-card__platform-icon" src={iconSrc} alt={`${p} icon`} onError={(e) => hideBrokenIcon(e.currentTarget)} />
-                <span className="cs-card__platform-label">{humanizePlatform(p)}</span>
+                            <span key={p} className={styles.platform}>
+                <img className={styles.platformIcon} src={iconSrc} alt={`${p} icon`} onError={(e) => hideBrokenIcon(e.currentTarget)} />
+                <span className={styles.platformLabel}>{humanizePlatform(p)}</span>
               </span>
                         );
                     })}
@@ -174,10 +177,10 @@ export const CaseStudyCard: React.FC<Props> = ({ item, className }) => {
 
             {/* Actions */}
             {(item.readMoreUrl || item.exploreUrl) && (
-                <div className="cs-card__actions">
+                <div className={styles.actions}>
                     {item.readMoreUrl && (
                         <a
-                            className="cs-card__link"
+                            className={styles.link}
                             href={item.readMoreUrl}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -187,7 +190,7 @@ export const CaseStudyCard: React.FC<Props> = ({ item, className }) => {
                     )}
                     {item.exploreUrl && (
                         <a
-                            className="cs-card__button"
+                            className={styles.button}
                             href={item.exploreUrl}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -197,160 +200,6 @@ export const CaseStudyCard: React.FC<Props> = ({ item, className }) => {
                     )}
                 </div>
             )}
-
-            <style jsx>{`
-        .cs-card {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          padding: 20px;
-          border-radius: 12px;
-          background: #fff;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
-        .cs-card__header {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 12px;
-        }
-        .cs-card__badge {
-          font-size: 12px;
-          font-weight: 600;
-          padding: 6px 10px;
-          border-radius: 999px;
-          line-height: 1;
-          white-space: nowrap;
-        }
-        .badgeMultiplatform {
-          background: #eef7ff;
-          color: #1565c0;
-          border: 1px solid rgba(21,101,192,0.15);
-        }
-        .badgeServerSide {
-          background: #eef9f2;
-          color: #1b5e20;
-          border: 1px solid rgba(27,94,32,0.15);
-        }
-        .cs-card__logos {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-        .cs-card__logo {
-          height: 28px;
-          width: auto;
-          object-fit: contain;
-          max-width: 140px;
-          opacity: 0.95;
-        }
-        .cs-card__logo--second {
-          border-left: 1px solid rgba(0,0,0,0.06);
-          padding-left: 10px;
-        }
-
-        .cs-card__media {
-          border-radius: 10px;
-          overflow: hidden;
-          background: #f6f7f9;
-        }
-        .cs-card__media-video {
-          position: relative;
-          padding-bottom: 56.25%;
-          height: 0;
-        }
-        .cs-card__iframe {
-          position: absolute;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-        }
-        .cs-card__media-image {
-          width: 100%;
-          height: auto;
-          display: block;
-        }
-
-        .cs-card__description {
-          color: #1f2328;
-          font-size: 16px;
-          line-height: 1.6;
-        }
-        .cs-card__description :global(a) {
-          color: #0b65c2;
-          text-decoration: underline;
-        }
-        .cs-card__description :global(strong) {
-          font-weight: 700;
-        }
-
-        .cs-card__signature {
-          margin-top: 4px;
-          margin-bottom: 24px; /* required 24px bottom spacing */
-        }
-        .cs-card__signature-line1 {
-          font-weight: 600;
-          color: #101214;
-        }
-        .cs-card__signature-line2 {
-          color: #555c63;
-        }
-
-        .cs-card__platforms {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px 14px;
-          align-items: center;
-        }
-        .cs-card__platform {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          padding: 4px 8px;
-          border: 1px solid rgba(0,0,0,0.06);
-          border-radius: 999px;
-          background: #fafbfc;
-          color: #2b2f35;
-          font-size: 13px;
-          line-height: 1;
-        }
-        .cs-card__platform-icon {
-          width: 16px;
-          height: 16px;
-          object-fit: contain;
-        }
-        .cs-card__platform-label {
-          text-transform: capitalize;
-        }
-
-        .cs-card__actions {
-          display: flex;
-          gap: 12px;
-          align-items: center;
-          flex-wrap: wrap;
-        }
-        .cs-card__link {
-          color: #0b65c2;
-          text-decoration: underline;
-          font-weight: 600;
-        }
-        .cs-card__button {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 8px 14px;
-          border-radius: 8px;
-          border: 1px solid #0b65c2;
-          color: #0b65c2;
-          font-weight: 600;
-          text-decoration: none;
-          transition: all 0.15s ease;
-        }
-        .cs-card__button:hover {
-          background: #0b65c2;
-          color: #fff;
-        }
-      `}</style>
         </article>
     );
 };
