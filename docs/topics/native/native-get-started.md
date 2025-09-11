@@ -110,14 +110,14 @@ Let's add a feature to your application so it can count the number of letters in
            binaries {
                executable {
                    entryPoint = "main"
-                   runTask?.standardInput = System.`in`
+                   runTaskProvider?.configure { standardInput = System.`in` }
                }
            }
        }
        //...
    }
    ```
-   {initial-collapse-state="collapsed" collapsible="true" collapsed-title="runTask?.standardInput = System.`in`"}
+   {initial-collapse-state="collapsed" collapsible="true" collapsed-title="runTaskProvider?.configure { standardInput = System.`in` }"}
 
 3. Eliminate the whitespaces and count the letters:
 
