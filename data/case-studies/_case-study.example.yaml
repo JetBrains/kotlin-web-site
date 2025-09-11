@@ -1,0 +1,65 @@
+# CaseItem (data contract for a single case study entry)
+#
+# Required fields:
+# - id: string — unique identifier of the case
+# - description: string — markdown-enabled text (supports **bold** and [links](https://example.com))
+# - type: string — one of: multiplatform | server-side
+#
+# Optional fields:
+# - logo: list (0–2) of image paths (strings)
+#     Use up to two logos, path relative to /public/ directory
+#
+# - signature: object — author or source of the quote
+#     line1: string — supports markdown (e.g., **Name Surname**, Role)
+#     line2: string — plain text
+#
+# - isExternal: boolean — shows if the case story is from an external source (default: false)
+#
+# - link: string — URL of the full case story
+#
+# - linkText: string — text for the link (default: "Read the full story")
+#
+# - linkStyle: string — 'text' or 'button' — style of the link (default: text)
+#
+# - platforms: list of strings — platform tags shown on the card
+#     Examples: android, ios, desktop, frontend, backend, compose-multiplatform
+#
+# - media: object — media block for the card
+#     type: youtube | image
+#     When type: youtube
+#       videoId: string — YouTube video ID
+#     When type: image
+#       path: string — image path relative to /public/ directory
+#
+# - featuredOnMainPage: boolean — mark this case to be highlighted on the main page
+#
+
+items:
+  - id: CompanyName        # required: unique identifier
+    type: server-side        # required: multiplatform | server-side
+    description: >        # required: markdown-supported text
+      **Case description** supporting [links](https://example.com) and emphasis.
+    logo: # optional: list of 0–2 image paths (strings)
+      - /images/case-studies/google.svg
+      - /images/case-studies/google.svg
+    signature: # optional
+      name: Name Surname
+      position: Position at Company or note
+    isExternal: false      # optional, default: true
+    link: https://example.com/full-story        # optional
+    linkText: Read the full story        # optional
+    linkStyle: text        # optional: button | text (default: button)
+    platforms: # optional
+      - android
+      - ios
+      - desktop
+      - frontend
+      - backend
+      - compose-multiplatform
+    media: # optional
+      type: youtube        # required: youtube | image
+      videoId: o14wGByBRAQ       # required when type: youtube
+        # when type: image
+        # type: image
+      # path: ./images/case-studies/google.svg
+    featuredOnMainPage: false   # optional: mark the case as selected for the main page
