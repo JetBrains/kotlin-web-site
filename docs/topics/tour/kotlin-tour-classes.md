@@ -247,8 +247,8 @@ fun main() {
 Creating a copy of an instance is safer than modifying the original instance because any code that relies on the
 original instance isn't affected by the copy and what you do with it.
 
-> The copy() function creates a **deep copy** of the instance at the top level, but it does **not** perform a **recursive deep copy**.
-> If a property is a reference type (like a list or another object), both the original and the copied instance will share that reference.
+> The copy() function creates a **shallow copy** of the instance, that is, it doesn't copy its components recursively. As a result, references to instances are shared.
+> For example, if one of the properties is a mutable list, changes performed through the "original" value are visible through the copy, and vice versa.
 > For example:
 > ```kotlin
 > data class Person(val name: String, val tags: MutableList<String>)
