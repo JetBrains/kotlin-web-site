@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CaseStudies",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/CaseItem" }
+    }
+  },
+  "required": ["items"],
+  "additionalProperties": false,
+  "definitions": {
+    "CaseItem": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "type": { "enum": ["multiplatform", "server-side"] },
+        "description": { "type": "string", "minLength": 1 },
+        "logo": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 0,
+          "maxItems": 2
+        },
+        "signature": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "position": { "type": "string" }
+          },
+          "additionalProperties": false,
+          "required": ["name", "position"]
+        },
+        "isExternal": { "type": "boolean", "default": false },
+        "link": { "type": "string", "format": "uri" },
+        "linkText": { "type": "string", "minLength": 1 },
+        "linkStyle": { "enum": ["button", "text"] },
+        "platforms": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "android",
+              "ios",
+              "desktop",
+              "frontend",
+              "backend",
+              "compose-multiplatform"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "media": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "type": { "const": "youtube" },
+                "videoId": { "type": "string" }
+              },
+              "required": ["type", "videoId"],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": { "const": "image" },
+                "path": { "type": "string", "minLength": 1 }
+              },
+              "required": ["type", "path"],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "featuredOnMainPage": { "type": "boolean" }
+      },
+      "required": ["id", "type", "description"],
+      "additionalProperties": false
+    }
+  }
+}
