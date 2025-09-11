@@ -32,7 +32,7 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Extension functions](extensions.md)
 * [Null-safety](null-safety.md)
 * [Smart casts](typecasts.md) (**Java 16**: [Pattern Matching for instanceof](https://openjdk.org/jeps/394))
-* [String templates](strings.md) (**Java 21**: [String Templates (Preview)](https://openjdk.org/jeps/430))
+* [String templates](strings.md)
 * [Properties](properties.md)
 * [Primary constructors](classes.md)
 * [First-class delegation](delegation.md)
