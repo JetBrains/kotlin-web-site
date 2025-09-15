@@ -1,37 +1,53 @@
-export type Platform =
-    | 'android'
-    | 'ios'
-    | 'desktop'
-    | 'frontend'
-    | 'backend'
-    | 'compose-multi-platform';
+export type CaseType = 'multiplatform' | 'server-side';
 
-type CaseType = 'multiplatform' | 'server-side';
+export type  CaseTypeSwitch = 'all' | CaseType;
 
-type Media =
-    | { type: 'youtube'; url: string }
-    | { type: 'image'; path: string };
+export const Platforms = [
+    'android',
+    'ios',
+    'desktop',
+    'frontend',
+    'backend',
+] as const;
 
-interface Signature {
-    // line1 — markdown (e.g., **Name Surname**, Role)
-    line1: string;
-    // line2 — plain text
-    line2: string;
+export const PlatformNames: Record<typeof Platforms[number], string> = {
+    "android": "Android",
+    "ios": "iOS",
+    "desktop": "Desktop",
+    "frontend": "Frontend",
+    "backend": "Backend",
 }
 
-interface CaseCardItem {
-    // 0–2 logos: single or pair (for KMP + Compose special card)
-    logos?: [string] | [string, string];
-    // markdown-enabled description
+export type CasePlatform = typeof Platforms[number] | 'compose-multiplatform';
+
+type Signature = {
+    name: string;
+    position: string;
+}
+
+type YoutubeMedia = {
+    type: 'youtube';
+    videoId: string;
+};
+
+type ImageMedia = {
+    type: 'image';
+    path: string;
+};
+
+type Media = YoutubeMedia | ImageMedia;
+
+export interface CaseItem {
+    id: string;
+    type: CaseType;
     description: string;
+    isExternal?: boolean;
+    link?: string;
+    linkText?: string;
+    linkStyle?: 'button' | 'text';
+    logo?: string[];
     signature?: Signature;
-    // "Read the full story →"
-    readMoreUrl?: string;
-    // "Explore the stories"
-    exploreUrl?: string;
-    caseType: CaseType;
-    platforms?: Platform[];
+    platforms?: CasePlatform[];
     media?: Media;
-    /** Optional: selected for the home page */
-    featuredOnHome?: boolean;
+    featuredOnMainPage?: boolean;
 }

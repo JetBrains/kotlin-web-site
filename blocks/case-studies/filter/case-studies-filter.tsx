@@ -78,7 +78,9 @@ export const CaseStudiesFilter: React.FC = () => {
                                         onChange={() => toggleCodeShared(opt.id)}
                                         mode="classic"
                                         size="m"
-                                    />
+                                    >
+                                        {opt.label}
+                                    </Checkbox>
                                 );
                             })}
                         </div>
@@ -98,7 +100,9 @@ export const CaseStudiesFilter: React.FC = () => {
                                         onChange={() => toggleUiTech(opt.id)}
                                         mode="classic"
                                         size="m"
-                                    />
+                                    >
+                                        {opt.label}
+                                    </Checkbox>
                                 );
                             })}
                         </div>
