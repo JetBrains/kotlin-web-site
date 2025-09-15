@@ -1840,10 +1840,10 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
-"@rescui/icons@^0.16.13":
-  version "0.16.13"
-  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-0.16.13.tgz#e1a64bd98d83bd8815035a3aa56ec67ecaead95e"
-  integrity sha512-ik1ZE0QNFM6Kfk8hs3GSmHMvcLLTu/Pxzi5aAy4Z5uIrnKxqXf5k3AlbKZVWS/pneeKLSWhheztcjUVtjidv+g==
+"@rescui/icons@^1.5.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-1.6.0.tgz#3bf7fbda19e0690e70cb254c583bf958a4af78f2"
+  integrity sha512-O5+ElCJ4I0tx1wSy6M7IdOuTvIjJLWL/3wNJ0LANu2jfi95cVhbMrxfvZewhOimS6/QgZXqJ7aPn2iCgagrySQ==
   dependencies:
     "@babel/runtime-corejs3" "^7.26.0"
     classnames "^2.2.6"
