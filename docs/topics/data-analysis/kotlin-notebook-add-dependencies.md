@@ -24,7 +24,7 @@ However, Kotlin Notebook has a simplified method to load popular libraries in th
 %use libraryName
 // You may specify a version
 %use libraryName(version)
-// Adding v= triggers autocomplete
+// Add v= to trigger autocomplete
 %use libraryName(v=version)
 // Example: kotlinx.datetime:0.7.1
 %use datetime(v=0.7.1)
