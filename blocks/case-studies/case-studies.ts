@@ -1,37 +1,62 @@
+export type CaseStudyType = 'multiplatform' | 'server-side';
+
+type CaseStudyDestination = 'internal' | 'external';
+
 export type Platform =
     | 'android'
     | 'ios'
     | 'desktop'
     | 'frontend'
     | 'backend'
-    | 'compose-multi-platform';
+    | 'compose-multiplatform';
 
-type CaseType = 'multiplatform' | 'server-side';
-
-type Media =
-    | { type: 'youtube'; url: string }
-    | { type: 'image'; path: string };
-
-interface Signature {
-    // line1 — markdown (e.g., **Name Surname**, Role)
+type Signature = {
     line1: string;
-    // line2 — plain text
     line2: string;
 }
 
-interface CaseCardItem {
-    // 0–2 logos: single or pair (for KMP + Compose special card)
-    logos?: [string] | [string, string];
-    // markdown-enabled description
+type YoutubeMedia = {
+    type: 'youtube';
+    url: string;
+};
+
+type ImageMedia = {
+    type: 'image';
+    path: string;
+};
+
+type Media = YoutubeMedia | ImageMedia;
+
+interface CaseStudyItemBase {
+    id: string;
+    type: CaseStudyType;
     description: string;
+    destination: CaseStudyDestination;
+    logo?: string[];
     signature?: Signature;
-    // "Read the full story →"
-    readMoreUrl?: string;
-    // "Explore the stories"
-    exploreUrl?: string;
-    caseType: CaseType;
     platforms?: Platform[];
     media?: Media;
-    /** Optional: selected for the home page */
-    featuredOnHome?: boolean;
+    featuredOnMainPage?: boolean;
+    slug?: string;
+    externalLinkText?: string;
+}
+
+export interface ExternalDestinationCaseStudyItem extends CaseStudyItemBase {
+    destination: 'external';
+    // required when destination === 'external'
+    externalLink: string;
+}
+
+export interface InternalDestinationCaseStudyItem extends CaseStudyItemBase {
+    destination: 'internal';
+    // required when destination === 'internal'
+    pageContentPath: string;
+}
+
+export type CaseStudyItem =
+    | ExternalDestinationCaseStudyItem
+    | InternalDestinationCaseStudyItem;
+
+export function isExternalCaseStudy(item: CaseStudyItem): item is ExternalDestinationCaseStudyItem {
+    return item.destination === 'external';
 }
