@@ -339,6 +339,50 @@ you would do the check anyway, but no additional boxing is performed this way.
 >
 {style="note"}
 
+When migrating Java code to Kotlin, you may want to initially use the regular cast operator `as` with a nullable type
+to preserve the original semantics of your code. However, we recommend adapting your code to use the safe cast operator `as?`
+for a safer and more idiomatic approach. For example, if you have the following Java code:
+
+```java
+public class UserProfile {
+    Object data;
+
+    public static String getUsername(UserProfile profile) {
+        if (profile == null) {
+            return null;
+        }
+        return (String) profile.data;
+    }
+}
+```
+
+Migrating this directly with the `as` operator gives you:
+
+```kotlin
+class UserProfile(var data: Any? = null)
+
+fun getUsername(profile: UserProfile?): String? {
+    if (profile == null) {
+        return null
+    }
+    return profile.data as String?
+}
+```
+
+Here, `profile.data` is cast to a nullable string using `as String?`.
+
+We recommend going one step further and using `as? String` to safely cast the value. This approach returns `null`
+on failure instead of throwing a `ClassCastException`:
+
+```kotlin
+class UserProfile(var data: Any? = null)
+
+fun getUsername(profile: UserProfile?): String? =
+  profile?.data as? String
+```
+
+This version replaces the `if` expression with the [safe call operator](null-safety.md#safe-call-operator) `?.`, which safely accesses the data property before attempting the cast.
+
 ## What's next?
 
 * Browse other [Kotlin idioms](idioms.md).
