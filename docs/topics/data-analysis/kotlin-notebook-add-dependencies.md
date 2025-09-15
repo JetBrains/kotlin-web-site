@@ -22,7 +22,7 @@ However, Kotlin Notebook has a simplified method to load popular libraries in th
 ```kotlin
 // Replace libraryName with the library dependency you want to add
 %use libraryName
-// You may specify a version
+// Specify a version, if required
 %use libraryName(version)
 // Add v= to trigger autocomplete
 %use libraryName(v=version)
