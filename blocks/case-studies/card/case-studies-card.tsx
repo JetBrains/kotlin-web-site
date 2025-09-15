@@ -1,41 +1,9 @@
-// TypeScript React
 import React from 'react';
 import cn from 'classnames';
 import styles from './case-studies-card.module.css';
+import { AndroidIcon, AppleIcon, ServerIcon, ComputerIcon, GlobusIcon } from '@rescui/icons';
+import { CaseStudyItem, CaseStudyType, isExternalCaseStudy, Platform } from '../case-studies';
 
-type Platform =
-    | 'android'
-    | 'ios'
-    | 'desktop'
-    | 'frontend'
-    | 'backend'
-    | 'compose-multi-platform';
-
-type CaseType = 'multiplatform' | 'server-side';
-
-type Media =
-    | { type: 'youtube'; url: string }
-    | { type: 'image'; path: string };
-
-interface Signature {
-    // markdown allowed (e.g., **Name Surname**, Role)
-    line1: string;
-    // plain text
-    line2: string;
-}
-
-export interface CaseCardItem {
-    logos?: [string] | [string, string]; // 0–2 logos, local paths or filenames
-    description: string;                 // markdown-enabled text
-    signature?: Signature;
-    readMoreUrl?: string;                // "Read the full story →"
-    exploreUrl?: string;                 // "Explore the stories"
-    type: CaseType;
-    platforms?: Platform[];              // platform icons row
-    media?: Media;                       // youtube or local image
-    /** Optional: mark case as selected for the home page */
-    featuredOnHome?: boolean;
-}
 
 /**
  * Resolve asset path from YAML:
@@ -44,8 +12,6 @@ export interface CaseCardItem {
  */
 const resolveAssetPath = (v?: string) => {
     if (!v) return '';
-    const lower = v.toLowerCase();
-    if (lower.startsWith('http://') || lower.startsWith('https://') || v.startsWith('/')) return v;
     return `/images/case-studies/${v}`;
 };
 
@@ -72,27 +38,46 @@ const mdToHtml = (md: string) => {
     return withLinks;
 };
 
-const badgeText: Record<CaseType, string> = {
+const badgeText: Record<CaseStudyType, string> = {
     'multiplatform': 'Kotlin Multiplatform',
-    'server-side': 'Server-side',
+    'server-side': 'Server-side'
 };
 
-const badgeClass: Record<CaseType, string> = {
+const badgeClass: Record<CaseStudyType, string> = {
     'multiplatform': 'badgeMultiplatform',
-    'server-side': 'badgeServerSide',
+    'server-side': 'badgeServerSide'
 };
 
 // Platform icon path builder. If you keep icons in (for example) /images/platforms/*.svg,
 // they’ll be resolved automatically by key. If an icon is missing, we still render the label.
-const platformIconPath = (p: Platform) => `/images/platforms/${p}.svg`;
+const getPlatformIcon = (p: Platform) => {
+    switch (p) {
+        case 'android':
+            return <AndroidIcon/>;
+        case 'ios':
+            return <AppleIcon/>;
+        case 'desktop':
+            return <ComputerIcon/>;
+        case 'frontend':
+            return <GlobusIcon/>;
+        case 'backend':
+            return <ServerIcon/>;
+        case 'compose-multiplatform':
+            return <img className={styles.platformIcon} src={'/images/platforms/compose-multiplatform.svg'}
+                        alt="Compose Multiplatform icon"
+                        onError={(e) => hideBrokenIcon(e.currentTarget)} />;
+        default:
+            return null;
+    }
+};
 
 type Props = {
-    item: CaseCardItem;
+    item: CaseStudyItem;
     className?: string;
 };
 
 export const CaseStudyCard: React.FC<Props> = ({ item, className }) => {
-    const logos = item.logos ?? [];
+    const logos = item.logo ?? [];
     const logoSrc1 = resolveAssetPath(logos[0]);
     const logoSrc2 = resolveAssetPath(logos[1]);
 
@@ -142,13 +127,11 @@ export const CaseStudyCard: React.FC<Props> = ({ item, className }) => {
                 </div>
             )}
 
-            {/* Description (markdown) */}
             <div
                 className={styles.description}
                 dangerouslySetInnerHTML={{ __html: mdToHtml(item.description) }}
             />
 
-            {/* Signature (optional) */}
             {item.signature && (
                 <div className={styles.signature}>
                     <div
@@ -163,43 +146,33 @@ export const CaseStudyCard: React.FC<Props> = ({ item, className }) => {
             {item.platforms && item.platforms.length > 0 && (
                 <div className={styles.platforms} aria-label="Platforms">
                     {item.platforms.map((p) => {
-                        const iconSrc = platformIconPath(p);
+                        const iconSrc = getPlatformIcon(p);
                         // We render icon + label; if icon path 404s, the label remains visible
                         return (
                             <span key={p} className={styles.platform}>
-                <img className={styles.platformIcon} src={iconSrc} alt={`${p} icon`} onError={(e) => hideBrokenIcon(e.currentTarget)} />
+                                <>
+                {getPlatformIcon(p)}
+                                    </>
                 <span className={styles.platformLabel}>{humanizePlatform(p)}</span>
               </span>
                         );
                     })}
                 </div>
             )}
-
-            {/* Actions */}
-            {(item.readMoreUrl || item.exploreUrl) && (
+            {(isExternalCaseStudy(item)) ? (
                 <div className={styles.actions}>
-                    {item.readMoreUrl && (
-                        <a
-                            className={styles.link}
-                            href={item.readMoreUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Read the full story →
-                        </a>
-                    )}
-                    {item.exploreUrl && (
+                    {item.externalLink && (
                         <a
                             className={styles.button}
-                            href={item.exploreUrl}
+                            href={item.externalLink}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Explore the stories
+                            {item.externalLinkText || 'Read the full story'}
                         </a>
                     )}
                 </div>
-            )}
+            ) : null}
         </article>
     );
 };
@@ -247,7 +220,7 @@ function hideBrokenIcon(img: HTMLImageElement) {
  */
 function humanizePlatform(p: Platform): string {
     switch (p) {
-        case 'compose-multi-platform':
+        case 'compose-multiplatform':
             return 'Compose Multiplatform';
         case 'frontend':
             return 'Frontend';
