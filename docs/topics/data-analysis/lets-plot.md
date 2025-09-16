@@ -10,7 +10,7 @@ Additionally, LPK has seamless integration with [IntelliJ](https://www.jetbrains
 ![Lets-Plot](lets-plot-overview.png){width=700}
 
 This tutorial demonstrates how to create different plot types with
-the LPK and [Kotlin DataFrame](https://kotlin.github.io/dataframe/quickstart.html) libraries using Kotlin Notebook in IntelliJ IDEA.
+the LPK and [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html) libraries using Kotlin Notebook in IntelliJ IDEA.
 
 ## Before you start
 
