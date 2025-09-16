@@ -4,8 +4,8 @@ import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 object WebHelp : GitVcsRoot({
   name = "webhelp"
-  url = "ssh://git@github.com/JetBrains/webhelp"
-  branch = "refs/heads/master"
+  url = "ssh://git@git.jetbrains.team/kotlin-website-team/webhelp.git"
+  branch = "refs/heads/hktn25/main"
   branchSpec = """
         refs/heads/(*)
         refs/tags/(*)

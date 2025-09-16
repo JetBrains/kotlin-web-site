@@ -1,6 +1,8 @@
 package documentation.builds
 
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.FailureAction
+import jetbrains.buildServer.configs.kotlin.ReuseBuilds
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import kotlinlang.builds.BuildWebHelpFrontend
 
@@ -8,7 +10,7 @@ abstract class WritersideBuilder(
     module: String,
     instance: String,
     customInit: BuildType.() -> Unit = {}
-): BuildType({
+) : BuildType({
     val dockerImageTag = "2025.07.8502"
     val frontend = "file:///opt/static/"
 
@@ -40,7 +42,7 @@ abstract class WritersideBuilder(
     }
 
     requirements {
-        equals("container.engine","docker")
+        equals("container.engine", "docker")
     }
 
     failureConditions {
@@ -48,10 +50,17 @@ abstract class WritersideBuilder(
     }
 
     dependencies {
-        artifacts(BuildWebHelpFrontend) {
-            buildRule = lastPinned("+:*")
-            cleanDestination = true
-            artifactRules = "+:static.zip!** => static/"
+        dependency(BuildWebHelpFrontend) {
+            artifacts {
+                buildRule = sameChainOrLastFinished()
+                cleanDestination = true
+                artifactRules = "+:static.zip!** => static/"
+            }
+            snapshot {
+                onDependencyFailure = FailureAction.FAIL_TO_START
+                onDependencyCancel = FailureAction.FAIL_TO_START
+                reuseBuilds = ReuseBuilds.NO
+            }
         }
     }
 
