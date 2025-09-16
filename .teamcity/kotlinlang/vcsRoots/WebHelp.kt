@@ -14,6 +14,6 @@ object WebHelp : GitVcsRoot({
   userNameStyle = UserNameStyle.FULL
   checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS
   authMethod = uploadedKey {
-    uploadedKey = "default teamcity key"
+    uploadedKey = "hktn25"
   }
 })
