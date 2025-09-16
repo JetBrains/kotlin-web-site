@@ -22,7 +22,7 @@ Create a new Kotlin Notebook:
 
 ## Connect to database
 
-You can connect to and interact with an SQL database using specific functions from the [Kotlin DataFrame library](``). 
+You can connect to and interact with an SQL database using specific functions from the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html). 
 You can use `DatabaseConfiguration` to establish a connection to your database and `getSchemaForAllSqlTables()` to retrieve 
 the schema of all tables within it.
 
