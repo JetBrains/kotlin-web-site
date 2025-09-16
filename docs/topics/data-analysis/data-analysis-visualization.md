@@ -4,7 +4,7 @@ Kotlin offers an all-in-one-place solution for powerful and flexible data visual
 before diving into complex models.
 
 This tutorial demonstrates how to create different chart types in IntelliJ IDEA using [Kotlin Notebook](kotlin-notebook-overview.md) with
-the [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](https://kotlin.github.io/dataframe/quickstart.html) libraries.
+the [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html) libraries.
 
 ## Before you start
 
