@@ -2,6 +2,12 @@
 
 _[Released: September 10, 2025](releases.md#release-details)_
 
+> We’d like to hear your thoughts about Kotlin!  
+> [Please take our Kotlin Developer Survey](https://surveys.jetbrains.com/s3/7e238a7b85e5).   
+> It only takes about 10 minutes, and your feedback will help us improve the language, tools, and ecosystem.
+> 
+{style="note"}
+
 The Kotlin 2.2.20 release is out, delivering important changes for web development. [Kotlin/Wasm is now Beta](#kotlin-wasm),
 with improvements to [exception handling in JavaScript interop](#improved-exception-handling-in-kotlin-wasm-and-javascript-interop),
 [npm dependency management](#separated-npm-dependencies), [built-in browser debugging support](#support-for-debugging-in-browsers-without-configuration),
