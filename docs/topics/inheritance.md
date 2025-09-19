@@ -82,9 +82,9 @@ open class Person(val name: String) {
     }
 }
 
-// Subclass inheriting from Person and overriding the introduce() function
+//  A subclass that inherits from Person and overrides the introduce() function
 class Student(name: String, val school: String) : Person(name) {
-    // The final keyword prevents further overriding in subclasses
+    // The final keyword prevents further overrides in subclasses
     final override fun introduce() {
         println("Hi, I'm $name, and I study at $school.")
     }

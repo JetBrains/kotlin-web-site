@@ -8,7 +8,7 @@ create via [constructors](#constructors-and-initializer-blocks).
 When you [create an instance of a class](#creating-instances-of-classes), you are creating 
 a concrete object based on that blueprint.
 
-Kotlin offers a concise syntax for declaring classes. To declare a class, use the `class` keyword 
+Kotlin offers concise syntax for declaring classes. To declare a class, use the `class` keyword 
 followed by the class name:
 
 ```kotlin
@@ -30,25 +30,26 @@ The class declaration consists of:
   * [Object declarations](object-declarations.md)
 
 Both the class header and class body can be minimal. 
-If the class does not have a body, you can omit the curly braces `{}`:
+If the class doesn't have a body, you can omit the curly braces `{}`:
 
 ```kotlin
 // Class with primary constructor, but without a body 
 class Person(val name: String, var age: Int)
 ```
 
-Here's an example of a class with a header, body, and an [instance created](#creating-instances-of-classes) from it:
+Here's an example that declares a class with a header and body, 
+then [creates an instance](#creating-instances-of-classes) from it:
 
 ```kotlin
 // Person class with a primary constructor 
-// that nitializes the name property
+// that initializes the name property
 class Person(val name: String) {
     // Class body with age property
     var age: Int = 0
 }
 
 fun main() {
-    // Creates an instance of Person class by calling the constructor
+    // Creates an instance of the Person class by calling the constructor
     val person = Person("Alice")
 
     // Accesses the instance's properties
@@ -58,35 +59,35 @@ fun main() {
     // 0
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="class-with-header-and-body"}
 
 ## Creating instances of classes
 
 An instance is created
 when you use the class as a blueprint to build a real object to work with in your program.
 
-To create an instance of a class, use the class name followed by parentheses (`()`), similar to calling a [function](functions.md):
+To create an instance of a class, use the class name followed by parentheses `()`, similar to calling a [function](functions.md):
 
 ```kotlin
 // Creates an instance of the Person class
-val person1 = Person()
+val anonymousUser = Person()
 ```
 
 In Kotlin, you can create instances:
 
-* **Without arguments** (`()`): creates an instance using the default values, if they are declared in the class.
-* **With arguments** (`(value)`): creates an instance by passing specific values.
+* **Without arguments** (`Person()`): creates an instance using the default values, if they are declared in the class.
+* **With arguments** (`Person(value)`): creates an instance by passing specific values.
 
 You can assign the created instance to a mutable (`var`) or read-only (`val`) [variable](basic-syntax.md#variables):
 
 ```kotlin
 // Creates an instance using the default value 
 // and assigns it to a mutable variable
-var person1 = Person()
+var anonymousUser = Person()
 
 // Creates an instance by passing a specific value 
 // and assigns it to a read-only variable
-val person2 = Person("Joe")
+val namedUser = Person("Joe")
 ```
 
 It's possible to create instances wherever you need them, inside the [`main()` function](basic-syntax.md#program-entry-point), within other functions, or inside another class.
@@ -103,21 +104,21 @@ class Person(val name: String = "Sebastian")
 
 fun main() {
     // Creates an instance using the default constructor's value
-    val person1 = Person()
+    val anonymousUser = Person()
 
     // Creates an instance by passing a specific value
-    val person2 = Person("Joe")
+    val namedUser = Person("Joe")
 
     // Accesses the instances' name property
-    println(person1.name)
+    println(anonymousUser.name)
     // Sebastian
-    println(person2.name)
+    println(namedUser.name)
     // Joe
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="create-instance-of-a-class"}
 
-> In Kotlin, unlike other object-oriented programming languages such as Java,
+> In Kotlin, unlike other object-oriented programming languages,
 > there is no need for the `new` keyword when creating class instances.
 >
 {style="note"}
@@ -125,21 +126,21 @@ fun main() {
 For information about creating instances of nested, inner, and anonymous inner classes,
 see the [Nested classes](nested-classes.md) section.
 
-When creating class instances, you call one of its constructors and provide arguments for the constructor parameters.
-For more details, see the next section about [Constructors and initializer blocks](#constructors-and-initializer-blocks).
-
 ## Constructors and initializer blocks
 
-A class in Kotlin can have a [_primary constructor_](#primary-constructor) and one or more [_secondary constructors_](#secondary-constructors).
+When you create a class instance, you call one of its constructors. A class in Kotlin can have a 
+[_primary constructor_](#primary-constructor) and one or more [_secondary constructors_](#secondary-constructors).
 
-The primary constructor is the main way to initialize a class; you declare it in the class header.
-A secondary constructor provides additional initialization logic; you declare it in the class body.
+The primary constructor is the main way to initialize a class. 
+You declare it in the class header.
+A secondary constructor provides additional initialization logic. 
+You declare it in the class body.
 
-Both primary and secondary constructors are optional, and at least one constructor should be declared in a class.
+Both primary and secondary constructors are optional, but a class must have at least one constructor.
 
 ### Primary constructor
 
-The primary constructor sets up the initial state of an instance when [it is created](#creating-instances-of-classes).
+The primary constructor sets up the initial state of an instance when [it's created](#creating-instances-of-classes).
 
 To declare a primary constructor, place it in the class header after the class name:
 
@@ -147,7 +148,7 @@ To declare a primary constructor, place it in the class header after the class n
 class Person constructor(name: String) { /*...*/ }
 ```
 
-If the primary constructor does not have any annotations or [visibility modifiers](visibility-modifiers.md#constructors), 
+If the primary constructor doesn't have any annotations or [visibility modifiers](visibility-modifiers.md#constructors), 
 you can omit the `constructor` keyword:
 
 ```kotlin
@@ -161,30 +162,33 @@ and the `var` keyword for a mutable property:
 class Person(val name: String, var age: Int) { /*...*/ }
 ```
 
-These constructor parameter properties are stored as part of the instance and are accessible from outside the class. 
-It's also possible to declare primary constructor parameters only, not stored in the instance, and available only within the class body:
+These constructor parameter properties are stored as part of the instance and are accessible from outside the class.
+
+It's also possible to declare primary constructor parameters that are not properties. 
+These parameters don't have 
+`val` or `var` in front of them, so they are not stored in the instance and are available only within the class body:
 
 ```kotlin
 // Primary constructor parameter that is also a property
-class Person2(val name: String) {
+class PersonWithProperty(val name: String) {
     fun greet() {
         println("Hello, $name")
     }
 }
 
 // Primary constructor parameter only (not stored as a property)
-class Person1(name: String) {
+class PersonWithAssignment(name: String) {
     // Must be assigned to a property to be usable later
-    val n: String = name
+    val displayName: String = name
     
     fun greet() {
-        println("Hello, $n")
+        println("Hello, $displayName")
     }
 }
 ```
 
-Properties declared in the primary constructor are accessible to
-[member functions](functions.md) of a class:
+Properties declared in the primary constructor are accessible by
+[member functions](functions.md) of the class:
 
 ```kotlin
 // Class with a primary constructor declaring properties
@@ -202,7 +206,8 @@ You can also assign default values to properties in the primary constructor:
 class Person(val name: String = "John", var age: Int = 30) { /*...*/ }
 ```
 
-If no value is passed during [instance creation](#creating-instances-of-classes), the property uses the default value:
+If no value is passed to the constructor during [instance creation](#creating-instances-of-classes), 
+properties use their default value:
 
 ```kotlin
 // Class with a primary constructor 
@@ -216,9 +221,9 @@ fun main() {
     // Name: John, Age: 30
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="class-with-primary-constructor"}
 
-Use the primary constructor parameters to initialize additional class properties directly in the class body:
+You can use the primary constructor parameters to initialize additional class properties directly in the class body:
 
 ```kotlin
 // Class with a primary constructor 
@@ -227,8 +232,8 @@ class Person(
     val name: String = "John",
     var age: Int = 30
 ) {
-    // description property initialized in the class body 
-    // using the primary constructor parameters
+    // Initializes the description property 
+    // from the primary constructor parameters
     val description: String = "Name: $name, Age: $age"
 }
 
@@ -240,9 +245,9 @@ fun main() {
     // Name: John, Age: 30
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="class-with-default-values"}
 
-As with functions, you can use [trailing comma](coding-conventions.md#trailing-commas) in constructor declarations:
+As with functions, you can use [trailing commas](coding-conventions.md#trailing-commas) in constructor declarations:
 
 ```kotlin
 class Person(
@@ -254,11 +259,11 @@ class Person(
 
 ### Initializer blocks
 
-The purpose of the primary constructor is to initialize the class and set its
-properties. In most cases, this initialization doesn’t require complex code.
+The primary constructor initializes the class and sets its properties. 
+In most cases, you can handle this with simple code.
 
-If you need to run complex code blocks when the primary constructor is executed during [instance creation](#creating-instances-of-classes), 
-use _initializer blocks_ inside the class body.
+If you need to perform more complex operations during [instance creation](#creating-instances-of-classes),
+place that logic in _initializer blocks_ inside the class body. These blocks run when the primary constructor executes.
 
 Declare initializer blocks with the `init` keyword followed by curly braces `{}`. 
 Write within the curly braces any code that you want to run during initialization:
@@ -267,7 +272,7 @@ Write within the curly braces any code that you want to run during initializatio
 // Class with a primary constructor that initializes name and age
 class Person(val name: String, var age: Int) {
     init {
-        // Initializer block executed when an instance is created
+        // Initializer block runs when an instance is created
         println("Person created: $name, age $age.")
         // Person created: John, age 30.
     }
@@ -278,7 +283,7 @@ fun main() {
     Person("John", 30)
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="class-with-initializer-block"}
 
 Add as many initializer blocks (`init {}`) as you need. They run in the order in which they appear in the class body, 
 interleaved with property initializers:
@@ -312,12 +317,12 @@ fun main() {
 }
 //sampleEnd
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="class-with-second-initializer-block"}
 
-You can use the primary constructor parameters in the initializer blocks. For example, in the code above, the first and second initializers use
+You can use primary constructor parameters in initializer blocks. For example, in the code above, the first and second initializers use
 the `name` and `age` parameters from the primary constructor. 
 
-A common use of `init` blocks is data validation. For example, by calling the [`require` function](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/require.html):
+A common use case for `init` blocks is data validation. For example, by calling the [`require` function](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/require.html):
 
 ```kotlin
 class Person(val age: Int) {
@@ -329,22 +334,20 @@ class Person(val age: Int) {
 
 ### Secondary constructors
 
-In Kotlin, a secondary constructor is an additional constructor that a class can have beyond its primary constructor. 
-Secondary constructors allow you to provide different ways to initialize an instance when the primary constructor alone 
-isn't enough.
-
-Secondary constructors are useful for [Java interoperability](java-to-kotlin-interop.md) and when
-you need multiple ways to initialize a class.
+In Kotlin, secondary constructors are additional constructors that a class can have beyond its primary constructor. 
+Secondary constructors are useful 
+when you need multiple ways to initialize a class or for [Java interoperability](java-to-kotlin-interop.md).
 
 To declare a secondary constructor, use the `constructor`
-keyword inside the class body with the constructor parameters within parentheses. Use curly braces with the constructor logic inside:
+keyword inside the class body with the constructor parameters within parentheses `()`. 
+Add the constructor logic within curly braces `{}`:
 
 ```kotlin
 // Class header with a primary constructor that initializes name and age
 class Person(val name: String, var age: Int) {
 
-    // Secondary constructor that takes a String age
-    // and converts it to an integer
+    // Secondary constructor that takes age as a
+    // String and converts it to an Int
     constructor(name: String, age: String) : this(name, age.toIntOrNull() ?: 0) {
         println("$name created with converted age: $age")
         // Bob created with converted age: 8
@@ -352,13 +355,13 @@ class Person(val name: String, var age: Int) {
 }
 
 fun main() {
-    // Uses the secondary constructor with a String age
+    // Uses the secondary constructor with age as a String
     Person("Bob", "8")
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="class-with-secondary-constructor"}
 
-> The expression `age.toIntOrNull() ?: 0` converts the `age` string to an integer. For more information about this expression, see [Null safety](null-safety.md).
+> The expression `age.toIntOrNull() ?: 0` uses the Elvis operator. For more information, see [Null safety](null-safety.md#elvis-operator).
 >
 {style="tip"}
 
@@ -404,7 +407,7 @@ fun main() {
     Person()
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="class-delegation"}
 
 In classes with initializer blocks (`init {}`), the code within these blocks becomes part of the primary constructor.
 Given that secondary constructors delegate to the primary constructor first, all initializer blocks
@@ -414,7 +417,7 @@ the delegation still happens implicitly:
 ```kotlin
 // Class header with no primary constructor
 class Person {
-    // Initializer block executed when an instance is created
+    // Initializer block runs when an instance is created
     init {
         // Runs before the secondary constructor
         println("1. First initializer block runs")
@@ -434,9 +437,11 @@ fun main() {
     Person(1)
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="class-delegation-sequence"}
 
-If there's a class that does not declare any constructors (primary or secondary), it will have an implicit primary constructor
+### Classes without constructors
+
+Classes that don't declare any constructors (primary or secondary) have an implicit primary constructor
 with no parameters:
 
 ```kotlin
@@ -479,21 +484,21 @@ class Person private constructor() { /*...*/ }
 Class inheritance in Kotlin allows you to create a new class (derived class) from an existing class (base class), 
 inheriting its properties and functions while adding or modifying behavior.
 
-> For detailed information about inheritance hierarchies and the use of the `open` keyword, see the [Inheritance](inheritance.md) section.
+> For detailed information about inheritance hierarchies and how to use of the `open` keyword, see the [Inheritance](inheritance.md) section.
 > 
 {style="note"}
 
 ## Abstract classes
 
-An abstract class in Kotlin is a class that cannot be instantiated directly and is designed to be inherited 
-by other classes. 
+In Kotlin, abstract classes are classes that can't be instantiated directly. They are designed to be inherited by other 
+classes which define their actual behavior. This behavior is called an _implementation_.
 
 An abstract class can declare abstract properties and functions, which must be implemented 
 by subclasses.
 
 Abstract classes can also have constructors. 
 These constructors initialize class properties and enforce required parameters for subclasses.
-Declare an abstract class using the `abstract` modifier:
+Declare an abstract class using the `abstract` keyword:
 
 ```kotlin
 abstract class Person(val name: String, val age: Int)
@@ -502,9 +507,13 @@ abstract class Person(val name: String, val age: Int)
 An abstract class can have both abstract and non-abstract members (properties and functions). 
 To declare a member as abstract, you must use the `abstract` keyword explicitly. 
 
-Abstract members do not have an implementation 
-in the abstract class. To provide one, you declare an `override` function 
-in the subclass or inheriting class:
+You don't need to annotate abstract classes or functions with the `open`
+keyword because they are implicitly inheritable by default.
+For more details about the `open` keyword, see [Inheritance](inheritance.md#open-keyword).
+
+Abstract members don't have an implementation
+in the abstract class. 
+You define the implementation in a subclass or inheriting class with an `override` function or property:
 
 ```kotlin
 // Abstract class with a primary constructor that declares name and age
@@ -513,7 +522,8 @@ abstract class Person(
     val age: Int
 ) {
     // Abstract member 
-    // Doesn't provide implementation, must be implemented by subclasses
+    // Doesn't provide implementation,
+    // and it must be implemented by subclasses
     abstract fun introduce()
 
     // Non-abstract member (has an implementation)
@@ -544,17 +554,13 @@ fun main() {
     student.introduce()
 }
 ```
-{kotlin-runnable="true"}
-
-You don't need to annotate abstract classes or functions with the `open` keyword because they are implicitly 
-open and designed to be inherited. 
-
-[For more details about the `open` keyword, see Inheritance](inheritance.md#open-keyword).
+{kotlin-runnable="true" id="abstract-class"}
 
 ## Companion objects
 
-In Kotlin, a [companion object](object-declarations.md#companion-objects) is a type of object declaration 
-that allows you to access its members using the class name without needing an object from the class.
+In Kotlin, each class can have a [companion object](object-declarations.md#companion-objects). 
+Companion objects are a type of object declaration
+that allows you to access its members using the class name without creating a class instance.
 
 Suppose you need to write a function that can be called without creating an instance of a class, but it is still logically 
 connected to the class (such as a factory function). In that case, you can declare it inside a companion [object declaration](object-declarations.md) within the class:
@@ -577,11 +583,11 @@ fun main() {
     // Anonymous
 }
 ```
-{kotlin-runnable="true"}
+{kotlin-runnable="true" id="class-with-companion-object"}
 
-If you declare `companion object` inside your class,
+If you declare a companion object inside your class,
 you can access its members using only the class name as a qualifier.
 
-> [See further details about companion objects here](object-declarations.md#companion-objects).
+> For more information, see [Companion objects](object-declarations.md#companion-objects).
 >
-{style="note"}
+{style="tip"}
