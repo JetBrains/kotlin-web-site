@@ -82,7 +82,7 @@ These types have a special notation that corresponds to the signatures of the fu
   return a value `C`.
   [Function literals with receiver](#function-literals-with-receiver) are often used along with these types.
 
-* [Suspending functions](coroutines-basics.md#extract-function-refactoring) belong to a special kind of function type that have
+* [Suspending functions](coroutines-basics.md) belong to a special kind of function type that have
   a *suspend* modifier in their notation, such as `suspend () -> Unit` or `suspend A.(B) -> C`.
 
 The function type notation can optionally include names for the function parameters: `(x: Int, y: Int) -> Point`.
