@@ -85,7 +85,7 @@ Explore the fundamentals and initial steps to start working with Kotlin/JS:
   useful code snippets and patterns that can help you get started with your projects.
 * If you’re new to Kotlin/JS, start with the setup guide before exploring more advanced topics:
 
-<a href="js-project-setup.md"><img src="js-set-up-project.svg" width="600" alt="Set up a Kotlin/JS project" style="block"/></a>
+<a href="js-get-started.md"><img src="js-get-started-button.svg" width="600" alt="Get started with Kotlin/JS" style="block"/></a>
 
 ## Sample projects for Kotlin/JS
 
