@@ -2,9 +2,10 @@
 
 _[Released: September 10, 2025](releases.md#release-details)_
 
-> We’d like to hear your thoughts about Kotlin!  
-> [Please take our Kotlin Developer Survey](https://surveys.jetbrains.com/s3/7e238a7b85e5).   
-> It only takes about 10 minutes, and your feedback will help us improve the language, tools, and ecosystem.
+> Share your thoughts on Kotlin!
+> 
+> [Take our Kotlin Developer Survey](https://surveys.jetbrains.com/s3/7e238a7b85e5). It only takes about 10 minutes. 
+> Your feedback helps us improve the language, tools, and ecosystem.
 > 
 {style="note"}
 
@@ -19,6 +20,10 @@ Additionally, here are some main highlights:
 * **Language**: [Improved overload resolution when passing lambdas to overloads with suspend function types](#improved-overload-resolution-for-lambdas-with-suspend-function-types).
 * **Kotlin/Native**: [Support for stack canaries in binaries](#support-for-stack-canaries-in-binaries) and [smaller binary size for release binaries](#smaller-binary-size-for-release-binaries).
 * **Kotlin/JS**: [`Long` values compiled into JavaScript `BigInt`](#usage-of-the-bigint-type-to-represent-kotlin-s-long-type).
+
+> Compose Multiplatform for web goes Beta. Learn more in our [blog post](https://blog.jetbrains.com/kotlin/2025/09/compose-multiplatform-1-9-0-compose-for-web-beta/).
+>
+{style="note"}
 
 ## IDE support
 
