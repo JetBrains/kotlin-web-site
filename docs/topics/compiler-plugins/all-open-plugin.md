@@ -43,6 +43,7 @@ To enable the plugin, add it to the `plugins {}` block of your `build.gradle(.kt
 ```kotlin
 // build.gradle.kts
 plugins {
+    kotlin("jvm") version "%kotlinVersion%"
     kotlin("plugin.allopen") version "%kotlinVersion%"
 }
 ```
@@ -53,6 +54,7 @@ plugins {
 ```groovy
 // build.gradle
 plugins {
+    id "org.jetbrains.kotlin.jvm" version "%kotlinVersion%"
     id "org.jetbrains.kotlin.plugin.allopen" version "%kotlinVersion%"
 }
 ```
