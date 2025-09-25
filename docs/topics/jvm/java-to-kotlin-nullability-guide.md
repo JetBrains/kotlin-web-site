@@ -103,8 +103,8 @@ fun stringLength(a: String?): Int = a?.length ?: 0
 
 In Java, you can use annotations showing whether a variable can or cannot be `null`.
 Such annotations aren't part of the standard library, but you can add them separately.
-For example, you can use the JetBrains annotations `@Nullable` and `@NotNull` (from the `org.jetbrains.annotations` package)
-or annotations from [JSpecify](https://jspecify.dev/) (`org.jspecify.annotations`) or Eclipse (`org.eclipse.jdt.annotation`).
+For example, you can use the JetBrains annotations `@Nullable` and `@NotNull` (from the `org.jetbrains.annotations` package),
+annotations from [JSpecify](https://jspecify.dev/) (`org.jspecify.annotations`), or Eclipse (`org.eclipse.jdt.annotation`).
 Kotlin can recognize such annotations when you're [calling Java code from Kotlin code](java-interop.md#nullability-annotations)
 and will treat types according to their annotations.
 
