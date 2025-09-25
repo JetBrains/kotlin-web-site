@@ -56,7 +56,7 @@ object BuildSitePages : BuildType({
                 python kotlin-website.py build
             """.trimIndent()
 
-            dockerImage = "%dep.Kotlin_KotlinSites_Builds_KotlinlangOrg_BuildPythonContainer.kotlin-website-image%"
+            dockerImage = "%dep.Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildPythonContainer.kotlin-website-image%"
             dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
             dockerPull = true
 
