@@ -130,14 +130,21 @@ tasks.withType<Test> {
 }
 ```
 
+> Spring Framework 6.2 and Spring Boot 3.x officially support Kotlin 1.9.x
+> (see [Spring Boot reference: Kotlin support](https://docs.spring.io/spring-boot/reference/features/kotlin.html)).  
+> Kotlin 2.x.x is **not** supported in current Spring releases and may cause build or tooling issues.  
+> Support for Kotlin 2.x.x is [planned for Spring Framework 7 and Spring Boot 4](https://spring.io/blog/2024/10/01/from-spring-framework-6-2-to-7-0).
+>
+{style="note"}
+
 As you can see, there are a few Kotlin-related artifacts added to the Gradle build file:
 
-1. In the `plugins` block, there are two Kotlin artifacts:
+1. In the `plugins {}` block, there are two Kotlin artifacts:
 
    * `kotlin("jvm")` – the plugin defines the version of Kotlin to be used in the project
    * `kotlin("plugin.spring")` – Kotlin Spring compiler plugin for adding the `open` modifier to Kotlin classes in order to make them compatible with Spring Framework features
 
-2. In the `dependencies` block, a few Kotlin-related modules listed:
+2. In the `dependencies {}` block, a few Kotlin-related modules listed:
 
    * `com.fasterxml.jackson.module:jackson-module-kotlin` – the module adds support for serialization and deserialization of Kotlin classes and data classes
    * `org.jetbrains.kotlin:kotlin-reflect` – Kotlin reflection library
