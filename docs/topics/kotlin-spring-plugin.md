@@ -31,6 +31,13 @@ are automatically opened because these annotations are meta-annotated with
 
 ## Apply the plugin
 
+> Spring Framework 6.2 and Spring Boot 3.x officially support Kotlin 1.9.x
+> (see [Spring Boot reference: Kotlin support](https://docs.spring.io/spring-boot/reference/features/kotlin.html)).  
+> Kotlin 2.x.x is **not** supported in current Spring releases and may cause build or tooling issues.  
+> Support for Kotlin 2.x.x is [planned for Spring Framework 7 and Spring Boot 4](https://spring.io/blog/2024/10/01/from-spring-framework-6-2-to-7-0).
+>
+{style="note"}
+
 ### Gradle 
 
 Add the `kotlin-spring` plugin in the `plugins {}` block of your `build.gradle(.kts)` file:
@@ -40,7 +47,8 @@ Add the `kotlin-spring` plugin in the `plugins {}` block of your `build.gradle(.
 
 ```kotlin
 plugins {
-    id("plugin.spring") version "%kotlinVersion%"
+    kotlin("jvm") version "%springBootSupportedKotlinVersion%"  // The version of Kotlin to use
+    kotlin("plugin.spring") version "%springBootSupportedKotlinVersion%" // The Kotlin Spring plugin
 }
 ```
 
@@ -49,7 +57,8 @@ plugins {
 
 ```groovy
 plugins {
-    id "org.jetbrains.kotlin.plugin.spring" version "%kotlinVersion%"
+    id "org.jetbrains.kotlin.jvm" version "%springBootSupportedKotlinVersion%"
+    id "org.jetbrains.kotlin.plugin.spring" version "%springBootSupportedKotlinVersion%"
 }
 ```
 
@@ -77,7 +86,7 @@ Add it to your `pom.xml` file:
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-maven-allopen</artifactId>
-            <version>%kotlinVersion%</version>
+            <version>%springBootSupportedKotlinVersion%</version>
         </dependency>
     </dependencies>
 </plugin>
