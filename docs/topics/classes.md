@@ -274,13 +274,13 @@ class Person(val name: String, var age: Int) {
     init {
         // Initializer block runs when an instance is created
         println("Person created: $name, age $age.")
-        // Person created: John, age 30.
     }
 }
 
 fun main() {
     // Creates an instance of the Person class
     Person("John", 30)
+    // Person created: John, age 30.
 }
 ```
 {kotlin-runnable="true" id="class-with-initializer-block"}
@@ -296,7 +296,6 @@ class Person(val name: String, var age: Int) {
     init {
         // Runs first when an instance is created
         println("Person created: $name, age $age.")
-        // Person created: John, age 30.
     }
 
     // Second initializer block
@@ -306,7 +305,6 @@ class Person(val name: String, var age: Int) {
             println("$name is a minor.")
         } else {
             println("$name is an adult.")
-            // John is an adult.
         }
     }
 }
@@ -314,6 +312,8 @@ class Person(val name: String, var age: Int) {
 fun main() {
     // Creates an instance of the Person class
     Person("John", 30)
+    // Person created: John, age 30.
+    // John is an adult.
 }
 //sampleEnd
 ```
@@ -350,13 +350,13 @@ class Person(val name: String, var age: Int) {
     // String and converts it to an Int
     constructor(name: String, age: String) : this(name, age.toIntOrNull() ?: 0) {
         println("$name created with converted age: $age")
-        // Bob created with converted age: 8
     }
 }
 
 fun main() {
     // Uses the secondary constructor with age as a String
     Person("Bob", "8")
+    // Bob created with converted age: 8
 }
 ```
 {kotlin-runnable="true" id="class-with-secondary-constructor"}
@@ -387,24 +387,24 @@ class Person(
     // to the primary constructor
     constructor(name: String) : this(name, 0) {
         println("Person created with default age: $age and name: $name.")
-        // Person created with default age: 0 and name: Alice.
-        // Person created with default age: 0 and name: Bob.
     }
 
     // Secondary constructor with indirect delegation: 
     // this("Bob") -> constructor(name: String) -> primary constructor
     constructor() : this("Bob") {
         println("New person created with default age: $age and name: $name.")
-        // New person created with default age: 0 and name: Bob.
     }
 }
 
 fun main() {
     // Creates an instance based on the direct delegation
     Person("Alice")
+    // Person created with default age: 0 and name: Alice.
 
     // Creates an instance based on the indirect delegation
     Person()
+    // Person created with default age: 0 and name: Bob.
+    // New person created with default age: 0 and name: Bob.
 }
 ```
 {kotlin-runnable="true" id="class-delegation"}
@@ -421,20 +421,20 @@ class Person {
     init {
         // Runs before the secondary constructor
         println("1. First initializer block runs")
-        // 1. First initializer block runs
     }
 
     // Secondary constructor that takes an integer parameter
     constructor(i: Int) {
         // Runs after the initializer block
         println("2. Person $i is created")
-        // 2. Person 1 created
     }
 }
 
 fun main() {
     // Creates an instance of the Person class
     Person(1)
+    // 1. First initializer block runs
+    // 2. Person 1 created
 }
 ```
 {kotlin-runnable="true" id="class-delegation-sequence"}
@@ -529,7 +529,6 @@ abstract class Person(
     // Non-abstract member (has an implementation)
     fun greet() {
         println("Hello, my name is $name.")
-        // Hello, my name is Alice.
     }
 }
 
@@ -541,17 +540,20 @@ class Student(
 ) : Person(name, age) {
     override fun introduce() {
         println("I am $name, $age years old, and I study at $school.")
-        // I am Alice, 20 years old, and I study at Engineering University.
     }
 }
 
 fun main() {
     // Creates an instance of the Student class
     val student = Student("Alice", 20, "Engineering University")
+    
     // Calls the non-abstract member
     student.greet()
+    // Hello, my name is Alice.
+    
     // Calls the overridden abstract member
     student.introduce()
+    // I am Alice, 20 years old, and I study at Engineering University.
 }
 ```
 {kotlin-runnable="true" id="abstract-class"}
