@@ -1,14 +1,26 @@
-export type CaseStudyType = 'multiplatform' | 'server-side';
+export type CaseType = 'multiplatform' | 'server-side';
 
-type CaseStudyDestination = 'internal' | 'external';
+export type  CaseTypeSwitch = 'all' | CaseType;
 
-export type Platform =
-    | 'android'
-    | 'ios'
-    | 'desktop'
-    | 'frontend'
-    | 'backend'
-    | 'compose-multiplatform';
+type CaseDestination = 'internal' | 'external';
+
+export const Platforms = [
+    'android',
+    'ios',
+    'desktop',
+    'frontend',
+    'backend',
+] as const;
+
+export const PlatformNames: Record<typeof Platforms[number], string> = {
+    "android": "Android",
+    "ios": "iOS",
+    "desktop": "Desktop",
+    "frontend": "Frontend",
+    "backend": "Backend",
+}
+
+export type CasePlatform = typeof Platforms[number] | 'compose-multiplatform';
 
 type Signature = {
     line1: string;
@@ -27,36 +39,36 @@ type ImageMedia = {
 
 type Media = YoutubeMedia | ImageMedia;
 
-interface CaseStudyItemBase {
+interface CaseItemBase {
     id: string;
-    type: CaseStudyType;
+    type: CaseType;
     description: string;
-    destination: CaseStudyDestination;
+    destination: CaseDestination;
     logo?: string[];
     signature?: Signature;
-    platforms?: Platform[];
+    platforms?: CasePlatform[];
     media?: Media;
     featuredOnMainPage?: boolean;
     slug?: string;
     externalLinkText?: string;
 }
 
-export interface ExternalDestinationCaseStudyItem extends CaseStudyItemBase {
+export interface ExternalDestinationCaseItem extends CaseItemBase {
     destination: 'external';
     // required when destination === 'external'
     externalLink: string;
 }
 
-export interface InternalDestinationCaseStudyItem extends CaseStudyItemBase {
+export interface InternalDestinationCaseItem extends CaseItemBase {
     destination: 'internal';
     // required when destination === 'internal'
     pageContentPath: string;
 }
 
-export type CaseStudyItem =
-    | ExternalDestinationCaseStudyItem
-    | InternalDestinationCaseStudyItem;
+export type CaseItem =
+    | ExternalDestinationCaseItem
+    | InternalDestinationCaseItem;
 
-export function isExternalCaseStudy(item: CaseStudyItem): item is ExternalDestinationCaseStudyItem {
+export function isExternalCase(item: CaseItem): item is ExternalDestinationCaseItem {
     return item.destination === 'external';
 }

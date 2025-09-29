@@ -1,22 +1,17 @@
-/* Grid layout for Case Studies: two columns with responsive fallback */
-.masonry-tiles-container {
+.grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: auto;
-  column-gap: 32px;
-  row-gap: 32px;
-}
+  gap: 32px;
 
-/* Tile wrapper: keep visuals controlled by the card component */
-.masonry-tile {
-  position: relative;
-  display: block;
-  box-sizing: border-box;
-  min-height: 0;
-}
-
-@media (--md) {
-  .masonry-tiles-container {
+  @media (width < 809px) {
     grid-template-columns: 1fr;
   }
+}
+
+.tile {
+  /*position: relative;*/
+  /*display: block;*/
+  /*box-sizing: border-box;*/
+  /*min-height: 0;*/
 }

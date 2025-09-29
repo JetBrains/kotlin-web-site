@@ -1,113 +1,96 @@
-import React, { useCallback, useId, useMemo, useState } from 'react';
+import cn from 'classnames';
+import React from 'react';
 import Switcher from '@rescui/switcher';
 import Checkbox from '@rescui/checkbox';
 import { createTextCn } from '@rescui/typography';
-import '@jetbrains/kotlin-web-site-ui/out/components/layout';
 import styles from './case-studies-filter.module.css';
+import { CasePlatform, CaseType, CaseTypeSwitch, PlatformNames, Platforms } from '../case-studies';
+import { useQueryState } from '../../../hooks';
+import { parseCompose, parsePlatforms, parseType, serializeCompose, serializePlatforms, serializeType } from '../utils';
+
+const caseTypeOptions: Array<{ value: CaseTypeSwitch, label: string }> = [
+    { value: 'all', label: 'All' },
+    { value: 'multiplatform', label: 'Kotlin Multiplatform' },
+    { value: 'server-side', label: 'Server-side' }
+];
 
 export const CaseStudiesFilter: React.FC = () => {
     const darkTextCn = createTextCn('dark');
-    // Case study type switcher
-    const typeOptions = useMemo(
-        () => [
-            { value: 'all', label: 'All' },
-            { value: 'kotlin-multiplatform', label: 'Kotlin Multiplatform' },
-            { value: 'server-side', label: 'Server-side' },
-        ], []
-    );
-    const [type, setType] = useState<string>('all');
-    const onTypeChange = useCallback((value: string) => setType(value), []);
 
-    // Code shared across (checkboxes)
-    const codeSharedOptions = useMemo(
-        () => [
-            { id: 'android', label: 'Android' },
-            { id: 'ios', label: 'iOS' },
-            { id: 'desktop', label: 'Desktop' },
-            { id: 'frontend', label: 'Frontend' },
-            { id: 'backend', label: 'Backend' },
-        ], []
-    );
-    const [codeShared, setCodeShared] = useState<string[]>([]);
-    const toggleCodeShared = useCallback((id: string) => {
-        setCodeShared((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
-    }, []);
+    // State synchronized with URL
+    const [type, setType] = useQueryState<CaseTypeSwitch>('type', parseType, serializeType);
+    const [platforms, setPlatforms] = useQueryState<CasePlatform[]>('platforms', parsePlatforms, serializePlatforms);
+    const [compose, setCompose] = useQueryState<boolean>('compose', parseCompose, serializeCompose);
 
-    // UI Technology (checkboxes)
-    const uiTechOptions = useMemo(
-        () => [
-            { id: 'built-with-compose-multiplatform', label: 'Built with Compose Multiplatform' },
-        ], []
-    );
-    const [uiTech, setUiTech] = useState<string[]>([]);
-    const toggleUiTech = useCallback((id: string) => {
-        setUiTech((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
-    }, []);
+    const togglePlatform = (id: CasePlatform) => {
+        let nextPlatforms = platforms.includes(id)
+            ? platforms.filter((x) => x !== id)
+            : [...platforms, id];
+        if (nextPlatforms.length === 0) {
+            // If user unchecks all, reset to all selected
+            nextPlatforms = [...Platforms];
+        }
+        setPlatforms(nextPlatforms);
+    };
 
-    // for accessibility ids
-    const typeTitleId = useId();
-    const codeSharedTitleId = useId();
-    const uiTechTitleId = useId();
+    const toggleCompose = () => {
+        const nextCompose = !compose;
+        setCompose(nextCompose, () => setType('multiplatform'));
+    };
+
+    const showKmpFilters = type === 'multiplatform' || type === 'all';
 
     return (
-        <section data-testid="case-studies-filter" aria-label="Case Studies Filter" className={styles.wrapper}>
-            <div className={'ktl-layout ktl-layout--center'}>
-                <h2 className={styles.title}>
-                    <span className={darkTextCn('rs-h4')}>Filters</span>
-                </h2>
-                <div className={styles.inner}>
-                    {/* Case study type */}
-                    <div className={`${styles.group} ${styles.groupType}`} role="group" aria-labelledby={typeTitleId} data-test="filter-type">
-                        <h3 id={typeTitleId} className={styles.groupTitle}><span className={darkTextCn('rs-h4')}>Case study type</span></h3>
-                        <div className={styles.switcherSmall}>
-                            <Switcher mode={'rock'} value={type} onChange={onTypeChange} options={typeOptions} />
-                        </div>
-                    </div>
-
-                    {/* Code shared across */}
-                    <div className={styles.group} role="group" aria-labelledby={codeSharedTitleId} data-test="filter-code-shared">
-                        <h3 id={codeSharedTitleId} className={styles.groupTitle}><span className={darkTextCn('rs-h4')}>Code shared across</span></h3>
-                        <div className={styles.checkboxes}>
-                            {codeSharedOptions.map((opt) => {
-                                const id = `code-shared-${opt.id}`;
-                                const checked = codeShared.includes(opt.id);
-                                return (
-                                    <Checkbox
-                                        key={opt.id}
-                                        checked={checked}
-                                        onChange={() => toggleCodeShared(opt.id)}
-                                        mode="classic"
-                                        size="m"
-                                    >
-                                        {opt.label}
-                                    </Checkbox>
-                                );
-                            })}
-                        </div>
-                    </div>
-
-                    {/* UI technology */}
-                    <div className={styles.group} role="group" aria-labelledby={uiTechTitleId} data-test="filter-ui-technology">
-                        <h3 id={uiTechTitleId} className={styles.groupTitle}><span className={darkTextCn('rs-h4')}>UI technology</span></h3>
-                        <div className={styles.checkboxes}>
-                            {uiTechOptions.map((opt) => {
-                                const id = `ui-tech-${opt.id}`;
-                                const checked = uiTech.includes(opt.id);
-                                return (
-                                    <Checkbox
-                                        key={opt.id}
-                                        checked={checked}
-                                        onChange={() => toggleUiTech(opt.id)}
-                                        mode="classic"
-                                        size="m"
-                                    >
-                                        {opt.label}
-                                    </Checkbox>
-                                );
-                            })}
-                        </div>
-                    </div>
+        <section className="ktl-layout ktl-layout--center" data-testid="case-studies-filter"
+                 aria-label="Case Studies Filter">
+            <div className={styles.content}>
+                <div className={styles.group} role="group" aria-labelledby="case-study-type-title"
+                     data-test="filter-type">
+                    <h3 id="case-study-type-title" className={cn(styles.groupTitle, darkTextCn('rs-h4'))}>Case study
+                        type</h3>
+                    <Switcher mode={'rock'} value={type} onChange={setType} options={caseTypeOptions} />
                 </div>
+
+                {showKmpFilters && (
+                    <div className={styles.group} role="group" aria-labelledby="code-shared-across-titile"
+                         data-test="filter-code-shared">
+                        <h3 id="code-shared-across-titile"
+                            className={cn(styles.groupTitle, darkTextCn('rs-h4'))}>Code shared across</h3>
+                        <div className={styles.checkboxes}>
+                            {Platforms.map((platformId) =>
+                                <Checkbox
+                                    key={platformId}
+                                    checked={platforms.includes(platformId)}
+                                    onChange={() => togglePlatform(platformId)}
+                                    mode="classic"
+                                    size="m"
+                                >
+                                    {PlatformNames[platformId]}
+                                </Checkbox>
+                            )}
+                        </div>
+                    </div>
+                )}
+
+                {showKmpFilters && (
+                    <div className={styles.group} role="group" aria-labelledby="ui-technology-title"
+                         data-test="filter-ui-technology">
+                        <h3 id="ui-technology-title"
+                            className={cn(styles.groupTitle, darkTextCn('rs-h4'))}>UI&nbsp;technology</h3>
+                        <div className={styles.checkboxes}>
+                            <Checkbox
+                                className={styles.checkbox}
+                                checked={compose}
+                                onChange={toggleCompose}
+                                mode="classic"
+                                size="m"
+                            >
+                                Built with Compose Multiplatform <img
+                                src="/images/case-studies/compose-multiplatform.svg" alt="" />
+                            </Checkbox>
+                        </div>
+                    </div>
+                )}
             </div>
         </section>
     );
