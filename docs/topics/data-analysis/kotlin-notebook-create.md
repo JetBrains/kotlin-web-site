@@ -35,6 +35,18 @@ Here, you will learn how to create your first [Kotlin Notebook](kotlin-notebook-
 
 8. Click **Create**.
 
+## Create a project from the Welcome screen
+
+Alternatively, if you start from IntelliJ IDEA's Welcome screen:
+
+1. In the panel on the left, select **Kotlin Notebook** | **New Notebook**.
+2. Enter a **Name** for your new notebook and select **Type**:
+   * **Scratch:** To create a scratch notebook without adding it to a project.
+   * **In Folder:** To create a notebook within a project. You have to specify the project's location.
+3. Click **Create**.
+
+![Create a new Kotlin Notebook from IntelliJ IDEA](create-notebook-welcome.png){width=700}
+
 ## Create a Kotlin Notebook
 
 1. To create a new notebook, select **File | New | Kotlin Notebook**, or right-click on a folder and select **New | Kotlin Notebook**.

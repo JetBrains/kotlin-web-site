@@ -34,6 +34,10 @@ Additionally, export your output charts in a matter of clicks.
 _Notebooks_ are interactive editors that integrate code, graphics, and text in a single environment. When using a notebook, 
 you can run code cells and immediately see the output. 
 
+A notebook is an interactive document where you can mix executable Kotlin code with text, results, and visualizations. 
+Think of it as a Kotlin REPL extended with the ability to organize your code into cells, document it with Markdown, 
+and display outputs (from text to plots) alongside the code that produced them.
+
 Kotlin offers different notebook solutions, such as [Kotlin Notebook](#kotlin-notebook), [Datalore](#kotlin-notebooks-in-datalore), 
 and [Kotlin-Jupyter Notebook](#jupyter-notebook-with-kotlin-kernel), providing convenient features for data retrieving, transformation, exploration, modeling, and more.
 These Kotlin notebook solutions are based on our [Kotlin Kernel](https://github.com/Kotlin/kotlin-jupyter).
