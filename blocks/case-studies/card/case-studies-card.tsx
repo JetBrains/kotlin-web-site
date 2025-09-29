@@ -2,8 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './case-studies-card.module.css';
 import { AndroidIcon, AppleIcon, ServerIcon, ComputerIcon, GlobusIcon } from '@rescui/icons';
-import { CaseStudyItem, CaseStudyType, isExternalCaseStudy, Platform } from '../case-studies';
-
+import { CaseItem, CaseType, isExternalCase, CasePlatform } from '../case-studies';
 
 /**
  * Resolve asset path from YAML:
@@ -38,30 +37,30 @@ const mdToHtml = (md: string) => {
     return withLinks;
 };
 
-const badgeText: Record<CaseStudyType, string> = {
+const badgeText: Record<CaseType, string> = {
     'multiplatform': 'Kotlin Multiplatform',
     'server-side': 'Server-side'
 };
 
-const badgeClass: Record<CaseStudyType, string> = {
+const badgeClass: Record<CaseType, string> = {
     'multiplatform': 'badgeMultiplatform',
     'server-side': 'badgeServerSide'
 };
 
 // Platform icon path builder. If you keep icons in (for example) /images/platforms/*.svg,
 // they’ll be resolved automatically by key. If an icon is missing, we still render the label.
-const getPlatformIcon = (p: Platform) => {
+const getPlatformIcon = (p: CasePlatform) => {
     switch (p) {
         case 'android':
-            return <AndroidIcon/>;
+            return <AndroidIcon />;
         case 'ios':
-            return <AppleIcon/>;
+            return <AppleIcon />;
         case 'desktop':
-            return <ComputerIcon/>;
+            return <ComputerIcon />;
         case 'frontend':
-            return <GlobusIcon/>;
+            return <GlobusIcon />;
         case 'backend':
-            return <ServerIcon/>;
+            return <ServerIcon />;
         case 'compose-multiplatform':
             return <img className={styles.platformIcon} src={'/images/platforms/compose-multiplatform.svg'}
                         alt="Compose Multiplatform icon"
@@ -71,12 +70,11 @@ const getPlatformIcon = (p: Platform) => {
     }
 };
 
-type Props = {
-    item: CaseStudyItem;
+type Props = CaseItem &{
     className?: string;
 };
 
-export const CaseStudyCard: React.FC<Props> = ({ item, className }) => {
+export const CaseStudyCard: React.FC<Props> = ({ className, ...item }) => {
     const logos = item.logo ?? [];
     const logoSrc1 = resolveAssetPath(logos[0]);
     const logoSrc2 = resolveAssetPath(logos[1]);
@@ -159,7 +157,7 @@ export const CaseStudyCard: React.FC<Props> = ({ item, className }) => {
                     })}
                 </div>
             )}
-            {(isExternalCaseStudy(item)) ? (
+            {(isExternalCase(item)) ? (
                 <div className={styles.actions}>
                     {item.externalLink && (
                         <a
@@ -218,14 +216,10 @@ function hideBrokenIcon(img: HTMLImageElement) {
 /**
  * Humanize platform name for label.
  */
-function humanizePlatform(p: Platform): string {
+function humanizePlatform(p: CasePlatform): string {
     switch (p) {
         case 'compose-multiplatform':
             return 'Compose Multiplatform';
-        case 'frontend':
-            return 'Frontend';
-        case 'backend':
-            return 'Backend';
         case 'ios':
             return 'iOS';
         default:
