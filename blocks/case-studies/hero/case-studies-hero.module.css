@@ -1,11 +1,6 @@
-.wrapper {
-  background: #000000;
-  color: #ffffff;
-  padding: 96px 0 72px 0;
-}
-
 .content {
-  max-width: 816px;
+  padding: 96px 0 24px;
+  max-width: 850px;
 }
 
 .title {
@@ -14,7 +9,8 @@
 
 .subtitle {
   margin-top: 24px;
-  color: #ffffff;
+  margin-bottom: 0;
+  color: #fff;
 }
 
 @media (min-width: 768px) {
