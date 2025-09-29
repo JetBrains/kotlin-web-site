@@ -4,7 +4,7 @@
 It simplifies data extraction and analysis tasks by offering an iterative environment where every step can be visualized 
 for clarity. This makes it particularly useful when exploring APIs you are not familiar with.
 
-When used in conjunction with the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), Kotlin Notebook not only enables you to connect to and fetch 
+When used in conjunction with the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), Kotlin Notebook not only enables you to connect to and fetch 
 JSON data from APIs but also assists in reshaping this data for comprehensive analysis and visualization.
 
 > For Kotlin Notebook examples, see [DataFrame examples on GitHub](https://github.com/Kotlin/dataframe/blob/master/examples/notebooks/youtube/Youtube.ipynb).
@@ -106,7 +106,7 @@ The result is stored in the `df` variable:
 
 ## Clean and refine data
 
-Cleaning and refining data are crucial steps in preparing your dataset for analysis. The [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html) 
+Cleaning and refining data are crucial steps in preparing your dataset for analysis. The [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html) 
 offers powerful functionalities for these tasks. Methods like [`move`](https://kotlin.github.io/dataframe/move.html), 
 [`concat`](https://kotlin.github.io/dataframe/concatdf.html), [`select`](https://kotlin.github.io/dataframe/select.html), 
 [`parse`](https://kotlin.github.io/dataframe/parse.html), and [`join`](https://kotlin.github.io/dataframe/join.html) 
@@ -156,7 +156,7 @@ Each step is designed to refine the data, making it more suitable for [in-depth 
 ## Analyze data in Kotlin Notebook
 
 After you've successfully [fetched](#fetch-data-from-an-api) and [cleaned and refined your data](#clean-and-refine-data) 
-using functions from the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), the next step 
+using functions from the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), the next step 
 is to analyze this prepared dataset to extract meaningful insights.
 
 Methods such as [`groupBy`](https://kotlin.github.io/dataframe/groupby.html) for categorizing data, 
@@ -208,7 +208,7 @@ The results of the analysis:
 
 ![Analysis results](kotlin-analysis.png){width=700}
 
-For more advanced techniques, see the [Kotlin DataFrame documentation](https://kotlin.github.io/dataframe/gettingstarted.html).
+For more advanced techniques, see the [Kotlin DataFrame documentation](https://kotlin.github.io/dataframe/home.html).
 
 ## What's next
 

@@ -2,7 +2,7 @@
 
 [Kotlin Notebook](kotlin-notebook-overview.md) offers capabilities for connecting to and retrieving data from various types of SQL databases, such as 
 MariaDB, PostgreSQL, MySQL, and SQLite. 
-Utilizing the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), Kotlin Notebook can establish 
+Utilizing the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), Kotlin Notebook can establish 
 connections to databases, execute SQL queries, and import the results for further operations.
 
 For a detailed example, see the [Notebook in the KotlinDataFrame SQL Examples GitHub repository](https://github.com/zaleslaw/KotlinDataFrame-SQL-Examples/blob/master/notebooks/imdb.ipynb).
@@ -22,7 +22,7 @@ Create a new Kotlin Notebook:
 
 ## Connect to database
 
-You can connect to and interact with an SQL database using specific functions from the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html). 
+You can connect to and interact with an SQL database using specific functions from the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html). 
 You can use `DatabaseConfiguration` to establish a connection to your database and `getSchemaForAllSqlTables()` to retrieve 
 the schema of all tables within it.
 
@@ -148,7 +148,7 @@ rows from the year 2000 onwards using the [`filter`](https://kotlin.github.io/da
 ## Analyze data in Kotlin Notebook
 
 After [establishing a connection to an SQL database](#connect-to-database), you can use Kotlin Notebook for in-depth data analysis 
-utilizing the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html). This includes functions for 
+utilizing the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html). This includes functions for 
 grouping, sorting, and aggregating data, helping you to uncover and understand patterns within your data.
 
 Let's dive into an example that involves analyzing actor data from a movie database, focusing on the most frequently 
