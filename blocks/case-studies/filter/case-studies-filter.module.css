@@ -1,49 +1,42 @@
-.wrapper {
-  padding: 32px 0;
-  color: #ffffff; /* ensure white text */
-}
-
-.title {
-  margin: 0 0 16px 0;
-  color: inherit;
-}
-
-.inner {
+.content {
+  padding: 24px 0 72px;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 80px;
+  grid-template-areas:
+    "group1 group1"
+    "group2 group3";
+  @media (width <= 1000px) {
+    display: block;
+    grid-template-columns: unset;
+    grid-template-areas: unset;
+  }
 }
 
-.group {
-  background: #0f0f0f;
-  border-radius: 12px;
-  padding: 16px;
+.group:first-child {
+  grid-area: group1;
 }
 
-.groupType {
-  /* will span both columns on desktop */
+.group:not(:last-child) {
+  margin-bottom: 32px;
 }
 
 .groupTitle {
-  margin: 0 0 12px 0;
-  color: inherit;
+  margin: 0 0 8px;
 }
 
 .checkboxes {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
   align-items: center;
+  gap: 8px 24px;
 }
 
-.switcherSmall {
-}
+.checkbox {
+  display: flex;
+  align-items: center;
 
-@media (min-width: 768px) {
-  .inner {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .groupType {
-    grid-column: 1 / -1;
+  & span + span {
+    display: flex;
+    gap: 8px;
   }
 }
