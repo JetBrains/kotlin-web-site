@@ -3,7 +3,7 @@
 Kotlin/JavaScript (Kotlin/JS) lets you transpile your Kotlin code, the Kotlin standard library, and any compatible dependencies
 to JavaScript. This way, your Kotlin applications can run in any environment that supports JavaScript.
 
-Use Kotlin/JS through the [Kotlin Multiplatform Gradle plugin](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html) (`kotlin.multiplatform`) to configure and manage 
+Use Kotlin/JS through the [Kotlin Multiplatform Gradle plugin](/docs/multiplatform/multiplatform-dsl-reference.html) (`kotlin.multiplatform`) to configure and manage 
 Kotlin projects targeting JavaScript from a single place.
 
 The Kotlin Multiplatform Gradle plugin gives you access to features

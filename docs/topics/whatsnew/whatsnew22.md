@@ -869,7 +869,7 @@ Support for type aliases in files with `@JsModule` is enabled by default.
 
 ### Support for `@JsExport` in multiplatform `expect` declarations
 
-When working with the [`expect/actual` mechanism](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html) in Kotlin Multiplatform projects,
+When working with the [`expect/actual` mechanism](/docs/multiplatform/multiplatform-expect-actual.html) in Kotlin Multiplatform projects,
 it was not possible to use the `@JsExport` annotation for `expect` declarations in common code.
 
 Starting with this release, you can apply `@JsExport` directly to `expect` declarations:
@@ -1337,7 +1337,7 @@ for a complete overview of all breaking changes and deprecations in this release
 * The deprecated `kotlin-android-extensions` plugin is [removed in Kotlin 2.2.0](compatibility-guide-22.md#deprecate-kotlin-android-extensions-plugin). 
   Use the `kotlin-parcelize` plugin for the `Parcelable` implementation generator and the Android Jetpack's [view bindings](https://developer.android.com/topic/libraries/view-binding) for synthetic views instead.
 * Experimental `kotlinArtifacts` API is [deprecated in Kotlin 2.2.0](compatibility-guide-22.md#deprecate-kotlinartifacts-api). 
-  Use the current DSL available in the Kotlin Gradle plugin to [build final native binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html). If it's not sufficient for migration, leave a comment in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-74953).
+  Use the current DSL available in the Kotlin Gradle plugin to [build final native binaries](/docs/multiplatform/multiplatform-build-native-binaries.html). If it's not sufficient for migration, leave a comment in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-74953).
 * `KotlinCompilation.source`, deprecated in Kotlin 1.9.0, is now [removed from the Kotlin Gradle plugin](compatibility-guide-22.md#deprecate-kotlincompilation-source-api).
 * The parameters for experimental commonization modes are [deprecated in Kotlin 2.2.0](compatibility-guide-22.md#deprecate-commonization-parameters). 
   Clear the commonization cache to delete invalid compilation artifacts.
@@ -1348,7 +1348,7 @@ for a complete overview of all breaking changes and deprecations in this release
 
 ## Documentation updates
 
-This release brings notable documentation changes, including the migration of Kotlin Multiplatform documentation to the [KMP portal](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html). 
+This release brings notable documentation changes, including the migration of Kotlin Multiplatform documentation to the [KMP portal](/docs/multiplatform/get-started.html). 
 
 Additionally, we launched a documentation survey, created new pages and tutorials, and revamped existing ones. 
 
@@ -1367,21 +1367,21 @@ The survey takes around 15 minutes to complete, and your input will help shape t
 * [](jvm-create-project-with-spring-boot.md) – Learn how to create a Spring Boot project with Gradle using IntelliJ IDEA's **New Project** wizard.
 * [Mapping Kotlin and C tutorial series](mapping-primitive-data-types-from-c.md) – Learn how different types and constructs are mapped between Kotlin and C.
 * [Create an app using C interop and libcurl](native-app-with-c-and-libcurl.md) – Create a simple HTTP client that can run natively using the libcurl C library.
-* [Create your Kotlin Multiplatform library](https://www.jetbrains.com/help/kotlin-multiplatform-dev/create-kotlin-multiplatform-library.html) – Learn how to create and publish a multiplatform library using IntelliJ IDEA.
+* [Create your Kotlin Multiplatform library](/docs/multiplatform/create-kotlin-multiplatform-library.html) – Learn how to create and publish a multiplatform library using IntelliJ IDEA.
 * [Build a full-stack application with Ktor and Kotlin Multiplatform](https://ktor.io/docs/full-stack-development-with-kotlin-multiplatform.html) – This tutorial now uses IntelliJ IDEA instead of Fleet, along with Material 3 and the latest versions of Ktor and Kotlin.
-* [Manage local resource environment in your Compose Multiplatform app](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-resource-environment.html) – Learn how to manage the application's resource environment, like in-app theme and language.
+* [Manage local resource environment in your Compose Multiplatform app](/docs/multiplatform/compose-resource-environment.html) – Learn how to manage the application's resource environment, like in-app theme and language.
 
 ### New and revamped pages
 
 * [Kotlin for AI overview](kotlin-ai-apps-development-overview.md) – Discover Kotlin's capabilities for building AI-powered applications.
 * [Dokka migration guide](https://kotlinlang.org/docs/dokka-migration.html) – Learn how to migrate to v2 of the Dokka Gradle plugin.
 * [](metadata-jvm.md) – Explore guidance on reading, modifying, and generating metadata for Kotlin classes compiled for the JVM.
-* [CocoaPods integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html) – Learn how to set up the environment, add Pod dependencies, or use a Kotlin project as a CocoaPod dependency through tutorials and sample projects.
+* [CocoaPods integration](/docs/multiplatform/multiplatform-cocoapods-overview.html) – Learn how to set up the environment, add Pod dependencies, or use a Kotlin project as a CocoaPod dependency through tutorials and sample projects.
 * New pages for Compose Multiplatform to support the iOS stable release:
-    * [Navigation](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-navigation.html) and [Deep linking](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-navigation-deep-links.html) in particular.
-    * [Implementing layouts in Compose](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-layout.html).
-    * [Localizing strings](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-localize-strings.html) and other i18n pages like support for RTL languages.
-* [Compose Hot Reload](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-hot-reload.html) – Learn how to use Compose Hot Reload with your desktop targets and how to add it to an existing project.
+    * [Navigation](/docs/multiplatform/compose-navigation.html) and [Deep linking](/docs/multiplatform/compose-navigation-deep-links.html) in particular.
+    * [Implementing layouts in Compose](/docs/multiplatform/compose-layout.html).
+    * [Localizing strings](/docs/multiplatform/compose-localize-strings.html) and other i18n pages like support for RTL languages.
+* [Compose Hot Reload](/docs/multiplatform/compose-hot-reload.html) – Learn how to use Compose Hot Reload with your desktop targets and how to add it to an existing project.
 * [Exposed migrations](https://www.jetbrains.com/help/exposed/migrations.html) – Learn about the tools Exposed provides for managing database schema changes.
 
 ## How to update to Kotlin 2.2.0

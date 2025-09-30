@@ -67,7 +67,7 @@ In the following table, there are the minimum and maximum **fully supported** ve
 > *Kotlin 2.0.20–2.0.21 and Kotlin 2.1.0–2.1.10 are fully compatible with Gradle up to 8.6.
 > Gradle versions 8.7–8.10 are also supported, with only one exception: If you use the Kotlin Multiplatform Gradle plugin,
 > you may see deprecation warnings in your multiplatform projects calling the `withJava()` function in the JVM target.
-> For more information, see [Java source sets created by default](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-compatibility-guide.html#java-source-sets-created-by-default).
+> For more information, see [Java source sets created by default](/docs/multiplatform/multiplatform-compatibility-guide.html#java-source-sets-created-by-default).
 >
 {style="warning"}
 
@@ -601,7 +601,7 @@ tasks.jar(type: Jar) {
 
 ## Targeting multiple platforms
 
-Projects targeting [multiple platforms](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#targets), called [multiplatform projects](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html),
+Projects targeting [multiple platforms](/docs/multiplatform/multiplatform-dsl-reference.html#targets), called [multiplatform projects](/docs/multiplatform/get-started.html),
 require the `kotlin-multiplatform` plugin.
 
 >The `kotlin-multiplatform` plugin works with Gradle %minGradleVersion% or later.
@@ -629,8 +629,8 @@ plugins {
 </tab>
 </tabs>
 
-Learn more about [Kotlin Multiplatform for different platforms](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html) and 
-[Kotlin Multiplatform for iOS and Android](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-getting-started.html).
+Learn more about [Kotlin Multiplatform for different platforms](/docs/multiplatform/get-started.html) and 
+[Kotlin Multiplatform for iOS and Android](/docs/multiplatform/multiplatform-getting-started.html).
 
 ## Targeting Android
 
@@ -653,7 +653,7 @@ Use Kotlin/JS if your goal is to:
 * Share business logic with a JavaScript/TypeScript codebase
 * Build non-shareable web apps with Kotlin
 
-For more information, see [Choose the right web target for a Kotlin Multiplatform project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/choosing-web-target.html).
+For more information, see [Choose the right web target for a Kotlin Multiplatform project](/docs/multiplatform/choosing-web-target.html).
 
 When targeting JavaScript, use the `kotlin-multiplatform` plugin:
 
@@ -688,14 +688,14 @@ kotlin {
 }
 ```
 
-> See [further details about the Gradle configuration for JavaScript](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#web-targets) and learn more about [setting up a Kotlin/JS project](js-project-setup.md).
+> See [further details about the Gradle configuration for JavaScript](/docs/multiplatform/multiplatform-dsl-reference.html#web-targets) and learn more about [setting up a Kotlin/JS project](js-project-setup.md).
 >
 {style="note"}
 
 ### Targeting WebAssembly
 
 Use Kotlin/Wasm if you want to share both logic and UI across multiple platforms. For more information,
-see [Choose the right web target for a Kotlin Multiplatform project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/choosing-web-target.html).
+see [Choose the right web target for a Kotlin Multiplatform project](/docs/multiplatform/choosing-web-target.html).
 
 As with JavaScript, use the `kotlin-multiplatform` plugin when targeting WebAssembly (Wasm):
 
@@ -749,7 +749,7 @@ kotlin {
 }
 ```
 
-> [See further details about the Gradle configuration for Wasm](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#web-targets).
+> [See further details about the Gradle configuration for Wasm](/docs/multiplatform/multiplatform-dsl-reference.html#web-targets).
 >
 {style="note"}
 
