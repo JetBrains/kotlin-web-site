@@ -46,19 +46,19 @@ Here you'll learn how to develop a backend application with Kotlin server-side.
 
 <tab id="cross-platform-mobile" title="Cross-platform">
 
-Here you'll learn how to develop a cross-platform application using [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html).
+Here you'll learn how to develop a cross-platform application using [Kotlin Multiplatform](/docs/multiplatform/get-started.html).
 
-1. **[Set up your environment for cross-platform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html).**
+1. **[Set up your environment for cross-platform development](/docs/multiplatform/quickstart.html).**
 
 2. **Create your first application for iOS and Android:**
 
    * Create a cross-platform application from scratch and:
-     * [Share business logic while keeping the UI native](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)
-     * [Share business logic and UI](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html)
-   * [Make your existing Android application work on iOS](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html)
-   * [Create a cross-platform application using Ktor and SQLdelight](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html)
+     * [Share business logic while keeping the UI native](/docs/multiplatform/multiplatform-create-first-app.html)
+     * [Share business logic and UI](/docs/multiplatform/compose-multiplatform-create-first-app.html)
+   * [Make your existing Android application work on iOS](/docs/multiplatform/multiplatform-integrate-in-existing-app.html)
+   * [Create a cross-platform application using Ktor and SQLdelight](/docs/multiplatform/multiplatform-ktor-sqldelight.html)
 
-3. **Explore [sample projects](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-samples.html)**.
+3. **Explore [sample projects](/docs/multiplatform/multiplatform-samples.html)**.
 
 </tab>
 
