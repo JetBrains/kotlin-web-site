@@ -161,7 +161,7 @@ If you have an existing project with a static linking type and you upgrade to Ko
 explicitly), you may encounter an error with the project's execution. To fix it, close your Xcode project and
 run `pod install` in the Podfile directory.
 
-For more information, see the [CocoaPods Gradle plugin DSL reference](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-dsl-reference.html).
+For more information, see the [CocoaPods Gradle plugin DSL reference](/docs/multiplatform/multiplatform-cocoapods-dsl-reference.html).
 
 ## Kotlin Multiplatform: A new Android source set layout
 
@@ -797,9 +797,9 @@ The Kotlin documentation has received some notable changes:
 
 * [Get started with Gradle and Kotlin/JVM](get-started-with-jvm-gradle-project.md) – create a console application using
   IntelliJ IDEA and Gradle.
-* [Create a multiplatform app using Ktor and SQLDelight](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html) – create a mobile
+* [Create a multiplatform app using Ktor and SQLDelight](/docs/multiplatform/multiplatform-ktor-sqldelight.html) – create a mobile
   application for iOS and Android using Kotlin Multiplatform Mobile.
-* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html) – learn about cross-platform
+* [Get started with Kotlin Multiplatform](/docs/multiplatform/multiplatform-create-first-app.html) – learn about cross-platform
   mobile development with Kotlin and create an app that works on both Android and iOS.
 
 ## Install Kotlin 1.8.0
