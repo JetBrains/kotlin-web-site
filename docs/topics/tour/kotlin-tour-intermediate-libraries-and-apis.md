@@ -304,5 +304,5 @@ Congratulations! You've completed the intermediate tour! As a next step, check o
 
 * [Create a backend application with Spring Boot and Kotlin](jvm-create-project-with-spring-boot.md)
 * Create a cross-platform application for Android and iOS from scratch and:
-    * [Share business logic while keeping the UI native](/docs/multiplatform/multiplatform-create-first-app.html)
-    * [Share business logic and UI](/docs/multiplatform/compose-multiplatform-create-first-app.html)
+    * [Share business logic while keeping the UI native](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)
+    * [Share business logic and UI](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html)
