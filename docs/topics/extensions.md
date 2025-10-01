@@ -23,12 +23,21 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-isorempty"}
 
+Kotlin provides many useful extension functions from the standard library, such as:
+
+* Operating on collections: [`.map()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/map.html), [`.filter()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/filter.html), [`.reduce()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/reduce.html), [`.fold()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/fold.html), [`.groupBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/group-by.html).
+* Converting to strings: [`.joinToString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/join-to-string.html).
+* Working with null values: [`.filterNotNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/filter-not-null.html).
+
 There are also [_extension properties_](#extension-properties) that let you define new properties for existing classes.
 
 ## Extension functions
 
 Extension functions are always called on a receiver. The receiver has to have the same type as the class being extended.
 In the `.orEmpty()` example, the receiver is the `nonNullString` variable that has `String?` type. 
+
+Extensions don't modify the classes they extend. By defining an extension, you aren't inserting new members into
+a class, only making new functions callable with the dot-notation on variables of this type.
 
 To declare an extension function, prefix its name with a _receiver type_. In this example, the `.truncate()` function extends the `String` class so the
 receiver type is `String`:
@@ -101,17 +110,16 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-endpoints"}
 
-
+The `.endpoints()` function returns a pair containing the first and last elements of the list that it's called on.
+Inside the function body, it calls the `first()` and `last()` functions and combines their returned values into a `Pair`
+using the `to` infix function.
 
 For more information about generics, see [generic functions](generics.md).
 
-## Extensions are resolved _statically_
+## Extension and member functions
 
-Extensions do not actually modify the classes they extend. By defining an extension, you are not inserting new members into
-a class, only making new functions callable with the dot-notation on variables of this type.
-
-Extension functions are dispatched _statically_. So which extension function is called is already known at compile time
-based on the receiver type. For example:
+Extension functions are dispatched _statically_, meaning the compiler determines which function to call based on the
+receiver type at compile time. For example:
 
 ```kotlin
 fun main() {
@@ -122,55 +130,64 @@ fun main() {
     fun Shape.getName() = "Shape"
     fun Rectangle.getName() = "Rectangle"
     
-    fun printClassName(s: Shape) {
-        println(s.getName())
+    fun printClassName(shape: Shape) {
+        println(shape.getName())
     }
     
     printClassName(Rectangle())
+    // Shape
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-shape"}
 
-This example prints _Shape_, because the extension function called depends only on the declared type of the
-parameter `s`, which is the `Shape` class.
+In this example, the compiler calls the `Shape.getName()` extension function because the parameter `shape` is declared
+as type `Shape`. Since extension functions are resolved statically, the compiler chooses the function based on the declared
+type, not the actual object passed in.
 
-If a class has a member function, and an extension function is defined which has the same receiver type,
-the same name, and is applicable to given arguments, the _member always wins_. For example:
+So even though the example passes a `Rectangle` instance, the `.getName()` function resolves to `Shape.getName()` since the 
+variable is declared as type `Shape`.
+
+If a class has a member function and there's an extension function with the same receiver type,
+the same name, and compatible arguments, the _member function always wins_. For example:
 
 ```kotlin
 fun main() {
 //sampleStart
     class Example {
-        fun printFunctionType() { println("Class method") }
+        fun printFunctionType() { println("Member function") }
     }
     
     fun Example.printFunctionType() { println("Extension function") }
     
     Example().printFunctionType()
+    // Member function
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-member-function"}
 
-This code prints _Class method_.
-
-However, it's perfectly OK for extension functions to overload member functions that have the same name but a different signature:
+However, extension functions can overload member functions that have the same name but a _different_ signature:
 
 ```kotlin
 fun main() {
 //sampleStart
     class Example {
-        fun printFunctionType() { println("Class method") }
+        fun printFunctionType() { println("Member function") }
     }
     
-    fun Example.printFunctionType(i: Int) { println("Extension function #$i") }
+    // Same name but different signature
+    fun Example.printFunctionType(index: Int) { println("Extension function #$index") }
     
     Example().printFunctionType(1)
+    // Extension function #1
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-member-function-overload"}
+
+In this example, since an `Int` is passed to the `.printFunctionType()` function, the compiler chooses the extension
+function because it matches the signature. The compiler ignores the member function, which takes no arguments.
 
 ## Nullable receiver
 
