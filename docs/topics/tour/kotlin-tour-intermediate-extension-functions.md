@@ -86,8 +86,9 @@ fun HttpClient.post(url: String): HttpResponse = request("POST", url, emptyMap()
 ```
 {validate="false"}
 
-These `.get()` and `.post()` functions call the `request()` function with the correct HTTP method, so you don't have to.
-They streamline your code and make it easier to understand:
+These `.get()` and `.post()` functions extend the `HttpClient` class. They can directly use the `request()` function from the `HttpClient` class
+because they're called on an instance of the `HttpClient` class as the receiver. You can use these extension functions to
+call the `request()` function with the appropriate HTTP method, which simplifies your code and makes it easier to understand:
 
 ```kotlin
 class HttpClient {
@@ -106,6 +107,7 @@ fun main() {
     val getResponseWithMember = client.request("GET", "https://example.com", emptyMap())
 
     // Making a GET request using the get() extension function
+    // The client instance is the receiver
     val getResponseWithExtension = client.get("https://example.com")
 }
 ```
