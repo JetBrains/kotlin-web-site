@@ -42,13 +42,18 @@ fun main() {
     val shortUsername = "KotlinFan42"
     val longUsername = "JetBrainsLoverForever"
 
-    println("Short username: ${shortUsername.truncate(15)}") // KotlinFan42
-    println("Long username:  ${longUsername.truncate(15)}")  // JetBrainsLov...
+    println("Short username: ${shortUsername.truncate(15)}") 
+    // KotlinFan42
+    println("Long username:  ${longUsername.truncate(15)}")  
+    // JetBrainsLov...
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-truncate"}
 
-The `this` keyword inside an extension function corresponds to the receiver.
+The `.truncate()` function truncates any string that it's called on by the number in the `maxLength` argument and adds an ellipsis `...`.
+If the string is shorter than `maxLength`, the function returns the original string.
+
+In this example, the `.mostVoted()` function extends the `Map<String, Int>` class:
 
 ```kotlin
 fun Map<String, Int>.mostVoted(): String? {
@@ -62,9 +67,19 @@ fun main() {
         "Birds" to 22
     )
 
-    println("Top choice: ${poll.mostVoted()}") // Dogs
+    println("Top choice: ${poll.mostVoted()}") 
+    // Dogs
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-mostvoted"}
+
+The `.mostVoted()` function iterates through the key-value pairs of the map it's called on and uses the [`maxByOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/max-by-or-null.html)
+function to return the key of the pair containing the highest value. If the map is empty, the `maxByOrNull()` function
+returns `null`. The `mostVoted()` function uses a safe call `?.` to only access the `key` property when the `maxByOrNull()` function
+returns a non-null value.
+
+You can also create generic extension functions. You need to declare the generic type parameter before the function name to make it available in the receiver type expression.
+In this example, the `.endpoints()` function extends a `List<T>` class where `T` can be any type:
 
 ```kotlin
 fun <T> List<T>.endpoints(): Pair<T, T> {
@@ -78,12 +93,16 @@ fun main() {
     val cityEndpoints = cities.endpoints()
     val tempEndpoints = temperatures.endpoints()
 
-    println("First and last cities: $cityEndpoints")      // (Paris, Prague)
-    println("First and last temperatures: $tempEndpoints") // (21.0, 22.3)
+    println("First and last cities: $cityEndpoints")      
+    // (Paris, Prague)
+    println("First and last temperatures: $tempEndpoints") 
+    // (21.0, 22.3)
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-endpoints"}
 
-You need to declare the generic type parameter before the function name to make it available in the receiver type expression.
+
+
 For more information about generics, see [generic functions](generics.md).
 
 ## Extensions are resolved _statically_
