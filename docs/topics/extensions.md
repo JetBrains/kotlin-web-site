@@ -116,7 +116,7 @@ using the `to` infix function.
 
 For more information about generics, see [generic functions](generics.md).
 
-## Extension and member functions
+### Extension and member functions
 
 Extension functions are dispatched _statically_, meaning the compiler determines which function to call based on the
 receiver type at compile time. For example:
@@ -189,22 +189,37 @@ fun main() {
 In this example, since an `Int` is passed to the `.printFunctionType()` function, the compiler chooses the extension
 function because it matches the signature. The compiler ignores the member function, which takes no arguments.
 
-## Nullable receiver
+## Nullable receivers
 
-Note that extensions can be defined with a nullable receiver type. These extensions can be called on an object variable
-even if its value is null. If the receiver is `null`, then `this` is also `null`. So when defining an extension with a 
-nullable receiver type, we recommend performing a `this == null` check inside the function body to avoid compiler errors. 
+You can define extensions with a nullable receiver type, which allows you to call them on a variable
+even if its value is null. When the receiver is `null`, `this` is also `null`. To avoid compiler errors, we recommend checking
+`this == null` check inside the function body when defining an extension with a nullable receiver. 
 
-You can call `toString()` in Kotlin without checking for `null`, as the check already happens inside the extension function:
+In this example, you can call the `.toString()` function without checking for `null` because the check already happens inside
+the extension function:
 
 ```kotlin
-fun Any?.toString(): String {
-    if (this == null) return "null"
-    // After the null check, 'this' is autocast to a non-nullable type, so the toString() below
-    // resolves to the member function of the Any class
-    return toString()
+fun main() {
+    //sampleStart
+    // Extension function on nullable Any
+    fun Any?.toString(): String {
+        if (this == null) return "null"
+        // After null check, `this` is smart-cast to non-nullable Any
+        // So this call resolves to the regular toString() function
+        return toString()
+    }
+    
+    val number: Int? = 42
+    val nothing: Any? = null
+    
+    println(number.toString())  
+    // 42
+    println(nothing.toString()) 
+    // null
+    //sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-nullable-receiver"}
 
 ## Extension properties
 
