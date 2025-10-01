@@ -566,6 +566,10 @@ fun main() {
 ### Improved Java interop with inline value classes
 <primary-label ref="experimental-general"/>
 
+> Support for code analysis, code completion, and highlighting of this feature in IntelliJ IDEA is currently available only in [2025.3 EAP builds](https://www.jetbrains.com/idea/nextversion/).
+>
+{style = "note"}
+
 Kotlin 2.2.0 introduces a new experimental annotation: [`@JvmExposeBoxed`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-expose-boxed/). This annotation makes it easier to consume [inline value classes](inline-classes.md) from Java.
 
 By default, Kotlin compiles inline value classes to use **unboxed representations**, which are more performant but often 
