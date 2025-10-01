@@ -223,7 +223,7 @@ The key features are:
 #### How to enable Swift export
 
 The feature is currently [Experimental](components-stability.md#stability-levels-explained) and works only in 
-projects that use [direct integration](/docs/multiplatform/multiplatform-direct-integration.html)
+projects that use [direct integration](https://kotlinlang.org/docs/multiplatform/multiplatform-direct-integration.html)
 to connect the iOS framework to the Xcode project. This is a standard configuration for Kotlin Multiplatform projects 
 created with the Kotlin Multiplatform plugin in IntelliJ IDEA or through the [web wizard](https://kmp.jetbrains.com/).
 
@@ -323,7 +323,7 @@ This update simplifies code sharing between the `js` and `wasmJs` targets. It is
   for wider browser compatibility. Given this fallback mode, when you create
   a website, it will work on all browsers out of the box: modern browsers use `wasmJs`, and older browsers use `js`.
 
-To try this feature, use the [default hierarchy template](/docs/multiplatform/multiplatform-hierarchy.html#default-hierarchy-template)
+To try this feature, use the [default hierarchy template](https://kotlinlang.org/docs/multiplatform/multiplatform-hierarchy.html#default-hierarchy-template)
 in the `kotlin {}` block of your `build.gradle(.kts)` file:
 
 ```kotlin
@@ -354,10 +354,10 @@ you can now remove it from your `gradle.properties` file.
 Unfortunately, a few limitations are still present. You still need to use a Mac machine if:
 
 * Your library or any dependent modules have [cinterop dependencies](native-c-interop.md).
-* You have a [CocoaPods integration](/docs/multiplatform/multiplatform-cocoapods-overview.html) set up in your project.
-* You need to build or test [final binaries](/docs/multiplatform/multiplatform-build-native-binaries.html) for Apple targets.
+* You have a [CocoaPods integration](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-overview.html) set up in your project.
+* You need to build or test [final binaries](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html) for Apple targets.
 
-For more information about the publication of multiplatform libraries, see our [documentation](/docs/multiplatform/multiplatform-publish-lib-setup.html).
+For more information about the publication of multiplatform libraries, see our [documentation](https://kotlinlang.org/docs/multiplatform/multiplatform-publish-lib-setup.html).
 
 ### New approach for declaring common dependencies
 <primary-label ref="experimental-opt-in"/>

@@ -573,7 +573,7 @@ then the target level, and the lowest is the compilation unit (which is usually 
 ![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
 
 To learn more about the different levels and how compiler options can be configured between them, 
-see [Compiler options](/docs/multiplatform/multiplatform-dsl-reference.html#compiler-options).
+see [Compiler options](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#compiler-options).
 
 ### Preview Gradle's Isolated Projects in Kotlin Multiplatform
 
@@ -671,7 +671,7 @@ which you can access from Xcode.
 Keep in mind that the feature is currently only in the early stages of development.
 
 Swift export currently works in projects that use
-[direct integration](/docs/multiplatform/multiplatform-direct-integration.html) to connect the iOS framework to the Xcode project.
+[direct integration](https://kotlinlang.org/docs/multiplatform/multiplatform-direct-integration.html) to connect the iOS framework to the Xcode project.
 This is a standard configuration for Kotlin Multiplatform projects created in Android Studio or through the [web wizard](https://kmp.jetbrains.com/).
 
 To try out Swift export in your project:
@@ -726,15 +726,15 @@ kotlin.native.enableKlibsCrossCompilation=true
 This feature is currently Experimental and has some limitations. You still need to use a Mac machine if:
 
 * Your library has a [cinterop dependency](native-c-interop.md).
-* You have [CocoaPods integration](/docs/multiplatform/multiplatform-cocoapods-overview.html) set up in your project.
-* You need to build or test [final binaries](/docs/multiplatform/multiplatform-build-native-binaries.html) for Apple targets.
+* You have [CocoaPods integration](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-overview.html) set up in your project.
+* You need to build or test [final binaries](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html) for Apple targets.
 
 #### Leave feedback on publishing libraries from any host
 
 We're planning to stabilize this feature and further improve library publication in future Kotlin releases.
 Please leave your feedback in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-71290).
 
-For more information, see [Publishing multiplatform libraries](/docs/multiplatform/multiplatform-publish-lib-setup.html).
+For more information, see [Publishing multiplatform libraries](https://kotlinlang.org/docs/multiplatform/multiplatform-publish-lib-setup.html).
 
 ### Support for non-packed klibs
 
@@ -793,7 +793,7 @@ We'll provide further migration instructions when the new plugin is available.
 The new DSL from Google will be the preferred option for Android target support in Kotlin Multiplatform.
 
 For more information,
-see the [Kotlin Multiplatform compatibility guide](/docs/multiplatform/multiplatform-compatibility-guide.html#rename-of-android-target-to-androidtarget).
+see the [Kotlin Multiplatform compatibility guide](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#rename-of-android-target-to-androidtarget).
 
 ### Dropped support for declaring multiple targets of the same type
 
@@ -801,7 +801,7 @@ Before Kotlin 2.1.0, you could declare multiple targets of the same type in your
 However, this made it challenging to distinguish between targets and to support shared source sets effectively.
 In most cases, a simpler setup, such as using separate Gradle projects, works better.
 For detailed guidance and an example of how to migrate,
-see [Declaring several similar targets](/docs/multiplatform/multiplatform-compatibility-guide.html#declaring-several-similar-targets)
+see [Declaring several similar targets](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#declaring-several-similar-targets)
 in the Kotlin Multiplatform compatibility guide.
 
 Kotlin 1.9.20 triggered a deprecation warning if you declared multiple targets of the same type in your multiplatform projects.
@@ -816,7 +816,7 @@ Kotlin 2.1.0 includes an [upgrade for the `iosArm64` target support](#iosarm64-p
 
 ### iosArm64 promoted to Tier 1
 
-The `iosArm64` target, which is crucial for [Kotlin Multiplatform](/docs/multiplatform/get-started.html) development,
+The `iosArm64` target, which is crucial for [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) development,
 has been promoted to Tier 1. This is the highest level of support in the Kotlin/Native compiler.
 
 This means the target is regularly tested on the CI pipeline to ensure that it's able to compile and run.
@@ -1578,9 +1578,9 @@ The Kotlin documentation has received some notable changes:
 
 * New [Building a Kotlin library for multiplatform](https://kotlinlang.org/docs/api-guidelines-build-for-multiplatform.html) page –
   Learn how to design your Kotlin libraries for Kotlin Multiplatform.
-* New [Introduction to Kotlin Multiplatform](/docs/multiplatform/get-started.html) page – Learn about Kotlin Multiplatform's key concepts, dependencies, libraries, and more.
+* New [Introduction to Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) page – Learn about Kotlin Multiplatform's key concepts, dependencies, libraries, and more.
 * Updated [Kotlin Multiplatform overview](multiplatform.topic) page – Navigate through the essentials of Kotlin Multiplatform and popular use cases.
-* New [iOS integration](/docs/multiplatform/multiplatform-ios-integration-overview.html) section – Learn how to integrate a Kotlin Multiplatform shared module into your iOS app.
+* New [iOS integration](https://kotlinlang.org/docs/multiplatform/multiplatform-ios-integration-overview.html) section – Learn how to integrate a Kotlin Multiplatform shared module into your iOS app.
 * New [Kotlin/Native's definition file](native-definition-file.md) page – Learn how to create a definition file to consume C and Objective-C libraries.
 * [Get started with WASI](wasm-wasi.md) –
   Learn how to run a simple Kotlin/Wasm application using WASI in various WebAssembly virtual machines.

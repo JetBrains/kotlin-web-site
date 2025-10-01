@@ -336,14 +336,14 @@ Starting with Kotlin 1.7.0, you no longer need to install the `cocoapods-generat
 CocoaPods in your projects.
 
 Previously, you needed to install both the CocoaPods dependency manager and the `cocoapods-generate` plugin to use
-CocoaPods, for example, to handle [iOS dependencies](/docs/multiplatform/multiplatform-ios-dependencies.html#with-cocoapods) in
+CocoaPods, for example, to handle [iOS dependencies](https://kotlinlang.org/docs/multiplatform/multiplatform-ios-dependencies.html#with-cocoapods) in
 Kotlin Multiplatform Mobile projects.
 
 Now setting up the CocoaPods integration is easier, and we've resolved the issue when `cocoapods-generate` couldn't be
 installed on Ruby 3 and later. Now the newest Ruby versions that work better on Apple M1 are also supported.
 
 See how to set up
-the [initial CocoaPods integration](/docs/multiplatform/multiplatform-cocoapods-overview.html#set-up-an-environment-to-work-with-cocoapods).
+the [initial CocoaPods integration](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-overview.html#set-up-an-environment-to-work-with-cocoapods).
 
 ### Overriding the Kotlin/Native compiler download URL
 

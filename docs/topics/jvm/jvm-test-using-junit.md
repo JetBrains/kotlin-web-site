@@ -3,7 +3,7 @@
 This tutorial shows you how to write a simple unit test in a Kotlin/JVM project and run it with the Gradle build tool.
 
 In this project, you'll use the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/index.html) library and run the test using JUnit.
-If you're working on a multiplatform app, see the [Kotlin Multiplatform tutorial](/docs/multiplatform/multiplatform-run-tests.html).
+If you're working on a multiplatform app, see the [Kotlin Multiplatform tutorial](https://kotlinlang.org/docs/multiplatform/multiplatform-run-tests.html).
 
 To get started, first download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
 

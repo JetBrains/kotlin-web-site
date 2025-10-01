@@ -64,8 +64,8 @@ For more details, see [Strong linking](native-objc-interop.md#strong-linking).
 ## Third-party libraries
 
 Apart from system platform libraries, Kotlin/Native allows importing third-party native libraries.
-For example, you can use [CocoaPods integration](/docs/multiplatform/multiplatform-cocoapods-overview.html)
-or set up a [cinterops configuration](/docs/multiplatform/multiplatform-dsl-reference.html#cinterops).
+For example, you can use [CocoaPods integration](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-overview.html)
+or set up a [cinterops configuration](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#cinterops).
 
 ### Importing libraries with mismatched Xcode version
 
@@ -79,7 +79,7 @@ why [cross-compilation of Apple targets from a non-Mac host](whatsnew21.md#abili
 is still impossible when using third-party native libraries.
 
 Every Kotlin version is compatible the most with a single Xcode version. This is the recommended version, which is tested
-the most against the corresponding Kotlin version. Check the compatibility with a particular Xcode version [in the compatibility table](/docs/multiplatform/multiplatform-compatibility-guide.html#version-compatibility).
+the most against the corresponding Kotlin version. Check the compatibility with a particular Xcode version [in the compatibility table](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#version-compatibility).
 
 Using newer or older Xcode versions is often possible but might lead to problems,
 usually affecting the import of third-party native libraries.
@@ -156,9 +156,9 @@ However, there might be other errors or even a successful compilation.
 
 To use a custom name for third-party native libraries:
 
-* When importing a native library through the CocoaPods integration, use the [`packageName`](/docs/multiplatform/multiplatform-cocoapods-dsl-reference.html#pod-function)
+* When importing a native library through the CocoaPods integration, use the [`packageName`](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-dsl-reference.html#pod-function)
   property in the `pod {}` block of your Gradle build script.
-* When importing a native library with a `cinterops` configuration, use the [`packageName`](/docs/multiplatform/multiplatform-dsl-reference.html#cinterops)
+* When importing a native library with a `cinterops` configuration, use the [`packageName`](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#cinterops)
   property in the configuration block.
 
 #### Check compatibility with older Kotlin versions

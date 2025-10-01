@@ -1,6 +1,6 @@
 [//]: # (title: Kotlin/Native binary options)
 
-This page lists helpful Kotlin/Native binary options that you can use to configure Kotlin/Native [final binaries](/docs/multiplatform/multiplatform-build-native-binaries.html)
+This page lists helpful Kotlin/Native binary options that you can use to configure Kotlin/Native [final binaries](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html)
 and the ways to set up binary options in your project.
 
 ## How to enable
@@ -325,4 +325,4 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
 
 ## What's next
 
-Learn how to [build final native binaries](/docs/multiplatform/multiplatform-build-native-binaries.html).
+Learn how to [build final native binaries](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html).
