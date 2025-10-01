@@ -55,10 +55,10 @@ Create a simple HTTP client that can run natively on multiple platforms using Ko
 
 Learn how to create a mobile application for Android and iOS using Kotlin Multiplatform with Ktor and SQLDelight.
 
-[**Start**](/docs/multiplatform/multiplatform-ktor-sqldelight.html)
+[**Start**](https://kotlinlang.org/docs/multiplatform/multiplatform-ktor-sqldelight.html)
 
 ## Targeting iOS and Android with Kotlin Multiplatform
 
 Learn how to create a mobile application that can target both iOS and Android using Kotlin Multiplatform.
 
-[**Start**](/docs/multiplatform/multiplatform-create-first-app.html)
+[**Start**](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)

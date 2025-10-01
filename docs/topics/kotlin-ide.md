@@ -59,4 +59,4 @@ Also, you could use package managers, such as [Homebrew](command-line.md#homebre
 ## What's next?
 
 * [Start your first project using IntelliJ IDEA IDE](jvm-get-started.md)
-* [Create your first cross-platform mobile app using Android Studio](/docs/multiplatform/multiplatform-create-first-app.html)
+* [Create your first cross-platform mobile app using Android Studio](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)
