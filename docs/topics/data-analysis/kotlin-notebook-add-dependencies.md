@@ -22,6 +22,12 @@ However, Kotlin Notebook has a simplified method to load popular libraries in th
 ```kotlin
 // Replace libraryName with the library dependency you want to add
 %use libraryName
+// Specify a version, if required
+%use libraryName(version)
+// Add v= to trigger autocomplete
+%use libraryName(v=version)
+// Example: kotlinx.datetime:0.7.1
+%use datetime(v=0.7.1)
 ```
 
 You can also use the autocompletion feature in Kotlin Notebook to quickly access available libraries:
@@ -31,7 +37,7 @@ You can also use the autocompletion feature in Kotlin Notebook to quickly access
 ## Add Kotlin DataFrame and Kandy libraries to your Kotlin Notebook
 
 Let's add two popular Kotlin library dependencies to your Kotlin Notebook:
-* The [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html) gives you the power to manipulate data in your Kotlin projects. 
+* The [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html) gives you the power to manipulate data in your Kotlin projects. 
 You can use it to retrieve data from [APIs](data-analysis-work-with-api.md), [SQL databases](data-analysis-connect-to-db.md), and [various file formats](data-analysis-work-with-data-sources.md), such as CSV or JSON.
 * The [Kandy library](https://kotlin.github.io/kandy/welcome.html) provides a powerful and flexible DSL for [creating charts](data-analysis-visualization.md).
 

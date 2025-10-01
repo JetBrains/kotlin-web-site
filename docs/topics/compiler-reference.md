@@ -9,7 +9,7 @@ These compilers are used by:
 * Maven, when you call `mvn compile` or `mvn test-compile` in a console or in the IDE.
 
 You can also run Kotlin compilers manually from the command line as described 
-in the [Working with command-line compiler](command-line.md) tutorial. 
+in the [Working with command-line compiler](command-line.md) tutorial.
 
 ## Compiler options
 
@@ -37,6 +37,12 @@ For details, see [Maven](maven.md#specify-compiler-options).
   > $ kotlinc.bat hello.kt -include-runtime -d "My Folder\hello.jar"
   > ```
   {style="note"}
+
+## Schema for compiler options
+
+A common schema for all compiler options is published under [`org.jetbrains.kotlin:kotlin-compiler-arguments-description`](https://central.sonatype.com/artifact/org.jetbrains.kotlin/kotlin-compiler-arguments-description)
+as a JAR artifact. This artifact includes both a code representation and a JSON equivalent of all compiler option
+descriptions (for non-Kotlin consumers). As well as metadata, such as the version in which each option was introduced or stabilized.
 
 ## Common options
 
@@ -192,6 +198,34 @@ You can adjust warning reporting in your project by combining module-wide rules 
 | `-Wextra -Xwarning-level=DIAGNOSTIC_NAME:disabled` | Enable all additional checks except for the specified ones. |
 
 If you have many warnings to exclude from the general rules, you can list them in a separate file using [`@argfile`](#argfile).
+
+### -Xdata-flow-based-exhaustiveness
+<primary-label ref="experimental-general"/>
+
+Enables data-flow–based exhaustiveness checks for `when` expressions.
+
+### -Xallow-reified-type-in-catch
+<primary-label ref="experimental-general"/>
+
+Enables support for reified `Throwable` type parameters in `catch` clauses of `inline` functions.
+
+### Kotlin contract options
+<primary-label ref="experimental-general"/>
+
+The following options enable experimental Kotlin contract features.
+
+#### -Xallow-contracts-on-more-functions
+
+Enables contracts in additional declarations, including property accessors, specific operator functions,
+and type assertions on generic types.
+
+#### -Xallow-condition-implies-returns-contracts
+
+Allows using the `returnsNotNull()` function in contracts to assume a non-null return value for specified conditions.
+
+#### -Xallow-holdsin-contract
+
+Allows using the `holdsIn` keyword in contracts to assume that a boolean condition is `true` inside a lambda.
 
 ## Kotlin/JVM compiler options
 
@@ -356,6 +390,11 @@ Add variable and function names that you declared in Kotlin code into the source
 ### -source-map-prefix
 
 Add the specified prefix to paths in the source map.
+
+### -Xes-long-as-bigint
+<primary-label ref="experimental-general"/>
+
+Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
 
 ## Kotlin/Native compiler options
 

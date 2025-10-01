@@ -134,7 +134,6 @@ In this tutorial, this includes support for the `@Repository` and `@DependsOn` a
        implementation 'org.jetbrains.kotlin:kotlin-scripting-dependencies-maven'
        // coroutines dependency is required for this particular definition
        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
-
    }
    ```
 
@@ -313,11 +312,11 @@ To check how your scripting host works, prepare a script to execute and a run co
    ```kotlin
    @file:Repository("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
    @file:DependsOn("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
-   
+
    import kotlinx.html.*; import kotlinx.html.stream.*; import kotlinx.html.attributes.*
-   
+
    val addressee = "World"
-   
+
    print(
        createHTML().html {
            body {
@@ -326,7 +325,7 @@ To check how your scripting host works, prepare a script to execute and a run co
        }
    )
    ```
-   
+
    It uses functions from the `kotlinx-html-jvm` library which is referenced in the `@DependsOn` annotation argument.
 
 2. Create a run configuration that starts the scripting host and executes this file:

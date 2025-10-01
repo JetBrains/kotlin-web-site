@@ -1,6 +1,6 @@
 [//]: # (title: kapt compiler plugin)
 
-> kapt is in maintenance mode. We are keeping it up-to-date with recent Kotlin and Java releases 
+> kapt is in maintenance mode. We are keeping it up to date with recent Kotlin and Java releases 
 > but have no plans to implement new features. Please use the [Kotlin Symbol Processing API (KSP)](ksp-overview.md) for annotation processing.
 > [See the list of libraries supported by KSP](ksp-overview.md#supported-libraries).
 >
@@ -11,15 +11,6 @@ Annotation processors (see [JSR 269](https://jcp.org/en/jsr/detail?id=269)) are 
 In a nutshell, kapt helps you use libraries like [Dagger](https://google.github.io/dagger/)
 and [Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html)
 in your Kotlin projects by enabling Java-based annotation processing.
-
-> If you encounter any issues when using kapt with the K2 compiler,
-> report them to our [issue tracker](http://kotl.in/issue) and disable the K2 mode in your `gradle.properties` file:
-> 
-> ```kotlin
-> kapt.use.k2=false
-> ```
-> 
-{style="note"}
 
 ## Use in Gradle
 

@@ -103,8 +103,8 @@ fun stringLength(a: String?): Int = a?.length ?: 0
 
 In Java, you can use annotations showing whether a variable can or cannot be `null`.
 Such annotations aren't part of the standard library, but you can add them separately.
-For example, you can use the JetBrains annotations `@Nullable` and `@NotNull` (from the `org.jetbrains.annotations` package)
-or annotations from Eclipse (`org.eclipse.jdt.annotation`).
+For example, you can use JetBrains annotations `@Nullable` and `@NotNull` (from the `org.jetbrains.annotations` package),
+annotations from [JSpecify](https://jspecify.dev/) (`org.jspecify.annotations`), or from Eclipse (`org.eclipse.jdt.annotation`).
 Kotlin can recognize such annotations when you're [calling Java code from Kotlin code](java-interop.md#nullability-annotations)
 and will treat types according to their annotations.
 
@@ -338,6 +338,50 @@ However, it's more resource-efficient to make such functions return a negative v
 you would do the check anyway, but no additional boxing is performed this way.
 >
 {style="note"}
+
+When migrating Java code to Kotlin, you may want to initially use the regular cast operator `as` with a nullable type
+to preserve the original semantics of your code. However, we recommend adapting your code to use the safe cast operator `as?`
+for a safer and more idiomatic approach. For example, if you have the following Java code:
+
+```java
+public class UserProfile {
+    Object data;
+
+    public static String getUsername(UserProfile profile) {
+        if (profile == null) {
+            return null;
+        }
+        return (String) profile.data;
+    }
+}
+```
+
+Migrating this directly with the `as` operator gives you:
+
+```kotlin
+class UserProfile(var data: Any? = null)
+
+fun getUsername(profile: UserProfile?): String? {
+    if (profile == null) {
+        return null
+    }
+    return profile.data as String?
+}
+```
+
+Here, `profile.data` is cast to a nullable string using `as String?`.
+
+We recommend going one step further and using `as? String` to safely cast the value. This approach returns `null`
+on failure instead of throwing a `ClassCastException`:
+
+```kotlin
+class UserProfile(var data: Any? = null)
+
+fun getUsername(profile: UserProfile?): String? =
+  profile?.data as? String
+```
+
+This version replaces the `if` expression with the [safe call operator](null-safety.md#safe-call-operator) `?.`, which safely accesses the data property before attempting the cast.
 
 ## What's next?
 

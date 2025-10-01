@@ -22,7 +22,7 @@ export const TeachMap = ({className}) => {
         const items = data.map(university => {
           return {
             ...university,
-            id: `${university.title}-${university.location}`
+            id: `${university.title}-${university.location}-${university.geo.lat}-${university.geo.lng}`
           }
         });
         setUniversities(items)

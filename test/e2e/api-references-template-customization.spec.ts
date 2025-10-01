@@ -1,22 +1,22 @@
-import { expect, test } from '@playwright/test';
+import { expect, Page, test } from '@playwright/test';
 import { ApiReferencePage } from '../page/api-reference-page';
 
 const pagesWithCustomizedTemplates = [
     {
         name: 'kotlinx.coroutines index',
-        getInstance: (page) => new ApiReferencePage(page, '/api/kotlinx.coroutines/'),
+        getInstance: (page: Page) => new ApiReferencePage(page, '/api/kotlinx.coroutines/'),
     },
     {
         name: 'kotlinx-coroutines-core module',
-        getInstance: (page) => new ApiReferencePage(page, '/api/kotlinx.coroutines/kotlinx-coroutines-core/'),
+        getInstance: (page: Page) => new ApiReferencePage(page, '/api/kotlinx.coroutines/kotlinx-coroutines-core/'),
     },
     {
         name: 'kotlinx-serialization index',
-        getInstance: (page) => new ApiReferencePage(page,  '/api/kotlinx.serialization/'),
+        getInstance: (page: Page) => new ApiReferencePage(page,  '/api/kotlinx.serialization/'),
     },
     {
         name: 'kotlinx-serialization-core module',
-        getInstance: (page) => new ApiReferencePage(page,  '/api/kotlinx.serialization/kotlinx-serialization-core/'),
+        getInstance: (page: Page) => new ApiReferencePage(page,  '/api/kotlinx.serialization/kotlinx-serialization-core/'),
     },
 ];
 

@@ -549,7 +549,7 @@ Two major improvements are coming to Kotlin/JS with 1.5.30:
 
 The [IR-based compiler backend](whatsnew14.md#unified-backends-and-extensibility) for Kotlin/JS, which was introduced in 1.4.0 in [Alpha](components-stability.md), has reached Beta.
 
-Previously, we published the [migration guide for the JS IR backend](js-ir-migration.md) to help you migrate your projects to the new backend. Now we would like to present the [Kotlin/JS Inspection Pack](https://plugins.jetbrains.com/plugin/17183-kotlin-js-inspection-pack/) IDE plugin, which displays the required changes directly in IntelliJ IDEA.
+Previously, we published the migration guide for the JS IR backend to help you migrate your projects to the new backend. Now we would like to present the [Kotlin/JS Inspection Pack](https://plugins.jetbrains.com/plugin/17183-kotlin-js-inspection-pack/) IDE plugin, which displays the required changes directly in IntelliJ IDEA.
 
 ### Better debugging experience for applications with the Kotlin/JS IR backend
 

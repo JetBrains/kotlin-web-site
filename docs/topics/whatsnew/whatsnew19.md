@@ -563,7 +563,7 @@ You can write, run, and share your Kotlin code that targets the Kotlin/Wasm. [Ch
 
 > Using Kotlin/Wasm requires enabling experimental features in your browser.
 >
-> [Learn more about how to enable these features](wasm-troubleshooting.md).
+> [Learn more about how to enable these features](wasm-configuration.md).
 >
 {style="note"}
 
@@ -615,7 +615,7 @@ support for ES2015:
 In Kotlin 1.8.0, we [announced](whatsnew18.md#stable-js-ir-compiler-backend) that the IR-based backend became [Stable](components-stability.md).
 Since then, not specifying the compiler has become an error, and using the old compiler leads to warnings.
 
-In Kotlin 1.9.0, using the old backend results in an error. Please migrate to the IR compiler by following our [migration guide](js-ir-migration.md).
+In Kotlin 1.9.0, using the old backend results in an error. Please migrate to the IR compiler.
 
 ### Deprecation of the Kotlin/JS Gradle plugin
 

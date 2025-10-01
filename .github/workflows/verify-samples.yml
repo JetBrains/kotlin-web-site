@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'zulu'
+          distribution: 'corretto'
       - name: Run a verifier
         uses: AlexanderPrendota/kotlin-samples-verifier@master
         with:

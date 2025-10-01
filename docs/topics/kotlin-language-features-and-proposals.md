@@ -30,22 +30,6 @@ guided by pragmatic design.
 </td>
 <td>
 
-**Rich Errors: Error union types**
-
-* KEEP proposal: Not defined
-* YouTrack issue: [KT-68296](https://youtrack.jetbrains.com/issue/KT-68296)
-
-</td>
-</tr>
-
-<tr filter="exploration-and-design">
-<td>
-
-**Exploration and design**
-
-</td>
-<td>
-
 **Name-based destructuring**
 
 * KEEP proposal: [name-based-destructuring.md](https://github.com/Kotlin/KEEP/blob/name-based-destructuring/proposals/name-based-destructuring.md)
@@ -73,6 +57,54 @@ guided by pragmatic design.
 <!-- END OF EXPLORATION AND DESIGN BLOCK -->
 
 <!-- KEEP DISCUSSION BLOCK -->
+
+<tr filter="keep">
+<td width="200">
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Improve compile-time constants**
+
+* KEEP proposal: [improve-compile-time-constants.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0444-improve-compile-time-constants.md)
+* YouTrack issue: [KT-22505](https://youtrack.jetbrains.com/issue/KT-22505)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td width="200">
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**`CoroutineContext` as context parameter**
+
+* KEEP proposal: [CoroutineContext-context-parameter.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0443-suspend-CoroutineContext-context-parameter.md)
+* YouTrack issue: [KT-15555](https://youtrack.jetbrains.com/issue/KT-15555)
+
+</td>
+</tr>
+
+<tr filter="keep">
+<td width="200">
+
+**KEEP discussion**
+
+</td>
+<td>
+
+**Rich Errors: motivation and rationale**
+
+* KEEP proposal: [rich-errors-motivation.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0441-rich-errors-motivation.md)
+* YouTrack issue: [KT-68296](https://youtrack.jetbrains.com/issue/KT-68296)
+
+</td>
+</tr>
 
 <tr filter="keep">
 <td width="200">
@@ -200,11 +232,31 @@ guided by pragmatic design.
 </td>
 <td>
 
+**Data flow-based exhaustiveness checking**
+
+* KEEP
+  proposal: [dfa-exhaustiveness.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0442-dfa-exhaustiveness.md)
+* YouTrack issue: [KT-8781](https://youtrack.jetbrains.com/issue/KT-8781)
+* Stability level: [Beta](components-stability.md#stability-levels-explained)
+* Available since: 2.2.20
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
 **Context parameters: support for context-dependent declarations**
 
 * KEEP
   proposal: [context-parameters.md](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md)
 * YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-10468)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
 </td>
@@ -223,6 +275,7 @@ guided by pragmatic design.
 * KEEP
   proposal: [Improvements to annotation use-site targets on properties](https://github.com/Kotlin/KEEP/blob/master/proposals/annotation-target-in-properties.md)
 * YouTrack issue: [KT-19289](https://youtrack.jetbrains.com/issue/KT-19289)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
 </td>
@@ -241,6 +294,7 @@ guided by pragmatic design.
 * KEEP
   proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/master/proposals/nested-typealias.md)
 * YouTrack issue: [KT-45285](https://youtrack.jetbrains.com/issue/KT-45285)
+* Stability level: [Beta](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
 </td>
@@ -259,6 +313,7 @@ guided by pragmatic design.
 * KEEP
   proposal: [context-sensitive-resolution.md](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md)
 * YouTrack issue: [KT-16768](https://youtrack.jetbrains.com/issue/KT-16768)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
 </td>
@@ -274,9 +329,9 @@ guided by pragmatic design.
 
 **Expose boxed inline value classes in JVM**
 
-* KEEP
-  proposal: [jvm-expose-boxed.md](https://github.com/Kotlin/KEEP/blob/jvm-expose-boxed/proposals/jvm-expose-boxed.md)
+* KEEP proposal: [jvm-expose-boxed.md](https://github.com/Kotlin/KEEP/blob/jvm-expose-boxed/proposals/jvm-expose-boxed.md)
 * YouTrack issue: [KT-28135](https://youtrack.jetbrains.com/issue/KT-28135)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
 </td>
@@ -293,6 +348,7 @@ guided by pragmatic design.
 **kotlin.time.Instant**
 
 * KEEP proposal: [Instant and Clock](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/instant.md)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.1.0
 
 </td>
@@ -310,6 +366,7 @@ guided by pragmatic design.
 
 * KEEP proposal: [uuid.md](https://github.com/Kotlin/KEEP/blob/uuid/proposals/stdlib/uuid.md)
 * YouTrack issue: [KT-31880](https://youtrack.jetbrains.com/issue/KT-31880)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.0.20
 
 </td>
@@ -328,6 +385,7 @@ guided by pragmatic design.
 * KEEP
   proposal: [Common atomics](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/common-atomics.md)
 * YouTrack issue: [KT-62423](https://youtrack.jetbrains.com/issue/KT-62423)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
 </td>
@@ -346,6 +404,7 @@ guided by pragmatic design.
 * KEEP
   proposal: [kmp-kotlin-to-java-direct-actualization.md](https://github.com/Kotlin/KEEP/blob/kotlin-to-java-direct-actualization/proposals/kmp-kotlin-to-java-direct-actualization.md)
 * YouTrack issue: [KT-67202](https://youtrack.jetbrains.com/issue/KT-67202)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.1.0
 
 </td>
@@ -439,7 +498,7 @@ guided by pragmatic design.
 
 * KEEP proposal: [enum-entries.md](https://github.com/Kotlin/KEEP/blob/master/proposals/enum-entries.md)
 * YouTrack issue: [KT-48872](https://youtrack.jetbrains.com/issue/KT-48872)
-* Target version: 2.0.0
+* Available since: 2.0.0
 
 </td>
 </tr>
@@ -456,7 +515,7 @@ guided by pragmatic design.
 
 * KEEP proposal: [data-objects.md](https://github.com/Kotlin/KEEP/blob/master/proposals/data-objects.md)
 * YouTrack issue: [KT-4107](https://youtrack.jetbrains.com/issue/KT-4107)
-* Target version: 1.9.0
+* Available since: 1.9.0
 
 </td>
 </tr>
@@ -473,7 +532,7 @@ guided by pragmatic design.
 
 * KEEP proposal: [open-ended-ranges.md](https://github.com/kotlin/KEEP/blob/open-ended-ranges/proposals/open-ended-ranges.md)
 * YouTrack issue: [KT-15613](https://youtrack.jetbrains.com/issue/KT-15613)
-* Target version: 1.7.20
+* Available since: 1.7.20
 
 </td>
 </tr>
@@ -490,7 +549,7 @@ guided by pragmatic design.
 
 * KEEP proposal: [definitely-non-nullable-types.md](https://github.com/Kotlin/KEEP/blob/master/proposals/definitely-non-nullable-types.md)
 * YouTrack issue: [KT-26245](https://youtrack.jetbrains.com/issue/KT-26245)
-* Target version: 1.7.0
+* Available since: 1.7.0
 
 </td>
 </tr>

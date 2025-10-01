@@ -299,6 +299,9 @@ def education_courses():
 def next_index_page():
     return send_file(path.join(root_folder, 'out', 'index.html'))
 
+@app.route('/server-side/')
+def next_server_side_page():
+    return send_file(path.join(root_folder, 'out', 'server-side/index.html'))
 
 def process_page(page_path):
     # get_nav() has side effect to copy and patch files from the `external` folder

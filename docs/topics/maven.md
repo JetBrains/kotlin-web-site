@@ -212,6 +212,26 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
 </build>
 ```
 
+## Configure Kotlin compiler execution strategy
+
+The _Kotlin compiler execution strategy_ defines where the Kotlin compiler runs. There are two available strategies:
+
+| Strategy                | Where the Kotlin compiler is executed |
+|-------------------------|---------------------------------------|
+| Kotlin daemon (default) | Inside its own daemon process         |
+| In process              | Inside the Maven process              |
+
+By default, the [Kotlin daemon](kotlin-daemon.md) is used. You can switch to the "in process" strategy by setting the following
+property in your `pom.xml` file:
+
+```xml
+<properties>
+    <kotlin.compiler.daemon>false</kotlin.compiler.daemon>
+</properties>
+```
+
+Regardless of the compiler execution strategy that you use, you still need to explicitly configure incremental compilation.
+
 ## Enable incremental compilation
 
 To make your builds faster, you can enable incremental compilation by adding the `kotlin.compiler.incremental` property:

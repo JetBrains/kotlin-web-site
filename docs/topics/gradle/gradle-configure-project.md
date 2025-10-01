@@ -50,7 +50,8 @@ In the following table, there are the minimum and maximum **fully supported** ve
 
 | KGP version   | Gradle min and max versions           | AGP min and max versions                            |
 |---------------|---------------------------------------|-----------------------------------------------------|
-| 2.2.0         | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 2.2.20        | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 2.2.0-2.2.10  | 7.6.3-8.14                            | 7.3.1-8.10.0                                        |
 | 2.1.20-2.1.21 | 7.6.3–8.12.1                          | 7.3.1–8.7.2                                         |
 | 2.1.0–2.1.10  | 7.6.3–8.10*                           | 7.3.1–8.7.2                                         |
 | 2.0.20–2.0.21 | 6.8.3–8.8*                            | 7.1.3–8.5                                           |
@@ -635,9 +636,26 @@ Learn more about [Kotlin Multiplatform for different platforms](https://www.jetb
 
 It's recommended to use Android Studio for creating Android applications. [Learn how to use the Android Gradle plugin](https://developer.android.com/studio/releases/gradle-plugin).
 
-## Targeting JavaScript
+## Targeting the web
 
-When targeting JavaScript, use the `kotlin-multiplatform` plugin as well. [Learn more about setting up a Kotlin/JS project](js-project-setup.md)
+Kotlin, through Kotlin Multiplatform, offers two approaches for web development:
+
+* JavaScript-based (using the Kotlin/JS compiler)
+* WebAssembly-based (using the Kotlin/Wasm compiler)
+
+Both approaches use the Kotlin Multiplatform plugin but support different use cases.
+The sections below explain how to configure each target in your Gradle build and when to use them.
+
+### Targeting JavaScript
+
+Use Kotlin/JS if your goal is to:
+
+* Share business logic with a JavaScript/TypeScript codebase
+* Build non-shareable web apps with Kotlin
+
+For more information, see [Choose the right web target for a Kotlin Multiplatform project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/choosing-web-target.html).
+
+When targeting JavaScript, use the `kotlin-multiplatform` plugin:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -660,9 +678,84 @@ plugins {
 </tab>
 </tabs>
 
-### Kotlin and Java sources for JavaScript
+Configure the JavaScript target by specifying whether it should run in the browser or the Node.js environment:
 
-This plugin only works for Kotlin files, so it is recommended that you keep Kotlin and Java files separate (if the
+```kotlin
+kotlin {
+    js().browser {  // or js().nodejs
+        /* ... */
+    }
+}
+```
+
+> See [further details about the Gradle configuration for JavaScript](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#web-targets) and learn more about [setting up a Kotlin/JS project](js-project-setup.md).
+>
+{style="note"}
+
+### Targeting WebAssembly
+
+Use Kotlin/Wasm if you want to share both logic and UI across multiple platforms. For more information,
+see [Choose the right web target for a Kotlin Multiplatform project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/choosing-web-target.html).
+
+As with JavaScript, use the `kotlin-multiplatform` plugin when targeting WebAssembly (Wasm):
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+plugins {
+    kotlin("multiplatform") version "%kotlinVersion%"
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
+}
+```
+
+</tab>
+</tabs>
+
+Depending on your requirements, you can target:
+
+* **`wasmJs`**: for running in browsers or Node.js
+* **`wasmWasi`**: for running in Wasm environments supporting [WASI (WebAssembly System Interface)](https://wasi.dev/), such as Wasmtime, WasmEdge, and so on.
+
+Configure the `wasmJs` target for web browsers or Node.js:
+
+```kotlin
+kotlin {
+    wasmJs {
+        browser { // or nodejs
+            /* ... */
+        }
+    }
+}
+```
+
+For WASI environments, configure the `wasmWasi` target:
+
+```kotlin
+kotlin {
+    wasmWasi {
+        nodejs {
+            /* ... */
+        }
+    }
+}
+```
+
+> [See further details about the Gradle configuration for Wasm](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#web-targets).
+>
+{style="note"}
+
+### Kotlin and Java sources for the web target
+
+The KGP only works for Kotlin files, so it is recommended that you keep Kotlin and Java files separate (if the
 project contains Java files). If you don't store them separately, specify the source folder in the `sourceSets{}` block:
 
 <tabs group="build-script">
@@ -759,6 +852,45 @@ kotlin {
 
 </tab>
 </tabs>
+
+### Configure dependencies at the top level
+<primary-label ref="experimental-opt-in"/>
+
+You can configure common dependencies in multiplatform projects using a top-level `dependencies {}` block.
+Dependencies declared here behave as if they were added to the `commonMain` or `commonTest` source sets.
+
+To use the top-level `dependencies {}` block, opt in by adding the `@OptIn(ExperimentalKotlinGradlePluginApi::class)`
+annotation before the block:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    dependencies {
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%")
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    dependencies {
+        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:%coroutinesVersion%'
+    }
+}
+```
+
+</tab>
+</tabs>
+
+Add platform-specific dependencies inside the `sourceSets {}` block of the corresponding target.
+
+You can share your feedback on this feature in [YouTrack](https://youtrack.jetbrains.com/issue/KT-76446).
 
 ### Dependency types
 

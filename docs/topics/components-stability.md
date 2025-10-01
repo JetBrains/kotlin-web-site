@@ -77,7 +77,7 @@ to avoid the accidental use of features that have not been released as stable.
 | Kotlin/JVM                                                          | Stable     | 1.0.0                    |              |
 | Kotlin/Native                                                       | Stable     | 1.9.0                    |              |
 | Kotlin/JS                                                           | Stable     | 1.3.0                    |              |
-| Kotlin/Wasm                                                         | Alpha      | 1.9.20                   |              |
+| Kotlin/Wasm                                                         | Beta       | 2.2.20                   |              |
 | [Analysis API](https://kotlin.github.io/analysis-api/index_md.html) | Stable     |                          |              |
 
 ### Core compiler plugins

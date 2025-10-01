@@ -14,7 +14,7 @@
         <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
 </tldr>
 
-In this chapter, you'll learn how to use receiver objects with another type of function, lambda expressions, and how they
+In this chapter, you'll learn how to use receivers with another type of function, lambda expressions, and how they
 can help you create a domain-specific language.
 
 ## Lambda expressions with receiver
@@ -80,7 +80,7 @@ In this example:
   directly as if they are inside the `Canvas` class.
 
 Lambda expressions with receiver are helpful when you want to create a domain-specific language (DSL). Since you have
-access to the receiver object's member functions and properties without explicitly referencing the receiver, your code 
+access to the receiver's member functions and properties without explicitly referencing the receiver, your code 
 becomes leaner.
 
 To demonstrate this, consider an example that configures items in a menu. Let's begin with a `MenuItem` class and a 
