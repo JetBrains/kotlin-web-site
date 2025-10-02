@@ -223,24 +223,62 @@ fun main() {
 
 ## Extension properties
 
-Kotlin supports extension properties much like it supports functions:
+Kotlin supports extension properties, which are useful for data transformations or UI display helpers
+when you don't want to clutter the class you're working with. For example, suppose you have a data class that represents a user
+with a first and last name, and you want to create a property that returns an email-style username when accessed. Your code
+might look like this:
 
 ```kotlin
-val <T> List<T>.lastIndex: Int
-    get() = size - 1
+data class User(val firstName: String, val lastName: String)
+
+// An extension property to get a username-style email handle
+val User.emailUsername: String
+get() = "${firstName.lowercase()}.${lastName.lowercase()}"
+
+fun main() {
+    val user = User("Mickey", "Mouse")
+    // Calls extension property
+    println("Generated email username: ${user.emailUsername}")
+    // Generated email username: mickey.mouse
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-property"}
 
-> Since extensions do not actually insert members into classes, there's no efficient way for an extension
-> property to have a [backing field](properties.md#backing-fields). This is why _initializers are not allowed for
-> extension properties_. Their behavior can only be defined by explicitly providing getters/setters.
->
-{style="note"}
-
-Example:
+Since extensions don't actually add members to classes, there's no efficient way for an extension
+property to have a [backing field](properties.md#backing-fields). That's why initializers are not allowed for
+extension properties. You can define their behavior only by explicitly providing getters and setters. For example:
 
 ```kotlin
-val House.number = 1 // error: initializers are not allowed for extension properties
+data class House(val streetName: String)
+
+// ❌ This will NOT compile:
+// var House.number = 1
+// Error: Initializers are not allowed for extension properties
+
+// ✅ Correct: Use a backing map + define get() and set()
+val houseNumbers = mutableMapOf<House, Int>()
+
+var House.number: Int
+get() = houseNumbers[this] ?: 1 // default to 1
+set(value) {
+    println("Setting house number for ${this.streetName} to $value")
+    houseNumbers[this] = value
+}
+
+fun main() {
+    val house = House("Maple Street")
+
+    // Show default
+    println("Default number: ${house.number} ${house.streetName}") // 1 Maple Street
+
+    // Change it
+    house.number = 99
+
+    // Show updated
+    println("Updated number: ${house.number} ${house.streetName}") // 99 Maple Street
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-property-error"}
 
 ## Companion object extensions
 
