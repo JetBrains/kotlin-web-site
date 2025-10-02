@@ -76,7 +76,7 @@ test.describe('Main page buttons', () => {
         await expect(getStartedKoogButton).toBeVisible();
         await getStartedKoogButton.click();
         await expect(page.url()).toContain('/docs.koog.ai/')
-        await expect(page.getByText('Koog on GitHub')).toBeVisible();
+        await expect(page.getByText('Koog on GitHub').first()).toBeVisible();
     });
 
     test('Join the community button', async ({ page }) => {
