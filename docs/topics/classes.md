@@ -5,7 +5,7 @@ for reusable, structured code.
 
 Classes are blueprints or templates for objects, which you 
 create via [constructors](#constructors-and-initializer-blocks). 
-When you [create an instance of a class](#creating-instances-of-classes), you are creating 
+When you [create an instance of a class](#creating-instances), you are creating 
 a concrete object based on that blueprint.
 
 Kotlin offers concise syntax for declaring classes. To declare a class, use the `class` keyword 
@@ -29,7 +29,7 @@ The class declaration consists of:
   * [Nested and inner classes](nested-classes.md)
   * [Object declarations](object-declarations.md)
 
-Both the class header and class body can be minimal. 
+You can keep both the class header and body to a bare minimum. 
 If the class doesn't have a body, you can omit the curly braces `{}`:
 
 ```kotlin
@@ -38,7 +38,7 @@ class Person(val name: String, var age: Int)
 ```
 
 Here's an example that declares a class with a header and body, 
-then [creates an instance](#creating-instances-of-classes) from it:
+then [creates an instance](#creating-instances) from it:
 
 ```kotlin
 // Person class with a primary constructor 
@@ -61,7 +61,7 @@ fun main() {
 ```
 {kotlin-runnable="true" id="class-with-header-and-body"}
 
-## Creating instances of classes
+## Creating instances
 
 An instance is created
 when you use the class as a blueprint to build a real object to work with in your program.
@@ -140,7 +140,7 @@ Both primary and secondary constructors are optional, but a class must have at l
 
 ### Primary constructor
 
-The primary constructor sets up the initial state of an instance when [it's created](#creating-instances-of-classes).
+The primary constructor sets up the initial state of an instance when [it's created](#creating-instances).
 
 To declare a primary constructor, place it in the class header after the class name:
 
@@ -148,7 +148,7 @@ To declare a primary constructor, place it in the class header after the class n
 class Person constructor(name: String) { /*...*/ }
 ```
 
-If the primary constructor doesn't have any annotations or [visibility modifiers](visibility-modifiers.md#constructors), 
+If the primary constructor doesn't have any [annotations](annotations.md) or [visibility modifiers](visibility-modifiers.md#constructors), 
 you can omit the `constructor` keyword:
 
 ```kotlin
@@ -206,7 +206,7 @@ You can also assign default values to properties in the primary constructor:
 class Person(val name: String = "John", var age: Int = 30) { /*...*/ }
 ```
 
-If no value is passed to the constructor during [instance creation](#creating-instances-of-classes), 
+If no value is passed to the constructor during [instance creation](#creating-instances), 
 properties use their default value:
 
 ```kotlin
@@ -262,7 +262,7 @@ class Person(
 The primary constructor initializes the class and sets its properties. 
 In most cases, you can handle this with simple code.
 
-If you need to perform more complex operations during [instance creation](#creating-instances-of-classes),
+If you need to perform more complex operations during [instance creation](#creating-instances),
 place that logic in _initializer blocks_ inside the class body. These blocks run when the primary constructor executes.
 
 Declare initializer blocks with the `init` keyword followed by curly braces `{}`. 
@@ -286,7 +286,7 @@ fun main() {
 {kotlin-runnable="true" id="class-with-initializer-block"}
 
 Add as many initializer blocks (`init {}`) as you need. They run in the order in which they appear in the class body, 
-interleaved with property initializers:
+along with property initializers:
 
 ```kotlin
 //sampleStart
@@ -484,9 +484,7 @@ class Person private constructor() { /*...*/ }
 Class inheritance in Kotlin allows you to create a new class (derived class) from an existing class (base class), 
 inheriting its properties and functions while adding or modifying behavior.
 
-> For detailed information about inheritance hierarchies and how to use of the `open` keyword, see the [Inheritance](inheritance.md) section.
-> 
-{style="note"}
+For detailed information about inheritance hierarchies and how to use of the `open` keyword, see the [Inheritance](inheritance.md) section.
 
 ## Abstract classes
 
@@ -512,7 +510,7 @@ keyword because they are implicitly inheritable by default.
 For more details about the `open` keyword, see [Inheritance](inheritance.md#open-keyword).
 
 Abstract members don't have an implementation
-in the abstract class. 
+in the abstract class.
 You define the implementation in a subclass or inheriting class with an `override` function or property:
 
 ```kotlin
@@ -590,6 +588,4 @@ fun main() {
 If you declare a companion object inside your class,
 you can access its members using only the class name as a qualifier.
 
-> For more information, see [Companion objects](object-declarations.md#companion-objects).
->
-{style="tip"}
+For more information, see [Companion objects](object-declarations.md#companion-objects).
