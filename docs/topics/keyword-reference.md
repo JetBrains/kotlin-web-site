@@ -43,7 +43,7 @@ The following tokens are always interpreted as keywords and cannot be used as id
      - [calls the superclass constructor from a secondary constructor](classes.md#inheritance).
  * `this`
      - refers to [the current receiver](this-expressions.md).
-     - [calls another constructor of the same class from a secondary constructor](classes.md#constructors).
+     - [calls another constructor of the same class from a secondary constructor](classes.md#constructors-and-initializer-blocks).
  * `throw` [throws an exception](exceptions.md).
  * `true` specifies the 'true' value of the [Boolean type](booleans.md).
  * `try` [begins an exception-handling block](exceptions.md).
@@ -63,7 +63,7 @@ as identifiers in other contexts:
      - [delegates the implementation of an interface to another object](delegation.md).
      - [delegates the implementation of the accessors for a property to another object](delegated-properties.md).
  * `catch` begins a block that [handles a specific exception type](exceptions.md).
- * `constructor` declares a [primary or secondary constructor](classes.md#constructors).
+ * `constructor` declares a [primary or secondary constructor](classes.md#constructors-and-initializer-blocks).
  * `delegate` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `dynamic` references a [dynamic type](dynamic-type.md) in Kotlin/JS code.
  * `field` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
@@ -73,7 +73,7 @@ as identifiers in other contexts:
      - declares the [getter of a property](properties.md).
      - is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `import` [imports a declaration from another package into the current file](packages.md).
- * `init` begins an [initializer block](classes.md#constructors).
+ * `init` begins an [initializer block](classes.md#constructors-and-initializer-blocks).
  * `param` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `property` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `receiver` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).

@@ -15,6 +15,8 @@ open class Base // Class is open for inheritance
 
 ```
 
+[For more information, see Open keyword](#open-keyword).
+
 To declare an explicit supertype, place the type after a colon in the class header:
 
 ```kotlin
@@ -35,6 +37,57 @@ class MyView : View {
     constructor(ctx: Context) : super(ctx)
 
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
+}
+```
+
+## Open keyword
+
+In Kotlin, the `open` keyword indicates that a class or a member (function or property) can be overridden in subclasses.
+By default, Kotlin classes and their members are _final_, meaning they cannot be inherited from (for classes) or overridden 
+(for members) unless you explicitly mark them as `open`:
+
+```kotlin
+// Base class with the open keyword to allow inheritance
+open class Person(
+    val name: String
+) {
+    // Open function that can be overridden in a subclass
+    open fun introduce() {
+        println("Hello, my name is $name.")
+    }
+}
+
+// Subclass inheriting from Person and overriding the introduce() function
+class Student(
+    name: String,
+    val school: String
+) : Person(name) {
+    override fun introduce() {
+        println("Hi, I'm $name, and I study at $school.")
+    }
+}
+```
+
+If you override a member of a base class, the overriding member
+is also open by default. If you want to change this and forbid the subclasses of your
+class from overriding your implementation, you can explicitly mark the overriding
+member as `final`:
+
+```kotlin
+// Base class with the open keyword to allow inheritance
+open class Person(val name: String) {
+    // Open function that can be overridden in a subclass
+    open fun introduce() {
+        println("Hello, my name is $name.")
+    }
+}
+
+//  A subclass that inherits from Person and overrides the introduce() function
+class Student(name: String, val school: String) : Person(name) {
+    // The final keyword prevents further overrides in subclasses
+    final override fun introduce() {
+        println("Hi, I'm $name, and I study at $school.")
+    }
 }
 ```
 

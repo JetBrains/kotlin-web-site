@@ -24,7 +24,7 @@ class`](inheritance.md), you can create [custom exceptions](#create-custom-excep
 
 You can manually throw exceptions with the `throw` keyword.
 Throwing an exception indicates that an unexpected runtime error has occurred in the code.
-Exceptions are [objects](classes.md#creating-instances-of-classes), and throwing one creates an instance of an exception class.
+Exceptions are [objects](classes.md#creating-instances), and throwing one creates an instance of an exception class.
 
 You can throw an exception without any parameters: 
 
