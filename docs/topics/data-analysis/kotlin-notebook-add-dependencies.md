@@ -34,6 +34,12 @@ You can also use the autocompletion feature in Kotlin Notebook to quickly access
 
 ![Autocompletion feature in Kotlin Notebook](autocompletion-feature-notebook.png){width=700}
 
+> Kotlin Notebook has a set of integrated libraries to perform various tasks, from deep learning to HTTP networking.
+> See [Import supported libraries](https://www.jetbrains.com/help/idea/kotlin-notebook.html#import-libraries).
+> 
+> You can also add and use libraries that are not yet integrated into Kotlin Notebook. See [Integrate new libraries](https://www.jetbrains.com/help/idea/kotlin-notebook.html#Integrate-new-libraries).
+{style="note"}
+
 ## Add Kotlin DataFrame and Kandy libraries to your Kotlin Notebook
 
 Let's add two popular Kotlin library dependencies to your Kotlin Notebook:

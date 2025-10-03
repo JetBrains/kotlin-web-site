@@ -22,12 +22,17 @@ see [Set up an environment](kotlin-notebook-set-up-env.md).
 Create a new Kotlin Notebook:
 
 1. Select **File** | **New** | **Kotlin Notebook**.
+
+   > You can also [create a new Kotlin Notebook from IntelliJ IDEA's Welcome screen](kotlin-notebook-create.md#create-a-project-from-the-welcome-screen).
+   >
+   {style="tip"}
+
 2. In the Kotlin Notebook, import the Kotlin DataFrame library by running the following command:
 
    ```kotlin
    %use dataframe
    ```
-
+   
 ## Fetch data from an API
 
 Fetching data from APIs using the Kotlin Notebook with the Kotlin DataFrame library is achieved through the [`.read()`](https://kotlin.github.io/dataframe/read.html) 
