@@ -36,11 +36,11 @@ and interfaces.
 
 ## Extension functions
 
-Extension functions are always called on a receiver. The receiver has to have the same type as the class being extended.
+Extension functions are always called on a receiver. The receiver has to have the same type as the class or interface being extended.
 In the `.orEmpty()` example, the receiver is the `nonNullString` variable that has `String?` type. 
 
-Extensions don't modify the classes they extend. By defining an extension, you aren't inserting new members into
-a class, only making new functions callable with the dot-notation on variables of this type.
+Extensions don't modify the classes or interfaces they extend. By defining an extension, you aren't inserting new members,
+only making new functions callable with the dot notation on variables of this type.
 
 To declare an extension function, prefix its name with a _receiver type_. In this example, the `.truncate()` function extends the `String` class so the
 receiver type is `String`:
@@ -191,6 +191,50 @@ fun main() {
 
 In this example, since an `Int` is passed to the `.printFunctionType()` function, the compiler chooses the extension
 function because it matches the signature. The compiler ignores the member function, which takes no arguments.
+
+## Anonymous extension functions
+
+You can define extension functions without giving them a name. This is useful when you want to avoid cluttering the global
+namespace clean or when you need to pass some extension behavior as a parameter.
+
+For example, suppose you want to extend a data class with a one-time function to calculate shipping, without giving it a name:
+
+```kotlin
+fun main() {
+    //sampleStart
+    data class Order(val weight: Double)
+    val calculateShipping = fun Order.(rate: Double): Double = this.weight * rate
+    
+    val order = Order(2.5)
+    val cost = order.calculateShipping(3.0)
+    println("Shipping cost: $cost") 
+    // Shipping cost: 7.5
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-anonymous"}
+
+To pass extension behavior as a parameter, use a [lambda expression](lambdas.md#lambda-expression-syntax) with a type annotation.
+For example, let's say you want to check if a number is within a range without defining a named function:
+
+```kotlin
+fun main() {
+    val isInRange: Int.(min: Int, max: Int) -> Boolean = { min, max -> this in min..max }
+
+    println(5.isInRange(1, 10))   
+    // true
+    println(20.isInRange(1, 10))  
+    // false
+}
+```
+ {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-anonymous-lambda"}
+
+In this example, the `isInRange` variable holds a function of type `Int.(min: Int, max: Int) -> Boolean`. The type is
+an extension function on the `Int` class that takes `min` and `max` parameters and returns a `Boolean`.
+
+The lambda body `{ min, max -> this in min..max }` checks whether the `Int` value the function is called on falls within the
+range between `min` and `max` parameters. If the check is successful, the lambda returns `true`.
+
+For more information, see [Lambda expressions and anonymous functions](lambdas.md).
 
 ## Nullable receivers
 
@@ -522,8 +566,6 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-visibility-outside-receiver"}
-
-## Anonymous extension functions
 
 
 
