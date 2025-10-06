@@ -31,6 +31,9 @@ Kotlin provides many useful extension functions from the standard library, such 
 
 There are also [_extension properties_](#extension-properties) that let you define new properties for existing classes.
 
+You can have extension functions and properties in [companion objects](#companion-object-extensions) as well as classes
+and interfaces.
+
 ## Extension functions
 
 Extension functions are always called on a receiver. The receiver has to have the same type as the class being extended.
@@ -280,8 +283,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-property-error"}
 
-In this example, the getter uses the Elvis operator to return the house number if it exists in the `houseNumbers` map or
-`1`. To learn about how to write getters and setters, see [Custome getters and setters](properties.md#custom-getters-and-setters).
+In this example, the getter uses the [Elvis operator](null-safety.md#elvis-operator) to return the house number if it exists in the `houseNumbers` map or
+`1`. To learn about how to write getters and setters, see [Custom getters and setters](properties.md#custom-getters-and-setters).
 
 ## Companion object extensions
 
@@ -356,7 +359,7 @@ class Connection(val host: Host, val port: Int) {
         print(":")
         // Calls Connection.printPort()
         // Connection is the dispatch receiver
-        printPort()     
+        printPort()
     }
 
     fun connect() {
@@ -394,50 +397,133 @@ class Connection {
 }
 ```
 
-Extensions declared as members can be declared as `open` and overridden in subclasses. This means that the dispatch of such
-functions is virtual with regard to the dispatch receiver type, but static with regard to the extension receiver type.
+### Overriding member extensions
+
+You can declare member extensions as `open` and override them in subclasses, which is useful when you want
+to customize the extension's behavior for each subclass. The compiler handles each receiver type differently:
+
+| Receiver type      | Resolution time | Dispatch type |
+|--------------------|-----------------|---------------|
+| Dispatch receiver  | Runtime         | Virtual       |
+| Extension receiver | Compile time    | Static        |
+
+Consider this example, where the `User` class is `open` and the `Admin` class inherits from it. The `NotificationSender`
+class defines `sendNotification()` extension functions for both `User` and `Admin` classes, and the
+`SpecialNotificationSender` class overrides them:
 
 ```kotlin
-open class Base { }
+open class User
 
-class Derived : Base() { }
+class Admin : User()
 
-open class BaseCaller {
-    open fun Base.printFunctionInfo() {
-        println("Base extension function in BaseCaller")
+open class NotificationSender {
+    open fun User.sendNotification() {
+        println("Sending user notification from normal sender")
     }
 
-    open fun Derived.printFunctionInfo() {
-        println("Derived extension function in BaseCaller")
+    open fun Admin.sendNotification() {
+        println("Sending admin notification from normal sender")
     }
 
-    fun call(b: Base) {
-        b.printFunctionInfo()   // call the extension function
+    fun notify(user: User) {
+        user.sendNotification()
     }
 }
 
-class DerivedCaller: BaseCaller() {
-    override fun Base.printFunctionInfo() {
-        println("Base extension function in DerivedCaller")
+class SpecialNotificationSender : NotificationSender() {
+    override fun User.sendNotification() {
+        println("Sending user notification from special sender")
     }
 
-    override fun Derived.printFunctionInfo() {
-        println("Derived extension function in DerivedCaller")
+    override fun Admin.sendNotification() {
+        println("Sending admin notification from special sender")
     }
 }
 
 fun main() {
-    BaseCaller().call(Base())   // "Base extension function in BaseCaller"
-    DerivedCaller().call(Base())  // "Base extension function in DerivedCaller" - dispatch receiver is resolved virtually
-    DerivedCaller().call(Derived())  // "Base extension function in DerivedCaller" - extension receiver is resolved statically
+    // Dispatch receiver is NotificationSender
+    // Extension receiver is User
+    // Resolves to User.sendNotification() in NotificationSender
+    NotificationSender().notify(User())
+    // Sending user notification from normal sender
+    
+    // Dispatch receiver is SpecialNotificationSender
+    // Extension receiver is User
+    // Resolves to User.sendNotification() in SpecialNotificationSender
+    SpecialNotificationSender().notify(User())
+    // Sending user notification from special sender 
+    
+    // Dispatch receiver is SpecialNotificationSender
+    // Extension receiver is User NOT Admin
+    // The notify() function declares user as type User
+    // Statically resolves to User.sendNotification() in SpecialNotificationSender
+    SpecialNotificationSender().notify(Admin())
+    // Sending user notification from special sender 
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-open"}
+
+The resolution of the dispatch receiver for each call in the `main()` function is easy to follow because the compiler uses
+virtual dispatch. What may surprise you is that when you call the `notify()` function on an `Admin` instance, the 
+compiler chooses the extension based on the declared type: `user: User`, because it resolves the extension receiver statically.
 
 ## Extensions and visibility modifiers
 
-Extensions utilize the same [visibility modifiers](visibility-modifiers.md) as regular functions declared in the same scope would.
-For example:
+Extensions use the same [visibility modifiers](visibility-modifiers.md) as regular functions declared in the same scope, including extensions
+declared as members of other classes.
 
-* An extension declared at the top level of a file has access to the other `private` top-level declarations in the same file.
-* If an extension is declared outside its receiver type, it cannot access the receiver's `private` or `protected` members.
+For example, an extension declared at the top level of a file can access other `private` top-level declarations in the same file:
+
+```kotlin
+// File: StringUtils.kt
+
+private fun removeWhitespace(input: String): String {
+    return input.replace("\\s".toRegex(), "")
+}
+
+fun String.cleaned(): String {
+    return removeWhitespace(this)
+}
+
+fun main() {
+    val rawEmail = "  user @example. com  "
+    val cleaned = rawEmail.cleaned()
+    println("Raw:     '$rawEmail'")
+    // Raw:     '  user @example. com  '
+    println("Cleaned: '$cleaned'")
+    // Cleaned: 'user@example.com'
+    println("Looks like an email: ${cleaned.contains("@") && cleaned.contains(".")}") 
+    // Looks like an email: true
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-visibility-top-level"}
+
+And if an extension is declared outside its receiver type, it can't access the receiver's `private` or `protected` members:
+
+```kotlin
+class User(private val password: String) {
+    fun isLoggedIn(): Boolean = true
+    fun passwordLength(): Int = password.length
+}
+
+// Extension declared outside the class
+fun User.isSecure(): Boolean {
+    // Can't access password because it's private:
+    // return password.length >= 8
+
+    // Instead, we rely on public members:
+    return passwordLength() >= 8 && isLoggedIn()
+}
+
+fun main() {
+    val user = User("supersecret")
+    println("Is user secure: ${user.isSecure()}") 
+    // Is user secure: true
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-visibility-outside-receiver"}
+
+## Anonymous extension functions
+
+
+
