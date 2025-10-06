@@ -251,15 +251,14 @@ extension properties. You can define their behavior only by explicitly providing
 ```kotlin
 data class House(val streetName: String)
 
-// ❌ This will NOT compile:
+// Doesn't compile because there is no getter and setter
 // var House.number = 1
 // Error: Initializers are not allowed for extension properties
 
-// ✅ Correct: Use a backing map + define get() and set()
+// Compiles successfully
 val houseNumbers = mutableMapOf<House, Int>()
-
 var House.number: Int
-get() = houseNumbers[this] ?: 1 // default to 1
+get() = houseNumbers[this] ?: 1
 set(value) {
     println("Setting house number for ${this.streetName} to $value")
     houseNumbers[this] = value
@@ -268,36 +267,44 @@ set(value) {
 fun main() {
     val house = House("Maple Street")
 
-    // Show default
-    println("Default number: ${house.number} ${house.streetName}") // 1 Maple Street
-
-    // Change it
+    // Shows the default
+    println("Default number: ${house.number} ${house.streetName}") 
+    // 1 Maple Street
+    
     house.number = 99
 
-    // Show updated
-    println("Updated number: ${house.number} ${house.streetName}") // 99 Maple Street
+    // Shows the updated number
+    println("Updated number: ${house.number} ${house.streetName}") 
+    // 99 Maple Street
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-property-error"}
 
+In this example, the getter uses the Elvis operator to return the house number if it exists in the `houseNumbers` map or
+`1`. To learn about how to write getters and setters, see [Custome getters and setters](properties.md#custom-getters-and-setters).
+
 ## Companion object extensions
 
-If a class has a [companion object](object-declarations.md#companion-objects) defined, you can also define extension
+If a class defines a [companion object](object-declarations.md#companion-objects), you can also define extension
 functions and properties for the companion object. Just like regular members of the companion object,
-they can be called using only the class name as the qualifier:
+you can call them using only the class name as the qualifier. The compiler names the companion object `Companion` by
+default:
 
 ```kotlin
-class MyClass {
-    companion object { }  // will be called "Companion"
+class Logger {
+    companion object { }
 }
 
-fun MyClass.Companion.printCompanion() { println("companion") }
+fun Logger.Companion.logStartupMessage() {
+    println("Application started.")
+}
 
 fun main() {
-    MyClass.printCompanion()
+    Logger.logStartupMessage()
+    // Application started.
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-companion-object"}
 
 ## Scope of extensions
 
@@ -322,13 +329,17 @@ fun main() {
 }
 ```
 
-See [Imports](packages.md#imports) for more information.
+For more information, see [Imports](packages.md#imports) .
 
 ## Declaring extensions as members
 
-You can declare extensions for one class inside another class. Inside such an extension, there are multiple _implicit receivers_ -
-objects whose members can be accessed without a qualifier. An instance of a class in which the extension is declared is called a
-_dispatch receiver_, and an instance of the receiver type of the extension method is called an _extension receiver_.
+You can declare extensions for one class inside another. Extensions like this have multiple _implicit receivers_.
+Implicit receivers are objects whose members you can access without a qualifier:
+
+* The class where you declare the extension is the _dispatch receiver_.
+* The extension function's receiver type is the _extension receiver_.
+
+Consider this example where the `Connection` class has an extension function for the `Host` class called `printConnectionString()`:
 
 ```kotlin
 class Host(val hostname: String) {
@@ -338,33 +349,47 @@ class Host(val hostname: String) {
 class Connection(val host: Host, val port: Int) {
     fun printPort() { print(port) }
 
+    // Host is the extension receiver
     fun Host.printConnectionString() {
-        printHostname()   // calls Host.printHostname()
+        // Calls Host.printHostname()
+        printHostname() 
         print(":")
-        printPort()   // calls Connection.printPort()
+        // Calls Connection.printPort()
+        // Connection is the dispatch receiver
+        printPort()     
     }
 
     fun connect() {
         /*...*/
-        host.printConnectionString()   // calls the extension function
+        // Calls the extension function
+        host.printConnectionString() 
     }
 }
 
 fun main() {
     Connection(Host("kotl.in"), 443).connect()
-    //Host("kotl.in").printConnectionString()  // error, the extension function is unavailable outside Connection
+    // kotl.in:443
+    
+    // Triggers an error because the extension function isn't available outside Connection
+    // Host("kotl.in").printConnectionString()  
+    // Unresolved reference 'printConnectionString'.
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-members"}
 
-In the event of a name conflict between the members of a dispatch receiver and an extension receiver, the extension receiver takes
-precedence. To refer to the member of the dispatch receiver, you can use the [qualified `this` syntax](this-expressions.md#qualified-this).
+This example declares the `printConnectionString()` function inside the `Connection` class, so the `Connection` class is the
+dispatch receiver. The extension function's receiver type is the `Host` class, so the `Host` class is the extension receiver.
+
+If the dispatch receiver and the extension receiver have members with the same name, the extension receiver's member takes
+precedence. To explicitly refer to the dispatch receiver, use the [qualified `this` syntax](this-expressions.md#qualified-this):
 
 ```kotlin
 class Connection {
     fun Host.getConnectionString() {
-        toString()         // calls Host.toString()
-        this@Connection.toString()  // calls Connection.toString()
+        // Calls Host.toString()
+        toString()
+        // Calls Connection.toString()
+        this@Connection.toString()
     }
 }
 ```
@@ -409,7 +434,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-## Note on visibility
+## Extensions and visibility modifiers
 
 Extensions utilize the same [visibility modifiers](visibility-modifiers.md) as regular functions declared in the same scope would.
 For example:
