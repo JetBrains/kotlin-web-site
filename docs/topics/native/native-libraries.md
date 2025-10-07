@@ -74,12 +74,16 @@ The following commands are currently available:
 | `dump-metadata`               | Dump the metadata of all library declarations to the output. Use only for debugging.                                                                                                                                                                                                                                                                                  |
 | `dump-metadata-signatures`    | Dump IR signatures of all non-private library declarations based on the library metadata. Comparing it to the `dump-ir-signatures` command, which renders signatures based on IR, in most cases the outputs are the same, but if IR-transforming compiler plugins (such as Compose) were used during compilation, patched declarations may have different signatures. |
 
-All the above commands accept an additional `-repository <directory>` argument for specifying a repository different
-to the default one.
+All the above dumping commands accept an additional `-signature-version {N}` argument which instructs the klib utility
+which IR signature version to render when dumping signatures. If not provided, it uses the most up‑to‑date version
+supported by the library. For example:
 
 ```bash
-klib <command> <name> -repository <directory>
+klib dump-metadata-signatures mylib.klib -signature-version 1
 ```
+
+In addition, the `dump-metadata` command accepts the `-print-signatures {true|false}` argument which instructs the klib
+utility to print the IR signatures for every declaration in the output.
 
 ## Creating and using a library
 
