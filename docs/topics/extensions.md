@@ -1,8 +1,8 @@
 [//]: # (title: Extensions)
 
-Kotlin _extensions_ let you extend a class or an interface with new functionality without inheriting or using 
-design patterns like _Decorator_. They are useful when you want to add behavior to a third-party library that you
-can't modify. Once created, you call these extensions as if they were members of the original class or interface.
+Kotlin _extensions_ let you extend a class or an interface with new functionality without using inheritance or
+design patterns like _Decorator_. They are useful when working with third-party libraries you can't modify 
+directly. Once created, you call these extensions as if they were members of the original class or interface.
 
 The most common forms of extensions are _extension functions_ and [_extension properties_](#extension-properties), which
 are available in [companion objects](#companion-object-extensions) as well as classes and interfaces.
@@ -13,7 +13,7 @@ only making new functions callable or new properties accessible via special synt
 ## Receivers
 
 Extensions are always called on a receiver. The receiver has to have the same type as the class or interface being extended.
-Extensions must be prefixed by the receiver, followed by a `.` and the function or property that you want to be available.
+To use an extension, prefix it with the receiver followed by a `.` and the function or property name.
 
 For example, the [`.orEmpty()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/or-empty.html) extension function
 from the standard library extends the `String?` class:
@@ -62,7 +62,7 @@ fun main() {
 
     println("Short username: ${shortUsername.truncate(15)}") 
     // KotlinFan42
-    println("Long username:  ${longUsername.truncate(15)}")  
+    println("Long username:  ${longUsername.truncate(15)}")
     // JetBrainsLov...
 }
 ```
@@ -139,7 +139,7 @@ fun main() {
     val cityEndpoints = cities.endpoints()
     val tempEndpoints = temperatures.endpoints()
 
-    println("First and last cities: $cityEndpoints")      
+    println("First and last cities: $cityEndpoints")
     // (Paris, Prague)
     println("First and last temperatures: $tempEndpoints") 
     // (21.0, 22.3)
@@ -176,7 +176,7 @@ fun main() {
     val number: Int? = 42
     val nothing: Any? = null
     
-    println(number.toString())  
+    println(number.toString())
     // 42
     println(nothing.toString()) 
     // null
@@ -212,8 +212,8 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-shape"}
 
 In this example, the compiler calls the `Shape.getName()` extension function because the parameter `shape` is declared
-as type `Shape`. Since extension functions are resolved statically, the compiler chooses the function based on the declared
-type, not the actual object passed in.
+as type `Shape`. Because extension functions are resolved statically, the compiler chooses the function based on the declared
+type, not the actual instance.
 
 So even though the example passes a `Rectangle` instance, the `.getName()` function resolves to `Shape.getName()` since the 
 variable is declared as type `Shape`.
@@ -287,9 +287,9 @@ For example, let's say you want to check if a number is within a range without d
 fun main() {
     val isInRange: Int.(min: Int, max: Int) -> Boolean = { min, max -> this in min..max }
 
-    println(5.isInRange(1, 10))   
+    println(5.isInRange(1, 10))
     // true
-    println(20.isInRange(1, 10))  
+    println(20.isInRange(1, 10))
     // false
 }
 ```
@@ -394,7 +394,7 @@ fun main() {
 ## Declaring extensions as members
 
 You can declare extensions for one class inside another. Extensions like this have multiple _implicit receivers_.
-Implicit receivers are objects whose members you can access without a qualifier:
+An implicit receiver is an object whose members you can access without qualifying them with [`this`](this-expressions.md#qualified-this):
 
 * The class where you declare the extension is the _dispatch receiver_.
 * The extension function's receiver type is the _extension receiver_.
@@ -431,7 +431,7 @@ fun main() {
     // kotl.in:443
     
     // Triggers an error because the extension function isn't available outside Connection
-    // Host("kotl.in").printConnectionString()  
+    // Host("kotl.in").printConnectionString()
     // Unresolved reference 'printConnectionString'.
 }
 ```
@@ -441,7 +441,7 @@ This example declares the `printConnectionString()` function inside the `Connect
 dispatch receiver. The extension function's receiver type is the `Host` class, so the `Host` class is the extension receiver.
 
 If the dispatch receiver and the extension receiver have members with the same name, the extension receiver's member takes
-precedence. To explicitly refer to the dispatch receiver, use the [qualified `this` syntax](this-expressions.md#qualified-this):
+precedence. To access the dispatch receiver explicitly, use the [qualified `this` syntax](this-expressions.md#qualified-this):
 
 ```kotlin
 class Connection {
@@ -520,8 +520,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-open"}
 
-The resolution of the dispatch receiver for each call in the `main()` function is easy to follow because the compiler uses
-virtual dispatch. What may surprise you is that when you call the `notify()` function on an `Admin` instance, the 
+The dispatch receiver is resolved at runtime using virtual dispatch, which makes the behavior in the `main()` function
+easier to follow. What may surprise you is that when you call the `notify()` function on an `Admin` instance, the 
 compiler chooses the extension based on the declared type: `user: User`, because it resolves the extension receiver statically.
 
 ## Extensions and visibility modifiers
