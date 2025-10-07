@@ -1,17 +1,33 @@
 [//]: # (title: Extensions)
 
 Kotlin _extensions_ let you extend a class or an interface with new functionality without inheriting or using 
-design patterns like _Decorator_.
+design patterns like _Decorator_. They are useful when you want to add behavior to a third-party library that you
+can't modify. Once created, you call these extensions as if they were members of the original class or interface.
 
-You can write _extension functions_ for a class or an interface from a third-party library that you can't modify.
-You call these functions as if they were member functions of the original class.
+The most common forms of extensions are _extension functions_ and [_extension properties_](#extension-properties), which
+are available in [companion objects](#companion-object-extensions) as well as classes and interfaces.
 
-For example, with the [`.orEmpty()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/or-empty.html) extension function:
+Extensions don't modify the classes or interfaces they extend. By defining an extension, you aren't inserting new members,
+only making new functions callable or new properties accessible via special syntax.
+
+## Receivers
+
+Extensions are always called on a receiver. The receiver has to have the same type as the class or interface being extended.
+Extensions must be prefixed by the receiver, followed by a `.` and the function or property that you want to be available.
+
+For example, the [`.orEmpty()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/or-empty.html) extension function
+from the standard library extends the `String?` class:
+
+```kotlin
+fun String?.orEmpty(): String
+```
+
+So the receiver is a `String?` instance and the _receiver type_ is `String?`:
 
 ```kotlin
 fun main() {
 //sampleStart
-    // nullableString is null
+    // nullableString is an instance of String?
     val nullableString: String? = null
     // Calls .orEmpty() extension function on nullableString
     val nonNullString = nullableString.orEmpty()
@@ -23,27 +39,17 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-isorempty"}
 
-Kotlin provides many useful extension functions from the standard library, such as:
+## Extension functions
+
+Before creating your own extension functions, see if what you are looking for is already available in the Kotlin [standard library](https://kotlinlang.org/api/core/kotlin-stdlib/).
+The standard library already provides many useful extension functions, such as:
 
 * Operating on collections: [`.map()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/map.html), [`.filter()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/filter.html), [`.reduce()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/reduce.html), [`.fold()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/fold.html), [`.groupBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/group-by.html).
 * Converting to strings: [`.joinToString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/join-to-string.html).
 * Working with null values: [`.filterNotNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/filter-not-null.html).
 
-There are also [_extension properties_](#extension-properties) that let you define new properties for existing classes.
-
-You can have extension functions and properties in [companion objects](#companion-object-extensions) as well as classes
-and interfaces.
-
-## Extension functions
-
-Extension functions are always called on a receiver. The receiver has to have the same type as the class or interface being extended.
-In the `.orEmpty()` example, the receiver is the `nonNullString` variable that has `String?` type. 
-
-Extensions don't modify the classes or interfaces they extend. By defining an extension, you aren't inserting new members,
-only making new functions callable with the dot notation on variables of this type.
-
-To declare an extension function, prefix its name with a _receiver type_. In this example, the `.truncate()` function extends the `String` class so the
-receiver type is `String`:
+To create your own extension function, prefix its name with a receiver type followed by a `.`. In this example, the `.truncate()`
+function extends the `String` class so the receiver type is `String`:
 
 ```kotlin
 fun String.truncate(maxLength: Int): String {
@@ -90,8 +96,11 @@ function to return the key of the pair containing the highest value. If the map 
 returns `null`. The `mostVoted()` function uses a safe call `?.` to only access the `key` property when the `maxByOrNull()` function
 returns a non-null value.
 
-You can also create generic extension functions. You need to declare the generic type parameter before the function name to make it available in the receiver type expression.
-In this example, the `.endpoints()` function extends a `List<T>` class where `T` can be any type:
+### Generic extension functions
+
+You can also create generic extension functions. You need to declare the generic type parameter before the function name
+to make it available in the receiver type expression. In this example, the `.endpoints()` function extends a `List<T>` 
+class where `T` can be any type:
 
 ```kotlin
 fun <T> List<T>.endpoints(): Pair<T, T> {
@@ -119,8 +128,41 @@ using the `to` infix function.
 
 For more information about generics, see [generic functions](generics.md).
 
+### Nullable receivers
+
+You can define extension functions with a nullable receiver type, which allows you to call them on a variable
+even if its value is null. When the receiver is `null`, `this` is also `null`. To avoid compiler errors, we recommend checking
+`this == null` check inside the function body when defining an extension with a nullable receiver.
+
+In this example, you can call the `.toString()` function without checking for `null` because the check already happens inside
+the extension function:
+
+```kotlin
+fun main() {
+    //sampleStart
+    // Extension function on nullable Any
+    fun Any?.toString(): String {
+        if (this == null) return "null"
+        // After null check, `this` is smart-cast to non-nullable Any
+        // So this call resolves to the regular toString() function
+        return toString()
+    }
+    
+    val number: Int? = 42
+    val nothing: Any? = null
+    
+    println(number.toString())  
+    // 42
+    println(nothing.toString()) 
+    // null
+    //sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-nullable-receiver"}
+
 ### Extension and member functions
 
+Since calling extension functions and member functions uses the same notation, how does the compiler know which one to use?
 Extension functions are dispatched _statically_, meaning the compiler determines which function to call based on the
 receiver type at compile time. For example:
 
@@ -152,7 +194,7 @@ So even though the example passes a `Rectangle` instance, the `.getName()` funct
 variable is declared as type `Shape`.
 
 If a class has a member function and there's an extension function with the same receiver type,
-the same name, and compatible arguments, the _member function always wins_. For example:
+the same name, and compatible arguments, the member function takes precedence. For example:
 
 ```kotlin
 fun main() {
@@ -195,7 +237,7 @@ function because it matches the signature. The compiler ignores the member funct
 ## Anonymous extension functions
 
 You can define extension functions without giving them a name. This is useful when you want to avoid cluttering the global
-namespace clean or when you need to pass some extension behavior as a parameter.
+namespace or when you need to pass some extension behavior as a parameter.
 
 For example, suppose you want to extend a data class with a one-time function to calculate shipping, without giving it a name:
 
@@ -236,44 +278,15 @@ range between `min` and `max` parameters. If the check is successful, the lambda
 
 For more information, see [Lambda expressions and anonymous functions](lambdas.md).
 
-## Nullable receivers
-
-You can define extensions with a nullable receiver type, which allows you to call them on a variable
-even if its value is null. When the receiver is `null`, `this` is also `null`. To avoid compiler errors, we recommend checking
-`this == null` check inside the function body when defining an extension with a nullable receiver. 
-
-In this example, you can call the `.toString()` function without checking for `null` because the check already happens inside
-the extension function:
-
-```kotlin
-fun main() {
-    //sampleStart
-    // Extension function on nullable Any
-    fun Any?.toString(): String {
-        if (this == null) return "null"
-        // After null check, `this` is smart-cast to non-nullable Any
-        // So this call resolves to the regular toString() function
-        return toString()
-    }
-    
-    val number: Int? = 42
-    val nothing: Any? = null
-    
-    println(number.toString())  
-    // 42
-    println(nothing.toString()) 
-    // null
-    //sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-nullable-receiver"}
-
 ## Extension properties
 
-Kotlin supports extension properties, which are useful for data transformations or UI display helpers
-when you don't want to clutter the class you're working with. For example, suppose you have a data class that represents a user
-with a first and last name, and you want to create a property that returns an email-style username when accessed. Your code
-might look like this:
+Kotlin supports extension properties, which are useful for performing data transformations or creating UI display helpers
+without cluttering the class you're working with. 
+
+To create an extension property, write the name of the class that you want to extend followed by a `.` and the name of your property.
+
+For example, suppose you have a data class that represents a user with a first and last name, and you want to create a 
+property that returns an email-style username when accessed. Your code might look like this:
 
 ```kotlin
 data class User(val firstName: String, val lastName: String)
@@ -328,7 +341,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-property-error"}
 
 In this example, the getter uses the [Elvis operator](null-safety.md#elvis-operator) to return the house number if it exists in the `houseNumbers` map or
-`1`. To learn about how to write getters and setters, see [Custom getters and setters](properties.md#custom-getters-and-setters).
+`1`. To learn more about how to write getters and setters, see [Custom getters and setters](properties.md#custom-getters-and-setters).
 
 ## Companion object extensions
 
@@ -352,31 +365,6 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-companion-object"}
-
-## Scope of extensions
-
-In most cases, you define extensions on the top level, directly under packages:
-
-```kotlin
-package org.example.declarations
-
-fun List<String>.getLongestString() { /*...*/}
-```
-
-To use an extension outside its declaring package, import it at the call site:
-
-```kotlin
-package org.example.usage
-
-import org.example.declarations.getLongestString
-
-fun main() {
-    val list = listOf("red", "green", "blue")
-    list.getLongestString()
-}
-```
-
-For more information, see [Imports](packages.md#imports) .
 
 ## Declaring extensions as members
 
@@ -567,5 +555,27 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-visibility-outside-receiver"}
 
+## Scope of extensions
 
+In most cases, you define extensions on the top level, directly under packages:
 
+```kotlin
+package org.example.declarations
+
+fun List<String>.getLongestString() { /*...*/}
+```
+
+To use an extension outside its declaring package, import it at the call site:
+
+```kotlin
+package org.example.usage
+
+import org.example.declarations.getLongestString
+
+fun main() {
+    val list = listOf("red", "green", "blue")
+    list.getLongestString()
+}
+```
+
+For more information, see [Imports](packages.md#imports).
