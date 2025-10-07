@@ -42,7 +42,7 @@ fun main() {
 ## Extension functions
 
 Before creating your own extension functions, see if what you are looking for is already available in the Kotlin [standard library](https://kotlinlang.org/api/core/kotlin-stdlib/).
-The standard library already provides many useful extension functions, such as:
+The standard library provides many useful extension functions for:
 
 * Operating on collections: [`.map()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/map.html), [`.filter()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/filter.html), [`.reduce()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/reduce.html), [`.fold()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/fold.html), [`.groupBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/group-by.html).
 * Converting to strings: [`.joinToString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/join-to-string.html).
@@ -71,6 +71,31 @@ fun main() {
 The `.truncate()` function truncates any string that it's called on by the number in the `maxLength` argument and adds an ellipsis `...`.
 If the string is shorter than `maxLength`, the function returns the original string.
 
+In this example, the `.displayInfo()` function extends the `User` interface:
+
+```kotlin
+interface User {
+    val name: String
+    val email: String
+}
+
+fun User.displayInfo(): String = "User(name=$name, email=$email)"
+
+// Inherits from and implements the properties of the User interface
+class RegularUser(override val name: String, override val email: String) : User
+
+fun main() {
+    val user = RegularUser("Alice", "alice@example.com")
+    println(user.displayInfo()) 
+    // User(name=Alice, email=alice@example.com)
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-interface"}
+
+The `.displayInfo()` function returns a string containing the `name` and `email` of a `RegularUser` instance. Defining 
+an extension on an interface like this is useful when you want to add functionality to all types that implement an interface
+only once.
+
 In this example, the `.mostVoted()` function extends the `Map<String, Int>` class:
 
 ```kotlin
@@ -98,7 +123,7 @@ returns a non-null value.
 
 ### Generic extension functions
 
-You can also create generic extension functions. You need to declare the generic type parameter before the function name
+You can also create generic extension functions. Declare the generic type parameter before the function name
 to make it available in the receiver type expression. In this example, the `.endpoints()` function extends a `List<T>` 
 class where `T` can be any type:
 
