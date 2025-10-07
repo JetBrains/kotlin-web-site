@@ -12,8 +12,8 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
 * [Feature stabilization: nested type aliases, exhaustive `when`, new time tracking functionality](#stable-features)
-* [Language: changes to context-sensitive resolution and a preview of the unused return value checker](#language)
-* [Type checks and the cast optimization pass enabled by default for Kotlin/Native](#kotlin-native-type-checks-and-casts-optimization-pass-in-debug-mode)
+* [Language: a new checker for unused return values and changes to context-sensitive resolution](#language)
+* [Kotlin/Native: Type checks on generic type boundaries enabled by default](#kotlin-native-type-checks-on-generic-type-boundaries-in-debug-mode)
 
 ## IDE support
 
@@ -25,7 +25,7 @@ See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for de
 
 ## Stable features
 
-In previous Kotlin releases, several new language and standard library features were introduced in preview.
+In previous Kotlin releases, several new language and standard library features were introduced as Experimental and Beta.
 We're happy to announce that in this release, the following features become [Stable](components-stability.md#stability-levels-explained):
 
 * [Support for nested type aliases](whatsnew22.md#support-for-nested-type-aliases)
@@ -42,7 +42,7 @@ context-sensitive resolution.
 ### Unused return value checker
 <primary-label ref="experimental-general"/>
 
-Kotlin %kotlinEapVersion% introduces a preview of a new feature, the unused return value checker.
+Kotlin %kotlinEapVersion% introduces a new feature, the unused return value checker.
 This feature warns you when an expression returns a value other than `Unit` or `Nothing` and isn't passed to a function,
 checked in a condition, or used otherwise.
 
@@ -59,7 +59,7 @@ Consider the following example:
 fun formatGreeting(name: String): String {
     if (name.isBlank()) return "Hello, anonymous user!"
     if (!name.contains(' ')) {
-        // The checker raises a warning that this result is ignored
+        // The checker reports a warning that this result is ignored
         "Hello, " + name.replaceFirstChar(Char::titlecase) + "!"
     }
     val (first, last) = name.split(' ')
@@ -121,7 +121,7 @@ kotlin {
 ```
 
 In this mode, Kotlin automatically treats your compiled files as if they are annotated with `@MustUseReturnValues`,
-so the checker applies to all return values from your project's functions
+so the checker applies to all return values from your project's functions.
 
 You can suppress warnings on specific functions by marking them with the `@IgnorableReturnValue` annotation.
 Annotate functions where ignoring the result is common and expected, such as `MutableList.add`:
@@ -141,7 +141,7 @@ fun computeValue(): Int = 42
 
 fun main() {
 
-    // Raises a warning: result is ignored
+    // Reports a warning: result is ignored
     computeValue()
 
     // Suppresses the warning only at this call site with a special unused variable
@@ -150,7 +150,7 @@ fun main() {
 ```
 
 We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-12719). For more information,
-see the feature's [KEEP]( https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0412-unused-return-value-checker.md)
+see the feature's [KEEP]( https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0412-unused-return-value-checker.md).
 
 ### Changes to context-sensitive resolution
 <primary-label ref="experimental-general"/>
@@ -160,36 +160,45 @@ see the feature's [KEEP]( https://github.com/Kotlin/KEEP/blob/main/proposals/KEE
 >
 {style = "note"}
 
-Context-sensitive resolution is still in preview, but we continue improving the feature based on user feedback:
+Context-sensitive resolution is still [Experimental](components-stability.md#stability-levels-explained),
+but we continue improving the feature based on user feedback:
 
 * The sealed and enclosing supertypes of the current type are now considered as part of the contextual scope of the search.
   No other supertype scopes are considered.
-* In cases with type operators and equalities, the compiler now raises a warning if using context-sensitive resolution
+* In cases with type operators and equalities, the compiler now reports a warning if using context-sensitive resolution
   makes the resolution ambiguous. This can happen, for example, when a clashing declaration of a class is imported.
 
-For details, see the [full text of the current proposal](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0379-context-sensitive-resolution.md).
+For details, see the full text of the current proposal in [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0379-context-sensitive-resolution.md).
 
-## Kotlin/Native: Type checks and casts optimization pass in debug mode
+## Kotlin/Native: type checks on generic type boundaries in debug mode
 
-Starting with Kotlin %kotlinEapVersion%, type checks and the cast optimization pass are enabled by default in debug mode,
+Starting with Kotlin %kotlinEapVersion%, type checks on generic type boundaries are enabled by default in debug mode,
 helping you find errors related to unchecked casts earlier. This change improves safety and makes debugging of invalid
 generic casts more predictable across platforms.
 
 Previously, unchecked casts that led to heap pollution and violation of memory safety could go unnoticed in Kotlin/Native.
-Now such cases consistently fail with a runtime cast error, similar to Kotlin/JVM or Kotlin/JS. For example:
+Now, such cases consistently fail with a runtime cast error, similar to Kotlin/JVM or Kotlin/JS. For example:
 
 ```kotlin
-class Box<T>(var value: T)
-
 fun main() {
-    val d = Box(1)
-    if (d as? Box<String> != null) {
-        d.value = "0123456789"
-    }
-    println(d.value + 2) // now throws ClassCastException error
+    val list = listOf("hello")
+    val x = (list as List<Int>)[0]
+    println(x) // Now throws a ClassCastException error
 }
 ```
 
-This code used to print `12`; now it throws a `ClassCastException` error in debug mode, as expected.
+This code used to print `6`; now it throws a `ClassCastException` error in debug mode, as expected.
 
 For more information, see [Type checks and casts](typecasts.md).
+
+## Gradle: Kotlin/JVM compilation uses Build tools API by default
+<primary-label ref="experimental-general"/>
+
+In Kotlin 2.3.0-Beta1, Kotlin/JVM compilation in the Kotlin Gradle plugin uses the [Build tools API](build-tools-api.md)
+(BTA) by default in preview mode. This is a significant change in the internal compilation infrastructure.
+
+We've made BTA the default in this release to allow time for testing. We expect everything to continue working as it did
+before. If you notice any issues, share your feedback in our [issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&summary=Kotlin+Gradle+plugin+BTA+migration+issue&description=Describe+the+problem+you+encountered+here.&c=tag+kgp-bta-migration).
+
+The BTA will be disabled again for Kotlin/JVM compilation in Kotlin 2.3.0-Beta2. We plan to fully enable it for all users
+starting with Kotlin 2.3.20.
