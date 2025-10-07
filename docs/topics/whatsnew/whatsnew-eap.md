@@ -13,7 +13,7 @@ The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP 
 
 * [Feature stabilization: nested type aliases, exhaustive `when`, new time tracking functionality](#stable-features)
 * [Language: a new checker for unused return values and changes to context-sensitive resolution](#language)
-* [Kotlin/Native: Type checks on generic type boundaries enabled by default](#kotlin-native-type-checks-on-generic-type-boundaries-in-debug-mode)
+* [Kotlin/Native: type checks on generic type boundaries enabled by default](#kotlin-native-type-checks-on-generic-type-boundaries-in-debug-mode)
 
 ## IDE support
 
@@ -195,10 +195,10 @@ For more information, see [Type checks and casts](typecasts.md).
 <primary-label ref="experimental-general"/>
 
 In Kotlin 2.3.0-Beta1, Kotlin/JVM compilation in the Kotlin Gradle plugin uses the [Build tools API](build-tools-api.md)
-(BTA) by default in preview mode. This is a significant change in the internal compilation infrastructure.
+(BTA) by default. This is a significant change in the internal compilation infrastructure.
 
 We've made BTA the default in this release to allow time for testing. We expect everything to continue working as it did
 before. If you notice any issues, share your feedback in our [issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&summary=Kotlin+Gradle+plugin+BTA+migration+issue&description=Describe+the+problem+you+encountered+here.&c=tag+kgp-bta-migration).
 
-The BTA will be disabled again for Kotlin/JVM compilation in Kotlin 2.3.0-Beta2. We plan to fully enable it for all users
-starting with Kotlin 2.3.20.
+We plan to disable BTA again for Kotlin/JVM compilation in 2.3.0-Beta2 and fully enable it for all users starting with
+Kotlin 2.3.20.
