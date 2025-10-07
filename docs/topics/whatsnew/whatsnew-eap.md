@@ -108,6 +108,7 @@ class Greeter {
 
 fun someFunction(): Int = ...
 ```
+{validate="false"}
 
 You can also mark your entire project using the `full` mode.
 To do so, add the following compiler option to your `build.gradle.kts` file:
