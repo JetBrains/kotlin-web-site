@@ -146,7 +146,7 @@ A Kotlin language feature can have one of the following statuses:
   We seek feedback on your experience with the feature, including how easily it integrates into your codebase,
   how it interacts with existing code, and any IDE support issues or suggestions.
   The feature's design may change significantly, or it could be completely revoked based on feedback. When a feature is
-  _in preview_, it has a [stability level](components-stability.md#stability-levels-explained).
+  _in preview_, it has either Experimental or Beta [stability levels](components-stability.md#stability-levels-explained).
 
 * **Stable**. The language feature is now a first-class citizen in the Kotlin language.
   We guarantee its backward compatibility and that we'll provide tooling support.
