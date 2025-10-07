@@ -185,7 +185,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-nullable-receiver"}
 
-### Extension and member functions
+### Extension vs member functions
 
 Since calling extension functions and member functions uses the same notation, how does the compiler know which one to use?
 Extension functions are dispatched _statically_, meaning the compiler determines which function to call based on the
