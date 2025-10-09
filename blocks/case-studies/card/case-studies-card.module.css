@@ -1,171 +1,95 @@
 .card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.content {
+  --font-color: rgba(25, 25, 28, 1);
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 20px;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.12);
-  box-sizing: border-box;
-}
+  padding: 32px;
+  gap: 24px;
+  color: var(--font-color);
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.badge {
-  font-size: 12px;
-  font-weight: 600;
-  padding: 6px 10px;
-  border-radius: 999px;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.badgeMultiplatform {
-  background: #eef7ff;
-  color: #1565c0;
-  border: 1px solid rgba(21,101,192,0.15);
-}
-
-.badgeServerSide {
-  background: #eef9f2;
-  color: #1b5e20;
-  border: 1px solid rgba(27,94,32,0.15);
+  @media (width <= 616px) {
+    padding: 24px;
+  }
 }
 
 .logos {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 32px;
 }
-
-.logosDouble {}
 
 .logo {
-  height: 28px;
+  height: 64px;
   width: auto;
   object-fit: contain;
-  max-width: 140px;
-  opacity: 0.95;
-}
-
-.logoSecond {
-  border-left: 1px solid rgba(0,0,0,0.06);
-  padding-left: 10px;
-}
-
-.media {
-  border-radius: 10px;
-  overflow: hidden;
-  background: #f6f7f9;
-}
-
-.mediaVideo {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-}
-
-.iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .mediaImage {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
 }
 
 .description {
-  color: #1f2328;
+  color: var(--font-color);
   font-size: 16px;
-  line-height: 1.6;
-}
-.description :global(a) {
-  color: #0b65c2;
-  text-decoration: underline;
-}
-.description :global(strong) {
-  font-weight: 700;
+  line-height: 24px;
+
+  & h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 35px;
+    line-height: 42px;
+    font-weight: 600;
+  }
+
+  & p {
+    margin-top: 0;
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & a {
+    color: var(--font-color);
+  }
 }
 
 .signature {
-  margin-top: 4px;
-  margin-bottom: 24px;
+  color: var(--font-color);
 }
-.signatureLine1 {
-  font-weight: 600;
-  color: #101214;
+
+.name {
+  color: var(--font-color);
+  line-height: 24px;
+  font-weight: 700;
 }
-.signatureLine2 {
-  color: #555c63;
+
+.position {
+  color: var(--font-color);
+  opacity: 0.6;
+  line-height: 24px;
 }
 
 .platforms {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-  align-items: center;
-}
-
-.platform {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 8px;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 999px;
-  background: #fafbfc;
-  color: #2b2f35;
-  font-size: 13px;
-  line-height: 1;
-}
-
-.platformIcon {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-}
-
-.platformLabel {
-  text-transform: capitalize;
-}
-
-.actions {
-  display: flex;
-  gap: 12px;
   align-items: center;
   flex-wrap: wrap;
+  gap: 8px 12px;
+  height: 24px;
+  margin-left: -2px; /* visual compensation */
 }
 
 .link {
-  color: #0b65c2;
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: 1px solid #0b65c2;
-  color: #0b65c2;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.15s ease;
-}
-
-.button:hover {
-  background: #0b65c2;
-  color: #fff;
+  display: inline-block;
+  align-self: flex-start;
+  letter-spacing: 0.01em;
+  line-height: 24px;
 }
