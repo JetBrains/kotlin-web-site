@@ -4,10 +4,9 @@ Kotlin _extensions_ let you extend a class or an interface with new functionalit
 design patterns like _Decorator_. They are useful when working with third-party libraries you can't modify 
 directly. Once created, you call these extensions as if they were members of the original class or interface.
 
-The most common forms of extensions are _extension functions_ and [_extension properties_](#extension-properties), which
-are available in [companion objects](#companion-object-extensions) as well as classes and interfaces.
+The most common forms of extensions are [_extension functions_](#extension-functions) and [_extension properties_](#extension-properties).
 
-Extensions don't modify the classes or interfaces they extend. By defining an extension, you aren't inserting new members,
+Importantly, extensions don't modify the classes or interfaces they extend. By defining an extension, you aren't inserting new members,
 only making new functions callable or new properties accessible via special syntax.
 
 ## Receivers
@@ -156,8 +155,8 @@ For more information about generics, see [generic functions](generics.md).
 ### Nullable receivers
 
 You can define extension functions with a nullable receiver type, which allows you to call them on a variable
-even if its value is null. When the receiver is `null`, `this` is also `null`. To avoid compiler errors, we recommend checking
-`this == null` check inside the function body when defining an extension with a nullable receiver.
+even if its value is null. When the receiver is `null`, `this` is also `null`. Make sure to handle nullability correctly
+within your functions. For example, use `this == null` checks inside function bodies, [safe calls `?.`](null-safety.md#safe-call-operator), or the [Elvis operator `?:`](null-safety.md#elvis-operator).
 
 In this example, you can call the `.toString()` function without checking for `null` because the check already happens inside
 the extension function:
@@ -185,7 +184,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-function-nullable-receiver"}
 
-### Extension vs member functions
+### Extension or member functions?
 
 Since calling extension functions and member functions uses the same notation, how does the compiler know which one to use?
 Extension functions are dispatched _statically_, meaning the compiler determines which function to call based on the
@@ -259,7 +258,7 @@ fun main() {
 In this example, since an `Int` is passed to the `.printFunctionType()` function, the compiler chooses the extension
 function because it matches the signature. The compiler ignores the member function, which takes no arguments.
 
-## Anonymous extension functions
+### Anonymous extension functions
 
 You can define extension functions without giving them a name. This is useful when you want to avoid cluttering the global
 namespace or when you need to pass some extension behavior as a parameter.
@@ -318,7 +317,7 @@ data class User(val firstName: String, val lastName: String)
 
 // An extension property to get a username-style email handle
 val User.emailUsername: String
-get() = "${firstName.lowercase()}.${lastName.lowercase()}"
+    get() = "${firstName.lowercase()}.${lastName.lowercase()}"
 
 fun main() {
     val user = User("Mickey", "Mouse")
@@ -343,11 +342,11 @@ data class House(val streetName: String)
 // Compiles successfully
 val houseNumbers = mutableMapOf<House, Int>()
 var House.number: Int
-get() = houseNumbers[this] ?: 1
-set(value) {
-    println("Setting house number for ${this.streetName} to $value")
-    houseNumbers[this] = value
-}
+    get() = houseNumbers[this] ?: 1
+    set(value) {
+        println("Setting house number for ${this.streetName} to $value")
+        houseNumbers[this] = value
+    }
 
 fun main() {
     val house = House("Maple Street")
@@ -579,6 +578,16 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-extension-visibility-outside-receiver"}
+
+If an extension is marked as `internal`, it's only accessible within its [module](visibility-modifiers.md#modules):
+
+```kotlin
+// Networking module
+// JsonParser.kt
+internal fun String.parseJson(): Map<String, Any> {
+    return mapOf("fakeKey" to "fakeValue")
+}
+```
 
 ## Scope of extensions
 
