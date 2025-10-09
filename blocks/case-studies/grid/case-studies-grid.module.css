@@ -1,17 +1,4 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: auto;
-  gap: 32px;
-
-  @media (width < 809px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.tile {
-  /*position: relative;*/
-  /*display: block;*/
-  /*box-sizing: border-box;*/
-  /*min-height: 0;*/
+.wrapper {
+  padding-top: 40px;
+  padding-bottom: 96px;
 }
