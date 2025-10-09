@@ -18,7 +18,7 @@ Additionally, here are some main highlights:
 
 * **Kotlin Multiplatform**: [Swift export available by default](#swift-export-available-by-default), [stable cross-platform compilation for Kotlin libraries](#stable-cross-platform-compilation-for-kotlin-libraries), and a [new approach for declaring common dependencies](#new-approach-for-declaring-common-dependencies).
 * **Language**: [Improved overload resolution when passing lambdas to overloads with suspend function types](#improved-overload-resolution-for-lambdas-with-suspend-function-types).
-* **Kotlin/Native**: [support for Xcode 26, stack canaries, and smaller binary size for release binaries](#kotlin-native).
+* **Kotlin/Native**: [Support for Xcode 26, stack canaries, and smaller binary size for release binaries](#kotlin-native).
 * **Kotlin/JS**: [`Long` values compiled into JavaScript `BigInt`](#usage-of-the-bigint-type-to-represent-kotlin-s-long-type).
 
 > Compose Multiplatform for web goes Beta. Learn more in our [blog post](https://blog.jetbrains.com/kotlin/2025/09/compose-multiplatform-1-9-0-compose-for-web-beta/).
