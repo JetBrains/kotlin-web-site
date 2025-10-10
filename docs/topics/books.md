@@ -9,6 +9,20 @@ community website](https://kotlin.link/).
 <table style="none">
 <tr>
 <td>
+<img src="kotlin-in-action-second-edition.jpeg" alt="Kotlin in Action" width="250"/>
+</td>
+<td>
+
+[Kotlin in Action](https://www.manning.com/books/kotlin-in-action-second-edition) teaches you to use the Kotlin language for production-quality applications.
+Written for experienced Java developers, this example-rich book goes further than most language books. The second edition is enriched with an extensive section on the Kotlin coroutines library.
+
+The book is written by Sebastian Aigner, Roman Elizarov, Svetlana Isakova, and Dmitry Jemerov, who are all either current or former members of the Kotlin team.
+
+</td>
+</tr>
+
+<tr>
+<td>
 <img src="atomic-kotlin.png" alt="Atomic Kotlin" width="250"/>
 </td>
 <td>
@@ -38,23 +52,6 @@ You'll learn everything from language fundamentals to collections, generics, lam
 Along the way, you'll get to play with both object-oriented and functional programming. 
 
 If you want to really understand Kotlin, this is the book for you.
-
-</td>
-</tr>
-
-<tr>
-<td>
-<img src="kotlin-in-action-second-edition.jpeg" alt="Kotlin in Action" width="250"/>
-</td>
-<td>
-
-[Kotlin in Action](https://www.manning.com/books/kotlin-in-action-second-edition) teaches you to use the Kotlin language for production-quality applications. 
-Written for experienced Java developers, this example-rich book goes further than most language books, 
-covering interesting topics like building DSLs with natural language syntax.
-
-The book is written by Dmitry Jemerov and Svetlana Isakova, developers on the Kotlin team.
-
-Chapter 6, covering the Kotlin type system, and chapter 11, covering DSLs, are available as a free preview on the [publisher web site](https://www.manning.com/books/kotlin-in-action#downloads).
 
 </td>
 </tr>
