@@ -386,7 +386,7 @@ This version replaces the `if` expression with the [safe call operator](null-saf
 ## What's next?
 
 * Browse other [Kotlin idioms](idioms.md).
-* Learn how to convert existing Java code to Kotlin with the [Java-to-Kotlin (J2K) converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
+* Learn how to convert existing Java code to Kotlin with the [Java-to-Kotlin (J2K) converter](mixing-java-kotlin-intellij.md#convert-java-files-to-kotlin).
 * Check out other migration guides:
   * [Strings in Java and Kotlin](java-to-kotlin-idioms-strings.md)
   * [Collections in Java and Kotlin](java-to-kotlin-collections-guide.md)

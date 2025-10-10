@@ -168,8 +168,8 @@
 				<toc-element toc-title="Build a web application with Spring Boot and Kotlin – tutorial" href="https://spring.io/guides/tutorials/spring-boot-kotlin/"/>
 				<toc-element toc-title="Create a chat application with Kotlin Coroutines and RSocket – tutorial" href="https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/"/>
 			</toc-element>
-			<toc-element topic="jvm-test-using-junit.md"/>
 			<toc-element topic="mixing-java-kotlin-intellij.md"/>
+            <toc-element topic="jvm-test-using-junit.md" toc-title="Test Java code with Kotlin"/>
 			<toc-element topic="jvm-records.md"/>
 			<toc-element toc-title="Java to Kotlin migration guides">
 				<toc-element toc-title="Strings" topic="java-to-kotlin-idioms-strings.md"/>
