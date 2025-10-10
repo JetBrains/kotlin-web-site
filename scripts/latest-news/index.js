@@ -49,10 +49,12 @@ async function getLatestNewsXML() {
 	return await doRequest({
 		hostname: 'blog.jetbrains.com',
 		port: 443,
-		path: '/kotlin/feed/',
+		path: `/kotlin/feed/?rnd=${Date.now()}`,
 		method: 'GET',
 		headers: {
-			'User-Agent': 'Kotlin Parser'
+			'User-Agent': 'Kotlin Parser',
+			'Cache-Control': 'no-cache',
+			'Pragma': 'no-cache'
 		}
 	});
 }
