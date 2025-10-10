@@ -44,11 +44,11 @@ If you want to really understand Kotlin, this is the book for you.
 
 <tr>
 <td>
-<img src="kotlin-in-action.png" alt="Kotlin in Action" width="250"/>
+<img src="kotlin-in-action-second-edition.jpeg" alt="Kotlin in Action" width="250"/>
 </td>
 <td>
 
-[Kotlin in Action](https://manning.com/books/kotlin-in-action) teaches you to use the Kotlin language for production-quality applications. 
+[Kotlin in Action](https://www.manning.com/books/kotlin-in-action-second-edition) teaches you to use the Kotlin language for production-quality applications. 
 Written for experienced Java developers, this example-rich book goes further than most language books, 
 covering interesting topics like building DSLs with natural language syntax.
 
@@ -82,7 +82,7 @@ that are more reliable with less code.
 </td>
 <td>
 
-[Programming Kotlin](https://pragprog.com/book/vskotlin/programming-kotlin) is written by Venkat Subramaniam. 
+[Programming Kotlin](https://pragprog.com/titles/vskotlin/programming-kotlin/) is written by Venkat Subramaniam. 
 
 Programmers don't just use Kotlin, they love it. Even Google has adopted it as a first-class language for Android development. 
 
