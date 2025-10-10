@@ -30,6 +30,8 @@ async function getLatestNews() {
 	const latestNews = [];
 
 	for (const [i, item] of items.splice(0, 4).entries()) {
+        console.log('Processing item', i, 'with link:', item.link);
+
 		const imagePath = await saveImage(i, item.featuredImage);
 		latestNews.push({
 			title: normalizeText(item.title),
