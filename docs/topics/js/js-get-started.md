@@ -6,8 +6,12 @@ To create your app, choose the tool that best fits your workflow:
 * **[IntelliJ IDEA](#create-your-application-in-intellij-idea)**: clone the project template from version control and work on it in IntelliJ IDEA.
 * **[Gradle build system](#create-your-application-using-gradle)**: create build files for your project manually to better understand how the setup works under the hood.
 
-Besides targeting the browser, with Kotlin/JS you can compile for other environments.
-For more information, see [Execution environments](js-project-setup.md#execution-environments).
+> Besides targeting the browser, with Kotlin/JS you can compile for other environments. 
+> For more information, see [Execution environments](js-project-setup.md#execution-environments).
+> 
+{style="tip"}
+
+
 
 ## Create your application in IntelliJ IDEA 
 
@@ -33,8 +37,8 @@ Community or Ultimate edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/
 ### Configure your project
 
 1. Open the `kmp-js-wizard/gradle/libs.versions.toml` file. It contains the version catalog for project dependencies. 
-2. Make sure the Kotlin version matches the Kotlin Multiplatform Gradle plugin 
-   version, which is required to create a web application targeting Kotlin/JS.
+2. Make sure the Kotlin version matches the version of the Kotlin Multiplatform Gradle plugin, which is required 
+   to create a web application targeting Kotlin/JS:
 
    ```text
    [versions]
@@ -44,7 +48,7 @@ Community or Ultimate edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/
    kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
    ```
 
-3. Synchronize the Gradle files if you updated the `libs.versions.toml` file. Click the **Load Gradle Changes** icon that appears in your build file.
+3. Synchronize the Gradle files (if you updated the `libs.versions.toml` file). Click the **Load Gradle Changes** icon that appears in your build file.
 
    ![Load the Gradle changes button](load-gradle-changes.png){width=300}
 
@@ -60,7 +64,7 @@ see the [Multiplatform Gradle DSL reference](https://www.jetbrains.com/help/kotl
    * The `src/jsMain/kotlin/` directory contains the main Kotlin source files for the JavaScript target of your project.
    * The `Main.kt` file includes code that uses the [`kotlinx.browser`](https://github.com/Kotlin/kotlinx-browser) API to render "Hello, Kotlin/JS!" on the browser page.
 
-2. Press the green icon in the `main()` function to run the code:
+2. Click the **Run** icon in the `main()` function to run the code.
 
    ![Run the application](js-run-gutter.png){width=500}
 
@@ -70,6 +74,8 @@ Alternatively, you can open the following URL in your browser when the run is fi
 ```text
    http://localhost:8080/
 ```
+
+You can see the web application:
 
 ![Application output](js-output-gutter-1.png){width=600}
 
@@ -112,7 +118,7 @@ Modify the application to add a feature that counts the number of letters in a w
 
 1. In the `src/jsMain/kotlin/Main.kt` file,
    add an [HTML input element](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input)
-   with an [extension function](extensions.md#extension-functions) to read user input:
+   through an [extension function](extensions.md#extension-functions) to read user input:
 
    ```kotlin
    // Replace the Element.appendMessage() function
@@ -157,7 +163,7 @@ Modify the application to add a feature that counts the number of letters in a w
 
    ![Import dependencies](js-import-dependency.png){width=600}
 
-3. Call the `onChange` callback in `main()`. It reads and handles the input value.
+3. Call the `onChange` callback in `main()`. It reads and handles the input value:
 
     ```kotlin
     fun main() {
@@ -213,8 +219,8 @@ fun main() {
 
 From the code above:
 
-* The [`replace()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) function removes the empty spaces in the name.
-* The [`let{}`](scope-functions.md#let) scope function runs the function within the object context.
+* The [`replace()` function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/replace.html) removes the empty spaces in the name.
+* The [`let{}` scope function](scope-functions.md#let) runs the function within the object context.
 * The [string template](strings.md#string-templates) (`${it.length}`)
   inserts the word's length into the string by prefixing it with 
   a dollar sign (`$`) and enclosing it in curly braces (`{}`).
@@ -243,10 +249,10 @@ As an additional exercise, let's process the input to calculate and display the 
 
    From the code above:
 
-   * The [`.lowercase()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/lowercase.html) function converts the name to lowercase.
-   * The [`toList()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) function converts the input string to a list of characters.
-   * The [`distinct()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) function selects only the distinct characters from the word.
-   * The [`count()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html) function counts the distinct characters.
+   * The [`.lowercase()` function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/lowercase.html) converts the name to lowercase.
+   * The [`toList()` function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/to-list.html) converts the input string to a list of characters.
+   * The [`distinct()` function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/distinct.html) selects only the distinct characters from the word.
+   * The [`count()` function](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/count.html) counts the distinct characters.
 
 2. Call the `.countDistinctCharacters()` function in `main()`. It counts the unique letters in your name:
 
