@@ -29,8 +29,10 @@ async function getLatestNews() {
 	const items = allJson['rss']['channel']['item'];
 	const latestNews = [];
 
+	console.log('Items:', items);
+
 	for (const [i, item] of items.splice(0, 4).entries()) {
-        console.log('Processing item', i, 'with link:', item.link);
+		console.log('Processing item', i, 'with link:', item.link);
 
 		const imagePath = await saveImage(i, item.featuredImage);
 		latestNews.push({
@@ -96,6 +98,7 @@ async function saveImage(index, imageUrl) {
 
 function doRequest(options) {
 	return new Promise((resolve, reject) => {
+		console.log('Requesting', options.path);
 		const req = https.request(options, (res) => {
 			res.setEncoding('utf8');
 			let responseBody = '';
