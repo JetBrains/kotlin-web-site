@@ -63,7 +63,7 @@ If a value provided in this way contains more than 7 decimal digits, it is round
 
 ```kotlin
 val e = 2.7182818284          // Double
-val eFloat = 2.7182818284f    // Float, actual value is 2.7182817
+val eFloat = 2.7182818284f    // Float, actual value is 2.7182818
 ```
 
 Unlike in some other languages, there are no implicit widening conversions for numbers in Kotlin.
