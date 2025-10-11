@@ -50,8 +50,6 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ className, ...item
                     <a
                         className={cn(styles.link, `ktl-text-1 rs-link ${item.isExternal ? 'rs-link_external' : ''}`)}
                         href={item.link}
-                        target={item.isExternal ? '_blank' : undefined}
-                        rel="noopener noreferrer"
                     >
                         {item.linkText || 'Read the full story'}
                     </a>
