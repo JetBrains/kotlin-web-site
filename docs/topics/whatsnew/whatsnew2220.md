@@ -18,7 +18,7 @@ Additionally, here are some main highlights:
 
 * **Kotlin Multiplatform**: [Swift export available by default](#swift-export-available-by-default), [stable cross-platform compilation for Kotlin libraries](#stable-cross-platform-compilation-for-kotlin-libraries), and a [new approach for declaring common dependencies](#new-approach-for-declaring-common-dependencies).
 * **Language**: [Improved overload resolution when passing lambdas to overloads with suspend function types](#improved-overload-resolution-for-lambdas-with-suspend-function-types).
-* **Kotlin/Native**: [Support for stack canaries in binaries](#support-for-stack-canaries-in-binaries) and [smaller binary size for release binaries](#smaller-binary-size-for-release-binaries).
+* **Kotlin/Native**: [Support for Xcode 26, stack canaries, and smaller binary size for release binaries](#kotlin-native).
 * **Kotlin/JS**: [`Long` values compiled into JavaScript `BigInt`](#usage-of-the-bigint-type-to-represent-kotlin-s-long-type).
 
 > Compose Multiplatform for web goes Beta. Learn more in our [blog post](https://blog.jetbrains.com/kotlin/2025/09/compose-multiplatform-1-9-0-compose-for-web-beta/).
@@ -725,7 +725,13 @@ You can use the following Gradle properties to disable the diagnostic in your `g
 
 ## Kotlin/Native
 
-Kotlin 2.2.20 brings improvements to interoperability with Objective-C/Swift, debugging, and new binary options.
+This release brings support for Xcode 26, improvements to interoperability with Objective-C/Swift, debugging, and new binary options.
+
+### Support for Xcode 26
+
+Starting with Kotlin 2.2.2**1**, the Kotlin/Native compiler supports Xcode 26 – the latest stable version of Xcode.
+You can now update your Xcode and get access to the latest APIs to continue working on your Kotlin projects for Apple
+operating systems.
 
 ### Support for stack canaries in binaries
 
