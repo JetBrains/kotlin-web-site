@@ -1,10 +1,10 @@
 package templates
 
-import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.Template
 import jetbrains.buildServer.configs.kotlin.buildFeatures.dockerRegistryConnections
 import kotlinlang.builds.BuildKotlinGrammar
+import kotlinlang.builds.BuildPythonContainer
 
 object DockerImageBuilder : Template({
   name = "Site builder docker container"
@@ -28,7 +28,7 @@ object DockerImageBuilder : Template({
   }
 
   dependencies {
-    snapshot(AbsoluteId("Kotlin_KotlinSites_Builds_KotlinlangOrg_BuildPythonContainer")) {
+    snapshot(BuildPythonContainer) {
       onDependencyFailure = FailureAction.FAIL_TO_START
       onDependencyCancel = FailureAction.CANCEL
     }
