@@ -176,6 +176,11 @@ Treat all warnings as compilation errors.
 Enable [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that
 emit warnings if true.
 
+#### -Xrender-internal-diagnostic-names
+<primary-label ref="experimental-general"/>
+
+Includes diagnostic names when a warning is printed. Useful for discovering `DIAGNOSTIC_NAME` for [`-Xwarning-level``](#xwarning-level).
+
 #### -Xwarning-level
 <primary-label ref="experimental-general"/>
 
@@ -198,6 +203,8 @@ You can adjust warning reporting in your project by combining module-wide rules 
 | `-Wextra -Xwarning-level=DIAGNOSTIC_NAME:disabled` | Enable all additional checks except for the specified ones. |
 
 If you have many warnings to exclude from the general rules, you can list them in a separate file using [`@argfile`](#argfile).
+
+`DIAGNOSTIC_NAME`s can be discovered via [`-Xrender-internal-diagnostic-names`](#xrender-internal-diagnostic-names).
 
 ### -Xdata-flow-based-exhaustiveness
 <primary-label ref="experimental-general"/>
