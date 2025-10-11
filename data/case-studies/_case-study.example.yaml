@@ -43,8 +43,8 @@ items:
       - /images/case-studies/google.svg
       - /images/case-studies/google.svg
     signature: # optional
-      name: "**Name Surname**"
-      position: "Position at Company or note"
+      name: Name Surname
+      position: Position at Company or note
     isExternal: false      # optional, default: true
     link: https://example.com/full-story        # optional
     linkText: Read the full story        # optional
