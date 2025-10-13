@@ -1,10 +1,11 @@
 import cn from 'classnames';
 import React from 'react';
+import { useMM } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
 import Switcher from '@rescui/switcher';
 import Checkbox from '@rescui/checkbox';
 import { createTextCn } from '@rescui/typography';
 import styles from './case-studies-filter.module.css';
-import { CasePlatform, CaseType, CaseTypeSwitch, PlatformNames, Platforms } from '../case-studies';
+import { CasePlatform, CaseTypeSwitch, PlatformNames, Platforms } from '../case-studies';
 import { useQueryState } from '../../../hooks';
 import { parseCompose, parsePlatforms, parseType, serializeCompose, serializePlatforms, serializeType } from '../utils';
 
@@ -16,6 +17,7 @@ const caseTypeOptions: Array<{ value: CaseTypeSwitch, label: string }> = [
 
 export const CaseStudiesFilter: React.FC = () => {
     const darkTextCn = createTextCn('dark');
+    const isMm = useMM();
 
     // State synchronized with URL
     const [type, setType] = useQueryState<CaseTypeSwitch>('type', parseType, serializeType);
@@ -48,7 +50,8 @@ export const CaseStudiesFilter: React.FC = () => {
                      data-test="filter-type">
                     <h3 id="case-study-type-title" className={cn(styles.groupTitle, darkTextCn('rs-h4'))}>Case study
                         type</h3>
-                    <Switcher mode={'rock'} value={type} onChange={setType} options={caseTypeOptions} />
+                    <Switcher mode="rock" value={type} onChange={setType} options={caseTypeOptions} compact={true}
+                              size={isMm ? 's' : 'm'} />
                 </div>
 
                 {showKmpFilters && (
@@ -85,8 +88,10 @@ export const CaseStudiesFilter: React.FC = () => {
                                 mode="classic"
                                 size="m"
                             >
-                                Built with Compose Multiplatform <img
-                                src="/images/case-studies/compose-multiplatform.svg" alt="" />
+                                <span className={styles.composeLabel}>
+                                    Built with Compose Multiplatform <img
+                                    src="/images/case-studies/compose-multiplatform.svg" alt="" />
+                                </span>
                             </Checkbox>
                         </div>
                     </div>
