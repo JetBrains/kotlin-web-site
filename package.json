@@ -21,7 +21,7 @@
     "@rescui/icons": "^1.5.0",
     "@rescui/input": "^0.8.2",
     "@rescui/menu": "0.9.4",
-    "@rescui/switcher": "^0.5.1",
+    "@rescui/switcher": "0.12.3",
     "@rescui/tab-list": "^0.11.1",
     "@rescui/tag": "^0.11.1",
     "@rescui/tooltip": "^0.5.1",
