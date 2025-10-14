@@ -1,13 +1,12 @@
 [//]: # (title: Kotlin Notebook)
 
-Kotlin Notebook provides an interactive environment to create and edit notebooks, leveraging the full potential of Kotlin's capabilities.
-
+Kotlin Notebook provides an interactive environment to create and edit notebooks, leveraging the full potential of Kotlin's capabilities. 
 Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
 which is bundled and [enabled in IntelliJ IDEA by default](kotlin-notebook-set-up-env.md).
 
 A notebook is an interactive document where you can mix executable Kotlin code with text, results, and visualizations. 
 Think of it as a Kotlin REPL extended with the ability to organize your code into cells, document it with Markdown, 
-and display outputs (from text to plots) alongside the code that produced them.
+and immediately display outputs (from text to plots) alongside the code that produced them.
 
 Get ready for a seamless coding experience where you can develop and experiment with Kotlin code, receive immediate outputs, and integrate code, 
 visuals, and text within the IntelliJ IDEA ecosystem.

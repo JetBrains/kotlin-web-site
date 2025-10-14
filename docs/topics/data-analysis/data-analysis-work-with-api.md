@@ -23,10 +23,6 @@ Create a new Kotlin Notebook:
 
 1. Select **File** | **New** | **Kotlin Notebook**.
 
-   > You can also [create a new Kotlin Notebook from IntelliJ IDEA's Welcome screen](kotlin-notebook-create.md#create-a-project-from-the-welcome-screen).
-   >
-   {style="tip"}
-
 2. In the Kotlin Notebook, import the Kotlin DataFrame library by running the following command:
 
    ```kotlin
