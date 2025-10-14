@@ -9,7 +9,7 @@ community website](https://kotlin.link/).
 <table style="none">
 <tr>
 <td>
-<img src="kotlin-in-action-second-edition.jpeg" alt="Kotlin in Action" width="250"/>
+<img src="kotlin-in-action-second-edition.png" alt="Kotlin in Action" width="250"/>
 </td>
 <td>
 
