@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
   pull_request:
-    branches: [ master, ktl-2781-case-studies-base ]
+    branches: [ master ]
 
 jobs:
   validate_case_studies_data:
