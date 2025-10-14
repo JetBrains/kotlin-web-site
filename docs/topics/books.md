@@ -14,7 +14,7 @@ community website](https://kotlin.link/).
 <td>
 
 [Kotlin in Action](https://www.manning.com/books/kotlin-in-action-second-edition) teaches you to use the Kotlin language for production-quality applications.
-Written for experienced Java developers, this example-rich book goes further than most language books. The second edition is enriched with an extensive section on the Kotlin coroutines library.
+Written for developers familiar with Java or other object-oriented languages, this example-rich book goes further than most language books. The second edition is enriched with an extensive section on the Kotlin coroutines library.
 
 The book is written by Sebastian Aigner, Roman Elizarov, Svetlana Isakova, and Dmitry Jemerov, who are all either current or former members of the Kotlin team.
 
