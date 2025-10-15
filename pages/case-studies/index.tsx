@@ -25,6 +25,7 @@ function Index() {
             topMenuHomeUrl={SERVER_SIDE_URL}
             topMenuItems={TOP_MENU_ITEMS}
             topMenuButton={<Button href="https://kotlinlang.org/docs/getting-started.html">Get started</Button>}
+            dataTestId={'case-studies-page'}
         >
             <CaseStudiesHero />
             <CaseStudiesFilter />

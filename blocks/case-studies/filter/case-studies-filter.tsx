@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import React from 'react';
 import { useMM } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
-import Switcher from '@rescui/switcher';
+import {Switcher} from '@rescui/switcher';
 import Checkbox from '@rescui/checkbox';
 import { createTextCn } from '@rescui/typography';
 import styles from './case-studies-filter.module.css';
@@ -47,16 +47,16 @@ export const CaseStudiesFilter: React.FC = () => {
                  aria-label="Case Studies Filter">
             <div className={styles.content}>
                 <div className={styles.group} role="group" aria-labelledby="case-study-type-title"
-                     data-test="filter-type">
+                     data-testid="filter-by-type">
                     <h3 id="case-study-type-title" className={cn(styles.groupTitle, darkTextCn('rs-h4'))}>Case study
                         type</h3>
                     <Switcher mode="rock" value={type} onChange={setType} options={caseTypeOptions} compact={true}
-                              size={isMm ? 's' : 'm'} />
+                              size={isMm ? 's' : 'm'} data-testid={'filter-switcher'} />
                 </div>
 
                 {showKmpFilters && (
                     <div className={styles.group} role="group" aria-labelledby="code-shared-across-titile"
-                         data-test="filter-code-shared">
+                         data-testid="filter-by-shared-code">
                         <h3 id="code-shared-across-titile"
                             className={cn(styles.groupTitle, darkTextCn('rs-h4'))}>Code shared across</h3>
                         <div className={styles.checkboxes}>
@@ -87,6 +87,7 @@ export const CaseStudiesFilter: React.FC = () => {
                                 onChange={toggleCompose}
                                 mode="classic"
                                 size="m"
+                                data-testid={'filter-by-compose-ui'}
                             >
                                 <span className={styles.composeLabel}>
                                     Built with Compose Multiplatform <img

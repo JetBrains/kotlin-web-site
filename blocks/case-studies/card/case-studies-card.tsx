@@ -22,7 +22,7 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ className, ...item
     const imageSrc = item.media?.type === 'image' ? item.media.path : undefined;
 
     return (
-        <article className={cn(styles.card, className)}>
+        <article className={cn(styles.card, className)} data-testid="case-studies-card">
             <div className={styles.content}>
                 {logo &&
                     <div className={styles.logos}>
@@ -37,6 +37,7 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ className, ...item
                     <div
                         className={cn(styles.description, textCn('rs-text-2'))}
                         dangerouslySetInnerHTML={{ __html: mdToHtml(item.description) }}
+                        data-testid="case-studies-card-description"
                     />}
 
                 {item.signature &&
