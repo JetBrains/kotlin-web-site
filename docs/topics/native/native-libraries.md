@@ -4,12 +4,12 @@
 
 You can use your project's build file or the Kotlin/Native compiler to produce a `*.klib` artifact for your library.
 
-### Using Gradle tasks
+### Using Gradle build file
 
 You can compile a `*.klib` library artifact by specifying a [Kotlin/Native target](native-target-support.md)
 in your Gradle build file:
 
-1. In your `build.gradle(.kts)` file, declare at least one Kotlin/Native target, for example:
+1. In your `build.gradle(.kts)` file, declare at least one Kotlin/Native target. For example:
 
    ```kotlin
    // build.gradle.kts
@@ -30,7 +30,8 @@ in your Gradle build file:
    ./gradlew macosArm64Klib
    ```
 
-Gradle automatically compiles source files for that target and produces the `.klib` in the project's `build/libs` directory.
+Gradle automatically compiles source files for that target and produces the `.klib` artifact in the project's `build/libs`
+directory.
 
 ### Using Kotlin/Native compiler
 
@@ -51,8 +52,8 @@ To produce a library with the Kotlin/Native compiler:
    kotlinc-native qux.kt -l bar
    ```
    
-   This command compiles the contents of the `qux.kt` source file and the `bar.klib` library and produces a final native
-   executable `program.kexe`.
+   This command compiles the contents of the `qux.kt` source file and the `bar.klib` library and produces the `program.kexe`
+   final executable binary.
 
 ## klib utility
 
@@ -64,17 +65,17 @@ klib <command> <library path> [<option>]
 
 The following commands are currently available:
 
-| Command                       | Description                                                                                                                                                                                                                                                                                                                                                           |
-|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `info`                        | General information about the library.                                                                                                                                                                                                                                                                                                                                |
-| `dump-abi`                    | Dump the ABI snapshot of the library. Each line in the snapshot corresponds to one declaration. In case an ABI-incompatible change happens to a declaration, it'll be visible in the corresponding line of the snapshot.                                                                                                                                              |
-| `dump-ir`                     | Dump the intermediate representation (IR) of library declarations to the output. Use only for debugging.                                                                                                                                                                                                                                                              |
-| `dump-ir-signatures`          | Dump IR signatures of all non-private library declarations and all non-private declarations consumed by this library (as two separate lists). This command relies purely on the data in IR.                                                                                                                                                                           |
-| `dump-ir-inlinable-functions` | Dump the intermediate representation (IR) of inlinable functions in the library to the output. Use only for debugging.                                                                                                                                                                                                                                                |
-| `dump-metadata`               | Dump the metadata of all library declarations to the output. Use only for debugging.                                                                                                                                                                                                                                                                                  |
-| `dump-metadata-signatures`    | Dump IR signatures of all non-private library declarations based on the library metadata. Comparing it to the `dump-ir-signatures` command, which renders signatures based on IR, in most cases the outputs are the same, but if IR-transforming compiler plugins (such as Compose) were used during compilation, patched declarations may have different signatures. |
+| Command                       | Description                                                                                                                                                                                                                                                                                                                                                    |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `info`                        | General information about the library.                                                                                                                                                                                                                                                                                                                         |
+| `dump-abi`                    | Dump the ABI snapshot of the library. Each line in the snapshot corresponds to one declaration. In case an ABI-incompatible change happens to a declaration, it'll be visible in the corresponding line of the snapshot.                                                                                                                                       |
+| `dump-ir`                     | Dump the intermediate representation (IR) of library declarations to the output. Use it only for debugging.                                                                                                                                                                                                                                                    |
+| `dump-ir-signatures`          | Dump IR signatures of all non-private library declarations and all non-private declarations consumed by this library (as two separate lists). This command relies purely on the data in IR.                                                                                                                                                                    |
+| `dump-ir-inlinable-functions` | Dump the IR of inlinable functions in the library to the output. Use it only for debugging.                                                                                                                                                                                                                                                                    |
+| `dump-metadata`               | Dump the metadata of all library declarations to the output. Use it only for debugging.                                                                                                                                                                                                                                                                        |
+| `dump-metadata-signatures`    | Dump IR signatures of all non-private library declarations based on the library metadata. In most cases, the output is the same as for the `dump-ir-signatures` command, which renders signatures based on IR. However, if IR-transforming compiler plugins (such as Compose) are used during compilation, patched declarations may have different signatures. |
 
-All the above dumping commands accept an additional `-signature-version {N}` argument which instructs the klib utility
+All the above dumping commands accept an additional `-signature-version {N}` argument that instructs the klib utility
 which IR signature version to render when dumping signatures. If not provided, it uses the most up‑to‑date version
 supported by the library. For example:
 
@@ -82,12 +83,12 @@ supported by the library. For example:
 klib dump-metadata-signatures mylib.klib -signature-version 1
 ```
 
-In addition, the `dump-metadata` command accepts the `-print-signatures {true|false}` argument which instructs the klib
+In addition, the `dump-metadata` command accepts the `-print-signatures {true|false}` argument that instructs the klib
 utility to print the IR signatures for every declaration in the output.
 
 ## Creating and using a library
 
-1. Create a library: place the library source code into `kotlinizer.kt`:
+1. Create a library by placing the source code into `kotlinizer.kt`:
 
    ```kotlin
    package kotlinizer
@@ -96,7 +97,7 @@ utility to print the IR signatures for every declaration in the output.
        get() = "Kotlin $this"
    ```
 
-2. Compile it into a `.klib`:
+2. Compile the library into a `.klib`:
 
    ```bash
    kotlinc-native kotlinizer.kt -p library -o kotlinizer
@@ -146,17 +147,17 @@ You should see `Hello, Kotlin world!` in the output.
 
 When given a `-library foo` option, the compiler searches the `foo` library in the following order:
 
-* Current compilation directory or an absolute path.
-* Libraries installed in the default repository.
+1. Current compilation directory or an absolute path.
+2. Libraries installed in the default repository.
 
-  > The default repository is `~/.konan`. You can change it by setting the `kotlin.data.dir` Gradle property.
-  > 
-  > Alternatively, you can use the `-Xkonan-data-dir` compiler option to configure your custom path to the directory 
-  > via the `cinterop` and `konanc` tools.
-  > 
-  {style="note"}
+   > The default repository is `~/.konan`. You can change it by setting the `kotlin.data.dir` Gradle property.
+   > 
+   > Alternatively, you can use the `-Xkonan-data-dir` compiler option to configure your custom path to the directory 
+   > via the `cinterop` and `konanc` tools.
+   > 
+   {style="note"}
 
-* Libraries installed in the `$installation/klib` directory.
+3. Libraries installed in the `$installation/klib` directory.
 
 ## Library format
 
