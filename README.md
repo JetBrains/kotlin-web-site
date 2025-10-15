@@ -119,6 +119,27 @@ To add an event to the Community Events, do the following:
    You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/events.json).
 2. Publish the changes creating a pull request. The changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-events-data.yml) to prevent misconfiguration.
 
+### Case Studies
+
+To add a case study, do the following:
+1. Fill the case study info in the [case-studies.yml](/data/case-studies/case-studies.yml) with the next:
+   - `id`, a unique identifier for the case study.
+    - `type`, the case study category: either `multiplatform` or `server-side`.
+    - `description`, a markdown-enabled text description of the case study (supports # header  **bold** and [links](https://example.com), paragraphs are made with two new lines).
+    - `logo` (optional), an array of 0-2 image paths relative to the `/public/` directory.
+    - `signature` (optional), an object with `name` and `position` fields for the quote author.
+    - `isExternal` (optional), a boolean indicating if the case story is from an external source (default: false).
+    - `link` (optional), a URL to the full case story.
+    - `linkText` (optional), custom text for the link (default: "Read the full story").
+    - `linkStyle` (optional), either `button` or `text` for the link style.
+    - `platforms` (optional), an array of platform tags such as `android`, `ios`, `desktop`, `frontend`, `backend`, or `compose-multiplatform`.
+    - `media` (optional), a media object with `type` set to either `youtube` (with `videoId`) or `image` (with `path` relative to `/public/`).
+    - `featuredOnMainPage` (optional), a boolean to mark the case as featured on the main page.
+
+   You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/case-studies.json) and in the [example file](/data/case-studies/_case-study.example.yaml).
+2. The order of case studies in the file defines the order of their appearance on the website. Place new case studies accordingly.
+3. Publish the changes creating a pull request. The changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-case-studies-data.yml) to prevent misconfiguration.
+
 ## Local deployment
 
 Currently, there is no way to deploy the Kotlin website locally. This ticket tracks the effort of adding support for local testing: [KT-47049](https://youtrack.jetbrains.com/issue/KT-47049).

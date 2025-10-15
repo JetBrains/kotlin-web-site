@@ -1,0 +1,95 @@
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.content {
+  --font-color: rgba(25, 25, 28, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  gap: 24px;
+  color: var(--font-color);
+
+  @media (width <= 616px) {
+    padding: 24px;
+  }
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.logo {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+}
+
+.mediaImage {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.description {
+  color: var(--font-color);
+  font-size: 16px;
+  line-height: 24px;
+
+  & h2 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 35px;
+    line-height: 42px;
+    font-weight: 600;
+  }
+
+  & p {
+    margin-top: 0;
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & a {
+    color: var(--font-color);
+  }
+}
+
+.signature {
+  color: var(--font-color);
+}
+
+.name {
+  color: var(--font-color);
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.position {
+  color: var(--font-color);
+  opacity: 0.6;
+  line-height: 24px;
+}
+
+.platforms {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  height: 24px;
+  margin-left: -2px; /* visual compensation */
+}
+
+.link {
+  display: inline-block;
+  align-self: flex-start;
+  letter-spacing: 0.01em;
+  line-height: 24px;
+}
