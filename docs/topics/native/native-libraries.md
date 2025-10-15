@@ -24,7 +24,7 @@ in your Gradle build file:
    }
    ```
 
-2. Run the `<target>Klib` task, for example:
+2. Run the `<target>Klib` task. For example:
 
    ```bash
    ./gradlew macosArm64Klib
