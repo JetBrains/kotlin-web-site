@@ -8,10 +8,11 @@
   </p>
 </tldr>
 
-You can start working with your [Kotlin Notebook](kotlin-notebook-overview.md) in two main ways:
+You can start working with your [Kotlin Notebook](kotlin-notebook-overview.md) in three main ways:
 
 * [Create a new project that includes a Kotlin Notebook](#create-a-new-project) 
 * [Add a Kotlin Notebook to an existing project](#add-a-new-kotlin-notebook-to-your-project)
+* [Create a scratch Kotlin Notebook](#create-a-scratch-kotlin-notebook)
 
 ## Create a new project 
 
@@ -64,32 +65,7 @@ To add a new Kotlin Notebook to an existing project:
    ![Create a new Kotlin Notebook](new-notebook.png){width=700}
 
 2. Set the name of the new notebook, for example, **first-notebook**.
-3. Press **Enter**. A new tab with a Kotlin Notebook **first-notebook.ipynb** will open.
-
-## Test your Kotlin Notebook
-
-1. In the new Kotlin Notebook, type the following code in the code cell:
-
-   ```kotlin
-   println("Hello, this is a Kotlin Notebook!")
-   ```
-
-2. To run a code cell, click the **Run Cell and Select Below** ![Run Cell and Select Below](run-cell-and-select-below.png){width=30}{type="joined"} button or press **Shift** + **Return**.
-3. Add a markdown cell by clicking on the **Add Markdown Cell** button. 
-4. Type `# Example operations` in the cell, and run it the same way you run code cells to render it.
-5. In a new code cell, type `10 + 10` and run it.
-6. Define a variable in a code cell. For example, `val a = 100`. 
-
-   > Once you run a code cell with defined variables, those variables become accessible in all other code cells.
-   > 
-   {style="tip"}
-
-7. Create a new code cell and add `println(a * a)`.
-8. Run all code and markdown cells in the notebook using the **Run All** ![Run all button](run-all-button.png){width=30}{type="joined"} button.
-
-    ![First notebook](first-notebook.png){width=700}
-
-Congratulations! You have just created and tested your first Kotlin Notebook.
+3. Press **Enter**. A new tab with a Kotlin Notebook **first-notebook.ipynb** opens.
 
 ## Create a scratch Kotlin Notebook
 
@@ -102,6 +78,32 @@ To create a scratch Kotlin Notebook:
 2. Select **Kotlin Notebook** from the **New Scratch File** list.
 
    ![Scratch notebook](kotlin-notebook-scratch-file.png){width=400}
+
+## Perform basic operations
+
+1. In the new Kotlin Notebook, type the following code in the code cell:
+
+   ```kotlin
+   println("Hello, this is a Kotlin Notebook!")
+   ```
+
+2. To run a code cell, click the **Run Cell and Select Below** ![Run Cell and Select Below](run-cell-and-select-below.png){width=30}{type="joined"} button or press **Shift** + **Return**.
+3. Add a markdown cell by clicking on the **Add Markdown Cell** button.
+4. Type `# Example operations` in the cell, and run it the same way you run code cells to render it.
+5. In a new code cell, type `10 + 10` and run it.
+6. Define a variable in a code cell. For example, `val a = 100`.
+
+   > Once you run a code cell with defined variables, those variables become accessible in all other code cells.
+   >
+   {style="tip"}
+
+7. Create a new code cell and add `println(a * a)`.
+8. Run all code and markdown cells in the notebook using the **Run All** ![Run all button](run-all-button.png){width=30}{type="joined"} button.
+
+   ![First notebook](first-notebook.png){width=700}
+
+Congratulations! You have just created and tried out your first Kotlin Notebook.
+
 
 ## Next step
 
