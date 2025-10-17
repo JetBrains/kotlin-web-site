@@ -50,13 +50,6 @@
             <br/>
         </li>
         <li>
-            <a href="https://kotlinlang.org/api/kotlinx-metadata-jvm/"><b>JVM Metadata (kotlin-metadata-jvm)</b></a>
-            <br/>
-            <p>A library for reading and writing Kotlin metadata stored in JVM class files. It is primarily used by tools such as annotation processors, static analyzers, and compiler plugins.</p>
-            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin/tree/master/libraries/kotlinx-metadata">kotlinx-metadata</a>
-            <br/>
-        </li>
-        <li>
             <a href="https://kotlinlang.org/api/kotlin-gradle-plugin/"><b>Kotlin Gradle plugins (kotlin-gradle-plugin)</b></a>
             <br/>
             <p>The Kotlin Gradle plugins for compiling, testing, and packaging Kotlin code. These plugins simplify JVM and multiplatform builds, manage dependencies, and integrate with IDEs and CI systems.</p>
@@ -68,6 +61,20 @@
             <br/>
             <p>A framework for building asynchronous clients and servers in connected systems using Kotlin. Ktor is designed for scalability and flexibility and is deeply integrated with coroutines for non-blocking I/O and structured concurrency.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/ktorio/ktor">ktor</a>
+            <br/>
+        </li>
+        <li>
+            <a href="https://kotlinlang.org/api/kotlinx-metadata-jvm/"><b>JVM Metadata (kotlin-metadata-jvm)</b></a>
+            <br/>
+            <p>A library for reading and writing Kotlin metadata stored in JVM class files. It is primarily used by tools such as annotation processors, static analyzers, and compiler plugins.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/kotlin/tree/master/libraries/kotlinx-metadata">kotlinx-metadata</a>
+            <br/>
+        </li>
+        <li>
+            <a href="https://kotlinlang.org/api/compose-multiplatform/material3/"><b>Compose Multiplatform Material3</b></a>
+            <br/>
+            <p>A multiplatform library for building user interfaces with Material Design 3 components. The API reference includes a gallery of Material 3 components, allowing you to preview the composables.</p>
+            <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/compose-multiplatform-core/tree/jb-main/compose/material3">compose-material3</a>
             <br/>
         </li>
     </list>
