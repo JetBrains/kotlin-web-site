@@ -75,7 +75,9 @@ interface Printer {
     fun print() 
 }
 
-fun Printer(block: () -> Unit): Printer = object : Printer { override fun print() = block() }
+fun Printer(block: () -> Unit): Printer = object : Printer {
+   override fun print() = block()
+}
 ```
 
 With callable references to functional interface constructors enabled, this code can be replaced with just a functional interface declaration:
