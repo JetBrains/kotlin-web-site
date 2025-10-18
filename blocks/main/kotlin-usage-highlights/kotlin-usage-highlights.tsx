@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Button } from '@rescui/button';
 import { cardCn } from '@rescui/card';
 import classNames from 'classnames';
 import styles from './kotlin-usage-highlights.module.css';
@@ -59,6 +60,11 @@ export const KotlinUsageHighlights: FC<KotlinUsageHighlightsProps> = ({ title, i
                         </div>
                     </a>
                 ))}
+            </div>
+            <div className={styles.buttonWrapper}>
+                <Button href="/case-studies/" size="l" mode="rock" theme="light">
+                    See all case studies
+                </Button>
             </div>
         </div>
     );

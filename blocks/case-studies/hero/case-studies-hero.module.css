@@ -1,0 +1,20 @@
+.content {
+  padding: 96px 0 24px;
+  max-width: 850px;
+}
+
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  margin-top: 24px;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    margin-top: 32px;
+  }
+}

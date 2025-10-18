@@ -87,3 +87,7 @@
         height: 312px;
     }
 }
+
+.buttonWrapper {
+  margin-top: var(--ktl-box-section-m);
+}
