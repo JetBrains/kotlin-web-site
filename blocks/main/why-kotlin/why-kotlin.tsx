@@ -62,7 +62,14 @@ export const WhyKotlin: FC<Props> = ({}) => {
     const handleOpenInPlaygroundButton = useCallback(() => {
         const link = generateCrosslink(codeExample, options);
         if (typeof window !== 'undefined') {
-            window.open(link, '_blank');
+            try {
+                const url = new URL(link);
+                url.searchParams.set('kotlin', '2.2.21-RC2');
+                window.open(url.toString(), '_blank');
+            } catch (e) {
+                // Fallback to original link if URL parsing fails
+                window.open(link, '_blank');
+            }
         }
     }, [activeIndex]);
 

@@ -97,6 +97,23 @@ test.describe('Main page buttons', () => {
         await expect(pageTitle).toContainText('Protect, promote and advance the development of the Kotlin programming language');
     });
 
+    test('Open in Playground uses Kotlin 2.2.21-RC2', async ({ page, context }) => {
+        // Ensure page is ready and cookie banner dismissed
+        await page.goto('/');
+        await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
+        await page.click('button.ch2-btn.ch2-btn-primary');
+
+        const openInPlayground = page.getByTestId('why-kotlin-block').getByRole('link', { name: 'Open in Playground' });
+        await expect(openInPlayground).toBeVisible();
+
+        const popupPromise = context.waitForEvent('page');
+        await openInPlayground.click();
+        const popup = await popupPromise;
+        await popup.waitForLoadState();
+        expect(popup.url()).toContain('kotlin=2.2.21-RC2');
+        await popup.close();
+    });
+
     test('Last Get started button', async ({ page }) => {
         const getStartedButton = page.getByRole('link', { name: 'Get started' }).last();
         await expect(getStartedButton).toBeVisible();
