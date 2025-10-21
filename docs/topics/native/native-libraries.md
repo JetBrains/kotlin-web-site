@@ -1,146 +1,154 @@
 [//]: # (title: Kotlin/Native libraries)
 
-## Kotlin compiler specifics
+## Library compilation
 
-To produce a library with the Kotlin/Native compiler use the `-produce library` or `-p library` flag. For example:
+You can use your project's build file or the Kotlin/Native compiler to produce a `*.klib` artifact for your library.
 
-```bash
-$ kotlinc-native foo.kt -p library -o bar
-```
+### Using Gradle build file
 
-This command will produce a `bar.klib` with the compiled contents of `foo.kt`.
+You can compile a `*.klib` library artifact by specifying a [Kotlin/Native target](native-target-support.md)
+in your Gradle build file:
 
-To link to a library use the `-library <name>` or `-l <name>` flag. For example:
+1. In your `build.gradle(.kts)` file, declare at least one Kotlin/Native target. For example:
 
-```bash
-$ kotlinc-native qux.kt -l bar
-```
+   ```kotlin
+   // build.gradle.kts
+   plugins {
+       kotlin("multiplatform") version "%kotlinVersion%"
+   }
+ 
+   kotlin {
+       macosArm64()    // on macOS
+       // linuxArm64() // on Linux
+       // mingwX64()   // on Windows
+   }
+   ```
 
-This command will produce a `program.kexe` out of `qux.kt` and `bar.klib`
+2. Run the `<target>Klib` task. For example:
 
-## cinterop tool specifics
+   ```bash
+   ./gradlew macosArm64Klib
+   ```
 
-The **cinterop** tool produces `.klib` wrappers for native libraries as its main output. 
-For example, using the simple `libgit2.def` native library definition file provided in your Kotlin/Native distribution
+Gradle automatically compiles source files for that target and produces the `.klib` artifact in the project's `build/libs`
+directory.
 
-```bash
-$ cinterop -def samples/gitchurn/src/nativeInterop/cinterop/libgit2.def -compiler-option -I/usr/local/include -o libgit2
-```
+### Using Kotlin/Native compiler
 
-we will obtain `libgit2.klib`.
+To produce a library with the Kotlin/Native compiler:
 
-See more details in [C Interop](native-c-interop.md).
+1. [Download and install the Kotlin/Native compiler.](native-get-started.md#download-and-install-the-compiler)
+2. To compile a Kotlin/Native source file into a library, use the `-produce library` or `-p library` option:
+
+   ```bash
+   kotlinc-native foo.kt -p library -o bar
+   ```
+
+   This command compiles the contents of the `foo.kt` file into a library with the name `bar`, producing a `bar.klib` artifact.
+
+3. To link another file to a library, use the `-library <name>` or `-l <name>` option. For example:
+
+   ```bash
+   kotlinc-native qux.kt -l bar
+   ```
+   
+   This command compiles the contents of the `qux.kt` source file and the `bar.klib` library and produces the `program.kexe`
+   final executable binary.
 
 ## klib utility
 
-The **klib** library management utility allows you to inspect and install the libraries.
-
-The following commands are available:
-
-* `content` – list library contents:
-
-  ```bash
-  $ klib contents <name>
-  ```
-
-* `info` – inspect the bookkeeping details of the library 
-
-  ```bash
-  $ klib info <name>
-  ```
-
-* `install` – install the library to the default location use
-
-  ```bash
-  $ klib install <name>
-  ```
-
-* `remove` – remove the library from the default repository use 
-
-  ```bash
-  $ klib remove <name>
-  ```
-
-All of the above commands accept an additional `-repository <directory>` argument for specifying a repository different to the default one.
+The **klib** library management utility allows you to inspect libraries using the following syntax:
 
 ```bash
-$ klib <command> <name> -repository <directory>
+klib <command> <library path> [<option>]
 ```
 
-## Several examples
+The following commands are currently available:
 
-First let's create a library.
-Place the tiny library source code into `kotlinizer.kt`:
+| Command                       | Description                                                                                                                                                                                                                                                                                                                                                    |
+|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `info`                        | General information about the library.                                                                                                                                                                                                                                                                                                                         |
+| `dump-abi`                    | Dump the ABI snapshot of the library. Each line in the snapshot corresponds to one declaration. In case an ABI-incompatible change happens to a declaration, it'll be visible in the corresponding line of the snapshot.                                                                                                                                       |
+| `dump-ir`                     | Dump the intermediate representation (IR) of library declarations to the output. Use it only for debugging.                                                                                                                                                                                                                                                    |
+| `dump-ir-signatures`          | Dump IR signatures of all non-private library declarations and all non-private declarations consumed by this library (as two separate lists). This command relies purely on the data in IR.                                                                                                                                                                    |
+| `dump-ir-inlinable-functions` | Dump the IR of inlinable functions in the library to the output. Use it only for debugging.                                                                                                                                                                                                                                                                    |
+| `dump-metadata`               | Dump the metadata of all library declarations to the output. Use it only for debugging.                                                                                                                                                                                                                                                                        |
+| `dump-metadata-signatures`    | Dump IR signatures of all non-private library declarations based on the library metadata. In most cases, the output is the same as for the `dump-ir-signatures` command, which renders signatures based on IR. However, if IR-transforming compiler plugins (such as Compose) are used during compilation, patched declarations may have different signatures. |
 
-```kotlin
-package kotlinizer
-val String.kotlinized
-    get() = "Kotlin $this"
-```
+All the above dumping commands accept an additional `-signature-version {N}` argument that instructs the klib utility
+which IR signature version to render when dumping signatures. If not provided, it uses the most up‑to‑date version
+supported by the library. For example:
 
 ```bash
-$ kotlinc-native kotlinizer.kt -p library -o kotlinizer
+klib dump-metadata-signatures mylib.klib -signature-version 1
 ```
 
-The library has been created in the current directory:
+In addition, the `dump-metadata` command accepts the `-print-signatures {true|false}` argument that instructs the klib
+utility to print the IR signatures for every declaration in the output.
 
-```bash
-$ ls kotlinizer.klib
-kotlinizer.klib
-```
+## Creating and using a library
 
-Now let's check out the contents of the library:
+1. Create a library by placing the source code into `kotlinizer.kt`:
 
-```bash
-$ klib contents kotlinizer
-```
+   ```kotlin
+   package kotlinizer
 
-You can install `kotlinizer` to the default repository:
+   val String.kotlinized
+       get() = "Kotlin $this"
+   ```
 
-```bash
-$ klib install kotlinizer
-```
+2. Compile the library into a `.klib`:
 
-Remove any traces of it from the current directory:
+   ```bash
+   kotlinc-native kotlinizer.kt -p library -o kotlinizer
+   ```
 
-```bash
-$ rm kotlinizer.klib
-```
+3. Check the current directory for the created library:
 
-Create a very short program and place it into a `use.kt` :
+   ```bash
+   ls kotlinizer.klib
+   ```
 
-```kotlin
-import kotlinizer.*
+4. Check out general information about the library:
 
-fun main(args: Array<String>) {
-    println("Hello, ${"world".kotlinized}!")
-}
-```
+   ```bash
+   klib info kotlinizer.klib
+   ```
 
-Now compile the program linking with the library you have just created:
+5. Create a short program in the `use.kt` file:
 
-```bash
-$ kotlinc-native use.kt -l kotlinizer -o kohello
-```
+   ```kotlin
+   import kotlinizer.*
 
-And run the program:
+   fun main(args: Array<String>) {
+       println("Hello, ${"world".kotlinized}!")
+   }
+   ```
 
-```bash
-$ ./kohello.kexe
-Hello, Kotlin world!
-```
+6. Compile the program, linking the `use.kt` source file to your library:
 
-Have fun!
+   ```bash
+   kotlinc-native use.kt -l kotlinizer -o kohello
+   ```
 
-## Advanced topics
+7. Run the program:
 
-### Library search sequence
+   ```bash
+   ./kohello.kexe
+   ```
 
-When given a `-library foo` flag, the compiler searches the `foo` library in the following order:
+You should see `Hello, Kotlin world!` in the output.
 
-* Current compilation directory or an absolute path.
-* All repositories specified with `-repo` flag.
-* Libraries installed in the default repository.
+## Library search sequence
+
+> The library search mechanism will change soon. Expect updates to this section and avoid relying on deprecated flags.
+> 
+{style="note"}
+
+When given a `-library foo` option, the compiler searches the `foo` library in the following order:
+
+1. Current compilation directory or an absolute path.
+2. Libraries installed in the default repository.
 
    > The default repository is `~/.konan`. You can change it by setting the `kotlin.data.dir` Gradle property.
    > 
@@ -149,46 +157,42 @@ When given a `-library foo` flag, the compiler searches the `foo` library in the
    > 
    {style="note"}
 
-* Libraries installed in `$installation/klib` directory.
+3. Libraries installed in the `$installation/klib` directory.
 
-### Library format
+## Library format
 
-Kotlin/Native libraries are zip files containing a predefined 
-directory structure, with the following layout:
+Kotlin/Native libraries are zip files containing a predefined directory structure, with the following layout:
 
 `foo.klib` when unpacked as `foo/` gives us:
 
 ```text
-  - foo/
-    - $component_name/
-      - ir/
-        - Serialized Kotlin IR.
-      - targets/
-        - $platform/
-          - kotlin/
-            - Kotlin compiled to LLVM bitcode.
-          - native/
-            - Bitcode files of additional native objects.
-        - $another_platform/
-          - There can be several platform specific kotlin and native pairs.
-      - linkdata/
-        - A set of ProtoBuf files with serialized linkage metadata.
-      - resources/
-        - General resources such as images. (Not used yet).
-      - manifest - A file in the java property format describing the library.
+- foo/
+  - $component_name/
+    - ir/
+      - Serialized Kotlin IR.
+    - targets/
+      - $platform/
+        - kotlin/
+          - Kotlin compiled to LLVM bitcode.
+        - native/
+          - Bitcode files of additional native objects.
+      - $another_platform/
+        - There can be several platform specific kotlin and native pairs.
+    - linkdata/
+      - A set of ProtoBuf files with serialized linkage metadata.
+    - resources/
+      - General resources such as images. (Not used yet).
+    - manifest - A file in the java property format describing the library.
 ```
 
-An example layout can be found in `klib/stdlib` directory of your installation.
+You can find an example layout in the `klib/common/stdlib` directory of your Kotlin/Native compiler installation.
 
-### Using relative paths in klibs
-
-> Using relative paths in klibs is available since Kotlin 1.6.20.
-> 
-{style="note"}
+## Using relative paths in klibs
 
 A serialized IR representation of source files is [a part of](#library-format) a `klib` library. It includes paths of 
 files for generating proper debug information. By default, stored paths are absolute.
-With the `-Xklib-relative-path-base` compiler option, you can change the format and use only relative path in the 
+
+With the `-Xklib-relative-path-base` compiler option, you can change the format and use only relative paths in the 
 artifact. To make it work, pass one or multiple base paths of source files as an argument:
 
 <tabs group="build-script">
@@ -221,3 +225,7 @@ tasks.named('compileKotlin', KotlinCompilationTask) {
 
 </tab>
 </tabs>
+
+## What's next?
+
+[Learn how to use the cinterop tool to produce `*.klib` artifacts](native-definition-file.md)
