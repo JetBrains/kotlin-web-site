@@ -61,7 +61,9 @@ fun main() {
 >     val shapes: MutableList<String> = mutableListOf("triangle", "square", "circle")
 >     val shapesLocked: List<String> = shapes
 > ```
-> This is also called **casting**.
+> This is **type restriction** through the variable type..
+> This is helpful as sometimes you want to restrict modification access to only a part of your code.
+> Inside the class, you can still modify shapes, but outside, consumers only see a read-only List.
 > 
 {style="tip"}
 
