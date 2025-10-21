@@ -72,7 +72,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td width="110">Status</td>
     </tr>
     <tr>
-        <td><a href="whatsnew-eap.md#smaller-binary-size-for-release-binaries"><code>smallBinary</code></a></td>
+        <td><a href="whatsnew2220.md#smaller-binary-size-for-release-binaries"><code>smallBinary</code></a></td>
         <td>
             <list>
                 <li><code>true</code></li>
@@ -83,7 +83,7 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td>Experimental since 2.2.20</td>
     </tr>
     <tr>
-        <td><a href="whatsnew-eap.md#support-for-stack-canaries-in-binaries"><code>stackProtector</code></a></td>
+        <td><a href="whatsnew2220.md#support-for-stack-canaries-in-binaries"><code>stackProtector</code></a></td>
         <td>
             <list>
                 <li><code>yes</code></li>

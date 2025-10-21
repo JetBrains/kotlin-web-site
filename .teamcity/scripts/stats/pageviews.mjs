@@ -26,17 +26,26 @@ try {
         }
 
         if (pageviews < 1) return;
+
         try {
-            if (!(new URL(url).host.includes('kotlinlang.org'))) return;
+            let uri = new URL(url);
+
+            if (uri.host.match(/^(www\.)?jetbrains\.com$/) && uri.pathname.startsWith('/help/kotlin-multiplatform-dev/')) {
+                uri.hostname = 'kotlinlang.org';
+                uri.pathname = uri.pathname.replace('/help/kotlin-multiplatform-dev/', '/docs/multiplatform/');
+            }
+
+            if (uri.host !== 'kotlinlang.org') return;
+
+            const path = uri.toString();
+
+            await Promise.all([
+                listViews.appendFile(JSON.stringify({ path, pageviews }) + ','),
+                mapViews.appendFile(`${JSON.stringify(path)}: ${pageviews},`)
+            ]);
         } catch (e) {
             console.error('Error in', line, 'line');
-            return;
         }
-
-        await Promise.all([
-            listViews.appendFile(JSON.stringify({ url, pageviews }) + ','),
-            mapViews.appendFile(`${JSON.stringify(url)}: ${pageviews},`)
-        ]);
     }
 
     const lines = [];

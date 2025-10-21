@@ -1,10 +1,8 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
-<!--
 <tldr>
     <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
 </tldr>
--->
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
 
@@ -46,23 +44,31 @@ In this channel, you can also get notifications about new EAP builds.
 
 ## Build details
 
- _No preview versions are currently available._ 
+<!-- _No preview versions are currently available._ -->
 
-<!--
 <table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.2.20-RC2</strong>
-            <p>Released: <strong>September 1, 2025</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.20-RC2" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.3.0-Beta1</strong>
+            <p>Released: <strong>October 7, 2025</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.0-Beta1" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A tooling release containing improvements and bug fixes.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.20-RC2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.2.20-RC2</a>.</p>
+            <p>A language release with previews of new features and tooling updates.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.0-Beta1">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.3.0-Beta1</a>.</p>
         </td>
     </tr>
+    <tr>
+        <td><strong>2.2.21-RC2</strong>
+            <p>Released: <strong>October 16, 2025</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21-RC2" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A tooling release containing support for Xcode 26, along with other improvements and bug fixes.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21-RC2">changelog</a> or <a href="whatsnew2220.md">What's new in Kotlin 2.2.20</a>.</p>
+    </td>
+    </tr>
 </table>
--->

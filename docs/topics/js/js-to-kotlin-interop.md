@@ -257,4 +257,3 @@ Additionally, it is important to know that:
   ```
 
 * Kotlin preserves lazy object initialization in JavaScript.
-* Kotlin does not implement lazy initialization of top-level properties in JavaScript.
