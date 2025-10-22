@@ -179,7 +179,7 @@ emit warnings if true.
 #### -Xrender-internal-diagnostic-names
 <primary-label ref="experimental-general"/>
 
-Includes diagnostic names when a warning is printed. Useful for discovering `DIAGNOSTIC_NAME` for [`-Xwarning-level``](#xwarning-level).
+Prints internal diagnostic names alongside warnings. This is useful for identifying the `DIAGNOSTIC_NAME` configured for the `-Xwarning-level` option.
 
 #### -Xwarning-level
 <primary-label ref="experimental-general"/>
@@ -204,7 +204,7 @@ You can adjust warning reporting in your project by combining module-wide rules 
 
 If you have many warnings to exclude from the general rules, you can list them in a separate file using [`@argfile`](#argfile).
 
-`DIAGNOSTIC_NAME`s can be discovered via [`-Xrender-internal-diagnostic-names`](#xrender-internal-diagnostic-names).
+You can use [`-Xrender-internal-diagnostic-names`](#xrender-internal-diagnostic-names) to discover the `DIAGNOSTIC_NAME`.
 
 ### -Xdata-flow-based-exhaustiveness
 <primary-label ref="experimental-general"/>
