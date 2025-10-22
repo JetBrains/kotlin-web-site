@@ -7,7 +7,7 @@ directly. Once created, you call these extensions as if they were members of the
 The most common forms of extensions are [_extension functions_](#extension-functions) and [_extension properties_](#extension-properties).
 
 Importantly, extensions don't modify the classes or interfaces they extend. By defining an extension, you aren't inserting new members,
-only making new functions callable or new properties accessible via special syntax.
+only making new functions callable or new properties accessible using special syntax.
 
 ## Receivers
 
@@ -21,7 +21,7 @@ from the standard library extends the `String?` class:
 fun String?.orEmpty(): String
 ```
 
-So the receiver is a `String?` instance and the _receiver type_ is `String?`:
+So in this case, the receiver is a `String?` instance, and the _receiver type_ is `String?`:
 
 ```kotlin
 fun main() {
@@ -48,7 +48,7 @@ The standard library provides many useful extension functions for:
 * Working with null values: [`.filterNotNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/filter-not-null.html).
 
 To create your own extension function, prefix its name with a receiver type followed by a `.`. In this example, the `.truncate()`
-function extends the `String` class so the receiver type is `String`:
+function extends the `String` class, so the receiver type is `String`:
 
 ```kotlin
 fun String.truncate(maxLength: Int): String {
@@ -122,7 +122,7 @@ returns a non-null value.
 
 ### Generic extension functions
 
-You can also create generic extension functions. Declare the generic type parameter before the function name
+To create generic extension functions, declare the generic type parameter before the function name
 to make it available in the receiver type expression. In this example, the `.endpoints()` function extends a `List<T>` 
 class where `T` can be any type:
 
@@ -186,7 +186,7 @@ fun main() {
 
 ### Extension or member functions?
 
-Since calling extension functions and member functions uses the same notation, how does the compiler know which one to use?
+Since extension and member function calls have the same notation, how does the compiler know which one to use?
 Extension functions are dispatched _statically_, meaning the compiler determines which function to call based on the
 receiver type at compile time. For example:
 
@@ -307,7 +307,7 @@ For more information, see [Lambda expressions and anonymous functions](lambdas.m
 Kotlin supports extension properties, which are useful for performing data transformations or creating UI display helpers
 without cluttering the class you're working with. 
 
-To create an extension property, write the name of the class that you want to extend followed by a `.` and the name of your property.
+To create an extension property, write the name of the class that you want to extend, followed by a `.` and the name of your property.
 
 For example, suppose you have a data class that represents a user with a first and last name, and you want to create a 
 property that returns an email-style username when accessed. Your code might look like this:
