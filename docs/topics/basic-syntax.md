@@ -301,7 +301,7 @@ Just like most modern languages, Kotlin supports single-line (or _end-of-line_) 
    on multiple lines. */
 ```
 
-Block comments in Kotlin can be nested:
+Block comments in Kotlin can't be nested:
 
 ```kotlin
 /* The comment starts here
