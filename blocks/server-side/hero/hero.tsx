@@ -26,6 +26,12 @@ export const ServerSideHero: FC = ({}) => {
         });
     }, []);
 
+    const handleGetStartedClick = useCallback(() => {
+        trackEvent({
+            eventAction: 'kt_server_side_hero_get_started'
+        });
+    }, []);
+
     return (
         <div className={styles.wrapper} data-testid={'hero-block'}>
             <Img className={styles.heroImage} src={heroImg} alt={'Server-side graphic'} width={1000} height={1000} />
@@ -87,6 +93,7 @@ export const ServerSideHero: FC = ({}) => {
                             size={'l'}
                             href={'#get-started'}
                             data-testid={'hero-block-get-started-link'}
+                            onClick={handleGetStartedClick}
                         >
                             Get started
                         </Button>
