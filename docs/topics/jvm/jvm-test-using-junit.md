@@ -37,7 +37,7 @@ Before you start, make sure you have:
 
     The `initial` module contains a simple Todo application in Java with a single test.
 
-3. In the same directory, ppen the build file, `pom.xml` for Maven or `build.gradle.kts` for Gradle, and update its
+3. In the same directory, open the build file, `pom.xml` for Maven or `build.gradle.kts` for Gradle, and update its
    contents to support Kotlin:
 
     <tabs group="build-system">
@@ -108,7 +108,7 @@ Before you start, make sure you have:
         </dependencies>
     
         <build>
-            <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <pluginManagement><!-- lock down plugin versions to avoid using Maven defaults (can be moved to a parent pom file) -->
                 <plugins>
                     <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
                     <plugin>
@@ -185,12 +185,12 @@ Before you start, make sure you have:
                         <artifactId>maven-compiler-plugin</artifactId>
                         <version>3.14.0</version>
                         <executions>
-                            <!-- Replacing default-compile as it is treated specially by Maven -->
+                            <!-- Replacing default-compile as it's treated specifically by Maven -->
                             <execution>
                                 <id>default-compile</id>
                                 <phase>none</phase>
                             </execution>
-                            <!-- Replacing default-testCompile as it is treated specially by Maven -->
+                            <!-- Replacing default-testCompile as it's treated specifically by Maven -->
                             <execution>
                                 <id>default-testCompile</id>
                                 <phase>none</phase>
@@ -328,6 +328,9 @@ You can expand the test coverage by adding a Kotlin test that verifies repositor
    package org.jetbrains.kotlin.junit
 
    import org.junit.jupiter.api.BeforeEach
+   import org.junit.jupiter.api.Assertions
+   import org.junit.jupiter.api.Test
+   import org.junit.jupiter.api.DisplayName
 
    internal class TodoRepositoryTest {
        lateinit var repository: TodoRepository
@@ -347,13 +350,9 @@ You can expand the test coverage by adding a Kotlin test that verifies repositor
    * In Kotlin, the `lateinit` keyword allows declaring non-null properties that are initialized later.
      This helps to avoid having to use nullable types (`TodoRepository?`) in your tests.
 
-4. Add a test to the `TodoRepositoryTest` class, covering the initial repository state and its size:
+4. Add a test inside the `TodoRepositoryTest` class, covering the initial repository state and its size:
 
    ```kotlin
-   import org.junit.jupiter.api.Assertions
-   import org.junit.jupiter.api.Test
-   import org.junit.jupiter.api.DisplayName
-
    @Test
    @DisplayName("Should start with empty repository")
    fun shouldStartEmpty() {
