@@ -210,21 +210,73 @@ To control the execution order:
 * Disable the Java compiler plugin's default executions.
 * Add custom executions to control the compile phases explicitly.
 
-> You can use the special none phase in Maven to disable a default execution.
+> You can use the special `none` phase in Maven to disable a default execution.
 >
 {style="note"}
 
-Here's an example configuration:
+You can simplify the configuration of mixed Kotlin/Java compilation using `extensions`.
+It allows skipping the Maven compiler plugin configuration:
+
+<tabs group="kotlin-java-maven">
+<tab title="With extensions" group-key="with-extensions">
 
 ```xml
 <build>
     <plugins>
-        <!-- Kotlin compiler plugin -->
+        <!-- Kotlin compiler plugin configuration -->
         <plugin>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-maven-plugin</artifactId>
             <version>${kotlin.version}</version>
             <extensions>true</extensions>
+            <executions>
+                <execution>
+                    <id>default-compile</id>
+                    <phase>compile</phase>
+                    <configuration>
+                        <sourceDirs>
+                            <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
+                            <sourceDir>${project.basedir}/src/main/java</sourceDir>
+                        </sourceDirs>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>default-test-compile</id>
+                    <phase>test-compile</phase>
+                    <configuration>
+                        <sourceDirs>
+                            <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
+                            <sourceDir>${project.basedir}/src/test/java</sourceDir>
+                        </sourceDirs>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        <!-- No need to configure Maven compiler plugin with extensions -->
+    </plugins>
+</build>
+```
+
+If your project previously had a Kotlin-only configuration, you also need to remove the following lines from the `<build>` section:
+
+```xml
+<sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+```
+
+It ensures that both Kotlin code can reference Java code and vice versa with the `extensions` setup.
+
+</tab>
+<tab title="Without extensions" group-key="no-extensions">
+
+```xml
+<build>
+    <plugins>
+        <!-- Kotlin compiler plugin configuration -->
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <version>${kotlin.version}</version>
             <executions>
                 <execution>
                     <id>kotlin-compile</id>
@@ -255,11 +307,11 @@ Here's an example configuration:
             </executions>
         </plugin>
 
-        <!-- Java compiler plugin -->
+        <!-- Maven compiler plugin configuration -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version>
+            <version>3.14.0</version>
             <executions>
                 <!-- Disable default executions -->
                 <execution>
@@ -292,7 +344,10 @@ Here's an example configuration:
 </build>
 ```
 
-This configuration ensures the following:
+</tab>
+</tabs>
+
+This configuration ensures that:
 
 * Kotlin code is compiled first.
 * Java code is compiled after Kotlin and can reference Kotlin classes.
