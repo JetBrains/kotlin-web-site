@@ -4,7 +4,7 @@ The `kotlin-spring` compiler plugin configures Kotlin projects for Spring
 by automatically making certain Spring-annotated classes and members `open` at compile time.
 
 This plugin is a preconfigured wrapper around the [`all-open` plugin](all-open-plugin.md) and behaves the same way: 
-it makes all classes and methods as `open` if they are annotated with Spring annotations.
+it marks all classes and methods as `open` if they are annotated with Spring annotations.
 You can use both `all-open` and `kotlin-spring` in the same project.
 
 > If you generate a project template using [start.spring.io](https://start.spring.io/#!language=kotlin),
