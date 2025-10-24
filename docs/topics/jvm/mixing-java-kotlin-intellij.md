@@ -2,8 +2,7 @@
 
 Kotlin provides the first-class interoperability with Java, and modern IDEs make it even better.
 In this tutorial, you'll learn how to use both Kotlin and Java sources in the same project in 
-IntelliJ IDEA. To learn how to start a new Kotlin project in IntelliJ IDEA, 
-see [Getting started with IntelliJ IDEA](jvm-get-started.md). 
+IntelliJ IDEA.
 
 ## Adding Java source code to an existing Kotlin project
 
