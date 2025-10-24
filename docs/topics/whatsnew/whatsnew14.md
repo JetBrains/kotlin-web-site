@@ -307,7 +307,7 @@ In the future, we are going to make the Kotlin Project Wizard even more flexible
 
 You can try out the new Kotlin Project Wizard by working through these tutorials:
 
-* [Create a console application based on Kotlin/JVM](jvm-get-started.md)
+* [Create a console application based on Kotlin/JVM](jvm-console-app.md)
 * [Create a Kotlin/JS application for React](js-react.md)
 * [Create a Kotlin/Native application](native-get-started.md)
 

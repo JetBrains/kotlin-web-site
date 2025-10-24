@@ -549,8 +549,6 @@ Learn more about:
 
 ### Other details
 
-Learn more about [Kotlin/JVM](jvm-get-started.md).
-
 #### Disable use of artifact in compilation task
 
 In some rare scenarios, you can experience a build failure caused by a circular dependency error. For example, when you 
