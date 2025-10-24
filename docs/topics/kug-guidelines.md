@@ -55,4 +55,3 @@ If you organize any other tech communities, you can apply for support as well. B
 > with regulatory requirements and applicable laws by the recipient.
 > 
 {style="warning"}
-
