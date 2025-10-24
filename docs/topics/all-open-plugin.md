@@ -16,20 +16,21 @@ class MyService {
 
 If a class or any of its superclasses is annotated with a configured annotation, the class and its members become `open`.
 
-> For Spring applications with Kotlin, you can use the [`kotlin-spring` compiler plugin](kotlin-spring-plugin.md).
+> For Spring applications with Kotlin, you can use the [`kotlin-spring` compiler plugin](kotlin-spring-plugin.md).  
+> It marks all classes and methods as `open` if they are annotated with Spring annotations.
 >
 {style="note"}
 
-## Create an annotation
+## Declare an annotation
 
-Before enabling the `all-open` plugin, create an annotation to mark the classes you want to make open:
+Before enabling the `all-open` plugin, declare an annotation to mark the classes you want to make open.
+For example, `AllOpenMarker`:
 
 ```kotlin
 package com.example
 
 annotation class AllOpenMarker()
 ```
-
 
 ## Apply the plugin
 
@@ -187,4 +188,4 @@ Presets that available for the `all-open` plugin are: `spring`, `micronaut`, and
 
 ## What's next?
 
-* Explore the source code of the [all-open compiler plugin](https://github.com/JetBrains/kotlin/tree/master/plugins/allopen)
+* Explore the source code of the [all-open compiler plugin](https://github.com/JetBrains/kotlin/tree/master/plugins/allopen).
