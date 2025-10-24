@@ -25,7 +25,7 @@ Download and install one of these IDEs to start using Kotlin.
 
 Here you'll learn how to develop a console application and create unit tests with Kotlin.
 
-1. **[Create a basic JVM application with the IntelliJ IDEA project wizard](jvm-get-started.md).**
+1. **[Create a basic JVM application with the IntelliJ IDEA project wizard](jvm-console-app.md).**
 
 2. **[Write your first unit test](jvm-test-using-junit.md).**
 
