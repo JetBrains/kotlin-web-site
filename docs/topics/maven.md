@@ -236,6 +236,7 @@ It allows skipping the Maven compiler plugin configuration:
                     <configuration>
                         <sourceDirs>
                             <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
+                            <!-- Ensure Kotlin code can reference Java code -->
                             <sourceDir>${project.basedir}/src/main/java</sourceDir>
                         </sourceDirs>
                     </configuration>
@@ -260,8 +261,10 @@ It allows skipping the Maven compiler plugin configuration:
 If your project previously had a Kotlin-only configuration, you also need to remove the following lines from the `<build>` section:
 
 ```xml
-<sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
-<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+<build>
+    <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+    <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+</build>
 ```
 
 It ensures that both Kotlin code can reference Java code and vice versa with the `extensions` setup.
@@ -287,6 +290,7 @@ It ensures that both Kotlin code can reference Java code and vice versa with the
                     <configuration>
                         <sourceDirs>
                             <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
+                            <!-- Ensure Kotlin code can reference Java code -->
                             <sourceDir>${project.basedir}/src/main/java</sourceDir>
                         </sourceDirs>
                     </configuration>
