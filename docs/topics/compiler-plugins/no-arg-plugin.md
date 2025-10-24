@@ -1,23 +1,31 @@
 [//]: # (title: No-arg compiler plugin)
 
+<!--TODO: rewrite the intro -->
 The `no-arg` compiler plugin generates an additional zero-argument constructor for classes with a specific annotation. 
 
 The generated constructor is synthetic, so it can't be directly called from Java or Kotlin, but it can be called using reflection.
 
-This allows the Java Persistence API (JPA) to instantiate a class although it doesn't have the zero-parameter constructor
-from Kotlin or Java point of view (see the description of `kotlin-jpa` plugin [below](#jpa-support)).
+This allows the Java Persistence API (JPA) to instantiate a class, although it doesn't have the zero-parameter constructor
+from a Kotlin or Java point of view (see the description of `kotlin-jpa` plugin [below](kotlin-jpa-plugin.md).
 
-## In your Kotlin file
+> For Spring applications with Kotlin, you can use the [`kotlin-jpa` compiler plugin](kotlin-jpa-plugin.md).
+>
+{style="note"}
 
-Add new annotations to mark the code that needs a zero-argument constructor:
+## Declare an annotation
+
+Before enabling the `no-arg` plugin, declare new annotations to mark the code that needs a zero-argument constructor.
+For example, `NoArgAnnotation`:
 
 ```kotlin
-package com.my
+package com.example
 
-annotation class Annotation
+annotation class NoArgAnnotation
 ```
 
-## Gradle
+## Apply the plugin
+
+### Gradle
 
 Add the plugin using Gradle's plugins DSL:
 
@@ -59,7 +67,7 @@ noArg {
 }
 ```
 
-## Maven
+### Maven
 
 ```xml
 <plugin>
@@ -90,44 +98,7 @@ noArg {
 </plugin>
 ```
 
-## JPA support
-
-As with the `kotlin-spring` plugin wrapped on top of `all-open`, `kotlin-jpa` is wrapped on top of `no-arg`. The plugin specifies 
-[`@Entity`](https://docs.oracle.com/javaee/7/api/javax/persistence/Entity.html), [`@Embeddable`](https://docs.oracle.com/javaee/7/api/javax/persistence/Embeddable.html),
-and [`@MappedSuperclass`](https://docs.oracle.com/javaee/7/api/javax/persistence/MappedSuperclass.html) 
-*no-arg* annotations automatically.
-
-Add the plugin using the Gradle plugins DSL:
-
-<tabs group="build-script">
-<tab title="Kotlin" group-key="kotlin">
-
-```kotlin
-plugins {
-    kotlin("plugin.jpa") version "%kotlinVersion%"
-}
-```
-
-</tab>
-<tab title="Groovy" group-key="groovy">
-
-```groovy
-plugins {
-    id "org.jetbrains.kotlin.plugin.jpa" version "%kotlinVersion%"
-}
-```
-
-</tab>
-</tabs>
-
-In Maven, enable the `jpa` plugin:
-
-```xml
-<compilerPlugins>
-    <plugin>jpa</plugin>
-</compilerPlugins>
-```
-
+<!--
 ## Command-line compiler
 
 Add the plugin JAR file to the compiler plugin classpath and specify annotations or presets:
@@ -137,3 +108,9 @@ Add the plugin JAR file to the compiler plugin classpath and specify annotations
 -P plugin:org.jetbrains.kotlin.noarg:annotation=com.my.Annotation
 -P plugin:org.jetbrains.kotlin.noarg:preset=jpa
 ```
+-->
+
+## What's next?
+
+<!--TODO: link to the jpa + spring plugins -->
+* Explore the source code of the [all-open compiler plugin](https://github.com/JetBrains/kotlin/tree/master/plugins/allopen).
