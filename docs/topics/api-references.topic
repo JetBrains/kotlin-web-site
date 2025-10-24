@@ -73,7 +73,7 @@
         <li>
             <a href="https://kotlinlang.org/api/compose-multiplatform/material3/"><b>Compose Multiplatform Material3</b></a>
             <br/>
-            <p>A multiplatform library for building user interfaces with Material Design 3 components. The API reference includes a gallery of Material 3 components, allowing you to preview the composables.</p>
+            <p>A multiplatform library for building user interfaces with Material Design 3 components. The API reference includes a gallery of Material 3 components where you can preview the composables.</p>
             <img src="github.svg" width="18" alt="GitHub"/> <a href="https://github.com/JetBrains/compose-multiplatform-core/tree/jb-main/compose/material3">compose-material3</a>
             <br/>
         </li>
