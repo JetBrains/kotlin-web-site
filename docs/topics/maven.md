@@ -235,8 +235,9 @@ It allows skipping the Maven compiler plugin configuration:
                     <phase>compile</phase>
                     <configuration>
                         <sourceDirs>
-                            <sourceDir>${project.basedir}/src/main/kotlin</sourceDir>
-                            <sourceDir>${project.basedir}/src/main/java</sourceDir>
+                            <sourceDir>src/main/kotlin</sourceDir>
+                            <!-- Ensure Kotlin code can reference Java code -->
+                            <sourceDir>src/main/java</sourceDir>
                         </sourceDirs>
                     </configuration>
                 </execution>
@@ -245,8 +246,8 @@ It allows skipping the Maven compiler plugin configuration:
                     <phase>test-compile</phase>
                     <configuration>
                         <sourceDirs>
-                            <sourceDir>${project.basedir}/src/test/kotlin</sourceDir>
-                            <sourceDir>${project.basedir}/src/test/java</sourceDir>
+                            <sourceDir>src/test/kotlin</sourceDir>
+                            <sourceDir>src/test/java</sourceDir>
                         </sourceDirs>
                     </configuration>
                 </execution>
@@ -260,8 +261,10 @@ It allows skipping the Maven compiler plugin configuration:
 If your project previously had a Kotlin-only configuration, you also need to remove the following lines from the `<build>` section:
 
 ```xml
-<sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
-<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+<build>
+    <sourceDirectory>src/main/kotlin</sourceDirectory>
+    <testSourceDirectory>src/test/kotlin</testSourceDirectory>
+</build>
 ```
 
 It ensures that both Kotlin code can reference Java code and vice versa with the `extensions` setup.
@@ -287,6 +290,7 @@ It ensures that both Kotlin code can reference Java code and vice versa with the
                     <configuration>
                         <sourceDirs>
                             <sourceDir>src/main/kotlin</sourceDir>
+                            <!-- Ensure Kotlin code can reference Java code -->
                             <sourceDir>src/main/java</sourceDir>
                         </sourceDirs>
                     </configuration>
