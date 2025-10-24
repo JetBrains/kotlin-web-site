@@ -159,4 +159,4 @@ For additional details, see the [KEEP-75](https://github.com/Kotlin/KEEP/blob/ma
 
 ## What's next?
 
-[Create a console application based on Kotlin/JVM](jvm-console-app.md).
+[Create a console application based on Kotlin/JVM](jvm-get-started.md).

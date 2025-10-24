@@ -58,5 +58,5 @@ Also, you could use package managers, such as [Homebrew](command-line.md#homebre
 
 ## What's next?
 
-* [Create a console application in IntelliJ IDEA](jvm-console-app.md)
+* [Create a console application in IntelliJ IDEA](jvm-get-started.md)
 * [Create your first cross-platform mobile app using Android Studio](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)
