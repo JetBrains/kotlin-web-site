@@ -124,6 +124,7 @@
 			</toc-element>
 			<toc-element toc-title="Kotlin/JS">
                 <toc-element toc-title="Overview" topic="js-overview.md"/>
+                <toc-element topic="js-get-started.md"/>
                 <toc-element accepts-web-file-names="command-line-library-js.html,working-with-javascript.html,setting-up.html,kotlin-to-javascript.html,create-library-js.html,getting-started-with-intellij-idea.html,getting-started-with-maven.html" topic="js-project-setup.md"/>
                 <toc-element topic="running-kotlin-js.md"/>
                 <toc-element topic="dev-server-continuous-compilation.md"/>
@@ -310,7 +311,7 @@
 		<toc-element toc-title="Kotlin compiler">
 			<toc-element accepts-web-file-names="k2-compiler-guide.html" topic="k2-compiler-migration-guide.md"/>
 			<toc-element toc-title="Command-line compiler" topic="command-line.md"/>
-            <toc-element toc-title="Create a console app" topic="jvm-console-app.md" accepts-web-file-names="jvm-get-started.md"/>
+            <toc-element toc-title="Create a console app" topic="jvm-get-started.md"/>
 			<toc-element toc-title="Compiler options" topic="compiler-reference.md"/>
 		</toc-element>
 		<toc-element toc-title="Kotlin compiler plugins">
