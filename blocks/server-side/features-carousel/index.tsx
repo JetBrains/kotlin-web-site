@@ -9,6 +9,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from '@rescui/icons';
 
 import styles from './index.module.css';
 import { SnapCarousel } from '../../../components/snap-carousel/snap-carousel';
+import { trackEvent } from '../../../utils/event-logger';
 
 interface FeatureSlideItem {
     id: string;
@@ -20,10 +21,15 @@ interface FeatureSlideItem {
 
 interface CopyCodeButtonProps {
     codeSample: string;
+    label: string;
 }
 
-const CopyCodeButton: FC<CopyCodeButtonProps> = ({ codeSample }) => {
+const CopyCodeButton: FC<CopyCodeButtonProps> = ({ codeSample, label }) => {
     const handleCopy = () => {
+        trackEvent({
+            eventAction: 'kt_server_side_code_snippet_copy',
+            eventLabel: label,
+        });
         navigator.clipboard.writeText(codeSample);
     };
 
@@ -76,7 +82,7 @@ const FeatureCard: FC<FeatureCardProps> = ({
                 </div>
             </div>
             <div className={styles.imageWrapper}>
-                <CopyCodeButton codeSample={codeSample} />
+                <CopyCodeButton codeSample={codeSample} label={title.toString()} />
                 <CodeHighlight code={codeSample} className={styles.codeBlock} />
             </div>
         </div>
@@ -89,20 +95,6 @@ interface FeaturesCarouselProps {
 }
 
 export const FeaturesCarousel: FC<FeaturesCarouselProps> = ({ featuresData, className }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    const handleChangeIndex = (index: number) => {
-        setActiveIndex(index);
-    };
-
-    const handlePrev = () => {
-        setActiveIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : prevIndex));
-    };
-
-    const handleNext = () => {
-        setActiveIndex((prevIndex) => (prevIndex < featuresData.length - 1 ? prevIndex + 1 : prevIndex));
-    };
-
     return (
         <div className={classNames(styles.carouselContainer, className)}>
 
