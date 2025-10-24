@@ -8,7 +8,7 @@ To declare a functional interface in Kotlin, use the `fun` modifier.
 
 ```kotlin
 fun interface KRunnable {
-   fun invoke()
+    fun invoke()
 }
 ```
 
@@ -25,7 +25,7 @@ For example, consider the following Kotlin functional interface:
 
 ```kotlin
 fun interface IntPredicate {
-   fun accept(i: Int): Boolean
+    fun accept(i: Int): Boolean
 }
 ```
 
@@ -34,9 +34,9 @@ If you don't use a SAM conversion, you will need to write code like this:
 ```kotlin
 // Creating an instance of a class
 val isEven = object : IntPredicate {
-   override fun accept(i: Int): Boolean {
-       return i % 2 == 0
-   }
+    override fun accept(i: Int): Boolean {
+        return i % 2 == 0
+    }
 }
 ```
 
@@ -51,13 +51,13 @@ A short lambda expression replaces all the unnecessary code.
 
 ```kotlin
 fun interface IntPredicate {
-   fun accept(i: Int): Boolean
+    fun accept(i: Int): Boolean
 }
 
 val isEven = IntPredicate { it % 2 == 0 }
 
 fun main() {
-   println("Is 7 even? - ${isEven.accept(7)}")
+    println("Is 7 even? - ${isEven.accept(7)}")
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
@@ -76,7 +76,7 @@ interface Printer {
 }
 
 fun Printer(block: () -> Unit): Printer = object : Printer {
-   override fun print() = block()
+    override fun print() = block()
 }
 ```
 
@@ -112,7 +112,7 @@ typealias IntPredicate = (i: Int) -> Boolean
 val isEven: IntPredicate = { it % 2 == 0 }
 
 fun main() {
-   println("Is 7 even? - ${isEven(7)}")
+    println("Is 7 even? - ${isEven(7)}")
 }
 ```
 
