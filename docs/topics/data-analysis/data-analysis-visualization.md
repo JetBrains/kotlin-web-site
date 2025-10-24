@@ -17,6 +17,7 @@ see [Set up an environment](kotlin-notebook-set-up-env.md).
 Create a new Kotlin Notebook:
 
 1. Select **File** | **New** | **Kotlin Notebook**.
+
 2. In your notebook, import the Kandy and Kotlin DataFrame libraries by running the following command:
 
     ```kotlin

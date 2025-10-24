@@ -50,3 +50,8 @@ If you organize any other tech communities, you can apply for support as well. B
 * Information about Kotlin official events and campaigns.
 * Kotlin stickers.
 * Help with recruiting Kotlin speakers for your events.
+
+> **Disclaimer**: Support and/or any assistance provided by JetBrains is subject to its discretion and compliance
+> with regulatory requirements and applicable laws by the recipient.
+> 
+{style="warning"}
