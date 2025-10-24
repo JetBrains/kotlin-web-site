@@ -156,3 +156,7 @@ kotlinc -script-templates org.example.CustomScriptDefinition -script custom.scri
 ```
 
 For additional details, see the [KEEP-75](https://github.com/Kotlin/KEEP/blob/master/proposals/scripting-support.md).
+
+## What's next?
+
+[Create a console application based on Kotlin/JVM](jvm-console-app.md).
