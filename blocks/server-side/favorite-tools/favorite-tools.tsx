@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 
 import cn from 'classnames';
 
@@ -17,13 +17,23 @@ import MavenLogo from './images/maven.svg';
 import GradleLogo from './images/gradle.svg';
 import AntLogo from './images/ant.svg';
 import BazelLogo from './images/bazel.svg';
+import { useIntersectionTracking } from '../../../utils/use-untersection-tracking';
+import { trackEvent } from '../../../utils/event-logger';
 
 export const FavoriteTools: FC = ({}) => {
 
     const textCn = useTextStyles();
 
+    const handleIntersection = useCallback(() => {
+        trackEvent({
+            eventAction: 'kt_server_side_tools_read'
+        });
+    }, []);
+
+    const sectionRef = useIntersectionTracking(handleIntersection);
+
     return (
-        <section className="ktl-layout ktl-layout--center">
+        <section className="ktl-layout ktl-layout--center" ref={sectionRef}>
             <div className="ktl-container section-offset" id={'tools'}>
 
                 <h2 className={cn(textCn('rs-h1'))}>

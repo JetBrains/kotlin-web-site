@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 
 import cn from 'classnames';
 
@@ -11,13 +11,23 @@ import { Card } from '../card/card';
 import { primaryCardsData, secondaryCardsData } from './ecosystem-data';
 
 import Link from 'next/link';
+import { trackEvent } from '../../../utils/event-logger';
+import { useIntersectionTracking } from '../../../utils/use-untersection-tracking';
 
 export const Ecosystem: FC = ({}) => {
 
     const textCn = useTextStyles();
 
+    const handleIntersection = useCallback(() => {
+        trackEvent({
+            eventAction: 'kt_server_side_ecosystem_read'
+        });
+    }, []);
+
+    const sectionRef = useIntersectionTracking(handleIntersection);
+
     return (
-        <section className="ktl-layout ktl-layout--center">
+        <section className="ktl-layout ktl-layout--center" ref={sectionRef}>
             <div className="ktl-container section-offset" id={'ecosystem'}>
 
                 <h2 className={cn(textCn('rs-h1'))}>
