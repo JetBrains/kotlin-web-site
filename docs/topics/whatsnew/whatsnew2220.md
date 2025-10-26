@@ -1263,7 +1263,7 @@ This artifact includes both a code representation and a JSON equivalent (for non
 their descriptions, and metadata such as the version in which each option was introduced or stabilized. You can use this
 schema to generate a custom view of the options or analyze them as needed.
 
-## Kotlin standard library
+## Standard library
 
 This release introduces new experimental features in the standard library: reflection support for identifying interface
 types in Kotlin/JS, update functions for common atomic types, and `copyOf()` overloads for array resizing.
