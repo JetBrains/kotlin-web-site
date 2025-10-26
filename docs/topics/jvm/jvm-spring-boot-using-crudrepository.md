@@ -221,7 +221,7 @@ Get your personal language map to help you navigate Kotlin features and track yo
 </a>
 
 * Learn more about [Calling Java from Kotlin code](java-interop.md) and [Calling Kotlin from Java code](java-to-kotlin-interop.md).
-* Learn how to convert existing Java code to Kotlin with the [Java-to-Kotlin converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
+* Learn how to convert existing Java code to Kotlin with the [Java-to-Kotlin converter](mixing-java-kotlin-intellij.md#convert-java-files-to-kotlin).
 * Check out our Java to Kotlin migration guides: 
   * [Strings in Java and Kotlin](java-to-kotlin-idioms-strings.md).
   * [Collections in Java and Kotlin](java-to-kotlin-collections-guide.md).
