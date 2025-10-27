@@ -18,6 +18,7 @@ see [Set up an environment](kotlin-notebook-set-up-env.md).
 Create a new Kotlin Notebook:
 
 1. Select **File** | **New** | **Kotlin Notebook**.
+
 2. Ensure you have access to an SQL database, such as MariaDB or MySQL.
 
 ## Connect to database

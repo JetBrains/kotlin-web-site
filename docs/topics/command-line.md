@@ -110,7 +110,7 @@ kotlin -classpath hello.jar HelloKt
 
 `HelloKt` is the main class name that the Kotlin compiler generates for the file named `hello.kt`.
 
-> To compile a Kotlin/Native library, use the [Kotlin/Native compiler](native-libraries.md#kotlin-compiler-specifics).
+> To compile a Kotlin/Native library, use the [Kotlin/Native compiler](native-libraries.md#using-kotlin-native-compiler).
 >
 {style="note"}
 

@@ -61,14 +61,4 @@ In this channel, you can also get notifications about new EAP builds.
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.0-Beta1">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.3.0-Beta1</a>.</p>
         </td>
     </tr>
-    <tr>
-        <td><strong>2.2.21-RC</strong>
-            <p>Released: <strong>October 7, 2025</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21-RC" target="_blank">Release on GitHub</a></p>
-        </td>
-        <td>
-            <p>A tooling release containing support for Xcode 26, along with other improvements and bug fixes.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21-RC">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.2.21-RC</a>.</p>
-    </td>
-    </tr>
 </table>

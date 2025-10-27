@@ -83,6 +83,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
                 <meta name="twitter:title" content={title} />
                 {description && <meta name="twitter:description" content={description} />}
                 <meta name="twitter:image:src" content={ogImageTwitterPath} />
+                <link rel="canonical" href={'https://kotlinlang.org/server-side/'} />
             </Head>
 
             <ThemeProvider theme={theme}>
