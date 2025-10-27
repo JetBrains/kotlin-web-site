@@ -35,6 +35,7 @@ function Index() {
             topMenuHomeUrl={SERVER_SIDE_URL}
             topMenuItems={TOP_MENU_ITEMS}
             topMenuButton={<Button href={'#get-started'}>Get started</Button>}
+            canonical={'https://kotlinlang.org/server-side/'}
         >
             <ServerSideHero />
             <CustomerLogoMarqueeSection />
