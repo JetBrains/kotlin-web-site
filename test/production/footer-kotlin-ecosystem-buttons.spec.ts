@@ -86,7 +86,7 @@ test.describe('Footer kotlin ecosystem buttons', () => {
         await kotlinMerchButton.click();
         const newPage = await newPagePromise;
         await newPage.waitForLoadState();
-        await expect(newPage.url()).toContain('https://www.jetbrainsmerchandise.com/brand/kotlin.html');
+        await expect(newPage.url()).toContain('https://www.jetbrainsmerchandise.com/view-all.html?brand=32');
     });
 
     test('Opt-Out button should navigate to Opt-Out page', async ({ page }) => {
