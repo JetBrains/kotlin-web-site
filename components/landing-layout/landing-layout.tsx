@@ -90,7 +90,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
 
                 <GlobalHeader
                     currentUrl={navigationProps.currentUrl}
-                    currentTitle={navigationProps.currentUrl}
+                    currentTitle={navigationProps.currentTitle}
                     productWebUrl={releasesData.latest.url}
                     hasSearch={true}
                     searchConfig={searchConfig}
