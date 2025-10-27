@@ -30,9 +30,10 @@ type LandingLayoutProps = {
     ogImageName?: string;
     children: React.ReactNode;
     dataTestId?: string;
+    canonical?: string;
 } & NavigationProps;
 
-export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, description, children, dataTestId, ...navigationProps }) => {
+export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, description, children, dataTestId, canonical, ...navigationProps }) => {
     const theme = 'dark';
     const router = useRouter();
     const pathname = addTrailingSlash(router.pathname);
@@ -83,7 +84,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
                 <meta name="twitter:title" content={title} />
                 {description && <meta name="twitter:description" content={description} />}
                 <meta name="twitter:image:src" content={ogImageTwitterPath} />
-                <link rel="canonical" href={'https://kotlinlang.org/server-side/'} />
+                {canonical && <link rel="canonical" href={canonical} />}
             </Head>
 
             <ThemeProvider theme={theme}>
