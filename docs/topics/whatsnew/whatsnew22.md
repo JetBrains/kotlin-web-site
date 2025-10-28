@@ -1164,7 +1164,7 @@ exceptions. The Kotlin team plans to address these kinds of problems in future r
 
 Try out the BTA with these plugins and send us your feedback in the dedicated YouTrack tickets for the [KGP](https://youtrack.jetbrains.com/issue/KT-56574) and the [Maven plugin](https://youtrack.jetbrains.com/issue/KT-73012).
 
-## Kotlin standard library
+## Standard library
 
 In Kotlin 2.2.0, the [`Base64` API](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io.encoding/-base64/) and [`HexFormat` API](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-hex-format/) are now [Stable](components-stability.md#stability-levels-explained).
 
