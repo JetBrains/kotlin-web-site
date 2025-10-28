@@ -190,7 +190,7 @@ plugins {
     kotlin("plugin.power-assert") version "%kotlinVersion%"
 }
 
-group = "org.example"
+group = "com.example"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -207,7 +207,7 @@ tasks.test {
 
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 powerAssert {
-    functions = listOf("kotlin.assert", "kotlin.test.assertEquals", "kotlin.test.assertTrue", "kotlin.test.assertNull", "kotlin.require", "org.example.AssertScope.assert")
+    functions = listOf("kotlin.assert", "kotlin.test.assertEquals", "kotlin.test.assertTrue", "kotlin.test.assertNull", "kotlin.require", "com.example.AssertScope.assert")
 }
 ```
 {initial-collapse-state="collapsed" collapsible="true"}
@@ -277,7 +277,7 @@ powerAssert {
                         <option>plugin:power-assert:function=kotlin.test.assertTrue</option>
                         <option>plugin:power-assert:function=kotlin.test.assertEquals</option>
                         <option>plugin:power-assert:function=kotlin.test.assertNull</option>
-                        <option>plugin:power-assert:function=org.example.AssertScope.assert</option>
+                        <option>plugin:power-assert:function=com.example.AssertScope.assert</option>
                     </pluginOptions>
                 </configuration>
 
@@ -569,7 +569,7 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 powerAssert {
-    functions = listOf("kotlin.assert", "kotlin.test.assert", "org.example.AssertScope.assert")
+    functions = listOf("kotlin.assert", "kotlin.test.assert", "com.example.AssertScope.assert")
 }
 ```
 
@@ -582,7 +582,7 @@ powerAssert {
     <pluginOptions>
         <option>power-assert:function=kotlin.assert</option>
         <option>power-assert:function=kotlin.require</option>
-        <option>power-assert:function=org.example.AssertScope.assert</option>
+        <option>power-assert:function=com.example.AssertScope.assert</option>
     </pluginOptions>
 </configuration>
 ```
@@ -599,7 +599,7 @@ After that, you could use it in your test code:
 
 ```kotlin
 // Import the assertSoftly() function
-import org.example.assertSoftly
+import com.example.assertSoftly
         
 class SoftAssertExampleTest1 {
 
