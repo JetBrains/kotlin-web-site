@@ -453,7 +453,7 @@ Suppressed: androidx.compose.runtime.DiagnosticComposeException: Composition sta
 Stack traces produced by Jetpack Compose 1.10 in this mode only contain group keys that still have to be deobfuscated.
 This is addressed in the Kotlin 2.3.0 release, with the Compose compiler Gradle plugin that now appends group key
 entries to the ProGuard mapping files produced by R8. If you see new warnings in cases when the compiler fails to create
-mappings for some functions, please report them to the Google IssueTracker.
+mappings for some functions, please report them to the [Google IssueTracker](https://issuetracker.google.com/issues/new?component=610764&template=1424126).
 
 > The Compose compiler Gradle plugin only creates deobfuscation mappings for the group key stack traces
 > when R8 is enabled for the build due to dependencies on R8 mapping files.
