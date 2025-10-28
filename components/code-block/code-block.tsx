@@ -12,6 +12,7 @@ import { Button } from '@rescui/button';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
 import styles from './code-block.module.css';
+import { trackEvent } from '../../utils/event-logger';
 
 const KotlinPlayground = dynamic<any>(() => import('react-kotlin-playground').then(), {
     loading: () => null,
@@ -28,16 +29,6 @@ declare global {
   interface Window {
     dataLayer?: any;
   }
-}
-
-function trackEvent(event) {
-    if (typeof window !== 'undefined') {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            event: 'GAEvent',
-            ...event,
-        });
-    }
 }
 
 export const CodeBlock: FC<Props> = forwardRef(({ children, targetPlatform }, ref) => {

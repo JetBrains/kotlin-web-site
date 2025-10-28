@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 
 import cn from 'classnames';
 
@@ -8,14 +8,33 @@ import { useTextStyles } from '@rescui/typography';
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
 
 import { Card } from '../card/card';
+import { trackEvent } from '../../../utils/event-logger';
+import { useIntersectionTracking } from '../../../utils/use-untersection-tracking';
 
+
+const romanVideoId = 'hQrFfwT1IMo';
+const adobeVideoId = 'TT62OL48Vl0';
 
 export const ServerSidePerformance: FC = ({}) => {
-
     const textCn = useTextStyles();
 
+    const trackVideoPlay = useCallback((videoId: string) => {
+        trackEvent({
+            eventAction: 'kt_server_side_performance_video',
+            eventLabel: videoId,
+        });
+    }, []);
+
+    const handleIntersection = useCallback(() => {
+        trackEvent({
+            eventAction: 'kt_server_side_performance_read'
+        });
+    }, []);
+
+    const sectionRef = useIntersectionTracking(handleIntersection);
+
     return (
-        <section className="ktl-layout ktl-layout--center">
+        <section ref={sectionRef} className="ktl-layout ktl-layout--center">
             <div className="ktl-container section-offset" id={'performance'}>
                 <h2 className={cn(textCn('rs-h1'))}>
                     Performance: optimized for high-load
@@ -46,11 +65,11 @@ export const ServerSidePerformance: FC = ({}) => {
                 <div className={cn(styles.videos, 'ktl-offset-top-l')}>
 
                     <div className={styles.videoCard}>
-                        <div className={styles.videoCardPlayer}>
+                        <div className={styles.videoCardPlayer} onClick={() => trackVideoPlay(romanVideoId)}>
                             <YoutubePlayer
                                 mode={0}
-                                id="hQrFfwT1IMo"
-                                previewImgSrc="https://img.youtube.com/vi/hQrFfwT1IMo/maxresdefault.jpg"
+                                id={romanVideoId}
+                                previewImgSrc={`https://img.youtube.com/vi/${romanVideoId}/maxresdefault.jpg`}
                             />
                         </div>
                         <p className={cn(textCn('rs-text-2'), styles.videoCardDescription)}>
@@ -59,11 +78,11 @@ export const ServerSidePerformance: FC = ({}) => {
                     </div>
 
                     <div className={styles.videoCard}>
-                        <div className={styles.videoCardPlayer}>
+                        <div className={styles.videoCardPlayer} onClick={() => trackVideoPlay(adobeVideoId)}>
                             <YoutubePlayer
                                 mode={0}
-                                id="TT62OL48Vl0"
-                                previewImgSrc="https://img.youtube.com/vi/TT62OL48Vl0/maxresdefault.jpg"
+                                id={adobeVideoId}
+                                previewImgSrc={`https://img.youtube.com/vi/${adobeVideoId}/maxresdefault.jpg`}
                             />
                         </div>
                         <p className={cn(textCn('rs-text-2'), styles.videoCardDescription)}>
