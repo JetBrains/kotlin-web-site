@@ -1,17 +1,23 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import classNames from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import { Button } from '@rescui/button';
 import { CodeHighlight } from '../../../components/code-highlight/code-highlight';
 
 import styles from './index.module.css';
+import { trackEvent } from '../../../utils/event-logger';
 
 interface CopyCodeButtonProps {
     codeSample: string;
+    label: string;
 }
 
-const CopyCodeButton: FC<CopyCodeButtonProps> = ({ codeSample }) => {
+const CopyCodeButton: FC<CopyCodeButtonProps> = ({ codeSample, label }) => {
     const handleCopy = () => {
+        trackEvent({
+            eventAction: 'kt_server_side_code_snippet_copy',
+            eventLabel: label,
+        });
         navigator.clipboard.writeText(codeSample);
     };
 
@@ -24,11 +30,12 @@ const CopyCodeButton: FC<CopyCodeButtonProps> = ({ codeSample }) => {
 
 interface CustomSlideProps {
     codeSample: string;
+    label: string;
 }
 
-const CustomSlide: FC<CustomSlideProps> = ({ codeSample }) => (
+const CustomSlide: FC<CustomSlideProps> = ({ codeSample, label }) => (
     <div className={styles.slide}>
-        <CopyCodeButton codeSample={codeSample} />
+        <CopyCodeButton codeSample={codeSample} label={label} />
         <CodeHighlight code={codeSample} className={styles.codeBlock} />
     </div>
 );
@@ -44,11 +51,20 @@ interface FeatureSlideItem {
 interface FeaturesSwitcherProps {
     slides: FeatureSlideItem[];
     className?: string;
+    onTab?: (label: string) => void
 }
 
-export const FeaturesSwitcher: FC<FeaturesSwitcherProps> = ({ slides, className }) => {
+export const FeaturesSwitcher: FC<FeaturesSwitcherProps> = ({ slides, className, onTab }) => {
     const textCn = useTextStyles();
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+    const onSelect = useCallback((index: number, id: string) => {
+        setCurrentSlideIndex(index);
+
+        if (onTab) {
+            onTab(id);
+        }
+    }, []);
 
     return (
         <div className={classNames(styles.slideshow, className)}>
@@ -59,7 +75,7 @@ export const FeaturesSwitcher: FC<FeaturesSwitcherProps> = ({ slides, className 
                             <button
                                 type="button"
                                 tabIndex={0}
-                                onClick={() => setCurrentSlideIndex(i)}
+                                onClick={() => onSelect(i, slide.id)}
                                 className={classNames(styles.tab, i === currentSlideIndex ? styles.tabActive : '')}
                             >
 
@@ -94,7 +110,7 @@ export const FeaturesSwitcher: FC<FeaturesSwitcherProps> = ({ slides, className 
                                 : styles.slideHidden
                         )}
                     >
-                        <CustomSlide key={slide.id} {...slide} />
+                        <CustomSlide key={slide.id} label={slide.title.toString()} {...slide} />
                     </div>
                 ))}
             </div>

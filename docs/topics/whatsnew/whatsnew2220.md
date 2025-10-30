@@ -2,12 +2,7 @@
 
 _[Released: September 10, 2025](releases.md#release-details)_
 
-> Share your thoughts on Kotlin!
-> 
-> [Take our Kotlin Developer Survey](https://surveys.jetbrains.com/s3/7e238a7b85e5). It only takes about 10 minutes. 
-> Your feedback helps us improve the language, tools, and ecosystem.
-> 
-{style="note"}
+<tldr><p>For details about bug fix release 2.2.21, see the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21">changelog</a></p></tldr>
 
 The Kotlin 2.2.20 release is out, delivering important changes for web development. [Kotlin/Wasm is now Beta](#kotlin-wasm),
 with improvements to [exception handling in JavaScript interop](#improved-exception-handling-in-kotlin-wasm-and-javascript-interop),
@@ -24,6 +19,10 @@ Additionally, here are some main highlights:
 > Compose Multiplatform for web goes Beta. Learn more in our [blog post](https://blog.jetbrains.com/kotlin/2025/09/compose-multiplatform-1-9-0-compose-for-web-beta/).
 >
 {style="note"}
+
+You can also find a short overview of the updates in this video:
+
+<video src="https://www.youtube.com/v/QWpp5-LlTqA" title="What's new in Kotlin 2.2.21"/>
 
 ## IDE support
 
@@ -631,6 +630,14 @@ You can put your shared code in `webMain` and have it automatically work for bot
 expect suspend fun readCopiedText(): String
 
 // webMain
+@OptIn(ExperimentalWasmJsInterop::class)
+private suspend fun <R : JsAny?> Promise<R>.await(): R = suspendCancellableCoroutine { continuation ->
+    this.then(
+        onFulfilled = { continuation.resumeWith(Result.success(it)); null },
+        onRejected = { continuation.resumeWithException(it.asJsException()); null }
+    )
+}
+
 external interface Navigator { val clipboard: Clipboard }
 external interface Clipboard { fun readText(): Promise<JsString> }
 external val navigator: Navigator
@@ -1263,7 +1270,7 @@ This artifact includes both a code representation and a JSON equivalent (for non
 their descriptions, and metadata such as the version in which each option was introduced or stabilized. You can use this
 schema to generate a custom view of the options or analyze them as needed.
 
-## Kotlin standard library
+## Standard library
 
 This release introduces new experimental features in the standard library: reflection support for identifying interface
 types in Kotlin/JS, update functions for common atomic types, and `copyOf()` overloads for array resizing.
