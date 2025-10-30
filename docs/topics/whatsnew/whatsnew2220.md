@@ -2,12 +2,7 @@
 
 _[Released: September 10, 2025](releases.md#release-details)_
 
-> Share your thoughts on Kotlin!
-> 
-> [Take our Kotlin Developer Survey](https://surveys.jetbrains.com/s3/7e238a7b85e5). It only takes about 10 minutes. 
-> Your feedback helps us improve the language, tools, and ecosystem.
-> 
-{style="note"}
+<tldr><p>For details about bug fix release 2.2.21, see the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21">changelog</a></p></tldr>
 
 The Kotlin 2.2.20 release is out, delivering important changes for web development. [Kotlin/Wasm is now Beta](#kotlin-wasm),
 with improvements to [exception handling in JavaScript interop](#improved-exception-handling-in-kotlin-wasm-and-javascript-interop),
@@ -24,6 +19,10 @@ Additionally, here are some main highlights:
 > Compose Multiplatform for web goes Beta. Learn more in our [blog post](https://blog.jetbrains.com/kotlin/2025/09/compose-multiplatform-1-9-0-compose-for-web-beta/).
 >
 {style="note"}
+
+You can also find a short overview of the updates in this video:
+
+<video src="https://www.youtube.com/v/QWpp5-LlTqA" title="What's new in Kotlin 2.2.21"/>
 
 ## IDE support
 
