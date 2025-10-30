@@ -19,13 +19,14 @@ val result = double(2)
 Calling member functions uses dot notation:
 
 ```kotlin
-Stream().read() // create instance of class Stream and call read()
+// Creates instance of the Stream class and calls read()
+Stream().read()
 ```
 
 ### Parameters
 
-Function parameters are defined using Pascal notation - *name*: *type*. Parameters are separated using commas, and each
-parameter must be explicitly typed:
+Function parameters are defined using Pascal notation: `name: Type`.
+Parameters are separated using commas, and each parameter must be explicitly typed:
 
 ```kotlin
 fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
@@ -40,9 +41,14 @@ fun powerOf(
 ) { /*...*/ }
 ```
 
+This helps with refactorings and code maintenance:
+you can move parameters within the declaration without worrying about which is going to be the last one.
+
+TODO should this be optional parameters? probably not
 ### Parameters with default values
 
 Function parameters can have default values, which are used when you skip the corresponding argument.
+A default value is set by appending `=` to the type.
 This reduces the number of overloads:
 
 ```kotlin
@@ -54,8 +60,6 @@ fun read(
 ```
 
 Such parameters are also referred to as _optional parameters_.
-
-A default value is set by appending `=` to the type.
 
 Overriding methods always use the base method's default parameter values.
 When overriding a method that has default parameter values, the default parameter values must be omitted from the signature:
@@ -82,6 +86,7 @@ fun foo(
 foo(baz = 1) // The default value bar = 0 is used
 ```
 
+TODO this doesn't seem to do much with the subject of default values.
 If the last parameter after all parameters with default values has a functional type,
 then you can pass the corresponding [lambda](lambdas.md#lambda-expression-syntax) argument either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
 
@@ -97,6 +102,7 @@ foo(qux = { println("hello") }) // Uses both default values bar = 0 and baz = 1
 foo { println("hello") }        // Uses both default values bar = 0 and baz = 1
 ```
 
+TODO should named arguments be before default values? Should arguments be parameters?
 ### Named arguments
 
 You can name one or more of a function's arguments when calling it. This can be helpful when a function has many
@@ -171,12 +177,14 @@ fun printHello(name: String?): Unit {
 }
 ```
 
+TODO this can be folded into above surely
 The `Unit` return type declaration is also optional. The above code is equivalent to:
 
 ```kotlin
 fun printHello(name: String?) { ... }
 ```
 
+TODO since this refers to explicit return types, should probably be below them.
 ### Single-expression functions
 
 When the function body consists of a single expression, the curly braces can be omitted and the body specified after an `=` symbol:
@@ -275,7 +283,7 @@ infix fun Int.shl(x: Int): Int { ... }
 {style="note"}
 
 Note that infix functions always require both the receiver and the parameter to be specified. When you're
-calling a method on the current receiver using the infix notation, use `this` explicitly. This is required to ensure
+calling a method on the current receiver using the infix notation, use `this` explicitly. This ensures
 unambiguous parsing.
 
 ```kotlin
@@ -292,8 +300,9 @@ class MyStringCollection {
 
 ## Function scope
 
+TODO is comparison to other languages even necessary here
 Kotlin functions can be declared at the top level in a file, meaning you do not need to create a class to hold a function,
-which you are required to do in languages such as Java, C#, and Scala ([top level definition is available since Scala 3](https://docs.scala-lang.org/scala3/book/taste-toplevel-definitions.html#inner-main)). In addition
+which you are required to do in languages such as Java and C#. In addition
 to top level functions, Kotlin functions can also be declared locally as member functions and extension functions.
 
 ### Local functions
@@ -369,7 +378,7 @@ tailrec fun findFixPoint(x: Double = 1.0): Double =
     if (Math.abs(x - Math.cos(x)) < eps) x else findFixPoint(Math.cos(x))
 ```
 
-This code calculates the `fixpoint` of cosine, which is a mathematical constant. It simply calls `Math.cos` repeatedly
+This code calculates the fixed point of cosine (a mathematical constant). It simply calls `Math.cos` repeatedly
 starting at `1.0` until the result no longer changes, yielding a result of `0.7390851332151611` for the specified
 `eps` precision. The resulting code is equivalent to this more traditional style:
 
@@ -389,6 +398,7 @@ private fun findFixPoint(): Double {
 To be eligible for the `tailrec` modifier, a function must call itself as the last operation it performs. You cannot use
 tail recursion when there is more code after the recursive call, within `try`/`catch`/`finally` blocks, or on open functions.
 Currently, tail recursion is supported by Kotlin for the JVM and Kotlin/Native.
+TODO what else is there but JVM and Native?
 
 **See also**:
 * [Inline functions](inline-functions.md)
