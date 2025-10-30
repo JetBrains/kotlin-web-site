@@ -130,6 +130,10 @@ We would appreciate your feedback on our issue tracker, [YouTrack](https://youtr
 
 Kotlin 2.2.0 introduces an implementation of context-sensitive resolution in preview.
 
+You can find an overview of this feature in this video:
+
+<video src="https://www.youtube.com/v/aF8RYQrJI8Q" title="Context-sensitive resolution in Kotlin 2.2.0"/>
+
 Previously, you had to write the full name of enum entries or sealed class members, even when the type could be inferred from the context.
 For example:
 
@@ -333,6 +337,12 @@ For more information about the new defaulting rules for annotation use-site targ
 
 ### Support for nested type aliases
 <primary-label ref="beta"/>
+
+Kotlin 2.2.0 adds support for defining type aliases inside other declarations.
+
+You can find an overview of this feature in this video:
+
+<video src="https://www.youtube.com/v/1W6d45IOwWk" title="Nested type aliases in Kotlin 2.2.0"/>
 
 Previously, you could only declare [type aliases](type-aliases.md) at the top level of a Kotlin file. This meant 
 that even internal or domain-specific type
@@ -571,6 +581,10 @@ fun main() {
 {style = "note"}
 
 Kotlin 2.2.0 introduces a new experimental annotation: [`@JvmExposeBoxed`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-expose-boxed/). This annotation makes it easier to consume [inline value classes](inline-classes.md) from Java.
+
+You can find an overview of this feature in this video:
+
+<video src="https://www.youtube.com/v/KSvq7jHr1lo" title="Exposed inline value classes for Java in Kotlin 2.2.0"/>
 
 By default, Kotlin compiles inline value classes to use **unboxed representations**, which are more performant but often 
 hard or even impossible to use from Java. For example:
