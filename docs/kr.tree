@@ -161,7 +161,7 @@
             <include from="api-guidelines.tree" origin="api-guidelines" element-id="api-guidelines"/>
         </toc-element>
 		<toc-element toc-title="Kotlin custom scripting" topic="custom-script-deps-tutorial.md"/>
-		<toc-element toc-title="Tooling">
+		<toc-element toc-title="Development tooling">
 			<toc-element toc-title="IDE for Kotlin development" accepts-web-file-names="getting-started-eclipse.html,eclipse.html" topic="kotlin-ide.md"/>
 			<toc-element toc-title="Dokka">
 				<include from="dokka.tree" origin="dokka" element-id="dokka"/>
