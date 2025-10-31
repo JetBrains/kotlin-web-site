@@ -272,12 +272,12 @@ powerAssert {
                     </compilerPlugins>
 
                     <pluginOptions>
-                        <option>plugin:power-assert:function=kotlin.assert</option>
-                        <option>plugin:power-assert:function=kotlin.require</option>
-                        <option>plugin:power-assert:function=kotlin.test.assertTrue</option>
-                        <option>plugin:power-assert:function=kotlin.test.assertEquals</option>
-                        <option>plugin:power-assert:function=kotlin.test.assertNull</option>
-                        <option>plugin:power-assert:function=com.example.AssertScope.assert</option>
+                        <option>power-assert:function=kotlin.assert</option>
+                        <option>power-assert:function=kotlin.require</option>
+                        <option>power-assert:function=kotlin.test.assertTrue</option>
+                        <option>power-assert:function=kotlin.test.assertEquals</option>
+                        <option>power-assert:function=kotlin.test.assertNull</option>
+                        <option>power-assert:function=com.example.AssertScope.assert</option>
                     </pluginOptions>
                 </configuration>
 
