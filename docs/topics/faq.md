@@ -36,7 +36,7 @@ the ability to write expressive code as well as facilitating creation of DSL.
 Yes. Kotlin is 100% interoperable with the Java programming language, and major emphasis has been placed on making sure
 that your existing codebase can interact properly with Kotlin. You can easily [call Kotlin code from Java](java-to-kotlin-interop.md) and [Java code
 from Kotlin](java-interop.md). This makes adoption much easier and lower-risk. There's also an automated [Java-to-Kotlin converter built
-into the IDE](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k) that simplifies migration of existing code.
+into the IDE](mixing-java-kotlin-intellij.md#convert-java-files-to-kotlin) that simplifies migration of existing code.
 
 ### What can I use Kotlin for?
 
