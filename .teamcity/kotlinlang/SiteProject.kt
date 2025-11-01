@@ -8,27 +8,28 @@ import kotlinlang.vcsRoots.WebHelp
 import templates.DockerImageBuilder
 
 object SiteProject : Project({
-  name = "kotlinlang.org"
+    name = "kotlinlang.org"
 
-  buildTypesOrder = arrayListOf(
-    BuildSitePages,
-    FetchBlogNews,
-    PdfGenerator,
-    BuildSearchIndex,
-    BuildWebHelpFrontend,
-    BuildKotlinGrammar,
-    BuildKotlinSpec,
-    BuildJsAssets,
-    PageViews,
-  )
+    buildTypesOrder = arrayListOf(
+        BuildSitePages,
+        FetchBlogNews,
+        PdfGenerator,
+        BuildSearchIndex,
+        BuildWebHelpFrontend,
+        BuildKotlinGrammar,
+        BuildKotlinSpec,
+        BuildJsAssets,
+        PageViews,
+        BuildPythonContainer
+    )
 
-  buildTypesOrder.forEach {
-    buildType(it)
-  }
+    buildTypesOrder.forEach {
+        buildType(it)
+    }
 
-  template(DockerImageBuilder)
+    template(DockerImageBuilder)
 
-  vcsRoot(GrammarGenerator)
-  vcsRoot(KotlinSpec)
-  vcsRoot(WebHelp)
+    vcsRoot(GrammarGenerator)
+    vcsRoot(KotlinSpec)
+    vcsRoot(WebHelp)
 })
