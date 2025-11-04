@@ -218,10 +218,16 @@ fun main() {
 Write a function called `circleArea` that takes the radius of a circle in integer format as a parameter and outputs the
 area of that circle.
 
-> In this exercise, you import a package so that you can access the value of pi via `PI`. For more information about
+> In this exercise, you import a package so that you can access the value of <math>π</math> via `PI`. For more information about
 > importing packages, see [Packages and imports](packages.md).
 >
 {style="tip"}
+
+<deflist collapsible="true" id="kotlin-tour-functions-exercise-1-hint">
+    <def title="Hint">
+        The formula for calculating the area of a circle is <math>πr^2</math>, where <math>r</math> is the radius.
+    </def>
+</deflist>
 
 |---|---|
 ```kotlin
