@@ -111,7 +111,6 @@
 				<toc-element topic="jvm-spring-boot-add-db-support.md"/>
 				<toc-element toc-title="Use Spring Data CrudRepository" topic="jvm-spring-boot-using-crudrepository.md"/>
 			</toc-element>
-			<toc-element toc-title="Build a Kotlin app with Spring AI – tutorial" topic="spring-ai-guide.md"/>
 		</toc-element>
 		<toc-element toc-title="Web development">
 			<toc-element toc-title="WebAssembly (Wasm)">
@@ -235,7 +234,10 @@
             <toc-element toc-title="Libraries for data analysis" topic="data-analysis-libraries.md"/>
             <toc-element topic="kotlin-notebook-overview.md"/>
         </toc-element>
-        <toc-element toc-title="Kotlin for AI-powered apps" topic="kotlin-ai-apps-development-overview.md"/>
+        <toc-element toc-title="Kotlin for AI-powered apps">
+            <toc-element toc-title="Overview" topic="kotlin-ai-apps-development-overview.md"/>
+            <toc-element toc-title="Build a Kotlin app with Spring AI – tutorial" topic="spring-ai-guide.md"/>
+        </toc-element>
         <toc-element topic="competitive-programming.md"/>
     </toc-element>
     <toc-element toc-title="Libraries">
@@ -294,18 +296,20 @@
         <toc-element toc-title="Compose Multiplatform Material3" href="https://kotlinlang.org/api/compose-multiplatform/material3/"/>
 	</toc-element>
     <toc-element toc-title="Build tools">
-		<toc-element accepts-web-file-names="using-gradle.html" toc-title="Gradle overview" topic="gradle.md"/>
-		<toc-element toc-title="Get started with Gradle – tutorial" topic="get-started-with-jvm-gradle-project.md"/>
-		<toc-element topic="gradle-configure-project.md"/>
-		<toc-element topic="gradle-best-practices.md"/>
-		<toc-element toc-title="Compiler options in KGP" topic="gradle-compiler-options.md"/>
-		<toc-element toc-title="Compilation and caches in KGP" topic="gradle-compilation-and-caches.md"/>
-		<toc-element toc-title="Binary compatibility validation in KGP" topic="gradle-binary-compatibility-validation.md"/>
-		<toc-element topic="gradle-plugin-variants.md"/>
-		<toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
-		<toc-element topic="build-tools-api.md"/>
+        <toc-element toc-title="Gradle">
+            <toc-element accepts-web-file-names="using-gradle.html" toc-title="Overview" topic="gradle.md"/>
+            <toc-element toc-title="Get started with Gradle – tutorial" topic="get-started-with-jvm-gradle-project.md"/>
+            <toc-element topic="gradle-configure-project.md"/>
+            <toc-element topic="gradle-best-practices.md"/>
+            <toc-element toc-title="Compiler options in KGP" topic="gradle-compiler-options.md"/>
+            <toc-element toc-title="Compilation and caches in KGP" topic="gradle-compilation-and-caches.md"/>
+            <toc-element toc-title="Binary compatibility validation in KGP" topic="gradle-binary-compatibility-validation.md"/>
+            <toc-element topic="gradle-plugin-variants.md"/>
+        </toc-element>
+        <toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
+        <toc-element topic="build-tools-api.md"/>
         <toc-element topic="kotlin-daemon.md"/>
-		<toc-element hidden="true" accepts-web-file-names="using-ant.html" topic="ant.md"/>
+        <toc-element hidden="true" accepts-web-file-names="using-ant.html" topic="ant.md"/>
 	</toc-element>
 	<toc-element toc-title="Compiler and plugins">
 		<toc-element toc-title="Kotlin compiler">
