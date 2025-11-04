@@ -1238,6 +1238,67 @@ the previous version of the lambda, which could cause unexpected behavior.
 
 In Kotlin 2.2.20, the compiler now detects changes in lambdas of inline functions and automatically recompiles their call sites.
 
+### Improvements for library publication
+
+Kotlin 2.2.20 adds new Gradle tasks that make library publication easier. These tasks help you generate key pairs, upload
+public keys, and run local checks to ensure the verification process succeeds before uploading to the Maven Central repository.
+
+For more information about how to use these tasks as part of the publication process, see [Publish your library to Maven Central](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-libraries.html).
+
+#### New Gradle tasks for generating and uploading PGP keys
+
+Before Kotlin 2.2.20, if you wanted to publish a multiplatform library to the Maven Central repository, you had to install
+a third-party program like `gpg` to generate a key pair for signing your publications. Now, the Kotlin Gradle plugin comes
+with Gradle tasks that let you generate a key pair and upload the public key so you don't have to install another program.
+
+##### Generate a key pair
+
+The `generatePgpKeys` task generates a key pair. When you run it, you must provide a password for the private keystore 
+and your name in the following format:
+
+```bash
+./gradlew -Psigning.password=example-password generatePgpKeys --name "John Smith <john@example.com>"
+```
+
+The task stores the key pair in the `build/pgp` directory.
+
+> Move your key pair to a secure location to prevent accidental deletion or unauthorized access.
+> 
+{style="warning"}
+
+##### Upload the public key
+
+The `uploadPublicPgpKey` task uploads the public key to Ubuntu's key server: `keyserver.ubuntu.com`. When you run it, 
+provide the path to the public key in `.asc` format:
+
+```bash
+./gradlew uploadPublicPgpKey --keyring /path_to/build/pgp/public_KEY_ID.asc
+```
+
+#### New Gradle tasks to test verification locally
+
+Kotlin 2.2.20 also adds Gradle tasks for testing verification locally before uploading your library to the Maven Central repository.
+
+If you're using the Kotlin Gradle plugin along with Gradle's [Signing Plugin](https://docs.gradle.org/current/userguide/signing_plugin.html) and [Maven Publish Plugin](https://docs.gradle.org/current/userguide/publishing_maven.html), you can run the `checkSigningConfiguration` and `checkPomFileFor<PUBLICATION_NAME>Publication` tasks to verify that your setup meets Maven Central’s requirements. Replace `<PUBLICATION_NAME>` with the name of your publication.
+
+These tasks aren't automatically run as part of the `build` or `check` Gradle tasks, so you need to run them manually. 
+For example, if you have a `KotlinMultiplatform` publication:
+
+```bash
+./gradlew checkSigningConfiguration checkPomFileForKotlinMultiplatformPublication
+```
+
+The `checkSigningConfiguration` task checks that:
+
+* The Signing Plugin has keys configured.
+* The configured public key has been uploaded to either `keyserver.ubuntu.com` or `keys.openpgp.org` key servers.
+* All publications have signing enabled.
+
+If any of these checks fail, the task returns an error with information on how to fix the issue.
+
+The `checkPomFileFor<PUBLICATION_NAME>Publication` task checks whether the `pom.xml` file meets Maven Central's [requirements](https://central.sonatype.org/publish/requirements/#required-pom-metadata).
+If it doesn't, the task returns an error with details about which parts of the `pom.xml` file are non-compliant.
+
 ## Maven: Support for the Kotlin daemon in the `kotlin-maven-plugin`
 
 Kotlin 2.2.20 takes the [build tools API introduced in Kotlin 2.2.0](whatsnew22.md#new-experimental-build-tools-api) one
