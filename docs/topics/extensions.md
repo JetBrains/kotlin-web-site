@@ -14,7 +14,7 @@ You make new functions callable or new properties accessible using the same synt
 Extensions are always called on a receiver. The receiver has to have the same type as the class or interface being extended.
 To use an extension, prefix it with the receiver followed by a `.` and the function or property name.
 
-For example, the [`.appendLine()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/or-empty.html) extension function from the standard library extends the `StringBuilder` class.
+For example, the [`.appendLine()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/append-line.html) extension function from the standard library extends the `StringBuilder` class.
 So in this case, the receiver is a `StringBuilder` instance, and the _receiver type_ is `StringBuilder`:
 
 ```kotlin
