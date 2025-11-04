@@ -296,6 +296,7 @@
 		<toc-element toc-title="JVM Metadata (kotlin-metadata-jvm)" href="https://kotlinlang.org/api/kotlinx-metadata-jvm/"/>
 		<toc-element toc-title="Ktor" href="https://api.ktor.io/"/>
 		<toc-element toc-title="Kotlin Gradle plugins (kotlin-gradle-plugin)" href="https://kotlinlang.org/api/kotlin-gradle-plugin/"/>
+        <toc-element toc-title="Compose Multiplatform Material3" href="https://kotlinlang.org/api/compose-multiplatform/material3/"/>
 	</toc-element>
 	<toc-element toc-title="Language reference">
 		<toc-element topic="keyword-reference.md"/>
