@@ -23,6 +23,22 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ## Language
 
+### Remove language versions 1.8 and 1.9
+
+> **Issue**: [KT-76343](https://youtrack.jetbrains.com/issue/KT-76343), [KT-76344](https://youtrack.jetbrains.com/issue/KT-76344).
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.3 introduces language version 2.3 and removes support for language version 1.8.
+> Support for language version 1.9 is also removed for non-JVM platforms. Language versions 1.8 and 1.9 are deprecated.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a warning for language versions 1.8 and 1.9
+> - 2.3.0: raise the warning to an error for language version 1.8 on all platforms and for language version 1.9 on non-JVM platforms.
+
 ### Enable invokedynamic for annotated lambdas by default
 
 > **Issue**: [KTLC-278](https://youtrack.jetbrains.com/issue/KTLC-278)
