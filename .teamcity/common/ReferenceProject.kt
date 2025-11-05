@@ -116,6 +116,19 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
                 }
             }
 
+            features {
+                notifications {
+                    enabled = !isProjectPlayground()
+                    notifierSettings = slackNotifier {
+                        connection = "PROJECT_EXT_486"
+                        sendTo = "#kotlin-web-site-alerts"
+                        messageFormat = simpleMessageFormat()
+                    }
+                    buildFailedToStart = true
+                    buildFailed = true
+                }
+            }
+
             dependencies {
                 for ((previousVersion, version) in versions) {
                     if (previousVersion == currentVersion) continue
