@@ -84,7 +84,9 @@ Core plugins and their options are listed in the [Core compiler plugins](compone
   
 ### -language-version _version_
 
-Provide source compatibility with the specified version of Kotlin.
+This option sets the supported syntax and semantics according to the specified language version. For example, using 
+Kotlin compiler version 2.2.0 with `-language-version=1.9` lets you use only the language features and standard library APIs from
+version 1.9 or earlier. This can help with a gradual migration to newer Kotlin versions.
 
 ### -api-version _version_
 

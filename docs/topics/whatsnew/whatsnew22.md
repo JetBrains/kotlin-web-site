@@ -1319,8 +1319,11 @@ If you encounter any issues that make you disable these feature flags, please re
 This section highlights important breaking changes and deprecations worth noting. See our [Compatibility guide](compatibility-guide-22.md)
 for a complete overview of all breaking changes and deprecations in this release.
 
-* Starting with Kotlin 2.2.0, support for the [](ant.md) build system is deprecated. Kotlin support for Ant hasn't been 
-  in active development for a long time, and there are no plans to maintain it further due to its relatively small user base.
+* Starting with Kotlin 2.2.0, the compiler [no longer supports `-language-version=1.6` or `-language-version=1.7`](compatibility-guide-22.md#drop-support-in-language-version-for-1-6-and-1-7).
+  Language feature sets older than 1.8 aren't supported but the language itself remains fully backward compatible with Kotlin 1.0.
+
+* Support for the [](ant.md) build system is deprecated. Kotlin support for Ant hasn't been in active development for a 
+  long time, and there are no plans to maintain it further due to its relatively small user base.
   
   We plan to remove Ant support in 2.3.0. However, Kotlin remains open to [contribution](contribute.md). If you're 
   interested in becoming an external maintainer for Ant, leave a comment with the "jetbrains-team" visibility setting in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-75875/).
@@ -1364,15 +1367,7 @@ for a complete overview of all breaking changes and deprecations in this release
 
 This release brings notable documentation changes, including the migration of Kotlin Multiplatform documentation to the [KMP portal](https://kotlinlang.org/docs/multiplatform/get-started.html). 
 
-Additionally, we launched a documentation survey, created new pages and tutorials, and revamped existing ones. 
-
-### Kotlin's documentation survey
-
-We're looking for genuine feedback to make the Kotlin documentation better.
-
-The survey takes around 15 minutes to complete, and your input will help shape the future of Kotlin docs.
-
-[Take the survey here](https://surveys.jetbrains.com/s3/Kotlin-Docs-2025).
+Additionally, we created new pages and tutorials, and revamped existing ones. 
 
 ### New and revamped tutorials
 

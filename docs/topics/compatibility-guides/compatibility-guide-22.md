@@ -23,6 +23,23 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ## Language
 
+### Drop support in `-language-version` for 1.6 and 1.7
+
+> **Issue**: [KT-71793](https://youtrack.jetbrains.com/issue/KT-71793)
+>
+> **Component**: Compiler
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Starting with Kotlin 2.2, the compiler no longer supports [`-language-version=1.6`](compiler-reference.md#language-version-version) or `-language-version=1.7`.
+> This means that language feature sets older than 1.8 are no longer supported. However, the language itself remains 
+> fully backward compatible with Kotlin 1.0.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report a warning when using `-language-version` with versions 1.6 and 1.7
+> - 2.2.0: report a warning when using `-language-version` with versions 1.8 and 1.9; raise the warning to an error for versions 1.6 and 1.7
+
 ### Enable invokedynamic for annotated lambdas by default
 
 > **Issue**: [KTLC-278](https://youtrack.jetbrains.com/issue/KTLC-278)
