@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Standard_product_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="192px" height="192px" viewBox="0 0 192 192" enable-background="new 0 0 192 192" xml:space="preserve">
+<rect id="bounding_box_1_" fill="none" width="192" height="192"/>
+<g id="art_layer">
+	<rect x="58" y="98" fill="#FFFFFF" width="76" height="14"/>
+	<rect x="58" y="122" fill="#FFFFFF" width="56" height="14"/>
+	<polygon fill="#0066DA" points="116,52 136.62,53 160,52 116,8 115,34.86 	"/>
+	<rect x="0" y="0" fill="none" width="192" height="192"/>
+	<rect x="58" y="74" fill="#FFFFFF" width="76" height="14"/>
+	<path fill="#2684FC" d="M116,52V8H44c-6.63,0-12,5.37-12,12v152c0,6.63,5.37,12,12,12h104c6.63,0,12-5.37,12-12V52H116z M112,134
+		H60v-10h52V134z M132,110H60v-10h72V110z M132,86H60V76h72V86z"/>
+</g>
+</svg>
