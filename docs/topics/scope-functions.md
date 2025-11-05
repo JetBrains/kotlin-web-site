@@ -347,7 +347,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-`let` is often used to execute a code block containing non-null values. To perform actions on a non-null object, use
+`let` is often used to execute a code block containing non-null values. To perform actions on a nullable object, use
 the [safe call operator `?.`](null-safety.md#safe-call-operator) on it and call `let` with the actions in its lambda.
 
 ```kotlin
