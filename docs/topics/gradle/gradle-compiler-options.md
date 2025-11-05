@@ -597,14 +597,14 @@ Here is a complete list of options for the Gradle compiler:
 
 ### Attributes common to JVM and JavaScript
 
-| Name | Description | Possible values                                                |Default value |
-|------|-------------|----------------------------------------------------------------|--------------|
-| `allWarningsAsErrors` | Report an error if there are any warnings |                                                                | false |
-| `suppressWarnings` | Don't generate warnings |                                                                | false |
-| `verbose` | Enable verbose logging output. Works only when the [Gradle debug log level enabled](https://docs.gradle.org/current/userguide/logging.html) |                                                                | false |
-| `freeCompilerArgs` | A list of additional compiler arguments. You can use experimental `-X` arguments here too. See an [example](#example-of-additional-arguments-usage-via-freecompilerargs) |                                                                | [] |
-| `apiVersion`      | Restrict the use of declarations to those from the specified version of bundled libraries | "1.8", "1.9", "2.0", "2.1", "2.2" (EXPERIMENTAL) |               |
-| `languageVersion` | Provide source compatibility with the specified version of Kotlin                         | "1.8", "1.9", "2.0", "2.1", "2.2" (EXPERIMENTAL)  |               |
+| Name                  | Description                                                                                                                                                              | Possible values                                         | Default value |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|---------------|
+| `allWarningsAsErrors` | Report an error if there are any warnings                                                                                                                                |                                                         | false         |
+| `suppressWarnings`    | Don't generate warnings                                                                                                                                                  |                                                         | false         |
+| `verbose`             | Enable verbose logging output. Works only when the [Gradle debug log level enabled](https://docs.gradle.org/current/userguide/logging.html)                              |                                                         | false         |
+| `freeCompilerArgs`    | A list of additional compiler arguments. You can use experimental `-X` arguments here too. See an [example](#example-of-additional-arguments-usage-via-freecompilerargs) |                                                         | []            |
+| `apiVersion`          | Restrict the use of declarations to those from the specified version of bundled libraries                                                                                | "1.9", "2.0", "2.1", "2.2", "2.3", "2.4" (EXPERIMENTAL) |               |
+| `languageVersion`     | Provide source compatibility with the specified version of Kotlin                                                                                                        | "1.9", "2.0", "2.1", "2.2", "2.3", "2.4" (EXPERIMENTAL) |               |
 
 > We are going to deprecate the attribute `freeCompilerArgs` in future releases. If you miss some option in the Kotlin Gradle DSL,
 > please, [file an issue](https://youtrack.jetbrains.com/newissue?project=kt).
