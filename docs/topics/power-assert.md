@@ -171,7 +171,7 @@ Specify this option in the `<configuration>` section of `kotlin-maven-plugin`:
 </configuration>
 ```
 
-## Use the power-assert plugin
+## Use the Power-assert plugin
 
 This section provides examples of using the Power-assert compiler plugin.
 
@@ -213,7 +213,44 @@ powerAssert {
 {initial-collapse-state="collapsed" collapsible="true"}
 
 </tab>
+<tab title="Gradle (Groovy)" group-key="groovy">
 
+```groovy
+// build.gradle
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.plugin.power-assert' version '%kotlinVersion%'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+powerAssert {
+    functions = [
+            'kotlin.assert',
+            'kotlin.test.assertEquals',
+            'kotlin.test.assertTrue',
+            'kotlin.test.assertNull',
+            'kotlin.require',
+            'com.example.AssertScope.assert'
+    ]
+}
+```
+{initial-collapse-state="collapsed" collapsible="true"}
+
+</tab>
 <tab title="Maven" group-key="maven">
 
 ```xml
@@ -452,6 +489,18 @@ powerAssert {
 ```
 
 </tab>
+<tab title="Gradle (Groovy)" group-key="groovy">
+
+```groovy
+powerAssert {
+    functions = [
+            'kotlin.assert',
+            'kotlin.require'
+    ]
+}
+```
+
+</tab>
 <tab title="Maven" group-key="maven">
 
 ```xml
@@ -570,6 +619,19 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 @OptIn(ExperimentalKotlinGradlePluginApi::class)
 powerAssert {
     functions = listOf("kotlin.assert", "kotlin.test.assert", "com.example.AssertScope.assert")
+}
+```
+
+</tab>
+<tab title="Gradle (Groovy)" group-key="groovy">
+
+```groovy
+powerAssert {
+    functions = [
+            'kotlin.assert',
+            'kotlin.test.assert',
+            'com.example.AssertScope.assert'
+    ]
 }
 ```
 
