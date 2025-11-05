@@ -1,12 +1,15 @@
-[//]: # (title: Kotlin/Native target support)
+[//]: # (title: Kotlin/Native supported targets and hosts)
 
-The Kotlin/Native compiler supports a great number of different targets, though it is hard to provide the same level of
-support for all of them. This document describes which targets Kotlin/Native supports and breaks them into several
-tiers depending on how well the compiler supports them.
+This document describes which targets and hosts are supported by the Kotlin/Native compiler.
 
-> We can adjust the number of tiers, the list of supported targets, and their features as we go.
-> 
+> We can adjust the list of supported targets and hosts, the number of tiers, and their features as we go.
+>
 {style="tip"}
+
+## Target tiers
+
+The Kotlin/Native compiler supports a number of different targets, though it's hard to provide the same level of
+support for all of them. That's why targets are broken into several tiers depending on how well the compiler supports them.
 
 Mind the following terms used in tier tables:
 
@@ -19,7 +22,7 @@ Mind the following terms used in tier tables:
   This is only available on a native host for the specific target. For example, you can run `macosX64` and `iosX64` tests
   only on the macOS x86-64 host.
 
-## Tier 1
+### Tier 1
 
 * The target is regularly tested on CI to be able to compile and run.
 * We provide a source and [binary compatibility between compiler releases](https://youtrack.jetbrains.com/issue/KT-42293).
@@ -31,7 +34,7 @@ Mind the following terms used in tier tables:
 | `iosSimulatorArm64`     | `aarch64-apple-ios-simulator` | ✅             | Apple iOS simulator on Apple Silicon platforms |
 | `iosArm64`              | `aarch64-apple-ios`           |               | Apple iOS and iPadOS on ARM64 platforms        |
 
-## Tier 2
+### Tier 2
 
 * The target is regularly tested on CI to be able to compile but may not be automatically tested to be able to run.
 * We're doing our best to provide source and [binary compatibility between compiler releases](https://youtrack.jetbrains.com/issue/KT-42293).
@@ -51,7 +54,7 @@ Mind the following terms used in tier tables:
 | `tvosX64`               | `x86_64-apple-tvos-simulator`     | ✅             | Apple tvOS simulator on x86_64 platforms           |
 | `tvosArm64`             | `aarch64-apple-tvos`              |               | Apple tvOS on ARM64 platforms                      |
 
-## Tier 3
+### Tier 3
 
 * The target is not guaranteed to be tested on CI.
 * We can't promise a source and binary compatibility between different compiler releases, though such changes for these
@@ -61,7 +64,7 @@ Mind the following terms used in tier tables:
 |-------------------------|---------------------------------|---------------|------------------------------------------------------------------------------------------|
 | `androidNativeArm32`    | `arm-unknown-linux-androideabi` |               | [Android NDK](https://developer.android.com/ndk) on ARM32 platforms                      |
 | `androidNativeArm64`    | `aarch64-unknown-linux-android` |               | [Android NDK](https://developer.android.com/ndk) on ARM64 platforms                      |
-| `androidNativeX86`      | `i686-unknown-linux-android`    |               | [Android NDK](https://developer.android.com/ndk) on x86 platforms                        |
+| `androidNativeX86`      | `i686-unknown-linux-android`    |               | [Android NDK](https://developer.android.com/ndk) on x86_64 platforms                     |
 | `androidNativeX64`      | `x86_64-unknown-linux-android`  |               | [Android NDK](https://developer.android.com/ndk) on x86_64 platforms                     |
 | `mingwX64`              | `x86_64-pc-windows-gnu`         | ✅             | 64-bit Windows 10 and later using [MinGW](https://www.mingw-w64.org) compatibility layer |
 | Apple macOS hosts only: |                                 |               |                                                                                          |
@@ -71,7 +74,7 @@ Mind the following terms used in tier tables:
 > 
 {style="note"}
 
-## For library authors
+### For library authors
 
 We don't recommend library authors to test more targets or provide stricter guarantees than the Kotlin/Native compiler
 does. You can use the following approach when considering support for native targets:
@@ -80,3 +83,23 @@ does. You can use the following approach when considering support for native tar
 * Regularly test targets from tiers 1 and 2 that support running tests out of the box.
 
 The Kotlin team uses this approach in the official Kotlin libraries, for example, [kotlinx.coroutines](coroutines-guide.md) and [kotlinx.serialization](serialization.md).
+
+## Hosts
+
+The Kotlin/Native compiler supports the following hosts:
+
+| Host OS                   | Architecture     | Targets                                               |
+|---------------------------|------------------|-------------------------------------------------------|
+| macOS (Apple Silicon)     | ARM64 platforms  | `macosArm64`, `iosArm64`, `tvosArm64`, `watchosArm64` |
+| macOS (Intel chips)       | x86_64 platforms | `macosX64`, `iosX64`, `tvosX64`, `watchosX64`         |
+| Linux                     | x86_64 platforms | `linuxX64`                                            |
+| Windows (MinGW toolchain) | x86_64 platforms | `mingwX64`                                            |
+
+* The target compilation is only possible on supported hosts. For example,
+  you can't compile Kotlin/Native targets on the FreeBSD OS or on a Linux machine running on the ARM64 architecture.
+* Host support limitations apply to cross-compilation too. You can produce `.klib` artifacts only on supported hosts.
+  For example, you can compile a `macosArm64` target on a Windows machine running on the x86_64 architecture.
+
+  > Compilation for Apple targets on non-macOS hosts still has its [limitations](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-lib-setup.html#compilation-for-apple-targets).
+  > 
+  {style="note"}
