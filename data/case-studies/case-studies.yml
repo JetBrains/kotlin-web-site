@@ -1,11 +1,60 @@
 items:
   #------------------------------------------------------------------------
+  - id: duolingo
+    type: multiplatform
+    description: >-
+      “One exciting trend for **Duolingo** is that the more that we use Kotlin
+      Multiplatform internally, the more we find ourselves speeding up in terms of shipping. It turns out after
+      you learn something, you get really good at it. […] Now there's a lot more confidence behind it and we're
+      building up that knowledge.”
+    signature:
+      name: John Rodriguez
+      position: The client platform team
+    logo:
+      - /images/case-studies/duolingo-logo.png
+    platforms:
+      - android
+      - ios
+    media:
+      type: youtube
+      videoId: RJtiFt5pbfs
+  #------------------------------------------------------------------------
+  - id: forbes
+    type: multiplatform
+    description: >-
+      By sharing over 80% of logic across iOS and Android, **Forbes** now rolls out new features simultaneously on
+      both platforms, keeping the flexibility to customize features based on the specific platform. This allows
+      the team to innovate and respond to market needs faster.
+    logo:
+      - /images/case-studies/forbes-logo.png
+    platforms:
+      - android
+      - ios
+    isExternal: true
+    link: https://www.forbes.com/sites/forbes-engineering/2023/11/13/forbes-mobile-app-shifts-to-kotlin-multiplatform/
+  #------------------------------------------------------------------------
+  - id: google-workspace
+    type: multiplatform
+    description: >-
+      “We consider Kotlin Multiplatform validated in our **Google Docs** experiment […] we consider the experiment a success […] We’re actually very happy with it”
+    signature:
+      name: Jason Parachoniak
+      position: Multiplatform Lead in Google Workspace
+    logo:
+      - /images/case-studies/google-docs-logo.svg
+    platforms:
+      - android
+      - ios
+    media:
+      type: youtube
+      videoId: 5lkZj4v4-ks
+  #------------------------------------------------------------------------
   - id: bilibili
     logo:
       - /images/case-studies/bilibili-logo.png
     type: multiplatform
     description: >-
-      BiliBili (China version) has adopted Kotlin Multiplatform and Compose Multiplatform for the Instant
+      **BiliBili** (China version) has adopted Kotlin Multiplatform and Compose Multiplatform for the Instant
       Message feature.
     isExternal: true
     linkText: Watch the full video
@@ -18,43 +67,11 @@ items:
       type: image
       path: /images/case-studies/bilibili-card-preview.png
   #------------------------------------------------------------------------
-  - id: google-workspace
-    type: multiplatform
-    description: >-
-      “We consider Kotlin Multiplatform validated in
-      our Google Docs experiment. And what I mean by this is we consider the experiment a success, and we're
-      going to go ahead and move Kotlin Multiplatform to the entire Google Workspace ecosystem. So we're going
-      to proceed with this transition. We're actually very happy with it.”
-    signature:
-      name: Jason Parachoniak
-      position: Multiplatform Lead in Google Workspace
-    logo:
-      - /images/case-studies/google-logo.svg
-    platforms:
-      - android
-      - ios
-    media:
-      type: youtube
-      videoId: o14wGByBRAQ
-  #------------------------------------------------------------------------
-  - id: kotlin-multiplatform
-    type: multiplatform
-    logo:
-      - /images/case-studies/kotlin-multiplatform.svg
-      - /images/case-studies/compose-multiplatform.svg
-    description: >-
-      # How teams use Kotlin Multiplatform in&nbsp;production
-
-      Kotlin Multiplatform is used by over 20,000 companies worldwide, including industry leaders across various sectors such as finance, e-commerce, social media, and more.
-    linkText: Explore the stories
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/
-    linkStyle: button
-  #------------------------------------------------------------------------
   - id: mcdonalds-umain
     type: multiplatform
     description: >-
       “After a successful initial test with the
-      payments feature, we expanded Kotlin Multiplatform to our entire McDonald's application. With KMP, we
+      payments feature, we expanded Kotlin Multiplatform to our entire **McDonald's** application. With KMP, we
       saw fewer crashes and better performance across both platforms after the launch.
 
 
@@ -71,41 +88,74 @@ items:
       type: youtube
       videoId: uCkYZ-PvCmw
   #------------------------------------------------------------------------
+  - id: h&m
+    type: multiplatform
+    description: >-
+      **H&M** adopted Kotlin Multiplatform to build a shared feature-toggle library for their Android and iOS apps. 
+      This approach enabled the team to unify their experimentation logic, 
+      reduce duplicate code, and smoothly deliver a production-ready solution across platforms.
+    logo:
+      - /images/case-studies/h&m-logo.svg
+    platforms:
+      - android
+      - ios
+    isExternal: true
+    link: https://medium.com/@charankumar-hm/our-journey-with-kotlin-multiplatform-from-curiosity-to-production-eeb788b620da
+  #------------------------------------------------------------------------
   - id: x
     type: multiplatform
     description: >-
-      “Starting from this small of a team, it was a huge speed win for us
+      “Starting from this small of a team, it was a huge speed win for **X**
       to be able to use Kotlin Multiplatform and write all of that logic once in one place… When you write a
       bug—not that I ever do that—you only have to fix it in one place.”
     signature:
       name: Eric Denman
       position: Software Engineer at X
-    logo:
-      - /images/case-studies/x-logo.png
     platforms:
       - android
       - ios
+    media:
+      type: youtube
+      videoId: z-u99yZFn5o
   #------------------------------------------------------------------------
-  - id: duolingo
+  - id: bolt
     type: multiplatform
     description: >-
-      “One exciting trend for us is that the more that we use Kotlin
-      Multiplatform internally, the more we find ourselves speeding up in terms of shipping. It turns out after
-      you learn something, you get really good at it. …  Now there's a lot more confidence behind it and we're
-      building up that knowledge.”
-    signature:
-      name: John Rodriguez
-      position: The client platform team
+      “At **Bolt**, we develop and support multiple mobile apps that
+      empower millions of users on a daily basis.  We started small by revamping the chat reconnect feature.
+      Seeing the success, we then moved the entire chat engine to Kotlin Multiplatform. We can build features
+      across platforms without team expansion or performance hits.”
     logo:
-      - /images/case-studies/duolingo-logo.png
+      - /images/case-studies/bolt-logo.png
+    signature:
+      name: Toomas Römer
+      position: VP of Engineering at Bolt
     platforms:
       - android
       - ios
+    media:
+      type: youtube
+      videoId: Qu3jZX8RyFk
+  #------------------------------------------------------------------------
+  - id: bitkey-by-block
+    type: multiplatform
+    description: >-
+      **Bitkey by Block** shares 95% of its mobile codebase with Kotlin Multiplatform, ensuring consistency in its
+      open-source Bitcoin wallet. By migrating to Compose Multiplatform, the team unified UI development and
+      improved feature parity across Android and iOS.
+    logo:
+      - /images/case-studies/bitkey-logo.svg
+    platforms:
+      - android
+      - ios
+      - compose-multiplatform
+    isExternal: true
+    link: https://engineering.block.xyz/blog/how-bitkey-uses-cross-platform-development
   #------------------------------------------------------------------------
   - id: meetup
     type: multiplatform
     description: >-
-      Meetup achieved the simultaneous release of new features by utilizing KMP to share application logic.
+      **Meetup** achieved the simultaneous release of new features by utilizing KMP to share application logic.
       Now, iOS engineers contribute to the shared Kotlin code just as actively as Android engineers, enhancing
       team productivity and strengthening collaboration between teams.
     logo:
@@ -117,22 +167,39 @@ items:
       type: youtube
       videoId: GtJBS7B3eyM
   #------------------------------------------------------------------------
-  - id: bolt
+  - id: markaz
     type: multiplatform
     description: >-
-      “At Bolt, we develop and support multiple mobile apps that
-      empower millions of users on a daily basis.  We started small by revamping the chat reconnect feature.
-      Seeing the success, we then moved the entire chat engine to Kotlin Multiplatform. We can build features
-      across platforms without team expansion or performance hits.”
+      **Markaz** is Pakistan’s second-largest e-commerce platform,
+      with over 5 million downloads and 1,000,000+ active users. It has consistently ranked in the top 10 on
+      Google Play and top 15 on the Apple App Store. The app includes 100+ screens and is fully built with
+      Compose Multiplatform, combining a shared UI with native integrations like camera, QR scanning, payments,
+      native navigation, and analytics. The app is fully optimized to run on low-end devices and slow networks,
+      making it accessible to people living in remote areas with olders devices. The app size remains under 10MB
+      on Android and 137MB on iOS.
     signature:
-      name: Toomas Römer
-      position: VP of Engineering at Bolt
+      name: Kashif Mehmood
+      position: Mobile Engineering Lead at Markaz
     platforms:
       - android
       - ios
+      - compose-multiplatform
     media:
-      type: youtube
-      videoId: Qu3jZX8RyFk
+      type: image
+      path: /images/case-studies/markaz-card-preview.png
+  #------------------------------------------------------------------------
+  - id: kotlin-multiplatform
+    type: multiplatform
+    logo:
+      - /images/case-studies/kotlin-multiplatform.svg
+      - /images/case-studies/compose-multiplatform.svg
+    description: >-
+      # How teams use Kotlin Multiplatform in&nbsp;production
+
+      Kotlin Multiplatform is used by over 20,000 companies worldwide, including industry leaders across various sectors such as finance, e-commerce, social media, and more.
+    linkText: Explore the stories
+    link: https://www.jetbrains.com/help/kotlin-multiplatform-dev/use-cases-examples.html
+    linkStyle: button
   #------------------------------------------------------------------------
   - id: philips
     type: multiplatform
@@ -140,6 +207,8 @@ items:
       “We consolidated all our business logic into shared code,
       which means we can now develop once and deploy more. Before KMP adoption, we had an often heard saying, it
       works differently on iOS, but it has been a while since we heard that one.”
+    logo:
+      - /images/case-studies/philips-logo.svg
     signature:
       name: Jeroen Brosens
       position: Software Architect at Philips
@@ -150,35 +219,38 @@ items:
       type: youtube
       videoId: Qu3jZX8RyFk
   #------------------------------------------------------------------------
-  - id: posten-bring
+  - id: cash-app
     type: multiplatform
     description: >-
-      Posten Bring, a 377-year-old norwegian national postal service, unified complex business logic across
-      dozens of frontend and backend applications using KMP. By establishing a single source of truth, they
-      reduced coordination time and minimized errors.
-    platforms:
-      - backend
-      - frontend
-    isExternal: true
-    link: https://2024.javazone.no/program/a1d9aeac-ffc3-4b1d-ba08-a0568f415a02
-  #------------------------------------------------------------------------
-  - id: careem
-    type: multiplatform
-    description: >-
-      Careem, a vehicle-for-hire company, adopted KMP while migrating their Android app to Kotlin. This move
-      allowed them to reuse their business logic between mobile platforms and saved a significant amount of time
-      in delivering their iOS app.
+      **Cash App** gradually transitioned from shared JavaScript to KMP in 2018. This move streamlined
+      collaboration between Android and iOS engineering teams and successfully addressed code-sharing issues
+      previously encountered with JavaScript.
+    logo:
+      - /images/case-studies/cash-app-logo.svg
     platforms:
       - android
       - ios
+    link: https://kotlinlang.org/lp/multiplatform/case-studies/cash-app
+  #------------------------------------------------------------------------
+  - id: posten-bring
+    type: multiplatform
+    description: >-
+      **Posten Bring**, a 377-year-old norwegian national postal service, unified complex business logic across
+      dozens of frontend and backend applications using KMP. By establishing a single source of truth, they
+      reduced coordination time and minimized errors.
+    logo:
+      - /images/case-studies/posten-bring-logo.svg
+    platforms:
+      - backend
+      - frontend
     media:
       type: youtube
-      videoId: DcO9psUh4LI
+      videoId: OuX5325yq_I
   #------------------------------------------------------------------------
   - id: wrike
     type: multiplatform
     description: >-
-      Wrike adopted Compose Multiplatform early, with CMP-powered
+      **Wrike** adopted Compose Multiplatform early, with CMP-powered
       features in production since its beta state. Today, our production apps feature Calendars, Boards,
       Dashboards, Charts, Timesheet Approvals and more – all done with CMP. It’s helping us deliver consistent,
       high-quality experiences across platforms while streamlining our development process. With the iOS version
@@ -197,10 +269,24 @@ items:
       type: youtube
       videoId: jhBmom8z3Qg
   #------------------------------------------------------------------------
+  - id: autodesk
+    type: multiplatform
+    description: >-
+      **Autodesk** uses KMP to unify offline synchronization logic and data models across iOS, Android, and
+      Windows. This shared codebase simplifies development, enabling feature reuse across platforms and
+      improving collaboration.
+    logo:
+      - /images/case-studies/autodesk-logo.svg
+    platforms:
+      - android
+      - ios
+      - desktop
+    link: https://kotlinlang.org/lp/multiplatform/case-studies/autodesk
+  #------------------------------------------------------------------------
   - id: feres
     type: multiplatform
     description: >-
-      Feres, a taxi app with 1M+ downloads, shares 100% of its business logic using KMP, and more than 90% of
+      **Feres**, a taxi app with 1M+ downloads, shares 100% of its business logic using KMP, and more than 90% of
       UI is shared with Compose Multiplatform.
     logo:
       - /images/case-studies/feres-logo.png
@@ -212,57 +298,26 @@ items:
       type: image
       path: /images/case-studies/feres-card-preview.png
   #------------------------------------------------------------------------
-  - id: bitkey-by-block
+  - id: baidu
     type: multiplatform
     description: >-
-      Bitkey by Block shares 95% of its mobile codebase with Kotlin Multiplatform, ensuring consistency in its
-      open-source Bitcoin wallet. By migrating to Compose Multiplatform, the team unified UI development and
-      improved feature parity across Android and iOS.
+      **Baidu** uses KMP in their Wonder App to unify the data layer and business logic across iOS and Android,
+      enabling a single Kotlin codebase for both platforms. This ensures consistent user experiences, reduces
+      maintenance costs, and significantly improves productivity.
+    logo:
+      - /images/case-studies/baidu-logo.png
     platforms:
       - android
       - ios
-      - compose-multiplatform
-    isExternal: true
-    link: https://engineering.block.xyz/blog/how-bitkey-uses-cross-platform-development
-  #------------------------------------------------------------------------
-  - id: wallhub
-    type: multiplatform
-    description: >-
-      WallHub, a wallpaper app, utilizes KMP to share business logic, response models, routes, and analytics
-      across platforms, creating a unified source of truth and minimizing development friction. The app features
-      a 100% Compose Multiplatform UI, delivering a consistent design and user experience across all supported
-      platforms.
-    platforms:
-      - android
-      - ios
-      - compose-multiplatform
-    media:
-      type: image
-      path: /images/case-studies/wallhub-card-preview.png
-  #------------------------------------------------------------------------
-  - id: music-work
-    type: multiplatform
-    description: >-
-      Music Work uses Compose Multiplatform for 100% of its UI across all supported platforms. Its architecture
-      also shares business logic, data models, and analytics via KMP. This approach has reduced development and
-      maintenance costs by 30%, while significantly accelerating our deployment cycles.
-    platforms:
-      - android
-      - ios
-      - frontend
-      - desktop
-      - compose-multiplatform
-    media:
-      type: image
-      path: /images/case-studies/music-work-card-preview.png
+    link: https://kotlinlang.org/lp/multiplatform/case-studies/baidu/
   #------------------------------------------------------------------------
   - id: physics-wallah
     type: multiplatform
     description: >-
-      Around 20% of our Physics Wallah App,
+      Around 20% of our **Physics Wallah** App,
       which has more than 10M downloads on Google Play – including one of our largest features, Pitara – is
-      built using Kotlin Multiplatform and Compose Multiplatform, sharing both UI and business logic across
-      Android and iOS platforms. The rest of the app uses a combination of Jetpack Compose and XML. This shift
+      built using Kotlin and Compose Multiplatform, sharing both UI and business logic across
+      Android and iOS platforms. This shift
       has streamlined our development process and allowed us to unify Android and iOS engineers into a single
       Mobile team.
 
@@ -270,6 +325,8 @@ items:
       We’ve also built our new Acadfly and Parent apps from the ground up using Compose
       Multiplatform. It is now our core mobile technology for building all new features and products from
       scratch.
+    logo:
+      - /images/case-studies/physics-wallah-logo.png
     signature:
       name: Suresh Maidaragi
       position: Mobile Platform Lead Engineer at Physics Wallah
@@ -281,77 +338,45 @@ items:
       type: image
       path: /images/case-studies/physics-wallah-card-preview.png
   #------------------------------------------------------------------------
-  - id: fast-and-fit
+  - id: vmware
     type: multiplatform
     description: >-
-      By sharing over 90% of the Fast&Fit codebase, including the entire UI, through KMP and Compose
-      Multiplatform, the team ships synchronized features across platforms, trims maintenance overhead, and
-      focuses on adding innovative wellness tools
-    platforms:
-      - android
-      - ios
-      - compose-multiplatform
-    media:
-      type: image
-      path: /images/case-studies/fast-and-fit-card-preview.png
-  #------------------------------------------------------------------------
-  - id: balary
-    type: multiplatform
-    description: >-
-      Balary is built using KMP and Compose Multiplatform, sharing most of the UI across Android and iOS. For
-      platform-specific needs like MapLibre maps and video playback, we use expect/actual declarations to
-      integrate native Android XML views and iOS UIKit views.
-    platforms:
-      - android
-      - ios
-      - compose-multiplatform
-    media:
-      type: image
-      path: /images/case-studies/balary-card-preview.png
-  #------------------------------------------------------------------------
-  - id: markaz
-    type: multiplatform
-    description: >-
-      Markaz is Pakistan’s second-largest e-commerce platform,
-      with over 5 million downloads and 1,000,000+ active users. It has consistently ranked in the top 10 on
-      Google Play and top 15 on the Apple App Store. The app includes 100+ screens and is fully built with
-      Compose Multiplatform, combining a shared UI with native integrations like camera, QR scanning, payments,
-      native navigation, and analytics. The app is fully optimized to run on low-end devices and slow networks,
-      making it accessible to people living in remote areas with olders devices. The app size remains under 10MB
-      on Android and 137MB on iOS.
-    signature:
-      name: Kashif Mehmood
-      position: Mobile Engineering Lead at Markaz
-    platforms:
-      - android
-      - ios
-      - compose-multiplatform
-    media:
-      type: image
-      path: /images/case-studies/markaz-card-preview.png
-  #------------------------------------------------------------------------
-  - id: forbes
-    type: multiplatform
-    description: >-
-      By sharing over 80% of logic across iOS and Android, Forbes now rolls out new features simultaneously on
-      both platforms, keeping the flexibility to customize features based on the specific platform. This allows
-      the team to innovate and respond to market needs faster.
+      **VMware** uses KMP in various modules to enable different use cases in a consistent, cross-platform way right
+      across their Workspace ONE productivity app portfolio.
     logo:
-      - /images/case-studies/forbes-logo.png
+      - /images/case-studies/vmware-logo.svg
     platforms:
       - android
       - ios
     isExternal: true
-    link: https://www.forbes.com/sites/forbes-engineering/2023/11/13/forbes-mobile-app-shifts-to-kotlin-multiplatform/
+    link: https://medium.com/vmware-end-user-computing/adopting-a-cross-platform-strategy-for-mobile-apps-59495ffa23b0
+  #------------------------------------------------------------------------
+  - id: down-dog
+    type: multiplatform
+    description: >-
+      **Down Dog** uses a "maximum shared Kotlin" strategy for their application, which brings a studio-like yoga
+      experience to mobile devices. They share various helpers between clients and servers, and most of the
+      client code with KMP. Their team managed to significantly increase the app's development speed by keeping
+      native-only views.
+    logo:
+      - /images/case-studies/down-dog-logo.svg
+    platforms:
+      - android
+      - ios
+      - frontend
+      - backend
+    isExternal: true
+    link: https://kotlinlang.org/lp/multiplatform/case-studies/down-dog
+    media:
+      type: image
+      path: /images/case-studies/down-dog-card-preview.png
   #------------------------------------------------------------------------
   - id: netflix
     type: multiplatform
     description: >-
-      Netflix uses KMP to share logic for their mobile studio apps, reducing duplication and enabling faster,
+      **Netflix** uses KMP to share logic for their mobile studio apps, reducing duplication and enabling faster,
       more reliable development. This approach helps deliver high-quality features efficiently in the fast-paced
       world of TV and movie production.
-    logo:
-      - /images/case-studies/netflix-logo.png
     platforms:
       - android
       - ios
@@ -361,7 +386,7 @@ items:
   - id: 9gag
     type: multiplatform
     description: >-
-      9GAG opted for KMP after trying both Flutter and React Native. They gradually adopted the technology and
+      **9GAG** opted for KMP after trying both Flutter and React Native. They gradually adopted the technology and
       now ship features faster, while providing a consistent experience to their users.
     logo:
       - /images/case-studies/9gag-logo.png
@@ -370,20 +395,6 @@ items:
       - ios
     isExternal: true
     link: https://raymondctc.medium.com/adopting-kotlin-multiplatform-mobile-kmm-on-9gag-app-dfe526d9ce04
-  #------------------------------------------------------------------------
-  - id: baidu
-    type: multiplatform
-    description: >-
-      Baidu uses KMP in their Wonder App to unify the data layer and business logic across iOS and Android,
-      enabling a single Kotlin codebase for both platforms. This ensures consistent user experiences, reduces
-      maintenance costs, and significantly improves productivity.
-    logo:
-      - /images/case-studies/baidu-logo.png
-    platforms:
-      - android
-      - ios
-      - compose-multiplatform
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/baidu/
   #------------------------------------------------------------------------
   - id: instabee
     type: multiplatform
@@ -402,35 +413,57 @@ items:
       type: youtube
       videoId: HNFi7dw_mp8
   #------------------------------------------------------------------------
-  - id: autodesk
+  - id: careem
     type: multiplatform
     description: >-
-      Autodesk uses KMP to unify offline synchronization logic and data models across iOS, Android, and
-      Windows. This shared codebase simplifies development, enabling feature reuse across platforms and
-      improving collaboration.
+      **Careem**, a vehicle-for-hire company, adopted KMP while migrating their Android app to Kotlin. This move
+      allowed them to reuse their business logic between mobile platforms and saved a significant amount of time
+      in delivering their iOS app.
+    logo:
+      - /images/case-studies/careem-logo.svg
     platforms:
       - android
       - ios
-      - desktop
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/autodesk
+    media:
+      type: youtube
+      videoId: DcO9psUh4LI
   #------------------------------------------------------------------------
-  - id: cash-app
+  - id: fast-and-fit
     type: multiplatform
     description: >-
-      Cash App gradually transitioned from shared JavaScript to KMP in 2018. This move streamlined
-      collaboration between Android and iOS engineering teams and successfully addressed code-sharing issues
-      previously encountered with JavaScript.
+      By sharing over 90% of the **Fast&Fit** codebase, including the entire UI, through KMP and Compose
+      Multiplatform, the team ships synchronized features across platforms, trims maintenance overhead, and
+      focuses on adding innovative wellness tools
     platforms:
       - android
       - ios
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/cash-app
+      - compose-multiplatform
+    media:
+      type: image
+      path: /images/case-studies/fast-and-fit-card-preview.png
+  #------------------------------------------------------------------------
+  - id: balary
+    type: multiplatform
+    description: >-
+      Balary is built using KMP and Compose Multiplatform, sharing most of the UI across Android and iOS. For
+      platform-specific needs like MapLibre maps and video playback, they use expect/actual declarations to
+      integrate native Android XML views and iOS UIKit views.
+    platforms:
+      - android
+      - ios
+      - compose-multiplatform
+    media:
+      type: image
+      path: /images/case-studies/balary-card-preview.png
   #------------------------------------------------------------------------
   - id: quizlet
     type: multiplatform
     description: >-
-      KMP drives global learning platform Quizlet's web and mobile apps, which boast a combined 100 million
+      KMP drives global learning platform **Quizlet's** web and mobile apps, which boast a combined 100 million
       active installs. By transitioning their shared code from JavaScript to Kotlin, they significantly improved
       the performance of both their Android and iOS applications
+    logo:
+      - /images/case-studies/quizlet-logo.svg
     platforms:
       - android
       - ios
@@ -441,8 +474,10 @@ items:
   - id: kuaishou
     type: multiplatform
     description: >-
-      Kuaishou, China's pioneering short video platform, has been using KMP for two years, significantly cutting
+      **Kuaishou**, China's pioneering short video platform, has been using KMP for two years, significantly cutting
       costs in developing new features for both Android and iOS apps, as well as maintaining existing features.
+    logo:
+      - /images/case-studies/kuaishou-logo.svg
     platforms:
       - android
       - ios
@@ -452,36 +487,28 @@ items:
   - id: worldline
     type: multiplatform
     description: >-
-      Worldline embraced KMP to revamp their Eroski app. Transitioning from Java and Objective-C, the team
+      **Worldline** embraced KMP to revamp their Eroski app. Transitioning from Java and Objective-C, the team
       smoothly migrated all app's screens. Their efforts led to a high-quality app with over 99% crash-free
       users among 800,000 active users.
+    logo:
+      - /images/case-studies/worldline-logo.svg
     platforms:
       - android
       - ios
     isExternal: true
     link: https://blog.worldline.tech/2022/01/26/kotlin_multiplatform.html
-  #------------------------------------------------------------------------
-  - id: down-dog
-    type: multiplatform
-    description: >-
-      Down Dog uses a "maximum shared Kotlin" strategy for their application, which brings a studio-like yoga
-      experience to mobile devices. They share various helpers between clients and servers, and most of the
-      client code with KMP. Their team managed to significantly increase the app's development speed by keeping
-      native-only views.
-    platforms:
-      - android
-      - ios
-      - frontend
-      - backend
-    isExternal: true
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/down-dog
+    media:
+      type: image
+      path: /images/case-studies/worldline-card-preview.png
   #------------------------------------------------------------------------
   - id: touchlab
     type: multiplatform
     description: >-
-      Touchlab works with organizations adopting and scaling KMP. From startups to multinationals with tens of
+      **Touchlab** works with organizations adopting and scaling KMP. From startups to multinationals with tens of
       millions of MAU, Touchlab’s services accelerate and de-risk implementing KMP in production. They are also
       trusted open-source contributors, building crucial tools used widely in production apps.
+    logo:
+      - /images/case-studies/touchlab-logo.svg
     platforms:
       - android
       - ios
@@ -490,68 +517,56 @@ items:
     isExternal: true
     link: https://touchlab.co/
   #------------------------------------------------------------------------
-  - id: unflow
-    type: multiplatform
-    description: >-
-      Unflow allows development teams to create screens, flows, and features without a single line of code.
-      Using KMP to build their mobile SDK saved the team two months of development time and allowed them to
-      deliver an exceptionally high-quality product without compromising on performance or native capabilities
-    platforms:
-      - android
-      - ios
-    isExternal: true
-    link: https://www.unflow.com/post/kotlin-multiplatform-mobile
-  #------------------------------------------------------------------------
-  - id: vmware
-    type: multiplatform
-    description: >-
-      VMware uses KMP in various modules to enable different use cases in a consistent, cross-platform way right
-      across their Workspace ONE productivity app portfolio.
-    platforms:
-      - android
-      - ios
-    isExternal: true
-    link: https://medium.com/vmware-end-user-computing/adopting-a-cross-platform-strategy-for-mobile-apps-59495ffa23b0
-  #------------------------------------------------------------------------
   - id: mirego
     type: multiplatform
     description: >-
-      Mirego uses KMP to run the same business logic on the web, iOS (iPhone and iPad), tvOS, Android (device
+      **Mirego** uses KMP to run the same business logic on the web, iOS (iPhone and iPad), tvOS, Android (device
       and TV), and Amazon Fire TV. Mirego works with clients to design and develop new digital products.
+    logo:
+      - /images/case-studies/mirego-logo.svg
     platforms:
       - android
       - ios
       - frontend
     link: https://kotlinlang.org/lp/multiplatform/case-studies/mirego
   #------------------------------------------------------------------------
+  - id: music-work
+    type: multiplatform
+    description: >-
+      **Music Work** uses Compose Multiplatform for 100% of its UI across all supported platforms. Its architecture
+      also shares business logic, data models, and analytics via KMP. This approach has reduced development and
+      maintenance costs by 30%, while significantly accelerating our deployment cycles.
+    platforms:
+      - android
+      - ios
+      - frontend
+      - desktop
+      - compose-multiplatform
+    media:
+      type: image
+      path: /images/case-studies/music-work-card-preview.png
+  #------------------------------------------------------------------------
   - id: fastwork
     type: multiplatform
     description: >-
-      Fastwork uses KMP for their domain and data layers to help them share their business logic and API
+      **Fastwork** uses KMP for their domain and data layers to help them share their business logic and API
       service between iOS and Android platforms. Fastwork offers all-in-one business administration and
       management software to help users meet business needs, anytime, anywhere.
+    logo:
+      - /images/case-studies/fastwork-logo.svg
     platforms:
       - android
       - ios
     link: https://kotlinlang.org/lp/multiplatform/case-studies/fastwork
   #------------------------------------------------------------------------
-  - id: netvirta
-    type: multiplatform
-    description: >-
-      NetVirta uses KMP to share data, business, and presentation logic between their apps. Their app portfolio
-      offers an array of solutions, including full-body, foot, and head scanning apps that are used both in
-      stores and within the customer's home.
-    platforms:
-      - android
-      - ios
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/netvirta
-  #------------------------------------------------------------------------
   - id: memrise
     type: multiplatform
     description: >-
-      Memrise, one of the world's most popular language learning apps, has incrementally migrated the logic of
+      **Memrise**, one of the world's most popular language learning apps, has incrementally migrated the logic of
       their iOS, Android, and web apps to KMP. This allows them to avoid duplicating the code in three different
       programming languages, while still offering a full offline and native UI experience.
+    logo:
+      - /images/case-studies/memrise-logo.svg
     platforms:
       - android
       - ios
@@ -559,38 +574,15 @@ items:
     isExternal: true
     link: https://engineering.memrise.com/kotlin-multiplatform-memrise-3764b5a4a0db
   #------------------------------------------------------------------------
-  - id: icerock
-    type: multiplatform
-    description: >-
-      IceRock is an outsourcing company that leverages KMP to develop apps for its clients. Their app portfolio
-      spans various business requirements, complemented by a substantial collection of open-source KMP libraries
-      that enhance the KMP development process.
-    platforms:
-      - android
-      - ios
-      - frontend
-      - desktop
-    isExternal: true
-    link: https://medium.com/icerock
-  #------------------------------------------------------------------------
-  - id: chalk-com
-    type: multiplatform
-    description: >-
-      In both of Chalk.com's mobile apps, KMP is used for networking, offline caching, and business logic. The
-      UI for each of the apps is native to the platform, but other than that, almost everything else in their
-      apps can be shared with KMP.
-    platforms:
-      - android
-      - ios
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/chalk
-  #------------------------------------------------------------------------
   - id: meituan
     type: multiplatform
     description: >-
-      Meituan uses KMP to develop client applications for its restaurant management system, across Android,
+      **Meituan** uses KMP to develop client applications for its restaurant management system, across Android,
       iOS, and Windows platforms since 2020. This approach enabled sharing code for data, domain and
       presentation layers, improved development efficiency in new features, and ensured smooth user interactions
       on low-end devices.
+    logo:
+      - /images/case-studies/meituan-logo.svg
     platforms:
       - android
       - ios
