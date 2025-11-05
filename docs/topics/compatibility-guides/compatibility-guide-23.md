@@ -41,22 +41,80 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ## Standard library
 
-### Deprecate `kotlin.native.Throws`
+### Deprecate `String.subSequence(start, end)` function
 
-> **Issue**: [KT-72137](https://youtrack.jetbrains.com/issue/KT-72137)
+> **Issue**: [KT-74493](https://youtrack.jetbrains.com/issue/KT-74493)
 >
-> **Component**: Kotlin/Native
+> **Component**: kotlin-stdlib
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: `kotlin.native.Throws` is deprecated; use the common [`kotlin.Throws`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-throws/) annotation instead. 
+> **Short summary**: The `String.subSequence(start, end)` function is deprecated. Use the [`String.subSequence(startIndex, endIndex)`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/sub-sequence.html) function instead.
 >
 > **Deprecation cycle**:
 >
-> - 1.9.0: report a warning when using `kotlin.native.Throws`
-> - 2.2.0: raise the warning to an error
+> - 2.3.0: report an error when using `String.subSequence(start, end)`
 
-## Kotlin/Native
+### Deprecate `kotlin.io.createTempDirectory()` and `kotlin.io.createTempFile()` functions
+
+> **Issue**: [KT-81078](https://youtrack.jetbrains.com/issue/KT-81078)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `kotlin.io.createTempDirectory()` and `kotlin.io.createTempFile()` functions are deprecated. 
+> Use the [`kotlin.io.path.createTempDirectory()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io.path/create-temp-directory.html) and [`kotlin.io.path.createTempFile()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io.path/create-temp-file.html) functions instead.
+>
+> **Deprecation cycle**:
+>
+> - 1.4.20: report a warning when using `kotlin.io.createTempDirectory()` and `kotlin.io.createTempFile()` functions
+> - 2.3.0: raise the warning to an error
+
+### Deprecate `Number.toChar()` function
+
+> **Issue**: [KT-56822](https://youtrack.jetbrains.com/issue/KT-56822)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `Number.toChar()` function is deprecated. Use `toInt().toChar()` or the `Char` constructor instead.
+>
+> **Deprecation cycle**:
+>
+> - 1.9.0: report a warning when using the `Number.toChar()` function
+> - 2.3.0: raise the warning to an error
+
+### Hide `InputStream.readBytes(Int)` function
+
+> **Issue**: [KT-79192](https://youtrack.jetbrains.com/issue/KT-79192)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: After being deprecated for a long time, the `InputStream.readBytes(estimatedSize: Int = DEFAULT_BUFFER_SIZE): ByteArray` function is hidden.
+>
+> **Deprecation cycle**:
+>
+> - 1.3.0: report a warning
+> - 1.5.0: raise the warning to an error
+> - 2.3.0: hide the function
+
+### Unify Kotlin/Native stacktrace printing with other platforms
+
+> **Issue**: [KT-81431](https://youtrack.jetbrains.com/issue/KT-81431)
+>
+> **Component**: Kotlin/Native
+>
+> **Incompatible change type**: behavior
+>
+> **Short summary**: When formatting an exception stacktrace, no additional causes are printed once a previously seen exception cause has already been printed.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: Unify Kotlin/Native exception stacktrace formatting with other Kotlin platforms
 
 ## Tools
 
