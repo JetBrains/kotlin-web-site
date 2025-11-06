@@ -594,6 +594,200 @@ items:
   - id: Doordash
     type: server-side
     description: >-
-      [DoorDash ↗](https://en.wikipedia.org/wiki/DoorDash) uses Kotlin for all their backend services and infrastructure. Hundreds of engineers work with Kotlin across a massive system spanning multiple repos.
+      A quick overview of how DoorDash split their existing legacy monolith into multiple backend services, which they developed in Kotlin.
+    logo:
+      - /images/case-studies/doordash-logo.svg
     link: https://kotlinlang.org/lp/server-side/case-studies/doordash/
+  #------------------------------------------------------------------------
+  - id: google-server-side
+    type: server-side
+    description: >-
+      **Google** has adopted Kotlin as a recommended language for server-side JVM development while maintaining full access to its vast Java ecosystem. With over 11 million lines of Kotlin code across server and Android projects, the company has taken extensive steps to support developer success.
+    logo:
+      - /images/case-studies/google-logo.svg
+    isExternal: true
+    link: https://youtu.be/o14wGByBRAQ?si=TmqJBtfZw2F8-IEw&t=7
+    media:
+      type: youtube
+      videoId: o14wGByBRAQ
+  #------------------------------------------------------------------------
+  - id: kakao-pay
+    type: server-side
+    description: >-
+      A leading fintech company in South Korea, **Kakao Pay** uses Kotlin with Spring for a significant part of its server-side development. Their Insurance team shares how Kotlin’s features help them build and operate stable backend services.
+    logo:
+      - /images/case-studies/kakao-pay-logo.png
+    isExternal: true
+    link: https://blog.jetbrains.com/kotlin/2025/06/case-study-why-kakao-pay-chose-kotlin-for-backend-development/
+  #------------------------------------------------------------------------
+  - id: kingfisher
+    type: server-side
+    description: >-
+      **Kingfisher** – a leading international home improvement company with brands like B&Q and Castorama – made Kotlin its default language for backend services to modernize and streamline engineering practices.
+    logo:
+      - /images/case-studies/kingfisher-logo.png
+    isExternal: true
+    link: https://medium.com/kingfisher-technology/server-side-kotlin-our-new-default-2d15644f8ed0
+  #------------------------------------------------------------------------
+  - id: mercedes-benz-io
+    type: server-side
+    description: >-
+      The **Mercedes-Benz.io** team shares their experience migrating backend services from Java to Kotlin, highlighting the reasons behind the switch, challenges encountered, and the benefits to their development workflows.
+    logo:
+      - /images/case-studies/mercedes-benz-logo.svg
+    isExternal: true
+    link: https://www.mercedes-benz.io/blog/2024-11-22-transitioning-from-java-to-kotlin-in-backend-development
+  #------------------------------------------------------------------------
+  - id: novatec
+    type: server-side
+    description: >-
+      **Novatec** chose Kotlin for improved readability and conciseness across a variety of backend projects.
+    logo:
+      - /images/case-studies/novatec-logo.png
+    link: https://kotlinlang.org/lp/server-side/case-studies/novatec/
+  #------------------------------------------------------------------------
+  - id: faire
+    type: server-side
+    description: >-
+      **Faire** built scalable backend services in Kotlin to power its disruptive SMB marketplace, improving efficiency from the early stages of the company.
+    logo:
+      - /images/case-studies/faire-logo.svg
+    link: https://kotlinlang.org/lp/server-side/case-studies/faire/
+  #------------------------------------------------------------------------
+  - id: adobe
+    type: server-side
+    description: >-
+      **Adobe** discusses why Kotlin is preferred over Java for server-side app development in Adobe Experience Platform, citing productivity and language features.
+    logo:
+      - /images/case-studies/adobe-logo.svg
+    isExternal: true
+    link: https://medium.com/adobetech/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a
+  #------------------------------------------------------------------------
+  - id: aws-qldb
+    type: server-side
+    description: >-
+      The **AWS** team explains how Amazon Quantum Ledger Database (QLDB) uses Kotlin, why it was chosen over Java for the project, and their overall experience.
+    logo:
+      - /images/case-studies/aws-logo.svg
+    isExternal: true
+    link: https://talkingkotlin.com/qldb/
+  #------------------------------------------------------------------------
+  - id: atlassian
+    type: server-side
+    description: >-
+      **Atlassian** uses Kotlin to power the future of Jira Software cloud products, supporting a decomposed, service-based architecture.
+    logo:
+      - /images/case-studies/atlassian-logo.svg
+    isExternal: true
+    link: https://www.youtube.com/watch?v=4GkoB4hZUnw
+    media:
+      type: youtube
+      videoId: 4GkoB4hZUnw
+  #------------------------------------------------------------------------
+  - id: expedia
+    type: server-side
+    description: >-
+      **Expedia** uses Kotlin and Spring Boot for GraphQL APIs, leveraging Kotlin’s null safety and Java interop to modernize their backend.
+    logo:
+      - /images/case-studies/expedia-logo.svg
+    link: https://kotlinlang.org/lp/server-side/case-studies/expedia/
+  #------------------------------------------------------------------------
+  - id: ing
+    type: server-side
+    description: >-
+      **ING** shares the story of introducing Kotlin on the backend in a large organization, with tips for reducing friction during adoption.
+    logo:
+      - /images/case-studies/ing-logo.svg
+    isExternal: true
+    link: https://medium.com/ing-blog/introducing-kotlin-at-ing-a-long-but-rewarding-story-1bfcd3dc8da0
+  #------------------------------------------------------------------------
+  - id: intuit
+    type: server-side
+    description: >-
+      **Intuit** highlights how Kotlin has increased developer productivity and helped shape their development plan.
+    logo:
+      - /images/case-studies/intuit-logo.svg
+    isExternal: true
+    link: https://www.intuit.com/blog/uncategorized/kotlin-development-plan/
+  #------------------------------------------------------------------------
+  - id: flux
+    type: server-side
+    description: >-
+      **Flux** uses Kotlin on the backend to develop services that replace paper receipts, benefiting from language features and ecosystem support.
+    logo:
+      - /images/case-studies/flux-logo.svg
+    isExternal: true
+    link: https://talkingkotlin.com/Using-Kotlin-for-backend-development-at-Flux
+  #------------------------------------------------------------------------
+  - id: allegro
+    type: server-side
+    description: >-
+      **Allegro**, the largest Polish online retailer, adopted Kotlin first for server-side development and later for mobile, sharing insights from their journey.
+    logo:
+      - /images/case-studies/allegro-logo.svg
+    isExternal: true
+    link: https://talkingkotlin.com/kotlin-at-allegro
+  #------------------------------------------------------------------------
+  - id: olx
+    type: server-side
+    description: >-
+      **OLX** describes adopting Kotlin for a financial application, addressing questions about language validity and long-term support.
+    logo:
+      - /images/case-studies/olx-logo.svg
+    isExternal: true
+    link: https://talkingkotlin.com/greenfield-kotlin-at-olx
+  #------------------------------------------------------------------------
+  - id: shazam
+    type: server-side
+    description: >-
+      **Shazam** split a large monolith into microservices, many of which are written in Kotlin, improving backend scalability and maintainability.
+    logo:
+      - /images/case-studies/shazam-logo.svg
+    isExternal: true
+    link: https://talkingkotlin.com/kotlin-at-shazam/
+  #------------------------------------------------------------------------
+  - id: n26
+    type: server-side
+    description: >-
+      **N26** outlines five reasons for moving backend services to Kotlin, including developer experience and reliability.
+    logo:
+      - /images/case-studies/26-logo.svg
+    isExternal: true
+    link: https://medium.com/insiden26/5-reasons-why-n26-is-moving-to-kotlin-f920b184ab58
+  #------------------------------------------------------------------------
+  - id: memo-bank
+    type: server-side
+    description: >-
+      **Memo Bank** chose Kotlin over other JVM languages thanks to seamless Java interoperability, conciseness, type safety, and great IDE support.
+    logo:
+      - /images/case-studies/memo-bank-logo.svg
+    isExternal: true
+    link: https://memo.bank/en/magazine/cudling-with-kotlin/
+  #------------------------------------------------------------------------
+  - id: ktor
+    type: server-side
+    description: >-
+      **Ktor**, JetBrains’ asynchronous framework for connected systems, enables Kotlin server-side development with a lightweight, flexible toolkit.
+    logo:
+      - /images/case-studies/ktor-logo.svg
+    isExternal: true
+    link: https://talkingkotlin.com/ktor-with-ryan-harter/
+  #------------------------------------------------------------------------
+  - id: spring-framework
+    type: server-side
+    description: >-
+      **Spring Framework** introduced first-class Kotlin support to enable fully idiomatic Kotlin code when developing Spring applications, further improving interoperability with Java libraries.
+    logo:
+      - /images/case-studies/spring-logo.svg
+    isExternal: true
+    link: https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0
+  #------------------------------------------------------------------------
+  - id: corda
+    type: server-side
+    description: >-
+      **Corda** is built entirely in Kotlin, sharing background on why they chose the language and lessons from their “year of enterprise Kotlin”.
+    logo:
+      - /images/case-studies/corda-logo.svg
+    isExternal: true
+    link: https://www.corda.net/blog/kotlin/
   #------------------------------------------------------------------------
