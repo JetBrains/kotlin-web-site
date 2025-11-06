@@ -134,6 +134,7 @@ The table below shows how Kotlin concepts are mapped to Swift.
 |------------------------|--------------------------------|-------------------------|
 | `class`                | `class`                        | [note](#classes)        |
 | `object`               | `class` with `shared` property | [note](#objects)        |
+| `enum class`           | `enum`                         | [note](#enums)          |
 | `typealias`            | `typealias`                    | [note](#type-aliases)   |
 | Function               | Function                       | [note](#functions)      |
 | Property               | Property                       | [note](#properties)     |
@@ -225,6 +226,30 @@ typealias MyInt = Int
 public typealias MyInt = Swift.Int32
 ```
 
+#### Enums
+
+Kotlin `enum class` declarations are exported as regular native Swift `enum` types:
+
+```kotlin
+// Kotlin
+enum class Color(val rgb: Int) {
+    RED(0xFF0000),
+    GREEN(0x00FF00),
+    BLUE(0x0000FF)
+}
+
+val color = Color.RED
+```
+
+```swift
+// Swift
+public enum Color: Swift.CaseIterable, Swift.LosslessStringConvertible, Swift.RawRepresentable {
+    case RED, GREEN, BLUE
+
+    public var rgb: Swift.Int32 { get }
+}
+```
+
 #### Functions
 
 Swift export supports simple top-level functions and methods:
@@ -247,8 +272,7 @@ public func baz() -> Swift.Int64 {
 }
 ```
 
-Extension functions are also supported. The receiver parameter of the extension function is moved into ordinary parameters
-in the first position:
+For Kotlin's extension functions, the receiver parameter is moved in Swift into ordinary parameters to the first position:
 
 ```kotlin
 // Kotlin
@@ -260,7 +284,25 @@ fun Int.foo(): Unit = TODO()
 func foo(_ receiver: Int32) {}
 ```
 
-Functions with `suspend`, `inline`, and `operator` keywords are not supported.
+Kotlin's functions with [`vararg`](functions.md#variable-number-of-arguments-varargs) are mapped to Swift's variadic function
+parameters:
+
+```kotlin
+// Kotlin
+fun log(vararg messages: String)
+```
+
+```swift
+// Swift
+public func log(_ messages: Swift.String...)
+```
+
+> Swift export currently does _not_ support:
+>
+> * All functions with `suspend`, `inline`, and `operator` keywords.
+> * Generic types in variadic functions parameters.
+>
+{style="note"}
 
 #### Properties
 
