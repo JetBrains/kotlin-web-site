@@ -44,12 +44,13 @@ fun powerOf(
 This helps with refactorings and code maintenance:
 you can move parameters within the declaration without worrying about which is going to be the last one.
 
-TODO should this be optional parameters? probably not
-### Parameters with default values
+### Parameters with default values (optional parameters)
 
 Function parameters can have default values, which are used when you skip the corresponding argument.
-A default value is set by appending `=` to the type.
-This reduces the number of overloads:
+This reduces the number of necessary overloads.
+Parameters with default values are also referred to as _optional parameters_.
+
+A default value is set by appending `=` to the parameter declaration:
 
 ```kotlin
 fun read(
@@ -59,50 +60,85 @@ fun read(
 ) { /*...*/ }
 ```
 
-Such parameters are also referred to as _optional parameters_.
-
-Overriding methods always use the base method's default parameter values.
-When overriding a method that has default parameter values, the default parameter values must be omitted from the signature:
-
-```kotlin
-open class A {
-    open fun foo(i: Int = 10) { /*...*/ }
-}
-
-class B : A() {
-    override fun foo(i: Int) { /*...*/ }  // No default value is allowed.
-}
-```
-
 If a parameter with default value precedes a parameter with no default value, the default value can only be used by calling
 the function with [named arguments](#named-arguments):
 
 ```kotlin
 fun foo(
-    bar: Int = 0,
-    baz: Int,
+    foo: Int = 0,
+    bar: Int,
 ) { /*...*/ }
 
-foo(baz = 1) // The default value bar = 0 is used
+foo(bar = 1) // Uses the default value foo = 0
+foo(1) // Error: No value passed for parameter 'bar'
 ```
 
-TODO this doesn't seem to do much with the subject of default values.
-If the last parameter after all parameters with default values has a functional type,
+[Overriding methods](inheritance.md#overriding-methods) always use the base method's default parameter values.
+When overriding a method that has default parameter values, the default parameter values must be omitted from the signature:
+
+```kotlin
+open class A {
+    open fun foo(i: Int = 10, j: Int = 0) { /*...*/ }
+}
+
+class B : A() {
+    // It's not allowed to specify default values here
+    // but this function also uses 10 for 'i' and 0 for 'j'
+    // by default.
+    override fun foo(i: Int, j: Int) { /*...*/ }
+}
+```
+
+#### Non-constant expressions as default values
+
+You can assign to a parameter a default value that is not constant an expression, as in a function call, or a calculation that uses
+values of other arguments, like the `len` parameter in the example above:
+
+```kotlin
+fun read(
+    b: ByteArray,
+    off: Int = 0,
+    len: Int = b.size,
+) { /*...*/ }
+```
+
+Parameters referring to other parameters' values must be declared later in the order (in this example, `len` must be declared after `b`).
+
+In general default value of a parameter can be any expression — but such expressions are only calculated when
+the function is called **without** the parameter and a default value needs to be assigned.
+For example, this function prints out a line when it is called without the `print` parameter:
+
+```kotlin
+fun read(
+    b: Int,
+    print: Unit? = println("No argument passed for 'print'.")
+) { /*...*/ }
+
+fun main() {
+    read (1)
+}
+```
+
+If the last parameter in a function declaration has a functional type,
 then you can pass the corresponding [lambda](lambdas.md#lambda-expression-syntax) argument either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
 
 ```kotlin
 fun foo(
-    bar: Int = 0,
-    baz: Int = 1,
+    foo: Int = 0,
+    bar: Int = 1,
     qux: () -> Unit,
 ) { /*...*/ }
 
-foo(1) { println("hello") }     // Uses the default value baz = 1
-foo(qux = { println("hello") }) // Uses both default values bar = 0 and baz = 1
-foo { println("hello") }        // Uses both default values bar = 0 and baz = 1
+// Uses the default value bar = 1
+foo(1) { println("hello") }     
+
+// Uses both default values foo = 0 and bar = 1
+foo(qux = { println("hello") })
+
+// Uses both default values foo = 0 and bar = 1
+foo { println("hello") }        
 ```
 
-TODO should named arguments be before default values? Should arguments be parameters?
 ### Named arguments
 
 You can name one or more of a function's arguments when calling it. This can be helpful when a function has many
@@ -148,14 +184,15 @@ skipped argument, you must name all subsequent arguments:
 reformat("This is a short String!", upperCaseFirstLetter = false, wordSeparator = '_')
 ```
 
-You can pass a [variable number of arguments (`vararg`)](#variable-number-of-arguments-varargs) with names using the
-_spread_ operator (prefix the array with `*`):
+You can pass a [variable number of arguments](#variable-number-of-arguments-varargs) (`vararg`) naming the correspoding array:
 
 ```kotlin
 fun foo(vararg strings: String) { /*...*/ }
 
-foo(strings = *arrayOf("a", "b", "c"))
+foo(strings = arrayOf("a", "b", "c"))
 ```
+
+<!-- Rationale for named arguments interaction with varargs is here https://youtrack.jetbrains.com/issue/KT-52505#focus=Comments-27-6147916.0-0 -->
 
 > When calling Java functions on the JVM, you can't use the named argument syntax because Java bytecode does not
 > always preserve the names of function parameters.
@@ -164,8 +201,11 @@ foo(strings = *arrayOf("a", "b", "c"))
 
 ### Unit-returning functions
 
-If a function does not return a useful value, its return type is `Unit`. `Unit` is a type with only one value - `Unit`.
-This value does not have to be returned explicitly:
+If a function does not return a useful value, its return type is `Unit` (corresponds to the `void` type in Java).
+
+`Unit` is a type with only one value - `Unit`.
+You don't have to declare this return type, or return `Unit` explicitly.
+Therefore, this verbose declaration:
 
 ```kotlin
 fun printHello(name: String?): Unit {
@@ -173,30 +213,14 @@ fun printHello(name: String?): Unit {
         println("Hello $name")
     else
         println("Hi there!")
-    // `return Unit` or `return` is optional
+    return Unit
 }
 ```
 
-TODO this can be folded into above surely
-The `Unit` return type declaration is also optional. The above code is equivalent to:
+is equivalent to:
 
 ```kotlin
-fun printHello(name: String?) { ... }
-```
-
-TODO since this refers to explicit return types, should probably be below them.
-### Single-expression functions
-
-When the function body consists of a single expression, the curly braces can be omitted and the body specified after an `=` symbol:
-
-```kotlin
-fun double(x: Int): Int = x * 2
-```
-
-Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler:
-
-```kotlin
-fun double(x: Int) = x * 2
+fun printHello(name: String?) { /*...*/ }
 ```
 
 ### Explicit return types
@@ -247,6 +271,20 @@ into `vararg`, you need to convert it to a regular (typed) array using the `toTy
 ```kotlin
 val a = intArrayOf(1, 2, 3) // IntArray is a primitive type array
 val list = asList(-1, 0, *a.toTypedArray(), 4)
+```
+
+### Single-expression functions
+
+When the function body consists of a single expression, the curly braces can be omitted and the body specified after an `=` symbol:
+
+```kotlin
+fun double(x: Int): Int = x * 2
+```
+
+Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler:
+
+```kotlin
+fun double(x: Int) = x * 2
 ```
 
 ### Infix notation
@@ -300,10 +338,8 @@ class MyStringCollection {
 
 ## Function scope
 
-TODO is comparison to other languages even necessary here
-Kotlin functions can be declared at the top level in a file, meaning you do not need to create a class to hold a function,
-which you are required to do in languages such as Java and C#. In addition
-to top level functions, Kotlin functions can also be declared locally as member functions and extension functions.
+Kotlin functions can be declared at the top level in a file, meaning you do not need to create a class to hold a function.
+Functions can also be declared locally as _member functions_ and _extension functions_.
 
 ### Local functions
 
@@ -375,10 +411,10 @@ the recursion, leaving behind a fast and efficient loop based version instead:
 val eps = 1E-10 // "good enough", could be 10^-15
 
 tailrec fun findFixPoint(x: Double = 1.0): Double =
-    if (Math.abs(x - Math.cos(x)) < eps) x else findFixPoint(Math.cos(x))
+    if (abs(x - cos(x)) < eps) x else findFixPoint(cos(x))
 ```
 
-This code calculates the fixed point of cosine (a mathematical constant). It simply calls `Math.cos` repeatedly
+This code calculates the fixed point of cosine (a mathematical constant). It simply calls `cos()` repeatedly
 starting at `1.0` until the result no longer changes, yielding a result of `0.7390851332151611` for the specified
 `eps` precision. The resulting code is equivalent to this more traditional style:
 
@@ -388,9 +424,9 @@ val eps = 1E-10 // "good enough", could be 10^-15
 private fun findFixPoint(): Double {
     var x = 1.0
     while (true) {
-        val y = Math.cos(x)
-        if (Math.abs(x - y) < eps) return x
-        x = Math.cos(x)
+        val y = cos(x)
+        if (abs(x - y) < eps) return x
+        x = cos(x)
     }
 }
 ```
