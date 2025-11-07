@@ -295,7 +295,7 @@ for the call). Infix functions must meet the following requirements:
 * They must be member functions or [extension functions](extensions.md).
 * They must have a single parameter.
 * The parameter must not [accept variable number of arguments](#variable-number-of-arguments-varargs) and must have
-no [default value](#parameters-with-default-values).
+no [default value](#parameters-with-default-values-optional-parameters).
 
 ```kotlin
 infix fun Int.shl(x: Int): Int { ... }
