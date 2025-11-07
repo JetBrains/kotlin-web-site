@@ -26,20 +26,20 @@ object BuildJsAssets: BuildType({
     script {
       name = "Build assets"
       scriptContent = """
-        #!/bin/bash
+        #!/bin/sh
         set -e -x -u
         
         # for node:18 we caught exception:
         #   unhandledRejection TypeError: Failed to parse URL from /mnt/agent/work/75f6fbaeb8c41e25/node_modules/@wasm-codecs/mozjpeg/lib/mozjpeg.wasm
         #   at Object.fetch (node:internal/deps/undici/undici:11730:11) {
         #   [cause]: TypeError: Invalid URL
-        export NODE_OPTIONS=--no-experimental-fetch
+        #export NODE_OPTIONS=--no-experimental-fetch
         
         yarn install --frozen-lockfile
         
         NODE_ENV=production yarn run build
       """.trimIndent()
-      dockerImage = "node:lts-slim"
+      dockerImage = "node:22-alpine"
       dockerPull = true
     }
   }

@@ -29,6 +29,13 @@ new features before they are released. See [Early Access Preview](eap.md) for de
 > 
 {style="note"}
 
+## Upcoming Kotlin releases
+
+Here is the approximate schedule for upcoming stable Kotlin releases:
+
+* **2.3.0**: Planned for December 2025 – January 2026
+* **2.3.20**: Planned for March – April 2026
+
 ## Update to a new Kotlin version
 
 To upgrade your project to a new release, update the Kotlin version in your build system.
@@ -139,6 +146,16 @@ The following table lists details of the latest Kotlin releases:
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
+    </tr>
+    <tr>
+        <td><strong>2.2.21</strong>
+            <p>Released: <strong>October 23, 2025</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A tooling release containing support for Xcode 26, along with other improvements and bug fixes.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21">changelog</a>.</p>
+    </td>
     </tr>
     <tr>
         <td><strong>2.2.20</strong>

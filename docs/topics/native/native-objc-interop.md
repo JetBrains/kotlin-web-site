@@ -677,13 +677,20 @@ fun test() {
 ## Casting between mapped types
 
 When writing Kotlin code, an object may need to be converted from a Kotlin type to the equivalent Swift/Objective-C type
-(or vice versa). In this case, a plain old Kotlin cast can be used, for example:
+or vice versa. In this case, you can use the [`as` cast](typecasts.md#unsafe-cast-operator), for example:
 
 ```kotlin
-val nsArray = listOf(1, 2, 3) as NSArray
-val string = nsString as String
+@file:Suppress("CAST_NEVER_SUCCEEDS")
+import platform.Foundation.*
+
 val nsNumber = 42 as NSNumber
+val nsArray = listOf(1, 2, 3) as NSArray
+val nsString = "Hello" as NSString
+val string = nsString as String
 ```
+
+IDEs might incorrectly emit "This cast can never succeed" warnings.
+In such cases, use the `@Suppress("CAST_NEVER_SUCCEEDS")` annotation.
 
 ## Subclassing
 

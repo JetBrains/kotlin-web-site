@@ -104,6 +104,7 @@ fun scriptBuildHtml(version: String? = null, init: GradleBuildStep.() -> Unit = 
     tasks = "dokkaHtmlMultiModule"
     gradleParams = "${if (version != null) "-PdeployVersion=\"$version\" " else ""}--no-daemon --no-configuration-cache"
     useGradleWrapper = true
+    jdkHome = "%env.JDK_17_0%"
 }.apply(init)
 
 fun copyDokkaApiResult(

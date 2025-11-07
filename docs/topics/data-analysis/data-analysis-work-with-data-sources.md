@@ -22,6 +22,7 @@ see [Set up an environment](kotlin-notebook-set-up-env.md).
 Create a new Kotlin Notebook:
 
 1. Select **File** | **New** | **Kotlin Notebook**.
+
 2. In the Kotlin Notebook, import the Kotlin DataFrame library by running the following command:
 
    ```kotlin

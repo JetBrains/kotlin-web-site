@@ -2,12 +2,7 @@
 
 _[Released: September 10, 2025](releases.md#release-details)_
 
-> Share your thoughts on Kotlin!
-> 
-> [Take our Kotlin Developer Survey](https://surveys.jetbrains.com/s3/7e238a7b85e5). It only takes about 10 minutes. 
-> Your feedback helps us improve the language, tools, and ecosystem.
-> 
-{style="note"}
+<tldr><p>For details about bug fix release 2.2.21, see the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21">changelog</a></p></tldr>
 
 The Kotlin 2.2.20 release is out, delivering important changes for web development. [Kotlin/Wasm is now Beta](#kotlin-wasm),
 with improvements to [exception handling in JavaScript interop](#improved-exception-handling-in-kotlin-wasm-and-javascript-interop),
@@ -18,12 +13,16 @@ Additionally, here are some main highlights:
 
 * **Kotlin Multiplatform**: [Swift export available by default](#swift-export-available-by-default), [stable cross-platform compilation for Kotlin libraries](#stable-cross-platform-compilation-for-kotlin-libraries), and a [new approach for declaring common dependencies](#new-approach-for-declaring-common-dependencies).
 * **Language**: [Improved overload resolution when passing lambdas to overloads with suspend function types](#improved-overload-resolution-for-lambdas-with-suspend-function-types).
-* **Kotlin/Native**: [Support for stack canaries in binaries](#support-for-stack-canaries-in-binaries) and [smaller binary size for release binaries](#smaller-binary-size-for-release-binaries).
+* **Kotlin/Native**: [Support for Xcode 26, stack canaries, and smaller binary size for release binaries](#kotlin-native).
 * **Kotlin/JS**: [`Long` values compiled into JavaScript `BigInt`](#usage-of-the-bigint-type-to-represent-kotlin-s-long-type).
 
 > Compose Multiplatform for web goes Beta. Learn more in our [blog post](https://blog.jetbrains.com/kotlin/2025/09/compose-multiplatform-1-9-0-compose-for-web-beta/).
 >
 {style="note"}
+
+You can also find a short overview of the updates in this video:
+
+<video src="https://www.youtube.com/v/QWpp5-LlTqA" title="What's new in Kotlin 2.2.21"/>
 
 ## IDE support
 
@@ -631,6 +630,14 @@ You can put your shared code in `webMain` and have it automatically work for bot
 expect suspend fun readCopiedText(): String
 
 // webMain
+@OptIn(ExperimentalWasmJsInterop::class)
+private suspend fun <R : JsAny?> Promise<R>.await(): R = suspendCancellableCoroutine { continuation ->
+    this.then(
+        onFulfilled = { continuation.resumeWith(Result.success(it)); null },
+        onRejected = { continuation.resumeWithException(it.asJsException()); null }
+    )
+}
+
 external interface Navigator { val clipboard: Clipboard }
 external interface Clipboard { fun readText(): Promise<JsString> }
 external val navigator: Navigator
@@ -725,7 +732,13 @@ You can use the following Gradle properties to disable the diagnostic in your `g
 
 ## Kotlin/Native
 
-Kotlin 2.2.20 brings improvements to interoperability with Objective-C/Swift, debugging, and new binary options.
+This release brings support for Xcode 26, improvements to interoperability with Objective-C/Swift, debugging, and new binary options.
+
+### Support for Xcode 26
+
+Starting with Kotlin 2.2.2**1**, the Kotlin/Native compiler supports Xcode 26 – the latest stable version of Xcode.
+You can now update your Xcode and get access to the latest APIs to continue working on your Kotlin projects for Apple
+operating systems.
 
 ### Support for stack canaries in binaries
 
@@ -1225,6 +1238,67 @@ the previous version of the lambda, which could cause unexpected behavior.
 
 In Kotlin 2.2.20, the compiler now detects changes in lambdas of inline functions and automatically recompiles their call sites.
 
+### Improvements for library publication
+
+Kotlin 2.2.20 adds new Gradle tasks that make library publication easier. These tasks help you generate key pairs, upload
+public keys, and run local checks to ensure the verification process succeeds before uploading to the Maven Central repository.
+
+For more information about how to use these tasks as part of the publication process, see [Publish your library to Maven Central](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-libraries.html).
+
+#### New Gradle tasks for generating and uploading PGP keys
+
+Before Kotlin 2.2.20, if you wanted to publish a multiplatform library to the Maven Central repository, you had to install
+a third-party program like `gpg` to generate a key pair for signing your publications. Now, the Kotlin Gradle plugin comes
+with Gradle tasks that let you generate a key pair and upload the public key so you don't have to install another program.
+
+##### Generate a key pair
+
+The `generatePgpKeys` task generates a key pair. When you run it, you must provide a password for the private keystore 
+and your name in the following format:
+
+```bash
+./gradlew -Psigning.password=example-password generatePgpKeys --name "John Smith <john@example.com>"
+```
+
+The task stores the key pair in the `build/pgp` directory.
+
+> Move your key pair to a secure location to prevent accidental deletion or unauthorized access.
+> 
+{style="warning"}
+
+##### Upload the public key
+
+The `uploadPublicPgpKey` task uploads the public key to Ubuntu's key server: `keyserver.ubuntu.com`. When you run it, 
+provide the path to the public key in `.asc` format:
+
+```bash
+./gradlew uploadPublicPgpKey --keyring /path_to/build/pgp/public_KEY_ID.asc
+```
+
+#### New Gradle tasks to test verification locally
+
+Kotlin 2.2.20 also adds Gradle tasks for testing verification locally before uploading your library to the Maven Central repository.
+
+If you're using the Kotlin Gradle plugin along with Gradle's [Signing Plugin](https://docs.gradle.org/current/userguide/signing_plugin.html) and [Maven Publish Plugin](https://docs.gradle.org/current/userguide/publishing_maven.html), you can run the `checkSigningConfiguration` and `checkPomFileFor<PUBLICATION_NAME>Publication` tasks to verify that your setup meets Maven Central’s requirements. Replace `<PUBLICATION_NAME>` with the name of your publication.
+
+These tasks aren't automatically run as part of the `build` or `check` Gradle tasks, so you need to run them manually. 
+For example, if you have a `KotlinMultiplatform` publication:
+
+```bash
+./gradlew checkSigningConfiguration checkPomFileForKotlinMultiplatformPublication
+```
+
+The `checkSigningConfiguration` task checks that:
+
+* The Signing Plugin has keys configured.
+* The configured public key has been uploaded to either `keyserver.ubuntu.com` or `keys.openpgp.org` key servers.
+* All publications have signing enabled.
+
+If any of these checks fail, the task returns an error with information on how to fix the issue.
+
+The `checkPomFileFor<PUBLICATION_NAME>Publication` task checks whether the `pom.xml` file meets Maven Central's [requirements](https://central.sonatype.org/publish/requirements/#required-pom-metadata).
+If it doesn't, the task returns an error with details about which parts of the `pom.xml` file are non-compliant.
+
 ## Maven: Support for the Kotlin daemon in the `kotlin-maven-plugin`
 
 Kotlin 2.2.20 takes the [build tools API introduced in Kotlin 2.2.0](whatsnew22.md#new-experimental-build-tools-api) one
@@ -1257,7 +1331,7 @@ This artifact includes both a code representation and a JSON equivalent (for non
 their descriptions, and metadata such as the version in which each option was introduced or stabilized. You can use this
 schema to generate a custom view of the options or analyze them as needed.
 
-## Kotlin standard library
+## Standard library
 
 This release introduces new experimental features in the standard library: reflection support for identifying interface
 types in Kotlin/JS, update functions for common atomic types, and `copyOf()` overloads for array resizing.

@@ -126,18 +126,11 @@ val originalPtr = longValue.toCPointer<T>()
 The native memory can be allocated using the `NativePlacement` interface, for example:
 
 ```kotlin
+@file:OptIn(ExperimentalForeignApi::class)
 import kotlinx.cinterop.*
 
-@OptIn(ExperimentalForeignApi::class)
+val placement: NativePlacement = // See below for placement examples
 val byteVar = placement.alloc<ByteVar>()
-```
-
-Or:
-
-```kotlin
-import kotlinx.cinterop.*
-
-@OptIn(ExperimentalForeignApi::class)
 val bytePtr = placement.allocArray<ByteVar>(5)
 ```
 
@@ -145,9 +138,9 @@ The most logical placement is in the object `nativeHeap`. It corresponds to allo
 provides an additional `.free()` operation to free allocated memory:
 
 ```kotlin
+@file:OptIn(ExperimentalForeignApi::class)
 import kotlinx.cinterop.*
 
-@OptIn(kotlinx.cinterop.ExperimentalForeignApi::class)
 fun main() {
     val size: Long = 0
     val buffer = nativeHeap.allocArray<ByteVar>(size)
@@ -165,10 +158,10 @@ automatically freed after leaving the scope.
 For example, a C function returning values through pointer parameters can be used like:
 
 ```kotlin
+@file:OptIn(ExperimentalForeignApi::class)
 import kotlinx.cinterop.*
 import platform.posix.*
 
-@OptIn(ExperimentalForeignApi::class)
 val fileSize = memScoped {
     val statBuf = alloc<stat>()
     val error = stat("/", statBuf.ptr)
