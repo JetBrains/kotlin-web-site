@@ -24,6 +24,7 @@ function Index() {
             topMenuItems={TOP_MENU_ITEMS}
             topMenuButton={<Button href="https://kotlinlang.org/docs/getting-started.html">Get started</Button>}
             dataTestId={'case-studies-page'}
+            canonical={'https://kotlinlang.org/case-studies/'}
         >
             <CaseStudiesHero />
             <CaseStudiesFilter />
