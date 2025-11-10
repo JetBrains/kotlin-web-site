@@ -1,83 +1,96 @@
-import { test, expect } from '@playwright/test';
+import { expect, Page, test } from '@playwright/test';
+
 test.describe('Api navigation', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
         await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
         await page.click('button.ch2-btn.ch2-btn-primary');
         const navbar = page.locator('[data-test="header"]');
-        const apiButton = navbar.getByText('API').first();
+        const apiButton = navbar.getByText('API', { exact: true });
+        await expect(apiButton).toBeVisible();
+        await apiButton.click();
         await expect(apiButton).toBeVisible();
         await apiButton.click();
     });
 
     test('Click on "APIs overview" button should open the related page', async ({ page }) => {
-        const apiOverviewButton = page.getByText('APIs overview').first();
+        const apiOverviewButton = await hoverOverApiElement(page, 'APIs overview');
         await expect(apiOverviewButton).toBeVisible();
         await apiOverviewButton.click();
-        await expect(page.url()).toContain('/docs/api-references.html');
+        expect(page.url()).toContain('/docs/api-references.html');
     });
 
     test('Click on "Standard library" button should open the related page', async ({ page }) => {
-        const standardLibraryButton = page.getByText('Standard library').first();
+        const standardLibraryButton = await hoverOverApiElement(page, 'Standard library');
         await expect(standardLibraryButton).toBeVisible();
         await standardLibraryButton.click();
-        await expect(page.url()).toContain('/api/core/kotlin-stdlib/');
+        expect(page.url()).toContain('/api/core/kotlin-stdlib/');
     });
 
     test('Click on "Test library" button should open the related page', async ({ page }) => {
-        const testLibraryButton = page.getByText('Test library').first();
+        const testLibraryButton = await hoverOverApiElement(page, 'Test library');
         await expect(testLibraryButton).toBeVisible();
         await testLibraryButton.click();
-        await expect(page.url()).toContain('/api/core/kotlin-test/');
+        expect(page.url()).toContain('/api/core/kotlin-test/');
     });
 
     test('Click on "Coroutines" button should open the related page', async ({ page }) => {
-        const coroutinesButton = page.getByText('Coroutines').first();
+        const coroutinesButton = await hoverOverApiElement(page, 'Coroutines');
         await expect(coroutinesButton).toBeVisible();
         await coroutinesButton.click();
-        await expect(page.url()).toContain('/api/kotlinx.coroutines/');
+        expect(page.url()).toContain('/api/kotlinx.coroutines/');
     });
 
     test('Click on "Serialization" button should open the related page', async ({ page }) => {
-        const serializationButton = page.getByText('Serialization').first();
+        const serializationButton = await hoverOverApiElement(page, 'Serialization');
         await expect(serializationButton).toBeVisible();
         await serializationButton.click();
-        await expect(page.url()).toContain('/api/kotlinx.serialization/');
+        expect(page.url()).toContain('/api/kotlinx.serialization/');
     });
 
     test('Click on "Kotlin I/O library" button should open the related page', async ({ page }) => {
-        const ioButton = page.getByText('Kotlin I/O library').first();
+        const ioButton = await hoverOverApiElement(page, 'Kotlin I/O library');
         await expect(ioButton).toBeVisible();
         await ioButton.click();
-        await expect(page.url()).toContain('/api/kotlinx-io/');
+        expect(page.url()).toContain('/api/kotlinx-io/');
     });
 
     test('Click on "Date and time" button should open the related page', async ({ page }) => {
-        const datetimeButton = page.getByText('Date and time').first();
+        const datetimeButton = await hoverOverApiElement(page, 'Date and time');
         await expect(datetimeButton).toBeVisible();
         await datetimeButton.click();
-        await expect(page.url()).toContain('/api/kotlinx-datetime/');
+        expect(page.url()).toContain('/api/kotlinx-datetime/');
     });
 
-
     test('Click on "JVM Metadata" button should open the related page', async ({ page }) => {
-        const metadataButton = page.getByText('JVM Metadata').first();
+        const metadataButton = await hoverOverApiElement(page, 'JVM Metadata');
         await expect(metadataButton).toBeVisible();
         await metadataButton.click();
-        await expect(page.url()).toContain('/api/kotlinx-metadata-jvm/');
+        expect(page.url()).toContain('/api/kotlinx-metadata-jvm/');
     });
 
     test('Click on "Kotlin Gradle plugins" button should open the related page', async ({ page }) => {
-        const kgpButton = page.getByText('Kotlin Gradle plugins').first();
+        const kgpButton = await hoverOverApiElement(page, 'Kotlin Gradle plugins');
         await expect(kgpButton).toBeVisible();
         await kgpButton.click();
-        await expect(page.url()).toContain('/api/kotlin-gradle-plugin/');
+        expect(page.url()).toContain('/api/kotlin-gradle-plugin/');
     });
 
     test('Click on "Ktor" button should open the related page', async ({ page }) => {
-        const ktorButton = page.getByText('Ktor').first();
+        const ktorButton = await hoverOverApiElement(page, 'Ktor');
         await expect(ktorButton).toBeVisible();
         await ktorButton.click();
-        await expect(page.url()).toContain('api.ktor.io');
+        expect(page.url()).toContain('api.ktor.io');
     });
 });
+
+async function hoverOverApiElement(page: Page, text: string) {
+    const navbar = page.locator('[data-test="header"]').getByText('API', { exact: true }).first().locator('..');
+
+    await navbar.hover();
+
+    const el = navbar.getByText(text);
+    await expect(el).toBeVisible();
+
+    return el;
+}
