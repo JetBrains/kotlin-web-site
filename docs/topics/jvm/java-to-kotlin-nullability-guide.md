@@ -317,7 +317,7 @@ void main() {
 ```
 {id="casting-types-java"}
 
-To avoid exceptions in Kotlin, use the [safe cast operator](typecasts.md#safe-nullable-cast-operator) `as?`, which returns `null` on failure:
+To avoid exceptions in Kotlin, use the [safe cast operator](typecasts.md#unsafe-cast-operator) `as?`, which returns `null` on failure:
 
 ```kotlin
 // Kotlin
