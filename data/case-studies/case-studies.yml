@@ -11,7 +11,7 @@ items:
       name: John Rodriguez
       position: The client platform team
     logo:
-      - /images/case-studies/duolingo-logo.png
+      - /images/case-studies/duolingo-logo.svg
     platforms:
       - android
       - ios
@@ -26,7 +26,7 @@ items:
       both platforms, keeping the flexibility to customize features based on the specific platform. This allows
       the team to innovate and respond to market needs faster.
     logo:
-      - /images/case-studies/forbes-logo.png
+      - /images/case-studies/forbes-logo.svg
     platforms:
       - android
       - ios
@@ -51,7 +51,7 @@ items:
   #------------------------------------------------------------------------
   - id: case-study-bilibili
     logo:
-      - /images/case-studies/bilibili-logo.png
+      - /images/case-studies/bilibili-logo.svg
     type: multiplatform
     description: >-
       **BiliBili** (China version) has adopted Kotlin Multiplatform and Compose Multiplatform for the Instant
@@ -80,7 +80,7 @@ items:
       name: Varsha Singh
       position: Project Manager, McDonald’s app at Umain
     logo:
-      - /images/case-studies/mcdonalds-logo.png
+      - /images/case-studies/mcdonalds-logo.svg
     platforms:
       - android
       - ios
@@ -108,6 +108,8 @@ items:
       “Starting from this small of a team, it was a huge speed win for **X**
       to be able to use Kotlin Multiplatform and write all of that logic once in one place… When you write a
       bug—not that I ever do that—you only have to fix it in one place.”
+    logo:
+      - /images/case-studies/x-logo.svg
     signature:
       name: Eric Denman
       position: Software Engineer at X
@@ -126,7 +128,7 @@ items:
       Seeing the success, we then moved the entire chat engine to Kotlin Multiplatform. We can build features
       across platforms without team expansion or performance hits.”
     logo:
-      - /images/case-studies/bolt-logo.png
+      - /images/case-studies/bolt-logo.svg
     signature:
       name: Toomas Römer
       position: VP of Engineering at Bolt
@@ -159,7 +161,7 @@ items:
       Now, iOS engineers contribute to the shared Kotlin code just as actively as Android engineers, enhancing
       team productivity and strengthening collaboration between teams.
     logo:
-      - /images/case-studies/meetup-logo.png
+      - /images/case-studies/meetup-logo.svg
     platforms:
       - android
       - ios
@@ -247,7 +249,7 @@ items:
       name: Alex Askerov
       position: Mobile Tech Lead at Wrike
     logo:
-      - /images/case-studies/wrike-logo.png
+      - /images/case-studies/wrike-logo.svg
     platforms:
       - android
       - ios
@@ -292,7 +294,7 @@ items:
       enabling a single Kotlin codebase for both platforms. This ensures consistent user experiences, reduces
       maintenance costs, and significantly improves productivity.
     logo:
-      - /images/case-studies/baidu-logo.png
+      - /images/case-studies/baidu-logo.svg
     platforms:
       - android
       - ios
@@ -364,6 +366,8 @@ items:
       **Netflix** uses KMP to share logic for their mobile studio apps, reducing duplication and enabling faster,
       more reliable development. This approach helps deliver high-quality features efficiently in the fast-paced
       world of TV and movie production.
+    logo:
+      - /images/case-studies/netflix-logo.svg
     platforms:
       - android
       - ios
@@ -376,7 +380,7 @@ items:
       **9GAG** opted for KMP after trying both Flutter and React Native. They gradually adopted the technology and
       now ship features faster, while providing a consistent experience to their users.
     logo:
-      - /images/case-studies/9gag-logo.png
+      - /images/case-studies/9gag-logo.svg
     platforms:
       - android
       - ios
@@ -608,7 +612,7 @@ items:
     description: >-
       A leading fintech company in South Korea, **Kakao Pay** uses Kotlin with Spring for a significant part of its server-side development. Their Insurance team shares how Kotlin’s features help them build and operate stable backend services.
     logo:
-      - /images/case-studies/kakao-pay-logo.png
+      - /images/case-studies/kakao-pay-logo.svg
     isExternal: true
     link: https://blog.jetbrains.com/kotlin/2025/06/case-study-why-kakao-pay-chose-kotlin-for-backend-development/
   #------------------------------------------------------------------------
@@ -635,10 +639,10 @@ items:
     description: >-
       **Novatec** chose Kotlin for improved readability and conciseness across a variety of backend projects.
     logo:
-      - /images/case-studies/novatec-logo.png
+      - /images/case-studies/novatec-logo.svg
     link: https://kotlinlang.org/lp/server-side/case-studies/novatec/
   #------------------------------------------------------------------------
-  - id: case-study-faire
+  - id: case-study-fairef
     type: server-side
     description: >-
       **Faire** built scalable backend services in Kotlin to power its disruptive SMB marketplace, improving efficiency from the early stages of the company.

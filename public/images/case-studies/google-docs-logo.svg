@@ -1,15 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 24.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Standard_product_icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 x="0px" y="0px" width="192px" height="192px" viewBox="0 0 192 192" enable-background="new 0 0 192 192" xml:space="preserve">
-<rect id="bounding_box_1_" fill="none" width="192" height="192"/>
-<g id="art_layer">
-	<rect x="58" y="98" fill="#FFFFFF" width="76" height="14"/>
-	<rect x="58" y="122" fill="#FFFFFF" width="56" height="14"/>
-	<polygon fill="#0066DA" points="116,52 136.62,53 160,52 116,8 115,34.86 	"/>
-	<rect x="0" y="0" fill="none" width="192" height="192"/>
-	<rect x="58" y="74" fill="#FFFFFF" width="76" height="14"/>
-	<path fill="#2684FC" d="M116,52V8H44c-6.63,0-12,5.37-12,12v152c0,6.63,5.37,12,12,12h104c6.63,0,12-5.37,12-12V52H116z M112,134
-		H60v-10h52V134z M132,110H60v-10h72V110z M132,86H60V76h72V86z"/>
-</g>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M46.0914 32.7275H18.4551V37.8184H46.0914V32.7275Z" fill="white"/>
+<path d="M38.8187 41.4541H18.4551V46.545H38.8187V41.4541Z" fill="white"/>
+<path d="M39.5472 16L47.0454 16.3636L55.5472 16L39.5472 0L39.1836 9.76727L39.5472 16Z" fill="#0066DA"/>
+<path d="M46.0914 24H18.4551V29.0909H46.0914V24Z" fill="white"/>
+<path d="M39.5455 16V0H13.3636C10.9527 0 9 1.95273 9 4.36364V59.6364C9 62.0473 10.9527 64 13.3636 64H51.1818C53.5927 64 55.5455 62.0473 55.5455 59.6364V16H39.5455ZM38.0909 45.8182H19.1818V42.1818H38.0909V45.8182ZM45.3636 37.0909H19.1818V33.4545H45.3636V37.0909ZM45.3636 28.3636H19.1818V24.7273H45.3636V28.3636Z" fill="#2684FC"/>
 </svg>
