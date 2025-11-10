@@ -10,11 +10,11 @@ export function serializeType(v: CaseTypeSwitch): string | undefined {
 }
 
 export function parsePlatforms(v: unknown): CasePlatform[] {
-    return parseStringArray(v, [...Platforms], [...Platforms]);
+    return parseStringArray(v, [...Platforms], []);
 }
 
 export function serializePlatforms(v: CasePlatform[]): string | undefined {
-    return v.length === Platforms.length ? undefined : v.join(',');
+    return v.length === 0 ? undefined : v.join(',');
 }
 
 export function parseCompose(v: unknown): boolean {

@@ -47,13 +47,13 @@ export class CaseStudiesPage implements PageWithGlobalSearch {
         return expect(switchElement).toHaveClass(/_selected/);
     }
 
-    async isAllSharedPlatformsActive() {
+    async areAllSharedPlatformsSwitchedOff() {
         for (const checkbox of await this.filterBySharedCode.all()) {
-            await expect(checkbox).toBeChecked();
+            await expect(checkbox).not.toBeChecked();
         }
     }
 
-    async isComposeUIActive() {
+    async isComposeUISwitchedOff() {
         return expect(this.filterByComposeUI).not.toBeChecked();
     }
 

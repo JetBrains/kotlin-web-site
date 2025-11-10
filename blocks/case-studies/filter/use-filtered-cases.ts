@@ -38,14 +38,15 @@ export const filterCaseStudies = (
     /**
      * Matches if:
      * - no platform filter is selected
-     * - case has no platforms defined
-     * - case has at least one platform that matches the filter
+     * - case has ALL platforms that match the filter
+     * - special case: 'kotlin-multiplatform' case is considered to have all platforms
      */
     const matchesPlatformFilter = (caseItem: CaseItem): boolean => {
-        if (platforms.length === 0 || !caseItem.platforms || caseItem.platforms.length === 0) {
+        if (platforms.length === 0) {
             return true;
         }
-        return (caseItem.platforms || []).some((platform: string) => (platforms as string[]).includes(platform));
+        const isSpecialKotlinMultiplatformCase = caseItem.id === 'kotlin-multiplatform';
+        return (platforms).every((platform: string) => (caseItem.platforms || [] as string[]).includes(platform)) || isSpecialKotlinMultiplatformCase;
     };
 
     /**
@@ -55,8 +56,11 @@ export const filterCaseStudies = (
      * - special case: 'kotlin-multiplatform' case is considered to match compose filter
      */
     const matchesComposeFilter = (caseItem: CaseItem): boolean => {
+        if (!compose) {
+            return true;
+        }
         const isSpecialKotlinMultiplatformWithComposeCase = caseItem.id === 'kotlin-multiplatform';
-        return !compose || (caseItem.platforms || []).includes('compose-multiplatform') || isSpecialKotlinMultiplatformWithComposeCase;
+        return (caseItem.platforms || []).includes('compose-multiplatform') || isSpecialKotlinMultiplatformWithComposeCase;
     };
 
     return source.filter((caseItem) => {
