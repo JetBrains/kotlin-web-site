@@ -305,7 +305,7 @@ Block comments in Kotlin can be nested:
 
 ```kotlin
 /* The comment starts here
-/* contains a nested comment */     
+/* contains a nested comment *​/  
 and ends here. */
 ```
 
