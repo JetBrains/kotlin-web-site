@@ -28,11 +28,7 @@ export const CaseStudiesFilter: React.FC = () => {
         let nextPlatforms = platforms.includes(id)
             ? platforms.filter((x) => x !== id)
             : [...platforms, id];
-        if (nextPlatforms.length === 0) {
-            // If user unchecks all, reset to all selected
-            nextPlatforms = [...Platforms];
-        }
-        setPlatforms(nextPlatforms);
+        setPlatforms(nextPlatforms, () => setType('multiplatform'));
     };
 
     const toggleCompose = () => {
@@ -91,7 +87,7 @@ export const CaseStudiesFilter: React.FC = () => {
                             >
                                 <span className={styles.composeLabel}>
                                     Built with Compose Multiplatform <img
-                                    src="/images/case-studies/compose-multiplatform.svg" alt="" />
+                                    src="/images/case-studies/compose-multiplatform.svg" alt="" height={24} />
                                 </span>
                             </Checkbox>
                         </div>

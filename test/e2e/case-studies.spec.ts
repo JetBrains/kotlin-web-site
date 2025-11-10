@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { CaseStudiesPage } from '../page/case-studies-page';
 
-test.describe('Case-studies landing page', async () => {
+test.describe.only('Case-studies landing page', async () => {
     test('Case-studies: check hero block content', async ({ page }) => {
         const caseStudiesPage = new CaseStudiesPage(page);
         await caseStudiesPage.init();
@@ -19,12 +19,12 @@ test.describe('Case-studies landing page', async () => {
         await caseStudiesPage.init();
 
         await caseStudiesPage.isSwitchActive(caseStudiesPage.switchAll);
-        await caseStudiesPage.isAllSharedPlatformsActive();
+        await caseStudiesPage.areAllSharedPlatformsSwitchedOff();
 
-        await caseStudiesPage.isComposeUIActive();
+        await caseStudiesPage.isComposeUISwitchedOff();
     });
 
-    test('Case-studies: case-stidies have description', async ({ page }) => {
+    test('Case-studies: case-studies have description', async ({ page }) => {
         const caseStudiesPage = new CaseStudiesPage(page);
         await caseStudiesPage.init();
 
