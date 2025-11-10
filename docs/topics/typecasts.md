@@ -412,8 +412,8 @@ Smart casts can be used in the following conditions:
 
 Kotlin has two cast operators: `as` and `as?`. You can use both to cast, but they have different behaviors.
 
-If casting fails with the `as` operator, the compiler throws an exception. This is why it's also called the "unsafe" operator.
-Use the `as` operator when casting to a non-null type:
+If a cast fails with the `as` operator, the compiler throws a `ClassCastException`. That's why it's also called the **unsafe** operator.
+You can use `as` when casting to a non-null type:
 
 ```kotlin
 fun main() {
@@ -432,8 +432,8 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-unsafe-cast-operator" validate="false"}
 
-If you use the `as?` operator instead, when the cast fails, the operator returns a `null` instead. Hence, why it's also
-called the "safe" operator:
+If you use the `as?` operator instead, and the cast fails, the operator returns `null`. That's why it's also
+called the **safe** operator:
 
 ```kotlin
 fun main() {
@@ -454,7 +454,43 @@ fun main() {
 
 #### Cast nullable types
 
-#### Downcast
+To cast a nullable type safely, use the `as?` operator to prevent triggering a `ClassCastException` if the cast fails.
+
+You _can_ use `as` with a nullable type. This allows the result to be `null`, but it still throws a `ClassCastException` 
+if the cast is unsuccessful. For this reason, `as?` is the safer option:
+
+```kotlin
+fun main() {
+    val config: Map<String, Any?> = mapOf(
+        "username" to "kodee",
+        "alias" to null,
+        "loginAttempts" to 3
+    )
+
+    // Unsafely casts to a nullable String
+    val username: String? = config["username"] as String?
+    println("Username: $username")
+    // kodee
+
+    // Unsafely casts a null value to a nullable String
+    val alias: String? = config["alias"] as String?
+    println("Alias: $alias")
+    // null
+
+    // Fails to cast to nullable String and throws ClassCastException
+    // val unsafeAttempts: String? = config["loginAttempts"] as String?
+    // println("Login attempts (unsafe): $unsafeAttempts")
+    // Exception in thread "main" java.lang.ClassCastException
+
+    // Fails to cast to nullable String and returns null
+    val safeAttempts: String? = config["loginAttempts"] as? String
+    println("Login attempts (safe): $safeAttempts")
+    // null
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-cast-nullable-types"}
+
+#### Up and downcasting
 
 #### "Unsafe" cast operator
 
