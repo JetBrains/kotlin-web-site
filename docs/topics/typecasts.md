@@ -408,7 +408,7 @@ Smart casts can be used in the following conditions:
     </tr>
 </table>
 
-### Cast operators
+### Cast operators {id="unsafe-cast-operator"}  {id="safe-nullable-cast-operator"}
 
 Kotlin has two cast operators: `as` and `as?`. You can use both to cast, but they have different behaviors.
 
@@ -492,30 +492,56 @@ fun main() {
 
 #### Up and downcasting
 
-#### "Unsafe" cast operator
+In Kotlin, you can also cast to supertypes and subtypes. 
 
-To explicitly cast an object to a non-nullable type, use the *unsafe* cast operator `as`:
-
-```kotlin
-val x: String = y as String
-```
-
-If the cast isn't possible, the compiler throws an exception. This is why it's called _unsafe_.
-
-In the previous example, if `y` is `null`, the code above also throws an exception. This is because `null` can't be cast
-to `String`, as `String` isn't [nullable](null-safety.md). To make the example work for possible null values, use a nullable
-type on the right-hand side of the cast:
+To cast an object as an instance of its superclass is called **upcasting**. Upcasting doesn't need any special syntax or
+cast operators. For example:
 
 ```kotlin
-val x: String? = y as String?
+interface Animal {
+    fun makeSound()
+}
+
+class Dog : Animal {
+    // Implements behavior for makeSound()
+    override fun makeSound() {
+        println("Dog says woof!")
+    }
+}
+
+fun printAnimalInfo(animal: Animal) {
+    animal.makeSound()
+}
+
+fun main() {
+    val dog = Dog()
+    // Upcasts Dog instance to Animal
+    printAnimalInfo(dog)  
+    // Dog says woof!
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-upcast"}
 
-#### "Safe" (nullable) cast operator
+In this example, when the `printAnimalInfo()` function is called on a `Dog` instance, the `Dog` instance is upcast
+to `Animal` because this is what the function is expecting. Since it's still a `Dog` instance, the compiler dynamically
+resolves the `makeSound()` function from the `Dog` class, printing `"Dog says woof!"`.
 
-To avoid exceptions, use the *safe* cast operator `as?`, which returns `null` on failure.
+Code like this is common in Kotlin APIs where the behavior depends on an abstract type. You can also see upcasting
+when working with Jetpack Compose and UI toolkits. Typically, they treat all UI elements as if they are part of a superclass
+and later use specific subclasses:
 
 ```kotlin
-val x: String? = y as? String
+    val textView = TextView(this)
+    textView.text = "Hello, View!"
+
+   // Upcasts from TextView to View
+    val view: View = textView  
+
+    // Use View functions
+    view.setPadding(20, 20, 20, 20)
+    // Activity expects a View type
+    setContentView(view)
 ```
 
-Note that despite the fact that the right-hand side of `as?` is a non-nullable type `String`, the result of the cast is nullable.
+To cast an object as an instance of a subclass is called **downcasting**. Downcasting can be unsafe, so you need to do it
+explicitly with cast operators so the compiler knows what to do if the cast fails.
