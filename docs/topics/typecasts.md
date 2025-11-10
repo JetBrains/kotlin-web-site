@@ -99,9 +99,9 @@ Every class instance is already an instance of its supertypes.
 
 To convert the type of an object in Kotlin to another type is called **casting**.
 
-In some cases the compiler automatically casts objects for you. This is called smart-casting.
+In some cases, the compiler automatically casts objects for you. This is called smart-casting.
 
-If you need to explicitly cast a type you can use `as?` or `as` [cast operators](#cast-operators). 
+If you need to explicitly cast a type, use `as?` or `as` [cast operators](#cast-operators). 
 
 ### Smart casts
 
@@ -409,6 +409,52 @@ Smart casts can be used in the following conditions:
 </table>
 
 ### Cast operators
+
+Kotlin has two cast operators: `as` and `as?`. You can use both to cast, but they have different behaviors.
+
+If casting fails with the `as` operator, the compiler throws an exception. This is why it's also called the "unsafe" operator.
+Use the `as` operator when casting to a non-null type:
+
+```kotlin
+fun main() {
+    val rawInput: Any = "user-1234"
+
+    // Casts to String successfully
+    val userId = rawInput as String
+    println("Logging in user with ID: $userId")
+    // Logging in user with ID: user-1234
+
+    // Triggers ClassCastException
+    val wrongCast = rawInput as Int
+    println("wrongCast contains: $wrongCast")
+    // Exception in thread "main" java.lang.ClassCastException
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-unsafe-cast-operator" validate="false"}
+
+If you use the `as?` operator instead, when the cast fails, the operator returns a `null` instead. Hence, why it's also
+called the "safe" operator:
+
+```kotlin
+fun main() {
+    val rawInput: Any = "user-1234"
+
+    // Casts to String successfully
+    val userId = rawInput as? String
+    println("Logging in user with ID: $userId")
+    // Logging in user with ID: user-1234
+
+    // Assigns a null value to wrongCast
+    val wrongCast = rawInput as? Int
+    println("wrongCast contains: $wrongCast")
+    // wrongCast contains: null
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-safe-cast-operator"}
+
+#### Cast nullable types
+
+#### Downcast
 
 #### "Unsafe" cast operator
 
