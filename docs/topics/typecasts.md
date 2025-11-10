@@ -1,27 +1,99 @@
 [//]: # (title: Type checks and casts)
 
-In Kotlin, you can perform type checks to check the type of an object at runtime. Type casts enable you to convert objects to a 
-different type.
+In Kotlin, you can do two things with types at runtime: check whether an object is a specific type, or convert it to another type.
+Type **checks** help you confirm the kind of object you're dealing with, while type **casts** attempt to convert the object to another type.
 
 > To learn specifically about **generics** type checks and casts, for example `List<T>`, `Map<K,V>`, see [Generics type checks and casts](generics.md#generics-type-checks-and-casts).
 >
 {style="tip"}
 
-## is and !is operators
+## `is` and `!is` operators
 
-To perform a runtime check that identifies whether an object conforms to a given type, use the `is` operator or its negated form `!is`:
+Use the `is` operator (or `!is` to negate it) to check if an object matches a type at runtime:
 
 ```kotlin
-if (obj is String) {
-    print(obj.length)
-}
+fun main() {
+    val input: Any = "Hello, Kotlin"
 
-if (obj !is String) { // Same as !(obj is String)
-    print("Not a String")
-} else {
-    print(obj.length)
+    if (input is String) {
+        println("Message length: ${input.length}")
+        // Message length: 13
+    }
+
+    if (input !is String) { // Same as !(input is String)
+        println("Input is not a valid message")
+    } else {
+        println("Processing message: ${input.length} characters")
+        // Processing message: 13 characters
+    }
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-is-operator"}
+
+You can also use `is` and `!is` operators to check if an object matches a subtype:
+
+```kotlin
+interface Animal {
+    val name: String
+    fun speak()
+}
+
+class Dog(override val name: String) : Animal {
+    override fun speak() = println("$name says: Woof!")
+}
+
+class Cat(override val name: String) : Animal {
+    override fun speak() = println("$name says: Meow!")
+}
+
+fun handleAnimal(animal: Animal) {
+    println("Handling animal: ${animal.name}")
+    animal.speak()
+    
+    // Use is operator to check for subtypes
+    if (animal is Dog) {
+        println("Special care instructions: This is a dog.")
+    } else if (animal is Cat) {
+        println("Special care instructions: This is a cat.")
+    }
+}
+
+fun main() {
+    val pets: List<Animal> = listOf(
+        Dog("Buddy"),
+        Cat("Whiskers"),
+        Dog("Rex")
+    )
+
+    for (pet in pets) {
+        handleAnimal(pet)
+        println("---")
+    }
+    // Handling animal: Buddy
+    // Buddy says: Woof!
+    // Special care instructions: This is a dog.
+    // ---
+    // Handling animal: Whiskers
+    // Whiskers says: Meow!
+    // Special care instructions: This is a cat.
+    // ---
+    // Handling animal: Rex
+    // Rex says: Woof!
+    // Special care instructions: This is a dog.
+    // ---
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-is-operator-subtype"}
+
+This example uses the `is` operator to check if the `Animal` class instance has subtype `Dog` or `Cat` to print the relevant
+care instructions.
+
+You can check if an object is a supertype of its declared type, but it's not worthwhile because the answer is always true.
+Every class instance is already an instance of its supertypes.
+
+> To identify the type of an object at runtime, see [Reflection](reflection.md).
+> 
+{type="tip"}
 
 ## Smart casts
 
@@ -30,32 +102,70 @@ This is called smart-casting. The compiler tracks the type checks and [explicit 
 values and inserts implicit (safe) casts automatically when necessary:
 
 ```kotlin
-fun demo(x: Any) {
-    if (x is String) {
-        print(x.length) // x is automatically cast to String
+fun logMessage(data: Any) {
+    // data is automatically cast to String
+    if (data is String) {
+        println("Received text: ${data.length} characters")
     }
 }
+
+fun main() {
+    logMessage("Server started")
+    // Received text: 14 characters
+    logMessage(404)
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-smartcast"}
 
 The compiler is even smart enough to know that a cast is safe if a negative check leads to a return:
 
 ```kotlin
-if (x !is String) return
+fun logMessage(data: Any) {
+    // data is automatically cast to String
+    if (data !is String) return
 
-print(x.length) // x is automatically cast to String
+    println("Received text: ${data.length} characters")
+}
+
+fun main() {
+    logMessage("User signed in")
+    // Received text: 14 characters
+    logMessage(true)
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-smartcast-negative"}
 
 ### Control flow
 
-Smart casts work not only for `if` conditional expressions but also for [`when` expressions](control-flow.md#when-expressions-and-statements)
-and [`while` loops](control-flow.md#while-loops):
+Smart casts work not only for `if` conditional expressions but also for [`when` expressions](control-flow.md#when-expressions-and-statements):
 
 ```kotlin
-when (x) {
-    is Int -> print(x + 1)
-    is String -> print(x.length + 1)
-    is IntArray -> print(x.sum())
+fun processInput(data: Any) {
+    when (data) {
+        // data is automatically cast to Int
+        is Int -> println("Log: Assigned new ID ${data + 1}")
+        // data is automatically cast to String
+        is String -> println("Log: Received message \"$data\"")
+        // data is automatically cast to IntArray
+        is IntArray -> println("Log: Processed scores, total = ${data.sum()}")
+    }
 }
+
+fun main() {
+    processInput(1001)
+    // Log: Assigned new ID 1002
+    processInput("System rebooted")
+    // Log: Received message "System rebooted"
+    processInput(intArrayOf(10, 20, 30))
+    // Log: Processed scores, total = 60
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-smartcast-when"}
+
+And for [`while` loops](control-flow.md#while-loops):
+
+```kotlin
+TODO()
 ```
 
 If you declare a variable of `Boolean` type before using it in your `if`, `when`, or `while` condition, then any
