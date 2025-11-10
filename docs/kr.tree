@@ -366,7 +366,7 @@
 	</toc-element>
 	<toc-element toc-title="Learning materials">
 		<toc-element toc-title="Overview" topic="learning-materials-overview.md"/>
-		<toc-element href="kotlin-tour-welcome.md" toc-title="Kotlin tour"/>
+		<toc-element href="kotlin-tour-welcome.html" toc-title="Kotlin tour"/>
 		<toc-element topic="koans.md"/>
 		<toc-element href="https://hyperskill.org/tracks?category=4&amp;utm_source=jbkotlin_hs&amp;utm_medium=referral&amp;utm_campaign=kotlinlang-docs&amp;utm_content=button_1&amp;utm_term=22.03.23" toc-title="Kotlin Core track"/>
 		<toc-element topic="kotlin-hands-on.md"/>
