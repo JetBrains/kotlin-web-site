@@ -95,10 +95,17 @@ Every class instance is already an instance of its supertypes.
 > 
 {type="tip"}
 
-## Smart casts
+## Type casts
 
-In most cases, you don't need to use explicit cast operators because the compiler automatically casts objects for you.
-This is called smart-casting. The compiler tracks the type checks and [explicit casts](#unsafe-cast-operator) for immutable
+To convert the type of an object in Kotlin to another type is called **casting**.
+
+In some cases the compiler automatically casts objects for you. This is called smart-casting.
+
+If you need to explicitly cast a type you can use `as?` or `as` [cast operators](#cast-operators). 
+
+### Smart casts
+
+The compiler tracks the type checks and [explicit casts](#unsafe-cast-operator) for immutable
 values and inserts implicit (safe) casts automatically when necessary:
 
 ```kotlin
@@ -135,7 +142,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-smartcast-negative"}
 
-### Control flow
+#### Control flow
 
 Smart casts work not only for `if` conditional expressions but also for [`when` expressions](control-flow.md#when-expressions-and-statements):
 
@@ -241,7 +248,7 @@ fun main(){
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-local-variables" validate="false"}
 
-### Logical operators
+#### Logical operators
 
 The compiler can perform smart casts on the right-hand side of `&&` or `||` operators if there is a type check (regular or negative) on the left-hand side:
 
@@ -279,7 +286,7 @@ fun signalCheck(signalStatus: Any) {
 >
 {style="note"}
 
-### Inline functions
+#### Inline functions
 
 The compiler can smart-cast variables captured within lambda functions that are passed to [inline functions](inline-functions.md).
 
@@ -321,7 +328,7 @@ fun runProcessor(): Processor? {
 }
 ```
 
-### Exception handling
+#### Exception handling
 
 Smart cast information is passed on to `catch` and `finally` blocks. This makes your code safer
 as the compiler tracks whether your object has a nullable type. For example:
@@ -358,7 +365,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-smart-casts-exception-handling"}
 
-### Smart cast prerequisites
+#### Smart cast prerequisites
 
 > Note that smart casts work only when the compiler can guarantee that the variable won't change between the check and its usage.
 >
@@ -401,7 +408,9 @@ Smart casts can be used in the following conditions:
     </tr>
 </table>
 
-## "Unsafe" cast operator
+### Cast operators
+
+#### "Unsafe" cast operator
 
 To explicitly cast an object to a non-nullable type, use the *unsafe* cast operator `as`:
 
@@ -419,7 +428,7 @@ type on the right-hand side of the cast:
 val x: String? = y as String?
 ```
 
-## "Safe" (nullable) cast operator
+#### "Safe" (nullable) cast operator
 
 To avoid exceptions, use the *safe* cast operator `as?`, which returns `null` on failure.
 
