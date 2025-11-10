@@ -22,7 +22,7 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ className, ...item
     const imageSrc = item.media?.type === 'image' ? item.media.path : undefined;
 
     return (
-        <article className={cn(styles.card, className)} data-testid="case-studies-card">
+        <article className={cn(styles.card, className)} data-testid="case-studies-card" id={item.id}>
             <div className={styles.content}>
                 {logo &&
                     <div className={styles.logos}>

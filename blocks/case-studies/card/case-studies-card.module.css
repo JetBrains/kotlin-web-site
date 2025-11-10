@@ -2,6 +2,7 @@
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 .content {
@@ -24,8 +25,9 @@
 }
 
 .logo {
-  height: 64px;
   width: auto;
+  height: auto;
+  max-height: 64px;
   object-fit: contain;
 }
 
