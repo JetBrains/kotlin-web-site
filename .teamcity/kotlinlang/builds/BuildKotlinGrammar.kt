@@ -22,7 +22,7 @@ object BuildKotlinGrammar : BuildType({
       tasks = "run"
       buildFile = "build.gradle.kts"
       gradleParams = "--debug"
-      dockerImage = "openjdk:8-jdk-alpine"
+      dockerImage = "amazoncorretto:21-alpine-jdk"
     }
   }
 
