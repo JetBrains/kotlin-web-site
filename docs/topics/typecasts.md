@@ -492,9 +492,9 @@ fun main() {
 
 #### Up and downcasting
 
-In Kotlin, you can also cast to supertypes and subtypes. 
+In Kotlin, you can cast objects to supertypes and subtypes. 
 
-To cast an object as an instance of its superclass is called **upcasting**. Upcasting doesn't need any special syntax or
+Casting an object to an instance of its superclass is called **upcasting**. Upcasting doesn't need any special syntax or
 cast operators. For example:
 
 ```kotlin
@@ -522,13 +522,12 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-upcast"}
 
-In this example, when the `printAnimalInfo()` function is called on a `Dog` instance, the `Dog` instance is upcast
-to `Animal` because this is what the function is expecting. Since it's still a `Dog` instance, the compiler dynamically
+In this example, when the `printAnimalInfo()` function is called with a `Dog` instance, the compiler upcasts it
+to `Animal` because that's the expected parameter type. Since the actual object is still a `Dog` instance, the compiler dynamically
 resolves the `makeSound()` function from the `Dog` class, printing `"Dog says woof!"`.
 
-Code like this is common in Kotlin APIs where the behavior depends on an abstract type. You can also see upcasting
-when working with Jetpack Compose and UI toolkits. Typically, they treat all UI elements as if they are part of a superclass
-and later use specific subclasses:
+You'll often see upcasting in Kotlin APIs where behavior depends on an abstract type. It's also common in Jetpack Compose
+and UI toolkits, which typically treat all UI elements as supertypes and later operate on specific subclasses:
 
 ```kotlin
     val textView = TextView(this)
@@ -543,5 +542,42 @@ and later use specific subclasses:
     setContentView(view)
 ```
 
-To cast an object as an instance of a subclass is called **downcasting**. Downcasting can be unsafe, so you need to do it
-explicitly with cast operators so the compiler knows what to do if the cast fails.
+Casting an object to an instance of a subclass is called **downcasting**. Because downcasting can be unsafe, you need to use
+explicit cast operators. To avoid throwing exceptions on failed casts, we recommend using the safe cast operator `as?`,
+to return `null` if the cast fails:
+
+```kotlin
+interface Animal {
+    fun makeSound()
+}
+
+class Dog : Animal {
+    override fun makeSound() {
+        println("Dog says woof!")
+    }
+
+    fun bark() {
+        println("BARK!")
+    }
+}
+
+fun main() {
+    // Creates animal as a Dog instance with Animal
+    // type
+    val animal: Animal = Dog()
+    
+    // Safely downcasts animal to Dog type
+    val dog: Dog? = animal as? Dog
+
+    // Uses a safe call to call bark() if dog isn't null
+    dog?.bark()
+    // "BARK!"
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-downcast"}
+
+In this example, `animal` is declared as type `Animal`, but it holds a `Dog` instance. The code safely casts `animal` to 
+`Dog` type and uses a [safe call](null-safety.md#safe-call-operator) (`?.`) to access the `bark()` function.
+
+You'll use downcasting in serialization when deserializing a base class to a specific subtype. It's also common when 
+working with Java libraries that return supertype objects, which you may need to downcast in Kotlin.
