@@ -165,15 +165,54 @@ fun main() {
 And for [`while` loops](control-flow.md#while-loops):
 
 ```kotlin
-TODO()
-```
+sealed interface Status
+data class Ok(val currentRoom: String) : Status
+data object Error : Status
 
-If you declare a variable of `Boolean` type before using it in your `if`, `when`, or `while` condition, then any
-information collected by the compiler about the variable will be accessible in the corresponding block for
+class RobotVacuum(val rooms: List<String>) {
+    var index = 0
+
+    fun status(): Status =
+        if (index < rooms.size) Ok(rooms[index])
+        else Error
+
+    fun clean(): Status {
+        println("Finished cleaning ${rooms[index]}")
+        index++
+        return status()
+    }
+}
+
+fun main() {
+    val robo = RobotVacuum(listOf("Living Room", "Kitchen", "Hallway"))
+
+    var status: Status = robo.status()
+    while (status is Ok) {
+        // The compiler smart casts status to OK type so the currentRoom
+        // property is accessible.
+        println("Cleaning ${status.currentRoom}...")
+        status = robo.clean()
+    }
+    // Cleaning Living Room...
+    // Finished cleaning Living Room
+    // Cleaning Kitchen...
+    // Finished cleaning Kitchen
+    // Cleaning Hallway...
+    // Finished cleaning Hallway
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-typecasts-smartcast-while"}
+
+In this example, the sealed interface `Status` has two implementations: the data class `Ok` and the data object `Error`.
+Only the `Ok` data class has the `currentRoom` property. When the `while` loop condition evaluates to true, the
+compiler smart casts the `status` variable to `Ok` type, making the `currentRoom` property accessible within the loop body.
+
+If you declare a variable of `Boolean` type before using it in your `if`, `when`, or `while` condition, any
+information collected by the compiler about the variable is accessible in the corresponding block for
 smart-casting.
 
 This can be useful when you want to do things like extract boolean conditions into variables. Then, you can give the
-variable a meaningful name, which will improve your code readability and make it possible to reuse the variable later
+variable a meaningful name, which improves your code readability and makes it possible to reuse the variable later
 in your code. For example:
 
 ```kotlin
@@ -249,7 +288,7 @@ contract. This means that any lambda functions passed to an inline function are 
 are called in place, the compiler knows that a lambda function can't leak references to any variables contained within
 its function body.
 
-The compiler uses this knowledge, along with other analyses to decide whether it's safe to smart-cast any of the
+The compiler uses this knowledge, along with other analyses, to decide whether it's safe to smart-cast any of the
 captured variables. For example:
 
 ```kotlin
