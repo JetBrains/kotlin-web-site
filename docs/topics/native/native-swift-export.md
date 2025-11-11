@@ -68,8 +68,7 @@ The Kotlin compiler automatically generates all the necessary files (including `
 static `.a` library, a header file, and a `modulemap` file) and copies them into the app's build directory, which you can
 access from Xcode.
 
-> You can also clone our [public sample](https://github.com/Kotlin/swift-export-sample) with Swift export already set
-> up.
+> You can also clone our [public sample](https://github.com/Kotlin/swift-export-sample) with Swift export already set up.
 >
 {style="tip"}
 
@@ -294,13 +293,11 @@ fun log(vararg messages: String)
 
 ```swift
 // Swift
-public func log(_ messages: Swift.String...)
+public func log(messages: Swift.String...)
 ```
 
-> Swift export currently does _not_ support:
->
-> * All functions with `suspend`, `inline`, and `operator` keywords.
-> * Generic types in variadic functions parameters.
+> Support for functions with `suspend`, `inline`, and `operator` keywords is currently limited.
+> Generic types are generally not supported.
 >
 {style="note"}
 
