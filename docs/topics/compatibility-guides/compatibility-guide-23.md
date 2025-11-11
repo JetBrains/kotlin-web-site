@@ -132,6 +132,23 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.3.20: Unify Kotlin/Native exception stacktrace formatting with other Kotlin platforms
 
+### Correct `Iterable<T>.intersect()` and `Iterable<T>.subtract()` behavior for referential-equality collections
+
+> **Issue**: [KTLC-268](https://youtrack.jetbrains.com/issue/KTLC-268)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: The [`Iterable<T>.intersect()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/intersect.html) and [`Iterable<T>.subtract()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/subtract.html) functions now test membership for each
+> receiver element before adding it to the result set.
+> The result set compares elements using `Any::equals`,
+> ensuring correct results even when the argument collection uses referential equality (for example, `IdentityHashMap.keys˙).
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: enable the new behavior
+
 ## Tools
 
 ### Correct `setSource()` function in `KotlinCompileTool` to replace sources
