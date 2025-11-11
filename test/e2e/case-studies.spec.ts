@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { CaseStudiesPage } from '../page/case-studies-page';
 
-test.describe.only('Case-studies landing page', async () => {
+test.describe('Case-studies landing page', async () => {
     test('Case-studies: check hero block content', async ({ page }) => {
         const caseStudiesPage = new CaseStudiesPage(page);
         await caseStudiesPage.init();
