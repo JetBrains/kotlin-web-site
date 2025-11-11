@@ -1243,7 +1243,7 @@ In Kotlin 2.2.20, the compiler now detects changes in lambdas of inline function
 Kotlin 2.2.20 adds new Gradle tasks that make library publication easier. These tasks help you generate key pairs, upload
 public keys, and run local checks to ensure the verification process succeeds before uploading to the Maven Central repository.
 
-For more information about how to use these tasks as part of the publication process, see [Publish your library to Maven Central](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-libraries.html).
+For more information about how to use these tasks as part of the publication process, see [Publish your library to Maven Central](https://kotlinlang.org/docs/multiplatform/multiplatform-publish-libraries.html).
 
 #### New Gradle tasks for generating and uploading PGP keys
 
