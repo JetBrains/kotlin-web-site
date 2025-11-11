@@ -30,24 +30,24 @@ abstract class WritersideBuilder(
                 # Process the main repository
                 cd %teamcity.build.checkoutDir%
                 git ls-tree -r --name-only HEAD | grep -E '\.(topic|md)$' | while read file; do
-                    timestamp=${'$'}{'$'}(git log -1 --format="%at" -- "${'$'}{'$'}file")
-                    echo "\"${'$'}{'$'}file\": \"${'$'}{'$'}timestamp\"," >> %teamcity.build.checkoutDir%/timestamps.json
+                    timestamp=${'$'}(git log -1 --format="%at" -- "${'$'}file")
+                    echo "\"${'$'}file\": \"${'$'}timestamp\"," >> %teamcity.build.checkoutDir%/timestamps.json
                 done
-                
+
                 # Process all subdirectories containing .git folders
                 find %teamcity.build.checkoutDir% -mindepth 2 -maxdepth 2 -type d -name ".git" | while read gitdir; do
-                    repo_dir=${'$'}{'$'}(dirname "${'$'}{'$'}gitdir")
-                    rel_dir=${'$'}{'$'}(basename "${'$'}{'$'}repo_dir")
-                
-                    cd "${'$'}{'$'}repo_dir"
+                    repo_dir=${'$'}(dirname "${'$'}gitdir")
+                    rel_dir=${'$'}(basename "${'$'}repo_dir")
+
+                    cd "${'$'}repo_dir"
                     git ls-tree -r --name-only HEAD | grep -E '\.(topic|md)$' | while read file; do
-                        timestamp=${'$'}{'$'}(git log -1 --format="%at" -- "${'$'}{'$'}file")
-                        echo "\"${'$'}{'$'}rel_dir/${'$'}{'$'}file\": \"${'$'}{'$'}timestamp\"," >> %teamcity.build.checkoutDir%/timestamps.json
+                        timestamp=${'$'}(git log -1 --format="%at" -- "${'$'}file")
+                        echo "\"${'$'}rel_dir/${'$'}file\": \"${'$'}timestamp\"," >> %teamcity.build.checkoutDir%/timestamps.json
                     done
                 done
-                
+
                 # Remove trailing comma from last entry
-                sed -i '${'$'}{'$'} s/.$//' %teamcity.build.checkoutDir%/timestamps.json
+                sed -i '${'$'} s/.$//' %teamcity.build.checkoutDir%/timestamps.json
                 echo "}" >> %teamcity.build.checkoutDir%/timestamps.json
             """.trimIndent()
         }
