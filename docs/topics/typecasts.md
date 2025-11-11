@@ -101,12 +101,12 @@ To convert the type of an object in Kotlin to another type is called **casting**
 
 In some cases, the compiler automatically casts objects for you. This is called smart-casting.
 
-If you need to explicitly cast a type, use `as?` or `as` [cast operators](#cast-operators). 
+If you need to explicitly cast a type, use `as?` or `as` [cast operators](#safe-nullable-cast-operator). 
 
 ### Smart casts
 
-The compiler tracks the type checks and [explicit casts](#unsafe-cast-operator) for immutable
-values and inserts implicit (safe) casts automatically when necessary:
+The compiler tracks the type checks and [explicit casts](#safe-nullable-cast-operator) for immutable
+values and inserts implicit (safe) casts automatically:
 
 ```kotlin
 fun logMessage(data: Any) {
@@ -412,7 +412,7 @@ Smart casts can be used in the following conditions:
 
 Kotlin has two cast operators: `as` and `as?`. You can use both to cast, but they have different behaviors.
 
-If a cast fails with the `as` operator, the compiler throws a `ClassCastException`. That's why it's also called the **unsafe** operator.
+If a cast fails with the `as` operator, a `ClassCastException` is thrown at runtime. That's why it's also called the **unsafe** operator.
 You can use `as` when casting to a non-null type:
 
 ```kotlin
@@ -452,7 +452,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0" id="kotlin-safe-cast-operator"}
 
-#### Cast nullable types
+#### Nullable types
 
 To cast a nullable type safely, use the `as?` operator to prevent triggering a `ClassCastException` if the cast fails.
 
@@ -526,7 +526,7 @@ In this example, when the `printAnimalInfo()` function is called with a `Dog` in
 to `Animal` because that's the expected parameter type. Since the actual object is still a `Dog` instance, the compiler dynamically
 resolves the `makeSound()` function from the `Dog` class, printing `"Dog says woof!"`.
 
-You'll often see upcasting in Kotlin APIs where behavior depends on an abstract type. It's also common in Jetpack Compose
+You'll often see explicit upcasting in Kotlin APIs where behavior depends on an abstract type. It's also common in Jetpack Compose
 and UI toolkits, which typically treat all UI elements as supertypes and later operate on specific subclasses:
 
 ```kotlin
