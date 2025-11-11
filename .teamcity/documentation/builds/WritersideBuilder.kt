@@ -24,6 +24,8 @@ abstract class WritersideBuilder(
         script {
             name = "Generate timestamps file"
             scriptContent = """
+                set -e
+                
                 echo "Generate timestamps"
                 echo "{" > %teamcity.build.checkoutDir%/timestamps.json
 
