@@ -31,17 +31,19 @@ Here you'll learn how to develop a console application and create unit tests wit
 
 </tab>
 
-<tab id="backend" title="Server-side">
+<tab id="backend" title="Backend">
 
-Here you'll learn how to develop backend applications with Kotlin server-side.
+Here you'll learn how to develop a backend application with Kotlin server-side.
 
-1. **[Configure a Java project to work with Kotlin](mixing-java-kotlin-intellij.md)**.
+* **Introduce Kotlin to your Java project:**
 
-2. **[Add Kotlin tests to your Java Maven project](jvm-test-using-junit.md)**.
+  * [Configure a Java project to work with Kotlin](mixing-java-kotlin-intellij.md)
+  * [Add Kotlin tests to your Java Maven project](jvm-test-using-junit.md)
 
-3. **[Create a RESTful web service with Spring Boot](jvm-get-started-spring-boot.md)**.
+* **Create a backend app from scratch with Kotlin:**
 
-4. **[Create HTTP APIs with Ktor](https://ktor.io/docs/creating-http-apis.html)**.
+  * [Create a RESTful web service with Spring Boot](jvm-get-started-spring-boot.md)
+  * [Create HTTP APIs with Ktor](https://ktor.io/docs/creating-http-apis.html)
 
 </tab>
 
