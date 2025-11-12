@@ -1433,10 +1433,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@4.10.3":
-  version "4.10.3"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.10.3.tgz#a19ebd9c8a35bc61ca323d6a8a0b404145696eed"
-  integrity sha512-EyvcI1QkD/reGN9pOValBF6ndnqMp5WpZSI/ql8jFYcYLorwkdiwNr016qhljOEUvQ/ZUwR5FDoiQX2w52NZOQ==
+"@jetbrains/kotlin-web-site-ui@4.12.0":
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.12.0.tgz#54ac736c11588e3caf427d1f6041081ecda72960"
+  integrity sha512-xjHSphIJPKGnd74jZThqbGqeKk4OH3/znCJ6jdVUP3x5REwcPzegcF0qhEzcYnzl3wZ6/LLk2wHudnwCIAfm+w==
 
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
@@ -1840,10 +1840,10 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
-"@rescui/icons@^0.16.13":
-  version "0.16.13"
-  resolved "https://registry.npmjs.org/@rescui/icons/-/icons-0.16.13.tgz"
-  integrity sha512-ik1ZE0QNFM6Kfk8hs3GSmHMvcLLTu/Pxzi5aAy4Z5uIrnKxqXf5k3AlbKZVWS/pneeKLSWhheztcjUVtjidv+g==
+"@rescui/icons@^1.5.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-1.6.0.tgz#3bf7fbda19e0690e70cb254c583bf958a4af78f2"
+  integrity sha512-O5+ElCJ4I0tx1wSy6M7IdOuTvIjJLWL/3wNJ0LANu2jfi95cVhbMrxfvZewhOimS6/QgZXqJ7aPn2iCgagrySQ==
   dependencies:
     "@babel/runtime-corejs3" "^7.26.0"
     classnames "^2.2.6"
@@ -1888,15 +1888,14 @@
     core-js "^3"
     nanoid "^3.3.3"
 
-"@rescui/switcher@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.npmjs.org/@rescui/switcher/-/switcher-0.5.1.tgz"
-  integrity sha512-4oQdZOfmm8cJkLl1SuuYEtICAcIvcsU7/ApPIE6o5ylVEcP51V+2xATIOOGzmG5PXlEdY7FO048OTg+msBR94Q==
+"@rescui/switcher@0.12.3":
+  version "0.12.3"
+  resolved "https://registry.yarnpkg.com/@rescui/switcher/-/switcher-0.12.3.tgz#33f2c4de29ce3a55afad53ee542f996df071d13a"
+  integrity sha512-IM8mEqx/rnrBBLdDqxDzTKjRncFWN+mH4hC4Ja66rwlE3f27NJ0CnP2bDyK5EWGjcnhDPrZn8u3USIv7tW4geA==
   dependencies:
-    "@babel/runtime-corejs3" "^7.14.0"
-    "@rescui/use-resize-observer" "^0.1.4"
+    "@babel/runtime-corejs3" "^7.26.0"
+    "@rescui/use-resize-observer" "^0.3.0"
     classnames "^2.2.6"
-    core-js "^3.9.1"
 
 "@rescui/tab-list@^0.11.1":
   version "0.11.1"
@@ -1948,7 +1947,7 @@
   dependencies:
     "@babel/runtime-corejs3" "^7.26.0"
 
-"@rescui/use-resize-observer@0.1.4", "@rescui/use-resize-observer@^0.1.4":
+"@rescui/use-resize-observer@0.1.4":
   version "0.1.4"
   resolved "https://registry.npmjs.org/@rescui/use-resize-observer/-/use-resize-observer-0.1.4.tgz"
   integrity sha512-MoRnAaHwNXCS6MoEvMM/ODyjEgsC8N3A2rc43YXTne+aIgb/OktOPvwRB2OdBZb1EhyqOAJBPigRYFPzQYQlVA==
@@ -1968,6 +1967,13 @@
   version "0.2.7"
   resolved "https://registry.npmjs.org/@rescui/use-resize-observer/-/use-resize-observer-0.2.7.tgz"
   integrity sha512-//li3RTpX+i+Ke2qwBEcAt5oWhib3O/STPSYsGkA3LVw9rHrXLz34fEq3GcjpmSCEIl0vLtvJnV6LEFm4zmWSg==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.26.0"
+
+"@rescui/use-resize-observer@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@rescui/use-resize-observer/-/use-resize-observer-0.3.0.tgz#e1affb4004dafedac677f2deddb8d53b0cfcb53f"
+  integrity sha512-eW2SmsD3yVmKJoNkYFfsiqavnU9gvtWuDTXUleTNIj/BddDyQ5zv6p3fSjl7OxQxknuB1oG1DzQBpO42WyjfSg==
   dependencies:
     "@babel/runtime-corejs3" "^7.26.0"
 

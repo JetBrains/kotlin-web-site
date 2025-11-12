@@ -77,7 +77,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-step"}
 
-## Progression
+## Progressions
 
 The ranges of integral types, such as `Int`, `Long`, and `Char`, can be treated as
 [arithmetic progressions](https://en.wikipedia.org/wiki/Arithmetic_progression).

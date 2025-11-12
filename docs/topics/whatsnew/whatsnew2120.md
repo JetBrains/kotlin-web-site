@@ -562,7 +562,7 @@ alongside the plugin, due to an option being effectively set twice.
 ## Breaking changes and deprecations
 
 * To align Kotlin Multiplatform with upcoming changes in Gradle, we are phasing out the `withJava()` function.
-  [Java source sets are now created by default](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-compatibility-guide.html#java-source-sets-created-by-default). If you use the [Java test fixtures](https://docs.gradle.org/current/userguide/java_testing.html#sec:java_test_fixtures) Gradle plugin,
+  [Java source sets are now created by default](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#java-source-sets-created-by-default). If you use the [Java test fixtures](https://docs.gradle.org/current/userguide/java_testing.html#sec:java_test_fixtures) Gradle plugin,
   upgrade directly to [Kotlin 2.1.21](releases.md#release-details) to avoid compatibility issues.
 * The JetBrains team is proceeding with the deprecation of the `kotlin-android-extensions` plugin. If you try to use it
   in your project, you'll now get a configuration error, and no plugin code will be executed.
@@ -579,16 +579,16 @@ The Kotlin documentation has received some notable changes:
 * [Kotlin roadmap](roadmap.md) – see the updated list of Kotlin's priorities on language and ecosystem evolution.
 * [Gradle best practices](gradle-best-practices.md) page – learn essential best practices for optimizing your Gradle
   builds and improving performance.
-* [Compose Multiplatform and Jetpack Compose](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-and-jetpack-compose.html)
+* [Compose Multiplatform and Jetpack Compose](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-and-jetpack-compose.html)
   – an overview of the relation between the two UI frameworks.
-* [Kotlin Multiplatform and Flutter](https://www.jetbrains.com/help/kotlin-multiplatform-dev/kotlin-multiplatform-flutter.html)
+* [Kotlin Multiplatform and Flutter](https://kotlinlang.org/docs/multiplatform/kotlin-multiplatform-flutter.html)
   – see the comparison of two popular cross-platform frameworks.
 * [Interoperability with C](native-c-interop.md) – explore the details of Kotlin's interoperability with C.
 * [Numbers](numbers.md) – learn about different Kotlin types for representing numbers.
 
 ### New and updated tutorials
 
-* [Publish your library to Maven Central](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-libraries.html)
+* [Publish your library to Maven Central](https://kotlinlang.org/docs/multiplatform/multiplatform-publish-libraries.html)
   – learn how to publish KMP library artifacts to the most popular Maven repository.
 * [Kotlin/Native as a dynamic library](native-dynamic-libraries.md) – create a dynamic Kotlin library.
 * [Kotlin/Native as an Apple framework](apple-framework.md) – create your own framework and use Kotlin/Native code from

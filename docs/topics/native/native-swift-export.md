@@ -92,7 +92,7 @@ To configure Xcode to integrate Swift export into your project:
 ## Current limitations
 
 Swift export currently works only in projects that use
-[direct integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-direct-integration.html) to
+[direct integration](https://kotlinlang.org/docs/multiplatform/multiplatform-direct-integration.html) to
 connect the iOS framework to the Xcode project.
 This is a standard configuration for Kotlin Multiplatform projects created with the Kotlin Multiplatform plugin in IntelliJ
 IDEA or through the [web wizard](https://kmp.jetbrains.com/).

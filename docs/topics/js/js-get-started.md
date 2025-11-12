@@ -21,7 +21,7 @@ Community or Ultimate edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/
 ### Set up the environment
 
 1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-2. [Set up your environment for Kotlin Multiplatform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html#set-up-the-environment).
+2. [Set up your environment for Kotlin Multiplatform development](https://kotlinlang.org/docs/multiplatform/quickstart.html#set-up-the-environment).
 
 ### Create your project
 
@@ -55,7 +55,7 @@ Community or Ultimate edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/
    Alternatively, click the refresh button in the Gradle tool window.
 
 For more information about the Gradle configuration for multiplatform projects,
-see the [Multiplatform Gradle DSL reference](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html).
+see the [Multiplatform Gradle DSL reference](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html).
 
 ### Build and run the application
 
@@ -433,5 +433,5 @@ IntelliJ IDEA displays the error message in the **Build** pane.
 * [Set up your Kotlin/JS project](js-project-setup.md).
 * Learn how to [debug Kotlin/JS applications](js-debugging.md).
 * Learn how to [write and run tests with Kotlin/JS](js-running-tests.md).
-* Learn how to [write Gradle build scripts for real-life Kotlin/JS projects](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html).
+* Learn how to [write Gradle build scripts for real-life Kotlin/JS projects](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html).
 * Read more about the [Gradle build system](gradle.md).
