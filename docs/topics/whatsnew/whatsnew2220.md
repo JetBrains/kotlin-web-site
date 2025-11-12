@@ -546,7 +546,7 @@ The key features are:
 
 #### How to enable Swift export
 
-The feature is currently [Experimental](components-stability.md#stability-levels-explained) and works only in projects that use [direct integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-direct-integration.html)
+The feature is currently [Experimental](components-stability.md#stability-levels-explained) and works only in projects that use [direct integration](https://kotlinlang.org/docs/multiplatform/multiplatform-direct-integration.html)
 to connect the iOS framework to the Xcode project. This is a standard configuration for multiplatform projects
 created with the Kotlin Multiplatform plugin in IntelliJ IDEA or through the [web wizard](https://kmp.jetbrains.com/).
 
@@ -615,7 +615,7 @@ suspend fun readCopiedText(): String {
 ```
 
 Starting with this release, the Kotlin Gradle plugin adds a new shared source set for web (comprising `webMain` and `webTest`)
-when you use the [default hierarchy template](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-hierarchy.html#default-hierarchy-template).
+when you use the [default hierarchy template](https://kotlinlang.org/docs/multiplatform/multiplatform-hierarchy.html#default-hierarchy-template).
 
 With this change, the `web` source set becomes a parent of both `js` and `wasmJs` source sets. The updated source set
 hierarchy looks like this:
@@ -654,7 +654,7 @@ This update simplifies code sharing between the `js` and `wasmJs` targets. It is
   for wider browser compatibility. Given this fallback mode, when you create a website, it works on all browsers out
   of the box, as modern browsers use `wasmJs` and older ones use `js`.
 
-To try this feature, use the [default hierarchy template](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-hierarchy.html#default-hierarchy-template) in the `kotlin {}` block of your `build.gradle(.kts)` file:
+To try this feature, use the [default hierarchy template](https://kotlinlang.org/docs/multiplatform/multiplatform-hierarchy.html#default-hierarchy-template) in the `kotlin {}` block of your `build.gradle(.kts)` file:
 
 ```kotlin
 kotlin {
@@ -684,10 +684,10 @@ you can now remove it from your `gradle.properties` file.
 Unfortunately, a few limitations are still present. You still need to use a Mac machine if:
 
 * Your library or any dependent modules have [cinterop dependencies](native-c-interop.md).
-* You have the [CocoaPods integration](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html) set up in your project.
-* You need to build or test [final binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html) for Apple targets.
+* You have the [CocoaPods integration](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-overview.html) set up in your project.
+* You need to build or test [final binaries](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html) for Apple targets.
 
-For more information about the publication of multiplatform libraries, see our [documentation](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-lib-setup.html).
+For more information about the publication of multiplatform libraries, see our [documentation](https://kotlinlang.org/docs/multiplatform/multiplatform-publish-lib-setup.html).
 
 ### New approach for declaring common dependencies
 <primary-label ref="experimental-opt-in"/>
@@ -1243,7 +1243,7 @@ In Kotlin 2.2.20, the compiler now detects changes in lambdas of inline function
 Kotlin 2.2.20 adds new Gradle tasks that make library publication easier. These tasks help you generate key pairs, upload
 public keys, and run local checks to ensure the verification process succeeds before uploading to the Maven Central repository.
 
-For more information about how to use these tasks as part of the publication process, see [Publish your library to Maven Central](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-libraries.html).
+For more information about how to use these tasks as part of the publication process, see [Publish your library to Maven Central](https://kotlinlang.org/docs/multiplatform/multiplatform-publish-libraries.html).
 
 #### New Gradle tasks for generating and uploading PGP keys
 

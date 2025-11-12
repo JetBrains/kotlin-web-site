@@ -7,7 +7,7 @@ app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts to publish
 
 ## Create a project
 
-1. [Set up your environment for Kotlin Multiplatform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html#set-up-the-environment).
+1. [Set up your environment for Kotlin Multiplatform development](https://kotlinlang.org/docs/multiplatform/quickstart.html#set-up-the-environment).
 2. In IntelliJ IDEA, select **File | New | Project**.
 3. In the panel on the left, select **Kotlin Multiplatform**.
 
@@ -98,7 +98,7 @@ Once your site is created, open the browser and navigate to your platform's page
 
 ## What's next?
 
-* [Learn how to share UIs between iOS and Android using Compose Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html)
+* [Learn how to share UIs between iOS and Android using Compose Multiplatform](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html)
 * Try more Kotlin/Wasm examples:
 
   * [KotlinConf application](https://github.com/JetBrains/kotlinconf-app)

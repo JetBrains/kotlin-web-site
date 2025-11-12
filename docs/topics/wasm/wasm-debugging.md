@@ -8,7 +8,7 @@ application built with Kotlin/Wasm.
 
 ## Before you start
 
-1. [Set up your environment for Kotlin Multiplatform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/quickstart.html#set-up-the-environment).
+1. [Set up your environment for Kotlin Multiplatform development](https://kotlinlang.org/docs/multiplatform/quickstart.html#set-up-the-environment).
 2. Follow the instructions to [create a Kotlin Multiplatform project targeting Kotlin/Wasm](wasm-get-started.md#create-a-project).
 
 > * Debugging Kotlin/Wasm code in IntelliJ IDEA is available starting from version 2025.3 of the IDE, currently in the [Early Access Program (EAP)](https://www.jetbrains.com/resources/eap/)

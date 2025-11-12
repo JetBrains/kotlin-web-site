@@ -178,7 +178,7 @@ async function docs($: CheerioAPI, url: string) {
             ...DEFAULT_RECORD,
 
             objectID: finalUrl,
-            url: new URL(finalUrl, pageUrl).toString(),
+            url: new URL(finalUrl, pageUrl).pathname,
             parent: '/' + url,
 
             headings: headings.reverse().join(' | '),
