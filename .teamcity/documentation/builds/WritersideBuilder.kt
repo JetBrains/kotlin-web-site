@@ -4,6 +4,7 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import kotlinlang.builds.BuildWebHelpFrontend
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 abstract class WritersideBuilder(
     module: String,
@@ -20,6 +21,13 @@ abstract class WritersideBuilder(
     artifactRules = """
         artifacts/*
     """.trimIndent()
+
+    triggers {
+        vcs {
+            enabled = false
+            branchFilter = "+:<default>"
+        }
+    }
 
     steps {
         script {
