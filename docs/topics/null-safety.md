@@ -215,8 +215,9 @@ You can also place a safe call on the left side of an assignment:
 person?.department?.head = managersPool.getManager()
 ```
 
-In the example above, if one of the receivers in the safe call chain is `null`, the assignment is skipped, and the expression on the right is not evaluated at all. For example, if either
-`person` or `person.department` is `null`, the function is not called. Here's the equivalent of the same safe call but with the `if` conditional:
+In the example above, if one of the receivers in the safe call chain is `null`, the assignment is skipped, and the
+expression on the right is not evaluated at all. For example, if either `person` or `person.department` is `null`, the
+function is not called. Here's the equivalent of the same safe call but with the `if` conditional:
 
 ```kotlin
 if (person != null && person.department != null) {
@@ -247,11 +248,27 @@ Instead of writing the complete `if` expression, you can handle this in a more c
 
 ```kotlin
 fun main() {
+    
 //sampleStart
     // Assigns null to a nullable variable  
     val b: String? = null
     // Checks for nullability. If not null, returns length. If null, returns a non-null value
     val l = b?.length ?: 0
+    println(l)
+    // 0
+//sampleEnd
+}
+```
+{kotlin-runnable="true"}
+
+```kotlin
+fun main() {
+    
+//sampleStart
+    // Assigns null to a nullable variable  
+    val b: String? = null
+    // Checks for nullability. If not null, returns length. If null, returns a non-null value
+    val l = b?.length ?: 100
     println(l)
     // 0
 //sampleEnd

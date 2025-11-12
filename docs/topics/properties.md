@@ -379,7 +379,7 @@ const val MAX_LOGIN_ATTEMPTS = 3
 Compile-time constants must meet the following requirements:
 
 * They must be either a top-level property, or a member of an [`object` declaration](object-declarations.md#object-declarations-overview) or a [companion object](object-declarations.md#companion-objects).
-* They must be initialized with a value of type `String` or a [primitive type](basic-types.md).
+* They must be initialized with a value of type `String` or a [primitive type](types-overview.md).
 * They can't have a custom getter.
 
 Compile-time constants still have a backing field, so you can interact with them using [reflection](reflection.md).
@@ -427,7 +427,7 @@ For class properties:
 * You can't declare them in the primary constructor.
 * They must not have a custom getter or setter.
 
-In all cases, the property or variable must be non-nullable and must not be a [primitive type](basic-types.md).
+In all cases, the property or variable must be non-nullable and must not be a [primitive type](types-overview.md).
 
 If you access a `lateinit` property before initializing it, Kotlin throws a specific exception that identifies the uninitialized
 property being accessed:

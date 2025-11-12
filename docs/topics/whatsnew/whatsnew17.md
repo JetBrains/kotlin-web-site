@@ -521,7 +521,7 @@ language and API versions.
 
 With Kotlin 1.7.0, we're supporting three previous language and API versions rather than two. This means Kotlin 1.7.0
 supports the development of libraries targeting Kotlin versions down to 1.4.0. For more information on backward
-compatibility, see [Compatibility modes](compatibility-modes.md).
+compatibility, see [Compatibility options](kotlin-evolution-principles.md#compatibility-options).
 
 ### Access to annotations via reflection
 
