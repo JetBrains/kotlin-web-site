@@ -24,7 +24,6 @@ abstract class WritersideBuilder(
 
     triggers {
         vcs {
-            enabled = false
             branchFilter = "+:<default>"
         }
     }
