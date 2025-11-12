@@ -9,6 +9,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.triggers
 import templates.DockerImageBuilder
 import templates.scriptDistAnalyze
 
@@ -30,11 +31,9 @@ object BuildSitePages : BuildType({
     }
 
     triggers {
-        triggers {
-            vcs {
-                enabled = false
-                branchFilter = "+:<default>"
-            }
+        vcs {
+            enabled = false
+            branchFilter = "+:<default>"
         }
         finishBuildTrigger {
             buildType = FetchBlogNews.id?.value ?: error("Invalid FetchBlogNews ID")
