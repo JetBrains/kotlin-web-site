@@ -40,23 +40,26 @@ abstract class WritersideBuilder(
             """.trimIndent()
         }
         script {
+            val fileArchive = "webHelp${instance.uppercase()}2.zip"
+            val buildAssetsNumber = "%dep.${BuildWebHelpFrontend.id ?: throw RuntimeException("BuildWebHelpFrontend.id must not be null")}.build.number%"
+
             id = "post-processing-files"
             name = "Post processing files"
             workingDir = "artifacts"
             // language=bash
             scriptContent = """
                 #!/bin/sh
-                set -ex
+                set -e
                 
                 apk add zip unzip
                 ls -la
-                unzip "webHelp${instance.uppercase()}2.zip" -d archive
                 
+                unzip "$fileArchive" -d archive
                 cd archive
                 
-                export ASSET_HASH="%dep.${BuildWebHelpFrontend.id ?: throw RuntimeException("BuildWebHelpFrontend.id must not be null")}.build.number%"
-            """.trimIndent() + "\n$postProcessAdditions\n" + """
-                zip -ru ../webHelpKR2.zip .
+                export ASSET_HASH="$buildAssetsNumber"
+            """.trimIndent() + "\n\n$postProcessAdditions\n\n" + """
+                zip -ru "../$fileArchive" .
                 
                 cd ../ && rm -rf archive
             """.trimIndent()
@@ -86,14 +89,12 @@ abstract class WritersideBuilder(
 })
 
 // language=sh
-fun postProcessingScript() = """
+fun postProcessingScript() = "\n" + """
     html_files=$(find . -type f -name '*.html')
     for file in ${'$'}html_files; do
         echo "Processing ${'$'}file"
-        echo "Fix assets hash #${'$'}ASSET_HASH"
         sed -i -E "s/(custom-frontend-app\/[^\"^']+\.(js|css))([\"\'])/\1?${'$'}ASSET_HASH\3/g" "${'$'}file"
         
-        echo "Replace old /docs/ urls"
         sed -i 's|href="https://kotlinlang.org/docs/|href="/docs/|g' "${'$'}file"
         sed -i 's|href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/|href="/docs/multiplatform/|g' "${'$'}file"
     done
@@ -101,8 +102,7 @@ fun postProcessingScript() = """
     json_files=$(find . -type f -name '*.json')
     for file in ${'$'}json_files; do
         echo "Processing ${'$'}file"
-        echo "Replace old /docs/ urls"
         sed -i 's|"url":"https://kotlinlang.org/docs/|"url": "/docs/|g' "${'$'}file"
         sed -i 's|"url":"https://www.jetbrains.com/help/kotlin-multiplatform-dev/|"url": "/docs/multiplatform/|g' "${'$'}file"
     done
-""".trimIndent()
+""".trimIndent() + "\n"
