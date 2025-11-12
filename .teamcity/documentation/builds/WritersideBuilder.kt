@@ -49,7 +49,7 @@ abstract class WritersideBuilder(
 
     dependencies {
         artifacts(BuildWebHelpFrontend) {
-            buildRule = lastSuccessful("+:ktl-2776-navigation-kmp-docs")
+            buildRule = lastPinned("+:*")
             cleanDestination = true
             artifactRules = "+:static.zip!** => static/"
         }
