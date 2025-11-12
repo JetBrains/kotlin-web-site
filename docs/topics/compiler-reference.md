@@ -234,6 +234,15 @@ Allows using the `returnsNotNull()` function in contracts to assume a non-null r
 
 Allows using the `holdsIn` keyword in contracts to assume that a boolean condition is `true` inside a lambda.
 
+### -Xreturn-value-checker
+<primary-label ref="experimental-general"/>
+
+Configure how the compiler reports ignored results:
+
+* `disable`: disables the unused return value checker. (Default)
+* `check`: reports warnings for ignored results from marked functions.
+* `full`: reports warnings for ignored results from all functions in your project.
+
 ## Kotlin/JVM compiler options
 
 The Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
