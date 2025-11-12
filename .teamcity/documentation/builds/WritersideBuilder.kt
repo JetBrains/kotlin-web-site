@@ -1,6 +1,8 @@
 package documentation.builds
 
+import jetbrains.buildServer.configs.kotlin.ArtifactDependency
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import kotlinlang.builds.BuildWebHelpFrontend
 
@@ -11,6 +13,7 @@ abstract class WritersideBuilder(
 ): BuildType({
     val dockerImageTag = "2025.07.8502"
     val frontend = "file:///opt/static/"
+    val output_dir = "/opt/sources/artifacts"
 
     name = "${instance.uppercase()} documentation build"
     description = "Build $module/$instance documentation with the docker"
@@ -34,8 +37,30 @@ abstract class WritersideBuilder(
                 -e MODULE_INSTANCE=$module/$instance
                 -e RUNNER=teamcity
                 -e FRONTEND=$frontend
-                -e OUTPUT_DIR=/opt/sources/artifacts
+                -e OUTPUT_DIR=$output_dir
             """.trimIndent()
+        }
+        script {
+            name = "Post processing files"
+            workingDir = "artifacts"
+            // language=bash
+            scriptContent = """
+               #!/bin/bash
+               set -ex
+               
+               export ASSET_HASH="%dep.${BuildWebHelpFrontend.id ?: throw RuntimeException("BuildWebHelpFrontend.id must not be null")}.build.number%"
+               
+               echo "Iterate over html files"
+               html_files=$(find . -type f -name '*.html')
+               for file in ${'$'}html_files; do
+                   echo "Processing ${'$'}file"
+                   echo "Fix assets hash ${'$'}ASSET_HASH"
+                   sed -E "s/(custom-frontend-app\/[^\"^']+\.(js|css))([\"\'])/\1?${'$'}ASSET_HASH\3/g" "${'$'}file"
+               done
+            """.trimIndent()
+
+            dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
+            dockerImage = "alpine:latest"
         }
     }
 
