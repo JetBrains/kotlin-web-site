@@ -1,6 +1,5 @@
 package documentation.builds
 
-import jetbrains.buildServer.configs.kotlin.ArtifactDependency
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
@@ -9,11 +8,11 @@ import kotlinlang.builds.BuildWebHelpFrontend
 abstract class WritersideBuilder(
     module: String,
     instance: String,
-    customInit: BuildType.() -> Unit = {}
-): BuildType({
+    customInit: BuildType.() -> Unit = {},
+    postProcessAdditions: String = postProcessingScript(),
+) : BuildType({
     val dockerImageTag = "2025.07.8502"
     val frontend = "file:///opt/static/"
-    val output_dir = "/opt/sources/artifacts"
 
     name = "${instance.uppercase()} documentation build"
     description = "Build $module/$instance documentation with the docker"
@@ -37,26 +36,29 @@ abstract class WritersideBuilder(
                 -e MODULE_INSTANCE=$module/$instance
                 -e RUNNER=teamcity
                 -e FRONTEND=$frontend
-                -e OUTPUT_DIR=$output_dir
+                -e OUTPUT_DIR=/opt/sources/artifacts
             """.trimIndent()
         }
         script {
+            id = "post-processing-files"
             name = "Post processing files"
             workingDir = "artifacts"
             // language=bash
             scriptContent = """
-               #!/bin/bash
-               set -ex
-               
-               export ASSET_HASH="%dep.${BuildWebHelpFrontend.id ?: throw RuntimeException("BuildWebHelpFrontend.id must not be null")}.build.number%"
-               
-               echo "Iterate over html files"
-               html_files=$(find . -type f -name '*.html')
-               for file in ${'$'}html_files; do
-                   echo "Processing ${'$'}file"
-                   echo "Fix assets hash ${'$'}ASSET_HASH"
-                   sed -E "s/(custom-frontend-app\/[^\"^']+\.(js|css))([\"\'])/\1?${'$'}ASSET_HASH\3/g" "${'$'}file"
-               done
+                #!/bin/sh
+                set -ex
+                
+                apk add zip unzip
+                ls -la
+                unzip "webHelp${instance.uppercase()}2.zip" -d archive
+                
+                cd archive
+                
+                export ASSET_HASH="%dep.${BuildWebHelpFrontend.id ?: throw RuntimeException("BuildWebHelpFrontend.id must not be null")}.build.number%"
+            """.trimIndent() + "\n$postProcessAdditions\n" + """
+                zip -ru ../webHelpKR2.zip .
+                
+                cd ../ && rm -rf archive
             """.trimIndent()
 
             dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
@@ -65,7 +67,7 @@ abstract class WritersideBuilder(
     }
 
     requirements {
-        equals("container.engine","docker")
+        equals("container.engine", "docker")
     }
 
     failureConditions {
@@ -82,3 +84,25 @@ abstract class WritersideBuilder(
 
     customInit()
 })
+
+// language=sh
+fun postProcessingScript() = """
+    html_files=$(find . -type f -name '*.html')
+    for file in ${'$'}html_files; do
+        echo "Processing ${'$'}file"
+        echo "Fix assets hash #${'$'}ASSET_HASH"
+        sed -i -E "s/(custom-frontend-app\/[^\"^']+\.(js|css))([\"\'])/\1?${'$'}ASSET_HASH\3/g" "${'$'}file"
+        
+        echo "Replace old /docs/ urls"
+        sed -i 's|href="https://kotlinlang.org/docs/|href="/docs/|g' "${'$'}file"
+        sed -i 's|href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/|href="/docs/multiplatform/|g' "${'$'}file"
+    done
+    
+    json_files=$(find . -type f -name '*.json')
+    for file in ${'$'}json_files; do
+        echo "Processing ${'$'}file"
+        echo "Replace old /docs/ urls"
+        sed -i 's|"url":"https://kotlinlang.org/docs/|"url": "/docs/|g' "${'$'}file"
+        sed -i 's|"url":"https://www.jetbrains.com/help/kotlin-multiplatform-dev/|"url": "/docs/multiplatform/|g' "${'$'}file"
+    done
+""".trimIndent()
