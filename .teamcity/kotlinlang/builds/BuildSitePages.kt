@@ -31,7 +31,6 @@ object BuildSitePages : BuildType({
 
     triggers {
         vcs {
-            enabled = false
             branchFilter = "+:<default>"
         }
         finishBuildTrigger {
