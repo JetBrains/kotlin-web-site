@@ -60,7 +60,6 @@ abstract class WritersideBuilder(
                 set -e
                 
                 apk add zip unzip
-                ls -la
                 
                 unzip "$fileArchive" -d archive
                 cd archive
@@ -98,6 +97,9 @@ abstract class WritersideBuilder(
 
 // language=sh
 fun postProcessingScript() = "\n" + """
+    echo "Remove custom-frontend-app/index.html"
+    rm "custom-frontend-app/index.html"
+
     html_files=$(find . -type f -name '*.html')
     for file in ${'$'}html_files; do
         echo "Processing ${'$'}file"
