@@ -23,43 +23,172 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ## Language
 
-### Remove language versions 1.8 and 1.9
+### Drop support in `-language-version` for 1.8 and 1.9
 
 > **Issue**: [KT-76343](https://youtrack.jetbrains.com/issue/KT-76343), [KT-76344](https://youtrack.jetbrains.com/issue/KT-76344).
 >
-> **Component**: Core language
+> **Component**: Compiler
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 2.3 introduces language version 2.3 and removes support for language version 1.8.
-> Support for language version 1.9 is also removed for non-JVM platforms. Language versions 1.8 and 1.9 are deprecated.
+> **Short summary**: Starting with Kotlin 2.3, the compiler no longer supports [`-language-version=1.8`](compiler-reference.md#language-version-version).
+> Support for `-language-version=1.9` is also removed for non-JVM platforms.
 >
 > **Deprecation cycle**:
 >
-> - 2.2.0: report a warning for language versions 1.8 and 1.9
+> - 2.2.0: report a warning when using `-language-version` with versions 1.8 and 1.9.
 > - 2.3.0: raise the warning to an error for language version 1.8 on all platforms and for language version 1.9 on non-JVM platforms.
 
-### Enable invokedynamic for annotated lambdas by default
+### Handle `UPPER_BOUND_VIOLATED` on implicit type arguments
 
-> **Issue**: [KTLC-278](https://youtrack.jetbrains.com/issue/KTLC-278)
+> **Issue**: [KTLC-287](https://youtrack.jetbrains.com/issue/KTLC-287)
 >
 > **Component**: Core language
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**: Lambdas with annotations now use `invokedynamic` through `LambdaMetafactory` by default, aligning their behavior with Java lambdas.
-> This affects reflection-based code that relied on retrieving annotations from generated lambda classes.
-> To revert to the old behavior, use the `-Xindy-allow-annotated-lambdas=false` compiler option.
+> **Short summary**: Previously, the compiler never reported `UPPER_BOUND_VIOLATED` for implicit type parameters. This
+> has been fixed in Kotlin 2.3.0 so that `UPPER_BOUND_VIOLATED` is reported consistently across all type parameters.
 >
 > **Deprecation cycle**:
 >
-> - 2.2.0: enable `invokedynamic` for annotated lambdas by default
+> - 2.2.20: report deprecation warnings for bounds violations by implicit type arguments
+> - 2.3.0: raise the warning to an error for `UPPER_BOUND_VIOLATED` on implicit type arguments
+
+### Prohibit `@JvmSerializableLambda` annotation on `inline` and `crossinline` lambdas
+
+> **Issue**: [KTLC-9](https://youtrack.jetbrains.com/issue/KTLC-9)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Prohibit adding the `@JvmSerializableLambda` annotation on `inline` and `crossinline` lambdas
+> because it has no effect. `inline` and `crossinline` lambdas are not serializable.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.20: report a warning when the `@JvmSerializableLambda` is applied to `inline` and `crossinline` lambdas
+> - 2.3.0: raise the warning to an error; this change can be enabled in progressive mode
+
+### Prohibit delegating a Kotlin interface to a Java class when the generic signatures don't match
+
+> **Issue**: [KTLC-267](https://youtrack.jetbrains.com/issue/KTLC-267)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Kotlin 2.3.0 forbids delegation to a Java class that implements a generic interface method with
+> a non-generic override. Previously, allowing this behavior led to type mismatches and `ClassCastException` reported at runtime.
+> This change shifts the error from runtime to compile time.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.20: report a warning
+> - 2.3.0: raise the warning to an error
+
+### Deprecate unintended use of `return` in expression-bodied functions without explicit return type
+
+> **Issue**: [KTLC-288](https://youtrack.jetbrains.com/issue/KTLC-288)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Kotlin now deprecates using `return` inside expression bodies when the function's return type is not
+> explicitly declared.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: report a warning
+> - 2.4.0: raise the warning to an error
+
+### Prohibit inheritance from nullable supertypes introduced via typealias
+
+> **Issue**: [KTLC-279](https://youtrack.jetbrains.com/issue/KTLC-279)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Kotlin now reports an error when attempting to inherit from a nullable typealias, consistent with
+> how it already handles direct nullable supertypes.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a warning
+> - 2.3.0: raise the warning to an error
+
+### Unify generic signature generation for top-level lambdas and call arguments
+
+> **Issue**: [KTLC-277](https://youtrack.jetbrains.com/issue/KTLC-277)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Kotlin 2.3 uses the same type-checking logic for top-level lambdas as it does for lambdas passed 
+> as call arguments, ensuring consistent generic signature generation across both cases.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: introduce new behavior; not applicable for progressive mode
+
+### Prohibit reified type parameters from being inferred as intersection types
+
+> **Issue**: [KTLC-13](https://youtrack.jetbrains.com/issue/KTLC-13)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Kotlin 2.3 prohibits situations where a reified type parameter is inferred to an intersection type, 
+> due to the risk of incorrect runtime behavior.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report a warning when a reified type parameter is inferred to an intersection type
+> - 2.3.0: raise the warning to an error
+
+### Prohibit exposing less-visible types through type parameter bounds
+
+> **Issue**: [KTLC-275](https://youtrack.jetbrains.com/issue/KTLC-275)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Kotlin 2.3 forbids using type parameter bounds that expose types with more restrictive visibility
+> than the function or declaration itself, aligning the rules for functions with those already applied to classes.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report a warning on the problematic type parameter bound
+> - 2.3.0: raise the warning to an error
+
+### Deprecate misleading Char-to-number conversions and introduce explicit digit and code APIs
+
+> **Issue**: [KTLC-321](https://youtrack.jetbrains.com/issue/KTLC-321)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Kotlin 2.3 deprecates `Char.toX()` and `X.toChar()` conversions for numeric types and introduces new, 
+> explicit APIs for accessing a character's code and digit value.
+>
+> **Deprecation cycle**:
+>
+> - 1.4.30: introduce new functions as Experimental
+> - 1.5.0: promote the new functions to Stable; report warnings for old functions with suggestions for replacements
+> - 2.3.0: raise the warnings to errors
 
 ## Standard library
 
 ### Deprecate `String.subSequence(start, end)` function
 
-> **Issue**: [KT-74493](https://youtrack.jetbrains.com/issue/KT-74493)
+> **Issue**: [KTLC-282](https://youtrack.jetbrains.com/issue/KTLC-282)
 >
 > **Component**: kotlin-stdlib
 >
@@ -73,7 +202,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate `kotlin.io.createTempDirectory()` and `kotlin.io.createTempFile()` functions
 
-> **Issue**: [KT-81078](https://youtrack.jetbrains.com/issue/KT-81078)
+> **Issue**: [KTLC-281](https://youtrack.jetbrains.com/issue/KTLC-281)
 >
 > **Component**: kotlin-stdlib
 >
@@ -104,7 +233,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Hide `InputStream.readBytes(Int)` function
 
-> **Issue**: [KT-79192](https://youtrack.jetbrains.com/issue/KT-79192)
+> **Issue**: [KTLC-280](https://youtrack.jetbrains.com/issue/KTLC-280)
 >
 > **Component**: kotlin-stdlib
 >
@@ -141,8 +270,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Incompatible change type**: behavioral
 >
 > **Short summary**: The [`Iterable<T>.intersect()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/intersect.html) and [`Iterable<T>.subtract()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/subtract.html) functions now test membership for each
-> receiver element before adding it to the result set.
-> The result set compares elements using `Any::equals`,
+> receiver element before adding it to the result set. The result set compares elements using `Any::equals`,
 > ensuring correct results even when the argument collection uses referential equality (for example, `IdentityHashMap.keys˙).
 >
 > **Deprecation cycle**:
