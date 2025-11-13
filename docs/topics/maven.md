@@ -56,7 +56,21 @@ specify the ID and URL of each repository in the `<repositories>` element:
 
 ## Set dependencies
 
-Kotlin has an extensive standard library that can be used in your applications.
+To add a dependency on a library, include it in the `<dependencies>` element:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.jetbrains.kotlinx</groupId>
+        <artifactId>kotlinx-serialization-json</artifactId>
+        <version>%serializationVersion%</version>
+    </dependency>
+</dependencies>
+```
+
+### Dependency on the standard library
+
+Kotlin has an extensive standard library that you can use in your applications.
 To use the standard library in your project, add the following dependency to your `pom.xml` file:
 
 ```xml
@@ -64,6 +78,8 @@ To use the standard library in your project, add the following dependency to you
     <dependency>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-stdlib</artifactId>
+        <!-- Uses the kotlin.version property 
+            specified in <properties/>: --> 
         <version>${kotlin.version}</version>
     </dependency>
 </dependencies>
@@ -73,12 +89,55 @@ To use the standard library in your project, add the following dependency to you
 > * 1.8, use `kotlin-stdlib-jdk7` or `kotlin-stdlib-jdk8`, respectively.
 > * 1.2, use `kotlin-stdlib-jre7` or `kotlin-stdlib-jre8`, respectively.
 >
-{style="note"} 
+{style="note"}
+
+### Dependencies on test libraries
 
 If your project uses [Kotlin reflection](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/index.html)
-or testing facilities, you need to add the corresponding dependencies as well.
-The artifact IDs are `kotlin-reflect` for the reflection library, and `kotlin-test` and `kotlin-test-junit`
+or testing frameworks, add the relevant dependencies.
+Use `kotlin-reflect` for the reflection library, and `kotlin-test` and `kotlin-test-junit`
 for the testing libraries.
+
+For example:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-reflect</artifactId>
+        <version>${kotlin.version}</version>
+    </dependency>
+</dependencies>
+```
+
+### Dependency on a kotlinx library
+
+Depending on the kotlinx library, you can either add the base artifact name or the name with a `-jvm` suffix. Refer to 
+the library's README file on [klibs.io](https://klibs.io/).
+
+For example, to add a dependency on `kotlinx.coroutines`:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.jetbrains.kotlinx</groupId>
+        <artifactId>kotlinx-coroutines-core</artifactId>
+        <version>%coroutinesVersion%</version>
+    </dependency>
+</dependencies>
+```
+
+To add a dependency on `kotlinx-datetime`:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.jetbrains.kotlinx</groupId>
+        <artifactId>kotlinx-datetime-jvm</artifactId>
+        <version>%dateTimeVersion%</version>
+    </dependency>
+</dependencies>
+```
 
 ## Compile Kotlin-only source code
 
@@ -135,38 +194,112 @@ If you need to configure an execution, you need to specify its ID. You can find 
 
 ## Compile Kotlin and Java sources
 
-To compile projects that include Kotlin and Java source code, invoke the Kotlin compiler before the Java compiler.
-In Maven terms it means that `kotlin-maven-plugin` should be run before `maven-compiler-plugin` using the following method,
-making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in your `pom.xml` file:
+To compile a project with both Kotlin and Java source files, make sure the Kotlin compiler runs before the Java compiler.
+The Java compiler can't see Kotlin declarations until they are compiled into `.class` files.
+If your Java code uses Kotlin classes, those classes must be compiled first to avoid `cannot find symbol` errors.
+
+Maven determines plugin execution order based on two main factors:
+
+* The order of plugin declarations in the `pom.xml` file.
+* Built-in default executions, such as `default-compile` and `default-testCompile`, which always run before user-defined executions,
+  regardless of their position in the `pom.xml` file.
+
+To control the execution order:
+
+* Declare `kotlin-maven-plugin` before `maven-compiler-plugin`.
+* Disable the Java compiler plugin's default executions.
+* Add custom executions to control the compile phases explicitly.
+
+> You can use the special `none` phase in Maven to disable a default execution.
+>
+{style="note"}
+
+You can simplify the configuration of mixed Kotlin/Java compilation using `extensions`.
+It allows skipping the Maven compiler plugin configuration:
+
+<tabs group="kotlin-java-maven">
+<tab title="With extensions" group-key="with-extensions">
 
 ```xml
 <build>
     <plugins>
+        <!-- Kotlin compiler plugin configuration -->
         <plugin>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-maven-plugin</artifactId>
             <version>${kotlin.version}</version>
-            <extensions>true</extensions> <!-- You can set this option 
-            to automatically take information about lifecycles -->
+            <extensions>true</extensions>
             <executions>
                 <execution>
-                    <id>compile</id>
-                    <goals>
-                        <goal>compile</goal> <!-- You can skip the <goals> element 
-                        if you enable extensions for the plugin -->
-                    </goals>
+                    <id>default-compile</id>
+                    <phase>compile</phase>
                     <configuration>
                         <sourceDirs>
                             <sourceDir>src/main/kotlin</sourceDir>
+                            <!-- Ensure Kotlin code can reference Java code -->
                             <sourceDir>src/main/java</sourceDir>
                         </sourceDirs>
                     </configuration>
                 </execution>
                 <execution>
-                    <id>test-compile</id>
-                    <goals> 
-                        <goal>test-compile</goal> <!-- You can skip the <goals> element 
-                    if you enable extensions for the plugin -->
+                    <id>default-test-compile</id>
+                    <phase>test-compile</phase>
+                    <configuration>
+                        <sourceDirs>
+                            <sourceDir>src/test/kotlin</sourceDir>
+                            <sourceDir>src/test/java</sourceDir>
+                        </sourceDirs>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        <!-- No need to configure Maven compiler plugin with extensions -->
+    </plugins>
+</build>
+```
+
+If your project previously had a Kotlin-only configuration, you also need to remove the following lines from the `<build>` section:
+
+```xml
+<build>
+    <sourceDirectory>src/main/kotlin</sourceDirectory>
+    <testSourceDirectory>src/test/kotlin</testSourceDirectory>
+</build>
+```
+
+It ensures that both Kotlin code can reference Java code and vice versa with the `extensions` setup.
+
+</tab>
+<tab title="Without extensions" group-key="no-extensions">
+
+```xml
+<build>
+    <plugins>
+        <!-- Kotlin compiler plugin configuration -->
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <version>${kotlin.version}</version>
+            <executions>
+                <execution>
+                    <id>kotlin-compile</id>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>compile</goal>
+                    </goals>
+                    <configuration>
+                        <sourceDirs>
+                            <sourceDir>src/main/kotlin</sourceDir>
+                            <!-- Ensure Kotlin code can reference Java code -->
+                            <sourceDir>src/main/java</sourceDir>
+                        </sourceDirs>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>kotlin-test-compile</id>
+                    <phase>test-compile</phase>
+                    <goals>
+                        <goal>test-compile</goal>
                     </goals>
                     <configuration>
                         <sourceDirs>
@@ -177,21 +310,24 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
                 </execution>
             </executions>
         </plugin>
+
+        <!-- Maven compiler plugin configuration -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.5.1</version>
+            <version>3.14.0</version>
             <executions>
-                <!-- Replacing default-compile as it is treated specially by Maven -->
+                <!-- Disable default executions -->
                 <execution>
                     <id>default-compile</id>
                     <phase>none</phase>
                 </execution>
-                <!-- Replacing default-testCompile as it is treated specially by Maven -->
                 <execution>
                     <id>default-testCompile</id>
                     <phase>none</phase>
                 </execution>
+
+                <!-- Define custom executions -->
                 <execution>
                     <id>java-compile</id>
                     <phase>compile</phase>
@@ -211,6 +347,19 @@ making sure that the `kotlin` plugin comes before the `maven-compiler-plugin` in
     </plugins>
 </build>
 ```
+
+</tab>
+</tabs>
+
+This configuration ensures that:
+
+* Kotlin code is compiled first.
+* Java code is compiled after Kotlin and can reference Kotlin classes.
+* Default Maven behavior doesn't override the plugin order.
+
+For more details on how Maven handles plugin executions,
+see [Guide to default plugin execution IDs](https://maven.apache.org/guides/mini/guide-default-execution-ids.html) in
+the official Maven documentation.
 
 ## Configure Kotlin compiler execution strategy
 
