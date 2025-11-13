@@ -9,10 +9,10 @@ import jetbrains.buildServer.configs.kotlin.triggers.vcs
 abstract class WritersideBuilder(
     module: String,
     instance: String,
-    customInit: BuildType.() -> Unit = {},
+    customInit: BuildType.() -> Unit = {}
     postProcessAdditions: String = postProcessingScript(),
 ) : BuildType({
-    val dockerImageTag = "2025.07.8502"
+    val dockerImageTag = "2.1.2180-p8506"
     val frontend = "file:///opt/static/"
 
     name = "${instance.uppercase()} documentation build"
@@ -20,6 +20,7 @@ abstract class WritersideBuilder(
 
     artifactRules = """
         artifacts/*
+        timestamps.json
     """.trimIndent()
 
     triggers {
@@ -29,6 +30,38 @@ abstract class WritersideBuilder(
     }
 
     steps {
+        script {
+            name = "Generate timestamps file"
+            scriptContent = """
+                set -e
+                
+                echo "Generate timestamps"
+                echo "{" > %teamcity.build.checkoutDir%/timestamps.json
+
+                # Process the main repository
+                cd %teamcity.build.checkoutDir%
+                git ls-tree -r --name-only HEAD | grep -E '\.(topic|md)$' | while read file; do
+                    timestamp=${'$'}(git log -1 --format="%at" -- "${'$'}file")
+                    echo "\"${'$'}file\": \"${'$'}timestamp\"," >> %teamcity.build.checkoutDir%/timestamps.json
+                done
+
+                # Process all subdirectories containing .git folders
+                find %teamcity.build.checkoutDir% -mindepth 2 -maxdepth 2 -type d -name ".git" | while read gitdir; do
+                    repo_dir=${'$'}(dirname "${'$'}gitdir")
+                    rel_dir=${'$'}(basename "${'$'}repo_dir")
+
+                    cd "${'$'}repo_dir"
+                    git ls-tree -r --name-only HEAD | grep -E '\.(topic|md)$' | while read file; do
+                        timestamp=${'$'}(git log -1 --format="%at" -- "${'$'}file")
+                        echo "\"${'$'}rel_dir/${'$'}file\": \"${'$'}timestamp\"," >> %teamcity.build.checkoutDir%/timestamps.json
+                    done
+                done
+
+                # Remove trailing comma from last entry
+                sed -i '${'$'} s/.$//' %teamcity.build.checkoutDir%/timestamps.json
+                echo "}" >> %teamcity.build.checkoutDir%/timestamps.json
+            """.trimIndent()
+        }
         script {
             name = "Build $module/$instance documentation with the docker"
             scriptContent = """
@@ -44,6 +77,7 @@ abstract class WritersideBuilder(
                 -e RUNNER=teamcity
                 -e FRONTEND=$frontend
                 -e OUTPUT_DIR=/opt/sources/artifacts
+                -e TIME=/opt/sources/timestamps.json
             """.trimIndent()
         }
         script {
