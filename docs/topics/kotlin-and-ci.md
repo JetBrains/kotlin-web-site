@@ -4,14 +4,14 @@ On this page, you'll learn how to set up [TeamCity](https://www.jetbrains.com/te
 For more information and basics of TeamCity please check the [Documentation page](https://www.jetbrains.com/teamcity/documentation/)
 which contains information about installation, basic configuration, etc.
 
-Kotlin works with different build tools, so if you're using a standard tool such as Ant, Maven or Gradle,
+Kotlin works with different build tools, so if you're using a standard tool such as Maven or Gradle,
 the process for setting up a Kotlin project is no different to any other language or library that integrates with these tools.
 Where there are some minor requirements and differences is when using the internal build system of IntelliJ IDEA,
 which is also supported on TeamCity.
 
-## Gradle, Maven, and Ant
+## Gradle and Maven
 
-If using Ant, Maven or Gradle, the setup process is straightforward. All that is needed is to define the Build Step.
+If using Maven or Gradle, the setup process is straightforward. All that is needed is to define the Build Step.
 For example, if using Gradle, simply define the required parameters such as the Step Name and Gradle tasks that need
 executing for the Runner Type.
 
@@ -20,7 +20,7 @@ executing for the Runner Type.
 Since all the dependencies required for Kotlin are defined in the Gradle file, nothing else needs to be configured
 specifically for Kotlin to run correctly.
 
-If using Ant or Maven, the same configuration applies. The only difference being that the Runner Type would be Ant or Maven respectively.
+If using Maven, the same configuration applies. The only difference being that the Runner Type would be Maven.
 
 ## IntelliJ IDEA Build System
 
