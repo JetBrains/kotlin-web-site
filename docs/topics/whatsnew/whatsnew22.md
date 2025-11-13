@@ -1317,13 +1317,9 @@ for a complete overview of all breaking changes and deprecations in this release
 
 * Starting with Kotlin 2.2.0, the compiler [no longer supports `-language-version=1.6` or `-language-version=1.7`](compatibility-guide-22.md#drop-support-in-language-version-for-1-6-and-1-7).
   Language feature sets older than 1.8 aren't supported but the language itself remains fully backward compatible with Kotlin 1.0.
-
-* Support for the [](ant.md) build system is deprecated. Kotlin support for Ant hasn't been in active development for a 
-  long time, and there are no plans to maintain it further due to its relatively small user base.
-  
-  We plan to remove Ant support in 2.3.0. However, Kotlin remains open to [contribution](contribute.md). If you're 
-  interested in becoming an external maintainer for Ant, leave a comment with the "jetbrains-team" visibility setting in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-75875/).
-
+* Support for the Ant build system is deprecated. Kotlin support for Ant hasn't been 
+  in active development for a long time, and there are no plans to maintain it further due to its relatively small user base.
+  We plan to remove Ant support in 2.3.0.
 * Kotlin 2.2.0 raises the deprecation level of the [`kotlinOptions{}` block in Gradle to error](compatibility-guide-22.md#deprecate-kotlinoptions-dsl). 
   Use the `compilerOptions{}` block instead. For guidance on updating your build scripts, see [Migrate from `kotlinOptions{}` to `compilerOptions{}`](gradle-compiler-options.md#migrate-from-kotlinoptions-to-compileroptions).
 * Kotlin scripting remains an important part of Kotlin's ecosystem, but we're focusing on specific use cases such as 
