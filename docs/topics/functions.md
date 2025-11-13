@@ -423,6 +423,9 @@ When a function is marked with the `tailrec` modifier and meets the required for
 the recursion, leaving behind a fast and efficient loop based version instead:
 
 ```kotlin
+import kotlin.math.cos
+import kotlin.math.abs
+
 val eps = 1E-10 // "good enough", could be 10^-15
 
 tailrec fun findFixPoint(x: Double = 1.0): Double =
@@ -434,6 +437,9 @@ starting at `1.0` until the result no longer changes, yielding a result of `0.73
 `eps` precision. The resulting code is equivalent to this more traditional style:
 
 ```kotlin
+import kotlin.math.cos
+import kotlin.math.abs
+
 val eps = 1E-10 // "good enough", could be 10^-15
 
 private fun findFixPoint(): Double {
