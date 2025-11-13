@@ -654,7 +654,7 @@ fun main(args: Array<String>) {
 ### Java 8 bytecode support
 
 Kotlin has now the option of generating Java 8 bytecode (`-jvm-target 1.8` command line option or the corresponding options
-in Ant/Maven/Gradle). For now this doesn't change the semantics of the bytecode (in particular, default methods in interfaces
+in Maven/Gradle). For now this doesn't change the semantics of the bytecode (in particular, default methods in interfaces
 and lambdas are generated exactly as in Kotlin 1.0), but we plan to make further use of this later.
 
 ### Java 8 standard library support
