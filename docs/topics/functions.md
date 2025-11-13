@@ -64,6 +64,8 @@ If a parameter with default value precedes a parameter with no default value, th
 the function with [named arguments](#named-arguments):
 
 ```kotlin
+fun main () {
+//sampleStart 
 fun foo(
     foo: Int = 0,
     bar: Int,
@@ -71,7 +73,10 @@ fun foo(
 
 foo(bar = 1) // Uses the default value foo = 0
 foo(1) // Error: No value passed for parameter 'bar'
+//sampleEnd
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 [Overriding methods](inheritance.md#overriding-methods) always use the base method's default parameter values.
 When overriding a method that has default parameter values, the default parameter values must be omitted from the signature:
