@@ -55,7 +55,7 @@ you can move parameters within the declaration without worrying about which is g
 Kotlin functions can receive other functions as parameters — and be passed as arguments.
 For details, see [](lambdas.md).
 
-### Parameters with default values (optional parameters)
+### Parameters with default values (optional parameters) {id="parameters-with-default-values"}
 
 Function parameters can have default values, which are used when you skip the corresponding argument.
 This reduces the number of necessary overloads.
@@ -71,8 +71,8 @@ fun read(
 ) { /*...*/ }
 ```
 
-If a parameter with default value precedes a parameter with no default value, the default value can only be used by calling
-the function with [named arguments](#named-arguments):
+When you declare a parameter with a default value before a parameter without a default value,
+you can only use the default value by [naming arguments](#named-arguments):
 
 ```kotlin
 fun foo(
@@ -82,6 +82,18 @@ fun foo(
 
 foo(bar = 1) // Uses the default value foo = 0
 foo(1) // Error: No value passed for parameter 'bar'
+```
+
+[Trailing lambdas](lambdas.md#passing-trailing-lambdas) are an exception to this rule,
+since the last parameter must correspond to the passed function:
+
+```kotlin
+fun foo(
+    foo: Int = 0,
+    bar: () -> Unit,
+) { bar() }
+
+foo() { println ("bar") } // Uses the default value for 'foo' and prints "bar"
 ```
 
 [Overriding methods](inheritance.md#overriding-methods) always use the base method's default parameter values.
@@ -213,16 +225,41 @@ foo(strings = arrayOf("a", "b", "c"))
 >
 {style="note"}
 
+### Explicit return types
+
+Functions with a block body must always specify return types explicitly, unless it's intended for them to return `Unit`,
+[in which case specifying the return type is optional](#unit-returning-functions).
+
+Kotlin does not infer return types for functions with block bodies because such functions may have complex control flow
+in the body, and the return type will be non-obvious to the reader (and sometimes even for the compiler).
+But the return type is inferred, unless specified, for [single-expression functions](#single-expression-functions).
+
+### Single-expression functions
+
+When the function body consists of a single expression, the curly braces can be omitted and the body specified after an `=` symbol:
+
+```kotlin
+fun double(x: Int): Int = x * 2
+```
+
+Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler:
+
+```kotlin
+fun double(x: Int) = x * 2
+```
+
 ### Unit-returning functions
 
-If a function does not return a useful value, its return type is `Unit` (corresponds to the `void` type in Java).
-
+If a function has a block body and does not return a useful value, its return type is assumed to be `Unit` (corresponds to the `void` type in Java).
 `Unit` is a type with only one value - `Unit`.
-You don't have to declare this return type, or return `Unit` explicitly.
+
+You don't have to specify `Unit` as a return type, except for functional type parameters,
+and you never have to return `Unit` explicitly.
+
 Therefore, this verbose declaration:
 
 ```kotlin
-fun printHello(name: String?): Unit {
+fun printHello(name: String?, aux: () -> Unit): Unit {
     if (name != null)
         println("Hello $name")
     else
@@ -231,19 +268,17 @@ fun printHello(name: String?): Unit {
 }
 ```
 
-is equivalent to:
+can be shortened to:
 
 ```kotlin
-fun printHello(name: String?) { /*...*/ }
+// The declaration of 'aux' still needs an explicit return type
+fun printHello(name: String?, aux: () -> Unit) {
+    if (name != null)
+        println("Hello $name")
+    else
+        println("Hi there!")
+}
 ```
-
-### Explicit return types
-
-Functions with block body must always specify return types explicitly, unless it's intended for them to return `Unit`,
-[in which case specifying the return type is optional](#unit-returning-functions).
-
-Kotlin does not infer return types for functions with block bodies because such functions may have complex control flow
-in the body, and the return type will be non-obvious to the reader (and sometimes even for the compiler).
 
 ### Variable number of arguments (varargs)
 
@@ -287,20 +322,6 @@ val a = intArrayOf(1, 2, 3) // IntArray is a primitive type array
 val list = asList(-1, 0, *a.toTypedArray(), 4)
 ```
 
-### Single-expression functions
-
-When the function body consists of a single expression, the curly braces can be omitted and the body specified after an `=` symbol:
-
-```kotlin
-fun double(x: Int): Int = x * 2
-```
-
-Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler:
-
-```kotlin
-fun double(x: Int) = x * 2
-```
-
 ### Infix notation
 
 Functions marked with the `infix` keyword can also be called using the infix notation (omitting the dot and the parentheses
@@ -309,7 +330,7 @@ for the call). Infix functions must meet the following requirements:
 * They must be member functions or [extension functions](extensions.md).
 * They must have a single parameter.
 * The parameter must not [accept variable number of arguments](#variable-number-of-arguments-varargs) and must have
-no [default value](#parameters-with-default-values-optional-parameters).
+no [default value](#parameters-with-default-values).
 
 ```kotlin
 infix fun Int.shl(x: Int): Int { /*...*/ }
