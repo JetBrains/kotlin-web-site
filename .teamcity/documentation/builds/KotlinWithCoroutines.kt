@@ -40,44 +40,5 @@ object KotlinWithCoroutines: WritersideBuilder(
             checkoutMode = CheckoutMode.ON_AGENT
             cleanCheckout = true
         }
-        steps {
-            script {
-                name = "fix reference links"
-                workingDir = "artifacts"
-                //language=sh
-                scriptContent = """
-                    #!/bin/sh
-                    set -e
-                    
-                    apk add zip unzip
-                    ls -la
-                    unzip webHelpKR2.zip -d archive
-                    
-                    cd archive
-                    
-                    html_files=$(find . -type f -name '*.html')
-                    for file in ${'$'}html_files; do
-                        echo "Processing ${'$'}file"
-                        sed -i 's|href="https://kotlinlang.org/docs/|href="/docs/|g' "${'$'}file"
-                        sed -i 's|href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/|href="/docs/multiplatform/|g' "${'$'}file"
-                    done
-
-                    json_files=$(find . -type f -name '*.json')
-                    for file in ${'$'}json_files; do
-                        echo "Processing ${'$'}file"
-                        sed -i 's|"url":"https://kotlinlang.org/docs/|"url": "/docs/|g' "${'$'}file"
-                        sed -i 's|"url":"https://www.jetbrains.com/help/kotlin-multiplatform-dev/|"url": "/docs/multiplatform/|g' "${'$'}file"
-                    done
-                    
-                    zip -ru ../webHelpKR2.zip .
-                    
-                    cd ../ && rm -rf archive
-                """.trimIndent()
-
-                dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
-                dockerImage = "alpine:latest"
-            }
-
-        }
     }
 )

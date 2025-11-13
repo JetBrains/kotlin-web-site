@@ -8,6 +8,7 @@ import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import templates.DockerImageBuilder
 import templates.scriptDistAnalyze
 
@@ -29,8 +30,21 @@ object BuildSitePages : BuildType({
     }
 
     triggers {
+        vcs {
+            branchFilter = "+:<default>"
+        }
         finishBuildTrigger {
             buildType = FetchBlogNews.id?.value ?: error("Invalid FetchBlogNews ID")
+            branchFilter = "+:<default>"
+            successfulOnly = true
+        }
+        finishBuildTrigger {
+            buildType = KotlinMultiplatform.id?.value ?: error("Invalid KotlinMultiplatform ID")
+            branchFilter = "+:<default>"
+            successfulOnly = true
+        }
+        finishBuildTrigger {
+            buildType = KotlinWithCoroutines.id?.value ?: error("Invalid KotlinWithCoroutines ID")
             branchFilter = "+:<default>"
             successfulOnly = true
         }
