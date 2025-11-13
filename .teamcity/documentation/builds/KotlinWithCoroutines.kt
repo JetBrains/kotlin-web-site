@@ -2,6 +2,8 @@ package documentation.builds
 
 import documentation.vcsRoots.*
 import jetbrains.buildServer.configs.kotlin.CheckoutMode
+import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 //import jetbrains.buildServer.configs.kotlin.BuildType
 //import jetbrains.buildServer.configs.kotlin.FailureAction

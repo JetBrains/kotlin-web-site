@@ -380,5 +380,5 @@ fun main() {
 ## What's next?
 
 * To learn more about why we recommend using collections for most use cases, read our [Collections overview](collections-overview.md).
-* Learn about other [basic types](basic-types.md).
+* Learn about other [basic types](types-overview.md).
 * If you are a Java developer, read our Java to Kotlin migration guide for [Collections](java-to-kotlin-collections-guide.md).

@@ -461,7 +461,7 @@ annotation class Tag(val name: String)
 ```
 
 You can set a custom name for a containing annotation by applying the
-[`@kotlin.jvm.JvmRepeatable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvmrepeatable/) meta-annotation
+[`@kotlin.jvm.JvmRepeatable`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/-jvm-repeatable/) meta-annotation
 and passing an explicitly declared containing annotation class as an argument:
 
 ```kotlin

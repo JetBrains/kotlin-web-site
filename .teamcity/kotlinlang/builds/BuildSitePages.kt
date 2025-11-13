@@ -1,12 +1,14 @@
 package kotlinlang.builds
 
 import BuildParams.API_URLS
+import documentation.builds.KotlinMultiplatform
 import documentation.builds.KotlinWithCoroutines
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
+import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import templates.DockerImageBuilder
 import templates.scriptDistAnalyze
 
@@ -28,8 +30,21 @@ object BuildSitePages : BuildType({
     }
 
     triggers {
+        vcs {
+            branchFilter = "+:<default>"
+        }
         finishBuildTrigger {
             buildType = FetchBlogNews.id?.value ?: error("Invalid FetchBlogNews ID")
+            branchFilter = "+:<default>"
+            successfulOnly = true
+        }
+        finishBuildTrigger {
+            buildType = KotlinMultiplatform.id?.value ?: error("Invalid KotlinMultiplatform ID")
+            branchFilter = "+:<default>"
+            successfulOnly = true
+        }
+        finishBuildTrigger {
+            buildType = KotlinWithCoroutines.id?.value ?: error("Invalid KotlinWithCoroutines ID")
             branchFilter = "+:<default>"
             successfulOnly = true
         }
@@ -68,7 +83,7 @@ object BuildSitePages : BuildType({
             //language=bash
             scriptContent = """
                 cp -fR _webhelp/reference/* build/docs/
-                #cp -fR _webhelp/mobile build/docs/
+                cp -fR _webhelp/multiplatform build/docs/multiplatform
                 
                 mv build dist
                 
@@ -151,6 +166,19 @@ object BuildSitePages : BuildType({
                 artifactRules = """
                     +:webHelpImages.zip!** => _webhelp/reference/images/
                     +:webHelpKR2.zip!** => _webhelp/reference/
+                """.trimIndent()
+            }
+        }
+
+        dependency(KotlinMultiplatform) {
+            snapshot {
+                onDependencyFailure = FailureAction.FAIL_TO_START
+                onDependencyCancel = FailureAction.CANCEL
+            }
+            artifacts {
+                artifactRules = """
+                    +:webHelpImages.zip!** => _webhelp/multiplatform/images/
+                    +:webHelpMPD2.zip!** => _webhelp/multiplatform/
                 """.trimIndent()
             }
         }

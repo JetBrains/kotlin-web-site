@@ -29,4 +29,4 @@ When executing this run configuration, you can note that the Gradle process cont
 
 Once a change has been detected, the program is recompiled automatically. If you still have the web page open in the browser,
 the development server triggers an automatic reload of the page, and the changes become visible.
-This is thanks to the integrated [`webpack-dev-server`](https://webpack.js.org/configuration/dev-server/) that is managed by the [Kotlin Multiplatform Gradle plugin](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html).
+This is thanks to the integrated [`webpack-dev-server`](https://webpack.js.org/configuration/dev-server/) that is managed by the [Kotlin Multiplatform Gradle plugin](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html).

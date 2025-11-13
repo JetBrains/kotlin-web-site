@@ -794,7 +794,7 @@ Depending on your needs, you can add dependencies between:
 Complete the initial configuration, and when you add a new dependency to `cocoapods`, just re-import the project in IntelliJ IDEA. 
 The new dependency will be added automatically. No additional steps are required.
 
-[Learn how to add dependencies](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-libraries.html).
+[Learn how to add dependencies](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-libraries.html).
 
 ## Kotlin Multiplatform
 
@@ -803,7 +803,7 @@ The new dependency will be added automatically. No additional steps are required
 >
 {style="warning"}
 
-[Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html) reduces time spent writing and maintaining the same code for [different platforms](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#targets) 
+[Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) reduces time spent writing and maintaining the same code for [different platforms](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets) 
 while retaining the flexibility and benefits of native programming. We continue investing our effort in multiplatform features
 and improvements:
 
@@ -817,16 +817,16 @@ and improvements:
 
 ### Sharing code in several targets with the hierarchical project structure
 
-With the new hierarchical project structure support, you can share code among [several platforms](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#targets)
- in a [multiplatform project](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-discover-project.html).
+With the new hierarchical project structure support, you can share code among [several platforms](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets)
+ in a [multiplatform project](https://kotlinlang.org/docs/multiplatform/multiplatform-discover-project.html).
 
 Previously, any code added to a multiplatform project could be placed either in a platform-specific source set, which is 
 limited to one target and can't be reused by any other platform, or in a common source set, like `commonMain` or `commonTest`, 
 which is shared across all the platforms in the project. In the common source set, you could only call a platform-specific 
-API by using an [`expect` declaration that needs platform-specific `actual` implementations](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html).
+API by using an [`expect` declaration that needs platform-specific `actual` implementations](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html).
 
-This made it easy to [share code on all platforms](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-share-on-platforms.html#share-code-on-all-platforms), but it was
-not so easy to [share between only some of the targets](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-share-on-platforms.html#share-code-on-similar-platforms), 
+This made it easy to [share code on all platforms](https://kotlinlang.org/docs/multiplatform/multiplatform-share-on-platforms.html#share-code-on-all-platforms), but it was
+not so easy to [share between only some of the targets](https://kotlinlang.org/docs/multiplatform/multiplatform-share-on-platforms.html#share-code-on-similar-platforms), 
 especially similar ones that could potentially reuse a lot of the common logic and third-party APIs.
 
 For example, in a typical multiplatform project targeting iOS, there are two iOS-related targets: one for iOS ARM64 devices, 
@@ -839,7 +839,7 @@ code that could still directly call any of the APIs that are common to both the 
 
 ![Code shared for iOS targets](iosmain-hierarchy.png){width=300}
 
-Now you can do this with the [hierarchical project structure support](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-share-on-platforms.html#share-code-on-similar-platforms), which infers and adapts the API and language features 
+Now you can do this with the [hierarchical project structure support](https://kotlinlang.org/docs/multiplatform/multiplatform-share-on-platforms.html#share-code-on-similar-platforms), which infers and adapts the API and language features 
 available in each source set based on which targets consume them.
 
 For common combinations of targets, you can create a hierarchical structure with target shortcuts.
@@ -851,7 +851,7 @@ kotlin {
 }
 ```
 
-For other combinations of targets, [create a hierarchy manually](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-hierarchy.html#manual-configuration)
+For other combinations of targets, [create a hierarchy manually](https://kotlinlang.org/docs/multiplatform/multiplatform-hierarchy.html#manual-configuration)
 by connecting the source sets with the `dependsOn` relation.
 
 ![Hierarchical structure](manual-hierarchical-structure.svg)
@@ -905,7 +905,7 @@ kotlin {
 </tabs>
 
 Thanks to the hierarchical project structure, libraries can also provide common APIs for a subset of targets. Learn more
-about [sharing code in libraries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-share-on-platforms.html#share-code-in-libraries).
+about [sharing code in libraries](https://kotlinlang.org/docs/multiplatform/multiplatform-share-on-platforms.html#share-code-in-libraries).
 
 ### Leveraging native libs in the hierarchical structure 
 
@@ -915,7 +915,7 @@ native targets. This can help you share more native code without being limited b
 No additional steps are required – everything is done automatically. IntelliJ IDEA will help you detect common declarations 
 that you can use in the shared code.
 
-[Learn more about usage of platform-dependent libraries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-share-on-platforms.html#connect-platform-specific-libraries).
+[Learn more about usage of platform-dependent libraries](https://kotlinlang.org/docs/multiplatform/multiplatform-share-on-platforms.html#connect-platform-specific-libraries).
 
 ### Specifying dependencies only once
 

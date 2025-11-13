@@ -25,7 +25,7 @@ test.describe('/lp/ pages list', async () => {
 
     test(`Check /lp/multiplatform case-studies redirect`, async ({ page, baseURL }) => {
         test.skip(isStaging(baseURL), 'for host with reverse-proxy only');
-        const targetUrl = 'https://www.jetbrains.com/help/kotlin-multiplatform-dev/case-studies.html';
+        const targetUrl = 'https://kotlinlang.org/case-studies/?type=multiplatform';
 
         await page.goto('/lp/multiplatform/case-studies/');
         expect(page.url()).toEqual(targetUrl);

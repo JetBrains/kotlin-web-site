@@ -21,10 +21,10 @@
         </primary>
         <secondary>
             <title>Kotlin Multiplatform</title>
-            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html" summary="Explore the Kotlin Multiplatform technology to share code between your applications">Kotlin Multiplatform overview</a>
+            <a href="https://kotlinlang.org/docs/multiplatform/get-started.html" summary="Explore the Kotlin Multiplatform technology to share code between your applications">Kotlin Multiplatform overview</a>
             <a href="https://kmp.jetbrains.com/" summary="Quickly create and download a multiplatform project template">Kotlin Multiplatform Wizard</a>
-            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html" summary="Create a mobile app that works on both Android and iOS">Get started with Kotlin Multiplatform</a>
-            <a href="https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html" summary="Use Compose Multiplatform to implement one user interface across mobile, desktop, and web">Get started with Compose Multiplatform</a>
+            <a href="https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html" summary="Create a mobile app that works on both Android and iOS">Get started with Kotlin Multiplatform</a>
+            <a href="https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html" summary="Use Compose Multiplatform to implement one user interface across mobile, desktop, and web">Get started with Compose Multiplatform</a>
         </secondary>
         <misc>
             <cards narrow="false">
@@ -32,7 +32,7 @@
                 <a href="whatsnew2220.md" summary="Important changes for web development, along with other improvements and bug fixes">What's new in Kotlin 2.2.20</a>
                 <a href="releases.md" summary="The latest Kotlin releases and instructions on how to update to them">Kotlin releases</a>
                 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/" summary="Living essentials for everyday work with Kotlin: IO, files, threading, collections, and much more">Standard library API reference</a>
-                <a href="basic-types.md" summary="Kotlin type system: numbers, strings, arrays, and other built-in types">Basic types</a>
+                <a href="types-overview.md" summary="Kotlin type system: numbers, strings, arrays, and other built-in types">Types overview</a>
                 <a href="collections-overview.md" summary="Collections: lists, sets, and maps">Collections</a>
                 <a href="coroutines-overview.md" summary="Concurrency: coroutines, flows, channels">Coroutines</a>
             </cards>

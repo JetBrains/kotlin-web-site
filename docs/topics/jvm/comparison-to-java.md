@@ -15,7 +15,7 @@ Kotlin fixes a series of issues that Java suffers from:
 ## What Java has that Kotlin does not
 
 * [Checked exceptions](exceptions.md)
-* [Primitive types](basic-types.md) that are not classes. The byte-code uses primitives where possible, but they are not
+* [Primitive types](types-overview.md) that are not classes. The byte-code uses primitives where possible, but they are not
     explicitly available.
 * [Static members](classes.md) are replaced with [companion objects](object-declarations.md#companion-objects),
     [top-level functions](functions.md), [extension functions](extensions.md#extension-functions), or [@JvmStatic](java-to-kotlin-interop.md#static-methods).
@@ -36,7 +36,7 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Properties](properties.md)
 * [Primary constructors](classes.md)
 * [First-class delegation](delegation.md)
-* [Type inference for variable and property types](basic-types.md) (**Java 10**: [Local-Variable Type Inference](https://openjdk.org/jeps/286))
+* [Type inference for variable and property types](types-overview.md) (**Java 10**: [Local-Variable Type Inference](https://openjdk.org/jeps/286))
 * [Singletons](object-declarations.md)
 * [Declaration-site variance & Type projections](generics.md)
 * [Range expressions](ranges.md)
@@ -48,7 +48,7 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Parameters with default values](functions.md#parameters-with-default-values)
 * [Named parameters](functions.md#named-arguments)
 * [Infix functions](functions.md#infix-notation)
-* [Expect and actual declarations](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-expect-actual.html)
+* [Expect and actual declarations](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html)
 * [Explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors) and [better control of API surface](opt-in-requirements.md)
 
 ## What's next?
