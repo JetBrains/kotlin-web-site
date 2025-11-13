@@ -40,12 +40,12 @@ object BuildSitePages : BuildType({
         }
         finishBuildTrigger {
             buildType = KotlinMultiplatform.id?.value ?: error("Invalid KotlinMultiplatform ID")
-            branchFilter = "+:<default>"
+            branchFilter = "+:*"
             successfulOnly = true
         }
         finishBuildTrigger {
             buildType = KotlinWithCoroutines.id?.value ?: error("Invalid KotlinWithCoroutines ID")
-            branchFilter = "+:<default>"
+            branchFilter = "+:*"
             successfulOnly = true
         }
     }
