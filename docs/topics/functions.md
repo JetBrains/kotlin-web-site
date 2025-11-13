@@ -312,7 +312,7 @@ for the call). Infix functions must meet the following requirements:
 no [default value](#parameters-with-default-values-optional-parameters).
 
 ```kotlin
-infix fun Int.shl(x: Int): Int { ... }
+infix fun Int.shl(x: Int): Int { /*...*/ }
 
 // calling the function using the infix notation
 1 shl 2
