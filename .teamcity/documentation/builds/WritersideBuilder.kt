@@ -9,7 +9,7 @@ import jetbrains.buildServer.configs.kotlin.triggers.vcs
 abstract class WritersideBuilder(
     module: String,
     instance: String,
-    customInit: BuildType.() -> Unit = {}
+    customInit: BuildType.() -> Unit = {},
     postProcessAdditions: String = postProcessingScript(),
 ) : BuildType({
     val dockerImageTag = "2.1.2180-p8506"
