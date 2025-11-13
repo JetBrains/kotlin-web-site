@@ -39,16 +39,16 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.2.0: report a warning when using `-language-version` with versions 1.8 and 1.9.
 > - 2.3.0: raise the warning to an error for language version 1.8 on all platforms and for language version 1.9 on non-JVM platforms.
 
-### Handle `UPPER_BOUND_VIOLATED` on implicit type arguments
+### Report upper-bound constraint violation errors for inferred types with typealiases
 
 > **Issue**: [KTLC-287](https://youtrack.jetbrains.com/issue/KTLC-287)
 >
 > **Component**: Core language
 >
-> **Incompatible change type**: behavioral
+> **Incompatible change type**: source
 >
-> **Short summary**: Previously, the compiler never reported `UPPER_BOUND_VIOLATED` for implicit type parameters. This
-> has been fixed in Kotlin 2.3.0 so that `UPPER_BOUND_VIOLATED` is reported consistently across all type parameters.
+> **Short summary**: Previously, the compiler never reported errors about upper-bound violation constraints for the inferred types. This
+> has been fixed in Kotlin 2.3.0 so that the error is reported consistently across all type parameters.
 >
 > **Deprecation cycle**:
 >
@@ -61,7 +61,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Component**: Core language
 >
-> **Incompatible change type**: behavioral
+> **Incompatible change type**: source
 >
 > **Short summary**: Prohibit adding the `@JvmSerializableLambda` annotation on `inline` and `crossinline` lambdas
 > because it has no effect. `inline` and `crossinline` lambdas are not serializable.
@@ -77,7 +77,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Component**: Core language
 >
-> **Incompatible change type**: behavioral
+> **Incompatible change type**: source
 >
 > **Short summary**: Kotlin 2.3.0 forbids delegation to a Java class that implements a generic interface method with
 > a non-generic override. Previously, allowing this behavior led to type mismatches and `ClassCastException` reported at runtime.
@@ -94,7 +94,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Component**: Core language
 >
-> **Incompatible change type**: behavioral
+> **Incompatible change type**: source
 >
 > **Short summary**: Kotlin now deprecates using `return` inside expression bodies when the function's return type is not
 > explicitly declared.
@@ -110,7 +110,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Component**: Core language
 >
-> **Incompatible change type**: behavioral
+> **Incompatible change type**: source
 >
 > **Short summary**: Kotlin now reports an error when attempting to inherit from a nullable typealias, consistent with
 > how it already handles direct nullable supertypes.
@@ -124,7 +124,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 > **Issue**: [KTLC-277](https://youtrack.jetbrains.com/issue/KTLC-277)
 >
-> **Component**: Core language
+> **Component**: Reflection
 >
 > **Incompatible change type**: behavioral
 >
@@ -141,7 +141,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Component**: Core language
 >
-> **Incompatible change type**: behavioral
+> **Incompatible change type**: source
 >
 > **Short summary**: Kotlin 2.3 prohibits situations where a reified type parameter is inferred to an intersection type, 
 > due to the risk of incorrect runtime behavior.
@@ -157,7 +157,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Component**: Core language
 >
-> **Incompatible change type**: behavioral
+> **Incompatible change type**: source
 >
 > **Short summary**: Kotlin 2.3 forbids using type parameter bounds that expose types with more restrictive visibility
 > than the function or declaration itself, aligning the rules for functions with those already applied to classes.
@@ -167,15 +167,17 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.1.0: report a warning on the problematic type parameter bound
 > - 2.3.0: raise the warning to an error
 
+## Standard library
+
 ### Deprecate misleading Char-to-number conversions and introduce explicit digit and code APIs
 
 > **Issue**: [KTLC-321](https://youtrack.jetbrains.com/issue/KTLC-321)
 >
-> **Component**: Core language
+> **Component**: kotlin-stdlib
 >
-> **Incompatible change type**: behavioral
+> **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 2.3 deprecates `Char.toX()` and `X.toChar()` conversions for numeric types and introduces new, 
+> **Short summary**: Kotlin 2.3 deprecates `Char.toX()` and `X.toChar()` conversions for numeric types and introduces new,
 > explicit APIs for accessing a character's code and digit value.
 >
 > **Deprecation cycle**:
@@ -184,7 +186,6 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 1.5.0: promote the new functions to Stable; report warnings for old functions with suggestions for replacements
 > - 2.3.0: raise the warnings to errors
 
-## Standard library
 
 ### Deprecate `String.subSequence(start, end)` function
 
@@ -254,7 +255,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Component**: Kotlin/Native
 >
-> **Incompatible change type**: behavior
+> **Incompatible change type**: behavioral
 >
 > **Short summary**: When formatting an exception stacktrace, no additional causes are printed once a previously seen exception cause has already been printed.
 >
