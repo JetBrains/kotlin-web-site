@@ -198,7 +198,8 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Deprecation cycle**:
 >
-> - 2.3.0: report an error when using `String.subSequence(start, end)`
+> - 1.0: report a warning when using `String.subSequence(start, end)`
+> - 2.3.0: raise the warning to an error
 
 ### Deprecate `kotlin.io.createTempDirectory()` and `kotlin.io.createTempFile()` functions
 
