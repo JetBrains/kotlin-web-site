@@ -9,9 +9,7 @@
 
 The unused return value checker allows you to detect _ignored results_.
 These are values returned from expressions that produce something other than
-`Unit` or `Nothing` and aren't passed to a function, checked in a condition, or used otherwise.
-
-It warns you when a value isn't:
+`Unit` or `Nothing` and aren't:
 
 * Stored in a variable or property.
 * Returned or thrown.
