@@ -368,6 +368,6 @@ Learn more about [multiline strings](coding-conventions.md#strings).
 
 * Look through other [Kotlin idioms](idioms.md).
 * Learn how to convert existing Java code to Kotlin with
-  the [Java to Kotlin converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
+  the [Java to Kotlin converter](mixing-java-kotlin-intellij.md#convert-java-files-to-kotlin).
 
 If you have a favorite idiom, we invite you to share it by sending a pull request.

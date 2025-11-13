@@ -1,190 +1,308 @@
-[//]: # (title: Test code using JUnit – tutorial)
+[//]: # (title: Test Java code using Kotlin and JUnit – tutorial)
 
-This tutorial shows you how to write a simple unit test in a Kotlin/JVM project and run it with the Gradle build tool.
+Kotlin is fully interoperable with Java, which means you can write tests for Java code using Kotlin and run them together
+with your existing Java tests in the same project.
 
-In this project, you'll use the [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/index.html) library and run the test using JUnit.
-If you're working on a multiplatform app, see the [Kotlin Multiplatform tutorial](https://kotlinlang.org/docs/multiplatform/multiplatform-run-tests.html).
+In this tutorial, you'll learn how to:
 
-To get started, first download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
+* Configure a mixed Java–Kotlin project to run tests using [JUnit 5](https://junit.org/junit5/).
+* Add Kotlin tests that verify Java code.
+* Run tests using Maven or Gradle.
 
-## Add dependencies
+> Before you start, make sure you have:
+>
+> * [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) (Community or Ultimate edition) that has a bundled Kotlin plugin
+> or [VS Code](https://code.visualstudio.com/Download) with the installed [Kotlin extension](https://github.com/Kotlin/kotlin-lsp/tree/main?tab=readme-ov-file#vs-code-quick-start).
+> * Java 17 or later
+>
+{style="note"}
 
-1. Open a Kotlin project in IntelliJ IDEA. If you don't have a project,
-   [create one](https://www.jetbrains.com/help/idea/create-your-first-kotlin-app.html#create-project).
+## Configure the project
 
-2. Open the `build.gradle(.kts)` file and check that the `testImplementation` dependency is present.
-   This dependency allows you to work with `kotlin.test` and `JUnit`:
+1. In your IDE, clone the sample project from version control:
 
-    <tabs group="build-script">
-    <tab title="Kotlin" group-key="kotlin">
-
-   ```kotlin
-   dependencies {
-       // Other dependencies.
-       testImplementation(kotlin("test"))
-   }
+   ```text
+   https://github.com/kotlin-hands-on/kotlin-junit-sample.git
    ```
+
+2. Navigate to the `initial` module and review the project structure:
+
+    ```text
+    kotlin-junit-sample/
+    ├── initial/
+    │   ├── src/
+    │   │   ├── main/java/    # Java source code
+    │   │   └── test/java/    # JUnit test in Java
+    │   ├── pom.xml           # Maven configuration
+    │   └── build.gradle.kts  # Gradle configuration
+    ```
+
+   The `initial` module contains a simple Todo application in Java with a single test.
+
+3. In the same directory, open the build file, `pom.xml` for Maven or `build.gradle.kts` for Gradle, and update its
+   contents to support Kotlin:
+
+    <tabs group="build-system">
+    <tab title="Maven" group-key="maven">
+
+    ```xml
+    ```
+   {src="jvm-test-tutorial/pom.xml" initial-collapse-state="collapsed" collapsible="true" ignore-vars="false" collapsed-title="pom.xml file"}
+
+    * In the `<properties>` section, set the Kotlin version.
+    * In the `<dependencies>` section, add JUnit Jupiter dependencies and the `kotlin-stdlib` (test scope) to compile and
+      run Kotlin tests.
+    * In the `<build><plugins>` section, apply `kotlin-maven-plugin` with `extensions` enabled and configure `compile`
+      and `test-compile` executions with `sourceDirs` for both Kotlin and Java.
+    * You don't need to add `maven-compiler-plugin` to the `<build><pluginManagement>` section when using the Kotlin
+      Maven plugin with extensions.
 
     </tab>
-    <tab title="Groovy" group-key="groovy">
+    <tab title="Gradle" group-key="gradle">
 
-   ```groovy
-   dependencies {
-       // Other dependencies.
-       testImplementation 'org.jetbrains.kotlin:kotlin-test'
-   }
-   ```
+    ```kotlin
+    group = "org.jetbrains.kotlin"
+    version = "1.0-SNAPSHOT"
+    description = "kotlin-junit-complete"
+    java.sourceCompatibility = JavaVersion.VERSION_17
+    
+    plugins {
+        application
+        kotlin("jvm") version "%kotlinVersion%"
+    }
 
-   </tab>
-   </tabs>
+    kotlin {
+        jvmToolchain(17)
+    }
 
-3. Add the `test` task to the `build.gradle(.kts)` file:
+    application {
+        mainClass.set("org.jetbrains.kotlin.junit.App")
+    }
 
-    <tabs group="build-script">
-    <tab title="Kotlin" group-key="kotlin">
+    repositories {
+        mavenCentral()
+    }
 
-   ```kotlin
-   tasks.test {
-       useJUnitPlatform()
-   }
-   ```
+    dependencies {
+        implementation("com.gitlab.klamonte:jexer:1.6.0")
+
+        testImplementation(kotlin("test"))
+        testImplementation(libs.org.junit.jupiter.junit.jupiter.api)
+        testImplementation(libs.org.junit.jupiter.junit.jupiter.params)
+        testRuntimeOnly(libs.org.junit.jupiter.junit.jupiter.engine)
+        testRuntimeOnly(libs.org.junit.platform.junit.platform.launcher)
+    }
+
+    tasks.test {
+        useJUnitPlatform()
+    }
+    ```
+   {initial-collapse-state="collapsed" collapsible="true" collapsed-title="build.gradle.kts file"}
+
+    * In the `plugins {}` block, add the `kotlin("jvm")` plugin.
+    * Set the JVM toolchain version to match your Java version.
+    * In the `dependencies {}` block, add the `kotlin.test` library that provides Kotlin's test utilities and integrates with JUnit.
 
     </tab>
-    <tab title="Groovy" group-key="groovy">
+    </tabs>
 
-   ```groovy
-   test {
-       useJUnitPlatform()
-   }
-   ```
+4. Reload the build file in your IDE.
 
-   </tab>
-   </tabs>
+For more detailed instructions on build file setup, see [Project configuration](mixing-java-kotlin-intellij.md#project-configuration).
 
-   > If you use the `useJUnitPlatform()`function in your build script, 
-   > the `kotlin-test` library automatically includes JUnit 5 as a dependency.
-   > This setup enables access to all JUnit 5 APIs, along with the `kotlin-test` API,
-   > in JVM-only projects and JVM tests of Kotlin Multiplatform (KMP) projects.
-   >
-   {style="note"}
+## Add your first Kotlin test
 
-Here's a complete code for the `build.gradle.kts`:
+The `TodoItemTest.java` test in `initial/src/test/java` already verifies the app basics: item creation, defaults,
+unique IDs, and state changes.
 
-```kotlin
-plugins {
-    kotlin("jvm") version "%kotlinVersion%"
-}
+You can expand the test coverage by adding a Kotlin test that verifies repository-level behavior:
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-```
-{initial-collapse-state="collapsed" collapsible="true"}
-
-## Add the code to test it
-
-1. Open the `Main.kt` file in `src/main/kotlin`.
-
-   The `src` directory contains Kotlin source files and resources. 
-   The `Main.kt` file contains sample code that prints `Hello, World!`.
-
-2. Create the `Sample` class with the `sum()` function that adds two integers together:
+1. Navigate to the same test source directory, `initial/src/test/java`.
+2. Create a `TodoRepositoryTest.kt` file in the same package as the Java test.
+3. Create the test class with field declarations and setup function:
 
    ```kotlin
-   class Sample() {
-       fun sum(a: Int, b: Int): Int {
-           return a + b
+   package org.jetbrains.kotlin.junit
+
+   import org.junit.jupiter.api.BeforeEach
+   import org.junit.jupiter.api.Assertions
+   import org.junit.jupiter.api.Test
+   import org.junit.jupiter.api.DisplayName
+
+   internal class TodoRepositoryTest {
+       lateinit var repository: TodoRepository
+       lateinit var testItem1: TodoItem
+       lateinit var testItem2: TodoItem
+
+       @BeforeEach
+       fun setUp() {
+           repository = TodoRepository()
+           testItem1 = TodoItem("Task 1", "Description 1")
+           testItem2 = TodoItem("Task 2", "Description 2")
        }
    }
    ```
 
-## Create a test
+    * JUnit 5 annotations work the same in Kotlin as in Java.
+    * In Kotlin, the [`lateinit` keyword](properties.md#late-initialized-properties-and-variables) allows declaring
+      non-null properties that are initialized later.
+      This helps to avoid having to use nullable types (`TodoRepository?`) in your tests.
 
-1. In IntelliJ IDEA, select **Code** | **Generate** | **Test...** for the `Sample` class:
-
-   ![Generate a test](generate-test.png)
-
-2. Specify the name of the test class. For example, `SampleTest`:
-
-   ![Create a test](create-test.png)
-
-   IntelliJ IDEA creates the `SampleTest.kt` file in the `test` directory.
-   This directory contains Kotlin test source files and resources.
-
-   > You can also manually create a `*.kt` file for tests in `src/test/kotlin`.
-   >
-   {style="note"}
-
-3. Add the test code for the `sum()` function in `SampleTest.kt`:
-
-   * Define the test `testSum()` function using the [`@Test` annotation](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/-test/index.html).
-   * Check that the `sum()` function returns the expected value by using the [`assertEquals()`](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/assert-equals.html) function.
+4. Add a test inside the `TodoRepositoryTest` class to check the initial repository state and its size:
 
    ```kotlin
-   import org.example.Sample
-   import org.junit.jupiter.api.Assertions.*
-   import kotlin.test.Test
-
-   class SampleTest {
-       private val testSample: Sample = Sample()
-
-       @Test
-       fun testSum() {
-           val expected = 42
-           assertEquals(expected, testSample.sum(40, 2))
-       }
+   @Test
+   @DisplayName("Should start with empty repository")
+   fun shouldStartEmpty() {
+       Assertions.assertEquals(0, repository.size())
+       Assertions.assertTrue(repository.all.isEmpty())
    }
    ```
 
-## Run a test
+    * Unlike Java static import, Jupiter's `Assertions` is imported as a class and used as a qualifier for assertion functions.
+    * Instead of `.getAll()` calls, you can access Java getters as properties in Kotlin with `repository.all`.
+
+5. Write another test to verify copy behavior for all items:
+
+   ```kotlin
+   @Test
+   @DisplayName("Should return defensive copy of items")
+   fun shouldReturnDefensiveCopy() {
+       repository.add(testItem1)
+
+       val items1 = repository.all
+       val items2 = repository.all
+
+       Assertions.assertNotSame(items1, items2)
+       Assertions.assertThrows(
+           UnsupportedOperationException::class.java
+       ) { items1.clear() }
+       Assertions.assertEquals(1, repository.size())
+   }
+   ```
+
+    * To get a Java class object from a Kotlin class, use `::class.java`.
+    * You can split complex assertions across multiple lines without using any special continuation characters.
+
+6. Add a test to verify finding items by ID:
+
+   ```kotlin
+   @Test
+   @DisplayName("Should find item by ID")
+   fun shouldFindItemById() {
+       repository.add(testItem1)
+       repository.add(testItem2)
+
+        val found = repository.getById(testItem1.id())
+
+        Assertions.assertTrue(found.isPresent)
+        Assertions.assertEquals(testItem1, found.get())
+   }
+   ```
+
+   Kotlin works smoothly with the Java [`Optional` API](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html).
+   It automatically converts getter methods to properties, that's why the `isPresent()` method is accessed here as a property.
+
+7. Write a test to verify the item removal mechanism:
+
+   ```kotlin
+    @Test
+    @DisplayName("Should remove item by ID")
+    fun shouldRemoveItemById() {
+        repository.add(testItem1)
+        repository.add(testItem2)
+
+        val removed = repository.remove(testItem1.id())
+
+        Assertions.assertTrue(removed)
+        Assertions.assertEquals(1, repository.size())
+        Assertions.assertTrue(repository.getById(testItem1.id()).isEmpty)
+        Assertions.assertTrue(repository.getById(testItem2.id()).isPresent)
+    }
+   
+    @Test
+    @DisplayName("Should return false when removing non-existent item")
+    fun shouldReturnFalseForNonExistentRemoval() {
+        repository.add(testItem1)
+
+        val removed = repository.remove("non-existent-id")
+
+        Assertions.assertFalse(removed)
+        Assertions.assertEquals(1, repository.size())
+    }
+   ```
+
+   In Kotlin, you can chain method calls and property access, for example `repository.getById(id).isEmpty`.
+
+> You can add even more tests to the `TodoRepositoryTest` test class to cover additional functionality.
+> See the full source code in the sample project's [`complete`](https://github.com/kotlin-hands-on/kotlin-junit-sample/blob/main/complete/src/test/java/org/jetbrains/kotlin/junit/TodoRepositoryTest.kt) module.
+>
+{style="tip"}
+
+## Run tests
+
+Run both Java and Kotlin tests to verify your project works as expected:
 
 1. Run the test using the gutter icon:
 
    ![Run the test](run-test.png)
 
-   > You can also run all project tests via the command-line interface using the `./gradlew check` command.
-   >
-   {style="note"}
+   You can also run all project tests from the `initial` directory using the command line:
 
-2. Check the result in the **Run** tool window:
+    <tabs group="build-system">
+    <tab title="Maven" group-key="maven">
 
-   ![Check the test result. The test passed successfully](test-successful.png)
+    ```bash
+    mvn test
+    ```
 
-   The test function was executed successfully.
+    </tab>
+    <tab title="Gradle" group-key="gradle">
 
-3. Make sure that the test works correctly by changing the `expected` variable value to 43:
+    ```bash
+    ./gradlew test
+    ```
+
+    </tab>
+    </tabs>
+
+2. Check that the test works correctly by changing one of the variable values.
+   For example, modify the `shouldAddItem` test to expect an incorrect repository size:
 
    ```kotlin
    @Test
-   fun testSum() {
-       val expected = 43
-       assertEquals(expected, classForTesting.sum(40, 2))
+   @DisplayName("Should add item to repository")
+   fun shouldAddItem() {
+       repository.add(testItem1)
+
+       Assertions.assertEquals(2, repository.size())  // Changed from 1 to 2
+       Assertions.assertTrue(repository.all.contains(testItem1))
    }
    ```
 
-4. Run the test again and check the result:
+3. Run the test again and verify that it fails:
 
    ![Check the test result. The test has failed](test-failed.png)
 
-   The test execution failed.
+> You can find the fully configured project with tests in the sample project's
+> [`complete`](https://github.com/kotlin-hands-on/kotlin-junit-sample/tree/main/complete) module.
+>
+{style="tip"}
+
+## Explore other test libraries
+
+Besides JUnit, you can use other libraries that support both Kotlin and Java:
+
+| Library                                                     | Description                                                                                                        |
+|-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| [AssertJ](https://github.com/assertj/assertj)               | Fluent assertion library with chainable assertions.                                                                |
+| [Mockito-Kotlin](https://github.com/mockito/mockito-kotlin) | Kotlin wrapper for Mockito that provides helper functions and better integration with Kotlin type system.          |
+| [MockK](https://github.com/mockk/mockk)                     | Native Kotlin mocking library that supports Kotlin-specific features including coroutines and extension functions. |
+| [Kotest](https://github.com/kotest/kotest)                  | Assertion library for Kotlin offering multiple assertion styles and extensive matcher support.                     |
+| [Strikt](https://github.com/robfletcher/strikt)             | Assertion library for Kotlin with type-safe assertions and support for data classes.                               |
 
 ## What's next
 
-Once you've finished your first test, you can:
-
-* Write more tests using other [`kotlin.test`](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/) functions.
-   For example, use the [`assertNotEquals()`](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/assert-not-equals.html) function.
-* Improve your test output with the [Kotlin Power-assert compiler plugin](power-assert.md).
-   The plugin enriches the test output with contextual information.
-* [Create your first server-side application](jvm-get-started-spring-boot.md) with Kotlin and Spring Boot.
+* Improve your test output with the [Kotlin's Power-assert compiler plugin](power-assert.md).
+* Create your first [server-side application with Kotlin and Spring Boot](jvm-get-started-spring-boot.md).
+* Explore the features of the [`kotlin.test` library](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/).
