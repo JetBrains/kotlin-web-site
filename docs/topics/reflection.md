@@ -51,8 +51,8 @@ To use reflection in a Gradle or Maven project, add the dependency on `kotlin-re
     ```
 
 If you don't use Gradle or Maven, make sure you have `kotlin-reflect.jar` in the classpath of your project.
-In other supported cases (IntelliJ IDEA projects that use the command-line compiler or Ant),
-it is added by default. In the command-line compiler and Ant, you can use the `-no-reflect` compiler option to exclude
+In other supported cases (IntelliJ IDEA projects that use the command-line compiler),
+it is added by default. In the command-line compiler, you can use the `-no-reflect` compiler option to exclude
 `kotlin-reflect.jar` from the classpath.
 
 ## Class references
