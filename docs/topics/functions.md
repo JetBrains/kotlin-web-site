@@ -32,6 +32,14 @@ Parameters are separated using commas, and each parameter must be explicitly typ
 fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
 ```
 
+Inside the body of a function, received parameters are read-only (implicitly `val`):
+
+```kotlin
+fun powerOf (number: Int, exponent: Int): Int {
+    number = 2 // Error: 'val' cannot be reassigned.
+}
+```
+
 You can use a [trailing comma](coding-conventions.md#trailing-commas) when you declare function parameters:
 
 ```kotlin
@@ -43,6 +51,9 @@ fun powerOf(
 
 This helps with refactorings and code maintenance:
 you can move parameters within the declaration without worrying about which is going to be the last one.
+
+Kotlin functions can receive other functions as parameters — and be passed as arguments.
+For details, see [](lambdas.md).
 
 ### Parameters with default values (optional parameters)
 
@@ -64,8 +75,6 @@ If a parameter with default value precedes a parameter with no default value, th
 the function with [named arguments](#named-arguments):
 
 ```kotlin
-fun main () {
-//sampleStart 
 fun foo(
     foo: Int = 0,
     bar: Int,
@@ -73,10 +82,7 @@ fun foo(
 
 foo(bar = 1) // Uses the default value foo = 0
 foo(1) // Error: No value passed for parameter 'bar'
-//sampleEnd
-}
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 [Overriding methods](inheritance.md#overriding-methods) always use the base method's default parameter values.
 When overriding a method that has default parameter values, the default parameter values must be omitted from the signature:
@@ -96,7 +102,7 @@ class B : A() {
 
 #### Non-constant expressions as default values
 
-You can assign to a parameter a default value that is not constant an expression, as in a function call, or a calculation that uses
+You can assign to a parameter a default value that is not constant, as in a function call, or a calculation that uses
 values of other arguments, like the `len` parameter in the example above:
 
 ```kotlin
@@ -107,20 +113,23 @@ fun read(
 ) { /*...*/ }
 ```
 
-Parameters referring to other parameters' values must be declared later in the order (in this example, `len` must be declared after `b`).
+Parameters referring to other parameters' values must be declared later in the order
+(in this example, `len` must be declared after `b`).
 
-In general default value of a parameter can be any expression — but such expressions are only calculated when
-the function is called **without** the parameter and a default value needs to be assigned.
-For example, this function prints out a line when it is called without the `print` parameter:
+In general default value of a parameter can be any expression.
+But such expressions are only calculated when the function is called **without** the corresponding parameter
+and a default value needs to be assigned.
+For example, this function prints out a line only when it is called without the `print` parameter:
 
 ```kotlin
 fun read(
     b: Int,
     print: Unit? = println("No argument passed for 'print'.")
-) { /*...*/ }
+) { println(b) }
 
 fun main() {
-    read (1)
+    read (1) // BothFirst "No argument passed for 'print'.", then "1" is printed
+    read (1, null) // Only the "1" is printed
 }
 ```
 
@@ -343,7 +352,8 @@ class MyStringCollection {
 
 ## Function scope
 
-Kotlin functions can be declared at the top level in a file, meaning you do not need to create a class to hold a function.
+Kotlin functions can be declared at the top level in a file, meaning you do not need to create a class to hold a function
+(unlike Java, for example).
 Functions can also be declared locally as _member functions_ and _extension functions_.
 
 ### Local functions
@@ -438,8 +448,6 @@ private fun findFixPoint(): Double {
 
 To be eligible for the `tailrec` modifier, a function must call itself as the last operation it performs. You cannot use
 tail recursion when there is more code after the recursive call, within `try`/`catch`/`finally` blocks, or on open functions.
-Currently, tail recursion is supported by Kotlin for the JVM and Kotlin/Native.
-TODO what else is there but JVM and Native?
 
 **See also**:
 * [Inline functions](inline-functions.md)
