@@ -3,65 +3,94 @@
 Kotlin provides a modern and pragmatic foundation for building AI-powered applications.  
 It can be used across platforms, integrates well with established AI frameworks, and supports common AI development patterns.
 
-> This page introduces how Kotlin is used in real-world AI scenarios with working examples from
-> the [Kotlin-AI-Examples](https://github.com/Kotlin/Kotlin-AI-Examples) repository.
-> 
-{style="note"}
+## Koog
 
-## Kotlin AI agentic framework – Koog
+[Koog](https://koog.ai) is a JetBrains open‑source framework for building AI agents, from simple to complex.
+It provides multiplatform support, Spring Boot and Ktor integrations, an idiomatic DSL,
+and production‑ready features out of the box.
 
-[Koog](https://koog.ai) is a Kotlin-based framework for creating and running AI agents locally, without requiring external services.
-Koog is JetBrains' innovative, open-source agentic framework that empowers developers to build AI agents within the JVM ecosystem.
-It provides a pure Kotlin implementation for building intelligent agents that can interact with tools, handle complex workflows, and communicate with users.
+### Create a simple agent in a few lines
 
-## More use cases
+```kotlin
+fun main() {
+    runBlocking {
+        val agent = AIAgent(
+            // Use Anthropic, Google, OpenRouter, or any other provider
+            executor = simpleOpenAIExecutor(System.getenv("OPENAI_API_KEY")),
+            systemPrompt = "You are a helpful assistant. Answer user questions concisely.",
+            llmModel = OpenAIModels.Chat.GPT4o
+        )
 
-There are many other use cases where Kotlin can help with AI development.
-From integrating language models into backend services to building AI-powered user interfaces,
-these examples showcase the versatility of Kotlin in various AI applications.
+        val result = agent.run("Hello! How can you help me?")
+        println(result)
+    }
+}
+```
 
-### Retrieval-augmented generation 
+<a href="https://docs.koog.ai/single-run-agents/"><img src="get-started-with-koog.svg" width="700" alt="Get started with Koog" style="block"/></a>
 
-Use Kotlin to build retrieval-augmented generation (RAG) pipelines that connect language models to external sources like documentation, vector stores, or APIs.
-For example:
+### Key features of Koog
 
-* [`springAI-demo`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/springAI-demo): A Spring Boot app that loads Kotlin standard library docs into a vector store and supports document-based Q&A.
-* [`langchain4j-spring-boot`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/langchain4j/langchain4j-spring-boot): A minimal RAG example using LangChain4j.
+* **Support for multiplatform development**. Multiplatform support enables agentic application development for JVM, JS,
+    WasmJS, Android, and iOS.
+* **Reliability and fault-tolerance**. With built-in retries, Koog lets developers handle failures such as timeouts or tool errors.
+    And the agent persistence allows restoring full agent state machines instead of just chat messages.
+* **Built-in history compression techniques for long contexts**. Koog comes with advanced strategies to compress and
+    manage long-running conversations out of the box.
+* **Enterprise-ready integrations**. Koog integrates with popular JVM frameworks like Spring Boot and Ktor.
+* **Observability with OpenTelemetry exporters**. Koog provides out-of-the-box integration with popular observability providers
+    such as W&B Weave and Langfuse for monitoring and debugging AI applications.
+* **LLM switching and seamless history adaptation**. Koog allows switching to a different LLM with a new set of tools
+    at any point without losing the existing conversation history.
+    It also enables rerouting between multiple LLM providers, including OpenAI, Anthropic, Google, and others.
+* **Integration with JVM and Kotlin applications**. Koog provides an idiomatic, type-safe DSL specifically for JVM and Kotlin developers.
+* **Model Context Protocol (MCP) integration**. Koog enables the use of MCP tools in agents.
+* **Knowledge retrieval and memory**. With embeddings, ranked document storage, and shared agent memory, 
+    Koog enables retaining knowledge across conversations.
+* **Streaming capabilities**. Koog lets developers process responses in real-time with streaming support and parallel tool calls.
 
-### Agent-based applications
+### Where to start
 
-Build AI agents in Kotlin that reason, plan, and act using language models and tools.
-For example:
+* Explore Koog capabilities in the [Overview](https://docs.koog.ai/).
+* Build your first Koog agent with the [Getting started guide](https://docs.koog.ai/single-run-agents/).
+* See the latest updates in the [Koog release notes](https://github.com/JetBrains/koog/blob/main/CHANGELOG.md).
+* Learn from the [examples](https://docs.koog.ai/examples/).
 
-* [`koog`](https://github.com/JetBrains/koog): Shows how to use the Kotlin agentic framework Koog to build AI agents.
-* [`langchain4j-spring-boot`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/langchain4j/langchain4j-spring-boot): Includes a simple tool-using agent built with LangChain4j.
+## MCP Kotlin SDK
 
-### Chain of thought prompting
+The [MCP Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk) is a Kotlin Multiplatform implementation of the Model Context Protocol (MCP) 
+that lets developers build AI-powered applications in Kotlin and integrate with LLM surfaces across JVM, WebAssembly (Wasm), and iOS.
 
-Implement structured prompting techniques that guide language models through multistep reasoning.
-For example:
+With the MCP Kotlin SDK, you can:
 
-* [`LangChain4j_Overview.ipynb`](https://github.com/Kotlin/Kotlin-AI-Examples/blob/master/notebooks/langchain4j/LangChain4j_Overview.ipynb): A Kotlin Notebook demonstrating chain of thought and structured output.
+* Provide context for LLMs in a structured and standardized way, separating context handling from the interaction with LLMs.
+* Build MCP clients that consume resources from the existing servers.
+* Create MCP servers that expose prompts, tools, and resources for LLMs.
+* Use standard communication transports such as stdio, SSE, and WebSocket.
+* Handle all MCP protocol messages and lifecycle events.
 
-### LLMs in backend services
+## Explore other AI-powered application scenarios
 
-Integrate LLMs into business logic or REST APIs using Kotlin and Spring.
-For example:
+Thanks to seamless Java interoperability and Kotlin Multiplatform, you can combine Kotlin with established AI SDKs and frameworks,
+build backend and desktop/mobile UIs, and adopt patterns like RAG and agent‑based workflows.
 
-* [`spring-ai-examples`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/spring-ai-examples): Includes classification, chat, and summarization examples.
-* [`springAI-demo`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/springAI-demo): Demonstrates full integration of LLM responses with application logic.
+> You can explore and run examples from the [Kotlin-AI-Examples](https://github.com/Kotlin/Kotlin-AI-Examples) repository.
+> Each project is self-contained. You can use each project as a reference or template for building Kotlin-based AI applications.
 
-### Multiplatform user interfaces with AI
+### Connect to major model providers
 
-Use Compose Multiplatform to build interactive AI-powered UIs in Kotlin.
-For example:
+Use Kotlin to connect to major model providers such as OpenAI, Anthropic, Google, and others:
 
-* [`mcp-demo`](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/mcp/mcp-demo): A desktop UI that connects to Claude and OpenAI, and presents responses using Compose Multiplatform.
+* [OpenAI](https://github.com/openai/openai-java) — official Java SDK for the OpenAI API. It covers responses and chat, images, and audio.
+* [Anthropic (Claude)](https://github.com/anthropics/anthropic-sdk-java) — official Java SDK for the Claude Messages API. It includes modules for Vertex AI and Bedrock integrations. 
+* [Google AI (Gemini / Vertex AI)](https://github.com/googleapis/java-genai) — official Java SDK with a single client that switches between Gemini API and Vertex AI.
+* [Azure OpenAI](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) — official Java client for Azure OpenAI Service. It supports chat completions and embeddings.
+* [AWS Bedrock](https://github.com/aws/aws-sdk-kotlin) — official SDKs to invoke foundation models. It includes the Kotlin SDK and Java SDK for Bedrock and Bedrock Runtime.
 
-## Explore examples
+### Create retrieval-augmented generation (RAG) piplelines and agent-based apps
 
-You can explore and run examples from the [Kotlin-AI-Examples](https://github.com/Kotlin/Kotlin-AI-Examples) repository.  
-Each project is self-contained. You can use each project as a reference or template for building Kotlin-based AI applications.
+* [Spring AI](https://github.com/spring-projects/spring-ai) — multi-provider abstraction for prompts, chat, embeddings, tools and function calling, and vector stores.
+* [LangChain4j](https://docs.langchain4j.dev/tutorials/kotlin/) — JVM toolkit with Kotlin extensions for prompts, tools, RAG pipelines, and agents.
 
 ## What's next
 
