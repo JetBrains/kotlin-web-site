@@ -148,7 +148,10 @@ class Client() {
     var token: String? = null
     fun connect() = println("connected!")
     fun authenticate() = println("authenticated!")
-    fun getData(): String = "Mock data"
+    fun getData() : String {
+        println("getting data!")
+        return "Mock data"
+    }
 }
 
 val client = Client()
@@ -160,6 +163,7 @@ fun main() {
     client.authenticate()
     // authenticated!
     client.getData()
+    // getting data!
 }
 ```
 {kotlin-runnable="true" id="kotlin-tour-scope-function-apply-before"}
@@ -179,7 +183,10 @@ class Client() {
     var token: String? = null
     fun connect() = println("connected!")
     fun authenticate() = println("authenticated!")
-    fun getData(): String = "Mock data"
+    fun getData() : String {
+        println("getting data!")
+        return "Mock data"
+    }
 }
 //sampleStart
 val client = Client().apply {
@@ -189,9 +196,10 @@ val client = Client().apply {
 }
 
 fun main() {
-    client.getData()
     // connected!
     // authenticated!
+    client.getData()
+    // getting data! 
 }
 //sampleEnd
 ```
@@ -222,7 +230,10 @@ class Client() {
     var token: String? = null
     fun connect() = println("connected!")
     fun authenticate() = println("authenticated!")
-    fun getData(): String = "Mock data"
+    fun getData() : String {
+        println("getting data!")
+        return "Mock data"
+    }
 }
 
 //sampleStart
@@ -237,6 +248,7 @@ fun main() {
         authenticate()
         // authenticated!
         getData()
+        // getting data!
     }
 }
 //sampleEnd
