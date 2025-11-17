@@ -1,5 +1,7 @@
 [//]: # (title: Type checks and casts)
 
+<show-structure depth ="4"/>
+
 In Kotlin, you can do two things with types at runtime: check whether an object is a specific type, or convert it to another type.
 Type **checks** help you confirm the kind of object you're dealing with, while type **casts** attempt to convert the object to another type.
 
@@ -7,7 +9,7 @@ Type **checks** help you confirm the kind of object you're dealing with, while t
 >
 {style="tip"}
 
-## `is` and `!is` operators
+## Checks with `is` and `!is` operators {id="is-and-is-operators"}
 
 Use the `is` operator (or `!is` to negate it) to check if an object matches a type at runtime:
 
@@ -144,7 +146,7 @@ fun main() {
 
 #### Control flow
 
-Smart casts work not only for `if` conditional expressions but also for [`when` expressions](control-flow.md#when-expressions-and-statements):
+Smart casts work not only for `if` conditional expressions, but also for [`when` expressions](control-flow.md#when-expressions-and-statements):
 
 ```kotlin
 fun processInput(data: Any) {
@@ -195,7 +197,7 @@ fun main() {
 
     var status: Status = robo.status()
     while (status is Ok) {
-        // The compiler smart casts status to OK type so the currentRoom
+        // The compiler smart casts status to OK type, so the currentRoom
         // property is accessible.
         println("Cleaning ${status.currentRoom}...")
         status = robo.clean()
@@ -367,11 +369,8 @@ fun main() {
 
 #### Smart cast prerequisites
 
-> Note that smart casts work only when the compiler can guarantee that the variable won't change between the check and its usage.
->
-{style="warning"}
-
-Smart casts can be used in the following conditions:
+Smart casts work only when the compiler can guarantee that the variable won't change between the check and its usage.
+They can be used in the following conditions:
 
 <table style="none">
     <tr>
