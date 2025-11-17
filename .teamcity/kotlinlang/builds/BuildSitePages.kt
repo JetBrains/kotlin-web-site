@@ -71,7 +71,8 @@ object BuildSitePages : BuildType({
                 python kotlin-website.py build
             """.trimIndent()
 
-            dockerImage = "%dep.Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildPythonContainer.kotlin-website-image%"
+            dockerImage = "%dep.Kotlin_KotlinSites_Playground_KotlinlangTeamcityDslAndreiEzerskii_BuildPythonContainer.kotlin-website-image%"
+            // dockerImage = "%dep.Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildPythonContainer.kotlin-website-image%"
             dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
             dockerPull = true
 
@@ -122,7 +123,9 @@ object BuildSitePages : BuildType({
                 if [[ "%teamcity.build.branch%" == "<default>" ]]; then
                   url="https://branch-.kotlin-web-site.labs.jb.gg"
                 else
-                  url="https://branch-%teamcity.build.branch%.kotlin-web-site.labs.jb.gg"
+                  branch="%teamcity.build.branch%"
+                  safe_branch="${'$'}{branch//\//--}"
+                  url="https://branch-${'$'}safe_branch.kotlin-web-site.labs.jb.gg"
                 fi
                 
                 echo " ##teamcity[buildStatus text='{build.status.text} ${'$'}{url}'] "
