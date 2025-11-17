@@ -186,6 +186,20 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 1.5.0: promote the new functions to Stable; report warnings for old functions with suggestions for replacements
 > - 2.3.0: raise the warnings to errors
 
+### Deprecate `Number.toChar()` function
+
+> **Issue**: [KT-56822](https://youtrack.jetbrains.com/issue/KT-56822)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `Number.toChar()` function is deprecated. Use `toInt().toChar()` or the `Char` constructor instead.
+>
+> **Deprecation cycle**:
+>
+> - 1.9.0: report a warning when using the `Number.toChar()` function
+> - 2.3.0: raise the warning to an error
 
 ### Deprecate `String.subSequence(start, end)` function
 
@@ -216,21 +230,6 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 1.4.20: report a warning when using `kotlin.io.createTempDirectory()` and `kotlin.io.createTempFile()` functions
-> - 2.3.0: raise the warning to an error
-
-### Deprecate `Number.toChar()` function
-
-> **Issue**: [KT-56822](https://youtrack.jetbrains.com/issue/KT-56822)
->
-> **Component**: kotlin-stdlib
->
-> **Incompatible change type**: source
->
-> **Short summary**: The `Number.toChar()` function is deprecated. Use `toInt().toChar()` or the `Char` constructor instead.
->
-> **Deprecation cycle**:
->
-> - 1.9.0: report a warning when using the `Number.toChar()` function
 > - 2.3.0: raise the warning to an error
 
 ### Hide `InputStream.readBytes(Int)` function
