@@ -27,7 +27,7 @@ fun main() {
 }
 ```
 
-<a href="https://docs.koog.ai/single-run-agents/"><img src="get-started-with-koog.svg" width="700" alt="Get started with Koog" style="block"/></a>
+<a href="https://www.google.com/url?q=https://docs.koog.ai/getting-started/"><img src="get-started-with-koog.svg" width="700" alt="Get started with Koog" style="block"/></a>
 
 ### Key features of Koog
 
