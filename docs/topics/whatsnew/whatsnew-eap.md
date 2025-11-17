@@ -440,7 +440,7 @@ mappings for some functions, please report them to the [Google IssueTracker](htt
 {style="note"}
 
 By default, the mapping file Gradle tasks run regardless of whether you enable the traces. If they cause problems in your
-build, you can disable the feature entirely. Add the following flag in the `composeCompiler {}` block of your Gradle configuration:
+build, you can disable the feature entirely. Add the following property in the `composeCompiler {}` block of your Gradle configuration:
 
 ```kotlin
 composeCompiler {
