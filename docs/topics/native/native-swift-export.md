@@ -271,7 +271,7 @@ public func baz() -> Swift.Int64 {
 }
 ```
 
-For Kotlin's extension functions, the receiver parameter is moved in Swift into ordinary parameters to the first position:
+For Kotlin's extension functions, the receiver parameter becomes an ordinary Swift parameter in the first position:
 
 ```kotlin
 // Kotlin
