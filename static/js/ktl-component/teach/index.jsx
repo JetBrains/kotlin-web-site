@@ -368,7 +368,7 @@ const Teach = (props) => {
                               </li>
                               <li className="teach-list__item">
                                   <a
-                                      href="/docs/mixing-java-kotlin-intellij.html#converting-an-existing-java-file-to-kotlin-with-j2k"
+                                      href="/docs/mixing-java-kotlin-intellij.html#convert-java-files-to-kotlin"
                                       target="_blank"
                                       className={textCn('rs-link', {external: true})}
                                   >
