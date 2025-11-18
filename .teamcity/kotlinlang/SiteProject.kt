@@ -27,6 +27,8 @@ object SiteProject : Project({
         buildType(it)
     }
 
+    subProject(LandingPagesProject)
+
     template(DockerImageBuilder)
 
     vcsRoot(GrammarGenerator)
