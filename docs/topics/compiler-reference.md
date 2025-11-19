@@ -236,6 +236,44 @@ Allows using the `returnsNotNull()` function in contracts to assume a non-null r
 
 Allows using the `holdsIn` keyword in contracts to assume that a boolean condition is `true` inside a lambda.
 
+### -Xcompiler-plugin-order={plugin.before>plugin.after}
+
+Configure the running order of compiler plugins. The compiler runs `plugin.before` first, and then `plugin.after`:
+
+You can define multiple ordering rules for three or more plugins. For example:
+
+```bash
+kotlinc -Xcompiler-plugin-order=plugin.first>plugin.middle
+kotlinc -Xcompiler-plugin-order=plugin.middle>plugin.last
+```
+
+This results in the following running order:
+
+1. `plugin.first`
+2. `plugin.middle`
+3. `plugin.last`
+
+If a compiler plugin isn't present, the corresponding rule is ignored.
+
+You can configure the following plugins by their IDs:
+
+| Compiler plugin             | Plugin ID                                  |
+|-----------------------------|--------------------------------------------|
+| `all-open`, `kotlin-spring` | `org.jetbrains.kotlin.allopen`             |
+| AtomicFU                    | `org.jetbrains.kotlinx.atomicfu`           |
+| Compose                     | `androidx.compose.compiler.plugins.kotlin` |
+| `js-plain-objects`          | `org.jetbrains.kotlinx.jspo`               |
+| `jvm-abi-gen`               | `org.jetbrains.kotlin.jvm.abi`             |
+| kapt                        | `org.jetbrains.kotlin.kapt3`               |
+| Lombok                      | `org.jetbrains.kotlin.lombok`              |
+| `no-arg`, `kotlin-jpa`      | `org.jetbrains.kotlin.noarg`               |
+| Parcelize                   | `org.jetbrains.kotlin.parcelize`           |
+| Power-assert                | `org.jetbrains.kotlin.powerassert`         |
+| SAM with receiver           | `org.jetbrains.kotlin.samWithReceiver`     |
+| Serialization               | `org.jetbrains.kotlinx.serialization`      |
+
+This running order controls only the backend of compiler plugins and not the frontend.
+
 ## Kotlin/JVM compiler options
 
 The Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
