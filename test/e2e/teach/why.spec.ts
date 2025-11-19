@@ -163,7 +163,7 @@ test.describe('Why Teach Kotlin page appearance and functionality', async () => 
         await expect(description).toBeVisible();
         await expect(description).toContainText('Kotlin can also be compiled into');
 
-        const link1 = interoperableSectionInfo.locator('a[href="https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#converting-an-existing-java-file-to-kotlin-with-j2k"]');
+        const link1 = interoperableSectionInfo.locator('a[href="https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#convert-java-files-to-kotlin"]');
         await expect(link1).toBeVisible();
         expect(await link1.textContent()).toBe('Java-to-Kotlin converter ↗');
 
