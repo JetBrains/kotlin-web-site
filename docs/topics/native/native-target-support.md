@@ -64,7 +64,7 @@ Mind the following terms used in tier tables:
 |-------------------------|---------------------------------|---------------|------------------------------------------------------------------------------------------|
 | `androidNativeArm32`    | `arm-unknown-linux-androideabi` |               | [Android NDK](https://developer.android.com/ndk) on ARM32 platforms                      |
 | `androidNativeArm64`    | `aarch64-unknown-linux-android` |               | [Android NDK](https://developer.android.com/ndk) on ARM64 platforms                      |
-| `androidNativeX86`      | `i686-unknown-linux-android`    |               | [Android NDK](https://developer.android.com/ndk) on x86_64 platforms                     |
+| `androidNativeX86`      | `i686-unknown-linux-android`    |               | [Android NDK](https://developer.android.com/ndk) on x86 platforms                        |
 | `androidNativeX64`      | `x86_64-unknown-linux-android`  |               | [Android NDK](https://developer.android.com/ndk) on x86_64 platforms                     |
 | `mingwX64`              | `x86_64-pc-windows-gnu`         | ✅             | 64-bit Windows 10 and later using [MinGW](https://www.mingw-w64.org) compatibility layer |
 | Apple macOS hosts only: |                                 |               |                                                                                          |
@@ -88,29 +88,32 @@ The Kotlin team uses this approach in the official Kotlin libraries, for example
 
 The Kotlin/Native compiler supports the following hosts:
 
-| Host OS                   | Architecture     | Target compilation                             | `.klib` production                                                     |
-|---------------------------|------------------|------------------------------------------------|------------------------------------------------------------------------|
-| macOS (Apple Silicon)     | ARM64 platforms  | Any supported target                           | Any supported target                                                   |
-| macOS (Intel chips)       | x86_64 platforms | Any supported target                           | Any supported target                                                   |
-| Linux                     | x86_64 platforms | Any supported target, except for Apple targets | Any supported target, Apple targets only without cinterop dependencies | 
-| Windows (MinGW toolchain) | x86_64 platforms | Any supported target, except for Apple targets | Any supported target, Apple targets only without cinterop dependencies | 
+| Host OS                                            | Building final binaries                        | Producing `.klib` artefacts                                            |
+|----------------------------------------------------|------------------------------------------------|------------------------------------------------------------------------|
+| macOS on Apple Silicon (ARM64)                     | Any supported target                           | Any supported target                                                   |
+| macOS on Intel chips (x86_64)                      | Any supported target                           | Any supported target                                                   |
+| Linux with x86_64 architecture                     | Any supported target, except for Apple targets | Any supported target, Apple targets only without cinterop dependencies |
+| Windows (MinGW toolchain) with x86_64 architecture | Any supported target, except for Apple targets | Any supported target, Apple targets only without cinterop dependencies |
 
-* To produce final binaries, you can only compile supported [Kotlin/Native targets](#target-tiers) on supported hosts.
+**Building final binaries**
 
-  For example, target compilation is not possible on the FreeBSD OS or on a Linux machine running on the ARM64 architecture.
+To produce final binaries, you can compile [supported targets](#target-tiers) only on _supported hosts_. For example,
+you cannot do it on the FreeBSD OS or on a Linux machine running on the ARM64 architecture.
 
-  Compilation for Apple targets on Linux and Windows is also not possible.
+Building final binaries for Apple targets on Linux and Windows is also not possible.
 
-* Generally, Kotlin/Native supports cross-compilation, allowing any supported host to produce the `.klib` artifacts.
+**Producing `.klib` artefacts**
 
-  However, artifact production for Apple targets still has some limitations on Linux and Windows. If your project
-  uses [cinterop dependencies](native-c-interop.md) (including [CocoaPods](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-cocoapods-overview.html)),
-  you must use a macOS host.
-  
-  For example, it's possible to produce a `.klib` for `macosArm64` target on a Windows machine running on the x86_64 architecture
-  only if there are no cinterop dependencies.
+Generally, Kotlin/Native allows any _supported host_ to produce `.klib` artifacts for supported targets.
+
+However, artifact production for Apple targets still has some limitations on Linux and Windows. If your project
+uses [cinterop dependencies](native-c-interop.md) (including [CocoaPods](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-overview.html)),
+you must use a macOS host.
+
+For example, you can produce a `.klib` for `macosArm64` target on a Windows machine running on the x86_64 architecture
+only if there are no cinterop dependencies.
 
 ## What's next?
 
-* [Build final native binaries](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-build-native-binaries.html)
-* [Set up multiplatform library publication](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-lib-setup.html)
+* [Build final native binaries](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html)
+* [Compilation for Apple targets](https://kotlinlang.org/docs/multiplatform/multiplatform-publish-lib-setup.html#compilation-for-apple-targets)

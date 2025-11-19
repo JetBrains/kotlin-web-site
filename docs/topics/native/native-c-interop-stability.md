@@ -75,7 +75,7 @@ When processing a native library, the compiler typically uses header files from 
 almost all native library headers import "standard" headers (for example, `stdint.h`) that come from Xcode.
 
 That's why the Xcode version affects the import of native libraries to Kotlin. This is also one of the reasons
-why [cross-compilation of Apple targets from a non-Mac host](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-publish-lib-setup.html#compilation-for-apple-targets)
+why [cross-compilation of Apple targets from a non-Mac host](https://kotlinlang.org/docs/multiplatform/multiplatform-publish-lib-setup.html#compilation-for-apple-targets)
 is still impossible when using third-party native libraries.
 
 Every Kotlin version is compatible the most with a single Xcode version. This is the recommended version, which is tested
