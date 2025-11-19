@@ -123,8 +123,8 @@ object BuildSitePages : BuildType({
                   url="https://branch-.kotlin-web-site.labs.jb.gg"
                 else
                   branch="%teamcity.build.branch%"
-                  safe_branch="${'$'}{'$'}{branch//\//--}"
-                  url="https://branch-${'$'}{'$'}safe_branch.kotlin-web-site.labs.jb.gg"
+                  safe_branch="${'$'}{branch//\//--}"
+                  url="https://branch-${'$'}safe_branch.kotlin-web-site.labs.jb.gg"
                 fi
                 
                 echo " ##teamcity[buildStatus text='{build.status.text} ${'$'}{url}'] "
