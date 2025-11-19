@@ -1367,6 +1367,41 @@ dependencyResolutionManagement {
 Any declared repositories in subprojects override repositories declared centrally. For more information on how to control
 this behavior and what options are available, see [Gradle's documentation](https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:centralized-repository-declaration).
 
+## Register generated sources
+<primary-label ref="experimental-general"/>
+
+To help IDEs, third-party plugins, or other tools distinguish between generated code and regular source files, register 
+the generated sources using the [`KotlinSourceSet`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/) interface.
+
+To register a directory that contains Kotlin or Java files, use the `generatedKotlin` property with the [`SourceDirectorySet`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.file/-source-directory-set/index.html)
+type in your `build.gradle(.kts)` file. For example:
+
+```kotlin
+val generatorTask = project.tasks.register("generator") {
+    val outputDirectory = project.layout.projectDirectory.dir("src/main/kotlinGen")
+    outputs.dir(outputDirectory)
+    doLast {
+        outputDirectory.file("generated.kt").asFile.writeText(
+            // language=kotlin
+            """
+            fun printHello() {
+                println("hello")
+            }
+            """.trimIndent()
+        )
+    }
+}
+
+kotlin.sourceSets.getByName("main").generatedKotlin.srcDir(generatorTask)
+```
+
+This example creates a new task `"generator"` with an output directory of `"src/main/kotlinGen"`. When the task runs,
+the `doLast {}` block creates a `generated.kt` file in the output directory. Finally, the example registers the task's
+output as a generated source.
+
+The `allKotlinSources` property provides access to all sources registered in the `KotlinSourceSet.kotlin` and 
+`KotlinSourceSet.generatedKotlin` properties.
+
 ## What's next?
 
 Learn more about:
