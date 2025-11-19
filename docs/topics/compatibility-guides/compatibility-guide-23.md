@@ -280,6 +280,39 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ## Tools
 
+### Unsupported KGP version warning when using `kotlin-dsl` and `kotlin("jvm")` plugins
+
+> **Issue**: [KT-79851](https://youtrack.jetbrains.com/issue/KT-79851)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: In Kotlin 2.3, if you use both the `kotlin-dsl` **and** the `kotlin("jvm")` plugin in your Gradle
+> project, you may see a Gradle warning about an unsupported Kotlin Gradle plugin (KGP) version.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: introduce a diagnostic that detects when the `kotlin-dsl` plugin is used with an incompatible language or API version of the compiler.
+> 
+> **Migration steps**:
+> 
+> In general, we don't recommend using both the `kotlin-dsl` and the `kotlin("jvm")` plugins in the same Gradle project. This setup isn't supported.
+> 
+> For convention plugins, precompiled script plugins or any other form of unpublished build logic, you have three options:
+> 
+> 1. Don't apply the `kotlin("jvm")` plugin explicitly. Instead, let the `kotlin-dsl` plugin automatically provide a compatible KGP version.
+> 2. If you want to apply the `kotlin("jvm")` plugin explicitly, use the `embeddedKotlinVersion` constant to specify the embedded Kotlin version.
+>
+>     To upgrade the embedded Kotlin and language versions, update your Gradle version. You can find compatible Gradle versions in Gradle's [Compatibility Notes for Kotlin](https://docs.gradle.org/current/userguide/compatibility.html#kotlin).
+> 
+> 3. Don't use the `kotlin-dsl` plugin. This may be more appropriate for binary plugins that aren't tied to a specific Gradle version.
+>
+> As a last resort, you can configure your project to use language version 2.1 or higher, which overrides the conflicting behavior of the `kotlin-dsl` plugin. However, we strongly recommend not doing so.
+> 
+> If you experience difficulties during migration, reach out in the #gradle channel in our [Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) for support.
+
+
 ### Correct `setSource()` function in `KotlinCompileTool` to replace sources
 
 > **Issue**: [KT-59632](https://youtrack.jetbrains.com/issue/KT-59632)
