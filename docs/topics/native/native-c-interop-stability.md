@@ -188,6 +188,109 @@ However, it's impossible to configure the usage of the included static library i
 neither exclude nor replace (substitute) it. So, users won't be able to resolve potential clashes with other Kotlin
 libraries that include the same static library or adjust its version.
 
+## Swift library import
+
+The direct import of pure Swift libraries into Kotlin/Native projects is not supported yet. However, there are a couple
+of options to work around that.
+
+We recommend against manual Objective-C bridging when you need to write custom Objective-C wrappers and `.def` files and
+consume those wrappers through cinterop.
+
+Instead, you can define the expected behavior on the Kotlin side, implement the actual functionality on the Swift side,
+and pass it back to Kotlin.
+
+You can create an interface or use Swift closures for the "expected" part. The interface-based approach scales better 
+for multiple functions and testability. Closures are great for quick prototypes, but the approach has its limitations,
+for example, it doesn't hold state.
+
+To import a Swift library:
+
+<tabs>
+<tab title="Interface">
+
+1. On the Kotlin side, create an interface to describe what Kotlin expects from Swift:
+
+   ```kotlin
+   // iosMain/../CryptoProvider.kt
+   interface CryptoProvider {
+       fun hashMD5(input: String): String
+   }
+   ```
+
+2. On the Swift side, implement the actual functionality using a pure Swift library, CryptoKit:
+
+    ```swift
+    // iosApp/ContentView.swift
+    import CryptoKit
+    
+    class IosCryptoProvider: CryptoProvider {
+        func hashMD5(input: String) -> String {
+            guard let data = input.data(using: .utf8) else { return "failed" }
+            return Insecure.MD5.hash(data: data).description
+        }
+    }
+    ```
+
+3. Pass the Swift implementation to the Kotlin component:
+
+   ```swift
+   // iosApp/ContentView.swift
+   struct ComposeView: UIViewControllerRepresentable {
+       func makeUIViewController(context: Context) -> UIViewController {
+           // Inject the Swift implementation into the Kotlin UI entry point
+           MainViewControllerKt.MainViewController(cryptoProvider: IosCryptoProvider())
+       }
+
+       func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+   }
+   ```
+
+</tab>
+<tab title="Swift closures">
+
+1. On the Kotlin side, accept a function parameter and use it where needed:
+
+    ```kotlin
+    // iosMain/../App.kt
+    @Composable
+    fun App(md5Hasher: (String) -> String) {
+        // Example usage inside your UI
+        val hashed = md5Hasher("Hello, world!")
+        androidx.compose.material3.Text("Compose: $hashed")
+    }
+    ```
+
+    ```kotlin
+    // iosMain/../MainViewController.kt
+    fun MainViewController(md5Hasher: (String) -> String) = ComposeUIViewController {
+        App(md5Hasher)
+    }
+    ```
+
+2. On the Swift side, build the MD5 hasher with CryptoKit and pass it as a closure:
+
+    ```swift
+    // iosApp/ContentView.swift
+    import CryptoKit
+    import SwiftUI
+
+    struct ComposeView: UIViewControllerRepresentable {
+        func makeUIViewController(context: Context) -> UIViewController {
+            MainViewControllerKt.MainViewController(md5Hasher: { input in
+                guard let data = input.data(using: .utf8) else { return "failed" }
+                return Insecure.MD5.hash(data: data).description
+            })
+        }
+
+        func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+    }
+    ```
+
+</tab>
+</tabs>
+
+In a more complex project, it's more convenient to use dependency injection to pass the Swift implementation back to Kotlin.
+
 ## Evolution of native library support
 
 Currently, using C and Objective-C in Kotlin projects can lead to compatibility issues; some of which are listed in this guide.
