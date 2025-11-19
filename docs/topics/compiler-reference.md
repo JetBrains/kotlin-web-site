@@ -239,7 +239,19 @@ Allows using the `holdsIn` keyword in contracts to assume that a boolean conditi
 ### -Xcompiler-plugin-order={plugin.before>plugin.after}
 
 Configure the running order of compiler plugins. Place the compiler plugin you want to run first on the left side of the
-`>`, and the compiler plugin you want to run second on the right. You can configure the following plugins by their IDs:
+`>`, and the compiler plugin you want to run second on the right.
+
+You can define multiple ordering rules. For example:
+
+```bash
+kotlinc -Xcompiler-plugin-order=plugin.first>plugin.middle
+kotlinc -Xcompiler-plugin-order=plugin.middle>plugin.last
+```
+
+This results in the following running order: `plugin.first`, then `plugin.middle`, and finally `plugin.last`.
+If a compiler plugin isn't present, the corresponding rule is ignored.
+
+You can configure the following plugins by their IDs:
 
 | Compiler plugin             | Plugin ID                                  |
 |-----------------------------|--------------------------------------------|
