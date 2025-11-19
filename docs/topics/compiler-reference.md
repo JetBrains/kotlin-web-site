@@ -241,17 +241,20 @@ Allows using the `holdsIn` keyword in contracts to assume that a boolean conditi
 Configure the running order of compiler plugins. Place the compiler plugin you want to run first on the left side of the
 `>`, and the compiler plugin you want to run second on the right. You can configure the following plugins by their IDs:
 
-| Compiler plugin    | Plugin ID                                  |
-|--------------------|--------------------------------------------|
-| `all-open`         | `org.jetbrains.kotlin.allopen`             |
-| Compose            | `androidx.compose.compiler.plugins.kotlin` |
-| `js-plain-objects` | `org.jetbrains.kotlinx.jspo`               |
-| Lombok             | `org.jetbrains.kotlin.lombok`              |
-| `no-arg`           | `org.jetbrains.kotlin.noarg`               |
-| Parcelize          | `org.jetbrains.kotlin.parcelize`           |
-| Power-assert       | `org.jetbrains.kotlin.powerassert`         |
-| SAM with receiver  | `org.jetbrains.kotlin.samWithReceiver`     |
-| Serialization      | `org.jetbrains.kotlinx.serialization`      |
+| Compiler plugin             | Plugin ID                                  |
+|-----------------------------|--------------------------------------------|
+| `all-open`, `kotlin-spring` | `org.jetbrains.kotlin.allopen`             |
+| AtomicFU                    | `org.jetbrains.kotlinx.atomicfu`           |
+| Compose                     | `androidx.compose.compiler.plugins.kotlin` |
+| `js-plain-objects`          | `org.jetbrains.kotlinx.jspo`               |
+| `jvm-abi-gen`               | `org.jetbrains.kotlin.jvm.abi`             |
+| kapt                        | `org.jetbrains.kotlin.kapt3`               |
+| Lombok                      | `org.jetbrains.kotlin.lombok`              |
+| `no-arg`, `kotlin-jpa`      | `org.jetbrains.kotlin.noarg`               |
+| Parcelize                   | `org.jetbrains.kotlin.parcelize`           |
+| Power-assert                | `org.jetbrains.kotlin.powerassert`         |
+| SAM with receiver           | `org.jetbrains.kotlin.samWithReceiver`     |
+| Serialization               | `org.jetbrains.kotlinx.serialization`      |
 
 This running order controls only the backend of compiler plugins and not the frontend.
 
