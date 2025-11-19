@@ -1282,6 +1282,7 @@ Currently, the Kotlin K2 compiler supports the following Kotlin compiler plugins
 * [Lombok](lombok.md)
 * [`no-arg`](no-arg-plugin.md)
 * [Parcelize](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize)
+* [Power-assert](power-assert.md)
 * [SAM with receiver](sam-with-receiver-plugin.md)
 * [Serialization](serialization.md)
 
