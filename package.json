@@ -15,6 +15,7 @@
     "@rescui/button": "0.18.0",
     "@rescui/card": "^0.8.1",
     "@rescui/checkbox": "^0.4.13",
+    "@rescui/collapse": "0.7.1",
     "@rescui/colors": "^0.1.6",
     "@rescui/dropdown-menu": "^0.6.1",
     "@rescui/focus-manager": "^0.1.4",
