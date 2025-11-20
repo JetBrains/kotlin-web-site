@@ -177,6 +177,17 @@ kotlin {
 
 Keep in mind that enabling this option increases the application size.
 
+### Fully qualified names
+
+On Kotlin/Wasm targets, fully qualified names (FQNs) are available at runtime without any additional configuration.
+This means that the `KClass.qualifiedName` property is enabled by default.
+
+Having FQNs improves code portability from JVM to Wasm targets and makes runtime errors more informative by displaying 
+the full qualified name.
+
+FQNs do not increase the size of the compiled Wasm binary, thanks to compiler optimizations that reduce metadata and 
+store these names as Latin-1 string literals.
+
 ## Array out-of-bounds access and traps
 
 In Kotlin/Wasm, accessing an array with an index outside its bounds triggers a WebAssembly trap instead of a regular Kotlin exception. 
