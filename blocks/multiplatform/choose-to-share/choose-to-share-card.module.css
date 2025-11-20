@@ -1,0 +1,34 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.card {
+    border-radius: 16px;
+    background: radial-gradient(
+            203.85% 140.13% at 98.16% 100%,
+            #2D0454 0%,
+            var(--fill-background-main-page-section, #000) 100%
+    );
+}
+
+@media (--ktl-tl-more) {
+    .card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: auto;
+        align-items: start;
+        justify-items: start;
+    }
+
+    .img {
+        grid-column: 1;
+        grid-row: 1 / span 3;
+    }
+
+    .title, .text, .button {
+        grid-column: 2;
+    }
+}
+
+.title {
+    margin: 0;
+    padding: 0;
+}
