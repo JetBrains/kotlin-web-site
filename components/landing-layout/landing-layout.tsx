@@ -24,7 +24,7 @@ type NavigationProps = {
     currentTitle?: string;
 }
 
-type LandingLayoutProps = {
+export type LandingLayoutProps = {
     title: string;
     description?: string;
     ogImageName?: string;
