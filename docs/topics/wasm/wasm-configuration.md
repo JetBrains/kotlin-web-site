@@ -88,15 +88,22 @@ For this reason, we strongly recommend that you update your Wasm projects to the
 
 ### Exception handling proposal
 
-The Kotlin toolchain uses the [legacy exception handling proposal](https://github.com/WebAssembly/exception-handling/blob/master/proposals/exception-handling/legacy/Exceptions.md) by default which allows running produced Wasm binaries in wider range of environments.
+The Kotlin toolchain uses both the [legacy](https://github.com/WebAssembly/exception-handling/blob/master/proposals/exception-handling/legacy/Exceptions.md) 
+and the [new](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md)
+versions of the exception handling proposal. This allows Kotlin-produced Wasm binaries to run in a wider range of environments.
 
-Since Kotlin 2.0.0, we have introduced support for the new version of Wasm [exception handling proposal](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md) within Kotlin/Wasm.
+The [`wasmJs` target](wasm-overview.md#kotlin-wasm-and-compose-multiplatform) uses the legacy exception handling proposal by default.
+The new proposal is turned off for this target, but 
+you can enable it manually using the `-Xwasm-use-new-exception-proposal` compiler option.
 
-This update ensures the new exception handling proposal aligns with Kotlin requirements, enabling the use of Kotlin/Wasm on virtual machines that only support the latest version of the proposal.
+The [`wasmWasi` target](wasm-overview.md#kotlin-wasm-and-wasi) uses the new proposal by default,
+ensuring better compatibility with modern WebAssembly runtimes.
 
-The new exception handling proposal is activated using the `-Xwasm-use-new-exception-proposal` compiler option. It is turned off by default.
-
-<p>&nbsp;</p>
+For the `wasmWasi` target, it is safe to adopt 
+the new exception handling proposal.
+Applications targeting this environment usually run in a less diverse runtime environment 
+(often running on a single specific VM) that is typically controlled by the user,
+reducing the risk of compatibility issues.
 
 > Learn more about setting up projects, using dependencies, and other tasks with our
 > [Kotlin/Wasm examples](https://github.com/Kotlin/kotlin-wasm-examples#readme).
