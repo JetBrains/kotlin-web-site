@@ -1775,6 +1775,15 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
+"@rescui/collapse@0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@rescui/collapse/-/collapse-0.7.1.tgz#12a3965b5025bfd151310d9573a79534b2ad1e3a"
+  integrity sha512-fdfcHG1J8qI838uj/ZJuZ4IRpUYN6+tGFuUe235MSqQ1pBgEoAOcZIf0A+YuSpLI6kvViBQHCwy52fZFPhhCnQ==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.26.0"
+    "@rescui/use-resize-observer" "^0.3.0"
+    classnames "^2.2.6"
+
 "@rescui/colors@^0.1.6":
   version "0.1.6"
   resolved "https://registry.npmjs.org/@rescui/colors/-/colors-0.1.6.tgz"

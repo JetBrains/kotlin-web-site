@@ -7,6 +7,7 @@ import {
 } from '@jetbrains/kotlin-web-site-ui/out/components/header';
 
 import styles from './multiplatform.module.css';
+import { FaqBlock } from '../../blocks/multiplatform/faq-block/faq-block';
 
 const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [];
 
@@ -26,7 +27,7 @@ export default function MultiplatformLanding() {
             canonical={'https://kotlinlang.org/multiplatform/'}
         >
             <div className={styles.page}>
-                !!!!!! MULTIPLATFORM PAGE IS UNDER CONSTRUCTION !!!!!!
+                <FaqBlock />
             </div>
         </LandingLayout>
     );
