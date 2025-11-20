@@ -711,7 +711,7 @@ Previously, you could get the necessary artifacts from any host, except for Appl
 That put a special restraint on Kotlin Multiplatform projects that targeted iOS, macOS, tvOS, and watchOS targets.
 
 Kotlin 2.1.0 lifts this restriction, adding support for cross-compilation.
-Now you can use any host to produce `.klib` artifacts,
+Now you can use any [supported host](native-target-support.md#hosts) to produce `.klib` artifacts,
 which should greatly simplify the publishing process for Kotlin and Kotlin Multiplatform libraries.
 
 #### How to enable publishing libraries from any host

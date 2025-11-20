@@ -30,7 +30,7 @@ Kotlin/Native supports the following platforms:
   >
   {style="note"}
 
-[See the full list of supported targets](native-target-support.md).
+[See the full list of supported targets and hosts](native-target-support.md).
 
 ## Interoperability
 
