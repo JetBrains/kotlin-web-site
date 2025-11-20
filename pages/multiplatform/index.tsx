@@ -1,13 +1,14 @@
 import { Button } from '@rescui/button';
-import { LandingLayout, LandingLayoutProps } from '../../components/landing-layout/landing-layout';
+import { ThemeProvider } from '@rescui/ui-contexts';
 
+import { LandingLayout, LandingLayoutProps } from '../../components/landing-layout/landing-layout';
 import {
     MULTIPLATFORM_MOBILE_TITLE,
     MULTIPLATFORM_MOBILE_URL
 } from '@jetbrains/kotlin-web-site-ui/out/components/header';
 
-import styles from './multiplatform.module.css';
 import { FaqBlock } from '../../blocks/multiplatform/faq-block/faq-block';
+import { ChooseToShare } from '../../blocks/multiplatform/choose-to-share';
 
 const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [];
 
@@ -26,9 +27,10 @@ export default function MultiplatformLanding() {
             topMenuButton={<Button href={'#get-started'}>Get started</Button>}
             canonical={'https://kotlinlang.org/multiplatform/'}
         >
-            <div className={styles.page}>
+            <ThemeProvider theme={'dark'}>
                 <FaqBlock />
-            </div>
+                <ChooseToShare />
+            </ThemeProvider>
         </LandingLayout>
     );
 }
