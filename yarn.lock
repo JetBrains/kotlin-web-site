@@ -1782,6 +1782,14 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
+"@rescui/chip-list@0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@rescui/chip-list/-/chip-list-0.13.1.tgz#8a12e4ac98af8fff32846ca325b2188e0bd360f5"
+  integrity sha512-vQoJZCHH8f7UPt96Lv3poFX/wNGw3NnUUaA+cXGP4Nmr5pbv2T75ZgSNsOY5AGK9V5aKcYnExSxYfejDgSYNrQ==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.26.0"
+    classnames "^2.2.6"
+
 "@rescui/collapse@0.7.1":
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/@rescui/collapse/-/collapse-0.7.1.tgz#12a3965b5025bfd151310d9573a79534b2ad1e3a"
