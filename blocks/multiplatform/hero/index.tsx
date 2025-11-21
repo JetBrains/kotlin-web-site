@@ -32,7 +32,7 @@ export function HeroBanner({ url }: { url: string }) {
                  style={{ '--hero-logo-image': `url(${logo.src})` }}>
                 <h1 className={cn(styles.title, textCn('rs-hero'))}>Kotlin Multiplatform</h1>
                 <p className={cn(styles.subtitle, textCn('rs-subtitle-1'))}>
-                    Go&nbsp;cross&#8209;platform without compromising performance,&nbsp;UX, or&nbsp;code&nbsp;quality
+                    Go&nbsp;cross&#8209;platform without compromising performance, UX, or&nbsp;code&nbsp;quality
                 </p>
                 <ul className={styles.platforms}>
                     {platforms.map(({ title, icon }) => (
