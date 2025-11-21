@@ -217,7 +217,7 @@ To import a Swift library:
    }
    ```
 
-2. On the Swift side, implement the actual functionality using a pure Swift library, CryptoKit:
+2. On the Swift side, implement the actual functionality using a pure Swift library, [CryptoKit](https://developer.apple.com/documentation/cryptokit/):
 
     ```swift
     // iosApp/ContentView.swift
@@ -267,7 +267,8 @@ To import a Swift library:
     }
     ```
 
-2. On the Swift side, build the MD5 hasher with CryptoKit and pass it as a closure:
+2. On the Swift side, build the MD5 hasher with the [CryptoKit Swift library](https://developer.apple.com/documentation/cryptokit/)
+   and pass it as a closure:
 
     ```swift
     // iosApp/ContentView.swift
