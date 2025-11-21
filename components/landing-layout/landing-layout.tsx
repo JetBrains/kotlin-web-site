@@ -2,6 +2,7 @@ import React, { FC, useCallback, useMemo } from 'react';
 
 import Head from 'next/head';
 
+import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
 import GlobalHeader from '@jetbrains/kotlin-web-site-ui/out/components/header';
 import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 import TopMenu from '@jetbrains/kotlin-web-site-ui/out/components/top-menu';
