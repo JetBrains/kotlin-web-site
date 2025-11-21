@@ -50,10 +50,10 @@ You can control how the compiler reports ignored results with the `-Xreturn-valu
 It has the following modes:
 
 * `disable` disables the unused return value checker. (Default)
-* `check` reports warnings for ignored results from [marked functions](#mark-functions-to-check-ignored-results).
-* `full` treats all functions in your project as [marked](#mark-functions-to-check-ignored-results) and reports warnings for ignored results.
+* `check` enables the checker, and reports warnings for ignored results from [marked functions](#mark-functions-to-check-ignored-results).
+* `full` enables the checker, and treats all functions in your project as [marked](#mark-functions-to-check-ignored-results) and reports warnings for ignored results.
 
-> When you set `-Xreturn-value-checker` to `check` or `full`, the checker also reports ignored results from marked functions in library dependencies.
+> All marked functions are propagated as such, and ignored results are reported if the checker is enabled in projects that use your code as a dependency.
 > 
 {style="note"}
 
