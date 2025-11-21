@@ -88,7 +88,7 @@ For this reason, we strongly recommend that you update your Wasm projects to the
 
 ### Exception handling proposal
 
-The Kotlin toolchain uses both the [legacy](https://github.com/WebAssembly/exception-handling/blob/master/proposals/exception-handling/legacy/Exceptions.md) 
+The Kotlin toolchain supports both the [legacy](https://github.com/WebAssembly/exception-handling/blob/master/proposals/exception-handling/legacy/Exceptions.md) 
 and the [new](https://github.com/WebAssembly/exception-handling/blob/main/proposals/exception-handling/Exceptions.md)
 versions of the exception handling proposal. This allows Kotlin-produced Wasm binaries to run in a wider range of environments.
 
@@ -97,7 +97,9 @@ The new proposal is turned off for this target, but
 you can enable it manually using the `-Xwasm-use-new-exception-proposal` compiler option.
 
 The [`wasmWasi` target](wasm-overview.md#kotlin-wasm-and-wasi) uses the new proposal by default,
-ensuring better compatibility with modern WebAssembly runtimes.
+ensuring better compatibility with modern WebAssembly runtimes. 
+You can manually switch to the old proposal by 
+using the `-Xwasm-use-new-exception-proposal=false` compiler option.
 
 For the `wasmWasi` target, it is safe to adopt 
 the new exception handling proposal.
@@ -184,9 +186,6 @@ This means that the `KClass.qualifiedName` property is enabled by default.
 
 Having FQNs improves code portability from JVM to Wasm targets and makes runtime errors more informative by displaying 
 the full qualified name.
-
-FQNs do not increase the size of the compiled Wasm binary, thanks to compiler optimizations that reduce metadata and 
-store these names as Latin-1 string literals.
 
 ## Array out-of-bounds access and traps
 
