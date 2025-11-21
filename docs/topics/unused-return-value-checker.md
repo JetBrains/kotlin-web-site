@@ -4,12 +4,14 @@
 
 > This feature is planned to be stabilized and improved in future Kotlin releases.
 > We would appreciate your feedback in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-12719).
+> 
+> For more information, see the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0412-unused-return-value-checker.md).
 >
 {style="note"}
 
 The unused return value checker allows you to detect _ignored results_.
 These are values returned from expressions that produce something other than
-`Unit` or `Nothing` and aren't:
+`Unit`, `Nothing`, or `Nothing?` and aren't:
 
 * Stored in a variable or property.
 * Returned or thrown.
@@ -18,9 +20,8 @@ These are values returned from expressions that produce something other than
 * Checked in a condition such as `if`, `when`, or `while`.
 * Used as the last statement of a lambda.
 
-> The checker doesn't report ignored results from increment operations such as `++` and `--`.
->
-{style="note"}
+The checker doesn't report ignored results for increment operations like `++` and `--`,
+or for boolean shortcuts where the right-hand side exits the current function, for example, `condition || return`.
 
 You can use the unused return value checker to catch bugs where a function call produces a meaningful result, but the result is silently dropped.
 This helps prevent unexpected behavior and makes such issues easier to track down.
@@ -31,9 +32,9 @@ Here's an example:
 fun formatGreeting(name: String): String {
     if (name.isBlank()) return "Hello, anonymous user!"
     if (!name.contains(' ')) {
-        // The checker reports a warning that this result is ignored
-        "Hello, " + name.replaceFirstChar(Char::titlecase) + "!"
+        // The checker reports a warning that this result is ignored:
         // Unused return value of 'plus'.
+        "Hello, " + name.replaceFirstChar(Char::titlecase) + "!"
     }
     val (first, last) = name.split(' ')
     return "Hello, $first! Or should I call you Dr. $last?"
@@ -50,7 +51,11 @@ It has the following modes:
 
 * `disable` disables the unused return value checker. (Default)
 * `check` reports warnings for ignored results from [marked functions](#mark-functions-to-check-ignored-results).
-* `full` reports warnings for ignored results from all functions in your project.
+* `full` treats all functions in your project as [marked](#mark-functions-to-check-ignored-results) and reports warnings for ignored results.
+
+> When you set `-Xreturn-value-checker` to `check` or `full`, the checker also reports ignored results from marked functions in library dependencies.
+> 
+{style="note"}
 
 To use the unused return value checker in your project, add the compiler option to your build configuration file:
 
@@ -117,7 +122,10 @@ class Greeter {
 fun someFunction(): Int = ...
 ```
 
-To apply the checker to your entire project, set the `-Xreturn-value-checker=check` compiler option to `full`.
+> You can apply the checker to your entire project by setting the `-Xreturn-value-checker` compiler option to `full`.
+> With this option, you don't have to annotate your code with `@MustUseReturnValues`.
+>
+{style="note"}
 
 ## Suppress reports for ignored results
 
@@ -148,7 +156,12 @@ fun main() {
 }
 ```
 
-You can't override a class or interface marked with `@IgnorableReturnValue` with one that requires its return values to be used.
+### Ignored results in function overrides
+
+When you override a function, the override inherits the reporting rules defined by the annotations on the base declaration.
+This also applies when the base declaration is part of the Kotlin standard library or of other library dependencies, so the checker reports ignored results for overrides of functions like `Any.hashCode()`.
+
+Additionally, you can't override a class or interface marked with `@IgnorableReturnValue` with one that [requires its return values to be used](#mark-functions-to-check-ignored-results).
 However, you can mark an override with `@IgnorableReturnValue` in a class or interface annotated with `@MustUseReturnValues` when its result can be safely ignored:
 
 ```kotlin
@@ -171,3 +184,15 @@ fun check(g: Greeter) {
 }
 ```
 
+## Interoperability with Java annotations
+
+Some Java libraries use similar mechanisms with different annotations. 
+The unused return value checker treats the following annotations as equivalent to using `@MustUseReturnValues`:
+
+* [`com.google.errorprone.annotations.CheckReturnValue`](https://errorprone.info/api/latest/com/google/errorprone/annotations/CheckReturnValue.html)
+* [`edu.umd.cs.findbugs.annotations.CheckReturnValue`](https://findbugs.sourceforge.net/api/edu/umd/cs/findbugs/annotations/CheckReturnValue.html)
+* [`org.jetbrains.annotations.CheckReturnValue`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/lang/CheckReturnValue.html)
+* [`org.springframework.lang.CheckReturnValue`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/lang/CheckReturnValue.html)
+* [`org.jooq.CheckReturnValue`](https://www.jooq.org/javadoc/latest/org.jooq/org/jooq/CheckReturnValue.html)
+
+It also treats [`com.google.errorprone.annotations.CanIgnoreReturnValue`](https://errorprone.info/api/latest/com/google/errorprone/annotations/CanIgnoreReturnValue.html) as equivalent to using `@IgnorableReturnValue`.

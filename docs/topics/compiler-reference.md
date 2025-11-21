@@ -237,11 +237,11 @@ Allows using the `holdsIn` keyword in contracts to assume that a boolean conditi
 ### -Xreturn-value-checker
 <primary-label ref="experimental-general"/>
 
-Configure how the compiler reports ignored results:
+Configure how the compiler [reports ignored results](unused-return-value-checker.md):
 
 * `disable`: disables the unused return value checker. (Default)
 * `check`: reports warnings for ignored results from marked functions.
-* `full`: reports warnings for ignored results from all functions in your project.
+* `full`: treats all functions in your project as marked and reports warnings for ignored results.
 
 ## Kotlin/JVM compiler options
 
