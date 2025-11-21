@@ -95,6 +95,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 8px;
 
     font-size: 13px;
     line-height: 1.5;
