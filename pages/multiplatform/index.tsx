@@ -37,10 +37,12 @@ export default function MultiplatformLanding() {
             topMenuButton={<Button href={GET_STARTED_URL}>Get started</Button>}
             canonical={'https://kotlinlang.org/multiplatform/'}
         >
-            <ThemeProvider theme={'dark'}>
-                <HeroBanner url={GET_STARTED_URL} />
-                <FaqBlock />
-            </ThemeProvider>
+            <div className="ktl-layout-to-2">
+                <ThemeProvider theme={'dark'}>
+                    <HeroBanner url={GET_STARTED_URL} />
+                    <FaqBlock />
+                </ThemeProvider>
+            </div>
         </LandingLayout>
     );
 }
