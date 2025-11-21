@@ -2,6 +2,7 @@ import cn from 'classnames';
 
 import { Button } from '@rescui/button';
 import { useTextStyles } from '@rescui/typography';
+import { useML } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 
 import android from './icons/android.svg';
 import ios from './icons/ios.svg';
@@ -23,6 +24,7 @@ const platforms = [
 
 export function HeroBanner({ url }: { url: string }) {
     const textCn = useTextStyles();
+    const isML = useML();
 
     return (
         <div className={styles.wrapper}>
@@ -43,7 +45,7 @@ export function HeroBanner({ url }: { url: string }) {
                         </li>
                     ))}
                 </ul>
-                <Button className={cn(styles.button)} mode={'rock'} href={url} size={'l'}>Get Started</Button>
+                <Button className={cn(styles.button)} mode={'rock'} href={url} size={isML ? 'm' : 'l'}>Get Started</Button>
             </div>
         </div>
     );
