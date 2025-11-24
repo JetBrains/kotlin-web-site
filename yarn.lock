@@ -1433,10 +1433,10 @@
     "@babel/runtime" "^7.14.0"
     babel-plugin-angularjs-annotate "^0.10.0"
 
-"@jetbrains/kotlin-web-site-ui@4.12.0":
-  version "4.12.0"
-  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.12.0.tgz#54ac736c11588e3caf427d1f6041081ecda72960"
-  integrity sha512-xjHSphIJPKGnd74jZThqbGqeKk4OH3/znCJ6jdVUP3x5REwcPzegcF0qhEzcYnzl3wZ6/LLk2wHudnwCIAfm+w==
+"@jetbrains/kotlin-web-site-ui@4.13.0-alpha.4":
+  version "4.13.0-alpha.4"
+  resolved "https://registry.yarnpkg.com/@jetbrains/kotlin-web-site-ui/-/kotlin-web-site-ui-4.13.0-alpha.4.tgz#e8c8ee5a6ad203632b7f65ee37b55b9da9bafb8e"
+  integrity sha512-RYka7guyOoPdR4GQoTM+qIVDcwNuRRhsjjuTJflGe/XB+ipo3nR8UsPvZmnJtDcoLXGT2XgHyQiIyvQfy6uijg==
 
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
@@ -1790,9 +1790,9 @@
   integrity sha512-SfFy7W8vlWuRsEpT9VYSVRXGso6PK2pP5BuPnt3d525aW8Rx99kiuKYaqNPdu9p2nh2/XIf+febOl4Q3x/fH1g==
 
 "@rescui/colors@^0.1.9":
-  version "0.1.9"
-  resolved "https://registry.npmjs.org/@rescui/colors/-/colors-0.1.9.tgz"
-  integrity sha512-ZgMmIuCJERqPsfCY+7I9UvOIWEypyiZ4VdDdHPb/HUy9lxPpfNzV7Fs/RalBJP4wtgsfwR24d4IlYNhpJcunTA==
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.1.11.tgz#438b5058cc308d28d4bda407236c25b67aff0179"
+  integrity sha512-zfZ7czMTQ5/DyZeMXCm1nTWEclIY5+Iuc8D3CZK2Zl64La//mjHz9Rjf+NlAE70bESzYtBNlItATN/lWgkowaQ==
 
 "@rescui/colors@^0.2.10":
   version "0.2.10"
@@ -1941,7 +1941,7 @@
 
 "@rescui/typography@^0.11.0":
   version "0.11.0"
-  resolved "https://registry.npmjs.org/@rescui/typography/-/typography-0.11.0.tgz"
+  resolved "https://registry.yarnpkg.com/@rescui/typography/-/typography-0.11.0.tgz#8a348121ea3bb18249f6af18628426b04a3ee6d7"
   integrity sha512-IT8pXLkFQs7RsJ0eWWsCVz11HuJn1dQ78Lti2mz8q6NLbvb8TS+dlh53UzN5hLVISC9kFTRtyK2IblMIDd0zpA==
   dependencies:
     "@babel/runtime-corejs3" "^7.14.0"
