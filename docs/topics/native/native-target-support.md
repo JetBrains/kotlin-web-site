@@ -88,9 +88,9 @@ The Kotlin team uses this approach in the official Kotlin libraries, for example
 
 The Kotlin/Native compiler supports the following hosts:
 
-| Host OS                                            | Building final binaries                        | Producing `.klib` artefacts                                            |
+| Host OS                                            | Building final binaries                        | Producing `.klib` artifacts                                            |
 |----------------------------------------------------|------------------------------------------------|------------------------------------------------------------------------|
-| macOS on Apple Silicon (ARM64)                     | Any supported target                           | Any supported target                                                   |
+| macOS on Apple silicon (ARM64)                     | Any supported target                           | Any supported target                                                   |
 | macOS on Intel chips (x86_64)                      | Any supported target                           | Any supported target                                                   |
 | Linux with x86_64 architecture                     | Any supported target, except for Apple targets | Any supported target, Apple targets only without cinterop dependencies |
 | Windows (MinGW toolchain) with x86_64 architecture | Any supported target, except for Apple targets | Any supported target, Apple targets only without cinterop dependencies |
@@ -98,11 +98,11 @@ The Kotlin/Native compiler supports the following hosts:
 **Building final binaries**
 
 To produce final binaries, you can compile [supported targets](#target-tiers) only on _supported hosts_. For example,
-you cannot do it on the FreeBSD OS or on a Linux machine running on the ARM64 architecture.
+you cannot do it on FreeBSD or on a Linux machine running on the ARM64 architecture.
 
 Building final binaries for Apple targets on Linux and Windows is also not possible.
 
-**Producing `.klib` artefacts**
+**Producing `.klib` artifacts**
 
 Generally, Kotlin/Native allows any _supported host_ to produce `.klib` artifacts for supported targets.
 
