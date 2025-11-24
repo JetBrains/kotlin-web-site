@@ -55,22 +55,19 @@
 
 .title {
     padding-block: 24px;
-    font-size: 42px;
-    line-height: 1.2;
 
-    @media (--ktl-ts-more) {
-        font-size: 72px;
-        line-height: 1;
+    @media (--ktl-ts-in) {
+        /* @mixin rs-hero-sm-*; */
+        font-size: 42px;
+        line-height: 50px;
     }
 }
 
 .subtitle {
-    font-size: 23px;
-    line-height: 1.3;
-    font-weight: 300;
-
-    @media (--ktl-ts-more) {
-        font-size: 39px;
+    @media (--ktl-ts-in) {
+        /* @mixin rs-subtitle-1-sm-* */
+        font-size: 23px;
+        line-height: 30px;
     }
 }
 
@@ -97,12 +94,10 @@
     justify-content: center;
     gap: 8px;
 
-    font-size: 13px;
     line-height: 1.5;
 
     @media (--ktl-ts-more) {
         flex-basis: 80px;
-        font-size: 16px;
     }
 
     @media (--ktl-ms-in) {
@@ -118,8 +113,6 @@
     background-size: 32px;
     height: 32px;
     width: 32px;
-
-    font-size: 16px;
 
     @media (--ktl-ts-more) {
         background-size: 48px;
