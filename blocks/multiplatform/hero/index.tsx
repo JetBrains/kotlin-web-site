@@ -1,7 +1,8 @@
 import cn from 'classnames';
 
-import { Button } from '@rescui/button';
 import { useTextStyles } from '@rescui/typography';
+import { Button } from '@rescui/button';
+
 import { useML } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 
 import android from './icons/android.svg';
@@ -23,8 +24,8 @@ const platforms = [
 ] as const;
 
 export function HeroBanner({ url }: { url: string }) {
-    const textCn = useTextStyles();
     const isML = useML();
+    const textCn = useTextStyles();
 
     return (
         <div className={styles.wrapper}>
@@ -38,14 +39,15 @@ export function HeroBanner({ url }: { url: string }) {
                     {platforms.map(({ title, icon }) => (
                         <li
                             key={title.toLowerCase()}
-                            className={cn(styles.platform, textCn('rs-h4'))}
+                            className={cn(styles.platform, textCn(isML ? 'rs-h5' : 'rs-h4'))}
                             style={{ '--hero-item-src': `url(${icon.src})` }}
                         >
                             {title}
                         </li>
                     ))}
                 </ul>
-                <Button className={cn(styles.button)} mode={'rock'} href={url} size={isML ? 'm' : 'l'}>Get Started</Button>
+                <Button className={cn(styles.button)} mode={'rock'} href={url} size={isML ? 'm' : 'l'}>Get
+                    Started</Button>
             </div>
         </div>
     );
