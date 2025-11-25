@@ -302,7 +302,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > For convention plugins, precompiled script plugins or any other form of unpublished build logic, you have three options:
 > 
 > 1. Don't apply the `kotlin("jvm")` plugin explicitly. Instead, let the `kotlin-dsl` plugin automatically provide a compatible KGP version.
-> 2. If you want to apply the `kotlin("jvm")` plugin explicitly, use the `embeddedKotlinVersion` constant to specify the embedded Kotlin version.
+> 2. If you want to apply the `kotlin("jvm")` plugin explicitly, use the [`embeddedKotlinVersion`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.kotlin.dsl/embedded-kotlin-version.html) constant to specify the embedded Kotlin version.
 >
 >     To upgrade the embedded Kotlin and language versions, update your Gradle version. You can find compatible Gradle versions in Gradle's [Compatibility Notes for Kotlin](https://docs.gradle.org/current/userguide/compatibility.html#kotlin).
 > 
