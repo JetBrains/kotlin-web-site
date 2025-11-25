@@ -1,0 +1,23 @@
+name: Junie Merge Conflict Dataset Collector
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: read
+  pull-requests: read
+  id-token: write
+
+jobs:
+  track-merge-conflicts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run merge conflict metrics action
+        uses: JetBrains/github-merge-conflicts-collector/action@v1.0.0
+        with:
+          backend-url: https://github-merge-conflicts-collector-external.labs.jb.gg/
+          github-token: ${{ github.token }}
