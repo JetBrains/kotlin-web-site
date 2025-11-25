@@ -51,7 +51,7 @@ It has the following modes:
 
 * `disable` disables the unused return value checker. (Default)
 * `check` enables the checker, and reports warnings for ignored results from [marked functions](#mark-functions-to-check-ignored-results).
-* `full` enables the checker, and treats all functions in your project as [marked](#mark-functions-to-check-ignored-results) and reports warnings for ignored results.
+* `full` enables the checker, treats all functions in your project as [marked](#mark-functions-to-check-ignored-results), and reports warnings for ignored results.
 
 > All marked functions are propagated as such, and ignored results are reported if the checker is enabled in projects that use your code as a dependency.
 > 
@@ -129,7 +129,7 @@ fun someFunction(): Int = ...
 
 ## Suppress reports for ignored results
 
-You can suppress reports on specific functions by marking them with the [`@IgnorableReturnValue`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-ignorable-return-value/) annotation.
+You can suppress reports on specific functions by annotating them with [`@IgnorableReturnValue`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-ignorable-return-value/).
 Annotate functions where ignoring the result is common and expected, such as `MutableList.add`:
 
 ```kotlin
@@ -139,7 +139,7 @@ fun <T> MutableList<T>.addAndIgnoreResult(element: T): Boolean {
 }
 ```
 
-You can suppress a warning without marking the function itself.
+You can suppress a warning without annotating the function itself.
 To do this, assign the result to a special unnamed variable with an underscore syntax (`_`):
 
 ```kotlin
@@ -161,7 +161,7 @@ fun main() {
 When you override a function, the override inherits the reporting rules defined by the annotations on the base declaration.
 This also applies when the base declaration is part of the Kotlin standard library or of other library dependencies, so the checker reports ignored results for overrides of functions like `Any.hashCode()`.
 
-Additionally, you can't override a class or interface marked with `@IgnorableReturnValue` with one that [requires its return values to be used](#mark-functions-to-check-ignored-results).
+Additionally, you can't override a function marked with `@IgnorableReturnValue` with one that [requires its return value to be used](#mark-functions-to-check-ignored-results).
 However, you can mark an override with `@IgnorableReturnValue` in a class or interface annotated with `@MustUseReturnValues` when its result can be safely ignored:
 
 ```kotlin
