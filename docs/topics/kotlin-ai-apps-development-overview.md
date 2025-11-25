@@ -27,7 +27,7 @@ fun main() {
 }
 ```
 
-<a href="https://www.google.com/url?q=https://docs.koog.ai/getting-started/"><img src="get-started-with-koog.svg" width="700" alt="Get started with Koog" style="block"/></a>
+<a href="https://docs.koog.ai/getting-started/"><img src="get-started-with-koog.svg" width="700" alt="Get started with Koog" style="block"/></a>
 
 ### Key features of Koog
 
@@ -43,6 +43,7 @@ fun main() {
 * **LLM switching and seamless history adaptation**. Koog allows switching to a different LLM with a new set of tools
     at any point without losing the existing conversation history.
     It also enables rerouting between multiple LLM providers, including OpenAI, Anthropic, Google, and others.
+    Koog also lets you run agents locally with local models through integration with Ollama.
 * **Integration with JVM and Kotlin applications**. Koog provides an idiomatic, type-safe DSL specifically for JVM and Kotlin developers.
 * **Model Context Protocol (MCP) integration**. Koog enables the use of MCP tools in agents.
 * **Knowledge retrieval and memory**. With embeddings, ranked document storage, and shared agent memory, 
@@ -56,9 +57,9 @@ fun main() {
 * See the latest updates in the [Koog release notes](https://github.com/JetBrains/koog/blob/main/CHANGELOG.md).
 * Learn from the [examples](https://docs.koog.ai/examples/).
 
-## MCP Kotlin SDK
+## Model Context Protocol (MCP) Kotlin SDK
 
-The [MCP Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk) is a Kotlin Multiplatform implementation of the Model Context Protocol (MCP) 
+The [MCP Kotlin SDK](https://github.com/modelcontextprotocol/kotlin-sdk) is a Kotlin Multiplatform implementation of the Model Context Protocol 
 that lets developers build AI-powered applications in Kotlin and integrate with LLM surfaces across JVM, WebAssembly (Wasm), and iOS.
 
 With the MCP Kotlin SDK, you can:
