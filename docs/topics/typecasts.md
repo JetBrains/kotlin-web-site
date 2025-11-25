@@ -531,7 +531,7 @@ and UI toolkits, which typically treat all UI elements as supertypes and later o
     val textView = TextView(this)
     textView.text = "Hello, View!"
 
-   // Upcasts from TextView to View
+    // Upcasts from TextView to View
     val view: View = textView  
 
     // Use View functions
