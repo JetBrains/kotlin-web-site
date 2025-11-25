@@ -236,6 +236,15 @@ Allows using the `returnsNotNull()` function in contracts to assume a non-null r
 
 Allows using the `holdsIn` keyword in contracts to assume that a boolean condition is `true` inside a lambda.
 
+### -Xreturn-value-checker
+<primary-label ref="experimental-general"/>
+
+Configure how the compiler [reports ignored results](unused-return-value-checker.md):
+
+* `disable`: disables the unused return value checker. (Default)
+* `check`: enables the checker, and reports warnings for ignored results from marked functions.
+* `full`: enables the checker, treats all functions in your project as marked, and reports warnings for ignored results.
+
 ### -Xcompiler-plugin-order={plugin.before>plugin.after}
 
 Configure the running order of compiler plugins. The compiler runs `plugin.before` first, and then `plugin.after`:
