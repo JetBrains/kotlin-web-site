@@ -8,8 +8,8 @@ This document describes which targets and hosts are supported by the Kotlin/Nati
 
 ## Target tiers
 
-The Kotlin/Native compiler supports a number of different targets, though it's hard to provide the same level of
-support for all of them. That's why targets are broken into several tiers depending on how well the compiler supports them.
+The Kotlin/Native compiler supports a number of different targets, though the level of support for them varies.
+To clarify these levels, we've broken up the targets into several tiers depending on how well the compiler supports them.
 
 Mind the following terms used in tier tables:
 
@@ -95,14 +95,14 @@ The Kotlin/Native compiler supports the following hosts:
 | Linux with x86_64 architecture                     | Any supported target, except for Apple targets | Any supported target, Apple targets only without cinterop dependencies |
 | Windows (MinGW toolchain) with x86_64 architecture | Any supported target, except for Apple targets | Any supported target, Apple targets only without cinterop dependencies |
 
-**Building final binaries**
+### Building final binaries
 
-To produce final binaries, you can compile [supported targets](#target-tiers) only on _supported hosts_. For example,
+To produce final binaries, you can compile for [supported targets](#target-tiers) only on _supported hosts_. For example,
 you cannot do it on FreeBSD or on a Linux machine running on the ARM64 architecture.
 
 Building final binaries for Apple targets on Linux and Windows is also not possible.
 
-**Producing `.klib` artifacts**
+### Producing `.klib` artifacts
 
 Generally, Kotlin/Native allows any _supported host_ to produce `.klib` artifacts for supported targets.
 
