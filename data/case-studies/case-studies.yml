@@ -712,7 +712,10 @@ items:
     logo:
       - /images/case-studies/intuit-logo.svg
     isExternal: true
-    link: https://www.intuit.com/blog/uncategorized/kotlin-development-plan/
+    link: https://www.youtube.com/watch?v=P6G2YPuDE3Y
+    media:
+      type: youtube
+      videoId: P6G2YPuDE3Y
   #------------------------------------------------------------------------
   - id: case-study-flux
     type: server-side
