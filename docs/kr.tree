@@ -148,7 +148,7 @@
             </toc-element>
             <toc-element toc-title="Binary options" topic="native-binary-options.md"/>
             <toc-element topic="native-debugging.md"/>
-            <toc-element toc-title="Target support" topic="native-target-support.md"/>
+            <toc-element toc-title="Target and host support" topic="native-target-support.md"/>
             <toc-element toc-title="Improving compilation time" topic="native-improving-compilation-time.md"/>
             <toc-element toc-title="Customizing LLVM passes" topic="native-llvm-passes.md"/>
             <toc-element toc-title="License files" topic="native-binary-licenses.md"/>

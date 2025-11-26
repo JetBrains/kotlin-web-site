@@ -675,7 +675,7 @@ don't use the default hierarchy.
 Kotlin 2.2.20 completes an important [roadmap item](https://youtrack.jetbrains.com/issue/KT-71290), stabilizing
 cross-platform compilation for Kotlin libraries.
 
-You can now use any host to produce `.klib` artifacts for publishing Kotlin libraries. This significantly streamlines the
+You can now use any [supported host](native-target-support.md#hosts) to produce `.klib` artifacts for publishing Kotlin libraries. This significantly streamlines the
 publishing process, particularly for Apple targets that previously required a Mac machine.
 
 The feature is available by default. If you have already enabled cross-compilation with `kotlin.native.enableKlibsCrossCompilation=true`,
