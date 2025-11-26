@@ -15,7 +15,7 @@ The code formatter built into IntelliJ IDEA used to have a default setup that pr
 is now recommended.
 
 We'd like to remove this inconsistency by switching the defaults in IntelliJ IDEA and making formatting consistent with
-Kotlin coding conventions.
+Kotlin coding conventions. That's why the following migration plan was implemented:
 
 * Starting with Kotlin 1.3.0, the official code style formatting is enabled by default and only for new projects
   (old formatting can be enabled manually).
