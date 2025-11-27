@@ -64,6 +64,7 @@
             <toc-element topic="context-parameters.md"/>
             <toc-element topic="inline-functions.md"/>
             <toc-element topic="operator-overloading.md"/>
+            <toc-element topic="unused-return-value-checker.md"/>
         </toc-element>
         <toc-element toc-title="Classes and interfaces">
             <toc-element topic="classes.md"/>
