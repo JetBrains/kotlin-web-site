@@ -28,7 +28,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Kotlin blog button', async ({ page }) => {
-        const blogButton = page.locator(testSelector('button')).getByRole('link', { name: 'Kotlin blog' });
+        const blogButton = page.getByRole('link', { name: 'Kotlin blog' }).and(page.locator(testSelector('button')));
         await expect(blogButton).toBeVisible();
         await blogButton.click();
         await expect(page.url()).toContain('https://blog.jetbrains.com/kotlin/');
