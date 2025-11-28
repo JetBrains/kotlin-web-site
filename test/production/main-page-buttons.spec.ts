@@ -1,4 +1,5 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
+import { testSelector } from '../utils';
 
 test.describe('Main page buttons', () => {
     test.beforeEach(async ({ page }) => {
@@ -27,12 +28,12 @@ test.describe('Main page buttons', () => {
     });
 
     test('Kotlin blog button', async ({ page }) => {
-        const blogButton = page.getByTestId('why-kotlin-block').getByRole('link', { name: 'Kotlin blog' });
+        const blogButton = page.locator(testSelector('button')).getByRole('link', { name: 'Kotlin blog' });
         await expect(blogButton).toBeVisible();
         await blogButton.click();
         await expect(page.url()).toContain('https://blog.jetbrains.com/kotlin/');
         const pageTitle = page.locator('h1').first();
-        await expect(pageTitle).toContainText('Kotlin')
+        await expect(pageTitle).toContainText('Kotlin');
     });
 
     test('Why Kotlin Get started button', async ({ page }) => {
@@ -54,20 +55,20 @@ test.describe('Main page buttons', () => {
     });
 
     test('Learn about JetBrains AI button', async ({ page }) => {
-        const jetbrainsAIButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Learn about JetBrains AI' })
+        const jetbrainsAIButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Learn about JetBrains AI' });
         await expect(jetbrainsAIButton).toBeVisible();
         await jetbrainsAIButton.click();
         await expect(page.url()).toContain('https://www.jetbrains.com/ai/');
-        const pageTitle = page.locator('h1').first()
+        const pageTitle = page.locator('h1').first();
         await expect(pageTitle).toContainText('JetBrains AI');
     });
 
     test('Build AI apps with Kotlin button', async ({ page }) => {
-        const buildAIAppsButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Build AI apps with Kotlin' })
+        const buildAIAppsButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Build AI apps with Kotlin' });
         await expect(buildAIAppsButton).toBeVisible();
         await buildAIAppsButton.click();
         await expect(page.url()).toContain('/docs/kotlin-ai-apps-development-overview.html');
-        const pageTitle = page.locator('h1').first()
+        const pageTitle = page.locator('h1').first();
         await expect(pageTitle).toContainText('Kotlin for AI-powered app development');
     });
 
@@ -75,7 +76,7 @@ test.describe('Main page buttons', () => {
         const getStartedKoogButton = page.getByTestId('highlighted-cases-section').getByTestId('kotlin-plus-ai-block').getByRole('link', { name: 'Get started' });
         await expect(getStartedKoogButton).toBeVisible();
         await getStartedKoogButton.click();
-        await expect(page.url()).toContain('/docs.koog.ai/')
+        await expect(page.url()).toContain('/docs.koog.ai/');
         await expect(page.getByText('Koog on GitHub').first()).toBeVisible();
     });
 
