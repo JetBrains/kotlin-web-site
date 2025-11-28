@@ -1,4 +1,4 @@
-import { ComponentType, useState } from 'react';
+import { useState } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import { Chip, ChipList } from '@rescui/chip-list';
@@ -7,26 +7,17 @@ import { CodeShareCard } from './card';
 
 import styles from './choose-to-share.module.css';
 
-type Tab = {
-    id: string;
-    tab: string;
-    actionLink: string;
-    Title: ComponentType;
-    Content: ComponentType;
-};
-
 const TABS_BLOCKS: Tab[] = [
     {
         id: 'both-logic-ui',
         tab: 'Both logic and UI',
         actionLink: '/docs/multiplatform/compose-multiplatform-create-first-app.html',
-        Title: () => <>Maximum reuse, faster delivery</>,
+        Title: () => <>Maximum reuse, faster delivery.</>,
         Content: () => (
             <>
-                Use Kotlin with <a href={'https://www.jetbrains.com/compose-multiplatform/'}>Compose
-                Multiplatform</a> to share up to 100% of your app code – including UI – while still integrating with
-                native APIs. Reduce dev time, ensure consistent behavior, and ship on Android, iOS, desktop, and web
-                from a single codebase.
+                Use Kotlin with Compose Multiplatform to share up to 100% of your app code – including UI – while still
+                integrating with native APIs. Reduce dev time, ensure consistent behavior, and ship on Android, iOS,
+                desktop, and web from a single codebase.
             </>
         )
     },
@@ -34,18 +25,26 @@ const TABS_BLOCKS: Tab[] = [
         id: 'logic-native-ui',
         tab: 'Logic with native UI',
         actionLink: '/docs/multiplatform/multiplatform-create-first-app.html',
-        Title: () => <>One logic layer, native experience</>,
-        Content: () => <>Write your app's data handling and business logic once with Kotlin Multiplatform while keeping
-            the UI fully native – perfect when UX precision is key and platform fidelity matters.</>
+        Title: () => <>One logic layer, native experience.</>,
+        Content: () => (
+            <>
+                Write your app's data handling and business logic once with Kotlin Multiplatform while keeping the UI
+                fully native – perfect when UX precision is key and platform fidelity matters.
+            </>
+        )
     },
     {
         id: 'piece-of-logic',
         tab: 'Piece of logic',
         actionLink: '/docs/multiplatform/multiplatform-ktor-sqldelight.html',
-        Title: () => <>Stabilize and sync critical features</>,
-        Content: () => <>Start by sharing an isolated, core part of your business logic – like calculations, validation
-            rules, or authentication workflows – to improve consistency across platforms without requiring major
-            architectural changes.</>
+        Title: () => <>Stabilize and sync critical features.</>,
+        Content: () => (
+            <>
+                Start by sharing an isolated, core part of your business logic – like calculations, validation rules, or
+                authentication workflows – to improve consistency across platforms without requiring major architectural
+                changes.
+            </>
+        )
     }
 ];
 
@@ -62,10 +61,10 @@ export function ChooseToShare() {
                 compact={true}
                 value={activeIndex}
                 onChange={v => setActiveIndex(v)}
-                className="rs-docs-offset-top-12"
+                className={cn(styles.tabs, 'rs-docs-offset-top-12')}
             >
                 {TABS_BLOCKS.map(({ id, tab }, i) => (
-                    <Chip key={id} className={cn({ [styles.activeChip]: activeIndex === i })}>{tab}</Chip>
+                    <Chip key={id} className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}>{tab}</Chip>
                 ))}
             </ChipList>
 
@@ -76,6 +75,7 @@ export function ChooseToShare() {
                         className={cn(styles.card, { [styles.active]: activeIndex === i })}
                         title={<Title />}
                         children={<Content />}
+                        imageName={`${id}`}
                         url={actionLink}
                     />
                 ))}
