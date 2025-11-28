@@ -4,6 +4,8 @@ import { useTextStyles } from '@rescui/typography';
 
 import { LandingLayout, LandingLayoutProps } from '../../components/landing-layout/landing-layout';
 
+import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
+
 import { HeroBanner } from '../../blocks/multiplatform/hero';
 import { ChooseToShare } from '../../blocks/multiplatform/choose-to-share';
 import { VideoBlock } from '../../blocks/multiplatform/video-block/video-block';
