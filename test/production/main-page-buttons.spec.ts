@@ -27,7 +27,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Kotlin blog button', async ({ page }) => {
-        const blogButton = page.getByRole('link', { name: 'Kotlin blog' });
+        const blogButton = page.getByTestId('why-kotlin-block').getByRole('link', { name: 'Kotlin blog' });
         await expect(blogButton).toBeVisible();
         await blogButton.click();
         await expect(page.url()).toContain('https://blog.jetbrains.com/kotlin/');
@@ -45,7 +45,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Learn about Kotlin Multiplatform button', async ({ page }) => {
-        const multiplatformButton = page.getByRole('link', { name: 'Learn about Kotlin Multiplatform' });
+        const multiplatformButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Learn about Kotlin Multiplatform' });
         await expect(multiplatformButton).toBeVisible();
         await multiplatformButton.click();
         await expect(page.url()).toContain('https://www.jetbrains.com/kotlin-multiplatform/');
@@ -54,7 +54,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Learn about JetBrains AI button', async ({ page }) => {
-        const jetbrainsAIButton = page.getByRole('link', { name: 'Learn about JetBrains AI' })
+        const jetbrainsAIButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Learn about JetBrains AI' })
         await expect(jetbrainsAIButton).toBeVisible();
         await jetbrainsAIButton.click();
         await expect(page.url()).toContain('https://www.jetbrains.com/ai/');
@@ -63,7 +63,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Build AI apps with Kotlin button', async ({ page }) => {
-        const buildAIAppsButton = page.getByRole('link', { name: 'Build AI apps with Kotlin' })
+        const buildAIAppsButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Build AI apps with Kotlin' })
         await expect(buildAIAppsButton).toBeVisible();
         await buildAIAppsButton.click();
         await expect(page.url()).toContain('/docs/kotlin-ai-apps-development-overview.html');
@@ -72,7 +72,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Get started in AI section', async ({ page }) => {
-        const getStartedKoogButton = page.getByTestId('kotlin-plus-ai-block').getByRole('link', { name: 'Get started' });
+        const getStartedKoogButton = page.getByTestId('highlighted-cases-section').getByTestId('kotlin-plus-ai-block').getByRole('link', { name: 'Get started' });
         await expect(getStartedKoogButton).toBeVisible();
         await getStartedKoogButton.click();
         await expect(page.url()).toContain('/docs.koog.ai/')
@@ -80,7 +80,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Join the community button', async ({ page }) => {
-        const joinCommunityButton = page.getByRole('link', { name: 'Join the community' });
+        const joinCommunityButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Join the community' });
         await expect(joinCommunityButton).toBeVisible();
         await joinCommunityButton.click();
         await page.waitForTimeout(2000);
@@ -89,7 +89,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Learn more button in Kotlin Foundation section', async ({ page }) => {
-        const learnMoreButton = page.getByRole('link', { name: 'Learn more' });
+        const learnMoreButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Learn more' });
         await expect(learnMoreButton).toBeVisible();
         await learnMoreButton.click();
         await expect(page.url()).toContain('https://kotlinfoundation.org/');
@@ -98,7 +98,7 @@ test.describe('Main page buttons', () => {
     });
 
     test('Last Get started button', async ({ page }) => {
-        const getStartedButton = page.getByRole('link', { name: 'Get started' }).last();
+        const getStartedButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Get started' }).last();
         await expect(getStartedButton).toBeVisible();
         await getStartedButton.click();
         await expect(page.url()).toContain('/docs/getting-started.html');

@@ -177,7 +177,7 @@ function Index() {
             </ThemeProvider>
 
             <ThemeProvider theme="light">
-                <div className={styles.evenSection}>
+                <div className={styles.evenSection} data-testid={"highlighted-cases-section"}>
                     <div className={'ktl-layout ktl-layout--center'}>
 
                         <KotlinUsageHighlights title="Kotlin in action" items={kotlinUsageHighlightsCases} />
