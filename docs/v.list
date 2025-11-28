@@ -27,7 +27,7 @@
 
     <var name="lincheckVersion" value="3.0"/>
 
-    <var name="ktorVersion" value="3.3.1"/>
+    <var name="ktorVersion" value="3.3.3"/>
 
     <var name="lombokVersion" value="8.14.2"/>
 
