@@ -291,7 +291,7 @@ To enable this feature, add the following compiler option to your `build.gradle.
 ```kotlin
 kotlin {
     compilerOptions {
-        freeCompilerArgs.add("-XXLanguage:+JsAllowExportingSuspendFunctions")
+        freeCompilerArgs.add("-Xenable-suspend-function-exporting")
     }
 }
 ```
