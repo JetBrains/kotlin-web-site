@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 import cn from 'classnames';
 
 import { useTextStyles } from '@rescui/typography';
@@ -12,17 +12,25 @@ type CodeShareCardProps = {
     title: ReactNode;
     url: string;
     children: ReactNode;
+    imageName: string;
 }
 
-export function CodeShareCard({ className, title, url, children }: CodeShareCardProps) {
+function Card({ className, title, url, imageName, children }: CodeShareCardProps) {
     const textCn = useTextStyles();
 
     return (
         <section className={cn(styles.card, className, cardCn())}>
-            <span className={styles.img}><img src={'/'} alt={'test img'} />s<br/>s<br/>s<br/>s<br/>s<br/>s<br/>s<br/>s<br/>s<br/>s<br/>s<br/>s<br/>s<br/>s<br/></span>
-            <h3 className={cn(styles.title, textCn('rs-h2'))}>{title}</h3>
-            <div className={cn(styles.text, textCn('rs-text-1'))}>{children}</div>
-            <Button className={styles.button} href={url} size={'l'} mode={'rock'}>Get started</Button>
+            <div className={styles.content}>
+                <h3 className={cn(styles.title, textCn('rs-h2'))}>{title}</h3>
+                <p className={cn(styles.text, textCn('rs-text-1'))}>{children}</p>
+                <Button className={styles.button} href={url} size={'l'} mode={'rock'}>Get started</Button>
+            </div>
+            <p className={styles.cover}>
+                <img className={styles.image} src={`/images/multiplatform/choose-to-share/${imageName}.png`}
+                     alt={imageName} />
+            </p>
         </section>
     );
 }
+
+export const CodeShareCard = memo(Card);
