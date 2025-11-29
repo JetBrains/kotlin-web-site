@@ -22,7 +22,7 @@
         <toc-element hidden="true" topic="kotlin-tour-intermediate-libraries-and-apis.md"/>
     </toc-element>
     <toc-element toc-title="What's new in Kotlin">
-        <toc-element toc-title="Kotlin 2.3.0-RC" topic="whatsnew-eap.md"/>
+        <toc-element toc-title="Kotlin 2.3.0-RC2" topic="whatsnew-eap.md"/>
         <toc-element toc-title="Kotlin 2.2.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2220.md"/>
         <toc-element toc-title="Kotlin 2.2.0" topic="whatsnew22.md"/>
         <toc-element topic="compatibility-guide-22.md"/>
