@@ -29,14 +29,12 @@
     align-items: center;
 
     padding-block: 72px 96px;
-
-    --hero-logo-image: '';
 }
 
 .hero::before {
     display: block;
     content: '';
-    background: var(--hero-logo-image) no-repeat center;
+    background: url('/images/multiplatform/hero/logo.svg') no-repeat center;
 
     height: 72px;
     width: 72px;
@@ -102,6 +100,26 @@
 
     @media (--ktl-ms-in) {
         padding-inline: 14px;
+    }
+
+    &.android {
+        --hero-item-src: url('/images/multiplatform/hero/android.svg');
+    }
+
+    &.ios {
+        --hero-item-src: url('/images/multiplatform/hero/ios.svg');
+    }
+
+    &.web {
+        --hero-item-src: url('/images/multiplatform/hero/web.svg');
+    }
+
+    &.desktop {
+        --hero-item-src: url('/images/multiplatform/hero/desktop.svg');
+    }
+
+    &.server {
+        --hero-item-src: url('/images/multiplatform/hero/server.svg');
     }
 }
 
