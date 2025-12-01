@@ -6,6 +6,7 @@ latter says that this removal should be well-communicated beforehand to make cod
 
 While most of the language changes were already announced through other channels, like update changelogs or compiler
 warnings, this document summarizes them all, providing a complete reference for migration from Kotlin 2.2 to Kotlin 2.3.
+This document also includes information about tool-related changes.
 
 ## Basic terms
 
@@ -88,7 +89,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.1.20: report a warning
 > - 2.3.0: raise the warning to an error
 
-### Deprecate unintended use of `return` in expression-bodied functions without explicit return type
+### Deprecate use of `return` in expression-bodied functions without explicit return type
 
 > **Issue**: [KTLC-288](https://youtrack.jetbrains.com/issue/KTLC-288)
 >
@@ -128,7 +129,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**: Kotlin 2.3 uses the same type-checking logic for top-level lambdas as it does for lambdas passed 
+> **Short summary**: Kotlin 2.3.0 uses the same type-checking logic for top-level lambdas as it does for lambdas passed 
 > as call arguments, ensuring consistent generic signature generation across both cases.
 >
 > **Deprecation cycle**:
@@ -143,7 +144,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 2.3 prohibits situations where a reified type parameter is inferred to an intersection type, 
+> **Short summary**: Kotlin 2.3.0 prohibits situations where a reified type parameter is inferred to an intersection type, 
 > due to the risk of incorrect runtime behavior.
 >
 > **Deprecation cycle**:
@@ -159,7 +160,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 2.3 forbids using type parameter bounds that expose types with more restrictive visibility
+> **Short summary**: Kotlin 2.3.0 forbids using type parameter bounds that expose types with more restrictive visibility
 > than the function or declaration itself, aligning the rules for functions with those already applied to classes.
 >
 > **Deprecation cycle**:
@@ -169,7 +170,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ## Standard library
 
-### Deprecate misleading Char-to-number conversions and introduce explicit digit and code APIs
+### Deprecate Char-to-number conversions and introduce explicit digit and code APIs
 
 > **Issue**: [KTLC-321](https://youtrack.jetbrains.com/issue/KTLC-321)
 >
@@ -177,7 +178,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 2.3 deprecates `Char.toX()` and `X.toChar()` conversions for numeric types and introduces new,
+> **Short summary**: Kotlin 2.3.0 deprecates `Char.toX()` and `X.toChar()` conversions for numeric types and introduces new,
 > explicit APIs for accessing a character's code and digit value.
 >
 > **Deprecation cycle**:
@@ -262,7 +263,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.3.20: Unify Kotlin/Native exception stacktrace formatting with other Kotlin platforms
 
-### Correct `Iterable<T>.intersect()` and `Iterable<T>.subtract()` behavior for referential-equality collections
+### Correct `Iterable<T>.intersect()` and `Iterable<T>.subtract()` behavior
 
 > **Issue**: [KTLC-268](https://youtrack.jetbrains.com/issue/KTLC-268)
 >
@@ -272,7 +273,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Short summary**: The [`Iterable<T>.intersect()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/intersect.html) and [`Iterable<T>.subtract()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/subtract.html) functions now test membership for each
 > receiver element before adding it to the result set. The result set compares elements using `Any::equals`,
-> ensuring correct results even when the argument collection uses referential equality (for example, `IdentityHashMap.keys˙).
+> ensuring correct results even when the argument collection uses referential equality (for example, `IdentityHashMap.keys`).
 >
 > **Deprecation cycle**:
 >
@@ -312,18 +313,421 @@ perspective (for example, from Java) is out of the scope of this document.
 > 
 > If you experience difficulties during migration, reach out in the #gradle channel in our [Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) for support.
 
+### Deprecate `kotlin-android` plugin for AGP versions 9.0.0 and later
 
-### Correct `setSource()` function in `KotlinCompileTool` to replace sources
-
-> **Issue**: [KT-59632](https://youtrack.jetbrains.com/issue/KT-59632)
+> **Issue**: [KT-81199](https://youtrack.jetbrains.com/issue/KT-81199)
 >
 > **Component**: Gradle
 >
-> **Incompatible change type**: behavioral
+> **Incompatible change type**: source
 >
-> **Short summary**: The [`setSource()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/set-source.html#) function in the [`KotlinCompileTool`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/#) interface now replaces configured sources instead of adding to them.
-> If you want to add sources without replacing existing ones, use the [`source()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compile-tool/source.html#) function.
+> **Short summary**: In Kotlin 2.3.0, the `kotlin-android` plugin is deprecated when using Android Gradle plugin (AGP) versions 9.0.0 or later.
+> Starting with AGP 9.0.0, AGP provides built-in support for Kotlin, so the `kotlin-android` plugin is no longer needed.
 >
 > **Deprecation cycle**:
 >
-> - 2.2.0: enable the new behavior
+> - 2.3.0: report a warning when the `kotlin-android` plugin is used with AGP versions 9.0.0 or later, and both the `android.builtInKotlin` and `android.newDsl=false` Gradle properties are set to `false`.
+
+### Deprecate `testApi` configuration
+
+> **Issue**: [KT-63285](https://youtrack.jetbrains.com/issue/KT-63285)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.3.0 deprecates the `testApi` configuration since it's an unnecessary addition to Gradle projects.
+> 
+> **Migration options**:
+> Replace any instances of `testApi()` with `testImplementation()`, and do the same for other variants. For example,
+> replace `kotlin.sourceSets.commonTest.dependencies.api()` with `kotlin.sourceSets.commonTest.dependencies.implementation()`.
+> 
+> For Kotlin/JVM projects, consider using Gradle's [test fixtures](https://docs.gradle.org/current/userguide/java_testing.html#sec:java_test_fixtures) instead.
+> If you'd like to see support for test fixtures in multiplatform projects, share your use case in [YouTrack](https://youtrack.jetbrains.com/issue/KT-63142).
+> 
+> **Deprecation cycle**:
+>
+> - 2.3.0: report a warning
+
+### Deprecate `createTestExecutionSpec()` function
+
+> **Issue**: [KT-75449](https://youtrack.jetbrains.com/issue/KT-75449)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.3.0 deprecates the `createTestExecutionSpec()` function in the `KotlinJsTestFramework`
+> interface since it is no longer used.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.20: report a warning
+> - 2.3.0: raise the warning to an error
+
+### Remove `closureTo()`, `createResultSet()`, and `KotlinToolingVersionOrNull()` functions
+
+> **Issue**: [KT-64273](https://youtrack.jetbrains.com/issue/KT-64273)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.3.0 removes the `closureTo()`, `createResultSet()` functions from the `closure` DSL since they
+> are no longer used. In addition, the `KotlinToolingVersionOrNull()` function is removed. Use the `KotlinToolingVersion()` function instead.
+> 
+>
+> **Deprecation cycle**:
+> - 1.7.20: report an error
+> - 2.3.0: remove the functions
+
+### Deprecate the `ExtrasProperty` API
+
+> **Issue**: [KT-74915](https://youtrack.jetbrains.com/issue/KT-74915)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `ExtrasProperty` API, which has been deprecated since Kotlin 2.0.0, is now internalized in Kotlin 2.3.0.
+> Use Gradle's [`ExtraPropertiesExtension`](https://docs.gradle.org/current/dsl/org.gradle.api.plugins.ExtraPropertiesExtension.html) API as an alternative.
+> 
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a warning
+> - 2.1.0: raise the warning to an error
+> - 2.3.0: make the API internal
+
+### Deprecate `HasKotlinDependencies` in `KotlinCompilation`
+
+> **Issue**: [KT-67290](https://youtrack.jetbrains.com/issue/KT-67290)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.3.0 deprecates the `HasKotlinDependencies` interface in [`KotlinCompilation`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-compilation/).
+> Dependency-related APIs are now exposed through the [`KotlinSourceSet`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/) interface instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: report a warning
+
+### Deprecate npm and Yarn package manager internal functions and properties
+
+> **Issue**: [KT-81009](https://youtrack.jetbrains.com/issue/KT-81009)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The following functions and properties related to the npm and Yarn package managers are deprecated:
+> 
+> * `CompositeDependency.dependencyName`, `CompositeDependency.dependencyVersion`, `CompositeDependency.includedBuildDir`.
+> * `KotlinNpmInstallTask.Companion.NAME`.
+> * `LockCopyTask.Companion.STORE_PACKAGE_LOCK_NAME`, `LockCopyTask.Companion.RESTORE_PACKAGE_LOCK_NAME`, `LockCopyTask.Companion.UPGRADE_PACKAGE_LOCK`.
+> * `Npm.npmExec()`.
+> * `NpmProject.require()`, `NpmProject.useTool()`.
+> * `PublicPackageJsonTask.jsIrCompilation`.
+> * `YarnBasics.yarnExec()`.
+> * `YarnPlugin.Companion.STORE_YARN_LOCK_NAME`, `YarnPlugin.Companion.RESTORE_YARN_LOCK_NAME`, `YarnPlugin.Companion.UPGRADE_YARN_LOCK`.
+> * `YarnSetupTask.Companion.NAME`.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0 and 2.2.20: report warnings when using these functions or properties
+> - 2.3.0: raise the warnings to errors
+
+### Deprecate support for PhantomJS
+
+> **Issue**: [KT-76019](https://youtrack.jetbrains.com/issue/KT-76019)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Since PhantomJS is no longer maintained, Kotlin 2.3.0 deprecates the `karmaPhantomjsLauncher` property
+> in the `NpmVersions` API.
+> 
+> **Deprecation cycle**:
+>
+> - 2.3.0: report a warning
+
+### Prohibit subclassing of classes that set up test runs or JavaScript runtime
+
+> **Issue**: [KT-75869](https://youtrack.jetbrains.com/issue/KT-75869), [KT-81007](https://youtrack.jetbrains.com/issue/KT-81007)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.3.0 prohibits subclassing the following classes:
+> * `KotlinTest`
+> * `KotlinNativeTest`
+> * `KotlinJsTest`
+> * `KotlinJsIrTarget`
+> * `KotlinNodeJsIr`
+> * `KotlinD8Ir`
+> * `KotlinKarma`
+> * `KotlinMocha`
+> * `KotlinWebpack`
+> * `TypeScriptValidationTask`
+> * `YarnRootExtension`
+> 
+> These classes were never intended to be subclassed. All use cases for subclassing should now be covered by the class instances exposed through our extensions.
+> If the existing APIs for these tasks don't meet your needs for setting up test runs or the JavaScript runtime,
+> share your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-75869).
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a warning for code that creates subclasses from these classes
+> - 2.3.0: raise the warnings to errors
+
+### Deprecate `ExperimentalWasmDsl` annotation class
+
+> **Issue**: [KT-81005](https://youtrack.jetbrains.com/issue/KT-81005)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `ExperimentalWasmDsl` annotation class is deprecated since the functionality has moved to the `kotlin-plugin-annotations` module.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.20: report a warning
+> - 2.3.0: raise the warning to an error
+
+### Deprecate `ExperimentalDceDsl` annotation class
+
+> **Issue**: [KT-81008](https://youtrack.jetbrains.com/issue/KT-81008)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `ExperimentalDceDsl` annotation class isn't used anymore, so it's been deprecated.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a warning
+> - 2.3.0: raise the warning to an error
+
+### Deprecate JavaScript utilities
+
+> **Issue**: [KT-81010](https://youtrack.jetbrains.com/issue/KT-81010)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The following functions and properties are only used internally, so they've been deprecated:
+> * `JsIrBinary.generateTs`
+> * `KotlinJsIrLink.mode`
+> * `NodeJsSetupTask.Companion.NAME`
+> * `Appendable.appendConfigsFromDir()`
+> * `ByteArray.toHex()`
+> * `FileHasher.calculateDirHash()`
+> * `String.jsQuoted()`
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a warning when the `KotlinJsIrLink.mode` property is used
+> - 2.2.0: report a warning when the `NodeJsSetupTask.Companion.NAME` property and functions are used
+> - 2.2.20: report a warning when the `JsIrBinary.generateTs` property is used
+> - 2.3.0: raise the warnings to errors
+
+### Deprecate migrated D8 and Binaryen properties
+
+> **Issue**: [KT-81006](https://youtrack.jetbrains.com/issue/KT-81006)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The following properties are deprecated because they've been migrated from the `org.jetbrains.kotlin.gradle.targets.js` package
+> to the `org.jetbrains.kotlin.gradle.targets.wasm` package:
+> 
+> * `binaryen.BinaryenEnvSpec`
+> * `binaryen.BinaryenExtension`
+> * `binaryen.BinaryenPlugin`
+> * `binaryen.BinaryenRootPlugin`
+> * `BinaryenSetupTask.Companion.NAME`
+> * `d8.D8EnvSpec`
+> * `d8.D8Plugin`
+> * `D8SetupTask.Companion.NAME`
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a warning
+> - 2.3.0: raise the warning to an error
+
+### Deprecate `create()` function in `NodeJsExec` DSL
+
+> **Issue**: [KT-81004](https://youtrack.jetbrains.com/issue/KT-81004)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `create()` function in the companion object of the `NodeJsExec` DSL is deprecated. Use
+> the `register()` function instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.20: report a warning
+> - 2.3.0: raise the warning to an error
+
+### Deprecate properties in `kotlinOptions` DSL
+
+> **Issue**: [KT-76720](https://youtrack.jetbrains.com/issue/KT-76720)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The ability to configure compiler options through the `kotlinOptions` DSL and the related
+> `KotlinCompile<KotlinOptions>` task interface has been deprecated in favor of the new `compilerOptions` DSL since Kotlin 2.2.0.
+> Kotlin 2.3.0 continues the deprecation cycle for all properties in the `kotlinOptions` interface.
+> To migrate, use the `compilerOptions` DSL to configure compiler options. For guidance on the migration, see [Migrate from `kotlinOptions {}` to `compilerOptions {}`](gradle-compiler-options.md#migrate-from-kotlinoptions-to-compileroptions).
+>
+> **Deprecation cycle**:
+>
+> - 2.0.0: report a warning for `kotlinOptions` DSL
+> - 2.2.0: raise the warning to an error and deprecate all properties in `kotlinOptions`
+> - 2.3.0: raise the warning to an error for all properties in `kotlinOptions`
+
+### Deprecate `kotlinArtifacts` API
+
+> **Issue**: [KT-77066](https://youtrack.jetbrains.com/issue/KT-77066)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The experimental `kotlinArtifacts` API is deprecated. Use the current DSL available in the Kotlin Gradle
+> plugin to [build final native binaries](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html).
+> If it's not sufficient for migration, leave a comment in [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-74953).
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a warning when the `kotlinArtifacts` API is used
+> - 2.3.0: raise this warning to an error
+
+### Remove `kotlin.mpp.resourcesResolutionStrategy` Gradle property
+
+> **Issue**: [KT-74955](https://youtrack.jetbrains.com/issue/KT-74955)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Previously the `kotlin.mpp.resourcesResolutionStrategy` Gradle property was deprecated because it wasn't
+> used. In Kotlin 2.3.0, the Gradle property is removed completely.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a configuration-time diagnostic
+> - 2.3.0: remove the Gradle property
+
+### Remove properties to disable precise compilation backup
+
+> **Issue**: [KT-81038](https://youtrack.jetbrains.com/issue/KT-81038)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 1.9.0 introduced an experimental optimization for incremental compilation called precise
+> compilation backup. After successful testing, this optimization was enabled by default in Kotlin 2.0.0. Kotlin 2.3.0
+> removes the `kotlin.compiler.preciseCompilationResultsBackup` and `kotlin.compiler.keepIncrementalCompilationCachesInMemory`
+> Gradle properties that opt out of this optimization.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.20: report a warning
+> - 2.3.0: remove the properties
+
+### Deprecate `destinationDir` in `CInteropProcess`
+
+> **Issue**: [KT-74910(https://youtrack.jetbrains.com/issue/KT-74910)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `destinationDir` property in the `CInteropProcess` task is deprecated.
+> Use the `CInteropProcess.destinationDirectory.set()` function instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report a warning when the `destinationDir` property is used
+> - 2.2.0: raise this warning to an error
+> - 2.3.0: hide the `destinationDir` property
+
+### Deprecate `konanVersion` in `CInteropProcess`
+
+> **Issue**: [KT-74911](https://youtrack.jetbrains.com/issue/KT-74911)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `konanVersion` property in the `CInteropProcess` task is deprecated.
+> Use `CInteropProcess.kotlinNativeVersion` instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.1.0: report a warning when the `konanVersion` property is used
+> - 2.2.0: raise this warning to an error
+> - 2.3.0: hide the `konanVersion` property
+
+### Remove `KotlinCompile.classpathSnapshotProperties` properties
+
+> **Issue**: [KT-76177](https://youtrack.jetbrains.com/issue/KT-76177)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `kotlin.incremental.useClasspathSnapshot` Gradle property was removed in Kotlin 2.2.0.
+> In Kotlin 2.3.0, the following properties are also removed:
+> * `KotlinCompile.classpathSnapshotProperties.useClasspathSnapshot`
+> * `KotlinCompile.classpathSnapshotProperties.classpath`
+>
+> **Deprecation cycle**:
+>
+> - 2.0.20: deprecate the `kotlin.incremental.useClasspathSnapshot` property with a warning
+> - 2.2.0: remove the `kotlin.incremental.useClasspathSnapshot` property
+> - 2.3.0: remove the `KotlinCompile.classpathSnapshotProperties.useClasspathSnapshot` and `KotlinCompile.classpathSnapshotProperties.classpath` properties
+
+### Deprecate `getPluginArtifactForNative()` function
+
+> **Issue**: [KT-78870](https://youtrack.jetbrains.com/issue/KT-78870)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: In Kotlin 2.2.20, [the `getPluginArtifactForNative()` function was deprecated](whatsnew2220.md#reduced-size-of-kotlin-native-distribution). 
+> Use the [`getPluginArtifact()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-compiler-plugin-support-plugin/get-plugin-artifact.html) function instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.20: report a warning
+> - 2.3.0: raise the warning to an error
+
+## Build tool removal
+
+### Remove support for Ant
+
+> **Issue**: [KT-75875](https://youtrack.jetbrains.com/issue/KT-75875)
+>
+> **Component**: Ant
+>
+> **Short summary**: Kotlin 2.3.0 removes support for Ant as a build tool. Use [Gradle](gradle.md) or [Maven](maven.md) instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a warning
+> - 2.3.0: remove support
