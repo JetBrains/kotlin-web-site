@@ -216,10 +216,10 @@ kotlin {
 ### Use `BigInt64Array` type to represent Kotlin's `LongArray` type
 <primary-label ref="experimental-general"/>
 
-Kotlin/JS uses JavaScript's built-in `BigInt64Array` type
+Kotlin/JS can use JavaScript's built-in `BigInt64Array` type
 to represent Kotlin's `LongArray` values when compiling to JavaScript.
 
-To enable support for the `BigInt64Array` type, you need to add the following compiler option to your
+To enable support for the `BigInt64Array` type, add the following compiler option to your
 `build.gradle(.kts)` file:
 
 ```kotlin
