@@ -16,7 +16,7 @@ const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
     },
     {
         title: 'Docs',
-        url: 'https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html'
+        url: 'https://kotlinlang.org/docs/multiplatform/get-started.html'
     }
 ];
 
