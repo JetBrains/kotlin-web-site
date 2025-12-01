@@ -93,13 +93,11 @@ and the [new](https://github.com/WebAssembly/exception-handling/blob/main/propos
 versions of the exception handling proposal. This allows Kotlin-produced Wasm binaries to run in a wider range of environments.
 
 The [`wasmJs` target](wasm-overview.md#kotlin-wasm-and-compose-multiplatform) uses the legacy exception handling proposal by default.
-The new proposal is turned off for this target, but 
-you can enable it manually using the `-Xwasm-use-new-exception-proposal` compiler option.
+To enable the new exception handling proposal for the `wasmJs` target, use the `-Xwasm-use-new-exception-proposal` compiler option.
 
-The [`wasmWasi` target](wasm-overview.md#kotlin-wasm-and-wasi) uses the new proposal by default,
+By contrast, the [`wasmWasi` target](wasm-overview.md#kotlin-wasm-and-wasi) uses the new proposal by default,
 ensuring better compatibility with modern WebAssembly runtimes. 
-You can manually switch to the old proposal by 
-using the `-Xwasm-use-new-exception-proposal=false` compiler option.
+To switch to the legacy proposal, use the `-Xwasm-use-new-exception-proposal=false` compiler option.
 
 For the `wasmWasi` target, it is safe to adopt 
 the new exception handling proposal.
@@ -184,7 +182,7 @@ Keep in mind that enabling this option increases the application size.
 On Kotlin/Wasm targets, fully qualified names (FQNs) are available at runtime without any additional configuration.
 This means that the `KClass.qualifiedName` property is enabled by default.
 
-Having FQNs improves code portability from JVM to Wasm targets and makes runtime errors more informative by displaying 
+Using FQNs improves code portability from JVM to Wasm targets and makes runtime errors more informative by showing 
 the full qualified name.
 
 ## Array out-of-bounds access and traps
