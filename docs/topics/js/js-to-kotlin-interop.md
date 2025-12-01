@@ -211,7 +211,7 @@ kotlin {
 }
 ```
 
-2. Enable the `BigInt` type. See how to enable it in [Use of `BigInt` type to represent Kotlin's `Long` type](#use-bigint-type-to-represent-kotlin-s-long-type).
+2. Enable the `BigInt` type. See how to enable it in [Use `BigInt` type to represent Kotlin's `Long` type](#use-bigint-type-to-represent-kotlin-s-long-type).
 
 ### Use `BigInt64Array` type to represent Kotlin's `LongArray` type
 <primary-label ref="experimental-general"/>
