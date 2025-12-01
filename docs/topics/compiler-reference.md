@@ -241,7 +241,7 @@ Allows using the `holdsIn` keyword in contracts to assume that a boolean conditi
 
 Configure how the compiler [reports ignored results](unused-return-value-checker.md):
 
-* `disable`: disables the unused return value checker. (Default)
+* `disable`: disables the unused return value checker (default).
 * `check`: enables the checker, and reports warnings for ignored results from marked functions.
 * `full`: enables the checker, treats all functions in your project as marked, and reports warnings for ignored results.
 

@@ -26,14 +26,14 @@ or for boolean shortcuts where the right-hand side exits the current function, f
 You can use the unused return value checker to catch bugs where a function call produces a meaningful result, but the result is silently dropped.
 This helps prevent unexpected behavior and makes such issues easier to track down.
 
-Here's an example:
+Here's an example where a string is created but never used, so the checker reports it as an ignored result:
 
 ```kotlin
 fun formatGreeting(name: String): String {
     if (name.isBlank()) return "Hello, anonymous user!"
     if (!name.contains(' ')) {
         // The checker reports a warning that this result is ignored:
-        // Unused return value of 'plus'.
+        // "Unused return value of 'plus'."
         "Hello, " + name.replaceFirstChar(Char::titlecase) + "!"
     }
     val (first, last) = name.split(' ')
@@ -41,15 +41,13 @@ fun formatGreeting(name: String): String {
 }
 ```
 
-In this example, a string is created but never used, so the checker reports it as an ignored result.
-
 ## Configure the unused return value checker
 
 You can control how the compiler reports ignored results with the `-Xreturn-value-checker` compiler option.
 
 It has the following modes:
 
-* `disable` disables the unused return value checker. (Default)
+* `disable` disables the unused return value checker (default).
 * `check` enables the checker, and reports warnings for ignored results from [marked functions](#mark-functions-to-check-ignored-results).
 * `full` enables the checker, treats all functions in your project as [marked](#mark-functions-to-check-ignored-results), and reports warnings for ignored results.
 
@@ -161,7 +159,7 @@ fun main() {
 When you override a function, the override inherits the reporting rules defined by the annotations on the base declaration.
 This also applies when the base declaration is part of the Kotlin standard library or of other library dependencies, so the checker reports ignored results for overrides of functions like `Any.hashCode()`.
 
-Additionally, you can't override a function marked with `@IgnorableReturnValue` with one that [requires its return value to be used](#mark-functions-to-check-ignored-results).
+Additionally, you can't override a function marked with `@IgnorableReturnValue` with another function that [requires its return value to be used](#mark-functions-to-check-ignored-results).
 However, you can mark an override with `@IgnorableReturnValue` in a class or interface annotated with `@MustUseReturnValues` when its result can be safely ignored:
 
 ```kotlin
@@ -191,7 +189,7 @@ The unused return value checker treats the following annotations as equivalent t
 
 * [`com.google.errorprone.annotations.CheckReturnValue`](https://errorprone.info/api/latest/com/google/errorprone/annotations/CheckReturnValue.html)
 * [`edu.umd.cs.findbugs.annotations.CheckReturnValue`](https://findbugs.sourceforge.net/api/edu/umd/cs/findbugs/annotations/CheckReturnValue.html)
-* [`org.jetbrains.annotations.CheckReturnValue`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/lang/CheckReturnValue.html)
+* [`org.jetbrains.annotations.CheckReturnValue`](https://javadoc.io/doc/org.jetbrains/annotations/latest/org/jetbrains/annotations/CheckReturnValue.html)
 * [`org.springframework.lang.CheckReturnValue`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/lang/CheckReturnValue.html)
 * [`org.jooq.CheckReturnValue`](https://www.jooq.org/javadoc/latest/org.jooq/org/jooq/CheckReturnValue.html)
 
