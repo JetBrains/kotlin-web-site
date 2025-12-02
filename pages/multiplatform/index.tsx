@@ -1,15 +1,26 @@
 import { Button } from '@rescui/button';
+import { ThemeProvider } from '@rescui/ui-contexts';
+
 import { LandingLayout, LandingLayoutProps } from '../../components/landing-layout/landing-layout';
 
-import {
-    MULTIPLATFORM_MOBILE_TITLE,
-    MULTIPLATFORM_MOBILE_URL
-} from '@jetbrains/kotlin-web-site-ui/out/components/header';
-
-import styles from './multiplatform.module.css';
 import { FaqBlock } from '../../blocks/multiplatform/faq-block/faq-block';
+import { HeroBanner } from '../../blocks/multiplatform/hero';
 
-const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [];
+const MULTIPLATFORM_MOBILE_TITLE = 'Kotlin Multiplatform' as const;
+const MULTIPLATFORM_MOBILE_URL = '/multiplatform/' as const;
+
+const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
+    {
+        title: 'Compose Multiplatform',
+        url: 'https://www.jetbrains.com/compose-multiplatform/'
+    },
+    {
+        title: 'Docs',
+        url: 'https://kotlinlang.org/docs/multiplatform/get-started.html'
+    }
+];
+
+const GET_STARTED_URL = '/docs/multiplatform/get-started.html' as const;
 
 export default function MultiplatformLanding() {
     return (
@@ -23,11 +34,14 @@ export default function MultiplatformLanding() {
             topMenuTitle={MULTIPLATFORM_MOBILE_TITLE}
             topMenuHomeUrl={MULTIPLATFORM_MOBILE_URL}
             topMenuItems={TOP_MENU_ITEMS}
-            topMenuButton={<Button href={'#get-started'}>Get started</Button>}
+            topMenuButton={<Button href={GET_STARTED_URL}>Get started</Button>}
             canonical={'https://kotlinlang.org/multiplatform/'}
         >
-            <div className={styles.page}>
-                <FaqBlock />
+            <div className="ktl-layout-to-2">
+                <ThemeProvider theme={'dark'}>
+                    <HeroBanner url={GET_STARTED_URL} />
+                    <FaqBlock />
+                </ThemeProvider>
             </div>
         </LandingLayout>
     );
