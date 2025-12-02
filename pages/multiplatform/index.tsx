@@ -7,7 +7,7 @@ import { LandingLayout, LandingLayoutProps } from '../../components/landing-layo
 import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
 
 import { HeroBanner } from '../../blocks/multiplatform/hero';
-import { ChooseToShare } from '../../blocks/multiplatform/choose-to-share';
+import { ChooseShare } from '../../blocks/multiplatform/choose-share';
 import { VideoBlock } from '../../blocks/multiplatform/video-block/video-block';
 import { HighlightedBg } from '../../blocks/multiplatform/highlighted-bg/highlighted-bg';
 import { FaqBlock } from '../../blocks/multiplatform/faq-block/faq-block';
@@ -52,7 +52,7 @@ export default function MultiplatformLanding() {
             <div className="ktl-layout-to-2">
                 <ThemeProvider theme={'dark'}>
                     <HeroBanner url={GET_STARTED_URL} />
-                    <ChooseToShare />
+                    <ChooseShare />
                     <HighlightedBg>
                         <VideoBlock
                             title={'AI-powered code generation'}

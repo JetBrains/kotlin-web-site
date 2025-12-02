@@ -1,0 +1,123 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrap {
+    position: relative;
+
+    &::before {
+        display: block;
+        content: '';
+        position: absolute;
+
+        background: url('/images/multiplatform/choose-share-what/bg.png') no-repeat center;
+        background-size: 1127px;
+
+        height: 1127px;
+        width: 1127px;
+
+        @media (--ktl-ds-more) {
+            left: -560px;
+            top: -72px;
+        }
+    }
+}
+
+.title {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.tabs {
+    margin-block: 32px 8px;
+
+    & > div {
+        gap: 8px;
+
+        @media (--ktl-ml-more) {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            flex-grow: 1;
+        }
+    }
+
+    [role="tab"] {
+        box-sizing: content-box;
+        padding: 16px 24px;
+
+        background-color: #000000;
+
+        &:hover {
+            background-color: rgb(40, 35, 77);
+        }
+
+        &, &::before {
+            border-color: #7E42FF;
+        }
+
+        &[data-test~="chip-selected"] {
+            background-color: rgb(102, 53, 204);
+
+            &::before {
+                border-width: 3px;
+            }
+
+            &:hover {
+                background-color: rgb(76, 39, 153);
+            }
+
+            border-color: #7E42FF;
+        }
+
+        @media (--ktl-ml-more) {
+            flex: 1;
+
+            & > span {
+                white-space: initial;
+            }
+        }
+        @media (--ktl-ts-less) {
+            width: 100%;
+        }
+    }
+}
+
+/* --- Cards --- */
+.cards {
+    display: grid;
+}
+
+.card:not(.active) {
+    visibility: hidden;
+
+    @media (--ktl-ds-less) {
+        display: none;
+    }
+}
+
+.card {
+    grid-column: 1;
+    grid-row: 1;
+    align-items: start;
+
+    @media (prefers-reduced-motion: no-preference) {
+        opacity: 0;
+        transition: opacity .3s;
+
+        @supports (transition: visibility 1s allow-discrete) {
+            transition: opacity 1s, display 1s allow-discrete, visibility 1s allow-discrete;
+        }
+    }
+}
+
+.card.active {
+    @media (prefers-reduced-motion: no-preference) {
+        opacity: 1;
+
+        @supports (transition: visibility 1s allow-discrete) {
+            @starting-style {
+                opacity: 0;
+            }
+        }
+    }
+}
