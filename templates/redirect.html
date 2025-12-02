@@ -1,3 +1,17 @@
-<noscript><meta http-equiv="refresh" content="0; url={{ url }}"/></noscript>
-<script>window.location = '{{ url }}' + window.location.hash;</script>
+<noscript><meta http-equiv="refresh" content="0; url={{ url }}"/></noscript>{#
+// https://github.com/JetBrains/kotlin-web-site/pull/5210
+
+(function() {
+    var url = '{{ url }}';
+    var hash = window.location.hash;
+
+    if (hash) {
+        var i = url.indexOf('#');
+        if (i !== -1) url = url.substring(0, i); // remove existing hash 'to: /..../#anchor'
+        url += hash;
+    }
+
+    window.location = url;
+})();
+#}<script>!function(){var n,i="{{ url }}",o=window.location.hash;o&&(-1!==(n=i.indexOf("#"))&&(i=i.substring(0,n)),i+=o),window.location=i}();</script>
 <meta http-equiv="refresh" content="1; url={{ url }}"/>
