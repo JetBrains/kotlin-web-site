@@ -169,11 +169,6 @@ see the feature's [KEEP]( https://github.com/Kotlin/KEEP/blob/main/proposals/KEE
 ### Changes to context-sensitive resolution
 <primary-label ref="experimental-general"/>
 
-> Support for code analysis, code completion, and highlighting of this feature in IntelliJ IDEA is currently available
-> only in [2025.3 EAP builds](https://www.jetbrains.com/idea/nextversion/).
->
-{style = "note"}
-
 Context-sensitive resolution is still [Experimental](components-stability.md#stability-levels-explained),
 but we continue improving the feature based on user feedback:
 
