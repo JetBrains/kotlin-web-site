@@ -56,8 +56,6 @@ fun main() {
 
 ## Nested type aliases
 
-<primary-label ref="beta"/>
-
 In Kotlin, you can define type aliases inside other declarations, as long as they
 don't capture type parameters from their outer class:
 
@@ -100,22 +98,3 @@ Nested type aliases follow specific rules to ensure clear and consistent behavio
   and they hide any parent type aliases with the same name as they don't override.
 * Nested type aliases can be marked as `internal` or `private` to limit their visibility.
 * Nested type aliases are not supported in Kotlin Multiplatform's [`expect/actual` declarations](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html).
-
-### How to enable nested type aliases
-
-To enable nested type aliases in your project, use the following compiler option in the command line:
-
-```bash
--Xnested-type-aliases
-```
-
-Or add it to the `compilerOptions {}` block of your Gradle build file:
-
-```kotlin
-// build.gradle.kts
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xnested-type-aliases")
-    }
-}
-```
