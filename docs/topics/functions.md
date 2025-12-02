@@ -99,7 +99,7 @@ fun main () {
     foo(1)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="default-before-ordinary"}
 
 [Trailing lambdas](lambdas.md#passing-trailing-lambdas) are an exception to this rule,
 since the last parameter must correspond to the passed function:
