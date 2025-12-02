@@ -105,6 +105,8 @@ fun main () {
 since the last parameter must correspond to the passed function:
 
 ```kotlin
+fun main () {
+//sampleStart    
 fun foo(
     foo: Int = 0,
     bar: () -> Unit,
@@ -112,12 +114,13 @@ fun foo(
 { println(foo)
   bar() }
 
-fun main () {
-    // Prints the default value 0 for 'foo', then prints "bar"
-    foo() { println ("bar") }
+
+// Prints the default value 0 for 'foo', then prints "bar"
+foo() { println ("bar") }
+//sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="default-before-trailing-lambda"}
 
 [Overriding methods](inheritance.md#overriding-methods) always use the base method's default parameter values.
 When overriding a method that has default parameter values, you must omit the default parameter values from the signature:
@@ -171,7 +174,7 @@ read (1, null)
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="non-constant-default"}
 
 If the last parameter in a function declaration has a functional type,
 you can pass the corresponding [lambda](lambdas.md#lambda-expression-syntax) argument either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
@@ -198,7 +201,7 @@ foo { println("hello") }
 //sampleEnd   
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="lambda-outside-parentheses"}
 
 ### Named arguments
 
