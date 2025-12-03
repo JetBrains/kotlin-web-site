@@ -121,7 +121,7 @@ Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.
 
 K2 mode in IntelliJ IDEA and Android Studio uses the K2 compiler to improve code analysis, code completion, and highlighting.
 
-Starting with IntelliJ IDEA 2025.1, K2 mode is [enabled by default](https://blog.jetbrains.com/idea/2025/04/k2-mode-in-intellij-idea-2025-1-current-state-and-faq/).
+IntelliJ IDEA 2025.3 and later always uses K2 mode.
 
 In Android Studio, you can enable K2 mode starting with 2024.1 by following these steps:
 
