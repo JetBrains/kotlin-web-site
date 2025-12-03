@@ -52,18 +52,12 @@ In the following table, there are the minimum and maximum **fully supported** ve
 |---------------|---------------------------------------|-----------------------------------------------------|
 | 2.3.0         | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
 | 2.2.20–2.2.21 | 7.6.3–8.14                            | 7.3.1–8.11.1                                        |
-| 2.2.0–2.2.10  | 7.6.3-8.14                            | 7.3.1-8.10.0                                        |
+| 2.2.0–2.2.10  | 7.6.3–8.14                            | 7.3.1–8.10.0                                        |
 | 2.1.20–2.1.21 | 7.6.3–8.12.1                          | 7.3.1–8.7.2                                         |
 | 2.1.0–2.1.10  | 7.6.3–8.10*                           | 7.3.1–8.7.2                                         |
 | 2.0.20–2.0.21 | 6.8.3–8.8*                            | 7.1.3–8.5                                           |
 | 2.0.0         | 6.8.3–8.5                             | 7.1.3–8.3.1                                         |
 | 1.9.20–1.9.25 | 6.8.3–8.1.1                           | 4.2.2–8.1.0                                         |
-| 1.9.0–1.9.10  | 6.8.3–7.6.0                           | 4.2.2–7.4.0                                         |
-| 1.8.20–1.8.22 | 6.8.3–7.6.0                           | 4.1.3–7.4.0                                         |      
-| 1.8.0–1.8.11  | 6.8.3–7.3.3                           | 4.1.3–7.2.1                                         |   
-| 1.7.20–1.7.22 | 6.7.1–7.1.1                           | 3.6.4–7.0.4                                         |
-| 1.7.0–1.7.10  | 6.7.1–7.0.2                           | 3.4.3–7.0.2                                         |
-| 1.6.20–1.6.21 | 6.1.1–7.0.2                           | 3.4.3–7.0.2                                         |
 
 > *Kotlin 2.0.20–2.0.21 and Kotlin 2.1.0–2.1.10 are fully compatible with Gradle up to 8.6.
 > Gradle versions 8.7–8.10 are also supported, with only one exception: If you use the Kotlin Multiplatform Gradle plugin,
@@ -80,6 +74,17 @@ version of %minGradleVersion% for your project to compile.
 
 Similarly, the maximum fully supported version is %maxGradleVersion%. It doesn't have deprecated Gradle
 methods and properties, and supports all the current Gradle features.
+
+### Earlier KGP versions {initial-collapse-state="collapsed" collapsible="true"}
+
+| KGP version   | Gradle min and max versions           | AGP min and max versions                            |
+|---------------|---------------------------------------|-----------------------------------------------------|
+| 1.9.0–1.9.10  | 6.8.3–7.6.0                           | 4.2.2–7.4.0                                         |
+| 1.8.20–1.8.22 | 6.8.3–7.6.0                           | 4.1.3–7.4.0                                         |      
+| 1.8.0–1.8.11  | 6.8.3–7.3.3                           | 4.1.3–7.2.1                                         |   
+| 1.7.20–1.7.22 | 6.7.1–7.1.1                           | 3.6.4–7.0.4                                         |
+| 1.7.0–1.7.10  | 6.7.1–7.0.2                           | 3.4.3–7.0.2                                         |
+| 1.6.20–1.6.21 | 6.1.1–7.0.2                           | 3.4.3–7.0.2                                         |
 
 ### Kotlin Gradle plugin data in a project
 
