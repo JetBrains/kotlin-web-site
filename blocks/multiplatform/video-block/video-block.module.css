@@ -1,0 +1,39 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.videoBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    margin-top: 72px;
+    width: 72px;
+    height: 72px;
+
+    @media (--ktl-ts-more) {
+        width: 96px;
+        height: 96px;
+    }
+}
+
+.title {
+    margin: 32px 0 0 0;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    margin: 25px 0 0 0;
+}
+
+.videoPlayer {
+    border-radius: 24px;
+    overflow: hidden;
+    width: 100%;
+    margin: 48px 72px 72px;
+
+    @media (--ktl-ds-more) {
+        border-radius: 32px;
+    }
+}
