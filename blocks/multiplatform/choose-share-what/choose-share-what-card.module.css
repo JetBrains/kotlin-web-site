@@ -1,20 +1,22 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import "@rescui/typography/lib/mixins.p.css";
 
 .card {
-    border-radius: 16px;
-    padding: 0 !important;
-    background: radial-gradient(203.85% 140.13% at 98.16% 100%, #2D0454 0%, #000 100%);
+    background: transparent;
+    border: none;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 32px;
+    gap: var(--ktl-box-section-m);
+    padding: 0 !important;
 }
 
 .content, .content:active {
-    padding: 48px;
+    padding: var(--ktl-box-section-l);
+
     @media (--ktl-ts-less) {
-        padding: 24px;
+        padding: var(--ktl-box-section-s);
     }
 }
 
@@ -26,9 +28,14 @@
 .cover {
     position: relative;
     overflow: hidden;
-    vertical-align: bottom;
 
-    align-self: center;
+    @media (--ktl-tl-more) {
+        padding-top: 48px;
+    }
+}
+
+.card:first-child .cover {
+    align-self: end;
 }
 
 .title {
@@ -42,7 +49,7 @@
 }
 
 .text {
-    margin-block: 24px 32px;
+    margin-block: var(--ktl-box-section-s) var(--ktl-box-section-m);
 }
 
 @media (--ktl-tl-more) {
@@ -58,7 +65,6 @@
 
     .cover {
         order: -1;
-        align-self: end;
     }
 }
 

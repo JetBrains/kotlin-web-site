@@ -1,25 +1,5 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
-
-.wrap {
-    position: relative;
-
-    &::before {
-        display: block;
-        content: '';
-        position: absolute;
-
-        background: url('/images/multiplatform/choose-share-what/bg.png') no-repeat center;
-        background-size: 1127px;
-
-        height: 1127px;
-        width: 1127px;
-
-        @media (--ktl-ds-more) {
-            left: -560px;
-            top: -72px;
-        }
-    }
-}
+@import "@rescui/typography/lib/mixins.p.css";
 
 .title {
     text-align: center;
@@ -28,7 +8,7 @@
 }
 
 .tabs {
-    margin-block: 32px 8px;
+    margin-block: var(--ktl-box-section-m) var(--ktl-box-block-m);
 
     & > div {
         gap: 8px;
@@ -38,17 +18,23 @@
             flex-wrap: nowrap;
             flex-direction: row;
             flex-grow: 1;
+            gap: 12px;
         }
     }
 
     [role="tab"] {
-        box-sizing: content-box;
-        padding: 16px 24px;
+        box-sizing: border-box;
+        padding: var(--ktl-box-block-l) var(--ktl-box-section-s);
+        border-radius: 16px;
+
+        @media (--ktl-ts-more) {
+            @mixin rs-subtitle-2-base;
+        }
 
         background-color: #000000;
 
         &:hover {
-            background-color: rgb(40, 35, 77);
+            background-color: #190d33;
         }
 
         &, &::before {
@@ -56,7 +42,7 @@
         }
 
         &[data-test~="chip-selected"] {
-            background-color: rgb(102, 53, 204);
+            background-color: #6635cc;
 
             &::before {
                 border-width: 3px;
@@ -85,6 +71,24 @@
 /* --- Cards --- */
 .cards {
     display: grid;
+    background: radial-gradient(203.85% 140.13% at 98.16% 100%, #2D0454 0%, #000 100%);
+    border-radius: 16px;
+
+    @media (--ktl-tl-more) {
+        border-radius: 32px;
+    }
+
+    @media (--ktl-ml-more) {
+        border-radius: 24px;
+    }
+
+    @media (--ktl-ds-more) {
+        min-height: 568px;
+    }
+
+    @media (--ktl-ds-in) {
+        min-height: 484px;
+    }
 }
 
 .card:not(.active) {
@@ -105,7 +109,7 @@
         transition: opacity .3s;
 
         @supports (transition: visibility 1s allow-discrete) {
-            transition: opacity 1s, display 1s allow-discrete, visibility 1s allow-discrete;
+            transition: opacity 1s, visibility 1s allow-discrete;
         }
     }
 }

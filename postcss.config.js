@@ -1,10 +1,11 @@
 module.exports = {
-	plugins: {
-		autoprefixer: {},
-		'postcss-import': {},
-		'postcss-nesting': {},
-		'postcss-custom-media': {
-			preserve: false,
-		},
-	},
+    plugins: {
+        autoprefixer: {},
+        'postcss-import': {},
+        'postcss-nesting': {},
+        'postcss-custom-media': {
+            preserve: false
+        },
+        'postcss-mixins': {}
+    }
 };
