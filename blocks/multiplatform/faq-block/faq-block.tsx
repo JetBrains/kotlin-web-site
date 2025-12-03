@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Accordion, Collapse } from '@rescui/collapse';
-import { useTextStyles } from '@jetbrains/kotlin-web-site-ui/out/components/typography';
+import { useTextStyles } from '@rescui/typography';
 
 export const FaqBlock = () => {
     const textCn = useTextStyles();
