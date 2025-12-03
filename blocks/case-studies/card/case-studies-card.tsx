@@ -22,7 +22,7 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ className, ...item
     const imageSrc = item.media?.type === 'image' ? item.media.path : undefined;
 
     return (
-        <article className={cn(styles.card, className)} data-testid="case-studies-card" id={item.id}>
+        <article className={cn(styles.card, className, textCn('rs-text-2', {hardness: 'hard'}))} data-testid="case-studies-card" id={item.id}>
             <div className={styles.content}>
                 {logo &&
                     <div className={styles.logos}>
@@ -35,21 +35,21 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ className, ...item
 
                 {item.description &&
                     <div
-                        className={cn(styles.description, textCn('rs-text-2'))}
+                        className={cn(styles.description)}
                         dangerouslySetInnerHTML={{ __html: mdToHtml(item.description) }}
                         data-testid="case-studies-card-description"
                     />}
 
                 {item.signature &&
-                    <div className={textCn('rs-text-2')}>
+                    <div>
                         <strong className={styles.name}>{item.signature.name}</strong>
-                        <div className={styles.position}>{item.signature.position}</div>
+                        <div className={cn(styles.position, textCn('rs-text-2', {hardness: 'average'}))}>{item.signature.position}</div>
                     </div>
                 }
 
                 {item.link &&
                     <a
-                        className={cn(styles.link, `ktl-text-1 rs-link ${item.isExternal ? 'rs-link_external' : ''}`)}
+                        className={cn(styles.link, textCn('rs-link', {external: true}))}
                         href={item.link}
                     >
                         {item.linkText || 'Read the full story'}
