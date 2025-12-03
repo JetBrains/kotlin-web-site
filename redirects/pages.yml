@@ -856,3 +856,6 @@
 
 - from: /docs/apple-privacy-manifest.html
   to: /docs/multiplatform/multiplatform-privacy-manifest.html
+
+- from: /docs/dokka-markdown.html
+  to: /Kotlin/dokka/blob/2.0.0/dokka-subprojects/plugin-gfm/README.md
