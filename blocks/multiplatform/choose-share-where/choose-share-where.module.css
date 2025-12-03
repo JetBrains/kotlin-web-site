@@ -1,0 +1,87 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import "@rescui/typography/lib/mixins.p.css";
+
+.wrap {
+    border-radius: 24px;
+    background: #21003C;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: var(--ktl-box-section-l) var(--ktl-box-section-m);
+
+    @media (--ktl-ts-less) {
+        padding: var(--ktl-box-section-s);
+    }
+}
+
+.title {
+    margin: 0 0 32px;
+    text-align: center;
+
+    @media (--ktl-ts-less) {
+        font-size: 28px;
+        line-height: 32px;
+    }
+}
+
+.tabs {
+    [data-rs-internal='chip-list__chip'] {
+        @media (--ktl-ml-more) {
+            @mixin rs-subtitle-2-base;
+        }
+    }
+
+    @media (--ktl-ds-less) {
+        max-width: 590px;
+    }
+
+    & > div {
+        gap: 6px;
+    }
+}
+
+.cards {
+    display: grid;
+    margin-top: var(--ktl-box-section-s);
+
+    max-width: 738px;
+}
+
+
+.card {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: center;
+    margin: 0;
+
+    @media (prefers-reduced-motion: no-preference) {
+        opacity: 0;
+        transition: opacity .3s;
+
+        @supports (transition: visibility 1s allow-discrete) {
+            transition: opacity 1s, visibility 1s allow-discrete;
+        }
+    }
+}
+
+.card:not(.active) {
+    visibility: hidden;
+
+    @media (--ktl-tl-less) {
+        display: none;
+    }
+}
+
+.card.active {
+    @media (prefers-reduced-motion: no-preference) {
+        opacity: 1;
+
+        @supports (transition: visibility 1s allow-discrete) {
+            @starting-style {
+                opacity: 0;
+            }
+        }
+    }
+}
