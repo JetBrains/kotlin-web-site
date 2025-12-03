@@ -10,50 +10,50 @@ import styles from './choose-share-what.module.css';
 const TABS_BLOCKS = [
     {
         id: 'both-logic-ui',
-        tab: 'Both logic and UI',
+        Tab: () => <>Both logic and UI</>,
         actionLink: '/docs/multiplatform/compose-multiplatform-create-first-app.html',
         Title: () => <>Maximum reuse, faster delivery.</>,
         Content: () => (
             <>
-                Use Kotlin with Compose Multiplatform to share up to 100% of your app code – including UI – while still
-                integrating with native APIs. Reduce dev time, ensure consistent behavior, and ship on Android, iOS,
-                desktop, and web from a single codebase.
+                Use Kotlin with Compose Multiplatform to share up to 100% of your app code&nbsp;– including UI&nbsp;–
+                while still integrating with native APIs. Reduce dev time, ensure consistent behavior, and ship on
+                Android, iOS, desktop, and web from a single codebase.
             </>
         )
     },
     {
         id: 'logic-native-ui',
-        tab: 'Logic with native UI',
+        Tab: () => <>Logic with native&nbsp;UI</>,
         actionLink: '/docs/multiplatform/multiplatform-create-first-app.html',
         Title: () => <>One logic layer, native experience.</>,
         Content: () => (
             <>
                 Write your app's data handling and business logic once with Kotlin Multiplatform while keeping the UI
-                fully native – perfect when UX precision is key and platform fidelity matters.
+                fully native&nbsp;– perfect when UX precision is key and platform fidelity matters.
             </>
         )
     },
     {
         id: 'piece-of-logic',
-        tab: 'Piece of logic',
+        Tab: () => <>Piece of logic</>,
         actionLink: '/docs/multiplatform/multiplatform-ktor-sqldelight.html',
         Title: () => <>Stabilize and sync critical features.</>,
         Content: () => (
             <>
-                Start by sharing an isolated, core part of your business logic – like calculations, validation rules, or
-                authentication workflows – to improve consistency across platforms without requiring major architectural
-                changes.
+                Start by sharing an isolated, core part of your business logic&nbsp;– like calculations, validation
+                rules, or authentication workflows – to improve consistency across platforms without requiring major
+                architectural changes.
             </>
         )
     }
 ] as const;
 
-export function ChooseShareWhat() {
+export function ChooseShareWhat({ className }: { className?: string }) {
     const textCn = useTextStyles();
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <div className={cn(styles.wrap, 'ktl-layout', 'ktl-layout--center')}>
+        <div className={cn(className, 'ktl-layout', 'ktl-layout--center')}>
             <h2 className={cn(styles.title, textCn('rs-h1'))}>Choose what to share</h2>
             <ChipList
                 size={'l'}
@@ -63,8 +63,10 @@ export function ChooseShareWhat() {
                 onChange={v => setActiveIndex(v)}
                 className={cn(styles.tabs, 'rs-docs-offset-top-12')}
             >
-                {TABS_BLOCKS.map(({ id, tab }, i) => (
-                    <Chip key={id} className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}>{tab}</Chip>
+                {TABS_BLOCKS.map(({ id, Tab }, i) => (
+                    <Chip key={id} className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}>
+                        <Tab />
+                    </Chip>
                 ))}
             </ChipList>
 
