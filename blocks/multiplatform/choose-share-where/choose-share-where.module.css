@@ -92,6 +92,16 @@
     }
 }
 
+:global(.js) {
+    .wrap {
+        position: relative;
+    }
+    .anchor {
+        position: absolute;
+        top: -80px;
+    }
+}
+
 :global(.no-js) {
     .tabs {
         display: none;
