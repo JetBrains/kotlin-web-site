@@ -321,7 +321,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: In Kotlin 2.3.0, the `kotlin-android` plugin is deprecated when using Android Gradle plugin (AGP) versions 9.0.0 or later.
+> **Short summary**: In Kotlin 2.3.0, the `org.jetbrains.kotlin.android` plugin is deprecated when using Android Gradle plugin (AGP) versions 9.0.0 or later.
 > Starting with AGP 9.0.0, AGP provides built-in support for Kotlin, so the `kotlin-android` plugin is no longer needed.
 >
 > **Deprecation cycle**:
@@ -613,22 +613,6 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.0: report a warning when the `kotlinArtifacts` API is used
 > - 2.3.0: raise this warning to an error
-
-### Remove `kotlin.mpp.resourcesResolutionStrategy` Gradle property
-
-> **Issue**: [KT-74955](https://youtrack.jetbrains.com/issue/KT-74955)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: source
->
-> **Short summary**: Previously the `kotlin.mpp.resourcesResolutionStrategy` Gradle property was deprecated because it wasn't
-> used. In Kotlin 2.3.0, the Gradle property is removed completely.
->
-> **Deprecation cycle**:
->
-> - 2.2.0: report a configuration-time diagnostic
-> - 2.3.0: remove the Gradle property
 
 ### Remove properties to disable precise compilation backup
 
