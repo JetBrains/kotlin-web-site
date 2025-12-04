@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import cn from 'classnames';
 import { useMS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 import { useTextStyles } from '@rescui/typography';
@@ -77,6 +77,32 @@ export function ChooseShareWhere({ className }: { className?: string }) {
     const isMS = useMS();
     const [activeIndex, setActiveIndex] = useState(0);
 
+    useEffect(() => {
+        function handleHashChange(prefix: string) {
+            const hash = globalThis?.location?.hash;
+
+            if (!hash) return;
+
+            const i = TABS_BLOCKS.findIndex(tab => hash === `#${prefix}${tab.id}`);
+
+            if (i === -1) return;
+
+            setActiveIndex(i);
+
+            const id = `${prefix}${TABS_BLOCKS[activeIndex]?.id}`;
+            const el = document.getElementById(id);
+            const offset = el?.offsetTop ?? 0;
+            if (offset) el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        const handle = () => handleHashChange('choose-share-where-');
+
+        handle();
+
+        window.addEventListener('hashchange', handle);
+        return () => window.removeEventListener('hashchange', handle);
+    }, []);
+
     return (
         <div className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')}>
             <h2 className={cn(styles.title, textCn('rs-h2'))}>Choose what to share</h2>
@@ -100,13 +126,12 @@ export function ChooseShareWhere({ className }: { className?: string }) {
             </ChipList>
 
             <div className={cn(styles.cards)}>
-                {TABS_BLOCKS.map(({ id, Content }, i) => (
-                    <p key={id}
-                       className={cn(styles.card, textCn('rs-text-1'), { [styles.active]: activeIndex === i })}>
-                        <a id={`choose-share-where-${id}`} />
+                {TABS_BLOCKS.map(({ id, Content }, i) => <Fragment key={id}>
+                    <a id={`choose-share-where-${id}`} className={styles.anchor} />
+                    <p className={cn(styles.card, textCn('rs-text-1'), { [styles.active]: activeIndex === i })}>
                         <Content />
                     </p>
-                ))}
+                </Fragment>)}
             </div>
         </div>
     );
