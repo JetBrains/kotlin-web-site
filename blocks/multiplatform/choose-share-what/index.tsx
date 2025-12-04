@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import { Chip, ChipList } from '@rescui/chip-list';
@@ -52,8 +52,34 @@ export function ChooseShareWhat({ className }: { className?: string }) {
     const textCn = useTextStyles();
     const [activeIndex, setActiveIndex] = useState(0);
 
+    useEffect(() => {
+        function handleHashChange(prefix: string) {
+            const hash = globalThis?.location?.hash;
+
+            if (!hash) return;
+
+            const i = TABS_BLOCKS.findIndex(tab => hash === `#${prefix}${tab.id}`);
+
+            if (i === -1) return;
+
+            setActiveIndex(i);
+
+            const id = `${prefix}${TABS_BLOCKS[activeIndex]?.id}`;
+            const el = document.getElementById(id);
+            const offset = el?.offsetTop ?? 0;
+            if (offset) el?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' });
+        }
+
+        const handle = () => handleHashChange('choose-share-what-');
+
+        handle();
+
+        window.addEventListener('hashchange', handle);
+        return () => window.removeEventListener('hashchange', handle);
+    }, []);
+
     return (
-        <div className={cn(className, 'ktl-layout', 'ktl-layout--center')}>
+        <div className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')}>
             <h2 className={cn(styles.title, textCn('rs-h1'))}>Choose what to share</h2>
             <ChipList
                 size={'l'}
@@ -73,16 +99,16 @@ export function ChooseShareWhat({ className }: { className?: string }) {
             </ChipList>
 
             <div className={cn(styles.cards)}>
-                {TABS_BLOCKS.map(({ id, actionLink, Title, Content }, i) => (
+                {TABS_BLOCKS.map(({ id, actionLink, Title, Content }, i) => <Fragment key={id}>
+                    <a className={styles.anchor} id={`choose-share-what-${id}`} />
                     <CodeShareCard
-                        key={id}
                         className={cn(styles.card, { [styles.active]: activeIndex === i })}
                         title={<Title />}
-                        children={<><a id={`choose-share-what-${id}`} /><Content /></>}
+                        children={<Content />}
                         imageName={`${id}`}
                         url={actionLink}
                     />
-                ))}
+                </Fragment>)}
             </div>
         </div>
     );
