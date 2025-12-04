@@ -91,8 +91,11 @@ export function ChooseShareWhere({ className }: { className?: string }) {
                 mode={'rock'}
             >
                 {TABS_BLOCKS.map(({ id, tab, Icon }, i) => (
-                    <Chip key={id} icon={<Icon size={isMS ? 'm' : 'l'} />}
-                          className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}>{tab}</Chip>
+                    <Chip key={id} icon={<Icon size={isMS ? 'm' : 'l'} />} children={tab}
+                          href={`#choose-share-where-${id}`}
+                          className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}
+                          aria-label={`Go to ${id} section`} role="tab" onClick={e => e.preventDefault()}
+                    />
                 ))}
             </ChipList>
 
@@ -100,6 +103,7 @@ export function ChooseShareWhere({ className }: { className?: string }) {
                 {TABS_BLOCKS.map(({ id, Content }, i) => (
                     <p key={id}
                        className={cn(styles.card, textCn('rs-text-1'), { [styles.active]: activeIndex === i })}>
+                        <a id={`choose-share-where-${id}`} />
                         <Content />
                     </p>
                 ))}
