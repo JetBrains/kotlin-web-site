@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import cn from 'classnames';
 import { useMS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 import { useTextStyles } from '@rescui/typography';
@@ -6,6 +6,8 @@ import { Chip, ChipList } from '@rescui/chip-list';
 import { AndroidIcon, AppleIcon, ComputerIcon, GlobusIcon, ServerIcon } from '@rescui/icons';
 
 import styles from './choose-share-where.module.css';
+
+import { useTabSectionScroll } from '../choose-share/useTabSectionScroll';
 
 
 const TABS_BLOCKS = [
@@ -70,38 +72,14 @@ const TABS_BLOCKS = [
             </>
         )
     }
-] as const;
+];
 
 export function ChooseShareWhere({ className }: { className?: string }) {
     const textCn = useTextStyles();
     const isMS = useMS();
     const [activeIndex, setActiveIndex] = useState(0);
 
-    useEffect(() => {
-        function handleHashChange(prefix: string) {
-            const hash = globalThis?.location?.hash;
-
-            if (!hash) return;
-
-            const i = TABS_BLOCKS.findIndex(tab => hash === `#${prefix}${tab.id}`);
-
-            if (i === -1) return;
-
-            setActiveIndex(i);
-
-            const id = `${prefix}${TABS_BLOCKS[activeIndex]?.id}`;
-            const el = document.getElementById(id);
-            const offset = el?.offsetTop ?? 0;
-            if (offset) el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        const handle = () => handleHashChange('choose-share-where-');
-
-        handle();
-
-        window.addEventListener('hashchange', handle);
-        return () => window.removeEventListener('hashchange', handle);
-    }, []);
+    const navigateToHash = useTabSectionScroll(TABS_BLOCKS, 'choose-share-where-', setActiveIndex);
 
     return (
         <div className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')}>
@@ -120,7 +98,7 @@ export function ChooseShareWhere({ className }: { className?: string }) {
                     <Chip key={id} icon={<Icon size={isMS ? 'm' : 'l'} />} children={tab}
                           href={`#choose-share-where-${id}`}
                           className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}
-                          aria-label={`Go to ${id} section`} role="tab" onClick={e => e.preventDefault()}
+                          aria-label={`Go to ${id} section`} role="tab" onClick={navigateToHash}
                     />
                 ))}
             </ChipList>
