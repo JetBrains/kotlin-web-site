@@ -64,7 +64,9 @@ export function ChooseShareWhat({ className }: { className?: string }) {
                 className={cn(styles.tabs, 'rs-docs-offset-top-12')}
             >
                 {TABS_BLOCKS.map(({ id, Tab }, i) => (
-                    <Chip key={id} className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}>
+                    <Chip key={id} className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}
+                          href={`#choose-share-what-${id}`} aria-label={`Go to ${id} section`} role="tab"
+                          onClick={e => e.preventDefault()}>
                         <Tab />
                     </Chip>
                 ))}
@@ -76,7 +78,7 @@ export function ChooseShareWhat({ className }: { className?: string }) {
                         key={id}
                         className={cn(styles.card, { [styles.active]: activeIndex === i })}
                         title={<Title />}
-                        children={<Content />}
+                        children={<><a id={`choose-share-what-${id}`} /><Content /></>}
                         imageName={`${id}`}
                         url={actionLink}
                     />

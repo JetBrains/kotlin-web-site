@@ -30,7 +30,7 @@
     overflow: hidden;
 
     @media (--ktl-tl-more) {
-        padding-top: 48px;
+        padding-top: var(--ktl-box-section-l);
     }
 }
 
