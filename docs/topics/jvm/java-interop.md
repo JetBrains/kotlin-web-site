@@ -687,10 +687,18 @@ so to make other members of `java.lang.Object` available, Kotlin uses [extension
 ### wait()/notify()
 
 Methods `wait()` and `notify()` are not available on references of type `Any`. Their usage is generally discouraged in
-favor of `java.util.concurrent`. If you really need to call these methods, you can cast to `java.lang.Object`:
+favor of `java.util.concurrent`.
+
+If you have to call these methods, cast to `java.lang.Object` and suppress the warning:
 
 ```kotlin
-(foo as java.lang.Object).wait()
+fun main() {
+    val any = Any()
+    synchronized(any) {
+        @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
+        (any as java.lang.Object).wait()
+    }
+}
 ```
 
 ### getClass()
