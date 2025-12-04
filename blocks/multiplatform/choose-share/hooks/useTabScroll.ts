@@ -1,9 +1,7 @@
 import { useRouter } from 'next/router';
 import { useCallback, useEffect } from 'react';
 
-export function useTabSectionScroll<T extends {
-    id: string
-}>(TABS_BLOCKS: T[], prefix: string, onChange: (index: number) => void) {
+export function useTabScroll(tabs: { id: string }[], prefix: string, onChange: (index: number) => void) {
     const router = useRouter();
 
     const navigateToHash = useCallback(function navigateToHash(e) {
@@ -18,13 +16,13 @@ export function useTabSectionScroll<T extends {
 
             if (!hash) return;
 
-            const i = TABS_BLOCKS.findIndex(tab => hash === `#${prefix}${tab.id}`);
+            const i = tabs.findIndex(tab => hash === `#${prefix}${tab.id}`);
 
             if (i === -1) return;
 
             onChange(i);
 
-            const id = `${prefix}${TABS_BLOCKS[i]?.id}`;
+            const id = `${prefix}${tabs[i]?.id}`;
             const el = document.getElementById(id);
             const offset = el?.offsetTop ?? 0;
             if (offset) el?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' });
@@ -36,7 +34,7 @@ export function useTabSectionScroll<T extends {
 
         window.addEventListener('hashchange', handle);
         return () => window.removeEventListener('hashchange', handle);
-    }, [TABS_BLOCKS, prefix, onChange]);
+    }, [tabs, prefix, onChange]);
 
     return navigateToHash;
 }
