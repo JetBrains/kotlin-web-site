@@ -7,7 +7,7 @@ import { AndroidIcon, AppleIcon, ComputerIcon, GlobusIcon, ServerIcon } from '@r
 
 import styles from './choose-share-where.module.css';
 
-import { useTabSectionScroll } from '../choose-share/useTabSectionScroll';
+import { useTabScroll } from '../../hooks/useTabScroll';
 
 
 const TABS_BLOCKS = [
@@ -79,7 +79,7 @@ export function ChooseShareWhere({ className }: { className?: string }) {
     const isMS = useMS();
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const navigateToHash = useTabSectionScroll(TABS_BLOCKS, 'choose-share-where-', setActiveIndex);
+    const navigateToHash = useTabScroll(TABS_BLOCKS, 'choose-share-where-', setActiveIndex);
 
     return (
         <div className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')}>

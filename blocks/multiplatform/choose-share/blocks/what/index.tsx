@@ -7,7 +7,7 @@ import { CodeShareCard } from './card';
 
 import styles from './choose-share-what.module.css';
 
-import { useTabSectionScroll } from '../choose-share/useTabSectionScroll';
+import { useTabScroll } from '../../hooks/useTabScroll';
 
 const TABS_BLOCKS = [
     {
@@ -54,7 +54,7 @@ export function ChooseShareWhat({ className }: { className?: string }) {
     const textCn = useTextStyles();
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const navigateToHash = useTabSectionScroll(TABS_BLOCKS, 'choose-share-what-', setActiveIndex);
+    const navigateToHash = useTabScroll(TABS_BLOCKS, 'choose-share-what-', setActiveIndex);
 
     return (
         <div className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')}>

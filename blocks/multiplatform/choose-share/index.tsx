@@ -1,5 +1,5 @@
-import { ChooseShareWhat } from '../choose-share-what';
-import { ChooseShareWhere } from '../choose-share-where';
+import { ChooseShareWhat } from './blocks/what';
+import { ChooseShareWhere } from './blocks/where';
 
 import styles from './choose-share.module.css';
 
