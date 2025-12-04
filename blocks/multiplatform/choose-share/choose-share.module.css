@@ -25,7 +25,6 @@
 
         height: 1127px;
         width: 1127px;
-        aspect-ratio: 1/1;
 
         @media (--ktl-ds-more) {
             left: -564px;
@@ -56,7 +55,4 @@
             top: 233px;
         }
     }
-}
-
-.where {
 }

@@ -28,7 +28,7 @@
     flex-direction: column;
     align-items: center;
 
-    padding-top: 72px;
+    padding-top: var(--ktl-box-page-m);
 }
 
 .hero::before {
