@@ -322,7 +322,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Incompatible change type**: source
 >
 > **Short summary**: In Kotlin 2.3.0, the `org.jetbrains.kotlin.android` plugin is deprecated when using Android Gradle plugin (AGP) versions 9.0.0 or later.
-> Starting with AGP 9.0.0, AGP provides built-in support for Kotlin, so the `kotlin-android` plugin is no longer needed.
+> Starting with AGP 9.0.0, [AGP provides built-in support for Kotlin](https://kotl.in/gradle/agp-built-in-kotlin), so the `kotlin-android` plugin is no longer needed.
 >
 > **Deprecation cycle**:
 >
@@ -336,7 +336,8 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin 2.3.0 deprecates the `testApi` configuration since it's an unnecessary addition to Gradle projects.
+> **Short summary**: Kotlin 2.3.0 deprecates the `testApi` configuration. This configuration exposed test dependencies
+> and sources to other modules, but Gradle doesn't support this behavior.
 > 
 > **Migration options**:
 > Replace any instances of `testApi()` with `testImplementation()`, and do the same for other variants. For example,
