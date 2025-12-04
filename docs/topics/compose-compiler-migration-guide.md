@@ -36,6 +36,11 @@ For Android modules:
  compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
  ```
 
+> If you're using AGP 9.0.0 or later, you no longer need the `org-jetbrains-kotlin-android` plugin because the AGP has
+> built-in Kotlin support.
+> 
+{style ="note"}
+
 2. Add the Gradle plugin to the root `build.gradle.kts` file:
 
  ```kotlin
