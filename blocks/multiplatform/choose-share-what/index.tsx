@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import { Chip, ChipList } from '@rescui/chip-list';
@@ -6,6 +6,8 @@ import { Chip, ChipList } from '@rescui/chip-list';
 import { CodeShareCard } from './card';
 
 import styles from './choose-share-what.module.css';
+
+import { useTabSectionScroll } from '../choose-share/useTabSectionScroll';
 
 const TABS_BLOCKS = [
     {
@@ -46,37 +48,13 @@ const TABS_BLOCKS = [
             </>
         )
     }
-] as const;
+];
 
 export function ChooseShareWhat({ className }: { className?: string }) {
     const textCn = useTextStyles();
     const [activeIndex, setActiveIndex] = useState(0);
 
-    useEffect(() => {
-        function handleHashChange(prefix: string) {
-            const hash = globalThis?.location?.hash;
-
-            if (!hash) return;
-
-            const i = TABS_BLOCKS.findIndex(tab => hash === `#${prefix}${tab.id}`);
-
-            if (i === -1) return;
-
-            setActiveIndex(i);
-
-            const id = `${prefix}${TABS_BLOCKS[activeIndex]?.id}`;
-            const el = document.getElementById(id);
-            const offset = el?.offsetTop ?? 0;
-            if (offset) el?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'center' });
-        }
-
-        const handle = () => handleHashChange('choose-share-what-');
-
-        handle();
-
-        window.addEventListener('hashchange', handle);
-        return () => window.removeEventListener('hashchange', handle);
-    }, []);
+    const navigateToHash = useTabSectionScroll(TABS_BLOCKS, 'choose-share-what-', setActiveIndex);
 
     return (
         <div className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')}>
@@ -92,7 +70,7 @@ export function ChooseShareWhat({ className }: { className?: string }) {
                 {TABS_BLOCKS.map(({ id, Tab }, i) => (
                     <Chip key={id} className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}
                           href={`#choose-share-what-${id}`} aria-label={`Go to ${id} section`} role="tab"
-                          onClick={e => e.preventDefault()}>
+                          onClick={navigateToHash}>
                         <Tab />
                     </Chip>
                 ))}
