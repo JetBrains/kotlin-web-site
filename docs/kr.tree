@@ -307,7 +307,11 @@
             <toc-element toc-title="Binary compatibility validation in KGP" topic="gradle-binary-compatibility-validation.md"/>
             <toc-element topic="gradle-plugin-variants.md"/>
         </toc-element>
-        <toc-element accepts-web-file-names="using-maven.html" topic="maven.md"/>
+        <toc-element toc-title="Maven">
+            <toc-element toc-title="Overview" accepts-web-file-names="using-maven.html" topic="maven.md"/>
+            <toc-element toc-title="Configure project" topic="maven-configure-project.md"/>
+            <toc-element toc-title="Compile and package" topic="maven-compile-package.md"/>
+        </toc-element>
         <toc-element topic="build-tools-api.md"/>
         <toc-element topic="kotlin-daemon.md"/>
     </toc-element>
