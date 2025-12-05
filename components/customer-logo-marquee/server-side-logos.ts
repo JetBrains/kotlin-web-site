@@ -1,3 +1,5 @@
+import { LogoItem } from './index';
+
 import doordash from './logos/doordash-dark.svg'
 import kingfisher from './logos/kingfisher-dark.svg'
 import ing from './logos/ING.svg'
@@ -19,11 +21,6 @@ import novatec from './logos/novatec-dark.svg'
 import olx from './logos/olx.svg'
 import shazam from './logos/shazam.svg'
 import spring from './logos/spring.svg'
-
-interface LogoItem {
-    id: ImgSrc;
-    link: string;
-}
 
 const logos: LogoItem[] = [
     {
