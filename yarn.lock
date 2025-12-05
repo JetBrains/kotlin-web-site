@@ -1789,15 +1789,15 @@
   resolved "https://registry.npmjs.org/@rescui/colors/-/colors-0.1.6.tgz"
   integrity sha512-SfFy7W8vlWuRsEpT9VYSVRXGso6PK2pP5BuPnt3d525aW8Rx99kiuKYaqNPdu9p2nh2/XIf+febOl4Q3x/fH1g==
 
-"@rescui/colors@^0.1.9":
-  version "0.1.11"
-  resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.1.11.tgz#438b5058cc308d28d4bda407236c25b67aff0179"
-  integrity sha512-zfZ7czMTQ5/DyZeMXCm1nTWEclIY5+Iuc8D3CZK2Zl64La//mjHz9Rjf+NlAE70bESzYtBNlItATN/lWgkowaQ==
-
 "@rescui/colors@^0.2.10":
   version "0.2.10"
   resolved "https://registry.npmjs.org/@rescui/colors/-/colors-0.2.10.tgz"
   integrity sha512-Ek3d8OepizUnoGi7AybzWmRUmgfeaQCdkWiUNKaMpsmvSoZbpMZDfs/lJrhdGMh8z+xyD1KRNM+fRm4z36C6+A==
+
+"@rescui/colors@^0.2.12":
+  version "0.2.12"
+  resolved "https://registry.yarnpkg.com/@rescui/colors/-/colors-0.2.12.tgz#eef3c0cf164d9184f037326932da305b38a642d8"
+  integrity sha512-BVZpAEwUR4AKwb4Q1HHAWMy6drU5qBs2mZfFm7DMlWwQL03omaz+F/RsDX/dJGX8KrTeQ6MryG1HpBQ6USX86w==
 
 "@rescui/dropdown-menu@^0.6.1":
   version "0.6.1"
@@ -1939,14 +1939,14 @@
     react-is "^17.0.2"
     react-popper "^2.2.5"
 
-"@rescui/typography@^0.11.0":
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/@rescui/typography/-/typography-0.11.0.tgz#8a348121ea3bb18249f6af18628426b04a3ee6d7"
-  integrity sha512-IT8pXLkFQs7RsJ0eWWsCVz11HuJn1dQ78Lti2mz8q6NLbvb8TS+dlh53UzN5hLVISC9kFTRtyK2IblMIDd0zpA==
+"@rescui/typography@0.24.2":
+  version "0.24.2"
+  resolved "https://registry.yarnpkg.com/@rescui/typography/-/typography-0.24.2.tgz#921b70a30f049bf32105627681598be2db53f950"
+  integrity sha512-WxvYSk9RT9xLfkc54DvjImCmH4q8weZ+vnPCFWmB/Uh/je8DHs/3su9wrUeEh3wowuE9VJPFVW0D6p/MIcX53w==
   dependencies:
-    "@babel/runtime-corejs3" "^7.14.0"
-    "@rescui/colors" "^0.1.9"
-    bem-cn-fast "^1.0.2"
+    "@babel/runtime-corejs3" "^7.26.0"
+    "@rescui/colors" "^0.2.12"
+    classnames "^2.2.6"
     inter-ui "^3.15.1"
 
 "@rescui/ui-contexts@^0.5.0":
