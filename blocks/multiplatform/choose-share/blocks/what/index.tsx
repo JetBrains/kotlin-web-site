@@ -81,11 +81,9 @@ export function ChooseShareWhat({ className }: { className?: string }) {
                     <a className={styles.anchor} id={`choose-share-what-${id}`} />
                     <CodeShareCard
                         className={cn(styles.card, { [styles.active]: activeIndex === i })}
-                        title={<Title />}
-                        children={<Content />}
-                        imageName={`${id}`}
-                        url={actionLink}
-                    />
+                        title={<Title />} imageName={`${id}`} url={actionLink}>
+                        <Content />
+                    </CodeShareCard>
                 </Fragment>)}
             </div>
         </div>
