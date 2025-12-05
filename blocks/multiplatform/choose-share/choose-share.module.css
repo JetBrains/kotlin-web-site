@@ -21,7 +21,11 @@
         position: absolute;
         z-index: -1;
 
-        background: url('/images/multiplatform/choose-share-what/bg.png') 50% / cover no-repeat;
+        background: image-set(
+                url('/images/multiplatform/choose-share-what/bg.webp') 1x,
+                url('/images/multiplatform/choose-share-what/bg@2x.webp') 2x,
+                url('/images/multiplatform/choose-share-what/bg@3x.webp') 3x
+        ) no-repeat 50% / cover;
 
         height: 1127px;
         width: 1127px;
