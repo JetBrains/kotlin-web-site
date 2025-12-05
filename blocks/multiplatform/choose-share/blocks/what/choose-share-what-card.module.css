@@ -34,7 +34,7 @@
     }
 }
 
-.card:first-child .cover {
+.card:first-of-type .cover {
     align-self: end;
 }
 
