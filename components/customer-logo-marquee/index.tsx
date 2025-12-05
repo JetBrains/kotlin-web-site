@@ -2,13 +2,16 @@ import React from 'react';
 import { Marquee } from '../marquee';
 import styles from './index.module.css';
 
-import logos from './customer-logo-marquee-data';
+export interface LogoItem {
+    id: ImgSrc;
+    link: string;
+}
 
-const CustomerLogoMarqueeSection: React.FC = () => {
+const CustomerLogoMarqueeSection: React.FC<{ items: LogoItem[] }> = ({ items }) => {
     return (
         <section className={styles.section} data-testid={'customers-block'}>
             <Marquee className={styles.list} pauseOnHover hasFadingEdges>
-                {logos.map((item, index) => (
+                {items.map((item, index) => (
                     <a
                         href={item.link}
                         key={`logo_${index}`}

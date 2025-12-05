@@ -13,6 +13,7 @@ import { HighlightedBg } from '../../blocks/multiplatform/highlighted-bg/highlig
 import { FaqBlock } from '../../blocks/multiplatform/faq-block/faq-block';
 import { CtaBlock } from '../../blocks/multiplatform/cta-block/cta-block';
 import { CaseStudies } from '../../blocks/multiplatform/case-studies/grid';
+import { CustomerLogos } from '../../blocks/multiplatform/case-studies/customers';
 
 const MULTIPLATFORM_MOBILE_TITLE = 'Kotlin Multiplatform' as const;
 const MULTIPLATFORM_MOBILE_URL = '/multiplatform/' as const;
@@ -53,6 +54,7 @@ export default function MultiplatformLanding() {
             <div className="ktl-layout-to-2">
                 <ThemeProvider theme={'dark'}>
                     <HeroBanner url={GET_STARTED_URL} />
+                    <CustomerLogos />
                     <ChooseShare />
                     <HighlightedBg>
                         <VideoBlock
