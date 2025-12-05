@@ -27,6 +27,12 @@
         padding: var(--ktl-box-block-l) var(--ktl-box-section-s);
         border-radius: 16px;
 
+        :global(.js) & {
+            user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: auto;
+        }
+
         @media (--ktl-ts-more) {
             @mixin rs-subtitle-2-base;
         }
@@ -144,8 +150,9 @@
 }
 
 :global(.no-js) {
-    .tabs {
-        display: none;
+    .anchor {
+        position: relative;
+        top: -50px;
     }
 
     .cards {
