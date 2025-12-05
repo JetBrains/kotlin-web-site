@@ -12,6 +12,7 @@ import { VideoBlock } from '../../blocks/multiplatform/video-block/video-block';
 import { HighlightedBg } from '../../blocks/multiplatform/highlighted-bg/highlighted-bg';
 import { FaqBlock } from '../../blocks/multiplatform/faq-block/faq-block';
 import { CtaBlock } from '../../blocks/multiplatform/cta-block/cta-block';
+import { CaseStudies } from '../../blocks/multiplatform/case-studies/grid';
 
 const MULTIPLATFORM_MOBILE_TITLE = 'Kotlin Multiplatform' as const;
 const MULTIPLATFORM_MOBILE_URL = '/multiplatform/' as const;
@@ -81,6 +82,7 @@ export default function MultiplatformLanding() {
                             </>
                         </VideoBlock>
                     </HighlightedBg>
+                    <CaseStudies />
                     <FaqBlock />
                     <CtaBlock url={GET_STARTED_URL} />
                 </ThemeProvider>
