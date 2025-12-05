@@ -5,6 +5,7 @@ import { LandingLayout, LandingLayoutProps } from '../../components/landing-layo
 
 import { FaqBlock } from '../../blocks/multiplatform/faq-block/faq-block';
 import { HeroBanner } from '../../blocks/multiplatform/hero';
+import { CtaBlock } from '../../blocks/multiplatform/cta-block/cta-block';
 
 const MULTIPLATFORM_MOBILE_TITLE = 'Kotlin Multiplatform' as const;
 const MULTIPLATFORM_MOBILE_URL = '/multiplatform/' as const;
@@ -41,6 +42,7 @@ export default function MultiplatformLanding() {
                 <ThemeProvider theme={'dark'}>
                     <HeroBanner url={GET_STARTED_URL} />
                     <FaqBlock />
+                    <CtaBlock url={GET_STARTED_URL} />
                 </ThemeProvider>
             </div>
         </LandingLayout>
