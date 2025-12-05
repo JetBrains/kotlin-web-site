@@ -7,6 +7,14 @@
   subject: '​Join us for a series of engaging talks by expert speakers, followed by ample opportunities to network with fellow attendees.'
   url: https://luma.com/mj0jq8zo
 - lang: en
+  startDate: '2025-11-01'
+  endDate: '2025-11-01'
+  location: Chennai, India
+  speaker: 'Misc'
+  title: 'KoHacks #2 '
+  subject: '​Ko-Hacks is a hackathon event exclusively focused on Kotlin application development.'
+  url: https://luma.com/fdgvao4j?tk=IX5FAm
+- lang: en
   startDate: '2025-09-19'
   endDate: '2025-09-19'
   location: Maasmechelen, Belgium
