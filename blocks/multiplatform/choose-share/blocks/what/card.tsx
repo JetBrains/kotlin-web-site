@@ -26,8 +26,15 @@ function Card({ className, title, url, imageName, children }: CodeShareCardProps
                 <Button className={styles.button} href={url} size={'l'} mode={'rock'}>Get started</Button>
             </div>
             <p className={styles.cover}>
-                <img className={styles.image} src={`/images/multiplatform/choose-share-what/${imageName}.png`}
-                     alt={imageName} />
+                <img
+                    className={styles.image}
+                    src={`/images/multiplatform/choose-share-what/${imageName}@2x.webp`}
+                    srcSet={`
+                        /images/multiplatform/choose-share-what/${imageName}.webp 1x,
+                        /images/multiplatform/choose-share-what/${imageName}@2x.webp 2x,
+                    `}
+                    alt={imageName} 
+                />
             </p>
         </section>
     );
