@@ -199,13 +199,13 @@ To fix them, some breaking changes might be necessary in the future, which itsel
 
 ## Swift library import
 
-The direct import of pure Swift libraries into Kotlin/Native projects is not supported. However, there are a couple
+Kotlin/Native does not support direct import of pure Swift libraries. However, there are a couple
 of options to work around that.
 
-One way to work around this is to use manual Objective-C bridging where you need to write custom Objective-C wrappers
+One way to work around this is to use manual Objective-C bridging. With this approach, you need to write custom Objective-C wrappers
 and `.def` files and consume those wrappers through cinterop.
 
-In most cases, however, we recommend using the "reverse import" approach: you define the expected behavior on the Kotlin
+In most cases, however, we recommend using the *reverse import* approach: you define the expected behavior on the Kotlin
 side, implement the actual functionality on the Swift side, and pass it back to Kotlin.
 
 You can create an interface or use Swift closures for the "expected" part. The interface-based approach scales better 
@@ -227,7 +227,7 @@ Swift library into a Kotlin project:
    }
    ```
 
-2. On the Swift side, implement the actual functionality using a pure Swift library, CryptoKit:
+2. On the Swift side, implement the functionality using a pure Swift library, CryptoKit:
 
     ```swift
     // iosApp/ContentView.swift
@@ -258,7 +258,7 @@ Swift library into a Kotlin project:
 </tab>
 <tab title="Swift closures">
 
-1. On the Kotlin side, accept a function parameter and use it where needed:
+1. On the Kotlin side, declare a function parameter and use it where needed:
 
     ```kotlin
     // App.kt
