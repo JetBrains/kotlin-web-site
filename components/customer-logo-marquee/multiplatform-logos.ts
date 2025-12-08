@@ -6,9 +6,9 @@ type CaseStudyItem = typeof caseStudiesDataRaw[number];
 const logos: LogoItem[] = caseStudiesDataRaw.items
     .map((item: CaseStudyItem) => {
         const link = item.carousel?.link || item.link;
-        const logo = item.carousel?.logo || item.logo;
+        const logo = item.carousel?.logo;
 
-        if (item.type === 'server-side' && link && logo) return {
+        if (item.type === 'multiplatform' && link && logo) return {
             id: item.id,
             logo,
             link
