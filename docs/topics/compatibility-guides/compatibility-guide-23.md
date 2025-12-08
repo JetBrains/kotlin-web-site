@@ -37,8 +37,8 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Deprecation cycle**:
 >
-> - 2.2.0: report a warning when using `-language-version` with versions 1.8 and 1.9.
-> - 2.3.0: raise the warning to an error for language version 1.8 on all platforms and for language version 1.9 on non-JVM platforms.
+> - 2.2.0: report a warning when using `-language-version` with versions 1.8 and 1.9
+> - 2.3.0: raise the warning to an error for `-language-version` with version 1.8 on all platforms and for version 1.9 on non-JVM platforms
 
 ### Report upper-bound constraint violation errors for inferred types with typealiases
 
@@ -64,8 +64,8 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Prohibit adding the `@JvmSerializableLambda` annotation on `inline` and `crossinline` lambdas
-> because it has no effect. `inline` and `crossinline` lambdas are not serializable.
+> **Short summary**: You can no longer apply the `@JvmSerializableLambda` annotation to `inline` or `crossinline` lambdas.
+> These lambdas aren't serializable, so applying `@JvmSerializableLambda` had no effect.
 >
 > **Deprecation cycle**:
 >
@@ -97,7 +97,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin now deprecates using `return` inside expression bodies when the function's return type is not
+> **Short summary**: Kotlin now deprecates using `return` inside expression bodies when the function's return type isn't
 > explicitly declared.
 >
 > **Deprecation cycle**:
@@ -113,7 +113,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Kotlin now reports an error when attempting to inherit from a nullable typealias, consistent with
+> **Short summary**: Kotlin now reports an error when attempting to inherit from a nullable typealias, which is consistent with
 > how it already handles direct nullable supertypes.
 >
 > **Deprecation cycle**:
@@ -134,7 +134,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Deprecation cycle**:
 >
-> - 2.3.0: introduce new behavior; not applicable for progressive mode
+> - 2.3.0: introduce the new behavior; not applicable in progressive mode
 
 ### Prohibit reified type parameters from being inferred as intersection types
 
@@ -145,11 +145,11 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Incompatible change type**: source
 >
 > **Short summary**: Kotlin 2.3.0 prohibits situations where a reified type parameter is inferred to an intersection type, 
-> due to the risk of incorrect runtime behavior.
+> as this could lead to incorrect runtime behavior.
 >
 > **Deprecation cycle**:
 >
-> - 2.1.0: report a warning when a reified type parameter is inferred to an intersection type
+> - 2.1.0: report a warning when a reified type parameter is inferred as an intersection type
 > - 2.3.0: raise the warning to an error
 
 ### Prohibit exposing less-visible types through type parameter bounds
@@ -241,7 +241,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: After being deprecated for a long time, the `InputStream.readBytes(estimatedSize: Int = DEFAULT_BUFFER_SIZE): ByteArray` function is hidden.
+> **Short summary**: After being deprecated for a long time, the `InputStream.readBytes(estimatedSize: Int = DEFAULT_BUFFER_SIZE): ByteArray` function is now hidden.
 >
 > **Deprecation cycle**:
 >
@@ -249,7 +249,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 1.5.0: raise the warning to an error
 > - 2.3.0: hide the function
 
-### Unify Kotlin/Native stacktrace printing with other platforms
+### Unify Kotlin/Native stack trace printing with other platforms
 
 > **Issue**: [KT-81431](https://youtrack.jetbrains.com/issue/KT-81431)
 >
@@ -257,11 +257,11 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: behavioral
 >
-> **Short summary**: When formatting an exception stacktrace, no additional causes are printed once a previously seen exception cause has already been printed.
+> **Short summary**: When formatting an exception stack trace, additional causes aren't printed if the same exception cause has already been printed.
 >
 > **Deprecation cycle**:
 >
-> - 2.3.20: Unify Kotlin/Native exception stacktrace formatting with other Kotlin platforms
+> - 2.3.20: Unify Kotlin/Native exception stack trace formatting with other Kotlin platforms
 
 ### Correct `Iterable<T>.intersect()` and `Iterable<T>.subtract()` behavior
 
@@ -292,10 +292,6 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Short summary**: In Kotlin 2.3, if you use both the `kotlin-dsl` **and** the `kotlin("jvm")` plugin in your Gradle
 > project, you may see a Gradle warning about an unsupported Kotlin Gradle plugin (KGP) version.
 >
-> **Deprecation cycle**:
->
-> - 2.3.0: introduce a diagnostic that detects when the `kotlin-dsl` plugin is used with an incompatible language or API version of the compiler.
-> 
 > **Migration steps**:
 > 
 > In general, we don't recommend using both the `kotlin-dsl` and the `kotlin("jvm")` plugins in the same Gradle project. This setup isn't supported.
@@ -312,6 +308,10 @@ perspective (for example, from Java) is out of the scope of this document.
 > As a last resort, you can configure your project to use language version 2.1 or higher, which overrides the conflicting behavior of the `kotlin-dsl` plugin. However, we strongly recommend not doing so.
 > 
 > If you experience difficulties during migration, reach out in the #gradle channel in our [Slack](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) for support.
+> 
+> **Deprecation cycle**:
+>
+> - 2.3.0: introduce a diagnostic that detects when the `kotlin-dsl` plugin is used with an incompatible language or API version of the compiler
 
 ### Deprecate `kotlin-android` plugin for AGP versions 9.0.0 and later
 
@@ -322,11 +322,11 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Incompatible change type**: source
 >
 > **Short summary**: In Kotlin 2.3.0, the `org.jetbrains.kotlin.android` plugin is deprecated when using Android Gradle plugin (AGP) versions 9.0.0 or later.
-> Starting with AGP 9.0.0, [AGP provides built-in support for Kotlin](https://kotl.in/gradle/agp-built-in-kotlin), so the `kotlin-android` plugin is no longer needed.
+> Starting with AGP 9.0.0, [AGP provides built-in support for Kotlin](https://kotl.in/gradle/agp-built-in-kotlin), so the `kotlin-android` plugin is no longer required.
 >
 > **Deprecation cycle**:
 >
-> - 2.3.0: report a warning when the `kotlin-android` plugin is used with AGP versions 9.0.0 or later, and both the `android.builtInKotlin` and `android.newDsl=false` Gradle properties are set to `false`.
+> - 2.3.0: report a warning when the `kotlin-android` plugin is used with AGP versions 9.0.0 or later, and both the `android.builtInKotlin` and `android.newDsl=false` Gradle properties are set to `false`
 
 ### Deprecate `testApi` configuration
 
@@ -376,9 +376,9 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Short summary**: Kotlin 2.3.0 removes the `closureTo()`, `createResultSet()` functions from the `closure` DSL since they
 > are no longer used. In addition, the `KotlinToolingVersionOrNull()` function is removed. Use the `KotlinToolingVersion()` function instead.
-> 
 >
 > **Deprecation cycle**:
+> 
 > - 1.7.20: report an error
 > - 2.3.0: remove the functions
 
@@ -475,7 +475,8 @@ perspective (for example, from Java) is out of the scope of this document.
 > * `TypeScriptValidationTask`
 > * `YarnRootExtension`
 > 
-> These classes were never intended to be subclassed. All use cases for subclassing should now be covered by the class instances exposed through our extensions.
+> These classes were never intended to be subclassed. All use cases for subclassing should now be covered by
+> the configuration blocks provided by the Kotlin Gradle plugin DSL.
 > If the existing APIs for these tasks don't meet your needs for setting up test runs or the JavaScript runtime,
 > share your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-75869).
 >
@@ -635,7 +636,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate `destinationDir` in `CInteropProcess`
 
-> **Issue**: [KT-74910(https://youtrack.jetbrains.com/issue/KT-74910)
+> **Issue**: [KT-74910](https://youtrack.jetbrains.com/issue/KT-74910)
 >
 > **Component**: Gradle
 >
