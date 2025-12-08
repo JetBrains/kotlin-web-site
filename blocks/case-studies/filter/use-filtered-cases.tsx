@@ -44,12 +44,13 @@ export const FilteredCasesProvider = (props: FilteredCasesProviderProps) => {
 
     const source: CaseItem[] = caseStudiesDataRaw.items;
 
-    const data = useMemo(() => preprocess ? preprocess(source) : source, [preprocess, source]);
-    const items = useMemo(() => filterCaseStudies(data, {
+    const data = useMemo(() => filterCaseStudies(source, {
         type,
         platforms,
         compose
-    }), [type, platforms, compose, data]);
+    }), [type, platforms, compose, source]);
+
+    const items = useMemo(() => preprocess ? preprocess(data) : data, [preprocess, data]);
 
     return <CaseStudiesContext.Provider value={items}>{children}</CaseStudiesContext.Provider>;
 };
