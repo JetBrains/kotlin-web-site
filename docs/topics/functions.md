@@ -86,17 +86,17 @@ When you declare a parameter with a default value before a parameter without a d
 you can only use the default value by [naming arguments](#named-arguments):
 
 ```kotlin
-fun foo(
-    foo: Int = 0,
-    bar: Int,
+fun greeting(
+    userId: Int = 0,
+    message: String,
 ) { /*...*/ }
 
 fun main () {
-    // Uses the default value foo = 0
-    foo(bar = 1)
+    // Uses 0 as the default value for 'userId'
+    greeting(message = "Hello!")
     
-    // Error: No value passed for parameter 'bar'
-    foo(1)
+    // Error: No value passed for parameter 'userId'
+    greeting("Hello!")
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="default-before-ordinary"}
@@ -107,16 +107,16 @@ since the last parameter must correspond to the passed function:
 ```kotlin
 fun main () {
 //sampleStart    
-fun foo(
-    foo: Int = 0,
-    bar: () -> Unit,
+fun greeting(
+    userId: Int = 0,
+    message: () -> Unit,
 )
-{ println(foo)
-  bar() }
+{ println(userId)
+  message() }
 
 
-// Prints the default value 0 for 'foo', then prints "bar"
-foo() { println ("bar") }
+// Prints the default value 0 for 'userId', then prints "bar"
+greeting() { println ("Hello!") }
 //sampleEnd
 }
 ```
@@ -126,15 +126,15 @@ foo() { println ("bar") }
 When overriding a method that has default parameter values, you must omit the default parameter values from the signature:
 
 ```kotlin
-open class A {
-    open fun foo(i: Int = 10, j: Int = 0) { /*...*/ }
+open class Shape {
+    open fun draw(width: Int = 10, height: Int = 5) { /*...*/ }
 }
 
-class B : A() {
+class Rectangle : Shape() {
     // It's not allowed to specify default values here
-    // but this function also uses 10 for 'i' and 0 for 'j'
+    // but this function also uses 10 for 'width' and 5 for 'height'
     // by default.
-    override fun foo(i: Int, j: Int) { /*...*/ }
+    override fun draw(width: Int, height: Int) { /*...*/ }
 }
 ```
 
@@ -182,22 +182,22 @@ you can pass the corresponding [lambda](lambdas.md#lambda-expression-syntax) arg
 ```kotlin
 fun main() {
 //sampleStart
-fun foo(
-    foo: Int = 0,
-    bar: Int = 1,
-    qux: () -> Unit,
-) { println (foo)
-    println (bar)
-    qux() }
+fun log(
+    level: Int = 0,
+    code:  Int = 1,
+    action: () -> Unit,
+) { println (level)
+    println (code)
+    action() }
 
-// Passes foo = 1 and ses the default value bar = 1
-foo(1) { println("hello") }
+// Passes 1 for 'level' and uses the default value 1 for 'code'
+log(1) { println("Connection established") }
 
-// Uses both default values, foo = 0 and bar = 1
-foo(qux = { println("hello") })
+// Uses both default values, 0 for 'level' and 1 for 'code'
+log(action = { println("Connection established") })
 
 // Equivalent to the previous call, uses both default values
-foo { println("hello") }
+log { println("Connection established") }
 //sampleEnd   
 }
 ```
@@ -206,7 +206,7 @@ foo { println("hello") }
 ### Named arguments
 
 You can name one or more of a function's arguments when calling it. This can be helpful when a function call has many
-argument and it's difficult to associate a value with an argument, especially if it's a boolean or `null` value.
+argument, and it's difficult to associate a value with an argument, especially if it's a boolean or `null` value.
 
 When you use named arguments in a function call, you can freely change the order that they are listed in.
 
@@ -250,9 +250,9 @@ reformat("This is a short String!", upperCaseFirstLetter = false, wordSeparator 
 You can pass a [variable number of arguments](#variable-number-of-arguments-varargs) (`vararg`) naming the correspoding array:
 
 ```kotlin
-fun foo(vararg strings: String) { /*...*/ }
+fun mergeStrings(vararg strings: String) { /*...*/ }
 
-foo(strings = arrayOf("a", "b", "c"))
+mergeStrings(strings = arrayOf("a", "b", "c"))
 ```
 
 <!-- Rationale for named arguments interaction with varargs is here https://youtrack.jetbrains.com/issue/KT-52505#focus=Comments-27-6147916.0-0 -->
@@ -297,7 +297,7 @@ and you never have to return `Unit` explicitly.
 Therefore, this verbose declaration:
 
 ```kotlin
-fun printHello(name: String?, aux: () -> Unit): Unit {
+fun printHello(name: String?, action: () -> Unit): Unit {
     if (name != null)
         println("Hello $name")
     else
@@ -309,9 +309,9 @@ fun printHello(name: String?, aux: () -> Unit): Unit {
 can be shortened to:
 
 ```kotlin
-// The declaration of the functional type parameter ('aux') still 
+// The declaration of the functional type parameter ('action') still 
 // needs an explicit return type
-fun printHello(name: String?, aux: () -> Unit) {
+fun printHello(name: String?, action: () -> Unit) {
     if (name != null)
         println("Hello $name")
     else
