@@ -202,15 +202,17 @@ To fix them, some breaking changes might be necessary in the future, which itsel
 Kotlin/Native does not support direct import of pure Swift libraries. However, there are a couple
 of options to work around that.
 
-One way to work around this is to use manual Objective-C bridging. With this approach, you need to write custom Objective-C wrappers
+One way is to use manual Objective-C bridging. With this approach, you need to write custom Objective-C wrappers
 and `.def` files and consume those wrappers through cinterop.
 
-In most cases, however, we recommend using the *reverse import* approach: you define the expected behavior on the Kotlin
+In most cases, however, we recommend using the _reverse import_ approach: you define the expected behavior on the Kotlin
 side, implement the actual functionality on the Swift side, and pass it back to Kotlin.
 
-You can create an interface or use Swift closures for the "expected" part. The interface-based approach scales better 
-for multiple functions and testability. Closures are great for quick prototypes, but the approach has its limitations —
-for example, it doesn't hold state.
+You can define the expected part in one of two ways:
+
+* Create an interface. The interface-based approach scales better for multiple functions and testability.
+* Use Swift closures. They are great for quick prototypes, but this approach has its limitations —
+  for example, it doesn't hold state.
 
 Consider this example of reverse importing the [CryptoKit](https://developer.apple.com/documentation/cryptokit/)
 Swift library into a Kotlin project:
@@ -227,7 +229,7 @@ Swift library into a Kotlin project:
    }
    ```
 
-2. On the Swift side, implement the functionality using a pure Swift library, CryptoKit:
+2. On the Swift side, implement the MD5-hashing functionality using a pure Swift library, CryptoKit:
 
     ```swift
     // iosApp/ContentView.swift
@@ -300,3 +302,5 @@ Swift library into a Kotlin project:
 </tabs>
 
 In a more complex project, it's more convenient to use dependency injection to pass the Swift implementation back to Kotlin.
+For more information, see [Dependency injection framework](https://kotlinlang.org/docs/multiplatform/multiplatform-connect-to-apis.html#dependency-injection-framework)
+or check out the [Koin framework](https://insert-koin.io/docs/reference/koin-mp/kmp/) documentation.
