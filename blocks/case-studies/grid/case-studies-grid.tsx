@@ -1,30 +1,38 @@
+import { FC } from 'react';
+import cn from 'classnames';
 import { CaseStudyCard, CaseStudyCardProps } from '../card/case-studies-card';
-import styles from './case-studies-grid.module.css';
 import { useFilteredCases } from '../filter/use-filtered-cases';
 import { MasonryGrid } from '../../../components/masonry-grid/masonry-grid';
 import { EmptyState } from '../../../components/empty-state/empry-state';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
-export const CaseStudiesGrid: React.FC<{ mode: CaseStudyCardProps['mode'] }> = ({ mode }) => {
+import styles from './case-studies-grid.module.css';
+
+export type CaseStudiesGridProps = { className?: string, mode?: CaseStudyCardProps['mode'] };
+
+export const CaseStudiesSection: FC<CaseStudiesGridProps> = ({ className, ...props }) => (
+    <section className={cn(className, 'ktl-layout ktl-layout--center')} aria-label="Case Studies Grid">
+        <CaseStudiesGrid {...props} />
+    </section>
+);
+
+export const CaseStudiesGrid: FC<CaseStudiesGridProps> = ({ className, mode }) => {
     const cases = useFilteredCases();
     const theme = 'light';
 
     return (
-        <section className="ktl-layout ktl-layout--center" data-testid="case-studies-grid"
-                 aria-label="Case Studies Grid">
-            <ThemeProvider theme={theme}>
-                <div className={styles.wrapper}>
-                    {cases.length === 0 ?
-                        <EmptyState /> :
-                        <MasonryGrid
-                            items={cases}
-                            columnCount={2}
-                            gap={32}
-                            renderItem={(caseItem) => <CaseStudyCard mode={mode} {...caseItem} />}
-                            getKey={(caseItem) => caseItem.id}
-                        />}
-                </div>
-            </ThemeProvider>
-        </section>
+        <ThemeProvider theme={theme}>
+            <div className={cn(styles.wrapper, className)} data-testid="case-studies-grid">
+                {cases.length === 0 ?
+                    <EmptyState /> :
+                    <MasonryGrid
+                        items={cases}
+                        columnCount={2}
+                        gap={32}
+                        renderItem={(caseItem) => <CaseStudyCard mode={mode} {...caseItem} />}
+                        getKey={(caseItem) => caseItem.id}
+                    />}
+            </div>
+        </ThemeProvider>
     );
 };
