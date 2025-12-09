@@ -31,6 +31,7 @@
     "@rescui/use-resize-observer": "0.1.4",
     "@rollup/plugin-buble": "0.21.3",
     "@webteam/ui-contexts": "0.10.10",
+    "@webteam/video-player": "0.5.1",
     "@webteam/youtube-playlist": "1.8.3",
     "algoliasearch": "4.10.2",
     "autoprefixer": "10.3.2",
