@@ -1,18 +1,19 @@
 import React, {FC} from 'react';
 import { useTextStyles } from '@rescui/typography';
-import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
+
 import cn from 'classnames';
 import styles from './video-block.module.css';
+import { MiniVideoPlayer } from '@webteam/video-player';
 
 interface VideoBlockProps {
-    videoId: string;
+    videoURL: string;
     title: string;
     children?: React.ReactNode;
     iconPath: string;
     textWidthLimit?: string;
 }
 
-export const VideoBlock: FC<VideoBlockProps> = ({videoId, title, children, iconPath, textWidthLimit}) => {
+export const VideoBlock: FC<VideoBlockProps> = ({videoURL, title, children, iconPath, textWidthLimit}) => {
     const textCn = useTextStyles();
 
     return (
@@ -20,7 +21,14 @@ export const VideoBlock: FC<VideoBlockProps> = ({videoId, title, children, iconP
             <img src={iconPath} className={styles.icon} alt="" />
             <h2 className={cn(styles.title, textCn('rs-h1'))}>{title}</h2>
             <div className={cn(styles.subtitle, textCn("rs-subtitle-2", {hardness: "average"}))} style={textWidthLimit ? {'maxWidth': textWidthLimit} : {}}>{children}</div>
-            <YoutubePlayer id={videoId} className={styles.videoPlayer} />
+
+            <MiniVideoPlayer
+                source={videoURL}
+                className={styles.videoPlayer}
+                autoplay={true}
+                muted={true}
+                controls={false}
+            />
         </div>
     );
 }
