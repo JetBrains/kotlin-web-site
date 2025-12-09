@@ -1,11 +1,11 @@
-import { CaseStudyCard } from '../card/case-studies-card';
+import { CaseStudyCard, CaseStudyCardProps } from '../card/case-studies-card';
 import styles from './case-studies-grid.module.css';
 import { useFilteredCases } from '../filter/use-filtered-cases';
 import { MasonryGrid } from '../../../components/masonry-grid/masonry-grid';
 import { EmptyState } from '../../../components/empty-state/empry-state';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
-export const CaseStudiesGrid: React.FC = () => {
+export const CaseStudiesGrid: React.FC<{ mode: CaseStudyCardProps['mode'] }> = ({ mode }) => {
     const cases = useFilteredCases();
     const theme = 'light';
 
@@ -20,7 +20,7 @@ export const CaseStudiesGrid: React.FC = () => {
                             items={cases}
                             columnCount={2}
                             gap={32}
-                            renderItem={(caseItem) => <CaseStudyCard {...caseItem} />}
+                            renderItem={(caseItem) => <CaseStudyCard mode={mode} {...caseItem} />}
                             getKey={(caseItem) => caseItem.id}
                         />}
                 </div>
