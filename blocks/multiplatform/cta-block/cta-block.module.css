@@ -43,6 +43,16 @@
 
 .title {
   margin-top: 0;
+
+  @media (--ktl-ts) {
+    font-size: 35px;
+    line-height: 39px;
+  }
+
+  @media (--ktl-ms) {
+    font-size: 28px;
+    line-height: 32px;
+  }
 }
 
 .image {
