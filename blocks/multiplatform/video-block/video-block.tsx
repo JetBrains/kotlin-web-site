@@ -1,9 +1,9 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import { useTextStyles } from '@rescui/typography';
 
 import cn from 'classnames';
 import styles from './video-block.module.css';
-import { MiniVideoPlayer } from '@webteam/video-player';
+import { MiniVideoPlayer, PlayButtonMode } from '@webteam/video-player';
 
 interface VideoBlockProps {
     videoURL: string;
@@ -27,7 +27,7 @@ export const VideoBlock: FC<VideoBlockProps> = ({videoURL, title, children, icon
                 className={styles.videoPlayer}
                 autoplay={true}
                 muted={true}
-                controls={false}
+                playButtonMode={PlayButtonMode.Black}
             />
         </div>
     );
