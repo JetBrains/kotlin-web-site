@@ -53,7 +53,7 @@ export default function MultiplatformLanding() {
                     <HighlightedBg>
                         <VideoBlock
                             title={'AI-powered code generation'}
-                            videoId={'JuP1QawqZtI'}
+                            videoURL={'https://resources.jetbrains.com/storage/products/kotlin/landings/kmp_and_junie.mp4'}
                             iconPath={'/images/multiplatform/video-block/junie.svg'}
                             textWidthLimit={'917px'}
                         >
@@ -65,7 +65,7 @@ export default function MultiplatformLanding() {
 
                         <VideoBlock
                             title={'Seamless tooling'}
-                            videoId={'ACmerPEQAWA'}
+                            videoURL={'https://resources.jetbrains.com/storage/products/kotlin/landings/kmp_compose_hot_reload.mp4'}
                             iconPath={'/images/multiplatform/video-block/infinity.svg'}
                             textWidthLimit={'993px'}
                         >
