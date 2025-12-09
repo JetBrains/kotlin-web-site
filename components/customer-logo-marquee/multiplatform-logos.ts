@@ -5,14 +5,17 @@ type CaseStudyItem = typeof caseStudiesDataRaw[number];
 
 const logos: LogoItem[] = caseStudiesDataRaw.items
     .map((item: CaseStudyItem) => {
-        const link = item.carousel?.link || item.link;
-        const logo = item.carousel?.logo;
+        if (item.type === 'multiplatform' && item.carousel) {
+            const link = item.carousel?.link || item.link || (
+                (item.media?.type === 'youtube' && item.media?.videoId) ?
+                    `https://youtu.be/${item.media?.videoId}` :
+                    null
+            );
 
-        if (item.type === 'multiplatform' && link && logo) return {
-            id: item.id,
-            logo,
-            link
-        };
+            const logo = item.carousel?.logo || item.alternateLogo?.[0] || item.logo?.[0];
+
+            if (link && logo) return { id: item.id, logo, link };
+        }
 
         return null;
     })
