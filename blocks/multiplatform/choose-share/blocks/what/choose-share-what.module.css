@@ -1,0 +1,162 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+@import "@rescui/typography/lib/mixins.p.css";
+
+.title {
+    text-align: center;
+    margin: 0 0 var(--ktl-box-section-m);
+    padding: 0;
+}
+
+.tabs {
+    margin-bottom: var(--ktl-box-block-m);
+
+    & > div {
+        gap: 8px;
+
+        @media (--ktl-ml-more) {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            flex-grow: 1;
+            gap: 12px;
+        }
+    }
+
+    [role="tab"] {
+        box-sizing: border-box;
+        padding: var(--ktl-box-block-l) var(--ktl-box-section-s);
+        border-radius: 16px;
+
+        :global(.js) & {
+            user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: auto;
+        }
+
+        @media (--ktl-ts-more) {
+            @mixin rs-subtitle-2-base;
+        }
+
+        background-color: #000000;
+
+        &:hover {
+            background-color: #190d33;
+        }
+
+        &, &::before {
+            border-color: #7E42FF;
+        }
+
+        &[data-test~="chip-selected"] {
+            background-color: #6635cc;
+
+            &::before {
+                border-width: 3px;
+            }
+
+            &:hover {
+                background-color: rgb(76, 39, 153);
+            }
+
+            border-color: #7E42FF;
+        }
+
+        @media (--ktl-ml-more) {
+            flex: 1;
+
+            & > span {
+                white-space: initial;
+            }
+        }
+        @media (--ktl-ts-less) {
+            width: 100%;
+        }
+    }
+}
+
+/* --- Cards --- */
+.cards {
+    background: radial-gradient(203.85% 140.13% at 98.16% 100%, #2D0454 0%, #000 100%);
+    border-radius: 16px;
+
+    :global(.js) & {
+        display: grid;
+    }
+
+    @media (--ktl-tl-more) {
+        border-radius: 32px;
+    }
+
+    @media (--ktl-ml-more) {
+        border-radius: 24px;
+    }
+
+    @media (--ktl-ds-more) {
+        min-height: 568px;
+    }
+
+    @media (--ktl-ds-in) {
+        min-height: 484px;
+    }
+}
+
+:global(.js) .card:not(.active) {
+    visibility: hidden;
+
+    @media (--ktl-ds-less) {
+        display: none;
+    }
+}
+
+.card {
+    grid-column: 1;
+    grid-row: 1;
+    align-items: start;
+
+    @media (prefers-reduced-motion: no-preference) {
+        :global(.js) & {
+            opacity: 0;
+        }
+
+        transition: opacity .3s;
+
+        @supports (transition: visibility 1s allow-discrete) {
+            transition: opacity 1s, visibility 1s allow-discrete;
+        }
+    }
+}
+
+.card.active {
+    @media (prefers-reduced-motion: no-preference) {
+        opacity: 1;
+
+        @supports (transition: visibility 1s allow-discrete) {
+            @starting-style {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+:global(.js) {
+    .wrap {
+        position: relative;
+    }
+
+    .anchor {
+        position: absolute;
+        top: 0;
+    }
+}
+
+:global(.no-js) {
+    .anchor {
+        position: relative;
+        top: -50px;
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: column;
+    }
+}

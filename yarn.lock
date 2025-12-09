@@ -1782,6 +1782,14 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
+"@rescui/chip-list@0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@rescui/chip-list/-/chip-list-0.13.1.tgz#8a12e4ac98af8fff32846ca325b2188e0bd360f5"
+  integrity sha512-vQoJZCHH8f7UPt96Lv3poFX/wNGw3NnUUaA+cXGP4Nmr5pbv2T75ZgSNsOY5AGK9V5aKcYnExSxYfejDgSYNrQ==
+  dependencies:
+    "@babel/runtime-corejs3" "^7.26.0"
+    classnames "^2.2.6"
+
 "@rescui/collapse@0.7.1":
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/@rescui/collapse/-/collapse-0.7.1.tgz#12a3965b5025bfd151310d9573a79534b2ad1e3a"
@@ -3421,6 +3429,11 @@ callsites@^3.0.0:
   resolved "https://registry.npmjs.org/callsites/-/callsites-3.1.0.tgz"
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
+camelcase-css@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/camelcase-css/-/camelcase-css-2.0.1.tgz#ee978f6947914cc30c6b44741b6ed1df7f043fd5"
+  integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
+
 camelcase@^6.2.0:
   version "6.3.0"
   resolved "https://registry.npmjs.org/camelcase/-/camelcase-6.3.0.tgz"
@@ -4776,6 +4789,11 @@ faye-websocket@^0.11.3:
   integrity sha512-CzbClwlXAuiRQAlUyfqPgvPoNKTckTPGfwZV4ZdAhVcP2lh9KUxJg2b5GkE7XbjKQ3YJnQ9z6D9ntLAlB+tP8g==
   dependencies:
     websocket-driver ">=0.5.1"
+
+fdir@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.5.0.tgz#ed2ab967a331ade62f18d077dae192684d50d350"
+  integrity sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==
 
 file-entry-cache@^6.0.1:
   version "6.0.1"
@@ -6640,6 +6658,11 @@ picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.2, picomatch@^2.3.1:
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
+picomatch@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-4.0.3.tgz#796c76136d1eead715db1e7bad785dedd695a042"
+  integrity sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q==
+
 pify@^2.3.0:
   version "2.3.0"
   resolved "https://registry.npmjs.org/pify/-/pify-2.3.0.tgz"
@@ -6719,6 +6742,13 @@ postcss-import@15.1.0:
     read-cache "^1.0.0"
     resolve "^1.1.7"
 
+postcss-js@^4.0.1:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/postcss-js/-/postcss-js-4.1.0.tgz#003b63c6edde948766e40f3daf7e997ae43a5ce6"
+  integrity sha512-oIAOTqgIo7q2EOwbhb8UalYePMvYoIeRY2YKntdpFQXNosSu3vLrniGgmH9OKs/qAkfoj5oB3le/7mINW1LCfw==
+  dependencies:
+    camelcase-css "^2.0.1"
+
 postcss-loader@6.1.1:
   version "6.1.1"
   resolved "https://registry.npmjs.org/postcss-loader/-/postcss-loader-6.1.1.tgz"
@@ -6727,6 +6757,16 @@ postcss-loader@6.1.1:
     cosmiconfig "^7.0.0"
     klona "^2.0.4"
     semver "^7.3.5"
+
+postcss-mixins@12.1.2:
+  version "12.1.2"
+  resolved "https://registry.yarnpkg.com/postcss-mixins/-/postcss-mixins-12.1.2.tgz#8a82ccad16eb60525ebcd2a8eec5721230a9ca14"
+  integrity sha512-90pSxmZVfbX9e5xCv7tI5RV1mnjdf16y89CJKbf/hD7GyOz1FCxcYMl8ZYA8Hc56dbApTKKmU9HfvgfWdCxlwg==
+  dependencies:
+    postcss-js "^4.0.1"
+    postcss-simple-vars "^7.0.1"
+    sugarss "^5.0.0"
+    tinyglobby "^0.2.14"
 
 postcss-modules-extract-imports@^3.0.0:
   version "3.0.0"
@@ -6771,6 +6811,11 @@ postcss-selector-parser@^6.0.13, postcss-selector-parser@^6.0.2, postcss-selecto
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
+
+postcss-simple-vars@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-simple-vars/-/postcss-simple-vars-7.0.1.tgz#836b3097a54dcd13dbd3c36a5dbdd512fad2954c"
+  integrity sha512-5GLLXaS8qmzHMOjVxqkk1TZPf1jMqesiI7qLhnlyERalG0sMbHIbJqrcnrpmZdKCLglHnRHoEBB61RtGTsj++A==
 
 postcss-value-parser@^4.0.0, postcss-value-parser@^4.1.0:
   version "4.2.0"
@@ -8078,6 +8123,11 @@ styled-jsx@5.1.1:
   dependencies:
     client-only "0.0.1"
 
+sugarss@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/sugarss/-/sugarss-5.0.1.tgz#55589d1b997cdb1f0d84a94ed7f002e708f909bc"
+  integrity sha512-ctS5RYCBVvPoZAnzIaX5QSShK8ZiZxD5HUqSxlusvEMC+QZQIPCPOIJg6aceFX+K2rf4+SH89eu++h1Zmsr2nw==
+
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-2.0.0.tgz"
@@ -8271,6 +8321,14 @@ tiny-warning@^1.0.2:
   version "1.0.3"
   resolved "https://registry.npmjs.org/tiny-warning/-/tiny-warning-1.0.3.tgz"
   integrity sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA==
+
+tinyglobby@^0.2.14:
+  version "0.2.15"
+  resolved "https://registry.yarnpkg.com/tinyglobby/-/tinyglobby-0.2.15.tgz#e228dd1e638cea993d2fdb4fcd2d4602a79951c2"
+  integrity sha512-j2Zq4NyQYG5XMST4cbs02Ak8iJUdxRM0XI5QyxXuZOzKOINmWurp3smXu3y5wDcJrptwpSjgXHzIQxR0omXljQ==
+  dependencies:
+    fdir "^6.5.0"
+    picomatch "^4.0.3"
 
 to-fast-properties@^1.0.3:
   version "1.0.3"
