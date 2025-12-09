@@ -692,11 +692,39 @@ favor of `java.util.concurrent`.
 If you have to call these methods, cast to `java.lang.Object` and suppress the warning:
 
 ```kotlin
-fun main() {
-    val any = Any()
-    synchronized(any) {
-        @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
-        (any as java.lang.Object).wait()
+import java.util.LinkedList
+
+class SimpleBlockingQueue<T>(private val capacity: Int) {
+    private val queue = LinkedList<T>()
+
+    // java.lang.Object is used specifically to access wait() and notify()
+    // In Kotlin, the standard 'Any' type does not expose these methods.
+    @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
+    private val lock = Object()
+
+    fun put(item: T) {
+        synchronized(lock) {
+            while (queue.size >= capacity) {
+                lock.wait()
+            }
+            queue.add(item)
+            println("Produced: $item")
+
+            lock.notifyAll()
+        }
+    }
+
+    fun take(): T {
+        synchronized(lock) {
+            while (queue.isEmpty()) {
+                lock.wait()
+            }
+            val item = queue.removeFirst()
+            println("Consumed: $item")
+
+            lock.notifyAll()
+            return item
+        }
     }
 }
 ```
