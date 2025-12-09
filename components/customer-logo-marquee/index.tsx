@@ -9,7 +9,7 @@ export interface LogoItem {
     link: string;
 }
 
-const CustomerLogoMarqueeSection: React.FC<{ className: string, items: LogoItem[] }> = ({ className, items }) => {
+const CustomerLogoMarqueeSection: React.FC<{ className?: string, items: LogoItem[] }> = ({ className, items }) => {
     return (
         <section className={cn(styles.section, className)} data-testid={'customers-block'}>
             <Marquee className={styles.list} pauseOnHover hasFadingEdges>

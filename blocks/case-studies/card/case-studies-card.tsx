@@ -25,12 +25,6 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = props => {
     </ThemeProvider>;
 };
 
-function getLogo(mode: CaseStudyCardProps['mode'], item: CaseItem) {
-
-    return [
-    ];
-}
-
 const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...item }) => {
     const textCn = useTextStyles();
 
