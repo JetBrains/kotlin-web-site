@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import { Marquee } from '../marquee';
 import styles from './index.module.css';
 
@@ -8,9 +9,9 @@ export interface LogoItem {
     link: string;
 }
 
-const CustomerLogoMarqueeSection: React.FC<{ items: LogoItem[] }> = ({ items }) => {
+const CustomerLogoMarqueeSection: React.FC<{ className: string, items: LogoItem[] }> = ({ className, items }) => {
     return (
-        <section className={styles.section} data-testid={'customers-block'}>
+        <section className={cn(styles.section, className)} data-testid={'customers-block'}>
             <Marquee className={styles.list} pauseOnHover hasFadingEdges>
                 {items.map((item) => (
                     <a
