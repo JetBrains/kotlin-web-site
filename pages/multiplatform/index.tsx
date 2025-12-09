@@ -1,13 +1,16 @@
 import { Button } from '@rescui/button';
 import { ThemeProvider } from '@rescui/ui-contexts';
+import { useTextStyles } from '@rescui/typography';
 
 import { LandingLayout, LandingLayoutProps } from '../../components/landing-layout/landing-layout';
 
-import { FaqBlock } from '../../blocks/multiplatform/faq-block/faq-block';
+import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
+
 import { HeroBanner } from '../../blocks/multiplatform/hero';
+import { ChooseShare } from '../../blocks/multiplatform/choose-share';
 import { VideoBlock } from '../../blocks/multiplatform/video-block/video-block';
-import { useTextStyles } from '@rescui/typography';
 import { HighlightedBg } from '../../blocks/multiplatform/highlighted-bg/highlighted-bg';
+import { FaqBlock } from '../../blocks/multiplatform/faq-block/faq-block';
 import { CtaBlock } from '../../blocks/multiplatform/cta-block/cta-block';
 
 const MULTIPLATFORM_MOBILE_TITLE = 'Kotlin Multiplatform' as const;
@@ -49,7 +52,7 @@ export default function MultiplatformLanding() {
             <div className="ktl-layout-to-2">
                 <ThemeProvider theme={'dark'}>
                     <HeroBanner url={GET_STARTED_URL} />
-
+                    <ChooseShare />
                     <HighlightedBg>
                         <VideoBlock
                             title={'AI-powered code generation'}
@@ -78,7 +81,6 @@ export default function MultiplatformLanding() {
                             </>
                         </VideoBlock>
                     </HighlightedBg>
-
                     <FaqBlock />
                     <CtaBlock url={GET_STARTED_URL} />
                 </ThemeProvider>
