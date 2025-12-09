@@ -32,8 +32,4 @@
     overflow: hidden;
     width: 100%;
     margin: 48px 72px 72px;
-
-    @media (--ktl-ds-more) {
-        border-radius: 32px;
-    }
 }
