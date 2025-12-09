@@ -17,7 +17,7 @@ export const VideoBlock: FC<VideoBlockProps> = ({videoURL, title, children, icon
     const textCn = useTextStyles();
 
     return (
-        <div className={cn(styles.videoBlock, 'ktl-layout', 'ktl-layout--center')}>
+        <section className={cn(styles.videoBlock, 'ktl-layout', 'ktl-layout--center')}>
             <img src={iconPath} className={styles.icon} alt="" />
             <h2 className={cn(styles.title, textCn('rs-h1'))}>{title}</h2>
             <div className={cn(styles.subtitle, textCn("rs-subtitle-2", {hardness: "average"}))} style={textWidthLimit ? {'maxWidth': textWidthLimit} : {}}>{children}</div>
@@ -29,6 +29,6 @@ export const VideoBlock: FC<VideoBlockProps> = ({videoURL, title, children, icon
                 muted={true}
                 playButtonMode={PlayButtonMode.Black}
             />
-        </div>
+        </section>
     );
 }
