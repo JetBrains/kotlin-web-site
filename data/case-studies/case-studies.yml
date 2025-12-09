@@ -30,6 +30,8 @@ items:
       the team to innovate and respond to market needs faster.
     logo:
       - /images/case-studies/forbes-logo.svg
+    alternateLogo:
+      - /images/case-studies/forbes-logo-dark.svg
     carousel:
       logo: /images/case-studies/forbes-logo-dark.svg
     platforms:
@@ -47,6 +49,8 @@ items:
       position: Multiplatform Lead in Google Workspace
     logo:
       - /images/case-studies/google-docs-logo.svg
+    alternateLogo:
+      - /images/case-studies/google-docs-logo-dark.svg
     carousel:
       logo: '/images/case-studies/carousel/google.svg'
       link: 'https://youtu.be/5lkZj4v4-ks'
@@ -125,6 +129,8 @@ items:
       bug—not that I ever do that—you only have to fix it in one place.”
     logo:
       - /images/case-studies/x-logo.svg
+    alternateLogo:
+      - /images/case-studies/x-logo-dark.svg
     carousel:
       logo: /images/case-studies/x-logo-dark.svg
       link: 'https://youtu.be/z-u99yZFn5o'
@@ -245,6 +251,8 @@ items:
       previously encountered with JavaScript.
     logo:
       - /images/case-studies/cash-app-logo.svg
+    alternateLogo:
+      - /images/case-studies/cash-app-logo-dark.svg
     carousel:
       logo: /images/case-studies/cash-app-logo-dark.svg
     platforms:
@@ -281,6 +289,8 @@ items:
       position: Mobile Tech Lead at Wrike
     logo:
       - /images/case-studies/wrike-logo.svg
+    alternateLogo:
+      - /images/case-studies/wrike-logo-dark.svg
     carousel:
       logo: /images/case-studies/wrike-logo-dark.svg
       link: 'https://youtu.be/jhBmom8z3Qg'
@@ -300,6 +310,8 @@ items:
       improving collaboration.
     logo:
       - /images/case-studies/autodesk-logo.svg
+    alternateLogo:
+      - /images/case-studies/autodesk-logo-dark.svg
     carousel:
       logo: /images/case-studies/autodesk-logo-dark.svg
     platforms:
@@ -423,6 +435,8 @@ items:
       now ship features faster, while providing a consistent experience to their users.
     logo:
       - /images/case-studies/9gag-logo.svg
+    alternateLogo:
+      - /images/case-studies/9gag-logo-dark.svg
     carousel:
       logo: /images/case-studies/9gag-logo-dark.svg
     platforms:
