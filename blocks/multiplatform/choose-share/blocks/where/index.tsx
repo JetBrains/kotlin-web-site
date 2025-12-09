@@ -27,14 +27,17 @@ const TABS_BLOCKS = [
         id: 'ios',
         tab: 'iOS',
         Icon: props => <AppleIcon {...props} />,
-        Content: () => (
-            <>
+        Content: () => {
+            const textCn = useTextStyles();
+            return <>
                 Share business logic seamlessly. Make your Kotlin functions available to call from Swift code, and use
-                the full power of iOS APIs in your Kotlin code. Use Compose Multiplatform to create screens that can be
-                embedded in SwiftUI, or build the entire user interface in Kotlin. Easily use platform-specific views
-                like MapKit or AVFoundation straight from your Kotlin&nbsp;code.
-            </>
-        )
+                the full power of iOS APIs in your Kotlin code. Use <a className={textCn('rs-link', { external: true })}
+                                                                       href="https://www.jetbrains.com/compose-multiplatform/">Compose
+                Multiplatform</a> to create screens that can be embedded in SwiftUI, or build the entire user interface
+                in Kotlin. Easily use platform-specific views like MapKit or AVFoundation straight from your
+                Kotlin&nbsp;code.
+            </>;
+        }
     },
     {
         id: 'web',
@@ -51,14 +54,16 @@ const TABS_BLOCKS = [
         id: 'desktop',
         tab: 'Desktop',
         Icon: props => <ComputerIcon {...props} />,
-        Content: () => (
-            <>
-                Use Kotlin with Compose Multiplatform to build cross-platform desktop applications with shared business
-                logic and a consistent UI across Windows, macOS, and Linux&nbsp;– hardware-accelerated rendering
-                included! Use the well-established Kotlin and JVM ecosystems to quickly create your next
-                desktop&nbsp;app.
-            </>
-        )
+        Content: () => {
+            const textCn = useTextStyles();
+            return <>
+                Use Kotlin with <a className={textCn('rs-link', { external: true })}
+                                   href="https://www.jetbrains.com/compose-multiplatform/">Compose Multiplatform</a> to
+                build cross-platform desktop applications with shared business logic and a consistent UI across Windows,
+                macOS, and Linux&nbsp;– hardware-accelerated rendering included! Use the well-established Kotlin and JVM
+                ecosystems to quickly create your next desktop&nbsp;app.
+            </>;
+        }
     },
     {
         id: 'server',

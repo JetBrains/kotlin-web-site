@@ -15,13 +15,16 @@ const TABS_BLOCKS = [
         Tab: () => <>Both logic and UI</>,
         actionLink: '/docs/multiplatform/compose-multiplatform-create-first-app.html',
         Title: () => <>Maximum reuse, faster delivery.</>,
-        Content: () => (
-            <>
-                Use Kotlin with Compose Multiplatform to share up to 100% of your app code&nbsp;– including UI&nbsp;–
-                while still integrating with native APIs. Reduce dev time, ensure consistent behavior, and ship on
-                Android, iOS, desktop, and web from a single codebase.
+        Content: () => {
+            const textCn = useTextStyles();
+            return <>
+                Use Kotlin with <a className={textCn('rs-link', { external: true })}
+                                   href="https://www.jetbrains.com/compose-multiplatform/">Compose Multiplatform</a> to
+                share up to 100% of your app code&nbsp;– including UI&nbsp;– while still integrating with native APIs.
+                Reduce dev time, ensure consistent behavior, and ship on Android, iOS, desktop, and web from a single
+                codebase.
             </>
-        )
+        }
     },
     {
         id: 'logic-native-ui',
