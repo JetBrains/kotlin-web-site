@@ -12,9 +12,7 @@ items:
       position: The client platform team
     logo:
       - /images/case-studies/duolingo-logo.svg
-    carousel:
-      logo: /images/case-studies/duolingo-logo.svg
-      link: 'https://youtu.be/RJtiFt5pbfs'
+    carousel: true
     platforms:
       - android
       - ios
@@ -32,8 +30,6 @@ items:
       - /images/case-studies/forbes-logo.svg
     alternateLogo:
       - /images/case-studies/forbes-logo-dark.svg
-    carousel:
-      logo: /images/case-studies/forbes-logo-dark.svg
     platforms:
       - android
       - ios
@@ -52,8 +48,7 @@ items:
     alternateLogo:
       - /images/case-studies/google-docs-logo-dark.svg
     carousel:
-      logo: '/images/case-studies/carousel/google.svg'
-      link: 'https://youtu.be/5lkZj4v4-ks'
+      logo: /images/case-studies/carousel/google.svg
     platforms:
       - android
       - ios
@@ -65,8 +60,7 @@ items:
     type: multiplatform
     logo:
       - /images/case-studies/bilibili-logo.svg
-    carousel:
-      logo: /images/case-studies/bilibili-logo.svg
+    carousel: true
     description: >-
       **BiliBili** (China version) has adopted Kotlin Multiplatform and Compose Multiplatform for the Instant
       Message feature.
@@ -95,9 +89,7 @@ items:
       position: Project Manager, McDonald’s app at Umain
     logo:
       - /images/case-studies/mcdonalds-logo.svg
-    carousel:
-      logo: /images/case-studies/mcdonalds-logo.svg
-      link: 'https://youtu.be/uCkYZ-PvCmw'
+    carousel: true
     platforms:
       - android
       - ios
@@ -114,7 +106,7 @@ items:
     logo:
       - /images/case-studies/h&m-logo.svg
     carousel:
-      logo: /images/case-studies/h&m-logo.svg
+      
     platforms:
       - android
       - ios
@@ -131,9 +123,7 @@ items:
       - /images/case-studies/x-logo.svg
     alternateLogo:
       - /images/case-studies/x-logo-dark.svg
-    carousel:
-      logo: /images/case-studies/x-logo-dark.svg
-      link: 'https://youtu.be/z-u99yZFn5o'
+    carousel: true
     signature:
       name: Eric Denman
       position: Software Engineer at X
@@ -153,9 +143,7 @@ items:
       across platforms without team expansion or performance hits.”
     logo:
       - /images/case-studies/bolt-logo.svg
-    carousel:
-      logo: /images/case-studies/bolt-logo.svg
-      link: 'https://youtu.be/Qu3jZX8RyFk'
+    carousel: true
     signature:
       name: Toomas Römer
       position: VP of Engineering at Bolt
@@ -174,8 +162,7 @@ items:
       improved feature parity across Android and iOS.
     logo:
       - /images/case-studies/bitkey-logo.svg
-    carousel:
-      logo: /images/case-studies/bitkey-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -191,9 +178,7 @@ items:
       team productivity and strengthening collaboration between teams.
     logo:
       - /images/case-studies/meetup-logo.svg
-    carousel:
-      logo: /images/case-studies/meetup-logo.svg
-      link: 'https://youtu.be/GtJBS7B3eyM'
+    carousel: true
     platforms:
       - android
       - ios
@@ -230,9 +215,7 @@ items:
       works differently on iOS, but it has been a while since we heard that one.”
     logo:
       - /images/case-studies/philips-logo.svg
-    carousel:
-      logo: /images/case-studies/philips-logo.svg
-      link: 'https://youtu.be/Qu3jZX8RyFk'
+    carousel: true
     signature:
       name: Jeroen Brosens
       position: Software Architect at Philips
@@ -253,8 +236,6 @@ items:
       - /images/case-studies/cash-app-logo.svg
     alternateLogo:
       - /images/case-studies/cash-app-logo-dark.svg
-    carousel:
-      logo: /images/case-studies/cash-app-logo-dark.svg
     platforms:
       - android
       - ios
@@ -291,9 +272,7 @@ items:
       - /images/case-studies/wrike-logo.svg
     alternateLogo:
       - /images/case-studies/wrike-logo-dark.svg
-    carousel:
-      logo: /images/case-studies/wrike-logo-dark.svg
-      link: 'https://youtu.be/jhBmom8z3Qg'
+    carousel: true
     platforms:
       - android
       - ios
@@ -312,8 +291,6 @@ items:
       - /images/case-studies/autodesk-logo.svg
     alternateLogo:
       - /images/case-studies/autodesk-logo-dark.svg
-    carousel:
-      logo: /images/case-studies/autodesk-logo-dark.svg
     platforms:
       - android
       - ios
@@ -327,8 +304,7 @@ items:
       UI is shared with Compose Multiplatform.
     logo:
       - /images/case-studies/feres-logo.png
-    carousel:
-      logo: /images/case-studies/feres-logo.png
+    carousel: true
     platforms:
       - android
       - ios
@@ -399,8 +375,7 @@ items:
       native-only views.
     logo:
       - /images/case-studies/down-dog-logo.svg
-    carousel:
-      logo: /images/case-studies/down-dog-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -420,8 +395,7 @@ items:
       world of TV and movie production.
     logo:
       - /images/case-studies/netflix-logo.svg
-    carousel:
-      logo: /images/case-studies/netflix-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -437,8 +411,6 @@ items:
       - /images/case-studies/9gag-logo.svg
     alternateLogo:
       - /images/case-studies/9gag-logo-dark.svg
-    carousel:
-      logo: /images/case-studies/9gag-logo-dark.svg
     platforms:
       - android
       - ios
@@ -470,9 +442,7 @@ items:
       in delivering their iOS app.
     logo:
       - /images/case-studies/careem-logo.svg
-    carousel:
-      logo: /images/case-studies/careem-logo.svg
-      link: 'https://youtu.be/DcO9psUh4LI'
+    carousel: true
     platforms:
       - android
       - ios
@@ -516,8 +486,7 @@ items:
       the performance of both their Android and iOS applications
     logo:
       - /images/case-studies/quizlet-logo.svg
-    carousel:
-      logo: /images/case-studies/quizlet-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -546,8 +515,7 @@ items:
       users among 800,000 active users.
     logo:
       - /images/case-studies/worldline-logo.svg
-    carousel:
-      logo: /images/case-studies/worldline-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -565,8 +533,7 @@ items:
       trusted open-source contributors, building crucial tools used widely in production apps.
     logo:
       - /images/case-studies/touchlab-logo.svg
-    carousel:
-      logo: /images/case-studies/touchlab-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -612,8 +579,7 @@ items:
       management software to help users meet business needs, anytime, anywhere.
     logo:
       - /images/case-studies/fastwork-logo.svg
-    carousel:
-      logo: /images/case-studies/fastwork-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -671,8 +637,7 @@ items:
     logo:
       - /images/case-studies/google-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/google.svg'
-      link: 'https://youtu.be/o14wGByBRAQ?si=TmqJBtfZw2F8-IEw&t=7'
+      logo: /images/case-studies/carousel/google.svg
     media:
       type: youtube
       videoId: o14wGByBRAQ
@@ -693,7 +658,7 @@ items:
     logo:
       - /images/case-studies/kingfisher-logo.png
     carousel:
-      logo: '/images/case-studies/carousel/kingfisher.svg'
+      logo: /images/case-studies/carousel/kingfisher.svg
     isExternal: true
     link: https://medium.com/kingfisher-technology/server-side-kotlin-our-new-default-2d15644f8ed0
   #------------------------------------------------------------------------
@@ -705,7 +670,7 @@ items:
       - /images/case-studies/mercedes-benz-logo.svg
     isExternal: true
     carousel:
-      logo: '/images/case-studies/carousel/mercedes-benz.svg'
+      logo: /images/case-studies/carousel/mercedes-benz.svg
     link: https://www.mercedes-benz.io/blog/2024-11-22-transitioning-from-java-to-kotlin-in-backend-development
   #------------------------------------------------------------------------
   - id: case-study-novatec
@@ -715,7 +680,7 @@ items:
     logo:
       - /images/case-studies/novatec-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/novatec.svg'
+      logo: /images/case-studies/carousel/novatec.svg
     link: https://kotlinlang.org/lp/server-side/case-studies/novatec/
   #------------------------------------------------------------------------
   - id: case-study-fairef
@@ -725,7 +690,7 @@ items:
     logo:
       - /images/case-studies/faire-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/faire.svg'
+      logo: /images/case-studies/carousel/faire.svg
     link: https://kotlinlang.org/lp/server-side/case-studies/faire/
   #------------------------------------------------------------------------
   - id: case-study-doordash
@@ -734,8 +699,7 @@ items:
       A quick overview of how DoorDash split their existing legacy monolith into multiple backend services, which they developed in Kotlin.
     logo:
       - /images/case-studies/doordash-logo.svg
-    carousel:
-        logo: '/images/case-studies/doordash-logo.svg'
+    carousel: true
     link: https://kotlinlang.org/lp/server-side/case-studies/doordash/
   #------------------------------------------------------------------------
   - id: case-study-adobe
@@ -745,7 +709,7 @@ items:
     logo:
       - /images/case-studies/adobe-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/adobe.svg'
+      logo: /images/case-studies/carousel/adobe.svg
     isExternal: true
     link: https://medium.com/adobetech/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a
   #------------------------------------------------------------------------
@@ -756,8 +720,8 @@ items:
     logo:
       - /images/case-studies/aws-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/aws.svg'
-      link: 'https://www.youtube.com/live/Ar73Axsz2YA?si=E2qlkuznF9B2MXou&t=2766'
+      logo: /images/case-studies/carousel/aws.svg
+      link: https://www.youtube.com/live/Ar73Axsz2YA?si=E2qlkuznF9B2MXou&t=2766
     isExternal: true
     link: https://talkingkotlin.com/qldb/
   #------------------------------------------------------------------------
@@ -768,8 +732,7 @@ items:
     logo:
       - /images/case-studies/atlassian-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/atlassian.svg'
-      link: 'https://www.youtube.com/watch?v=4GkoB4hZUnw'
+      logo: /images/case-studies/carousel/atlassian.svg
     media:
       type: youtube
       videoId: 4GkoB4hZUnw
@@ -780,8 +743,7 @@ items:
       **Expedia** uses Kotlin and Spring Boot for GraphQL APIs, leveraging Kotlin’s null safety and Java interop to modernize their backend.
     logo:
       - /images/case-studies/expedia-logo.svg
-    carousel:
-      logo: '/images/case-studies/expedia-logo.svg'
+    carousel: true
     link: https://kotlinlang.org/lp/server-side/case-studies/expedia/
   #------------------------------------------------------------------------
   - id: case-study-ing
@@ -791,7 +753,7 @@ items:
     logo:
       - /images/case-studies/ing-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/ing.svg'
+      logo: /images/case-studies/carousel/ing.svg
     isExternal: true
     link: https://medium.com/ing-blog/introducing-kotlin-at-ing-a-long-but-rewarding-story-1bfcd3dc8da0
   #------------------------------------------------------------------------
@@ -802,8 +764,8 @@ items:
     logo:
       - /images/case-studies/intuit-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/intuit.svg'
-      link: 'https://medium.com/intuit-engineering/what-the-f-p-is-kotlin-7c55e2643b07'
+      logo: /images/case-studies/carousel/intuit.svg
+      link: https://medium.com/intuit-engineering/what-the-f-p-is-kotlin-7c55e2643b07
     media:
       type: youtube
       videoId: P6G2YPuDE3Y
@@ -815,8 +777,8 @@ items:
     logo:
       - /images/case-studies/flux-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/flux.svg'
-      link: 'https://open.spotify.com/episode/3VS5dSUfcsC4fSvzbm2OxV?si=yEcubDoeRAW7zwVdo3XFtw&nd=1&dlsi=5e0e4c8dba104719'
+      logo: /images/case-studies/carousel/flux.svg
+      link: https://open.spotify.com/episode/3VS5dSUfcsC4fSvzbm2OxV?si=yEcubDoeRAW7zwVdo3XFtw&nd=1&dlsi=5e0e4c8dba104719
     isExternal: true
     link: https://talkingkotlin.com/Using-Kotlin-for-backend-development-at-Flux
   #------------------------------------------------------------------------
@@ -827,8 +789,7 @@ items:
     logo:
       - /images/case-studies/allegro-logo.svg
     carousel:
-      logo: '/images/case-studies/allegro-logo.svg'
-      link: 'https://open.spotify.com/episode/6gRiIJSWN515tAvZuMAwRR?si=vPsgW2jDShSG2_S8eLfjqA'
+      link: https://open.spotify.com/episode/6gRiIJSWN515tAvZuMAwRR?si=vPsgW2jDShSG2_S8eLfjqA
     isExternal: true
     link: https://talkingkotlin.com/kotlin-at-allegro
   #------------------------------------------------------------------------
@@ -839,8 +800,8 @@ items:
     logo:
       - /images/case-studies/olx-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/olx.svg'
-      link: 'https://open.spotify.com/episode/3XBlKY3x4vVojuay4oSh8g?si=qiiwg8vkSm2OIP6rvrwnkg'
+      logo: /images/case-studies/carousel/olx.svg
+      link: https://open.spotify.com/episode/3XBlKY3x4vVojuay4oSh8g?si=qiiwg8vkSm2OIP6rvrwnkg
     isExternal: true
     link: https://talkingkotlin.com/greenfield-kotlin-at-olx
   #------------------------------------------------------------------------
@@ -851,8 +812,8 @@ items:
     logo:
       - /images/case-studies/shazam-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/shazam.svg'
-      link: 'https://open.spotify.com/episode/6oZdJE7XU1GF6Dlir6tP50?si=2h7YKDejSxGrlFaWqZE6Ng'
+      logo: /images/case-studies/carousel/shazam.svg
+      link: https://open.spotify.com/episode/6oZdJE7XU1GF6Dlir6tP50?si=2h7YKDejSxGrlFaWqZE6Ng
     isExternal: true
     link: https://talkingkotlin.com/kotlin-at-shazam/
   #------------------------------------------------------------------------
@@ -863,7 +824,7 @@ items:
     logo:
       - /images/case-studies/n26-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/n26.svg'
+      logo: /images/case-studies/carousel/n26.svg
     isExternal: true
     link: https://medium.com/insiden26/5-reasons-why-n26-is-moving-to-kotlin-f920b184ab58
   #------------------------------------------------------------------------
@@ -874,7 +835,7 @@ items:
     logo:
       - /images/case-studies/memo-bank-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/memo-bank.svg'
+      logo: /images/case-studies/carousel/memo-bank.svg
     isExternal: true
     link: https://memo.bank/en/magazine/cudling-with-kotlin/
   #------------------------------------------------------------------------
@@ -885,8 +846,8 @@ items:
     logo:
       - /images/case-studies/ktor-logo.svg
     carousel:
-      logo: '/images/case-studies/carousel/ktor.svg'
-      link: 'https://open.spotify.com/episode/7rcwW7gNFIOrDqy6tgA1HU?si=c8QerntfTUqUO9Ks3s3kKw'
+      logo: /images/case-studies/carousel/ktor.svg
+      link: https://open.spotify.com/episode/7rcwW7gNFIOrDqy6tgA1HU?si=c8QerntfTUqUO9Ks3s3kKw
     isExternal: true
     link: https://talkingkotlin.com/ktor-with-ryan-harter/
   #------------------------------------------------------------------------
@@ -897,8 +858,7 @@ items:
     logo:
       - /images/case-studies/spring-logo.svg
     carousel:
-      logo: '/images/case-studies/spring-logo.svg'
-      link: 'https://youtu.be/QExksqeNWbY?si=KSy63mxDTh07DYPM'
+      link: https://youtu.be/QExksqeNWbY?si=KSy63mxDTh07DYPM
     isExternal: true
     link: https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0
   #------------------------------------------------------------------------
@@ -908,8 +868,7 @@ items:
       **Corda** is built entirely in Kotlin, sharing background on why they chose the language and lessons from their “year of enterprise Kotlin”.
     logo:
       - /images/case-studies/corda-logo.svg
-    carousel:
-      logo: '/images/case-studies/corda-logo.svg'
+    carousel: true
     isExternal: true
     link: https://www.corda.net/blog/kotlin/
   #------------------------------------------------------------------------
