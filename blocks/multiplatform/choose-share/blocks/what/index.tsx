@@ -60,7 +60,7 @@ export function ChooseShareWhat({ className }: { className?: string }) {
     const navigateToHash = useTabScroll(TABS_BLOCKS, 'choose-share-what-', setActiveIndex);
 
     return (
-        <div className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')}>
+        <section className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')}>
             <h2 className={cn(styles.title, textCn('rs-h1'))}>Choose what to share</h2>
             <ChipList
                 size={'l'}
@@ -89,7 +89,7 @@ export function ChooseShareWhat({ className }: { className?: string }) {
                     </CodeShareCard>
                 </Fragment>)}
             </div>
-        </div>
+        </section>
     );
 }
 
