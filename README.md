@@ -15,14 +15,15 @@ This repository is the source for [https://kotlinlang.org](https://kotlinlang.or
 
 ### Content
 
-|Website page|Source files|
-|------------|--------|
-| [Main page](https://kotlinlang.org/) | [templates/pages/index.html](templates/pages/index.html) |
-| [Kotlin docs](https://kotlinlang.org/docs/home.html) |[docs/topics](docs/topics)| 
-| [Community](https://kotlinlang.org/community/) | [pages/community](pages/community) | 
-| [Education](https://kotlinlang.org/education/) | [templates/pages/education](templates/pages/education)| 
-
-Note that source files for the [server-side landing page](https://kotlinlang.org/lp/server-side/) and [Kotlin Multiplatform landing page](https://kotlinlang.org/lp/multiplatform/) are not publicly available.
+| Website page                                              | Source files                                             |
+|-----------------------------------------------------------|----------------------------------------------------------|
+| [Main page](https://kotlinlang.org/)                      | [templates/pages/index.html](templates/pages/index.html) |
+| [Kotlin docs](https://kotlinlang.org/docs/home.html)      | [docs/topics](docs/topics)                               |
+| [Server-side](https://kotlinlang.org/server-side/)        | [pages/server-side](pages/server-side)                   |
+| [Multiplatform](https://kotlinlang.org/multiplatform/)    | [pages/multiplatform](pages/multiplatform)               |
+| [Case Studies](https://kotlinlang.org/case-studies/)      | [pages/case-studies](pages/case-studies)                 |
+| [Community](https://kotlinlang.org/community/)            | [pages/community](pages/community)                       | 
+| [Education](https://kotlinlang.org/education/)            | [templates/pages/education](templates/pages/education)   | 
 
 #### Sources in different repositories
 
