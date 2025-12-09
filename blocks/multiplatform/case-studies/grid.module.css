@@ -1,3 +1,17 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    margin-block: var(--ktl-box-page-m);
+    align-items: center;
+}
+
+.title, .grid {
+    margin: 0;
+    padding: 0;
+}
+
 .title {
     text-align: center;
 }
