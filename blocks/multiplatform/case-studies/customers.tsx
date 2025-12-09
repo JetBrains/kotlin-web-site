@@ -2,6 +2,8 @@ import CustomerLogoMarqueeSection from '../../../components/customer-logo-marque
 
 import logos from '../../../components/customer-logo-marquee/multiplatform-logos';
 
+import styles from './customers.module.css';
+
 export function CustomerLogos() {
-    return <CustomerLogoMarqueeSection items={logos} />;
+    return <CustomerLogoMarqueeSection className={styles.logos} items={logos} />;
 }
