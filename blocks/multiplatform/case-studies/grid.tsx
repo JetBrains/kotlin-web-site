@@ -8,6 +8,7 @@ import styles from './grid.module.css';
 import { Button } from '@rescui/button';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
+import { useMS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 
 const FILTER: FilterOptions = {
     type: 'multiplatform'
@@ -31,11 +32,11 @@ function filterHighlighted(items: CaseItem[]) {
 }
 
 const LINK_CASES = '/case-studies/?type=multiplatform' as const;
-const ANCHOR_CASES = 'explore-more-customer-stories' as const;
 
 export function CaseStudies() {
-    const textCn = useTextStyles();
     const router = useRouter();
+    const textCn = useTextStyles();
+    const isMS = useMS();
 
     const handleNavigate = useCallback((e) => {
         e.preventDefault();
@@ -43,14 +44,15 @@ export function CaseStudies() {
         router.push(LINK_CASES);
     }, [router]);
 
-    return <>
-        <h2 className={cn(styles.title, textCn('rs-h1'))}>Real-world success stories</h2>
+    return (
         <FilteredCasesProvider filter={FILTER} preprocess={filterHighlighted}>
-            <CaseStudiesGrid mode={'rock'} />
+            <section className={cn(styles.section, 'ktl-layout', 'ktl-layout--center')}>
+                <h2 className={cn(styles.title, textCn('rs-h1'))}>Real-world success stories</h2>
+                <CaseStudiesGrid mode={'rock'} className={styles.grid}/>
+                <Button size={isMS ? 'm' : 'l'} mode={'outline'} href={LINK_CASES} onClick={handleNavigate}>
+                    Explore more customer stories
+                </Button>
+            </section>
         </FilteredCasesProvider>
-        <a id={ANCHOR_CASES}></a>
-        <Button size={'l'} mode={'outline'} href={LINK_CASES} onClick={handleNavigate}>
-            Explore more customer stories
-        </Button>
-    </>;
+    );
 }
