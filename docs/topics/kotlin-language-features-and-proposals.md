@@ -215,6 +215,24 @@ guided by pragmatic design.
 </td>
 <td>
 
+**Context parameters: support for context-dependent declarations**
+
+* KEEP proposal: [context-parameters.md](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md)
+* YouTrack issue: [KT-10468](https://youtrack.jetbrains.com/issue/KT-10468)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
+* Available since: 2.2.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
 **Unused return value checker**
 
 * KEEP proposal: [unused-return-value-checker.md](https://github.com/Kotlin/KEEP/blob/underscore-for-unused-local/proposals/unused-return-value-checker.md)
@@ -381,23 +399,6 @@ guided by pragmatic design.
 
 * KEEP proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/master/proposals/nested-typealias.md)
 * YouTrack issue: [KT-45285](https://youtrack.jetbrains.com/issue/KT-45285)
-* Available since: 2.2.0
-
-</td>
-</tr>
-
-<tr filter="stable">
-<td>
-
-**Stable**
-
-</td>
-<td>
-
-**Context parameters: support for context-dependent declarations**
-
-* KEEP proposal: [context-parameters.md](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md)
-* YouTrack issue: [KT-10468](https://youtrack.jetbrains.com/issue/KT-10468)
 * Available since: 2.2.0
 
 </td>
