@@ -105,8 +105,7 @@ items:
       reduce duplicate code, and smoothly deliver a production-ready solution across platforms.
     logo:
       - /images/case-studies/h&m-logo.svg
-    carousel:
-      
+    carousel: true
     platforms:
       - android
       - ios
