@@ -60,8 +60,8 @@ export function ChooseShareWhat({ className }: { className?: string }) {
     const navigateToHash = useTabScroll(TABS_BLOCKS, 'choose-share-what-', setActiveIndex);
 
     return (
-        <section className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')}>
-            <h2 className={cn(styles.title, textCn('rs-h1'))}>Choose what to share</h2>
+        <section className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')} data-testid={'share-what-block'}>
+            <h2 className={cn(styles.title, textCn('rs-h1'))} data-testid={'share-what-title'}>Choose what to share</h2>
             <ChipList
                 size={'l'}
                 alignItems={'center'}
@@ -73,7 +73,7 @@ export function ChooseShareWhat({ className }: { className?: string }) {
                 {TABS_BLOCKS.map(({ id, Tab }, i) => (
                     <Chip key={id} className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}
                           href={`#choose-share-what-${id}`} aria-label={`Go to ${id} section`} role="tab"
-                          onClick={navigateToHash}>
+                          onClick={navigateToHash} data-testid={'share-what-chip-anchor'}>
                         <Tab />
                     </Chip>
                 ))}

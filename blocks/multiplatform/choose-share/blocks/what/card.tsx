@@ -19,11 +19,11 @@ function Card({ className, title, url, imageName, children }: CodeShareCardProps
     const textCn = useTextStyles();
 
     return (
-        <section className={cn(styles.card, className, cardCn())}>
+        <section className={cn(styles.card, className, cardCn())} data-testid={'share-what-chip-content'}>
             <div className={styles.content}>
-                <h3 className={cn(styles.title, textCn('rs-h2'))}>{title}</h3>
-                <p className={cn(styles.text, textCn('rs-text-1'))}>{children}</p>
-                <Button className={styles.button} href={url} size={'l'} mode={'rock'}>Get started</Button>
+                <h3 className={cn(styles.title, textCn('rs-h2'))} data-testid={'share-what-chip-content-title'}>{title}</h3>
+                <p className={cn(styles.text, textCn('rs-text-1'))} data-testid={'share-what-chip-content-text'}>{children}</p>
+                <Button className={styles.button} href={url} size={'l'} mode={'rock'} data-testid={'share-what-chip-content-action'}>Get started</Button>
             </div>
             <p className={styles.cover}>
                 <img
