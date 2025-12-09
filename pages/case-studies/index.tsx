@@ -4,7 +4,7 @@ import { CASE_STUDIES_TITLE, CASE_STUDIES_URL } from '@jetbrains/kotlin-web-site
 import { LandingLayout } from '../../components/landing-layout/landing-layout';
 import { CaseStudiesHero } from '../../blocks/case-studies/hero/case-studies-hero';
 import { CaseStudiesFilter } from '../../blocks/case-studies/filter/case-studies-filter';
-import { CaseStudiesGrid } from '../../blocks/case-studies/grid/case-studies-grid';
+import { CaseStudiesGrid, CaseStudiesSection } from '../../blocks/case-studies/grid/case-studies-grid';
 import { RouterCasesProvider } from '../../blocks/case-studies/filter/use-filtered-cases';
 
 const TOP_MENU_ITEMS = [
@@ -30,7 +30,7 @@ function Index() {
             <CaseStudiesHero />
             <CaseStudiesFilter />
             <RouterCasesProvider>
-                <CaseStudiesGrid />
+                <CaseStudiesSection />
             </RouterCasesProvider>
         </LandingLayout>
     );
