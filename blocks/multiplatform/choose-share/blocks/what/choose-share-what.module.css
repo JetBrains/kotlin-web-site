@@ -90,14 +90,6 @@
     @media (--ktl-ml-more) {
         border-radius: 24px;
     }
-
-    @media (--ktl-ds-more) {
-        min-height: 568px;
-    }
-
-    @media (--ktl-ds-in) {
-        min-height: 484px;
-    }
 }
 
 :global(.js) .card:not(.active) {
