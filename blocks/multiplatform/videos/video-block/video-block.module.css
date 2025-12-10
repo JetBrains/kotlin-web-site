@@ -43,3 +43,7 @@
 .videoPlayer, .videoPlayer [data-test="video-mini-player"] {
     border-radius: var(--video-border-radius);
 }
+
+.videoPlayer button[data-test="overlay"] > span {
+    margin: 0;
+}
