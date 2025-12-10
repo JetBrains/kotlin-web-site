@@ -14,7 +14,7 @@ export const CtaBlock = ({ url }: { url: string }) => {
             <div className="ktl-layout ktl-layout--center">
                 <div className={styles.content}>
                 <h2 className={cn(textCn('rs-h1'), styles.title)}>
-                    Try Kotlin Multiplatform&nbsp;—<br />share code on your terms across different platforms.
+                    Go cross-platform without compromises&nbsp;—<br />try Kotlin Multiplatform today.
                 </h2>
                 <Button className={cn(styles.button)} mode={'rock'} href={url} size={isDL ? 'l' : 'm'}>
                     Get Started

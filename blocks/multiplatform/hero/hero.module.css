@@ -62,6 +62,8 @@
 }
 
 .subtitle {
+    max-width: 900px;
+
     @media (--ktl-ts-in) {
         /* @mixin rs-subtitle-1-sm-* */
         font-size: 23px;
