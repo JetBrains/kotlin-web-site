@@ -1,8 +1,18 @@
 .card {
   border-radius: 16px;
   overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.8);
+
+  border: 1px solid;
+
+  &.classic {
+    background: #fff;
+    border-color:rgb(0, 0, 0, 0.8);
+  }
+
+  &.rock {
+    background: #19191C;
+    border-color: rgb(255, 255, 255, 0.20);
+  }
 }
 
 .content {

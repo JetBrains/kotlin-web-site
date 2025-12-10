@@ -1,6 +1,8 @@
-import React from 'react';
+import cn from 'classnames';
 import { Accordion, Collapse } from '@rescui/collapse';
 import { useTextStyles } from '@rescui/typography';
+
+import styles from './faq-block.module.css';
 
 export const FaqBlock = () => {
     const textCn = useTextStyles();
@@ -8,7 +10,7 @@ export const FaqBlock = () => {
 
     return (
         <Accordion>
-            <div className={'ktl-layout ktl-layout--center ktl-offset-bottom-xxl'}>
+            <section className={cn(styles.section, 'ktl-layout ktl-layout--center')}>
                 <div className={'ktl-row'}>
                     <div className="ktl-col-12 ktl-col-md-6">
                         <Collapse title={'What is Kotlin Multiplatform?'}>
@@ -91,7 +93,7 @@ export const FaqBlock = () => {
                         </Collapse>
                     </div>
                 </div>
-            </div>
+            </section>
         </Accordion>
     );
 };
