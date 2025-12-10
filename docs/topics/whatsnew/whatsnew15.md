@@ -165,7 +165,7 @@ The default target version for Kotlin/JVM compilations is now `1.8`. The `1.6` t
 If you need a build for JVM 1.6, you can still switch to this target. Learn how:
 
 * [in Gradle](gradle-compiler-options.md#attributes-specific-to-jvm)
-* [in Maven](maven.md#attributes-specific-to-jvm)
+* [in Maven](maven-compile-package.md#attributes-specific-to-jvm)
 * [in the command-line compiler](compiler-reference.md#jvm-target-version)
 
 ### SAM adapters via invokedynamic
@@ -180,7 +180,7 @@ which improves the JVM startup performance.
 
 To roll back to the old implementation scheme based on anonymous class generation, add the compiler option `-Xsam-conversions=class`.
 
-Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Maven](maven.md#specify-compiler-options), and the [command-line compiler](compiler-reference.md#compiler-options).
+Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Maven](maven-compile-package.md#specify-compiler-options), and the [command-line compiler](compiler-reference.md#compiler-options).
 
 ### Lambdas via invokedynamic
 
@@ -202,7 +202,7 @@ lambda compilation:
 To try this feature, add the `-Xlambdas=indy` compiler option. We would be grateful if you could share your feedback on it using
 this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-45375).
 
-Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Maven](maven.md#specify-compiler-options), and [command-line compiler](compiler-reference.md#compiler-options).
+Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Maven](maven-compile-package.md#specify-compiler-options), and [command-line compiler](compiler-reference.md#compiler-options).
 
 ### Deprecation of @JvmDefault and old Xjvm-default modes
 
