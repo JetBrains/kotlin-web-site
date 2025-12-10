@@ -1,10 +1,11 @@
 package references.builds.compose
 
 import common.ReferenceProject
-import common.extensions.dokkaBuildHtml
 import common.extensions.apiReference
+import common.extensions.dokkaBuildHtml
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.Dependency
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 // Copy build setting from:
@@ -38,6 +39,16 @@ class ComposeMultiplatformCore(init: ComposeMultiplatformCore.() -> Unit) : Refe
     init {
         init()
         build()
+    }
+
+    override fun makeLatestDependency(workingDir: String): Dependency.() -> Unit {
+        return {
+            artifacts {
+                buildRule = tag("release")
+                artifactRules = "pages.zip!** => $workingDir"
+                cleanDestination = true
+            }
+        }
     }
 
     fun addVersion(version: String, tagOrBranch: String) = addReference(version) {
