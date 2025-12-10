@@ -101,7 +101,7 @@ kotlin.compiler.execution.strategy=in-process
 ## Integration with Maven
 
 The BTA enables the [`kotlin-maven-plugin`](maven.md) to support the [Kotlin daemon](kotlin-daemon.md), which is the default
-[compiler execution strategy](maven.md#configure-kotlin-compiler-execution-strategy). The `kotlin-maven-plugin` uses BTA by default,
+[compiler execution strategy](maven-compile-package.md#choose-execution-strategy). The `kotlin-maven-plugin` uses BTA by default,
 so there's no need to configure anything.
 
 The BTA makes it possible to deliver more features like [Incremental compilation stabilization](https://youtrack.jetbrains.com/issue/KT-77086) in the future.
