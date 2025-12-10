@@ -28,8 +28,18 @@
 }
 
 .videoPlayer {
-    border-radius: 24px;
+    --video-player-ratio: 16 / 9;
+    --video-border-radius: 24px;
+
     overflow: hidden;
     width: 100%;
     margin: 48px 72px 72px;
+}
+
+.videoPlayer > div {
+    padding-bottom: calc(1% * (100 / (var(--video-player-ratio)))) !important;
+}
+
+.videoPlayer, .videoPlayer [data-test="video-mini-player"] {
+    border-radius: var(--video-border-radius);
 }
