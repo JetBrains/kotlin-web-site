@@ -64,7 +64,7 @@ WASI provides a secure standard interface for running Kotlin applications compil
 
 ## Kotlin/Wasm performance
 
-Although Kotlin/Wasm is still in Alpha, Compose Multiplatform running on Kotlin/Wasm already shows encouraging performance 
+Although Kotlin/Wasm is still in Beta, Compose Multiplatform running on Kotlin/Wasm already shows encouraging performance 
 traits. You can see that its execution speed outperforms JavaScript and is approaching that of the JVM:
 
 ![Kotlin/Wasm performance](wasm-performance-compose.png){width=700}

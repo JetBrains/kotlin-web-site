@@ -14,8 +14,8 @@
     <var name="apiVersion" value="2.1"/>
 
     <!-- Kotlin EAP -->
-    <var name="kotlinEapVersion" value="2.3.0-Beta2"/>
-    <var name="kotlinEapReleaseDate" value="October 28, 2025"/>
+    <var name="kotlinEapVersion" value="2.3.0-RC3"/>
+    <var name="kotlinEapReleaseDate" value="December 9, 2025"/>
 
     <!-- Libraries and Frameworks -->
     <var name="coroutinesVersion" value="1.10.2"/>
@@ -27,7 +27,7 @@
 
     <var name="lincheckVersion" value="3.0"/>
 
-    <var name="ktorVersion" value="3.3.1"/>
+    <var name="ktorVersion" value="3.3.3"/>
 
     <var name="lombokVersion" value="8.14.2"/>
 

@@ -151,10 +151,6 @@ We would appreciate your feedback in our issue tracker, [YouTrack](https://youtr
 ### Data-flow-based exhaustiveness checks for `when` expressions
 <primary-label ref="experimental-opt-in"/>
 
-> Support for code analysis, code completion, and highlighting of this feature in IntelliJ IDEA is currently available only in [2025.3 EAP builds](https://www.jetbrains.com/idea/nextversion/).
->
-{style = "note"}
-
 Kotlin 2.2.20 introduces **data-flow-based** exhaustiveness checks for `when` expressions.
 Previously, the compiler's checks were limited to the `when` expression itself,
 often forcing you to add a redundant `else` branch.
@@ -193,10 +189,6 @@ kotlin {
 
 ### Support for reified types in `catch` clauses
 <primary-label ref="experimental-opt-in"/>
-
-> Support for code analysis, code completion, and highlighting of this feature in IntelliJ IDEA is currently available only in [2025.3 EAP builds](https://www.jetbrains.com/idea/nextversion/).
-> 
-{style = "note"}
 
 In Kotlin 2.2.20, the compiler now allows using [reified generic type parameters](inline-functions.md#reified-type-parameters) in `catch` clauses of `inline` functions.
 
@@ -238,10 +230,6 @@ The Kotlin team is grateful to external contributor [Iven Krall](https://github.
 
 ### Improved Kotlin contracts
 <primary-label ref="experimental-opt-in"/>
-
-> Support for code analysis, code completion, and highlighting of this feature in IntelliJ IDEA is currently available only in [2025.3 EAP builds](https://www.jetbrains.com/idea/nextversion/).
->
-{style = "note"}
 
 Kotlin 2.2.20 introduces several improvements to [Kotlin contracts](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.contracts/contract.html), including:
 
@@ -675,7 +663,7 @@ don't use the default hierarchy.
 Kotlin 2.2.20 completes an important [roadmap item](https://youtrack.jetbrains.com/issue/KT-71290), stabilizing
 cross-platform compilation for Kotlin libraries.
 
-You can now use any host to produce `.klib` artifacts for publishing Kotlin libraries. This significantly streamlines the
+You can now use any [supported host](native-target-support.md#hosts) to produce `.klib` artifacts for publishing Kotlin libraries. This significantly streamlines the
 publishing process, particularly for Apple targets that previously required a Mac machine.
 
 The feature is available by default. If you have already enabled cross-compilation with `kotlin.native.enableKlibsCrossCompilation=true`,

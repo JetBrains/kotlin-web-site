@@ -601,8 +601,6 @@ items:
       **Google** has adopted Kotlin as a recommended language for server-side JVM development while maintaining full access to its vast Java ecosystem. With over 11 million lines of Kotlin code across server and Android projects, the company has taken extensive steps to support developer success.
     logo:
       - /images/case-studies/google-logo.svg
-    isExternal: true
-    link: https://youtu.be/o14wGByBRAQ?si=TmqJBtfZw2F8-IEw&t=7
     media:
       type: youtube
       videoId: o14wGByBRAQ
@@ -682,8 +680,6 @@ items:
       **Atlassian** uses Kotlin to power the future of Jira Software cloud products, supporting a decomposed, service-based architecture.
     logo:
       - /images/case-studies/atlassian-logo.svg
-    isExternal: true
-    link: https://www.youtube.com/watch?v=4GkoB4hZUnw
     media:
       type: youtube
       videoId: 4GkoB4hZUnw
@@ -711,8 +707,9 @@ items:
       **Intuit** highlights how Kotlin has increased developer productivity and helped shape their development plan.
     logo:
       - /images/case-studies/intuit-logo.svg
-    isExternal: true
-    link: https://www.intuit.com/blog/uncategorized/kotlin-development-plan/
+    media:
+      type: youtube
+      videoId: P6G2YPuDE3Y
   #------------------------------------------------------------------------
   - id: case-study-flux
     type: server-side

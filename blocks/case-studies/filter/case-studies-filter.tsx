@@ -36,7 +36,7 @@ export const CaseStudiesFilter: React.FC = () => {
         setCompose(nextCompose, () => setType('multiplatform'));
     };
 
-    const showKmpFilters = type === 'multiplatform' || type === 'all';
+    const showKmpFilters = type === 'multiplatform';
 
     return (
         <section className="ktl-layout ktl-layout--center" data-testid="case-studies-filter"

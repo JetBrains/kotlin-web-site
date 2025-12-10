@@ -117,7 +117,7 @@ fun main() {
 
 #### Comparator binary search
 
-When list elements aren't `Comparable`, you should provide a [`Comparator`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparator.html) to use in the binary search.
+When list elements aren't `Comparable`, you should provide a [`Comparator`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-comparator/) to use in the binary search.
 The list must be sorted in ascending order according to this `Comparator`. Let's have a look at an example:
 
 ```kotlin

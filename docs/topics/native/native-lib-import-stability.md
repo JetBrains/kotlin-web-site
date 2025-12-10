@@ -1,21 +1,25 @@
-[//]: # (title: Stability of C and Objective-C library import)
+[//]: # (title: C, Objective-C, and Swift library import)
+
+Kotlin/Native provides the ability to [import C](native-c-interop.md) and [Objective-C](native-objc-interop.md) libraries.
+You can also work around importing pure [Swift libraries](#swift-library-import) into your Kotlin/Native projects.
+
+## Stability of C and Objective-C library import
 <primary-label ref="beta"/>
 
-Kotlin/Native provides [the ability to import C](native-c-interop.md) and [Objective-C](native-objc-interop.md) libraries.
-Support for these libraries is currently [in Beta](components-stability.md#kotlin-native).
+Support for importing C and Objective-C libraries is currently [in Beta](components-stability.md#kotlin-native).
 
 One of the main reasons for the Beta status is that using C and Objective-C libraries might affect the compatibility
 of your code with different versions of Kotlin, dependencies, and Xcode. This guide lists compatibility problems that
 happen often in practice, problems that occur only in some cases, and hypothetical potential issues as well.
 
-In this guide, C and Objective-C libraries, or _native libraries_ for simplicity, are divided into:
+For simplicity, we divide C and Objective-C libraries, or _native libraries_ here into:
 
 * [Platform libraries](#platform-libraries), which Kotlin provides by default to access the "system" native libraries on each platform.
 * [Third-party libraries](#third-party-libraries), all other native libraries that require additional configuration for Kotlin use.
 
 These two kinds of native libraries have different compatibility specifics.
 
-## Platform libraries
+### Platform libraries
 
 [_Platform libraries_](native-platform-libs.md) are shipped with the Kotlin/Native compiler.
 So, using different versions of Kotlin in the project results in getting different versions of platform libraries.
@@ -49,7 +53,7 @@ an ad hoc fix.
 Another potential reason for breaking changes in platform libraries is changes in the algorithm that translates
 native APIs to Kotlin. The JetBrains team makes reasonable efforts to avoid breaking changes in such cases as well.
 
-### Using new Objective-C classes from platform libraries
+#### Using new Objective-C classes from platform libraries
 
 The Kotlin compiler doesn't prevent you from using Objective-C classes that are not available with your deployment
 target.
@@ -61,13 +65,13 @@ is not enough.
 
 For more details, see [Strong linking](native-objc-interop.md#strong-linking).
 
-## Third-party libraries
+### Third-party libraries
 
 Apart from system platform libraries, Kotlin/Native allows importing third-party native libraries.
 For example, you can use [CocoaPods integration](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-overview.html)
 or set up a [cinterops configuration](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#cinterops).
 
-### Importing libraries with mismatched Xcode version
+#### Importing libraries with mismatched Xcode version
 
 Importing third-party native libraries can lead to compatibility issues with different Xcode versions.
 
@@ -75,7 +79,7 @@ When processing a native library, the compiler typically uses header files from 
 almost all native library headers import "standard" headers (for example, `stdint.h`) that come from Xcode.
 
 That's why the Xcode version affects the import of native libraries to Kotlin. This is also one of the reasons
-why [cross-compilation of Apple targets from a non-Mac host](whatsnew21.md#ability-to-publish-kotlin-libraries-from-any-host)
+why [cross-compilation of Apple targets from a non-Mac host](https://kotlinlang.org/docs/multiplatform/multiplatform-publish-lib-setup.html#compilation-for-apple-targets)
 is still impossible when using third-party native libraries.
 
 Every Kotlin version is compatible the most with a single Xcode version. This is the recommended version, which is tested
@@ -84,12 +88,12 @@ the most against the corresponding Kotlin version. Check the compatibility with 
 Using newer or older Xcode versions is often possible but might lead to problems,
 usually affecting the import of third-party native libraries.
 
-#### Xcode version is newer than recommended
+##### Xcode version is newer than recommended
 
 Using an Xcode version newer than recommended might break some Kotlin features. Importing third-party
 native libraries is most affected by this . It often doesn't work at all with an unsupported version of Xcode.
 
-#### Xcode version is older than recommended
+##### Xcode version is older than recommended
 
 Typically, Kotlin works well with older Xcode versions. There might be occasional issues that most often result in:
 
@@ -101,7 +105,7 @@ Typically, Kotlin works well with older Xcode versions. There might be occasiona
 If your Kotlin library successfully compiles with an older Xcode version, it's safe to publish unless you
 [use types from a third-party library in your Kotlin library API](#using-native-types-in-library-api).
 
-### Using a transitive third-party native dependency
+#### Using a transitive third-party native dependency
 
 When a Kotlin library in your project imports a third-party native library as part of its implementation,
 your project also gets access to that native library.
@@ -116,7 +120,7 @@ So, instead of relying on a transitive dependency, configure interoperability wi
 library directly. To do that, use another package name for the native library, similar to [using custom package name](#use-custom-package-name)
 to prevent compatibility issues.
 
-### Using native types in library API
+#### Using native types in library API
 
 If you publish a Kotlin library, be careful with native types in your library API. Such usages are expected to be broken
 in the future to fix compatibility and other issues, which will affect your library users.
@@ -138,12 +142,12 @@ internal fun createUIViewController(): UIViewController
 public fun getDate(): String = NSDate().toString()
 ```
 
-### Publishing a library that uses third-party library
+#### Publishing a library that uses third-party library
 
 If you publish a Kotlin library that uses third-party native libraries, there are a few things you can do to avoid
 compatibility issues.
 
-#### Use custom package name
+##### Use custom package name
 
 Using custom package names for third-party native libraries might help prevent compatibility issues.
 
@@ -161,7 +165,7 @@ To use a custom name for third-party native libraries:
 * When importing a native library with a `cinterops` configuration, use the [`packageName`](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#cinterops)
   property in the configuration block.
 
-#### Check compatibility with older Kotlin versions
+##### Check compatibility with older Kotlin versions
 
 When publishing a Kotlin library, the usage of a third-party native library might affect library compatibility
 with other Kotlin versions, specifically:
@@ -178,7 +182,7 @@ with other Kotlin versions, specifically:
   Using a native library in the Kotlin library normally shouldn't affect its backward compatibility.
   But it opens the possibility of more compiler bugs affecting compatibility.
 
-#### Avoid embedding static libraries
+##### Avoid embedding static libraries
 
 When importing a native library, it's possible to include the associated [static library](native-definition-file.md#include-a-static-library)
 (`.a` file) using the `-staticLibrary` compiler option or the `staticLibraries` property in a `.def` file.
@@ -188,7 +192,115 @@ However, it's impossible to configure the usage of the included static library i
 neither exclude nor replace (substitute) it. So, users won't be able to resolve potential clashes with other Kotlin
 libraries that include the same static library or adjust its version.
 
-## Evolution of native library support
+### Evolution of native library support
 
 Currently, using C and Objective-C in Kotlin projects can lead to compatibility issues; some of which are listed in this guide.
 To fix them, some breaking changes might be necessary in the future, which itself contributes to the compatibility problem.
+
+## Swift library import
+
+Kotlin/Native does not support direct import of pure Swift libraries. However, there are a couple
+of options to work around that.
+
+One way is to use manual Objective-C bridging. With this approach, you need to write custom Objective-C wrappers
+and `.def` files and consume those wrappers through cinterop.
+
+In most cases, however, we recommend using the _reverse import_ approach: you define the expected behavior on the Kotlin
+side, implement the actual functionality on the Swift side, and pass it back to Kotlin.
+
+You can define the expected part in one of two ways:
+
+* Create an interface. The interface-based approach scales better for multiple functions and testability.
+* Use Swift closures. They are great for quick prototypes, but this approach has its limitations —
+  for example, it doesn't hold state.
+
+Consider this example of reverse importing the [CryptoKit](https://developer.apple.com/documentation/cryptokit/)
+Swift library into a Kotlin project:
+
+<tabs>
+<tab title="Interface">
+
+1. On the Kotlin side, create an interface to describe what Kotlin expects from Swift:
+
+   ```kotlin
+   // CryptoProvider.kt
+   interface CryptoProvider {
+       fun hashMD5(input: String): String
+   }
+   ```
+
+2. On the Swift side, implement the MD5-hashing functionality using a pure Swift library, CryptoKit:
+
+    ```swift
+    // iosApp/ContentView.swift
+    import CryptoKit
+    
+    class IosCryptoProvider: CryptoProvider {
+        func hashMD5(input: String) -> String {
+            guard let data = input.data(using: .utf8) else { return "failed" }
+            return Insecure.MD5.hash(data: data).description
+        }
+    }
+    ```
+
+3. Pass the Swift implementation to the Kotlin component:
+
+   ```swift
+   // iosApp/ContentView.swift
+   struct ComposeView: UIViewControllerRepresentable {
+       func makeUIViewController(context: Context) -> UIViewController {
+           // Inject the Swift implementation into the Kotlin UI entry point
+           MainViewControllerKt.MainViewController(cryptoProvider: IosCryptoProvider())
+       }
+
+       func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+   }
+   ```
+
+</tab>
+<tab title="Swift closures">
+
+1. On the Kotlin side, declare a function parameter and use it where needed:
+
+    ```kotlin
+    // App.kt
+    @Composable
+    fun App(md5Hasher: (String) -> String) {
+        // Example usage inside your UI
+        val hashed = md5Hasher("Hello, world!")
+        androidx.compose.material3.Text("Compose: $hashed")
+    }
+    ```
+
+    ```kotlin
+    // MainViewController.kt
+    fun MainViewController(md5Hasher: (String) -> String) = ComposeUIViewController {
+        App(md5Hasher)
+    }
+    ```
+
+2. On the Swift side, build the MD5 hasher with the CryptoKit library and pass it as a closure:
+
+    ```swift
+    // iosApp/ContentView.swift
+    import CryptoKit
+    import SwiftUI
+
+    struct ComposeView: UIViewControllerRepresentable {
+        func makeUIViewController(context: Context) -> UIViewController {
+            MainViewControllerKt.MainViewController(md5Hasher: { input in
+                guard let data = input.data(using: .utf8) else { return "failed" }
+                return Insecure.MD5.hash(data: data).description
+            })
+        }
+
+        func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
+    }
+    ```
+
+</tab>
+</tabs>
+
+In a more complex project, it's more convenient to use dependency injection to pass the Swift implementation back to Kotlin.
+For more information, see [Dependency injection framework](https://kotlinlang.org/docs/multiplatform/multiplatform-connect-to-apis.html#dependency-injection-framework)
+or check out the [Koin framework](https://insert-koin.io/docs/reference/koin-mp/kmp/) documentation.

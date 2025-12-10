@@ -198,7 +198,7 @@ Configure the database in the application:
    ```
 
    These settings enable the database for the Spring Boot application.  
-   See the full list of common application properties in the [Spring documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html).
+   See the full list of common application properties in the [Spring documentation](https://docs.spring.io/spring-boot/appendix/application-properties/index.html).
 
 ## Add messages to database via HTTP request
 

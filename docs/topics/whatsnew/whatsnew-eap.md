@@ -15,7 +15,7 @@ The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP 
 
 * **Language**: [more stable and default features, a new checker for unused return values, and changes to context-sensitive resolution](#language).
 * **Kotlin/JVM**: [support for Java 25](#kotlin-jvm-support-for-java-25).
-* **Kotlin/Native**: [improved interop through Swift export and type checks on generic type boundaries enabled by default](#kotlin-native).
+* **Kotlin/Native**: [improved interop through Swift export](#kotlin-native-improved-interop-through-swift-export).
 * **Kotlin/Wasm**: [fully qualified names and new exception handling proposal enabled by default](#kotlin-wasm).
 * **Kotlin/JS**: [new experimental suspend function export and `LongArray` representation](#kotlin-js).
 * **Gradle**: [compatibility with Gradle 9.0 and a new API for registering generated sources](#gradle).
@@ -44,10 +44,16 @@ We're happy to announce that in this release, the following features become [Sta
 
 ### Features enabled by default
 
-In Kotlin %kotlinEapVersion%, the following language features are now enabled by default:
+Starting with Kotlin %kotlinEapVersion%, support for [`return` statements in expression bodies with explicit return types](whatsnew2220.md#support-for-return-statements-in-expression-bodies-with-explicit-return-types)
+is now enabled by default.
 
-* [Improved overload resolution for lambdas with `suspend` function types](whatsnew2220.md#improved-overload-resolution-for-lambdas-with-suspend-function-types)
-* [Support for `return` statements in expression bodies with explicit return types](whatsnew2220.md#support-for-return-statements-in-expression-bodies-with-explicit-return-types)
+> In Kotlin %kotlinEapVersion%, [improved overload resolution for lambdas with `suspend` function types](whatsnew2220.md#improved-overload-resolution-for-lambdas-with-suspend-function-types)
+> is **disabled**.
+> 
+> The feature was initially planned to be enabled by default in Kotlin 2.3.0, but after discovering some issues,
+> we decided to postpone its implementation. It will be available again with an improved design in future releases.
+>
+{style="note"}
 
 [See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
 
@@ -169,11 +175,6 @@ see the feature's [KEEP]( https://github.com/Kotlin/KEEP/blob/main/proposals/KEE
 ### Changes to context-sensitive resolution
 <primary-label ref="experimental-general"/>
 
-> Support for code analysis, code completion, and highlighting of this feature in IntelliJ IDEA is currently available
-> only in [2025.3 EAP builds](https://www.jetbrains.com/idea/nextversion/).
->
-{style = "note"}
-
 Context-sensitive resolution is still [Experimental](components-stability.md#stability-levels-explained),
 but we continue improving the feature based on user feedback:
 
@@ -188,9 +189,7 @@ For details, see the full text of the current proposal in [KEEP](https://github.
 
 Starting with Kotlin %kotlinEapVersion%, the compiler can generate classes containing Java 25 bytecode.
 
-## Kotlin/Native
-
-### Improved interop through Swift export
+## Kotlin/Native: improved interop through Swift export
 <primary-label ref="experimental-general"/>
 
 Kotlin %kotlinEapVersion% further improves Kotlin interoperability with Swift through Swift export, adding support for
@@ -232,33 +231,12 @@ fun log(vararg messages: String)
 
 ```Swift
 // Swift
-func log(_ messages: String...)
+public func log(messages: Swift.String...)
 ```
 
 > Generic types in variadic function parameters are not supported yet.
 >
 {style="note"}
-
-### Type checks on generic type boundaries in debug mode
-
-Starting with Kotlin %kotlinEapVersion%, type checks on generic type boundaries are enabled by default in debug mode,
-helping you find errors related to unchecked casts earlier. This change improves safety and makes debugging of invalid
-generic casts more predictable across platforms.
-
-Previously, unchecked casts that led to heap pollution and violation of memory safety could go unnoticed in Kotlin/Native.
-Now, such cases consistently fail with a runtime cast error, similar to Kotlin/JVM or Kotlin/JS. For example:
-
-```kotlin
-fun main() {
-    val list = listOf("hello")
-    val x = (list as List<Int>)[0]
-    println(x) // Now throws a ClassCastException error
-}
-```
-
-This code used to print `6`; now it throws a `ClassCastException` error in debug mode, as expected.
-
-For more information, see [Type checks and casts](typecasts.md).
 
 ## Kotlin/Wasm
 
@@ -314,7 +292,7 @@ To enable this feature, add the following compiler option to your `build.gradle.
 ```kotlin
 kotlin {
     compilerOptions {
-        freeCompilerArgs.add("-XXLanguage:+JsAllowExportingSuspendFunctions")
+        freeCompilerArgs.add("-Xenable-suspend-function-exporting")
     }
 }
 ```
@@ -462,3 +440,13 @@ mappings for some functions, please report them to the [Google IssueTracker](htt
 >
 {style="note"}
 
+By default, the mapping file Gradle tasks run regardless of whether you enable the traces. If they cause problems in your
+build, you can disable the feature entirely. Add the following property in the `composeCompiler {}` block of your Gradle configuration:
+
+```kotlin
+composeCompiler {
+    includeComposeMappingFile.set(false)
+}
+```
+
+Please report any problems encountered to the [Google IssueTracker](https://issuetracker.google.com/issues/new?component=610764&template=1424126).

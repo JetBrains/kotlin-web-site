@@ -13,14 +13,22 @@ test.describe('Case-studies landing page', async () => {
         await expect(caseStudiesPage.heroSubTitle.first()).not.toBeEmpty();
     });
 
-
-    test('Case-studies: filter has expected default state', async ({ page }) => {
+    test('Case-studies: should not show platform filter for all cases', async ({ page }) => {
         const caseStudiesPage = new CaseStudiesPage(page);
         await caseStudiesPage.init();
 
-        await caseStudiesPage.isSwitchActive(caseStudiesPage.switchAll);
-        await caseStudiesPage.areAllSharedPlatformsSwitchedOff();
+        await expect(caseStudiesPage.filterBySharedCode).toBeHidden();
+        await expect(caseStudiesPage.filterByComposeUI).toBeHidden();
+    });
 
+    test('Case-studies: should show platform filter for KMP cases with expected default state', async ({ page }) => {
+        const caseStudiesPage = new CaseStudiesPage(page);
+        await caseStudiesPage.init();
+
+        await caseStudiesPage.selectType(caseStudiesPage.switchKMP);
+        await caseStudiesPage.isSwitchActive(caseStudiesPage.switchKMP);
+
+        await caseStudiesPage.areAllSharedPlatformsSwitchedOff();
         await caseStudiesPage.isComposeUISwitchedOff();
     });
 
