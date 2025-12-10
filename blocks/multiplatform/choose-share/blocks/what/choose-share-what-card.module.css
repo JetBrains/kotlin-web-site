@@ -10,6 +10,12 @@
     align-items: center;
     gap: var(--ktl-box-section-m);
     padding: 0 !important;
+
+    border-radius: var(--ktl-box-section-s);
+
+    @media (--ktl-ts-less) {
+        border-radius: var(--ktl-box-block-l);
+    }
 }
 
 .content, .content:active {
