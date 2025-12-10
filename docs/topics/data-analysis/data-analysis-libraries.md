@@ -140,7 +140,7 @@ or Java libraries when working on [Kotlin data projects](data-analysis-overview.
     </td>
     <td>
       <list>
-        <li>Modular library to work with mathematical abstractions in <a href="/multiplatform/">Kotlin Multiplatform</a> (JVM, JS, Native, and Wasm)</li>
+        <li>Modular library to work with mathematical abstractions in <a href="https://kotlinlang.org/multiplatform/">Kotlin Multiplatform</a> (JVM, JS, Native, and Wasm)</li>
         <li>APIs for algebraic structures, mathematical expressions, histograms, and streaming operations</li>
         <li>Interchangeable wrappers over existing Java and Kotlin libraries, including <a href="https://github.com/eclipse/deeplearning4j/tree/master/nd4j">ND4J</a>, <a href="https://commons.apache.org/proper/commons-math/">Apache Commons Math</a>, and <a href="https://github.com/Kotlin/multik">Multik</a></li>
         <li>Inspired by Python's <a href="https://numpy.org/">NumPy</a> but with other additional features like type safety</li>
