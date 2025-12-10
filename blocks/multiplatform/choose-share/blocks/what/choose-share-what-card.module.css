@@ -34,8 +34,10 @@
     }
 }
 
-.card:first-of-type .cover {
-    align-self: end;
+@media (--ktl-tl-more) {
+    .card:first-of-type .cover {
+        align-self: end;
+    }
 }
 
 .title {
