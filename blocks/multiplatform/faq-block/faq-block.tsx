@@ -22,7 +22,7 @@ export const FaqBlock = () => {
                             Kotlin Multiplatform is the core technology that lets you share code – such as business
                             logic, data models, networking, and more – across multiple platforms, including Android,
                             iOS, desktop, web, and server. It focuses on code reuse without replacing the native UI
-                            unless you want it to.{' '}
+                            unless you want it to.<br />
                             <a className={linkClass} href={'https://www.jetbrains.com/compose-multiplatform/'}>
                                 Compose Multiplatform
                             </a>{' '}
