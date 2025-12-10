@@ -1,0 +1,9 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.logos {
+    margin-block: var(--ktl-box-page-m);
+
+    @media (--ktl-ts-less) {
+        margin-block: var(--ktl-box-page-l) var(--ktl-box-page-m);
+    }
+}

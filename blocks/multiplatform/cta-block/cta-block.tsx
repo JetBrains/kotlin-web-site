@@ -11,7 +11,7 @@ export const CtaBlock = ({ url }: { url: string }) => {
     const textCn = useTextStyles();
     return (
         <div className={styles.wrapper}>
-            <div className="ktl-layout ktl-layout--center">
+            <section className="ktl-layout ktl-layout--center">
                 <div className={styles.content}>
                 <h2 className={cn(textCn('rs-h1'), styles.title)}>
                     Go cross-platform without compromises&nbsp;—<br />try Kotlin Multiplatform today.
@@ -21,7 +21,7 @@ export const CtaBlock = ({ url }: { url: string }) => {
                 </Button>
                     <Img src={ctaGraphics} alt="" className={styles.image} height={450} />
                 </div>
-            </div>
+            </section>
         </div>
     );
 };

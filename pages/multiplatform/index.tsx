@@ -12,6 +12,8 @@ import { VideoBlock } from '../../blocks/multiplatform/video-block/video-block';
 import { HighlightedBg } from '../../blocks/multiplatform/highlighted-bg/highlighted-bg';
 import { FaqBlock } from '../../blocks/multiplatform/faq-block/faq-block';
 import { CtaBlock } from '../../blocks/multiplatform/cta-block/cta-block';
+import { CaseStudies } from '../../blocks/multiplatform/case-studies/grid';
+import { CustomerLogos } from '../../blocks/multiplatform/case-studies/customers';
 
 const MULTIPLATFORM_MOBILE_TITLE = 'Kotlin Multiplatform' as const;
 const MULTIPLATFORM_MOBILE_URL = '/multiplatform/' as const;
@@ -49,9 +51,10 @@ export default function MultiplatformLanding() {
             topMenuButton={<Button href={GET_STARTED_URL}>Get started</Button>}
             canonical={'https://kotlinlang.org/multiplatform/'}
         >
-            <div className="ktl-layout-to-2">
+            <article className="ktl-layout-to-2">
                 <ThemeProvider theme={'dark'}>
                     <HeroBanner url={GET_STARTED_URL} />
+                    <CustomerLogos />
                     <ChooseShare />
                     <HighlightedBg>
                         <VideoBlock
@@ -81,10 +84,11 @@ export default function MultiplatformLanding() {
                             </>
                         </VideoBlock>
                     </HighlightedBg>
+                    <CaseStudies />
                     <FaqBlock />
                     <CtaBlock url={GET_STARTED_URL} />
                 </ThemeProvider>
-            </div>
+            </article>
         </LandingLayout>
     );
 }
