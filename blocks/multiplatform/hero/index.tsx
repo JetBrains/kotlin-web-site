@@ -18,7 +18,7 @@ export function HeroBanner({ url }: { url: string }) {
             <div className={cn(styles.hero, 'ktl-layout', 'ktl-layout--center')}>
                 <h1 className={cn(styles.title, textCn('rs-hero'))}>Kotlin Multiplatform</h1>
                 <p className={cn(styles.subtitle, textCn('rs-subtitle-1'))}>
-                    Go&nbsp;cross&#8209;platform without compromising performance, UX,&nbsp;or&nbsp;code&nbsp;quality
+                    Go&nbsp;cross&#8209;platform without&nbsp;compromising performance,&nbsp;UX, or&nbsp;code&nbsp;quality
                 </p>
                 <ul className={styles.platforms}>
                     {platforms.map(title => {
