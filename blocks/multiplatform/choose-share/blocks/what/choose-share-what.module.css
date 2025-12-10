@@ -109,9 +109,11 @@
 }
 
 .card {
-    grid-column: 1;
-    grid-row: 1;
-    align-items: start;
+    @media (--ktl-tl-more) {
+        grid-column: 1;
+        grid-row: 1;
+        align-items: start;
+    }
 
     @media (prefers-reduced-motion: no-preference) {
         :global(.js) & {
