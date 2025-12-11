@@ -17,7 +17,7 @@ export const closeCookiesConsentBanner = async (context: BrowserContext, baseURL
 
 const TRANSITION_TIMEOUT = 2000;
 
-export async function checkAnchor(anchor: Locator, page: Page) {
+export async function checkAnchor(page: Page, anchor: Locator) {
     const href = await anchor.getAttribute('href');
     await anchor.click();
     await page.waitForTimeout(TRANSITION_TIMEOUT);
