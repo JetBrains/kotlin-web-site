@@ -318,7 +318,8 @@ you have to declare this explicitly.
 
 ### Unit-returning functions
 
-If a function has a block body and does not return a useful value, the compiler assumes its return type  is `Unit`.
+If a function has a block body (instructions within curly braces `{}`) and does not return a useful value,
+the compiler assumes its return type  is `Unit`.
 `Unit` is a type that has only one value, also called `Unit`.
 
 You don't have to specify `Unit` as a return type, except for functional type parameters.
