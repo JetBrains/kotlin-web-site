@@ -95,8 +95,8 @@ fun read(
 ) { /*...*/ }
 ```
 
-When you declare a parameter with a default value before a parameter without a default value,
-you can only use the default value by [naming arguments](#named-arguments):
+When you declare a parameter **with** a default value before a parameter **without** a default value,
+you can only use the default value by [naming the argument](#named-arguments):
 
 ```kotlin
 fun greeting(
@@ -309,12 +309,12 @@ fun double(x: Int) = x * 2
 ```
 
 Compiler can run into problems inferring return types from single expressions.
-Functions that are recursive or mutually recursive (calling each other)
+For example, functions that are recursive or mutually recursive (calling each other)
 and functions with typeless expressions like `fun empty() = null` always require a return type.
 
 When you do use an inferred return type,
 make sure to check the actual result because the compiler may infer a type that is less useful to you.
-If in the example above you would like the `double()` function to return `Number` instead of `Int`, for example,
+In the example above, if you want the `double()` function to return `Number` instead of `Int`, 
 you have to declare this explicitly.
 
 ### Unit-returning functions
@@ -452,7 +452,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist-with-array"}
 
 If you want to pass a [primitive type array](arrays.md#primitive-type-arrays)
-as `vararg`, you need to convert it to a regular (typed) array using the `toTypedArray()` function:
+as `vararg`, you need to convert it to a regular (typed) array using the [`.toTypedArray()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/to-typed-array.html) function:
 
 ```kotlin
 // 'a' is an IntArray, which is a primitive type array
@@ -509,10 +509,9 @@ class MyStringCollection {
   }
 
   fun build() {
-      add("first")      // Correct: ordinary function call
+      add("first")       // Correct: ordinary function call
       this add "second"  // Correct: infix call with explicit receiver
-
-    // add "third"      // Compiler error: needs an explicit receiver
+      // add "third"     // Compiler error: needs an explicit receiver
   }
 
   fun printAll() = println("Items = $items")
@@ -529,7 +528,7 @@ fun main() {
   // Items = [first, second]
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="infix-notation-example"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="infix-notation-example"}
 
 ## Function scope
 
