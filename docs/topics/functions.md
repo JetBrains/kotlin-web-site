@@ -3,18 +3,27 @@
 To declare a function in Kotlin:
 * Use the `fun` keyword.
 * Specify the parameters in parentheses `()`.
-* Include the return type if needed.
+* Include the [return type](#return-types) if needed.
 
 For example:
 
 ```kotlin
+//sampleStart
 // 'double' is the name of the function
-// 'x' is a parameter of the Int type
+// 'x' is a parameter of Int type
 // The expected return value is of Int type too
 fun double(x: Int): Int {
-    return 2 * x
+return 2 * x
+}
+//sampleEnd
+
+fun main() {
+    println(double(5))
+    // 10
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="kotlin-function-double"}
+
 
 ## Function usage
 
@@ -65,10 +74,11 @@ you can move parameters within the declaration without worrying about which is g
 > 
 {style="note"}
 
-### Parameters with default values (optional parameters) {id="parameters-with-default-values"}
+### Parameters with default values {id="parameters-with-default-values"}
 
-You can specify default values for function parameters, to be used when the corresponding argument is skipped
-in a function call.
+You can make a function parameter optional by specifying a default value for it.
+Kotlin uses the default value when you call the function without providing an argument that corresponds to that parameter.
+
 This reduces the need for multiple overloads, since you don't have to declare different versions of a function
 just to allow skipping a parameter with a reasonable default.
 Parameters with default values are also known as _optional parameters_.
@@ -249,7 +259,11 @@ You can also skip _some_ arguments with default values, rather than omitting the
 However, after the first skipped argument, you must name all subsequent arguments:
 
 ```kotlin
-reformat("This is a short String!", upperCaseFirstLetter = false, wordSeparator = '_')
+reformat(
+    "This is a short String!",
+    upperCaseFirstLetter = false,
+    wordSeparator = '_'
+)
 ```
 
 You can pass a [variable number of arguments](#variable-number-of-arguments-varargs) (`vararg`) naming the correspoding array:
@@ -267,14 +281,16 @@ mergeStrings(strings = arrayOf("a", "b", "c"))
 >
 {style="note"}
 
-### Explicit return types
+### Return types
 
-Functions with a block body must always specify return types explicitly, unless it's intended for them to return `Unit`,
+When you declare a function with a block body (by putting instructions within curly braces `{}`),
+you must always specify a return type explicitly.
+The only exception is when they return `Unit`,
 [in which case specifying the return type is optional](#unit-returning-functions).
 
-Kotlin does not infer return types for functions with block bodies because such functions may have complex control flow
-in the body, and the return type will not be obvious to the reader (and sometimes even for the compiler).
-But the return type is inferred, unless specified, for [single-expression functions](#single-expression-functions).
+Kotlin doesn't infer return types for functions with block bodies.
+Their control flow can be complex, which makes the return type unclear to the reader and sometimes even to the compiler.
+However, Kotlin can infer the return type for [single-expression functions](#single-expression-functions) if you don't specify it.
 
 ### Single-expression functions
 
@@ -284,11 +300,21 @@ When the function body consists of a single expression, you can omit the curly b
 fun double(x: Int): Int = x * 2
 ```
 
-You don't have to [explicitly declare](#explicit-return-types) the return type when it can be inferred by the compiler:
+Most of the time you don't have to explicitly declare [the return type](#return-types):
 
 ```kotlin
+// Compiler infers that the function returns Int
 fun double(x: Int) = x * 2
 ```
+
+Compiler can run into problems inferring return types from single expressions.
+Functions that are recursive or mutually recursive (calling each other)
+and functions with typeless expressions like `fun empty() = null` always require a return type.
+
+When you do use an inferred return type,
+make sure to check the actual result because the compiler may infer a type that is less useful to you.
+If in the example above you would like the `double()` function to return `Number` instead of `Int`, for example,
+you have to declare this explicitly.
 
 ### Unit-returning functions
 
@@ -298,30 +324,63 @@ If a function has a block body and does not return a useful value, the compiler 
 You don't have to specify `Unit` as a return type, except for functional type parameters.
 You never have to return `Unit` explicitly.
 
-Therefore, this verbose declaration:
-
-```kotlin
-fun printHello(name: String?, action: () -> Unit): Unit {
-    if (name != null)
-        println("Hello $name")
-    else
-        println("Hi there!")
-    return Unit
-}
-```
-
-Can be shortened to:
+For example, you can declare a `printHello()` function without returning `Unit`:
 
 ```kotlin
 // The declaration of the functional type parameter ('action') still 
 // needs an explicit return type
 fun printHello(name: String?, action: () -> Unit) {
-    if (name != null)
-        println("Hello $name")
-    else
-        println("Hi there!")
+  if (name != null)
+    println("Hello $name")
+  else
+    println("Hi there!")
+
+  action()
+}
+
+fun main() {
+  printHello("Kodee") {
+    println("This runs after the greeting.")
+  }
+  // Hello Kodee
+  // This runs after the greeting.
+
+  printHello(null) {
+    println("No name provided, but action still runs.")
+  }
+  // No name provided, but action still runs
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-implicit"}
+
+Which is equivalent to this verbose declaration:
+
+```kotlin
+//sample Start
+fun printHello(name: String?, action: () -> Unit): Unit {
+  if (name != null)
+    println("Hello $name")
+  else
+    println("Hi there!")
+
+  action()
+  return Unit
+}
+// sampleEnd
+fun main() {
+  printHello("Kodee") {
+    println("This runs after the greeting.")
+  }
+  // Hello Kodee
+  // This runs after the greeting.
+
+  printHello(null) {
+    println("No name provided, but action still runs.")
+  }
+  // No name provided, but action still runs
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-explicit"}
 
 ### Variable number of arguments (varargs)
 
@@ -341,8 +400,22 @@ fun <T> asList(vararg ts: T): List<T> {
 Then you can pass a variable number of arguments to the function:
 
 ```kotlin
-val list = asList(1, 2, 3)
+fun <T> asList(vararg ts: T): List<T> {
+  val result = ArrayList<T>()
+  for (t in ts) // ts is an Array
+    result.add(t)
+  return result
+}
+
+fun main() {
+  //sampleStart
+  val list = asList(1, 2, 3)
+  println(list)
+  // [1, 2, 3]
+  //sampleEnd
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist"}
 
 Only one parameter can be marked as `vararg`.
 If you declare a `vararg` parameter anywhere other than last in the parameter list, you must pass values for the following
@@ -354,10 +427,27 @@ If you already have an array and want to pass its contents to a function as a `v
 use the [spread operator](arrays.md#pass-variable-number-of-arguments-to-a-function) by prefixing the array name with `*`:
 
 ```kotlin
-val a = arrayOf(1, 2, 3)
-// The function receives the array [-1, 0, 1, 2, 3, 4]
-val list = asList(-1, 0, *a, 4)
+fun <T> asList(vararg ts: T): List<T> {
+  val result = ArrayList<T>()
+  for (t in ts)
+    result.add(t)
+  return result
+}
+
+fun main() {
+  //sampleStart
+  val a = arrayOf(1, 2, 3)
+
+  // The function receives the array [-1, 0, 1, 2, 3, 4]
+  val list = asList(-1, 0, *a, 4)
+
+  println(list)
+  // [-1, 0, 1, 2, 3, 4]
+
+  //sampleEnd
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist-with-array"}
 
 If you want to pass a [primitive type array](arrays.md#primitive-type-arrays)
 as `vararg`, you need to convert it to a regular (typed) array using the `toTypedArray()` function:
@@ -409,16 +499,35 @@ This ensures unambiguous parsing.
 
 ```kotlin
 class MyStringCollection {
-    infix fun add(s: String) { /*...*/ }
-    
-    fun build() {
-        this add "abc"   // Correct
-        add("abc")       // Correct
-        add "abc"        // Incorrect: the receiver must be specified
-    }
+  val items = mutableListOf<String>()
+
+  infix fun add(s: String) {
+    println("Adding: $s")
+    items += s
+  }
+
+  fun build() {
+      add("first")      // Correct: ordinary function call
+      this add "second"  // Correct: infix call with explicit receiver
+
+    // add "third"      // Compiler error: needs an explicit receiver
+  }
+
+  fun printAll() = println("Items = $items")
+}
+
+fun main() {
+  val myStrings = MyStringCollection()
+  // Adds "first" and "second" to the list twice
+  myStrings.build()
+  
+  myStrings.printAll()
+  // Adding: first
+  // Adding: second
+  // Items = [first, second]
 }
 ```
-{validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="infix-notation-example"}
 
 ## Function scope
 
@@ -467,10 +576,10 @@ class Sample {
 }
 ```
 
-To call member functions, use the dot notation:
+To call member functions, write the instance or object name, then add a `.` and write the function name:
 
 ```kotlin
-// Creates an instance of the `Sample' class and calls 'foo()'
+// Calls the 'foo' function for a new instance of the 'Sample' class
 Sample().foo()
 ```
 
