@@ -148,22 +148,6 @@ guided by pragmatic design.
 </td>
 <td>
 
-**Explicit backing fields**
-
-* KEEP proposal: [explicit-backing-fields.md](https://github.com/Kotlin/KEEP/blob/explicit-backing-fields/proposals/explicit-backing-fields.md)
-* YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-14663)
-
-</td>
-</tr>
-
-<tr filter="keep">
-<td>
-
-**KEEP discussion**
-
-</td>
-<td>
-
 **Version overloading**
 
 * KEEP proposal: [version-overloading.md](https://github.com/Kotlin/KEEP/blob/version-overloading-proposal/proposals/version-overloading.md)
@@ -215,6 +199,24 @@ guided by pragmatic design.
 </td>
 <td>
 
+**Explicit backing fields**
+
+* KEEP proposal: [explicit-backing-fields.md](https://github.com/Kotlin/KEEP/blob/explicit-backing-fields/proposals/explicit-backing-fields.md)
+* YouTrack issue: [KT-14663](https://youtrack.jetbrains.com/issue/KT-14663)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
+* Available since: 2.3.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
 **Context parameters: support for context-dependent declarations**
 
 * KEEP proposal: [context-parameters.md](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md)
@@ -251,10 +253,46 @@ guided by pragmatic design.
 </td>
 <td>
 
+**Improvements to annotation use-site targets on properties**
+
+* KEEP proposal: [Improvements to annotation use-site targets on properties](https://github.com/Kotlin/KEEP/blob/master/proposals/annotation-target-in-properties.md)
+* YouTrack issue: [KT-73255](https://youtrack.jetbrains.com/issue/KT-73255)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
+* Available since: 2.2.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
 **Context-sensitive resolution**
 
 * KEEP proposal: [context-sensitive-resolution.md](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md)
 * YouTrack issue: [KT-16768](https://youtrack.jetbrains.com/issue/KT-16768)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
+* Available since: 2.2.0
+
+</td>
+</tr>
+
+<tr filter="in-preview">
+<td>
+
+**In preview**
+
+</td>
+<td>
+
+**Expose boxed inline value classes in JVM**
+
+* KEEP proposal: [jvm-expose-boxed.md](https://github.com/Kotlin/KEEP/blob/jvm-expose-boxed/proposals/jvm-expose-boxed.md)
+* YouTrack issue: [KT-28135](https://youtrack.jetbrains.com/issue/KT-28135)
 * Stability level: [Experimental](components-stability.md#stability-levels-explained)
 * Available since: 2.2.0
 
@@ -348,41 +386,7 @@ guided by pragmatic design.
 
 * KEEP proposal: [dfa-exhaustiveness.md](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0442-dfa-exhaustiveness.md)
 * YouTrack issue: [KT-8781](https://youtrack.jetbrains.com/issue/KT-8781)
-* Available since: 2.2.20
-
-</td>
-</tr>
-
-<tr filter="stable">
-<td>
-
-**Stable**
-
-</td>
-<td>
-
-**Expose boxed inline value classes in JVM**
-
-* KEEP proposal: [jvm-expose-boxed.md](https://github.com/Kotlin/KEEP/blob/jvm-expose-boxed/proposals/jvm-expose-boxed.md)
-* YouTrack issue: [KT-28135](https://youtrack.jetbrains.com/issue/KT-28135)
-* Available since: 2.2.0
-
-</td>
-</tr>
-
-<tr filter="stable">
-<td>
-
-**Stable**
-
-</td>
-<td>
-
-**Improvements to annotation use-site targets on properties**
-
-* KEEP proposal: [Improvements to annotation use-site targets on properties](https://github.com/Kotlin/KEEP/blob/master/proposals/annotation-target-in-properties.md)
-* YouTrack issue: [KT-73255](https://youtrack.jetbrains.com/issue/KT-73255)
-* Available since: 2.2.0
+* Available since: 2.2.20, Stable since 2.3.0
 
 </td>
 </tr>
@@ -399,7 +403,7 @@ guided by pragmatic design.
 
 * KEEP proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/master/proposals/nested-typealias.md)
 * YouTrack issue: [KT-45285](https://youtrack.jetbrains.com/issue/KT-45285)
-* Available since: 2.2.0
+* Available since: 2.2.0, Stable since 2.3.0
 
 </td>
 </tr>
