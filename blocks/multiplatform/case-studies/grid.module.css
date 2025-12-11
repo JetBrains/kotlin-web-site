@@ -22,3 +22,9 @@
         line-height: 39px;
     }
 }
+
+.btn {
+    @media (--ktl-ms-in) {
+        width: 100%;
+    }
+}

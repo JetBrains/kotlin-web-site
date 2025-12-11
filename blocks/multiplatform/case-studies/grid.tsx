@@ -49,7 +49,7 @@ export function CaseStudies() {
             <section className={cn(styles.section, 'ktl-layout', 'ktl-layout--center')}>
                 <h2 className={cn(styles.title, textCn('rs-h1'))}>Real-world success stories</h2>
                 <CaseStudiesGrid mode={'rock'} className={styles.grid}/>
-                <Button size={isMS ? 'm' : 'l'} mode={'outline'} href={LINK_CASES} onClick={handleNavigate}>
+                <Button className={styles.btn} size={isMS ? 'm' : 'l'} mode={'outline'} href={LINK_CASES} onClick={handleNavigate}>
                     Explore more customer stories
                 </Button>
             </section>
