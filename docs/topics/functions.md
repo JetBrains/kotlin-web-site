@@ -579,8 +579,8 @@ class Sample {
 To call member functions, write the instance or object name, then add a `.` and write the function name:
 
 ```kotlin
-// Calls the 'foo' function for a new instance of the 'Sample' class
-Sample().foo()
+// Creates an instance of the Stream class and calls read()
+Stream().read()
 ```
 
 For more information on classes and overriding members see [Classes](classes.md) and [Inheritance](classes.md#inheritance).
