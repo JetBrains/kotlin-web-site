@@ -24,7 +24,6 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="kotlin-function-double"}
 
-
 ## Function usage
 
 Functions are called using the standard approach:
@@ -78,10 +77,10 @@ you can move parameters within the declaration without worrying about which is g
 
 You can make a function parameter optional by specifying a default value for it.
 Kotlin uses the default value when you call the function without providing an argument that corresponds to that parameter.
-
-This reduces the need for multiple overloads, since you don't have to declare different versions of a function
-just to allow skipping a parameter with a reasonable default.
 Parameters with default values are also known as _optional parameters_.
+
+Optional parameters reduce the need for multiple overloads, since you don't have to declare different versions of a function
+just to allow skipping a parameter with a reasonable default.
 
 Set a default value by appending `=` to the parameter declaration:
 
@@ -127,17 +126,18 @@ fun greeting(
 )
 { println(userId)
   message() }
-
-
-// Prints the default value 0 for 'userId', then prints "bar"
+    
+// Uses the default value for 'userId'
 greeting() { println ("Hello!") }
+// 0
+// Hello!
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="default-before-trailing-lambda"}
 
 [Overriding methods](inheritance.md#overriding-methods) always use the base method's default parameter values.
-When overriding a method that has default parameter values, you must omit the default parameter values from the signature:
+When you override a method that has default parameter values, you must omit the default parameter values from the signature:
 
 ```kotlin
 open class Shape {
@@ -220,8 +220,9 @@ log { println("Connection established") }
 
 ### Named arguments
 
-You can name one or more of a function's arguments when calling it. This can be helpful when a function call has many
-argument, and it's difficult to associate a value with an argument, especially if it's a boolean or `null` value.
+You can name one or more of a function's arguments when calling it.
+This can be helpful when a function call has many argument, and it's difficult to associate a value with an argument,
+especially if it's a boolean or `null` value.
 
 When you use named arguments in a function call, you can list them in any order.
 
@@ -266,7 +267,7 @@ reformat(
 )
 ```
 
-You can pass a [variable number of arguments](#variable-number-of-arguments-varargs) (`vararg`) naming the correspoding array:
+You can pass a [variable number of arguments](#variable-number-of-arguments-varargs) (`vararg`) naming the corresponding array:
 
 ```kotlin
 fun mergeStrings(vararg strings: String) { /*...*/ }
