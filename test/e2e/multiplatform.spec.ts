@@ -32,7 +32,6 @@ test.describe('Multiplatform landing page', async () => {
         await expect(multiplatformPage.shareWhatBlock).toBeVisible();
         await expect(multiplatformPage.shareWhatTitle).not.toBeEmpty();
 
-
         const anchors = multiplatformPage.shareWhatChipAnchor;
         const anchorCount = await anchors.count();
 
@@ -40,7 +39,7 @@ test.describe('Multiplatform landing page', async () => {
             await multiplatformPage.shareWhatBlock.scrollIntoViewIfNeeded();
             const anchor = multiplatformPage.shareWhatChipAnchor.nth(i);
             await anchor.scrollIntoViewIfNeeded();
-            await checkAnchor(anchor, page);
+            await checkAnchor(page, anchor);
 
             const title = multiplatformPage.shareWhatChipContentTitle.nth(i);
             await expect(title).toBeVisible();
@@ -59,6 +58,10 @@ test.describe('Multiplatform landing page', async () => {
 
             expect(page.url()).toContain(href);
             await page.goBack();
+
+            const relink = multiplatformPage.shareWhatChipContentAction.nth(i);
+            await expect(relink).toBeVisible();
+            await expect(relink).not.toBeEmpty();
         }
     });
 
