@@ -90,14 +90,6 @@
     @media (--ktl-ml-more) {
         border-radius: 24px;
     }
-
-    @media (--ktl-ds-more) {
-        min-height: 568px;
-    }
-
-    @media (--ktl-ds-in) {
-        min-height: 484px;
-    }
 }
 
 :global(.js) .card:not(.active) {
@@ -109,9 +101,11 @@
 }
 
 .card {
-    grid-column: 1;
-    grid-row: 1;
-    align-items: start;
+    @media (--ktl-tl-more) {
+        grid-column: 1;
+        grid-row: 1;
+        align-items: start;
+    }
 
     @media (prefers-reduced-motion: no-preference) {
         :global(.js) & {
