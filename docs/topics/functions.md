@@ -27,13 +27,13 @@ fun main() {
 
 ## Function usage
 
-To call a [member](classes.md) or [extension function](extensions.md#extension-functions), use a period `.`:
+Functions are called using the standard approach:
 
 ```kotlin
 val result = double(2)
 ```
 
-To call a member function, use the dot notation:
+To call a [member](classes.md) or [extension function](extensions.md#extension-functions), use a period `.`:
 
 ```kotlin
 // Creates an instance of the Stream class and calls read()
