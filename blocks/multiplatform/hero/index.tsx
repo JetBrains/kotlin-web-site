@@ -29,7 +29,7 @@ export function HeroBanner({ url }: { url: string }) {
                         return (
                             <li
                                 key={key}
-                                data-testid={'hero-platfroms'}
+                                data-testid={'hero-platforms'}
                                 className={cn(styles.platform, styles[`${key}`], textCn(isML ? 'rs-h5' : 'rs-h4'))}
                             >
                                 {title}

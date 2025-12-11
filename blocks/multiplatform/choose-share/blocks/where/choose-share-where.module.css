@@ -99,6 +99,10 @@
     }
 }
 
+.anchor {
+    max-height: 1px;
+}
+
 :global(.js) {
     .wrap {
         position: relative;

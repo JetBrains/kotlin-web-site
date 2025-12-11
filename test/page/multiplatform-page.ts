@@ -27,7 +27,7 @@ export class MultiplatformPage implements PageWithGlobalSearch {
         this.heroBanner = page.getByTestId('hero-banner');
         this.heroTitle = page.getByTestId('hero-title');
         this.heroSubTitle = page.getByTestId('hero-subtitle');
-        this.heroPlatforms = page.getByTestId('hero-platfroms');
+        this.heroPlatforms = page.getByTestId('hero-platforms');
         this.heroActionButon = page.getByTestId('hero-action-button');
         this.shareWhatBlock = page.getByTestId('share-what-block');
         this.shareWhatTitle = page.getByTestId('share-what-title');
