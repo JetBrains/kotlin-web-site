@@ -2,8 +2,13 @@
 
 .logos {
     margin-block: var(--ktl-box-page-m);
+    padding-block: 0;
 
     @media (--ktl-ts-less) {
         margin-block: var(--ktl-box-page-l) var(--ktl-box-page-m);
+    }
+
+    @media (--ktl-ms-in) {
+        zoom: 0.75;
     }
 }
