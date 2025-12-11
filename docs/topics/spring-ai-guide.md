@@ -1,4 +1,4 @@
-[//]: # (title: Build a Kotlin app that uses Spring AI to answer questions based on documents stored in Qdrant — tutorial)
+[//]: # (title: Create a Kotlin app that answers questions with Spring AI — tutorial)
 
 In this tutorial, you'll learn how to build a Kotlin app that connects to an LLM via [Spring AI](https://spring.io/projects/spring-ai),
 stores documents in a vector database, and answers questions using context from those documents.
