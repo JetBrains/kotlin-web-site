@@ -1,12 +1,16 @@
 [//]: # (title: Functions)
 
-To declare a function in Kotlin, use the `fun` keyword, specify the parameters in brackets
-and indicate the return type if necessary:
+To declare a function in Kotlin:
+* Use the `fun` keyword.
+* Specify the parameters in parentheses `()`.
+* Include the return type if needed.
+
+For example:
 
 ```kotlin
-// 'double' is the name of the function,
-// 'x' is a parameter of the Int type,
-// and the expected return value is of the Int type, too
+// 'double' is the name of the function
+// 'x' is a parameter of the Int type
+// The expected return value is of Int type too
 fun double(x: Int): Int {
     return 2 * x
 }
@@ -14,7 +18,7 @@ fun double(x: Int): Int {
 
 ## Function usage
 
-To call a function, use the brackets notation for arguments:
+To call a [member](classes.md) or [extension function](extensions.md#extension-functions), use a period `.`:
 
 ```kotlin
 val result = double(2)
@@ -30,7 +34,7 @@ Stream().read()
 ### Parameters
 
 Declare function parameters using Pascal notation: `name: Type`.
-You must separate parameters using commas and type each parameter explicitly:
+You must separate parameters using commas and give each parameter a type explicitly:
 
 ```kotlin
 fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
@@ -57,7 +61,7 @@ Trailing commas help with refactorings and code maintenance:
 you can move parameters within the declaration without worrying about which is going to be the last one.
 
 > Kotlin functions can receive other functions as parameters — and be passed as arguments.
-> For details, see [](lambdas.md).
+> For more information, see [](lambdas.md).
 > 
 {style="note"}
 
@@ -65,9 +69,9 @@ you can move parameters within the declaration without worrying about which is g
 
 You can specify default values for function parameters, to be used when the corresponding argument is skipped
 in a function call.
-This reduces the number of necessary overloads as you don't need to declare different versions of a function
-simply to allow skipping a parameter that has a reasonable default.
-Parameters with default values are also referred to as _optional parameters_.
+This reduces the need for multiple overloads, since you don't have to declare different versions of a function
+just to allow skipping a parameter with a reasonable default.
+Parameters with default values are also known as _optional parameters_.
 
 Set a default value by appending `=` to the parameter declaration:
 
@@ -140,8 +144,9 @@ class Rectangle : Shape() {
 
 #### Non-constant expressions as default values
 
-You can assign to a parameter a default value that is not constant, as in a function call, or a calculation that uses
-values of other arguments, like the `len` parameter in the example above:
+You can assign a parameter a default value that isn't constant.
+For example, the default can be the result of a function call or a calculation that uses the values of other arguments,
+like the `len` parameter in this example:
 
 ```kotlin
 fun read(
@@ -151,12 +156,12 @@ fun read(
 ) { /*...*/ }
 ```
 
-Parameters that refer to values of other parameters must be declared later in the order
-(in this example, `len` must be declared after `b`).
+Parameters that refer to the values of other parameters must be declared later in the order.
+In this example, `len` must be declared after `b`.
 
 In general, you can assign any expression as the default value of a parameter.
-But default values are only calculated when the function is called **without** the corresponding parameter
-and a default value actually needs to be assigned.
+However, default values are only evaluated when the function is called **without** the corresponding parameter
+and a default value needs to be assigned.
 For example, this function prints out a line only when it is called without the `print` parameter:
 
 ```kotlin
@@ -208,9 +213,9 @@ log { println("Connection established") }
 You can name one or more of a function's arguments when calling it. This can be helpful when a function call has many
 argument, and it's difficult to associate a value with an argument, especially if it's a boolean or `null` value.
 
-When you use named arguments in a function call, you can freely change the order that they are listed in.
+When you use named arguments in a function call, you can list them in any order.
 
-Consider the `reformat()` function, which has 4 arguments with default values.
+Consider the `reformat()` function, which has 4 arguments with default values:
 
 ```kotlin
 fun reformat(
@@ -287,12 +292,11 @@ fun double(x: Int) = x * 2
 
 ### Unit-returning functions
 
-If a function has a block body and does not return a useful value, compiler assumes the return type to be `Unit`
-(corresponds to the `void` type in Java).
-`Unit` is a type with only one value, `Unit`.
+If a function has a block body and does not return a useful value, the compiler assumes its return type  is `Unit`.
+`Unit` is a type that has only one value, also called `Unit`.
 
-You don't have to specify `Unit` as a return type, except for functional type parameters,
-and you never have to return `Unit` explicitly.
+You don't have to specify `Unit` as a return type, except for functional type parameters.
+You never have to return `Unit` explicitly.
 
 Therefore, this verbose declaration:
 
@@ -306,7 +310,7 @@ fun printHello(name: String?, action: () -> Unit): Unit {
 }
 ```
 
-can be shortened to:
+Can be shortened to:
 
 ```kotlin
 // The declaration of the functional type parameter ('action') still 
@@ -341,12 +345,13 @@ val list = asList(1, 2, 3)
 ```
 
 Only one parameter can be marked as `vararg`.
-If you declare a `vararg` parameter not as the last one in the list, values for subsequent parameters must be passed
-using the named argument syntax, or, if a parameter has the function type, by passing a lambda outside the parentheses.
+If you declare a `vararg` parameter anywhere other than last in the parameter list, you must pass values for the following
+parameters using named arguments.
+If a parameter has a function type, you can also pass its value by placing a lambda outside the parentheses.
 
 When you call a `vararg`-function, you can pass arguments individually, as in the example of `asList(1, 2, 3)`.
-If you already have an array and want to pass its contents to the function in place (or as a part) of a `vararg` parameter,
-use the spread operator (prefix the name of the array with `*`):
+If you already have an array and want to pass its contents to a function as a `vararg` parameter or as a part of it,
+use the [spread operator](arrays.md#pass-variable-number-of-arguments-to-a-function) by prefixing the array name with `*`:
 
 ```kotlin
 val a = arrayOf(1, 2, 3)
@@ -365,8 +370,8 @@ val list = asList(-1, 0, *a.toTypedArray(), 4)
 
 ### Infix notation
 
-You can declare functions to be called without parentheses and the dot using the `infix` keyword.
-This can be useful to clear up simple function calls in your code.
+You can declare functions that can be called without parentheses or the period by using the `infix` keyword.
+This can help make simple function calls in your code easier to read.
 
 ```kotlin
 infix fun Int.shl(x: Int): Int { /*...*/ }
@@ -382,7 +387,7 @@ Infix functions must meet the following requirements:
 
 * They must be member functions of a class or [extension functions](extensions.md).
 * They must have a single parameter.
-* The parameter must not [accept variable number of arguments](#variable-number-of-arguments-varargs) (`vararg`) and must have
+* The parameter must not [accept a variable number of arguments](#variable-number-of-arguments-varargs) (`vararg`) and must have
   no [default value](#parameters-with-default-values).
 
 > Infix function calls have lower precedence than arithmetic operators, type casts, and the `rangeTo` operator.
@@ -417,9 +422,8 @@ class MyStringCollection {
 
 ## Function scope
 
-You can declare Kotlin functions at the top level in a file, meaning you do not need to create a class to hold a function
-(unlike Java, for example).
-Functions can also be declared locally as _member functions_ and _extension functions_.
+You can declare Kotlin functions at the top level in a file, meaning you do not need to create a class to hold a function.
+Functions can also be declared locally as _member functions_ or _extension functions_.
 
 ### Local functions
 
@@ -438,7 +442,7 @@ fun dfs(graph: Graph) {
 ```
 
 A local function can access local variables of outer functions (the closure).
-In the case above, `visited` can be a local variable:
+In the case above, the `visited` function parameter can be a local variable:
 
 ```kotlin
 fun dfs(graph: Graph) {
@@ -474,7 +478,7 @@ For more information on classes and overriding members see [Classes](classes.md)
 
 ## Generic functions
 
-You can specify generic parameters for a function by using angle brackets before the function name:
+You can specify generic parameters for a function by using angle brackets `<>` before the function name:
 
 ```kotlin
 fun <T> singletonList(item: T): List<T> { /*...*/ }
@@ -522,9 +526,10 @@ private fun findFixPoint(): Double {
 }
 ```
 
-To be eligible for the `tailrec` modifier, a function must call itself as the last operation it performs.
+You can apply the `tailrec` modifier to a function only when it calls itself as its final operation.
 You cannot use tail recursion when there is more code after the recursive call,
-within `try`/`catch`/`finally` blocks, or on [open functions](inheritance.md).
+within [`try`/`catch`/`finally` blocks](exceptions.md#handle-exceptions-using-try-catch-blocks),
+or when the function is [open](inheritance.md).
 
 **See also**:
 * [Inline functions](inline-functions.md)
