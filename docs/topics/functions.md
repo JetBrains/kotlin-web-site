@@ -221,8 +221,8 @@ log { println("Connection established") }
 ### Named arguments
 
 You can name one or more of a function's arguments when calling it.
-This can be helpful when a function call has many argument, and it's difficult to associate a value with an argument,
-especially if it's a boolean or `null` value.
+This can be helpful when a function call has many arguments.
+In such cases, it's difficult to associate a value with an argument, especially if it's `null` or a boolean value.
 
 When you use named arguments in a function call, you can list them in any order.
 
@@ -267,7 +267,8 @@ reformat(
 )
 ```
 
-You can pass a [variable number of arguments](#variable-number-of-arguments-varargs) (`vararg`) naming the corresponding array:
+You can pass a [variable number of arguments](#variable-number-of-arguments-varargs) (`vararg`) by naming the corresponding argument.
+In this example, it's an array:
 
 ```kotlin
 fun mergeStrings(vararg strings: String) { /*...*/ }
@@ -308,7 +309,8 @@ Most of the time you don't have to explicitly declare [the return type](#return-
 fun double(x: Int) = x * 2
 ```
 
-Compiler can run into problems inferring return types from single expressions.
+The compiler can sometimes run into problems when inferring return types from single expressions.
+In such cases, you should add the return type explicitly.
 For example, functions that are recursive or mutually recursive (calling each other)
 and functions with typeless expressions like `fun empty() = null` always require a return type.
 
@@ -537,35 +539,71 @@ Functions can also be declared locally as _member functions_ or _extension funct
 
 ### Local functions
 
-Kotlin supports local functions, which are functions inside other functions:
+Kotlin supports local functions, which are functions declared inside other functions.
+For example, the following code implements the Depth-first search algorithm for a given graph.
+The local `dfs()` function inside the outer `dfs()` function to hide the implementation and handle recursive calls:
 
 ```kotlin
-fun dfs(graph: Graph) {
-    fun dfs(current: Vertex, visited: MutableSet<Vertex>) {
+class Person(val name: String) {
+    val friends = mutableListOf<Person>()
+}
+class SocialGraph(val people: List<Person>)
+//sampleStart
+fun dfs(graph: SocialGraph) {
+    fun dfs(current: Person, visited: MutableSet<Person>) {
         if (!visited.add(current)) return
-        for (v in current.neighbors)
-            dfs(v, visited)
+        println("Visited ${current.name}")
+        for (friend in current.friends)
+            dfs(friend, visited)
     }
-
-    dfs(graph.vertices[0], HashSet())
+    dfs(graph.people[0], HashSet())
+}
+//sampleEnd
+fun main() {
+    val alice = Person("Alice")
+    val bob = Person("Bob")
+    val charlie = Person("Charlie")
+    alice.friends += bob
+    bob.friends += charlie
+    charlie.friends += alice
+    val network = SocialGraph(listOf(alice, bob, charlie))
+    dfs(network)
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="local-functions-dfs"}
 
 A local function can access local variables of outer functions (the closure).
 In the case above, the `visited` function parameter can be a local variable:
 
 ```kotlin
-fun dfs(graph: Graph) {
-    val visited = HashSet<Vertex>()
-    fun dfs(current: Vertex) {
+class Person(val name: String) {
+    val friends = mutableListOf<Person>()
+}
+class SocialGraph(val people: List<Person>)
+//sampleStart
+fun dfs(graph: SocialGraph) {
+    val visited = HashSet<Person>()
+    fun dfs(current: Person) {
         if (!visited.add(current)) return
-        for (v in current.neighbors)
-            dfs(v)
+        println("Visited ${current.name}")
+        for (friend in current.friends)
+            dfs(friend)
     }
-
-    dfs(graph.vertices[0])
+    dfs(graph.people[0])
+}
+//sampleEnd
+fun main() {
+    val alice = Person("Alice")
+    val bob = Person("Bob")
+    val charlie = Person("Charlie")
+    alice.friends += bob
+    bob.friends += charlie
+    charlie.friends += alice
+    val network = SocialGraph(listOf(alice, bob, charlie))
+    dfs(network)
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="local-functions-dfs-with-local-variable"}
 
 ### Member functions
 
