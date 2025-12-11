@@ -39,7 +39,7 @@
     height: 72px;
     width: 72px;
 
-    @media (--ktl-ts-more) {
+    @media (--ktl-tl-up) {
         height: 96px;
         width: 96px;
     }
@@ -54,7 +54,7 @@
 .title {
     padding-block: 24px;
 
-    @media (--ktl-ts-in) {
+    @media (--ktl-ts-only) {
         /* @mixin rs-hero-sm-*; */
         font-size: 42px;
         line-height: 50px;
@@ -64,7 +64,7 @@
 .subtitle {
     max-width: 900px;
 
-    @media (--ktl-ts-in) {
+    @media (--ktl-ts-only) {
         /* @mixin rs-subtitle-1-sm-* */
         font-size: 23px;
         line-height: 30px;
@@ -96,11 +96,11 @@
 
     line-height: 1.5;
 
-    @media (--ktl-ts-more) {
+    @media (--ktl-tl-up) {
         flex-basis: 80px;
     }
 
-    @media (--ktl-ms-in) {
+    @media (--ktl-ms-only) {
         padding-inline: 14px;
     }
 
@@ -134,7 +134,7 @@
     height: 32px;
     width: 32px;
 
-    @media (--ktl-ts-more) {
+    @media (--ktl-tl-up) {
         background-size: 48px;
         height: 48px;
         width: 48px;
@@ -142,7 +142,7 @@
 }
 
 .button {
-    @media (--ktl-ms-in) {
+    @media (--ktl-ms-only) {
         width: 100%;
     }
 }

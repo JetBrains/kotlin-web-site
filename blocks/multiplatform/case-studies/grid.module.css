@@ -17,14 +17,14 @@
 .title {
     text-align: center;
 
-    @media (--ktl-ts) {
+    @media (--ktl-ts-only) {
         font-size: 35px;
         line-height: 39px;
     }
 }
 
 .btn {
-    @media (--ktl-ms-in) {
+    @media (--ktl-ms-only) {
         width: 100%;
     }
 }

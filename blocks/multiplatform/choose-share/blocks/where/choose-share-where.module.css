@@ -11,7 +11,7 @@
 
     padding: var(--ktl-box-section-l) var(--ktl-box-section-m);
 
-    @media (--ktl-ts-less) {
+    @media (--ktl-ml-down) {
         padding: var(--ktl-box-section-s);
         border-radius: var(--ktl-box-block-l);
     }
@@ -21,7 +21,7 @@
     margin: 0 0 var(--ktl-box-section-m);
     text-align: center;
 
-    @media (--ktl-ts-less) {
+    @media (--ktl-ml-down) {
         font-size: 28px;
         line-height: 32px;
     }
@@ -31,12 +31,12 @@
     margin-bottom: var(--ktl-box-section-s);
 
     [data-rs-internal='chip-list__chip'] {
-        @media (--ktl-ml-more) {
+        @media (--ktl-ts-up) {
             @mixin rs-subtitle-2-base;
         }
     }
 
-    @media (--ktl-ds-less) {
+    @media (--ktl-tl-down) {
         max-width: 590px;
     }
 
@@ -82,7 +82,7 @@
 :global(.js) .card:not(.active) {
     visibility: hidden;
 
-    @media (--ktl-tl-less) {
+    @media (--ktl-ts-down) {
         display: none;
     }
 }

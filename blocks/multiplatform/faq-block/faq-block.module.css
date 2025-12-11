@@ -3,7 +3,7 @@
 .section {
     margin-block: 60px;
     
-    @media (--ktl-ds-more) {
+    @media (--ktl-dl-up) {
         margin-block: var(--ktl-box-page-m);
     }
 }
