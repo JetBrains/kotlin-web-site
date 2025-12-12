@@ -101,8 +101,8 @@ export function ChooseShareWhere({ className }: { className?: string }) {
             >
                 {TABS_BLOCKS.map(({ id, tab, Icon }, i) => (
                     <Chip key={id} icon={<Icon size={isMS ? 'm' : 'l'} />} href={`#choose-share-where-${id}`}
-                          className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}
-                          aria-label={`Go to ${id} section`} role="tab" onClick={navigateToHash}>
+                          className={styles.tab} aria-label={`Go to ${id} section`} onClick={navigateToHash}
+                          {...(activeIndex === i && { 'aria-selected': true })}>
                         {tab}
                     </Chip>
                 ))}
