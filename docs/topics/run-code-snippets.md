@@ -165,3 +165,21 @@ To add a third-party library in the ki shell, use the `:dependsOn` command. By d
 but you can use other repositories if you connect them using the `:repository` command:
 
 ![ki shell external dependency](ki-shell-dependency.png){width=700}
+
+## Kotlin Notebook
+
+[Kotlin Notebook](kotlin-notebook-overview.md) is an interactive editor that lets you mix code, outputs, visuals, and Markdown in one document. 
+You can use notebooks to write and run code in sections known as _code cells_, and see the results instantly.
+
+![Kotlin Notebook](data-analysis-notebook.gif){width=700}
+
+Kotlin Notebook relies on the Kotlin Notebook plugin, which is bundled and enabled in IntelliJ IDEA by default.
+
+[Get started with Kotlin Notebook](get-started-with-kotlin-notebooks.md)
+
+### Scratch Kotlin Notebook
+
+You can also create a Kotlin Notebook as a [scratch file](https://www.jetbrains.com/help/idea/scratches.html), which allows you to test small pieces of code without 
+creating a new project or modifying an existing one.
+
+[Learn how to create a scratch Kotlin Notebook](kotlin-notebook-create.md#create-a-scratch-kotlin-notebook)
