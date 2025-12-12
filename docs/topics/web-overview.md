@@ -9,6 +9,7 @@ Both approaches let you share code in your web app, but they support different u
 They also differ in technical aspects such as target browser support.
 
 ## Kotlin/Wasm
+<primary-label ref="beta"/> 
 
 [](wasm-overview.md) compiles Kotlin code into WebAssembly (Wasm), enabling apps to run across 
 environments and devices that support Wasm while meeting Kotlin’s requirements.
