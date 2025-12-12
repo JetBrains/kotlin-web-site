@@ -41,7 +41,7 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...i
     return (
         <article
             className={cn(styles.card, className, styles[mode || 'classic'], textCn('rs-text-2', { hardness: 'hard' }))}
-            data-testid="case-studies-card" id={item.id}>
+            data-testid="case-studies-card">
             <div className={styles.content}>
                 {logo &&
                     <div className={styles.logos}>

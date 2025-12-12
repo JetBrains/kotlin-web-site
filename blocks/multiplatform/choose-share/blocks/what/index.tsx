@@ -71,9 +71,11 @@ export function ChooseShareWhat({ className }: { className?: string }) {
                 className={cn(styles.tabs, 'rs-docs-offset-top-12')}
             >
                 {TABS_BLOCKS.map(({ id, Tab }, i) => (
-                    <Chip key={id} className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}
-                          href={`#choose-share-what-${id}`} aria-label={`Go to ${id} section`} role="tab"
-                          onClick={navigateToHash} data-testid={'share-what-chip-anchor'}>
+                    <Chip key={id} className={styles.tab}
+                          href={`#choose-share-what-${id}`} aria-label={`Go to ${id} section`}
+                          onClick={navigateToHash} data-testid={'share-what-chip-anchor'}
+                          {...(activeIndex === i && { 'aria-selected': true })}
+                    >
                         <Tab />
                     </Chip>
                 ))}
