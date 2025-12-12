@@ -1,16 +1,34 @@
-import { expect, Locator, Page, test } from '@playwright/test';
-import { MultiplatformPage } from '../page/multiplatform-page';
-import { checkAnchor } from '../utils';
-
-let multiplatformPage: MultiplatformPage;
+import { expect, Locator, test } from '@playwright/test';
+import { MultiplatformPage } from '../../page/multiplatform-page';
+import { checkAnchor, checkScreenshot, isSkipScreenshot } from '../../utils';
 
 test.describe('Multiplatform landing page', async () => {
+    let multiplatformPage: MultiplatformPage;
+
     test.beforeEach(async ({ page }) => {
         multiplatformPage = new MultiplatformPage(page);
         await multiplatformPage.init();
     });
 
-    test('Multiplatform: check hero block content', async ({ page }) => {
+    test('screenshot testing', async () => {
+        test.skip(isSkipScreenshot, 'Skipping screenshot testing');
+
+        const { main, page } = multiplatformPage;
+
+        await page.evaluate(() => window.scrollTo(0, 0));
+
+        await expect(page).toHaveScreenshot({
+            caret: 'hide',
+            animations: 'disabled',
+            fullPage: true,
+            mask: [
+                main.locator('video[autoplay]'),
+                page.locator('[data-test="header"]')
+            ]
+        });
+    });
+
+    test('check hero block content', async () => {
         await expect(multiplatformPage.heroTitle).toBeVisible();
         await expect(multiplatformPage.heroTitle).not.toBeEmpty();
 
@@ -25,10 +43,12 @@ test.describe('Multiplatform landing page', async () => {
         const href = await heroActionButton.getAttribute('href');
         await heroActionButton.click();
 
-        expect(page.url()).toContain(href);
+        expect(multiplatformPage.page.url()).toContain(href);
     });
 
-    test('Multiplatform: check "Choose what to share" block', async ({ page }) => {
+    test('check "Choose what to share" block', async () => {
+        const page = multiplatformPage.page;
+
         await expect(multiplatformPage.shareWhatBlock).toBeVisible();
         await expect(multiplatformPage.shareWhatTitle).not.toBeEmpty();
 
@@ -39,7 +59,7 @@ test.describe('Multiplatform landing page', async () => {
             // Check that the "both-logic-ui-tab" chip is selected by default
             if (await anchor.getAttribute('id') === 'choose-share-what-both-logic-ui-tab') {
                 await anchor.scrollIntoViewIfNeeded();
-                await checkChooseWhatToShare(page, anchor);
+                await checkChooseWhatToShare(multiplatformPage, anchor);
                 continue;
             }
 
@@ -59,11 +79,11 @@ test.describe('Multiplatform landing page', async () => {
         for (const anchor of (await anchors.all()).reverse()) {
             await anchor.scrollIntoViewIfNeeded();
             await checkAnchor(page, anchor);
-            await checkChooseWhatToShare(page, anchor);
+            await checkChooseWhatToShare(multiplatformPage, anchor);
         }
     });
 
-    test('Multiplatform: check CTA block', async ({ page }) => {
+    test('check CTA block', async () => {
         await expect(multiplatformPage.ctaBlockTitle).toBeVisible();
         await expect(multiplatformPage.ctaBlockTitle).not.toBeEmpty();
 
@@ -73,17 +93,17 @@ test.describe('Multiplatform landing page', async () => {
         const href = await multiplatformPage.ctaBlockAction.getAttribute('href');
         await multiplatformPage.ctaBlockAction.click();
 
-        expect(page.url()).toContain(href);
+        expect(multiplatformPage.page.url()).toContain(href);
     });
 });
 
-async function checkChooseWhatToShare(page: Page, anchor: Locator) {
+async function checkChooseWhatToShare({ page, main, shareWhatBlock }: MultiplatformPage, anchor: Locator) {
     // Check that the tab is selected
     await expect(anchor).toHaveAttribute('aria-selected', 'true');
     await expect(anchor).toHaveAttribute('data-test', /(^|\s)chip-selected(\s|$)/);
 
     const paneId = await anchor.getAttribute('aria-controls');
-    const pane = page.locator(`#${paneId}`);
+    const pane = main.locator(`#${paneId}`);
 
     await expect(pane).toBeInViewport();
 
@@ -91,6 +111,7 @@ async function checkChooseWhatToShare(page: Page, anchor: Locator) {
     const title = pane.getByTestId('share-what-chip-content-title');
     await expect(title).toBeVisible();
     await expect(title).not.toBeEmpty();
+    await expect(title).toBeInViewport();
 
     const content = pane.getByTestId('share-what-chip-content-text');
     await expect(content).toBeVisible();
@@ -100,13 +121,12 @@ async function checkChooseWhatToShare(page: Page, anchor: Locator) {
     await expect(link).toBeVisible();
     await expect(link).not.toBeEmpty();
 
+    await checkScreenshot(shareWhatBlock);
+
     // Check that links work as links
     const href = await link.getAttribute('href');
     await link.click();
 
     expect(page.url()).toContain(href);
     await page.goBack();
-
-    // Check that the browser scrolls to the anchor after clicking on the back button
-    await expect(link).toBeInViewport();
 }

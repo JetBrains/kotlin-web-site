@@ -27,3 +27,15 @@ export async function checkAnchor(page: Page, anchor: Locator) {
     const targetElement = page.locator(`#${targetId}`);
     await expect(targetElement).toBeInViewport();
 }
+
+export const isSkipScreenshot = process.env.E2E_WITH_SCREENSHOTS !== 'true'
+
+export async function checkScreenshot(element: Locator) {
+    if (isSkipScreenshot) return;
+
+    await expect(element).toHaveScreenshot({
+        caret: 'hide',
+        animations: 'disabled',
+        stylePath: 'test/e2e/multiplatform/screenshot.css'
+    });
+}
