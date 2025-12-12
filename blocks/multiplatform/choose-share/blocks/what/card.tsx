@@ -31,9 +31,8 @@ function Card({ className, title, url, imageName, children }: CodeShareCardProps
                     src={`/images/multiplatform/choose-share-what/${imageName}@2x.webp`}
                     srcSet={`
                         /images/multiplatform/choose-share-what/${imageName}.webp 1x,
-                        /images/multiplatform/choose-share-what/${imageName}@2x.webp 2x,
-                    `}
-                    alt={imageName} 
+                        /images/multiplatform/choose-share-what/${imageName}@2x.webp 2x`}
+                    alt={imageName}
                 />
             </p>
         </section>
