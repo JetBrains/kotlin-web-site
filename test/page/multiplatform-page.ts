@@ -5,6 +5,7 @@ import { PageWithGlobalSearch } from './page-with-global-search';
 export class MultiplatformPage implements PageWithGlobalSearch {
     readonly page: Page;
     readonly globalSearch: GlobalSearch;
+    readonly main: Locator;
     readonly heroBanner: Locator;
     readonly heroTitle: Locator;
     readonly heroSubTitle: Locator;
@@ -19,6 +20,8 @@ export class MultiplatformPage implements PageWithGlobalSearch {
     constructor(page) {
         this.page = page;
         this.globalSearch = new GlobalSearch(this.page);
+
+        this.main = page.getByTestId('multiplatform-landing');
 
         this.heroBanner = page.getByTestId('hero-banner');
         this.heroTitle = page.getByTestId('hero-title');
@@ -35,6 +38,9 @@ export class MultiplatformPage implements PageWithGlobalSearch {
     async init() {
         await this.page.goto('/multiplatform/');
 
-        await this.page.getByTestId('multiplatform-landing').waitFor();
+        await Promise.all([
+            this.main.waitFor(),
+            this.page.locator('html.hydrated').waitFor()
+        ]);
     }
 }
