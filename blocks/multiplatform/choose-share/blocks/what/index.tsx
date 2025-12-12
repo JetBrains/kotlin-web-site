@@ -62,31 +62,39 @@ export function ChooseShareWhat({ className }: { className?: string }) {
     return (
         <section className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')} data-testid={'share-what-block'}>
             <h2 className={cn(styles.title, textCn('rs-h1'))} data-testid={'share-what-title'}>Choose what to share</h2>
-            <ChipList
-                size={'l'}
-                alignItems={'center'}
-                compact={true}
-                value={activeIndex}
-                onChange={v => setActiveIndex(v)}
-                className={cn(styles.tabs, 'rs-docs-offset-top-12')}
-            >
-                {TABS_BLOCKS.map(({ id, Tab }, i) => (
-                    <Chip key={id} className={styles.tab}
-                          href={`#choose-share-what-${id}`} aria-label={`Go to ${id} section`}
-                          onClick={navigateToHash} data-testid={'share-what-chip-anchor'}
-                          {...(activeIndex === i && { 'aria-selected': true })}
-                    >
-                        <Tab />
-                    </Chip>
-                ))}
-            </ChipList>
+
+            <div role="tablist">
+                <ChipList
+                    size={'l'}
+                    alignItems={'center'}
+                    compact={true}
+                    value={activeIndex}
+                    onChange={v => setActiveIndex(v)}
+                    className={cn(styles.tabs, 'rs-docs-offset-top-12')}
+                >
+                    {TABS_BLOCKS.map(({ id, Tab }, i) => (
+                        <Chip key={id} className={styles.tab}
+                              id={`choose-share-what-${id}-tab`} role="tab"
+                              aria-controls={`choose-share-what-${id}-content`}
+                              href={`#choose-share-what-${id}`} aria-label={`Go to ${id} section`}
+                              onClick={navigateToHash} data-testid={'share-what-chip-anchor'}
+                              {...(activeIndex === i && { 'aria-selected': true })}
+                        >
+                            <Tab />
+                        </Chip>
+                    ))}
+                </ChipList>
+            </div>
 
             <div className={cn(styles.cards)}>
                 {TABS_BLOCKS.map(({ id, actionLink, Title, Content }, i) => <Fragment key={id}>
                     <a className={styles.anchor} id={`choose-share-what-${id}`} />
                     <CodeShareCard
+                        id={`choose-share-what-${id}-content`} role="tabpanel"
+                        aria-labelledby={`choose-share-what-${id}-tab`}
                         className={cn(styles.card, { [styles.active]: activeIndex === i })}
-                        title={<Title />} imageName={`${id}`} url={actionLink}>
+                        title={<Title />} imageName={`${id}`} url={actionLink}
+                    >
                         <Content />
                     </CodeShareCard>
                 </Fragment>)}
