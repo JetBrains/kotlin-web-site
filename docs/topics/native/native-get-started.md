@@ -187,6 +187,15 @@ In this section, you'll learn how to manually create a Kotlin/Native application
 It's the default build system for Kotlin/Native and Kotlin Multiplatform projects, which is also commonly used in Java,
 Android, and other ecosystems.
 
+When building Kotlin/Native projects, the Kotlin Gradle plugin downloads the following artifacts:
+
+* The main Kotlin/Native bundle, which includes different tools like `konanc`, `cinterop`, `jsinterop`. By default,
+  it's downloaded from the [Maven Central](https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-native-prebuilt/)
+  repository as a simple Gradle dependency.
+* Dependencies required for the `konanc` itself, like `llvm`. They are downloaded from the JetBrains CDN using custom logic.
+
+You can change the source for the main bundle download in the `repositories {}` block in your Gradle build script.
+
 ### Create project files
 
 1. To get started, install a compatible version of [Gradle](https://gradle.org/install/). See the [compatibility table](gradle-configure-project.md#apply-the-plugin)
@@ -203,6 +212,7 @@ Android, and other ecosystems.
    }
 
    repositories {
+       // Specify the source to download the main bundle. Maven Central is used by default.
        mavenCentral()
    }
 
@@ -232,6 +242,7 @@ Android, and other ecosystems.
    }
 
    repositories {
+       // Specify the source to download the main bundle. Maven Central is used by default.
        mavenCentral()
    }
 
