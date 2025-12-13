@@ -63,7 +63,7 @@ To declare a data class with the `@JvmRecord` annotation, it must meet the follo
 
 JVM records require the `16` target version or higher of the generated JVM bytecode.
 
-To specify it explicitly, use the `jvmTarget` compiler option in [Gradle](gradle-compiler-options.md#attributes-specific-to-jvm) or [Maven](maven.md#attributes-specific-to-jvm).
+To specify it explicitly, use the `jvmTarget` compiler option in [Gradle](gradle-compiler-options.md#attributes-specific-to-jvm) or [Maven](maven-compile-package.md#attributes-specific-to-jvm).
 
 ## Annotate record components in Kotlin
 
