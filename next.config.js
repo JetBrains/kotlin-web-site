@@ -19,7 +19,8 @@ let transpiledPackages = [
     '@webteam/use-fetch',
     '@webteam/use-async-data',
     '@webteam/bem-cn-fast',
-    '@webteam/list'
+    '@webteam/list',
+    '@webteam/video-player'
 ];
 
 const withTranspile = nextTranspileModules(transpiledPackages);

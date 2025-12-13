@@ -2,7 +2,9 @@ import { CaseItem } from '../case-studies';
 import { parseCompose, parsePlatforms, parseType } from '../utils';
 import caseStudiesDataRaw from '../../../data/case-studies/case-studies.yml';
 import { useRouter } from 'next/router';
-import { useMemo } from 'react';
+import { createContext, ReactNode, useContext, useMemo } from 'react';
+
+const CaseStudiesContext = createContext<CaseItem[]>([]);
 
 /**
  * Returns the list of case studies from a static source filtered according to the URL query parameters.
@@ -12,20 +14,69 @@ import { useMemo } from 'react';
  * - compose: boolean
  */
 export const useFilteredCases = (): CaseItem[] => {
-    const router = useRouter();
+    return useContext(CaseStudiesContext);
+};
 
-    const type = useMemo(() => parseType(router.query.type), [router.query.type]);
-    const platforms = useMemo(() => parsePlatforms(router.query.platforms), [router.query.platforms]);
-    const compose = useMemo(() => parseCompose(router.query.compose), [router.query.compose]);
+/**
+ * Represents the properties for the FilteredCases component.
+ *
+ * @typedef {Object} FilteredCasesProviderProps
+ *
+ * @property {FilterOptions} filter - The filter options used to determine which cases are displayed.
+ * @property {(items: CaseItem[]) => CaseItem[]} [preprocess] - An optional function that can be used to preprocess the case studies before filtering.
+ * @property {ReactNode} children - The child components or elements to be rendered within the FilteredCases component.
+ */
+export type FilteredCasesProviderProps = {
+    filter: FilterOptions,
+    preprocess?: (items: CaseItem[]) => CaseItem[]
+    children: ReactNode
+}
+
+/**
+ * FilteredCasesProvider is a React component that provides a filtered list of case study items
+ * through a context. It takes a filter configuration and child components as props.
+ *
+ * @param {FilteredCasesProviderProps} props - The properties passed to the component.
+ */
+export const FilteredCasesProvider = (props: FilteredCasesProviderProps) => {
+    const { preprocess, children, filter } = props;
+    const { type, platforms, compose } = filter;
 
     const source: CaseItem[] = caseStudiesDataRaw.items;
 
-    return useMemo(() =>
-            filterCaseStudies(source, { type, platforms, compose }),
-        [type, platforms, compose]);
+    const data = useMemo(() => filterCaseStudies(source, {
+        type,
+        platforms,
+        compose
+    }), [type, platforms, compose, source]);
+
+    const items = useMemo(() => preprocess ? preprocess(data) : data, [preprocess, data]);
+
+    return <CaseStudiesContext.Provider value={items}>{children}</CaseStudiesContext.Provider>;
 };
 
-interface FilterOptions {
+/**
+ * RouterCasesProvider is a functional component that provides a filter object
+ * derived from the router query parameters to its child components via the
+ * FilteredCasesProvider context. It utilizes the Next.js useRouter hook to
+ * access query parameters and memoizes the filter to optimize re-rendering.
+ *
+ * Props:
+ * - children: React.ReactNode - The child components to render within this provider.
+ */
+export const RouterCasesProvider: React.FC = ({ children }) => {
+    const router = useRouter();
+
+    const filter = useMemo(() => ({
+        type: parseType(router.query.type),
+        platforms: parsePlatforms(router.query.platforms),
+        compose: parseCompose(router.query.compose)
+    }), [router.query.type, router.query.platforms, router.query.compose]);
+
+    return <FilteredCasesProvider filter={filter}>{children}</FilteredCasesProvider>;
+};
+
+export interface FilterOptions {
     type?: string | null;
     platforms?: string[];
     compose?: boolean;

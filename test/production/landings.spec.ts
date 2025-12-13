@@ -11,7 +11,7 @@ test.describe('/lp/ pages list', async () => {
     test(`Check /lp/multiplatform default redirects`, async ({ page, baseURL }) => {
         test.skip(isStaging(baseURL), 'for host with reverse-proxy only');
 
-        const targetUrl = 'https://www.jetbrains.com/kotlin-multiplatform/';
+        const targetUrl = 'https://www.kotlinlang.org/multiplatform/';
 
         await page.goto('/lp/multiplatform');
         expect(page.url()).toEqual(targetUrl);

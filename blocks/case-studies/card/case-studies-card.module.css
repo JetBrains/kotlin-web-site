@@ -1,17 +1,25 @@
 .card {
   border-radius: 16px;
   overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.8);
+
+  border: 1px solid;
+
+  &.classic {
+    background: #fff;
+    border-color:rgb(0, 0, 0, 0.8);
+  }
+
+  &.rock {
+    background: #19191C;
+    border-color: rgb(255, 255, 255, 0.20);
+  }
 }
 
 .content {
-  --font-color: rgba(25, 25, 28, 1);
   display: flex;
   flex-direction: column;
   padding: 32px;
   gap: 24px;
-  color: var(--font-color);
 
   @media (width <= 616px) {
     padding: 24px;
@@ -38,10 +46,6 @@
 }
 
 .description {
-  color: var(--font-color);
-  font-size: 16px;
-  line-height: 24px;
-
   & h2 {
     margin-top: 0;
     margin-bottom: 24px;
@@ -58,26 +62,10 @@
       margin-bottom: 0;
     }
   }
-
-  & a {
-    color: var(--font-color);
-  }
-}
-
-.signature {
-  color: var(--font-color);
 }
 
 .name {
-  color: var(--font-color);
-  line-height: 24px;
-  font-weight: 700;
-}
-
-.position {
-  color: var(--font-color);
-  opacity: 0.6;
-  line-height: 24px;
+  font-weight: 600;
 }
 
 .platforms {
@@ -92,6 +80,5 @@
 .link {
   display: inline-block;
   align-self: flex-start;
-  letter-spacing: 0.01em;
-  line-height: 24px;
+  --_rs-typography-link-after-margin-left-final: 4px;
 }

@@ -23,6 +23,31 @@
           "minItems": 0,
           "maxItems": 2
         },
+        "alternateLogo": {
+          "$ref": "#/definitions/CaseItem/properties/logo"
+        },
+        "carousel": {
+          "oneOf": [
+            {
+              "type": "boolean",
+              "const": true
+            },
+            {
+              "type": "object",
+              "properties": {
+                "logo": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "link": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
         "signature": {
           "type": "object",
           "properties": {

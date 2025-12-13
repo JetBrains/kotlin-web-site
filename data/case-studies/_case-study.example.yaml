@@ -8,6 +8,11 @@
 # Optional fields:
 # - logo: list (0–2) of image paths (strings)
 #     Use up to two logos, path relative to /public/ directory
+
+# - alternateLogo: list (0–2) of image paths (strings)
+#     Alternative logs for dark backgrounds, path relative to /public/ directory
+#     If a carousel logo is not specified, UI may pick the best option between
+#     logo and alternateLogo automatically.
 #
 # - signature: object — author or source of the quote
 #     line1: string — supports markdown (e.g., **Name Surname**, Role)
@@ -33,6 +38,20 @@
 #
 # - featuredOnMainPage: boolean — mark this case to be highlighted on the main page
 #
+# - carousel: controls appearance in the homepage carousel
+#     Omit the field to skip showing in carousel
+#
+#     Option A — enable with defaults:
+#       carousel: true
+#
+#     Option B — custom visuals and/or link:
+#       carousel:
+#         logo: /images/case-studies/carousel/company.svg  # image path relative to /public/ directory
+#         link: https://example.com/watch                  # custom click-through link
+#
+#     Note: If no custom carousel logo is provided, the UI will try to choose between
+#           'alternateLogo' (dark) and 'logo' automatically depending on the background.
+#
 
 items:
   - id: CompanyName        # required: unique identifier
@@ -42,6 +61,10 @@ items:
     logo: # optional: list of 0–2 image paths (strings)
       - /images/case-studies/google.svg
       - /images/case-studies/google.svg
+    alternateLogo: # optional: list of 0–2 image paths (strings)
+      - /images/case-studies/google-dark.svg
+      - /images/case-studies/google-dark.svg
+    carousel: true
     signature: # optional
       name: Name Surname
       position: Position at Company or note

@@ -196,7 +196,7 @@ function Index() {
                                 </>
                             }
                             button={
-                                <Button href="/lp/multiplatform/" size="l" mode="rock" theme="light">
+                                <Button href="/multiplatform/" size="l" mode="rock" theme="light">
                                     {isTS ? 'Learn more' : 'Learn about Kotlin Multiplatform'}
                                 </Button>
                             }
