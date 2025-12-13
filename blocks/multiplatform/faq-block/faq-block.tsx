@@ -10,7 +10,7 @@ export const FaqBlock = () => {
 
     return (
         <Accordion>
-            <section className={cn(styles.section, 'ktl-layout ktl-layout--center')}>
+            <div className={cn(styles.section, 'ktl-layout ktl-layout--center')}>
                 <div className={'ktl-row'}>
                     <div className="ktl-col-12 ktl-col-md-6">
                         <Collapse title={'What is Kotlin Multiplatform?'}>
@@ -46,8 +46,8 @@ export const FaqBlock = () => {
                                 'Where should I choose Kotlin Multiplatform (KMP) over other cross-platform solutions?'
                             }
                         >
+                            <p>Choose Kotlin Multiplatform when you need:</p>
                             <ul className={textCn('rs-ul')}>
-                                Choose Kotlin Multiplatform when you need:
                                 <li>
                                     <strong>Incremental adoption:</strong> KMP lets you share code selectively – start
                                     with a single module or expand to your full app at your own pace.
@@ -93,7 +93,7 @@ export const FaqBlock = () => {
                         </Collapse>
                     </div>
                 </div>
-            </section>
+            </div>
         </Accordion>
     );
 };

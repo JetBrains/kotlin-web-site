@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import cn from 'classnames';
 import { useMS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 import { useTextStyles } from '@rescui/typography';
@@ -17,7 +17,8 @@ const TABS_BLOCKS = [
         Icon: props => <AndroidIcon {...props} />,
         Content: () => (
             <>
-                Easily make your Android app cross-platform while keeping the majority of your Kotlin code.<br/> Many popular
+                Easily make your Android app cross-platform while keeping the majority of your Kotlin code.<br /> Many
+                popular
                 libraries and architecture components&nbsp;– including those from Google, such as Room, DataStore, or
                 ViewModel&nbsp;– can be used with Kotlin&nbsp;Multiplatform.
             </>
@@ -31,8 +32,9 @@ const TABS_BLOCKS = [
             const textCn = useTextStyles();
             return <>
                 Share business logic seamlessly. Make your Kotlin functions available to call from Swift code, and use
-                the full power of iOS APIs in your Kotlin code.<br/> Use <a className={textCn('rs-link', { external: true })}
-                                                                       href="https://www.jetbrains.com/compose-multiplatform/">Compose
+                the full power of iOS APIs in your Kotlin code.<br /> Use <a
+                className={textCn('rs-link', { external: true })}
+                href="https://www.jetbrains.com/compose-multiplatform/">Compose
                 Multiplatform</a> to create screens that can be embedded in SwiftUI, or build the entire user interface
                 in Kotlin. Easily use platform-specific views like MapKit or AVFoundation straight from your
                 Kotlin&nbsp;code.
@@ -60,7 +62,8 @@ const TABS_BLOCKS = [
                 Use Kotlin with <a className={textCn('rs-link', { external: true })}
                                    href="https://www.jetbrains.com/compose-multiplatform/">Compose Multiplatform</a> to
                 build cross-platform desktop applications with shared business logic and a consistent UI across Windows,
-                macOS, and Linux&nbsp;– hardware-accelerated rendering included!<br/> Use the well-established Kotlin and JVM
+                macOS, and Linux&nbsp;– hardware-accelerated rendering included!<br /> Use the well-established Kotlin
+                and JVM
                 ecosystems to quickly create your next desktop&nbsp;app.
             </>;
         }
@@ -72,7 +75,8 @@ const TABS_BLOCKS = [
         Content: () => (
             <>
                 Build your server-side applications with a modern JVM language, and use Kotlin Multiplatform to share
-                data models, validation logic, and more.<br/> Use a framework like Ktor to get familiar APIs not just on the
+                data models, validation logic, and more.<br /> Use a framework like Ktor to get familiar APIs not just
+                on the
                 server, but also on the client, and maximize the amount of code and knowledge you can&nbsp;reuse.
             </>
         )
@@ -90,31 +94,43 @@ export function ChooseShareWhere({ className }: { className?: string }) {
         <section className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')}>
             <h2 className={cn(styles.title, textCn('rs-h2'))}>Choose where to share</h2>
 
-            <ChipList
-                size={isMS ? 'm' : 'l'}
-                alignItems={'center'}
-                compact={true}
-                value={activeIndex}
-                onChange={v => setActiveIndex(v)}
-                className={cn(styles.tabs, 'rs-docs-offset-top-12')}
-                mode={'rock'}
-            >
-                {TABS_BLOCKS.map(({ id, tab, Icon }, i) => (
-                    <Chip key={id} icon={<Icon size={isMS ? 'm' : 'l'} />} href={`#choose-share-where-${id}`}
-                          className={cn(styles.tab, { [styles.activeChip]: activeIndex === i })}
-                          aria-label={`Go to ${id} section`} role="tab" onClick={navigateToHash}>
-                        {tab}
-                    </Chip>
-                ))}
-            </ChipList>
+            <div role="tablist">
+                <ChipList
+                    size={isMS ? 'm' : 'l'}
+                    alignItems={'center'}
+                    compact={true}
+                    value={activeIndex}
+                    onChange={v => setActiveIndex(v)}
+                    className={cn(styles.tabs, 'rs-docs-offset-top-12')}
+                    mode={'rock'}
+                >
+                    {TABS_BLOCKS.map(({ id, tab, Icon }, i) => (
+                        <Chip key={id} icon={<Icon size={isMS ? 'm' : 'l'} />} href={`#choose-share-where-${id}`}
+                              id={`choose-share-where-${id}-tab`} role="tab"
+                              aria-controls={`choose-share-where-${id}-pane`}
+                              className={styles.tab} aria-label={`Go to ${id} section`}
+                              onClick={navigateToHash} {...(activeIndex === i && { 'aria-selected': true })}>
+                            {tab}
+                        </Chip>
+                    ))}
+                </ChipList>
+            </div>
 
             <div className={cn(styles.cards)}>
-                {TABS_BLOCKS.map(({ id, Content }, i) => <Fragment key={id}>
-                    <a id={`choose-share-where-${id}`} className={styles.anchor} />
-                    <p className={cn(styles.card, textCn('rs-text-1'), { [styles.active]: activeIndex === i })}>
-                        <Content />
-                    </p>
-                </Fragment>)}
+                {TABS_BLOCKS.map(({ id, Content }, i) => (
+                    <div key={id} className={cn(styles.cardEl, { [styles.active]: activeIndex === i })}
+                         id={`choose-share-where-${id}-pane`} role="tabpanel"
+                         aria-labelledby={`choose-share-where-${id}-tab`}>
+                        <div key={id} className={cn(styles.cardEl, { [styles.active]: activeIndex === i })}
+                             id={`choose-share-where-${id}-pane`} role="tabpanel"
+                             aria-labelledby={`choose-share-where-${id}-tab`}>
+                            <a id={`choose-share-where-${id}`} className={styles.anchor} />
+                            <p className={cn(styles.card, textCn('rs-text-1'))}>
+                                <Content />
+                            </p>
+                        </div>
+                    </div>
+                ))}
             </div>
         </section>
     );

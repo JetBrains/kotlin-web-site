@@ -132,6 +132,11 @@
     }
 }
 
+.anchor { /* show transparent 1px anchor for e2e test */
+    height: 1px;
+    max-height: 1px;
+}
+
 :global(.js) {
     .wrap {
         position: relative;

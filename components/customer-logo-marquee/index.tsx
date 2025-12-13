@@ -11,7 +11,7 @@ export interface LogoItem {
 
 const CustomerLogoMarqueeSection: React.FC<{ className?: string, items: LogoItem[] }> = ({ className, items }) => {
     return (
-        <section className={cn(styles.section, className)} data-testid={'customers-block'}>
+        <div className={cn(styles.section, className)} data-testid={'customers-block'}>
             <Marquee className={styles.list} pauseOnHover hasFadingEdges>
                 {items.map((item) => (
                     <a
@@ -26,7 +26,7 @@ const CustomerLogoMarqueeSection: React.FC<{ className?: string, items: LogoItem
                     </a>
                 ))}
             </Marquee>
-        </section>
+        </div>
     );
 };
 
