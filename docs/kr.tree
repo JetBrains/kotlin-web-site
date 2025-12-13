@@ -113,6 +113,7 @@
             </toc-element>
         </toc-element>
         <toc-element toc-title="Web development">
+            <toc-element topic="web-overview.md"/>
             <toc-element toc-title="WebAssembly (Wasm)">
                 <toc-element toc-title="Overview" topic="wasm-overview.md"/>
                 <toc-element topic="wasm-get-started.md"/>

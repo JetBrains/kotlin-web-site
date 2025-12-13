@@ -854,3 +854,6 @@
 
 - from: /docs/apple-privacy-manifest.html
   to: /docs/multiplatform/multiplatform-privacy-manifest.html
+
+- from: /docs/multiplatform/choosing-web-target.html
+  to: /docs/web-overview.html
