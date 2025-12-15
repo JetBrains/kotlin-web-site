@@ -443,7 +443,7 @@ fun main() {
 val a = arrayOf(1, 2, 3)
 
 // The function receives the array [-1, 0, 1, 2, 3, 4]
- list = asList(-1, 0, *a, 4)
+list = asList(-1, 0, *a, 4)
 
 println(list)
 // [-1, 0, 1, 2, 3, 4]
