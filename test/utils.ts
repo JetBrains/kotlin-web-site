@@ -1,4 +1,5 @@
 import { BrowserContext, expect, Locator, Page } from '@playwright/test';
+import { PageAssertionsToHaveScreenshotOptions } from 'playwright/types/test';
 
 export const testSelector = (name: string) => `[data-test="${name}"]`;
 
@@ -28,14 +29,14 @@ export async function checkAnchor(page: Page, anchor: Locator) {
     await expect(targetElement).toBeInViewport();
 }
 
-export const isSkipScreenshot = process.env.E2E_WITH_SCREENSHOTS !== 'true'
+export const isSkipScreenshot = process.env.E2E_WITH_SCREENSHOTS !== 'true';
 
-export async function checkScreenshot(element: Locator) {
+export async function checkScreenshot(element: Locator, options?: PageAssertionsToHaveScreenshotOptions) {
     if (isSkipScreenshot) return;
 
     await expect(element).toHaveScreenshot({
         caret: 'hide',
         animations: 'disabled',
-        stylePath: 'test/e2e/multiplatform/screenshot.css'
+        ...(options || {})
     });
 }
