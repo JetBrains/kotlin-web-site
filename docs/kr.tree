@@ -22,11 +22,9 @@
         <toc-element hidden="true" topic="kotlin-tour-intermediate-libraries-and-apis.md"/>
     </toc-element>
     <toc-element toc-title="What's new in Kotlin">
-        <toc-element toc-title="Kotlin 2.3.0-RC3" topic="whatsnew-eap.md"/>
-        <toc-element toc-title="Kotlin 2.2.20" accepts-web-file-names="whatsnew.html" topic="whatsnew2220.md"/>
-        <toc-element toc-title="Kotlin 2.2.0" topic="whatsnew22.md"/>
-        <toc-element topic="compatibility-guide-23.md"/>
-        <toc-element topic="compatibility-guide-22.md"/>
+        <toc-element hidden="true" toc-title="Kotlin 2.3.0-RC3" topic="whatsnew-eap.md"/>
+        <toc-element toc-title="Kotlin 2.3.0" accepts-web-file-names="whatsnew.html" topic="whatsnew23.md"/>
+        <toc-element toc-title="Compatibility guide" topic="compatibility-guide-23.md"/>
     </toc-element>
     <toc-element toc-title="Language guide">
         <toc-element toc-title="Basic syntax">
@@ -373,6 +371,11 @@
     <toc-element toc-title="Other resources">
         <toc-element topic="faq.md"/>
         <toc-element toc-title="Earlier Kotlin versions">
+            <toc-element toc-title="Kotlin 2.2.x">
+                <toc-element toc-title="Kotlin 2.2.20" topic="whatsnew2220.md"/>
+                <toc-element toc-title="Kotlin 2.2.0" topic="whatsnew22.md"/>
+                <toc-element toc-title="Compatibility guide" topic="compatibility-guide-22.md"/>
+            </toc-element>
             <toc-element toc-title="Kotlin 2.1.x">
                 <toc-element toc-title="Kotlin 2.1.20" topic="whatsnew2120.md"/>
                 <toc-element toc-title="Kotlin 2.1.0" topic="whatsnew21.md"/>

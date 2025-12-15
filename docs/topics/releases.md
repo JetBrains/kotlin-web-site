@@ -2,7 +2,7 @@
 
 <tldr>
     <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
-    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.2.20</a> <!--and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>-->.</p>
+    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.3.0</a> <!--and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>-->.</p>
 </tldr>
 
 Since Kotlin 2.0.0, we ship the following types of releases:
@@ -33,8 +33,8 @@ new features before they are released. See [Early Access Preview](eap.md) for de
 
 Here is the approximate schedule for upcoming stable Kotlin releases:
 
-* **2.3.0**: Planned for December 2025 – January 2026
-* **2.3.20**: Planned for March – April 2026
+* **2.3.20**: Planned for January – March 2026
+* **2.4.0**: Planned for April – June 2026
 
 ## Update to a new Kotlin version
 
@@ -147,6 +147,16 @@ The following table lists details of the latest Kotlin releases:
         <th>Build info</th>
         <th>Build highlights</th>
     </tr>
+    <tr>
+        <td><strong>2.3.0</strong>
+            <p>Released: <strong>December 16, 2025</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.0" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A language release including both new and stable language features, tooling updates, performance improvements for different platforms, and important fixes.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.0">changelog</a>.</p>
+        </td>
+    </tr> 
     <tr>
         <td><strong>2.2.21</strong>
             <p>Released: <strong>October 23, 2025</strong></p>
@@ -388,7 +398,7 @@ The following table lists details of the latest Kotlin releases:
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A feature release with Kotlin K2 compiler updates, AutoCloseable interface and Base64 encoding in stdlib,
+            <p>A feature release with Kotlin K2 compiler updates, AutoCloseable interface, and Base64 encoding in stdlib,
                 new JVM incremental compilation enabled by default, new Kotlin/Wasm compiler backend.
             </p>
             <p>Learn more in:</p>
