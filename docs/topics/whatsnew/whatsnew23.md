@@ -90,11 +90,19 @@ kotlin {
 <tab title="Maven" group-key="maven">
 
 ```xml
-<configuration>
-    <args>
-        <arg>-Xreturn-value-checker=check</arg>
-    </args>
-</configuration>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-Xreturn-value-checker=check</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 </tab>
@@ -147,11 +155,19 @@ kotlin {
 <tab title="Maven" group-key="maven">
 
 ```xml
-<configuration>
-    <args>
-        <arg>-Xreturn-value-checker=full</arg>
-    </args>
-</configuration>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-Xreturn-value-checker=full</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 </tab>
@@ -245,11 +261,19 @@ kotlin {
 <tab title="Maven" group-key="maven">
 
 ```xml
-<configuration>
-    <args>
-        <arg>-Xexplicit-backing-fields</arg>
-    </args>
-</configuration>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-Xexplicit-backing-fields</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 </tab>
@@ -778,11 +802,19 @@ kotlin {
 <tab title="Maven" group-key="maven">
 
 ```xml
-<configuration>
-    <args>
-        <arg>-opt-in=kotlin.uuid.ExperimentalUuidApi</arg>
-    </args>
-</configuration>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-opt-in=kotlin.uuid.ExperimentalUuidApi</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 ```
 
 </tab>
@@ -941,6 +973,11 @@ composeCompiler {
     includeComposeMappingFile.set(false)
 }
 ```
+
+> There is a known issue with some code not showing up in stack traces for project files supplied by the Android Gradle
+> plugin: [KT-83099](https://youtrack.jetbrains.com/issue/KT-83099).
+>
+{style="warning"}
 
 Please report any problems encountered to the [Google IssueTracker](https://issuetracker.google.com/issues/new?component=610764&template=1424126).
 
