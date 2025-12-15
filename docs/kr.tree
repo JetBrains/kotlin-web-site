@@ -114,14 +114,6 @@
         </toc-element>
         <toc-element toc-title="Web development">
             <toc-element topic="web-overview.md"/>
-            <toc-element toc-title="WebAssembly (Wasm)">
-                <toc-element toc-title="Overview" topic="wasm-overview.md"/>
-                <toc-element topic="wasm-get-started.md"/>
-                <toc-element topic="wasm-wasi.md"/>
-                <toc-element topic="wasm-debugging.md"/>
-                <toc-element topic="wasm-js-interop.md"/>
-                <toc-element accepts-web-file-names="wasm-troubleshooting.html" topic="wasm-configuration.md"/>
-            </toc-element>
             <toc-element toc-title="Kotlin/JS">
                 <toc-element toc-title="Overview" topic="js-overview.md"/>
                 <toc-element topic="js-get-started.md"/>
@@ -135,6 +127,14 @@
                 <toc-element topic="js-ir-compiler.md"/>
                 <toc-element topic="js-plain-objects.md"/>
                 <toc-element hidden="true" topic="js-react.md"/>
+            </toc-element>
+            <toc-element toc-title="WebAssembly (Wasm)">
+                <toc-element toc-title="Overview" topic="wasm-overview.md"/>
+                <toc-element topic="wasm-get-started.md"/>
+                <toc-element topic="wasm-wasi.md"/>
+                <toc-element topic="wasm-debugging.md"/>
+                <toc-element topic="wasm-js-interop.md"/>
+                <toc-element accepts-web-file-names="wasm-troubleshooting.html" topic="wasm-configuration.md"/>
             </toc-element>
         </toc-element>
         <toc-element toc-title="Native development">

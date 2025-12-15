@@ -2,47 +2,11 @@
 
 Kotlin, through Kotlin Multiplatform, offers two approaches for web development:
 
-* [WebAssembly-based (using the Kotlin/Wasm compiler)](#kotlin-wasm)
 * [JavaScript-based (using the Kotlin/JavaScript compiler)](#kotlin-javascript)
+* [WebAssembly-based (using the Kotlin/Wasm compiler)](#kotlin-wasm)
 
 Both approaches let you share code in your web app, but they support different use cases. 
 They also differ in technical aspects such as target browser support.
-
-## Kotlin/Wasm
-<primary-label ref="beta"/> 
-
-[](wasm-overview.md) compiles Kotlin code into WebAssembly (Wasm), enabling apps to run across 
-environments and devices that support Wasm while meeting Kotlin’s requirements.
-
-In browsers, 
-Kotlin/Wasm lets you build web apps with [Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/). 
-Outside the browser, it runs in standalone Wasm virtual machines, 
-using the [WebAssembly System Interface (WASI)](https://wasi.dev/)
-to access platform APIs.
-
-When developing with Kotlin/Wasm, you can target:
-
-* **`wasmJs`**: for running in browsers or Node.js.
-* **`wasmWasi`**: for running in Wasm environments supporting WASI, such as Wasmtime, WasmEdge, and so on.
-
-> For information about configuring Kotlin/Wasm targets, see the [Configure a Gradle project](gradle-configure-project.md#targeting-webassembly) guide.
->
-{style="tip"}
-
-### Kotlin/Wasm use cases
-
-Use Kotlin/Wasm if you want to share both logic and UI across multiple platforms.
-
-#### Build cross-platform apps with Compose Multiplatform
-
-If you want to share both logic and UI across multiple platforms, including web,
-Kotlin/Wasm with [Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/) provides a shared UI layer:
-
-* Ensuring a consistent UI implementation for all platforms.
-* Using Wasm for improved rendering and smoother UI updates, such as responsive animations.
-* Supporting the latest version of the 
-  [WebAssembly Garbage Collection (WasmGC)](https://developer.chrome.com/blog/wasmgc) proposal,
-  which allows Kotlin/Wasm to run on all major modern browsers.
 
 ## Kotlin/JavaScript
 
@@ -86,6 +50,42 @@ For HTML-based solutions, Kotlin/JS supports multiple approaches:
   [Kobweb](https://kobweb.varabyte.com/) or [Kilua](https://kilua.dev/),
   to build UIs with a Compose-style architecture.
 * Using React-based solutions with Kotlin wrappers to implement [React components in Kotlin](https://kotlinlang.org/docs/js-react.html).
+
+## Kotlin/Wasm
+<primary-label ref="beta"/> 
+
+[](wasm-overview.md) compiles Kotlin code into WebAssembly (Wasm), enabling apps to run across
+environments and devices that support Wasm while meeting Kotlin’s requirements.
+
+In browsers,
+Kotlin/Wasm lets you build web apps with [Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/).
+Outside the browser, it runs in standalone Wasm virtual machines,
+using the [WebAssembly System Interface (WASI)](https://wasi.dev/)
+to access platform APIs.
+
+When developing with Kotlin/Wasm, you can target:
+
+* **`wasmJs`**: for running in browsers or Node.js.
+* **`wasmWasi`**: for running in Wasm environments supporting WASI, such as Wasmtime, WasmEdge, and so on.
+
+> For information about configuring Kotlin/Wasm targets, see the [Configure a Gradle project](gradle-configure-project.md#targeting-webassembly) guide.
+>
+{style="tip"}
+
+### Kotlin/Wasm use cases
+
+Use Kotlin/Wasm if you want to share both logic and UI across multiple platforms.
+
+#### Build cross-platform apps with Compose Multiplatform
+
+If you want to share both logic and UI across multiple platforms, including web,
+Kotlin/Wasm with [Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/) provides a shared UI layer:
+
+* Ensuring a consistent UI implementation for all platforms.
+* Using Wasm for improved rendering and smoother UI updates, such as responsive animations.
+* Supporting the latest version of the
+  [WebAssembly Garbage Collection (WasmGC)](https://developer.chrome.com/blog/wasmgc) proposal,
+  which allows Kotlin/Wasm to run on all major modern browsers.
 
 ## Choose your web approach
 
