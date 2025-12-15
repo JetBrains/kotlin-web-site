@@ -177,16 +177,16 @@ For example, this function prints out a line only when it is called without the 
 ```kotlin
 fun main() {
 //sampleStart
-fun read(
-    b: Int,
-    print: Unit? = println("No argument passed for 'print'")
-) { println(b) }
-
-// Prints "No argument passed for 'print'", then "1"
-read(1)
-// Prints only "1"
-read(1, null)
-//sampleEnd
+    fun read(
+        b: Int,
+        print: Unit? = println("No argument passed for 'print'")
+    ) { println(b) }
+    
+    // Prints "No argument passed for 'print'", then "1"
+    read(1)
+    // Prints only "1"
+    read(1, null)
+    //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="non-constant-default"}
@@ -196,24 +196,24 @@ you can pass the corresponding [lambda](lambdas.md#lambda-expression-syntax) arg
 
 ```kotlin
 fun main() {
-//sampleStart
-fun log(
-    level: Int = 0,
-    code:  Int = 1,
-    action: () -> Unit,
-) { println (level)
-    println (code)
-    action() }
-
-// Passes 1 for 'level' and uses the default value 1 for 'code'
-log(1) { println("Connection established") }
-
-// Uses both default values, 0 for 'level' and 1 for 'code'
-log(action = { println("Connection established") })
-
-// Equivalent to the previous call, uses both default values
-log { println("Connection established") }
-//sampleEnd   
+    //sampleStart
+    fun log(
+        level: Int = 0,
+        code:  Int = 1,
+        action: () -> Unit,
+    ) { println (level)
+        println (code)
+        action() }
+    
+    // Passes 1 for 'level' and uses the default value 1 for 'code'
+    log(1) { println("Connection established") }
+    
+    // Uses both default values, 0 for 'level' and 1 for 'code'
+    log(action = { println("Connection established") })
+    
+    // Equivalent to the previous call, uses both default values
+    log { println("Connection established") }
+    //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="lambda-outside-parentheses"}
@@ -334,25 +334,25 @@ For example, you can declare a `printHello()` function without returning `Unit`:
 // The declaration of the functional type parameter ('action') still 
 // needs an explicit return type
 fun printHello(name: String?, action: () -> Unit) {
-  if (name != null)
-    println("Hello $name")
-  else
-    println("Hi there!")
+    if (name != null)
+        println("Hello $name")
+    else
+        println("Hi there!")
 
-  action()
+    action()
 }
 
 fun main() {
-  printHello("Kodee") {
-    println("This runs after the greeting.")
-  }
-  // Hello Kodee
-  // This runs after the greeting.
+    printHello("Kodee") {
+        println("This runs after the greeting.")
+    }
+    // Hello Kodee
+    // This runs after the greeting.
 
-  printHello(null) {
-    println("No name provided, but action still runs.")
-  }
-  // No name provided, but action still runs
+    printHello(null) {
+        println("No name provided, but action still runs.")
+    }
+    // No name provided, but action still runs
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-implicit"}
@@ -362,26 +362,26 @@ Which is equivalent to this verbose declaration:
 ```kotlin
 //sampleStart
 fun printHello(name: String?, action: () -> Unit): Unit {
-  if (name != null)
-    println("Hello $name")
-  else
-    println("Hi there!")
+    if (name != null)
+        println("Hello $name")
+    else
+        println("Hi there!")
 
-  action()
-  return Unit
+    action()
+    return Unit
 }
 //sampleEnd
 fun main() {
-  printHello("Kodee") {
-    println("This runs after the greeting.")
-  }
-  // Hello Kodee
-  // This runs after the greeting.
+    printHello("Kodee") {
+        println("This runs after the greeting.")
+    }
+    // Hello Kodee
+    // This runs after the greeting.
 
-  printHello(null) {
-    println("No name provided, but action still runs.")
-  }
-  // No name provided, but action still runs
+    printHello(null) {
+        println("No name provided, but action still runs.")
+    }
+    // No name provided, but action still runs
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-explicit"}
@@ -405,18 +405,18 @@ Then you can pass a variable number of arguments to the function:
 
 ```kotlin
 fun <T> asList(vararg ts: T): List<T> {
-  val result = ArrayList<T>()
-  for (t in ts) // ts is an Array
-    result.add(t)
-  return result
+    val result = ArrayList<T>()
+    for (t in ts) // ts is an Array
+        result.add(t)
+    return result
 }
 
 fun main() {
-//sampleStart
-val list = asList(1, 2, 3)
-println(list)
-  // [1, 2, 3]
-//sampleEnd
+    //sampleStart
+    val list = asList(1, 2, 3)
+    println(list)
+    // [1, 2, 3]
+    //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist"}
@@ -432,22 +432,22 @@ use the [spread operator](arrays.md#pass-variable-number-of-arguments-to-a-funct
 
 ```kotlin
 fun <T> asList(vararg ts: T): List<T> {
-  val result = ArrayList<T>()
-  for (t in ts)
-    result.add(t)
-  return result
+    val result = ArrayList<T>()
+    for (t in ts)
+        result.add(t)
+    return result
 }
 
 fun main() {
-//sampleStart
-val a = arrayOf(1, 2, 3)
+    //sampleStart
+    val a = arrayOf(1, 2, 3)
 
-// The function receives the array [-1, 0, 1, 2, 3, 4]
-list = asList(-1, 0, *a, 4)
+    // The function receives the array [-1, 0, 1, 2, 3, 4]
+    list = asList(-1, 0, *a, 4)
 
-println(list)
-// [-1, 0, 1, 2, 3, 4]
-//sampleEnd
+    println(list)
+    // [-1, 0, 1, 2, 3, 4]
+    //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist-with-array"}
