@@ -370,7 +370,7 @@ fun printHello(name: String?, action: () -> Unit): Unit {
   action()
   return Unit
 }
-// sampleEnd
+//sampleEnd
 fun main() {
   printHello("Kodee") {
     println("This runs after the greeting.")
