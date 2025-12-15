@@ -1,13 +1,13 @@
 [//]: # (title: What's new in Kotlin 2.3.0)
 
-_[Released: XX, 2025](releases.md#release-details)_
+_[Released: December 16, 2025](releases.md#release-details)_
 
 The Kotlin 2.3.0 release is out! Here are the main highlights:
 
 * **Language**: [more stable and default features, unused return value checker, explicit backing fields, and changes to context-sensitive resolution](#language).
 * **Kotlin/JVM**: [support for Java 25](#kotlin-jvm-support-for-java-25).
 * **Kotlin/Native**: [improved interop through Swift export, faster build time for release tasks, C and Objective-C library import in Beta](#kotlin-native).
-* **Kotlin/Wasm**: [fully qualified names and new exception handling proposal enabled by default, and new compact storage for Latin-1 characters](#kotlin-wasm).
+* **Kotlin/Wasm**: [fully qualified names and new exception handling proposal enabled by default, as well as new compact storage for Latin-1 characters](#kotlin-wasm).
 * **Kotlin/JS**: [new experimental suspend function export, `LongArray` representation, unified companion object access, and more](#kotlin-js).
 * **Gradle**: [compatibility with Gradle 9.0 and a new API for registering generated sources](#gradle).
 * **Compose compiler**: [stack traces for minified Android applications](#compose-compiler-stack-traces-for-minified-android-applications).
@@ -73,7 +73,6 @@ In this example, a string is created but never used, so the checker reports it a
 
 This feature is [Experimental](components-stability.md#stability-levels-explained).
 To opt in, add the following compiler option to your build file:
-
 
 <tabs group="build-system">
 <tab title="Gradle" group-key="gradle">
@@ -290,10 +289,10 @@ Context-sensitive resolution is still [Experimental](components-stability.md#sta
 but we are continually improving the feature based on user feedback:
 
 * The sealed and enclosing supertypes of the current type are now considered part of the contextual scope of the search.
-  No other supertype scopes are considered. See [KT-77823](https://youtrack.jetbrains.com/issue/KT-77823) for motivation and examples.
+  No other supertype scopes are considered. See the [KT-77823](https://youtrack.jetbrains.com/issue/KT-77823) YouTrack issue for motivation and examples.
 * When type operators and equalities are involved, the compiler now reports a warning if using context-sensitive resolution
   makes the resolution ambiguous. This can happen, for example, when a clashing declaration of a class is imported.
-  See [KT-77821](https://youtrack.jetbrains.com/issue/KT-77821) for motivation and examples.
+  See the [KT-77821](https://youtrack.jetbrains.com/issue/KT-77821) YouTrack issue for motivation and examples.
 
 See the full text of the current proposal in [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0379-context-sensitive-resolution.md).
 
@@ -413,7 +412,7 @@ Kotlin/Native has received several performance improvements in 2.3.0. They resul
 tasks like `linkRelease*`, for example `linkReleaseFrameworkIosArm64`.
 
 According to our benchmarks, release builds can be up to 40% faster, depending on the project size. These improvements
-will be most noticeable in Kotlin Multiplatform projects targeting iOS.
+are most noticeable in Kotlin Multiplatform projects targeting iOS.
 
 For more tips on improving project compilation times, see the [documentation](native-improving-compilation-time.md).
 
@@ -474,9 +473,10 @@ metadata by using compact storage for Latin-1 string literals.
 
 ### Compact storage for Latin-1 characters
 
-Previously, Kotlin/Wasm stored string literal data as is, meaning every character was encoded in UTF-16, which was not
-optimal for text containing only, or predominantly, Latin-1 characters. Starting with Kotlin 2.3.0, the Kotlin/Wasm
-compiler stores string literals containing only Latin-1 characters in UTF-8 format.
+Previously, Kotlin/Wasm stored string literal data as is, meaning every character was encoded in UTF-16. This was not
+optimal for text containing only, or predominantly, Latin-1 characters.
+
+Starting with Kotlin 2.3.0, the Kotlin/Wasm compiler stores string literals containing only Latin-1 characters in UTF-8 format.
 
 This optimization significantly reduces metadata, as experiments on JetBrains' [KotlinConf application](https://github.com/JetBrains/kotlinconf-app)
 have shown. It results in:
@@ -948,11 +948,11 @@ composition, measure, or draw passes, even when the app is minified:
 
 ```text
 java.lang.IllegalStateException: <message>
-          at <original trace>
-Suppressed: androidx.compose.runtime.DiagnosticComposeException: Composition stack when thrown:
-         at $$compose.m$123(SourceFile:1)
-         at $$compose.m$234(SourceFile:1)
-          ...
+        at <original trace>
+    Suppressed: androidx.compose.runtime.DiagnosticComposeException: Composition stack when thrown:
+        at $$compose.m$123(SourceFile:1)
+        at $$compose.m$234(SourceFile:1)
+        ...
 ```
 
 Stack traces produced by Jetpack Compose 1.10 in this mode only contain group keys that still have to be deobfuscated.
