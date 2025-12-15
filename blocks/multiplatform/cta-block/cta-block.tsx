@@ -12,13 +12,14 @@ export const CtaBlock = ({ url }: { url: string }) => {
     return (
         <div className={styles.wrapper}>
             <section className="ktl-layout ktl-layout--center">
-                <div className={styles.content}>
-                <h2 className={cn(textCn('rs-h1'), styles.title)}>
-                    Go cross-platform without compromises&nbsp;—<br />try Kotlin Multiplatform today.
-                </h2>
-                <Button className={cn(styles.button)} mode={'rock'} href={url} size={isDL ? 'l' : 'm'}>
-                    Get Started
-                </Button>
+                <div className={styles.content} >
+                    <h2 className={cn(textCn('rs-h1'), styles.title)} data-testid={'cta-block-title'}>
+                        Go cross-platform without compromises&nbsp;—<br />try Kotlin Multiplatform today.
+                    </h2>
+                    <Button className={cn(styles.button)} mode={'rock'} href={url} size={isDL ? 'l' : 'm'}
+                            data-testid={'cta-block-action'}>
+                        Get Started
+                    </Button>
                     <Img src={ctaGraphics} alt="" className={styles.image} height={450} />
                 </div>
             </section>

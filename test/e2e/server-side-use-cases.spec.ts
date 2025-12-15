@@ -33,7 +33,7 @@ test.describe('Server-Side landing page', async () => {
         for (let i = 0; i < anchorCount; i++) {
             const anchor = anchors.nth(i);
             await anchor.scrollIntoViewIfNeeded();
-            await checkAnchor(anchor, page);
+            await checkAnchor(page, anchor);
         }
     });
 
@@ -44,7 +44,7 @@ test.describe('Server-Side landing page', async () => {
         await serverSidePage.heroGetStartedLink.scrollIntoViewIfNeeded();
         await expect(serverSidePage.heroGetStartedLink).toBeVisible();
 
-        await checkAnchor(serverSidePage.heroGetStartedLink, page);
+        await checkAnchor(page, serverSidePage.heroGetStartedLink);
     });
 
     test('Server-side: check hero block case-studies link', async ({ page }) => {
