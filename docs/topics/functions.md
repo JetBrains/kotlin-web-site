@@ -13,7 +13,7 @@ For example:
 // 'x' is a parameter of Int type
 // The expected return value is of Int type too
 fun double(x: Int): Int {
-return 2 * x
+    return 2 * x
 }
 //sampleEnd
 
@@ -51,7 +51,7 @@ fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
 Inside the body of a function, received arguments are read-only (implicitly declared as `val`):
 
 ```kotlin
-fun powerOf (number: Int, exponent: Int): Int {
+fun powerOf(number: Int, exponent: Int): Int {
     number = 2 // Error: 'val' cannot be reassigned.
 }
 ```
@@ -104,7 +104,7 @@ fun greeting(
     message: String,
 ) { /*...*/ }
 
-fun main () {
+fun main() {
     // Uses 0 as the default value for 'userId'
     greeting(message = "Hello!")
     
@@ -183,9 +183,9 @@ fun read(
 ) { println(b) }
 
 // Prints "No argument passed for 'print'", then "1"
-read (1)
+read(1)
 // Prints only "1"
-read (1, null)
+read(1, null)
 //sampleEnd
 }
 ```
@@ -250,7 +250,7 @@ reformat(
 )
 ```
 
-You can skip all the ones with default values:
+You can skip all the arguments with default values:
 
 ```kotlin
 reformat("This is a long String!")
@@ -360,7 +360,7 @@ fun main() {
 Which is equivalent to this verbose declaration:
 
 ```kotlin
-//sample Start
+//sampleStart
 fun printHello(name: String?, action: () -> Unit): Unit {
   if (name != null)
     println("Hello $name")
@@ -412,11 +412,11 @@ fun <T> asList(vararg ts: T): List<T> {
 }
 
 fun main() {
-  //sampleStart
-  val list = asList(1, 2, 3)
-  println(list)
+//sampleStart
+val list = asList(1, 2, 3)
+println(list)
   // [1, 2, 3]
-  //sampleEnd
+//sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist"}
@@ -439,16 +439,15 @@ fun <T> asList(vararg ts: T): List<T> {
 }
 
 fun main() {
-  //sampleStart
-  val a = arrayOf(1, 2, 3)
+//sampleStart
+val a = arrayOf(1, 2, 3)
 
-  // The function receives the array [-1, 0, 1, 2, 3, 4]
-  val list = asList(-1, 0, *a, 4)
+// The function receives the array [-1, 0, 1, 2, 3, 4]
+ list = asList(-1, 0, *a, 4)
 
-  println(list)
-  // [-1, 0, 1, 2, 3, 4]
-
-  //sampleEnd
+println(list)
+// [-1, 0, 1, 2, 3, 4]
+//sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist-with-array"}
@@ -503,31 +502,31 @@ This ensures unambiguous parsing.
 
 ```kotlin
 class MyStringCollection {
-  val items = mutableListOf<String>()
+    val items = mutableListOf<String>()
 
-  infix fun add(s: String) {
-    println("Adding: $s")
-    items += s
-  }
+    infix fun add(s: String) {
+        println("Adding: $s")
+        items += s
+    }
 
-  fun build() {
-      add("first")       // Correct: ordinary function call
-      this add "second"  // Correct: infix call with explicit receiver
-      // add "third"     // Compiler error: needs an explicit receiver
-  }
+    fun build() {
+        add("first")      // Correct: ordinary function call
+        this add "second" // Correct: infix call with an explicit receiver
+        // add "third"    // Compiler error: needs an explicit receiver
+    }
 
-  fun printAll() = println("Items = $items")
+    fun printAll() = println("Items = $items")
 }
 
 fun main() {
-  val myStrings = MyStringCollection()
-  // Adds "first" and "second" to the list twice
-  myStrings.build()
-  
-  myStrings.printAll()
-  // Adding: first
-  // Adding: second
-  // Items = [first, second]
+    val myStrings = MyStringCollection()
+    // Adds "first" and "second" to the list twice
+    myStrings.build()
+      
+    myStrings.printAll()
+    // Adding: first
+    // Adding: second
+    // Items = [first, second]
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="infix-notation-example"}
