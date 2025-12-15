@@ -15,6 +15,7 @@ test.describe('Multiplatform landing page', async () => {
 
         const { main, page } = multiplatformPage;
 
+        await page.waitForLoadState('networkidle');
         await page.evaluate(() => window.scrollTo(0, 0));
 
         await expect(page).toHaveScreenshot({
@@ -121,7 +122,9 @@ async function checkChooseWhatToShare({ page, main, shareWhatBlock }: Multiplatf
     await expect(link).toBeVisible();
     await expect(link).not.toBeEmpty();
 
-    await checkScreenshot(shareWhatBlock);
+    await checkScreenshot(shareWhatBlock, {
+        stylePath: 'test/e2e/multiplatform/screenshot-block.css'
+    });
 
     // Check that links work as links
     const href = await link.getAttribute('href');
