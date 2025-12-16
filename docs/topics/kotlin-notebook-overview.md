@@ -92,6 +92,16 @@ which facilitates sharing, running, and editing notebooks with advanced features
 
 ![kotlin-notebook-sharing-datalore](kotlin-notebook-sharing-datalore.png){width=700}
 
+Alternatively, you can quickly share your current notebook as a [GitHub Gist](https://gist.github.com/). 
+Click the **Create Gist** button on the toolbar. 
+
+![notebook-github-gist](notebook-github-gist.png){width=400}
+
+IntelliJ IDEA exports your notebook to a Gist on your GitHub account 
+and provides a URL to share, view, and download the notebook. 
+
+The Gist preserves all code, output, and Markdown from your notebook in JSON format, which GitHub can render for preview. 
+
 ## What's next
 
 * [Learn about the Kotlin Notebook's usage and key features.](https://www.jetbrains.com/help/idea/kotlin-notebook.html)

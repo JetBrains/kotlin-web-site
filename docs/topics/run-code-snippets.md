@@ -5,6 +5,7 @@ if you want to quickly see how a function works or find an expression's value, t
 and build it. Check out these three handy ways to run Kotlin code instantly in different environments:
 
 * [Scratch files](#ide-scratches-and-worksheets) in the IDE.
+* [Kotlin Notebook](#ide-kotlin-notebook) in the IDE.
 * [Kotlin Playground](#browser-kotlin-playground) in the browser.
 * [ki shell](#command-line-ki-shell) in the command line.
 
@@ -46,13 +47,23 @@ To rebuild the module automatically before each run of a scratch, select **Make 
 
 ![Scratch select module](scratch-select-module.png){width=700}
 
-### Run as REPL 
+## IDE: Kotlin Notebook
 
-To evaluate each particular expression in a scratch, run it with **Use REPL** selected. The code lines
-will run sequentially, providing the results of each call.
-You can later use the results in the same file by referring to their auto-generated `res*` names (they are shown in the corresponding lines).
+[](kotlin-notebook-overview.md) is an interactive editor that lets you mix code, outputs, visuals, and Markdown in one document.
+You can use notebooks to write and run code in sections known as _code cells_ and see the results instantly.
 
-![Scratch REPL](scratch-repl.png){width=700}
+![Kotlin Notebook](data-analysis-notebook.gif){width=700}
+
+Kotlin Notebook is bundled and enabled in IntelliJ IDEA by default.
+
+To start working with Kotlin Notebook, see [Get started with Kotlin Notebook](get-started-with-kotlin-notebooks.md).
+
+### Scratch Kotlin Notebook
+
+You can also create a Kotlin Notebook as a [scratch file](https://www.jetbrains.com/help/idea/scratches.html), which allows you to test small pieces of code without
+creating a new project or modifying an existing one. Scratch notebooks are accessible from any project. 
+
+[Learn how to create a scratch Kotlin Notebook](kotlin-notebook-create.md#create-a-scratch-kotlin-notebook).
 
 ## Browser: Kotlin Playground
 
