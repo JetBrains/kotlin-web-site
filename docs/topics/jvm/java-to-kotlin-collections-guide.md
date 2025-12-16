@@ -674,7 +674,7 @@ public void zip() {
 {id="zip-elements-java"}
 
 If you want to do something more complex than just printing pairs of elements into the output, 
-you can use [Records](https://blogs.oracle.com/javamagazine/post/records-come-to-java). 
+you can use [Records](https://docs.oracle.com/en/java/javase/17/language/records.html).
 In the example above, the record would be `record AnimalDescription(String animal, String color) {}`.
 
 In Kotlin, use the [`zip()`](collection-transformations.md#zip) function to do the same thing:
