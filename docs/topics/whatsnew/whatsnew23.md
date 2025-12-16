@@ -296,7 +296,7 @@ but we are continually improving the feature based on user feedback:
 
 See the full text of the current proposal in [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0379-context-sensitive-resolution.md).
 
-## Kotlin/JVM: support for Java 25
+## Kotlin/JVM: Support for Java 25
 
 Starting with Kotlin 2.3.0, the compiler can generate classes containing Java 25 bytecode.
 
@@ -928,7 +928,7 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
-## Compose compiler: stack traces for minified Android applications
+## Compose compiler: Stack traces for minified Android applications
 
 Starting from Kotlin 2.3.0, the compiler outputs ProGuard mappings for Compose stack traces when applications are minified by R8.
 This expands the experimental stack traces feature that was previously only available in debuggable variants.
@@ -996,7 +996,7 @@ For a complete overview, see our [Compatibility guide](compatibility-guide-23.md
   for guidance on migration steps.
 
 * In Kotlin Multiplatform, support for the Android target is now available through Google's [`com.android.kotlin.multiplatform.library` plugin](https://developer.android.com/kotlin/multiplatform/plugin).
-  Migrate your projects with Android targets to the new plugin, and rename your `androidTarget` blocks to `android`.
+  Migrate your projects with Android targets to the new plugin and rename your `androidTarget` blocks to `android`.
 
 * If you continue using the Kotlin Multiplatform Gradle plugin for Android targets with Android Gradle plugin (AGP)
   9.0.0 or later, you see a configuration error when using the `androidTarget` block, along with diagnostic messages that
