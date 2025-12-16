@@ -517,8 +517,10 @@
 - from: /docs/reference/coroutines/flow.html
   to: /docs/flow.html
 
-- from: /docs/reference/using-ant.html
-  to: /docs/ant.html
+- from:
+  - /docs/reference/using-ant.html
+  - /docs/ant.html
+  to: /docs/compatibility-guide-23.html
 
 - from: /docs/reference/whatsnew11.html
   to: /docs/whatsnew11.html

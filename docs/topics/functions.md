@@ -386,6 +386,13 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-explicit"}
 
+You can use a `return` statement inside an expression body if the function's return type is specified explicitly:
+
+```kotlin
+fun getDisplayNameOrDefault(userId: String?): String =
+    getDisplayName(userId ?: return "default")
+```
+
 ### Variable number of arguments (varargs)
 
 To pass a variable number of arguments to a function, you can mark one of its parameters

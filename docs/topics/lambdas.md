@@ -210,6 +210,13 @@ is an expression that is itself a function, called a function literal, which is 
 fun compare(a: String, b: String): Boolean = a.length < b.length
 ```
 
+You can also create a _suspending lambda expression_ using the `suspend` keyword.
+A suspending lambda has the function type `suspend () -> Unit` and can call other suspending functions:
+
+```kotlin
+val suspendingTask = suspend { doSuspendingWork() }
+```
+
 ### Lambda expression syntax
 
 The full syntactic form of lambda expressions is as follows:
