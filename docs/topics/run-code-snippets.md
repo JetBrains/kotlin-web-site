@@ -49,8 +49,8 @@ To rebuild the module automatically before each run of a scratch, select **Make 
 
 ## IDE: Kotlin Notebook
 
-[Kotlin Notebook](kotlin-notebook-overview.md) is an interactive editor that lets you mix code, outputs, visuals, and Markdown in one document.
-You can use notebooks to write and run code in sections known as _code cells_, and see the results instantly.
+[](kotlin-notebook-overview.md) is an interactive editor that lets you mix code, outputs, visuals, and Markdown in one document.
+You can use notebooks to write and run code in sections known as _code cells_ and see the results instantly.
 
 ![Kotlin Notebook](data-analysis-notebook.gif){width=700}
 

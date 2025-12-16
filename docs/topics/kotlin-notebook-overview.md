@@ -95,7 +95,7 @@ which facilitates sharing, running, and editing notebooks with advanced features
 Alternatively, you can quickly share your current notebook as a [GitHub Gist](https://gist.github.com/). 
 Click the **Create Gist** button on the toolbar. 
 
-![notebook-github-gist](notebook-github-gist.png){width=700}
+![notebook-github-gist](notebook-github-gist.png){width=400}
 
 IntelliJ IDEA exports your notebook to a Gist on your GitHub account 
 and provides a URL to share, view, and download the notebook. 
