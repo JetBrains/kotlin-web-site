@@ -36,7 +36,7 @@ const TABS_BLOCKS = [
                 className={textCn('rs-link', { external: true })}
                 href="https://www.jetbrains.com/compose-multiplatform/">Compose
                 Multiplatform</a> to create screens that can be embedded in SwiftUI, or build the entire user interface
-                in Kotlin. Easily use platform-specific views like MapKit or AVFoundation straight from your
+                in Kotlin. Easily use platform-specific views like <code>MapKit</code> or <code>AVFoundation</code> straight from your
                 Kotlin&nbsp;code.
             </>;
         }
