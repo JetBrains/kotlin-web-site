@@ -21,10 +21,6 @@ const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
         title: 'Compose Multiplatform',
         url: 'https://www.jetbrains.com/compose-multiplatform/'
     },
-    {
-        title: 'Docs',
-        url: 'https://kotlinlang.org/docs/multiplatform/get-started.html'
-    }
 ];
 
 const GET_STARTED_URL = '/docs/multiplatform/get-started.html' as const;
