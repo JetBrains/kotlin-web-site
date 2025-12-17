@@ -84,9 +84,9 @@ It requires changing the `MessageController` class to respond with a JSON docume
           </list>
           <p>The corresponding factory functions are also provided by the Kotlin Standard Library to create instances of such collections.
           </p>
-          <p>In this tutorial, you use the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/list-of.html"><code>listOf()</code></a> function to create a list of <code>Message</code> objects.
+          <p>In this tutorial, you use the <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/list-of.html"><code>listOf()</code></a> function to create a list of <code>Message</code> objects.
           This is the factory function to create a <i>read-only</i> list of objects: you can't add or remove elements from the list.<br/>
-          If it is required to perform write operations on the list, call the <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/mutable-list-of.html"><code>mutableListOf()</code></a> function to create a mutable list instance.
+          If it is required to perform write operations on the list, call the <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/mutable-list-of.html"><code>mutableListOf()</code></a> function to create a mutable list instance.
           </p>
        </def>
        <def title="Trailing comma">
@@ -102,8 +102,8 @@ It requires changing the `MessageController` class to respond with a JSON docume
 
 The response from `MessageController` will now be a JSON document containing a collection of `Message` objects.
 
-> Any controller in the Spring application renders JSON response by default if Jackson library is on the classpath.
-> As you [specified the `spring-boot-starter-web` dependency in the `build.gradle.kts` file](jvm-create-project-with-spring-boot.md#explore-the-project-gradle-build-file), you received Jackson as a _transitive_ dependency.
+> Any controller in the Spring application renders a JSON response by default if the Jackson library is on the classpath.
+> As you [specified the `spring-boot-starter-webmvc` dependency in the `build.gradle.kts` file](jvm-create-project-with-spring-boot.md#explore-the-project-gradle-build-file), you received Jackson as a _transitive_ dependency.
 > Hence, the application responds with a JSON document if the endpoint returns a data structure that can be serialized to JSON.
 >
 {style="note"}
@@ -169,10 +169,10 @@ The Spring application is ready to run:
 
     You will see a page with a collection of messages in JSON format:
 
-    ![Run the application](messages-in-json-format.png){width=800}
+    ![Run the application](messages-in-json-format.png){width=700}
 
 ## Next step
 
-In the next part of the tutorial, you'll add and configure a database to your project, and make HTTP requests.
+In the next part of the tutorial, you'll add and configure a database to your project and make HTTP requests.
 
 **[Proceed to the next chapter](jvm-spring-boot-add-db-support.md)**
