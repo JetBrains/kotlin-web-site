@@ -10,7 +10,7 @@
     padding-bottom: 0;
   }
 
-  &:after {
+  &:before {
     content: '';
     display: block;
     position: absolute;
@@ -21,7 +21,6 @@
     border-radius: 983px;
     background: radial-gradient(378.89% 78.24% at 3.48% 6.45%, #260053 100%, rgba(184, 0, 255, 0) 0%);
     filter: blur(150px);
-    z-index: 0;
     pointer-events: none;
     transform: rotate(-10deg);
 
@@ -42,7 +41,9 @@
 }
 
 .title {
+  position: relative;
   margin-top: 0;
+  z-index: 1;
 
   @media (--ktl-ts) {
     font-size: 35px;
