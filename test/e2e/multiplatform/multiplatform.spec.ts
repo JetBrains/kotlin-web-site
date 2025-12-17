@@ -23,8 +23,9 @@ test.describe('Multiplatform landing page', async () => {
             animations: 'disabled',
             fullPage: true,
             mask: [
+                page.locator('[data-test="header"]'),
                 main.locator('video[autoplay]'),
-                page.locator('[data-test="header"]')
+                main.locator('[data-testid*="share-what-chip-content-"]')
             ]
         });
     });
@@ -41,6 +42,11 @@ test.describe('Multiplatform landing page', async () => {
 
         const heroActionButton = multiplatformPage.heroActionButon;
         await expect(heroActionButton).toBeVisible();
+
+        await checkScreenshot(multiplatformPage.heroBanner, {
+            stylePath: 'test/e2e/multiplatform/screenshot-block.css'
+        });
+
         const href = await heroActionButton.getAttribute('href');
         await heroActionButton.click();
 
@@ -90,6 +96,10 @@ test.describe('Multiplatform landing page', async () => {
 
         await expect(multiplatformPage.ctaBlockAction).toBeVisible();
         await expect(multiplatformPage.ctaBlockAction).not.toBeEmpty();
+
+        await checkScreenshot(multiplatformPage.ctaBlock, {
+            stylePath: 'test/e2e/multiplatform/screenshot-block.css'
+        });
 
         const href = await multiplatformPage.ctaBlockAction.getAttribute('href');
         await multiplatformPage.ctaBlockAction.click();

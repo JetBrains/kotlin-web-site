@@ -14,6 +14,7 @@ export class MultiplatformPage implements PageWithGlobalSearch {
     readonly shareWhatBlock: Locator;
     readonly shareWhatTitle: Locator;
     readonly shareWhatChips: Locator;
+    readonly ctaBlock: Locator;
     readonly ctaBlockTitle: Locator;
     readonly ctaBlockAction: Locator;
 
@@ -31,6 +32,7 @@ export class MultiplatformPage implements PageWithGlobalSearch {
         this.shareWhatBlock = page.getByTestId('share-what-block');
         this.shareWhatTitle = page.getByTestId('share-what-title');
         this.shareWhatChips = page.getByTestId('share-what-chip-anchor');
+        this.ctaBlock = page.getByTestId('cta-block');
         this.ctaBlockTitle = page.getByTestId('cta-block-title');
         this.ctaBlockAction = page.getByTestId('cta-block-action');
     }
