@@ -5,6 +5,8 @@ import { useTextStyles } from '@rescui/typography';
 import { cardCn } from '@rescui/card';
 import { Button } from '@rescui/button';
 
+import { useML } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
+
 import styles from './choose-share-what-card.module.css';
 
 type CodeShareCardProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
@@ -17,13 +19,14 @@ type CodeShareCardProps = Omit<HTMLAttributes<HTMLDivElement>, 'title'> & {
 
 function Card({ className, title, url, imageName, children, ...props }: CodeShareCardProps) {
     const textCn = useTextStyles();
+    const isML = useML();
 
     return (
         <section className={cn(styles.card, className, cardCn())} data-testid={'share-what-chip-content'} {...props}>
             <div className={styles.content}>
                 <h3 className={cn(styles.title, textCn('rs-h2'))} data-testid={'share-what-chip-content-title'}>{title}</h3>
                 <p className={cn(styles.text, textCn('rs-text-1'))} data-testid={'share-what-chip-content-text'}>{children}</p>
-                <Button className={styles.button} href={url} size={'l'} mode={'rock'} data-testid={'share-what-chip-content-action'}>Get started</Button>
+                <Button className={styles.button} href={url} size={isML ? 'm' : 'l'} mode={'rock'} data-testid={'share-what-chip-content-action'}>Get started</Button>
             </div>
             <p className={styles.cover}>
                 <img

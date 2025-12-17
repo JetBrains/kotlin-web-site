@@ -85,3 +85,9 @@
     left: -535px;
   }
 }
+
+.button {
+  @media (--ktl-ms-in) {
+    width: 100%;
+  }
+}
