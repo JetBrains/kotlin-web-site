@@ -1,6 +1,7 @@
 import { expect, Locator, test } from '@playwright/test';
 import { MultiplatformPage } from '../../page/multiplatform-page';
-import { checkAnchor, checkScreenshot, isSkipScreenshot } from '../../utils';
+import { checkAnchor, checkScreenshot } from '../../utils';
+import { checkFullPageScreenshot } from '../utils';
 
 test.describe('Multiplatform landing page', async () => {
     let multiplatformPage: MultiplatformPage;
@@ -11,20 +12,11 @@ test.describe('Multiplatform landing page', async () => {
     });
 
     test('screenshot testing', async () => {
-        test.skip(isSkipScreenshot, 'Skipping screenshot testing');
-
         const { main, page } = multiplatformPage;
 
-        await page.waitForLoadState('networkidle');
-        await page.evaluate(() => window.scrollTo(0, 0));
-
-        await expect(page).toHaveScreenshot({
-            caret: 'hide',
-            animations: 'disabled',
-            fullPage: true,
+        await checkFullPageScreenshot(page, {
             mask: [
-                main.locator('video[autoplay]'),
-                page.locator('[data-test="header"]')
+                main.locator('[data-testid*="share-what-chip-content-"]')
             ]
         });
     });
@@ -41,6 +33,11 @@ test.describe('Multiplatform landing page', async () => {
 
         const heroActionButton = multiplatformPage.heroActionButon;
         await expect(heroActionButton).toBeVisible();
+
+        await checkScreenshot(multiplatformPage.heroBanner, {
+            stylePath: 'test/e2e/multiplatform/screenshot-block.css'
+        });
+
         const href = await heroActionButton.getAttribute('href');
         await heroActionButton.click();
 
@@ -90,6 +87,10 @@ test.describe('Multiplatform landing page', async () => {
 
         await expect(multiplatformPage.ctaBlockAction).toBeVisible();
         await expect(multiplatformPage.ctaBlockAction).not.toBeEmpty();
+
+        await checkScreenshot(multiplatformPage.ctaBlock, {
+            stylePath: 'test/e2e/multiplatform/screenshot-block.css'
+        });
 
         const href = await multiplatformPage.ctaBlockAction.getAttribute('href');
         await multiplatformPage.ctaBlockAction.click();

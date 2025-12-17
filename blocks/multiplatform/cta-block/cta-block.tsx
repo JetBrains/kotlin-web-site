@@ -10,7 +10,7 @@ export const CtaBlock = ({ url }: { url: string }) => {
     const isML = useML();
     const textCn = useTextStyles();
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} data-testid={'cta-block'}>
             <section className="ktl-layout ktl-layout--center">
                 <div className={styles.content} >
                     <h2 className={cn(textCn('rs-h1'), styles.title)} data-testid={'cta-block-title'}>

@@ -1,5 +1,6 @@
-import { BrowserContext, ElementHandle, Page } from '@playwright/test';
-import { closeCookiesConsentBanner } from '../utils';
+import { BrowserContext, ElementHandle, expect, Page, test } from '@playwright/test';
+import { closeCookiesConsentBanner, isSkipScreenshot } from '../utils';
+import { PageAssertionsToHaveScreenshotOptions } from 'playwright/types/test';
 
 export async function getElementScreenshotWithPadding(page: Page, element: ElementHandle, padding: number): Promise<Buffer | undefined> {
     await element.scrollIntoViewIfNeeded();
@@ -25,4 +26,35 @@ export async function closeExternalBanners(context: BrowserContext, page: Page, 
             .locator('[aria-label="Dismiss"]')
             .click();
     }
+}
+
+export function pageWrapperMask(page: Page) {
+    return [
+        page.locator('header[data-test="header"]'),
+        page.locator('footer'),
+        page.locator('video[autoplay]')
+    ];
+}
+
+export async function checkFullPageScreenshot(page: Page, options?: PageAssertionsToHaveScreenshotOptions) {
+    test.skip(isSkipScreenshot, 'Skipping screenshot testing');
+
+    await page.locator('img[loading=lazy]').evaluate((img: HTMLImageElement) => {
+        img.loading = 'eager';
+        img.decoding = 'sync';
+    });
+
+    await page.waitForLoadState('networkidle');
+    await page.evaluate(() => window.scrollTo(0, 0));
+
+    await expect(page).toHaveScreenshot({
+        caret: 'hide',
+        animations: 'disabled',
+        fullPage: true,
+        ...options,
+        mask: [
+            ...pageWrapperMask(page),
+            ...(options.mask || [])
+        ]
+    });
 }
