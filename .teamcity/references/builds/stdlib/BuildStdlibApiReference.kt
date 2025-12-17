@@ -1,6 +1,7 @@
 package references.builds.stdlib
 
 import BuildParams.CORE_API_BUILD_ID
+import BuildParams.CORE_API_CURRENT_VERSION
 import common.extensions.scriptGenerateSitemap
 import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.BuildType
@@ -22,9 +23,21 @@ object BuildStdlibApiReference : BuildType({
     artifactRules = """
         +:$PAGES_ROOT/** => pages.zip
         +:pages.json => ./
+        +:latest_version.json => ./
     """.trimIndent()
 
     steps {
+        script {
+            name = "Write latest_version.json"
+            // language=bash
+            scriptContent = """
+                cat > latest_version.json <<'JSON'
+                {
+                  "version": "${CORE_API_CURRENT_VERSION}"
+                }
+                JSON
+            """.trimIndent()
+        }
         script {
             name = "Drop unnecessary files"
             // language=bash

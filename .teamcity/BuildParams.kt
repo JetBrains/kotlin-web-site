@@ -30,6 +30,7 @@ object BuildParams {
   const val KOTLIN_RELEASE_TAG = "whyoleg/dokka2-sync"
   const val KOTLIN_RELEASE_LABEL = "2.3.0"
 
+  const val CORE_API_CURRENT_VERSION = "2.3" // used for redirect KTL-2981.
   const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_230_LibraryReferenceLatestDocs"
   const val CORE_API_TITLE = "Core API"
 
