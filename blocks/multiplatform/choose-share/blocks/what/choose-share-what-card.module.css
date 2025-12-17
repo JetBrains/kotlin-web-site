@@ -16,6 +16,10 @@
     @media (--ktl-ts-less) {
         border-radius: var(--ktl-box-block-l);
     }
+
+    @media (--ktl-ds-less) {
+        text-align: center;
+    }
 }
 
 .cover, .text {
@@ -60,6 +64,12 @@
 
 .text {
     margin-block: var(--ktl-box-section-s) var(--ktl-box-section-m);
+}
+
+.button {
+    @media (--ktl-ms-in) {
+        width: 100%;
+    }
 }
 
 @media (--ktl-tl-more) {

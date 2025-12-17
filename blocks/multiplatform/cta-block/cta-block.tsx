@@ -1,4 +1,4 @@
-import { useDL } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
+import { useML } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 import { Button } from '@rescui/button';
 import { useTextStyles } from '@rescui/typography';
 import cn from 'classnames';
@@ -7,7 +7,7 @@ import ctaGraphics from './images/cta-graphics.webp';
 import styles from './cta-block.module.css';
 
 export const CtaBlock = ({ url }: { url: string }) => {
-    const isDL = useDL();
+    const isML = useML();
     const textCn = useTextStyles();
     return (
         <div className={styles.wrapper}>
@@ -16,7 +16,7 @@ export const CtaBlock = ({ url }: { url: string }) => {
                     <h2 className={cn(textCn('rs-h1'), styles.title)} data-testid={'cta-block-title'}>
                         Go cross-platform without compromises&nbsp;—<br />try Kotlin Multiplatform today.
                     </h2>
-                    <Button className={cn(styles.button)} mode={'rock'} href={url} size={isDL ? 'l' : 'm'}
+                    <Button className={cn(styles.button)} mode={'rock'} href={url} size={isML ? 'm' : 'l'}
                             data-testid={'cta-block-action'}>
                         Get Started
                     </Button>
