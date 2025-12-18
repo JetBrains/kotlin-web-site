@@ -4,11 +4,11 @@
     margin-block: var(--ktl-box-page-m);
     padding-block: 0;
 
-    @media (--ktl-ts-less) {
+    @media (--ktl-ml-down) {
         margin-block: var(--ktl-box-page-l) var(--ktl-box-page-m);
     }
 
-    @media (--ktl-ms-in) {
+    @media (--ktl-ms-down) {
         zoom: 0.75;
     }
 }

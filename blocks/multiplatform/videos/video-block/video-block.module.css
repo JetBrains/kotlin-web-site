@@ -11,7 +11,7 @@
     width: 72px;
     height: 72px;
 
-    @media (--ktl-ts-more) {
+    @media (--ktl-tl-up) {
         width: 96px;
         height: 96px;
     }

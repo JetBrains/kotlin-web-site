@@ -87,7 +87,7 @@
 }
 
 .button {
-  @media (--ktl-ms-in) {
+  @media (--ktl-ms-down) {
     width: 100%;
   }
 }
