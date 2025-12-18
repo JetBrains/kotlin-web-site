@@ -2,16 +2,16 @@
 
 Kotlin, through Kotlin Multiplatform, offers two approaches for web development:
 
-* [JavaScript-based (using the Kotlin/JavaScript compiler)](#kotlin-javascript)
+* [JavaScript-based (using the Kotlin/JS compiler)](#kotlin-js)
 * [WebAssembly-based (using the Kotlin/Wasm compiler)](#kotlin-wasm)
 
 Both approaches let you share code in your web app, but they support different use cases. 
 They also differ in technical aspects such as target browser support.
 
-## Kotlin/JavaScript
+## Kotlin/JS
 
-[Kotlin/JavaScript (Kotlin/JS)](js-overview.md) enables running Kotlin apps in JavaScript 
-environments by transpiling your code, standard library, and all the supported dependencies into JavaScript.
+[Kotlin/JS](js-overview.md) enables running Kotlin apps in JavaScript (JS)
+environments by transpiling your code, standard library, and all the supported dependencies into JS.
 
 When developing with Kotlin/JS, you can run your apps either in the browser or the Node.js environment.
 
@@ -19,7 +19,7 @@ When developing with Kotlin/JS, you can run your apps either in the browser or t
 >
 {style="tip"}
 
-### Kotlin/JavaScript use cases
+### Kotlin/JS use cases
 
 Kotlin/JS is suitable when your goal is to:
 
@@ -29,9 +29,9 @@ Kotlin/JS is suitable when your goal is to:
 #### Share business logic with a JavaScript/TypeScript codebase
 
 If you need to share Kotlin code (such as domain or data logic) with a native JavaScript/TypeScript app,
-the JS target offers:
+the Kotlin/JS target offers:
 
-* Direct interoperability with JavaScript/TypeScript
+* Direct interoperability with JavaScript/TypeScript.
 * Minimal overhead in interoperability (for example, avoiding unnecessary data copying).
   This allows the shared code to integrate smoothly into a JS-based workflow.
 
@@ -91,11 +91,11 @@ Kotlin/Wasm with [Compose Multiplatform](https://www.jetbrains.com/compose-multi
 
 The table below summarizes the recommended target based on your use case:
 
-| Use case                              | Recommended target | Description                                                                                                                                                                                                               |
-|---------------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sharing business logic, but native UI | JS                 | Offers straightforward interop with JavaScript and minimal overhead.                                                                                                                                                      |
-| Sharing both UI and business logic    | Wasm               | Provides better performance for rendering with [Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/).                                                                                                 |
-| Non-shareable UI                      | JS                 | Allows building UIs with HTML-based frameworks like [Kobweb](https://kobweb.varabyte.com/), [Kilua](https://kilua.dev/), or [React](https://kotlinlang.org/docs/js-react.html), using existing JS ecosystems and tooling. |
+| Use case                                        | Recommended target | Description                                                                                                                                                                                                               |
+|-------------------------------------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Sharing business logic, but using web-native UI | Kotlin/JS          | Offers straightforward interop with JS and minimal overhead.                                                                                                                                                              |
+| Sharing both UI and business logic              | Kotlin/Wasm        | Provides better performance for rendering with [Compose Multiplatform](https://www.jetbrains.com/compose-multiplatform/).                                                                                                 |
+| Non-shareable UI                                | Kotlin/JS          | Allows building UIs with HTML-based frameworks like [Kobweb](https://kobweb.varabyte.com/), [Kilua](https://kilua.dev/), or [React](https://kotlinlang.org/docs/js-react.html), using existing JS ecosystems and tooling. |
 
 > If you need guidance on selecting the appropriate target, 
 > join our [Slack community](https://slack-chats.kotlinlang.org/c/multiplatform).
@@ -109,5 +109,5 @@ You can enable compatibility mode for your web app to ensure it works on all bro
 In this mode, you can build the UI with Wasm for modern browsers, 
 while older ones fall back to JS. 
 
-This mode is achieved through cross-compilation for both the `js` and `wasmJs` targets.
+Compatibility mode is achieved through cross-compilation for both the `js` and `wasmJs` targets.
 [See more information about compatibility mode for web and how to enable it](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html#compatibility-mode-for-web-targets).

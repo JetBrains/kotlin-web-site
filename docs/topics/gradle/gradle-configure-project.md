@@ -657,7 +657,7 @@ Use Kotlin/JS if your goal is to:
 * Share business logic with a JavaScript/TypeScript codebase
 * Build non-shareable web apps with Kotlin
 
-For more information, see [Web development](web-overview.md#kotlin-javascript).
+For more information, see [Web development](web-overview.md#kotlin-js).
 
 When targeting JavaScript, use the `kotlin-multiplatform` plugin:
 
