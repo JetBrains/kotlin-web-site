@@ -307,23 +307,6 @@ guided by pragmatic design.
 </td>
 <td>
 
-**kotlin.time.Instant**
-
-* KEEP proposal: [Instant and Clock](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/instant.md)
-* Stability level: [Experimental](components-stability.md#stability-levels-explained)
-* Available since: 2.1.0
-
-</td>
-</tr>
-
-<tr filter="in-preview">
-<td>
-
-**In preview**
-
-</td>
-<td>
-
 **Uuid**
 
 * KEEP proposal: [uuid.md](https://github.com/Kotlin/KEEP/blob/uuid/proposals/stdlib/uuid.md)
@@ -404,6 +387,23 @@ guided by pragmatic design.
 * KEEP proposal: [Nested (non-capturing) type aliases](https://github.com/Kotlin/KEEP/blob/master/proposals/nested-typealias.md)
 * YouTrack issue: [KT-45285](https://youtrack.jetbrains.com/issue/KT-45285)
 * Available since: 2.2.0, Stable since 2.3.0
+
+</td>
+</tr>
+
+<tr filter="stable">
+<td>
+
+**Stable**
+
+</td>
+<td>
+
+**kotlin.time.Instant**
+
+* KEEP proposal: [Instant and Clock](https://github.com/Kotlin/KEEP/blob/master/proposals/stdlib/instant.md)
+* YouTrack issue: [KT-80778](https://youtrack.jetbrains.com/issue/KT-80778)
+* Available since: 2.1.0, Stable since 2.3.0
 
 </td>
 </tr>
