@@ -1379,7 +1379,7 @@ Register generated sources to help IDEs, third-party plugins, and other tools di
 This helps tools like IDEs highlight generated code differently in the UI and trigger generation tasks when importing the project.
 Use the [`KotlinSourceSet`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/) interface to register generated sources.
 
-To register a directory that contains Kotlin files, use the `generatedKotlin` property with the [`SourceDirectorySet`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.file/-source-directory-set/index.html)
+To register a directory that contains Kotlin files, use the [`generatedKotlin`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/generated-kotlin.html) property with the [`SourceDirectorySet`](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.file/-source-directory-set/index.html)
 type in your `build.gradle.kts` file. For example:
 
 ```kotlin
@@ -1405,7 +1405,7 @@ This example creates a new task `generator` with an output directory of `"src/ma
 the `doLast {}` task action creates a `generated.kt` file in the output directory. Finally, the example registers the task's
 output as a generated source.
 
-If you're developing a Gradle plugin, you can use the `allKotlinSources` property to access all sources registered in the `KotlinSourceSet.kotlin` and 
+If you're developing a Gradle plugin, you can use the [`allKotlinSources`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/all-kotlin-sources.html) property to access all sources registered in the [`KotlinSourceSet.kotlin`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/kotlin.html) and 
 `KotlinSourceSet.generatedKotlin` properties.
 
 ## What's next?
