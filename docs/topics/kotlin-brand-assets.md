@@ -25,14 +25,14 @@ Pay special attention to the following restrictions concerning the use of the lo
 
 ## Kotlin ecosystem logos
 
-The Kotlin brand package also includes logos for several official Kotlin Ecosystem projects, libraries, frameworks, and technologies.
+The Kotlin brand package also includes logos for several official Kotlin ecosystem projects, libraries, frameworks, and technologies.
 These assets follow the same visual principles as the Kotlin logo and help ensure consistent representation across the ecosystem.
 
 The package contains logos for:
 
 * [Kotlin Foundation](https://kotlinfoundation.org)
 * [Kotlin Notebook](kotlin-notebook-overview.md)
-* [Kotlin Multiplatform (KMP)](https://kotlinlang.org/docs/multiplatform/kmp-overview.html)
+* [Kotlin Multiplatform (KMP)](https://www.jetbrains.com/kotlin-multiplatform/)
 * [Talking Kotlin](https://www.youtube.com/playlist?list=PLlFc5cFwUnmz1TwkP9SKCHU978dqLTANB)
 * [Compose Multiplatform (CMP)](https://www.jetbrains.com/compose-multiplatform/)
 * [Compose Hot Reload](https://kotlinlang.org/docs/multiplatform/compose-hot-reload.html)
