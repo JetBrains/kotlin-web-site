@@ -6,23 +6,42 @@ import styles from './case-studies-card.module.css';
 import { CaseItem } from '../case-studies';
 import { PlatformIcon } from '../platform-icon/platform-icon';
 import { mdToHtml } from '../../../utils/mdToHtml';
+import { Theme, ThemeProvider, useThemeWithUndefined } from '@rescui/ui-contexts';
 
-type CaseStudyCardProps = CaseItem & {
+function reverse(theme: Theme): Theme {
+    return theme === 'light' ? 'dark' : 'light';
+}
+
+export type CaseStudyCardProps = CaseItem & {
     className?: string;
+    mode?: 'rock' | 'classic';
 };
 
-export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ className, ...item }) => {
+export const CaseStudyCard: React.FC<CaseStudyCardProps> = props => {
+    const theme = useThemeWithUndefined();
+
+    return <ThemeProvider theme={props.mode === 'rock' ? reverse(theme) : theme}>
+        <CaseStudyCardText {...props} />
+    </ThemeProvider>;
+};
+
+const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...item }) => {
     const textCn = useTextStyles();
-    const logos = item.logo ?? [];
-    const logo = logos[0];
-    const optionalSecondLogo = logos[1];
+
+    const normalLogo = item.logo || [];
+    const propertyName = mode === 'rock' ? 'alternateLogo' : 'logo';
+
+    const logo = item[propertyName]?.[0] || normalLogo[0];
+    const optionalSecondLogo = item[propertyName]?.[1] || normalLogo[1];
 
     const isYoutube = item.media?.type === 'youtube';
     const videoId = item.media?.type === 'youtube' ? item.media.videoId : undefined;
     const imageSrc = item.media?.type === 'image' ? item.media.path : undefined;
 
     return (
-        <article className={cn(styles.card, className)} data-testid="case-studies-card" id={item.id}>
+        <article
+            className={cn(styles.card, className, styles[mode || 'classic'], textCn('rs-text-2', { hardness: 'hard' }))}
+            data-testid="case-studies-card">
             <div className={styles.content}>
                 {logo &&
                     <div className={styles.logos}>
@@ -35,21 +54,21 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ className, ...item
 
                 {item.description &&
                     <div
-                        className={cn(styles.description, textCn('rs-text-2'))}
+                        className={cn(styles.description)}
                         dangerouslySetInnerHTML={{ __html: mdToHtml(item.description) }}
                         data-testid="case-studies-card-description"
                     />}
 
                 {item.signature &&
-                    <div className={textCn('rs-text-2')}>
+                    <div>
                         <strong className={styles.name}>{item.signature.name}</strong>
-                        <div className={styles.position}>{item.signature.position}</div>
+                        <div className={cn(styles.position, textCn('rs-text-2', {hardness: 'average'}))}>{item.signature.position}</div>
                     </div>
                 }
 
                 {item.link &&
                     <a
-                        className={cn(styles.link, `ktl-text-1 rs-link ${item.isExternal ? 'rs-link_external' : ''}`)}
+                        className={cn(styles.link, textCn('rs-link', {external: true}))}
                         href={item.link}
                     >
                         {item.linkText || 'Read the full story'}
