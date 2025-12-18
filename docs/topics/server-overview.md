@@ -73,7 +73,7 @@ process at JetBrains, is written in 100% Kotlin and has been running in producti
 [Chess.com](https://www.chess.com/) is a website dedicated to chess and the millions of players around the world 
 who love the game. Chess.com uses Ktor for the seamless configuration of multiple HTTP clients.
 
-Engineers at [Adobe](https://blog.developer.adobe.com/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a) use Kotlin for server-side app development and Ktor for prototyping in the Adobe Experience 
+Engineers at [Adobe](https://medium.com/adobetech/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a) use Kotlin for server-side app development and Ktor for prototyping in the Adobe Experience
 Platform, which enables organizations to centralize and standardize customer data before applying data science and machine learning.
 
 

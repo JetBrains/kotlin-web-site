@@ -621,7 +621,7 @@ The following table lists details of the latest Kotlin releases:
         </td>
         <td>
             <p>A bug fix release for Kotlin 1.5.0.</p>
-            <p>Learn more about <a href="https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-released/" target="_blank">Kotlin 1.5.0</a>.</p>
+            <p>Learn more about <a href="https://blog.jetbrains.com/kotlin/2021/05/kotlin-1-5-0-released/" target="_blank">Kotlin 1.5.0</a>.</p>
         </td>
     </tr>
     <tr>
@@ -633,7 +633,7 @@ The following table lists details of the latest Kotlin releases:
             <p>A feature release with new language features, performance improvements, and evolutionary changes such as stabilizing experimental APIs.</p>
             <p>Learn more in:</p>
             <list>
-                <li><a href="https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-released/" target="_blank">Release blog post</a></li>
+                <li><a href="https://blog.jetbrains.com/kotlin/2021/05/kotlin-1-5-0-released/" target="_blank">Release blog post</a></li>
                 <li><a href="whatsnew15.md" target="_blank">What's new in Kotlin 1.5.0</a></li>
                 <li><a href="compatibility-guide-15.md" target="_blank">Compatibility guide</a></li>
             </list>
@@ -674,7 +674,7 @@ The following table lists details of the latest Kotlin releases:
             </list>
             <p>Learn more in:</p>
             <list>
-                <li><a href="https://blog.jetbrains.com/kotlin/2021/01/kotlin-1-4-30-released/" target="_blank">Release blog post</a></li>
+                <li><a href="https://blog.jetbrains.com/kotlin/2021/02/kotlin-1-4-30-released/" target="_blank">Release blog post</a></li>
                 <li><a href="whatsnew1430.md" target="_blank">What's new in Kotlin 1.4.30</a></li>
             </list>
         </td>

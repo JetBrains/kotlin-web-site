@@ -64,7 +64,7 @@ In this example:
 You can define extension functions anywhere, which enables you to create extension-oriented designs. These designs separate 
 core functionality from useful but non-essential features, making your code easier to read and maintain.
 
-A good example is the [`HttpClient`](https://api.ktor.io/ktor-client/ktor-client-core/io.ktor.client/-http-client/index.html) class from the Ktor library, which helps perform network requests. The core of
+A good example is the [`HttpClient`](https://api.ktor.io/ktor-client-core/io.ktor.client/-http-client/index.html) class from the Ktor library, which helps perform network requests. The core of
 its functionality is a single function `request()`, which takes all the information needed for an HTTP request:
 
 ```kotlin

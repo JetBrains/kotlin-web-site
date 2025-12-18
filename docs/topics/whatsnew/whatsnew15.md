@@ -5,7 +5,7 @@ _[Released: 5 May 2021](releases.md#release-details)_
 Kotlin 1.5.0 introduces new language features, stable IR-based JVM compiler backend, performance improvements,
 and evolutionary changes such as stabilizing experimental features and deprecating outdated ones.
 
-You can also find an overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-released/).
+You can also find an overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/05/kotlin-1-5-0-released/).
 
 ## Language features
 
