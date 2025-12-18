@@ -1,12 +1,12 @@
 [//]: # (title: Maven)
 
-Maven is a build system that helps manage a Kotlin or Java-based project and automate your building process.
-It downloads required dependencies, compiles, and packages your code.
+Maven is a build system that helps manage Kotlin-only or mixed Kotlin−Java projects and automate your building process.
+It works with JVM-based projects and downloads required dependencies, compiles and packages your code.
 Learn more about its basics and specifics on the [Maven](https://maven.apache.org/) website.
 
 Here's a general workflow when working with a Kotlin Maven project:
 
-1. [Apply the Kotlin Maven plugin](maven-configure-project.md#configure-and-enable-the-plugin).
+1. [Apply the Kotlin Maven plugin](maven-configure-project.md#enable-and-configure-the-plugin).
 2. [Declare repositories](maven-configure-project.md#declare-repositories).
 3. [Set project dependencies](maven-configure-project.md#set-dependencies).
 4. [Configure source code compilation](maven-compile-package.md#configure-source-code-compilation).

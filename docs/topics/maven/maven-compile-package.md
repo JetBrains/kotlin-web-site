@@ -1,13 +1,17 @@
 [//]: # (title: Compile and package a Maven project)
 
-You can set up your Maven project to compile Kotlin-only or mixed Kotlin/Java sources, configure the Kotlin compiler,
+You can set up your Maven project to compile Kotlin-only or mixed Kotlin and Java sources, configure the Kotlin compiler,
 specify compiler options, and package your application into JARs.
 
 ## Configure source code compilation
 
+To ensure that your source code is compiled correctly, adjust project configuration.
+Your Maven project can be set up to compile [Kotlin-only sources](#compile-kotlin-only-sources) or a combination
+of [Kotlin and Java sources](#compile-kotlin-and-java-sources).
+
 ### Compile Kotlin-only sources
 
-To compile your source code:
+To compile your Kotlin source code:
 
 1. Specify the source directories in the `<build>` section:
 
@@ -53,7 +57,7 @@ Enabling extensions automatically adds the `compile`, `test-compile`, `kapt`, an
 bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
 If you need to configure an execution, you need to specify its ID. You can find an example of this in the next section.
 
-> If several build plugins overwrite the default lifecycle, and you have also enabled the `extensions` option, the last plugin in
+> If several build plugins overwrite the default lifecycle and you have also enabled the `extensions` option, the last plugin in
 > the `<build>` section has priority in terms of lifecycle settings. All earlier changes to lifecycle settings are ignored.
 >
 {style="note"}

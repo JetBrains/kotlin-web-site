@@ -3,11 +3,11 @@
 To build a Kotlin project with Maven, you need to add the Kotlin Maven plugin to your `pom.xml` build file,
 declare repositories, and configure the project's dependencies.
 
-## Configure and enable the plugin
+## Enable and configure the plugin
 
 The `kotlin-maven-plugin` compiles Kotlin sources and modules. Currently, only Maven v3 is supported.
 
-To apply the Kotlin Maven plugin, in your pom.xml file:
+To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
 
 1. In the `<properties>` section, define the version of Kotlin you want to use in the `kotlin.version` property:
 
@@ -41,7 +41,7 @@ To use JDK 17, in your `.mvn/jvm.config` file, add:
 ## Declare repositories
 
 By default, the `mavenCentral` repository is available for all Maven projects. To access artifacts in other repositories,
-specify the ID and URL of each repository in the `<repositories>` section:
+specify a custom ID for the repository name and its URL in the `<repositories>` section:
 
 ```xml
 <repositories>
@@ -96,12 +96,9 @@ To use the standard library in your project, add the following dependency to you
 
 ### Dependencies on test libraries
 
-If your project uses [Kotlin reflection](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/index.html)
+If your project uses [Kotlin reflection](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/)
 or testing frameworks, add the relevant dependencies.
-Use `kotlin-reflect` for the reflection library, and `kotlin-test` and `kotlin-test-junit`
-for the testing libraries.
-
-For example:
+Use `kotlin-reflect` for the reflection library, and `kotlin-test` and `kotlin-test-junit5` for testing libraries:
 
 ```xml
 <dependencies>
@@ -110,15 +107,20 @@ For example:
         <artifactId>kotlin-reflect</artifactId>
         <version>${kotlin.version}</version>
     </dependency>
+    <dependency>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-test-junit5</artifactId>
+        <scope>test</scope>
+    </dependency>
 </dependencies>
 ```
 
 ### Dependency on a kotlinx library
 
-Depending on the kotlinx library, you can either add the base artifact name or the name with a `-jvm` suffix. Refer to
+For kotlinx libraries, you can either add the base artifact name or the name with a `-jvm` suffix. Refer to
 the library's README file on [klibs.io](https://klibs.io/).
 
-For example, to add a dependency on `kotlinx.coroutines`:
+For example, to add a dependency on [`kotlinx.coroutines`](https://kotlinlang.org/api/kotlinx.coroutines/) library:
 
 ```xml
 <dependencies>
@@ -130,7 +132,7 @@ For example, to add a dependency on `kotlinx.coroutines`:
 </dependencies>
 ```
 
-To add a dependency on `kotlinx-datetime`:
+To add a dependency on the [`kotlinx-datetime`](https://kotlinlang.org/api/kotlinx-datetime/) library:
 
 ```xml
 <dependencies>
@@ -145,7 +147,7 @@ To add a dependency on `kotlinx-datetime`:
 ### Use BOM dependency mechanism
 
 To use a Kotlin [Bill of Materials (BOM)](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms),
-write a dependency on [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-bom):
+add a dependency on [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-bom):
 
 ```xml
 <dependencyManagement>
