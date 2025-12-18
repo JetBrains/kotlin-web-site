@@ -118,10 +118,6 @@ items:
       “Starting from this small of a team, it was a huge speed win for **X**
       to be able to use Kotlin Multiplatform and write all of that logic once in one place… When you write a
       bug—not that I ever do that—you only have to fix it in one place.”
-    logo:
-      - /images/case-studies/x-logo.svg
-    alternateLogo:
-      - /images/case-studies/x-logo-dark.svg
     carousel: true
     signature:
       name: Eric Denman
