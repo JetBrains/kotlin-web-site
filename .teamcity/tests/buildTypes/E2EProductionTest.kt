@@ -37,7 +37,7 @@ object E2EProductionTest : BuildType({
                 yarn install --immutable
                 yarn test:production:ci
             """.trimIndent()
-            dockerImage = "mcr.microsoft.com/playwright:v1.53.0-noble"
+            dockerImage = "mcr.microsoft.com/playwright:v1.57.0"
             dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
         }
     }
