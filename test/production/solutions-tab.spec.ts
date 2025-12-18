@@ -16,7 +16,7 @@ test.describe('Solutions tab', () => {
         const multiplatformButton = page.locator(testSelector("header")).getByText('Multiplatform').first();
         await expect(multiplatformButton).toBeVisible();
         await multiplatformButton.click();
-        await expect(page.url()).toContain('https://www.jetbrains.com/kotlin-multiplatform/');
+        await expect(page.url()).toContain('https://kotlinlang.org/multiplatform/');
     });
 
     test('Click on "Server-side" button should open the related page', async ({ page }) => {
