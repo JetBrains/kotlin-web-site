@@ -13,7 +13,7 @@
     & > div {
         gap: 8px;
 
-        @media (--ktl-ml-more) {
+        @media (--ktl-ts-up) {
             display: flex;
             flex-wrap: nowrap;
             flex-direction: row;
@@ -33,7 +33,7 @@
             pointer-events: auto;
         }
 
-        @media (--ktl-ts-more) {
+        @media (--ktl-tl-up) {
             @mixin rs-subtitle-2-base;
         }
 
@@ -61,14 +61,14 @@
             border-color: #7E42FF;
         }
 
-        @media (--ktl-ml-more) {
+        @media (--ktl-ts-up) {
             flex: 1;
 
             & > span {
                 white-space: initial;
             }
         }
-        @media (--ktl-ts-less) {
+        @media (--ktl-ml-down) {
             width: 100%;
         }
     }
@@ -83,11 +83,11 @@
         display: grid;
     }
 
-    @media (--ktl-tl-more) {
+    @media (--ktl-ds-up) {
         border-radius: 32px;
     }
 
-    @media (--ktl-ml-more) {
+    @media (--ktl-ts-up) {
         border-radius: 24px;
     }
 }
@@ -95,13 +95,13 @@
 :global(.js) .card:not(.active) {
     visibility: hidden;
 
-    @media (--ktl-ds-less) {
+    @media (--ktl-tl-down) {
         display: none;
     }
 }
 
 .card {
-    @media (--ktl-tl-more) {
+    @media (--ktl-ds-up) {
         grid-column: 1;
         grid-row: 1;
         align-items: start;

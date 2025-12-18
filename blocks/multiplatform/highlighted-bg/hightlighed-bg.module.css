@@ -17,17 +17,17 @@
         filter: blur(200px);
         z-index: -1;
 
-        @media (--ktl-ml-more) {
+        @media (--ktl-ts-up) {
             right: -312px;
             top: 80px;
         }
 
-        @media (--ktl-ts-more) {
+        @media (--ktl-tl-up) {
             left: 50%;
             transform: translateX(-50%);
         }
 
-        @media (--ktl-ds-more) {
+        @media (--ktl-dl-up) {
             top: 500px;
             transform: translateX(-85%);
         }

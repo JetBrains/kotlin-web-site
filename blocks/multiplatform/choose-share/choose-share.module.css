@@ -30,31 +30,31 @@
         height: 1127px;
         width: 1127px;
 
-        @media (--ktl-ds-more) {
+        @media (--ktl-dl-up) {
             left: -564px;
             top: -63px;
         }
 
-        @media (--ktl-ds-in) {
+        @media (--ktl-ds-only) {
             left: -562px;
             top: -112px;
         }
 
-        @media (--ktl-tl-in) {
+        @media (--ktl-tl-only) {
             left: -572px;
             top: -49px;
         }
 
-        @media (--ktl-ts-in) {
+        @media (--ktl-ts-only) {
             left: -572px;
         }
 
-        @media (--ktl-ml-in) {
+        @media (--ktl-ml-only) {
             left: -572px;
             top: 177px;
         }
 
-        @media (--ktl-ml-less) {
+        @media (--ktl-ms-down) {
             left: -565px;
             top: 233px;
         }
