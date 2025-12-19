@@ -189,10 +189,10 @@ Android, and other ecosystems.
 
 When building Kotlin/Native projects, the Kotlin Gradle plugin downloads the following artifacts:
 
-* The main Kotlin/Native bundle, which includes different tools like `konanc`, `cinterop`, `jsinterop`. By default,
-  it's downloaded from the [Maven Central](https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-native-prebuilt/)
+* The main Kotlin/Native bundle, which includes different tools like `konanc`, `cinterop`, and `jsinterop`. By default,
+  the Kotlin/Native bundle is downloaded from the [Maven Central](https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-native-prebuilt/)
   repository as a simple Gradle dependency.
-* Dependencies required for the `konanc` itself, like `llvm`. They are downloaded from the JetBrains CDN using custom logic.
+* Dependencies required for `konanc` itself, like `llvm`. They are downloaded from the JetBrains CDN using custom logic.
 
 You can change the source for the main bundle download in the `repositories {}` block in your Gradle build script.
 
@@ -212,7 +212,8 @@ You can change the source for the main bundle download in the `repositories {}` 
    }
 
    repositories {
-       // Specify the source to download the main bundle. Maven Central is used by default.
+       // Specify the source to download the main bundle
+       // Maven Central is used by default
        mavenCentral()
    }
 
@@ -242,7 +243,8 @@ You can change the source for the main bundle download in the `repositories {}` 
    }
 
    repositories {
-       // Specify the source to download the main bundle. Maven Central is used by default.
+       // Specify the source to download the main bundle
+       // Maven Central is used by default
        mavenCentral()
    }
 
