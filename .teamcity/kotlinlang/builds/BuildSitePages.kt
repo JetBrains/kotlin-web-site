@@ -83,7 +83,7 @@ object BuildSitePages : BuildType({
             //language=bash
             scriptContent = """
                 cp -fR _webhelp/reference/* build/docs/
-                cp -fR _webhelp/multiplatform build/docs/multiplatform
+                cp -fR _webhelp/multiplatform/* build/docs/multiplatform
                 
                 mv build dist
                 
