@@ -657,7 +657,7 @@ Use Kotlin/JS if your goal is to:
 * Share business logic with a JavaScript/TypeScript codebase
 * Build non-shareable web apps with Kotlin
 
-For more information, see [Choose the right web target for a Kotlin Multiplatform project](https://kotlinlang.org/docs/multiplatform/choosing-web-target.html).
+For more information, see [Web development](web-overview.md#kotlin-js).
 
 When targeting JavaScript, use the `kotlin-multiplatform` plugin:
 
@@ -699,7 +699,7 @@ kotlin {
 ### Targeting WebAssembly
 
 Use Kotlin/Wasm if you want to share both logic and UI across multiple platforms. For more information,
-see [Choose the right web target for a Kotlin Multiplatform project](https://kotlinlang.org/docs/multiplatform/choosing-web-target.html).
+see [Web development](web-overview.md#kotlin-wasm).
 
 As with JavaScript, use the `kotlin-multiplatform` plugin when targeting WebAssembly (Wasm):
 

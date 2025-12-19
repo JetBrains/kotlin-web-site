@@ -859,3 +859,6 @@
 
 - from: /docs/dokka-markdown.html
   to: https://github.com/Kotlin/dokka/blob/master/dokka-subprojects/plugin-gfm/README.md#gfm-plugin
+
+- from: /docs/multiplatform/choosing-web-target.html
+  to: /docs/web-overview.html
