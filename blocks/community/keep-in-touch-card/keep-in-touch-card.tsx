@@ -16,7 +16,7 @@ export const KeepInTouchCard: FC<KeepInTouchCardProps> = ({ icon, title, descrip
     const textCn = useTextStyles();
 
     return (
-        <a href={link} target="_blank" rel="noopener noreferrer" className={cardClassName}>
+        <a href={link} target="_blank" rel="noopener noreferrer" className={cardClassName} title={title}>
             <div className={styles.wrapper}>
                 <div className={classNames(styles.icon)}>
                     <img src={icon.src} alt={title} />

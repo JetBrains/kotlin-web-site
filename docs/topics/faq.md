@@ -104,7 +104,7 @@ When targeting native, Kotlin will produce platform-specific code (via LLVM).
 
 Kotlin lets you choose the version of JVM for execution. By default, the Kotlin/JVM compiler produces Java 8 compatible bytecode.
 If you want to make use of optimizations available in newer versions of Java, you can explicitly specify the target Java
-version from 9 to 24. Note that in this case the resulting bytecode might not run on lower versions.
+version from 9 to 25. Note that in this case the resulting bytecode might not run on lower versions.
 Starting with [Kotlin 1.5](whatsnew15.md#new-default-jvm-target-1-8), the compiler does not support producing bytecode compatible with Java versions below 8.
 
 ### Is Kotlin hard?
@@ -120,7 +120,7 @@ For more information, check out [our learning materials](learning-materials-over
 There are too many companies using Kotlin to list, but some more visible companies that have publicly declared usage of
 Kotlin, be this via blog posts, GitHub repositories or talks include 
 [Square](https://medium.com/square-corner-blog/square-open-source-loves-kotlin-c57c21710a17), [Pinterest](https://www.youtube.com/watch?v=mDpnc45WwlI),
-[Basecamp](https://signalvnoise.com/svn3/using-kotlin-to-make-android-apis-fun-again/), and [Corda](https://corda.net/blog/kotlin/).
+and [Basecamp](https://signalvnoise.com/svn3/using-kotlin-to-make-android-apis-fun-again/).
  
 ### Who develops Kotlin?
 

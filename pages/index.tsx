@@ -177,7 +177,7 @@ function Index() {
             </ThemeProvider>
 
             <ThemeProvider theme="light">
-                <div className={styles.evenSection}>
+                <div className={styles.evenSection} data-testid={"highlighted-cases-section"}>
                     <div className={'ktl-layout ktl-layout--center'}>
 
                         <KotlinUsageHighlights title="Kotlin in action" items={kotlinUsageHighlightsCases} />
@@ -196,7 +196,7 @@ function Index() {
                                 </>
                             }
                             button={
-                                <Button href="/lp/multiplatform/" size="l" mode="rock" theme="light">
+                                <Button href="/multiplatform/" size="l" mode="rock" theme="light">
                                     {isTS ? 'Learn more' : 'Learn about Kotlin Multiplatform'}
                                 </Button>
                             }

@@ -1,14 +1,18 @@
 import { expect, test } from '@playwright/test';
+import { CommunityPage } from '../page/community-page';
+
+let communityPage: CommunityPage = null;
 
 test.describe('Community page, overview tab, keep in touch section', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('/community/');
+        communityPage = new CommunityPage(page);
+        await communityPage.init();
         await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
         await page.click('button.ch2-btn.ch2-btn-primary');
     });
 
     test('Slack button opens the related page', async ({ page, context }) => {
-        const slackButton = page.getByRole('link', { name: 'Slack' }).first();
+        const slackButton = communityPage.keepInTouchBlock.getByRole('link', { name: 'Slack' }).first();
         await expect(slackButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await slackButton.click();
@@ -18,7 +22,7 @@ test.describe('Community page, overview tab, keep in touch section', () => {
     });
 
     test('X (Twitter) button opens the related page', async ({ page, context }) => {
-        const twitterButton = page.getByRole('link', { name: 'X' }).first();
+        const twitterButton = communityPage.keepInTouchBlock.getByTitle('X').first();
         await expect(twitterButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await twitterButton.click();
@@ -28,7 +32,7 @@ test.describe('Community page, overview tab, keep in touch section', () => {
     });
 
     test('Kotlin Blog button opens the related page', async ({ page, context }) => {
-        const blogButton = page.getByRole('link', { name: 'Kotlin Blog' }).first();
+        const blogButton = communityPage.keepInTouchBlock.getByRole('link', { name: 'Kotlin Blog' }).first();
         await expect(blogButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await blogButton.click();
@@ -38,7 +42,7 @@ test.describe('Community page, overview tab, keep in touch section', () => {
     });
 
     test('Reddit button opens the related page', async ({ page, context }) => {
-        const redditButton = page.getByRole('link', { name: 'Reddit' }).first();
+        const redditButton = communityPage.keepInTouchBlock.getByRole('link', { name: 'Reddit' }).first();
         await expect(redditButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await redditButton.click();
@@ -48,7 +52,7 @@ test.describe('Community page, overview tab, keep in touch section', () => {
     });
 
     test('StackOverflow button opens the related page', async ({ page, context }) => {
-        const stackOverflowButton = page.getByRole('link', { name: 'StackOverflow' });
+        const stackOverflowButton = communityPage.keepInTouchBlock.getByRole('link', { name: 'StackOverflow' });
         await expect(stackOverflowButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await stackOverflowButton.click();
@@ -59,14 +63,14 @@ test.describe('Community page, overview tab, keep in touch section', () => {
 
     // Without click on YouTube button, because of YouTube Cookies page, but it checks that the button contains the right link.
     test('YouTube button opens the related page', async ({ page }) => {
-        const youtubeButton = page.getByRole('link', { name: 'YouTube' }).first();
+        const youtubeButton = communityPage.keepInTouchBlock.getByRole('link', { name: 'YouTube' }).first();
         await expect(youtubeButton).toBeVisible();
         const href = await youtubeButton.getAttribute('href');
         expect(href).toBe('https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw')
     });
 
     test('Talking Kotlin button opens the related page', async ({ page, context }) => {
-        const talkingKotlinButton = page.getByRole('link', { name: 'Talking Kotlin' });
+        const talkingKotlinButton = communityPage.keepInTouchBlock.getByRole('link', { name: 'Talking Kotlin' });
         await expect(talkingKotlinButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await talkingKotlinButton.click();
@@ -77,14 +81,14 @@ test.describe('Community page, overview tab, keep in touch section', () => {
 
     // Without click on LinkedIn button, since LinkedIn requires authorization, but it checks that the button contains the right link.
     test('LinkedIn button opens the related page', async ({ page }) => {
-        const linkedInButton = page.getByRole('link', { name: 'LinkedIn' });
+        const linkedInButton = communityPage.keepInTouchBlock.getByRole('link', { name: 'LinkedIn' });
         await expect(linkedInButton).toBeVisible();
         const href = await linkedInButton.getAttribute('href');
         expect(href).toBe('https://www.linkedin.com/groups/7417237/profile');
     });
 
     test('Issue Tracker button opens the related page', async ({ page, context }) => {
-        const issueTrackerButton = page.getByRole('link', { name: 'Issue Tracker' }).first();
+        const issueTrackerButton = communityPage.keepInTouchBlock.getByRole('link', { name: 'Issue Tracker' }).first();
         await expect(issueTrackerButton).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
         await issueTrackerButton.click();

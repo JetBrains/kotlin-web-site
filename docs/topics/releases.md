@@ -2,7 +2,7 @@
 
 <tldr>
     <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
-    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.2.20</a> <!--and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>-->.</p>
+    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.3.0</a> <!--and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>-->.</p>
 </tldr>
 
 Since Kotlin 2.0.0, we ship the following types of releases:
@@ -33,8 +33,8 @@ new features before they are released. See [Early Access Preview](eap.md) for de
 
 Here is the approximate schedule for upcoming stable Kotlin releases:
 
-* **2.3.0**: Planned for December 2025 – January 2026
 * **2.3.20**: Planned for March – April 2026
+* **2.4.0**: Planned for June – July 2026
 
 ## Update to a new Kotlin version
 
@@ -121,7 +121,7 @@ Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.
 
 K2 mode in IntelliJ IDEA and Android Studio uses the K2 compiler to improve code analysis, code completion, and highlighting.
 
-Starting with IntelliJ IDEA 2025.1, K2 mode is [enabled by default](https://blog.jetbrains.com/idea/2025/04/k2-mode-in-intellij-idea-2025-1-current-state-and-faq/).
+IntelliJ IDEA 2025.3 and later always uses K2 mode.
 
 In Android Studio, you can enable K2 mode starting with 2024.1 by following these steps:
 
@@ -147,6 +147,16 @@ The following table lists details of the latest Kotlin releases:
         <th>Build info</th>
         <th>Build highlights</th>
     </tr>
+    <tr>
+        <td><strong>2.3.0</strong>
+            <p>Released: <strong>December 16, 2025</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.0" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A language release including both new and stable language features, tooling updates, performance improvements for different platforms, and important fixes.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.0">changelog</a>.</p>
+        </td>
+    </tr> 
     <tr>
         <td><strong>2.2.21</strong>
             <p>Released: <strong>October 23, 2025</strong></p>
@@ -388,7 +398,7 @@ The following table lists details of the latest Kotlin releases:
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v1.8.20" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A feature release with Kotlin K2 compiler updates, AutoCloseable interface and Base64 encoding in stdlib,
+            <p>A feature release with Kotlin K2 compiler updates, AutoCloseable interface, and Base64 encoding in stdlib,
                 new JVM incremental compilation enabled by default, new Kotlin/Wasm compiler backend.
             </p>
             <p>Learn more in:</p>
@@ -611,7 +621,7 @@ The following table lists details of the latest Kotlin releases:
         </td>
         <td>
             <p>A bug fix release for Kotlin 1.5.0.</p>
-            <p>Learn more about <a href="https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-released/" target="_blank">Kotlin 1.5.0</a>.</p>
+            <p>Learn more about <a href="https://blog.jetbrains.com/kotlin/2021/05/kotlin-1-5-0-released/" target="_blank">Kotlin 1.5.0</a>.</p>
         </td>
     </tr>
     <tr>
@@ -623,7 +633,7 @@ The following table lists details of the latest Kotlin releases:
             <p>A feature release with new language features, performance improvements, and evolutionary changes such as stabilizing experimental APIs.</p>
             <p>Learn more in:</p>
             <list>
-                <li><a href="https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-released/" target="_blank">Release blog post</a></li>
+                <li><a href="https://blog.jetbrains.com/kotlin/2021/05/kotlin-1-5-0-released/" target="_blank">Release blog post</a></li>
                 <li><a href="whatsnew15.md" target="_blank">What's new in Kotlin 1.5.0</a></li>
                 <li><a href="compatibility-guide-15.md" target="_blank">Compatibility guide</a></li>
             </list>
@@ -664,7 +674,7 @@ The following table lists details of the latest Kotlin releases:
             </list>
             <p>Learn more in:</p>
             <list>
-                <li><a href="https://blog.jetbrains.com/kotlin/2021/01/kotlin-1-4-30-released/" target="_blank">Release blog post</a></li>
+                <li><a href="https://blog.jetbrains.com/kotlin/2021/02/kotlin-1-4-30-released/" target="_blank">Release blog post</a></li>
                 <li><a href="whatsnew1430.md" target="_blank">What's new in Kotlin 1.4.30</a></li>
             </list>
         </td>

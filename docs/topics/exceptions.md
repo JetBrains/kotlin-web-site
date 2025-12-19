@@ -341,8 +341,8 @@ fun main() {
 > 
 > ```kotlin
 > FileWriter("test.txt").use { writer ->
-> writer.write("some text") 
-> // After this block, the .use function automatically calls writer.close(), similar to a finally block
+>     writer.write("some text")
+>     // After this block, the .use function automatically calls writer.close(), similar to a finally block
 > }
 > ```
 > 

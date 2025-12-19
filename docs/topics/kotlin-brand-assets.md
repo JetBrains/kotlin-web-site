@@ -1,13 +1,11 @@
 [//]: # (title: Kotlin brand assets)
 
-## Kotlin Logo
+## Kotlin logo
 
 Our logo consists of a mark and a typeface. 
 The full-color version is the main one and should be used in the vast majority of cases.
 
 [Download all versions](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
-
-![Kotlin logo](kotlin-logo.png){width=700}
 
 Our logo and mark have a protective field. Please position the logo so that other design elements do not come into the box.
 The minimum size of the protective field is half the height of the mark.
@@ -24,6 +22,26 @@ Pay special attention to the following restrictions concerning the use of the lo
 * Do not set the logo against a complex background. Do not place the logo in front of a bright background.
 
 [Read the Kotlin brand usage guidelines](https://kotlinfoundation.org/guidelines/).
+
+## Kotlin ecosystem logos
+
+The Kotlin brand package also includes logos for several official Kotlin ecosystem projects, libraries, frameworks, and technologies.
+These assets follow the same visual principles as the Kotlin logo and help ensure consistent representation across the ecosystem.
+
+The package contains logos for:
+
+* [Kotlin Foundation](https://kotlinfoundation.org)
+* [Kotlin Notebook](kotlin-notebook-overview.md)
+* [Kotlin Multiplatform (KMP)](https://kotlinlang.org/multiplatform/)
+* [Talking Kotlin](https://www.youtube.com/playlist?list=PLlFc5cFwUnmz1TwkP9SKCHU978dqLTANB)
+* [Compose Multiplatform (CMP)](https://www.jetbrains.com/compose-multiplatform/)
+* [Compose Hot Reload](https://kotlinlang.org/docs/multiplatform/compose-hot-reload.html)
+* [Ktor](https://ktor.io)
+* [Exposed](https://www.jetbrains.com/exposed/)
+
+You can find these logos in the same download bundle:
+
+[Download all versions](https://resources.jetbrains.com/storage/products/kotlin/docs/kotlin_logos.zip){:.typo-float-right.kto-button.kto-button_size_m.kto-button_mode_outline}
 
 ## Kotlin mascot
 

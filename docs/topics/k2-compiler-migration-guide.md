@@ -522,8 +522,8 @@ Starting with Kotlin 2.0.0, the Kotlin K2 compiler is enabled by default.
 To upgrade the Kotlin version, change it to 2.0.0 or a later release in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
 [Maven](maven.md#configure-and-enable-the-plugin) build scripts.
 
-To have the best experience with IntelliJ IDEA or Android Studio, consider [enabling K2 mode](#support-in-ides)
-in your IDE.
+To get the best experience with Android Studio, use [K2 mode](#support-in-ides) in your IDE. IntelliJ IDEA uses
+K2 mode by default, so you don't have to change anything.
 
 ### Use Kotlin build reports with Gradle
 
@@ -557,25 +557,12 @@ For more information on what is possible with build reports, see [Build reports]
 
 K2 mode in IntelliJ IDEA and Android Studio uses the K2 compiler to improve code analysis, code completion, and highlighting.
 
-Starting with IntelliJ IDEA 2025.1, K2 mode is [enabled by default](https://blog.jetbrains.com/idea/2025/04/k2-mode-in-intellij-idea-2025-1-current-state-and-faq/).
+IntelliJ IDEA 2025.3 and later always uses K2 mode.
 
 In Android Studio, you can enable K2 mode starting with 2024.1 by following these steps:
 
 1. Go to **Settings** | **Languages & Frameworks** | **Kotlin**.
 2. Select the **Enable K2 mode** option.
-
-### Previous IDE behavior {initial-collapse-state="collapsed" collapsible="true"}
-
-If you want to go back to the previous IDE behavior, you can disable K2 mode:
-
-1. Go to **Settings** | **Languages & Frameworks** | **Kotlin**.
-2. Deselect the **Enable K2 mode** option.
-
-> We plan to introduce [Stable](components-stability.md#stability-levels-explained) language features after Kotlin 2.1.0.
-> Until then, you can continue to use the previous IDE features for code analysis, and you won't encounter any code highlighting
-> issues due to unrecognized language features.
->
-{style="note"}
 
 ## Try the Kotlin K2 compiler in the Kotlin Playground
 
@@ -1295,6 +1282,7 @@ Currently, the Kotlin K2 compiler supports the following Kotlin compiler plugins
 * [Lombok](lombok.md)
 * [`no-arg`](no-arg-plugin.md)
 * [Parcelize](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize)
+* [Power-assert](power-assert.md)
 * [SAM with receiver](sam-with-receiver-plugin.md)
 * [Serialization](serialization.md)
 

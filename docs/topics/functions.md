@@ -1,12 +1,28 @@
 [//]: # (title: Functions)
 
-Kotlin functions are declared using the `fun` keyword:
+To declare a function in Kotlin:
+* Use the `fun` keyword.
+* Specify the parameters in parentheses `()`.
+* Include the [return type](#return-types) if needed.
+
+For example:
 
 ```kotlin
+//sampleStart
+// 'double' is the name of the function
+// 'x' is a parameter of Int type
+// The expected return value is of Int type too
 fun double(x: Int): Int {
     return 2 * x
 }
+//sampleEnd
+
+fun main() {
+    println(double(5))
+    // 10
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="kotlin-function-double"}
 
 ## Function usage
 
@@ -16,22 +32,31 @@ Functions are called using the standard approach:
 val result = double(2)
 ```
 
-Calling member functions uses dot notation:
+To call a [member](classes.md) or [extension function](extensions.md#extension-functions), use a period `.`:
 
 ```kotlin
-Stream().read() // create instance of class Stream and call read()
+// Creates an instance of the Stream class and calls read()
+Stream().read()
 ```
 
 ### Parameters
 
-Function parameters are defined using Pascal notation - *name*: *type*. Parameters are separated using commas, and each
-parameter must be explicitly typed:
+Declare function parameters using Pascal notation: `name: Type`.
+You must separate parameters using commas and give each parameter a type explicitly:
 
 ```kotlin
 fun powerOf(number: Int, exponent: Int): Int { /*...*/ }
 ```
 
-You can use a [trailing comma](coding-conventions.md#trailing-commas) when you declare function parameters:
+Inside the body of a function, received arguments are read-only (implicitly declared as `val`):
+
+```kotlin
+fun powerOf(number: Int, exponent: Int): Int {
+    number = 2 // Error: 'val' cannot be reassigned.
+}
+```
+
+You can use a [trailing comma](coding-conventions.md#trailing-commas) when declaring function parameters:
 
 ```kotlin
 fun powerOf(
@@ -40,10 +65,98 @@ fun powerOf(
 ) { /*...*/ }
 ```
 
-### Parameters with default values
+Trailing commas help with refactorings and code maintenance:
+you can move parameters within the declaration without worrying about which is going to be the last one.
 
-Function parameters can have default values, which are used when you skip the corresponding argument.
-This reduces the number of overloads:
+> Kotlin functions can receive other functions as parameters — and be passed as arguments.
+> For more information, see [](lambdas.md).
+> 
+{style="note"}
+
+### Parameters with default values {id="parameters-with-default-values"}
+
+You can make a function parameter optional by specifying a default value for it.
+Kotlin uses the default value when you call the function without providing an argument that corresponds to that parameter.
+Parameters with default values are also known as _optional parameters_.
+
+Optional parameters reduce the need for multiple overloads, since you don't have to declare different versions of a function
+just to allow skipping a parameter with a reasonable default.
+
+Set a default value by appending `=` to the parameter declaration:
+
+```kotlin
+fun read(
+    b: ByteArray,
+    // The default value of 'off' is 0
+    off: Int = 0,
+    // The default value of 'len' is calculated
+    // as the size of the 'b' array
+    len: Int = b.size,
+) { /*...*/ }
+```
+
+When you declare a parameter **with** a default value before a parameter **without** a default value,
+you can only use the default value by [naming the argument](#named-arguments):
+
+```kotlin
+fun greeting(
+    userId: Int = 0,
+    message: String,
+) { /*...*/ }
+
+fun main() {
+    // Uses 0 as the default value for 'userId'
+    greeting(message = "Hello!")
+    
+    // Error: No value passed for parameter 'userId'
+    greeting("Hello!")
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="default-before-ordinary"}
+
+[Trailing lambdas](lambdas.md#passing-trailing-lambdas) are an exception to this rule,
+since the last parameter must correspond to the passed function:
+
+```kotlin
+fun main () {
+//sampleStart    
+fun greeting(
+    userId: Int = 0,
+    message: () -> Unit,
+)
+{ println(userId)
+  message() }
+    
+// Uses the default value for 'userId'
+greeting() { println ("Hello!") }
+// 0
+// Hello!
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="default-before-trailing-lambda"}
+
+[Overriding methods](inheritance.md#overriding-methods) always use the base method's default parameter values.
+When you override a method that has default parameter values, you must omit the default parameter values from the signature:
+
+```kotlin
+open class Shape {
+    open fun draw(width: Int = 10, height: Int = 5) { /*...*/ }
+}
+
+class Rectangle : Shape() {
+    // It's not allowed to specify default values here
+    // but this function also uses 10 for 'width' and 5 for 'height'
+    // by default.
+    override fun draw(width: Int, height: Int) { /*...*/ }
+}
+```
+
+#### Non-constant expressions as default values
+
+You can assign a parameter a default value that isn't constant.
+For example, the default can be the result of a function call or a calculation that uses the values of other arguments,
+like the `len` parameter in this example:
 
 ```kotlin
 fun read(
@@ -53,59 +166,67 @@ fun read(
 ) { /*...*/ }
 ```
 
-Such parameters are also referred to as _optional parameters_.
+Parameters that refer to the values of other parameters must be declared later in the order.
+In this example, `len` must be declared after `b`.
 
-A default value is set by appending `=` to the type.
-
-Overriding methods always use the base method's default parameter values.
-When overriding a method that has default parameter values, the default parameter values must be omitted from the signature:
+In general, you can assign any expression as the default value of a parameter.
+However, default values are only evaluated when the function is called **without** the corresponding parameter
+and a default value needs to be assigned.
+For example, this function prints out a line only when it is called without the `print` parameter:
 
 ```kotlin
-open class A {
-    open fun foo(i: Int = 10) { /*...*/ }
+fun main() {
+//sampleStart
+    fun read(
+        b: Int,
+        print: Unit? = println("No argument passed for 'print'")
+    ) { println(b) }
+    
+    // Prints "No argument passed for 'print'", then "1"
+    read(1)
+    // Prints only "1"
+    read(1, null)
+    //sampleEnd
 }
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="non-constant-default"}
 
-class B : A() {
-    override fun foo(i: Int) { /*...*/ }  // No default value is allowed.
+If the last parameter in a function declaration has a functional type,
+you can pass the corresponding [lambda](lambdas.md#lambda-expression-syntax) argument either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
+
+```kotlin
+fun main() {
+    //sampleStart
+    fun log(
+        level: Int = 0,
+        code:  Int = 1,
+        action: () -> Unit,
+    ) { println (level)
+        println (code)
+        action() }
+    
+    // Passes 1 for 'level' and uses the default value 1 for 'code'
+    log(1) { println("Connection established") }
+    
+    // Uses both default values, 0 for 'level' and 1 for 'code'
+    log(action = { println("Connection established") })
+    
+    // Equivalent to the previous call, uses both default values
+    log { println("Connection established") }
+    //sampleEnd
 }
 ```
-
-If a parameter with default value precedes a parameter with no default value, the default value can only be used by calling
-the function with [named arguments](#named-arguments):
-
-```kotlin
-fun foo(
-    bar: Int = 0,
-    baz: Int,
-) { /*...*/ }
-
-foo(baz = 1) // The default value bar = 0 is used
-```
-
-If the last parameter after all parameters with default values has a functional type,
-then you can pass the corresponding [lambda](lambdas.md#lambda-expression-syntax) argument either as a named argument or [outside the parentheses](lambdas.md#passing-trailing-lambdas):
-
-```kotlin
-fun foo(
-    bar: Int = 0,
-    baz: Int = 1,
-    qux: () -> Unit,
-) { /*...*/ }
-
-foo(1) { println("hello") }     // Uses the default value baz = 1
-foo(qux = { println("hello") }) // Uses both default values bar = 0 and baz = 1
-foo { println("hello") }        // Uses both default values bar = 0 and baz = 1
-```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="lambda-outside-parentheses"}
 
 ### Named arguments
 
-You can name one or more of a function's arguments when calling it. This can be helpful when a function has many
-arguments and it's difficult to associate a value with an argument, especially if it's a boolean or `null` value.
+You can name one or more of a function's arguments when calling it.
+This can be helpful when a function call has many arguments.
+In such cases, it's difficult to associate a value with an argument, especially if it's `null` or a boolean value.
 
-When you use named arguments in a function call, you can freely change the order that they are listed in. If you want to
-use their default values, you can just leave these arguments out altogether.
+When you use named arguments in a function call, you can list them in any order.
 
-Consider the `reformat()` function, which has 4 arguments with default values.
+Consider the `reformat()` function, which has 4 arguments with default values:
 
 ```kotlin
 fun reformat(
@@ -117,91 +238,166 @@ fun reformat(
 ) { /*...*/ }
 ```
 
-When calling this function, you don't have to name all its arguments:
+When calling this function, you can name some of the arguments:
 
 ```kotlin
 reformat(
     "String!",
-    false,
+    normalizeCase = false,
     upperCaseFirstLetter = false,
     divideByCamelHumps = true,
     '_'
 )
 ```
 
-You can skip all the ones with default values:
+You can skip all the arguments with default values:
 
 ```kotlin
 reformat("This is a long String!")
 ```
 
-You are also able to skip specific arguments with default values, rather than omitting them all. However, after the first
-skipped argument, you must name all subsequent arguments:
+You can also skip _some_ arguments with default values, rather than omitting them all.
+However, after the first skipped argument, you must name all subsequent arguments:
 
 ```kotlin
-reformat("This is a short String!", upperCaseFirstLetter = false, wordSeparator = '_')
+reformat(
+    "This is a short String!",
+    upperCaseFirstLetter = false,
+    wordSeparator = '_'
+)
 ```
 
-You can pass a [variable number of arguments (`vararg`)](#variable-number-of-arguments-varargs) with names using the
-_spread_ operator (prefix the array with `*`):
+You can pass a [variable number of arguments](#variable-number-of-arguments-varargs) (`vararg`) by naming the corresponding argument.
+In this example, it's an array:
 
 ```kotlin
-fun foo(vararg strings: String) { /*...*/ }
+fun mergeStrings(vararg strings: String) { /*...*/ }
 
-foo(strings = *arrayOf("a", "b", "c"))
+mergeStrings(strings = arrayOf("a", "b", "c"))
 ```
+
+<!-- Rationale for named arguments interaction with varargs is here https://youtrack.jetbrains.com/issue/KT-52505#focus=Comments-27-6147916.0-0 -->
 
 > When calling Java functions on the JVM, you can't use the named argument syntax because Java bytecode does not
 > always preserve the names of function parameters.
 >
 {style="note"}
 
-### Unit-returning functions
+### Return types
 
-If a function does not return a useful value, its return type is `Unit`. `Unit` is a type with only one value - `Unit`.
-This value does not have to be returned explicitly:
+When you declare a function with a block body (by putting instructions within curly braces `{}`),
+you must always specify a return type explicitly.
+The only exception is when they return `Unit`,
+[in which case specifying the return type is optional](#unit-returning-functions).
 
-```kotlin
-fun printHello(name: String?): Unit {
-    if (name != null)
-        println("Hello $name")
-    else
-        println("Hi there!")
-    // `return Unit` or `return` is optional
-}
-```
-
-The `Unit` return type declaration is also optional. The above code is equivalent to:
-
-```kotlin
-fun printHello(name: String?) { ... }
-```
+Kotlin doesn't infer return types for functions with block bodies.
+Their control flow can be complex, which makes the return type unclear to the reader and sometimes even to the compiler.
+However, Kotlin can infer the return type for [single-expression functions](#single-expression-functions) if you don't specify it.
 
 ### Single-expression functions
 
-When the function body consists of a single expression, the curly braces can be omitted and the body specified after an `=` symbol:
+When the function body consists of a single expression, you can omit the curly braces and specify the body after an `=` symbol:
 
 ```kotlin
 fun double(x: Int): Int = x * 2
 ```
 
-Explicitly declaring the return type is [optional](#explicit-return-types) when this can be inferred by the compiler:
+Most of the time you don't have to explicitly declare [the return type](#return-types):
 
 ```kotlin
+// Compiler infers that the function returns Int
 fun double(x: Int) = x * 2
 ```
 
-### Explicit return types
+The compiler can sometimes run into problems when inferring return types from single expressions.
+In such cases, you should add the return type explicitly.
+For example, functions that are recursive or mutually recursive (calling each other)
+and functions with typeless expressions like `fun empty() = null` always require a return type.
 
-Functions with block body must always specify return types explicitly, unless it's intended for them to return `Unit`,
-[in which case specifying the return type is optional](#unit-returning-functions).
+When you do use an inferred return type,
+make sure to check the actual result because the compiler may infer a type that is less useful to you.
+In the example above, if you want the `double()` function to return `Number` instead of `Int`, 
+you have to declare this explicitly.
 
-Kotlin does not infer return types for functions with block bodies because such functions may have complex control flow
-in the body, and the return type will be non-obvious to the reader (and sometimes even for the compiler).
+### Unit-returning functions
+
+If a function has a block body (instructions within curly braces `{}`) and does not return a useful value,
+the compiler assumes its return type  is `Unit`.
+`Unit` is a type that has only one value, also called `Unit`.
+
+You don't have to specify `Unit` as a return type, except for functional type parameters.
+You never have to return `Unit` explicitly.
+
+For example, you can declare a `printHello()` function without returning `Unit`:
+
+```kotlin
+// The declaration of the functional type parameter ('action') still 
+// needs an explicit return type
+fun printHello(name: String?, action: () -> Unit) {
+    if (name != null)
+        println("Hello $name")
+    else
+        println("Hi there!")
+
+    action()
+}
+
+fun main() {
+    printHello("Kodee") {
+        println("This runs after the greeting.")
+    }
+    // Hello Kodee
+    // This runs after the greeting.
+
+    printHello(null) {
+        println("No name provided, but action still runs.")
+    }
+    // No name provided, but action still runs
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-implicit"}
+
+Which is equivalent to this verbose declaration:
+
+```kotlin
+//sampleStart
+fun printHello(name: String?, action: () -> Unit): Unit {
+    if (name != null)
+        println("Hello $name")
+    else
+        println("Hi there!")
+
+    action()
+    return Unit
+}
+//sampleEnd
+fun main() {
+    printHello("Kodee") {
+        println("This runs after the greeting.")
+    }
+    // Hello Kodee
+    // This runs after the greeting.
+
+    printHello(null) {
+        println("No name provided, but action still runs.")
+    }
+    // No name provided, but action still runs
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="return-unit-explicit"}
+
+You can use a `return` statement inside an expression body if the function's return type is specified explicitly:
+
+```kotlin
+fun getDisplayNameOrDefault(userId: String?): String =
+    getDisplayName(userId ?: return "default")
+```
 
 ### Variable number of arguments (varargs)
 
-You can mark a parameter of a function (usually the last one) with the `vararg` modifier:
+To pass a variable number of arguments to a function, you can mark one of its parameters
+(usually the last one) with the `vararg` modifier.
+Inside a function, you can use a `vararg`-parameter of type `T` as an array of `T`:
 
 ```kotlin
 fun <T> asList(vararg ts: T): List<T> {
@@ -212,54 +408,87 @@ fun <T> asList(vararg ts: T): List<T> {
 }
 ```
 
-In this case, you can pass a variable number of arguments to the function:
+Then you can pass a variable number of arguments to the function:
 
 ```kotlin
-val list = asList(1, 2, 3)
+fun <T> asList(vararg ts: T): List<T> {
+    val result = ArrayList<T>()
+    for (t in ts) // ts is an Array
+        result.add(t)
+    return result
+}
+
+fun main() {
+    //sampleStart
+    val list = asList(1, 2, 3)
+    println(list)
+    // [1, 2, 3]
+    //sampleEnd
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist"}
 
-Inside a function, a `vararg`-parameter of type `T` is visible as an array of `T`, as in the example above, where the `ts`
-variable has type `Array<out T>`.
+Only one parameter can be marked as `vararg`.
+If you declare a `vararg` parameter anywhere other than last in the parameter list, you must pass values for the following
+parameters using named arguments.
+If a parameter has a function type, you can also pass its value by placing a lambda outside the parentheses.
 
-Only one parameter can be marked as `vararg`. If a `vararg` parameter is not the last one in the list, values for the
-subsequent parameters must be passed using named argument syntax, or, if the parameter has a function type, by passing
-a lambda outside the parentheses.
-
-When you call a `vararg`-function, you can pass arguments individually, for example `asList(1, 2, 3)`. If you already have
-an array and want to pass its contents to the function, use the spread operator (prefix the array with `*`):
+When you call a `vararg`-function, you can pass arguments individually, as in the example of `asList(1, 2, 3)`.
+If you already have an array and want to pass its contents to a function as a `vararg` parameter or as a part of it,
+use the [spread operator](arrays.md#pass-variable-number-of-arguments-to-a-function) by prefixing the array name with `*`:
 
 ```kotlin
-val a = arrayOf(1, 2, 3)
-val list = asList(-1, 0, *a, 4)
+fun <T> asList(vararg ts: T): List<T> {
+    val result = ArrayList<T>()
+    for (t in ts)
+        result.add(t)
+    return result
+}
+
+fun main() {
+    //sampleStart
+    val a = arrayOf(1, 2, 3)
+
+    // The function receives the array [-1, 0, 1, 2, 3, 4]
+    list = asList(-1, 0, *a, 4)
+
+    println(list)
+    // [-1, 0, 1, 2, 3, 4]
+    //sampleEnd
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false" id="varargs-aslist-with-array"}
 
 If you want to pass a [primitive type array](arrays.md#primitive-type-arrays)
-into `vararg`, you need to convert it to a regular (typed) array using the `toTypedArray()` function:
+as `vararg`, you need to convert it to a regular (typed) array using the [`.toTypedArray()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/to-typed-array.html) function:
 
 ```kotlin
-val a = intArrayOf(1, 2, 3) // IntArray is a primitive type array
+// 'a' is an IntArray, which is a primitive type array
+val a = intArrayOf(1, 2, 3)
 val list = asList(-1, 0, *a.toTypedArray(), 4)
 ```
 
 ### Infix notation
 
-Functions marked with the `infix` keyword can also be called using the infix notation (omitting the dot and the parentheses
-for the call). Infix functions must meet the following requirements:
-
-* They must be member functions or [extension functions](extensions.md).
-* They must have a single parameter.
-* The parameter must not [accept variable number of arguments](#variable-number-of-arguments-varargs) and must have
-no [default value](#parameters-with-default-values).
+You can declare functions that can be called without parentheses or the period by using the `infix` keyword.
+This can help make simple function calls in your code easier to read.
 
 ```kotlin
-infix fun Int.shl(x: Int): Int { ... }
+infix fun Int.shl(x: Int): Int { /*...*/ }
 
-// calling the function using the infix notation
-1 shl 2
-
-// is the same as
+// Calls the function using the general notation 
 1.shl(2)
+
+// Calls the function using the infix notation
+1 shl 2
 ```
+
+Infix functions must meet the following requirements:
+
+* They must be member functions of a class or [extension functions](extensions.md).
+* They must have a single parameter.
+* The parameter must not [accept a variable number of arguments](#variable-number-of-arguments-varargs) (`vararg`) and must have
+  no [default value](#parameters-with-default-values).
 
 > Infix function calls have lower precedence than arithmetic operators, type casts, and the `rangeTo` operator.
 > The following expressions are equivalent:
@@ -274,58 +503,113 @@ infix fun Int.shl(x: Int): Int { ... }
 >
 {style="note"}
 
-Note that infix functions always require both the receiver and the parameter to be specified. When you're
-calling a method on the current receiver using the infix notation, use `this` explicitly. This is required to ensure
-unambiguous parsing.
+Note that infix functions always require both the receiver and the parameter to be specified.
+When you call a method on the current receiver using the infix notation, use `this` explicitly.
+This ensures unambiguous parsing.
 
 ```kotlin
 class MyStringCollection {
-    infix fun add(s: String) { /*...*/ }
-    
-    fun build() {
-        this add "abc"   // Correct
-        add("abc")       // Correct
-        //add "abc"        // Incorrect: the receiver must be specified
+    val items = mutableListOf<String>()
+
+    infix fun add(s: String) {
+        println("Adding: $s")
+        items += s
     }
+
+    fun build() {
+        add("first")      // Correct: ordinary function call
+        this add "second" // Correct: infix call with an explicit receiver
+        // add "third"    // Compiler error: needs an explicit receiver
+    }
+
+    fun printAll() = println("Items = $items")
+}
+
+fun main() {
+    val myStrings = MyStringCollection()
+    // Adds "first" and "second" to the list twice
+    myStrings.build()
+      
+    myStrings.printAll()
+    // Adding: first
+    // Adding: second
+    // Items = [first, second]
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="infix-notation-example"}
 
 ## Function scope
 
-Kotlin functions can be declared at the top level in a file, meaning you do not need to create a class to hold a function,
-which you are required to do in languages such as Java, C#, and Scala ([top level definition is available since Scala 3](https://docs.scala-lang.org/scala3/book/taste-toplevel-definitions.html#inner-main)). In addition
-to top level functions, Kotlin functions can also be declared locally as member functions and extension functions.
+You can declare Kotlin functions at the top level in a file, meaning you do not need to create a class to hold a function.
+Functions can also be declared locally as _member functions_ or _extension functions_.
 
 ### Local functions
 
-Kotlin supports local functions, which are functions inside other functions:
+Kotlin supports local functions, which are functions declared inside other functions.
+For example, the following code implements the Depth-first search algorithm for a given graph.
+The local `dfs()` function inside the outer `dfs()` function to hide the implementation and handle recursive calls:
 
 ```kotlin
-fun dfs(graph: Graph) {
-    fun dfs(current: Vertex, visited: MutableSet<Vertex>) {
+class Person(val name: String) {
+    val friends = mutableListOf<Person>()
+}
+class SocialGraph(val people: List<Person>)
+//sampleStart
+fun dfs(graph: SocialGraph) {
+    fun dfs(current: Person, visited: MutableSet<Person>) {
         if (!visited.add(current)) return
-        for (v in current.neighbors)
-            dfs(v, visited)
+        println("Visited ${current.name}")
+        for (friend in current.friends)
+            dfs(friend, visited)
     }
-
-    dfs(graph.vertices[0], HashSet())
+    dfs(graph.people[0], HashSet())
+}
+//sampleEnd
+fun main() {
+    val alice = Person("Alice")
+    val bob = Person("Bob")
+    val charlie = Person("Charlie")
+    alice.friends += bob
+    bob.friends += charlie
+    charlie.friends += alice
+    val network = SocialGraph(listOf(alice, bob, charlie))
+    dfs(network)
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="local-functions-dfs"}
 
-A local function can access local variables of outer functions (the closure). In the case above, `visited` can be a local variable:
+A local function can access local variables of outer functions (the closure).
+In the case above, the `visited` function parameter can be a local variable:
 
 ```kotlin
-fun dfs(graph: Graph) {
-    val visited = HashSet<Vertex>()
-    fun dfs(current: Vertex) {
+class Person(val name: String) {
+    val friends = mutableListOf<Person>()
+}
+class SocialGraph(val people: List<Person>)
+//sampleStart
+fun dfs(graph: SocialGraph) {
+    val visited = HashSet<Person>()
+    fun dfs(current: Person) {
         if (!visited.add(current)) return
-        for (v in current.neighbors)
-            dfs(v)
+        println("Visited ${current.name}")
+        for (friend in current.friends)
+            dfs(friend)
     }
-
-    dfs(graph.vertices[0])
+    dfs(graph.people[0])
+}
+//sampleEnd
+fun main() {
+    val alice = Person("Alice")
+    val bob = Person("Bob")
+    val charlie = Person("Charlie")
+    alice.friends += bob
+    bob.friends += charlie
+    charlie.friends += alice
+    val network = SocialGraph(listOf(alice, bob, charlie))
+    dfs(network)
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="local-functions-dfs-with-local-variable"}
 
 ### Member functions
 
@@ -337,17 +621,18 @@ class Sample {
 }
 ```
 
-Member functions are called with dot notation:
+To call member functions, write the instance or object name, then add a `.` and write the function name:
 
 ```kotlin
-Sample().foo() // creates instance of class Sample and calls foo
+// Creates an instance of the Stream class and calls read()
+Stream().read()
 ```
 
 For more information on classes and overriding members see [Classes](classes.md) and [Inheritance](classes.md#inheritance).
 
 ## Generic functions
 
-Functions can have generic parameters, which are specified using angle brackets before the function name:
+You can specify generic parameters for a function by using angle brackets `<>` before the function name:
 
 ```kotlin
 fun <T> singletonList(item: T): List<T> { /*...*/ }
@@ -363,32 +648,42 @@ When a function is marked with the `tailrec` modifier and meets the required for
 the recursion, leaving behind a fast and efficient loop based version instead:
 
 ```kotlin
-val eps = 1E-10 // "good enough", could be 10^-15
+import kotlin.math.cos
+import kotlin.math.abs
+
+// An arbitrary "good enough" precision
+val eps = 1E-10
 
 tailrec fun findFixPoint(x: Double = 1.0): Double =
-    if (Math.abs(x - Math.cos(x)) < eps) x else findFixPoint(Math.cos(x))
+    if (abs(x - cos(x)) < eps) x else findFixPoint(cos(x))
 ```
 
-This code calculates the `fixpoint` of cosine, which is a mathematical constant. It simply calls `Math.cos` repeatedly
-starting at `1.0` until the result no longer changes, yielding a result of `0.7390851332151611` for the specified
-`eps` precision. The resulting code is equivalent to this more traditional style:
+This code calculates the fixed point of cosine (a mathematical constant).
+The function calls `cos()` repeatedly starting at `1.0` until the result no longer changes,
+yielding a result of `0.7390851332151611` for the specified `eps` precision.
+The code is equivalent to this more traditional style:
 
 ```kotlin
-val eps = 1E-10 // "good enough", could be 10^-15
+import kotlin.math.cos
+import kotlin.math.abs
+
+// An arbitrary "good enough" precision
+val eps = 1E-10
 
 private fun findFixPoint(): Double {
     var x = 1.0
     while (true) {
-        val y = Math.cos(x)
-        if (Math.abs(x - y) < eps) return x
-        x = Math.cos(x)
+        val y = cos(x)
+        if (abs(x - y) < eps) return x
+        x = cos(x)
     }
 }
 ```
 
-To be eligible for the `tailrec` modifier, a function must call itself as the last operation it performs. You cannot use
-tail recursion when there is more code after the recursive call, within `try`/`catch`/`finally` blocks, or on open functions.
-Currently, tail recursion is supported by Kotlin for the JVM and Kotlin/Native.
+You can apply the `tailrec` modifier to a function only when it calls itself as its final operation.
+You cannot use tail recursion when there is more code after the recursive call,
+within [`try`/`catch`/`finally` blocks](exceptions.md#handle-exceptions-using-try-catch-blocks),
+or when the function is [open](inheritance.md).
 
 **See also**:
 * [Inline functions](inline-functions.md)

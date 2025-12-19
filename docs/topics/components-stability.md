@@ -88,7 +88,7 @@ to avoid the accidental use of features that have not been released as stable.
 | [No-arg](no-arg-plugin.md)                       | Stable       | 1.3.0                    |              |
 | [SAM-with-receiver](sam-with-receiver-plugin.md) | Stable       | 1.3.0                    |              |
 | [kapt](kapt.md)                                  | Stable       | 1.3.0                    |              |
-| [Lombok](lombok.md)                              | Experimental | 1.5.20                   |              |
+| [Lombok](lombok.md)                              | Alpha        | 2.3.0                    |              |
 | [Power-assert](power-assert.md)                  | Experimental | 2.0.0                    |              |
 
 ### Kotlin libraries
@@ -112,13 +112,13 @@ to avoid the accidental use of features that have not been released as stable.
 
 ### Kotlin/Native
 
-| **Component**                                | **Status** | **Status since version** | **Comments**                                                                   |
-|----------------------------------------------|------------|--------------------------|--------------------------------------------------------------------------------|
-| Kotlin/Native Runtime                        | Stable     | 1.9.20                   |                                                                                |
-| Kotlin/Native interop with C and Objective-C | Beta       | 1.3.0                    | [Stability of C and Objective-C library import](native-c-interop-stability.md) |
-| klib binaries                                | Stable     | 1.9.20                   | Not including cinterop klibs, see below                                        |
-| cinterop klib binaries                       | Beta       | 1.3.0                    | [Stability of C and Objective-C library import](native-c-interop-stability.md) |
-| CocoaPods integration                        | Stable     | 1.9.20                   |                                                                                |
+| **Component**                                | **Status** | **Status since version** | **Comments**                                                                                                                  |
+|----------------------------------------------|------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| Kotlin/Native Runtime                        | Stable     | 1.9.20                   |                                                                                                                               |
+| Kotlin/Native interop with C and Objective-C | Beta       | 1.3.0                    | [Stability of C and Objective-C library import](native-lib-import-stability.md#stability-of-c-and-objective-c-library-import) |
+| klib binaries                                | Stable     | 1.9.20                   | Not including cinterop klibs, see below                                                                                       |
+| cinterop klib binaries                       | Beta       | 1.3.0                    | [Stability of C and Objective-C library import](native-lib-import-stability.md#stability-of-c-and-objective-c-library-import) |
+| CocoaPods integration                        | Stable     | 1.9.20                   |                                                                                                                               |
 
 For more information about the level of support for different targets, see [](native-target-support.md).
 

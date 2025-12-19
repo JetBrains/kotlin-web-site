@@ -15,27 +15,29 @@ This repository is the source for [https://kotlinlang.org](https://kotlinlang.or
 
 ### Content
 
-|Website page|Source files|
-|------------|--------|
-| [Main page](https://kotlinlang.org/) | [templates/pages/index.html](templates/pages/index.html) |
-| [Kotlin docs](https://kotlinlang.org/docs/home.html) |[docs/topics](docs/topics)| 
-| [Community](https://kotlinlang.org/community/) | [pages/community](pages/community) | 
-| [Education](https://kotlinlang.org/education/) | [templates/pages/education](templates/pages/education)| 
-
-Note that source files for the [server-side landing page](https://kotlinlang.org/lp/server-side/) and [Kotlin Multiplatform landing page](https://kotlinlang.org/lp/multiplatform/) are not publicly available.
+| Website page                                              | Source files                                             |
+|-----------------------------------------------------------|----------------------------------------------------------|
+| [Main page](https://kotlinlang.org/)                      | [templates/pages/index.html](templates/pages/index.html) |
+| [Kotlin docs](https://kotlinlang.org/docs/home.html)      | [docs/topics](docs/topics)                               |
+| [Server-side](https://kotlinlang.org/server-side/)        | [pages/server-side](pages/server-side)                   |
+| [Multiplatform](https://kotlinlang.org/multiplatform/)    | [pages/multiplatform](pages/multiplatform)               |
+| [Case Studies](https://kotlinlang.org/case-studies/)      | [pages/case-studies](pages/case-studies)                 |
+| [Community](https://kotlinlang.org/community/)            | [pages/community](pages/community)                       | 
+| [Education](https://kotlinlang.org/education/)            | [templates/pages/education](templates/pages/education)   | 
 
 #### Sources in different repositories
 
-Source files for the language specification and the docs for coroutines, lincheck, Dokka, and Library creators' guidelines
-are stored in separate repositories
+Source files for the language specification and the docs for Kotlin Mulitplatform, coroutines, lincheck, Dokka,
+and Library creators' guidelines are stored in separate repositories
 
-| Website page                                                                                     | GitHub repository                                                   |
-|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
-| [Coroutines docs](https://kotlinlang.org/docs/coroutines-guide.html)                             | [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/) |
-| [Lincheck docs](https://kotlinlang.org/docs/lincheck-guide.html)                                 | [kotlinx.lincheck](https://github.com/Kotlin/kotlinx-lincheck/)     |
-| [Dokka docs](https://kotlinlang.org/docs/dokka-introduction.html)                                | [Dokka](https://github.com/Kotlin/dokka/)                           |
-| [Library creators' guidelines](https://kotlinlang.org/docs/jvm-api-guidelines-introduction.html) | [api-guidelines](https://github.com/Kotlin/api-guidelines)          |
-| [Language specification](https://kotlinlang.org/spec/introduction.html)                          | [kotlin-spec](https://github.com/Kotlin/kotlin-spec)                |
+| Website page                                                                                     | GitHub repository                                                                           |
+|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| [Kotlin Multiplafrom docs](https://kotlinlang.org/docs/multiplatform/get-started.html)           | [kotlin-multiplatform-dev-docs](https://github.com/JetBrains/kotlin-multiplatform-dev-docs) |
+| [Coroutines docs](https://kotlinlang.org/docs/coroutines-guide.html)                             | [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/)                         |
+| [Lincheck docs](https://kotlinlang.org/docs/lincheck-guide.html)                                 | [kotlinx.lincheck](https://github.com/Kotlin/kotlinx-lincheck/)                             |
+| [Dokka docs](https://kotlinlang.org/docs/dokka-introduction.html)                                | [dokka](https://github.com/Kotlin/dokka/)                                                   |
+| [Library creators' guidelines](https://kotlinlang.org/docs/jvm-api-guidelines-introduction.html) | [api-guidelines](https://github.com/Kotlin/api-guidelines)                                  |
+| [Language specification](https://kotlinlang.org/spec/introduction.html)                          | [kotlin-spec](https://github.com/Kotlin/kotlin-spec)                                        |
 
 #### Auto-generated content
 
@@ -152,7 +154,6 @@ You can:
 
 * Report an issue to [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT).
 * Share feedback in the [#kotlin-website](https://kotlinlang.slack.com/archives/C02B3PECK6E) channel in our Kotlin public Slack ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
-* Email us at [doc-feedback@kotlinlang.org](mailto:doc-feedback@kotlinlang.org).
 
 [project-url]: https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub
 [project-badge]: https://jb.gg/badges/official.svg

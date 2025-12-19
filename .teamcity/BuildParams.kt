@@ -21,14 +21,14 @@ object BuildParams {
   const val KOTLINX_DATETIME_TITLE = KOTLINX_DATETIME_ID
 
   const val KOTLINX_IO_RELEASE_TAG = "master"
-  const val KOTLINX_IO_RELEASE_LABEL = "0.8.0"
+  const val KOTLINX_IO_RELEASE_LABEL = "0.8.1"
   const val KOTLINX_IO_ID = "kotlinx-io"
   const val KOTLINX_IO_TITLE = KOTLINX_IO_ID
 
   const val KOTLIN_RELEASE_TAG = "whyoleg/dokka2-sync"
   const val KOTLIN_RELEASE_LABEL = "2.1.20"
 
-  const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_2220_LibraryReferenceLatestDocs"
+  const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_230_LibraryReferenceLatestDocs"
   const val CORE_API_TITLE = "Core API"
 
   const val KOTLINX_METADATA_ID = "kotlinx-metadata-jvm"
@@ -38,6 +38,7 @@ object BuildParams {
   val KGP_REFERENCE = KotlinGradleAPI {
     addVersion("2.1.20", VCS.branch("whyoleg/dokka2-sync"))
     addVersion("2.2.0", VCS.branch("2.2.0"))
+    addVersion("2.3.0", VCS.branch("2.3.0"))
   }
 
   val API_COMPOSE = ComposeMultiplatformCore {

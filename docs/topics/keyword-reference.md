@@ -7,7 +7,7 @@ The following tokens are always interpreted as keywords and cannot be used as id
  * `as`
      - is used for [type casts](typecasts.md#unsafe-cast-operator).
      - specifies an [alias for an import](packages.md#imports)
- * `as?` is used for [safe type casts](typecasts.md#safe-nullable-cast-operator).
+ * `as?` is used for [safe type casts](typecasts.md#unsafe-cast-operator).
  * `break` [terminates the execution of a loop](returns.md).
  * `class` declares a [class](classes.md).
  * `continue` [proceeds to the next step of the nearest enclosing loop](returns.md).

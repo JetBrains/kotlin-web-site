@@ -44,10 +44,16 @@ We're happy to announce that in this release, the following features become [Sta
 
 ### Features enabled by default
 
-In Kotlin %kotlinEapVersion%, the following language features are now enabled by default:
+Starting with Kotlin %kotlinEapVersion%, support for [`return` statements in expression bodies with explicit return types](whatsnew2220.md#support-for-return-statements-in-expression-bodies-with-explicit-return-types)
+is now enabled by default.
 
-* [Improved overload resolution for lambdas with `suspend` function types](whatsnew2220.md#improved-overload-resolution-for-lambdas-with-suspend-function-types)
-* [Support for `return` statements in expression bodies with explicit return types](whatsnew2220.md#support-for-return-statements-in-expression-bodies-with-explicit-return-types)
+> In Kotlin %kotlinEapVersion%, [improved overload resolution for lambdas with `suspend` function types](whatsnew2220.md#improved-overload-resolution-for-lambdas-with-suspend-function-types)
+> is **disabled**.
+> 
+> The feature was initially planned to be enabled by default in Kotlin 2.3.0, but after discovering some issues,
+> we decided to postpone its implementation. It will be available again with an improved design in future releases.
+>
+{style="note"}
 
 [See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
 
@@ -169,11 +175,6 @@ see the feature's [KEEP]( https://github.com/Kotlin/KEEP/blob/main/proposals/KEE
 ### Changes to context-sensitive resolution
 <primary-label ref="experimental-general"/>
 
-> Support for code analysis, code completion, and highlighting of this feature in IntelliJ IDEA is currently available
-> only in [2025.3 EAP builds](https://www.jetbrains.com/idea/nextversion/).
->
-{style = "note"}
-
 Context-sensitive resolution is still [Experimental](components-stability.md#stability-levels-explained),
 but we continue improving the feature based on user feedback:
 
@@ -291,7 +292,7 @@ To enable this feature, add the following compiler option to your `build.gradle.
 ```kotlin
 kotlin {
     compilerOptions {
-        freeCompilerArgs.add("-XXLanguage:+JsAllowExportingSuspendFunctions")
+        freeCompilerArgs.add("-Xenable-suspend-function-exporting")
     }
 }
 ```

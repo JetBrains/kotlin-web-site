@@ -12,6 +12,7 @@ items:
       position: The client platform team
     logo:
       - /images/case-studies/duolingo-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -27,6 +28,8 @@ items:
       the team to innovate and respond to market needs faster.
     logo:
       - /images/case-studies/forbes-logo.svg
+    alternateLogo:
+      - /images/case-studies/forbes-logo-dark.svg
     platforms:
       - android
       - ios
@@ -42,6 +45,10 @@ items:
       position: Multiplatform Lead in Google Workspace
     logo:
       - /images/case-studies/google-docs-logo.svg
+    alternateLogo:
+      - /images/case-studies/google-docs-logo-dark.svg
+    carousel:
+      logo: /images/case-studies/carousel/google.svg
     platforms:
       - android
       - ios
@@ -50,9 +57,10 @@ items:
       videoId: 5lkZj4v4-ks
   #------------------------------------------------------------------------
   - id: case-study-bilibili
+    type: multiplatform
     logo:
       - /images/case-studies/bilibili-logo.svg
-    type: multiplatform
+    carousel: true
     description: >-
       **BiliBili** (China version) has adopted Kotlin Multiplatform and Compose Multiplatform for the Instant
       Message feature.
@@ -81,6 +89,7 @@ items:
       position: Project Manager, McDonald’s app at Umain
     logo:
       - /images/case-studies/mcdonalds-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -96,6 +105,7 @@ items:
       reduce duplicate code, and smoothly deliver a production-ready solution across platforms.
     logo:
       - /images/case-studies/h&m-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -108,8 +118,7 @@ items:
       “Starting from this small of a team, it was a huge speed win for **X**
       to be able to use Kotlin Multiplatform and write all of that logic once in one place… When you write a
       bug—not that I ever do that—you only have to fix it in one place.”
-    logo:
-      - /images/case-studies/x-logo.svg
+    carousel: true
     signature:
       name: Eric Denman
       position: Software Engineer at X
@@ -129,6 +138,7 @@ items:
       across platforms without team expansion or performance hits.”
     logo:
       - /images/case-studies/bolt-logo.svg
+    carousel: true
     signature:
       name: Toomas Römer
       position: VP of Engineering at Bolt
@@ -147,6 +157,7 @@ items:
       improved feature parity across Android and iOS.
     logo:
       - /images/case-studies/bitkey-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -162,6 +173,7 @@ items:
       team productivity and strengthening collaboration between teams.
     logo:
       - /images/case-studies/meetup-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -198,6 +210,7 @@ items:
       works differently on iOS, but it has been a while since we heard that one.”
     logo:
       - /images/case-studies/philips-logo.svg
+    carousel: true
     signature:
       name: Jeroen Brosens
       position: Software Architect at Philips
@@ -216,6 +229,8 @@ items:
       previously encountered with JavaScript.
     logo:
       - /images/case-studies/cash-app-logo.svg
+    alternateLogo:
+      - /images/case-studies/cash-app-logo-dark.svg
     platforms:
       - android
       - ios
@@ -250,6 +265,9 @@ items:
       position: Mobile Tech Lead at Wrike
     logo:
       - /images/case-studies/wrike-logo.svg
+    alternateLogo:
+      - /images/case-studies/wrike-logo-dark.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -266,6 +284,8 @@ items:
       improving collaboration.
     logo:
       - /images/case-studies/autodesk-logo.svg
+    alternateLogo:
+      - /images/case-studies/autodesk-logo-dark.svg
     platforms:
       - android
       - ios
@@ -279,6 +299,7 @@ items:
       UI is shared with Compose Multiplatform.
     logo:
       - /images/case-studies/feres-logo.png
+    carousel: true
     platforms:
       - android
       - ios
@@ -349,6 +370,7 @@ items:
       native-only views.
     logo:
       - /images/case-studies/down-dog-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -368,6 +390,7 @@ items:
       world of TV and movie production.
     logo:
       - /images/case-studies/netflix-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -381,6 +404,8 @@ items:
       now ship features faster, while providing a consistent experience to their users.
     logo:
       - /images/case-studies/9gag-logo.svg
+    alternateLogo:
+      - /images/case-studies/9gag-logo-dark.svg
     platforms:
       - android
       - ios
@@ -412,6 +437,7 @@ items:
       in delivering their iOS app.
     logo:
       - /images/case-studies/careem-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -455,6 +481,7 @@ items:
       the performance of both their Android and iOS applications
     logo:
       - /images/case-studies/quizlet-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -483,6 +510,7 @@ items:
       users among 800,000 active users.
     logo:
       - /images/case-studies/worldline-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -500,6 +528,7 @@ items:
       trusted open-source contributors, building crucial tools used widely in production apps.
     logo:
       - /images/case-studies/touchlab-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -545,6 +574,7 @@ items:
       management software to help users meet business needs, anytime, anywhere.
     logo:
       - /images/case-studies/fastwork-logo.svg
+    carousel: true
     platforms:
       - android
       - ios
@@ -601,8 +631,8 @@ items:
       **Google** has adopted Kotlin as a recommended language for server-side JVM development while maintaining full access to its vast Java ecosystem. With over 11 million lines of Kotlin code across server and Android projects, the company has taken extensive steps to support developer success.
     logo:
       - /images/case-studies/google-logo.svg
-    isExternal: true
-    link: https://youtu.be/o14wGByBRAQ?si=TmqJBtfZw2F8-IEw&t=7
+    carousel:
+      logo: /images/case-studies/carousel/google.svg
     media:
       type: youtube
       videoId: o14wGByBRAQ
@@ -622,6 +652,8 @@ items:
       **Kingfisher** – a leading international home improvement company with brands like B&Q and Castorama – made Kotlin its default language for backend services to modernize and streamline engineering practices.
     logo:
       - /images/case-studies/kingfisher-logo.png
+    carousel:
+      logo: /images/case-studies/carousel/kingfisher.svg
     isExternal: true
     link: https://medium.com/kingfisher-technology/server-side-kotlin-our-new-default-2d15644f8ed0
   #------------------------------------------------------------------------
@@ -632,6 +664,8 @@ items:
     logo:
       - /images/case-studies/mercedes-benz-logo.svg
     isExternal: true
+    carousel:
+      logo: /images/case-studies/carousel/mercedes-benz.svg
     link: https://www.mercedes-benz.io/blog/2024-11-22-transitioning-from-java-to-kotlin-in-backend-development
   #------------------------------------------------------------------------
   - id: case-study-novatec
@@ -640,6 +674,8 @@ items:
       **Novatec** chose Kotlin for improved readability and conciseness across a variety of backend projects.
     logo:
       - /images/case-studies/novatec-logo.svg
+    carousel:
+      logo: /images/case-studies/carousel/novatec.svg
     link: https://kotlinlang.org/lp/server-side/case-studies/novatec/
   #------------------------------------------------------------------------
   - id: case-study-fairef
@@ -648,6 +684,8 @@ items:
       **Faire** built scalable backend services in Kotlin to power its disruptive SMB marketplace, improving efficiency from the early stages of the company.
     logo:
       - /images/case-studies/faire-logo.svg
+    carousel:
+      logo: /images/case-studies/carousel/faire.svg
     link: https://kotlinlang.org/lp/server-side/case-studies/faire/
   #------------------------------------------------------------------------
   - id: case-study-doordash
@@ -656,6 +694,7 @@ items:
       A quick overview of how DoorDash split their existing legacy monolith into multiple backend services, which they developed in Kotlin.
     logo:
       - /images/case-studies/doordash-logo.svg
+    carousel: true
     link: https://kotlinlang.org/lp/server-side/case-studies/doordash/
   #------------------------------------------------------------------------
   - id: case-study-adobe
@@ -664,6 +703,8 @@ items:
       **Adobe** discusses why Kotlin is preferred over Java for server-side app development in Adobe Experience Platform, citing productivity and language features.
     logo:
       - /images/case-studies/adobe-logo.svg
+    carousel:
+      logo: /images/case-studies/carousel/adobe.svg
     isExternal: true
     link: https://medium.com/adobetech/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a
   #------------------------------------------------------------------------
@@ -673,6 +714,9 @@ items:
       The **AWS** team explains how Amazon Quantum Ledger Database (QLDB) uses Kotlin, why it was chosen over Java for the project, and their overall experience.
     logo:
       - /images/case-studies/aws-logo.svg
+    carousel:
+      logo: /images/case-studies/carousel/aws.svg
+      link: https://www.youtube.com/live/Ar73Axsz2YA?si=E2qlkuznF9B2MXou&t=2766
     isExternal: true
     link: https://talkingkotlin.com/qldb/
   #------------------------------------------------------------------------
@@ -682,8 +726,8 @@ items:
       **Atlassian** uses Kotlin to power the future of Jira Software cloud products, supporting a decomposed, service-based architecture.
     logo:
       - /images/case-studies/atlassian-logo.svg
-    isExternal: true
-    link: https://www.youtube.com/watch?v=4GkoB4hZUnw
+    carousel:
+      logo: /images/case-studies/carousel/atlassian.svg
     media:
       type: youtube
       videoId: 4GkoB4hZUnw
@@ -694,6 +738,7 @@ items:
       **Expedia** uses Kotlin and Spring Boot for GraphQL APIs, leveraging Kotlin’s null safety and Java interop to modernize their backend.
     logo:
       - /images/case-studies/expedia-logo.svg
+    carousel: true
     link: https://kotlinlang.org/lp/server-side/case-studies/expedia/
   #------------------------------------------------------------------------
   - id: case-study-ing
@@ -702,6 +747,8 @@ items:
       **ING** shares the story of introducing Kotlin on the backend in a large organization, with tips for reducing friction during adoption.
     logo:
       - /images/case-studies/ing-logo.svg
+    carousel:
+      logo: /images/case-studies/carousel/ing.svg
     isExternal: true
     link: https://medium.com/ing-blog/introducing-kotlin-at-ing-a-long-but-rewarding-story-1bfcd3dc8da0
   #------------------------------------------------------------------------
@@ -711,8 +758,12 @@ items:
       **Intuit** highlights how Kotlin has increased developer productivity and helped shape their development plan.
     logo:
       - /images/case-studies/intuit-logo.svg
-    isExternal: true
-    link: https://www.intuit.com/blog/uncategorized/kotlin-development-plan/
+    carousel:
+      logo: /images/case-studies/carousel/intuit.svg
+      link: https://medium.com/intuit-engineering/what-the-f-p-is-kotlin-7c55e2643b07
+    media:
+      type: youtube
+      videoId: P6G2YPuDE3Y
   #------------------------------------------------------------------------
   - id: case-study-flux
     type: server-side
@@ -720,6 +771,9 @@ items:
       **Flux** uses Kotlin on the backend to develop services that replace paper receipts, benefiting from language features and ecosystem support.
     logo:
       - /images/case-studies/flux-logo.svg
+    carousel:
+      logo: /images/case-studies/carousel/flux.svg
+      link: https://open.spotify.com/episode/3VS5dSUfcsC4fSvzbm2OxV?si=yEcubDoeRAW7zwVdo3XFtw&nd=1&dlsi=5e0e4c8dba104719
     isExternal: true
     link: https://talkingkotlin.com/Using-Kotlin-for-backend-development-at-Flux
   #------------------------------------------------------------------------
@@ -729,6 +783,8 @@ items:
       **Allegro**, the largest Polish online retailer, adopted Kotlin first for server-side development and later for mobile, sharing insights from their journey.
     logo:
       - /images/case-studies/allegro-logo.svg
+    carousel:
+      link: https://open.spotify.com/episode/6gRiIJSWN515tAvZuMAwRR?si=vPsgW2jDShSG2_S8eLfjqA
     isExternal: true
     link: https://talkingkotlin.com/kotlin-at-allegro
   #------------------------------------------------------------------------
@@ -738,6 +794,9 @@ items:
       **OLX** describes adopting Kotlin for a financial application, addressing questions about language validity and long-term support.
     logo:
       - /images/case-studies/olx-logo.svg
+    carousel:
+      logo: /images/case-studies/carousel/olx.svg
+      link: https://open.spotify.com/episode/3XBlKY3x4vVojuay4oSh8g?si=qiiwg8vkSm2OIP6rvrwnkg
     isExternal: true
     link: https://talkingkotlin.com/greenfield-kotlin-at-olx
   #------------------------------------------------------------------------
@@ -747,6 +806,9 @@ items:
       **Shazam** split a large monolith into microservices, many of which are written in Kotlin, improving backend scalability and maintainability.
     logo:
       - /images/case-studies/shazam-logo.svg
+    carousel:
+      logo: /images/case-studies/carousel/shazam.svg
+      link: https://open.spotify.com/episode/6oZdJE7XU1GF6Dlir6tP50?si=2h7YKDejSxGrlFaWqZE6Ng
     isExternal: true
     link: https://talkingkotlin.com/kotlin-at-shazam/
   #------------------------------------------------------------------------
@@ -756,6 +818,8 @@ items:
       **N26** outlines five reasons for moving backend services to Kotlin, including developer experience and reliability.
     logo:
       - /images/case-studies/n26-logo.svg
+    carousel:
+      logo: /images/case-studies/carousel/n26.svg
     isExternal: true
     link: https://medium.com/insiden26/5-reasons-why-n26-is-moving-to-kotlin-f920b184ab58
   #------------------------------------------------------------------------
@@ -765,6 +829,8 @@ items:
       **Memo Bank** chose Kotlin over other JVM languages thanks to seamless Java interoperability, conciseness, type safety, and great IDE support.
     logo:
       - /images/case-studies/memo-bank-logo.svg
+    carousel:
+      logo: /images/case-studies/carousel/memo-bank.svg
     isExternal: true
     link: https://memo.bank/en/magazine/cudling-with-kotlin/
   #------------------------------------------------------------------------
@@ -774,6 +840,9 @@ items:
       **Ktor**, JetBrains’ asynchronous framework for connected systems, enables Kotlin server-side development with a lightweight, flexible toolkit.
     logo:
       - /images/case-studies/ktor-logo.svg
+    carousel:
+      logo: /images/case-studies/carousel/ktor.svg
+      link: https://open.spotify.com/episode/7rcwW7gNFIOrDqy6tgA1HU?si=c8QerntfTUqUO9Ks3s3kKw
     isExternal: true
     link: https://talkingkotlin.com/ktor-with-ryan-harter/
   #------------------------------------------------------------------------
@@ -783,6 +852,8 @@ items:
       **Spring Framework** introduced first-class Kotlin support to enable fully idiomatic Kotlin code when developing Spring applications, further improving interoperability with Java libraries.
     logo:
       - /images/case-studies/spring-logo.svg
+    carousel:
+      link: https://youtu.be/QExksqeNWbY?si=KSy63mxDTh07DYPM
     isExternal: true
     link: https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0
   #------------------------------------------------------------------------
@@ -792,6 +863,7 @@ items:
       **Corda** is built entirely in Kotlin, sharing background on why they chose the language and lessons from their “year of enterprise Kotlin”.
     logo:
       - /images/case-studies/corda-logo.svg
+    carousel: true
     isExternal: true
     link: https://www.corda.net/blog/kotlin/
   #------------------------------------------------------------------------

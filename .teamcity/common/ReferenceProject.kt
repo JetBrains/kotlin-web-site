@@ -4,6 +4,7 @@ import common.extensions.isProjectPlayground
 import common.extensions.scriptGenerateSitemap
 import common.extensions.scriptNoRobots
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.Dependency
 import jetbrains.buildServer.configs.kotlin.Project
 import jetbrains.buildServer.configs.kotlin.RelativeId
 import jetbrains.buildServer.configs.kotlin.buildFeatures.notifications
@@ -63,12 +64,16 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
         }
 
         dependencies {
-            dependency(currentVersion) {
-                snapshot {}
-                artifacts {
-                    artifactRules = "pages.zip!** => $workingDir"
-                    cleanDestination = true
-                }
+            dependency(currentVersion, makeLatestDependency(workingDir))
+        }
+    }
+
+    open fun makeLatestDependency(workingDir: String): Dependency.() -> Unit {
+        return {
+            snapshot {}
+            artifacts {
+                artifactRules = "pages.zip!** => $workingDir"
+                cleanDestination = true
             }
         }
     }

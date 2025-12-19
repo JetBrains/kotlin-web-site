@@ -72,6 +72,17 @@ kotlinc-native main.kt -Xbinary=enableSafepointSignposts=true
         <td width="110">Status</td>
     </tr>
     <tr>
+        <td><a href="native-objc-interop.md#explicit-parameter-names-in-objective-c-block-types"><code>objcExportBlockExplicitParameterNames</code></a></td>
+        <td>
+            <list>
+                <li><code>true (default)</code></li>
+                <li><code>false</code></li>
+            </list>
+        </td>
+        <td>Adds explicit parameter names to function types for exported Objective-C headers.</td>
+        <td>Default since 2.3.0</td>
+    </tr>
+    <tr>
         <td><a href="whatsnew2220.md#smaller-binary-size-for-release-binaries"><code>smallBinary</code></a></td>
         <td>
             <list>

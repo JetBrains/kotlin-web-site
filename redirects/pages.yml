@@ -517,8 +517,10 @@
 - from: /docs/reference/coroutines/flow.html
   to: /docs/flow.html
 
-- from: /docs/reference/using-ant.html
-  to: /docs/ant.html
+- from:
+  - /docs/reference/using-ant.html
+  - /docs/ant.html
+  to: /docs/compatibility-guide-23.html
 
 - from: /docs/reference/whatsnew11.html
   to: /docs/whatsnew11.html
@@ -854,3 +856,9 @@
 
 - from: /docs/apple-privacy-manifest.html
   to: /docs/multiplatform/multiplatform-privacy-manifest.html
+
+- from: /docs/dokka-markdown.html
+  to: https://github.com/Kotlin/dokka/blob/master/dokka-subprojects/plugin-gfm/README.md#gfm-plugin
+
+- from: /docs/multiplatform/choosing-web-target.html
+  to: /docs/web-overview.html
