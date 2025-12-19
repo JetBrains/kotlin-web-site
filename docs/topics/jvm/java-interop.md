@@ -689,7 +689,7 @@ so to make other members of `java.lang.Object` available, Kotlin uses [extension
 Methods `wait()` and `notify()` are not available on references of type `Any`. Their usage is generally discouraged in
 favor of `java.util.concurrent`.
 
-If you have to call these methods, access them through Java objects and suppress the warning:
+If you have to call these methods, access them through Java objects and suppress the `PLATFORM_CLASS_MAPPED_TO_KOTLIN` warning:
 
 ```kotlin
 import java.util.LinkedList
@@ -729,7 +729,7 @@ class SimpleBlockingQueue<T>(private val capacity: Int) {
 }
 ```
 
-Or explicitly cast to `java.lang.Object` and suppress the warning:
+Or explicitly cast to `java.lang.Object` and suppress the `PLATFORM_CLASS_MAPPED_TO_KOTLIN` warning:
 
 ```kotlin
 @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
