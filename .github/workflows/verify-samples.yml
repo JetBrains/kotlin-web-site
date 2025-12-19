@@ -14,10 +14,16 @@ jobs:
         with:
           java-version: '17'
           distribution: 'corretto'
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.VERIFY_SAMPLES_APP_ID }}
+          private-key: ${{ secrets.VERIFY_SAMPLES_APP_PRIVATE_KEY }}
       - name: Run a verifier
         uses: zoobestik/kotlin-samples-verifier@master
         with:
           push-repository: 'https://github.com/JetBrains/kotlin-compiler-server'
           tag-filter: '#tag="code" & kotlin-runnable="true" & !validate="false"'
           push-path: 'src/test/resources/test-compile-data/jvm/kotlin-web-site'
-          username: '${{ secrets.KOTLIN_WEB_SITE_TOKEN }}' #token with an access to create PR in push-repository and issue in this repository
+          username: '${{ steps.app-token.outputs.token }}'
