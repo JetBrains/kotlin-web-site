@@ -222,7 +222,7 @@ in addition to the latest stable one.
 Actively maintained code bases can benefit from getting bug fixes as soon as possible, without waiting for a full deprecation cycle to complete.
 Currently, such projects can enable the `-progressive` option and get such fixes enabled even in tooling releases.
 
-All options are available in the IDE, command line, as well as in [Gradle](gradle-compiler-options.md) and in [Maven](maven.md#specify-compiler-options).
+All options are available in the IDE, command line, as well as in [Gradle](gradle-compiler-options.md) and in [Maven](maven-compile-package.md#specify-compiler-options).
 
 ### Evolving the binary format
 

@@ -108,7 +108,7 @@ Alternatively, you can change the version of the `kotlin-maven-plugin` in your `
 ```
 
 If you have projects created with earlier Kotlin versions, check if you also need to [update the version of any kotlinx
-libraries](maven.md#dependency-on-a-kotlinx-library).
+libraries](maven-configure-project.md#dependency-on-a-kotlinx-library).
 
 > To learn more about how to work with Maven in your project, see [Maven](maven.md).
 >
