@@ -1,6 +1,7 @@
 package templates
 
 import BuildParams.SEARCH_APP_ID
+import BuildParams.KLANG_NODE_CONTAINER
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.triggers.schedule
@@ -19,7 +20,7 @@ fun scriptDistAnalyze(block: ScriptBuildStep.() -> Unit) = ScriptBuildStep {
         npm install
         npm run generate-metadata
     """.trimIndent()
-    dockerImage = "node:22-alpine"
+    dockerImage = KLANG_NODE_CONTAINER
     workingDir = SCRIPT_PATH
     dockerPull = true
 }.apply(block)

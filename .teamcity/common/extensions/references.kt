@@ -1,5 +1,6 @@
 package common.extensions
 
+import BuildParams.KLANG_NODE_CONTAINER
 import common.ReferenceProject
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.GradleBuildStep
@@ -157,7 +158,7 @@ fun BuildTypeSettings.configureReferenceTemplate() {
             scriptContent = """
                 yarn install --frozen-lockfile
             """.trimIndent()
-            dockerImage = "node:18-alpine"
+            dockerImage = KLANG_NODE_CONTAINER
         }
         script {
             id = "step-build-templates"
@@ -166,7 +167,7 @@ fun BuildTypeSettings.configureReferenceTemplate() {
             scriptContent = """
                 node ./scripts/dokka/generate-templates.js
             """.trimIndent()
-            dockerImage = "node:18-alpine"
+            dockerImage = KLANG_NODE_CONTAINER
         }
     }
 }

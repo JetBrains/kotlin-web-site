@@ -1,5 +1,6 @@
 package kotlinlang.builds
 
+import BuildParams.KLANG_NODE_CONTAINER
 import common.extensions.isProjectPlayground
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType
@@ -10,7 +11,7 @@ import jetbrains.buildServer.configs.kotlin.triggers.schedule
 
 private fun BuildSteps.nodejs(block: ScriptBuildStep.() -> Unit) = step(
     ScriptBuildStep {
-        dockerImage = "node:20"
+        dockerImage = KLANG_NODE_CONTAINER
         dockerPull = true
     }.apply(block),
 )

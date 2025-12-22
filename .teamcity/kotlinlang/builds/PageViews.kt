@@ -1,5 +1,6 @@
 package kotlinlang.builds
 
+import BuildParams.KLANG_NODE_CONTAINER
 import jetbrains.buildServer.configs.kotlin.AbsoluteId
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
@@ -36,12 +37,12 @@ object PageViews : BuildType({
         script {
             name = "Prepare page views"
             scriptContent = """
-                #!/usr/bin/env bash
+                #!/usr/bin/env sh
                 ":" //# comment; exec /usr/bin/env node --input-type=module - "${'$'}@" < "${'$'}0"
                 
                 ${readScript("stats/pageviews")}
             """.trimIndent()
-            dockerImage = "node:lts-slim"
+            dockerImage = KLANG_NODE_CONTAINER
             dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
             dockerPull = true
         }

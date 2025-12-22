@@ -1,5 +1,6 @@
 package references.templates
 
+import BuildParams.KLANG_NODE_CONTAINER
 import jetbrains.buildServer.configs.kotlin.BuildTypeSettings
 import jetbrains.buildServer.configs.kotlin.Template
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
@@ -26,14 +27,14 @@ fun BuildTypeSettings.configureReferenceTemplate() {
       scriptContent = """
         yarn install --frozen-lockfile
       """.trimIndent()
-      dockerImage = "node:18-alpine"
+      dockerImage = KLANG_NODE_CONTAINER
     }
     script {
       name = "Build Templates"
       scriptContent = """
         node ./scripts/dokka/generate-templates.js
       """.trimIndent()
-      dockerImage = "node:18-alpine"
+      dockerImage = KLANG_NODE_CONTAINER
     }
   }
 }
