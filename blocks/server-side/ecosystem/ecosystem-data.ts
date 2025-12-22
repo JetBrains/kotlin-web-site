@@ -3,10 +3,8 @@ import ktor from './images/ktor.svg';
 import micronaut from './images/micronaut-foundation.svg';
 import quarkus from './images/quarkus-dark.svg';
 import vaadin from './images/vaadin-dark.svg';
-import cubaPlatform from './images/cuba-platform-dark.svg';
 import vertx from './images/vertx-dark.svg';
 import http4k from './images/http4k-dark.svg';
-import javalin from './images/javalin.svg';
 import kafkaLogo from './images/kafka.svg';
 
 
@@ -36,7 +34,7 @@ export const secondaryCardsData = [
         text:
             'Build your next Kotlin microservice application with ease and test it, too.',
         linkHref:
-            'https://guides.micronaut.io/creating-your-first-micronaut-app-kotlin/guide/index.html',
+            'https://guides.micronaut.io/latest/creating-your-first-micronaut-app-maven-kotlin.html',
         linkText: 'Learn more'
     },
     {
@@ -67,7 +65,7 @@ export const secondaryCardsData = [
         title: 'Vert.x',
         src: vertx,
         text: 'A tool-kit for building reactive applications on the JVM.',
-        linkHref: 'https://vertx.io/docs/vertx-core/kotlin/',
+        linkHref: 'https://vertx.io/docs/',
         linkText: 'Learn more'
     },
     {
