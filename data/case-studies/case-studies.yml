@@ -643,6 +643,10 @@ items:
       A leading fintech company in South Korea, **Kakao Pay** uses Kotlin with Spring for a significant part of its server-side development. Their Insurance team shares how Kotlin’s features help them build and operate stable backend services.
     logo:
       - /images/case-studies/kakao-pay-logo.svg
+    carousel:
+      logo: /images/case-studies/kakao-pay-logo-dark.svg
+    alternateLogo:
+      - /images/case-studies/kakao-pay-logo-dark.svg
     isExternal: true
     link: https://blog.jetbrains.com/kotlin/2025/06/case-study-why-kakao-pay-chose-kotlin-for-backend-development/
   #------------------------------------------------------------------------
