@@ -27,3 +27,4 @@ jobs:
           tag-filter: '#tag="code" & kotlin-runnable="true" & !validate="false"'
           push-path: 'src/test/resources/test-compile-data/jvm/kotlin-web-site'
           username: '${{ steps.app-token.outputs.token }}'
+          report-error-only: true
