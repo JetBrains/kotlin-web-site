@@ -716,9 +716,9 @@ items:
       - /images/case-studies/aws-logo.svg
     carousel:
       logo: /images/case-studies/carousel/aws.svg
-      link: https://www.youtube.com/live/Ar73Axsz2YA?si=E2qlkuznF9B2MXou&t=2766
+      link: https://www.youtube.com/live/Ar73Axsz2YA?t=2766
     isExternal: true
-    link: https://talkingkotlin.com/qldb/
+    link: https://open.spotify.com/episode/3jtfD8a5vwutOrfHZMqAj1
   #------------------------------------------------------------------------
   - id: case-study-atlassian
     type: server-side
@@ -773,9 +773,8 @@ items:
       - /images/case-studies/flux-logo.svg
     carousel:
       logo: /images/case-studies/carousel/flux.svg
-      link: https://open.spotify.com/episode/3VS5dSUfcsC4fSvzbm2OxV?si=yEcubDoeRAW7zwVdo3XFtw&nd=1&dlsi=5e0e4c8dba104719
     isExternal: true
-    link: https://talkingkotlin.com/Using-Kotlin-for-backend-development-at-Flux
+    link: https://open.spotify.com/episode/3VS5dSUfcsC4fSvzbm2OxV
   #------------------------------------------------------------------------
   - id: case-study-allegro
     type: server-side
@@ -784,9 +783,8 @@ items:
     logo:
       - /images/case-studies/allegro-logo.svg
     carousel:
-      link: https://open.spotify.com/episode/6gRiIJSWN515tAvZuMAwRR?si=vPsgW2jDShSG2_S8eLfjqA
     isExternal: true
-    link: https://talkingkotlin.com/kotlin-at-allegro
+    link: https://open.spotify.com/episode/6gRiIJSWN515tAvZuMAwRR
   #------------------------------------------------------------------------
   - id: case-study-olx
     type: server-side
@@ -796,9 +794,8 @@ items:
       - /images/case-studies/olx-logo.svg
     carousel:
       logo: /images/case-studies/carousel/olx.svg
-      link: https://open.spotify.com/episode/3XBlKY3x4vVojuay4oSh8g?si=qiiwg8vkSm2OIP6rvrwnkg
     isExternal: true
-    link: https://talkingkotlin.com/greenfield-kotlin-at-olx
+    link: https://open.spotify.com/episode/3XBlKY3x4vVojuay4oSh8g
   #------------------------------------------------------------------------
   - id: case-study-shazam
     type: server-side
@@ -808,9 +805,8 @@ items:
       - /images/case-studies/shazam-logo.svg
     carousel:
       logo: /images/case-studies/carousel/shazam.svg
-      link: https://open.spotify.com/episode/6oZdJE7XU1GF6Dlir6tP50?si=2h7YKDejSxGrlFaWqZE6Ng
     isExternal: true
-    link: https://talkingkotlin.com/kotlin-at-shazam/
+    link: https://open.spotify.com/episode/6oZdJE7XU1GF6Dlir6tP50
   #------------------------------------------------------------------------
   - id: case-study-n26
     type: server-side
@@ -842,9 +838,8 @@ items:
       - /images/case-studies/ktor-logo.svg
     carousel:
       logo: /images/case-studies/carousel/ktor.svg
-      link: https://open.spotify.com/episode/7rcwW7gNFIOrDqy6tgA1HU?si=c8QerntfTUqUO9Ks3s3kKw
     isExternal: true
-    link: https://talkingkotlin.com/ktor-with-ryan-harter/
+    link: https://open.spotify.com/episode/7rcwW7gNFIOrDqy6tgA1HU
   #------------------------------------------------------------------------
   - id: case-study-spring-framework
     type: server-side
