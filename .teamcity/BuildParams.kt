@@ -3,6 +3,8 @@ import references.builds.kgp.KotlinGradleAPI
 import common.extensions.VCS
 
 object BuildParams {
+  const val KLANG_NODE_CONTAINER = "node:22-alpine"
+
   const val DOKKA_TEMPLATES_VERSION = "2.0.0"
 
   const val KOTLINX_COROUTINES_RELEASE_TAG = "master"

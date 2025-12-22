@@ -1,5 +1,6 @@
 package kotlinlang.builds
 
+import BuildParams.KLANG_NODE_CONTAINER
 import documentation.builds.KotlinWithCoroutines
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
@@ -38,7 +39,7 @@ object PdfGenerator : BuildType({
         npm install
         npm run generate-pdf
       """.trimIndent()
-      dockerImage = "node:22-alpine"
+      dockerImage = KLANG_NODE_CONTAINER
       workingDir = SCRIPT_PATH
     }
     script {

@@ -1,5 +1,6 @@
 package tests.buildTypes
 
+import BuildParams.KLANG_NODE_CONTAINER
 import jetbrains.buildServer.configs.kotlin.BuildStep
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
@@ -22,7 +23,7 @@ object ApiReferencesTemplateTest: BuildType({
         yarn install --frozen-lockfile
         yarn build:production
       """.trimIndent()
-      dockerImage = "node:18-alpine"
+      dockerImage = KLANG_NODE_CONTAINER
     }
     script {
       scriptContent = "./scripts/dokka/up.sh"
