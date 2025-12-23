@@ -59,7 +59,7 @@ object FetchBlogNews : BuildType({
             workingDir = "$SCRIPT_PATH"
             // language=bash
             scriptContent = """ 
-                #!/bin/bash
+                #!/bin/sh
                 set -e -u
                 NODE_ENV=production npm ci
             """.trimIndent()
@@ -69,7 +69,7 @@ object FetchBlogNews : BuildType({
             name = "Fetch news"
             // language=bash
             scriptContent = """
-                #!/bin/bash
+                #!/bin/sh
                 set -e -u
                 UPDATE_TIME=`date -u +"%%Y-%%m-%%d %%H:%%M.%%S"`
                 echo "##teamcity[setParameter name='env.UPDATE_TIME' value='${'$'}UPDATE_TIME']"
