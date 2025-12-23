@@ -1869,10 +1869,10 @@
     classnames "^2.2.6"
     core-js "^3.9.1"
 
-"@rescui/icons@^1.5.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-1.6.0.tgz#3bf7fbda19e0690e70cb254c583bf958a4af78f2"
-  integrity sha512-O5+ElCJ4I0tx1wSy6M7IdOuTvIjJLWL/3wNJ0LANu2jfi95cVhbMrxfvZewhOimS6/QgZXqJ7aPn2iCgagrySQ==
+"@rescui/icons@^1.6.2":
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@rescui/icons/-/icons-1.6.2.tgz#1f7e5bf6565787a464648149cb7e9ee580b75f4e"
+  integrity sha512-JKpAEGDfpBjReVvwEuQ7EjNPWJfVLcQqp/cwRrM6P6HFR7DxIFUNzah6E401YBKJQxLCOS+7gIZDLxFA3C+stA==
   dependencies:
     "@babel/runtime-corejs3" "^7.26.0"
     classnames "^2.2.6"
