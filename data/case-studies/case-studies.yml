@@ -786,7 +786,7 @@ items:
       **Allegro**, the largest Polish online retailer, adopted Kotlin first for server-side development and later for mobile, sharing insights from their journey.
     logo:
       - /images/case-studies/allegro-logo.svg
-    carousel:
+    carousel: true
     isExternal: true
     link: https://open.spotify.com/episode/6gRiIJSWN515tAvZuMAwRR
   #------------------------------------------------------------------------
