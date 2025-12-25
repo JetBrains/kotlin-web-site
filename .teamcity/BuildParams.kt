@@ -31,6 +31,7 @@ object BuildParams {
   const val KOTLIN_RELEASE_LABEL = "2.3.0"
 
   const val CORE_API_BUILD_ID = "Kotlin_KotlinRelease_230_LibraryReferenceLatestDocs"
+  const val CORE_API_CURRENT_VERSION = "2.3.0" // used for redirect KTL-2981.
   const val CORE_API_TITLE = "Core API"
 
   const val KOTLINX_METADATA_ID = "kotlinx-metadata-jvm"
