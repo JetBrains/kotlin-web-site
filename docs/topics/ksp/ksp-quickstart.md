@@ -13,7 +13,7 @@ To add a processor, you need to include the KSP Gradle Plugin and add a dependen
    
    ```kotlin
    plugins {
-       id("com.google.devtools.ksp") version "%kspSupportedKotlinVersion%-%kspVersion%"
+       id("com.google.devtools.ksp") version "%kspVersion%"
    }
    ```
    
@@ -22,7 +22,7 @@ To add a processor, you need to include the KSP Gradle Plugin and add a dependen
    
    ```groovy
    plugins {
-       id 'com.google.devtools.ksp' version '%kspSupportedKotlinVersion%-%kspVersion%'
+       id 'com.google.devtools.ksp' version '%kspVersion%'
    }
    ```
    
@@ -64,7 +64,7 @@ Here is a full example:
 
 ```kotlin
 plugins {
-    id("com.google.devtools.ksp") version "%kspSupportedKotlinVersion%-%kspVersion%"
+    id("com.google.devtools.ksp") version "%kspVersion%"
     kotlin("jvm")
 }
 
@@ -84,7 +84,7 @@ dependencies {
 
 ```groovy
 plugins {
-    id 'com.google.devtools.ksp' version '%kspSupportedKotlinVersion%-%kspVersion%'
+    id 'com.google.devtools.ksp' version '%kspSupportedKotlinVersion%-%%'
     id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
 }
 
@@ -157,7 +157,7 @@ dependencies {
    }
    
    dependencies {
-       implementation("com.google.devtools.ksp:symbol-processing-api:%kspSupportedKotlinVersion%-%kspVersion%")
+       implementation("com.google.devtools.ksp:symbol-processing-api:%kspVersion%")
    }
    ```
    
@@ -174,7 +174,7 @@ dependencies {
    }
    
    dependencies {
-       implementation 'com.google.devtools.ksp:symbol-processing-api:%kspSupportedKotlinVersion%-%kspVersion%'
+       implementation 'com.google.devtools.ksp:symbol-processing-api:%kspVersion%'
    }
    ```
    
@@ -237,7 +237,7 @@ dependencies {
    
    ```kotlin
    plugins {
-       id("com.google.devtools.ksp") version "%kspSupportedKotlinVersion%-%kspVersion%"
+       id("com.google.devtools.ksp") version "%kspVersion%"
    }
    
    dependencies {
@@ -252,7 +252,7 @@ dependencies {
    
    ```groovy
    plugins {
-       id 'com.google.devtools.ksp' version '%kspSupportedKotlinVersion%-%kspVersion%'
+       id 'com.google.devtools.ksp' version '%kspVersion%'
    }
    
    dependencies {
@@ -275,7 +275,7 @@ Here's a sample build script to apply the KSP plugin to a workload:
 
 ```kotlin
 plugins {
-    id("com.google.devtools.ksp") version "%kspSupportedKotlinVersion%-%kspVersion%"
+    id("com.google.devtools.ksp") version "%kspVersion%"
     kotlin("jvm") 
 }
 
@@ -295,7 +295,7 @@ dependencies {
 
 ```groovy
 plugins {
-    id 'com.google.devtools.ksp' version '%kspSupportedKotlinVersion%-%kspVersion%'
+    id 'com.google.devtools.ksp' version '%kspVersion%'
     id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
 }
 
