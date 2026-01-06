@@ -4,6 +4,7 @@ import { ThemeProvider } from '@rescui/ui-contexts';
 import { LandingLayout, LandingLayoutProps } from '../../components/landing-layout/landing-layout';
 
 import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
+import { ComposeMultiplatformHero } from '../../blocks/compose-multiplatform/hero';
 
 const KOTLIN_MULTIPLATFORM_MOBILE_TITLE = 'Kotlin Multiplatform' as const;
 const KOTLIN_MULTIPLATFORM_MOBILE_URL = '/multiplatform/' as const;
@@ -16,7 +17,7 @@ const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
     {
         title: 'Success stories',
         url: '/case-studies/?type=multiplatform&compose=true'
-    },
+    }
 ];
 
 const GET_STARTED_URL = '/docs/multiplatform/compose-multiplatform-create-first-app.html' as const;
@@ -24,7 +25,7 @@ const GET_STARTED_URL = '/docs/multiplatform/compose-multiplatform-create-first-
 export default function ComposeMultiplatformLanding() {
     return (
         <LandingLayout
-            dataTestId='compose-multiplatform-landing'
+            dataTestId="compose-multiplatform-landing"
             title={'Compose Multiplatform – Beautiful UIs Everywhere'}
             ogImageName={'compose-multiplatform.png'}
             description={
@@ -40,6 +41,7 @@ export default function ComposeMultiplatformLanding() {
         >
             <div className="ktl-layout-to-2">
                 <ThemeProvider theme={'dark'}>
+                    <ComposeMultiplatformHero />
                 </ThemeProvider>
             </div>
         </LandingLayout>
