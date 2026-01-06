@@ -20,6 +20,7 @@ jobs:
         with:
           app-id: ${{ secrets.VERIFY_SAMPLES_APP_ID }}
           private-key: ${{ secrets.VERIFY_SAMPLES_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
 
       - name: check valid token
         run: |
