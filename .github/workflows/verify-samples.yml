@@ -16,11 +16,16 @@ jobs:
           distribution: 'corretto'
       - name: Generate GitHub App token
         id: app-token
-        if: github.ref == 'refs/heads/master'
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.VERIFY_SAMPLES_APP_ID }}
           private-key: ${{ secrets.VERIFY_SAMPLES_APP_PRIVATE_KEY }}
+
+      - name: check valid token
+        run: |
+          curl -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
+               -H "Accept: application/vnd.github+json" \
+               https://api.github.com/repos/${{ github.repository }}
       - name: Run a verifier
         uses: zoobestik/kotlin-samples-verifier@kotlinlang
         with:
