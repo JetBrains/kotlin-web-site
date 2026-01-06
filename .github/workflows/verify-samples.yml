@@ -26,7 +26,7 @@ jobs:
           echo "Token length: ${#TOKEN}"
           curl -s -H "Authorization: Bearer $TOKEN" \
                -H "Accept: application/vnd.github+json" \
-               https://api.github.com/installation/repositories | jq '.repositories[].full_name'
+               https://api.github.com/installation/repositories'
         env:
           TOKEN: ${{ steps.app-token.outputs.token }}
 
@@ -35,3 +35,14 @@ jobs:
           curl -s -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
                -H "Accept: application/vnd.github+json" \
                https://api.github.com/repos/JetBrains/kotlin-web-site
+
+      - name: Test actual push capability
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/JetBrains/kotlin-web-site.git
+          # Тестовый push в отдельную ветку
+          git checkout -b test-app-permissions-${{ github.run_id }}
+          git commit --allow-empty -m "Test permissions"
+          git push origin test-app-permissions-${{ github.run_id }}
+          git push origin --delete test-app-permissions-${{ github.run_id }}
