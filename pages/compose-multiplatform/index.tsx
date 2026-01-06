@@ -5,6 +5,7 @@ import { LandingLayout, LandingLayoutProps } from '../../components/landing-layo
 
 import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
 import { ComposeMultiplatformHero } from '../../blocks/compose-multiplatform/hero';
+import CtaBlock from '../../blocks/compose-multiplatform/cta-block';
 
 const KOTLIN_MULTIPLATFORM_MOBILE_TITLE = 'Kotlin Multiplatform' as const;
 const KOTLIN_MULTIPLATFORM_MOBILE_URL = '/multiplatform/' as const;
@@ -42,6 +43,8 @@ export default function ComposeMultiplatformLanding() {
             <div className="ktl-layout-to-2">
                 <ThemeProvider theme={'dark'}>
                     <ComposeMultiplatformHero />
+
+                    <CtaBlock />
                 </ThemeProvider>
             </div>
         </LandingLayout>
