@@ -16,6 +16,7 @@ jobs:
           distribution: 'corretto'
       - name: Generate GitHub App token
         id: app-token
+        if: github.ref == 'refs/heads/master'
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.VERIFY_SAMPLES_APP_ID }}
