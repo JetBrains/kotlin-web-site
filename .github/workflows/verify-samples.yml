@@ -21,6 +21,40 @@ jobs:
         with:
           app-id: ${{ secrets.VERIFY_SAMPLES_APP_ID }}
           private-key: ${{ secrets.VERIFY_SAMPLES_APP_PRIVATE_KEY }}
+      - name: Configure Maven mirrors
+        run: |
+          mkdir -p ~/.gradle
+          cat > ~/.gradle/init.gradle << 'EOF'
+          settingsEvaluated { settings ->
+            settings.pluginManagement {
+              repositories {
+                mavenLocal()
+                gradlePluginPortal()
+                maven { url = uri("https://cache-redirector.jetbrains.com/plugins.gradle.org/m2/") }
+                maven { url = uri("https://cache-redirector.jetbrains.com/repo1.maven.org/maven2/") }
+                mavenCentral()
+              }
+            }
+          }
+          allprojects {
+            buildscript {
+              repositories {
+                mavenLocal()
+                gradlePluginPortal()
+                maven { url = uri("https://cache-redirector.jetbrains.com/plugins.gradle.org/m2/") }
+                maven { url = uri("https://cache-redirector.jetbrains.com/repo1.maven.org/maven2/") }
+                mavenCentral()
+              }
+            }
+            repositories {
+              mavenLocal()
+              gradlePluginPortal()
+              maven { url = uri("https://cache-redirector.jetbrains.com/repo1.maven.org/maven2/") }
+              mavenCentral()
+            }
+          }
+          EOF
+          cat ~/.gradle/init.gradle
       - name: Run a verifier
         uses: zoobestik/kotlin-samples-verifier@kotlinlang
         with:
