@@ -21,8 +21,17 @@ jobs:
           app-id: ${{ secrets.TEST_APP_ID }}
           private-key: ${{ secrets.TEST_APP_TOKEN }}
 
-      - name: check valid token
+      - name: Debug token info
         run: |
-          curl -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
+          echo "Token length: ${#TOKEN}"
+          curl -s -H "Authorization: Bearer $TOKEN" \
                -H "Accept: application/vnd.github+json" \
-               https://api.github.com/repos/${{ github.repository }}
+               https://api.github.com/installation/repositories | jq '.repositories[].full_name'
+        env:
+          TOKEN: ${{ steps.app-token.outputs.token }}
+
+      - name: Check token permissions
+        run: |
+          curl -s -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" \
+               -H "Accept: application/vnd.github+json" \
+               https://api.github.com/repos/JetBrains/kotlin-web-site
