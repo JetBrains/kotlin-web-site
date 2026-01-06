@@ -11,9 +11,16 @@ level. Each chapter contains:
 * **Practice** with exercises to test your understanding of what you have learned.
 * **Solutions** for your reference.
 
-Start with our beginner tour to grasp the fundamentals:
+To grasp the fundamentals of Kotlin, take the beginner tour. To deepen your understanding of Kotlin, take the intermediate tour.
 
-<a href="kotlin-tour-hello-world.md"><img src="start-beginner-tour.svg" width="700" alt="Start the beginner's Kotlin tour" style="block"/></a>
+<list columns="2">
+    <li>
+        <a href="kotlin-tour-hello-world.md"><img src="start-beginner-tour.svg" width="300" alt="Start the beginner's Kotlin tour"/></a>
+    </li>
+    <li>
+        <a href="kotlin-tour-intermediate-extension-functions.md"><img src="start-intermediate-tour.svg" alt="Start the intermediate Kotlin tour"/></a>
+    </li>
+</list>
 
 <deflist collapsible="true">
     <def title="Beginner tour contents" default-state="collapsed">
@@ -28,10 +35,6 @@ Start with our beginner tour to grasp the fundamentals:
         </ul>
     </def>
 </deflist>
-
-If you're ready to take your understanding of Kotlin to the next level, take our intermediate tour:
-
-<a href="kotlin-tour-intermediate-extension-functions.md"><img src="start-intermediate-tour.svg" width="700" alt="Start the intermediate Kotlin tour" style="block"/></a>
 
 <deflist collapsible="true">
     <def title="Intermediate tour contents" default-state="collapsed">
