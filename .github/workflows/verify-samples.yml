@@ -18,9 +18,8 @@ jobs:
         id: app-token
         uses: actions/create-github-app-token@v1
         with:
-          app-id: ${{ secrets.VERIFY_SAMPLES_APP_ID }}
-          private-key: ${{ secrets.VERIFY_SAMPLES_APP_PRIVATE_KEY }}
-          repositories: ${{ github.event.repository.name }}
+          app-id: ${{ secrets.TEST_APP_ID }}
+          private-key: ${{ secrets.TEST_APP_TOKEN }}
 
       - name: check valid token
         run: |
