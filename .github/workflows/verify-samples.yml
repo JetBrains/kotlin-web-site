@@ -23,7 +23,7 @@ jobs:
           app-id: ${{ secrets.VERIFY_SAMPLES_APP_ID }}
           private-key: ${{ secrets.VERIFY_SAMPLES_APP_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
-          repositories: 'kotlin-compiler-server,kotlin-web-site'
+          repositories: 'kotlin-compiler-server,${{ github.repository }}'
 
       - name: Run a verifier
         uses: zoobestik/kotlin-samples-verifier@v2
