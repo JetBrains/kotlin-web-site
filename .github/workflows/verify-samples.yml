@@ -2,9 +2,9 @@ name: Verify samples
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, token-test ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, token-test ]
 jobs:
   verify_samples:
     runs-on: ubuntu-latest
@@ -14,10 +14,23 @@ jobs:
         with:
           java-version: '17'
           distribution: 'corretto'
+
+      - name: Generate GitHub App token
+        if: github.event_name == 'push'
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.VERIFY_SAMPLES_APP_ID }}
+          private-key: ${{ secrets.VERIFY_SAMPLES_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          repositories: 'kotlin-compiler-server,kotlin-web-site'
+
       - name: Run a verifier
-        uses: AlexanderPrendota/kotlin-samples-verifier@master
+        uses: zoobestik/kotlin-samples-verifier@v2
         with:
           push-repository: 'https://github.com/JetBrains/kotlin-compiler-server'
           tag-filter: '#tag="code" & kotlin-runnable="true" & !validate="false"'
           push-path: 'src/test/resources/test-compile-data/jvm/kotlin-web-site'
-          username: '${{ secrets.KOTLIN_WEB_SITE_TOKEN }}' #token with an access to create PR in push-repository and issue in this repository
+          username: ${{ steps.app-token.outputs.token && 'x-access-token' || '' }}
+          password: ${{ steps.app-token.outputs.token || '' }}
+          report-error-only: true
