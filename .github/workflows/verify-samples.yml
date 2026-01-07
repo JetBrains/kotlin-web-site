@@ -16,7 +16,6 @@ jobs:
           distribution: 'corretto'
       - name: Generate GitHub App token
         id: app-token
-        if: github.ref == 'refs/heads/master'
         uses: actions/create-github-app-token@v1
         with:
           app-id: ${{ secrets.VERIFY_SAMPLES_APP_ID }}
@@ -27,5 +26,6 @@ jobs:
           push-repository: 'https://github.com/JetBrains/kotlin-compiler-server'
           tag-filter: '#tag="code" & kotlin-runnable="true" & !validate="false"'
           push-path: 'src/test/resources/test-compile-data/jvm/kotlin-web-site'
-          username: '${{ steps.app-token.outputs.token }}'
+          username: 'x-access-token'
+          password: '${{ steps.app-token.outputs.token }}'
           report-error-only: true
