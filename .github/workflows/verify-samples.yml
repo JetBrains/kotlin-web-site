@@ -18,8 +18,9 @@ jobs:
         id: app-token
         uses: actions/create-github-app-token@v1
         with:
-          app-id: ${{ secrets.VERIFY_SAMPLES_APP_ID }}
-          private-key: ${{ secrets.VERIFY_SAMPLES_APP_PRIVATE_KEY }}
+          app-id: ${{ secrets.TEST_APP_ID }}
+          private-key: ${{ secrets.TEST_APP_TOKEN }}
+          owner: ${{ github.repository_owner }}
           repositories: 'kotlin-compiler-server,kotlin-web-site'
       - name: Run a verifier
         uses: zoobestik/kotlin-samples-verifier@kotlinlang
