@@ -2,9 +2,9 @@ name: Verify samples
 
 on:
   push:
-    branches: [ master ]
+    branches: [ token-test ]
   pull_request:
-    branches: [ master ]
+    branches: [ token-test ]
 jobs:
   verify_samples:
     runs-on: ubuntu-latest
