@@ -20,6 +20,7 @@ jobs:
         with:
           app-id: ${{ secrets.VERIFY_SAMPLES_APP_ID }}
           private-key: ${{ secrets.VERIFY_SAMPLES_APP_PRIVATE_KEY }}
+          repositories: 'kotlin-compiler-server,kotlin-web-site'
       - name: Run a verifier
         uses: zoobestik/kotlin-samples-verifier@kotlinlang
         with:
