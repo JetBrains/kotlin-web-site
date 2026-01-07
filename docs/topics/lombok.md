@@ -1,5 +1,5 @@
 [//]: # (title: Lombok compiler plugin)
-<primary-label ref="alpha"/>
+<primary-label ref="experimental-opt-in"/>
 
 The Kotlin Lombok compiler plugin allows the generation and use of Java's Lombok declarations by Kotlin code 
 in the same mixed Java/Kotlin module.
