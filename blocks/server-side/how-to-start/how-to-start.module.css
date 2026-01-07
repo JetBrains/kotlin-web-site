@@ -46,13 +46,6 @@
     background-color: #282a36; /* Dracula theme background */
 }
 
-.codeBlock :global(pre) {
-    margin: 0;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 14px;
-    line-height: 2;
-}
-
 @media (max-width: 1000px) {
     .codeSample {
         margin-top: 32px;
