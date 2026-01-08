@@ -150,7 +150,7 @@ When given a `-library foo` option, the compiler searches the `foo` library in t
 1. Current compilation directory or an absolute path.
 2. Libraries installed in the default repository.
 
-   > The default repository is `~/.konan`. You can change it by setting the `kotlin.data.dir` Gradle property.
+   > The default repository is `~/.konan`. You can change it by setting the `konan.data.dir` Gradle property.
    > 
    > Alternatively, you can use the `-Xkonan-data-dir` compiler option to configure your custom path to the directory 
    > via the `cinterop` and `konanc` tools.
