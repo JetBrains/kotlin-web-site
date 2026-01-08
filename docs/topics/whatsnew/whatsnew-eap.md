@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin %kotlinEapVersion%)
 
-<primary-label ref="eap"/>
+
 
 _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
@@ -14,7 +14,45 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 -->
 
-The Kotlin %kotlinEapVersion% release is out! See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v%kotlinEapVersion%).
+The Kotlin %kotlinEapVersion% release is out!
+
+## New stable features
+
+The following features are Stable in this release.
+
+### Support for `io.vertx.codegen.annotations.Nullable` annotation
+<secondary-label ref="jvm"/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua.
+
+### Ability to cancel some build operations
+<secondary-label ref="gradle"/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua.
+
+## New experimental features
+
+The following features are Experimental in this release.
+
+### New interop mode for klibs
+<secondary-label ref="native"/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua.
+
+## Kotlin/JVM compilation uses Build tools API by default
+<secondary-label ref="gradle"/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua.
+
+## Improved memory consumption in Kotlin/Wasm projects
+<secondary-label ref="wasm"/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua.
 
 ## IDE support
 
