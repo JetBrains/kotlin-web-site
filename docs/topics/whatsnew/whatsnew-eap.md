@@ -1,6 +1,6 @@
 [//]: # (title: What's new in Kotlin %kotlinEapVersion%)
 
-<primary-label ref="eap"/>
+
 
 <web-summary>Read the Kotlin Early Access Preview release notes and try the latest experimental Kotlin features before they are officially released.</web-summary>
 
@@ -15,15 +15,45 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
-* **Kotlin compiler plugins**: [Lombok is Alpha](#lombok-is-now-alpha) and [improved JPA support in the `kotlin.plugin.jpa` plugin](#improved-jpa-support-in-the-kotlin-plugin-jpa-plugin)
-* **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries) and [concurrent marking in the garbage collector is enabled by default](#default-concurrent-marking-in-garbage-collector)
-* **Gradle**: [Compatibility with Gradle 9.3.0](#compatibility-with-gradle-9-3-0) and [Kotlin/JVM compilation uses BTA by default](#kotlin-jvm-compilation-uses-build-tools-api-by-default)
-* **Maven**: [Simplified setup for Kotlin projects](#maven-simplified-setup-for-kotlin-projects)
-* **Standard library**: [New API for creating immutable copies of `Map.Entry`](#standard-library-new-api-for-creating-immutable-copies-of-map-entry)
+The Kotlin %kotlinEapVersion% release is out!
 
-> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
->
-{style="tip"}
+## New stable features
+
+The following features are Stable in this release.
+
+### Support for `io.vertx.codegen.annotations.Nullable` annotation
+<secondary-label ref="jvm"/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua.
+
+### Ability to cancel some build operations
+<secondary-label ref="gradle"/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua.
+
+## New experimental features
+
+The following features are Experimental in this release.
+
+### New interop mode for klibs
+<secondary-label ref="native"/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua.
+
+## Kotlin/JVM compilation uses Build tools API by default
+<secondary-label ref="gradle"/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua.
+
+## Improved memory consumption in Kotlin/Wasm projects
+<secondary-label ref="wasm"/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+aliqua.
 
 ## IDE support
 
