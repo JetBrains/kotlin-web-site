@@ -114,7 +114,7 @@ the following:
 ```kotlin
 class HelloFunctionFinderProcessor : SymbolProcessor() {
     // ...
-    val functions = mutableListOf<KSClassDeclaration>()
+    val functions = mutableListOf<KSFunctionDeclaration>()
     val visitor = FindFunctionsVisitor()
 
     override fun process(resolver: Resolver) {
