@@ -229,14 +229,14 @@ Swift library into a Kotlin project:
    }
    ```
 
-2. On the Kotlin side, pass the platform-specific MD5 implementation from `MainViewController`, then receive it in the `App` composable as a function parameter and use it where needed:
+2. On the Kotlin side, pass the platform-specific implementation from `MainViewController`, then receive it in the `App` composable as a parameter and use it where needed:
 
     ```kotlin
     // App.kt
     @Composable
-    fun App(md5Hasher: (String) -> String) {
+    fun App(cryptoProvider: CryptoProvider) {
         // Example usage inside your UI
-        val hashed = md5Hasher("Hello, world!")
+        val hashed = cryptoProvider.hashMD5("Hello, world!")
         androidx.compose.material3.Text("Compose: $hashed")
     }
     ```
@@ -244,7 +244,7 @@ Swift library into a Kotlin project:
     ```kotlin
     // MainViewController.kt
     fun MainViewController(cryptoProvider: CryptoProvider) = ComposeUIViewController {
-        App(md5Hasher = cryptoProvider::hashMD5)
+        App(cryptoProvider)
     }
     ```
 
