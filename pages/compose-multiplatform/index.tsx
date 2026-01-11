@@ -10,7 +10,7 @@ import QuoteSection from '../../blocks/compose-multiplatform/quote-section/quote
 import FeaturesBlock from '../../blocks/compose-multiplatform/features-block/features-block';
 
 const TOP_MENU_TITLE = 'Kotlin Multiplatform' as const;
-const TOP_MENU_HOME_URL = '/multiplatform/' as const;
+const MULTIPLATFORM_URL = '/multiplatform/' as const;
 const COMPOSE_MULTIPLATFORM_URL = '/compose-multiplatform/' as const;
 
 const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
@@ -36,9 +36,9 @@ export default function ComposeMultiplatformLanding() {
                 'Compose Multiplatform is a declarative framework for building beautiful shared UIs across Android, iOS, desktop, and web – powered by Kotlin Multiplatform.'
             }
             currentTitle={TOP_MENU_TITLE}
-            currentUrl={COMPOSE_MULTIPLATFORM_URL}
+            currentUrl={MULTIPLATFORM_URL}
             topMenuTitle={TOP_MENU_TITLE}
-            topMenuHomeUrl={TOP_MENU_HOME_URL}
+            topMenuHomeUrl={MULTIPLATFORM_URL}
             topMenuItems={TOP_MENU_ITEMS}
             topMenuButton={<Button href={GET_STARTED_URL}>Get started</Button>}
             canonical={'https://kotlinlang.org/compose-multiplatform/'}
