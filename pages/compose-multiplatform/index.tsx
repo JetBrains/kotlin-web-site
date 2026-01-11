@@ -7,6 +7,7 @@ import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
 import { ComposeMultiplatformHero } from '../../blocks/compose-multiplatform/hero';
 import CtaBlock from '../../blocks/compose-multiplatform/cta-block';
 import QuoteSection from '../../blocks/compose-multiplatform/quote-section/quote-section';
+import FeaturesBlock from '../../blocks/compose-multiplatform/features-block/features-block';
 
 const TOP_MENU_TITLE = 'Kotlin Multiplatform' as const;
 const TOP_MENU_HOME_URL = '/multiplatform/' as const;
@@ -45,6 +46,7 @@ export default function ComposeMultiplatformLanding() {
             <div className="ktl-layout-to-2">
                 <ThemeProvider theme={'dark'}>
                     <ComposeMultiplatformHero />
+                    <FeaturesBlock />
                     <QuoteSection />
                     <CtaBlock />
                 </ThemeProvider>
