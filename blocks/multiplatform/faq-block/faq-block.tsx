@@ -25,7 +25,7 @@ export const FaqBlock = () => {
                             logic, data models, networking, and more – across multiple platforms, including Android,
                             iOS, desktop, web, and server. It focuses on code reuse without replacing the native UI
                             unless you want it to.<br />
-                            <a className={linkClass} href={'https://www.jetbrains.com/compose-multiplatform/'}>
+                            <a className={linkClass} href={'/compose-multiplatform/'}>
                                 Compose Multiplatform
                             </a>{' '}
                             is an optional UI framework built on top of Kotlin Multiplatform. It allows you to share

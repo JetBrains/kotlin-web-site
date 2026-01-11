@@ -34,7 +34,7 @@ The package contains logos for:
 * [Kotlin Notebook](kotlin-notebook-overview.md)
 * [Kotlin Multiplatform (KMP)](https://kotlinlang.org/multiplatform/)
 * [Talking Kotlin](https://www.youtube.com/playlist?list=PLlFc5cFwUnmz1TwkP9SKCHU978dqLTANB)
-* [Compose Multiplatform (CMP)](https://www.jetbrains.com/compose-multiplatform/)
+* [Compose Multiplatform (CMP)](https://kotlinlang.org/compose-multiplatform/)
 * [Compose Hot Reload](https://kotlinlang.org/docs/multiplatform/compose-hot-reload.html)
 * [Ktor](https://ktor.io)
 * [Exposed](https://www.jetbrains.com/exposed/)
