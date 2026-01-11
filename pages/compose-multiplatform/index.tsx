@@ -7,18 +7,19 @@ import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
 import { ComposeMultiplatformHero } from '../../blocks/compose-multiplatform/hero';
 import CtaBlock from '../../blocks/compose-multiplatform/cta-block';
 
-const KOTLIN_MULTIPLATFORM_MOBILE_TITLE = 'Kotlin Multiplatform' as const;
-const KOTLIN_MULTIPLATFORM_MOBILE_URL = '/multiplatform/' as const;
+const TOP_MENU_TITLE = 'Kotlin Multiplatform' as const;
+const TOP_MENU_HOME_URL = '/multiplatform/' as const;
+const COMPOSE_MULTIPLATFORM_URL = '/compose-multiplatform/' as const;
 
 const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
     {
         title: 'Compose Multiplatform',
-        url: '/compose-multiplatform/'
+        url: COMPOSE_MULTIPLATFORM_URL,
     },
     {
         title: 'Success stories',
-        url: '/case-studies/?type=multiplatform&compose=true'
-    }
+        url: '/case-studies/?type=multiplatform&compose=true',
+    },
 ];
 
 const GET_STARTED_URL = '/docs/multiplatform/compose-multiplatform-create-first-app.html' as const;
@@ -32,10 +33,10 @@ export default function ComposeMultiplatformLanding() {
             description={
                 'Compose Multiplatform is a declarative framework for building beautiful shared UIs across Android, iOS, desktop, and web – powered by Kotlin Multiplatform.'
             }
-            currentTitle={KOTLIN_MULTIPLATFORM_MOBILE_TITLE}
-            currentUrl={KOTLIN_MULTIPLATFORM_MOBILE_URL}
-            topMenuTitle={KOTLIN_MULTIPLATFORM_MOBILE_TITLE}
-            topMenuHomeUrl={KOTLIN_MULTIPLATFORM_MOBILE_URL}
+            currentTitle={TOP_MENU_TITLE}
+            currentUrl={COMPOSE_MULTIPLATFORM_URL}
+            topMenuTitle={TOP_MENU_TITLE}
+            topMenuHomeUrl={TOP_MENU_HOME_URL}
             topMenuItems={TOP_MENU_ITEMS}
             topMenuButton={<Button href={GET_STARTED_URL}>Get started</Button>}
             canonical={'https://kotlinlang.org/compose-multiplatform/'}
