@@ -18,8 +18,8 @@ const TABS_BLOCKS = [
         Content: () => {
             const textCn = useTextStyles();
             return <>
-                Use Kotlin with <a className={textCn('rs-link', { external: true })}
-                                   href="https://www.jetbrains.com/compose-multiplatform/">Compose Multiplatform</a> to
+                Use Kotlin with <a className={textCn('rs-link')}
+                                   href="/compose-multiplatform/">Compose Multiplatform</a> to
                 share up to 100% of your app code&nbsp;– including UI&nbsp;– while still integrating with native APIs.
                 Reduce dev time, ensure consistent behavior, and ship on Android, iOS, desktop, and web from a single
                 codebase.
