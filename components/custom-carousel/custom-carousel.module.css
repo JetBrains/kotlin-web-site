@@ -1,0 +1,111 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.customCarousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(58, 0, 166, 0.60) 0%, #2F0087 100%);
+
+  @media (--ktl-ml-down) {
+    border-radius: 16px;
+  }
+}
+
+.slides {
+  position: relative;
+}
+
+.slide {
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.slideActive {
+  composes: slide;
+  position: relative;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slidePrev {
+  composes: slide;
+  transform: translateX(-100%);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.controls {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 24px;
+  box-sizing: border-box;
+  width: 100%;
+  background: #19191C;
+
+  @media (--ktl-ml-down) {
+    flex-direction: column;
+    gap: 16px;
+    padding: 25px;
+  }
+}
+
+.controls p {
+  margin: 0;
+}
+
+.textContainer {
+  flex: 1;
+  overflow: hidden;
+}
+
+.textWrapper {
+  position: relative;
+}
+
+.text {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+@media (--ktl-ml-down) {
+  .text p {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+.textActive {
+  position: relative;
+  opacity: 1;
+}
+
+.prev {
+  opacity: 0;
+}
+
+
+.buttons {
+  display: flex;
+  gap: 24px;
+  user-select: none;
+  box-sizing: border-box;
+  align-self: center;
+
+  @media (--ktl-ml-down) {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

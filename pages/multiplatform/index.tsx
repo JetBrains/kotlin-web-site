@@ -19,7 +19,7 @@ const MULTIPLATFORM_MOBILE_URL = '/multiplatform/' as const;
 const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
     {
         title: 'Compose Multiplatform',
-        url: 'https://www.jetbrains.com/compose-multiplatform/'
+        url: '/compose-multiplatform/'
     },
     {
         title: 'Success stories',
