@@ -19,8 +19,9 @@ export const ComposeMultiplatformHero: FC = () => {
     const isML = useML();
 
     return (
-        <div
+        <section
             className={styles.wrapper}
+            data-testid="hero-block"
         >
             <a
                 href="https://github.com/JetBrains/compose-multiplatform"
@@ -42,12 +43,14 @@ export const ComposeMultiplatformHero: FC = () => {
                         </div>
                         <h1
                             className={cn(textCn('rs-h1'), styles.title)}
+                            data-testid="hero-title"
                         >
                             Compose <br />
                             Multiplatform
                         </h1>
                         <p
                             className={cn(textCn('rs-subtitle-2', { hardness: 'hard' }), styles.subtitle)}
+                            data-testid="hero-subtitle"
                         >
                             Build beautiful shared UIs for&nbsp;Android,&nbsp;iOS, desktop,
                             and web that feel natural on&nbsp;every platform.
@@ -57,6 +60,7 @@ export const ComposeMultiplatformHero: FC = () => {
                             mode="rock"
                             theme="dark"
                             className={styles.button}
+                            data-testid="hero-get-started-button"
                             href={
                                 '/docs/multiplatform/compose-multiplatform-create-first-app.html'
                             }
@@ -69,6 +73,6 @@ export const ComposeMultiplatformHero: FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
