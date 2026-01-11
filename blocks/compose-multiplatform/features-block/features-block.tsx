@@ -109,6 +109,7 @@ export const FeaturesBlock = () => {
                             href="https://developer.android.com/studio/"
                             className={textCn('rs-link', { external: true })}
                             target="_blank"
+                            rel="noreferrer"
                         >
                             Android Studio
                         </a>
