@@ -58,7 +58,7 @@ export const ComposeMultiplatformHero: FC = () => {
                             theme="dark"
                             className={styles.button}
                             href={
-                                'docs/multiplatform/compose-multiplatform-create-first-app.html'
+                                '/docs/multiplatform/compose-multiplatform-create-first-app.html'
                             }
                         >
                             Get started
