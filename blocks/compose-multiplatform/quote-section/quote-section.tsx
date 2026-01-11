@@ -12,12 +12,13 @@ const QuoteSection = () => {
     const isTS = useTS();
 
     return (
-        <section className={styles.wrapper}>
+        <section className={styles.wrapper} data-testid="quote-section">
             <div className="ktl-layout ktl-layout--center">
                 <div className={styles.container}>
                     {quoteSectionData.map(({ id, name, imageSrc, role, text }) => (
                         <article
                             key={id}
+                            data-testid="quote-card"
                             className={cn(
                                 cardCn({
                                     borderRadius: 24,

@@ -10,9 +10,9 @@ const CtaBlock = () => {
     return (
         <section className={styles.wrapper} data-testid={'cta-block'}>
             <div className="ktl-layout ktl-layout--center">
-                <h2 className={cn(textCn('rs-h1'), styles.title)}>Try Compose Multiplatform</h2>
+                <h2 className={cn(textCn('rs-h1'), styles.title)} data-testid="cta-block-title">Try Compose Multiplatform</h2>
 
-                <p className={cn(textCn('rs-text-1'), styles.text)}>
+                <p className={cn(textCn('rs-text-1'), styles.text)} data-testid="cta-block-subtitle">
                     Develop stunning shared&nbsp;UIs for&nbsp;Android, iOS, desktop, and web.
                 </p>
 
@@ -21,6 +21,7 @@ const CtaBlock = () => {
                     size="l"
                     mode="rock"
                     className={styles.button}
+                    data-testid="cta-block-button"
                 >
                     Get started
                 </Button>
