@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { ComposeMultiplatformPage } from '../page/compose-multiplatform-page';
+import { checkScreenshot } from '../utils';
 
 test.describe('Compose Multiplatform landing page', async () => {
     let composePage: ComposeMultiplatformPage;
@@ -19,6 +20,11 @@ test.describe('Compose Multiplatform landing page', async () => {
         await expect(composePage.heroActionButton).toBeVisible();
         const href = await composePage.heroActionButton.getAttribute('href');
 
+        await checkScreenshot(composePage.hero, {
+            stylePath: 'test/e2e/hide-sticky-banner.css',
+            mask: [composePage.heroCarousel],
+        });
+
         await composePage.heroActionButton.click();
         await expect(composePage.page).toHaveURL(new RegExp(`.*${href}$`));
     });
@@ -32,11 +38,19 @@ test.describe('Compose Multiplatform landing page', async () => {
             await expect(title).toBeVisible();
             await expect(title).not.toBeEmpty();
         }
+
+        await checkScreenshot(composePage.featuresBlock, {
+            stylePath: 'test/e2e/hide-sticky-banner.css',
+        });
     });
 
     test('check quote section', async () => {
         await expect(composePage.quoteSection).toBeVisible();
         await expect(composePage.quoteCards).not.toHaveCount(0);
+
+        await checkScreenshot(composePage.quoteSection, {
+            stylePath: 'test/e2e/hide-sticky-banner.css',
+        });
     });
 
     test('check CTA block', async () => {
@@ -45,6 +59,10 @@ test.describe('Compose Multiplatform landing page', async () => {
 
         await expect(composePage.ctaBlockButton).toBeVisible();
         const href = await composePage.ctaBlockButton.getAttribute('href');
+
+        await checkScreenshot(composePage.ctaBlock, {
+            stylePath: 'test/e2e/hide-sticky-banner.css',
+        });
 
         await composePage.ctaBlockButton.click();
         await expect(composePage.page).toHaveURL(new RegExp(`.*${href}$`));

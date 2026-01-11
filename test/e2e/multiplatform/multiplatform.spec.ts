@@ -35,7 +35,7 @@ test.describe('Multiplatform landing page', async () => {
         await expect(heroActionButton).toBeVisible();
 
         await checkScreenshot(multiplatformPage.heroBanner, {
-            stylePath: 'test/e2e/multiplatform/screenshot-block.css'
+            stylePath: 'test/e2e/hide-sticky-banner.css'
         });
 
         const href = await heroActionButton.getAttribute('href');
@@ -89,7 +89,7 @@ test.describe('Multiplatform landing page', async () => {
         await expect(multiplatformPage.ctaBlockAction).not.toBeEmpty();
 
         await checkScreenshot(multiplatformPage.ctaBlock, {
-            stylePath: 'test/e2e/multiplatform/screenshot-block.css'
+            stylePath: 'test/e2e/hide-sticky-banner.css'
         });
 
         const href = await multiplatformPage.ctaBlockAction.getAttribute('href');
@@ -124,7 +124,7 @@ async function checkChooseWhatToShare({ page, main, shareWhatBlock }: Multiplatf
     await expect(link).not.toBeEmpty();
 
     await checkScreenshot(shareWhatBlock, {
-        stylePath: 'test/e2e/multiplatform/screenshot-block.css'
+        stylePath: 'test/e2e/hide-sticky-banner.css'
     });
 
     // Check that links work as links
