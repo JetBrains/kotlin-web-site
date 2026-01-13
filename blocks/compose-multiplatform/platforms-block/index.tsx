@@ -1,4 +1,5 @@
 import { useTextStyles } from '@rescui/typography';
+import Link from 'next/link';
 import { ThemeProvider } from '@rescui/ui-contexts';
 import styles from './platforms-block.module.css';
 import cn from 'classnames';
@@ -21,17 +22,17 @@ const ContentBlock: React.FC = () => {
                 className={cn(textCn('rs-text-1', { hardness: 'hard' }), styles.text)}
             >
                 Powered by{' '}
-                <a href="/multiplatform/" className={textCn('rs-link')}>
-                    Kotlin Multiplatform
-                </a>{' '}
-                and{' '}<a
+                <Link href="/multiplatform/" className={textCn('rs-link')}>
+                    Kotlin&nbsp;Multiplatform
+                </Link>{' '}
+                and{' '}<Link
                 href="https://developer.android.com/compose"
                 className={textCn('rs-link', { external: true })}
                 target="_blank"
             >
-                Jetpack Compose
-            </a>.
-                Developed by JetBrains.
+                Jetpack&nbsp;Compose
+            </Link>.
+                Developed by&nbsp;JetBrains.
             </p>
         </div>);
 };

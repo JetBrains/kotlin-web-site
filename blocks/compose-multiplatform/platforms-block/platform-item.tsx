@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import cn from 'classnames';
 import { createTextCn } from '@rescui/typography';
 import { presets, Tag } from '@rescui/tag';
+import Link from 'next/link';
 import { PlatformData } from './platforms-data';
 import styles from './platform-icon.module.css';
 
@@ -18,24 +19,24 @@ export const PlatformItem: FC<PlatformItemProps> = ({ icon, title, titleLink, te
                     <div
                         className={textCnLight('rs-text-1', { hardness: 'hard' })}
                     >
-                        <a
+                        <Link
                             href={titleLink}
-                            className={textCnLight('rs-link', {
+                            className={cn(textCnLight('rs-link', {
                                 mode: 'classic',
                                 external: true
-                            })}
+                            }), styles.title)}
                             target="_blank"
                         >
                             {title}
-                        </a>
+                        </Link>
                     </div>
                 ) : (
-                    <p className={textCnLight('rs-text-1', { hardness: 'hard' })}>
+                    <p className={cn(textCnLight('rs-text-1', { hardness: 'hard' }), styles.title)}>
                         {title}
                     </p>
                 )}
                 {text && (
-                    <p className={textCnLight('rs-text-2')}>
+                    <p className={cn(textCnLight('rs-text-2'), styles.text)}>
                         {text}
                     </p>
                 )}
