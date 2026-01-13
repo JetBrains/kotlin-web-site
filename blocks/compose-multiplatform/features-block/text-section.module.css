@@ -1,5 +1,12 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
 .title {
     margin: 0;
+
+  @media (--ktl-ml-down) {
+      font-size: 28px;
+      line-height: 32px;
+    }
 }
 
 .text {
