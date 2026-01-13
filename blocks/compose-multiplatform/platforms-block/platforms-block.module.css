@@ -1,6 +1,8 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .wrapper {
+  margin-top: 72px;
+  margin-bottom: 72px;
   background-color: #52c1ff;
   border-radius: 32px;
   text-align: center;
@@ -49,6 +51,10 @@
   @media (--ktl-ml-down) {
     font-size: 18px;
     line-height: 24px;
+  }
+
+  @media (--ktl-ms-down) {
+    margin-bottom: 32px;
   }
 }
 
@@ -100,6 +106,6 @@
 
   @media (--ktl-ms-down) {
     flex-direction: column;
-    gap: 24px;
+    gap: 30px;
   }
 }
