@@ -137,6 +137,7 @@
         "test:e2e:headed": "playwright test test/e2e --headed",
         "test:e2e:debug": "PWDEBUG=1 playwright test test/e2e  --project=chromium",
         "test:e2e:update": "playwright test test/e2e --update-snapshots",
+        "test:e2e:screenshots": "E2E_PROJECTS=breakpoints-v2 E2E_WITH_SCREENSHOTS=true playwright test test/e2e",
         "test:e2e:new": "playwright codegen localhost:9000"
     }
 }
