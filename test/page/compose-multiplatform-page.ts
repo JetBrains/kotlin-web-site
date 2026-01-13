@@ -13,6 +13,10 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
     readonly heroActionButton: Locator;
     readonly heroCarousel: Locator;
 
+    readonly platformsBlock: Locator;
+    readonly platformsContent: Locator;
+    readonly platformsItems: Locator;
+
     readonly featuresBlock: Locator;
     readonly featureItems: Locator;
     readonly featureTitles: Locator;
@@ -35,6 +39,10 @@ export class ComposeMultiplatformPage implements PageWithGlobalSearch {
         this.heroSubTitle = page.getByTestId('hero-subtitle');
         this.heroActionButton = page.getByTestId('hero-get-started-button');
         this.heroCarousel = page.getByTestId('hero-carousel');
+
+        this.platformsBlock = page.getByTestId('platforms-block');
+        this.platformsContent = page.getByTestId('platforms-block-content');
+        this.platformsItems = page.getByTestId('platforms-block-item');
 
         this.featuresBlock = page.getByTestId('features-block');
         this.featureItems = page.getByTestId('feature-item');
