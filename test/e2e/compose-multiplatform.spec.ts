@@ -29,6 +29,16 @@ test.describe('Compose Multiplatform landing page', async () => {
         await expect(composePage.page).toHaveURL(new RegExp(`.*${href}$`));
     });
 
+    test('check platforms block', async () => {
+        await expect(composePage.platformsBlock).toBeVisible();
+        await expect(composePage.platformsContent).toBeVisible();
+        await expect(composePage.platformsItems).toHaveCount(4);
+
+        await checkScreenshot(composePage.platformsBlock, {
+            stylePath: 'test/e2e/hide-sticky-banner.css',
+        });
+    })
+
     test('check features block', async () => {
         await expect(composePage.featuresBlock).toBeVisible();
         

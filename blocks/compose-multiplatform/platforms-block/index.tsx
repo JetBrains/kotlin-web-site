@@ -9,7 +9,7 @@ import { PlatformItem } from './platform-item';
 const ContentBlock: React.FC = () => {
     const textCn = useTextStyles();
     return (
-        <div className={styles.content}>
+        <div className={styles.content} data-testid="platforms-block-content">
             <h2
                 className={cn(textCn('rs-h1'), styles.title)}
             >

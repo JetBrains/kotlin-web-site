@@ -12,7 +12,7 @@ export const PlatformItem: FC<PlatformItemProps> = ({ icon, title, titleLink, te
     const textCnLight = createTextCn('dark');
 
     return (
-        <li className={styles.item}>
+        <li className={styles.item} data-testid="platforms-block-item">
             <div className={cn(styles.icon, styles[`${icon}`])} />
             <div>
                 {titleLink ? (
