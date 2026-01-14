@@ -100,7 +100,7 @@
         </toc-element>
     </toc-element>
     <toc-element toc-title="Development">
-        <toc-element toc-title="Server-side development">
+        <toc-element toc-title="Backend development">
             <toc-element toc-title="Overview" accepts-web-file-names="httpservlets.html" topic="server-overview.md"/>
             <toc-element topic="mixing-java-kotlin-intellij.md" toc-title="Add Kotlin to a Java project"/>
             <toc-element topic="jvm-test-using-junit.md" toc-title="Test Java code with Kotlin"/>
