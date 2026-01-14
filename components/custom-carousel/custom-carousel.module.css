@@ -70,6 +70,19 @@
 
 .textWrapper {
   position: relative;
+  min-height: 72px;
+
+  @media (--ktl-tl-down) {
+    min-height: 48px;
+  }
+
+  @media (--ktl-ml-down) {
+    min-height: 60px;
+  }
+
+  @media (--ktl-ms-down) {
+    min-height: 80px;
+  }
 }
 
 .text {
