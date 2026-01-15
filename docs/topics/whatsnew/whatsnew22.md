@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 2.2.0)
 
-_[Released: June 23, 2025](releases.md#release-details)_
+<web-summary>Read the Kotlin 2.2.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: June 23, 2025](releases.md#release-history)_
 
 The Kotlin 2.2.0 release is here! Here are the main highlights:
 
@@ -20,6 +22,10 @@ The Kotlin 2.2.0 release is here! Here are the main highlights:
 You can also watch this video of the Kotlin Language Evolution team discussing new features and answering questions:
 
 <video src="https://www.youtube.com/watch?v=jne3923lWtw" title="What's new in Kotlin 2.2.0"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 

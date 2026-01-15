@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 2.1.20)
 
-_[Released: March 20, 2025](releases.md#release-details)_
+<web-summary>Read the Kotlin 2.1.20 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: March 20, 2025](releases.md#release-history)_
 
 The Kotlin 2.1.20 release is here! Here are the main highlights:
 
@@ -12,6 +14,10 @@ The Kotlin 2.1.20 release is here! Here are the main highlights:
 * **Standard library**: [common atomic types, improved UUID support, and new time-tracking functionality](#standard-library)
 * **Compose compiler**: [relaxed restrictions on `@Composable` functions and other updates](#compose-compiler)
 * **Documentation**: [notable improvements to the Kotlin documentation](#documentation-updates).
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 
@@ -563,7 +569,7 @@ alongside the plugin, due to an option being effectively set twice.
 
 * To align Kotlin Multiplatform with upcoming changes in Gradle, we are phasing out the `withJava()` function.
   [Java source sets are now created by default](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#java-source-sets-created-by-default). If you use the [Java test fixtures](https://docs.gradle.org/current/userguide/java_testing.html#sec:java_test_fixtures) Gradle plugin,
-  upgrade directly to [Kotlin 2.1.21](releases.md#release-details) to avoid compatibility issues.
+  upgrade directly to [Kotlin 2.1.21](releases.md#release-history) to avoid compatibility issues.
 * The JetBrains team is proceeding with the deprecation of the `kotlin-android-extensions` plugin. If you try to use it
   in your project, you'll now get a configuration error, and no plugin code will be executed.
 * The legacy `kotlin.incremental.classpath.snapshot.enabled` property has been removed from the Kotlin Gradle plugin.

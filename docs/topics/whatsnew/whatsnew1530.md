@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 1.5.30)
 
-_[Released: 24 August 2021](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.5.30 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 24 August 2021](releases.md#release-history)_
 
 Kotlin 1.5.30 offers language updates including previews of future changes, various improvements in platform support and tooling, and new standard library functions.
 
@@ -13,6 +15,10 @@ Here are some major improvements:
 You can also find a short overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/08/kotlin-1-5-30-released/) and this video:
 
 <video src="https://www.youtube.com/v/rNbb3A9IdOo" title="Kotlin 1.5.30"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## Language features
 

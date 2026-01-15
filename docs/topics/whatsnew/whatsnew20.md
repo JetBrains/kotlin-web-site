@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 2.0.0)
 
-_[Released: May 21, 2024](releases.md#release-details)_
+<web-summary>Read the Kotlin 2.0.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: May 21, 2024](releases.md#release-history)_
 
 The Kotlin 2.0.0 release is out and the [new Kotlin K2 compiler](#kotlin-k2-compiler) is Stable! Additionally, here are
 some other highlights:
@@ -21,6 +23,10 @@ Kotlin 2.0 is a huge milestone for the JetBrains team. This release was the cent
 keynote, where we announced exciting updates and addressed the recent work on the Kotlin language:
 
 <video src="https://www.youtube.com/v/Ar73Axsz2YA" title="KotlinConf'24 - Keynote"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 

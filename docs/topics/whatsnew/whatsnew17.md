@@ -1,10 +1,12 @@
 [//]: # (title: What's new in Kotlin 1.7.0)
 
+<web-summary>Read the Kotlin 1.7.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
 <tldr>
    <p>The IDE support for Kotlin 1.7.0 is available for IntelliJ IDEA 2021.2, 2021.3, and 2022.1.</p>
 </tldr>
 
-_[Released: 9 June 2022](releases.md#release-details)_
+_[Released: 9 June 2022](releases.md#release-history)_
 
 Kotlin 1.7.0 has been released. It unveils the Alpha version of the new Kotlin/JVM K2 compiler, stabilizes language
 features, and brings performance improvements for the JVM, JS, and Native platforms.
@@ -25,6 +27,10 @@ Here is a list of the major updates in this version:
 You can also find a short overview of the changes in this video:
 
 <video src="https://www.youtube.com/v/54WEfLKtCGk" title="What's new in Kotlin 1.7.0"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## New Kotlin K2 compiler for the JVM in Alpha
 

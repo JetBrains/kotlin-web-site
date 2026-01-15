@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 1.8.0)
 
-_[Released: 28 December 2022](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.8.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 28 December 2022](releases.md#release-history)_
 
 The Kotlin 1.8.0 release is out and here are some of its biggest highlights:
 
@@ -10,6 +12,10 @@ The Kotlin 1.8.0 release is out and here are some of its biggest highlights:
 * [`kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` merged into `kotlin-stdlib`](#updated-jvm-compilation-target)
 * [Improved Objective-C/Swift interoperability](#improved-objective-c-swift-interoperability)
 * [Compatibility with Gradle 7.3](#gradle)
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 
