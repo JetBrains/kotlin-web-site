@@ -1,5 +1,7 @@
 [//]: # (title: What's new in Kotlin 1.2)
 
+<web-summary>Read the Kotlin 1.2 release notes covering new language features, updates to Kotlin Multiplatform, JVM, and JS, and build tool support for Gradle and Maven.</web-summary>
+
 _Released: 28 November 2017_
 
 ## Table of contents
@@ -9,6 +11,10 @@ _Released: 28 November 2017_
 * [Standard library](#standard-library)
 * [JVM backend](#jvm-backend)
 * [JavaScript backend](#javascript-backend)
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## Multiplatform projects (experimental)
 

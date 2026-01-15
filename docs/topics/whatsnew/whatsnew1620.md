@@ -1,12 +1,18 @@
 [//]: # (title: What's new in Kotlin 1.6.20)
 
-_[Released: 4 April 2022](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.6.20 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 4 April 2022](releases.md#release-history)_
 
 Kotlin 1.6.20 reveals previews of the future language features, makes the hierarchical structure the default for multiplatform projects, and brings evolutionary improvements to other components.
 
 You can also find a short overview of the changes in this video:
 
 <video src="https://www.youtube.com/v/8F19ds109-o" title="What's new in Kotlin 1.6.20"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## Language
 

@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 2.0.20)
 
-_[Released: August 22, 2024](releases.md#release-details)_
+<web-summary>Read the Kotlin 2.0.20 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: August 22, 2024](releases.md#release-history)_
 
 The Kotlin 2.0.20 release is out! This version includes performance improvements and bug fixes for Kotlin 2.0.0, where we
 announced the Kotlin K2 compiler as Stable. Here are some additional highlights from this release:
@@ -13,6 +15,10 @@ announced the Kotlin K2 compiler as Stable. Here are some additional highlights 
 * [A new option allows sharing JVM artifacts between Gradle projects as class files](#option-to-share-jvm-artifacts-between-projects-as-class-files)
 * [The Compose compiler has been updated](#compose-compiler)
 * [Support for UUIDs has been added to the common Kotlin standard library](#support-for-uuids-in-the-common-kotlin-standard-library)
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 

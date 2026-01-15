@@ -1,6 +1,12 @@
 [//]: # (title: What's new in Kotlin 1.3)
 
+<web-summary>Read the Kotlin 1.3 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
 _Released: 29 October 2018_
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## Coroutines release
 

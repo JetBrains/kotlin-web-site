@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 2.1.0)
 
-_[Released: November 27, 2024](releases.md#release-details)_
+<web-summary>Read the Kotlin 2.1.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: November 27, 2024](releases.md#release-history)_
 
 The Kotlin 2.1.0 release is here! Here are the main highlights:
 
@@ -14,6 +16,10 @@ The Kotlin 2.1.0 release is here! Here are the main highlights:
 * **Gradle support**: [Improved compatibility with newer versions of Gradle and the Android Gradle plugin](#gradle-improvements),
   along with [updates to the Kotlin Gradle plugin API](#new-api-for-kotlin-gradle-plugin-extensions).
 * **Documentation**: [Significant improvements to the Kotlin documentation](#documentation-updates).
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 

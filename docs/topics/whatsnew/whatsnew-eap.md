@@ -16,6 +16,10 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 The Kotlin %kotlinEapVersion% release is out! See the full list of changes in the [GitHub changelog](https://github.com/JetBrains/kotlin/releases/tag/v%kotlinEapVersion%).
 
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
+
 ## IDE support
 
 The Kotlin plugins that support %kotlinEapVersion% are bundled in the latest versions of IntelliJ IDEA and Android Studio.

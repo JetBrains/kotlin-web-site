@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 1.8.20)
 
-_[Released: 25 April 2023](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.8.20 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 25 April 2023](releases.md#release-history)_
 
 The Kotlin 1.8.20 release is out and here are some of its biggest highlights:
 
@@ -16,6 +18,10 @@ The Kotlin 1.8.20 release is out and here are some of its biggest highlights:
 You can also find a short overview of the changes in this video:
 
 <video src="https://www.youtube.com/v/R1JpkpPzyBU" title="What's new in Kotlin 1.8.20"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 

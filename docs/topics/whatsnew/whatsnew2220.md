@@ -1,8 +1,12 @@
 [//]: # (title: What's new in Kotlin 2.2.20)
 
-_[Released: September 10, 2025](releases.md#release-details)_
+<web-summary>Read the Kotlin 2.2.20 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
 
-<tldr><p>For details about bug fix release 2.2.21, see the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21">changelog</a></p></tldr>
+_[Released: September 10, 2025](releases.md#release-history)_
+
+<tldr>
+    <p>For details about bug fix release 2.2.21, see the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21">changelog</a></p>
+</tldr>
 
 The Kotlin 2.2.20 release is out, delivering important changes for web development. [Kotlin/Wasm is now Beta](#kotlin-wasm),
 with improvements to [exception handling in JavaScript interop](#improved-exception-handling-in-kotlin-wasm-and-javascript-interop),
@@ -23,6 +27,10 @@ Additionally, here are some main highlights:
 You can also find a short overview of the updates in this video:
 
 <video src="https://www.youtube.com/v/QWpp5-LlTqA" title="What's new in Kotlin 2.2.21"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 

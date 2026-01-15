@@ -1,9 +1,14 @@
-[//]: # (title: Kotlin releases)
+[//]: # (title: Kotlin release process)
+
+<web-summary>Learn about the different types of Kotlin releases, how to update to each one, and Kotlin's release history.</web-summary>
 
 <tldr>
     <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
     <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.3.0</a> <!--and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>-->.</p>
 </tldr>
+
+This page explains the Kotlin release cycle and the different types of releases we ship. It also includes details
+about past and upcoming Kotlin releases, along with instructions on how to update to a specific release.
 
 Since Kotlin 2.0.0, we ship the following types of releases:
 
@@ -13,12 +18,9 @@ Since Kotlin 2.0.0, we ship the following types of releases:
     Released in 3 months after corresponding _language release_.
 * _Bug fix releases_ (2._x_._yz_) that include bug fixes for _tooling releases_. There is no exact release schedule for these releases.
 
-<!-- TODO: uncomment with 2.1.0 release
-> For example, for the feature release 1.8.0, we had only one tooling release 1.8.20,
-> and several bugfix releases including 1.8.21, 1.8.22.
+> For example, for the language release 2.2.0, there was only one tooling release 2.2.20 and one bugfix release 2.2.21.
 >
 {style="tip"}
--->
 
 For each language and tooling release, we also ship several preview (_EAP_) versions for you to try
 new features before they are released. See [Early Access Preview](eap.md) for details.
@@ -134,9 +136,9 @@ Learn more about K2 mode in [our blog](https://blog.jetbrains.com/idea/2025/04/k
 
 Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution-principles.md#language-and-tooling-releases)
 
-## Release details
+## Release history
 
-The following table lists details of the latest Kotlin releases:
+The following table lists details of previous Kotlin releases:
 
 > You can also try [Early Access Preview (EAP) versions of Kotlin](eap.md#build-details).
 > 
