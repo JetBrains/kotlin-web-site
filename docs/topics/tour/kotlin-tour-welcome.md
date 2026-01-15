@@ -15,10 +15,10 @@ To grasp the fundamentals of Kotlin, take the beginner tour. To deepen your unde
 
 <list columns="2">
     <li>
-        <a href="kotlin-tour-hello-world.md"><img src="start-beginner-tour.svg" width="300" alt="Start the beginner's Kotlin tour"/></a>
+        <a href="kotlin-tour-hello-world.md"><img src="start-beginner-tour.svg" width="300" alt="Start the beginner's Kotlin tour" style="block"/></a>
     </li>
     <li>
-        <a href="kotlin-tour-intermediate-extension-functions.md"><img src="start-intermediate-tour.svg" alt="Start the intermediate Kotlin tour"/></a>
+        <a href="kotlin-tour-intermediate-extension-functions.md"><img src="start-intermediate-tour.svg" alt="Start the intermediate Kotlin tour" style="block"/></a>
     </li>
 </list>
 
