@@ -6,8 +6,8 @@
 }
 
 .wrapper {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-direction: column;
     gap: 64px;
 
     @media (--ktl-ds-up) {
@@ -28,6 +28,10 @@
         + .codeSection {
             margin-top: 96px;
         }
+    }
+
+  @media (--ktl-ms-down) {
+      margin: unset;
     }
 }
 
