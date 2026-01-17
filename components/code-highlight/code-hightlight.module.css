@@ -3,4 +3,5 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
     line-height: 2;
+    overflow-x: auto;
 }
