@@ -218,9 +218,6 @@ def autoversion_filter(filename):
     return ParseResult(**original).geturl()
 
 
-@app.route('/data/cities.json')
-def get_cities():
-    return Response(json.dumps(site_data['cities'], cls=DateAwareEncoder), mimetype='application/json')
 
 
 @app.route('/data/kotlinconf.json')
