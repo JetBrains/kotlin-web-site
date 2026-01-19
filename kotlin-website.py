@@ -21,7 +21,6 @@ from src.github import assert_valid_git_hub_url
 from src.grammar import get_grammar
 from src.ktl_components import KTLComponentExtension
 from src.markdown.makrdown import jinja_aware_markdown
-from src.navigation import process_nav, get_current_url
 from src.pages.MyFlatPages import MyFlatPages
 from src.pdf import generate_pdf
 from src.processors.processors import process_code_blocks
@@ -102,26 +101,6 @@ def get_site_data():
 
 
 site_data = get_site_data()
-
-
-def get_nav():
-    global _nav_cache
-    global _nav_lock
-
-    with _nav_lock:
-        if _nav_cache is not None:
-            nav = _nav_cache
-        else:
-            nav = get_nav_impl()
-
-        nav = copy.deepcopy(nav)
-
-        if build_mode:
-            _nav_cache = copy.deepcopy(nav)
-
-    # NOTE. This call depends on `request.path`, cannot cache
-    process_nav(request.path, nav)
-    return nav
 
 
 def get_countries_size():
@@ -266,11 +245,6 @@ def next_server_side_page():
     return send_file(path.join(root_folder, 'out', 'server-side/index.html'))
 
 def process_page(page_path):
-    # get_nav() has side effect to copy and patch files from the `external` folder
-    # under site folder. We need it for dev mode to make sure file is up-to-date
-    # TODO: extract get_nav and implement the explicit way to avoid side-effects
-    get_nav()
-
     page = pages.get_or_404(page_path)
     if 'redirect_path' in page.meta and page.meta['redirect_path'] is not None:
         page_path = page.meta['redirect_path']
