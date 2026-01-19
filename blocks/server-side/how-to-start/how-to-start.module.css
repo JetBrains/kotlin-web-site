@@ -43,7 +43,7 @@
     border-radius: 16px;
     box-sizing: border-box;
     overflow: auto;
-    background-color: #19191C; /* Dracula theme background */
+    background-color: #19191C;
 }
 
 @media (max-width: 1000px) {
