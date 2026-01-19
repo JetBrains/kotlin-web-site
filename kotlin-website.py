@@ -195,18 +195,6 @@ def autoversion_filter(filename):
     return ParseResult(**original).geturl()
 
 
-
-
-@app.route('/data/kotlinconf.json')
-def get_kotlinconf():
-    return Response(json.dumps(site_data['kotlinconf'], cls=DateAwareEncoder), mimetype='application/json')
-
-
-@app.route('/data/universities.json')
-def get_universities():
-    return Response(json.dumps(site_data['universities'], cls=DateAwareEncoder), mimetype='application/json')
-
-
 @app.route('/docs/reference/grammar.html')
 def grammar():
     grammar = get_grammar(build_mode)

@@ -49,12 +49,12 @@ The [Kotlin grammar reference](https://kotlinlang.org/docs/reference/grammar.htm
 
 ### Configuration files
 
-|Configuration| File                                                                                 |
-|-----|--------------------------------------------------------------------------------------|
-|Navigation and structure| [kr.tree](docs/kr.tree) for docs and [_nav.yml](data/_nav.yml) for other pages       |
+|Configuration| File                                                                                |
+|-----|-------------------------------------------------------------------------------------|
+|Navigation and structure| [kr.tree](docs/kr.tree) for docs |
 |Variables, such as release version | [v.list](docs/v.list) for docs and [releases.yml](data/releases.yml) for other pages |
-|Community events on the map | [events.xml](data/events.yml)                                                          |
-|Video list (outdated) | [videos.yml](data/videos.yml)                                                        |
+|Community events on the map | [events.xml](data/events.yml)                                                         |
+
 
 ### Templates
 
@@ -84,23 +84,13 @@ To add a Kotlin User Group (KUG), proceed the following way:
     - `isVirtual`, set this key with `true` value if the group is online only.
     - `position`, the geo-position of the group, defined by pair of keys: `lat` and `lng`. It better to run `scripts/user_group`.
 4. If the group is not virtual, you also need to specify a group's position.
-   You can do it manually adding `position` key with the `lat` and `lng` values, as next: 
+   Add manually `position` key with the `lat` and `lng` values, as next: 
 
    ```yaml
    position:
      lat: 1.1111111
      lng: 1.1111111
    ```
-
-   or, to run the geo script (`scripts/user_groups_geolocator.py`) that will do it for you.
-   You need to obtain GOOGLE_API_KEY and then run the following script:
-
-   ```
-   $ GOOGLE_API_KEY="..." python scripts/universities_geolocator.py
-   ```
-
-   You can find more details about `GOOGLE_API_KEY` param in [this article by Google](https://developers.google.com/maps/documentation/geocoding/get-api-key).
-   The manual way sometimes is better, because it allows you to specify the position more precisely.  
 
 You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/user-groups.json).
 Once you publish a pull request, the changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-user-groups-data.yml) to prevent misconfiguration.
