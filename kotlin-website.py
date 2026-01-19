@@ -15,10 +15,8 @@ from flask.helpers import url_for, send_file, make_response
 from flask.views import View
 from flask_frozen import Freezer, walk_directory
 
-from src.Feature import Feature
 from src.api import get_api_page
 from src.encoder import DateAwareEncoder
-from src.externals import process_nav_includes
 from src.github import assert_valid_git_hub_url
 from src.grammar import get_grammar
 from src.ktl_components import KTLComponentExtension
@@ -141,27 +139,6 @@ def get_education_courses():
     return [{attr: x[attr] for attr in ["title", "location", "courses"]}
             for x in site_data['universities']]
 
-
-def get_nav_impl():
-    with open(path.join(data_folder, "_nav.yml")) as stream:
-        nav = yaml.load(stream)
-        nav = process_nav_includes(build_mode, nav)
-        return nav
-
-
-def get_kotlin_features():
-    features_dir = path.join(os.path.dirname(__file__), "kotlin-features")
-    features = []
-    for feature_meta in yaml.load(open(path.join(features_dir, "kotlin-features.yml"))):
-        file_path = path.join(features_dir, feature_meta['content_file'])
-        with open(file_path, encoding='utf-8') as f:
-            content = f.read()
-            content = content.replace("\r\n", "\n")
-            if file_path.endswith(".md"):
-                html_content = BeautifulSoup(jinja_aware_markdown(content, pages), 'html.parser')
-                content = process_code_blocks(html_content)
-            features.append(Feature(content, feature_meta))
-    return features
 
 
 @app.context_processor
@@ -561,9 +538,6 @@ if __name__ == '__main__':
     print("\n\n")
 
     set_replace_simple_code(build_contenteditable)
-
-    with (open(path.join(root_folder, "_nav-mapped.yml"), 'w')) as output:
-        yaml.dump(get_nav_impl(), output)
 
     if len(argv_copy) > 1:
         if argv_copy[1] == "build":
