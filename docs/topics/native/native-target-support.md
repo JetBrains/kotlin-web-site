@@ -11,7 +11,7 @@ This document describes which targets and hosts are supported by the Kotlin/Nati
 The Kotlin/Native compiler supports a number of different targets, though the level of support for them varies.
 To clarify these levels, we've broken up the targets into several tiers depending on how well the compiler supports them.
 
-Mind the following terms used in tier tables:
+Tier tables use the following columns:
 
 * **Gradle target name** is a [target name](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets)
   that is used in the Kotlin Multiplatform Gradle plugin to enable the target.
