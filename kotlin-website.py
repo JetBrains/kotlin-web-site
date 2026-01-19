@@ -132,9 +132,7 @@ app.jinja_env.add_extension(KTLComponentExtension)
 
 @app.context_processor
 def add_data_to_context():
-    nav = get_nav()
     return {
-        'nav': nav,
         'data': site_data,
         'site': {
             'pdf_url': app.config['PDF_URL'],
@@ -145,7 +143,7 @@ def add_data_to_context():
             'code_baseurl': app.config['CODE_URL'],
             'contenteditable': build_contenteditable
         },
-        'headerCurrentUrl': get_current_url(nav['subnav']['content']),
+        'headerCurrentUrl': '/',
     }
 
 
@@ -243,6 +241,15 @@ def next_index_page():
 @app.route('/server-side/')
 def next_server_side_page():
     return send_file(path.join(root_folder, 'out', 'server-side/index.html'))
+
+@app.route('/multiplatform/')
+def next_multiplatform_page():
+    return send_file(path.join(root_folder, 'out', 'multiplatform/index.html'))
+
+@app.route('/case-studies/')
+def next_case_studies_page():
+    return send_file(path.join(root_folder, 'out', 'case-studies/index.html'))
+
 
 def process_page(page_path):
     page = pages.get_or_404(page_path)
