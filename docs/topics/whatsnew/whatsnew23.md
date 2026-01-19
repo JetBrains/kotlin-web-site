@@ -1010,7 +1010,8 @@ For a complete overview, see our [Compatibility guide](compatibility-guide-23.md
 
 * If you continue using the Kotlin Multiplatform Gradle plugin for Android targets with Android Gradle plugin (AGP)
   9.0.0 or later, you see a configuration error when using the `androidTarget` block, along with diagnostic messages that
-  provide guidance on how to migrate. For more information, see [Migrate to Google's plugin for Android targets](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#migrate-to-google-s-plugin-for-android-targets).
+  provide guidance on how to migrate. You can avoid this error by using AGP 8.x and updating to Kotlin 2.3.10, or by migrating to
+  [Google's plugin for Android targets](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#migrate-to-google-s-plugin-for-android-targets).
 
 * AGP 9.0.0 includes [built-in support for Kotlin](https://developer.android.com/build/releases/agp-preview#android-gradle-plugin-built-in-kotlin).
   Starting with Kotlin 2.3.0, you [see a configuration error if you use this version of AGP with the `kotlin-android` plugin](compatibility-guide-23.md#deprecate-kotlin-android-plugin-for-agp-versions-9-0-0-and-later),
