@@ -181,6 +181,26 @@ items:
       type: youtube
       videoId: GtJBS7B3eyM
   #------------------------------------------------------------------------
+  - id: case-study-travelperk
+    type: multiplatform
+    description: >-
+      Compose Multiplatform already powers features in **Perk's** iOS and Android apps. We started with a small shared UI component, 
+      but have since migrated our design system to CMP and used it to develop larger CMP features. 
+      This has helped us unify tooling and design across both platforms. 
+      We're excited about CMP's potential to become a core part of Perk's mobile architecture.
+    logo:
+      - /images/case-studies/travelperk-logo.png
+    carousel: true
+    platforms:
+      - android
+      - ios
+      - compose-multiplatform
+    media:
+      type: image
+      path: /images/case-studies/travelperk-card-preview.png
+    isExternal: true
+    link: https://builders.travelperk.com/compose-multiplatform-at-perk-a-pragmatic-look-at-our-journey-so-far-fedd666e9726
+  #------------------------------------------------------------------------
   - id: case-study-markaz
     type: multiplatform
     description: >-
