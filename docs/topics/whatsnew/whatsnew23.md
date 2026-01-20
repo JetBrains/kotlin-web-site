@@ -13,6 +13,10 @@ The Kotlin 2.3.0 release is out! Here are the main highlights:
 * **Compose compiler**: [stack traces for minified Android applications](#compose-compiler-stack-traces-for-minified-android-applications).
 * **Standard library**: [stable time tracking functionality and improved UUID generation and parsing](#standard-library).
 
+You can also find an overview of the updates in this video:
+
+<video src="https://www.youtube.com/v/_6PSSkqwbp8" title="Hands-on with Kotlin 2.3"/>
+
 ## IDE support
 
 The Kotlin plugins that support 2.3.0 are bundled in the latest versions of IntelliJ IDEA and Android Studio.
