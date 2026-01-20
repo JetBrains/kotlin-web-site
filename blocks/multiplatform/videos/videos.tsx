@@ -2,7 +2,6 @@ import { useTextStyles } from '@rescui/typography';
 import { HighlightedBg } from '../highlighted-bg/highlighted-bg';
 import { VideoBlock } from './video-block/video-block';
 
-import styles from './videos.module.css';
 
 export function CoolVideos() {
     const textCn = useTextStyles();
@@ -21,7 +20,6 @@ export function CoolVideos() {
         </VideoBlock>
 
         <VideoBlock
-            className={styles.composeHotReload}
             title={'Seamless tooling'}
             source={'https://resources.jetbrains.com/storage/products/kotlin/landings/kmp_compose_hot_reload.mp4'}
             iconPath={'/images/multiplatform/video-block/infinity.svg'}
