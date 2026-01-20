@@ -20,21 +20,6 @@ items:
       type: youtube
       videoId: RJtiFt5pbfs
   #------------------------------------------------------------------------
-  - id: case-study-prezzee
-    type: multiplatform
-    description: >-
-      "The decision to adopt KMP three years ago has paid dividends in team growth, code quality, and business value. 
-      For teams considering a similar journey, our advice is simple: start small, invest in your people, and be patient with the process."
-    logo:
-      - /images/case-studies/prezzee-logo.png
-    alternateLogo:
-      - /images/case-studies/prezzee-logo-dark.png
-    platforms:
-      - android
-      - ios
-    isExternal: true
-    link: https://engineering.prezzee.com/from-native-to-multiplatform-our-journey-with-kotlin-multiplatform-at-prezzee-fa5f613939a3
-  #------------------------------------------------------------------------
   - id: case-study-forbes
     type: multiplatform
     description: >-
@@ -335,6 +320,21 @@ items:
       - android
       - ios
     link: https://kotlinlang.org/lp/multiplatform/case-studies/baidu/
+  #------------------------------------------------------------------------
+  - id: case-study-prezzee
+    type: multiplatform
+    description: >-
+      "The decision to adopt KMP three years ago has paid dividends in team growth, code quality, and business value. 
+      For teams considering a similar journey, our advice is simple: start small, invest in your people, and be patient with the process."
+    logo:
+      - /images/case-studies/prezzee-logo.png
+    alternateLogo:
+      - /images/case-studies/prezzee-logo-dark.png
+    platforms:
+      - android
+      - ios
+    isExternal: true
+    link: https://engineering.prezzee.com/from-native-to-multiplatform-our-journey-with-kotlin-multiplatform-at-prezzee-fa5f613939a3
   #------------------------------------------------------------------------
   - id: case-study-physics-wallah
     type: multiplatform
