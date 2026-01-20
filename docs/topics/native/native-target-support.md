@@ -15,8 +15,8 @@ Mind the following terms used in tier tables:
 
 * **Gradle target name** is a [target name](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets)
   that is used in the Kotlin Multiplatform Gradle plugin to enable the target.
-* **Target triple** is a target name according to the `<architecture>-<vendor>-<system>-<abi>` structure that is commonly
-  used by [compilers](https://clang.llvm.org/docs/CrossCompilation.html#target-triple).
+* **Target triple** is a target name according to the `<architecture>-<vendor>-<system>-<abi>` structure
+  that [compilers commonly use](https://clang.llvm.org/docs/CrossCompilation.html#target-triple).
 * **Running tests** indicates out-of-the-box support for running tests in Gradle and IDE.
   
   This is only available on a native host for the specific target. For example, you can run `macosArm64` and `iosArm64`
@@ -55,6 +55,11 @@ Mind the following terms used in tier tables:
 * The target is not guaranteed to be tested on CI.
 * We can't promise a source and binary compatibility between different compiler releases, though such changes for these
   targets are quite rare.
+
+> The Tier 3 targets are not in active development and may come with breaking issues.
+> Use them with caution.
+> 
+{style="warning"}
 
 | Gradle target name      | Target triple                    | Running tests | Description                                                                              |
 |-------------------------|----------------------------------|---------------|------------------------------------------------------------------------------------------|
