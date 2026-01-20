@@ -1,11 +1,87 @@
-import { ReactNode } from 'react';
+import { createTextCn } from '@rescui/typography';
 import { Markdown, MarkdownProps } from '../../utils/mdToHtml';
 
-type Props = { children: string | ReactNode };
+import styles from './grammar.module.css';
+import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react';
+import cn from 'classnames';
 
-export function GrammarMarkdown({ children, ...props }: Props) {
+const textCn = createTextCn('light');
+
+const OLD_GRAMMAR_HOST = 'https://kotlinlang.org' as const;
+const OLD_GRAMMAR_PATH = '/docs/reference/grammar.html' as const;
+
+function rebaseRelativeUrl(href: string) {
+    let url = null;
+
+    try {
+        return new URL(href).toString();
+    } catch (e) {
+        // It's not a valid URL, so it's probably a relative path.
+    }
+
+    url = new URL(href, `${OLD_GRAMMAR_HOST}${OLD_GRAMMAR_PATH}`);
+
+    if (url.pathname === OLD_GRAMMAR_PATH) return url.hash;
+
+    return url.toString().replace(OLD_GRAMMAR_HOST, '');
+}
+
+const DEFAULT_OPTIONS = {
+    overrides: {
+        h2: {
+            component: (props: any) => {
+                return <h2 {...props} className={textCn('rs-h2')} />;
+            }
+        },
+        h3: {
+            component: (props: any) => {
+                return <h3 {...props} className={textCn('rs-h3')} />;
+            }
+        },
+        h4: {
+            component: (props: any) => {
+                return <h4 {...props} className={textCn('rs-h4')} />;
+            }
+        },
+        h5: {
+            component: (props: any) => {
+                return <h5 {...props} className={textCn('rs-h4')} />;
+            }
+        },
+        code: {
+            component: (props: any) => {
+                return <code {...props} className={textCn('rs-code')} />;
+            }
+        },
+        ul: {
+            component: (props: any) => {
+                return <ul {...props} className={`${textCn('rs-ul')}`} />;
+            }
+        },
+        ol: {
+            component: (props: any) => {
+                return <ol {...props} className={`${textCn('rs-ol')}`} />;
+            }
+        },
+        a: {
+            component: LinkComponent
+        }
+    }
+};
+
+export function LinkComponent(props: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>) {
+    const { href, ...rest } = props;
+    return <a
+        {...rest} href={rebaseRelativeUrl(href)}
+        className={cn(textCn('rs-link'), styles.link, props.className)}
+    />;
+}
+
+export function GrammarMarkdown({ children, options, ...props }: MarkdownProps) {
     if (typeof children === 'string') children = extendedMarkdown(children);
-    return <Markdown {...props}>{children as MarkdownProps['children']}</Markdown>;
+
+    const opts = { ...DEFAULT_OPTIONS, ...options };
+    return <Markdown {...props} options={opts}>{children as MarkdownProps['children']}</Markdown>;
 }
 
 interface ParsedIAL {

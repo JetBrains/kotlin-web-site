@@ -1,4 +1,7 @@
-import { extendedMarkdown, GrammarMarkdown } from './markdown';
+import { Fragment, ReactNode } from 'react';
+import { useTextStyles } from '@rescui/typography';
+
+import { extendedMarkdown, GrammarMarkdown, LinkComponent } from './markdown';
 
 import styles from './grammar.module.css';
 
@@ -14,7 +17,8 @@ import {
     GrammarUsagesType,
     GrammarXMLType
 } from './entities';
-import { ReactNode } from 'react';
+
+export type GrammarXML = GrammarXMLType;
 
 /**
  * Main Grammar component that renders the grammar documentation page.
@@ -23,9 +27,10 @@ import { ReactNode } from 'react';
  * @param data - Array of grammar tokens representing the complete grammar structure
  */
 export function Grammar({ data }: { data: GrammarXMLType }) {
-    return <div className={styles.grammar}>
-        <div className={'ktl-layout-v2 ktl-layout--center'}>
-            <h1 id="grammar">Grammar</h1>
+    const textCn = useTextStyles();
+    return <div className={styles.wrap}>
+        <div className={`ktl-layout-v2 ktl-layout--center ${styles.grammar}`}>
+            <h1 id="grammar" className={textCn('rs-h1')}>Grammar</h1>
             <GrammarToken data={data} />
         </div>
     </div>;
@@ -39,7 +44,7 @@ export function Grammar({ data }: { data: GrammarXMLType }) {
 function GrammarToken({ data }: { data: GrammarTokenType | GrammarTokenType[] }) {
     // Handle arrays by recursively rendering each item
     if (Array.isArray(data)) return <>
-        {data.map((item) => <GrammarToken data={item} />)}
+        {data.map((item, index) => <GrammarToken data={item} key={`g${index}-${data.length}`} />)}
     </>;
 
     // Type discrimination: check which property exists and render accordingly
@@ -72,7 +77,8 @@ function GrammarSet({ data }: { data: GrammarSetType }) {
 
 /** Renders documentation/comment blocks for grammar rules. */
 function GrammarDoc({ data }: { data: GrammarDocType }) {
-    return <div className={'grammar-comment'}>
+    const textCn = useTextStyles();
+    return <div className={`grammar-comment ${textCn('rs-text-2')}`}>
         <GrammarToken data={data.doc} />
     </div>;
 }
@@ -86,7 +92,7 @@ function GrammarItem({ data }: { data: GrammarItemType }) {
 
 /** Renders annotations that provide metadata or additional information about grammar rules. */
 function GrammarAnnotate({ data }: { data: GrammarAnnotationType }) {
-    return <div className={'grammar-annotation'}><GrammarMarkdown>{text(data.annotation)}</GrammarMarkdown></div>;
+    return <div className={'grammar-annotation'}>{text(data.annotation)}</div>;
 }
 
 /**
@@ -96,29 +102,33 @@ function GrammarAnnotate({ data }: { data: GrammarAnnotationType }) {
  */
 function GrammarDescription({ data }: { data: GrammarDescriptionType }) {
     return <div className={'grammar-description'}>
-        {data.description.map((token) => {
+        {data.description.map(function renderDescription(token, index) {
             // String literals in the grammar
             if ('string' in token) {
-                return <span className={'grammar-string'}>{text(token.string)}</span>;
+                return <span key={`st${index}`} className={'grammar-string'}>{text(token.string)}</span>;
             }
             // Symbols like operators or punctuation
             if ('symbol' in token) {
-                return <span className={'grammar-symbol'}>{text(token.symbol)}</span>;
+                return <span key={`sb${index}`} className={'grammar-symbol'}>{text(token.symbol)}</span>;
             }
             // References to other grammar rules (rendered as links)
             if ('identifier' in token) {
                 const name = token[':@']['@_name'];
-                return <a className={'grammar-identifier-name'} href={`#${name}`}>{name}</a>;
+                return <LinkComponent
+                    className={'grammar-identifier-name'} key={`i${index}`}
+                    href={`#${name}`}>{name}</LinkComponent>;
             }
             // Line breaks
             if ('crlf' in token) {
-                return <br />;
+                return <br key={`br${index}`} />;
             }
             // Other text content
             if ('other' in token) {
-                return token.other.map((part) => <span className={'grammar-other'}>
+                return <Fragment key={`o${index}`}>{token.other.map((part, partIndex) => <span
+                    className={'grammar-other'} key={`p${index}-${partIndex}`}
+                >
                     <GrammarMarkdown>{part['#text']}</GrammarMarkdown>
-                </span>);
+                </span>)}</Fragment>;
             }
             return null;
         })}
@@ -146,19 +156,19 @@ function GrammarDeclaration({ data }: { data: GrammarDeclarationType }) {
 function GrammarUsages({ data }: { data: GrammarUsagesType }) {
     const used = data.usages.map((usage, index, list) => {
         const name = usage.declaration[0]['#text'];
-        return <>
-            <a href={`#${name}`}>{name}</a>
+        return <Fragment key={name}>
+            <LinkComponent href={`#${name}`}>{name}</LinkComponent>
             {index < list.length - 1 && ', '}
-        </>;
+        </Fragment>;
     });
 
     return <div className={'grammar-declaration-usedby'}>{'\u00A0'}(used by {used})</div>;
 }
 
 function text(token: GrammarTextType[]): ReactNode {
-    return <>{(token[0]['#text'] || '').split('&nbsp;').map((part, index, list) => <>
+    return <>{(token[0]['#text'] || '').split('&nbsp;').map((part, index, list) => <Fragment key={index}>
         {extendedMarkdown(part)}
         {/* Convert &nbsp; entities to actual non-breaking space characters */}
         {index < list.length - 1 && '\u00A0'}
-    </>)}</>;
+    </Fragment>)}</>;
 }

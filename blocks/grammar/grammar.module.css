@@ -1,5 +1,10 @@
-.grammar {
+.wrap {
     background: #fff;
+    overflow-x: auto;
+}
+
+.grammar {
+    padding-bottom: 40px;
 }
 
 .grammar :global {
@@ -12,7 +17,7 @@
     }
 
     .grammar-item, .grammar-description {
-        font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 14px;
         line-height: 20px;
     }
@@ -35,55 +40,44 @@
     .grammar-comment :is(.grammar-string, .grammar-symbol) {
         margin-inline-end: 7px;
     }
+
+    .grammar-comment {
+        margin-block-end: 15px;
+    }
 }
 
-.grammar :global {
-    dd, dl, li, menu, ol, ul {
-        margin: 0;
-        padding: 0;
+.link, .grammar :global(.grammar-identifier-name) {
+    line-height: 1.60;
+}
+
+.grammar :global(.grammar-comment ) :global {
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border-color: gray;
+        margin-bottom: 30px;
     }
 
-    ol, ul {
-        margin-bottom: 15px;
-        margin-left: 30px;
+    table thead {
+        background-color: #f7f7f7;
+        border-bottom-width: 2px;
     }
 
-    ul > li {
-        margin-bottom: 7.5px;
-        list-style: none;
-
-        &:before {
-            position: absolute;
-            margin-top: -1px;
-            margin-left: -20px;
-            color: #666;
-            content: "—";
-        }
+    table tr {
+        border-bottom: 1px solid #dcdcdc;
     }
 
-    p {
-        margin-bottom: 15px;
+    table td:first-child, table th:first-child {
+        padding-left: 12px;
     }
 
-    ol, p, ul {
-        line-height: 24px;
+    table td, table th {
+        padding: 6px 10px;
+        vertical-align: top;
     }
 
-    h3, h4, h5 {
-        margin-top: 30px;
-        margin-bottom: 15px;
-        font-family: "Open Sans", Helvetica, Arial, sans-serif;
-        font-size: 19px;
-        font-weight: 400;
-        line-height: 22px;
-    }
-
-    a {
-        color: #497bb7;
-        text-decoration: underline
-    }
-
-    a:hover {
-        color: #f47810
+    table th {
+        text-align: left;
+        font-weight: 700;
     }
 }
