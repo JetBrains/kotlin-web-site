@@ -1113,18 +1113,14 @@ The data files are stored in the `data/` directory at the project root. These fi
 
 1. **Configuration Files**:
    - `releases.yml` - Information about Kotlin releases, including the latest version
-   - `_nav.yml` - Navigation structure for the website
    - `release-banner.yml` - Configuration for release announcement banners
 
 2. **Content Files**:
    - `events.yml` - List of Kotlin community events with details like dates, locations, and speakers
    - `universities.yml` - List of universities teaching Kotlin, with courses and geographical information
    - `user-groups.yml` - List of Kotlin User Groups worldwide with contact information
-   - `videos.yml` - Collection of Kotlin-related videos
-   - `testimonials.yml` - User testimonials about Kotlin
 
 3. **API Data**:
-   - `cities.json` - Geographical data for cities
    - `kotlinconf.yml` - Information about KotlinConf events
    - `api.yml` - API-related configuration
 
@@ -1153,9 +1149,6 @@ The data files are used throughout the website for various purposes:
 
 1. **Flask Routes**:
    - The `/education/` route uses university data to display the number of universities and countries
-   - The `/data/universities.json` endpoint serves university data as JSON
-   - The `/data/cities.json` endpoint serves city data as JSON
-   - The `/data/kotlinconf.json` endpoint serves KotlinConf data as JSON
 
 2. **Jinja2 Templates**:
    - Templates access data through the `data` variable in the template context
