@@ -5,7 +5,7 @@ import cn from 'classnames';
 import styles from './case-studies-card.module.css';
 import { CaseItem } from '../case-studies';
 import { PlatformIcon } from '../platform-icon/platform-icon';
-import { mdToHtml } from '../../../utils/mdToHtml';
+import { Markdown } from '../../../utils/mdToHtml';
 import { Theme, ThemeProvider, useThemeWithUndefined } from '@rescui/ui-contexts';
 
 function reverse(theme: Theme): Theme {
@@ -52,23 +52,22 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...i
                     </div>
                 }
 
-                {item.description &&
-                    <div
-                        className={cn(styles.description)}
-                        dangerouslySetInnerHTML={{ __html: mdToHtml(item.description) }}
-                        data-testid="case-studies-card-description"
-                    />}
+                {item.description && <Markdown
+                    className={cn(styles.description)}
+                    data-testid="case-studies-card-description"
+                >{item.description}</Markdown>}
 
                 {item.signature &&
                     <div>
                         <strong className={styles.name}>{item.signature.name}</strong>
-                        <div className={cn(styles.position, textCn('rs-text-2', {hardness: 'average'}))}>{item.signature.position}</div>
+                        <div
+                            className={cn(styles.position, textCn('rs-text-2', { hardness: 'average' }))}>{item.signature.position}</div>
                     </div>
                 }
 
                 {item.link &&
                     <a
-                        className={cn(styles.link, textCn('rs-link', {external: true}))}
+                        className={cn(styles.link, textCn('rs-link', { external: true }))}
                         href={item.link}
                     >
                         {item.linkText || 'Read the full story'}

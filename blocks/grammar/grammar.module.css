@@ -1,0 +1,36 @@
+.grammar {
+    background: #fff;
+}
+
+.grammar :global(.grammar-string) {
+    color: #009c00;
+}
+
+.grammar :global(.grammar-items-set) {
+    margin-bottom: 40px;
+}
+
+.grammar :global(.grammar-item, .grammar-description) {
+    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.grammar :global(.grammar-item) {
+    margin-bottom: 20px;
+}
+
+.grammar :global(.grammar-declaration-name) {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.grammar :global(.grammar-declaration-usedby) {
+    display: inline-block;
+    color: #999;
+}
+
+.grammar :global(.grammar-comment :is(.grammar-string, .grammar-symbol)) {
+    margin-inline-end: 7px;
+}
