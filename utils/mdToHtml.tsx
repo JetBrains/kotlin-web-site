@@ -1,8 +1,8 @@
 import { ComponentProps } from 'react';
 import MD2Markdown from 'markdown-to-jsx';
 
-type Props = ComponentProps<typeof MD2Markdown>;
+export type MarkdownProps = ComponentProps<typeof MD2Markdown>;
 
-export function Markdown(props: Props) {
+export function Markdown(props: MarkdownProps) {
     return <MD2Markdown {...props} />;
 }

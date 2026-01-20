@@ -1,5 +1,6 @@
+import { extendedMarkdown, GrammarMarkdown } from './markdown';
+
 import styles from './grammar.module.css';
-import { Markdown } from '../../utils/mdToHtml';
 
 import {
     GrammarAnnotationType,
@@ -13,10 +14,13 @@ import {
     GrammarUsagesType,
     GrammarXMLType
 } from './entities';
+import { ReactNode } from 'react';
 
 /**
  * Main Grammar component that renders the grammar documentation page.
  * Displays a formatted view of grammar rules parsed from XML data.
+ *
+ * @param data - Array of grammar tokens representing the complete grammar structure
  */
 export function Grammar({ data }: { data: GrammarXMLType }) {
     return <div className={styles.grammar}>
@@ -46,14 +50,14 @@ function GrammarToken({ data }: { data: GrammarTokenType | GrammarTokenType[] })
     if ('declaration' in data) return <GrammarDeclaration data={data} />;
     if ('description' in data) return <GrammarDescription data={data} />;
     if ('usages' in data) return <GrammarUsages data={data} />;
-    if ('#text' in data) return <GrammarMarkdown data={data['#text']} />;
+    if ('#text' in data) return <GrammarText data={data['#text']} />;
 
     return null;
 }
 
 /** Renders plain text content as Markdown. */
-function GrammarMarkdown({ data }: { data: string }) {
-    return <Markdown>{data}</Markdown>;
+function GrammarText({ data }: { data: string }) {
+    return <GrammarMarkdown>{data}</GrammarMarkdown>;
 }
 
 /**
@@ -82,7 +86,7 @@ function GrammarItem({ data }: { data: GrammarItemType }) {
 
 /** Renders annotations that provide metadata or additional information about grammar rules. */
 function GrammarAnnotate({ data }: { data: GrammarAnnotationType }) {
-    return <div className={'grammar-annotation'}><Markdown>{text(data.annotation)}</Markdown></div>;
+    return <div className={'grammar-annotation'}><GrammarMarkdown>{text(data.annotation)}</GrammarMarkdown></div>;
 }
 
 /**
@@ -113,7 +117,7 @@ function GrammarDescription({ data }: { data: GrammarDescriptionType }) {
             // Other text content
             if ('other' in token) {
                 return token.other.map((part) => <span className={'grammar-other'}>
-                    <Markdown>{part['#text']}</Markdown>
+                    <GrammarMarkdown>{part['#text']}</GrammarMarkdown>
                 </span>);
             }
             return null;
@@ -151,16 +155,10 @@ function GrammarUsages({ data }: { data: GrammarUsagesType }) {
     return <div className={'grammar-declaration-usedby'}>{'\u00A0'}(used by {used})</div>;
 }
 
-/**
- * Utility function to extract and format text content from grammar text tokens.
- * Handles conversion of HTML entity &nbsp; to Unicode non-breaking space.
- *
- * @param token - Array containing a single text token
- * @returns Formatted text with proper non-breaking spaces
- */
-function text(token: GrammarTextType[]) {
+function text(token: GrammarTextType[]): ReactNode {
     return <>{(token[0]['#text'] || '').split('&nbsp;').map((part, index, list) => <>
-        {part}
+        {extendedMarkdown(part)}
+        {/* Convert &nbsp; entities to actual non-breaking space characters */}
         {index < list.length - 1 && '\u00A0'}
     </>)}</>;
 }

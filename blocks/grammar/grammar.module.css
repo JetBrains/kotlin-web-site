@@ -2,35 +2,88 @@
     background: #fff;
 }
 
-.grammar :global(.grammar-string) {
-    color: #009c00;
+.grammar :global {
+    .grammar-string {
+        color: #009c00;
+    }
+
+    .grammar-items-set {
+        margin-bottom: 40px;
+    }
+
+    .grammar-item, .grammar-description {
+        font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .grammar-item {
+        margin-bottom: 20px;
+    }
+
+    .grammar-declaration-name {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .grammar-declaration-usedby {
+        display: inline-block;
+        color: #999;
+    }
+
+    .grammar-comment :is(.grammar-string, .grammar-symbol) {
+        margin-inline-end: 7px;
+    }
 }
 
-.grammar :global(.grammar-items-set) {
-    margin-bottom: 40px;
-}
+.grammar :global {
+    dd, dl, li, menu, ol, ul {
+        margin: 0;
+        padding: 0;
+    }
 
-.grammar :global(.grammar-item, .grammar-description) {
-    font-family: "Liberation Mono", Consolas, Menlo, Courier, monospace;
-    font-size: 14px;
-    line-height: 20px;
-}
+    ol, ul {
+        margin-bottom: 15px;
+        margin-left: 30px;
+    }
 
-.grammar :global(.grammar-item) {
-    margin-bottom: 20px;
-}
+    ul > li {
+        margin-bottom: 7.5px;
+        list-style: none;
 
-.grammar :global(.grammar-declaration-name) {
-    display: inline-block;
-    font-size: 16px;
-    font-weight: 700;
-}
+        &:before {
+            position: absolute;
+            margin-top: -1px;
+            margin-left: -20px;
+            color: #666;
+            content: "—";
+        }
+    }
 
-.grammar :global(.grammar-declaration-usedby) {
-    display: inline-block;
-    color: #999;
-}
+    p {
+        margin-bottom: 15px;
+    }
 
-.grammar :global(.grammar-comment :is(.grammar-string, .grammar-symbol)) {
-    margin-inline-end: 7px;
+    ol, p, ul {
+        line-height: 24px;
+    }
+
+    h3, h4, h5 {
+        margin-top: 30px;
+        margin-bottom: 15px;
+        font-family: "Open Sans", Helvetica, Arial, sans-serif;
+        font-size: 19px;
+        font-weight: 400;
+        line-height: 22px;
+    }
+
+    a {
+        color: #497bb7;
+        text-decoration: underline
+    }
+
+    a:hover {
+        color: #f47810
+    }
 }
