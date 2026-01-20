@@ -114,7 +114,6 @@
     "typescript": "4.6.3",
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "^4.3.1",
-    "yaml": "2.8.2",
     "yaml-loader": "0.7.0"
   },
   "resolutions": {
@@ -125,9 +124,8 @@
     "build:production": "NODE_ENV=production webpack  --mode production",
     "postinstall": "cd node_modules/codemirror && rollup -c",
     "start": "webpack serve",
-    "next-dev": "yarn generate-data & next dev",
-    "next-build-static": "yarn generate-data & next build",
-    "generate-data": "node ./scripts/generate-data.js",
+    "next-dev": "next dev",
+    "next-build-static": "next build",
     "lint": "next lint",
     "test": "playwright test test",
     "test:production": "playwright test test/production",
