@@ -62,3 +62,6 @@
 
 - from: /docs/api
   to: /docs/api-references.html
+
+- from: /docs/reference/grammar.html
+  to: /docs/reference/grammar/
