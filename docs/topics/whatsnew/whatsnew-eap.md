@@ -18,8 +18,9 @@ The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP 
 The Kotlin %kotlinEapVersion% release is out!
 
 ## New stable features
+<primary-label ref="stable"/>
 
-The following features are Stable in this release.
+The following features are [Stable](components-stability.md#stability-levels-explained) in this release.
 
 ### Support for `io.vertx.codegen.annotations.Nullable` annotation
 <secondary-label ref="jvm"/>
@@ -34,8 +35,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 aliqua.
 
 ## New experimental features
+<primary-label ref="experimental-exp"/>
 
-The following features are Experimental in this release.
+The following pre-stable features are available in this release. This includes features with [Beta](components-stability.md#stability-levels-explained), [Alpha](components-stability.md#stability-levels-explained), and [Experimental](components-stability.md#stability-levels-explained) status.
 
 ### New interop mode for klibs
 <secondary-label ref="native"/>
