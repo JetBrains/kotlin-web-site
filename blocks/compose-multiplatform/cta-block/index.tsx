@@ -17,7 +17,7 @@ const CtaBlock = () => {
                 </p>
 
                 <Button
-                    href="/docs/multiplatform/compose-multiplatform-getting-started.html"
+                    href="/docs/multiplatform/compose-multiplatform-create-first-app.html"
                     size="l"
                     mode="rock"
                     className={styles.button}
