@@ -1,4 +1,4 @@
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useEffect } from 'react';
 import { useTextStyles } from '@rescui/typography';
 
 import { extendedMarkdown, GrammarMarkdown, LinkComponent } from './markdown';
@@ -28,6 +28,28 @@ export type GrammarXML = GrammarXMLType;
  */
 export function Grammar({ data }: { data: GrammarXMLType }) {
     const textCn = useTextStyles();
+
+    useEffect(() => {
+        function onChange() {
+            const id = window.location.hash.replace(/^#/g, '');
+
+            if (id && document) {
+                const el = document.getElementById(id);
+
+                if (!el) return;
+
+                window.scrollTo({
+                    top: el.getBoundingClientRect().top + window.scrollY - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        window.addEventListener('hashchange', onChange);
+
+        return () => window.removeEventListener('hashchange', onChange);
+    }, []);
+
     return <div className={styles.wrap}>
         <div className={`ktl-layout-v2 ktl-layout--center ${styles.grammar}`}>
             <h1 id="grammar" className={textCn('rs-h1')}>Grammar</h1>
