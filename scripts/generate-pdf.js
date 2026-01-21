@@ -21,6 +21,7 @@ const rootFolder = path.join(__dirname, '..');
 const pdfFolder = path.join(rootFolder, 'pdf');
 const pdfSourcePath = path.join(rootFolder, 'dist', 'docs');
 const dataFolder = path.join(rootFolder, 'data');
+const assetsFolder = path.join(rootFolder, 'assets');
 
 /**
  * Load site data from YAML files
@@ -77,8 +78,13 @@ async function generatePDF(outputName, data) {
   console.log('Starting PDF generation (Step 2)...');
 
   const sourceFilePath = path.join(pdfSourcePath, 'pdf.html');
-  const outputFilePath = path.join(pdfFolder, outputName);
+  const outputFilePath = path.join(assetsFolder, outputName);
   const coverPath = path.join(pdfFolder, 'book-cover.html');
+
+  // Ensure assets folder exists
+  if (!fs.existsSync(assetsFolder)) {
+    fs.mkdirSync(assetsFolder, { recursive: true });
+  }
 
   // Check if source file exists (should be created by Step 1)
   if (!fs.existsSync(sourceFilePath)) {
@@ -192,7 +198,7 @@ ${webhelpCss}
 async function main() {
   try {
     const siteData = loadSiteData();
-    await generatePDF('kotlin-docs.pdf', siteData);
+    await generatePDF('kotlin-reference.pdf', siteData);
     console.log('PDF generation completed successfully!');
   } catch (error) {
     console.error('Error generating PDF:', error);
