@@ -3,7 +3,6 @@ package templates
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.Template
 import jetbrains.buildServer.configs.kotlin.buildFeatures.dockerRegistryConnections
-import kotlinlang.builds.BuildKotlinGrammar
 import kotlinlang.builds.BuildPythonContainer
 
 object DockerImageBuilder : Template({
@@ -31,17 +30,6 @@ object DockerImageBuilder : Template({
     snapshot(BuildPythonContainer) {
       onDependencyFailure = FailureAction.FAIL_TO_START
       onDependencyCancel = FailureAction.CANCEL
-    }
-
-    dependency(BuildKotlinGrammar) {
-      snapshot {
-        onDependencyFailure = FailureAction.FAIL_TO_START
-        onDependencyCancel = FailureAction.CANCEL
-      }
-
-      artifacts {
-        artifactRules = "grammar.xml"
-      }
     }
   }
 })
