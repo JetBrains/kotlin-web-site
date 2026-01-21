@@ -1,0 +1,26 @@
+/* Page setup for Vivliostyle PDF generation */
+@page {
+  size: A4;
+  margin: 1in 0.7in 0.8in 0.7in;
+
+  /* Page number in footer */
+  @bottom-center {
+    content: counter(page);
+    font-size: 9px;
+  }
+}
+
+/* First page (cover) has no page number */
+@page:first {
+  @bottom-center {
+    content: none;
+  }
+}
+
+.cover-page {
+  page-break-after: always;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
