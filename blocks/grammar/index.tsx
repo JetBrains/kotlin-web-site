@@ -50,9 +50,9 @@ export function Grammar({ data }: { data: GrammarXMLType }) {
         return () => window.removeEventListener('hashchange', onChange);
     }, []);
 
-    return <div className={styles.wrap}>
+    return <div className={styles.wrap} data-testid="grammar-page">
         <div className={`ktl-layout-v2 ktl-layout--center ${styles.grammar}`}>
-            <h1 id="grammar" className={textCn('rs-h1')}>Grammar</h1>
+            <h1 id="grammar" className={textCn('rs-h1')} data-testid="grammar-title">Grammar</h1>
             <GrammarToken data={data} />
         </div>
     </div>;
@@ -107,7 +107,7 @@ function GrammarDoc({ data }: { data: GrammarDocType }) {
 
 /** Renders a single grammar item (a complete grammar rule with all its parts). */
 function GrammarItem({ data }: { data: GrammarItemType }) {
-    return <div className={'grammar-item'}>
+    return <div className={'grammar-item'} data-testid="grammar-item">
         <GrammarToken data={data.item} />
     </div>;
 }
@@ -138,7 +138,7 @@ function GrammarDescription({ data }: { data: GrammarDescriptionType }) {
                 const name = token[':@']['@_name'];
                 return <LinkComponent
                     className={'grammar-identifier-name'} key={`i${index}`}
-                    href={`#${name}`}>{name}</LinkComponent>;
+                    href={`#${name}`} data-testid="grammar-identifier">{name}</LinkComponent>;
             }
             // Line breaks
             if ('crlf' in token) {
@@ -164,7 +164,7 @@ function GrammarDescription({ data }: { data: GrammarDescriptionType }) {
 function GrammarDeclaration({ data }: { data: GrammarDeclarationType }) {
     const name = data[':@']['@_name'];
 
-    return <div className={'grammar-declaration'}>
+    return <div className={'grammar-declaration'} data-testid="grammar-declaration">
         {/* Render the rule name as both visible text and a linkable anchor */}
         <div className={'grammar-declaration-name'} id={name}>{name}</div>
         <GrammarToken data={data.declaration} />
