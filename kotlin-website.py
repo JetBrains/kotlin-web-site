@@ -16,14 +16,10 @@ from flask.views import View
 from flask_frozen import Freezer, walk_directory
 
 from src.api import get_api_page
-from src.encoder import DateAwareEncoder
 from src.github import assert_valid_git_hub_url
-from src.grammar import get_grammar
 from src.ktl_components import KTLComponentExtension
-from src.markdown.makrdown import jinja_aware_markdown
 from src.pages.MyFlatPages import MyFlatPages
 from src.pdf import generate_pdf
-from src.processors.processors import process_code_blocks
 from src.processors.processors import set_replace_simple_code
 
 yaml = YAML(typ='rt')
@@ -170,15 +166,6 @@ def autoversion_filter(filename):
     original = urlparse(filename)._asdict()
     original.update(query=original.get('query') + '&v=' + asset_version)
     return ParseResult(**original).geturl()
-
-
-@app.route('/docs/reference/grammar.html')
-def grammar():
-    grammar = get_grammar(build_mode)
-    if grammar is None:
-        return "Grammar file not found", 404
-    return render_template('pages/grammar.html', kotlinGrammar=grammar)
-
 
 @app.route('/docs/kotlin-reference.pdf')
 def kotlin_reference_pdf():
