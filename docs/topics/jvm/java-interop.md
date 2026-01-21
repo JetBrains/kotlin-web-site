@@ -199,12 +199,12 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
 
   * [JetBrains](https://www.jetbrains.com/idea/help/nullable-and-notnull-annotations.html)
 (`@Nullable` and `@NotNull` from the `org.jetbrains.annotations` package)
-  * [JSpecify](https://jspecify.dev/) (`org.jspecify.annotations`)
+  * [JSpecify](#jspecify-support) (`org.jspecify.annotations`)
   * Android (`com.android.annotations` and `android.support.annotations`)
-  * JSR-305 (`javax.annotation`, more details below)
+  * [JSR-305](#jsr-305-support) (`javax.annotation`)
   * FindBugs (`edu.umd.cs.findbugs.annotations`)
   * Eclipse (`org.eclipse.jdt.annotation`)
-  * Lombok (`lombok.NonNull`)
+  * [Lombok](lombok.md) (`lombok.NonNull`)
   * RxJava 3 (`io.reactivex.rxjava3.annotations`)
 
 You can specify whether the compiler reports a nullability mismatch based on the information from specific types of 
@@ -311,6 +311,59 @@ nullability annotations support the `TYPE_USE` target (`org.jetbrains.annotation
 > signature `@Nullable String[] f()` becomes `fun f(): Array<String?>!` in Kotlin.
 >
 {style="note"}
+
+### JSpecify support
+
+Kotlin supports the [JSpecify](https://jspecify.dev/) nullability annotations, which provide a unified set of annotations
+for Java nullness. JSpecify allows you to provide detailed nullability information for Java declarations,
+helping Kotlin maintain null-safety when interoperating with Java code.
+
+Kotlin supports the following annotations in the `org.jspecify.annotations` package:
+
+* `@Nullable` marks a type as nullable.
+* `@NonNull` marks a type as non-nullable.
+* `@NullMarked` marks all types within a scope, for example a class or package, as non-nullable by default unless annotated
+  otherwise.
+
+Consider the following Java class with JSpecify annotations:
+ 
+```java
+// Java
+import org.jspecify.annotations.*;
+
+@NullMarked
+public class InventoryService {
+    public String notNull() { return ""; }
+    @Nullable public String nullable() { return null; }
+}
+```
+ 
+In Kotlin, these are treated as regular nullable and non-nullable types rather than [platform types](#null-safety-and-platform-types):
+ 
+```kotlin
+// Kotlin
+fun test(inventory: InventoryService) {
+   inventory.notNull().length // OK
+   inventory.nullable().length // Error: only safe (?.) or non-null asserted (!!.) calls are allowed
+}
+```
+
+By default, the Kotlin compiler reports nullability mismatches for JSpecify annotations as errors.
+You can customize this the severity of JSpecify nullability diagnostics using the following compiler option:
+
+```properties
+-Xnullability-annotations=@org.jspecify.annotations:<report-level>
+```
+
+Available report levels are:
+
+| Level    | Description                                          |
+|----------|------------------------------------------------------|
+| `strict` | Reports errors for nullability mismatches (default). |
+| `warn`   | Reports warnings.                                    |
+| `ignore` | Ignores nullability mismatches.                      |
+
+For more information, see the [JSpecify user guide](https://jspecify.dev/docs/user-guide).
 
 ### JSR-305 support
 
