@@ -75,7 +75,7 @@ Vivliostyle CLI is invoked with:
 
 ## Output
 
-The final PDF is generated at: **`pdf/kotlin-docs.pdf`**
+The final PDF is generated at: **`assets/kotlin-reference.pdf`**
 
 ## Requirements
 
