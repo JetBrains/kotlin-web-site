@@ -669,6 +669,12 @@
     position:
       lat: 12.879721
       lng: 121.774017
+  - name: Prayagraj KUG
+    country: India
+    url: https://www.instagram.com/kug_prayagraj?igsh=eTQ2Y3YxeHd6M2hk
+    position:
+      lat: 25.42012
+      lng: 81.88385
   - name: Pune KUG
     country: India
     url: https://www.facebook.com/groups/punekotlin
