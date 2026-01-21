@@ -653,7 +653,7 @@ items:
       - /images/case-studies/kotlin-multiplatform.svg
       - /images/case-studies/compose-multiplatform.svg
     description: >-
-      # How teams use Kotlin Multiplatform in&nbsp;production
+      ## How teams use Kotlin Multiplatform in&nbsp;production
 
       Kotlin Multiplatform is used by over 20,000 companies worldwide, including industry leaders across various sectors such as finance, e-commerce, social media, and more.
     linkText: Explore the stories
