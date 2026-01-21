@@ -366,40 +366,6 @@ class RedirectTemplateView(View):
         return render_template('redirect.html', url=self.redirect_url)
 
 
-def generate_redirect_pages():
-    redirects_folder = path.join(root_folder, 'redirects')
-    for root, dirs, files in os.walk(redirects_folder):
-        for file in files:
-            if not file.endswith(".yml"):
-                continue
-
-            redirects_file_path = path.join(redirects_folder, file)
-
-            with open(redirects_file_path, encoding="UTF-8") as stream:
-                try:
-                    redirects = yaml.load(stream)
-
-                    for entry in redirects:
-                        url_to = entry["to"]
-                        url_from = entry["from"]
-                        url_list = url_from if isinstance(url_from, list) else [url_from]
-
-                        for url in url_list:
-                            if file == 'api.yml' and path.isfile(path.join(root_folder, url[1:])):
-                                print("The file " + url + " is already exist.")
-                            else:
-                                app.add_url_rule(url, view_func=RedirectTemplateView.as_view(url, url=url_to))
-
-                except YAMLError as exc:
-                    sys.stderr.write('Cant parse data file ' + file + ': ')
-                    sys.stderr.write(str(exc))
-                    sys.exit(-1)
-                except IOError as exc:
-                    sys.stderr.write('Cant read data file ' + file + ': ')
-                    sys.stderr.write(str(exc))
-                    sys.exit(-1)
-
-
 @app.errorhandler(404)
 def page_not_found(e):
     return send_file(path.join(root_folder, 'out', '404.html')), 404
@@ -464,9 +430,6 @@ def get_index_page(page_path):
     if not page_path.endswith('/'):
         page_path += '/'
     return process_page(page_path + 'index')
-
-
-generate_redirect_pages()
 
 
 @app.after_request
