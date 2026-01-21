@@ -206,6 +206,7 @@ def community_user_groups_page():
 def education_page():
     return render_template(
         'pages/education/index.html',
+        headerCurrentUrl='/education/',
         universities_count=len(site_data['universities']),
         countries_count=get_countries_size()
     )
@@ -213,12 +214,18 @@ def education_page():
 
 @app.route('/education/why-teach-kotlin.html')
 def why_teach_page():
-    return render_template('pages/education/why-teach-kotlin.html')
+    return render_template(
+        'pages/education/why-teach-kotlin.html',
+        headerCurrentUrl='/education/',
+   )
 
 
 @app.route('/education/courses.html')
 def education_courses():
-    return render_template('pages/education/courses.html', universities_data=get_education_courses())
+    return render_template(
+        'pages/education/courses.html', universities_data=get_education_courses(),
+        headerCurrentUrl='/education/',
+    )
 
 
 @app.route('/')
