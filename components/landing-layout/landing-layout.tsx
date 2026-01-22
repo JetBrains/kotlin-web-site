@@ -32,10 +32,10 @@ export type LandingLayoutProps = {
     children: React.ReactNode;
     dataTestId?: string;
     canonical?: string;
+    theme?: 'dark' | 'light';
 } & NavigationProps;
 
-export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, description, children, dataTestId, canonical, ...navigationProps }) => {
-    const theme = 'dark';
+export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, description, children, dataTestId, canonical, theme = 'dark', ...navigationProps }) => {
     const router = useRouter();
     const pathname = addTrailingSlash(router.pathname);
 
@@ -115,7 +115,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
                     </div>
                 </StickyHeader>
 
-                <div className={styles.contentWrapper} data-testid={dataTestId}>
+                <div className={`${styles.contentWrapper} ${theme === 'light' ? styles.contentWrapperLight : ''}`} data-testid={dataTestId}>
                     {children}
                 </div>
 

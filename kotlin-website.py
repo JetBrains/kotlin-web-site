@@ -16,10 +16,14 @@ from flask.views import View
 from flask_frozen import Freezer, walk_directory
 
 from src.api import get_api_page
+from src.encoder import DateAwareEncoder
 from src.github import assert_valid_git_hub_url
+from src.grammar import get_grammar
 from src.ktl_components import KTLComponentExtension
+from src.markdown.makrdown import jinja_aware_markdown
 from src.pages.MyFlatPages import MyFlatPages
 from src.pdf import generate_pdf
+from src.processors.processors import process_code_blocks
 from src.processors.processors import set_replace_simple_code
 
 yaml = YAML(typ='rt')
@@ -204,28 +208,17 @@ def community_user_groups_page():
 
 @app.route('/education/')
 def education_page():
-    return render_template(
-        'pages/education/index.html',
-        headerCurrentUrl='/education/',
-        universities_count=len(site_data['universities']),
-        countries_count=get_countries_size()
-    )
+    return send_file(path.join(root_folder, 'out', 'education/index.html'))
 
 
-@app.route('/education/why-teach-kotlin.html')
+@app.route('/education/why-teach-kotlin/')
 def why_teach_page():
-    return render_template(
-        'pages/education/why-teach-kotlin.html',
-        headerCurrentUrl='/education/',
-   )
+    return send_file(path.join(root_folder, 'out', 'education/why-teach-kotlin/index.html'))
 
 
-@app.route('/education/courses.html')
+@app.route('/education/courses/')
 def education_courses():
-    return render_template(
-        'pages/education/courses.html', universities_data=get_education_courses(),
-        headerCurrentUrl='/education/',
-    )
+    return send_file(path.join(root_folder, 'out', 'education/courses/index.html'))
 
 
 @app.route('/')

@@ -1,0 +1,102 @@
+.wrapper {
+    padding: 0;
+    font-family: var(--ktl-font-family-inter);
+}
+
+/* Grid layout */
+.gridNav {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .grid {
+        display: flex;
+    }
+
+    .gridContent {
+        max-width: 70%;
+    }
+
+    .gridNav {
+        display: block;
+        margin-left: 96px;
+    }
+}
+
+/* Navigation */
+.nav {
+    position: sticky;
+    top: 96px;
+}
+
+.navItem:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.navLink:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Quote sections */
+.quoteSectionInfo {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .quoteSectionGrid {
+        display: flex;
+    }
+
+    .quoteSectionContent {
+        max-width: 70%;
+    }
+
+    .quoteSectionInfo {
+        display: block;
+        margin-left: 32px;
+    }
+}
+
+/* Links */
+.link {
+    text-decoration: none;
+    color: rgba(39, 40, 44, 0.5);
+    transition: color 0.3s;
+}
+
+.link:hover {
+    text-decoration: none;
+    color: rgba(39, 40, 44, 1);
+}
+
+.link .rs-link {
+    --rs-link-color: rgba(39, 40, 44, 0.5);
+    --rs-underline-color: rgba(39, 40, 44, 0.5);
+}
+
+.link:hover .rs-link {
+    --rs-link-color: rgba(39, 40, 44, 1);
+    --rs-underline-color: rgba(39, 40, 44, 1);
+}
+
+/* CTA buttons */
+.ctaButtons {
+    display: grid;
+    grid-template-areas: "a a";
+    grid-auto-columns: min-content;
+    grid-gap: 16px;
+}
+
+@media (max-width: 768px) {
+    .ctaButtons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ctaButtons > button,
+    .ctaButtons > a {
+        font-size: 16px;
+        padding: 8px 24px;
+    }
+}

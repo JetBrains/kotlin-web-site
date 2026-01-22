@@ -1,0 +1,50 @@
+.linksBlock {
+    margin-top: 32px;
+}
+
+.list li {
+    margin-bottom: 8px;
+}
+
+.buttonWrap {
+    margin-top: 32px;
+    display: flex;
+    justify-content: stretch;
+}
+
+@media (max-width: 767px) {
+    .button {
+        font-size: 16px;
+        padding: 8px 24px;
+    }
+}
+
+@media (min-width: 768px) {
+    .listLarge {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1000px) {
+    .launchCourse {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "content content content"
+            "column1 column1 column3";
+        border-bottom: 1px solid #d4d4d5;
+        padding-bottom: 48px;
+    }
+
+    .text {
+        grid-area: content;
+    }
+
+    .linksBlockFirst {
+        grid-area: column1;
+    }
+
+    .linksBlockSecond {
+        grid-area: column3;
+    }
+}
