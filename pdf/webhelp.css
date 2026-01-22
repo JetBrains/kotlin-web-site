@@ -375,27 +375,6 @@ figure img {
     height: auto !important;
     width: auto !important;
 }
-
-/* Title labels (EAP, Beta, etc.) */
-.title__label {
-    position: relative;
-    width: 100%;
-    line-height: 0;
-}
-
-.title__label--related-h1 {
-    margin-bottom: 16px;
-}
-
-.title__label--related-h2 {
-    margin-bottom: 12px;
-}
-
-.title__label--related-h3,
-.title__label--related-h4 {
-    margin-bottom: 8px;
-}
-
 .sub-title__labels {
     display: inline-flex;
     flex-wrap: wrap;
@@ -412,7 +391,7 @@ figure img {
     color: #fff;
     background-color: #6b57ff;
     font-family: 'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 20px;
     font-weight: 400;
 }
@@ -505,4 +484,28 @@ figure img {
 .label__content--color-green.label__content--mode-pale {
     color: #4dbb5f;
     background-color: rgba(77, 187, 95, 0.2);
+}
+
+.annotation, .control, .field, .filename, .keyword, .menupath, .property, .string, .value {
+    color: #19191c;
+    font-weight: 610;
+}
+
+.code {
+    box-sizing: border-box;
+    font-family: JetBrains Mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+    font-size: 90%;
+    border-radius: 4px;
+    display: inline;
+    padding: 2px 6px;
+    border-radius: 3px;
+    word-break: break-word;
+    color: #19191c;
+    background-color: rgba(25, 25, 28, .05);
+    line-height: inherit;
+    font-variant-ligatures: none;
+}
+
+.article .emphasis, .article__em, .article__i {
+    font-style: italic;
 }
