@@ -9,6 +9,7 @@ interface Course {
 }
 
 interface University {
+    id: string;
     title: string;
     location: string;
     courses: Course[];
@@ -28,7 +29,7 @@ export const CoursesList: FC<CoursesListProps> = ({ universities }) => {
                 <div className={cn(styles.cell, styles.cellThird, textCn('rs-h4',))}>Teaching Kotlin</div>
             </div>
             {universities.map((university) => (
-                <div className={styles.item} key={`${university.title}-${university.location}`}>
+                <div className={styles.item} key={university.id}>
                     <div className={cn(styles.cell, styles.cellFirst, textCn('rs-text-2', { hardness: 'hard' }))}>{university.title}</div>
                     <div className={cn(styles.cell, styles.cellSecond, textCn('rs-text-2', { hardness: 'hard' }))}>{university.location}</div>
                     <div className={cn(styles.cell, styles.cellThird, textCn('rs-text-2', { hardness: 'hard' }))}>

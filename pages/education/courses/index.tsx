@@ -53,7 +53,7 @@ function CoursesPage() {
                     {activeIndex === 1 ? (
                         <TeachMap universities={universities} />
                     ) : (
-                        <CoursesList universities={universitiesData || []} />
+                        <CoursesList universities={universities} />
                     )}
                 </div>
             </section>
