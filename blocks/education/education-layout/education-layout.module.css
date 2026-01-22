@@ -1,0 +1,25 @@
+.wrapper {
+    padding: 0;
+    font-family: var(--ktl-font-family-inter);
+}
+
+/* CTA buttons */
+.ctaButtons {
+    display: grid;
+    grid-template-areas: "a a";
+    grid-auto-columns: min-content;
+    grid-gap: 16px;
+}
+
+@media (max-width: 768px) {
+    .ctaButtons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ctaButtons > button,
+    .ctaButtons > a {
+        font-size: 16px;
+        padding: 8px 24px;
+    }
+}

@@ -1,14 +1,10 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { TabList, Tab } from '@rescui/tab-list';
 import { useTextStyles } from '@rescui/typography';
-import Button from '@rescui/button';
-import { SlackIcon } from '@rescui/icons';
-import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
 
-import { LandingLayout } from '../../../components/landing-layout/landing-layout';
+import { EducationLayout } from '../../../blocks/education/education-layout/education-layout';
 import { CoursesList } from '../../../blocks/education/courses-list';
 import { TeachMap, University } from '../../../blocks/education/teach-map';
-import { EDUCATION_MENU_ITEMS } from '../../../blocks/education/menu-config';
 
 import styles from './index.module.css';
 
@@ -42,68 +38,26 @@ function CoursesPage() {
     }, [universitiesData]);
 
     return (
-        <LandingLayout
-            title="List of Courses"
-            ogImageName="education.png"
-            theme="light"
-            topMenuItems={EDUCATION_MENU_ITEMS}
-            topMenuTitle="Teach"
-            topMenuHomeUrl="/education/"
-            currentUrl="/education/"
-            currentTitle="Teach"
-            topMenuButton={
-                <Button
-                    icon={<SlackIcon />}
-                    href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    Join Educators
-                </Button>
-            }
-        >
-            <div data-test="teach-courses">
-                <section className="ktl-layout ktl-layout--center">
-                    <h1 className={`${textCn('rs-h1')} ktl-offset-top-xl`}>Universities That Teach Kotlin</h1>
+        <EducationLayout title="List of Courses" dataTestId="teach-courses">
+            <section className="ktl-layout ktl-layout--center">
+                <h1 className={`${textCn('rs-h1')} ktl-offset-top-xl`}>Universities That Teach Kotlin</h1>
 
-                    <div className={`${styles.tabs} ktl-offset-top-m`}>
-                        <TabList short value={activeIndex} onChange={setActiveIndex}>
-                            <Tab>Table view</Tab>
-                            <Tab>Map view</Tab>
-                        </TabList>
-                    </div>
+                <div className={`${styles.tabs} ktl-offset-top-m`}>
+                    <TabList short value={activeIndex} onChange={setActiveIndex}>
+                        <Tab>Table view</Tab>
+                        <Tab>Map view</Tab>
+                    </TabList>
+                </div>
 
-                    <div className="ktl-offset-top-m">
-                        {activeIndex === 1 ? (
-                            <TeachMap universities={universities} />
-                        ) : (
-                            <CoursesList universities={universitiesData || []} />
-                        )}
-                    </div>
-                </section>
-            </div>
-
-            <CtaBlock
-                topTitle={'If you would like to introduce Kotlin into your classroom or have any questions about teaching or learning Kotlin'}
-                buttons={
-                    <div className={styles.ctaButtons}>
-                        <Button
-                            size="l"
-                            mode="rock"
-                            href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            Slack-channel&nbsp;&rarr;
-                        </Button>
-                        <Button size="l" mode="rock" href="mailto:education@kotlinlang.org">
-                            education@kotlinlang.org
-                        </Button>
-                    </div>
-                }
-                mainTitle={'Connect with us'}
-            />
-        </LandingLayout>
+                <div className="ktl-offset-top-m">
+                    {activeIndex === 1 ? (
+                        <TeachMap universities={universities} />
+                    ) : (
+                        <CoursesList universities={universitiesData || []} />
+                    )}
+                </div>
+            </section>
+        </EducationLayout>
     );
 }
 

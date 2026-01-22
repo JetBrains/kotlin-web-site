@@ -3,15 +3,13 @@ import { useTextStyles } from '@rescui/typography';
 import Button from '@rescui/button';
 import { SlackIcon } from '@rescui/icons';
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
-import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
 
-import { LandingLayout } from '../../components/landing-layout/landing-layout';
+import { EducationLayout } from '../../blocks/education/education-layout/education-layout';
 import { TeachNumbers } from '../../blocks/education/teach-numbers';
 import { TeachQuotes } from '../../blocks/education/teach-quotes';
 import { TeachMap, University } from '../../blocks/education/teach-map';
 import { TeachLaunchCourse } from '../../blocks/education/teach-launch-course';
 import { SubscriptionForm } from '../../blocks/education/subscription-form';
-import { EDUCATION_MENU_ITEMS } from '../../blocks/education/menu-config';
 
 import styles from './index.module.css';
 
@@ -55,27 +53,7 @@ function EducationPage() {
     }, [universitiesData]);
 
     return (
-        <LandingLayout
-            title="Kotlin for Education"
-            ogImageName="education.png"
-            theme="light"
-            topMenuItems={EDUCATION_MENU_ITEMS}
-            topMenuTitle="Teach"
-            topMenuHomeUrl="/education/"
-            currentUrl="/education/"
-            currentTitle="Teach"
-            topMenuButton={
-                <Button
-                    icon={<SlackIcon />}
-                    href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    Join Educators
-                </Button>
-            }
-        >
-            <div className={styles.wrapper} data-test="teach-index-page">
+        <EducationLayout title="Kotlin for Education" dataTestId="teach-index-page">
                 <section className="ktl-layout ktl-layout--center ktl-offset-top-xl">
                     <h1 className="ktl-hero ktl-offset-bottom-xxl">Teach Computer Science with&nbsp;Kotlin</h1>
 
@@ -567,29 +545,7 @@ function EducationPage() {
                         </div>
                     </div>
                 </section>
-            </div>
-
-            <CtaBlock
-                topTitle={'If you would like to introduce Kotlin into your classroom or have any questions about teaching or learning Kotlin'}
-                buttons={
-                    <div className={styles.ctaButtons}>
-                        <Button
-                            size="l"
-                            mode="rock"
-                            href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            Slack-channel&nbsp;&rarr;
-                        </Button>
-                        <Button size="l" mode="rock" href="mailto:education@kotlinlang.org">
-                            education@kotlinlang.org
-                        </Button>
-                    </div>
-                }
-                mainTitle={'Connect with us'}
-            />
-        </LandingLayout>
+        </EducationLayout>
     );
 }
 

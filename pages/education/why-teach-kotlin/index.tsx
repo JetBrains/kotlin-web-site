@@ -2,13 +2,9 @@ import React from 'react';
 import cn from 'classnames';
 import QuotesSlider from '@jetbrains/kotlin-web-site-ui/out/components/quotes-slider';
 import { useTextStyles } from '@rescui/typography';
-import Button from '@rescui/button';
-import { SlackIcon } from '@rescui/icons';
-import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
 
-import { LandingLayout } from '../../../components/landing-layout/landing-layout';
+import { EducationLayout } from '../../../blocks/education/education-layout/education-layout';
 import quotes from '../../../blocks/education/why-teach-quotes.json';
-import { EDUCATION_MENU_ITEMS } from '../../../blocks/education/menu-config';
 
 import styles from './index.module.css';
 
@@ -18,27 +14,7 @@ import '@jetbrains/kotlin-web-site-ui/out/components/grid';
 function WhyTeachKotlinPage() {
     const textCn = useTextStyles();
     return (
-        <LandingLayout
-            title="Why teach Kotlin"
-            ogImageName="education.png"
-            theme="light"
-            topMenuItems={EDUCATION_MENU_ITEMS}
-            topMenuTitle="Teach"
-            topMenuHomeUrl="/education/"
-            currentUrl="/education/"
-            currentTitle="Teach"
-            topMenuButton={
-                <Button
-                    icon={<SlackIcon />}
-                    href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    Join Educators
-                </Button>
-            }
-        >
-            <div className={styles.wrapper} data-test="teach-why-teach-page">
+        <EducationLayout title="Why teach Kotlin" dataTestId="teach-why-teach-page">
                 <div className="ktl-layout ktl-layout--center">
                     <div className={`${styles.grid} ktl-offset-top-xl`}>
                         <div className={styles.gridContent}>
@@ -448,29 +424,7 @@ function WhyTeachKotlinPage() {
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <CtaBlock
-                topTitle={'If you would like to introduce Kotlin into your classroom or have any questions about teaching or learning Kotlin'}
-                buttons={
-                    <div className={styles.ctaButtons}>
-                        <Button
-                            size="l"
-                            mode="rock"
-                            href="https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators"
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            Slack-channel&nbsp;&rarr;
-                        </Button>
-                        <Button size="l" mode="rock" href="mailto:education@kotlinlang.org">
-                            education@kotlinlang.org
-                        </Button>
-                    </div>
-                }
-                mainTitle={'Connect with us'}
-            />
-        </LandingLayout>
+        </EducationLayout>
     );
 }
 
