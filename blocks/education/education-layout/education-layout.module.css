@@ -1,6 +1,7 @@
 .wrapper {
     padding: 0;
     font-family: var(--ktl-font-family-inter);
+    margin-bottom: 72px;
 }
 
 /* CTA buttons */
