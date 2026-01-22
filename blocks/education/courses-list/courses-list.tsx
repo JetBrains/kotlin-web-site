@@ -23,9 +23,9 @@ export const CoursesList: FC<CoursesListProps> = ({ universities }) => {
     return (
         <div className={styles.list}>
             <div className={styles.header}>
-                <div className={cn(styles.cell, styles.cellFirst, textCn('rs-h4', { hardness: 'hard' }))}>University title</div>
-                <div className={cn(styles.cell, styles.cellSecond, textCn('rs-h4', { hardness: 'hard' }))}>Location</div>
-                <div className={cn(styles.cell, styles.cellThird, textCn('rs-h4', { hardness: 'hard' }))}>Teaching Kotlin</div>
+                <div className={cn(styles.cell, styles.cellFirst, textCn('rs-h4',))}>University title</div>
+                <div className={cn(styles.cell, styles.cellSecond, textCn('rs-h4',))}>Location</div>
+                <div className={cn(styles.cell, styles.cellThird, textCn('rs-h4',))}>Teaching Kotlin</div>
             </div>
             {universities.map((university) => (
                 <div className={styles.item} key={`${university.title}-${university.location}`}>
