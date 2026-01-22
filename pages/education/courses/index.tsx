@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { TabList, Tab } from '@rescui/tab-list';
+import { useTextStyles } from '@rescui/typography';
 import Button from '@rescui/button';
 import { SlackIcon } from '@rescui/icons';
 import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
@@ -27,6 +28,7 @@ interface UniversityData {
 }
 
 function CoursesPage() {
+    const textCn = useTextStyles();
     const [activeIndex, setActiveIndex] = useState(0);
     const [universitiesData, setUniversitiesData] = useState<UniversityData[] | null>(null);
 
@@ -67,7 +69,7 @@ function CoursesPage() {
         >
             <div data-test="teach-courses">
                 <section className="ktl-layout ktl-layout--center">
-                    <h1 className="ktl-h1 ktl-offset-top-xl">Universities That Teach Kotlin</h1>
+                    <h1 className={`${textCn('rs-h1')} ktl-offset-top-xl`}>Universities That Teach Kotlin</h1>
 
                     <div className={`${styles.tabs} ktl-offset-top-m`}>
                         <TabList short value={activeIndex} onChange={setActiveIndex}>

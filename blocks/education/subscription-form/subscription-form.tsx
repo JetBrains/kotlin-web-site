@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { privacy } from '@jetbrains/kotlin-web-site-ui/out/packages/data-services';
+import { useTextStyles } from '@rescui/typography';
 import '@jetbrains/kotlin-web-site-ui/out/components/typography';
 import {
     FormikInput,
@@ -28,6 +29,7 @@ const initialValues: FormValues = {
 };
 
 export const SubscriptionForm: FC = () => {
+    const textCn = useTextStyles();
     const [isSubmitted, setSubmitted] = useState(false);
 
     return (
@@ -53,7 +55,7 @@ export const SubscriptionForm: FC = () => {
                 <Form className={styles.form}>
                     <img src={typeof MailIcon === 'string' ? MailIcon : (MailIcon as SvgImport).src} className={styles.icon} alt="Subscribe form" />
 
-                    <div className={`${styles.text} ktl-h3`}>
+                    <div className={`${styles.text} ${textCn('rs-h3')}`}>
                         Subscribe to be the first to know about new resources, webinars, and educational initiatives.
                     </div>
 

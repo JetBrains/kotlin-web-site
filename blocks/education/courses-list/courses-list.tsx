@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useTextStyles } from '@rescui/typography';
 import styles from './courses-list.module.css';
 
 interface Course {
@@ -17,12 +18,13 @@ interface CoursesListProps {
 }
 
 export const CoursesList: FC<CoursesListProps> = ({ universities }) => {
+    const textCn = useTextStyles();
     return (
         <div className={styles.list}>
             <div className={styles.header}>
-                <div className={`${styles.cell} ${styles.cellFirst} ktl-h4`}>University title</div>
-                <div className={`${styles.cell} ${styles.cellSecond} ktl-h4`}>Location</div>
-                <div className={`${styles.cell} ${styles.cellThird} ktl-h4`}>Teaching Kotlin</div>
+                <div className={`${styles.cell} ${styles.cellFirst} ${textCn('rs-h4')}`}>University title</div>
+                <div className={`${styles.cell} ${styles.cellSecond} ${textCn('rs-h4')}`}>Location</div>
+                <div className={`${styles.cell} ${styles.cellThird} ${textCn('rs-h4')}`}>Teaching Kotlin</div>
             </div>
             {universities.map((university) => (
                 <div className={styles.item} key={`${university.title}-${university.location}`}>

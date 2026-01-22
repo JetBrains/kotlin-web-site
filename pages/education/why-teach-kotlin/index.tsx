@@ -1,5 +1,6 @@
 import React from 'react';
 import QuotesSlider from '@jetbrains/kotlin-web-site-ui/out/components/quotes-slider';
+import { useTextStyles } from '@rescui/typography';
 import Button from '@rescui/button';
 import { SlackIcon } from '@rescui/icons';
 import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
@@ -19,6 +20,7 @@ const TOP_MENU_ITEMS = [
 ];
 
 function WhyTeachKotlinPage() {
+    const textCn = useTextStyles();
     return (
         <LandingLayout
             title="Why teach Kotlin"
@@ -44,13 +46,13 @@ function WhyTeachKotlinPage() {
                 <div className="ktl-layout ktl-layout--center">
                     <div className={`${styles.grid} ktl-offset-top-xl`}>
                         <div className={styles.gridContent}>
-                            <h1 className="ktl-h1 ktl-offset-bottom-xl">Why Teach Kotlin</h1>
+                            <h1 className={`${textCn('rs-h1')} ktl-offset-bottom-xl`}>Why Teach Kotlin</h1>
 
                             <section
                                 className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
                                 id="academically-recognized"
                             >
-                                <h3 className="ktl-h3 ktl-offset-bottom-s">Academically recognized</h3>
+                                <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Academically recognized</h3>
 
                                 <div className={styles.quoteSectionGrid}>
                                     <div className={styles.quoteSectionContent}>
@@ -84,7 +86,7 @@ function WhyTeachKotlinPage() {
                                 className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
                                 id="language-of-the-industry"
                             >
-                                <h3 className="ktl-h3 ktl-offset-bottom-s">Language of the industry</h3>
+                                <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Language of the industry</h3>
 
                                 <div className={styles.quoteSectionGrid}>
                                     <div className={styles.quoteSectionContent}>
@@ -154,7 +156,7 @@ function WhyTeachKotlinPage() {
                                 className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
                                 id="multiplatform"
                             >
-                                <h3 className="ktl-h3 ktl-offset-bottom-s">Multiplatform</h3>
+                                <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Multiplatform</h3>
 
                                 <div className={styles.quoteSectionGrid}>
                                     <div className={styles.quoteSectionContent}>
@@ -192,7 +194,7 @@ function WhyTeachKotlinPage() {
                                 className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
                                 id="interoperable"
                             >
-                                <h3 className="ktl-h3 ktl-offset-bottom-s">Interoperable</h3>
+                                <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Interoperable</h3>
 
                                 <div className={styles.quoteSectionGrid}>
                                     <div className={styles.quoteSectionContent}>
@@ -254,7 +256,7 @@ function WhyTeachKotlinPage() {
                                 className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
                                 id="supports-multiple-paradigms"
                             >
-                                <h3 className="ktl-h3 ktl-offset-bottom-s">Supports multiple paradigms</h3>
+                                <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Supports multiple paradigms</h3>
 
                                 <div className={styles.quoteSectionGrid}>
                                     <div className={styles.quoteSectionContent}>
@@ -281,7 +283,7 @@ function WhyTeachKotlinPage() {
                                 className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
                                 id="modern-concise-and-safe"
                             >
-                                <h3 className="ktl-h3 ktl-offset-bottom-s">Modern, concise, and safe</h3>
+                                <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Modern, concise, and safe</h3>
 
                                 <div className={styles.quoteSectionGrid}>
                                     <div className={styles.quoteSectionContent}>
@@ -318,7 +320,7 @@ function WhyTeachKotlinPage() {
                                 className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
                                 id="tooling"
                             >
-                                <h3 className="ktl-h3 ktl-offset-bottom-s">Tooling</h3>
+                                <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Tooling</h3>
 
                                 <div className={styles.quoteSectionGrid}>
                                     <div className={styles.quoteSectionContent}>

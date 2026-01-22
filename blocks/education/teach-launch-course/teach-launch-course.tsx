@@ -27,7 +27,7 @@ export const TeachLaunchCourse: FC = () => {
             </div>
 
             <div className={classNames(styles.linksBlock, styles.linksBlockFirst)}>
-                <div className="ktl-h4 ktl-offset-bottom-xs">Lecture slides</div>
+                <div className={`${textCn('rs-h4')} ktl-offset-bottom-xs`}>Lecture slides</div>
                 <ul className={classNames(styles.list, styles.listLarge, textCn('rs-text-2'))}>
                     <li>
                         <a
@@ -129,7 +129,7 @@ export const TeachLaunchCourse: FC = () => {
             </div>
 
             <div className={classNames(styles.linksBlock, styles.linksBlockSecond)}>
-                <div className="ktl-h4 ktl-offset-bottom-xs">
+                <div className={`${textCn('rs-h4')} ktl-offset-bottom-xs`}>
                     <a
                         className={textCn('rs-link', { external: true })}
                         href="https://docs.google.com/document/d/1plW4HJQWuzHDRI2QiTr8hqg5WwIMFQ0Le9AoUmiw3qY/edit?usp=drive_link"
@@ -138,7 +138,7 @@ export const TeachLaunchCourse: FC = () => {
                     </a>
                 </div>
 
-                <div className="ktl-h4 ktl-offset-bottom-xs">Assessment resources</div>
+                <div className={`${textCn('rs-h4')} ktl-offset-bottom-xs`}>Assessment resources</div>
 
                 <ul className={classNames(styles.list, textCn('rs-text-2'))}>
                     <li>

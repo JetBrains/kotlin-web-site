@@ -2,6 +2,12 @@
     margin-top: 32px;
 }
 
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
 .list li {
     margin-bottom: 8px;
 }

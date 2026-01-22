@@ -111,7 +111,7 @@ function EducationPage() {
                                     />
                                 </div>
                                 <div className={styles.featureContent}>
-                                    <div className="ktl-h3 ktl-offset-bottom-s">Academically recognized</div>
+                                    <div className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Academically recognized</div>
                                     <div className="ktl-text-2">
                                         Over 300 of the world's top universities include Kotlin in various computer
                                         science courses (as of June 2023).
@@ -129,7 +129,7 @@ function EducationPage() {
                                     />
                                 </div>
                                 <div className={styles.featureContent}>
-                                    <div className="ktl-h3 ktl-offset-bottom-s">Language of the industry</div>
+                                    <div className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Language of the industry</div>
                                     <div className="ktl-text-2">
                                         Kotlin is used by top companies such as Google, Amazon, Twitter, Reddit,
                                         Netflix, Uber, Slack, just to name a few.
@@ -147,7 +147,7 @@ function EducationPage() {
                                     />
                                 </div>
                                 <div className={styles.featureContent}>
-                                    <div className="ktl-h3 ktl-offset-bottom-s">Multiplatform</div>
+                                    <div className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Multiplatform</div>
                                     <div className="ktl-text-2">
                                         Kotlin is a top choice for teaching Android development. It is also being
                                         adopted for teaching multiplatform development, web, server-side programming,
@@ -299,7 +299,8 @@ function EducationPage() {
                                 <ul className={styles.list}>
                                     <li className={styles.listItem}>
                                         <a href="/docs/kotlin-tour-welcome.html" className={textCn('rs-link', { external: true })}>
-                                            Tour of Kotlin
+
+       Tour of Kotlin
                                         </a>
                                     </li>
                                     <li className={styles.listItem}>
@@ -461,8 +462,8 @@ function EducationPage() {
 
                             <li className={styles.linksThirdList}>
                                 <p className="ktl-h4 ktl-offset-bottom-xs">Online Courses</p>
-                                <ul className={styles.list}>
-                                    <li className={styles.listItem}>
+<ul className={styles.list}>
+                         <li className={styles.listItem}>
                                         <a
                                             target="_blank"
                                             rel="noopener noreferrer"
