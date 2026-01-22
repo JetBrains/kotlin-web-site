@@ -27,6 +27,14 @@
 .nav {
     position: sticky;
     top: 96px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navLink {
+    text-decoration: none;
+    color: var(--ktl-color-primary-light-theme);
 }
 
 .navItem:not(:last-child) {

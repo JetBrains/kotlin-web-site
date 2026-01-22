@@ -20,7 +20,7 @@ import '@jetbrains/kotlin-web-site-ui/out/components/grid';
 const TOP_MENU_ITEMS = [
     { url: '/education/', title: 'Overview' },
     { url: '/education/why-teach-kotlin/', title: 'Why Teach Kotlin' },
-    { url: '/education/courses/', title: 'Courses' }
+    { url: '/education/courses/', title: 'List of Courses' }
 ];
 
 interface UniversityData {

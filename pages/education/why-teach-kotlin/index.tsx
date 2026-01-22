@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import QuotesSlider from '@jetbrains/kotlin-web-site-ui/out/components/quotes-slider';
 import { useTextStyles } from '@rescui/typography';
 import Button from '@rescui/button';
@@ -16,7 +17,7 @@ import '@jetbrains/kotlin-web-site-ui/out/components/grid';
 const TOP_MENU_ITEMS = [
     { url: '/education/', title: 'Overview' },
     { url: '/education/why-teach-kotlin/', title: 'Why Teach Kotlin' },
-    { url: '/education/courses/', title: 'Courses' }
+    { url: '/education/courses/', title: 'List of Courses' }
 ];
 
 function WhyTeachKotlinPage() {
@@ -69,13 +70,13 @@ function WhyTeachKotlinPage() {
 
                                     <div className={styles.quoteSectionInfo}>
                                         <p className="ktl-hero ktl-offset-bottom-xs">32</p>
-                                        <p className="ktl-text-2 ktl-offset-bottom-s ktl-dimmed-text">
+                                        <p className={cn( textCn('rs-text-2'), "ktl-offset-bottom-s")}>
                                             of the top 100 universities in the Times Higher Education World University
                                             Rankings 2023 include Kotlin in their courses.
                                         </p>
 
                                         <a href="/education/courses/" className={`ktl-text-2 ${styles.link}`}>
-                                            <span className="rs-link">List of universities</span>
+                                            <span className={textCn('rs-link')}>List of universities</span>
                                             <span>&nbsp;&rarr;</span>
                                         </a>
                                     </div>
@@ -106,7 +107,7 @@ function WhyTeachKotlinPage() {
                                                     One out of every two developers is planning to adopt a new language.
                                                     Kotlin is one of the three top choices for next languages.
                                                     <a
-                                                        className="rs-link"
+                                                        className={textCn('rs-link', { external: true })}
                                                         href="https://www.jetbrains.com/lp/devecosystem-2022/"
                                                         target="_blank"
                                                         rel="noopener noreferrer"
@@ -117,7 +118,7 @@ function WhyTeachKotlinPage() {
                                                 <li>
                                                     In 2020, Kotlin became the 2nd most popular language on the JVM.
                                                     <a
-                                                        className="rs-link"
+                                                        className={textCn('rs-link', { external: true })}
                                                         href="https://snyk.io/blog/kotlin-overtakes-scala-and-clojure-to-become-the-2nd-most-popular-language-on-the-jvm/"
                                                         target="_blank"
                                                         rel="noopener noreferrer"
@@ -143,7 +144,7 @@ function WhyTeachKotlinPage() {
                                             rel="noopener noreferrer"
                                             className={`ktl-text-2 ${styles.link}`}
                                         >
-                                            <span className="rs-link">
+                                            <span className={textCn('rs-link', { external: true })}>
                                                 Hired's 2023 State of Software Engineers
                                             </span>
                                             <span>&nbsp;&rarr;</span>
@@ -183,7 +184,7 @@ function WhyTeachKotlinPage() {
                                             rel="noopener noreferrer"
                                             className={`ktl-text-2 ${styles.link}`}
                                         >
-                                            <span className="rs-link">Google for Developers blog, 2023</span>
+                                            <span className={textCn('rs-link', { external: true })}>Google for Developers blog, 2023</span>
                                             <span>&nbsp;&rarr;</span>
                                         </a>
                                     </div>
@@ -221,7 +222,7 @@ function WhyTeachKotlinPage() {
                                                     rel="noopener noreferrer"
                                                     className={`ktl-text-2 ${styles.link}`}
                                                 >
-                                                    <span className="rs-link">Java-to-Kotlin converter</span>
+                                                    <span className={textCn('rs-link', { external: true })}>Java-to-Kotlin converter</span>
                                                     <span>&nbsp;&rarr;</span>
                                                 </a>
                                             </li>
@@ -232,7 +233,7 @@ function WhyTeachKotlinPage() {
                                                     rel="noopener noreferrer"
                                                     className={`ktl-text-2 ${styles.link}`}
                                                 >
-                                                    <span className="rs-link">Kotlin/JVM</span>
+                                                    <span className={textCn('rs-link', { external: true })}>Kotlin/JVM</span>
                                                     <span>&nbsp;&rarr;</span>
                                                 </a>
                                             </li>
@@ -243,7 +244,7 @@ function WhyTeachKotlinPage() {
                                                     rel="noopener noreferrer"
                                                     className={`ktl-text-2 ${styles.link}`}
                                                 >
-                                                    <span className="rs-link">Kotlin/Native</span>
+                                                    <span className={textCn('rs-link', { external: true })}>Kotlin/Native</span>
                                                     <span>&nbsp;&rarr;</span>
                                                 </a>
                                             </li>
@@ -355,7 +356,7 @@ function WhyTeachKotlinPage() {
                                                     rel="noopener noreferrer"
                                                     className={`ktl-text-2 ${styles.link}`}
                                                 >
-                                                    <span className="rs-link">Free IntelliJ IDEA Ultimate license</span>
+                                                    <span className={textCn('rs-link', { external: true })}>Free IntelliJ IDEA Ultimate license</span>
                                                     <span>&nbsp;&rarr;</span>
                                                 </a>
                                             </li>
@@ -366,7 +367,7 @@ function WhyTeachKotlinPage() {
                                                     rel="noopener noreferrer"
                                                     className={`ktl-text-2 ${styles.link}`}
                                                 >
-                                                    <span className="rs-link">Playground</span>
+                                                    <span className={textCn('rs-link', { external: true })}>Playground</span>
                                                     <span>&nbsp;&rarr;</span>
                                                 </a>
                                             </li>
@@ -377,7 +378,7 @@ function WhyTeachKotlinPage() {
                                                     rel="noopener noreferrer"
                                                     className={`ktl-text-2 ${styles.link}`}
                                                 >
-                                                    <span className="rs-link">JetBrains Academy plugin</span>
+                                                    <span className={textCn('rs-link', { external: true })}>JetBrains Academy plugin</span>
                                                     <span>&nbsp;&rarr;</span>
                                                 </a>
                                             </li>
@@ -388,7 +389,7 @@ function WhyTeachKotlinPage() {
                                                     rel="noopener noreferrer"
                                                     className={`ktl-text-2 ${styles.link}`}
                                                 >
-                                                    <span className="rs-link">Code With Me</span>
+                                                    <span className={textCn('rs-link', { external: true })}>Code With Me</span>
                                                     <span>&nbsp;&rarr;</span>
                                                 </a>
                                             </li>
@@ -399,7 +400,7 @@ function WhyTeachKotlinPage() {
                                                     rel="noopener noreferrer"
                                                     className={`ktl-text-2 ${styles.link}`}
                                                 >
-                                                    <span className="rs-link">
+                                                    <span className={textCn('rs-link', { external: true })}>
                                                         Kotlin tracks by JetBrains Academy
                                                     </span>
                                                     <span>&nbsp;&rarr;</span>
