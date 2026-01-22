@@ -124,10 +124,13 @@ Enable the Gradle [build cache](https://docs.gradle.org/current/userguide/build_
 
 ### Use Gradle configuration cache
 
-To use the Gradle [configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html),
-add `org.gradle.configuration-cache=true` to your `gradle.properties` file.
+The Gradle [configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html) improves build performance
+by caching the results of the configuration phase. It also enables parallel execution of independent tasks within a single
+project and implicitly enables the `org.gradle.parallel` property, allowing tasks across different projects to [execute in parallel](https://docs.gradle.org/current/userguide/performance.html#sec:enable_parallel_execution).
 
-> Configuration cache also enables running `link*` tasks in parallel which could heavily load the machine, 
+To use the Gradle configuration cache, add the `org.gradle.configuration-cache=true` property to your `gradle.properties` file.
+
+> The configuration cache also enables running `link*` tasks in parallel which could heavily load the machine, 
 > specifically with a lot of CPU cores. This issue will be fixed in [KT-70915](https://youtrack.jetbrains.com/issue/KT-70915).
 >
 {style="note"}

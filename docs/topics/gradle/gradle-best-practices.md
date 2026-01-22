@@ -68,7 +68,7 @@ Learn more in Gradle's documentation about their [Build cache](https://docs.grad
 ### Use configuration cache
 
 > The configuration cache doesn't support all core Gradle plugins yet. For the latest information, see Gradle's
-> [table of supported plugins](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:plugins:core).
+> [table of supported plugins](https://docs.gradle.org/current/userguide/configuration_cache_status.html#config_cache:plugins:core).
 >
 {style="note"}
 
@@ -76,7 +76,11 @@ Use the configuration cache to significantly improve build performance by cachin
 and reusing it for subsequent builds. If Gradle detects no changes in the build configuration or related
 dependencies, it skips the configuration phase.
 
-Learn more in Gradle's documentation about their [Configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html).
+The configuration cache also enables parallel execution of independent tasks within a single project, which can further
+improve build performance. Additionally, it implicitly enables the `org.gradle.parallel` property, allowing tasks
+across different projects to [execute in parallel](https://docs.gradle.org/current/userguide/performance.html#sec:enable_parallel_execution).
+
+Learn more about the configuration cache in [Gradle's documentation](https://docs.gradle.org/current/userguide/configuration_cache.html).
 
 ### Improve build times for multiple targets
 
