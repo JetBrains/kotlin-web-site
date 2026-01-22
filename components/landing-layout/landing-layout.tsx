@@ -118,7 +118,9 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
                 <div className={`${styles.contentWrapper} ${theme === 'light' ? styles.contentWrapperLight : ''}`} data-testid={dataTestId}>
                     {children}
                 </div>
+            </ThemeProvider>
 
+            <ThemeProvider theme="dark">
                 <GlobalFooter />
             </ThemeProvider>
         </>
