@@ -1,4 +1,31 @@
 - lang: en
+  startDate: '2026-03-26'
+  endDate: '2026-03-26'
+  location: Prague, Czechia
+  online: false
+  speaker: 'Yasan Ghaffarian'
+  title: 'Cozy Kotlin MeetUp #3'
+  subject: 'An informal gathering for Kotlin Enthusiasts.'
+  url: https://luma.com/l9vl4nxf
+- lang: en
+  startDate: '2026-02-26'
+  endDate: '2026-02-26'
+  location: Prague, Czechia
+  online: false
+  speaker: 'Yasan Ghaffarian'
+  title: 'Cozy Kotlin MeetUp #2'
+  subject: 'An informal gathering for Kotlin Enthusiasts.'
+  url: https://luma.com/87pnwug1
+- lang: en
+  startDate: '2026-01-29'
+  endDate: '2026-01-29'
+  location: Prague, Czechia
+  online: false
+  speaker: 'Yasan Ghaffarian'
+  title: 'Cozy Kotlin MeetUp'
+  subject: 'An informal gathering for Kotlin Enthusiasts.'
+  url: https://luma.com/6zfm45ui
+- lang: en
   startDate: '2026-01-24'
   endDate: '2026-01-24'
   location: Chennai, India
