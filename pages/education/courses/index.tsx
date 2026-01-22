@@ -3,8 +3,8 @@ import { TabList, Tab } from '@rescui/tab-list';
 import { useTextStyles } from '@rescui/typography';
 
 import { EducationLayout } from '../../../blocks/education/education-layout/education-layout';
-import { CoursesList } from '../../../blocks/education/courses-list';
-import { TeachMap, University } from '../../../blocks/education/teach-map';
+import { CoursesList } from '../../../blocks/education/courses-list/courses-list';
+import { TeachMap, University } from '../../../blocks/education/teach-map/teach-map';
 
 import styles from './index.module.css';
 

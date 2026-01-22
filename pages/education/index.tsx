@@ -5,11 +5,11 @@ import { SlackIcon } from '@rescui/icons';
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
 
 import { EducationLayout } from '../../blocks/education/education-layout/education-layout';
-import { TeachNumbers } from '../../blocks/education/teach-numbers';
-import { TeachQuotes } from '../../blocks/education/teach-quotes';
-import { TeachMap, University } from '../../blocks/education/teach-map';
-import { TeachLaunchCourse } from '../../blocks/education/teach-launch-course';
-import { SubscriptionForm } from '../../blocks/education/subscription-form';
+import { TeachNumbers } from '../../blocks/education/teach-numbers/teach-numbers';
+import { TeachQuotes } from '../../blocks/education/teach-quotes/teach-quotes';
+import { TeachMap, University } from '../../blocks/education/teach-map/teach-map';
+import { TeachLaunchCourse } from '../../blocks/education/teach-launch-course/teach-launch-course';
+import { SubscriptionForm } from '../../blocks/education/subscription-form/subscription-form';
 
 import styles from './index.module.css';
 
