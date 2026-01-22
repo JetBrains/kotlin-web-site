@@ -29,8 +29,6 @@ uiDesigner.xml
 grammar.xml
 /build/
 node_modules
-pdf/kotlin-docs.pdf
-pdf/kotlin-reference.pdf
 pdf/tmp.html
 .vivliostyle/
 *.pyc
