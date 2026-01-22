@@ -22,6 +22,7 @@ const pdfFolder = path.join(rootFolder, 'pdf');
 const pdfSourcePath = path.join(rootFolder, 'dist', 'docs');
 const dataFolder = path.join(rootFolder, 'data');
 const assetsFolder = path.join(rootFolder, 'assets');
+const pdfFontsFolder = path.join(pdfFolder, 'fonts');
 
 /**
  * Load site data from YAML files
@@ -50,6 +51,26 @@ function loadSiteData() {
 function readCssFile(filename) {
   const filePath = path.join(pdfFolder, filename);
   return fs.readFileSync(filePath, 'utf8');
+}
+
+/**
+ * Copy fonts to the output directory for Vivliostyle
+ * Returns a cleanup function to remove the copied fonts
+ */
+function copyFonts(targetDir) {
+  const targetFontsDir = path.join(targetDir, 'fonts');
+
+  // Copy fonts directory recursively
+  fs.cpSync(pdfFontsFolder, targetFontsDir, { recursive: true });
+  console.log(`Copied fonts to ${targetFontsDir}`);
+
+  // Return cleanup function
+  return () => {
+    if (fs.existsSync(targetFontsDir)) {
+      fs.rmSync(targetFontsDir, { recursive: true });
+      console.log('Cleaned up fonts directory');
+    }
+  };
 }
 
 /**
@@ -98,6 +119,10 @@ async function generatePDF(outputName, data) {
   console.log('Copying cover assets...');
   const cleanupAssets = copyCoverAssets(pdfSourcePath);
 
+  // Copy fonts to the output directory for Vivliostyle
+  console.log('Copying fonts...');
+  const cleanupFonts = copyFonts(pdfSourcePath);
+
   // Initialize Prism for server-side syntax highlighting
   console.log('Initializing Prism for syntax highlighting...');
   const Prism = initPrism();
@@ -130,11 +155,17 @@ async function generatePDF(outputName, data) {
   const prismCss = readCssFile('prism.css');
   const webhelpCss = readCssFile('webhelp.css');
 
+  // Read fonts CSS (uses relative paths to fonts/ directory)
+  const fontsCss = readCssFile('fonts.css');
+
   // Combine cover, ToC, and content with all styles inlined
   const combinedHtml = `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
+  <style>
+${fontsCss}
+  </style>
   <style>
 ${pageSetupCss}
   </style>
@@ -185,8 +216,9 @@ ${webhelpCss}
     if (fs.existsSync(tempHtmlPath)) {
       fs.unlinkSync(tempHtmlPath);
     }
-    // Cleanup copied assets
+    // Cleanup copied assets and fonts
     cleanupAssets();
+    cleanupFonts();
   }
 
   return outputFilePath;

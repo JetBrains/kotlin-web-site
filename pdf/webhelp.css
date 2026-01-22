@@ -1,5 +1,3 @@
-
-@import url(https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap);
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
    License: none (public domain)
@@ -66,7 +64,7 @@ table {
     margin: 48px;
 }
 body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 figure img {
@@ -135,7 +133,7 @@ figure.video:after {
 h1 {
     letter-spacing:-0.5px;
     color:#27282c;
-    font-family:'Gotham SSm A', 'Gotham SSm B', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size:40px;
     font-size:40px;
     font-size:var(--wt-h1-font-size, 40px);
@@ -168,7 +166,7 @@ h1 {
 h2 {
     letter-spacing:-0.5px;
     color:#27282c;
-    font-family:'Gotham SSm A', 'Gotham SSm B', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size:31px;
     font-size:31px;
     font-size:var(--wt-h2-font-size, 31px);
@@ -201,7 +199,7 @@ h2 {
 h3 {
     letter-spacing:normal;
     color:#27282c;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size:20px;
     font-size:20px;
     font-size:var(--wt-h3-font-size, 20px);
@@ -227,7 +225,7 @@ h3 {
 
 h4 {
     color:#27282c;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -244,7 +242,7 @@ h4 {
 p, a, li {
     letter-spacing:normal;
     color:rgba(39, 40, 44, 0.70);
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size:15px;
     font-weight:normal;
     line-height:24px;
