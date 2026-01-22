@@ -16,6 +16,7 @@ const YAML = require('yaml');
 const { initPrism, applyCodeHighlighting } = require('./pdf/highlight');
 const { copyCoverAssets, transformBookCover } = require('./pdf/cover');
 const { generateTocHtml } = require('./pdf/toc');
+const { addTitleLabels } = require('./pdf/labels');
 
 const rootFolder = path.join(__dirname, '..');
 const pdfFolder = path.join(rootFolder, 'pdf');
@@ -144,6 +145,10 @@ async function generatePDF(outputName, data) {
 
   // Fix broken image links
   rawContent = fixImageLinks(rawContent);
+
+  // Add title labels (EAP, Beta, Experimental, etc.) based on data-label-id attributes
+  console.log('Adding title labels...');
+  rawContent = addTitleLabels(rawContent);
 
   // Generate Table of Contents from H1 and H2 headings in the HTML
   console.log('Generating Table of Contents from HTML headings...');
