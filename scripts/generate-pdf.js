@@ -10,7 +10,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
-const yaml = require('js-yaml');
+const YAML = require('yaml');
 
 // Import PDF modules
 const { initPrism, applyCodeHighlighting } = require('./pdf/highlight');
@@ -39,7 +39,7 @@ function loadSiteData() {
     const filePath = path.join(dataFolder, file);
     const content = fs.readFileSync(filePath, 'utf8');
     const fileName = path.basename(file, '.yml');
-    data[fileName] = yaml.load(content);
+    data[fileName] = YAML.parse(content);
   }
 
   return data;

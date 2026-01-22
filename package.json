@@ -96,7 +96,6 @@
         "@playwright/test": "1.57.0",
         "@types/react": "17.0.43",
         "@vivliostyle/cli": "^10.1.0",
-        "js-yaml": "^4.1.0",
         "cheerio": "^1.0.0",
         "eslint": "8.14.0",
         "eslint-config-next": "12.1.6",
