@@ -54,8 +54,7 @@ async function fixSectionHtml($: CheerioAPI, node: Element, relativePath: string
                 else if (pathname.startsWith('/embed/')) id = pathname.substring(6);
 
                 if (id)
-                    return `<figure class="video"><img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg" width="560"></figure>` +
-                        `<p><a href="https://youtube.com/v/${id}">Watch video online.</a></p>`;
+                    return `<p class="video-link"><a href="https://youtube.com/watch?v=${id}">Watch video online.</a></p>`;
             }
         } catch (e) {
             // skip content

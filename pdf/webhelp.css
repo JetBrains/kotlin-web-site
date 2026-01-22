@@ -486,6 +486,17 @@ figure img {
     background-color: rgba(77, 187, 95, 0.2);
 }
 
+/* Video links */
+.video-link {
+    margin: 16px 0;
+}
+
+.video-link a {
+    color: #6b57ff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
 .annotation, .control, .field, .filename, .keyword, .menupath, .property, .string, .value {
     color: #19191c;
     font-weight: 610;
