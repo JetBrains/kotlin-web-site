@@ -17,12 +17,18 @@ const TOC_PATH = join(DOCS_PATH, 'HelpTOC.json');
 
 const TOC = JSON.parse(await readFile(TOC_PATH, { encoding: 'utf-8' }));
 
+// Use single file for faster testing
+const TEST_SINGLE_FILE = false;
+const TEST_FILE = 'docs/whatsnew23.html';
+
 const nodes = new Map(
-    (await processTocToUrls(TOC))
-        .map(id => new URL(id, 'https://kotlinlang.org/docs/'))
-        .filter(url => url.hostname === 'kotlinlang.org' && dirname(url.pathname) === '/docs')
-        .map(url => url.pathname.slice(1))
-        .map(key => [key, ''])
+    TEST_SINGLE_FILE
+        ? [[TEST_FILE, '']]
+        : (await processTocToUrls(TOC))
+            .map(id => new URL(id, 'https://kotlinlang.org/docs/'))
+            .filter(url => url.hostname === 'kotlinlang.org' && dirname(url.pathname) === '/docs')
+            .map(url => url.pathname.slice(1))
+            .map(key => [key, ''])
 );
 
 if (nodes.size === 0) throw new Error('No nodes found');
