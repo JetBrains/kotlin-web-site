@@ -6,6 +6,8 @@
 .icon {
     width: 96px;
     height: 96px;
+    display: block;
+    max-width: fit-content;
 }
 
 .text,

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import cn from 'classnames';
 import QuotesSlider from '@jetbrains/kotlin-web-site-ui/out/components/quotes-slider';
 import { useTextStyles } from '@rescui/typography';
@@ -46,10 +47,9 @@ function WhyTeachKotlinPage() {
                                         Rankings 2023 include Kotlin in their courses.
                                     </p>
 
-                                    <a href="/education/courses/" className={`ktl-text-2 ${styles.link}`}>
+                                    <Link href="/education/courses/" className={`ktl-text-2 ${styles.link}`}>
                                         <span className={textCn('rs-link')}>List of universities</span>
-
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </section>

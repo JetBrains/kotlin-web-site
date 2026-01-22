@@ -15,8 +15,6 @@ import styles from './subscription-form.module.css';
 import CheckIcon from '@rescui/icons/lib/check';
 import MailIcon from './mail-icon.svg';
 
-type SvgImport = { src: string } | string;
-
 const FORM_ID = '4687';
 const consentId = privacy.ConsentId.NEWSLETTER;
 
@@ -53,7 +51,7 @@ export const SubscriptionForm: FC = () => {
         >
             {({ setFieldValue }) => (
                 <Form className={styles.form}>
-                    <img src={typeof MailIcon === 'string' ? MailIcon : (MailIcon as SvgImport).src} className={styles.icon} alt="Subscribe form" />
+                    <img src={MailIcon.src} className={styles.icon} alt="Subscribe form" />
 
                     <div className={`${styles.text} ${textCn('rs-h3')}`}>
                         Subscribe to be the first to know about new resources, webinars, and educational initiatives.
