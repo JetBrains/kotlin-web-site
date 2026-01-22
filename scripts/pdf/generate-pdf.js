@@ -13,12 +13,12 @@ const { execSync } = require('child_process');
 const YAML = require('yaml');
 
 // Import PDF modules
-const { initPrism, applyCodeHighlighting } = require('./pdf/highlight');
-const { copyCoverAssets, transformBookCover } = require('./pdf/cover');
-const { generateTocHtml } = require('./pdf/toc');
-const { addTitleLabels } = require('./pdf/labels');
+const { initPrism, applyCodeHighlighting } = require('./highlight');
+const { copyCoverAssets, transformBookCover } = require('./cover');
+const { generateTocHtml } = require('./toc');
+const { addTitleLabels } = require('./labels');
 
-const rootFolder = path.join(__dirname, '..');
+const rootFolder = path.join(__dirname, '..', '..');
 const pdfFolder = path.join(rootFolder, 'pdf');
 const pdfSourcePath = path.join(rootFolder, 'dist', 'docs');
 const dataFolder = path.join(rootFolder, 'data');

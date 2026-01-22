@@ -147,7 +147,7 @@
         "test:e2e:screenshots": "E2E_PROJECTS=breakpoints-v2 E2E_WITH_SCREENSHOTS=true playwright test test/e2e",
         "test:e2e:new": "playwright codegen localhost:9000",
         "generate-pdf:html": "cd scripts/dist && yarn generate-pdf",
-        "generate-pdf:convert": "node scripts/generate-pdf.js",
+        "generate-pdf:convert": "node scripts/pdf/generate-pdf.js",
         "generate-pdf": "yarn generate-pdf:html && yarn generate-pdf:convert"
     }
 }
