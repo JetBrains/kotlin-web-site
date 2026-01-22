@@ -11,17 +11,12 @@ import { TeachQuotes } from '../../blocks/education/teach-quotes';
 import { TeachMap, University } from '../../blocks/education/teach-map';
 import { TeachLaunchCourse } from '../../blocks/education/teach-launch-course';
 import { SubscriptionForm } from '../../blocks/education/subscription-form';
+import { EDUCATION_MENU_ITEMS } from '../../blocks/education/menu-config';
 
 import styles from './index.module.css';
 
 import '@jetbrains/kotlin-web-site-ui/out/components/typography';
 import '@jetbrains/kotlin-web-site-ui/out/components/grid';
-
-const TOP_MENU_ITEMS = [
-    { url: '/education/', title: 'Overview' },
-    { url: '/education/why-teach-kotlin/', title: 'Why Teach Kotlin' },
-    { url: '/education/courses/', title: 'List of Courses' }
-];
 
 interface UniversityData {
     title: string;
@@ -64,7 +59,7 @@ function EducationPage() {
             title="Kotlin for Education"
             ogImageName="education.png"
             theme="light"
-            topMenuItems={TOP_MENU_ITEMS}
+            topMenuItems={EDUCATION_MENU_ITEMS}
             topMenuTitle="Teach"
             topMenuHomeUrl="/education/"
             currentUrl="/education/"
