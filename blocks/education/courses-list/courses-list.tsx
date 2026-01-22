@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import styles from './courses-list.module.css';
 
@@ -22,17 +23,17 @@ export const CoursesList: FC<CoursesListProps> = ({ universities }) => {
     return (
         <div className={styles.list}>
             <div className={styles.header}>
-                <div className={`${styles.cell} ${styles.cellFirst} ${textCn('rs-h4')}`}>University title</div>
-                <div className={`${styles.cell} ${styles.cellSecond} ${textCn('rs-h4')}`}>Location</div>
-                <div className={`${styles.cell} ${styles.cellThird} ${textCn('rs-h4')}`}>Teaching Kotlin</div>
+                <div className={cn(styles.cell, styles.cellFirst, textCn('rs-h4', { hardness: 'hard' }))}>University title</div>
+                <div className={cn(styles.cell, styles.cellSecond, textCn('rs-h4', { hardness: 'hard' }))}>Location</div>
+                <div className={cn(styles.cell, styles.cellThird, textCn('rs-h4', { hardness: 'hard' }))}>Teaching Kotlin</div>
             </div>
             {universities.map((university) => (
                 <div className={styles.item} key={`${university.title}-${university.location}`}>
-                    <div className={`${styles.cell} ${styles.cellFirst} ktl-text-2`}>{university.title}</div>
-                    <div className={`${styles.cell} ${styles.cellSecond} ktl-text-2`}>{university.location}</div>
-                    <div className={`${styles.cell} ${styles.cellThird} ktl-text-2`}>
+                    <div className={cn(styles.cell, styles.cellFirst, textCn('rs-text-2', { hardness: 'hard' }))}>{university.title}</div>
+                    <div className={cn(styles.cell, styles.cellSecond, textCn('rs-text-2', { hardness: 'hard' }))}>{university.location}</div>
+                    <div className={cn(styles.cell, styles.cellThird, textCn('rs-text-2', { hardness: 'hard' }))}>
                         {university.courses.map((course) => (
-                            <a href={course.url} target="_blank" rel="noopener noreferrer" key={`${course.name}-${course.url}`}>
+                            <a className={textCn('rs-link', { external: true, hardness: 'hard' })} href={course.url} target="_blank" rel="noopener noreferrer" key={`${course.name}-${course.url}`}>
                                 {course.name}
                             </a>
                         ))}
