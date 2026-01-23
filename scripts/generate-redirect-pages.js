@@ -110,7 +110,11 @@ function generateRedirectPages() {
 
 if (require.main === module) {
     console.log('Starting redirect generation...');
+    const startTime = Date.now();
     generateRedirectPages();
-    console.log('\nRedirect generation complete!');
+    const endTime = Date.now();
+    const duration = ((endTime - startTime) / 1000).toFixed(2);
+    console.log(`\nRedirect generation complete!`);
+    console.log(`Done in ${duration}s`);
 }
 module.exports = { generateRedirectPages };
