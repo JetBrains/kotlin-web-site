@@ -63,7 +63,7 @@ class ComposeMultiplatformCore(init: ComposeMultiplatformCore.() -> Unit) : Refe
                 dokkaBuildHtml(version) {
                     tasks = ":mpp:apiReferences:buildApiReferencesWithStories"
                     gradleParams += " -PapiReferences.storiesRootPath=/api/${urlPart}/stories"
-                    jdkHome = "%env.JDK_17_0%"
+                    jdkHome = "%env.JDK_21_0%"
                 }
             }
         ).additionalParams()
