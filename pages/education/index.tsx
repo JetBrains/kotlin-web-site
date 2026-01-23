@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
+import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import Button from '@rescui/button';
 import { SlackIcon } from '@rescui/icons';
@@ -161,7 +162,7 @@ function EducationPage() {
                                     <h2 className="ktl-h1">
                                         <a
                                             href="#kotlin-courses-around-the-world"
-                                            className="kto-anchor-link kto-anchor-link--small"
+                                            className={cn(styles.anchorLink, styles.anchorLinkSmall)}
                                         >
                                             Kotlin Courses Around the World
                                         </a>
@@ -260,7 +261,7 @@ function EducationPage() {
                                 alt="Kotlin resources"
                             />
                             <h2 className="ktl-h1">
-                                <a href="#start-teaching-kotlin" className="kto-anchor-link kto-anchor-link--small">
+                                <a href="#start-teaching-kotlin" className={cn(styles.anchorLink, styles.anchorLinkSmall)}>
                                     Start Teaching Kotlin
                                     <br /> with These Resources
                                 </a>

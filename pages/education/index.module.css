@@ -261,3 +261,40 @@
     }
 }
 
+/* Anchor link styles */
+.anchorLink {
+    color: inherit;
+    text-decoration: none;
+}
+
+.anchorLink:any-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.anchorLink::after {
+    display: inline-block;
+    content: '';
+    background: center;
+    background-size: 40px;
+    margin-left: 10px;
+    height: 40px;
+    width: 40px;
+}
+
+.anchorLink:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.anchorLink:hover::after {
+    background-image: url('/static/js/components/anchor.svg');
+}
+
+.anchorLinkSmall::after {
+    background-size: 32px;
+    margin-left: 20px;
+    height: 32px;
+    width: 32px;
+}
+
