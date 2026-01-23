@@ -75,17 +75,17 @@ function EducationPage() {
                         </Button>
                     </div>
 
-                    <div className={`${styles.features} ktl-row ktl-offset-top-l`}>
+                    <div className={cn(styles.features, 'ktl-row', 'ktl-offset-top-l')}>
                         <div className="ktl-col-12 ktl-col-md-4">
                             <div className={styles.feature}>
-                                <div className={`${styles.featureIcon} ktl-offset-bottom-m`}>
+                                <div className={cn(styles.featureIcon, 'ktl-offset-bottom-m')}>
                                     <img
                                         src="/images/education/icons/teach-academically-recognized-icon.svg"
                                         alt="Academically recognized"
                                     />
                                 </div>
                                 <div className={styles.featureContent}>
-                                    <div className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Academically recognized</div>
+                                    <div className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Academically recognized</div>
                                     <div className="ktl-text-2">
                                         Over 300 of the world's top universities include Kotlin in various computer
                                         science courses (as of June 2023).
@@ -96,14 +96,14 @@ function EducationPage() {
 
                         <div className="ktl-col-12 ktl-col-md-4">
                             <div className={styles.feature}>
-                                <div className={`${styles.featureIcon} ktl-offset-bottom-m`}>
+                                <div className={cn(styles.featureIcon, 'ktl-offset-bottom-m')}>
                                     <img
                                         src="/images/education/icons/teach-popular-icon.svg"
                                         alt="Language of the industry"
                                     />
                                 </div>
                                 <div className={styles.featureContent}>
-                                    <div className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Language of the industry</div>
+                                    <div className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Language of the industry</div>
                                     <div className="ktl-text-2">
                                         Kotlin is used by top companies such as Google, Amazon, Twitter, Reddit,
                                         Netflix, Uber, Slack, just to name a few.
@@ -114,14 +114,14 @@ function EducationPage() {
 
                         <div className="ktl-col-12 ktl-col-md-4">
                             <div className={styles.feature}>
-                                <div className={`${styles.featureIcon} ktl-offset-bottom-m`}>
+                                <div className={cn(styles.featureIcon, 'ktl-offset-bottom-m')}>
                                     <img
                                         src="/images/education/icons/teach-multiplatform-icon.svg"
                                         alt="Multiplatform"
                                     />
                                 </div>
                                 <div className={styles.featureContent}>
-                                    <div className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Multiplatform</div>
+                                    <div className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Multiplatform</div>
                                     <div className="ktl-text-2">
                                         Kotlin is a top choice for teaching Android development. It is also being
                                         adopted for teaching multiplatform development, web, server-side programming,
@@ -152,7 +152,7 @@ function EducationPage() {
                 </section>
 
                 <section
-                    className={`${styles.universities} ktl-offset-top-xxl ktl-with-anchor`}
+                    className={cn(styles.universities, 'ktl-offset-top-xxl', 'ktl-with-anchor')}
                     id="kotlin-courses-around-the-world"
                 >
                     <div className="ktl-layout ktl-layout--center">
@@ -174,7 +174,7 @@ function EducationPage() {
                                     </p>
                                 </div>
 
-                                <h2 className={`ktl-h1 ${styles.universitiesTopTitleMobile}`}>
+                                <h2 className={cn('ktl-h1', styles.universitiesTopTitleMobile)}>
                                     Kotlin is taught at {universitiesCount} universities
                                 </h2>
 
@@ -184,7 +184,7 @@ function EducationPage() {
                             </div>
                         </div>
 
-                        <div className={`${styles.universitiesLogos} ktl-offset-top-m`}>
+                        <div className={cn(styles.universitiesLogos, 'ktl-offset-top-m')}>
                             <div className={styles.logos}>
                                 <div className={styles.logosItem}>
                                     <img
@@ -226,7 +226,7 @@ function EducationPage() {
 
                         <TeachMap className={styles.mapWrapper} universities={universities} />
 
-                        <div className={`${styles.universitiesBottom} ktl-offset-top-m`}>
+                        <div className={cn(styles.universitiesBottom, 'ktl-offset-top-m')}>
                             <div className="ktl-row">
                                 <div className="ktl-col-12 ktl-col-sm-8 ktl-col-sm-offset-2">
                                     <p className="ktl-text-2 ktl-offset-bottom-m">
@@ -252,9 +252,9 @@ function EducationPage() {
                     </div>
                 </section>
 
-                <section className={`${styles.resources} ktl-offset-top-xxl ktl-with-anchor`} id="start-teaching-kotlin">
+                <section className={cn(styles.resources, 'ktl-offset-top-xxl', 'ktl-with-anchor')} id="start-teaching-kotlin">
                     <div className="ktl-layout ktl-layout--center">
-                        <div className={`${styles.resourcesTop} ktl-offset-bottom-xl`}>
+                        <div className={cn(styles.resourcesTop, 'ktl-offset-bottom-xl')}>
                             <img
                                 className={styles.resourcesTopImage}
                                 src="/images/education/icons/education-main.png"
@@ -330,7 +330,7 @@ function EducationPage() {
 
                                     <li className={styles.listItem}>
                                         <div className="ktl-text-2 ktl-dimmed-text">Atomic Kotlin:</div>
-                                        <ul className={`${styles.list} ${styles.sublist}`}>
+                                        <ul className={cn(styles.list, styles.sublist)}>
                                             <li className={styles.listItem}>
                                                 <a
                                                     href="https://www.atomickotlin.com/exercises/"
@@ -521,11 +521,11 @@ function EducationPage() {
                     </div>
                 </section>
 
-                <section className={`ktl-layout ktl-layout--center ktl-offset-top-xxl ${styles.subscriptionSection}`}>
+                <section className={cn('ktl-layout', 'ktl-layout--center', 'ktl-offset-top-xxl', styles.subscriptionSection)}>
                     <SubscriptionForm />
                 </section>
 
-                <section className={`${styles.video} ktl-offset-top-xxl`}>
+                <section className={cn(styles.video, 'ktl-offset-top-xxl')}>
                     <div className="ktl-layout ktl-layout--center">
                         <div className="ktl-row">
                             <div className="ktl-col">

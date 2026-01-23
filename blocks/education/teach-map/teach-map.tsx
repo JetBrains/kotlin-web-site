@@ -1,4 +1,5 @@
 import React, { FC, useCallback, useState } from 'react';
+import cn from 'classnames';
 import GoogleMapReact from 'google-map-react';
 import { TeachMapMarker } from './teach-map-marker';
 import styles from './teach-map.module.css';
@@ -31,7 +32,7 @@ export const TeachMap: FC<TeachMapProps> = ({ className, universities }) => {
 
     return (
         <ErrorBoundary fallback={<div>Map is unavailable</div>}>
-            <div className={`${styles.map} ${className ? className : ''}`}>
+            <div className={cn(styles.map, className)}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: mapSettings.key }}
                     defaultCenter={mapSettings.defaultCenter}

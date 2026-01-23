@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import cn from 'classnames';
 import { privacy } from '@jetbrains/kotlin-web-site-ui/out/packages/data-services';
 import { useTextStyles } from '@rescui/typography';
 import '@jetbrains/kotlin-web-site-ui/out/components/typography';
@@ -53,7 +54,7 @@ export const SubscriptionForm: FC = () => {
                 <Form className={styles.form}>
                     <img src={MailIcon.src} className={styles.icon} alt="Subscribe form" />
 
-                    <div className={`${styles.text} ${textCn('rs-h3')}`}>
+                    <div className={cn(styles.text, textCn('rs-h3'))}>
                         Subscribe to be the first to know about new resources, webinars, and educational initiatives.
                     </div>
 
@@ -68,7 +69,7 @@ export const SubscriptionForm: FC = () => {
                     <FormikPrivacyCheckbox consentId={consentId} privacy={privacy} className={styles.checkbox} />
 
                     {isSubmitted ? (
-                        <span className={`${styles.button} ${styles.submitted}`}>
+                        <span className={cn(styles.button, styles.submitted)}>
                             <span className={styles.submittedText}>Subscribe</span>
                             <CheckIcon className={styles.submittedIcon} />
                         </span>

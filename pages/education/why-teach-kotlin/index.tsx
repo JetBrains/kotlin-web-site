@@ -17,15 +17,15 @@ function WhyTeachKotlinPage() {
     return (
         <EducationLayout title="Why teach Kotlin" dataTestId="teach-why-teach-page">
             <div className="ktl-layout ktl-layout--center">
-                <div className={`${styles.grid} ktl-offset-top-xl`}>
+                <div className={cn(styles.grid, 'ktl-offset-top-xl')}>
                     <div className={styles.gridContent}>
-                        <h1 className={`${textCn('rs-h1')} ktl-offset-bottom-xl`}>Why Teach Kotlin</h1>
+                        <h1 className={cn(textCn('rs-h1'), 'ktl-offset-bottom-xl')}>Why Teach Kotlin</h1>
 
                         <section
-                            className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
+                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
                             id="academically-recognized"
                         >
-                            <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Academically recognized</h3>
+                            <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Academically recognized</h3>
 
                             <div className={styles.quoteSectionGrid}>
                                 <div className={styles.quoteSectionContent}>
@@ -47,7 +47,7 @@ function WhyTeachKotlinPage() {
                                         Rankings 2023 include Kotlin in their courses.
                                     </p>
 
-                                    <Link href="/education/courses/" className={`ktl-text-2 ${styles.link}`}>
+                                    <Link href="/education/courses/" className={cn('ktl-text-2', styles.link)}>
                                         <span className={textCn('rs-link')}>List of universities</span>
                                     </Link>
                                 </div>
@@ -55,10 +55,10 @@ function WhyTeachKotlinPage() {
                         </section>
 
                         <section
-                            className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
+                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
                             id="language-of-the-industry"
                         >
-                            <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Language of the industry</h3>
+                            <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Language of the industry</h3>
 
                             <div className={styles.quoteSectionGrid}>
                                 <div className={styles.quoteSectionContent}>
@@ -113,7 +113,7 @@ function WhyTeachKotlinPage() {
                                         href="https://hired.com/state-of-software-engineers/2023/"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={`ktl-text-2 ${styles.link}`}
+                                        className={cn('ktl-text-2', styles.link)}
                                     >
                                         <span className={textCn('rs-link', { external: true })}>
                                             Hired's 2023 State of Software Engineers
@@ -125,10 +125,10 @@ function WhyTeachKotlinPage() {
                         </section>
 
                         <section
-                            className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
+                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
                             id="multiplatform"
                         >
-                            <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Multiplatform</h3>
+                            <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Multiplatform</h3>
 
                             <div className={styles.quoteSectionGrid}>
                                 <div className={styles.quoteSectionContent}>
@@ -153,7 +153,7 @@ function WhyTeachKotlinPage() {
                                         href="https://developers.googleblog.com/2023/05/bringing-kotlin-to-web.html"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={`ktl-text-2 ${styles.link}`}
+                                        className={cn('ktl-text-2', styles.link)}
                                     >
                                         <span className={textCn('rs-link', { external: true })}>Google for Developers blog, 2023</span>
 
@@ -163,10 +163,10 @@ function WhyTeachKotlinPage() {
                         </section>
 
                         <section
-                            className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
+                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
                             id="interoperable"
                         >
-                            <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Interoperable</h3>
+                            <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Interoperable</h3>
 
                             <div className={styles.quoteSectionGrid}>
                                 <div className={styles.quoteSectionContent}>
@@ -191,7 +191,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#convert-java-files-to-kotlin"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={`ktl-text-2 ${styles.link}`}
+                                                className={cn('ktl-text-2', styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>Java-to-Kotlin converter</span>
 
@@ -202,7 +202,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://kotlinlang.org/docs/jvm-get-started.html"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={`ktl-text-2 ${styles.link}`}
+                                                className={cn('ktl-text-2', styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>Kotlin/JVM</span>
 
@@ -213,7 +213,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://kotlinlang.org/docs/native-get-started.html"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={`ktl-text-2 ${styles.link}`}
+                                                className={cn('ktl-text-2', styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>Kotlin/Native</span>
 
@@ -225,10 +225,10 @@ function WhyTeachKotlinPage() {
                         </section>
 
                         <section
-                            className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
+                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
                             id="supports-multiple-paradigms"
                         >
-                            <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Supports multiple paradigms</h3>
+                            <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Supports multiple paradigms</h3>
 
                             <div className={styles.quoteSectionGrid}>
                                 <div className={styles.quoteSectionContent}>
@@ -252,10 +252,10 @@ function WhyTeachKotlinPage() {
                         </section>
 
                         <section
-                            className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
+                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
                             id="modern-concise-and-safe"
                         >
-                            <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Modern, concise, and safe</h3>
+                            <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Modern, concise, and safe</h3>
 
                             <div className={styles.quoteSectionGrid}>
                                 <div className={styles.quoteSectionContent}>
@@ -289,10 +289,10 @@ function WhyTeachKotlinPage() {
                         </section>
 
                         <section
-                            className={`${styles.quoteSection} ktl-offset-bottom-xl ktl-with-anchor`}
+                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
                             id="tooling"
                         >
-                            <h3 className={`${textCn('rs-h3')} ktl-offset-bottom-s`}>Tooling</h3>
+                            <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Tooling</h3>
 
                             <div className={styles.quoteSectionGrid}>
                                 <div className={styles.quoteSectionContent}>
@@ -325,7 +325,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://www.jetbrains.com/community/education/#students"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={`ktl-text-2 ${styles.link}`}
+                                                className={cn('ktl-text-2', styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>Free IntelliJ IDEA Ultimate license</span>
 
@@ -336,7 +336,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://play.kotlinlang.org/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={`ktl-text-2 ${styles.link}`}
+                                                className={cn('ktl-text-2', styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>Playground</span>
 
@@ -347,7 +347,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://plugins.jetbrains.com/plugin/10081-jetbrains-academy"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={`ktl-text-2 ${styles.link}`}
+                                                className={cn('ktl-text-2', styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>JetBrains Academy plugin</span>
 
@@ -358,7 +358,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://www.jetbrains.com/code-with-me/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={`ktl-text-2 ${styles.link}`}
+                                                className={cn('ktl-text-2', styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>Code With Me</span>
 
@@ -369,7 +369,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-education&utm_content=button_1&utm_term=22.03.23"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={`ktl-text-2 ${styles.link}`}
+                                                className={cn('ktl-text-2', styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>
                                                     Kotlin tracks by JetBrains Academy
@@ -384,7 +384,7 @@ function WhyTeachKotlinPage() {
                     </div>
 
                     <div className={styles.gridNav}>
-                        <ul className={`ktl-text-2 ${styles.nav}`}>
+                        <ul className={cn('ktl-text-2', styles.nav)}>
                             <li className={styles.navItem}>
                                 <a href="#academically-recognized" className={styles.navLink}>
                                     <span className="rs-link">Academically recognized</span>

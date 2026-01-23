@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import styles from './teach-map-marker.module.css';
 import { TeachMapTooltip } from './teach-map-tooltip';
 import { University } from './teach-map';
@@ -13,7 +14,7 @@ interface TeachMapMarkerProps {
 
 export const TeachMapMarker: FC<TeachMapMarkerProps> = ({ university, showTooltip, onClose }) => {
     return (
-        <div className={`${styles.marker} ${showTooltip ? styles.active : ''}`}>
+        <div className={cn(styles.marker, { [styles.active]: showTooltip })}>
             {showTooltip && <TeachMapTooltip university={university} onClose={onClose} />}
         </div>
     );

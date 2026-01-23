@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
+import cn from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import Button from '@rescui/button';
-import classNames from 'classnames';
 import styles from './teach-launch-course.module.css';
 
 export const TeachLaunchCourse: FC = () => {
@@ -9,7 +9,7 @@ export const TeachLaunchCourse: FC = () => {
 
     return (
         <div className={styles.launchCourse}>
-            <div className={classNames('ktl-text-1', styles.text)}>
+            <div className={cn('ktl-text-1', styles.text)}>
                 The Programming in Kotlin course is a comprehensive toolkit for teaching Kotlin and can be easily
                 customized to align with specific educational needs. The course comes with slides, lecture notes, and
                 assessment resources.
@@ -26,9 +26,9 @@ export const TeachLaunchCourse: FC = () => {
                 </div>
             </div>
 
-            <div className={classNames(styles.linksBlock, styles.linksBlockFirst)}>
-                <div className={`${textCn('rs-h4')} ktl-offset-bottom-xs`}>Lecture slides</div>
-                <ul className={classNames(styles.list, styles.listLarge, textCn('rs-text-2'))}>
+            <div className={cn(styles.linksBlock, styles.linksBlockFirst)}>
+                <div className={cn(textCn('rs-h4'), 'ktl-offset-bottom-xs')}>Lecture slides</div>
+                <ul className={cn(styles.list, styles.listLarge, textCn('rs-text-2'))}>
                     <li>
                         <a
                             className={textCn('rs-link', { external: true })}
@@ -128,8 +128,8 @@ export const TeachLaunchCourse: FC = () => {
                 </ul>
             </div>
 
-            <div className={classNames(styles.linksBlock, styles.linksBlockSecond)}>
-                <div className={`${textCn('rs-h4')} ktl-offset-bottom-xs`}>
+            <div className={cn(styles.linksBlock, styles.linksBlockSecond)}>
+                <div className={cn(textCn('rs-h4'), 'ktl-offset-bottom-xs')}>
                     <a
                         className={textCn('rs-link', { external: true })}
                         href="https://docs.google.com/document/d/1plW4HJQWuzHDRI2QiTr8hqg5WwIMFQ0Le9AoUmiw3qY/edit?usp=drive_link"
@@ -138,9 +138,9 @@ export const TeachLaunchCourse: FC = () => {
                     </a>
                 </div>
 
-                <div className={`${textCn('rs-h4')} ktl-offset-bottom-xs`}>Assessment resources</div>
+                <div className={cn(textCn('rs-h4'), 'ktl-offset-bottom-xs')}>Assessment resources</div>
 
-                <ul className={classNames(styles.list, textCn('rs-text-2'))}>
+                <ul className={cn(styles.list, textCn('rs-text-2'))}>
                     <li>
                         <a
                             className={textCn('rs-link', { external: true })}

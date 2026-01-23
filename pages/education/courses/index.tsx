@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
+import cn from 'classnames';
 import { TabList, Tab } from '@rescui/tab-list';
 import { useTextStyles } from '@rescui/typography';
 
@@ -40,9 +41,9 @@ function CoursesPage() {
     return (
         <EducationLayout title="List of Courses" dataTestId="teach-courses">
             <section className="ktl-layout ktl-layout--center">
-                <h1 className={`${textCn('rs-h1')} ktl-offset-top-xl`}>Universities That Teach Kotlin</h1>
+                <h1 className={cn(textCn('rs-h1'), 'ktl-offset-top-xl')}>Universities That Teach Kotlin</h1>
 
-                <div className={`${styles.tabs} ktl-offset-top-m`}>
+                <div className={cn(styles.tabs, 'ktl-offset-top-m')}>
                     <TabList short value={activeIndex} onChange={setActiveIndex}>
                         <Tab>Table view</Tab>
                         <Tab>Map view</Tab>

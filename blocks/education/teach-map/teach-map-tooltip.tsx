@@ -1,4 +1,5 @@
 import React, { FC, useCallback, MouseEvent } from 'react';
+import cn from 'classnames';
 import styles from './teach-map-tooltip.module.css';
 import { CloseIcon } from '@rescui/icons';
 import { University } from './teach-map';
@@ -18,7 +19,7 @@ export const TeachMapTooltip: FC<TeachMapTooltipProps> = ({ university, onClose 
     );
 
     return (
-        <div className={`${styles.tooltip} ktl-text-3`}>
+        <div className={cn(styles.tooltip, 'ktl-text-3')}>
             <div className={styles.header}>
                 <div>
                     <div className={styles.headerText}>{university.title}</div>
