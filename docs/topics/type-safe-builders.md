@@ -204,16 +204,16 @@ annotation class HtmlTagMarker
 
 An annotation class is called a DSL marker if it is annotated with the `@DslMarker` annotation.
 
-The `@Target` annotation restricts where `HtmlTagMarker` can be applied.
+The `@Target` annotation restricts where `@HtmlTagMarker` can be applied.
 DSL markers only affect scope control when applied to:
 
-* Type declarations (`CLASS`): classes or interfaces that will be used as DSL receivers
-* Type usages (`TYPE`): receiver types in function type signatures
-* Type aliases (`TYPEALIAS`): type aliases that expand to DSL receiver types
+* Type declarations (`CLASS`): classes or interfaces used as DSL receivers.
+* Type usages (`TYPE`): receiver types in function type signatures.
+* Type aliases (`TYPEALIAS`): type aliases that expand to DSL receiver types.
 
 Applying a DSL marker to other targets (such as functions or properties) has no effect on scope control.
 
-> More details on how DSL marker works are available in the corresponding [design notes](https://github.com/Kotlin/KEEP/blob/main/notes/0005-dsl-marker.md).
+> For more details on how DSL marker works, see the corresponding [KEEP document](https://github.com/Kotlin/KEEP/blob/main/notes/0005-dsl-marker.md).
 >
 {style="note"}
 
