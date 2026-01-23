@@ -42,6 +42,11 @@ export async function getStaticProps(): Promise<{ props: GrammarPageProps }> {
     try {
         await access(grammarFile);
     } catch (error) {
+        if (process.env.NODE_ENV === 'development') {
+            console.warn('Grammar page is NOT included by default in development mode');
+            return { props: { data: [] } };
+        }
+
         throw new Error(`Grammar page is NOT included. No file: ${grammarFile}`);
     }
 
