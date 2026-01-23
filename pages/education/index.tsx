@@ -152,7 +152,7 @@ function EducationPage() {
             </section>
 
             <section
-                className={cn(styles.universities, 'ktl-offset-top-xxl', 'ktl-with-anchor')}
+                className={cn(styles.universities, styles.anchorTarget, 'ktl-offset-top-xxl', 'ktl-with-anchor')}
                 id="kotlin-courses-around-the-world"
             >
                 <div className="ktl-layout ktl-layout--center">
@@ -252,7 +252,7 @@ function EducationPage() {
                 </div>
             </section>
 
-            <section className={cn(styles.resources, 'ktl-offset-top-xxl', 'ktl-with-anchor')} id="start-teaching-kotlin">
+            <section className={cn(styles.resources, styles.anchorTarget, 'ktl-offset-top-xxl', 'ktl-with-anchor')} id="start-teaching-kotlin">
                 <div className="ktl-layout ktl-layout--center">
                     <div className={cn(styles.resourcesTop, 'ktl-offset-bottom-xl')}>
                         <img

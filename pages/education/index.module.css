@@ -266,6 +266,11 @@
     }
 }
 
+/* Anchor target offset for fixed header */
+.anchorTarget {
+    scroll-margin-top: 64px;
+}
+
 /* Anchor link styles */
 .anchorLink {
     color: inherit;
