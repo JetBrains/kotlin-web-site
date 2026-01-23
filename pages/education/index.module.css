@@ -177,6 +177,11 @@
     padding: 0;
 }
 
+.links ul > li > ul {
+    margin-left: 16px;
+    margin-top: 8px;
+}
+
 @media (--ktl-tm-min) {
     .links {
         grid-template-columns: repeat(3, 1fr);
