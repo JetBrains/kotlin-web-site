@@ -1,3 +1,5 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
 /* Features section */
 .feature img {
     display: block;
@@ -7,7 +9,7 @@
     display: block;
 }
 
-@media (min-width: 1200px) {
+@media (--ktl-ds-min) {
     .featureContent {
         padding-right: 32px;
     }
@@ -21,7 +23,7 @@
     margin-top: 32px;
 }
 
-@media (min-width: 768px) {
+@media (--ktl-tm-min) {
     .topMobileButtons {
         display: none;
     }
@@ -31,7 +33,7 @@
     display: none;
 }
 
-@media (min-width: 768px) {
+@media (--ktl-tm-min) {
     .topButtons {
         display: grid;
         grid-gap: 16px;
@@ -45,7 +47,7 @@
     display: none;
 }
 
-@media (min-width: 768px) {
+@media (--ktl-tm-min) {
     .universitiesTopInner {
         display: flex;
         align-items: flex-end;
@@ -80,7 +82,7 @@
     justify-content: center;
 }
 
-@media (min-width: 768px) {
+@media (--ktl-tm-min) {
     .universitiesBottom {
         text-align: center;
         display: block;
@@ -91,7 +93,7 @@
     }
 }
 
-@media (min-width: 1400px) {
+@media (--ktl-ds-min) {
     .universitiesBottom br {
         display: block;
     }
@@ -122,7 +124,7 @@
     height: 26px;
 }
 
-@media (min-width: 768px) {
+@media (--ktl-tm-min) {
     .logos {
         display: flex;
         justify-content: space-around;
@@ -136,7 +138,7 @@
     margin-bottom: 32px;
 }
 
-@media (min-width: 768px) {
+@media (--ktl-tm-min) {
     .resourcesTop {
         display: flex;
         align-items: center;
@@ -175,7 +177,7 @@
     padding: 0;
 }
 
-@media (min-width: 768px) {
+@media (--ktl-tm-min) {
     .links {
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 48px;
@@ -222,7 +224,7 @@
 }
 
 /* Mobile styles */
-@media (max-width: 767px) {
+@media (--ktl-tm) {
     .features {
         display: grid;
         grid-gap: 32px;

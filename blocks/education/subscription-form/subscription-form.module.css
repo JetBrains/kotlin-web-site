@@ -1,3 +1,5 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
 .form {
     background: #f4f4f4;
     padding: 16px;
@@ -44,7 +46,7 @@
     transform: translate(-50%, -50%);
 }
 
-@media (min-width: 768px) {
+@media (--ktl-tm-min) {
     .form {
         padding: 32px;
         display: grid;
@@ -99,7 +101,7 @@
     }
 }
 
-@media (min-width: 1280px) {
+@media (--ktl-ds-min) {
     .form {
         grid-template-columns: [start] min-content [col2-start] 1fr [col3-start] 1fr [col4-start] min-content [end];
         grid-template-rows: [row1-start] auto [row2-start] auto [row3-start] auto [end];

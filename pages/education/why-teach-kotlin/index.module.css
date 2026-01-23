@@ -1,9 +1,11 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
 /* Grid layout */
 .gridNav {
     display: none;
 }
 
-@media (min-width: 1200px) {
+@media (--ktl-ds-min) {
     .grid {
         display: flex;
     }
@@ -46,7 +48,7 @@
     display: none;
 }
 
-@media (min-width: 768px) {
+@media (--ktl-tm-min) {
     .quoteSectionGrid {
         display: flex;
     }

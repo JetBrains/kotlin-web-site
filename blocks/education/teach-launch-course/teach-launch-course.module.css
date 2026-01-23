@@ -1,3 +1,5 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
 .linksBlock {
     margin-top: 32px;
 }
@@ -18,20 +20,20 @@
     justify-content: stretch;
 }
 
-@media (max-width: 767px) {
+@media (--ktl-tm) {
     .button {
         font-size: 16px;
         padding: 8px 24px;
     }
 }
 
-@media (min-width: 768px) {
+@media (--ktl-tm-min) {
     .listLarge {
         column-count: 2;
     }
 }
 
-@media (min-width: 1000px) {
+@media (--ktl-tl-min) {
     .launchCourse {
         display: grid;
         grid-template-rows: auto;

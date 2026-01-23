@@ -1,3 +1,5 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
 .wrapper {
     padding: 0;
     font-family: var(--ktl-font-family-inter);
@@ -12,7 +14,7 @@
     grid-gap: 16px;
 }
 
-@media (max-width: 768px) {
+@media (--ktl-tm) {
     .ctaButtons {
         display: flex;
         flex-direction: column;

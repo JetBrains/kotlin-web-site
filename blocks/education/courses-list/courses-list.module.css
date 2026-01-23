@@ -1,3 +1,5 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
 .item {
     border-top: 1px solid rgba(39, 40, 44, 0.2);
     padding: 16px 0;
@@ -8,7 +10,7 @@
     padding-bottom: 16px;
 }
 
-@media (min-width: 768px) {
+@media (--ktl-tm-min) {
     .header,
     .item {
         display: grid;
