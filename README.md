@@ -234,6 +234,7 @@ There are also additional options to run tests:
 To ease the process of adding and maintaining e2e tests:
 - `yarn test:e2e:new` to generate the test for the user interactions.
 - `yarn test:e2e:update`  to update screenshots when something on page has changed intentionally.
+- `yarn test:e2e:screenshots` to run e2e tests with screenshots across different breakpoints (breakpoints-v2).
 
 ## Write Tests
 

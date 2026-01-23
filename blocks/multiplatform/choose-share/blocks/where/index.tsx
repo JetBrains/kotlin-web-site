@@ -8,6 +8,7 @@ import { AndroidIcon, AppleIcon, ComputerIcon, GlobusIcon, ServerIcon } from '@r
 import styles from './choose-share-where.module.css';
 
 import { useTabScroll } from '../../hooks/useTabScroll';
+import Link from 'next/link';
 
 
 const TABS_BLOCKS = [
@@ -32,10 +33,10 @@ const TABS_BLOCKS = [
             const textCn = useTextStyles();
             return <>
                 Share business logic seamlessly. Make your Kotlin functions available to call from Swift code, and use
-                the full power of iOS APIs in your Kotlin code.<br /> Use <a
-                className={textCn('rs-link', { external: true })}
-                href="https://www.jetbrains.com/compose-multiplatform/">Compose
-                Multiplatform</a> to create screens that can be embedded in SwiftUI, or build the entire user interface
+                the full power of iOS APIs in your Kotlin code.<br /> Use <Link
+                className={textCn('rs-link')}
+                href="/compose-multiplatform/">Compose
+                Multiplatform</Link> to create screens that can be embedded in SwiftUI, or build the entire user interface
                 in Kotlin. Easily use platform-specific views like <code>MapKit</code> or <code>AVFoundation</code> straight from your
                 Kotlin&nbsp;code.
             </>;
@@ -59,8 +60,8 @@ const TABS_BLOCKS = [
         Content: () => {
             const textCn = useTextStyles();
             return <>
-                Use Kotlin with <a className={textCn('rs-link', { external: true })}
-                                   href="https://www.jetbrains.com/compose-multiplatform/">Compose Multiplatform</a> to
+                Use Kotlin with <Link className={textCn('rs-link')}
+                                   href="/compose-multiplatform/">Compose Multiplatform</Link> to
                 build cross-platform desktop applications with shared business logic and a consistent UI across Windows,
                 macOS, and Linux&nbsp;– hardware-accelerated rendering included!<br /> Use the well-established Kotlin
                 and JVM

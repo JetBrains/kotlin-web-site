@@ -1,0 +1,74 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  @media (--ktl-ms-down) {
+    gap: 14px;
+  }
+}
+
+.icon {
+  &.android {
+    --hero-item-src: url('/images/multiplatform/hero/android.svg');
+  }
+
+  &.ios {
+    --hero-item-src: url('/images/multiplatform/hero/ios.svg');
+  }
+
+  &.web {
+    --hero-item-src: url('/images/multiplatform/hero/web.svg');
+  }
+
+  &.desktop {
+    --hero-item-src: url('/images/multiplatform/hero/desktop.svg');
+  }
+
+  &.server {
+    --hero-item-src: url('/images/multiplatform/hero/server.svg');
+  }
+
+  &::before {
+    display: block;
+    content: '';
+
+    background: var(--hero-item-src) no-repeat center;
+    background-size: 96px;
+    height: 96px;
+    width: 96px;
+
+    @media (--ktl-tl-down) {
+      background-size: 72px;
+      height: 72px;
+      width: 72px;
+    }
+
+    @media (--ktl-ms-down) {
+      background-size: 48px;
+      height: 48px;
+      width: 48px;
+    }
+  }
+}
+
+.title {
+  @media (--ktl-ms-down) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.text {
+  @media (--ktl-ms-down) {
+    font-size: 13px;
+    line-height: 20px;
+  }
+}
+
+.tag {
+  margin-top: 12px;
+}

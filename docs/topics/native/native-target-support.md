@@ -11,13 +11,14 @@ This document describes which targets and hosts are supported by the Kotlin/Nati
 The Kotlin/Native compiler supports a number of different targets, though the level of support for them varies.
 To clarify these levels, we've broken up the targets into several tiers depending on how well the compiler supports them.
 
-Mind the following terms used in tier tables:
+Tier tables have the following columns:
 
 * **Gradle target name** is a [target name](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets)
   that is used in the Kotlin Multiplatform Gradle plugin to enable the target.
-* **Target triple** is a target name according to the `<architecture>-<vendor>-<system>-<abi>` structure that is commonly
-  used by [compilers](https://clang.llvm.org/docs/CrossCompilation.html#target-triple).
-* **Running tests** indicates out-of-the-box support for running tests in Gradle and IDE.
+* **Target triple** is a target name according to the `<architecture>-<vendor>-<system>-<abi>` structure
+  that [compilers commonly use](https://clang.llvm.org/docs/CrossCompilation.html#target-triple).
+* **Running tests** indicates whether the target allows users to run tests out of the box in Gradle and IDE
+  (not to be confused with CI tests that are run for targets themselves).
   
   This is only available on a native host for the specific target. For example, you can run `macosArm64` and `iosArm64`
   tests only on the macOS ARM64 host.
@@ -55,6 +56,11 @@ Mind the following terms used in tier tables:
 * The target is not guaranteed to be tested on CI.
 * We can't promise a source and binary compatibility between different compiler releases, though such changes for these
   targets are quite rare.
+
+> The Tier 3 targets are not in active development and may come with breaking issues.
+> Use them with caution.
+> 
+{style="warning"}
 
 | Gradle target name      | Target triple                    | Running tests | Description                                                                              |
 |-------------------------|----------------------------------|---------------|------------------------------------------------------------------------------------------|

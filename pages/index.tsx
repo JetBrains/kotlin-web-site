@@ -49,8 +49,8 @@ import searchConfig from '../search-config.json';
 
 
 import releasesDataRaw from '../data/releases.yml';
-import Script from 'next/script';
 import { KotlinPlusAiInfo } from '../blocks/main/kotlin-plus-ai';
+import { KotlinConfBanner } from '../blocks/main/kotlin-conf-banner';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
@@ -170,6 +170,9 @@ function Index() {
                 <HeroSection title={'Kotlin'}>
                     Concise. Multiplatform. Fun.
                 </HeroSection>
+
+                <KotlinConfBanner />
+
                 <div className={'ktl-layout ktl-layout--center'}>
                     <LatestNews />
                 </div>
@@ -179,7 +182,6 @@ function Index() {
             <ThemeProvider theme="light">
                 <div className={styles.evenSection} data-testid={"highlighted-cases-section"}>
                     <div className={'ktl-layout ktl-layout--center'}>
-
                         <KotlinUsageHighlights title="Kotlin in action" items={kotlinUsageHighlightsCases} />
 
                         <DividerLine />
@@ -203,7 +205,7 @@ function Index() {
                             media={<img src={MultiplatformPreviewImage.src} alt="" />}
                         />
 
-                        <KotlinPlusAiInfo/>
+                        <KotlinPlusAiInfo />
 
                         <InfoBlock
                             title={'Big, friendly and helpful community'}
@@ -243,7 +245,13 @@ function Index() {
                         className={styles.ctaBlock}
                         mainTitle={<>Start using{isTS && <br />} Kotlin today!</>}
                         buttons={
-                            <Button href="/docs/getting-started.html" size="l" mode="rock" theme="light" data-testid={'cta-get-started-button'}>
+                            <Button
+                                href="/docs/getting-started.html"
+                                size="l"
+                                mode="rock"
+                                theme="light"
+                                data-testid={'cta-get-started-button'}
+                            >
                                 Get started
                             </Button>
                         }

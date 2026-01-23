@@ -181,12 +181,5 @@
   padding: 32px 32px 92px;
   border-radius: 16px;
   overflow: auto;
-  background-color: #282a36; /* Dracula theme background */
-}
-
-.codeBlock :global(pre) {
-  margin: 0;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  line-height: 2;
+  background-color: #19191C;
 }

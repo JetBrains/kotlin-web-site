@@ -1,0 +1,111 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+  margin-top: 72px;
+  margin-bottom: 72px;
+  background-color: #52c1ff;
+  border-radius: 32px;
+  text-align: center;
+
+  @media (--ktl-ml-down) {
+    border-radius: 16px;
+  }
+}
+
+.content {
+  padding: 64px;
+
+  @media (--ktl-ml-down) {
+    padding: 32px;
+  }
+
+  @media (--ktl-ms-down) {
+    padding: 24px;
+  }
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 16px;
+
+  @media (--ktl-ts-down) {
+    font-size: 35px;
+    line-height: 49px;
+  }
+
+  @media (--ktl-ml-down) {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  @media (--ktl-ms-down) {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 40px;
+
+  @media (--ktl-ml-down) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  @media (--ktl-ms-down) {
+    margin-bottom: 32px;
+  }
+}
+
+.text {
+  margin: 0;
+
+  @media (--ktl-ml-down) {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.supported {
+  background: linear-gradient(98deg, #3a00a6 4.92%, #18007a 95.23%);
+  padding: 64px;
+  border-radius: 32px;
+
+  @media (--ktl-ml-down) {
+    padding: 32px;
+    border-radius: 16px;
+  }
+
+  @media (--ktl-ms-down) {
+    padding: 24px;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 72px;
+  margin-bottom: 18px;
+
+  @media (--ktl-tl-down) {
+    margin-top: 32px;
+    margin-bottom: 8px;
+  }
+
+  @media (--ktl-ts-down) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 0;
+
+    &  > li {
+     flex-basis: 45%;
+    }
+  }
+
+  @media (--ktl-ms-down) {
+    flex-direction: column;
+    gap: 30px;
+  }
+}

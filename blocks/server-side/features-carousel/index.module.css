@@ -10,7 +10,6 @@
 }
 
 .slide {
-  /*width: calc(100vw - 44px - 78px);*/
 }
 
 .featureCard {
@@ -71,14 +70,7 @@
   margin-top: 32px;
   box-sizing: border-box;
   overflow: auto;
-  background-color: #282a36; /* Dracula theme background */
-}
-
-.codeBlock :global(pre) {
-  margin: 0;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  line-height: 1.5;
+  background-color: #19191C;
 }
 
 .controls {
