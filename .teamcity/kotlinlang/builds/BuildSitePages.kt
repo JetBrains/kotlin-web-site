@@ -83,17 +83,28 @@ object BuildSitePages : BuildType({
             dockerImage = "alpine"
             //language=bash
             scriptContent = """
-                cp -fR _webhelp/reference/* build/docs/
-                cp -fR _webhelp/multiplatform/* build/docs/multiplatform/
+                set -e
                 
-                mv build dist
+                mkdir -p dist/
                 
+                echo "Copy python artifacts to dist"
+                cp -fR build/* dist/
+                mkdir -p dist/_assets/
+                cp -fR _assets/* dist/_assets/
+                
+                echo "Copy spec assets to dist"
+                mkdir -p dist/spec
                 cp -fR spec dist/
-                cp -fR _assets dist/
                 
+                echo "Copy documentation to dist"
+                mkdir -p dist/docs/multiplatform
+                cp -fR _webhelp/reference/* dist/docs/
+                cp -fR _webhelp/multiplatform/* dist/docs/multiplatform/
+                
+                echo "Copy nextjs artifacts to dist"
                 cp -fR out/* dist/
-                cp -fR out/_next dist/_next/
                 
+                echo "Copy backward stdlib artifacts to dist"
                 mkdir -p "dist/api/latest/jvm/stdlib"
                 cp package-list-stdlib dist/api/latest/jvm/stdlib/package-list
                 
