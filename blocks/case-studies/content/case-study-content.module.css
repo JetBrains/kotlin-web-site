@@ -1,0 +1,60 @@
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 16px;
+}
+
+@media (min-width: 800px) {
+    .wrapper {
+        padding: 64px 0;
+    }
+}
+
+.title {
+    margin-bottom: 32px;
+}
+
+.coverImg {
+    width: 100%;
+    height: auto;
+    margin-bottom: 48px;
+    border-radius: 12px;
+    display: block;
+}
+
+.wrapper h1, .wrapper h2, .wrapper h3, .wrapper h4 {
+    margin-top: 48px;
+    margin-bottom: 24px;
+}
+
+.wrapper p {
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.wrapper img {
+    max-width: 100%;
+    height: auto;
+    margin: 32px 0;
+    display: block;
+    border-radius: 8px;
+}
+
+.wrapper ul, .wrapper ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+}
+
+.wrapper li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.wrapper a {
+    color: var(--ktl-color-blue-1);
+    text-decoration: underline;
+}
+
+.wrapper a:hover {
+    text-decoration: none;
+}
