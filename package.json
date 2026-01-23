@@ -123,7 +123,7 @@
         "sharp": "^0.28.3"
     },
     "scripts": {
-        "build": "yarn run build:production && yarn run next-build-static",
+        "build": "yarn run build:production && yarn run next-build-static && yarn run generate-redirects",
         "build:production": "NODE_ENV=production webpack  --mode production",
         "postinstall": "cd node_modules/codemirror && rollup -c",
         "start": "webpack serve",
