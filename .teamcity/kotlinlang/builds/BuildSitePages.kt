@@ -22,6 +22,7 @@ object BuildSitePages : BuildType({
     artifactRules = """
         dist/** => pages.zip
         robots.txt => pages.zip
+        reports/** => reports.zip
     """.trimIndent()
 
     vcs {
