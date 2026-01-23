@@ -194,14 +194,28 @@ To address this problem, there is a special mechanism to control receiver scope.
 
 To make the compiler start controlling scopes you only have to annotate the types of all receivers used in the DSL with 
 the same marker annotation.
-For instance, for HTML Builders you declare an annotation `@HTMLTagMarker`:
+For instance, for HTML Builders you declare an annotation `@HtmlTagMarker`:
 
 ```kotlin
 @DslMarker
+@Target(AnnotationTarget.CLASS)
 annotation class HtmlTagMarker
 ```
 
 An annotation class is called a DSL marker if it is annotated with the `@DslMarker` annotation.
+
+The `@Target` annotation restricts where `@HtmlTagMarker` can be applied.
+DSL markers only affect scope control when applied to:
+
+* Type declarations (`CLASS`): classes or interfaces used as DSL receivers.
+* Type usages (`TYPE`): receiver types in function type signatures.
+* Type aliases (`TYPEALIAS`): type aliases that expand to DSL receiver types.
+
+Applying a DSL marker to other targets (such as functions or properties) has no effect on scope control.
+
+> For more details on how DSL marker works, see the corresponding [KEEP document](https://github.com/Kotlin/KEEP/blob/main/notes/0005-dsl-marker.md).
+>
+{style="note"}
 
 In our DSL all the tag classes extend the same superclass `Tag`.
 It's enough to annotate only the superclass with `@HtmlTagMarker` and after that the Kotlin compiler will treat all the 
@@ -243,11 +257,11 @@ html {
 ```
 
 You can also apply the `@DslMarker` annotation directly to [function types](lambdas.md#function-types).
-Simply annotate the `@DslMarker` annotation with `@Target(AnnotationTarget.TYPE)`:
+This requires including `AnnotationTarget.TYPE` in the annotation targets:
 
 ```kotlin
-@Target(AnnotationTarget.TYPE)
 @DslMarker
+@Target(AnnotationTarget.CLASS, AnnotationTarget.TYPE)
 annotation class HtmlTagMarker
 ```
 
@@ -327,6 +341,7 @@ class TextElement(val text: String) : Element {
 }
 
 @DslMarker
+@Target(AnnotationTarget.CLASS, AnnotationTarget.TYPE)
 annotation class HtmlTagMarker
 
 @HtmlTagMarker
