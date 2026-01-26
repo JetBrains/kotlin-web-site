@@ -17,6 +17,7 @@ const { initPrism, applyCodeHighlighting } = require('./highlight');
 const { copyCoverAssets, transformBookCover } = require('./cover');
 const { generateTocHtml } = require('./toc');
 const { addTitleLabels } = require('./labels');
+const { convertTabTitlesToElements } = require('./tab-titles');
 
 const rootFolder = path.join(__dirname, '..', '..');
 const pdfFolder = path.join(rootFolder, 'pdf');
@@ -145,6 +146,10 @@ async function generatePDF(outputName, data) {
 
   // Fix broken image links
   rawContent = fixImageLinks(rawContent);
+
+  // Convert tab titles from pseudo-elements to real elements for better page breaking
+  console.log('Converting tab titles to DOM elements...');
+  rawContent = convertTabTitlesToElements(rawContent);
 
   // Add title labels (EAP, Beta, Experimental, etc.) based on data-label-id attributes
   console.log('Adding title labels...');
