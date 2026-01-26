@@ -12,6 +12,10 @@ import references.builds.kotlinx.serialization.KotlinxSerializationBuildApiRefer
 object E2ETests : BuildType({
     name = "E2E tests"
 
+    artifactRules = """
+        +:test-results/* => test-results.zip
+    """.trimIndent()
+
     vcs {
         root(vcsRoots.KotlinLangOrg)
     }
