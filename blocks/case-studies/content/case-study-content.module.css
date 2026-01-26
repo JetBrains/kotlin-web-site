@@ -94,3 +94,9 @@
 .wrapper a:hover {
     text-decoration: none;
 }
+
+.share {
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
