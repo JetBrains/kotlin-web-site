@@ -45,7 +45,7 @@ export async function getType(url: string, filePath: string): Promise<[FileType,
 
         if (url === '404.html' || url.match(/404\/(index\.html)?/g)) return ['NotFound', $];
         if (url.startsWith('spec/')) return ['Page_Spec', $];
-        if (url === 'docs/reference/grammar.html') return ['Page_Grammar', $];
+        if (url.startsWith('docs/reference/grammar/')) return ['Page_Grammar', $];
 
         if (url.startsWith('api/')) {
             if (url.startsWith('api/latest/')) pageType = url.includes('jvm/stdlib') ? 'Page_API_stdlib' : 'Page_API_test';

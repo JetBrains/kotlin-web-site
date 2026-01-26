@@ -35,9 +35,6 @@
 - from: /foundation/language-committee-guidelines.html
   to: /docs/language-committee-guidelines.html
 
-- from: /docs/kotlin-pdf.html
-  to: /docs/kotlin-pdf.html
-
 - from: /docs/tutorials/httpservlets.html
   to: /docs/server-overview.html
 

@@ -15,18 +15,11 @@ from flask.helpers import url_for, send_file, make_response
 from flask.views import View
 from flask_frozen import Freezer, walk_directory
 
-from src.Feature import Feature
 from src.api import get_api_page
-from src.encoder import DateAwareEncoder
-from src.externals import process_nav_includes
 from src.github import assert_valid_git_hub_url
-from src.grammar import get_grammar
 from src.ktl_components import KTLComponentExtension
-from src.markdown.makrdown import jinja_aware_markdown
-from src.navigation import process_nav, get_current_url
 from src.pages.MyFlatPages import MyFlatPages
 from src.pdf import generate_pdf
-from src.processors.processors import process_code_blocks
 from src.processors.processors import set_replace_simple_code
 
 yaml = YAML(typ='rt')
@@ -106,26 +99,6 @@ def get_site_data():
 site_data = get_site_data()
 
 
-def get_nav():
-    global _nav_cache
-    global _nav_lock
-
-    with _nav_lock:
-        if _nav_cache is not None:
-            nav = _nav_cache
-        else:
-            nav = get_nav_impl()
-
-        nav = copy.deepcopy(nav)
-
-        if build_mode:
-            _nav_cache = copy.deepcopy(nav)
-
-    # NOTE. This call depends on `request.path`, cannot cache
-    process_nav(request.path, nav)
-    return nav
-
-
 def get_countries_size():
     def match_string(entry):
         location = entry.get("location", "")
@@ -142,27 +115,6 @@ def get_education_courses():
             for x in site_data['universities']]
 
 
-def get_nav_impl():
-    with open(path.join(data_folder, "_nav.yml")) as stream:
-        nav = yaml.load(stream)
-        nav = process_nav_includes(build_mode, nav)
-        return nav
-
-
-def get_kotlin_features():
-    features_dir = path.join(os.path.dirname(__file__), "kotlin-features")
-    features = []
-    for feature_meta in yaml.load(open(path.join(features_dir, "kotlin-features.yml"))):
-        file_path = path.join(features_dir, feature_meta['content_file'])
-        with open(file_path, encoding='utf-8') as f:
-            content = f.read()
-            content = content.replace("\r\n", "\n")
-            if file_path.endswith(".md"):
-                html_content = BeautifulSoup(jinja_aware_markdown(content, pages), 'html.parser')
-                content = process_code_blocks(html_content)
-            features.append(Feature(content, feature_meta))
-    return features
-
 
 @app.context_processor
 def add_year_to_context():
@@ -176,9 +128,7 @@ app.jinja_env.add_extension(KTLComponentExtension)
 
 @app.context_processor
 def add_data_to_context():
-    nav = get_nav()
     return {
-        'nav': nav,
         'data': site_data,
         'site': {
             'pdf_url': app.config['PDF_URL'],
@@ -189,7 +139,7 @@ def add_data_to_context():
             'code_baseurl': app.config['CODE_URL'],
             'contenteditable': build_contenteditable
         },
-        'headerCurrentUrl': get_current_url(nav['subnav']['content']),
+        'headerCurrentUrl': '/',
     }
 
 
@@ -216,30 +166,6 @@ def autoversion_filter(filename):
     original = urlparse(filename)._asdict()
     original.update(query=original.get('query') + '&v=' + asset_version)
     return ParseResult(**original).geturl()
-
-
-@app.route('/data/cities.json')
-def get_cities():
-    return Response(json.dumps(site_data['cities'], cls=DateAwareEncoder), mimetype='application/json')
-
-
-@app.route('/data/kotlinconf.json')
-def get_kotlinconf():
-    return Response(json.dumps(site_data['kotlinconf'], cls=DateAwareEncoder), mimetype='application/json')
-
-
-@app.route('/data/universities.json')
-def get_universities():
-    return Response(json.dumps(site_data['universities'], cls=DateAwareEncoder), mimetype='application/json')
-
-
-@app.route('/docs/reference/grammar.html')
-def grammar():
-    grammar = get_grammar(build_mode)
-    if grammar is None:
-        return "Grammar file not found", 404
-    return render_template('pages/grammar.html', kotlinGrammar=grammar)
-
 
 @app.route('/docs/kotlin-reference.pdf')
 def kotlin_reference_pdf():
@@ -280,6 +206,7 @@ def community_user_groups_page():
 def education_page():
     return render_template(
         'pages/education/index.html',
+        headerCurrentUrl='/education/',
         universities_count=len(site_data['universities']),
         countries_count=get_countries_size()
     )
@@ -287,12 +214,18 @@ def education_page():
 
 @app.route('/education/why-teach-kotlin.html')
 def why_teach_page():
-    return render_template('pages/education/why-teach-kotlin.html')
+    return render_template(
+        'pages/education/why-teach-kotlin.html',
+        headerCurrentUrl='/education/',
+   )
 
 
 @app.route('/education/courses.html')
 def education_courses():
-    return render_template('pages/education/courses.html', universities_data=get_education_courses())
+    return render_template(
+        'pages/education/courses.html', universities_data=get_education_courses(),
+        headerCurrentUrl='/education/',
+    )
 
 
 @app.route('/')
@@ -303,19 +236,17 @@ def next_index_page():
 def next_server_side_page():
     return send_file(path.join(root_folder, 'out', 'server-side/index.html'))
 
-def process_page(page_path):
-    # get_nav() has side effect to copy and patch files from the `external` folder
-    # under site folder. We need it for dev mode to make sure file is up-to-date
-    # TODO: extract get_nav and implement the explicit way to avoid side-effects
-    get_nav()
+@app.route('/multiplatform/')
+def next_multiplatform_page():
+    return send_file(path.join(root_folder, 'out', 'multiplatform/index.html'))
 
+@app.route('/case-studies/')
+def next_case_studies_page():
+    return send_file(path.join(root_folder, 'out', 'case-studies/index.html'))
+
+
+def process_page(page_path):
     page = pages.get_or_404(page_path)
-    if 'redirect_path' in page.meta and page.meta['redirect_path'] is not None:
-        page_path = page.meta['redirect_path']
-        if page_path.startswith('https://') or page_path.startswith('http://'):
-            return render_template('redirect.html', url=page_path)
-        else:
-            return render_template('redirect.html', url=url_for('page', page_path=page_path))
 
     if 'date' in page.meta and page['date'] is not None:
         page.meta['formatted_date'] = page.meta['date'].strftime('%d %B %Y')
@@ -429,40 +360,6 @@ class RedirectTemplateView(View):
         return render_template('redirect.html', url=self.redirect_url)
 
 
-def generate_redirect_pages():
-    redirects_folder = path.join(root_folder, 'redirects')
-    for root, dirs, files in os.walk(redirects_folder):
-        for file in files:
-            if not file.endswith(".yml"):
-                continue
-
-            redirects_file_path = path.join(redirects_folder, file)
-
-            with open(redirects_file_path, encoding="UTF-8") as stream:
-                try:
-                    redirects = yaml.load(stream)
-
-                    for entry in redirects:
-                        url_to = entry["to"]
-                        url_from = entry["from"]
-                        url_list = url_from if isinstance(url_from, list) else [url_from]
-
-                        for url in url_list:
-                            if file == 'api.yml' and path.isfile(path.join(root_folder, url[1:])):
-                                print("The file " + url + " is already exist.")
-                            else:
-                                app.add_url_rule(url, view_func=RedirectTemplateView.as_view(url, url=url_to))
-
-                except YAMLError as exc:
-                    sys.stderr.write('Cant parse data file ' + file + ': ')
-                    sys.stderr.write(str(exc))
-                    sys.exit(-1)
-                except IOError as exc:
-                    sys.stderr.write('Cant read data file ' + file + ': ')
-                    sys.stderr.write(str(exc))
-                    sys.exit(-1)
-
-
 @app.errorhandler(404)
 def page_not_found(e):
     return send_file(path.join(root_folder, 'out', '404.html')), 404
@@ -529,9 +426,6 @@ def get_index_page(page_path):
     return process_page(page_path + 'index')
 
 
-generate_redirect_pages()
-
-
 @app.after_request
 def add_header(request):
     request.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
@@ -564,9 +458,6 @@ if __name__ == '__main__':
     print("\n\n")
 
     set_replace_simple_code(build_contenteditable)
-
-    with (open(path.join(root_folder, "_nav-mapped.yml"), 'w')) as output:
-        yaml.dump(get_nav_impl(), output)
 
     if len(argv_copy) > 1:
         if argv_copy[1] == "build":

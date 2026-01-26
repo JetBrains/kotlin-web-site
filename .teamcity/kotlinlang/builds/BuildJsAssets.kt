@@ -2,6 +2,7 @@ package kotlinlang.builds
 
 import BuildParams.KLANG_NODE_CONTAINER
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object BuildJsAssets: BuildType({
@@ -46,6 +47,17 @@ object BuildJsAssets: BuildType({
         +:latest-news.zip!** => latest-news/
       """.trimIndent()
       cleanDestination = true
+    }
+
+    dependency(BuildKotlinGrammar) {
+      snapshot {
+        onDependencyFailure = FailureAction.FAIL_TO_START
+        onDependencyCancel = FailureAction.CANCEL
+      }
+
+      artifacts {
+        artifactRules = "grammar.xml"
+      }
     }
   }
 })
