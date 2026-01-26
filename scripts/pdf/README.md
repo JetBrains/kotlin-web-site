@@ -15,11 +15,10 @@ yarn generate-pdf:convert  # Step 2: Convert to PDF
 
 ### Fast Testing Mode
 
-For quick iteration, you can generate PDF from a single page by editing `scripts/dist/pdf/index.ts`:
+For quick iteration, you can generate PDF from a single page using the `TEST_FILE` environment variable:
 
-```typescript
-const TEST_SINGLE_FILE = true;
-const TEST_FILE = 'docs/your-page.html';
+```bash
+TEST_FILE=docs/your-page.html yarn generate-pdf
 ```
 
 This reduces generation time from ~5 minutes to seconds.
