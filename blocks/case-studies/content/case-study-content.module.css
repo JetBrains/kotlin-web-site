@@ -51,7 +51,7 @@
 }
 
 .wrapper a {
-    color: var(--ktl-color-blue-1);
+    color: var(--rs-color-primary-light-theme, #7f52ff);
     text-decoration: underline;
 }
 
