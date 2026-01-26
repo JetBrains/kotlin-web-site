@@ -1,12 +1,9 @@
 package tests.buildTypes
 
-import documentation.builds.KotlinWithCoroutines
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import kotlinlang.builds.BuildJsAssets
-import references.builds.kotlinx.coroutines.KotlinxCoroutinesBuildApiReference
-import references.builds.kotlinx.serialization.KotlinxSerializationBuildApiReference
+import kotlinlang.builds.BuildSitePages
 
 
 object E2ETests : BuildType({
@@ -21,44 +18,14 @@ object E2ETests : BuildType({
     }
 
     dependencies {
-        artifacts(KotlinWithCoroutines) {
-            cleanDestination = true
-            artifactRules = """
-                +:webHelpImages.zip!** => dist/docs/images/
-                +:webHelpKR2.zip!** => dist/docs/
-            """.trimIndent()
-        }
-
-        dependency(BuildJsAssets) {
+        dependency(BuildSitePages) {
             snapshot {
                 onDependencyFailure = FailureAction.FAIL_TO_START
                 onDependencyCancel = FailureAction.CANCEL
             }
-
             artifacts {
-                artifactRules = "+:assets.zip!** => _assets/"
-            }
-        }
-
-        dependency(KotlinxCoroutinesBuildApiReference) {
-            snapshot {
-                onDependencyFailure = FailureAction.CANCEL
-                onDependencyCancel = FailureAction.CANCEL
-            }
-
-            artifacts {
-                artifactRules = "+:pages.zip!** => libs/kotlinx.coroutines/"
-            }
-        }
-
-        dependency(KotlinxSerializationBuildApiReference) {
-            snapshot {
-                onDependencyFailure = FailureAction.CANCEL
-                onDependencyCancel = FailureAction.CANCEL
-            }
-
-            artifacts {
-                artifactRules = "+:pages.zip!** => libs/kotlinx.serialization/"
+                buildRule = sameChainOrLastFinished()
+                artifactRules = "+:pages.zip!** => dist/"
             }
         }
     }
