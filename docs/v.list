@@ -50,7 +50,7 @@
 
     <!-- Spring -->
     <var name="springBootSupportedKotlinVersion" value="2.2.21"/>
-    <var name="springBootVersion" value="4.0.1"/>
+    <var name="springBootVersion" value="4.0.2"/>
 
     <!-- Other -->
     <var name="defaultJvmTargetVersion" value="1.8"/>
