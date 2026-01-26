@@ -3,6 +3,7 @@ import { defineConfig, devices } from '@playwright/test';
 const MAX_DIFF_PIXEL_RATIO = 0.025 as const;
 
 export default defineConfig({
+    globalSetup: require.resolve('./test/global-setup.ts'),
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 2 : 0,
     reporter: process.env.CI ? 'dot' : 'list',
@@ -13,6 +14,7 @@ export default defineConfig({
     },
     use: {
         baseURL: process.env.BASE_URL || 'http://localhost:9000',
+        storageState: 'test/storage-state.json',
         trace: 'off',
         screenshot: 'only-on-failure',
         video: 'retain-on-failure'

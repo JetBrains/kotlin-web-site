@@ -3,8 +3,6 @@ import { test, expect } from '@playwright/test';
 test.describe('Footer social media buttons', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
-        await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
-        await page.click('button.ch2-btn.ch2-btn-primary');
         await page.evaluate(() => {
             window.scrollTo(0, document.body.scrollHeight);
         });

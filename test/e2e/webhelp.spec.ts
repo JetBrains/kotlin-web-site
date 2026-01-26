@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { testSelector } from '../utils';
+import { isProduction, testSelector } from '../utils';
 import { WebHelpPage } from '../page/webhelp-page';
 import {
     ELEMENT_PADDING_OFFSET,
@@ -11,6 +11,8 @@ import { getElementScreenshotWithPadding } from './utils';
 import os from 'os';
 
 test.describe('WebHelp page appearance', async () => {
+    test.skip(({ baseURL }) => isProduction(baseURL), 'Skip tests on production environment');
+
     test.beforeEach(async ({ page }) => {
         const webHelpPage = new WebHelpPage(page, '/docs/test-page.html');
         await webHelpPage.init();
