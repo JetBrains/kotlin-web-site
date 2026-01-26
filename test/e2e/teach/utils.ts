@@ -1,4 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
+import { checkScreenshot } from '../../utils';
 
 export const MAILTO_LINK = 'mailto:education@kotlinlang.org' as const;
 export const SIGNUP_LINK = 'https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators' as const;
@@ -37,7 +38,7 @@ export async function checkTeachNav(page: Page, selected: typeof NAV_LINKS[numbe
         await expect(subLink).toHaveAttribute('href', link);
     }
 
-    expect(await navBar.screenshot()).toMatchSnapshot('sticky-menu.png');
+    await checkScreenshot(navBar);
 }
 
 export async function checkTeachMap(page: Page, map: Locator) {
@@ -98,5 +99,5 @@ export async function checkTeachCta({ page }) {
     await expect(eduLink).toBeVisible();
     await expect(eduLink).toHaveAttribute('href', MAILTO_LINK);
 
-    expect(await connectUs.screenshot()).toMatchSnapshot('connect-us.png');
+    await checkScreenshot(connectUs);
 }
