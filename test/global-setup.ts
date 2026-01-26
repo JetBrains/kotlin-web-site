@@ -1,14 +1,17 @@
 import { join } from 'node:path';
+import { writeFile } from 'node:fs/promises';
 import { chromium, FullConfig } from '@playwright/test';
 import { isProduction } from './utils';
 
 export default async function globalSetup(config: FullConfig) {
+    const storageStatePath = join(__dirname, 'storage-state.json');
+    await writeFile(storageStatePath, '{}', 'utf-8');
+
     for (const project of config.projects) {
         console.log(`[Global Setup] Processing project ${project.name}`);
         const baseURL = project.use?.baseURL;
 
         if (isProduction(baseURL)) {
-            const storageStatePath = join(__dirname, 'storage-state.json');
             await closeConsentBanner(baseURL, storageStatePath);
         }
     }

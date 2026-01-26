@@ -13,8 +13,24 @@ object E2ETests : BuildType({
         +:test-results/* => test-results.zip
     """.trimIndent()
 
+    requirements {
+        exists("docker.server.version")
+        contains("docker.server.osType", "linux")
+    }
+
     vcs {
         root(vcsRoots.KotlinLangOrg)
+    }
+
+    params {
+        param("env.WEBTEAM_UI_NPM_TOKEN", "%WEBTEAM_UI_NPM_TOKEN%")
+    }
+
+    steps {
+        script {
+            name = "Run E2E tests"
+            scriptContent = "./scripts/test/run-e2e-tests.sh"
+        }
     }
 
     dependencies {
@@ -28,25 +44,5 @@ object E2ETests : BuildType({
                 artifactRules = "+:pages.zip!** => dist/"
             }
         }
-    }
-
-    steps {
-        script {
-            name = "Set execute permissions"
-            scriptContent = "chmod +x ./scripts/test/run-e2e-tests.sh"
-        }
-        script {
-            name = "Run E2E tests"
-            scriptContent = "./scripts/test/run-e2e-tests.sh"
-        }
-    }
-
-    artifactRules = """
-        +:test-results/ => test-results/
-    """.trimIndent()
-
-    requirements {
-        exists("docker.server.version")
-        contains("docker.server.osType", "linux")
     }
 })

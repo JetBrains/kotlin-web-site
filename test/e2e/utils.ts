@@ -1,5 +1,5 @@
 import { ElementHandle, expect, Page, test } from '@playwright/test';
-import { isProduction, isSkipScreenshot } from '../utils';
+import { isDevelopment, isProduction, isSkipScreenshot } from '../utils';
 import { PageAssertionsToHaveScreenshotOptions } from 'playwright/types/test';
 
 export async function getElementScreenshotWithPadding(page: Page, element: ElementHandle, padding: number): Promise<Buffer | undefined> {
@@ -19,7 +19,7 @@ export async function getElementScreenshotWithPadding(page: Page, element: Eleme
 }
 
 export async function closeExternalBanners(page: Page) {
-    if (isProduction(page.url())) return;
+    if (!isDevelopment(page.url())) return;
 
     await page.frameLocator('#webpack-dev-server-client-overlay')
         .locator('[aria-label="Dismiss"]')
