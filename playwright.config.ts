@@ -6,7 +6,7 @@ export default defineConfig({
     globalSetup: require.resolve('./test/global-setup.ts'),
     forbidOnly: !!process.env.CI,
     retries: process.env.CI ? 2 : 0,
-    reporter: process.env.CI ? 'dot' : 'list',
+    reporter: process.env.CI ? 'playwright-teamcity-reporter' : 'list',
     snapshotDir: 'test/snapshots',
     expect: {
         toMatchSnapshot: { maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO },
