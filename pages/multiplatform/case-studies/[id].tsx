@@ -53,7 +53,7 @@ export default function MultiplatformCaseStudy({ content, frontmatter }: CaseStu
             canonical={`https://kotlinlang.org/multiplatform/case-studies/${frontmatter.slug}`}
         >
             <div className="ktl-layout-to-2">
-                <ThemeProvider theme={'light'}>
+                <ThemeProvider theme={'dark'}>
                     <CaseStudyContent content={content} frontmatter={frontmatter} />
                 </ThemeProvider>
             </div>
