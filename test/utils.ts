@@ -1,4 +1,4 @@
-import { BrowserContext, expect, Locator, Page } from '@playwright/test';
+import { expect, Locator, Page } from '@playwright/test';
 import { PageAssertionsToHaveScreenshotOptions } from 'playwright/types/test';
 
 export const testSelector = (name: string) => `[data-test="${name}"]`;
@@ -34,4 +34,8 @@ export function isProduction(baseURL: string | undefined) {
     } catch (error) {
         return false;
     }
+}
+
+export function isDevelopment(baseURL: string | undefined) {
+    return !isProduction(baseURL) && process.env.NODE_ENV === 'development';
 }

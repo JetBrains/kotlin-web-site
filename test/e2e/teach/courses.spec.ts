@@ -6,9 +6,9 @@ import { checkTeachCta, checkTeachMap, checkTeachNav } from './utils';
 
 test.describe('Courses page appearance and functionality', async () => {
     test.beforeEach(async ({ page }) => {
+        await closeExternalBanners(page);
         const coursesPage = new CoursesPage(page);
         await coursesPage.init();
-        await closeExternalBanners(page);
     });
 
     test('Should load the courses page correctly', async ({ page }) => {
