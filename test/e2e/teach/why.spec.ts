@@ -219,23 +219,23 @@ test.describe('Why Teach Kotlin page appearance and functionality', async () => 
         const description = toolingSectionInfo.locator('.ktl-dimmed-text');
         await expect(description).not.toBeVisible();
 
-        const link1 = toolingSectionInfo.locator('a[href="https://www.jetbrains.com/community/education/#students"]');
+        const link1 = toolingSectionInfo.locator('a[href^="https://www.jetbrains.com/community/education/#students"]');
         await expect(link1).toBeVisible();
         expect(await link1.textContent()).toBe('Free IntelliJ IDEA Ultimate license ↗');
 
-        const link2 = toolingSectionInfo.locator('a[href="https://play.kotlinlang.org/"]');
+        const link2 = toolingSectionInfo.locator('a[href^="https://play.kotlinlang.org/"]');
         await expect(link2).toBeVisible();
         expect(await link2.textContent()).toBe('Playground ↗');
 
-        const link3 = toolingSectionInfo.locator('a[href="https://plugins.jetbrains.com/plugin/10081-jetbrains-academy"]');
+        const link3 = toolingSectionInfo.locator('a[href^="https://plugins.jetbrains.com/plugin/10081-jetbrains-academy"]');
         await expect(link3).toBeVisible();
         expect(await link3.textContent()).toBe('JetBrains Academy plugin ↗');
 
-        const link4 = toolingSectionInfo.locator('a[href="https://www.jetbrains.com/code-with-me/"]');
+        const link4 = toolingSectionInfo.locator('a[href^="https://www.jetbrains.com/code-with-me/"]');
         await expect(link4).toBeVisible();
         expect(await link4.textContent()).toBe('Code With Me ↗');
 
-        const link5 = toolingSectionInfo.locator('a[href="https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-education&utm_content=button_1&utm_term=22.03.23&"]');
+        const link5 = toolingSectionInfo.locator('a[href^="https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-education&utm_content=button_1&utm_term=22.03.23&"]');
         await expect(link5).toBeVisible();
         expect(await link5.textContent()).toBe('Kotlin tracks by JetBrains Academy ↗');
     });
