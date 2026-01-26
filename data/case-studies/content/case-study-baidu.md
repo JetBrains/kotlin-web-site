@@ -4,6 +4,8 @@ slug: "baidu"
 title: "Baidu"
 country: "China"
 size: "45500"
+usedProductTitle: "Kotlin Multiplatform Mobile"
+usedProductLink: "https://kotlinlang.org/multiplatform/"
 industry: "Internet, Artificial intelligence, Cloud computing"
 coverImg: /images/case-studies/content/baidu-cover.png
 ---
