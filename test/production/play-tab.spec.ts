@@ -3,8 +3,6 @@ import { test, expect } from '@playwright/test';
 test.describe('Play tab', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
-        await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
-        await page.click('button.ch2-btn.ch2-btn-primary');
         const navbar = page.locator('[data-test="header"]');
         const solutionsButton = navbar.getByText('Play').first();
         await expect(solutionsButton).toBeVisible();

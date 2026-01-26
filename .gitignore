@@ -49,5 +49,6 @@ generated
 /reports*
 /data/page_views_map.json
 test-results
+test/storage-state.json
 
 public/data
