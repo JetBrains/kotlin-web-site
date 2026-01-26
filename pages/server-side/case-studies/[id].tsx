@@ -6,10 +6,11 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { Button } from '@rescui/button';
 import { SERVER_SIDE_TITLE, SERVER_SIDE_URL } from '@jetbrains/kotlin-web-site-ui/out/components/header';
 import { LandingLayout } from '../../../components/landing-layout/landing-layout';
-import { CaseStudyContent } from '../../../blocks/case-studies/content/case-study-content';
+import { CaseStudyPageContent } from '../../../blocks/case-studies/page-content/case-study-page-content';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
 import '../styles.css';
+import { CaseStudyPageHero } from '../../../blocks/case-studies/page-hero/case-study-page-hero';
 
 const TOP_MENU_ITEMS = [
     {
@@ -45,7 +46,8 @@ export default function ServerSideCaseStudy({ content, frontmatter }: CaseStudyP
         >
             <div className="ktl-layout-to-2">
                 <ThemeProvider theme={'dark'}>
-                    <CaseStudyContent content={content} frontmatter={frontmatter} />
+                    <CaseStudyPageHero frontmatter={frontmatter} />
+                    <CaseStudyPageContent content={content} />
                 </ThemeProvider>
             </div>
         </LandingLayout>

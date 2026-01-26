@@ -7,9 +7,10 @@ import { Button } from '@rescui/button';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
 import { LandingLayout, LandingLayoutProps } from '../../../components/landing-layout/landing-layout';
-import { CaseStudyContent } from '../../../blocks/case-studies/content/case-study-content';
+import { CaseStudyPageContent } from '../../../blocks/case-studies/page-content/case-study-page-content';
 
 import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
+import { CaseStudyPageHero } from '../../../blocks/case-studies/page-hero/case-study-page-hero';
 
 const MULTIPLATFORM_MOBILE_TITLE = 'Kotlin Multiplatform' as const;
 const MULTIPLATFORM_MOBILE_URL = '/multiplatform/' as const;
@@ -22,7 +23,7 @@ const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
     {
         title: 'Success stories',
         url: '/case-studies/?type=multiplatform'
-    },
+    }
 ];
 
 const GET_STARTED_URL = '/docs/multiplatform/get-started.html' as const;
@@ -51,10 +52,13 @@ export default function MultiplatformCaseStudy({ content, frontmatter }: CaseStu
             topMenuItems={TOP_MENU_ITEMS}
             topMenuButton={<Button href={GET_STARTED_URL}>Get started</Button>}
             canonical={`https://kotlinlang.org/multiplatform/case-studies/${frontmatter.slug}`}
+            theme="light"
+            forceDarkTopMenu={true}
         >
             <div className="ktl-layout-to-2">
-                <ThemeProvider theme={'dark'}>
-                    <CaseStudyContent content={content} frontmatter={frontmatter} />
+                <ThemeProvider theme='light'>
+                    <CaseStudyPageHero frontmatter={frontmatter} />
+                    <CaseStudyPageContent content={content} />
                 </ThemeProvider>
             </div>
         </LandingLayout>
