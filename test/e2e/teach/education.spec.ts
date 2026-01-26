@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { TeachPage } from '../../page/teach/education';
 import { closeExternalBanners } from '../utils';
-import { testSelector } from '../../utils';
+import { checkScreenshot, testSelector } from '../../utils';
 import { checkTeachCta, checkTeachMap, checkTeachNav, MAILTO_LINK, MATERIALS_LINK, SIGNUP_LINK } from './utils';
 
 test.describe('Education landing page content and interactions', async () => {
@@ -38,7 +38,7 @@ test.describe('Education landing page content and interactions', async () => {
         await expect(button).toBeVisible();
         await expect(button).toHaveAttribute('href', MATERIALS_LINK);
 
-        expect(await block.screenshot()).toMatchSnapshot('launch-course-text.png');
+        await checkScreenshot(block);
     });
 
     test('Should display features section with features', async ({ page }) => {
@@ -58,7 +58,7 @@ test.describe('Education landing page content and interactions', async () => {
             expect(await feature.locator('.ktl-h3').textContent()).toBe(expectedFeatures[i]);
         }
 
-        expect(await featuresSection.screenshot()).toMatchSnapshot('teach-features.png');
+        await checkScreenshot(featuresSection);
     });
 
     test('Should display buttons in top section', async ({ page }) => {
@@ -75,7 +75,7 @@ test.describe('Education landing page content and interactions', async () => {
         await expect(why).toBeVisible();
         await expect(why).toHaveAttribute('href', 'why-teach-kotlin.html');
 
-        expect(await block.screenshot()).toMatchSnapshot('teach-top-mobile-buttons.png');
+        await checkScreenshot(block);
     });
 
     test('Should display university statistics correctly', async ({ page }) => {
@@ -106,7 +106,7 @@ test.describe('Education landing page content and interactions', async () => {
         await expect(page.locator('img[alt="Imperial College London"]')).toBeVisible();
         await expect(page.locator('img[alt="The University of Chicago"]')).toBeVisible();
 
-        expect(await page.locator('.teach-logos').screenshot()).toMatchSnapshot('teach-logos.png');
+        await checkScreenshot(page.locator('.teach-logos'));
     });
 
     test('Should have a working interactive map', async ({ page }) => {
@@ -190,7 +190,7 @@ test.describe('Education landing page content and interactions', async () => {
         // Verify that the form shows the submitted state (check icon appears)
         await expect(subscriptionForm.locator('.teach-subscription-form__submitted-icon')).toBeVisible();
 
-        expect(await subscriptionForm.screenshot()).toMatchSnapshot('subscription-form.png');
+        await checkScreenshot(subscriptionForm);
     });
 
     test('Should have a working YouTube player', async ({ page }) => {
