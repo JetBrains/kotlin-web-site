@@ -715,7 +715,7 @@ items:
       - /images/case-studies/novatec-logo.svg
     carousel:
       logo: /images/case-studies/carousel/novatec.svg
-    link: https://kotlinlang.org/lp/server-side/case-studies/novatec/
+    link: https://kotlinlang.org/lp/server-side/case-studies/novatec
   #------------------------------------------------------------------------
   - id: case-study-fairef
     type: server-side
@@ -725,7 +725,7 @@ items:
       - /images/case-studies/faire-logo.svg
     carousel:
       logo: /images/case-studies/carousel/faire.svg
-    link: https://kotlinlang.org/lp/server-side/case-studies/faire/
+    link: https://kotlinlang.org/lp/server-side/case-studies/faire
   #------------------------------------------------------------------------
   - id: case-study-doordash
     type: server-side
@@ -734,7 +734,7 @@ items:
     logo:
       - /images/case-studies/doordash-logo.svg
     carousel: true
-    link: https://kotlinlang.org/lp/server-side/case-studies/doordash/
+    link: https://kotlinlang.org/lp/server-side/case-studies/doordash
   #------------------------------------------------------------------------
   - id: case-study-adobe
     type: server-side
@@ -778,7 +778,7 @@ items:
     logo:
       - /images/case-studies/expedia-logo.svg
     carousel: true
-    link: https://kotlinlang.org/lp/server-side/case-studies/expedia/
+    link: https://kotlinlang.org/lp/server-side/case-studies/expedia
   #------------------------------------------------------------------------
   - id: case-study-ing
     type: server-side
