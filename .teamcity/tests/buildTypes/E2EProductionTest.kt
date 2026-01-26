@@ -11,6 +11,10 @@ import jetbrains.buildServer.configs.kotlin.triggers.schedule
 object E2EProductionTest : BuildType({
     name = "E2E Test in Production"
 
+    artifactRules = """
+        +:test-results/* => test-results.zip
+    """.trimIndent()
+
     vcs {
         root(vcsRoots.KotlinLangOrg)
     }
