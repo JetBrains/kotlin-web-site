@@ -69,7 +69,7 @@ test.describe('Server-Side landing page', async () => {
         // the url is hardcoded due to reditect
         const ktorGetStartedLinkURL = 'https://ktor.io/docs/welcome.html';
 
-        await page.waitForURL(ktorGetStartedLinkURL);
+        await page.waitForURL(url => url.toString().includes(ktorGetStartedLinkURL));
         expect(page.url()).toContain(ktorGetStartedLinkURL);
     });
 

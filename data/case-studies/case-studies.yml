@@ -683,7 +683,7 @@ items:
     alternateLogo:
       - /images/case-studies/kakao-pay-logo-dark.svg
     isExternal: true
-    link: https://blog.jetbrains.com/kotlin/2025/06/case-study-why-kakao-pay-chose-kotlin-for-backend-development/
+    link: https://blog.jetbrains.com/kotlin/2025/07/case-study-why-kakao-pay-chose-kotlin-for-backend-development/
   #------------------------------------------------------------------------
   - id: case-study-kingfisher
     type: server-side

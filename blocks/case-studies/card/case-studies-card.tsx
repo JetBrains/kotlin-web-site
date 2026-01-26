@@ -52,10 +52,11 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...i
                     </div>
                 }
 
-                {item.description && <Markdown
-                    className={cn(styles.description)}
-                    data-testid="case-studies-card-description"
-                >{item.description}</Markdown>}
+                {item.description &&
+                    <div className={cn(styles.description)} data-testid="case-studies-card-description">
+                        <Markdown>{item.description}</Markdown>
+                    </div>
+                }
 
                 {item.signature &&
                     <div>
