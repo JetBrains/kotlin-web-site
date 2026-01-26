@@ -1,34 +1,30 @@
-version: '3'
 services:
   nginx-server:
-    build:
-      context: .
-      dockerfile: ./dockerfiles/nginx-server/Dockerfile
-    ports:
-      - 8081:80
+    image: nginx:stable-alpine
     networks:
-      - network1
+      - test-network
+    volumes:
+      - ./dist:/usr/share/nginx/html
     healthcheck:
-        test: [ "CMD", "curl", "-f", "http://localhost" ]
-        interval: 30s
-        timeout: 10s
-        retries: 3
+      test: [ "CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
 
   playwright:
-    build:
-      context: .
-      dockerfile: ./dockerfiles/playwright/Dockerfile
-    command: yarn run test:e2e:ci
+    image: mcr.microsoft.com/playwright:v1.57.0
     environment:
       BASE_URL: "http://nginx-server"
+      WEBTEAM_UI_NPM_TOKEN: ${WEBTEAM_UI_NPM_TOKEN}
+    working_dir: /var/www
     volumes:
-      - ./test/snapshots:/var/www/test/snapshots
-      - ./test-results:/var/www/test-results
+      - .:/var/www
+    command: sh -c "yarn install && yarn run test:e2e:ci"
     depends_on:
       nginx-server:
         condition: service_healthy
     networks:
-      - network1
+      - test-network
 
 networks:
-  network1:
+  test-network:

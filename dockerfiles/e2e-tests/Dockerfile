@@ -15,7 +15,7 @@ RUN npm install --global yarn
 
 # Install Playwright dependencies
 RUN apt-get -y install wget gnupg
-RUN npx playwright@1.53.0 install-deps
+RUN npx playwright@1.57 install-deps
 
 WORKDIR /var/www
 

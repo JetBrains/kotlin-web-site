@@ -6,9 +6,9 @@ import { checkTeachCta, checkTeachMap, checkTeachNav, MAILTO_LINK, MATERIALS_LIN
 
 test.describe('Education landing page content and interactions', async () => {
     test.beforeEach(async ({ page }) => {
+        await closeExternalBanners(page);
         const teachPage = new TeachPage(page);
         await teachPage.init();
-        await closeExternalBanners(page);
     });
 
     test('Should load the education page correctly', async ({ page }) => {
