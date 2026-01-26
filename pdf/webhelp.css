@@ -68,12 +68,9 @@ body {
 }
 
 figure img {
-    max-width: 100% !important;
-    max-height: initial !important;
-    min-width: initial !important;
-    min-height: initial !important;
-    height: auto !important;
-    width: auto !important;
+    /* Allow images to scale down on small pages but respect explicit widths from inline styles */
+    max-width: 100%;
+    height: auto;
 }
 
 .chapter {
@@ -266,7 +263,7 @@ p img, a img, li img {
     font-style: normal;
     line-height: 16px;
     margin-bottom: 10px;
-    white-space: pre-wrap
+    white-space: pre-wrap;
 }
 table {
     margin-bottom: 12px;
@@ -325,15 +322,35 @@ table th {
 .tabs__content {
     margin-bottom: 10px;
 }
-.tabs__content:before {
+
+/* Tab title inline within code block - styled as a header line */
+.code-block .tabs__title {
+    display: block;
+    padding: 6px 0;
+    font-size: 11px;
+    line-height: 16px;
+    color: rgba(39,40,44,1);
+    font-weight: 600;
+    border-bottom: 1px solid rgba(39, 40, 44, 0.2);
+    margin-bottom: 8px;
+    font-family: 'JetBrains Sans', sans-serif;
+}
+
+/* Standalone tab title (for non-code-block tabs) */
+.tabs__title-standalone {
     display: inline-block;
-    content: attr(data-title) " ";
     padding-bottom: 6px;
     font-size: 11px;
     line-height: 16px;
     color: rgba(39,40,44,1);
+    font-weight: 700;
     border-bottom: 1px solid rgba(39, 40, 44, 0.2);
     margin-bottom: 10px;
+}
+
+/* Disable the old :before pseudo-element */
+.tabs__content:before {
+    content: none;
 }
 .prompt {
     position: relative;
@@ -367,14 +384,6 @@ table th {
     margin-bottom: 0;
 }
 
-figure img {
-    max-width: 100% !important;
-    max-height: initial !important;
-    min-width: initial !important;
-    min-height: initial !important;
-    height: auto !important;
-    width: auto !important;
-}
 .sub-title__labels {
     display: inline-flex;
     flex-wrap: wrap;
