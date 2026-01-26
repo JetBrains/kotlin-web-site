@@ -3,6 +3,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { useTextStyles } from '@rescui/typography';
 import { Markdown } from '../../../utils/mdToHtml';
+import { SocialShare } from '../../../components/social-share/social-share';
 import styles from './case-study-content.module.css';
 
 export interface CaseStudyContentProps {
@@ -77,6 +78,14 @@ export const CaseStudyContent: React.FC<CaseStudyContentProps> = ({ content, cla
             <div className={textCn('rs-text-1')}>
                 <Markdown options={{ forceBlock: true }}>{content}</Markdown>
             </div>
+
+            <SocialShare
+                className={styles.share}
+                label="Share:"
+                size="m"
+                theme="dark"
+                title={frontmatter.title}
+            />
         </div>
     );
 };
