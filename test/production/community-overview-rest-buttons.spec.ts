@@ -3,8 +3,6 @@ import { test, expect } from '@playwright/test';
 test.describe('Community page, overview tab, rest buttons', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/community/');
-        await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
-        await page.click('button.ch2-btn.ch2-btn-primary');
     });
 
     test('Kotlin User Groups in navbar opens the user-groups page', async ({ page }) => {
