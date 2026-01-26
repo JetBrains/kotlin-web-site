@@ -44,7 +44,7 @@ export default function ServerSideCaseStudy({ content, frontmatter }: CaseStudyP
             dataTestId={'server-side-case-study-page'}
         >
             <div className="ktl-layout-to-2">
-                <ThemeProvider theme={'light'}>
+                <ThemeProvider theme={'dark'}>
                     <CaseStudyContent content={content} frontmatter={frontmatter} />
                 </ThemeProvider>
             </div>
