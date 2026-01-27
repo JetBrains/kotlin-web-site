@@ -37,5 +37,9 @@ export function isProduction(baseURL: string | undefined) {
 }
 
 export function isDevelopment(baseURL: string | undefined) {
-    return !isProduction(baseURL) && process.env.NODE_ENV === 'development';
+    try {
+        return Boolean(baseURL) && new URL(baseURL).hostname !== 'localhost';
+    } catch (error) {
+        return false;
+    }
 }
