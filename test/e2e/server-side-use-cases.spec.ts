@@ -107,7 +107,11 @@ test.describe('Server-Side landing page', async () => {
                     customerLink.click()
                 ]);
 
-                await newPage.waitForLoadState();
+                try {
+                    await newPage.waitForLoadState();
+                } catch (error) {
+                    throw new Error(`Failed to load customer link: ${customerLinkURL}\n${error.message}`);
+                }
 
                 const originalDomain = new URL(customerLinkURL).hostname;
                 const finalDomain = new URL(newPage.url()).hostname;
