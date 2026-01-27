@@ -10,11 +10,11 @@ test.describe('Solutions tab', () => {
         await solutionsButton.click();
     });
 
-    test('Click on "Multiplatform" button should open the related page', async ({ page, baseURL }) => {
+    test('Click on "Multiplatform" button should open the related page', async ({ page }) => {
         const multiplatformButton = page.locator(testSelector("header")).getByText('Multiplatform').first();
         await expect(multiplatformButton).toBeVisible();
         await multiplatformButton.click();
-        expect(page.url()).toContain(`/multiplatform/`);
+        expect(page.url()).toContain('/multiplatform/');
     });
 
     test('Click on "Server-side" button should open the related page', async ({ page }) => {
