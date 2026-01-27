@@ -22,9 +22,9 @@
         <secondary>
             <title>Kotlin Multiplatform</title>
             <a href="https://kotlinlang.org/docs/multiplatform/quickstart.html" summary="Set up and run your first KMP project">Kotlin Multiplatform quickstart</a>
-            <a href="https://kotlinlang.org/docs/multiplatform/kmp-overview.html" summary="Learn about features and benefits of Kotlin Multiplatform">What is Kotlin Multiplatform</a>
-            <a href="https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html" summary="Create an application with UI shared among Android, iOS, and desktop using Compose Multiplatform">Share both logic and UI with Compose Multiplatform</a>
-            <a href="https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html" summary="Get to know Kotlin Multiplatform and create a mobile app in Android Studio that works on both Android and iOS">Share logic but keep UI native</a>
+            <a href="https://kotlinlang.org/docs/multiplatform/kmp-overview.html" summary="Learn about the features and benefits of Kotlin Multiplatform">What is Kotlin Multiplatform</a>
+            <a href="https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html" summary="Create an application with a shared UI across Android, iOS, and desktop using Compose Multiplatform">Share both logic and UI with Compose Multiplatform</a>
+            <a href="https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html" summary="Get to know Kotlin Multiplatform and create a mobile app in Android Studio that works on both Android and iOS">Share logic but keep the UI native</a>
         </secondary>
         <misc>
             <cards narrow="false">
