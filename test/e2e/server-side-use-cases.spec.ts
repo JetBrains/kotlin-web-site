@@ -98,6 +98,7 @@ test.describe('Server-Side landing page', async () => {
         const customerLinks = await serverSidePage.customersLink.all();
 
         for (const customerLink of customerLinks) {
+            await customerLink.scrollIntoViewIfNeeded();
             await serverSidePage.customersBlock.hover();
             const customerLinkURL = await customerLink.getAttribute('href');
 
