@@ -38,7 +38,7 @@ export function isProduction(baseURL: string | undefined) {
 
 export function isDevelopment(baseURL: string | undefined) {
     try {
-        return Boolean(baseURL) && new URL(baseURL).hostname !== 'localhost';
+        return Boolean(baseURL) && new URL(baseURL).hostname === 'localhost';
     } catch (error) {
         return false;
     }
