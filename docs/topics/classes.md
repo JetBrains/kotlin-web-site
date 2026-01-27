@@ -354,7 +354,7 @@ class Person(val name: String, var age: Int) {
     // Secondary constructor that takes age as a
     // String and converts it to an Int
     constructor(name: String, age: String) : this(name, age.toIntOrNull() ?: 0) {
-        println("$name created with converted age: $age")
+        println("$name created with converted age: ${this.age}")
     }
 }
 
