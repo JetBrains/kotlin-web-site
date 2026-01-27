@@ -32,7 +32,7 @@ test.describe('Grammar page', () => {
         await expect(grammar.getDeclarationById('kotlinFile')).toBeInViewport();
     });
 
-    test('Should redirect from .html to clean URL', async ({ page, baseURL }) => {
+    test('Should redirect from .html to clean URL', async ({ page }) => {
         await page.goto('/docs/reference/grammar.html');
 
         // Should redirect to clean URL
