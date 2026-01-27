@@ -12,7 +12,7 @@ services:
       retries: 3
 
   playwright:
-    image: mcr.microsoft.com/playwright:v1.57.0
+    image: mcr.microsoft.com/playwright:v1.57.0-noble
     environment:
       BASE_URL: "http://nginx-server"
       WEBTEAM_UI_NPM_TOKEN: ${WEBTEAM_UI_NPM_TOKEN}
