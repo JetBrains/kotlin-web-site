@@ -21,13 +21,13 @@
     <var name="coroutinesVersion" value="1.10.2"/>
     <var name="coroutinesEapVersion" value="1.10.2"/>
 
-    <var name="serializationVersion" value="1.9.0"/>
+    <var name="serializationVersion" value="1.10.0"/>
 
     <var name="dateTimeVersion" value="0.7.1"/>
 
-    <var name="lincheckVersion" value="3.0"/>
+    <var name="lincheckVersion" value="3.4"/>
 
-    <var name="ktorVersion" value="3.3.3"/>
+    <var name="ktorVersion" value="3.4.0"/>
 
     <var name="lombokVersion" value="9.1.0"/>
 
@@ -45,8 +45,8 @@
     <var name="gradleApiVersion" value="KOTLIN_2_3" type="string"/>
 
     <!-- KSP -->
-    <var name="kspSupportedKotlinVersion" value="2.3.3"/>
-    <var name="kspVersion" value="2.3.3"/>
+    <var name="kspSupportedKotlinVersion" value="2.3.4"/>
+    <var name="kspVersion" value="2.3.4"/>
 
     <!-- Spring -->
     <var name="springBootSupportedKotlinVersion" value="2.2.21"/>
