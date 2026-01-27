@@ -6,8 +6,8 @@ test.describe.configure({ mode: 'parallel' });
 test.describe('/lp/ pages list', async () => {
     test.skip(({ baseURL }) => !isProduction(baseURL), 'for host with reverse-proxy only');
 
-    test(`Check /lp/multiplatform default redirects`, async ({ page }) => {
-        const targetUrl = 'https://kotlinlang.org/multiplatform/';
+    test(`Check /lp/multiplatform default redirects`, async ({ page, baseURL }) => {
+        const targetUrl = `${baseURL}/multiplatform/`;
 
         await page.goto('/lp/multiplatform');
         expect(page.url()).toEqual(targetUrl);
@@ -19,8 +19,8 @@ test.describe('/lp/ pages list', async () => {
         expect(page.url()).toEqual(targetUrl);
     });
 
-    test(`Check /lp/multiplatform case-studies redirect`, async ({ page }) => {
-        const targetUrl = 'https://kotlinlang.org/case-studies/?type=multiplatform';
+    test(`Check /lp/multiplatform case-studies redirect`, async ({ page, baseURL }) => {
+        const targetUrl = `${baseURL}/case-studies/?type=multiplatform`;
 
         await page.goto('/lp/multiplatform/case-studies/');
         expect(page.url()).toEqual(targetUrl);
