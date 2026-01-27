@@ -13,7 +13,7 @@ For convenience, the Spring Framework provides the `JdbcTemplate` class that sim
 
 ## Add database support
 
-The common practice in Spring Framework based applications is to implement the database access logic within the so-called _service_ layer – this is where business logic lives.
+The common practice in Spring Framework-based applications is to implement the database access logic within the so-called _service_ layer – this is where business logic lives.
 In Spring, you should mark classes with the `@Service` annotation to imply that the class belongs to the service layer of the application.
 In this application, you will create the `MessageService` class for this purpose.
 
@@ -25,7 +25,6 @@ package com.example.demo
 
 import org.springframework.stereotype.Service
 import org.springframework.jdbc.core.JdbcTemplate
-import java.util.*
 
 @Service
 class MessageService(private val db: JdbcTemplate) {
@@ -69,7 +68,7 @@ class MessageService(private val db: JdbcTemplate) {
    </def>
    <def title="Underscore for unused lambda argument">
       <p>For a lambda with multiple parameters, you can use the underscore <code>_</code> character to replace the names of the parameters you don't use.</p>
-      <p>Hence, the final syntax for query function call looks like this:</p>
+      <p>Hence, the final syntax for the query function call looks like this:</p>
       <code-block lang="kotlin">
       db.query("select * from messages") { response, _ ->
           Message(response.getString("id"), response.getString("text"))
@@ -110,7 +109,7 @@ class MessageController(private val service: MessageService) {
 
 <deflist collapsible="true">
    <def title="@PostMapping annotation">
-      <p>The method responsible for handling HTTP POST requests needs to be annotated with <code>@PostMapping</code> annotation. To be able to convert the JSON sent as HTTP Body content into an object, you need to use the <code>@RequestBody</code> annotation for the method argument. Thanks to having Jackson library in the classpath of the application, the conversion happens automatically.</p>
+      <p>The method responsible for handling HTTP POST requests needs to be annotated with <code>@PostMapping</code> annotation. To be able to convert the JSON sent as HTTP Body content into an object, you need to use the <code>@RequestBody</code> annotation for the method argument. Thanks to having the Jackson library in the classpath of the application, the conversion happens automatically.</p>
    </def>
    <def title="ResponseEntity">
       <p><code>ResponseEntity</code> represents the whole HTTP response: status code, headers, and body.</p>
@@ -137,7 +136,6 @@ package com.example.demo
 
 import org.springframework.stereotype.Service
 import org.springframework.jdbc.core.JdbcTemplate
-import org.springframework.jdbc.core.query
 import java.util.UUID
 
 @Service
@@ -169,9 +167,9 @@ The application code is ready to work with the database. It is now required to c
 
 Configure the database in the application:
 
-1. Create `schema.sql` file in the `src/main/resources` directory. It will store the database object definitions:
+1. Create the `schema.sql` file in the `src/main/resources` directory. It will store the database object definitions:
 
-   ![Create database schema](create-database-schema.png){width=400}
+   ![Create database schema](create-database-schema.png){width=350}
 
 2. Update the `src/main/resources/schema.sql` file with the following code:
 
@@ -242,11 +240,11 @@ You should use an HTTP client to work with previously created endpoints. In Inte
 3. Execute all POST requests. Use the green **Run** icon in the gutter next to the request declaration.
    These requests write the text messages to the database:
 
-   ![Execute POST request](execute-post-requests.png)
+   ![Execute POST request](execute-post-requests.png){width=700}
 
 4. Execute the GET request and see the result in the **Run** tool window:
 
-   ![Execute GET requests](execute-get-requests.png)
+   ![Execute GET requests](execute-get-requests.png){width=700}
 
 ### Alternative way to execute requests {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -314,7 +312,7 @@ Extend the functionality of the application to retrieve the individual messages 
     </def>
    </deflist>
     
-    > The `.query()` function that is used to fetch the message by its id is a [Kotlin extension function](extensions.md#extension-functions)
+    > The `.query()` function used to fetch the message by its id is a [Kotlin extension function](extensions.md#extension-functions)
     > provided by the Spring Framework. It requires an additional import `import org.springframework.jdbc.core.query` as demonstrated in the code above.
     >
     {style="warning"}
@@ -479,7 +477,7 @@ The Spring application is ready to run:
 
 3. Execute the GET request to retrieve all the messages from the database.
 
-4. In the **Run** tool window copy one of the ids and add it to the request, like this:
+4. In the **Run** tool window, copy one of the ids and add it to the request, like this:
 
     ```http request
     ### Get the message by its id
@@ -492,10 +490,10 @@ The Spring application is ready to run:
 
 5. Execute the GET request and see the result in the **Run** tool window:
 
-    ![Retrieve message by its id](retrieve-message-by-its-id.png){width=706}
+    ![Retrieve message by its id](retrieve-message-by-its-id.png){width=700}
 
 ## Next step
 
-The final step shows you how to use more popular connection to database using Spring Data. 
+The final step shows you how to use a more popular connection to the database using Spring Data. 
 
 **[Proceed to the next chapter](jvm-spring-boot-using-crudrepository.md)**

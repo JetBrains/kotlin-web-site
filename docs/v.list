@@ -49,8 +49,8 @@
     <var name="kspVersion" value="2.3.3"/>
 
     <!-- Spring -->
-    <var name="springBootSupportedKotlinVersion" value="1.9.25"/>
-    <var name="springBootVersion" value="3.4.5"/>
+    <var name="springBootSupportedKotlinVersion" value="2.2.21"/>
+    <var name="springBootVersion" value="4.0.2"/>
 
     <!-- Other -->
     <var name="defaultJvmTargetVersion" value="1.8"/>
