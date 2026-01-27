@@ -144,7 +144,7 @@ As you can see, there are a few Kotlin-related artifacts added to the Gradle bui
 
    * The `tools.jackson.module:jackson-module-kotlin` module adds support for serialization and deserialization of Kotlin
      classes and data classes.
-   * `org.jetbrains.kotlin:kotlin-reflect` is a Kotlin reflection library.
+   * `org.jetbrains.kotlin:kotlin-reflect` is a Kotlin reflection library that enables full support of the [reflection features](reflection.md).
 
 3. After the dependencies section, you can see the `kotlin` plugin configuration block.
    This is where you can add extra arguments to the compiler to enable or disable various language features.
