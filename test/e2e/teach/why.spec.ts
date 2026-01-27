@@ -235,7 +235,7 @@ test.describe('Why Teach Kotlin page appearance and functionality', async () => 
         await expect(link4).toBeVisible();
         expect(await link4.textContent()).toBe('Code With Me ↗');
 
-        const link5 = toolingSectionInfo.locator('a[href^="https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-education&utm_content=button_1&utm_term=22.03.23&"]');
+        const link5 = toolingSectionInfo.locator('a[href^="https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-education&utm_content=button_1&utm_term=22.03.23"]');
         await expect(link5).toBeVisible();
         expect(await link5.textContent()).toBe('Kotlin tracks by JetBrains Academy ↗');
     });
