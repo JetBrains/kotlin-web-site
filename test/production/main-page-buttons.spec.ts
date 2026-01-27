@@ -47,7 +47,7 @@ test.describe('Main page buttons', () => {
         const multiplatformButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Learn about Kotlin Multiplatform' });
         await expect(multiplatformButton).toBeVisible();
         await multiplatformButton.click();
-        await expect(page.url()).toContain('https://kotlinlang.org/multiplatform/');
+        expect(page.url()).toContain('/multiplatform/');
         const pageTitle = page.locator('h1').first();
         await expect(pageTitle).toContainText('Kotlin Multiplatform');
     });

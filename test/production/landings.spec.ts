@@ -7,7 +7,7 @@ test.describe('/lp/ pages list', async () => {
     test.skip(({ baseURL }) => !isProduction(baseURL), 'for host with reverse-proxy only');
 
     test(`Check /lp/multiplatform default redirects`, async ({ page, baseURL }) => {
-        const targetUrl = `${baseURL}/multiplatform/`;
+        const targetUrl = `/multiplatform/`;
 
         await page.goto('/lp/multiplatform');
         expect(page.url()).toEqual(targetUrl);
@@ -20,7 +20,7 @@ test.describe('/lp/ pages list', async () => {
     });
 
     test(`Check /lp/multiplatform case-studies redirect`, async ({ page, baseURL }) => {
-        const targetUrl = `${baseURL}/case-studies/?type=multiplatform`;
+        const targetUrl = `/case-studies/?type=multiplatform`;
 
         await page.goto('/lp/multiplatform/case-studies/');
         expect(page.url()).toEqual(targetUrl);
