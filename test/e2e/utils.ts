@@ -1,5 +1,5 @@
 import { ElementHandle, expect, Page, test } from '@playwright/test';
-import { isDevelopment, isProduction, isSkipScreenshot } from '../utils';
+import { isDevelopment, isSkipScreenshot } from '../utils';
 import { PageAssertionsToHaveScreenshotOptions } from 'playwright/types/test';
 
 export async function getElementScreenshotWithPadding(page: Page, element: ElementHandle, padding: number): Promise<Buffer | undefined> {
