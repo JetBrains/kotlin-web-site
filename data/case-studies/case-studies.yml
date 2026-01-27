@@ -867,7 +867,7 @@ items:
     carousel:
       logo: /images/case-studies/carousel/memo-bank.svg
     isExternal: true
-    link: https://memo.bank/en/magazine/cudling-with-kotlin/
+    link: https://medium.com/memobank/cuddling-with-kotlin-35f4f96931bb
   #------------------------------------------------------------------------
   - id: case-study-ktor
     type: server-side
