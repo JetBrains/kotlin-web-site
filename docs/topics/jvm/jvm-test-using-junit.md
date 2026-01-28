@@ -5,7 +5,7 @@ with your existing Java tests in the same project.
 
 In this tutorial, you'll learn how to:
 
-* Configure a mixed Java–Kotlin project to run tests using [JUnit 5](https://junit.org/junit5/).
+* Configure a mixed Java–Kotlin project to run tests using [JUnit](https://junit.org/).
 * Add Kotlin tests that verify Java code.
 * Run tests using Maven or Gradle.
 
@@ -39,8 +39,7 @@ In this tutorial, you'll learn how to:
 
    The `initial` module contains a simple Todo application in Java with a single test.
 
-3. In the same directory, open the build file, `pom.xml` for Maven or `build.gradle.kts` for Gradle, and update its
-   contents to support Kotlin:
+3. In the same directory, open your build file and update its contents to support Kotlin:
 
     <tabs group="build-system">
     <tab title="Maven" group-key="maven">
@@ -61,6 +60,7 @@ In this tutorial, you'll learn how to:
     <tab title="Gradle" group-key="gradle">
 
     ```kotlin
+   // build.gradle.kts
     group = "org.jetbrains.kotlin"
     version = "1.0-SNAPSHOT"
     description = "kotlin-junit-complete"
@@ -97,11 +97,32 @@ In this tutorial, you'll learn how to:
         useJUnitPlatform()
     }
     ```
-   {initial-collapse-state="collapsed" collapsible="true" collapsed-title="build.gradle.kts file"}
+   {initial-collapse-state="collapsed" collapsible="true" collapsed-title="build.gradle.kts"}
 
     * In the `plugins {}` block, add the `kotlin("jvm")` plugin.
     * Set the JVM toolchain version to match your Java version.
     * In the `dependencies {}` block, add the `kotlin.test` library that provides Kotlin's test utilities and integrates with JUnit.
+      
+    Kotlin/JVM supports the latest stable JUnit version, JUnit 6. You can find it in the `gradle/libs.versions.toml` version catalog.
+   
+    If you generally prefer using the version catalog, you can even add the `kotlin("jvm")` plugin there:
+
+    ```toml
+    # gradle/libs.versions.toml
+    [versions]
+    kotlin = "%kotlinVersion%"
+    junit = "6.0.2"
+
+    [libraries]
+    org-junit-jupiter-junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+    org-junit-jupiter-junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit" }
+    org-junit-jupiter-junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+    org-junit-platform-junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+      
+    [plugins]
+    kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+    ```
+    {initial-collapse-state="collapsed" collapsible="true" collapsed-title="libs.versions.toml"}
 
     </tab>
     </tabs>

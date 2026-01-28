@@ -16,7 +16,7 @@ Here's a general workflow when working with a Kotlin Maven project:
 To get started, you can also follow our step-by-step tutorials:
 
 * [Configure a Java project to work with Kotlin](mixing-java-kotlin-intellij.md)
-* [Test your Java Maven project with Kotlin and JUnit5](jvm-test-using-junit.md)
+* [Test your Java Maven project with Kotlin and JUnit](jvm-test-using-junit.md)
 
 > You can check out our public [sample project](https://github.com/kotlin-hands-on/kotlin-junit-sample/tree/main/complete)
 > with both Maven and Gradle build files already set up for a mixed Kotlin/Java project.
