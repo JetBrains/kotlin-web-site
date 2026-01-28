@@ -14,7 +14,7 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
 * **Kotlin compiler plugin**: [Lombok is Alpha](#lombok-is-now-alpha) and [improved JPA support in the `kotlin.plugin.jpa` plugin](#improved-jpa-support-in-the-kotlin-plugin-jpa-plugin)
-* **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries) and [concurrent marking in the garbage collector is enabled by default for 2.3.20-Beta releases](#default-concurrent-marking-in-garbage-collector)
+* **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries) and [concurrent marking in the garbage collector is enabled by default](#default-concurrent-marking-in-garbage-collector)
 * **Gradle**: [Compatibility with Gradle 9.3.0](#gradle-compatibility-with-gradle-9-3-0) and [Kotlin/JVM compilation uses BTA by default](#gradle-kotlin-jvm-compilation-uses-build-tools-api-by-default)
 * **Maven**: [Simplified setup for Kotlin projects](#maven-simplified-setup-for-kotlin-projects)
 * **Standard library**: [New API for creating immutable copies of `Map.Entry`](#standard-library-new-api-for-creating-immutable-copies-of-map-entry)
@@ -49,7 +49,7 @@ in addition to the existing [`no-arg`](no-arg-plugin.md) support.
 
 Previously, using `kotlin("plugin.jpa")` enabled only the `no-arg` plugin with JPA presets. And when working with JPA entities, you had to explicitly apply and configure the `all-open` plugin to make JPA entity classes `open`.
 
-Starting with %kotlinEapVersion%:
+Starting with Kotlin %kotlinEapVersion%:
 
 * The `all-open` compiler plugin provides a JPA preset.
 * The Gradle `org.jetbrains.kotlin.plugin.jpa` plugin automatically applies the `org.jetbrains.kotlin.plugin.all-open` plugin with the JPA preset enabled.
@@ -79,7 +79,7 @@ and enables concurrent marking in the garbage collector by default in the Kotlin
 
 If you use C or Objective-C libraries in your Kotlin Multiplatform libraries or applications, we invite you to test the new interoperability mode and share the results.
 
-In general, Kotlin/Native enables importing C and Objective-C libraries into Kotlin. However, for Kotlin Multiplatform libraries, this functionality is currently [affected](native-lib-import-stability.html#stability-of-c-and-objective-c-library-import) by the KMP compatibility issues with older compiler versions.
+In general, Kotlin/Native enables importing C and Objective-C libraries into Kotlin. However, for Kotlin Multiplatform libraries, this functionality is currently [affected](native-lib-import-stability.md#stability-of-c-and-objective-c-library-import) by the KMP compatibility issues with older compiler versions.
 
 In other words, if you publish a Kotlin Multiplatform library compiled with one Kotlin version, importing C or Objective-C libraries might make it impossible to use that Kotlin library in projects with an earlier Kotlin version.
 
@@ -87,25 +87,26 @@ To address this and other issues, the Kotlin team has been revising the interope
 
 #### How to try
 
-In your Gradle build file, check whether you have a `cinterops {}` block or a `pod()` dependency. If these are present, your project uses C or Objective-C libraries.
-Ensure your project uses `2.3.20-Beta1` or a later version.
-In the same build file, add the `-Xccall-mode` compiler option to the cinterop tool invocation:
+1. In your Gradle build file, check whether you have a `cinterops {}` block or a `pod()` dependency. If these are present, your project uses C or Objective-C libraries.
+2. Ensure your project uses `2.3.20-Beta1` or a later version.
+3. In the same build file, add the `-Xccall-mode` compiler option to the cinterop tool invocation:
 
-```kotlin
-kotlin {
- targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget>().configureEach {
-        compilations.configureEach {
-            cinterops.configureEach {
-                extraOpts += listOf("-Xccall-mode", "direct")
+    ```kotlin
+    kotlin {
+
+        targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget>().configureEach {
+            compilations.configureEach {
+                cinterops.configureEach {
+                    extraOpts += listOf("-Xccall-mode", "direct")
+                }
             }
         }
     }
-}
-```
+    ```
 
-Build and test your project as usual by running unit tests, the app, and so on.
+4. Build and test your project as usual by running unit tests, the app, and so on.
 
-You can also use the `--continue` option to allow Gradle to continue executing tasks even after failures, helping to find more problems at once.
+    You can also use the `--continue` option to allow Gradle to continue executing tasks even after failures, helping to find more problems at once.
 
 > Do **not** publish libraries compiled with the new interoperability mode yet, as it's still [Experimental](components-stability.md#stability-levels-explained).
 >
