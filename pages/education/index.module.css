@@ -1,0 +1,310 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+/* Features section */
+.feature img {
+    display: block;
+}
+
+.featureContent {
+    display: block;
+}
+
+@media (--ktl-ds-min) {
+    .featureContent {
+        padding-right: 32px;
+    }
+}
+
+/* Top buttons */
+.topMobileButtons {
+    display: grid;
+    grid-gap: 16px;
+    margin-bottom: 32px;
+    margin-top: 32px;
+}
+
+@media (--ktl-tm-min) {
+    .topMobileButtons {
+        display: none;
+    }
+}
+
+.topButtons {
+    display: none;
+}
+
+@media (--ktl-tm-min) {
+    .topButtons {
+        display: grid;
+        grid-gap: 16px;
+        grid-template-areas: "a a";
+        grid-auto-columns: min-content;
+    }
+}
+
+/* Universities section */
+.universitiesTopInner .universitiesTopNumbers {
+    display: none;
+}
+
+@media (--ktl-tm-min) {
+    .universitiesTopInner {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .universitiesTopInner .universitiesTopNumbers {
+        display: flex;
+    }
+
+    .universitiesTopTitleMobile {
+        display: none;
+    }
+}
+
+.universitiesLogos {
+    border-top: 1px solid rgba(39, 40, 44, 0.2);
+    display: block;
+    padding: 32px 0;
+}
+
+.universitiesBottom {
+    display: none;
+}
+
+.universitiesBottom br {
+    display: none;
+}
+
+.universitiesMobileButton {
+    display: flex;
+    justify-content: center;
+}
+
+@media (--ktl-tm-min) {
+    .universitiesBottom {
+        text-align: center;
+        display: block;
+    }
+
+    .universitiesMobileButton {
+        display: none;
+    }
+}
+
+@media (--ktl-ds-min) {
+    .universitiesBottom br {
+        display: block;
+    }
+}
+
+/* Logos */
+.logos img {
+    display: block;
+}
+
+.logosStanford {
+    height: 42px;
+}
+
+.logosHopkins {
+    height: 56px;
+}
+
+.logosCambridge {
+    height: 26px;
+}
+
+.logosImperial {
+    height: 32px;
+}
+
+.logosChicago {
+    height: 26px;
+}
+
+@media (--ktl-tm-min) {
+    .logos {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
+/* Resources section */
+.resourcesTopImage {
+    width: 116px;
+    margin-bottom: 32px;
+}
+
+@media (--ktl-tm-min) {
+    .resourcesTop {
+        display: flex;
+        align-items: center;
+    }
+
+    .resourcesTopImage {
+        margin-bottom: 0;
+        margin-right: 26px;
+        margin-top: 24px;
+    }
+}
+
+/* Links section */
+.links {
+    display: grid;
+    grid-gap: 32px;
+    font-size: 16px;
+    line-height: 24px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.links a {
+    text-decoration: none;
+    color: rgba(39, 40, 44, 1);
+}
+
+.links a:hover {
+    text-decoration: none;
+}
+
+.links ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.links ul > li > ul {
+    margin-left: 16px;
+    margin-top: 8px;
+}
+
+@media (--ktl-tm-min) {
+    .links {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 48px;
+        grid-template-areas:
+            "left center1 right1"
+            "left center2 right2";
+    }
+
+    .linksFirstList {
+        grid-area: left;
+    }
+
+    .linksSecondList {
+        grid-area: center1;
+    }
+
+    .linksThirdList {
+        grid-area: center2;
+    }
+
+    .linksFourthList {
+        grid-area: right1;
+    }
+
+    .linksFifthList {
+        grid-area: right2;
+    }
+}
+
+.listItem:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+.sublist {
+    margin-left: 16px;
+    margin-top: 8px;
+}
+
+/* Video section */
+.video .videoInner {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #e3e3e3;
+}
+
+/* Mobile styles */
+@media (--ktl-tm) {
+    .features {
+        display: grid;
+        grid-gap: 32px;
+    }
+
+    .logos {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .logosItem {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 48px;
+    }
+
+    .logosItem:last-child {
+        width: 100%;
+    }
+
+    .subscriptionSection {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .mapWrapper {
+        display: none;
+    }
+
+    .universitiesTopTitle {
+        display: none;
+    }
+}
+
+/* Anchor target offset for fixed header */
+.anchorTarget {
+    scroll-margin-top: 64px;
+}
+
+/* Anchor link styles */
+.anchorLink {
+    color: inherit;
+    text-decoration: none;
+}
+
+.anchorLink:any-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.anchorLink::after {
+    display: inline-block;
+    content: '';
+    background: center;
+    background-size: 40px;
+    margin-left: 10px;
+    height: 40px;
+    width: 40px;
+}
+
+.anchorLink:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.anchorLink:hover::after {
+    background-image: url('/static/js/components/anchor.svg');
+}
+
+.anchorLinkSmall::after {
+    background-size: 32px;
+    margin-left: 20px;
+    height: 32px;
+    width: 32px;
+}
+

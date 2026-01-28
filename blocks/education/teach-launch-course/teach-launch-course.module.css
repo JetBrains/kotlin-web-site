@@ -1,0 +1,58 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.linksBlock {
+    margin-top: 32px;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list li {
+    margin-bottom: 8px;
+}
+
+.buttonWrap {
+    margin-top: 32px;
+    display: flex;
+    justify-content: stretch;
+}
+
+@media (--ktl-tm) {
+    .button {
+        font-size: 16px;
+        padding: 8px 24px;
+    }
+}
+
+@media (--ktl-tm-min) {
+    .listLarge {
+        column-count: 2;
+    }
+}
+
+@media (--ktl-tl-min) {
+    .launchCourse {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "content content content"
+            "column1 column1 column3";
+        border-bottom: 1px solid #d4d4d5;
+        padding-bottom: 48px;
+    }
+
+    .text {
+        grid-area: content;
+    }
+
+    .linksBlockFirst {
+        grid-area: column1;
+    }
+
+    .linksBlockSecond {
+        grid-area: column3;
+    }
+}

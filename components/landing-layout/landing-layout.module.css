@@ -1,3 +1,7 @@
 .contentWrapper {
     background: #000000;
 }
+
+.contentWrapperLight {
+    background: #ffffff;
+}

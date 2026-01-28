@@ -1,0 +1,7 @@
+.numbers {
+    display: flex;
+}
+
+.number:not(:last-child) {
+    margin-right: 35px;
+}
