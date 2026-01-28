@@ -1,5 +1,9 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
 
+.list {
+    min-height: 50vh;
+}
+
 .item {
     border-top: 1px solid rgba(39, 40, 44, 0.2);
     padding: 16px 0;
