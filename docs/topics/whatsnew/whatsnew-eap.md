@@ -15,7 +15,7 @@ The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP 
 
 * **Kotlin compiler plugin**: [Lombok is Alpha](#lombok-is-now-alpha) and [improved JPA support in the `kotlin.plugin.jpa` plugin](#improved-jpa-support-in-the-kotlin-plugin-jpa-plugin)
 * **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries) and [concurrent marking in the garbage collector is enabled by default](#default-concurrent-marking-in-garbage-collector)
-* **Gradle**: [Compatibility with Gradle 9.3.0](#gradle-compatibility-with-gradle-9-3-0) and [Kotlin/JVM compilation uses BTA by default](#gradle-kotlin-jvm-compilation-uses-build-tools-api-by-default)
+* **Gradle**: [Compatibility with Gradle 9.3.0](#compatibility-with-gradle-9-3-0) and [Kotlin/JVM compilation uses BTA by default](#kotlin-jvm-compilation-uses-build-tools-api-by-default)
 * **Maven**: [Simplified setup for Kotlin projects](#maven-simplified-setup-for-kotlin-projects)
 * **Standard library**: [New API for creating immutable copies of `Map.Entry`](#standard-library-new-api-for-creating-immutable-copies-of-map-entry)
 
@@ -173,11 +173,15 @@ fun main() {
 }
 ```
 
-## Gradle: Compatibility with Gradle 9.3.0
+## Gradle
+
+Kotlin %kotlinEapVersion% is compatible with new versions of Gradle and includes changes to Kotlin/JVM compilation in the Kotlin Gradle plugin.
+
+### Compatibility with Gradle 9.3.0
 
 Kotlin %kotlinEapVersion% is fully compatible with Gradle 7.6.3 through 9.3.0. You can also use Gradle versions up to the latest Gradle release. However, be aware that doing so may result in deprecation warnings, and some new Gradle features might not work.
 
-## Gradle: Kotlin/JVM compilation uses Build tools API by default
+### Kotlin/JVM compilation uses Build tools API by default
 <primary-label ref="experimental-general"/>
 
 In Kotlin %kotlinEapVersion%, Kotlin/JVM compilation in the Kotlin Gradle plugin uses the [Build tools API](build-tools-api.md)
