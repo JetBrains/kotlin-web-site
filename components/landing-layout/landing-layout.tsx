@@ -23,6 +23,7 @@ type NavigationProps = {
     topMenuHomeUrl?: string;
     currentUrl?: string;
     currentTitle?: string;
+    mobileOverview?: boolean;
 }
 
 export type LandingLayoutProps = {
@@ -35,7 +36,7 @@ export type LandingLayoutProps = {
     theme?: 'dark' | 'light';
 } & NavigationProps;
 
-export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, description, children, dataTestId, canonical, theme = 'dark', ...navigationProps }) => {
+export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, description, children, dataTestId, canonical, theme = 'dark', mobileOverview = true, ...navigationProps }) => {
     const router = useRouter();
     const pathname = addTrailingSlash(router.pathname);
 
@@ -108,7 +109,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
                             activeIndex={activeIndex}
                             items={items}
                             linkHandler={linkHandler}
-                            mobileOverview={true}
+                            mobileOverview={mobileOverview}
                         >
                             {navigationProps.topMenuButton}
                         </TopMenu>

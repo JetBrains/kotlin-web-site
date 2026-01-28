@@ -34,6 +34,7 @@ export const EducationLayout: FC<EducationLayoutProps> = ({
             topMenuHomeUrl="/education/"
             currentUrl="/education/"
             currentTitle="Teach"
+            mobileOverview={false}
             topMenuButton={
                 <Button
                     icon={<SlackIcon />}
