@@ -44,7 +44,7 @@ object BuildParams {
   }
 
   val API_COMPOSE = ComposeMultiplatformCore {
-    addVersion("1.8.0", "api-reference/1.8")
+    addVersion("1.10", "api-reference/1.10")
   }
 
   const val SEARCH_APP_ID = "7961PKYRXV"
