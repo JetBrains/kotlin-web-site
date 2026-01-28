@@ -33,6 +33,8 @@ See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for de
 
 ## Kotlin compiler plugins
 
+Kotlin %kotlinEapVersion% brings important updates to the Lombok and `kotlin.plugin.jpa` compiler plugins.
+
 ### Lombok is now Alpha
 <primary-label ref="alpha"/>
 
@@ -67,8 +69,10 @@ are automatically treated as `open` and receive no-argument constructors without
 
 This change simplifies build configuration and improves the out-of-the-box experience when using Kotlin with JPA frameworks.
 
-
 ## Kotlin/Native
+
+Kotlin %kotlinEapVersion% introduces a new experimental interoperability mode for C and Objective-C libraries
+and enables concurrent marking in the garbage collector by default in the Kotlin 2.3.20-Beta releases.
 
 ### New interoperability mode for C or Objective-C libraries
 <primary-label ref="experimental-opt-in"/>
