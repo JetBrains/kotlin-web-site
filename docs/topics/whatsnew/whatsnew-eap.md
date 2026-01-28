@@ -13,11 +13,11 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
-* **Kotlin compiler plugin**: [Lombok is Alpha](#kotlin-compiler-plugin-lombok-is-now-alpha)
-* **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries) and [Concurrent marking in the garbage collector enabled by default for 2.3.20-Beta releases](#default-concurrent-marking-in-garbage-collector)
+* **Kotlin compiler plugin**: [Lombok is Alpha](#lombok-is-now-alpha) and [improved JPA support in the `kotlin.plugin.jpa` plugin](#improved-jpa-support-in-the-kotlin-plugin-jpa-plugin)
+* **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries) and [concurrent marking in the garbage collector is enabled by default for 2.3.20-Beta releases](#default-concurrent-marking-in-garbage-collector)
 * **Gradle**: [Compatibility with Gradle 9.3.0](#gradle-compatibility-with-gradle-9-3-0) and [Kotlin/JVM compilation uses BTA by default](#gradle-kotlin-jvm-compilation-uses-build-tools-api-by-default)
-* **Standard library**: [New API for creating immutable copies of `Map.Entry`](#standard-library-new-api-for-creating-immutable-copies-of-map-entry)
 * **Maven**: [Simplified setup for Kotlin projects](#maven-simplified-setup-for-kotlin-projects)
+* **Standard library**: [New API for creating immutable copies of `Map.Entry`](#standard-library-new-api-for-creating-immutable-copies-of-map-entry)
 
 > For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
 >
@@ -31,12 +31,42 @@ All you need to do is [change the Kotlin version](configure-build-for-eap.md) to
 
 See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for details.
 
-## Kotlin compiler plugin: Lombok is now Alpha
+## Kotlin compiler plugins
+
+### Lombok is now Alpha
 <primary-label ref="alpha"/>
 
-Kotlin 1.5.20 introduced the Experimental [Lombok compiler plugin](lombok.md), which lets you generate and use [Java's Lombok declarations](https://projectlombok.org/) in modules that mix Kotlin and Java code.
+Kotlin 1.5.20 introduced the experimental [Lombok compiler plugin](lombok.md), which lets you generate and use [Java's Lombok declarations](https://projectlombok.org/) in modules that mix Kotlin and Java code.
 
 In %kotlinEapVersion%, the Lombok compiler plugin is promoted to [Alpha](components-stability.md#stability-levels-explained) because we plan to productize this functionality, but it's still under development.
+
+### Improved JPA support in the `kotlin.plugin.jpa` plugin
+
+The `kotlin.plugin.jpa` plugin now automatically applies the [`all-open`](all-open-plugin.md) compiler plugin with the newly added built-in JPA preset,
+in addition to the existing [`no-arg`](no-arg-plugin.md) support.
+
+Previously, using `kotlin("plugin.jpa")` enabled only the `no-arg` plugin with JPA presets. And when working with JPA entities, you had to explicitly apply and configure the `all-open` plugin to make JPA entity classes `open`.
+
+Starting with %kotlinEapVersion%:
+
+* The `all-open` compiler plugin provides a JPA preset.
+* The Gradle `org.jetbrains.kotlin.plugin.jpa` plugin automatically applies the `org.jetbrains.kotlin.plugin.all-open` plugin with the JPA preset enabled.
+* The [Maven JPA setup](no-arg-plugin.md#jpa-support) enables `all-open` with the JPA preset by default.
+* The Maven dependency `org.jetbrains.kotlin:kotlin-maven-noarg` now implicitly includes `org.jetbrains.kotlin:kotlin-maven-allopen`, so you no longer need to add it explicitly in the `<plugin><dependencies>` block.
+
+As a result, JPA entities annotated with the following annotations
+are automatically treated as `open` and receive no-argument constructors without additional configuration:
+
+* `javax.persistence.Entity`
+* `javax.persistence.Embeddable`
+* `javax.persistence.MappedSuperclass`
+* `jakarta.persistence.Entity`
+* `jakarta.persistence.Embeddable`
+* `jakarta.persistence.MappedSuperclass`
+
+
+This change simplifies build configuration and improves the out-of-the-box experience when using Kotlin with JPA frameworks.
+
 
 ## Kotlin/Native
 
@@ -53,7 +83,7 @@ To address this and other issues, the Kotlin team has been revising the interope
 
 #### How to try
 
-In your Gradle build file, check whether you have a `cinterops {}` block or a `pod()` dependency. If yes, your project actually uses C or Objective-C libraries.
+In your Gradle build file, check whether you have a `cinterops {}` block or a `pod()` dependency. If these are present, your project uses C or Objective-C libraries.
 Ensure your project uses `2.3.20-Beta1` or a later version.
 In the same build file, add the `-Xccall-mode` compiler option to the cinterop tool invocation:
 
@@ -82,16 +112,16 @@ You can also use the `--continue` option to allow Gradle to continue executing t
 The new interoperability mode is supposed to be a drop-in replacement in most cases.
 We're planning to eventually enable it by default. But to achieve that, we need to ensure it works as well as possible and test it on a wide range of projects, because:
 
-* Some C and Objective-C declarations aren't supported yet in the new mode (mostly because they conflict with the compatibility matters). We'd like to better understand the real-world impact of this and prioritize future steps accordingly.
+* Some C and Objective-C declarations aren't supported yet in the new mode (mostly because they conflict with the compatibility issues). We'd like to better understand the real-world impact of this and prioritize future steps accordingly.
 * There may be bugs or things we didn't consider. Testing languages with numerous interacting features is challenging, and testing the interaction between languages (each with a unique set of features) is even more so.
 
-Please help us examine real-world projects and identify challenging cases.
-Whether you encounter any issues or not, report the results in the comments to [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-83218).
+Help us examine real-world projects and identify challenging cases.
+Whether you encounter any issues or not, share your results in the comments to [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-83218).
 
 ### Default concurrent marking in garbage collector
 <primary-label ref="experimental-opt-in"/>
 
-Kotlin 2.0.20 [introduced experimental support](whatsnew2020.md#concurrent-marking-in-garbage-collector) for CMS, concurrent mark and sweep in the garbage collector (GC). Since then, the Kotlin team has fixed several critical and major problems and already uses CMS in [Swift export](native-swift-export.md) in its default setup.
+Kotlin 2.0.20 [introduced experimental support](whatsnew2020.md#concurrent-marking-in-garbage-collector) for CMS, also known as concurrent mark and sweep in the garbage collector (GC). Since then, the Kotlin team has fixed several critical and major problems and already uses CMS in [Swift export](native-swift-export.md) in its default setup.
 
 As the next step, we're enabling CMS by default for all projects in both Kotlin 2.3.20-Beta1 and Beta2 releases to gather more feedback and ensure we've discovered all the issues.
 
@@ -110,7 +140,7 @@ If you observe regressions, switch to PMCS manually. To do that, set the followi
 kotlin.native.binary.gc=pmcs
 ```
 
-Please report any problems to our issue tracker [YouTrack](https://kotl.in/issue).
+Report any problems to our issue tracker [YouTrack](https://kotl.in/issue).
 
 ## Standard library: New API for creating immutable copies of `Map.Entry`
 <primary-label ref="experimental-opt-in"/>
@@ -194,4 +224,4 @@ You can also opt out of the automatic addition of Kotlin's standard library. For
 
 ```
 
-For more information on Maven configuration in Kotlin projects, see [our configuration](maven-configure-project.md).
+For more information on Maven configuration in Kotlin projects, see [Configure a Maven project](maven-configure-project.md).
