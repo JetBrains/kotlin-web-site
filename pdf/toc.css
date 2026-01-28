@@ -1,0 +1,72 @@
+.book-toc * {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: .5px;
+  font-family: 'JetBrains Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.book-toc {
+  page-break-after: always;
+}
+
+.book-toc-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 1em;
+  padding-top: 0.5em;
+}
+
+.book-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.book-toc-item {
+  list-style-type: none;
+}
+
+.book-toc-item .book-toc-item {
+  list-style-type: none;
+  list-style-position: outside;
+  font-size: 14px;
+  margin: 0.2em 0 0 2em;
+  padding-top: 0.2em;
+}
+
+.book-toc-item.level_0 {
+  padding-top: 1em;
+  margin-bottom: 0.2em;
+}
+
+.book-toc-item.level_0:first-child {
+  padding-top: 0;
+}
+
+.book-toc-item.level_1 {
+  padding-bottom: 0.2em;
+}
+
+.book-toc-item-inner {
+  overflow: hidden;
+}
+
+.book-toc-item-title {
+  display: block;
+  padding-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+}
+
+/* Page number via CSS target-counter with leader dots (native CSS Paged Media) */
+.book-toc-item-title::after {
+  content: leader(".") target-counter(attr(href url), page);
+}
+
+.book-toc-item .book-toc-item .book-toc-item-title {
+  font-weight: normal;
+  font-size: 14px;
+}

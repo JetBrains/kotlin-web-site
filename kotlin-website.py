@@ -19,7 +19,6 @@ from src.api import get_api_page
 from src.github import assert_valid_git_hub_url
 from src.ktl_components import KTLComponentExtension
 from src.pages.MyFlatPages import MyFlatPages
-from src.pdf import generate_pdf
 from src.processors.processors import set_replace_simple_code
 
 yaml = YAML(typ='rt')
@@ -468,9 +467,6 @@ if __name__ == '__main__':
                 for error in build_errors:
                     sys.stderr.write(error + '\n')
                 sys.exit(-1)
-
-        elif argv_copy[1] == "reference-pdf":
-            generate_pdf("kotlin-docs.pdf", site_data)
         else:
             print("Unknown argument: " + argv_copy[1])
             sys.exit(1)

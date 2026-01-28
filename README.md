@@ -138,6 +138,21 @@ Currently, there is no way to deploy the Kotlin website locally. This ticket tra
 
 You can contribute to the Kotlin website by sending us a pull request.
 
+## PDF Generation
+
+To generate a PDF version of the Kotlin documentation:
+
+1. Download the documentation artifacts from the [Reference Docs CI build](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildReferenceDocs) and place them in the `dist` folder.
+2. Run:
+   ```bash
+   yarn install
+   yarn generate-pdf
+   ```
+
+The PDF will be created at `assets/kotlin-reference.pdf`. Generation may take several minutes.
+
+For more details, see [scripts/pdf/README.md](scripts/pdf/README.md).
+
 ## Feedback and issues
 
 You can:
