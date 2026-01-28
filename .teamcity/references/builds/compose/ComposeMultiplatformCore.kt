@@ -25,6 +25,7 @@ private fun BuildType.additionalParams(): BuildType = apply {
 
 private fun BuildSteps.downloadAndroidSdk() = script {
     name = "Download Android SDK"
+    enabled = false
     // language=bash
     scriptContent = """
         #!/bin/bash
