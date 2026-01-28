@@ -22,7 +22,7 @@ function WhyTeachKotlinPage() {
                         <h1 className={cn(textCn('rs-h1'), 'ktl-offset-bottom-xl')}>Why Teach Kotlin</h1>
 
                         <section
-                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
+                            className={cn(styles.quoteSection, styles.anchorTarget, 'ktl-offset-bottom-xl')}
                             id="academically-recognized"
                         >
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Academically recognized</h3>
@@ -55,7 +55,7 @@ function WhyTeachKotlinPage() {
                         </section>
 
                         <section
-                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
+                            className={cn(styles.quoteSection, styles.anchorTarget, 'ktl-offset-bottom-xl')}
                             id="language-of-the-industry"
                         >
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Language of the industry</h3>
@@ -125,7 +125,7 @@ function WhyTeachKotlinPage() {
                         </section>
 
                         <section
-                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
+                            className={cn(styles.quoteSection, styles.anchorTarget, 'ktl-offset-bottom-xl')}
                             id="multiplatform"
                         >
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Multiplatform</h3>
@@ -163,7 +163,7 @@ function WhyTeachKotlinPage() {
                         </section>
 
                         <section
-                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
+                            className={cn(styles.quoteSection, styles.anchorTarget, 'ktl-offset-bottom-xl')}
                             id="interoperable"
                         >
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Interoperable</h3>
@@ -225,7 +225,7 @@ function WhyTeachKotlinPage() {
                         </section>
 
                         <section
-                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
+                            className={cn(styles.quoteSection, styles.anchorTarget, 'ktl-offset-bottom-xl')}
                             id="supports-multiple-paradigms"
                         >
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Supports multiple paradigms</h3>
@@ -252,7 +252,7 @@ function WhyTeachKotlinPage() {
                         </section>
 
                         <section
-                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
+                            className={cn(styles.quoteSection, styles.anchorTarget, 'ktl-offset-bottom-xl')}
                             id="modern-concise-and-safe"
                         >
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Modern, concise, and safe</h3>
@@ -289,7 +289,7 @@ function WhyTeachKotlinPage() {
                         </section>
 
                         <section
-                            className={cn(styles.quoteSection, 'ktl-offset-bottom-xl', 'ktl-with-anchor')}
+                            className={cn(styles.quoteSection, styles.anchorTarget, 'ktl-offset-bottom-xl')}
                             id="tooling"
                         >
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Tooling</h3>

@@ -85,3 +85,8 @@
     --rs-underline-color: rgba(39, 40, 44, 1);
 }
 
+/* Anchor target offset for fixed header */
+.anchorTarget {
+    scroll-margin-top: 64px;
+}
+
