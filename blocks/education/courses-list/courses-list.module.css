@@ -1,7 +1,7 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
 
 .list {
-    min-height: 50vh;
+    min-height: 100vh;
 }
 
 .item {
