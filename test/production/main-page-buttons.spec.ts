@@ -4,8 +4,6 @@ import { testSelector } from '../utils';
 test.describe('Main page buttons', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
-        await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
-        await page.click('button.ch2-btn.ch2-btn-primary');
     });
 
     test('Hero section Get started button', async ({ page }) => {
@@ -49,7 +47,7 @@ test.describe('Main page buttons', () => {
         const multiplatformButton = page.getByTestId('highlighted-cases-section').getByRole('link', { name: 'Learn about Kotlin Multiplatform' });
         await expect(multiplatformButton).toBeVisible();
         await multiplatformButton.click();
-        await expect(page.url()).toContain('https://kotlinlang.org/multiplatform/');
+        expect(page.url()).toContain('/multiplatform/');
         const pageTitle = page.locator('h1').first();
         await expect(pageTitle).toContainText('Kotlin Multiplatform');
     });

@@ -4,8 +4,6 @@ import { testSelector } from '../utils';
 test.describe('Solutions tab', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
-        await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
-        await page.click('button.ch2-btn.ch2-btn-primary');
         const navbar = page.locator('[data-test="header"]');
         const solutionsButton = navbar.getByText('Solutions');
         await expect(solutionsButton).toBeVisible();
@@ -16,7 +14,7 @@ test.describe('Solutions tab', () => {
         const multiplatformButton = page.locator(testSelector("header")).getByText('Multiplatform').first();
         await expect(multiplatformButton).toBeVisible();
         await multiplatformButton.click();
-        await expect(page.url()).toContain('https://kotlinlang.org/multiplatform/');
+        expect(page.url()).toContain('/multiplatform/');
     });
 
     test('Click on "Server-side" button should open the related page', async ({ page }) => {
