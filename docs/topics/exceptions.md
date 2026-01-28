@@ -1,5 +1,7 @@
 [//]: # (title: Exceptions)
 
+<web-summary>Learn how Kotlin uses exceptions to handle runtime errors.</web-summary>
+
 Exceptions help your code run more predictably, even when runtime errors occur that could disrupt program execution.
 Kotlin treats all exceptions as _unchecked_ by default.
 Unchecked exceptions simplify the exception handling process: you can catch exceptions, but you don't need to explicitly handle or [declare](java-to-kotlin-interop.md#checked-exceptions) them. 

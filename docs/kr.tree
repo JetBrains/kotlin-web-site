@@ -51,7 +51,7 @@
             <toc-element topic="control-flow.md"/>
             <toc-element topic="returns.md"/>
         </toc-element>
-        <toc-element toc-title="Error handling" topic="exceptions.md"/>
+        <toc-element topic="exceptions.md"/>
         <toc-element toc-title="Functions">
             <toc-element topic="functions.md"/>
             <toc-element toc-title="Lambdas" topic="lambdas.md"/>
