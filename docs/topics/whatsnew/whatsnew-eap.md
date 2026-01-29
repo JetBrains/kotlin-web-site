@@ -13,7 +13,7 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
-* **Kotlin compiler plugin**: [Lombok is Alpha](#lombok-is-now-alpha) and [improved JPA support in the `kotlin.plugin.jpa` plugin](#improved-jpa-support-in-the-kotlin-plugin-jpa-plugin)
+* **Kotlin compiler plugins**: [Lombok is Alpha](#lombok-is-now-alpha) and [improved JPA support in the `kotlin.plugin.jpa` plugin](#improved-jpa-support-in-the-kotlin-plugin-jpa-plugin)
 * **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries) and [concurrent marking in the garbage collector is enabled by default](#default-concurrent-marking-in-garbage-collector)
 * **Gradle**: [Compatibility with Gradle 9.3.0](#compatibility-with-gradle-9-3-0) and [Kotlin/JVM compilation uses BTA by default](#kotlin-jvm-compilation-uses-build-tools-api-by-default)
 * **Maven**: [Simplified setup for Kotlin projects](#maven-simplified-setup-for-kotlin-projects)
@@ -93,7 +93,6 @@ To address this and other issues, the Kotlin team has been revising the interope
 
     ```kotlin
     kotlin {
-
         targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget>().configureEach {
             compilations.configureEach {
                 cinterops.configureEach {
@@ -146,32 +145,6 @@ kotlin.native.binary.gc=pmcs
 ```
 
 Report any problems to our issue tracker [YouTrack](https://kotl.in/issue).
-
-## Standard library: New API for creating immutable copies of `Map.Entry`
-<primary-label ref="experimental-opt-in"/>
-
-Kotlin %kotlinEapVersion% introduces the `Map.Entry.copy()` extension function for creating an immutable copy of a [`Map.Entry`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/-entry/).
-This function allows you to reuse entries obtained from [`Map.entries`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/entries.html) after modifying the map by copying them first.
-
-`Map.Entry.copy()` is [Experimental](components-stability.md#stability-levels-explained). To opt in, use the `@OptIn(ExperimentalStdlibApi::class)` annotation or the compiler option `-opt-in=kotlin.ExperimentalStdlibApi`.
-
-Here's an example of using `Map.Entry.copy()` to remove entries from a mutable map:
-
-```kotlin
-@OptIn(ExperimentalStdlibApi::class)
-fun main() {
-    val map = mutableMapOf(1 to 1, 2 to 2, 3 to 3, 4 to 4)
-
-    val toRemove = map.entries
-        .filter { it.key % 2 == 0 }
-        .map { it.copy() }
-
-    map.entries.removeAll(toRemove)
-
-    println("map = $map")
-    // map = {1=1, 3=3}
-}
-```
 
 ## Gradle
 
@@ -234,3 +207,29 @@ You can also opt out of the automatic addition of Kotlin's standard library. For
 ```
 
 For more information on Maven configuration in Kotlin projects, see [Configure a Maven project](maven-configure-project.md).
+
+## Standard library: New API for creating immutable copies of `Map.Entry`
+<primary-label ref="experimental-opt-in"/>
+
+Kotlin %kotlinEapVersion% introduces the `Map.Entry.copy()` extension function for creating an immutable copy of a [`Map.Entry`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/-entry/).
+This function allows you to reuse entries obtained from [`Map.entries`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/entries.html) after modifying the map by copying them first.
+
+`Map.Entry.copy()` is [Experimental](components-stability.md#stability-levels-explained). To opt in, use the `@OptIn(ExperimentalStdlibApi::class)` annotation or the compiler option `-opt-in=kotlin.ExperimentalStdlibApi`.
+
+Here's an example of using `Map.Entry.copy()` to remove entries from a mutable map:
+
+```kotlin
+@OptIn(ExperimentalStdlibApi::class)
+fun main() {
+    val map = mutableMapOf(1 to 1, 2 to 2, 3 to 3, 4 to 4)
+
+    val toRemove = map.entries
+        .filter { it.key % 2 == 0 }
+        .map { it.copy() }
+
+    map.entries.removeAll(toRemove)
+
+    println("map = $map")
+    // map = {1=1, 3=3}
+}
+```
