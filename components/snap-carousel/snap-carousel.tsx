@@ -1,4 +1,4 @@
-import React, { useMemo, ReactNode } from 'react';
+import React, { useMemo, ReactNode, Attributes } from 'react';
 import cn from 'classnames';
 import { useSnapCarousel } from 'react-snap-carousel';
 
@@ -23,7 +23,7 @@ export const SnapCarousel = ({ children }: SnapCarouselProps) => {
                     return React.cloneElement(child, {
                         ...(isChildFunction && { isActive: activePageIndex === index }),
                         className: cn(styles.slide, child.props.className)
-                    });
+                    } as Attributes);
                 }
                 return child;
             }),
