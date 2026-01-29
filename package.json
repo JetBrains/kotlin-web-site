@@ -95,6 +95,8 @@
     "devDependencies": {
         "@playwright/test": "1.57.0",
         "@types/react": "17.0.43",
+        "@vivliostyle/cli": "^10.1.0",
+        "cheerio": "^1.0.0",
         "eslint": "8.14.0",
         "eslint-config-next": "12.1.6",
         "eslint-config-prettier": "8.5.0",
@@ -113,7 +115,7 @@
         "sass-loader": "16.0.5",
         "start-server-and-test": "1.14.0",
         "the-platform": "0.10.1",
-        "typescript": "4.6.3",
+        "typescript": "~4.9.5",
         "webpack-cli": "5.1.4",
         "webpack-dev-server": "^4.3.1",
         "yaml": "2.8.2",
@@ -143,6 +145,9 @@
         "test:e2e:debug": "PWDEBUG=1 playwright test test/e2e  --project=chromium",
         "test:e2e:update": "playwright test test/e2e --update-snapshots",
         "test:e2e:screenshots": "E2E_PROJECTS=breakpoints-v2 E2E_WITH_SCREENSHOTS=true playwright test test/e2e",
-        "test:e2e:new": "playwright codegen localhost:9000"
+        "test:e2e:new": "playwright codegen localhost:9000",
+        "generate-pdf:html": "cd scripts/dist && yarn generate-pdf",
+        "generate-pdf:convert": "node scripts/pdf/generate-pdf.js",
+        "generate-pdf": "yarn generate-pdf:html && yarn generate-pdf:convert"
     }
 }

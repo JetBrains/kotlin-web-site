@@ -1,5 +1,3 @@
-
-@import url(https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap);
 /* http://meyerweb.com/eric/tools/css/reset/
    v5.0.1 | 20191019
    License: none (public domain)
@@ -66,24 +64,21 @@ table {
     margin: 48px;
 }
 body {
-    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
 figure img {
-    max-width: 100% !important;
-    max-height: initial !important;
-    min-width: initial !important;
-    min-height: initial !important;
-    height: auto !important;
-    width: auto !important;
+    /* Allow images to scale down on small pages but respect explicit widths from inline styles */
+    max-width: 100%;
+    height: auto;
 }
 
 .chapter {
-    margin-top: 48px;
-    margin-bottom: 48px;
+    margin-top: 32px;
+    margin-bottom: 32px;
 }
 figure {
-    margin-bottom: 26px;
+    margin-bottom: 16px;
 }
 figure:after {
     display: block;
@@ -93,7 +88,7 @@ figure:after {
     color: rgba(39,40,44,0.5);
 }
 figure img {
-    margin: 32px 0 16px;
+    margin: 16px 0 10px;
 }
 figure.video, figure.gif {
     display: inline-block;
@@ -135,7 +130,7 @@ figure.video:after {
 h1 {
     letter-spacing:-0.5px;
     color:#27282c;
-    font-family:'Gotham SSm A', 'Gotham SSm B', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size:40px;
     font-size:40px;
     font-size:var(--wt-h1-font-size, 40px);
@@ -144,10 +139,10 @@ h1 {
     line-height:48px;
     line-height:var(--wt-h1-line-height, 48px);
 
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 700;
-    line-height: 40px;
-    margin-bottom: 24px;
+    line-height: 32px;
+    margin-bottom: 16px;
     color: #27282C;
 }
 @media screen and (max-width: 640px){
@@ -168,7 +163,7 @@ h1 {
 h2 {
     letter-spacing:-0.5px;
     color:#27282c;
-    font-family:'Gotham SSm A', 'Gotham SSm B', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size:31px;
     font-size:31px;
     font-size:var(--wt-h2-font-size, 31px);
@@ -177,10 +172,10 @@ h2 {
     line-height:40px;
     line-height:var(--wt-h2-line-height, 40px);
 
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
-    line-height: 32px;
-    margin-bottom: 16px;
+    line-height: 26px;
+    margin-bottom: 12px;
     color: #27282C;
 }
 @media screen and (max-width: 640px){
@@ -201,7 +196,7 @@ h2 {
 h3 {
     letter-spacing:normal;
     color:#27282c;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size:20px;
     font-size:20px;
     font-size:var(--wt-h3-font-size, 20px);
@@ -210,13 +205,13 @@ h3 {
     line-height:28px;
     line-height:var(--wt-h3-line-height, 28px);
 
-    font-size: 18px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: 24px;
+    line-height: 22px;
     letter-spacing: 0px;
 
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 @media print {
     h3 {
@@ -227,13 +222,13 @@ h3 {
 
 h4 {
     color:#27282c;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 16px;
+    font-family:'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
     font-style: normal;
     font-weight: 700;
-    line-height: 24px;
+    line-height: 20px;
     letter-spacing: 0;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 @media print {
     h4 {
@@ -244,41 +239,41 @@ h4 {
 p, a, li {
     letter-spacing:normal;
     color:rgba(39, 40, 44, 0.70);
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family:'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
     font-size:15px;
     font-weight:normal;
     line-height:24px;
 
     color: #27282C;
-    margin-bottom: 16px;
-    font-size: 14px;
-    line-height: 24px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 20px;
 }
 p img, a img, li img {
     vertical-align: middle;
 }
 .code-block {
     background: rgba(39,40,44,0.05);
-    padding: 16px;
-    border-radius: 8px;
+    padding: 10px 12px;
+    border-radius: 6px;
     overflow: hidden;
 
     font-family: JetBrains Mono;
-    font-size: 12px;
+    font-size: 11px;
     font-style: normal;
-    line-height: 18px;
-    margin-bottom: 16px;
-    white-space: pre-wrap
+    line-height: 16px;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
 }
 table {
-    margin-bottom: 16px;
-    font-size: 12px;
-    line-height: 18px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    line-height: 16px;
     text-align: left;
 }
 table a {
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 11px;
+    line-height: 16px;
 }
 table tr th,
 table thead
@@ -292,19 +287,19 @@ table tbody {
     break-before: avoid;
 }
 table th {
-    font-size: 12px;
+    font-size: 11px;
     font-style: normal;
     font-weight: 700;
-    line-height: 16px;
+    line-height: 14px;
 }
 table th, table td {
-    padding: 16px 12px 16px 0;
+    padding: 8px 10px 8px 0;
 }
 table th {
     border-bottom: 1px solid rgba(25, 25, 28, 0.2);
 }
 .list {
-    margin-left: 18px;
+    margin-left: 16px;
 }
 .list._ul, .list._bullet {
     list-style: disc;
@@ -314,42 +309,62 @@ table th {
 }
 .list__item {
     padding-left: 2px;
-    margin-bottom: 16px;
-}
-.tabs {
-    margin: 32px 0;
-    font-size: 12px;
-}
-.tabs p, .tabs a, .tabs .list__item {
-    font-size: 12px;
     margin-bottom: 8px;
 }
-.tabs__content {
-    margin-bottom: 16px;
+.tabs {
+    margin: 16px 0;
+    font-size: 11px;
 }
-.tabs__content:before {
-    display: inline-block;
-    content: attr(data-title) " ";
-    padding-bottom: 8px;
-    font-size: 12px;
-    line-height: 18px;
+.tabs p, .tabs a, .tabs .list__item {
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+.tabs__content {
+    margin-bottom: 10px;
+}
+
+/* Tab title inline within code block - styled as a header line */
+.code-block .tabs__title {
+    display: block;
+    padding: 6px 0;
+    font-size: 11px;
+    line-height: 16px;
     color: rgba(39,40,44,1);
+    font-weight: 600;
     border-bottom: 1px solid rgba(39, 40, 44, 0.2);
-    margin-bottom: 16px;
+    margin-bottom: 8px;
+    font-family: 'JetBrains Sans', sans-serif;
+}
+
+/* Standalone tab title (for non-code-block tabs) */
+.tabs__title-standalone {
+    display: inline-block;
+    padding-bottom: 6px;
+    font-size: 11px;
+    line-height: 16px;
+    color: rgba(39,40,44,1);
+    font-weight: 700;
+    border-bottom: 1px solid rgba(39, 40, 44, 0.2);
+    margin-bottom: 10px;
+}
+
+/* Disable the old :before pseudo-element */
+.tabs__content:before {
+    content: none;
 }
 .prompt {
     position: relative;
-    margin: 32px 0;
-    padding: 12px 16px 12px 48px;
+    margin: 16px 0;
+    padding: 10px 14px 10px 40px;
     background-color: rgba(77,187,95,0.2);
-    border-radius: 8px;
+    border-radius: 6px;
     page-break-inside: avoid;
 }
 .prompt:before {
     position: absolute;
-    top: 15px;
-    left: 18px;
-    margin-right: 18px;
+    top: 12px;
+    left: 14px;
+    margin-right: 14px;
 
     content: '\00a0\00a0\00a0\00a0';
 
@@ -369,11 +384,148 @@ table th {
     margin-bottom: 0;
 }
 
-figure img {
-    max-width: 100% !important;
-    max-height: initial !important;
-    min-width: initial !important;
-    min-height: initial !important;
-    height: auto !important;
-    width: auto !important;
+.sub-title__labels {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 4px;
+    margin-right: 8px;
+}
+
+.label__content {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    cursor: default;
+    color: #fff;
+    background-color: #6b57ff;
+    font-family: 'JetBrains Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.label__content--color-primary {
+    background-color: #6b57ff;
+}
+
+.label__content--color-primary.label__content--mode-pale {
+    color: #6b57ff;
+    background-color: #e1ddff;
+}
+
+.label__content--color-black {
+    background-color: #19191c;
+}
+
+.label__content--color-black.label__content--mode-pale {
+    color: #19191c;
+    background-color: rgba(25, 25, 28, 0.05);
+}
+
+.label__content--color-purple {
+    background-color: #6b57ff;
+}
+
+.label__content--color-purple.label__content--mode-pale {
+    color: #6b57ff;
+    background-color: #e1ddff;
+}
+
+.label__content--color-marine {
+    background-color: #28b8a0;
+}
+
+.label__content--color-marine.label__content--mode-pale {
+    color: #28b8a0;
+    background-color: #d4f1ec;
+}
+
+.label__content--color-tangerine {
+    background-color: #fc801d;
+}
+
+.label__content--color-tangerine.label__content--mode-pale {
+    color: #fc801d;
+    background-color: #fee6d2;
+}
+
+.label__content--color-strawberry {
+    background-color: #ff318c;
+}
+
+.label__content--color-strawberry.label__content--mode-pale {
+    color: #ff318c;
+    background-color: #ffd6e8;
+}
+
+.label__content--color-blue {
+    background-color: #087cfa;
+}
+
+.label__content--color-blue.label__content--mode-pale {
+    color: #087cfa;
+    background-color: #d0e5ff;
+}
+
+.label__content--color-red {
+    background-color: #f45c4a;
+}
+
+.label__content--color-red.label__content--mode-pale {
+    color: #f45c4a;
+    background-color: rgba(244, 92, 74, 0.2);
+}
+
+.label__content--color-yellow {
+    background-color: #f3c033;
+}
+
+.label__content--color-yellow.label__content--mode-pale {
+    color: #f3c033;
+    background-color: rgba(243, 192, 51, 0.2);
+}
+
+.label__content--color-green {
+    background-color: #4dbb5f;
+}
+
+.label__content--color-green.label__content--mode-pale {
+    color: #4dbb5f;
+    background-color: rgba(77, 187, 95, 0.2);
+}
+
+/* Video links */
+.video-link {
+    margin: 16px 0;
+}
+
+.video-link a {
+    color: #6b57ff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.annotation, .control, .field, .filename, .keyword, .menupath, .property, .string, .value {
+    color: #19191c;
+    font-weight: 610;
+}
+
+.code {
+    box-sizing: border-box;
+    font-family: JetBrains Mono, SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+    font-size: 90%;
+    border-radius: 4px;
+    display: inline;
+    padding: 2px 6px;
+    border-radius: 3px;
+    word-break: break-word;
+    color: #19191c;
+    background-color: rgba(25, 25, 28, .05);
+    line-height: inherit;
+    font-variant-ligatures: none;
+}
+
+.article .emphasis, .article__em, .article__i {
+    font-style: italic;
 }
