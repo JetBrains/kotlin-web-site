@@ -359,9 +359,9 @@ items:
   - id: case-study-opensooq
     type: multiplatform
     description: >-
-      "With KMP embedded into the foundation of our mobile architecture, 
-      **OpenSooq** is positioned to scale mobile development more efficiently — shipping faster, maintaining quality, 
-      and delivering robust experiences to millions of users across the region."
+      "With KMP embedded into the foundation of our mobile architecture (91–98% shared code across key modules), 
+      **OpenSooq** is positioned to scale mobile development more efficiently - shipping faster, 
+      sustaining >99.7% crash-free stability, and delivering robust experiences to millions of unique users every year across the region."
     logo:
       - /images/case-studies/opensooq-logo.svg
     platforms:
