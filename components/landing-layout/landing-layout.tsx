@@ -8,6 +8,7 @@ import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 import TopMenu from '@jetbrains/kotlin-web-site-ui/out/components/top-menu';
 import { ThemeProvider } from '@rescui/ui-contexts';
 import { useRouter } from 'next/router';
+import cn from 'classnames';
 import styles from './landing-layout.module.css';
 import releasesDataRaw from '../../data/releases.yml';
 import searchConfig from '../../search-config.json';
@@ -116,7 +117,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
                     </div>
                 </StickyHeader>
 
-                <div className={`${styles.contentWrapper} ${theme === 'light' ? styles.contentWrapperLight : ''}`} data-testid={dataTestId}>
+                <div className={cn(styles.contentWrapper, { [styles.contentWrapperLight]: theme === 'light' })} data-testid={dataTestId}>
                     {children}
                 </div>
             </ThemeProvider>
