@@ -47,7 +47,7 @@ function WhyTeachKotlinPage() {
                                         Rankings 2023 include Kotlin in their courses.
                                     </p>
 
-                                    <Link href="/education/courses/" className={cn('ktl-text-2', styles.link)}>
+                                    <Link href="/education/courses/" className={cn(textCn('rs-text-2'), styles.link)}>
                                         <span className={textCn('rs-link')}>List of universities</span>
                                     </Link>
                                 </div>
@@ -104,7 +104,7 @@ function WhyTeachKotlinPage() {
                                 </div>
 
                                 <div className={styles.quoteSectionInfo}>
-                                    <p className="ktl-text-2 ktl-offset-bottom-s ktl-dimmed-text">
+                                    <p className={cn(textCn('rs-text-2'), 'ktl-offset-bottom-s')}>
                                         Kotlin has consistently ranked among the hottest software engineering
                                         skills.
                                     </p>
@@ -113,7 +113,7 @@ function WhyTeachKotlinPage() {
                                         href="https://hired.com/state-of-software-engineers/2023/"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={cn('ktl-text-2', styles.link)}
+                                        className={cn(textCn('rs-text-2'), styles.link)}
                                     >
                                         <span className={textCn('rs-link', { external: true })}>
                                             Hired's 2023 State of Software Engineers
@@ -142,7 +142,7 @@ function WhyTeachKotlinPage() {
                                 </div>
 
                                 <div className={styles.quoteSectionInfo}>
-                                    <p className="ktl-text-2 ktl-offset-bottom-s ktl-dimmed-text">
+                                    <p className={cn(textCn('rs-text-2'), 'ktl-offset-bottom-s')}>
                                         The Kotlin Multiplatform Mobile and Compose Multiplatform frameworks from
                                         JetBrains help developers share code between their Android and iOS apps.
                                         These frameworks now offer experimental support for Kotlin compilation to
@@ -153,7 +153,7 @@ function WhyTeachKotlinPage() {
                                         href="https://developers.googleblog.com/2023/05/bringing-kotlin-to-web.html"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className={cn('ktl-text-2', styles.link)}
+                                        className={cn(textCn('rs-text-2'), styles.link)}
                                     >
                                         <span className={textCn('rs-link', { external: true })}>Google for Developers blog, 2023</span>
 
@@ -180,18 +180,18 @@ function WhyTeachKotlinPage() {
                                 </div>
 
                                 <div className={styles.quoteSectionInfo}>
-                                    <p className="ktl-text-2 ktl-offset-bottom-s ktl-dimmed-text">
+                                    <p className={cn(textCn('rs-text-2'), 'ktl-offset-bottom-s')}>
                                         Kotlin can also be compiled into a standalone native binary targeting any
                                         major operating system.
                                     </p>
 
-                                    <ul className="ktl-text-2">
+                                    <ul className={textCn('rs-text-2')}>
                                         <li className="ktl-offset-bottom-s">
                                             <a
                                                 href="https://kotlinlang.org/docs/mixing-java-kotlin-intellij.html#convert-java-files-to-kotlin"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={cn('ktl-text-2', styles.link)}
+                                                className={cn(textCn('rs-text-2'), styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>Java-to-Kotlin converter</span>
 
@@ -202,7 +202,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://kotlinlang.org/docs/jvm-get-started.html"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={cn('ktl-text-2', styles.link)}
+                                                className={cn(textCn('rs-text-2'), styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>Kotlin/JVM</span>
 
@@ -213,7 +213,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://kotlinlang.org/docs/native-get-started.html"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={cn('ktl-text-2', styles.link)}
+                                                className={cn(textCn('rs-text-2'), styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>Kotlin/Native</span>
 
@@ -243,7 +243,7 @@ function WhyTeachKotlinPage() {
                                 </div>
 
                                 <div className={styles.quoteSectionInfo}>
-                                    <p className="ktl-text-2 ktl-dimmed-text">
+                                    <p className={textCn('rs-text-2')}>
                                         Kotlin supports functional, imperative, object-oriented and procedural
                                         programming
                                     </p>
@@ -277,11 +277,11 @@ function WhyTeachKotlinPage() {
                                 </div>
 
                                 <div className={styles.quoteSectionInfo}>
-                                    <p className="ktl-text-2 ktl-offset-bottom-s ktl-dimmed-text">
+                                    <p className={cn(textCn('rs-text-2'), 'ktl-offset-bottom-s')}>
                                         Type safety, null safety, and expressive syntax are among educators'
                                         favorite Kotlin features.
                                     </p>
-                                    <p className="ktl-text-2 ktl-dimmed-text">
+                                    <p className={textCn('rs-text-2')}>
                                         (Source: an internal study on teaching Kotlin)
                                     </p>
                                 </div>
@@ -319,13 +319,13 @@ function WhyTeachKotlinPage() {
                                 </div>
 
                                 <div className={styles.quoteSectionInfo}>
-                                    <ul className="ktl-text-2">
+                                    <ul className={textCn('rs-text-2')}>
                                         <li className="ktl-offset-bottom-s">
                                             <a
                                                 href="https://www.jetbrains.com/community/education/#students"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={cn('ktl-text-2', styles.link)}
+                                                className={cn(textCn('rs-text-2'), styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>Free IntelliJ IDEA Ultimate license</span>
 
@@ -336,7 +336,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://play.kotlinlang.org/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={cn('ktl-text-2', styles.link)}
+                                                className={cn(textCn('rs-text-2'), styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>Playground</span>
 
@@ -347,7 +347,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://plugins.jetbrains.com/plugin/10081-jetbrains-academy"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={cn('ktl-text-2', styles.link)}
+                                                className={cn(textCn('rs-text-2'), styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>JetBrains Academy plugin</span>
 
@@ -358,7 +358,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://www.jetbrains.com/code-with-me/"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={cn('ktl-text-2', styles.link)}
+                                                className={cn(textCn('rs-text-2'), styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>Code With Me</span>
 
@@ -369,7 +369,7 @@ function WhyTeachKotlinPage() {
                                                 href="https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-education&utm_content=button_1&utm_term=22.03.23"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className={cn('ktl-text-2', styles.link)}
+                                                className={cn(textCn('rs-text-2'), styles.link)}
                                             >
                                                 <span className={textCn('rs-link', { external: true })}>
                                                     Kotlin tracks by JetBrains Academy
