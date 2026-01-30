@@ -54,6 +54,10 @@
     padding: 0;
 }
 
+.quoteSectionInfo p:first-child {
+    margin-top: 0;
+}
+
 @media (--ktl-tm-min) {
     .quoteSectionGrid {
         display: flex;
@@ -107,6 +111,9 @@
     padding-left: 0;
     &:before {
         display: none;
+    }
+    &:first-child {
+        margin-top: 0;
     }
 }
 
