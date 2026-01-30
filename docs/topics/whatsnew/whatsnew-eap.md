@@ -190,20 +190,15 @@ The new extension automatically:
 * Creates `src/main/kotlin` and `src/test/kotlin` directories without changing existing Kotlin or Java source roots.
 * Adds the `kotlin-stdlib` dependency unless it's already defined.
 
-You can also opt out of the automatic addition of Kotlin's standard library. For that, add the following `<properties>` section to the Kotlin Maven plugin entry:
+You can also opt out of the automatic addition of Kotlin's standard library. For that, add the following to the `<properties>` section:
 
 ```xml
-<plugin>
-    <groupId>org.jetbrains.kotlin</groupId>
-    <artifactId>kotlin-maven-plugin</artifactId>
-    <version>%kotlinEapVersion%</version>
-    <extensions>true</extensions>
+<project>
     <properties>
         <!-- Disable smart defaults via property -->
         <kotlin.smart.defaults.enabled>false</kotlin.smart.defaults.enabled>
     </properties>
-</plugin>
-
+</project>
 ```
 
 For more information on Maven configuration in Kotlin projects, see [Configure a Maven project](maven-configure-project.md).
