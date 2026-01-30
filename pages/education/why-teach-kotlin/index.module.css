@@ -96,3 +96,13 @@
     scroll-margin-top: 64px;
 }
 
+/* No list style */
+.noListStyle {
+    list-style: none;
+    padding-left: 0;
+}
+
+.noListStyle li {
+    list-style: none;
+}
+
