@@ -62,7 +62,7 @@ function WhyTeachKotlinPage() {
 
                             <div className={styles.quoteSectionGrid}>
                                 <div className={styles.quoteSectionContent}>
-                                    <div className={cn(textCn('rs-text-2'), 'ktl-offset-bottom-m')}>
+                                    <div className={cn(textCn('rs-text-1', {hardness: 'hard'}), 'ktl-offset-bottom-m')}>
                                         <ul className={cn(textCn('rs-ul'), styles.noListStyle)}>
                                             <li>
                                                 Kotlin is used by top companies such as Google, Amazon, Twitter,
