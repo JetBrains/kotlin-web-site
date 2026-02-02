@@ -1,12 +1,10 @@
 import { expect, test } from '@playwright/test';
 import { CoursesPage } from '../../page/teach/courses-page';
-import { closeExternalBanners } from '../utils';
 import { testSelector } from '../../utils';
 import { checkTeachCta, checkTeachMap, checkTeachNav } from './utils';
 
 test.describe('Courses page appearance and functionality', async () => {
     test.beforeEach(async ({ page }) => {
-        await closeExternalBanners(page);
         const coursesPage = new CoursesPage(page);
         await coursesPage.init();
     });
@@ -31,8 +29,10 @@ test.describe('Courses page appearance and functionality', async () => {
     });
 
     test('Should have working tab navigation', async ({ page }) => {
+        const coursesPage = page.locator(testSelector('teach-courses'));
+
         // Check if the tab list is visible
-        const tabList = page.locator(testSelector('tab-list'));
+        const tabList = coursesPage.locator(testSelector('tab-list'));
         await expect(tabList).toBeVisible();
 
         // Check if both tabs are present
@@ -46,7 +46,7 @@ test.describe('Courses page appearance and functionality', async () => {
         await expect(mapViewTab).toHaveAttribute('data-test', 'tab');
 
         // CoursesList should be visible in the table view
-        await expect(page.locator('.ktl-courses-list')).toBeVisible();
+        await expect(page.locator(testSelector('courses'))).toBeVisible();
 
         // Switch to the map view
         await mapViewTab.click();
@@ -56,7 +56,7 @@ test.describe('Courses page appearance and functionality', async () => {
         await expect(mapViewTab).toHaveAttribute('data-test', 'tab tab-selected');
 
         // TeachMap should be visible in the map view
-        await expect(page.locator('.teach-map .gm-style')).toBeVisible();
+        await expect(page.locator(`${testSelector('teach-map')} .gm-style`)).toBeVisible();
 
         // Switch back to the table view
         await tableViewTab.click();
@@ -66,7 +66,7 @@ test.describe('Courses page appearance and functionality', async () => {
         await expect(mapViewTab).toHaveAttribute('data-test', 'tab');
 
         // CoursesList should be visible again
-        await expect(page.locator('.ktl-courses-list')).toBeVisible();
+        await expect(page.locator(testSelector('courses'))).toBeVisible();
     });
 
     test('Should display university list in table view', async ({ page }) => {
@@ -75,20 +75,21 @@ test.describe('Courses page appearance and functionality', async () => {
         await tableViewTab.click();
 
         // Check if the course list is visible
-        const coursesList = page.locator('.ktl-courses-list');
+        const coursesList = page.locator(testSelector('courses'));
         await expect(coursesList).toBeVisible();
 
         // Check and verify the headers of the course list
-        const headers = coursesList.locator('.ktl-courses-list-header .ktl-courses-list-cell');
+        const headers = coursesList.locator(testSelector('courses-header')).locator('> div');
+
         expect(await headers.count()).toBe(3);
         expect(await headers.nth(0).textContent()).toBe('University title');
         expect(await headers.nth(1).textContent()).toBe('Location');
         expect(await headers.nth(2).textContent()).toBe('Teaching Kotlin');
 
         // Check if there are universities in the list
-        const universities = coursesList.locator('.ktl-courses-list__item');
+        const universities = coursesList.locator(testSelector('courses-item'));
         expect(await universities.count()).toBeGreaterThan(0);
-        expect(await universities.first().locator('.ktl-courses-list-cell').count())
+        expect(await universities.first().locator('> div').count())
             .toBe(3);
     });
 
@@ -98,7 +99,7 @@ test.describe('Courses page appearance and functionality', async () => {
         await mapViewTab.click();
 
         // Check if the map is visible
-        const map = page.locator('.teach-map');
+        const map = page.locator(testSelector('teach-map'));
         await checkTeachMap(page, map);
     });
 

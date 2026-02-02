@@ -13,7 +13,7 @@ export default defineConfig({
         toHaveScreenshot: { maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO }
     },
     use: {
-        baseURL: process.env.BASE_URL || 'http://localhost:9000',
+        baseURL: process.env.BASE_URL || 'http://localhost:3000',
         storageState: 'test/storage-state.json',
         trace: 'off',
         screenshot: 'only-on-failure',

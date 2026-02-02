@@ -51,7 +51,7 @@ export const SubscriptionForm: FC = () => {
             }}
         >
             {({ setFieldValue }) => (
-                <Form className={styles.form}>
+                <Form className={styles.form} data-test="subscription-form">
                     <img src={MailIcon.src} className={styles.icon} alt="Subscribe form" />
 
                     <div className={cn(styles.text, textCn('rs-h3'))}>
@@ -66,12 +66,14 @@ export const SubscriptionForm: FC = () => {
                         className={styles.input}
                     />
 
-                    <FormikPrivacyCheckbox consentId={consentId} privacy={privacy} className={styles.checkbox} />
+                    <div data-test="subscription-checkbox">
+                        <FormikPrivacyCheckbox consentId={consentId} privacy={privacy} className={styles.checkbox} />
+                    </div>
 
                     {isSubmitted ? (
                         <span className={cn(styles.button, styles.submitted)}>
                             <span className={styles.submittedText}>Subscribe</span>
-                            <CheckIcon className={styles.submittedIcon} />
+                            <CheckIcon className={styles.submittedIcon} data-test="subscription-submitted-icon" />
                         </span>
                     ) : (
                         <FormikSubmitButton size="m" className={styles.button}>
