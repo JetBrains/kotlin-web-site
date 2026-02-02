@@ -35,11 +35,3 @@ export function isProduction(baseURL: string | undefined) {
         return false;
     }
 }
-
-export function isDevelopment(baseURL: string | undefined) {
-    try {
-        return Boolean(baseURL) && new URL(baseURL).hostname === 'localhost';
-    } catch (error) {
-        return false;
-    }
-}

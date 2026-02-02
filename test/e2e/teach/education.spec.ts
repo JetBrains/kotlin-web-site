@@ -1,12 +1,10 @@
 import { expect, test } from '@playwright/test';
 import { TeachPage } from '../../page/teach/education';
-import { closeExternalBanners } from '../utils';
 import { checkScreenshot, testSelector } from '../../utils';
 import { checkTeachCta, checkTeachMap, checkTeachNav, MAILTO_LINK, MATERIALS_LINK, SIGNUP_LINK } from './utils';
 
 test.describe('Education landing page content and interactions', async () => {
     test.beforeEach(async ({ page }) => {
-        await closeExternalBanners(page);
         const teachPage = new TeachPage(page);
         await teachPage.init();
     });
@@ -31,7 +29,7 @@ test.describe('Education landing page content and interactions', async () => {
     });
 
     test('Should display course materials download button', async ({ page }) => {
-        const block = page.locator('.teach-launch-course__text');
+        const block = page.locator(testSelector('teach-launch-course'));
 
         // Locate and verify the download button with the exact name match
         const button = block.getByRole('link', { name: 'Download all materials →', exact: true });
@@ -43,19 +41,19 @@ test.describe('Education landing page content and interactions', async () => {
 
     test('Should display features section with features', async ({ page }) => {
         // Check if the features section is visible
-        const featuresSection = page.locator('.teach-features');
+        const featuresSection = page.locator(testSelector('teach-features'));
         await expect(featuresSection).toBeVisible();
 
         // Check if there are exactly 3 features
         const expectedFeatures = ['Academically recognized', 'Language of the industry', 'Multiplatform'];
-        const features = featuresSection.locator('.teach-feature');
+        const features = featuresSection.locator(testSelector('teach-feature'));
         expect(await features.count()).toBe(3);
 
         // Check each feature
         for (let i = 0; i < expectedFeatures.length; i++) {
             const feature = features.nth(i);
-            await expect(feature.locator('.teach-feature__icon img')).toBeVisible();
-            expect(await feature.locator('.ktl-h3').textContent()).toBe(expectedFeatures[i]);
+            await expect(feature.locator('img')).toBeVisible();
+            await expect(feature.getByText(expectedFeatures[i], { exact: true })).toBeVisible();
         }
 
         await checkScreenshot(featuresSection);
@@ -63,7 +61,7 @@ test.describe('Education landing page content and interactions', async () => {
 
     test('Should display buttons in top section', async ({ page }) => {
         // Get the top buttons block container
-        const block = page.locator('.teach-top-buttons');
+        const block = page.locator(testSelector('teach-top-buttons'));
 
         // Check the "Join Educators Community" button visibility and link
         const join = block.getByRole('link', { name: 'Join Educators Community', exact: true });
@@ -73,22 +71,22 @@ test.describe('Education landing page content and interactions', async () => {
         // Check the "Why Teach Kotlin" button visibility and link
         const why = block.getByRole('link', { name: 'Why Teach Kotlin →', exact: true });
         await expect(why).toBeVisible();
-        await expect(why).toHaveAttribute('href', 'why-teach-kotlin.html');
+        await expect(why).toHaveAttribute('href', '/education/why-teach-kotlin/');
 
         await checkScreenshot(block);
     });
 
     test('Should display university statistics correctly', async ({ page }) => {
         // Check if the university count is displayed
-        const universitiesText = page.locator('.universities-top__title h2');
+        const universitiesText = page.locator('#kotlin-courses-around-the-world h2:visible');
         expect(await universitiesText.textContent()).toBe('Kotlin Courses Around the World');
 
         // Check if the TeachNumbers component is visible
-        const teachNumbers = page.locator('.universities-top__numbers');
+        const teachNumbers = page.locator(testSelector('universities-numbers'));
         await expect(teachNumbers).toBeVisible();
 
         // Check if the TeachNumbers component is visible
-        const subtitles = teachNumbers.locator('.teach-number__subtitle');
+        const subtitles = teachNumbers.locator(testSelector('teach-number-subtitle'));
         expect(await subtitles.count()).toBe(2);
         expect(await subtitles.nth(0).textContent()).toBe('countries');
         expect(await subtitles.nth(1).textContent()).toBe('universities');
@@ -96,7 +94,7 @@ test.describe('Education landing page content and interactions', async () => {
 
     test('Should display university logos', async ({ page }) => {
         // Check if the university logos are visible
-        const logos = page.locator('.teach-logos__logo');
+        const logos = page.locator(testSelector('teach-logo'));
         expect(await logos.count()).toBe(5);
 
         // Check specific universities
@@ -106,17 +104,17 @@ test.describe('Education landing page content and interactions', async () => {
         await expect(page.locator('img[alt="Imperial College London"]')).toBeVisible();
         await expect(page.locator('img[alt="The University of Chicago"]')).toBeVisible();
 
-        await checkScreenshot(page.locator('.teach-logos'));
+        await checkScreenshot(page.locator(testSelector('teach-logos')));
     });
 
     test('Should have a working interactive map', async ({ page }) => {
         // Check if the map is visible
-        const map = page.locator('.teach-map__wrapper');
+        const map = page.locator(testSelector('teach-map'));
         await checkTeachMap(page, map);
     });
 
     test('Should display navigation buttons', async ({ page }) => {
-        const bottom = page.locator('.teach-universities__bottom');
+        const bottom = page.locator(testSelector('teach-universities-bottom'));
         await expect(bottom).toBeVisible();
 
         // Check if the mailto button is visible and working
@@ -127,7 +125,7 @@ test.describe('Education landing page content and interactions', async () => {
         // Check if the "All Universities" button is visible
         const allUniversitiesButton = bottom.getByRole('link', { name: 'All universities', exact: true });
         await expect(allUniversitiesButton).toBeVisible();
-        await expect(allUniversitiesButton).toHaveAttribute('href', 'courses.html');
+        await expect(allUniversitiesButton).toHaveAttribute('href', '/education/courses/');
     });
 
     test('Should have comprehensive resource links section', async ({ page }) => {
@@ -148,7 +146,7 @@ test.describe('Education landing page content and interactions', async () => {
         for (let i = 0; i < expectedTitles.length; i++) {
             const item = categoryHeadings.nth(i);
             await expect(item, `Category heading should be ${expectedTitles[i]}`).toHaveText(expectedTitles[i]);
-            const links = item.locator(':scope + .teach-list > li');
+            const links = item.locator(`:scope + ${testSelector('teach-list')} > li`);
             expect(await links.count(), `${expectedTitles[i]} category should have at least one link`).toBeGreaterThan(0);
         }
     });
@@ -175,27 +173,27 @@ test.describe('Education landing page content and interactions', async () => {
         });
 
         // Locate the subscription form
-        const subscriptionForm = page.locator('.teach-subscription-section');
+        const subscriptionForm = page.locator(testSelector('subscription-form'));
         await expect(subscriptionForm).toBeVisible();
 
         // Find the form elements
         await subscriptionForm.locator('input[name="Email"]').fill(email);
 
         // Check the privacy checkbox by clicking its label
-        await subscriptionForm.locator('.teach-subscription-form__checkbox label').click();
+        await subscriptionForm.locator(testSelector('subscription-checkbox')).locator('label').click();
 
         // Submit the form
         await subscriptionForm.locator('button[type="submit"]').click();
 
         // Verify that the form shows the submitted state (check icon appears)
-        await expect(subscriptionForm.locator('.teach-subscription-form__submitted-icon')).toBeVisible();
+        await expect(subscriptionForm.locator(testSelector('subscription-submitted-icon'))).toBeVisible();
 
         await checkScreenshot(subscriptionForm);
     });
 
     test('Should have a working YouTube player', async ({ page }) => {
         // Check if the YouTube player container is visible
-        const youtubePlayer = page.locator('.teach-video');
+        const youtubePlayer = page.locator(testSelector('teach-video'));
         await expect(youtubePlayer).toBeVisible();
 
         // Check if the player is in "show video" mode

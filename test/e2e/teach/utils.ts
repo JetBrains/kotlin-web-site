@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
-import { checkScreenshot } from '../../utils';
+import { checkScreenshot, testSelector } from '../../utils';
 
 export const MAILTO_LINK = 'mailto:education@kotlinlang.org' as const;
 export const SIGNUP_LINK = 'https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators' as const;
@@ -7,12 +7,12 @@ export const MATERIALS_LINK = 'https://drive.google.com/drive/folders/1nN3LuyEfm
 
 const NAV_LINKS = [
     ['Overview', '/education/'],
-    ['Why Teach Kotlin', '/education/why-teach-kotlin.html'],
-    ['List of Courses', '/education/courses.html']
+    ['Why Teach Kotlin', '/education/why-teach-kotlin/'],
+    ['List of Courses', '/education/courses/']
 ] as const;
 
 export async function checkTeachNav(page: Page, selected: typeof NAV_LINKS[number][0]) {
-    const navBar = page.locator('.teach-sticky-menu');
+    const navBar = page.getByTestId('top-menu');
 
     // Check section title to root of nav
     const sectionLink = navBar.getByRole('link', { name: 'Teach', exact: true });
@@ -49,12 +49,12 @@ export async function checkTeachMap(page: Page, map: Locator) {
     await page.waitForFunction(() => window['google'] && window['google']['maps']);
 
     // The map should have markers
-    const markers = page.locator('.teach-map-marker');
+    const markers = page.locator(testSelector('teach-map-marker'));
     expect(await markers.count()).toBeGreaterThan(100);
 
     // Wait for the Google Maps Markers to attach
     await page.waitForFunction(() => {
-        const markers = document.querySelectorAll('.teach-map-marker');
+        const markers = document.querySelectorAll('[data-test="teach-map-marker"]');
         return markers.length > 100 &&
             Array.from(markers).every(marker =>
                 marker['offsetHeight'] > 0 && marker['offsetWidth'] > 0
@@ -64,7 +64,7 @@ export async function checkTeachMap(page: Page, map: Locator) {
     // Check if at least one marker is visible
     let marker = markers.last();
     await expect(marker).toBeVisible();
-    await expect(marker).not.toHaveClass('teach-map-marker teach-map-marker_active');
+    await expect(marker).not.toHaveClass(/active/);
 
     await marker.scrollIntoViewIfNeeded();
 
@@ -75,17 +75,17 @@ export async function checkTeachMap(page: Page, map: Locator) {
     await page.waitForTimeout(100);
     await page.mouse.up();
 
-    await expect(marker).toHaveClass('teach-map-marker teach-map-marker_active');
+    await expect(marker).toHaveClass(/active/);
 
-    const tooltip = marker.locator('.teach-map-tooltip');
+    const tooltip = marker.locator(testSelector('teach-map-tooltip'));
     await expect(tooltip).toBeVisible();
 }
 
 export async function checkTeachCta({ page }) {
     // Get the CTA wrapper element from the page
-    const connectUs = page.locator('section [class*=ktl-cta-block-module_wrapper_]');
+    const connectUs = page.locator('.cta-block');
 
-    // Check if the "Connect with us" heading is visible
+    // Check if the "Connect with us" title is visible
     const title = connectUs.getByRole('heading', { name: 'Connect with us', exact: true });
     await expect(title).toBeVisible();
 

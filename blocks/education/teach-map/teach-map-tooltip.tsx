@@ -19,7 +19,7 @@ export const TeachMapTooltip: FC<TeachMapTooltipProps> = ({ university, onClose 
     );
 
     return (
-        <div className={cn(styles.tooltip, 'ktl-text-3')}>
+        <div className={cn(styles.tooltip, 'ktl-text-3')} data-test="teach-map-tooltip">
             <div className={styles.header}>
                 <div>
                     <div className={styles.headerText}>{university.title}</div>
