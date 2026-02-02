@@ -300,7 +300,9 @@ What should the opt-in look like in your code?
 
 ## What's next?
 
-Congratulations! You've completed the intermediate tour! As a next step, check out our tutorials for popular Kotlin applications:
+Congratulations! You've completed the intermediate tour! Would you like to [share your feedback](https://surveys.hotjar.com/bf4ce865-99ce-4fc1-b107-e9b16bc31592) about your experience? 
+
+As a next step, check out our tutorials for popular Kotlin applications:
 
 * [Create a backend application with Spring Boot and Kotlin](jvm-create-project-with-spring-boot.md)
 * Create a cross-platform application for Android and iOS from scratch and:
