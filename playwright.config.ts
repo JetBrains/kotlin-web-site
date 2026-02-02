@@ -4,14 +4,20 @@ const MAX_DIFF_PIXEL_RATIO = 0.025 as const;
 
 const isDevelopment = !process.env.CI;
 
+const reporter = isDevelopment ? 'list' : 'github';
+const retries = isDevelopment ? 0 : 2;
+const timeout = isDevelopment ? 10000 : 5000;
+
+const forbidOnly = !isDevelopment;
+
 export default defineConfig({
     globalSetup: require.resolve('./test/global-setup.ts'),
-    forbidOnly: !isDevelopment,
-    retries: isDevelopment ? 0 : 2,
-    reporter: isDevelopment ?  'list' : 'playwright-teamcity-reporter',
+    forbidOnly,
+    retries,
+    reporter,
     snapshotDir: 'test/snapshots',
     expect: {
-        timeout: isDevelopment ? 10000 : 5000,
+        timeout,
         toMatchSnapshot: { maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO },
         toHaveScreenshot: { maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO }
     },
