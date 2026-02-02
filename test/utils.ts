@@ -1,4 +1,4 @@
-import { expect, Locator, Page } from '@playwright/test';
+import { ElementHandle, expect, Locator, Page, test } from '@playwright/test';
 import { PageAssertionsToHaveScreenshotOptions } from 'playwright/types/test';
 
 export const testSelector = (name: string) => `[data-test="${name}"]`;
@@ -34,8 +34,44 @@ export async function checkScreenshot(element: Locator | Page, options?: PageAss
         caret: 'hide',
         animations: 'disabled',
         ...(options || {}),
-        stylePath: ['test/snapshots/production.css'].concat(options?.stylePath || [])
+        stylePath: ['test/snapshots/assets/production.css'].concat(options?.stylePath || [])
     });
+}
+
+
+export async function checkFullPageScreenshot(page: Page, options?: PageAssertionsToHaveScreenshotOptions) {
+    if (isSkipScreenshot) return;
+
+    await page.waitForLoadState('networkidle');
+    await page.evaluate(() => window.scrollTo(0, 0));
+
+    await checkScreenshot(page, {
+        ...options,
+        fullPage: true,
+        mask: [
+            page.locator('header[data-test="header"]'),
+            page.locator('footer'),
+            page.locator('video[autoplay]'),
+
+            ...(options.mask || [])
+        ]
+    });
+}
+
+export async function getElementScreenshotWithPadding(page: Page, element: ElementHandle, padding: number): Promise<Buffer | undefined> {
+    await element.scrollIntoViewIfNeeded();
+    const box = await element.boundingBox();
+
+    if (box !== null) {
+        return await page.screenshot({
+            clip: {
+                x: box.x - padding,
+                y: box.y - padding,
+                width: box.width + padding * 2,
+                height: box.height + padding * 2
+            }
+        });
+    }
 }
 
 export function isProduction(baseURL: string | undefined) {
@@ -44,4 +80,12 @@ export function isProduction(baseURL: string | undefined) {
     } catch (error) {
         return false;
     }
+}
+
+export function skipProduction(text?: string) {
+    test.skip(({ baseURL }) => isProduction(baseURL), text || 'Skip tests on production environment');
+}
+
+export function skipNonProduction(text?: string) {
+    test.skip(({ baseURL }) => !isProduction(baseURL), text || 'Skip tests on non-production environment');
 }

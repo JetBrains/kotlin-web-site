@@ -1,5 +1,7 @@
 import { expect, test as base } from '@playwright/test';
-import { isProduction } from '../utils';
+import { skipNonProduction } from '../utils';
+
+skipNonProduction('Cookie banner only on production');
 
 const test = base.extend({
     context: async function makeCleanContext({ browser }, use) {
@@ -10,8 +12,6 @@ const test = base.extend({
         await context.close();
     }
 });
-
-test.skip(({ baseURL }) => !isProduction(baseURL), 'Cookie banner only on production');
 
 test.describe('Cookie banner functionality', () => {
     test('Cookie banner should be visible and closeable', async ({ page, baseURL }) => {
