@@ -102,7 +102,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
                 />
 
                 <StickyHeader>
-                    <div className={styles.sticky}>
+                    <div className={styles.sticky} data-testid="top-menu">
                         <TopMenu
                             className={styles.topMenu}
                             homeUrl={navigationProps.topMenuHomeUrl}
