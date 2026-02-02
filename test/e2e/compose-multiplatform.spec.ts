@@ -21,7 +21,7 @@ test.describe('Compose Multiplatform landing page', async () => {
         const href = await composePage.heroActionButton.getAttribute('href');
 
         await checkScreenshot(composePage.hero, {
-            stylePath: 'test/e2e/hide-sticky-banner.css',
+            stylePath: 'test/snapshots/sticky-navigation.css',
             mask: [composePage.heroCarousel],
         });
 
@@ -35,7 +35,7 @@ test.describe('Compose Multiplatform landing page', async () => {
         await expect(composePage.platformsItems).toHaveCount(4);
 
         await checkScreenshot(composePage.platformsBlock, {
-            stylePath: 'test/e2e/hide-sticky-banner.css',
+            stylePath: 'test/snapshots/sticky-navigation.css',
         });
     })
 
@@ -50,7 +50,7 @@ test.describe('Compose Multiplatform landing page', async () => {
         }
 
         await checkScreenshot(composePage.featuresBlock, {
-            stylePath: 'test/e2e/hide-sticky-banner.css',
+            stylePath: 'test/snapshots/sticky-navigation.css',
         });
     });
 
@@ -59,7 +59,7 @@ test.describe('Compose Multiplatform landing page', async () => {
         await expect(composePage.quoteCards).not.toHaveCount(0);
 
         await checkScreenshot(composePage.quoteSection, {
-            stylePath: 'test/e2e/hide-sticky-banner.css',
+            stylePath: 'test/snapshots/sticky-navigation.css',
         });
     });
 
@@ -71,7 +71,7 @@ test.describe('Compose Multiplatform landing page', async () => {
         const href = await composePage.ctaBlockButton.getAttribute('href');
 
         await checkScreenshot(composePage.ctaBlock, {
-            stylePath: 'test/e2e/hide-sticky-banner.css',
+            stylePath: 'test/snapshots/sticky-navigation.css',
         });
 
         await composePage.ctaBlockButton.click();
