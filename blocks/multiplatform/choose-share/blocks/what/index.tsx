@@ -9,6 +9,7 @@ import styles from './choose-share-what.module.css';
 
 import { useTabScroll } from '../../hooks/useTabScroll';
 import Link from 'next/link';
+import { trackEvent } from '../../../../../utils/event-logger';
 
 const TABS_BLOCKS = [
     {
@@ -60,6 +61,14 @@ export function ChooseShareWhat({ className }: { className?: string }) {
 
     const navigateToHash = useTabScroll(TABS_BLOCKS, 'choose-share-what-', setActiveIndex);
 
+    const handleTabClick = (e: MouseEvent, tabId: string) => {
+        trackEvent({
+            eventAction: 'kt_kmp_choose_what_to_share_click',
+            eventLabel: tabId,
+        });
+        navigateToHash(e);
+    };
+
     return (
         <section className={cn(className, styles.wrap, 'ktl-layout', 'ktl-layout--center')} data-testid={'share-what-block'}>
             <h2 className={cn(styles.title, textCn('rs-h1'))} data-testid={'share-what-title'}>Choose what to share</h2>
@@ -78,7 +87,8 @@ export function ChooseShareWhat({ className }: { className?: string }) {
                               id={`choose-share-what-${id}-tab`} role="tab"
                               aria-controls={`choose-share-what-${id}-content`}
                               href={`#choose-share-what-${id}`} aria-label={`Go to ${id} section`}
-                              onClick={navigateToHash} data-testid={'share-what-chip-anchor'}
+                              onClick={(e) => handleTabClick(e, id)}
+                              data-testid={'share-what-chip-anchor'}
                               {...(activeIndex === i && { 'aria-selected': true })}
                         >
                             <Tab />
