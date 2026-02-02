@@ -1,7 +1,6 @@
 import { expect, Locator, test } from '@playwright/test';
 import { MultiplatformPage } from '../../page/multiplatform-page';
-import { checkAnchor, checkScreenshot } from '../../utils';
-import { checkFullPageScreenshot } from '../utils';
+import { checkAnchor, checkFullPageScreenshot, checkScreenshot } from '../../utils';
 
 test.describe('Multiplatform landing page', async () => {
     let multiplatformPage: MultiplatformPage;
@@ -35,7 +34,7 @@ test.describe('Multiplatform landing page', async () => {
         await expect(heroActionButton).toBeVisible();
 
         await checkScreenshot(multiplatformPage.heroBanner, {
-            stylePath: 'test/snapshots/sticky-navigation.css'
+            stylePath: 'test/snapshots/assets/sticky-navigation.css'
         });
 
         const href = await heroActionButton.getAttribute('href');
@@ -89,7 +88,7 @@ test.describe('Multiplatform landing page', async () => {
         await expect(multiplatformPage.ctaBlockAction).not.toBeEmpty();
 
         await checkScreenshot(multiplatformPage.ctaBlock, {
-            stylePath: 'test/snapshots/sticky-navigation.css'
+            stylePath: 'test/snapshots/assets/sticky-navigation.css'
         });
 
         const href = await multiplatformPage.ctaBlockAction.getAttribute('href');
@@ -124,7 +123,7 @@ async function checkChooseWhatToShare({ page, main, shareWhatBlock }: Multiplatf
     await expect(link).not.toBeEmpty();
 
     await checkScreenshot(shareWhatBlock, {
-        stylePath: 'test/snapshots/sticky-navigation.css'
+        stylePath: 'test/snapshots/assets/sticky-navigation.css'
     });
 
     // Check that links work as links

@@ -1,10 +1,10 @@
 import { expect, test } from '@playwright/test';
-import { isProduction } from '../utils';
+import { skipProduction } from '../utils';
 
 test.describe.configure({ mode: 'parallel' });
 
 test.describe('/lp/ pages list', async () => {
-    test.skip(({ baseURL }) => !isProduction(baseURL), 'for host with reverse-proxy only');
+    skipProduction('for host with reverse-proxy only');
 
     test(`Check /lp/multiplatform default redirects`, async ({ page, baseURL }) => {
         const targetUrl = `${baseURL}/multiplatform/`;
