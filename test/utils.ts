@@ -18,13 +18,23 @@ export async function checkAnchor(page: Page, anchor: Locator) {
 
 export const isSkipScreenshot = process.env.E2E_WITH_SCREENSHOTS !== 'true';
 
-export async function checkScreenshot(element: Locator, options?: PageAssertionsToHaveScreenshotOptions) {
+export async function checkScreenshot(element: Locator | Page, options?: PageAssertionsToHaveScreenshotOptions) {
     if (isSkipScreenshot) return;
+
+    const images = element.locator('img[loading=lazy]');
+
+    if (await images.count() > 0) {
+        await images.evaluate((img: HTMLImageElement) => {
+            img.loading = 'eager';
+            img.decoding = 'sync';
+        });
+    }
 
     await expect(element).toHaveScreenshot({
         caret: 'hide',
         animations: 'disabled',
-        ...(options || {})
+        ...(options || {}),
+        stylePath: ['test/snapshots/production.css'].concat(options?.stylePath || [])
     });
 }
 

@@ -1,5 +1,5 @@
-import { ElementHandle, expect, Page, test } from '@playwright/test';
-import { isSkipScreenshot } from '../utils';
+import { ElementHandle, Page, test } from '@playwright/test';
+import { checkScreenshot, isSkipScreenshot } from '../utils';
 import { PageAssertionsToHaveScreenshotOptions } from 'playwright/types/test';
 
 export async function getElementScreenshotWithPadding(page: Page, element: ElementHandle, padding: number): Promise<Buffer | undefined> {
@@ -29,19 +29,12 @@ export function pageWrapperMask(page: Page) {
 export async function checkFullPageScreenshot(page: Page, options?: PageAssertionsToHaveScreenshotOptions) {
     test.skip(isSkipScreenshot, 'Skipping screenshot testing');
 
-    await page.locator('img[loading=lazy]').evaluate((img: HTMLImageElement) => {
-        img.loading = 'eager';
-        img.decoding = 'sync';
-    });
-
     await page.waitForLoadState('networkidle');
     await page.evaluate(() => window.scrollTo(0, 0));
 
-    await expect(page).toHaveScreenshot({
-        caret: 'hide',
-        animations: 'disabled',
-        fullPage: true,
+    await checkScreenshot(page, {
         ...options,
+        fullPage: true,
         mask: [
             ...pageWrapperMask(page),
             ...(options.mask || [])
