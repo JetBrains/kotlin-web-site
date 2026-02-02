@@ -1,0 +1,39 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.list {
+    min-height: 100vh;
+}
+
+.item {
+    border-top: 1px solid rgba(39, 40, 44, 0.2);
+    padding: 16px 0;
+}
+
+.header {
+    display: none;
+    padding-bottom: 16px;
+}
+
+@media (--ktl-tm-min) {
+    .header,
+    .item {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-column-gap: 32px;
+    }
+
+    .cellFirst {
+        grid-column: 1 / 3;
+        grid-row: row;
+    }
+
+    .cellSecond {
+        grid-column: 3 / 5;
+        grid-row: row;
+    }
+
+    .cellThird {
+        grid-column: 5 / 12;
+        grid-row: row;
+    }
+}

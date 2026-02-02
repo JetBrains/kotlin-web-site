@@ -1,0 +1,28 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.wrapper {
+    padding: 0;
+    font-family: var(--ktl-font-family-inter);
+    margin-bottom: 72px;
+}
+
+/* CTA buttons */
+.ctaButtons {
+    display: grid;
+    grid-template-areas: "a a";
+    grid-auto-columns: min-content;
+    grid-gap: 16px;
+}
+
+@media (--ktl-tm) {
+    .ctaButtons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ctaButtons > button,
+    .ctaButtons > a {
+        font-size: 16px;
+        padding: 8px 24px;
+    }
+}

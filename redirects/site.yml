@@ -65,3 +65,9 @@
 
 - from: /docs/reference/grammar.html
   to: /docs/reference/grammar/
+
+- from: /education/why-teach-kotlin.html
+  to: /education/why-teach-kotlin/
+
+- from: /education/courses.html
+  to: /education/courses/

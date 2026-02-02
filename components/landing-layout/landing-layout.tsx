@@ -8,6 +8,7 @@ import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 import TopMenu from '@jetbrains/kotlin-web-site-ui/out/components/top-menu';
 import { ThemeProvider } from '@rescui/ui-contexts';
 import { useRouter } from 'next/router';
+import cn from 'classnames';
 import styles from './landing-layout.module.css';
 import releasesDataRaw from '../../data/releases.yml';
 import searchConfig from '../../search-config.json';
@@ -23,6 +24,7 @@ type NavigationProps = {
     topMenuHomeUrl?: string;
     currentUrl?: string;
     currentTitle?: string;
+    mobileOverview?: boolean;
 }
 
 export type LandingLayoutProps = {
@@ -32,10 +34,10 @@ export type LandingLayoutProps = {
     children: React.ReactNode;
     dataTestId?: string;
     canonical?: string;
+    theme?: 'dark' | 'light';
 } & NavigationProps;
 
-export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, description, children, dataTestId, canonical, ...navigationProps }) => {
-    const theme = 'dark';
+export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, description, children, dataTestId, canonical, theme = 'dark', mobileOverview = true, ...navigationProps }) => {
     const router = useRouter();
     const pathname = addTrailingSlash(router.pathname);
 
@@ -108,17 +110,19 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
                             activeIndex={activeIndex}
                             items={items}
                             linkHandler={linkHandler}
-                            mobileOverview={true}
+                            mobileOverview={mobileOverview}
                         >
                             {navigationProps.topMenuButton}
                         </TopMenu>
                     </div>
                 </StickyHeader>
 
-                <div className={styles.contentWrapper} data-testid={dataTestId}>
+                <div className={cn(styles.contentWrapper, { [styles.contentWrapperLight]: theme === 'light' })} data-testid={dataTestId}>
                     {children}
                 </div>
+            </ThemeProvider>
 
+            <ThemeProvider theme="dark">
                 <GlobalFooter />
             </ThemeProvider>
         </>
