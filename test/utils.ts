@@ -3,11 +3,6 @@ import { PageAssertionsToHaveScreenshotOptions } from 'playwright/types/test';
 
 export const testSelector = (name: string) => `[data-test="${name}"]`;
 
-export function isStaging(baseURL: string): boolean {
-    const { hostname } = new URL(baseURL);
-    return hostname !== 'kotlinlang.org';
-}
-
 const TRANSITION_TIMEOUT = 2000;
 
 export async function checkAnchor(page: Page, anchor: Locator) {
