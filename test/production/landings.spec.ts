@@ -1,13 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { closeCookiesConsentBanner, isStaging } from '../utils';
-
-test.describe.configure({ mode: 'parallel' });
+import { isStaging } from '../utils';
 
 test.describe('/lp/ pages list', async () => {
-    test.beforeEach(async ({ context, baseURL }) => {
-        await closeCookiesConsentBanner(context, baseURL);
-    });
-
     test(`Check /lp/multiplatform default redirects`, async ({ page, baseURL }) => {
         test.skip(isStaging(baseURL), 'for host with reverse-proxy only');
 

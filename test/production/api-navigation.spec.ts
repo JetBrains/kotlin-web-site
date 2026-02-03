@@ -3,8 +3,6 @@ import { expect, Page, test } from '@playwright/test';
 test.describe('Api navigation', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
-        await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
-        await page.click('button.ch2-btn.ch2-btn-primary');
         const navbar = page.locator('[data-test="header"]');
         const apiButton = navbar.getByText('API', { exact: true });
         await expect(apiButton).toBeVisible();

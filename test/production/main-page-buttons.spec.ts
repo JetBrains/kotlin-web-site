@@ -4,8 +4,6 @@ import { testSelector } from '../utils';
 test.describe('Main page buttons', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
-        await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
-        await page.click('button.ch2-btn.ch2-btn-primary');
     });
 
     test('Hero section Get started button', async ({ page }) => {

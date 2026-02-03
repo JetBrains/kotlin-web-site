@@ -11,6 +11,7 @@ const timeout = isDevelopment ? 10000 : 5000;
 const forbidOnly = !isDevelopment;
 
 export default defineConfig({
+    globalSetup: require.resolve('./test/global-setup.ts'),
     forbidOnly,
     retries,
     reporter,
@@ -21,7 +22,8 @@ export default defineConfig({
         toHaveScreenshot: { maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO }
     },
     use: {
-        baseURL: process.env.BASE_URL || 'http://localhost:9000',
+        baseURL: process.env.BASE_URL || 'http://localhost:3000',
+        storageState: 'test/storage-state.json',
         trace: 'off',
         screenshot: 'only-on-failure',
         video: 'retain-on-failure'
