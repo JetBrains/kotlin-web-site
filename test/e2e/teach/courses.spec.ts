@@ -1,6 +1,5 @@
 import { expect, test } from '@playwright/test';
 import { CoursesPage } from '../../page/teach/courses-page';
-import { closeExternalBanners } from '../utils';
 import { testSelector } from '../../utils';
 import { checkTeachCta, checkTeachMap, checkTeachNav } from './utils';
 
@@ -8,7 +7,6 @@ test.describe('Courses page appearance and functionality', async () => {
     test.beforeEach(async ({ page, context, baseURL }) => {
         const coursesPage = new CoursesPage(page);
         await coursesPage.init();
-        await closeExternalBanners(context, page, baseURL);
     });
 
     test('Should load the courses page correctly', async ({ page }) => {
