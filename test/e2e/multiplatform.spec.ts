@@ -1,6 +1,6 @@
 import { expect, Locator, test } from '@playwright/test';
-import { MultiplatformPage } from '../../page/multiplatform-page';
-import { checkAnchor, checkFullPageScreenshot, checkScreenshot } from '../../utils';
+import { MultiplatformPage } from '../page/multiplatform-page';
+import { checkAnchor, checkFullPageScreenshot, checkScreenshot } from '../utils';
 
 test.describe('Multiplatform landing page', async () => {
     let multiplatformPage: MultiplatformPage;

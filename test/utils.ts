@@ -19,7 +19,7 @@ export async function checkAnchor(page: Page, anchor: Locator) {
 export const isSkipScreenshot = process.env.E2E_WITH_SCREENSHOTS !== 'true';
 
 export async function checkScreenshot(element: Locator | Page, options?: PageAssertionsToHaveScreenshotOptions) {
-    if (isSkipScreenshot) return;
+    test.skip(isSkipScreenshot, 'Skip screenshots check');
 
     const images = element.locator('img[loading=lazy]');
 
@@ -40,7 +40,7 @@ export async function checkScreenshot(element: Locator | Page, options?: PageAss
 
 
 export async function checkFullPageScreenshot(page: Page, options?: PageAssertionsToHaveScreenshotOptions) {
-    if (isSkipScreenshot) return;
+    test.skip(isSkipScreenshot, 'Skip screenshots check');
 
     await page.waitForLoadState('networkidle');
     await page.evaluate(() => window.scrollTo(0, 0));
