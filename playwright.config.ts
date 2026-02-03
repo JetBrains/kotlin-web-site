@@ -2,12 +2,21 @@ import { defineConfig, devices } from '@playwright/test';
 
 const MAX_DIFF_PIXEL_RATIO = 0.025 as const;
 
+const isDevelopment = !process.env.CI;
+
+const reporter = isDevelopment ? 'list' : 'playwright-teamcity-reporter';
+const retries = isDevelopment ? 0 : 2;
+const timeout = isDevelopment ? 10000 : 5000;
+
+const forbidOnly = !isDevelopment;
+
 export default defineConfig({
-    forbidOnly: !!process.env.CI,
-    retries: process.env.CI ? 2 : 0,
-    reporter: process.env.CI ? 'dot' : 'list',
+    forbidOnly,
+    retries,
+    reporter,
     snapshotDir: 'test/snapshots',
     expect: {
+        timeout,
         toMatchSnapshot: { maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO },
         toHaveScreenshot: { maxDiffPixelRatio: MAX_DIFF_PIXEL_RATIO }
     },
