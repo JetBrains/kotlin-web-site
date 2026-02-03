@@ -50,7 +50,8 @@ In the following table, there are the minimum and maximum **fully supported** ve
 
 | KGP version   | Gradle min and max versions           | AGP min and max versions                            |
 |---------------|---------------------------------------|-----------------------------------------------------|
-| 2.3.0         | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 2.3.10        | %minGradleVersion%–%maxGradleVersion% | %minAndroidGradleVersion%–%maxAndroidGradleVersion% |
+| 2.3.0         | 7.6.3–9.0.0                           | 8.2.2–8.13.0                                        |
 | 2.2.20–2.2.21 | 7.6.3–8.14                            | 7.3.1–8.11.1                                        |
 | 2.2.0–2.2.10  | 7.6.3–8.14                            | 7.3.1–8.10.0                                        |
 | 2.1.20–2.1.21 | 7.6.3–8.12.1                          | 7.3.1–8.7.2                                         |
