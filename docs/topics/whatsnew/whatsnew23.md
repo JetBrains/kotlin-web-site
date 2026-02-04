@@ -4,6 +4,10 @@
 
 _[Released: December 16, 2025](releases.md#release-history)_
 
+<tldr>
+    <p>For details about bug fix release 2.3.10, see the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.10">changelog</a></p>
+</tldr>
+
 The Kotlin 2.3.0 release is out! Here are the main highlights:
 
 * **Language**: [more stable and default features, unused return value checker, explicit backing fields, and changes to context-sensitive resolution](#language).
