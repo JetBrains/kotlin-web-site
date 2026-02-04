@@ -4,14 +4,13 @@ slug: "baidu"
 title: "Baidu"
 country: "China"
 size: "45500"
-usedProductTitle: "Kotlin Multiplatform Mobile"
+usedProductTitle: "Kotlin Multiplatform"
 usedProductLink: "/multiplatform/"
 industry: "Internet, Artificial intelligence, Cloud computing"
 coverImg: /images/case-studies/content/baidu-cover.png
 ---
-<div class="rs-subtitle-2 wt-subtitle-2_flow">
+
 <a href="https://www.baidu.com" class="wt-link" target="_blank" rel="noreferrer noopener">Baidu ↗</a>  is a leading artificial intelligence company with a strong internet infrastructure, and it is the world's largest Chinese-language search engine. Baidu also launched the Wonder App (App Store), an app targeted at younger users. The Wonder App uses Kotlin Multiplatform Mobile technology to unify the business logic of multiple modules, covering multiple core business scenarios while retaining the excellent user experience of the native UI. The integration of Multiplatform Mobile technology has truly unified the business logic for both iOS and Android development, reducing the cost of checking and maintaining it, and significantly improving productivity.
-</div>
 
 ### About Wonder by Baidu
 
