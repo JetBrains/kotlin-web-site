@@ -45,8 +45,8 @@
     <var name="gradleApiVersion" value="KOTLIN_2_3" type="string"/>
 
     <!-- KSP -->
-    <var name="kspSupportedKotlinVersion" value="2.3.4"/>
-    <var name="kspVersion" value="2.3.4"/>
+    <var name="kspSupportedKotlinVersion" value="2.3.5"/>
+    <var name="kspVersion" value="2.3.5"/>
 
     <!-- Spring -->
     <var name="springBootSupportedKotlinVersion" value="2.2.21"/>
