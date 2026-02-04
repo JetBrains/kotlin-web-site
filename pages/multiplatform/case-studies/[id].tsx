@@ -12,8 +12,8 @@ import { CaseStudyPageContent } from '../../../blocks/case-studies/page-content/
 import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
 import { CaseStudyPageHero } from '../../../blocks/case-studies/page-hero/case-study-page-hero';
 
-const MULTIPLATFORM_MOBILE_TITLE = 'Kotlin Multiplatform' as const;
-const MULTIPLATFORM_MOBILE_URL = '/multiplatform/' as const;
+const MULTIPLATFORM_MOBILE_TITLE = 'Kotlin Multiplatform';
+const MULTIPLATFORM_MOBILE_URL = '/multiplatform/';
 
 const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
     {
@@ -26,7 +26,7 @@ const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
     }
 ];
 
-const GET_STARTED_URL = '/docs/multiplatform/get-started.html' as const;
+const GET_STARTED_URL = '/docs/multiplatform/get-started.html';
 
 interface CaseStudyProps {
     content: string;
@@ -55,18 +55,16 @@ export default function MultiplatformCaseStudy({ content, frontmatter }: CaseStu
             theme="light"
             forceDarkTopMenu={true}
         >
-            <div className="ktl-layout-to-2">
-                <ThemeProvider theme='light'>
-                    <CaseStudyPageHero frontmatter={frontmatter} />
-                    <CaseStudyPageContent content={content} />
-                </ThemeProvider>
-            </div>
+            <ThemeProvider theme="light">
+                <CaseStudyPageHero frontmatter={frontmatter} />
+                <CaseStudyPageContent content={content} />
+            </ThemeProvider>
         </LandingLayout>
     );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const contentDir = path.join(process.cwd(), 'data/case-studies/content');
+    const contentDir = path.join(process.cwd(), 'data/case-studies/multiplatform');
     const files = fs.readdirSync(contentDir);
 
     const paths = files
@@ -88,7 +86,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<CaseStudyProps> = async ({ params }) => {
     const id = params?.id as string;
-    const contentDir = path.join(process.cwd(), 'data/case-studies/content');
+    const contentDir = path.join(process.cwd(), 'data/case-studies/multiplatform');
     const files = fs.readdirSync(contentDir);
 
     const filename = files.find(file => {

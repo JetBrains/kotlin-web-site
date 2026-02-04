@@ -1,14 +1,19 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .wrapper {
-  margin: 0 auto;
-  padding: 32px 16px 320px;
+  margin: 0 auto 64px;
+  padding: 32px 16px 64px;
   background: rgb(27, 27, 27);
   color: #fff;
 
   @media (--ktl-ts-down) {
     padding-bottom: 32px;
   }
+}
+
+.wrapperWithCover {
+  padding-bottom: 320px;
+  margin-bottom: 0;
 }
 
 .title {

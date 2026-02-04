@@ -43,19 +43,19 @@ export default function ServerSideCaseStudy({ content, frontmatter }: CaseStudyP
             topMenuButton={<Button href={'#get-started'}>Get started</Button>}
             canonical={`https://kotlinlang.org/server-side/case-studies/${frontmatter.slug}`}
             dataTestId={'server-side-case-study-page'}
+            theme="light"
+            forceDarkTopMenu={true}
         >
-            <div className="ktl-layout-to-2">
-                <ThemeProvider theme={'dark'}>
-                    <CaseStudyPageHero frontmatter={frontmatter} />
-                    <CaseStudyPageContent content={content} />
-                </ThemeProvider>
-            </div>
+            <ThemeProvider theme="light">
+                <CaseStudyPageHero frontmatter={frontmatter} />
+                <CaseStudyPageContent content={content} />
+            </ThemeProvider>
         </LandingLayout>
     );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const contentDir = path.join(process.cwd(), 'data/case-studies/content');
+    const contentDir = path.join(process.cwd(), 'data/case-studies/server-side');
     if (!fs.existsSync(contentDir)) return { paths: [], fallback: false };
 
     const files = fs.readdirSync(contentDir);
@@ -79,7 +79,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<CaseStudyProps> = async ({ params }) => {
     const id = params?.id as string;
-    const contentDir = path.join(process.cwd(), 'data/case-studies/content');
+    const contentDir = path.join(process.cwd(), 'data/case-studies/server-side');
     const files = fs.readdirSync(contentDir);
 
     const filename = files.find(file => {

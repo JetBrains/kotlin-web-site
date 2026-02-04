@@ -18,7 +18,7 @@ export const CaseStudyPageHero: React.FC<CaseStudyContentProps> = ({ frontmatter
 
     return (
         <ThemeProvider theme="dark">
-            <div className={styles.wrapper}>
+            <div className={cn(styles.wrapper, { [styles.wrapperWithCover]: !!frontmatter?.coverImg })}>
                 <section className="ktl-layout ktl-layout--center">
                     {frontmatter?.title && (
                         <h1 className={cn(textCn('rs-hero'), styles.title)}>{frontmatter.title}</h1>
@@ -71,11 +71,10 @@ export const CaseStudyPageHero: React.FC<CaseStudyContentProps> = ({ frontmatter
                     )}
                 </section>
             </div>
-            <div className={cn('ktl-layout ktl-layout--center', styles.coverImgContainer)}>
-                {frontmatter?.coverImg && (
+            {frontmatter.coverImg &&
+                <div className={cn('ktl-layout ktl-layout--center', styles.coverImgContainer)}>
                     <img className={styles.coverImg} src={frontmatter.coverImg} alt={frontmatter.title} />
-                )}
-            </div>
+                </div>}
         </ThemeProvider>
     );
 };
