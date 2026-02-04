@@ -31,7 +31,7 @@ interface KSTypeReference : KSAnnotated, KSModifierListOwner {
 A `KSTypeReference` can be resolved to a `KSType`, which refers to a type in Kotlin's type system.
 
 A `KSTypeReference` has a `KSReferenceElement`, which models Kotlin's program structure: namely, how the reference is
-written. It corresponds to the [`type`](https://kotlinlang.org/docs/reference/grammar.html#type) element in Kotlin's grammar.
+written. It corresponds to the [`type`](https://kotlinlang.org/docs/reference/grammar/#type) element in Kotlin's grammar.
 
 A `KSReferenceElement` can be a `KSClassifierReference` or `KSCallableReference`, which contains a lot of useful
 information without the need for resolution. For example, `KSClassifierReference` has `referencedName`, while
