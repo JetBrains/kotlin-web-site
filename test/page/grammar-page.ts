@@ -1,7 +1,7 @@
 import { Locator, Page } from '@playwright/test';
 import { BasePage } from './base-page';
 
-export const GRAMMAR_URL = '/docs/reference/grammar/';
+export const GRAMMAR_URL = '/grammar/';
 
 export class GrammarPage implements BasePage {
     readonly page: Page;
