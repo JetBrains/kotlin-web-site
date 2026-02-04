@@ -24,7 +24,7 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
        <plugin>
            <artifactId>kotlin-maven-plugin</artifactId>
            <groupId>org.jetbrains.kotlin</groupId>
-           <version>%kotlinVersion%</version>
+           <version>${kotlin.version}</version>
        </plugin>
    </plugins>
    ```
