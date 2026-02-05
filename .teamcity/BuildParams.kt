@@ -1,6 +1,7 @@
 import references.builds.compose.ComposeMultiplatformCore
 import references.builds.kgp.KotlinGradleAPI
 import common.extensions.VCS
+import references.builds.compose.AndroidSdk
 
 object BuildParams {
   const val KLANG_NODE_CONTAINER = "node:22-alpine"
@@ -44,7 +45,11 @@ object BuildParams {
   }
 
   val API_COMPOSE = ComposeMultiplatformCore {
-    addVersion("1.8.0", "api-reference/1.8")
+    addVersion("1.10", "api-reference/1.10", AndroidSdk(
+      compileSdk = "35",
+      buildTools = "35.0.0",
+      cmdToolsVersion = "13114758"
+    ))
   }
 
   const val SEARCH_APP_ID = "7961PKYRXV"
