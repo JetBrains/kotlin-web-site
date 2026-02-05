@@ -82,6 +82,20 @@ private fun BuildSteps.downloadAndroidSdk(androidSdk: AndroidSdk) = script {
 }
 // ----------
 
+fun BuildSteps.resetCache() = script {
+    name = "Reset Compose cache"
+    // language=bash
+    scriptContent = """
+        #!/bin/bash
+        set -euo pipefail
+        
+        # Replace src="composeApp.js" with src="composeApp.js?<teamcity build ID>" in HTML files
+        find . -name "*.html" -type f -exec sed -i.bak 's/src="composeApp\.js"/src="composeApp.js?%teamcity.build.id%"/g' {} \;
+        find . -name "*.html.bak" -type f -delete
+    """.trimIndent()
+    formatStderrAsError = true
+}
+
 class ComposeMultiplatformCore(init: ComposeMultiplatformCore.() -> Unit) : ReferenceProject("compose-multiplatform") {
     init {
         init()
@@ -112,6 +126,7 @@ class ComposeMultiplatformCore(init: ComposeMultiplatformCore.() -> Unit) : Refe
                     gradleParams += " -PapiReferences.storiesRootPath=/api/${urlPart}/stories"
                     jdkHome = "%env.JDK_21_0%"
                 }
+                resetCache()
             }
         ).additionalParams()
     }
