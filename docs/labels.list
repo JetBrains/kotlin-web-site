@@ -5,16 +5,20 @@
 
     <primary-label id="experimental-general" name="Experimental" short-name="Experimental" href="components-stability.html#stability-levels-explained" color="red">The feature is Experimental. It may be dropped or changed at any time. Use it only for evaluation purposes.</primary-label>
     <primary-label id="experimental-opt-in" name="Experimental" short-name="Experimental" href="components-stability.html#stability-levels-explained" color="red" >The feature is Experimental. It may be dropped or changed at any time. Use it only for evaluation purposes.</primary-label>
-    <primary-label id="experimental-exp" name="Experimental" short-name="Experimental" href="components-stability.html#stability-levels-explained" color="red"></primary-label>
-    <primary-label id="stable" name="Stable" short-name="Stable" href="components-stability.html#stability-levels-explained" color="black" ></primary-label>
+    <primary-label id="experimental-exp" name="Experimental" short-name="Experimental" href="components-stability.html#stability-levels-explained" color="red">This includes features with Beta, Alpha, and Experimental status.</primary-label>
+    <primary-label id="stable" name="Stable" short-name="Stable" href="components-stability.html#stability-levels-explained" color="green" ></primary-label>
     <primary-label id="alpha" name="Alpha" short-name="α" href="components-stability.html#stability-levels-explained" color="strawberry">The feature is in Alpha. It may change incompatibly and require manual migration in the future.</primary-label>
     <primary-label id="beta" name="Beta" short-name="β" href="components-stability.html#stability-levels-explained" color="tangerine">The feature is in Beta. It is almost stable, but migration steps may be required in the future. We'll do our best to minimize any changes you have to make.</primary-label>
     <primary-label id="advanced" name="Advanced" short-name="☆" color="purple"></primary-label>
     <primary-label id="eap" name="EAP" short-name="EAP" color="red">This functionality is available only in the latest EAP version.</primary-label>
 
-    <secondary-label id="gradle" name="Gradle" color="black">Gradle</secondary-label>
-    <secondary-label id="jvm" name="Kotlin/JVM" color="green">Kotlin/JVM</secondary-label>
-    <secondary-label id="native" name="Kotlin/Native" color="strawberry">Kotlin/Native</secondary-label>
-    <secondary-label id="wasm" name="Kotlin/Wasm" color="purple">Kotlin/Native</secondary-label>
+    <secondary-label id="gradle" name="Gradle" color="black"></secondary-label>
+    <secondary-label id="jvm" name="Kotlin/JVM" color="green"></secondary-label>
+    <secondary-label id="native" name="Kotlin/Native" color="strawberry"></secondary-label>
+    <secondary-label id="wasm" name="Kotlin/Wasm" color="purple"></secondary-label>
+    <secondary-label id="js" name="Kotlin/JS" color="yellow"></secondary-label>
+    <secondary-label id="language" name="Language" color="marine"></secondary-label>
+    <secondary-label id="standard-library" name="Standard library" color="tangerine"></secondary-label>
+    <secondary-label id="compose-compiler" name="Compose compiler" color="blue"></secondary-label>
 
 </labels>
