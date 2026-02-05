@@ -4,7 +4,7 @@
 
 <tldr>
     <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
-    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.3.0</a> <!--and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>-->.</p>
+    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.3.0</a> and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>.</p>
 </tldr>
 
 This page explains the Kotlin release cycle and the different types of releases we ship. It also includes details
@@ -150,6 +150,16 @@ The following table lists details of previous Kotlin releases:
         <th>Build highlights</th>
     </tr>
     <tr>
+        <td><strong>2.3.10</strong>
+            <p>Released: <strong>February 5, 2026</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.10" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A bug fix release for Kotlin 2.3.0 that includes performance improvements and an important fix for a rare <a href="https://youtrack.jetbrains.com/issue/KT-83984">race condition with <code>kotlinx.serialization</code></a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.10">changelog</a>.</p>
+        </td>
+    </tr>
+    <tr>
         <td><strong>2.3.0</strong>
             <p>Released: <strong>December 16, 2025</strong></p>
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.0" target="_blank">Release on GitHub</a></p>
@@ -165,7 +175,7 @@ The following table lists details of previous Kotlin releases:
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A tooling release containing support for Xcode 26, along with other improvements and bug fixes.</p>
+            <p>A bug fix release containing support for Xcode 26, along with other improvements and bug fixes.</p>
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21">changelog</a>.</p>
     </td>
     </tr>
