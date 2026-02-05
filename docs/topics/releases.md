@@ -155,7 +155,7 @@ The following table lists details of previous Kotlin releases:
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.10" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A bug fix release with performance improvements for Kotlin 2.3.0.</p>
+            <p>A bug fix release for Kotlin 2.3.0 that includes performance improvements and an important fix for a rare <a href="https://youtrack.jetbrains.com/issue/KT-83984">race condition with <code>kotlinx.serialization</code></a>.</p>
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.10">changelog</a>.</p>
         </td>
     </tr>
@@ -175,7 +175,7 @@ The following table lists details of previous Kotlin releases:
             <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A tooling release containing support for Xcode 26, along with other improvements and bug fixes.</p>
+            <p>A bug fix release containing support for Xcode 26, along with other improvements and bug fixes.</p>
             <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.21">changelog</a>.</p>
     </td>
     </tr>
