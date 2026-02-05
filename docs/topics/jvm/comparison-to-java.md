@@ -25,7 +25,8 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Records](https://openjdk.org/jeps/395)
 * package-private [visibility modifier](visibility-modifiers.md)
 
-> [Pattern Matching in Java](https://openjdk.org/projects/amber/design-notes/patterns/pattern-matching-for-java) is similar to [smart casts in Kotlin](typecasts.md#smart-casts).
+> Kotlin doesn't have pattern matching, but [smart casts in Kotlin](typecasts.md#smart-casts) provide similar functionality to 
+> [pattern Matching in Java](https://openjdk.org/projects/amber/design-notes/patterns/pattern-matching-for-java).
 >
 > Learn more in this [video on the official Kotlin by JetBrains channel](https://www.youtube.com/watch?v=yJDoa42X-wQ).
 >
@@ -55,7 +56,8 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Expect and actual declarations](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html)
 * [Explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors) and [better control of API surface](opt-in-requirements.md)
 
-> [Smart casts in Kotlin](typecasts.md#smart-casts) are similar to [pattern matching in Java](https://openjdk.org/projects/amber/design-notes/patterns/pattern-matching-for-java).
+> Java doesn't have smart casts, but [pattern matching](https://openjdk.org/projects/amber/design-notes/patterns/pattern-matching-for-java)
+> provides similar functionality to [smart casts in Kotlin](typecasts.md#smart-casts).
 >
 > Learn more in this [video on the official Kotlin by JetBrains channel](https://www.youtube.com/watch?v=yJDoa42X-wQ).
 >
