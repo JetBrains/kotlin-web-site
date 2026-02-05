@@ -915,3 +915,19 @@ items:
     isExternal: true
     link: https://www.corda.net/blog/kotlin/
   #------------------------------------------------------------------------
+  - id: case-study-pincode
+    type: multiplatform
+    description: >-
+      **Pincode Business** uses KMP to share business logic and Compose Multiplatform (CMP) to share UI across
+      Android and Desktop apps. What started as a pure Android app has now evolved into a cross-platform solution,
+      enabling sellers to manage their business seamlessly across platforms. We could leverage the team's existing
+      expertise in Kotlin and Jetpack Compose, making the transition seamless.
+    logo:
+      - /images/case-studies/pincode-logo.svg
+    platforms:
+      - android
+      - desktop
+      - compose-multiplatform
+    isExternal: true
+    link: https://tech.phonepe.com/pincode-migration-journey-with-compose-multiplatform/
+  #------------------------------------------------------------------------
