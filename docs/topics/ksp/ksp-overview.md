@@ -13,7 +13,7 @@ The KSP API processes Kotlin programs idiomatically. KSP understands Kotlin-spec
 declaration-site variance, and local functions. It also models types explicitly and provides basic type checking,
 such as equivalence and assign-compatibility.
 
-The API models Kotlin program structures at the symbol level according to [Kotlin grammar](https://kotlinlang.org/docs/reference/grammar.html).
+The API models Kotlin program structures at the symbol level according to [Kotlin grammar](https://kotlinlang.org/grammar/).
 When KSP-based plugins process source programs, constructs like classes, class members, functions, and associated parameters are accessible for the
 processors, while things like `if` blocks and `for` loops are not.
 

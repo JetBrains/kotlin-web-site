@@ -2,8 +2,8 @@ import { join } from 'node:path';
 import { access, readFile } from 'node:fs/promises';
 import { XMLParser } from 'fast-xml-parser';
 
-import { Grammar, GrammarXML } from '../../../blocks/grammar';
-import { LandingLayout, LandingLayoutProps } from '../../../components/landing-layout/landing-layout';
+import { Grammar, GrammarXML } from '../blocks/grammar';
+import { LandingLayout, LandingLayoutProps } from '../components/landing-layout/landing-layout';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
 type GrammarPageProps = {
@@ -23,6 +23,7 @@ export default function GrammarPage({ data }: GrammarPageProps) {
             title={'Grammar - Kotlin Programming Language'} description={'Kotlin Grammar Reference'}
             topMenuTitle={'Grammar'}
             topMenuItems={TOP_MENU_ITEMS}
+            canonical={'https://kotlinlang.org/grammar/'}
         >
             <ThemeProvider theme={'light'}>
                 <Grammar data={data} />

@@ -95,7 +95,7 @@
         <toc-element topic="reflection.md"/>
         <toc-element accepts-web-file-names="multi-declarations.html" topic="destructuring-declarations.md"/>
         <toc-element toc-title="Language reference">
-            <toc-element toc-title="Grammar" href="https://kotlinlang.org/docs/reference/grammar.html"/>
+            <toc-element toc-title="Grammar" href="https://kotlinlang.org/grammar/"/>
             <toc-element href="https://kotlinlang.org/spec/" toc-title="Language specification"/>
         </toc-element>
     </toc-element>
