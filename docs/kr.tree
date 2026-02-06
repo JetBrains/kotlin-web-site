@@ -323,6 +323,7 @@
             <toc-element toc-title="Compiler options" topic="compiler-reference.md"/>
         </toc-element>
         <toc-element toc-title="Kotlin compiler plugins">
+            <toc-element toc-title="Overview" topic="compiler-plugins.md"/>
             <toc-element toc-title="All-open" topic="all-open-plugin.md"/>
             <toc-element toc-title="No-arg" topic="no-arg-plugin.md"/>
             <toc-element toc-title="SAM with receiver" topic="sam-with-receiver-plugin.md"/>
