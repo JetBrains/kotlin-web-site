@@ -23,15 +23,20 @@ Kotlin fixes a series of issues that Java suffers from:
     [type projections](generics.md#type-projections).
 * [Ternary-operator `a ? b : c`](control-flow.md#if-expression) is replaced with [if expression](control-flow.md#if-expression). 
 * [Records](https://openjdk.org/jeps/395)
-* [Pattern Matching](https://openjdk.org/projects/amber/design-notes/patterns/pattern-matching-for-java)
 * package-private [visibility modifier](visibility-modifiers.md)
+
+> Kotlin doesn't have pattern matching, but [smart casts in Kotlin](typecasts.md#smart-casts) provide similar functionality to 
+> [pattern Matching in Java](https://openjdk.org/projects/amber/design-notes/patterns/pattern-matching-for-java).
+>
+> Learn more in this [video on the official Kotlin by JetBrains channel](https://www.youtube.com/watch?v=yJDoa42X-wQ).
+>
+{style="note"}
 
 ## What Kotlin has that Java does not
 
 * [Lambda expressions](lambdas.md) + [Inline functions](inline-functions.md) = performant custom control structures
 * [Extension functions](extensions.md)
 * [Null-safety](null-safety.md)
-* [Smart casts](typecasts.md) (**Java 16**: [Pattern Matching for instanceof](https://openjdk.org/jeps/394))
 * [String templates](strings.md)
 * [Properties](properties.md)
 * [Primary constructors](classes.md)
@@ -50,6 +55,13 @@ Kotlin fixes a series of issues that Java suffers from:
 * [Infix functions](functions.md#infix-notation)
 * [Expect and actual declarations](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html)
 * [Explicit API mode](whatsnew14.md#explicit-api-mode-for-library-authors) and [better control of API surface](opt-in-requirements.md)
+
+> Java doesn't have smart casts, but [pattern matching](https://openjdk.org/projects/amber/design-notes/patterns/pattern-matching-for-java)
+> provides similar functionality to [smart casts in Kotlin](typecasts.md#smart-casts).
+>
+> Learn more in this [video on the official Kotlin by JetBrains channel](https://www.youtube.com/watch?v=yJDoa42X-wQ).
+>
+{style="note"}
 
 ## What's next?
 
