@@ -1,14 +1,12 @@
 import { expect, test } from '@playwright/test';
 import { TeachPage } from '../../page/teach/education';
-import { closeExternalBanners } from '../utils';
 import { testSelector } from '../../utils';
 import { checkTeachCta, checkTeachMap, checkTeachNav, MAILTO_LINK, MATERIALS_LINK, SIGNUP_LINK } from './utils';
 
 test.describe('Education landing page content and interactions', async () => {
-    test.beforeEach(async ({ context, page, baseURL }) => {
+    test.beforeEach(async ({ page }) => {
         const teachPage = new TeachPage(page);
         await teachPage.init();
-        await closeExternalBanners(context, page, baseURL);
     });
 
     test('Should load the education page correctly', async ({ page }) => {

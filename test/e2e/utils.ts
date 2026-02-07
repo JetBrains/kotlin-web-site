@@ -1,5 +1,5 @@
-import { BrowserContext, ElementHandle, expect, Page, test } from '@playwright/test';
-import { closeCookiesConsentBanner, isSkipScreenshot } from '../utils';
+import { ElementHandle, expect, Page, test } from '@playwright/test';
+import { isSkipScreenshot } from '../utils';
 import { PageAssertionsToHaveScreenshotOptions } from 'playwright/types/test';
 
 export async function getElementScreenshotWithPadding(page: Page, element: ElementHandle, padding: number): Promise<Buffer | undefined> {
@@ -15,16 +15,6 @@ export async function getElementScreenshotWithPadding(page: Page, element: Eleme
                 height: box.height + padding * 2
             }
         });
-    }
-}
-
-export async function closeExternalBanners(context: BrowserContext, page: Page, baseUrl: string) {
-    if (baseUrl.startsWith('https://kotlinlang.org/')) {
-        await closeCookiesConsentBanner(context, baseUrl);
-    } else {
-        await page.frameLocator('#webpack-dev-server-client-overlay')
-            .locator('[aria-label="Dismiss"]')
-            .click();
     }
 }
 

@@ -107,6 +107,7 @@
         "next-optimized-images": "3.0.0-canary.10",
         "next-transpile-modules": "^10.0.1",
         "playwright": "1.57.0",
+        "playwright-teamcity-reporter": "1.0.5",
         "postcss-custom-media": "10.0.0",
         "postcss-import": "15.1.0",
         "prettier": "2.6.2",
