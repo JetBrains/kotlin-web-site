@@ -4,11 +4,9 @@
 <p>Latest Kotlin release:<b> <a href="%kotlinLatestWhatsnew%">%kotlinVersion%</a></b></p>
 </tldr>
 
-Kotlin is a modern but already mature programming language designed to make developers happier.
-It's concise, safe, interoperable with Java and other languages, and provides many ways to reuse code between multiple platforms for productive programming.
+Kotlin is a modern language that's concise, multiplatform, and interoperable with Java and other languages.
 
-To start, why not take our tour of Kotlin? This tour covers the fundamentals of the Kotlin programming language and can
-be completed entirely within your browser.
+New to Kotlin? Take our tour to learn the fundamentals directly in your browser.
 
 <a href="kotlin-tour-welcome.md"><img src="start-kotlin-tour.svg" width="700" alt="Start the Kotlin tour" style="block"/></a>
 
@@ -90,18 +88,8 @@ From building data pipelines to productionizing machine learning models, Kotlin 
 
 </tabs>
 
-## Join the Kotlin community
+## Get support
 
-Stay in the loop with the latest updates across the Kotlin ecosystem and share your experience.
-
-* Join us on:
-  * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
-  * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: subscribe to the ["kotlin"](https://stackoverflow.com/questions/tagged/kotlin) tag.
-* Follow Kotlin on ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Bluesky](bsky.svg){width=18}{type="joined"} [Bluesky](https://bsky.app/profile/kotlinlang.org), and ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/).
-* Subscribe to [Kotlin news](https://info.jetbrains.com/kotlin-communication-center.html).
-
-If you encounter any difficulties or problems, report an issue in our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
-
-## Is anything missing?
+If you encounter any difficulties or problems, ask for help in ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) or report an issue in our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
 If anything is missing or seems confusing on this page, please [share your feedback](https://surveys.hotjar.com/d82e82b0-00d9-44a7-b793-0611bf6189df).
