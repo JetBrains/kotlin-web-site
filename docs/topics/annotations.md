@@ -1,6 +1,6 @@
 [//]: # (title: Annotations)
 
-Annotations are tags used to attach metadata to code. They provide additional information about the tagged code elements to compilers and development tools without altering the program's execution.
+Annotations are tags used to attach metadata to code. They provide additional information about tagged code elements without altering the program's execution.
 
 Annotations are used by the compiler and runtime processors to simplify and automate common tasks, such as generating boilerplate code, enforcing coding standards or writing documentation.
 
