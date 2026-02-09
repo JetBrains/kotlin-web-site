@@ -49,8 +49,8 @@ const TABS_BLOCKS = [
         Icon: props => <GlobusIcon {...props} />,
         Content: () => (
             <>
-                Share business logic with your web application and take advantage of Kotlin/Wasm and Compose
-                Multiplatform to bring your app’s UX to the&nbsp;browser.
+                Share business logic with your web application via Kotlin/JS or&nbsp;take full advantage
+                of&nbsp;code sharing by bringing your app’s&nbsp;UX to the browser using Compose&nbsp;Multiplatform and Kotlin/Wasm.
             </>
         )
     },
