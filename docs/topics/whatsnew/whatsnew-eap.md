@@ -2,6 +2,8 @@
 
 <primary-label ref="eap"/>
 
+<web-summary>Read the Kotlin Early Access Preview release notes and try the latest experimental Kotlin features before they are officially released.</web-summary>
+
 _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 > This document doesn't cover all of the features of the Early Access Preview (EAP) release,
