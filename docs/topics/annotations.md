@@ -1,6 +1,16 @@
 [//]: # (title: Annotations)
 
-Annotations are a means of attaching metadata to code. To declare an annotation, put the `annotation` modifier in front of a class:
+Annotations are tags used to attach metadata to code. They provide additional information about the tagged code elements to compilers and development tools without altering the program's execution.
+
+Annotations are used by the compiler and runtime processors to simplify and automate common tasks, such as generating boilerplate code, enforcing coding standards or writing documentation.
+
+> To learn more about annotation processing in Kotlin, see [KSP](ksp-overview.md)
+>
+{style="tip"}
+
+## Declaration
+
+To declare an annotation, put the `annotation` modifier in front of a class:
 
 ```kotlin
 annotation class Fancy
