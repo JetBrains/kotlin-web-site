@@ -12,6 +12,10 @@
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
 </tldr>
 
+> 8 min read
+>
+{style="tip"}
+
 Kotlin supports object-oriented programming with classes and objects. Objects are useful for storing data in your program.
 Classes allow you to declare a set of characteristics for an object. When you create objects from a class, you can save
 time and effort because you don't have to declare these characteristics every time.

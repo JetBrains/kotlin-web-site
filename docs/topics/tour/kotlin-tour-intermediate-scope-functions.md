@@ -14,6 +14,10 @@
         <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
 </tldr>
 
+> 13 min read
+>
+{style="tip"}
+
 In this chapter, you'll build on your understanding of extension functions to learn how to use scope functions to 
 write more idiomatic code.
 

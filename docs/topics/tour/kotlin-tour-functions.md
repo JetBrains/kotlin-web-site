@@ -12,6 +12,10 @@
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
 </tldr>
 
+> 14 min read
+>
+{style="tip"}
+
 You can declare your own functions in Kotlin using the `fun` keyword.
 
 ```kotlin

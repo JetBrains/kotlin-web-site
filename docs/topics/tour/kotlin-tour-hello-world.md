@@ -12,6 +12,10 @@
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
 </tldr>
 
+> 3 min read
+> 
+{style="tip"}
+
 Here is a simple program that prints "Hello, world!":
 
 ```kotlin
