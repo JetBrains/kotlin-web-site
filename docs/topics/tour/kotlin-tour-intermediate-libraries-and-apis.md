@@ -14,6 +14,10 @@
         <img src="icon-9.svg" width="20" alt="Ninth step" /> <strong>Libraries and APIs</strong><br /></p>
 </tldr>
 
+> 8 min read
+>
+{style="tip"}
+
 To get the most out of Kotlin, use existing libraries and APIs so you can spend more time coding and less time 
 reinventing the wheel.
 

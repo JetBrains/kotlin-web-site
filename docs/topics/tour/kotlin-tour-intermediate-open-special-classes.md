@@ -14,6 +14,10 @@
         <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
 </tldr>
 
+> 13 min read
+>
+{style="tip"}
+
 In this chapter, you'll learn about open classes, how they work with interfaces, and other special
 types of classes available in Kotlin.
 

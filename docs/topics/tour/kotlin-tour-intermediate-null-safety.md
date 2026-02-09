@@ -14,6 +14,10 @@
         <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
 </tldr>
 
+> 15 min read
+>
+{style="tip"}
+
 In the beginner tour, you learned how to handle `null` values in your code. This chapter covers common use cases for null
 safety features and how to make the most of them.
 

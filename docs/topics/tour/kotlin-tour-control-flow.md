@@ -12,6 +12,10 @@
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
 </tldr>
 
+> 10 min read
+>
+{style="tip"}
+
 Like other programming languages, Kotlin is capable of making decisions based on whether a piece of code is evaluated to
 be true. Such pieces of code are called **conditional expressions**. Kotlin is also able to create and iterate
 through loops.

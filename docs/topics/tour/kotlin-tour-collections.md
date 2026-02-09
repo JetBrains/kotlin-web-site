@@ -12,6 +12,10 @@
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
 </tldr>
 
+> 10 min read
+>
+{style="tip"}
+
 When programming, it is useful to be able to group data into structures for later processing. Kotlin provides collections
 for exactly this purpose.
 

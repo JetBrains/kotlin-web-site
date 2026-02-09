@@ -14,6 +14,10 @@
         <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
 </tldr>
 
+> 17 min read
+>
+{style="tip"}
+
 In the beginner tour, you learned how properties are used to declare characteristics of class instances and how to access
 them. This chapter digs deeper into how properties work in Kotlin and explores other ways that you can use them in your code.
 
