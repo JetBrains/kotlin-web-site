@@ -64,7 +64,10 @@
   to: /docs/api-references.html
 
 - from: /docs/reference/grammar.html
-  to: /docs/reference/grammar/
+  to: /grammar/
+
+- from: /docs/reference/grammar/
+  to: /grammar/
 
 - from: /education/why-teach-kotlin.html
   to: /education/why-teach-kotlin/
