@@ -735,6 +735,22 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.2.20: report a warning
 > - 2.3.0: raise the warning to an error
 
+### Change the approach to registering all generated sources
+
+> **Issue**: [KT-45161](https://youtrack.jetbrains.com/issue/KT-45161)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.3.0 introduces a new [Experimental](components-stability.md#stability-levels-explained) API in the [`KotlinSourceSet`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/) interface that lets you [register generated
+> sources](gradle-configure-project.md#register-generated-sources) in a Gradle project. Previously, you could use the [`kotlin`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/kotlin.html) property
+> to access all the generated sources. Starting with Kotlin 2.3.0, you must migrate to using the [`allKotlinSources`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/all-kotlin-sources.html) property instead.
+>
+> **Migration advice**:
+> * To register generated sources, use the [`generatedKotlin`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/generated-kotlin.html) property.
+> * To access all sources, including non-generated sources, use the [`allKotlinSources`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/all-kotlin-sources.html) property.
+
 ## Build tool removal
 
 ### Remove support for Ant
