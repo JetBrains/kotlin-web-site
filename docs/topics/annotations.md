@@ -1,10 +1,10 @@
 [//]: # (title: Annotations)
 
-Annotations are tags used to attach metadata to source code.
+Annotations are tags that you can use to attach metadata to different elements in your code. This metadata is processed during compilation and runtime by different tools and frameworks.
 
-During compilation and runtime, annotations are processed by different tools and frameworks to simplify and automate common tasks, such as generating boilerplate code, enforcing coding standards or writing documentation.
+You can annotate your code to simplify and automate common tasks, such as generating boilerplate code, enforcing coding standards or writing documentation.
 
-> To learn more about annotation processing in Kotlin, see [KSP](ksp-overview.md)
+> When you're ready to develop your own annotation processors, you can use the [Kotlin Symbol Processing (KSP)](ksp-overview.md) API
 >
 {style="tip"}
 
