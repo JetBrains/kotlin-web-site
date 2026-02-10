@@ -1,5 +1,7 @@
 [//]: # (title: Backend development with Kotlin)
 
+<web-summary>Build server applications with Kotlin using Spring, Ktor, and other backend frameworks</web-summary>
+
 Kotlin is a great fit for developing server-side applications. It allows you to write concise and expressive code while
 maintaining full compatibility with existing Java-based technology stacks.
 
@@ -43,24 +45,6 @@ Here are some other examples of the backend frameworks for Kotlin:
 | [Micronaut](https://micronaut.io/)                     | A modern JVM-based full-stack framework for building modular, easily testable microservices and serverless applications. It comes with a lot of useful built-in features.                                                                                                                     |
 | [http4k](https://http4k.org/)                          | The functional toolkit with a tiny footprint for Kotlin HTTP applications, written in pure Kotlin. The library is based on the "Your Server as a Function" paper from Twitter and represents modeling both HTTP servers and clients as simple Kotlin functions that can be composed together. |
 | [Javalin](https://javalin.io)                          | A very lightweight web framework for Kotlin and Java which supports WebSockets, HTTP2, and async requests.                                                                                                                                                                                    |
-
-## Add plugins
-
-Kotlin offers several compiler plugins that simplify server-side development by adapting the language to the requirements
-of various frameworks and improving the testing experience:
-
-* **[`all-open`](all-open-plugin.md)** automatically makes classes and their members `open` when used with specific
-  annotations. This is particularly useful for frameworks like Spring that require classes to be non-final.
-  
-  For Spring, you can use a special [`kotlin-spring`](all-open-plugin.md#spring-support) plugin,
-  which is a wrapper on top of `all-open`. It helps to specify Spring annotations automatically.
-* **[`no-arg`](no-arg-plugin.md)** generates an additional zero-argument constructor for classes with specific annotations.
-  This allows Java Persistence API (JPA) to instantiate classes that otherwise wouldn't have a default constructor.
-
-  You can also use a special [`kotlin-jpa`](no-arg-plugin.md#jpa-support) plugin, which is a wrapper on top of `no-arg`.
-  It helps to specify no-arg annotations automatically.
-* **[`power-assert`](power-assert.md)** improves the debugging experience by providing detailed failure messages with
-  contextual information for assertions, showing intermediate values, and helping you understand why a test failed.
 
 ## Deploy your applications
 
