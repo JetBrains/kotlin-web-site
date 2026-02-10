@@ -10,7 +10,7 @@ You can annotate your code to simplify and automate common tasks, such as genera
 
 ## Declaration
 
-To declare an annotation, put the `annotation` modifier in front of a class:
+Annotations are a special type of class. To declare an annotation, use the `annotation` keyword before the class declaration:
 
 ```kotlin
 annotation class Fancy
