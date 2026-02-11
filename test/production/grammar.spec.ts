@@ -41,7 +41,17 @@ test.describe('Grammar page', () => {
         await page.goto('/docs/reference/grammar.html');
 
         // Should redirect to clean URL
-        await expect(page).toHaveURL(/\/docs\/reference\/grammar\/$/);
+        await expect(page).toHaveURL(/\/grammar\/$/);
+
+        const grammar = new GrammarPage(page);
+        await expect(grammar.layout).toBeVisible();
+    });
+
+    test('Should redirect from nested URL', async ({ page, baseURL }) => {
+        await page.goto('/docs/reference/grammar/');
+
+        // Should redirect to clean URL
+        await expect(page).toHaveURL(/\/grammar\/$/);
 
         const grammar = new GrammarPage(page);
         await expect(grammar.layout).toBeVisible();

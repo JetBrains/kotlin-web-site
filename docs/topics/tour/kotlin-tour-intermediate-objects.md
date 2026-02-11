@@ -14,6 +14,10 @@
         <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
 </tldr>
 
+> 8 min read
+>
+{style="tip"}
+
 In this chapter, you'll expand your understanding of classes by exploring object declarations. This knowledge will help 
 you efficiently manage behavior across your projects.
 

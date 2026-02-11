@@ -12,6 +12,10 @@
         <img src="icon-7.svg" width="20" alt="Final step" /> <strong>Null safety</strong><br /></p>
 </tldr>
 
+> 6 min read
+>
+{style="tip"}
+
 In Kotlin, it's possible to have a `null` value. Kotlin uses `null` values when something is missing or not yet set.
 You've already seen an example of Kotlin returning a `null` value in the [Collections](kotlin-tour-collections.md#kotlin-tour-map-no-key)
 chapter when you tried to access a key-value pair with a key that doesn't exist in the map. Although it's useful to use

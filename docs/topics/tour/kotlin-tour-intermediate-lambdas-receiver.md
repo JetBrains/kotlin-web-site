@@ -14,6 +14,10 @@
         <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
 </tldr>
 
+> 7 min read
+>
+{style="tip"}
+
 In this chapter, you'll learn how to use receivers with another type of function, lambda expressions, and how they
 can help you create a domain-specific language.
 
