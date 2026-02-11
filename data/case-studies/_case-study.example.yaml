@@ -29,6 +29,9 @@
 # - platforms: list of strings — platform tags shown on the card
 #     Examples: android, ios, desktop, frontend, backend, compose-multiplatform
 #
+# - frameworks: list of strings — framework tags shown on the card
+#     Examples: spring, ktor, exposed
+#
 # - media: object — media block for the card
 #     type: youtube | image
 #     When type: youtube
