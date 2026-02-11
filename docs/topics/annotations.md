@@ -5,7 +5,7 @@ metadata during compilation and runtime, and perform different actions based on 
 
 You can annotate your code to simplify and automate common tasks, such as generating boilerplate code, enforcing coding standards or writing documentation.
 
-> When you're ready to develop your own annotation processors, you can use the [Kotlin Symbol Processing (KSP)](ksp-overview.md) API
+> If you want to develop your own annotation processors, you can use the [Kotlin Symbol Processing (KSP)](ksp-overview.md) API.
 >
 {style="tip"}
 
