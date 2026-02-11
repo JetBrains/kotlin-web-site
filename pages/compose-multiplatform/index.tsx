@@ -23,6 +23,10 @@ const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
         title: 'Success stories',
         url: '/case-studies/?type=multiplatform&compose=true',
     },
+    {
+        title: 'Libraries',
+        url: 'https://klibs.io/'
+    },
 ];
 
 const GET_STARTED_URL = '/docs/multiplatform/compose-multiplatform-create-first-app.html' as const;
