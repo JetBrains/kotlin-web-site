@@ -7,6 +7,7 @@ import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
 
 import { HeroBanner } from '../../blocks/multiplatform/hero';
 import { ChooseShare } from '../../blocks/multiplatform/choose-share';
+import { KMPApps } from '../../blocks/multiplatform/kmp-apps/kmp-apps';
 import { FaqBlock } from '../../blocks/multiplatform/faq-block/faq-block';
 import { CtaBlock } from '../../blocks/multiplatform/cta-block/cta-block';
 import { CaseStudies } from '../../blocks/multiplatform/case-studies/grid';
@@ -56,6 +57,7 @@ export default function MultiplatformLanding() {
                     <CustomerLogos />
                     <ChooseShare />
                     <CoolVideos />
+                    <KMPApps />
                     <CaseStudies />
                     <FaqBlock />
                     <CtaBlock url={GET_STARTED_URL} />

@@ -1,0 +1,39 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.section {
+    margin-block: 60px;
+
+    @media (--ktl-dl-up) {
+        margin-block: var(--ktl-box-page-m);
+    }
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 32px;
+    background: radial-gradient(209.86% 112.09% at 79.02% 95.72%, #7A0072 0%, #540263 18.17%, #2D0454 36.35%, #20023C 68.17%, #120024 100%);
+    height: 386px;
+    padding: 0 64px;
+    overflow: hidden;
+}
+
+.title {
+    max-width: 586px;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 363px;
+    height: 386px;
+    flex-shrink: 0;
+}
+
+.image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
