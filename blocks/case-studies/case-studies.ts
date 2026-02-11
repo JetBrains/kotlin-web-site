@@ -20,6 +20,14 @@ export const PlatformNames: Record<typeof Platforms[number], string> = {
 
 export type CasePlatform = typeof Platforms[number] | 'compose-multiplatform';
 
+export const Frameworks = [
+    'spring',
+    'exposed',
+    'ktor',
+] as const;
+
+export type CaseFramework = typeof Frameworks[number];
+
 type Signature = {
     name: string;
     position: string;
@@ -48,6 +56,7 @@ export interface CaseItem {
     logo?: string[];
     signature?: Signature;
     platforms?: CasePlatform[];
+    frameworks?: CaseFramework[];
     media?: Media;
     featuredOnMainPage?: boolean;
 }
