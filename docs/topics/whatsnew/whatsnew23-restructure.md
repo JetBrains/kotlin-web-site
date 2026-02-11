@@ -36,7 +36,11 @@ See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for de
 ## New features {id=new-stable-features}
 <primary-label ref="stable"/>
 
-The following features are [Stable](components-stability.md#stability-levels-explained) in this release.
+The following features are [Stable](components-stability.md#stability-levels-explained) in this release:
+
+* [Support for nested type aliases](#support-for-nested-type-aliases)
+* [Data-flow-based exhaustiveness checks for `when` expressions](#data-flow-based-exhaustiveness-checks-for-when-expressions)
+* [Support for JavaScript default exports](#support-for-javascript-default-exports)
 
 <snippet id="support-for-nested-type-aliases-content">
 
@@ -156,6 +160,16 @@ This feature is enabled by default. You only need to use the `@JsExport.Default`
 <primary-label ref="experimental-exp"/>
 
 The following pre-stable features are available in this release. This includes features with [Beta](components-stability.md#stability-levels-explained), [Alpha](components-stability.md#stability-levels-explained), and [Experimental](components-stability.md#stability-levels-explained) status.
+
+* [Kotlin/Native: C and Objective-C library import is in Beta](#c-and-objective-c-library-import-is-in-beta)
+* [Language: Unused return value checker](#unused-return-value-checker)
+* [Language: Explicit backing fields](#explicit-backing-fields)
+* [Language: Changes to context-sensitive resolution](#changes-to-context-sensitive-resolution)
+* [Kotlin/Native: Improved interop through Swift export](#improved-interop-through-swift-export)
+* [Kotlin/JS: New export of suspend function with `JsExport`](#new-export-of-suspend-function-with-jsexport)
+* [Kotlin/JS: Usage of the `BigInt64Array` type to represent Kotlin's `LongArray` type](#usage-of-the-bigint64array-type)
+* [Gradle: New API for registering generated sources in Gradle projects](#new-api-for-registering-generated-sources-in-gradle-projects)
+* [Standard library: Improved UUID generation and parsing](#improved-uuid-generation-and-parsing)
 
 <snippet id="c-and-objective-c-library-import-is-in-beta-content">
 
@@ -807,7 +821,7 @@ fun main() {
 Kotlin 2.3.0 brings many new stable language features as well as experimental language features.
 
 <include from="whatsnew23-restructure.md" element-id="support-for-nested-type-aliases-content">
-<var name="id1" value="language-support-for-nested-type-aliases-content"/>
+<var name="id1" value="language-support-for-nested-type-aliases"/>
 </include>
 
 <include from="whatsnew23-restructure.md" element-id="data-flow-based-exhaustiveness-checks-content">
