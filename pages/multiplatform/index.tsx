@@ -18,10 +18,6 @@ const MULTIPLATFORM_MOBILE_URL = '/multiplatform/' as const;
 
 const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
     {
-        title: 'Libraries',
-        url: 'https://klibs.io/'
-    },
-    {
         title: 'Compose Multiplatform',
         url: '/compose-multiplatform/'
     },
@@ -29,6 +25,10 @@ const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
         title: 'Success stories',
         url: '/case-studies/?type=multiplatform'
     },
+    {
+        title: 'Libraries',
+        url: 'https://klibs.io/'
+    }
 ];
 
 const GET_STARTED_URL = '/docs/multiplatform/get-started.html' as const;

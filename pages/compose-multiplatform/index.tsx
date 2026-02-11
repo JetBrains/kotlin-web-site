@@ -16,16 +16,16 @@ const COMPOSE_MULTIPLATFORM_URL = '/compose-multiplatform/' as const;
 
 const TOP_MENU_ITEMS: LandingLayoutProps['topMenuItems'] = [
     {
-        title: 'Libraries',
-        url: 'https://klibs.io/'
-    },
-    {
         title: 'Compose Multiplatform',
         url: COMPOSE_MULTIPLATFORM_URL,
     },
     {
         title: 'Success stories',
         url: '/case-studies/?type=multiplatform&compose=true',
+    },
+    {
+        title: 'Libraries',
+        url: 'https://klibs.io/'
     },
 ];
 
