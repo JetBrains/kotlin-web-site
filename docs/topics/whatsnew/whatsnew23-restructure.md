@@ -1132,11 +1132,11 @@ platforms handle external declarations.
 This feature is enabled by default.
 
 <include from="whatsnew23-restructure.md" element-id="new-export-of-suspend-function-with-jsexport-content">
-<var name="id9" value="new-export-of-suspend-function-with-jsexport"/>
+<var name="id9" value="javascript-new-export-of-suspend-function-with-jsexport"/>
 </include>
 
 <include from="whatsnew23-restructure.md" element-id="usage-of-the-bigint64array-type-content">
-<var name="id10" value="usage-of-the-bigint64array-type"/>
+<var name="id10" value="javascript-usage-of-the-bigint64array-type"/>
 </include>
 
 ## Gradle

@@ -100,17 +100,6 @@ function chunk(array, size = 1) {
 }      
 ```
 
-## Kotlin/JVM compilation uses Build tools API by default
-<secondary-label ref="gradle"/>
-
-Quisque sed nisi vel lacus efficitur faucibus. Quisque sed arcu nec nulla tincidunt commodo. Etiam venenatis nibh non 
-enim bibendum, non eleifend ante mollis. Praesent quis felis sit amet purus commodo pretium. Nulla augue velit, scelerisque
-porttitor semper nec, eleifend placerat eros. 
-
-Aliquam varius mauris magna, id ultrices odio aliquam non. Proin mattis augue et diam congue, sed feugiat elit dictum. 
-Nulla rutrum id elit ut bibendum. In convallis lacinia elit, vitae finibus dolor malesuada eu. Curabitur id vulputate 
-mauris, ac auctor ex. Donec tempus aliquam ante et malesuada.
-
 ## Improved memory consumption in Kotlin/Wasm projects
 <secondary-label ref="wasm"/>
 
