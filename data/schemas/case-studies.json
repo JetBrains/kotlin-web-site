@@ -75,6 +75,17 @@
           },
           "uniqueItems": true
         },
+        "frameworks": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "spring",
+              "exposed",
+              "ktor"
+            ]
+          },
+          "uniqueItems": true
+        },
         "media": {
           "oneOf": [
             {
