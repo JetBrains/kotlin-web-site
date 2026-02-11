@@ -1,6 +1,17 @@
 [//]: # (title: Annotations)
 
-Annotations are a means of attaching metadata to code. To declare an annotation, put the `annotation` modifier in front of a class:
+Annotations are tags that you can use to attach metadata to elements in your code. Tools and frameworks process this 
+metadata during compilation and runtime, and perform different actions based on it.
+
+You can annotate your code to simplify and automate common tasks, such as generating boilerplate code, enforcing coding standards or writing documentation.
+
+> If you want to develop your own annotation processors, you can use the [Kotlin Symbol Processing (KSP)](ksp-overview.md) API.
+>
+{style="tip"}
+
+## Declaration
+
+Annotations are a special type of class. To declare an annotation, use the `annotation` keyword before the class declaration:
 
 ```kotlin
 annotation class Fancy
