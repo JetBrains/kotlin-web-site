@@ -1,8 +1,7 @@
 [//]: # (title: Annotations)
 
-Annotations are tags that you can use to attach metadata to elements in your 
-code. Tools and frameworks process this metadata during compilation and runtime, 
-and perform different actions based on it.
+Annotations are tags that you can use to attach metadata to elements in your code. Tools and frameworks process this 
+metadata during compilation and runtime, and perform different actions based on it.
 
 You can annotate your code to simplify and automate common tasks, such as generating boilerplate code, enforcing coding standards or writing documentation.
 
