@@ -1,11 +1,7 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .section {
-    margin-block: 60px;
-
-    @media (--ktl-dl-up) {
-        margin-block: var(--ktl-box-page-m);
-    }
+    padding-block: 72px;
 }
 
 .wrapper {
