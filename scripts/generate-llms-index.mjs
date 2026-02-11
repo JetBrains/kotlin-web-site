@@ -1,6 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
+const BASE_URL = 'https://kotlinlang.org';
 const LLMS_FOLDERS = [
     'dist/docs/_llms',
     'dist/docs/multiplatform/_llms'
@@ -55,11 +56,20 @@ function scanLlmsFolder(folderPath) {
     }
 }
 
+function readIntro() {
+    const introPath = path.join(path.dirname(new URL(import.meta.url).pathname), 'llms-intro.txt');
+    try {
+        return fs.readFileSync(introPath, 'utf-8').trim();
+    } catch (error) {
+        console.warn(`Warning: Could not read intro file: ${error.message}`);
+        return 'Kotlin documentation';
+    }
+}
+
 function generateLlmsIndex() {
     console.log('Starting llms.txt index generation...');
 
-    let content = `# Kotlin\n\n`;
-    content += `> Kotlin documentation\n\n`;
+    let content = readIntro();
 
     let totalFiles = 0;
 
@@ -73,8 +83,8 @@ function generateLlmsIndex() {
 
         // Add file links
         for (const { fileName, title } of files) {
-            const relativeUrl = `/${folderName}/_llms/${fileName}`;
-            content += `- [${title}](${relativeUrl})\n`;
+            const absoluteUrl = `${BASE_URL}/${folderName}/_llms/${fileName}`;
+            content += `- [${title}](${absoluteUrl})\n`;
         }
 
         totalFiles += files.length;
@@ -85,7 +95,6 @@ function generateLlmsIndex() {
         return;
     }
 
-    // Write to dist/llms.txt
     const outputPath = path.join(process.cwd(), 'dist', 'llms.txt');
     const outputDir = path.dirname(outputPath);
 
