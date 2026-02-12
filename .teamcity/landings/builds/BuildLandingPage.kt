@@ -21,6 +21,11 @@ class BuildLandingPage(private val config: LandingConfiguration) : BuildType({
   id("build_landing_${sanitizeId(config.name)}")
   name = "Build ${config.name} langing page"
 
+  params {
+    param("LANDING_NAME", config.name)
+    param("AUTO_DEPLOY_TO_PRODUCTION", config.autoDeployToProduction.toString())
+  }
+
   vcs {
     root(createVcsRootForLanding(config))
     root(vcsRoots.KotlinLangOrg, "+:scripts => kotlin-web-site-scripts")
