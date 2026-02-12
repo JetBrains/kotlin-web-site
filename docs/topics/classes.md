@@ -332,7 +332,7 @@ A common use case for `init` blocks is data validation. For example, by calling 
 ```kotlin
 class Person(val age: Int) {
     init {
-        require(age > 0, "age must be positive")
+        require(age > 0) { "age must be positive" }
     }
 }
 ```
