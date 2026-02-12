@@ -334,7 +334,7 @@ import org.jspecify.annotations.*;
 @NullMarked
 public class InventoryService {
     public String notNull() { return ""; }
-    @Nullable public String nullable() { return null; }
+    public @Nullable String nullable() { return null; }
 }
 ```
  
@@ -349,7 +349,7 @@ fun test(inventory: InventoryService) {
 ```
 
 By default, the Kotlin compiler reports nullability mismatches for JSpecify annotations as errors.
-You can customize this the severity of JSpecify nullability diagnostics using the following compiler option:
+You can customize the severity of JSpecify nullability diagnostics using the following compiler option:
 
 ```properties
 -Xnullability-annotations=@org.jspecify.annotations:<report-level>
