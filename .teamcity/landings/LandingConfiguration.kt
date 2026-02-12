@@ -7,11 +7,13 @@ package landings
  * @param name The landing page name, used as base path
  * @param repositoryUrl The GitHub repository URL
  * @param branch The branch to build from
+ * @param autoDeployToProduction Whether to automatically deploy to production after staging
  */
 data class LandingConfiguration(
   val name: String,
   val repositoryUrl: String,
-  val branch: String = "main"
+  val branch: String = "main",
+  val autoDeployToProduction: Boolean = false
 )
 
 /**
