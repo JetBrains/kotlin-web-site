@@ -56,13 +56,13 @@ object BuildSitePages : BuildType({
                 mkdir -p dist/
                 
                 echo "Copy python artifacts to dist"
-                cp -fR build/* dist/
+                #cp -fR build/* dist/
                 mkdir -p dist/_assets/
                 cp -fR _assets/* dist/_assets/
                 
                 echo "Copy spec assets to dist"
                 mkdir -p dist/spec
-                cp -fR spec dist/
+                cp -fR spec/* dist/spec/
                 
                 echo "Copy documentation to dist"
                 mkdir -p dist/docs/multiplatform
