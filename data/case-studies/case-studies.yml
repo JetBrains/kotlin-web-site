@@ -65,7 +65,6 @@ items:
       **BiliBili** (China version) has adopted Kotlin Multiplatform and Compose Multiplatform for the Instant
       Message feature.
     isExternal: true
-    linkText: Watch the full video
     link: https://mp.weixin.qq.com/s/yRwkbQxFsRBNZW3Z-S1A8Q
     platforms:
       - android
