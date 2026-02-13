@@ -4,7 +4,7 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './case-studies-card.module.css';
 import { CaseItem } from '../case-studies';
-import { TechnologyIcon } from '../technology-icon/technology-icon';
+import { PlatformIcon, FrameworkIcon } from '../technology-icon/technology-icon';
 import { Markdown } from '../../../utils/mdToHtml';
 import { Theme, ThemeProvider, useThemeWithUndefined } from '@rescui/ui-contexts';
 
@@ -78,10 +78,10 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...i
                 {(item.platforms && item.platforms.length > 0) || (item.frameworks && item.frameworks.length > 0) ? (
                     <div className={styles.platforms} aria-label="Platforms">
                         {item.platforms?.map((platform) =>
-                            <TechnologyIcon key={platform} type="platform" value={platform} />
+                            <PlatformIcon key={platform} value={platform} />
                         )}
                         {item.frameworks?.map((framework) =>
-                            <TechnologyIcon key={framework} type="framework" value={framework} />
+                            <FrameworkIcon key={framework} value={framework} />
                         )}
                     </div>
                 ) : null}
