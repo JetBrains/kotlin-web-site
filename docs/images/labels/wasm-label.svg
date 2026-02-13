@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="90" height="24" viewBox="0 0 90 24" role="img" aria-label="Kotlin/Wasm">
+    <rect width="90" height="24" rx="4" fill="#6b57ff"/>
+    <text x="45" y="14" text-anchor="middle" dominant-baseline="middle"
+          font-family="JetBrains Sans, Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif"
+          font-size="13" font-weight="400" letter-spacing=".0045em" fill="#ffffff">Kotlin/Wasm</text>
+</svg>

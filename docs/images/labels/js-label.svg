@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="74" height="24" viewBox="0 0 74 24" role="img" aria-label="Kotlin/JS">
+    <rect width="74" height="24" rx="4" fill="#f3c033"/>
+    <text x="37" y="14" text-anchor="middle" dominant-baseline="middle"
+          font-family="JetBrains Sans, Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Droid Sans', 'Helvetica Neue', Arial, sans-serif"
+          font-size="13" font-weight="400" letter-spacing=".0045em" fill="#ffffff">Kotlin/JS</text>
+</svg>
