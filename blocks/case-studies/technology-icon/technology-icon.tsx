@@ -7,26 +7,31 @@ import {
     GlobusIcon,
     SpringIcon,
     KtorIcon,
-    ExposedIcon
+    ExposedIcon,
 } from '@rescui/icons';
 import { CasePlatform, CaseFramework } from '../case-studies';
 import styles from './technology-icon.module.css';
 
-type TechnologyIconProps = {
-    type: 'platform';
+type PlatformIconProps = {
     value: CasePlatform;
-} | {
-    type: 'framework';
+};
+
+type FrameworkIconProps = {
     value: CaseFramework;
 };
 
-export const TechnologyIcon = ({ type, value }: TechnologyIconProps) => {
+export const PlatformIcon = ({ value }: PlatformIconProps) => {
     return (
-        <span
-            className={cn(styles.technology, styles[`technology_${value}`])}
-            title={value}
-        >
-            {type === 'platform' ? getPlatformIcon(value) : getFrameworkIcon(value)}
+        <span className={cn(styles.icon)} title={value}>
+            {getPlatformIcon(value)}
+        </span>
+    );
+};
+
+export const FrameworkIcon = ({ value }: FrameworkIconProps) => {
+    return (
+        <span className={cn(styles.icon)} title={value}>
+            {getFrameworkIcon(value)}
         </span>
     );
 };
@@ -44,8 +49,7 @@ const getPlatformIcon = (p: CasePlatform) => {
         case 'backend':
             return <ServerIcon size="l" />;
         case 'compose-multiplatform':
-            return <img
-                src="/images/case-studies/compose-multiplatform.svg" alt="" />;
+            return <img src="/images/case-studies/compose-multiplatform.svg" alt="" />;
         default:
             return null;
     }
