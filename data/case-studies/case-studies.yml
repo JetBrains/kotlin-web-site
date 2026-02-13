@@ -417,9 +417,6 @@ items:
     logo:
       - /images/case-studies/worldline-logo.svg
     carousel: true
-    frameworks:
-      - spring
-      - exposed
     media:
       type: youtube
       videoId: 3IxDICQTutw
@@ -633,9 +630,6 @@ items:
       shares how Kotlin has become a core part of their backend systems and engineering culture.
     logo:
       - /images/case-studies/wolt-logo.svg
-    frameworks:
-      - spring
-      - ktor
     media:
       type: youtube
       videoId: puBXoKkQInE
@@ -766,8 +760,6 @@ items:
     isExternal: true
     carousel:
       logo: /images/case-studies/carousel/mercedes-benz.svg
-    frameworks:
-      - spring
     media:
       type: youtube
       videoId: oaJpj18OqY0
@@ -852,8 +844,6 @@ items:
       For more details, [read the article](https://medium.com/ing-blog/introducing-kotlin-at-ing-a-long-but-rewarding-story-1bfcd3dc8da0) or watch the video below.
     logo:
       - /images/case-studies/ing-logo.svg
-    frameworks:
-      - spring
     carousel:
       logo: /images/case-studies/carousel/ing.svg
     media:
