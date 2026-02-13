@@ -69,23 +69,23 @@ The Kotlin 2.3.0 release is out!
     <tr>
         <td><a href="#new-stable-features">New stable features</a></td>
         <td><a href="#new-experimental-features">New experimental features</a></td>
-        <td><a href="#language"><img src="language-label.svg" alt="Language" height="24"></a></td>
-        <td><a href="#kotlin-jvm"><img src="jvm-label.svg" alt="Kotlin/JVM" height="24"></a></td>
+        <td><a href="#language"><img src="language-label.svg" alt="Language" height="24"/></a></td>
+        <td><a href="#kotlin-jvm"><img src="jvm-label.svg" alt="Kotlin/JVM" height="24"/></a></td>
     </tr>
     <tr>
         <td><format color="#D1D1D1">Kotlin Multiplatform</format></td>
-        <td><a href="#kotlin-native"><img src="native-label.svg" alt="Kotlin/Native" height="24"></a></td>
-        <td><a href="#kotlin-wasm"><img src="wasm-label.svg" alt="Kotlin/Wasm" height="24"></a></td>
-        <td><a href="#kotlin-js"><img src="js-label.svg" alt="Kotlin/JS" height="24"></a></td>
+        <td><a href="#kotlin-native"><img src="native-label.svg" alt="Kotlin/Native" height="24"/></a></td>
+        <td><a href="#kotlin-wasm"><img src="wasm-label.svg" alt="Kotlin/Wasm" height="24"/></a></td>
+        <td><a href="#kotlin-js"><img src="js-label.svg" alt="Kotlin/JS" height="24"/></a></td>
     </tr>
     <tr>
-        <td><a href="#gradle"><img src="gradle-label.svg" alt="Gradle" height="24"></a></td>
+        <td><a href="#gradle"><img src="gradle-label.svg" alt="Gradle" height="24"/></a></td>
         <td><format color="#D1D1D1">Maven</format></td>
         <td><format color="#D1D1D1">Build tools API</format></td>
-        <td><a href="#compose-compiler"><img src="compose-compiler-label.svg" alt="Compose compiler" height="24"></a></td>
+        <td><a href="#compose-compiler"><img src="compose-compiler-label.svg" alt="Compose compiler" height="24"/></a></td>
     </tr>
     <tr>
-        <td><a href="#standard-library"><img src="standard-library-label.svg" alt="Standard library" height="24"></a></td>
+        <td><a href="#standard-library"><img src="standard-library-label.svg" alt="Standard library" height="24"/></a></td>
         <td><a href="#breaking-changes-and-deprecations">Breaking changes</a></td>
         <td><a href="#documentation-updates">Documentation updates</a></td>
         <td><a href="compatibility-guide-23.md">Compatibility guide</a></td>
