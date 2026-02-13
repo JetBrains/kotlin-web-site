@@ -65,14 +65,19 @@ Mind the following terms used in tier tables:
 | `mingwX64`              | `x86_64-pc-windows-gnu`          | ✅             | 64-bit Windows 10 and later using [MinGW](https://www.mingw-w64.org) compatibility layer |
 | Apple macOS hosts only: |                                  |               |                                                                                          |
 | `watchosDeviceArm64`    | `aarch64-apple-watchos`          |               | Apple watchOS 7.0 and later on ARM64 platforms                                           |
-| `macosX64`              | `x86_64-apple-macos`             | ✅             | Apple macOS 11.0 and later on x86_64 platforms                                           |
 | `iosX64`                | `x86_64-apple-ios-simulator`     | ✅             | Apple iOS simulator 14.0 and later on x86-64 platforms                                   |
-| `watchosX64`            | `x86_64-apple-watchos-simulator` | ✅             | Apple watchOS 7.0 and later 64-bit simulator on x86_64 platforms                         |
-| `tvosX64`               | `x86_64-apple-tvos-simulator`    | ✅             | Apple tvOS 14.0 and later simulator on x86_64 platforms                                  |
 
 > The `linuxArm32Hfp` target is deprecated and will be removed in future releases.
 > 
 {style="note"}
+
+### Deprecated targets
+
+Starting with Kotlin 2.3.20, the following targets are deprecated:
+
+* `macosX64` (Apple macOS 11.0 and later on x86_64 platforms)
+* `watchosX64` (Apple watchOS 7.0 and later 64-bit simulator on x86_64 platforms)
+* `tvosX64` (Apple tvOS 14.0 and later simulator on x86_64 platforms)
 
 ### For library authors
 

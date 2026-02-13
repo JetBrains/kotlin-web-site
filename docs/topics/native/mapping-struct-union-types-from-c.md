@@ -89,7 +89,6 @@ Let's see how C struct and union types are mapped into Kotlin/Native and update 
     ```kotlin
     kotlin {
         macosArm64("native") {    // macOS on Apple Silicon
-        // macosX64("native") {   // macOS on x86_64 platforms
         // linuxArm64("native") { // Linux on ARM64 platforms 
         // linuxX64("native") {   // Linux on x86_64 platforms
         // mingwX64("native") {   // on Windows
@@ -111,7 +110,6 @@ Let's see how C struct and union types are mapped into Kotlin/Native and update 
     ```groovy
     kotlin {
         macosArm64("native") {    // Apple Silicon macOS
-        // macosX64("native") {   // macOS on x86_64 platforms
         // linuxArm64("native") { // Linux on ARM64 platforms
         // linuxX64("native") {   // Linux on x86_64 platforms
         // mingwX64("native") {   // Windows

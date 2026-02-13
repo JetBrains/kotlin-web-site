@@ -48,7 +48,6 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the 
         val isMingwX64 = hostOs.startsWith("Windows")
         val nativeTarget = when {
             hostOs == "Mac OS X" && isArm64 -> macosArm64("native")
-            hostOs == "Mac OS X" && !isArm64 -> macosX64("native")
             hostOs == "Linux" && isArm64 -> linuxArm64("native")
             hostOs == "Linux" && !isArm64 -> linuxX64("native")
             isMingwX64 -> mingwX64("native")
@@ -66,7 +65,7 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the 
     
     ```
 
-   * Targets are defined using `macosArm64`, `macosX64`, `linuxArm64`, `linuxX64`, and `mingwX64` for macOS, Linux,
+   * Targets are defined using `macosArm64`, `linuxArm64`, `linuxX64`, and `mingwX64` for macOS, Linux,
      and Windows. See the complete list of [supported platforms](native-target-support.md).
    * The `binaries {}` block defines how the binary is generated and the entry point of the application.
      These can be left as default values.
