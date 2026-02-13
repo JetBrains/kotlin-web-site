@@ -27,7 +27,7 @@ import { StickyHeader } from '../components/sticky-header/sticky-header';
 
 import MultiplatformPreviewImage from '../public/images/main/multiplatform-preview.svg';
 
-import GradleLogo from '../public/images/companies/gradle.svg';
+import GradleLogo from '../public/images/companies/gradle-logo.png';
 import UberLogo from '../public/images/companies/uber.svg';
 import AtlassianLogo from '../public/images/companies/atlassian.svg';
 import GoogleLogo from '../public/images/companies/google.svg';
