@@ -391,16 +391,17 @@ function on collections:
 fun main() {
     //sampleStart
     val numbers = listOf(1, -2, 3, -4, 5, -6)
-    
-    val positives = numbers.filter ({ x -> x > 0 })
-    
+
     val isNegative = { x: Int -> x < 0 }
     val negatives = numbers.filter(isNegative)
-    
-    println(positives)
-    // [1, 3, 5]
+
     println(negatives)
     // [-2, -4, -6]
+    
+    val positives = numbers.filter ({ x -> x > 0 })
+   
+    println(positives)
+    // [1, 3, 5]
     //sampleEnd
 }
 ```
@@ -408,15 +409,15 @@ fun main() {
 
 The `.filter()` function accepts a lambda expression as a predicate and applies it to each element of the list. The function keeps an element only if the predicate returns `true`:
 
-* `{ x -> x > 0 }` returns `true` if the element is positive.
 * `{ x -> x < 0 }` returns `true` if the element is negative.
+* `{ x -> x > 0 }` returns `true` if the element is positive.
 
 This example demonstrates two ways of passing a lambda expression to a function:
 
-* For positive numbers, the example adds the lambda expression directly in the `.filter()` function.
 * For negative numbers, the example assigns the lambda expression to the `isNegative` variable. Then
 the `isNegative` variable is used as a function parameter in the `.filter()` function. In this case, you have to specify
 the type of function parameters (`x`) in the lambda expression.
+* For positive numbers, the example adds the lambda expression directly in the `.filter()` function.
 
 > If a lambda expression is the only function parameter, you can drop the function parentheses `()`:
 > 
