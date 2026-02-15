@@ -1,0 +1,93 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.section {
+    padding-block: 72px;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 32px;
+    background: radial-gradient(209.86% 112.09% at 79.02% 95.72%, #7A0072 0%, #540263 18.17%, #2D0454 36.35%, #20023C 68.17%, #120024 100%);
+    height: 312px;
+    padding: 32px 0 0 0;
+    overflow: hidden;
+    text-align: center;
+    box-sizing: border-box;
+
+    @media (--ktl-ms-min) {
+        height: 360px;
+    }
+
+    @media (--ktl-ml-min) {
+        height: 576px;
+        padding: 64px 64px 0 64px;
+    }
+
+    @media (--ktl-ts-min) {
+        height: 534px;
+    }
+
+    @media (--ktl-tl-min) {
+        height: 386px;
+        text-align: left;
+        flex-direction: row;
+        padding: 0 64px;
+    }
+}
+
+.title {
+    max-width: 244px;
+    margin: 0;
+    padding: 0;
+
+    @media (--ktl-ms-min) {
+        max-width: 360px;
+    }
+
+    @media (--ktl-ml-only) {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    @media (--ktl-ml-min) {
+        max-width: 440px;
+    }
+
+    @media (--ktl-ts-min) {
+        max-width: 632px;
+    }
+
+    @media (--ktl-tl-min) {
+        max-width: 358px;
+    }
+
+    @media (--ktl-ds-min) {
+        max-width: 586px;
+    }
+
+}
+
+.imageWrapper {
+    position: relative;
+    width: 217px;
+
+    @media (--ktl-ml-min) {
+        width: 363px;
+        height: 386px;
+    }
+}
+
+.image {
+    display: block;
+    height: auto;
+    @media (--ktl-ds-min) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+    }
+}

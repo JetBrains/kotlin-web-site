@@ -65,8 +65,7 @@ items:
       **BiliBili** (China version) has adopted Kotlin Multiplatform and Compose Multiplatform for the Instant
       Message feature.
     isExternal: true
-    linkText: Watch the full video
-    link: https://www.bilibili.com/video/BV1es421T71C/
+    link: https://mp.weixin.qq.com/s/yRwkbQxFsRBNZW3Z-S1A8Q
     platforms:
       - android
       - ios
@@ -397,6 +396,30 @@ items:
       type: image
       path: /images/case-studies/physics-wallah-card-preview.png
   #------------------------------------------------------------------------
+  - id: case-study-amazon
+    type: server-side
+    description: >-
+      How does Kotlin perform at Amazon-scale?
+
+
+      In this talk, Katie Levy, Senior Software Engineer at Amazon Fashion, shares how her team migrated a 10,000-line backend service from Java to Kotlin while powering an AI-driven size recommendation system used by hundreds of millions of customers across 19 locales.
+    logo:
+      - /images/case-studies/amazon-logo.svg
+    media:
+      type: youtube
+      videoId: rvyUgcxfang
+  #------------------------------------------------------------------------
+  - id: case-study-worldline-server-side
+    type: server-side
+    description: >-
+      Discover how Worldline powers digital banking innovation with over one million active users every month. Lead Developer Richard Marchant shares why the team chose Kotlin to build their Conversational Platform from the ground up. From faster feature development to reduced runtime errors, Kotlin’s concise syntax and safety features transformed their workflow. Now, with Kotlin Multiplatform and company-wide training, Worldline is driving a modern, collaborative future in fintech development.
+    logo:
+      - /images/case-studies/worldline-logo.svg
+    carousel: true
+    media:
+      type: youtube
+      videoId: 3IxDICQTutw
+  #------------------------------------------------------------------------
   - id: case-study-vmware
     type: multiplatform
     description: >-
@@ -599,6 +622,17 @@ items:
       - frontend
     link: https://kotlinlang.org/lp/multiplatform/case-studies/mirego
   #------------------------------------------------------------------------
+  - id: case-study-wolt
+    type: server-side
+    description: >-
+      Wolt, a technology company specializing in local commerce and delivery logistics (part of DoorDash),
+      shares how Kotlin has become a core part of their backend systems and engineering culture.
+    logo:
+      - /images/case-studies/wolt-logo.svg
+    media:
+      type: youtube
+      videoId: puBXoKkQInE
+  #------------------------------------------------------------------------
   - id: case-study-music-work
     type: multiplatform
     description: >-
@@ -713,13 +747,21 @@ items:
   - id: case-study-mercedes-benz-io
     type: server-side
     description: >-
-      The **Mercedes-Benz.io** team shares their experience migrating backend services from Java to Kotlin, highlighting the reasons behind the switch, challenges encountered, and the benefits to their development workflows.
+      Tiago, Software Architect at Mercedes-Benz.io, shares how his team builds cloud-native apps with Kotlin and Spring Boot, serving over 3.5 million users daily.
+
+
+      Discover why they moved from Java to Kotlin — cutting boilerplate, improving stability, and speeding up development. Today, Kotlin powers their backend, mobile apps, and multiplatform projects, driving faster, cleaner, and more reliable code.
+
+
+      Watch the video testimonial or [read the article](https://www.mercedes-benz.io/blog/2024-11-22-transitioning-from-java-to-kotlin-in-backend-development).
     logo:
       - /images/case-studies/mercedes-benz-logo.svg
     isExternal: true
     carousel:
       logo: /images/case-studies/carousel/mercedes-benz.svg
-    link: https://www.mercedes-benz.io/blog/2024-11-22-transitioning-from-java-to-kotlin-in-backend-development
+    media:
+      type: youtube
+      videoId: oaJpj18OqY0
   #------------------------------------------------------------------------
   - id: case-study-novatec
     type: server-side
@@ -797,13 +839,15 @@ items:
   - id: case-study-ing
     type: server-side
     description: >-
-      **ING** shares the story of introducing Kotlin on the backend in a large organization, with tips for reducing friction during adoption.
+      ING’s Mobile Banking team shares how they modernized their mission-critical payment engine using Kotlin, supporting 6 million mobile users and processing 4.5 billion payments each year. Moving from a large Java codebase to a cleaner Kotlin architecture improved code quality, stability, and resource efficiency, especially through Kotlin’s null safety and coroutines.
+      For more details, [read the article](https://medium.com/ing-blog/introducing-kotlin-at-ing-a-long-but-rewarding-story-1bfcd3dc8da0) or watch the video below.
     logo:
       - /images/case-studies/ing-logo.svg
     carousel:
       logo: /images/case-studies/carousel/ing.svg
-    isExternal: true
-    link: https://medium.com/ing-blog/introducing-kotlin-at-ing-a-long-but-rewarding-story-1bfcd3dc8da0
+    media:
+      type: youtube
+      videoId: mexcjkGZIm8
   #------------------------------------------------------------------------
   - id: case-study-intuit
     type: server-side

@@ -1,4 +1,4 @@
-.platform {
+.icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,13 +6,7 @@
   height: 28px;
 }
 
-/* visual compensation */
-.platform_android {
-  width: 30px;
-  height: 30px;
-}
-
-.platform svg {
+.icon svg {
   width: 100%;
   height: 100%;
   object-fit: contain;

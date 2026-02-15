@@ -166,3 +166,8 @@
         text-transform: none;
     }
 }
+
+.gradleLogo {
+    max-height: 30px;
+    margin-right: 0;
+}
