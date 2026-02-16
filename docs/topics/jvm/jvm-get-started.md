@@ -1,5 +1,7 @@
 [//]: # (title: Create a console app – tutorial)
 
+<web-summary>Get started with Kotlin on the JVM by creating a console app in IntelliJ IDEA — install the IDE, set up a new project, and run your first Kotlin program.</web-summary>
+
 This tutorial demonstrates how to use IntelliJ IDEA for creating a console application.
 
 To get started, first download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
