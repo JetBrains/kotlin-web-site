@@ -1,6 +1,7 @@
 package kotlinlang.builds
 
 import BuildParams.API_URLS
+import BuildParams.KLANG_NODE_CONTAINER
 import documentation.builds.KotlinMultiplatform
 import documentation.builds.KotlinWithCoroutines
 import jetbrains.buildServer.configs.kotlin.BuildType
@@ -111,6 +112,21 @@ object BuildSitePages : BuildType({
                 mkdir -p "dist/api/latest/kotlin.test"
                 cp package-list-kotlin-test dist/api/latest/kotlin.test/package-list
             """.trimIndent()
+        }
+        script {
+            name = "Generate llms.txt index"
+            scriptContent = """
+                #!/bin/sh
+                set -e -x -u
+                
+                rm -rf node_modules/sharp
+                
+                yarn install --frozen-lockfile
+                
+                yarn run generate-llms-index
+            """.trimIndent()
+            dockerImage = KLANG_NODE_CONTAINER
+            dockerPull = true
         }
         step(scriptDistAnalyze {})
         script {

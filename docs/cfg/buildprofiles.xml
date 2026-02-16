@@ -39,5 +39,6 @@
         <external-links-in-new-tab>false</external-links-in-new-tab>
         <kotlin-latest-url>%kotlinLatestUrl%</kotlin-latest-url>
     </variables>
+    <llms-txt/>
     <build-profile instance="kr"/>
 </buildprofiles>
