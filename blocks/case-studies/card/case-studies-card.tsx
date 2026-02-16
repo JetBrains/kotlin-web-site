@@ -1,4 +1,6 @@
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
+import { Button } from '@rescui/button';
+import { LinkIcon } from '@rescui/icons';
 import { useTextStyles } from '@rescui/typography';
 import React from 'react';
 import cn from 'classnames';
@@ -40,6 +42,7 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...i
 
     return (
         <article
+            id={item.id}
             className={cn(styles.card, className, styles[mode || 'classic'], textCn('rs-text-2', { hardness: 'hard' }))}
             data-testid="case-studies-card">
             <div className={styles.content}>
@@ -76,7 +79,7 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...i
                 }
 
                 {(item.platforms && item.platforms.length > 0) || (item.frameworks && item.frameworks.length > 0) ? (
-                    <div className={styles.platforms} aria-label="Platforms">
+                    <div className={styles.technologies} aria-label="Technologies">
                         {item.platforms?.map((platform) =>
                             <PlatformIcon key={platform} value={platform} />
                         )}
@@ -85,6 +88,17 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...i
                         )}
                     </div>
                 ) : null}
+
+
+                <div className={cn(styles.copyLinkButton, { [styles.copyLinkButtonRock]: mode === 'rock' })}>
+                    <Button
+                        title="Copy case study link"
+                        mode="outline"
+                        size="s"
+                        icon={<LinkIcon type="outlined" size="s" />}
+                        onClick={() => navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}#${item.id}`)}>
+                    </Button>
+                </div>
             </div>
 
             {item.media &&
