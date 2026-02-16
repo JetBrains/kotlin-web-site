@@ -156,6 +156,7 @@ function Index() {
             description={
                 'Kotlin is a concise and multiplatform programming language by JetBrains. Enjoy coding and build server-side, mobile, web, and desktop applications efficiently.'
             }
+            canonical={'https://kotlinlang.org/'}
         >
             <ThemeProvider theme="dark">
                 <StickyHeader>
