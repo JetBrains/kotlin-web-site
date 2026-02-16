@@ -132,7 +132,7 @@
         "next-dev": "next dev",
         "next-build-static": "next build",
         "generate-data": "node scripts/generate-data.mjs",
-        "generate-llms-index": "node scripts/generate-llms-index.mjs",
+        "generate-llms-index": "node scripts/llms/generate-llms-index.mjs",
         "generate-redirects": "node scripts/generate-redirect-pages.js",
         "lint": "next lint",
         "test": "playwright test test",
