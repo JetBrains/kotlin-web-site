@@ -1,3 +1,5 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
 .card {
   border-radius: 16px;
   overflow: hidden;
@@ -6,7 +8,7 @@
 
   &.classic {
     background: #fff;
-    border-color:rgb(0, 0, 0, 0.8);
+    border-color: rgb(0, 0, 0, 0.8);
   }
 
   &.rock {
@@ -16,13 +18,15 @@
 }
 
 .content {
+  --content-padding: 32px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding: 32px;
+  padding: var(--content-padding);
   gap: 24px;
 
   @media (width <= 616px) {
-    padding: 24px;
+    --content-padding: 24px;
   }
 }
 
@@ -68,17 +72,38 @@
   font-weight: 600;
 }
 
-.platforms {
+.technologies {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 8px 12px;
   height: 24px;
-  margin-left: -2px; /* visual compensation */
 }
 
 .link {
   display: inline-block;
   align-self: flex-start;
   --_rs-typography-link-after-margin-left-final: 4px;
+}
+
+.copyLinkButton {
+  position: absolute;
+  bottom: var(--content-padding);
+  right: var(--content-padding);
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background: #fff;
+
+  @media (--ktl-ds-up) {
+    display: none;
+
+    .card:hover & {
+      display: block;
+    }
+  }
+}
+
+.copyLinkButtonRock {
+  border-color: #19191C;
+  background: #19191C;
 }
