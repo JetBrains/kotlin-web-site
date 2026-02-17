@@ -14,8 +14,8 @@
     <var name="apiVersion" value="2.3"/>
 
     <!-- Kotlin EAP -->
-    <var name="kotlinEapVersion" value="2.3.20-Beta2"/>
-    <var name="kotlinEapReleaseDate" value="January 29, 2026"/>
+    <var name="kotlinEapVersion" value="2.3.20-RC"/>
+    <var name="kotlinEapReleaseDate" value="February 19, 2026"/>
 
     <!-- Libraries and Frameworks -->
     <var name="coroutinesVersion" value="1.10.2"/>
