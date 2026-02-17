@@ -17,6 +17,7 @@ function reverse(theme: Theme): Theme {
 export type CaseStudyCardProps = CaseItem & {
     className?: string;
     mode?: 'rock' | 'classic';
+    showCopyLinkButton?: boolean;
 };
 
 export const CaseStudyCard: React.FC<CaseStudyCardProps> = props => {
@@ -27,7 +28,7 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = props => {
     </ThemeProvider>;
 };
 
-const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...item }) => {
+const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, showCopyLinkButton, ...item }) => {
     const textCn = useTextStyles();
 
     const normalLogo = item.logo || [];
@@ -39,6 +40,11 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...i
     const isYoutube = item.media?.type === 'youtube';
     const videoId = item.media?.type === 'youtube' ? item.media.videoId : undefined;
     const imageSrc = item.media?.type === 'image' ? item.media.path : undefined;
+
+    const handleCopyLink = () => {
+        const url = `${window.location.origin}${window.location.pathname}#${item.id}`;
+        navigator.clipboard.writeText(url);
+    };
 
     return (
         <article
@@ -89,16 +95,17 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...i
                     </div>
                 ) : null}
 
-
-                <div className={cn(styles.copyLinkButton, { [styles.copyLinkButtonRock]: mode === 'rock' })}>
-                    <Button
-                        title="Copy case study link"
-                        mode="outline"
-                        size="s"
-                        icon={<LinkIcon type="outlined" size="s" />}
-                        onClick={() => navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}#${item.id}`)}>
-                    </Button>
-                </div>
+                {showCopyLinkButton && (
+                    <div className={cn(styles.copyLinkButton, { [styles.copyLinkButtonRock]: mode === 'rock' })}>
+                        <Button
+                            title="Copy case study link"
+                            mode="outline"
+                            size="s"
+                            icon={<LinkIcon type="outlined" size="s" />}
+                            onClick={handleCopyLink}
+                        ></Button>
+                    </div>
+                )}
             </div>
 
             {item.media &&

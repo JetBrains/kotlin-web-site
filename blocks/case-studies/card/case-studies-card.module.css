@@ -88,14 +88,14 @@
 
 .copyLinkButton {
   position: absolute;
-  bottom: var(--content-padding);
+  bottom: calc(var(--content-padding) - 6px);
   right: var(--content-padding);
   border-radius: 50%;
   border: 1px solid #fff;
   background: #fff;
 
   @media (--ktl-ds-up) {
-    display: none;
+    display: block;
 
     .card:hover & {
       display: block;
