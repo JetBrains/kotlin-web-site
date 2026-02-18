@@ -6,6 +6,12 @@
 
   border: 1px solid;
 
+  scroll-margin-top: 64px;
+
+  @media (--ktl-tl-down) {
+    scroll-margin-top: 52px;
+  }
+
   &.classic {
     background: #fff;
     border-color: rgb(0, 0, 0, 0.8);
@@ -95,7 +101,7 @@
   background: #fff;
 
   @media (--ktl-ds-up) {
-    display: block;
+    display: none;
 
     .card:hover & {
       display: block;
