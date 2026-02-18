@@ -7,8 +7,6 @@ test.describe('Community page, overview tab, keep in touch section', () => {
     test.beforeEach(async ({ page }) => {
         communityPage = new CommunityPage(page);
         await communityPage.init();
-        await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
-        await page.click('button.ch2-btn.ch2-btn-primary');
     });
 
     test('Slack button opens the related page', async ({ page, context }) => {
