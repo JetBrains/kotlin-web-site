@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import cn from 'classnames';
 import { CaseStudyCard, CaseStudyCardProps } from '../card/case-studies-card';
 import { useFilteredCases } from '../filter/use-filtered-cases';
@@ -7,6 +7,7 @@ import { EmptyState } from '../../../components/empty-state/empry-state';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
 import styles from './case-studies-grid.module.css';
+import { useDeferredAnchorScroll } from '../../../hooks/useDeferredAnchorScroll';
 
 export type CaseStudiesGridProps = {
     className?: string;
@@ -23,6 +24,9 @@ export const CaseStudiesSection: FC<CaseStudiesGridProps> = ({ className, ...pro
 export const CaseStudiesGrid: FC<CaseStudiesGridProps> = ({ className, mode, showCopyLinkButton }) => {
     const cases = useFilteredCases();
     const theme = 'light';
+    const [isLayoutReady, setIsLayoutReady] = useState(false);
+
+    useDeferredAnchorScroll(isLayoutReady);
 
     return (
         <ThemeProvider theme={theme}>
@@ -38,6 +42,7 @@ export const CaseStudiesGrid: FC<CaseStudiesGridProps> = ({ className, mode, sho
                             <CaseStudyCard mode={mode} showCopyLinkButton={showCopyLinkButton} {...caseItem} />
                         )}
                         getKey={(caseItem) => caseItem.id}
+                        onLayoutReady={() => setIsLayoutReady(true)}
                     />
                 )}
             </div>
