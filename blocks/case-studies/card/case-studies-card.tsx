@@ -1,5 +1,6 @@
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
 import { Button } from '@rescui/button';
+import { Tooltip } from '@rescui/tooltip';
 import { LinkIcon } from '@rescui/icons';
 import { useTextStyles } from '@rescui/typography';
 import React from 'react';
@@ -97,13 +98,17 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, show
 
                 {showCopyLinkButton && (
                     <div className={cn(styles.copyLinkButton, { [styles.copyLinkButtonRock]: mode === 'rock' })}>
-                        <Button
-                            title="Copy case study link"
-                            mode="outline"
-                            size="s"
-                            icon={<LinkIcon type="outlined" size="s" />}
-                            onClick={handleCopyLink}
-                        ></Button>
+                        <Tooltip
+                            content="Copy link"
+                            placement="top">
+                            <Button
+                                title="Copy link"
+                                mode="outline"
+                                size="s"
+                                icon={<LinkIcon type="outlined" size="s" />}
+                                onClick={handleCopyLink}
+                            ></Button>
+                        </Tooltip>
                     </div>
                 )}
             </div>
