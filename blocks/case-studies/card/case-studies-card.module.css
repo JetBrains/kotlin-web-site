@@ -93,6 +93,7 @@
 }
 
 .copyLinkButton {
+  display: none;
   position: absolute;
   bottom: calc(var(--content-padding) - 6px);
   right: var(--content-padding);
@@ -100,12 +101,8 @@
   border: 1px solid #fff;
   background: #fff;
 
-  @media (--ktl-ds-up) {
-    display: none;
-
-    .card:hover & {
-      display: block;
-    }
+  .card:hover & {
+    display: block;
   }
 }
 
