@@ -155,7 +155,6 @@
             <toc-element toc-title="License files" topic="native-binary-licenses.md"/>
             <toc-element topic="native-faq.md"/>
         </toc-element>
-        <toc-element toc-title="Multiplatform development" topic="multiplatform.topic"/>
         <toc-element toc-title="Android development" topic="android-overview.md"/>
         <toc-element toc-title="Designing your library">
             <include from="api-guidelines.tree" origin="api-guidelines" element-id="api-guidelines"/>

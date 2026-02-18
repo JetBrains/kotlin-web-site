@@ -1585,7 +1585,6 @@ The Kotlin documentation has received some notable changes:
 * New [Building a Kotlin library for multiplatform](https://kotlinlang.org/docs/api-guidelines-build-for-multiplatform.html) page –
   Learn how to design your Kotlin libraries for Kotlin Multiplatform.
 * New [Introduction to Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) page – Learn about Kotlin Multiplatform's key concepts, dependencies, libraries, and more.
-* Updated [Kotlin Multiplatform overview](multiplatform.topic) page – Navigate through the essentials of Kotlin Multiplatform and popular use cases.
 * New [iOS integration](https://kotlinlang.org/docs/multiplatform/multiplatform-ios-integration-overview.html) section – Learn how to integrate a Kotlin Multiplatform shared module into your iOS app.
 * New [Kotlin/Native's definition file](native-definition-file.md) page – Learn how to create a definition file to consume C and Objective-C libraries.
 * [Get started with WASI](wasm-wasi.md) –
