@@ -12,6 +12,7 @@ export interface MasonryGridProps<T> {
     columnClassName?: string;
     itemClassName?: string;
     mobileBreakpoint?: number;
+    onLayoutReady?: () => void;
 }
 
 export function MasonryGrid<T>({
@@ -24,6 +25,7 @@ export function MasonryGrid<T>({
     columnClassName,
     itemClassName,
     mobileBreakpoint = 808,
+    onLayoutReady
 }: MasonryGridProps<T>) {
     const [isMobile, setIsMobile] = useState(false);
 
@@ -107,6 +109,7 @@ export function MasonryGrid<T>({
             });
 
             setGreedyColumns(cols);
+            setTimeout(onLayoutReady, 0);
         }, 0);
 
         return () => window.clearTimeout(id);
@@ -145,7 +148,6 @@ export function MasonryGrid<T>({
                                     key={getKey(item, originalIndex)}
                                     className={cn(styles.item, itemClassName)}
                                 >
-                                    {/*<div style={{color: 'white'}}>{originalIndex}</div>*/}
                                     {renderItem(item, originalIndex)}
                                 </div>
                             );
