@@ -764,7 +764,8 @@
     - /docs/reference/mpp-intro.html
     - /docs/mpp-intro.html
     - /docs/multiplatform-intro.html
-  to: /docs/multiplatform.html
+    - /docs/multiplatform.html
+  to: https://kotlinlang.org/docs/multiplatform/get-started.html
 
 - from:
     - /docs/mpp-get-started.html
