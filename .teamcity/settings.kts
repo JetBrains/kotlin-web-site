@@ -31,6 +31,7 @@ project {
     references.BuildApiReferencesProject,
     tests.TestsProject,
     documentation.DocumentationProject,
+    landings.LandingPagesProject,
   ).also {
     it.forEach { subProject(it) }
   }
