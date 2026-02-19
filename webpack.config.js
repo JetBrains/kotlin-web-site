@@ -19,15 +19,15 @@ module.exports = (params = {}) => {
   return {
     entry: {
       //shared
-      'common': './static/js/page/common.js',
-      'index': './static/js/page/index/index.js',
-      'grammar': './static/js/page/grammar.js',
-      'api': './static/js/page/api/api.js',
-      'reference': './static/js/page/reference.js',
-      'tutorial': './static/js/page/tutorial.js',
+      // 'common': './static/js/page/common.js',
+      // 'index': './static/js/page/index/index.js',
+      // 'grammar': './static/js/page/grammar.js',
+      // 'api': './static/js/page/api/api.js',
+      // 'reference': './static/js/page/reference.js',
+      // 'tutorial': './static/js/page/tutorial.js',
       'dokka-template': './static/js/page/dokka-template/index.js',
-      'styles': './static/css/styles.scss',
-      'styles-v2': './static/css/styles-v2.scss'
+      // 'styles': './static/css/styles.scss',
+      // 'styles-v2': './static/css/styles-v2.scss'
     },
 
     output: {

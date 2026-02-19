@@ -6,19 +6,13 @@ import documentation.builds.KotlinMultiplatform
 import documentation.builds.KotlinWithCoroutines
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
-import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
-import templates.DockerImageBuilder
 import templates.scriptDistAnalyze
-
-private const val kotlinWebsiteSetup = "/kotlin-website-setup.sh"
 
 object BuildSitePages : BuildType({
     name = "Build site pages"
-
-    templates(DockerImageBuilder)
 
     artifactRules = """
         dist/** => pages.zip
@@ -54,32 +48,6 @@ object BuildSitePages : BuildType({
 
     steps {
         script {
-            name = "Build html pages"
-            // language=bash
-            scriptContent = """
-                #!/bin/bash
-                
-                set -x
-                
-                cat $kotlinWebsiteSetup
-                source $kotlinWebsiteSetup
-                
-                ## refresh packages
-                npm i -g yarn
-                yarn install --frozen-lockfile
-                pip install -r requirements.txt
-                
-                ## build
-                python kotlin-website.py build
-            """.trimIndent()
-
-            dockerImage = "%dep.Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildPythonContainer.kotlin-website-image%"
-            dockerImagePlatform = ScriptBuildStep.ImagePlatform.Linux
-            dockerPull = true
-
-            formatStderrAsError = true
-        }
-        script {
             name = "Override with external source"
             dockerImage = "alpine"
             //language=bash
@@ -88,19 +56,24 @@ object BuildSitePages : BuildType({
                 
                 mkdir -p dist/
                 
-                echo "Copy python artifacts to dist"
-                cp -fR build/* dist/
+                echo "Copy python ages artifacts to dist"
+                #cp -fR build/* dist/
+                mkdir -p dist/assets/
+                cp -fR assets/* dist/assets/
+                
                 mkdir -p dist/_assets/
                 cp -fR _assets/* dist/_assets/
                 
                 echo "Copy spec assets to dist"
                 mkdir -p dist/spec
-                cp -fR spec dist/
+                cp -fR spec/* dist/spec/
                 
                 echo "Copy documentation to dist"
                 mkdir -p dist/docs/multiplatform
                 cp -fR _webhelp/reference/* dist/docs/
                 cp -fR _webhelp/multiplatform/* dist/docs/multiplatform/
+                cp dist/assets/kotlin-reference.pdf dist/docs/kotlin-reference.pdf
+                cp dist/assets/kotlin-reference.pdf dist/docs/kotlin-docs.pdf
                 
                 echo "Copy nextjs artifacts to dist"
                 cp -fR out/* dist/
