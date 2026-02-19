@@ -1,4 +1,7 @@
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
+import { Button } from '@rescui/button';
+import { Tooltip } from '@rescui/tooltip';
+import { LinkIcon } from '@rescui/icons';
 import { useTextStyles } from '@rescui/typography';
 import React from 'react';
 import cn from 'classnames';
@@ -15,6 +18,7 @@ function reverse(theme: Theme): Theme {
 export type CaseStudyCardProps = CaseItem & {
     className?: string;
     mode?: 'rock' | 'classic';
+    showCopyLinkButton?: boolean;
 };
 
 export const CaseStudyCard: React.FC<CaseStudyCardProps> = props => {
@@ -25,7 +29,7 @@ export const CaseStudyCard: React.FC<CaseStudyCardProps> = props => {
     </ThemeProvider>;
 };
 
-const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...item }) => {
+const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, showCopyLinkButton, ...item }) => {
     const textCn = useTextStyles();
 
     const normalLogo = item.logo || [];
@@ -38,8 +42,14 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...i
     const videoId = item.media?.type === 'youtube' ? item.media.videoId : undefined;
     const imageSrc = item.media?.type === 'image' ? item.media.path : undefined;
 
+    const handleCopyLink = () => {
+        const url = `${window.location.origin}${window.location.pathname}#${item.id}`;
+        navigator.clipboard.writeText(url);
+    };
+
     return (
         <article
+            id={item.id}
             className={cn(styles.card, className, styles[mode || 'classic'], textCn('rs-text-2', { hardness: 'hard' }))}
             data-testid="case-studies-card">
             <div className={styles.content}>
@@ -76,7 +86,7 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...i
                 }
 
                 {(item.platforms && item.platforms.length > 0) || (item.frameworks && item.frameworks.length > 0) ? (
-                    <div className={styles.platforms} aria-label="Platforms">
+                    <div className={styles.technologies} aria-label="Technologies">
                         {item.platforms?.map((platform) =>
                             <PlatformIcon key={platform} value={platform} />
                         )}
@@ -85,6 +95,22 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, ...i
                         )}
                     </div>
                 ) : null}
+
+                {showCopyLinkButton && (
+                    <div className={cn(styles.copyLinkButton, { [styles.copyLinkButtonRock]: mode === 'rock' })}>
+                        <Tooltip
+                            content="Copy link"
+                            placement="top">
+                            <Button
+                                title="Copy link"
+                                mode="outline"
+                                size="s"
+                                icon={<LinkIcon type="outlined" size="s" />}
+                                onClick={handleCopyLink}
+                            ></Button>
+                        </Tooltip>
+                    </div>
+                )}
             </div>
 
             {item.media &&

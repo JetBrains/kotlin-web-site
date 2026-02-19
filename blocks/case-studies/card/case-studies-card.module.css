@@ -1,28 +1,52 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
 .card {
   border-radius: 16px;
   overflow: hidden;
 
   border: 1px solid;
 
+  scroll-margin-top: 64px;
+
+  @media (--ktl-tl-down) {
+    scroll-margin-top: 52px;
+  }
+
   &.classic {
     background: #fff;
-    border-color:rgb(0, 0, 0, 0.8);
+    border-color: rgb(0, 0, 0, 0.8);
   }
 
   &.rock {
     background: #19191C;
     border-color: rgb(255, 255, 255, 0.20);
   }
+
+  &:target, &[data-target] {
+    box-shadow: inset 0 0 0 max(100vw, 100vh) rgba(107, 87, 255, 0.20);
+    animation: highlight-fade 3s ease-out forwards;
+  }
+}
+
+@keyframes highlight-fade {
+  0%, 30% {
+    box-shadow: inset 0 0 0 max(100vw, 100vh) rgba(107, 87, 255, 0.20);
+  }
+  100% {
+    box-shadow: inset 0 0 0 max(100vw, 100vh) rgba(107, 87, 255, 0);
+  }
 }
 
 .content {
+  --content-padding: 32px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding: 32px;
+  padding: var(--content-padding);
   gap: 24px;
 
   @media (width <= 616px) {
-    padding: 24px;
+    --content-padding: 24px;
   }
 }
 
@@ -68,17 +92,35 @@
   font-weight: 600;
 }
 
-.platforms {
+.technologies {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 8px 12px;
   height: 24px;
-  margin-left: -2px; /* visual compensation */
 }
 
 .link {
   display: inline-block;
   align-self: flex-start;
   --_rs-typography-link-after-margin-left-final: 4px;
+}
+
+.copyLinkButton {
+  display: none;
+  position: absolute;
+  bottom: calc(var(--content-padding) - 6px);
+  right: var(--content-padding);
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background: #fff;
+
+  .card:hover & {
+    display: block;
+  }
+}
+
+.copyLinkButtonRock {
+  border-color: #19191C;
+  background: #19191C;
 }
