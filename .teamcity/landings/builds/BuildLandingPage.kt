@@ -7,6 +7,7 @@ import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import landings.LandingConfiguration
 import common.sanitizeId
 import landings.createVcsRootForLanding
+import vcsRoots.KotlinLangOrg
 
 /**
  * Build type for building a Vite landing page.
@@ -57,7 +58,7 @@ class BuildLandingPage(private val config: LandingConfiguration) : BuildType({
         node kotlin-web-site-scripts/patch-vite-base.mjs ${config.name}
 
         # Install dependencies
-        npm ci
+        npm i
 
         # Build
         npm run build
