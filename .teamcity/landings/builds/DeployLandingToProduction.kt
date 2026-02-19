@@ -18,6 +18,10 @@ class DeployLandingToProduction(private val config: LandingConfiguration) : Buil
 
   type = Type.DEPLOYMENT
 
+  params {
+    param("LANDING_NAME", config.name)
+  }
+
   requirements {
     contains("docker.server.osType", "linux")
   }

@@ -17,6 +17,10 @@ class DeployLandingToStaging(private val config: LandingConfiguration) : BuildTy
 
   type = Type.DEPLOYMENT
 
+  params {
+    param("LANDING_NAME", config.name)
+  }
+
   requirements {
     contains("docker.server.osType", "linux")
   }
