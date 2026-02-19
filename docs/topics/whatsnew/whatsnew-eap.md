@@ -16,7 +16,7 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
 * **Kotlin compiler plugins**: [Lombok is Alpha](#lombok-is-now-alpha) and [improved JPA support in the `kotlin.plugin.jpa` plugin](#improved-jpa-support-in-the-kotlin-plugin-jpa-plugin)
-* **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries) and [concurrent marking in the garbage collector is enabled by default](#default-concurrent-marking-in-garbage-collector)
+* **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#kotlin-native-new-interoperability-mode-for-c-or-objective-c-libraries)
 * **Gradle**: [Compatibility with Gradle 9.3.0](#compatibility-with-gradle-9-3-0) and [Kotlin/JVM compilation uses BTA by default](#kotlin-jvm-compilation-uses-build-tools-api-by-default)
 * **Maven**: [Simplified setup for Kotlin projects](#maven-simplified-setup-for-kotlin-projects)
 * **Standard library**: [New API for creating immutable copies of `Map.Entry`](#standard-library-new-api-for-creating-immutable-copies-of-map-entry)
@@ -71,12 +71,7 @@ are automatically treated as `open` and receive no-argument constructors without
 
 This change simplifies build configuration and improves the out-of-the-box experience when using Kotlin with JPA frameworks.
 
-## Kotlin/Native
-
-Kotlin %kotlinEapVersion% introduces a new experimental interoperability mode for C and Objective-C libraries
-and enables concurrent marking in the garbage collector by default in the Kotlin 2.3.20-Beta releases.
-
-### New interoperability mode for C or Objective-C libraries
+## Kotlin/Native: New interoperability mode for C or Objective-C libraries
 <primary-label ref="experimental-opt-in"/>
 
 If you use C or Objective-C libraries in your Kotlin Multiplatform libraries or applications, we invite you to test the new interoperability mode and share the results.
@@ -123,30 +118,6 @@ We're planning to eventually enable it by default. But to achieve that, we need 
 
 Help us examine real-world projects and identify challenging cases.
 Whether you encounter any issues or not, share your results in the comments to [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-83218).
-
-### Default concurrent marking in garbage collector
-<primary-label ref="experimental-opt-in"/>
-
-Kotlin 2.0.20 [introduced experimental support](whatsnew2020.md#concurrent-marking-in-garbage-collector) for CMS, also known as concurrent mark and sweep in the garbage collector (GC). Since then, the Kotlin team has fixed several critical and major problems and already uses CMS in [Swift export](native-swift-export.md) in its default setup.
-
-As the next step, we're enabling CMS by default for all projects in both Kotlin 2.3.20-Beta1 and Beta2 releases to gather more feedback and ensure we've discovered all the issues.
-
-Compared to the current default parallel mark concurrent sweep (PMCS) setup in the garbage collector, where application threads must be paused while the GC marks objects in the heap, CMS allows the marking phase to run concurrently with application threads.
-
-This greatly affects the duration of GC pauses and app responsiveness, which is important for the performance of latency-critical applications. CMS has already shown its effectiveness by significantly improving benchmarks on UI applications built with [Compose Multiplatform](https://blog.jetbrains.com/kotlin/2024/10/compose-multiplatform-1-7-0-released/#performance-improvements-on-ios).
-
-#### Leave feedback
-Although CMS GC is the default in this release, it's still [Experimental](components-stability.md#stability-levels-explained). In some cases, it may lead to runtime crashes, throughput issues, or increased memory consumption.
-
-This is why we're taking a cautious approach here: we're enabling CMS by default only in Beta releases to gather additional feedback. It will be rolled back to PMCS in Kotlin 2.3.20-RC and final releases.
-
-If you observe regressions, switch to PMCS manually. To do that, set the following [binary option](native-binary-options.md) in your `gradle.properties` file:
-
-```none
-kotlin.native.binary.gc=pmcs
-```
-
-Report any problems to our issue tracker [YouTrack](https://kotl.in/issue).
 
 ## Gradle
 
