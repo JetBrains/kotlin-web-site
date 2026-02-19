@@ -338,7 +338,7 @@ items:
     platforms:
       - android
       - ios
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/baidu/
+    link: https://kotlinlang.org/multiplatform/case-studies/baidu/
   #------------------------------------------------------------------------
   - id: case-study-prezzee
     type: multiplatform

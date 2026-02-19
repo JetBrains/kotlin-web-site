@@ -1,0 +1,61 @@
+.socialShare {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.label {
+    margin-right: 4px;
+}
+
+.theme_dark .label {
+    color: #fff;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.iconLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.iconLink:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.theme_dark .iconLink:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme_light .iconLink {
+    color: #000;
+}
+
+.theme_dark .iconLink {
+    color: #fff;
+}
+
+.size_xs .icons {
+    gap: 8px;
+}
+
+.size_s .icons {
+    gap: 12px;
+}
+
+.size_m .icons {
+    gap: 16px;
+}
+
+.size_xs .iconLink {
+    transform: scale(0.8);
+}
