@@ -1,7 +1,7 @@
 [//]: # (title: Asynchronous programming techniques)
 
 For decades, as developers we are confronted with a problem to solve - how to prevent our applications from blocking. Whether 
-we're developing desktop, mobile, or even server-side applications, we want to avoid having the user wait or what's worse cause 
+we're developing desktop, mobile, or even backend applications, we want to avoid having the user wait or what's worse cause 
 bottlenecks that would prevent an application from scaling. 
 
 There have been many approaches to solving this problem, including:
@@ -35,7 +35,7 @@ Let's assume in the code above that `preparePost` is a long-running process and 
 allow us to avoid the UI from blocking. This is a very common technique, but has a series of drawbacks:
 
 * Threads aren't cheap. Threads require context switches which are costly.
-* Threads aren't infinite. The number of threads that can be launched is limited by the underlying operating system. In server-side applications, this could cause a major bottleneck.
+* Threads aren't infinite. The number of threads that can be launched is limited by the underlying operating system. In backend applications, this could cause a major bottleneck.
 * Threads aren't always available. Some platforms, such as JavaScript do not even support threads.
 * Threads aren't easy. Debugging threads and avoiding race conditions are common problems we suffer in multi-threaded programming. 
 

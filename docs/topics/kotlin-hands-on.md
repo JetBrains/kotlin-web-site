@@ -3,11 +3,11 @@
 A series of hands-on tutorials where you can create applications with Kotlin using a variety of different technologies and targeting multiple platforms.
 The exercises are divided into a series of steps, walking you through each section.
 
-## Building Reactive Spring Boot applications with Kotlin coroutines and RSocket
+## Creating a web app with Spring Boot and Kotlin
 
-Build a simple chat application using Spring Boot and Kotlin, and learn about the benefits of using Kotlin for server-side development from a syntax perspective.
+Build a simple application with database functionality using Spring Boot and Kotlin, and learn about the benefits of using Kotlin for backend development from a syntax perspective.
 
-[**Start**](https://spring.io/guides/tutorials/spring-webflux-kotlin-rsocket/)
+[**Start**](jvm-get-started-spring-boot.md)
 
 ## Building web applications with React and Kotlin/JS
 

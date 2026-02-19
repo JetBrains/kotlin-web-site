@@ -58,7 +58,7 @@ For updates and discussions about the library, join the [#react](https://kotlinl
 These components can be building blocks for your application's user interface.
 
 With this framework, you can use both reactive and imperative programming models to build your frontend. You can also 
-integrate it with your server-side applications by using connectors for Ktor, Spring Boot, and other frameworks. 
+integrate it with your backend applications by using connectors for Ktor, Spring Boot, and other frameworks. 
 In addition, you can share code using [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html).
 
 For documentation, tutorials, and examples, see the [KVision docs](https://kvision.io/#docs) site.

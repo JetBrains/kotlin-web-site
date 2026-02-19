@@ -138,6 +138,24 @@ To use J2K on a file, click **Convert Java File to Kotlin File** in its context 
 While the converter is not fool-proof, it does a pretty decent job of converting most boilerplate code from Java to Kotlin.
 However, some manual tweaking is sometimes required.
 
+## Explore compiler plugins {initial-collapse-state="collapsed" collapsible="true"}
+
+If you have a more complex project that uses [Spring](https://spring.io/) or Java Persistence API (JPA), you can use Kotlin compiler
+plugins that automatically adapt Kotlin's language features to framework expectations, reducing boilerplate:
+
+* The **[`all-open`](all-open-plugin.md)** plugin automatically makes classes and their members `open` when used with specific
+  annotations. This is particularly useful for frameworks like Spring that require classes to be non-final.
+
+  For Spring, you can use a special [`kotlin-spring`](all-open-plugin.md#spring-support) plugin,
+  which is a wrapper on top of `all-open`. It helps to specify Spring annotations automatically.
+* The **[`no-arg`](no-arg-plugin.md)** plugin generates an additional zero-argument constructor for classes with specific annotations.
+  This allows Java Persistence API (JPA) to instantiate classes that otherwise wouldn't have a default constructor.
+
+  You can also use a special [`kotlin-jpa`](no-arg-plugin.md#jpa-support) plugin, which is a wrapper on top of `no-arg`.
+  It helps to specify no-arg annotations automatically.
+* The **[`power-assert`](power-assert.md)** plugin improves the debugging experience by providing detailed failure messages with
+  contextual information for assertions, showing intermediate values, and helping you understand why a test failed.
+
 ## Next step
 
 The easiest way to start using Kotlin in a Java project is by adding Kotlin tests first:

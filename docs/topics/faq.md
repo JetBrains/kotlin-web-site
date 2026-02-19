@@ -15,7 +15,7 @@ You can find more information [on GitHub](https://github.com/jetbrains/kotlin).
 
 ### Is Kotlin free?
 
-Yes. Kotlin is free, has been free and will remain free. It is developed under the Apache 2.0 license, and the source code
+Yes. Kotlin is free, has been free, and will remain free. It is developed under the Apache 2.0 license, and the source code
 is available [on GitHub](https://github.com/jetbrains/kotlin).
 
 ### Is Kotlin an object-oriented language or a functional one?
@@ -40,7 +40,7 @@ into the IDE](mixing-java-kotlin-intellij.md#convert-java-files-to-kotlin) that 
 
 ### What can I use Kotlin for?
 
-Kotlin can be used for any kind of development, be it server-side, client-side web, Android, or multiplatform library.
+Kotlin can be used for any kind of development, be it backend, client-side web, Android, or multiplatform library.
 With Kotlin/Native currently in the works, support for other platforms such as embedded systems, macOS, and iOS.
 People are using Kotlin for mobile and server-side applications, client-side with JavaScript or JavaFX, and data science,
 just to name a few possibilities.
@@ -48,13 +48,13 @@ just to name a few possibilities.
 ### Can I use Kotlin for Android development?
 
 Yes. Kotlin is supported as a first-class language on Android. There are hundreds of applications already using Kotlin 
-for Android, such as Basecamp, Pinterest and more. For more information, check out [the resource on Android development](android-overview.md).
+for Android, such as Basecamp, Pinterest, and more. For more information, check out [the resource on Android development](android-overview.md).
 
-### Can I use Kotlin for server-side development?
+### Can I use Kotlin for backend development?
 
 Yes. Kotlin is 100% compatible with the JVM, and as such you can use any existing frameworks such as Spring Boot, 
-vert.x or JSF. In addition, there are specific frameworks written in Kotlin, such as [Ktor](https://github.com/kotlin/ktor). 
-For more information, check out [the resource on server-side development](server-overview.md).
+vert.x, or JSF. In addition, there are specific frameworks written in Kotlin, such as [Ktor](https://github.com/kotlin/ktor). 
+For more information, check out [Backend development overview](server-overview.md).
 
 ### Can I use Kotlin for web development?
 
@@ -64,7 +64,7 @@ Learn how to [get started with Kotlin/Wasm](wasm-get-started.md).
 
 ### Can I use Kotlin for desktop development?
 
-Yes. You can use any Java UI framework such as JavaFx, Swing or other. 
+Yes. You can use any Java UI framework such as JavaFx, Swing, or other. 
 In addition, there are Kotlin-specific frameworks such as [TornadoFX](https://github.com/edvin/tornadofx). 
 
 ### Can I use Kotlin for native development?
@@ -109,7 +109,7 @@ Starting with [Kotlin 1.5](whatsnew15.md#new-default-jvm-target-1-8), the compil
 
 ### Is Kotlin hard?
 
-Kotlin is inspired by existing languages such as Java, C#, JavaScript, Scala and Groovy. We've tried to ensure that
+Kotlin is inspired by existing languages such as Java, C#, JavaScript, Scala, and Groovy. We've tried to ensure that
 Kotlin is easy to learn, so that people can easily jump on board, reading and writing Kotlin in a matter of days. 
 Learning idiomatic Kotlin and using some more of its advanced features can take a little longer, but overall it is not
 a complicated language.  
@@ -151,7 +151,7 @@ You can also check out the other tutorials and content on our [YouTube channel](
 ### Does Kotlin have a community?
 
 Yes! Kotlin has a very vibrant community. Kotlin developers hang out on the [Kotlin forums](https://discuss.kotlinlang.org), 
-[StackOverflow](https://stackoverflow.com/questions/tagged/kotlin) and more actively on the [Kotlin Slack](https://slack.kotlinlang.org) 
+[StackOverflow](https://stackoverflow.com/questions/tagged/kotlin), and more actively on the [Kotlin Slack](https://slack.kotlinlang.org) 
 (with close to 30000 members as of April 2020). 
 
 ### Are there Kotlin events?
@@ -179,7 +179,7 @@ Subscribe to the [Kotlin YouTube channel](https://www.youtube.com/c/Kotlin) and 
 ### Any other online Kotlin resources?
 
 The website has a bunch of [online resources](https://kotlinlang.org/community/), including [Kotlin Digests](https://kotlin.link) by community members, 
-a [newsletter](http://kotlinweekly.net), a [podcast](https://talkingkotlin.com) and more.
+a [newsletter](http://kotlinweekly.net), a [podcast](https://talkingkotlin.com), and more.
 
 ### Where can I get an HD Kotlin logo?
 
