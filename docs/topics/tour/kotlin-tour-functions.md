@@ -395,11 +395,11 @@ fun main() {
     val isNegative = { x: Int -> x < 0 }
     val negatives = numbers.filter(isNegative)
 
+    val positives = numbers.filter ({ x -> x > 0 })
+
     println(negatives)
     // [-2, -4, -6]
-    
-    val positives = numbers.filter ({ x -> x > 0 })
-   
+
     println(positives)
     // [1, 3, 5]
     //sampleEnd
