@@ -51,3 +51,4 @@ generated
 test-results
 
 public/data
+test/storage-state.json

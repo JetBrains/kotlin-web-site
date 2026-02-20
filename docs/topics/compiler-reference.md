@@ -283,6 +283,13 @@ You can configure the following plugins by their IDs:
 
 This running order controls only the backend of compiler plugins and not the frontend.
 
+### -Xphases-to-dump-before
+
+<primary-label ref="experimental-general"/>
+
+Set to `ExternalPackageParentPatcherLowering` to create a dump file after the IR lowering compilation stage. Configure
+the output directory for the Kotlin/JVM with the [`-Xdump-directory`](#xdump-directory) compiler option.
+
 ## Kotlin/JVM compiler options
 
 The Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
@@ -368,6 +375,12 @@ Control how functions declared in interfaces are compiled to default methods on 
 | `enable`           | Generates default implementations in interfaces and includes bridge functions in subclasses and `DefaultImpls` classes. (Default) |
 | `no-compatibility` | Generates only default implementations in interfaces, skipping compatibility bridges and `DefaultImpls` classes.                  |
 | `disable`          | Generates only compatibility bridges and `DefaultImpls` classes, skipping default methods.                                        |
+
+### -Xdump-directory
+
+<primary-label ref="experimental-general"/>
+
+Configure the dump file directory for the [-Xphases-to-dump-before`](#xphases-to-dump-before) compiler option.
 
 ## Kotlin/JS compiler options
 

@@ -1,6 +1,5 @@
 import { expect, test } from '@playwright/test';
 import { WhyTeachPage } from '../../page/teach/why-page';
-import { closeExternalBanners } from '../utils';
 import { checkTeachCta, checkTeachNav } from './utils';
 import { testSelector } from '../../utils';
 
@@ -21,10 +20,9 @@ function toId(label: typeof LIST_OF_SECTION[number][0]) {
 }
 
 test.describe('Why Teach Kotlin page appearance and functionality', async () => {
-    test.beforeEach(async ({ page, context, baseURL }) => {
+    test.beforeEach(async ({ page }) => {
         const whyTeachPage = new WhyTeachPage(page);
         await whyTeachPage.init();
-        await closeExternalBanners(context, page, baseURL);
     });
 
     test('Should load the Why Teach Kotlin page correctly', async ({ page }) => {

@@ -1,20 +1,7 @@
-import { BrowserContext, expect, Locator, Page } from '@playwright/test';
+import { expect, Locator, Page, test } from '@playwright/test';
 import { PageAssertionsToHaveScreenshotOptions } from 'playwright/types/test';
 
 export const testSelector = (name: string) => `[data-test="${name}"]`;
-
-export function isStaging(baseURL: string): boolean {
-    const { hostname } = new URL(baseURL);
-    return hostname !== 'kotlinlang.org';
-}
-
-export const closeCookiesConsentBanner = async (context: BrowserContext, baseURL: string) => {
-    const page = await context.newPage();
-    await page.goto(baseURL);
-    await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
-    await page.click('button.ch2-btn.ch2-btn-primary');
-    await page.close();
-};
 
 const TRANSITION_TIMEOUT = 2000;
 
@@ -39,4 +26,16 @@ export async function checkScreenshot(element: Locator, options?: PageAssertions
         animations: 'disabled',
         ...(options || {})
     });
+}
+
+export function isProduction(baseURL: string | undefined) {
+    try {
+        return Boolean(baseURL) && new URL(baseURL).hostname === 'kotlinlang.org';
+    } catch (error) {
+        return false;
+    }
+}
+
+export function skipNonProduction(message: string) {
+    test.skip(({ baseURL }) => !isProduction(baseURL), message);
 }

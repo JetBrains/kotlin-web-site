@@ -3,8 +3,6 @@ import { test, expect } from '@playwright/test';
 test.describe('Community Kotlin User Groups page', () => {
         test.beforeEach(async ({ page }) => {
             await page.goto('/community/user-groups/');
-            await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
-            await page.click('button.ch2-btn.ch2-btn-primary');
         });
 
         test('Overview in navbar opens the related page', async ({ page }) => {

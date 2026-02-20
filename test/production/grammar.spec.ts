@@ -1,11 +1,7 @@
 import { expect, test } from '@playwright/test';
-import { closeCookiesConsentBanner, isStaging } from '../utils';
 import { GrammarPage } from '../page/grammar-page';
 
 test.describe('Grammar page', () => {
-    test.beforeEach(async ({ context, baseURL }) => {
-        await closeCookiesConsentBanner(context, baseURL);
-    });
 
     test('Grammar page should be accessible', async ({ page }) => {
         const grammar = new GrammarPage(page);

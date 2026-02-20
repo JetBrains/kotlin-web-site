@@ -48,6 +48,7 @@ object E2EProductionTest : BuildType({
 
     features {
         notifications {
+            branchFilter = "+:master"
             enabled = !isProjectPlayground()
             notifierSettings = slackNotifier {
                 connection = "PROJECT_EXT_486"

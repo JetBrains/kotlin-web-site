@@ -4,8 +4,6 @@ import { testSelector } from '../utils';
 test.describe('Solutions tab', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/');
-        await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
-        await page.click('button.ch2-btn.ch2-btn-primary');
         const navbar = page.locator('[data-test="header"]');
         const solutionsButton = navbar.getByText('Solutions');
         await expect(solutionsButton).toBeVisible();

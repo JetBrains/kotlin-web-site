@@ -3,8 +3,6 @@ import { test, expect } from '@playwright/test';
 test.describe('Teach page', () => {
     test.beforeEach(async ({ page }) => {
         await page.goto('/education/');
-        await page.waitForSelector('button.ch2-btn.ch2-btn-primary');
-        await page.click('button.ch2-btn.ch2-btn-primary');
     });
 
     test('Why teach Kotlin button in navbar opens the related page', async ({ page }) => {
