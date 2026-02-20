@@ -422,7 +422,7 @@ the type of function parameters (`x`) in the lambda expression.
 > If a lambda expression is the only function parameter, you can drop the function parentheses `()`:
 > 
 > ```kotlin
-> val negatives = numbers.filter { x -> x > 0 }
+> val negatives = numbers.filter { x -> x < 0 }
 > ```
 > 
 > This is an example of a [trailing lambda](#trailing-lambdas), which is discussed in more detail at the end of this
