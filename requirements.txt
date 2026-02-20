@@ -7,4 +7,4 @@ beautifulsoup4==4.11.1
 xmltodict==0.13.0
 ruamel.yaml==0.17.21
 algoliasearch==1.20.0
-Werkzeug==2.3.8
+Werkzeug==3.1.6
