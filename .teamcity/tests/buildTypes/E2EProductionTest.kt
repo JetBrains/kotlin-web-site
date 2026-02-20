@@ -21,6 +21,7 @@ object E2EProductionTest : BuildType({
 
     triggers {
         schedule {
+            enabled = !isProjectPlayground()
             schedulingPolicy = cron {
                 seconds = "0"
                 minutes = "0"
