@@ -399,7 +399,6 @@ fun main() {
 
     println(positives)
     // [1, 3, 5]
-
     println(negatives)
     // [-2, -4, -6]
     //sampleEnd
