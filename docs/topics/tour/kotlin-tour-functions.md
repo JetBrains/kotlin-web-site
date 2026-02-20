@@ -391,12 +391,12 @@ function on collections:
 fun main() {
     //sampleStart
     val numbers = listOf(1, -2, 3, -4, 5, -6)
-    
-    val positives = numbers.filter ({ x -> x > 0 })
-    
-    val isNegative = { x: Int -> x < 0 }
-    val negatives = numbers.filter(isNegative)
-    
+
+    val isPositive = { x: Int -> x > 0 }
+    val positives = numbers.filter(isPositive)
+
+    val negatives = numbers.filter ({ x -> x < 0 })
+
     println(positives)
     // [1, 3, 5]
     println(negatives)
@@ -413,15 +413,15 @@ The `.filter()` function accepts a lambda expression as a predicate and applies 
 
 This example demonstrates two ways of passing a lambda expression to a function:
 
-* For positive numbers, the example adds the lambda expression directly in the `.filter()` function.
-* For negative numbers, the example assigns the lambda expression to the `isNegative` variable. Then
-the `isNegative` variable is used as a function parameter in the `.filter()` function. In this case, you have to specify
+* For positive numbers, the example assigns the lambda expression to the `isPositive` variable. Then
+the `isPositive` variable is used as a function parameter in the `.filter()` function. In this case, you have to specify
 the type of function parameters (`x`) in the lambda expression.
+* For negative numbers, the example adds the lambda expression directly in the `.filter()` function.
 
 > If a lambda expression is the only function parameter, you can drop the function parentheses `()`:
 > 
 > ```kotlin
-> val positives = numbers.filter { x -> x > 0 }
+> val negatives = numbers.filter { x -> x < 0 }
 > ```
 > 
 > This is an example of a [trailing lambda](#trailing-lambdas), which is discussed in more detail at the end of this
@@ -436,11 +436,12 @@ function to transform items in a collection:
 fun main() {
     //sampleStart
     val numbers = listOf(1, -2, 3, -4, 5, -6)
-    val doubled = numbers.map { x -> x * 2 }
     
-    val isTripled = { x: Int -> x * 3 }
-    val tripled = numbers.map(isTripled)
-    
+    val isDoubled = { x: Int -> x * 2 }
+    val doubled = numbers.map(isDoubled)
+
+    val tripled = numbers.map { x -> x * 3 }
+
     println(doubled)
     // [2, -4, 6, -8, 10, -12]
     println(tripled)
