@@ -411,7 +411,7 @@ The `.filter()` function accepts a lambda expression as a predicate and applies 
 * `{ x -> x > 0 }` returns `true` if the element is positive.
 * `{ x -> x < 0 }` returns `true` if the element is negative.
 
-This example demonstrates two ways of passing a lambda expression to a function:
+This example demonstrates two ways of passing a lambda expression to a function
 
 * For positive numbers, the example assigns the lambda expression to the `isPositive` variable. Then
 the `isPositive` variable is used as a function parameter in the `.filter()` function. In this case, you have to specify
