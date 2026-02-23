@@ -206,6 +206,7 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
   * Eclipse (`org.eclipse.jdt.annotation`)
   * Lombok (`lombok.NonNull`)
   * RxJava 3 (`io.reactivex.rxjava3.annotations`)
+  * [Vert.x](https://vertx.io/) (`io.vertx.codegen.annotations`)
 
 You can specify whether the compiler reports a nullability mismatch based on the information from specific types of 
 nullability annotations. Use the compiler option `-Xnullability-annotations=@<package-name>:<report-level>`. 
@@ -214,8 +215,22 @@ In the argument, specify the fully qualified nullability annotations package and
 * `warn` to report warnings
 * `strict` to report errors.
 
-See the full list of supported nullability annotations in the 
-[Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/compiler.common.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
+See the full list of supported nullability annotations in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/compiler.common.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
+
+### Mutability annotations
+
+You can annotate a Java declaration with a mutability annotation to specify whether a returned collection is read-only or mutable in Kotlin.
+If you assign the value to a collection type with different mutability, the compiler reports a type mismatch.
+The diagnostic severity depends on the specific mutability annotation.
+
+The compiler supports several mutability annotations, including:
+
+* `kotlin.annotations.jvm.ReadOnly`
+* `kotlin.annotations.jvm.Mutable`
+* `org.jetbrains.annotations.Unmodifiable`
+* `org.jetbrains.annotations.UnmodifiableView`
+
+See the full list of supported mutability annotations in the [Kotlin compiler source code](https://github.com/JetBrains/kotlin/blob/master/core/compiler.common.jvm/src/org/jetbrains/kotlin/load/java/JvmAnnotationNames.kt).
 
 ### Annotating type arguments and type parameters
 
