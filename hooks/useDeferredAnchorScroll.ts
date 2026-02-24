@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 // Strip the hash early (module-level, runs before any render/scroll)
 // so the browser doesn't attempt its native scroll-to-anchor.
-const savedHash =
+let savedHash =
     typeof window !== 'undefined' && window.location.hash ? window.location.hash : '';
 if (savedHash) {
     history.replaceState(null, '', window.location.pathname + window.location.search);
@@ -24,6 +24,7 @@ export function useDeferredAnchorScroll(isLayoutReady: boolean) {
 
         // Restore the hash silently (without triggering the browser scroll)
         history.replaceState(null, '', savedHash);
+        savedHash = '';
         markTargetElement();
         scrollToTargetElement();
         hasScrolledToAnchor.current = true;
