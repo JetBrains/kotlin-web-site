@@ -326,8 +326,8 @@ nullability annotations support the `TYPE_USE` target (`org.jetbrains.annotation
 ### JSpecify support
 
 Kotlin supports the [JSpecify](https://jspecify.dev/) nullability annotations, which provide a unified set of annotations
-for Java nullness. JSpecify allows you to provide detailed nullability information for Java declarations,
-helping Kotlin maintain null-safety when interoperating with Java code.
+for Java nullability. JSpecify allows you to provide detailed nullability information for Java declarations,
+helping Kotlin maintain null-safety when working with Java code.
 
 Kotlin supports the following annotations in the `org.jspecify.annotations` package:
 
@@ -336,10 +336,10 @@ Kotlin supports the following annotations in the `org.jspecify.annotations` pack
 * `@NullMarked` marks all types within a scope, for example a class or package, as non-nullable by default unless annotated
   otherwise.
 
-  This does not apply to local variables and [type variables (generics)](https://jspecify.dev/docs/user-guide/#using-type-variables-in-generic-types).
-  Type variables remain "null-agnostic" until a specific nullable or non-nullable type is provided later.
+  This annotation doesn't apply to local variables and [type variables (generics)](https://jspecify.dev/docs/user-guide/#using-type-variables-in-generic-types).
+  Type variables remain "null-agnostic" until a specific nullable or non-nullable type is provided.
 
-* `@NullUnmarked` reverses the effect of `@NullMarked`, making all types within the scope [platform types](#null-safety-and-platform-types)
+* `@NullUnmarked` reverses the effect of `@NullMarked`, making all types within the scope [platform types](#null-safety-and-platform-types).
   again.
 
 Consider the following Java class with JSpecify annotations:
@@ -361,7 +361,7 @@ In Kotlin, these are treated as regular nullable and non-nullable types rather t
 // Kotlin
 fun test(inventory: InventoryService) {
    inventory.notNull().length // OK
-   inventory.nullable().length // Error: only safe (?.) or non-null asserted (!!.) calls are allowed
+   inventory.nullable().length // Error: only safe (?.) or non-null asserted (!!) calls are allowed
 }
 ```
 
