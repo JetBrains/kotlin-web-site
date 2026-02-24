@@ -38,8 +38,9 @@ export class CaseStudiesPage implements PageWithGlobalSearch {
         this.gridItem = this.gridBlock.getByTestId('case-studies-card');
     }
 
-    async init() {
-        await this.page.goto('/case-studies/');
+    async init(caseId? : string) {
+        const hash = caseId ? `#${caseId}` : '';
+        await this.page.goto(`/case-studies/${hash}`);
         await this.layout.waitFor();
     }
 

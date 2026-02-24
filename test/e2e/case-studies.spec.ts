@@ -70,4 +70,17 @@ test.describe('Case-studies landing page', async () => {
 
         expect(page.url()).toContain('type=server-side');
     });
+
+
+    test('Case-studies: should show the case card in the viewport when opening the page with anchor link', async ({ page }) => {
+        const caseStudiesPage = new CaseStudiesPage(page);
+        await caseStudiesPage.init();
+
+        const lastCaseCardId = await caseStudiesPage.gridItem.last().getAttribute('id');
+
+        await caseStudiesPage.init(lastCaseCardId);
+
+        const lastCard = caseStudiesPage.gridBlock.locator(`#${lastCaseCardId}`).first();
+        await expect(lastCard).toBeInViewport();
+    });
 });
