@@ -20,14 +20,35 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
 2. In the `<build><plugins>` section, add the Kotlin Maven plugin:
 
    ```xml
+   <build>
+       <plugins>
+           <plugin>
+               <groupId>org.jetbrains.kotlin</groupId>
+               <artifactId>kotlin-maven-plugin</artifactId>
+               <version>${kotlin.version}</version>
+           </plugin>
+       </plugins>
+   </build>
+   ```
+   
+3. <anchor name="extension"/>(Optional) You can also enable the extension in the Kotlin Maven plugin that simplifies project configuration.
+   To do that, update the Kotlin Maven plugin section in your `pom.xml` file:
+
+   ```xml
    <plugins>
        <plugin>
-           <artifactId>kotlin-maven-plugin</artifactId>
            <groupId>org.jetbrains.kotlin</groupId>
+           <artifactId>kotlin-maven-plugin</artifactId>
            <version>${kotlin.version}</version>
+           <extensions>true</extensions> <!-- Add this extension  -->
        </plugin>
    </plugins>
    ```
+   
+   This extension automatically:
+   
+   * Adds the `kotlin-stdlib` dependency unless it's already defined. You can also [opt out](#dependency-on-the-standard-library) of the automatic addition of the standard library.
+   * Creates `src/main/kotlin` and `src/test/kotlin` directories without changing existing Kotlin or Java source roots.
 
 ### Use JDK 17
 
@@ -73,8 +94,21 @@ To add a dependency on a library, include it in the `<dependencies>` section:
 
 ### Dependency on the standard library
 
-Kotlin has an extensive standard library that you can use in your applications.
-To use the standard library in your project, add the following dependency to your `pom.xml` file:
+Kotlin has an extensive standard library that you can use in your applications. The Kotlin Maven plugin provides an [extension](#extension)
+that automatically adds the `kotlin-stdlib` dependency when you create a new Kotlin project with the Maven build system or
+introduce Kotlin to your existing Java Maven project.
+
+You can also opt out of the automatic addition of Kotlin's standard library. For that, add the following to the `<properties>` section:
+
+```xml
+<project>
+    <properties>
+        <kotlin.smart.defaults.enabled>false</kotlin.smart.defaults.enabled>         
+    </properties>
+</project>
+```
+
+To manually add the Kotlin's standard library to your project, add the following dependency to your `pom.xml` file:
 
 ```xml
 <dependencies>
