@@ -263,7 +263,7 @@ class CachedStringDelegate {
         } else {
             println("Accessed from cache: $cachedValue")
         }
-        return cachedValue ?: "Unknown"
+        return cachedValue
     }
 }
 
