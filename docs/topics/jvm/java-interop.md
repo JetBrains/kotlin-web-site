@@ -207,8 +207,7 @@ Kotlin types. The compiler supports several flavors of nullability annotations, 
   * [Lombok](lombok.md) (`lombok.NonNull`)
   * RxJava 3 (`io.reactivex.rxjava3.annotations`)
 
-You can instruct the compiler to report a nullability mismatch based on the information from specific types of 
-nullability annotations with the following compiler option:
+You can instruct the compiler to report nullability mismatches for specific nullability annotations with the following compiler option:
 
 ```bash
 -Xnullability-annotations=@<package-name>:<report-level>
@@ -220,8 +219,8 @@ Specify the package name for the fully qualified nullability annotations and one
 * `warn` to report warnings
 * `strict` to report errors.
 
-> [JSpecify](#jspecify-support) is the recommended choice for nullability annotations because it's the only
-> supported flavor that uses `strict` report level by default.
+> [JSpecify](#jspecify-support) is the only supported flavor that uses `strict` report level by default.
+> Use it to report errors on nullability annotations without additional configuration.
 >
 {style="note"}
 
@@ -339,8 +338,7 @@ Kotlin supports the following annotations in the `org.jspecify.annotations` pack
   This annotation doesn't apply to local variables and [type variables (generics)](https://jspecify.dev/docs/user-guide/#using-type-variables-in-generic-types).
   Type variables remain "null-agnostic" until a specific nullable or non-nullable type is provided.
 
-* `@NullUnmarked` reverses the effect of `@NullMarked`, making all types within the scope [platform types](#null-safety-and-platform-types).
-  again.
+* `@NullUnmarked` reverses the effect of `@NullMarked`, making all types within the scope as [platform types](#null-safety-and-platform-types).
 
 Consider the following Java class with JSpecify annotations:
  
