@@ -241,15 +241,14 @@ class CachedStringDelegate {
         } else {
             println("Accessed from cache: $cachedValue")
         }
-        return cachedValue ?: "Unknown"
+        return cachedValue
     }
 }
 ```
 
 The `getValue()` function checks whether the `cachedValue` property is `null`. If it is, the function assigns the
 `"Default value"` and prints a string for logging purposes. If the `cachedValue` property has already been computed, the
-property isn't `null`. In this case, another string is printed for logging purposes. Finally, the function uses the Elvis
-operator to return the cached value or `"Unknown"` if the value is `null`.
+property isn't `null`. In this case, another string is printed for logging purposes. Finally, the function returns the `cachedValue`.
 
 Now you can delegate the property that you want to cache (`val displayName`) to an instance of the `CachedStringDelegate` class:
 
