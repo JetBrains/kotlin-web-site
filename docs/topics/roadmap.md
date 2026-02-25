@@ -112,7 +112,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
             </list>
             <p><b>Ktor:</b></p>
             <list>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-6622" target="_blank">Improve authentication in Ktor</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KTOR-9266" target="_blank">Improve authentication in Ktor</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTOR-7938" target="_blank">Support HTTP/3</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTOR-6026" target="_blank">Create Kubernetes Generator plugin</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KTOR-1501" target="_blank">Add gRPC support to Ktor with a generator plugin and tutorial</a></li>
@@ -155,7 +155,7 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Ecosystem: [Introduce default warnings/errors for Kotlin functions that return non-unit values that are unused](https://youtrack.jetbrains.com/issue/KT-12719)
 * ✅ Ecosystem: [Support OpenAPI specification for the Ktor Client and Server application](https://youtrack.jetbrains.com/issue/KTOR-8316)
 * ✅ Ecosystem: [WebRTC Client](https://youtrack.jetbrains.com/issue/KTOR-7958)
-* ✅ Ecosystem: [Make dependency injection usage simple](https://youtrack.jetbrains.com/issue/KTOR-7958)
+* ✅ Ecosystem: [Make dependency injection usage simple](https://youtrack.jetbrains.com/issue/KTOR-6621)
 * ✅ Ecosystem: [Release 1.0.0](https://youtrack.jetbrains.com/issue/EXPOSED-444)
 * ✅ Ecosystem: [Add R2DBC Support](https://youtrack.jetbrains.com/issue/EXPOSED-74)
 
@@ -182,15 +182,15 @@ We've **added** the following items to the roadmap:
 * 🆕 Ecosystem: Stabilize the experimental `kotlinx.serialization` API
 * 🆕 Ecosystem: Stabilize `kotlinx.collections.immutable`
 * 🆕 Ecosystem: Improve the Lombok compiler plugin experience with Kotlin for server-side
-* 🆕 Ecosystem: [Improve Auth in Ktor](https://youtrack.jetbrains.com/issue/KTOR-9266)
-* 🆕 Ecosystem: [Exposed DAO 2.0](https://youtrack.jetbrains.com/issue/EXPOSED-778)
+* 🆕 Ecosystem: [Improve authentication in Ktor](https://youtrack.jetbrains.com/issue/KTOR-9266)
+* 🆕 Ecosystem: [Release Exposed DAO 2.0](https://youtrack.jetbrains.com/issue/EXPOSED-778)
 * 🆕 Ecosystem: [Create a migration Gradle plugin](https://youtrack.jetbrains.com/issue/EXPOSED-755)
 
 ### Removed items
 
 We've **removed** the following item from the roadmap:
 
-* ❌ Compiler: [Kotlin/Wasm: Prototype multithreading support using the new threads proposal ](https://youtrack.jetbrains.com/issue/KT-80304)
+* ❌ Compiler: [Kotlin/Wasm: Prototype multithreading support using the new threads proposal](https://youtrack.jetbrains.com/issue/KT-80304)
 
 > Some items were removed from the roadmap but not dropped completely. In some cases, we've merged previous roadmap items
 > with the current ones.
