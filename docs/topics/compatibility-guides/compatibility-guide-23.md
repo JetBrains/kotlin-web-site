@@ -743,9 +743,9 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: In Kotlin 2.3.20, the `kotlin.publishJvmEnvironmentAttribute` property was deprecated.
+> **Short summary**: In Kotlin 2.3.20, the `kotlin.publishJvmEnvironmentAttribute` property is deprecated.
 > This property allowed disabling the publication of the `org.gradle.jvm.environment` attribute for multiplatform libraries.
-> Since Kotlin 2.0.20, `org.gradle.jvm.environment` is published by default to ensure conventional dependency resolution.
+> Starting with Kotlin 2.0.20, `org.gradle.jvm.environment` is published by default to ensure conventional dependency resolution.
 >
 > **Deprecation cycle**:
 >
