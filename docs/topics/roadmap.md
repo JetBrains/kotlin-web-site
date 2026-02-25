@@ -49,7 +49,6 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Compiler</strong></td>
         <td>
             <list>
-                <li>🆕 Kotlin/JS: Stabilize ES2020 target and make it the default</li>
                 <li>🆕 Kotlin/Wasm: Support multi-module compilation</li>
                 <li>🆕 Stabilize overload resolution by lambda return type</li>
                 <li>🆕 Support K2 multiplatform incremental compilation of common code</li>
@@ -164,7 +163,6 @@ We've **completed** the following items from the previous roadmap:
 
 We've **added** the following items to the roadmap:
 
-* 🆕 Compiler: Kotlin/JS: Stabilize ES2020 target and make it the default
 * 🆕 Compiler: Kotlin/Wasm: Support multi-module compilation
 * 🆕 Compiler: Kotlin/Wasm: Switch the `wasm-wasi `target of libraries to WASI Preview 2
 * 🆕 Compiler: Stabilize overload resolution by lambda return type
