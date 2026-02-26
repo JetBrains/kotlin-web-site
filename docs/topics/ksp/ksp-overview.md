@@ -15,8 +15,8 @@ Typical use cases for KSP-based plugins include dependency injection ([Dagger](h
 serialization ([Moshi](https://github.com/square/moshi)), and database management 
 ([Room](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02)).
 
-Read on to learn more about how KSP works. If you want to get started creating your first KSP-based processor, 
-visit the [Quickstart guide](ksp-quickstart.md).
+To learn how to create your first KSP-based processor, 
+see the [KSP quickstart](ksp-quickstart.md).
 
 
 ## Overview
