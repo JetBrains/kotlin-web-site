@@ -106,6 +106,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71297" target="_blank">Improve Kotlin distribution UX: Add code coverage and binary compatibility validation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71298" target="_blank">New multiplatform API for the standard library: Support for Unicode and codepoints</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71300" target="_blank">Stabilize the <code>kotlinx-io</code> library</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-12719" target="_blank">Introduce default warnings/errors for Kotlin functions that return non-unit values that are unused</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-80324" target="_blank">Stabilize Kotlin Notebooks</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-80327" target="_blank">Release Kotlin DataFrame 1.0</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-80328" target="_blank">Release Kandy 0.9</a></li>
@@ -152,7 +153,6 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Tooling: [Add NPM publishing for JS/Wasm artifacts](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.npm-publish)
 * ✅ Tooling: [IntelliJ IDEA K2 mode complete release](https://youtrack.jetbrains.com/issue/KTIJ-31316)
 * ✅ Tooling: [Improve import performance](https://youtrack.jetbrains.com/issue/KT-75376)
-* ✅ Ecosystem: [Introduce default warnings/errors for Kotlin functions that return non-unit values that are unused](https://youtrack.jetbrains.com/issue/KT-12719)
 * ✅ Ecosystem: [Support OpenAPI specification for the Ktor Client and Server application](https://youtrack.jetbrains.com/issue/KTOR-8316)
 * ✅ Ecosystem: [Ktor WebRTC Client](https://youtrack.jetbrains.com/issue/KTOR-7958)
 * ✅ Ecosystem: [Make dependency injection usage in Ktor simple](https://youtrack.jetbrains.com/issue/KTOR-6621)
