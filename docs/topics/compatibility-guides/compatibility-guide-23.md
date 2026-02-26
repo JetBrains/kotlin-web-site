@@ -1,4 +1,4 @@
-[//]: # (title: Compatibility guide for Kotlin 2.3)
+[//]: # (title: Compatibility guide for Kotlin 2.3.x)
 
 _[Keeping the Language Modern](kotlin-evolution-principles.md)_ and _[Comfortable Updates](kotlin-evolution-principles.md)_ are among the fundamental principles in
 Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed, and the
@@ -751,6 +751,23 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Migration advice**:
 > * To register generated sources, use the [`generatedKotlin`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/generated-kotlin.html) property.
 > * To access all sources, including non-generated sources, use the [`allKotlinSources`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/all-kotlin-sources.html) property.
+
+### Deprecate `kotlin.publishJvmEnvironmentAttribute` property
+
+> **Issue**: [KT-83678](https://youtrack.jetbrains.com/issue/KT-83678)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: In Kotlin 2.3.20, the `kotlin.publishJvmEnvironmentAttribute` property is deprecated.
+> This property allowed disabling the publication of the `org.gradle.jvm.environment` attribute for multiplatform libraries.
+> Starting with Kotlin 2.0.20, `org.gradle.jvm.environment` is published by default to ensure conventional dependency resolution.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+> - 2.4.0: remove the property
 
 ## Build tool removal
 
