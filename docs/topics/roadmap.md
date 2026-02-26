@@ -19,7 +19,7 @@ The goal of this roadmap is to give you the big picture.
 Here's a list of our key focus areas – the most important directions we are focused on delivering:
 
 * **Language evolution**: keep Kotlin concise and expressive, prioritizing meaningful semantics over ceremony.
-* **Multiplatform**: become the foundation for modern multiplatform apps through a solid iOS experience,
+* **Multiplatform**: become the foundation for modern cross-platform apps through a solid iOS experience,
   mature web targets, and reliable IDE tooling.
 * **Staying agnostic**: support developers no matter their tools or targets.
 * **Ecosystem support**: simplify the development and publication process for Kotlin libraries, tools, and frameworks.
@@ -64,9 +64,9 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td>
             <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-80305" target="_blank">Swift Export: Alpha release</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84569" target="_blank">Implement new <code>TextInputService</code> on iOS</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84569" target="_blank">Implement new <code>TextInputService</code> on iOS for Compose Multiplatform</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84570" target="_blank">Swift 6.3 support</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84571" target="_blank">Stabilize Navigation3</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84571" target="_blank">Stabilize Navigation3 for Compose Multiplatform</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-68323" target="_blank">Implement the next generation distribution format of multiplatform libraries</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64570" target="_blank">Unify inline semantics between stable Kotlin targets</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-80307" target="_blank">Kotlin/JS: Improve onboarding materials for Kotlin/JS</a></li> 
@@ -82,7 +82,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td>
             <list>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84572" target="_blank">Kotlin/Native debugger health and performance improvements</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84573" target="_blank">Smart Defaults for Kotlin on Maven (Mixed Java + Kotlin)</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84573" target="_blank">Smart defaults for Kotlin on Maven (mixed Java + Kotlin)</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-53877" target="_blank">Support for importing Swift Package Manager packages in Kotlin</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-66897" target="_blank">Replace Karma runner with a not-deprecated alternative</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49511" target="_blank">Improve Kotlin scripting and experience with <code>.gradle.kts</code></a></li>
@@ -154,10 +154,10 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Tooling: [Improve import performance](https://youtrack.jetbrains.com/issue/KT-75376)
 * ✅ Ecosystem: [Introduce default warnings/errors for Kotlin functions that return non-unit values that are unused](https://youtrack.jetbrains.com/issue/KT-12719)
 * ✅ Ecosystem: [Support OpenAPI specification for the Ktor Client and Server application](https://youtrack.jetbrains.com/issue/KTOR-8316)
-* ✅ Ecosystem: [WebRTC Client](https://youtrack.jetbrains.com/issue/KTOR-7958)
-* ✅ Ecosystem: [Make dependency injection usage simple](https://youtrack.jetbrains.com/issue/KTOR-6621)
-* ✅ Ecosystem: [Release 1.0.0](https://youtrack.jetbrains.com/issue/EXPOSED-444)
-* ✅ Ecosystem: [Add R2DBC Support](https://youtrack.jetbrains.com/issue/EXPOSED-74)
+* ✅ Ecosystem: [Ktor WebRTC Client](https://youtrack.jetbrains.com/issue/KTOR-7958)
+* ✅ Ecosystem: [Make dependency injection usage in Ktor simple](https://youtrack.jetbrains.com/issue/KTOR-6621)
+* ✅ Ecosystem: [Release Exposed 1.0.0](https://youtrack.jetbrains.com/issue/EXPOSED-444)
+* ✅ Ecosystem: [Add R2DBC support to Exposed](https://youtrack.jetbrains.com/issue/EXPOSED-74)
 
 ### New items
 
@@ -171,11 +171,11 @@ We've **added** the following items to the roadmap:
 * 🆕 Compiler: [Evolve the Power-assert plugin](https://youtrack.jetbrains.com/issue/KT-84568)
 * 🆕 Compiler: [Kotlin/Wasm: Support Component Model](https://youtrack.jetbrains.com/issue/KT-64569)
 * 🆕 Multiplatform: [Swift Export: Alpha release](https://youtrack.jetbrains.com/issue/KT-80305)
-* 🆕 Multiplatform: [Implement new `TextInputService` on iOS](https://youtrack.jetbrains.com/issue/KT-84569)
+* 🆕 Multiplatform: [Implement new `TextInputService` on iOS for Compose Multiplatform](https://youtrack.jetbrains.com/issue/KT-84569)
 * 🆕 Multiplatform: [Swift 6.3 support](https://youtrack.jetbrains.com/issue/KT-84570)
-* 🆕 Multiplatform: [Stabilize Navigation3](https://youtrack.jetbrains.com/issue/KT-84571)
+* 🆕 Multiplatform: [Stabilize Navigation3 for Compose Multiplatform](https://youtrack.jetbrains.com/issue/KT-84571)
 * 🆕 Tooling: [Kotlin/Native debugger health and performance improvements](https://youtrack.jetbrains.com/issue/KT-84572)
-* 🆕 Tooling: [Smart Defaults for Kotlin on Maven (Mixed Java + Kotlin)](https://youtrack.jetbrains.com/issue/KT-84573)
+* 🆕 Tooling: [Smart defaults for Kotlin on Maven (mixed Java + Kotlin)](https://youtrack.jetbrains.com/issue/KT-84573)
 * 🆕 Tooling: [Support for importing Swift Package Manager packages in Kotlin](https://youtrack.jetbrains.com/issue/KT-53877)
 * 🆕 Tooling: [Replace Karma runner with a not-deprecated alternative](https://youtrack.jetbrains.com/issue/KT-66897)
 * 🆕 Ecosystem: [Introduce 18-month support window for security fixes in the standard library](https://youtrack.jetbrains.com/issue/KT-83525)
@@ -184,7 +184,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Ecosystem: [Improve the Lombok compiler plugin experience with Kotlin for server-side](https://youtrack.jetbrains.com/issue/KT-84576)
 * 🆕 Ecosystem: [Improve authentication in Ktor](https://youtrack.jetbrains.com/issue/KTOR-9266)
 * 🆕 Ecosystem: [Release Exposed DAO 2.0](https://youtrack.jetbrains.com/issue/EXPOSED-778)
-* 🆕 Ecosystem: [Create a migration Gradle plugin](https://youtrack.jetbrains.com/issue/EXPOSED-755)
+* 🆕 Ecosystem: [Create a migration Gradle plugin for Exposed](https://youtrack.jetbrains.com/issue/EXPOSED-755)
 
 ### Removed items
 
