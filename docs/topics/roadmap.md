@@ -49,13 +49,13 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
         <td><strong>Compiler</strong></td>
         <td>
             <list>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-82064" target="_blank">Kotlin/Wasm: Support multi-module compilation</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-51107" target="_blank">Stabilize overload resolution by lambda return type</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84567" target="_blank">Support K2 multiplatform incremental compilation of common code</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75463" target="_blank">New JVM reflection: Investigation, prototype and implementation </a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84568" target="_blank">Evolve the Power-assert plugin</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64568" target="_blank">Kotlin/Wasm: Switch the <code>wasm-wasi</code> target of libraries to WASI Preview 2</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64569" target="_blank">Kotlin/Wasm: Support Component Model</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-82064" target="_blank">Kotlin/Wasm: Support multi-module compilation</a></li>
             </list>
         </td>
     </tr>
@@ -88,7 +88,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49511" target="_blank">Improve Kotlin scripting and experience with <code>.gradle.kts</code></a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-80311" target="_blank">Support Kotlin JS\Wasm in Gradle project isolation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-76255" target="_blank">Design the Build tools API</a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-71292" target="_blank">Release Kotlin Ecosystem Plugin supporting Declarative Gradle</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-71292" target="_blank">Release Kotlin ecosystem plugin supporting declarative Gradle</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-80322" target="_blank">Support Kotlin LSP and VS Code</a></li>
             </list>
          </td>
