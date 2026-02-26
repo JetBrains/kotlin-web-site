@@ -7,7 +7,7 @@ the creation of processors that generate code based on annotations in the source
 > 
 {style="tip"}
 
-KSP aims to be simple. Compiler changes are hidden behind a well-defined API, minimizing maintenance efforts for 
+KSP aims to be simple. Compiler changes are hidden behind a well-defined API, which minimizes maintenance work for the
 processors that use it. This simplicity requires some trade-offs. For example, KSP-based processors cannot examine 
 expressions or statements, and they can't modify the source code.
 
