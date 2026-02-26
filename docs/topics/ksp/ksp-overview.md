@@ -9,7 +9,7 @@ the creation of processors that generate code based on annotations in the source
 
 KSP aims to be simple. Compiler changes are hidden behind a well-defined API, minimizing maintenance efforts for 
 processors that use it. This simplicity requires some trade-offs. For example, KSP-based processors cannot examine 
-expressions or statements, and they cannot modify the source code.
+expressions or statements, and they can't modify the source code.
 
 Typical use cases for KSP-based plugins include dependency injection ([Dagger](https://dagger.dev/dev-guide/ksp)), 
 serialization ([Moshi](https://github.com/square/moshi)), and database management 
