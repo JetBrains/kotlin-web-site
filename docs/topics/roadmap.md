@@ -54,7 +54,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-75463" target="_blank">New JVM reflection: Investigation, prototype and implementation </a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84568" target="_blank">Evolve the Power-assert plugin</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64568" target="_blank">Kotlin/Wasm: Switch the <code>wasm-wasi</code> target of libraries to WASI Preview 2</a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64569" target="_blank">Kotlin/Wasm: Support Component Model</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-64569" target="_blank">Kotlin/Wasm: Support the Component Model</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-82064" target="_blank">Kotlin/Wasm: Support multi-module compilation</a></li>
             </list>
         </td>
@@ -86,7 +86,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-53877" target="_blank">Support for importing Swift Package Manager packages in Kotlin</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-66897" target="_blank">Replace Karma runner with a not-deprecated alternative</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-49511" target="_blank">Improve Kotlin scripting and experience with <code>.gradle.kts</code></a></li>
-                <li><a href="https://youtrack.jetbrains.com/issue/KT-80311" target="_blank">Support Kotlin JS\Wasm in Gradle project isolation</a></li>
+                <li><a href="https://youtrack.jetbrains.com/issue/KT-80311" target="_blank">Support Kotlin/JS and Kotlin/Wasm in Gradle project isolation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-76255" target="_blank">Design the Build tools API</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71292" target="_blank">Release Kotlin ecosystem plugin supporting declarative Gradle</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-80322" target="_blank">Support Kotlin LSP and VS Code</a></li>
@@ -100,7 +100,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-83525" target="_blank">Introduce 18-month support window for security fixes in the standard library</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84574" target="_blank">Stabilize the experimental <code>kotlinx.serialization</code> API</a></li>
                 <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84575" target="_blank">Stabilize <code>kotlinx.collections.immutable</code></a></li>
-                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84576" target="_blank">Improve the Lombok compiler plugin experience with Kotlin for server-side</a></li>
+                <li>🆕 <a href="https://youtrack.jetbrains.com/issue/KT-84576" target="_blank">Improve the Lombok compiler plugin experience with Kotlin for server side</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-64578" target="_blank">Promote <code>kotlinx-datetime</code> to Beta</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-80323" target="_blank">Implement KDoc machine-readable representation</a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71297" target="_blank">Improve Kotlin distribution UX: Add code coverage and binary compatibility validation</a></li>
@@ -154,7 +154,7 @@ We've **completed** the following items from the previous roadmap:
 * ✅ Tooling: [IntelliJ IDEA K2 mode complete release](https://youtrack.jetbrains.com/issue/KTIJ-31316)
 * ✅ Tooling: [Improve import performance](https://youtrack.jetbrains.com/issue/KT-75376)
 * ✅ Ecosystem: [Support OpenAPI specification for the Ktor Client and Server application](https://youtrack.jetbrains.com/issue/KTOR-8316)
-* ✅ Ecosystem: [Ktor WebRTC Client](https://youtrack.jetbrains.com/issue/KTOR-7958)
+* ✅ Ecosystem: [Ktor WebRTC client](https://youtrack.jetbrains.com/issue/KTOR-7958)
 * ✅ Ecosystem: [Make dependency injection usage in Ktor simple](https://youtrack.jetbrains.com/issue/KTOR-6621)
 * ✅ Ecosystem: [Release Exposed 1.0.0](https://youtrack.jetbrains.com/issue/EXPOSED-444)
 * ✅ Ecosystem: [Add R2DBC support to Exposed](https://youtrack.jetbrains.com/issue/EXPOSED-74)
@@ -164,12 +164,12 @@ We've **completed** the following items from the previous roadmap:
 We've **added** the following items to the roadmap:
 
 * 🆕 Compiler: [Kotlin/Wasm: Support multi-module compilation](https://youtrack.jetbrains.com/issue/KT-82064)
-* 🆕 Compiler: [Kotlin/Wasm: Switch the `wasm-wasi `target of libraries to WASI Preview 2](https://youtrack.jetbrains.com/issue/KT-64568)
+* 🆕 Compiler: [Kotlin/Wasm: Switch the `wasm-wasi` target of libraries to WASI Preview 2](https://youtrack.jetbrains.com/issue/KT-64568)
+* 🆕 Compiler: [Kotlin/Wasm: Support the Component Model](https://youtrack.jetbrains.com/issue/KT-64569)
 * 🆕 Compiler: [Stabilize overload resolution by lambda return type](https://youtrack.jetbrains.com/issue/KT-51107)
 * 🆕 Compiler: [Support K2 multiplatform incremental compilation of common code](https://youtrack.jetbrains.com/issue/KT-84567)
 * 🆕 Compiler: [New JVM reflection: Investigation, prototype and implementation](https://youtrack.jetbrains.com/issue/KT-75463)
 * 🆕 Compiler: [Evolve the Power-assert plugin](https://youtrack.jetbrains.com/issue/KT-84568)
-* 🆕 Compiler: [Kotlin/Wasm: Support Component Model](https://youtrack.jetbrains.com/issue/KT-64569)
 * 🆕 Multiplatform: [Swift Export: Alpha release](https://youtrack.jetbrains.com/issue/KT-80305)
 * 🆕 Multiplatform: [Implement new `TextInputService` on iOS for Compose Multiplatform](https://youtrack.jetbrains.com/issue/KT-84569)
 * 🆕 Multiplatform: [Swift 6.3 support](https://youtrack.jetbrains.com/issue/KT-84570)
@@ -181,7 +181,7 @@ We've **added** the following items to the roadmap:
 * 🆕 Ecosystem: [Introduce 18-month support window for security fixes in the standard library](https://youtrack.jetbrains.com/issue/KT-83525)
 * 🆕 Ecosystem: [Stabilize the experimental `kotlinx.serialization` API](https://youtrack.jetbrains.com/issue/KT-84574)
 * 🆕 Ecosystem: [Stabilize `kotlinx.collections.immutable`](https://youtrack.jetbrains.com/issue/KT-84575)
-* 🆕 Ecosystem: [Improve the Lombok compiler plugin experience with Kotlin for server-side](https://youtrack.jetbrains.com/issue/KT-84576)
+* 🆕 Ecosystem: [Improve the Lombok compiler plugin experience with Kotlin for server side](https://youtrack.jetbrains.com/issue/KT-84576)
 * 🆕 Ecosystem: [Improve authentication in Ktor](https://youtrack.jetbrains.com/issue/KTOR-9266)
 * 🆕 Ecosystem: [Release Exposed DAO 2.0](https://youtrack.jetbrains.com/issue/EXPOSED-778)
 * 🆕 Ecosystem: [Create a migration Gradle plugin for Exposed](https://youtrack.jetbrains.com/issue/EXPOSED-755)
