@@ -74,7 +74,7 @@ Visit the [roadmap board in our issue tracker YouTrack](https://youtrack.jetbrai
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-80310" target="_blank">Kotlin/JS: Extend possibilities for exporting Kotlin declarations to JavaScript </a></li>
                 <li><a href="https://youtrack.jetbrains.com/issue/KT-71279" target="_blank">Enable incremental compilation of klib artifacts by default</a></li>
             </list>
-            <!--<tip><p><a href="https://jb.gg/kmp-roadmap-2025" target="_blank">Kotlin Multiplatform development roadmap</a></p></tip>-->
+            <tip><p><a href="https://jb.gg/kmp-roadmap-2025" target="_blank">Kotlin Multiplatform development roadmap</a></p></tip>
          </td>
     </tr>
     <tr id="tooling">
