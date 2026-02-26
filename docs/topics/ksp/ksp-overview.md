@@ -10,7 +10,7 @@ For example, KSP-based processors can't examine expressions or statements, and t
 Typical use cases for KSP-based plugins include: 
 * Dependency injection ([Dagger](https://dagger.dev/dev-guide/ksp))
 * Serialization ([Moshi](https://github.com/square/moshi))
-* Database management ([Room](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02)).
+* Database management ([Room](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02))
 
 To learn how to create your first KSP-based processor, see the [KSP quickstart](ksp-quickstart.md).
 
