@@ -1,7 +1,7 @@
 [//]: # (title: Kotlin Symbol Processing API)
 
-Kotlin Symbol Processing (KSP) is a source code generation framework for Kotlin. The KSP API allows you to create 
-processors that generate code based on [annotations](annotations.md) in the source code.
+Kotlin Symbol Processing (KSP) is a source code generation framework for Kotlin. With the KSP API, you can create 
+processors that generate code based on [annotations](annotations.md) in your source code.
 
 KSP aims to simplify the creation of lightweight compiler plugins. Compiler changes are hidden behind a well-defined 
 API, which minimizes maintenance work for the processors that use it. However, this simplicity comes with trade-offs. 
