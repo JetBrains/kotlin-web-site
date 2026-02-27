@@ -22,7 +22,7 @@ services:
     working_dir: /var/www
     volumes:
       - .:/var/www
-    command: sh -c "yarn install --immutable && yarn run test:ci"
+    command: sh -c "yarn install --immutable && yarn test"
     depends_on:
       reverse-proxy:
         condition: service_healthy
