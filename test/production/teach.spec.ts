@@ -5,18 +5,18 @@ test.describe('Teach page', () => {
         await page.goto('/education/');
     });
 
-    test('Why teach Kotlin button in navbar opens the related page', async ({ page }) => {
+    test('Why teach Kotlin button in navbar opens the related page', async ({ page, baseURL }) => {
         const whyTeachKotlinButton = page.getByRole('link', { name: 'Why Teach Kotlin' }).first();
         await expect(whyTeachKotlinButton).toBeVisible();
         await whyTeachKotlinButton.click();
-        await expect(page.url()).toContain('/education/why-teach-kotlin/');
+        expect(page.url()).toContain(`${baseURL}/education/why-teach-kotlin/`);
     });
 
-    test('List of courses button in navbar opens the related page', async ({ page }) => {
+    test('List of courses button in navbar opens the related page', async ({ page, baseURL }) => {
         const listOfCoursesButton = page.getByRole('link', { name: 'List of Courses' });
         await expect(listOfCoursesButton).toBeVisible();
         await listOfCoursesButton.click();
-        await expect(page.url()).toContain('/education/courses/');
+        expect(page.url()).toContain(`${baseURL}/education/courses/`);
     });
 
     test('Join Educators button in navbar opens the related page', async ({ page, context }) => {
@@ -26,7 +26,7 @@ test.describe('Teach page', () => {
         await joinEducatorsButton.click();
         const newPage = await newPagePromise;
         await newPage.waitForLoadState();
-        await expect(newPage.url()).toContain('https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators');
+        expect(newPage.url()).toContain('https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators');
     });
 
     test('Download all materials button opens the related page', async ({ page, context }) => {
@@ -36,7 +36,7 @@ test.describe('Teach page', () => {
         await downloadMaterialsButton.click();
         const newPage = await newPagePromise;
         await newPage.waitForLoadState();
-        await expect(newPage.url()).toContain('https://drive.google.com/drive/folders/1nN3LuyEfmBaSDZpnb4VA9kDuLakmVXH1');
+        expect(newPage.url()).toContain('https://drive.google.com/drive/folders/1nN3LuyEfmBaSDZpnb4VA9kDuLakmVXH1');
     });
 
     test('Join Educators button in context opens the related page', async ({ page, context }) => {
@@ -46,21 +46,21 @@ test.describe('Teach page', () => {
         await joinEducatorsButton.click();
         const newPage = await newPagePromise;
         await newPage.waitForLoadState();
-        await expect(newPage.url()).toContain('https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators');
+        expect(newPage.url()).toContain('https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators');
     });
 
-    test('Why teach Kotlin button in context opens the related page', async ({ page }) => {
+    test('Why teach Kotlin button in context opens the related page', async ({ page, baseURL }) => {
         const whyTeachKotlinButton = page.getByRole('link', { name: 'Why Teach Kotlin' }).nth(1);
         await expect(whyTeachKotlinButton).toBeVisible();
         await whyTeachKotlinButton.click();
-        await expect(page.url()).toContain('/education/why-teach-kotlin');
+        expect(page.url()).toContain(`${baseURL}/education/why-teach-kotlin`);
     });
 
-    test('All universities button opens the related page', async ({ page }) => {
+    test('All universities button opens the related page', async ({ page, baseURL }) => {
         const allUniversitiesButton = page.getByRole('link', { name: 'All universities' });
         await expect(allUniversitiesButton).toBeVisible();
         await allUniversitiesButton.click();
-        expect(page.url()).toContain('/education/courses');
+        expect(page.url()).toContain(`${baseURL}/education/courses`);
     });
 
     test('Slack-channel button in context opens the related page', async ({ page, context }) => {
