@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import os from 'os';
-import { getElementScreenshotWithPadding, testSelector } from '../utils';
+import { getElementScreenshotWithPadding, skipProduction, testSelector } from '../utils';
 import { WebHelpPage } from '../page/webhelp-page';
 import {
     ELEMENT_PADDING_OFFSET,
@@ -10,7 +10,7 @@ import {
 } from './visual-constants';
 
 test.describe('WebHelp page appearance', async () => {
-    test.skip();
+    skipProduction();
 
     test.beforeEach(async ({ page }) => {
         const webHelpPage = new WebHelpPage(page, '/docs/test-page.html');
