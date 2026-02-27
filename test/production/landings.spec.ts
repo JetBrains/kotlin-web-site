@@ -1,11 +1,11 @@
 import { expect, test } from '@playwright/test';
-import { isProduction } from '../utils';
+import { skipNonProduction } from '../utils';
 
 test.describe('/lp/ pages list', async () => {
-    test.skip(({ baseURL }) => !isProduction(baseURL), 'for host with reverse-proxy only');
+    skipNonProduction('for host with reverse-proxy only');
 
     test(`Check /lp/multiplatform default redirects`, async ({ page, baseURL }) => {
-        const targetUrl = 'https://kotlinlang.org/multiplatform/';
+        const targetUrl = `${baseURL}/multiplatform/`;
 
         await page.goto('/lp/multiplatform');
         expect(page.url()).toEqual(targetUrl);
@@ -18,7 +18,7 @@ test.describe('/lp/ pages list', async () => {
     });
 
     test(`Check /lp/multiplatform case-studies redirect`, async ({ page, baseURL }) => {
-        const targetUrl = 'https://kotlinlang.org/case-studies/?type=multiplatform';
+        const targetUrl = `${baseURL}/case-studies/?type=multiplatform`;
 
         await page.goto('/lp/multiplatform/case-studies/');
         expect(page.url()).toEqual(targetUrl);
