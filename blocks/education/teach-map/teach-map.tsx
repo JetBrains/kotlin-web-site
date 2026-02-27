@@ -32,7 +32,7 @@ export const TeachMap: FC<TeachMapProps> = ({ className, universities }) => {
 
     return (
         <ErrorBoundary fallback={<div>Map is unavailable</div>}>
-            <div className={cn(styles.map, className)}>
+            <div className={cn(styles.map, className)} data-test={'teach-map'}>
                 <GoogleMapReact
                     bootstrapURLKeys={{ key: mapSettings.key }}
                     defaultCenter={mapSettings.defaultCenter}

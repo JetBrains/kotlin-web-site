@@ -9,7 +9,7 @@ export const TeachLaunchCourse: FC = () => {
 
     return (
         <div className={styles.launchCourse}>
-            <div className={cn('ktl-text-1', styles.text)}>
+            <div className={cn('ktl-text-1', styles.text)} data-test="teach-launch-course">
                 The Programming in Kotlin course is a comprehensive toolkit for teaching Kotlin and can be easily
                 customized to align with specific educational needs. The course comes with slides, lecture notes, and
                 assessment resources.

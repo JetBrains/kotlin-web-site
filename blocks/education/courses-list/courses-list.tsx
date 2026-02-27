@@ -22,14 +22,14 @@ interface CoursesListProps {
 export const CoursesList: FC<CoursesListProps> = ({ universities }) => {
     const textCn = useTextStyles();
     return (
-        <div className={styles.list}>
-            <div className={cn(styles.header, textCn('rs-h4'))}>
+        <div className={styles.list} data-test="courses">
+            <div className={cn(styles.header, textCn('rs-h4'))} data-test="courses-header">
                 <div className={cn(styles.cell, styles.cellFirst)}>University title</div>
                 <div className={cn(styles.cell, styles.cellSecond)}>Location</div>
                 <div className={cn(styles.cell, styles.cellThird)}>Teaching Kotlin</div>
             </div>
             {universities.map((university) => (
-                <div className={cn(styles.item, textCn('rs-text-2', { hardness: 'hard' }))} key={university.id}>
+                <div className={cn(styles.item, textCn('rs-text-2', { hardness: 'hard' }))} key={university.id} data-test="courses-item">
                     <div className={cn(styles.cell, styles.cellFirst)}>{university.title}</div>
                     <div className={cn(styles.cell, styles.cellSecond)}>{university.location}</div>
                     <div className={cn(styles.cell, styles.cellThird)}>

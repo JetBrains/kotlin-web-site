@@ -140,7 +140,7 @@
         "test": "playwright test test",
         "test:ci": "playwright test test/production",
         "test:e2e": "playwright test test/e2e",
-        "test:e2e:ci": "CI=true playwright test test/e2e",
+        "test:e2e:ci": "CI=true playwright test",
         "test:e2e:headed": "playwright test test/e2e --headed",
         "test:e2e:debug": "PWDEBUG=1 playwright test test/e2e  --project=chromium",
         "test:e2e:update": "playwright test test/e2e --update-snapshots",

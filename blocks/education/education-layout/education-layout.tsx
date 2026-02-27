@@ -51,6 +51,7 @@ export const EducationLayout: FC<EducationLayoutProps> = ({
             </div>
 
             <CtaBlock
+                className={'cta-block'}
                 topTitle={
                     'If you would like to introduce Kotlin into your classroom or have any questions about teaching or learning Kotlin'
                 }

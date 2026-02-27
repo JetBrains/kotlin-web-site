@@ -75,9 +75,9 @@ function EducationPage() {
                     </Button>
                 </div>
 
-                <div className={cn(styles.features, 'ktl-row', 'ktl-offset-top-l')}>
+                <div className={cn(styles.features, 'ktl-row', 'ktl-offset-top-l')} data-test="teach-features">
                     <div className="ktl-col-12 ktl-col-md-4">
-                        <div className={styles.feature}>
+                        <div className={styles.feature} data-test="teach-feature">
                             <div className={cn(styles.featureIcon, 'ktl-offset-bottom-m')}>
                                 <img
                                     src="/images/education/icons/teach-academically-recognized-icon.svg"
@@ -95,7 +95,7 @@ function EducationPage() {
                     </div>
 
                     <div className="ktl-col-12 ktl-col-md-4">
-                        <div className={styles.feature}>
+                        <div className={styles.feature} data-test="teach-feature">
                             <div className={cn(styles.featureIcon, 'ktl-offset-bottom-m')}>
                                 <img
                                     src="/images/education/icons/teach-popular-icon.svg"
@@ -113,7 +113,7 @@ function EducationPage() {
                     </div>
 
                     <div className="ktl-col-12 ktl-col-md-4">
-                        <div className={styles.feature}>
+                        <div className={styles.feature} data-test="teach-feature">
                             <div className={cn(styles.featureIcon, 'ktl-offset-bottom-m')}>
                                 <img
                                     src="/images/education/icons/teach-multiplatform-icon.svg"
@@ -133,7 +133,7 @@ function EducationPage() {
                 </div>
 
                 <div className="ktl-offset-top-l">
-                    <div className={styles.topButtons}>
+                    <div className={styles.topButtons} data-test="teach-top-buttons">
                         <Button
                             size="l"
                             icon={<SlackIcon />}
@@ -178,43 +178,43 @@ function EducationPage() {
                                 Kotlin is taught at {universitiesCount} universities
                             </h2>
 
-                            <div className={styles.universitiesTopNumbers}>
+                            <div className={styles.universitiesTopNumbers} data-test="universities-numbers">
                                 <TeachNumbers countriesCount={countriesCount} universitiesCount={universitiesCount} />
                             </div>
                         </div>
                     </div>
 
                     <div className={cn(styles.universitiesLogos, 'ktl-offset-top-m')}>
-                        <div className={styles.logos}>
-                            <div className={styles.logosItem}>
+                        <div className={styles.logos} data-test="teach-logos">
+                            <div className={styles.logosItem} data-test="teach-logo">
                                 <img
                                     className={styles.logosHopkins}
                                     src="/images/education/universities/harvard.jpg"
                                     alt="Harvard University"
                                 />
                             </div>
-                            <div className={styles.logosItem}>
+                            <div className={styles.logosItem} data-test="teach-logo">
                                 <img
                                     className={styles.logosCambridge}
                                     src="/images/education/universities/cambridge.png"
                                     alt="University of Cambridge"
                                 />
                             </div>
-                            <div className={styles.logosItem}>
+                            <div className={styles.logosItem} data-test="teach-logo">
                                 <img
                                     className={styles.logosStanford}
                                     src="/images/education/universities/stanford.png"
                                     alt="Stanford University"
                                 />
                             </div>
-                            <div className={styles.logosItem}>
+                            <div className={styles.logosItem} data-test="teach-logo">
                                 <img
                                     className={styles.logosImperial}
                                     src="/images/education/universities/imperial.png"
                                     alt="Imperial College London"
                                 />
                             </div>
-                            <div className={styles.logosItem}>
+                            <div className={styles.logosItem} data-test="teach-logo">
                                 <img
                                     className={styles.logosChicago}
                                     src="/images/education/universities/uchicago.png"
@@ -224,9 +224,9 @@ function EducationPage() {
                         </div>
                     </div>
 
-                    <TeachMap className={styles.mapWrapper} universities={universities} />
+                    <TeachMap className={styles.mapWrapper} universities={universities} data-test="teach-map" />
 
-                    <div className={cn(styles.universitiesBottom, 'ktl-offset-top-m')}>
+                    <div className={cn(styles.universitiesBottom, 'ktl-offset-top-m')} data-test="teach-universities-bottom">
                         <div className="ktl-row">
                             <div className="ktl-col-12 ktl-col-sm-8 ktl-col-sm-offset-2">
                                 <p className="ktl-text-2 ktl-offset-bottom-m">
@@ -270,7 +270,7 @@ function EducationPage() {
                     <ul className={styles.links}>
                         <li className={styles.linksFirstList}>
                             <p className="ktl-h4 ktl-offset-bottom-xs">Get started</p>
-                            <ul className={styles.list}>
+                            <ul className={styles.list} data-test="teach-list">
                                 <li className={styles.listItem}>
                                     <a href="/docs/kotlin-tour-welcome.html" className={textCn('rs-link', { external: true })}>
 
@@ -330,7 +330,7 @@ function EducationPage() {
 
                                 <li className={styles.listItem}>
                                     <div className={textCn('rs-text-2')}>Atomic Kotlin:</div>
-                                    <ul className={cn(styles.list, styles.sublist)}>
+                                    <ul className={cn(styles.list, styles.sublist)} data-test="teach-list">
                                         <li className={styles.listItem}>
                                             <a
                                                 href="https://www.atomickotlin.com/exercises/"
@@ -390,7 +390,7 @@ function EducationPage() {
 
                         <li className={styles.linksSecondList}>
                             <p className="ktl-h4 ktl-offset-bottom-xs">Tools</p>
-                            <ul className={styles.list}>
+                            <ul className={styles.list} data-test="teach-list">
                                 <li className={styles.listItem}>
                                     <a
                                         href="https://www.jetbrains.com/community/education/#students"
@@ -436,7 +436,7 @@ function EducationPage() {
 
                         <li className={styles.linksThirdList}>
                             <p className="ktl-h4 ktl-offset-bottom-xs">Online Courses</p>
-                            <ul className={styles.list}>
+                            <ul className={styles.list} data-test="teach-list">
                                 <li className={styles.listItem}>
                                     <a
                                         target="_blank"
@@ -472,7 +472,7 @@ function EducationPage() {
 
                         <li className={styles.linksFourthList}>
                             <p className="ktl-h4 ktl-offset-bottom-xs">Android in Kotlin</p>
-                            <ul className={styles.list}>
+                            <ul className={styles.list} data-test="teach-list">
                                 <li className={styles.listItem}>
                                     <a
                                         href="https://developer.android.com/courses/android-basics-compose/course"
@@ -499,7 +499,7 @@ function EducationPage() {
 
                         <li className={styles.linksFifthList}>
                             <p className="ktl-h4 ktl-offset-bottom-xs">Practice Kotlin</p>
-                            <ul className={styles.list}>
+                            <ul className={styles.list} data-test="teach-list">
                                 <li className={styles.listItem}>
                                     <a href="https://play.kotlinlang.org/koans/overview" className={textCn('rs-link')}>
                                         Koans
@@ -525,7 +525,7 @@ function EducationPage() {
                 <SubscriptionForm />
             </section>
 
-            <section className={cn(styles.video, 'ktl-offset-top-xxl')}>
+            <section className={cn(styles.video, 'ktl-offset-top-xxl')} data-test="teach-video">
                 <div className="ktl-layout ktl-layout--center">
                     <div className="ktl-row">
                         <div className="ktl-col">

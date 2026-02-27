@@ -17,15 +17,12 @@ test.describe('Grammar page', () => {
     });
 
     test('Should have grammar items', async () => {
-        const itemsCount = await grammar.items.count();
-        expect(itemsCount).toBeGreaterThan(10);
+        expect(await grammar.items.count()).toBeGreaterThan(10);
     });
 
     test('Should have declarations with valid ids', async () => {
-        const declarationsCount = await grammar.declarations.count();
-        expect(declarationsCount).toBeGreaterThan(10);
+        expect(await grammar.declarations.count()).toBeGreaterThan(10);
 
-        // Check that known declarations exist with correct ids
         await expect(grammar.getDeclarationById('kotlinFile')).toBeVisible();
         await expect(grammar.getDeclarationById('script')).toBeVisible();
         await expect(grammar.getDeclarationById('classDeclaration')).toBeVisible();
@@ -34,8 +31,7 @@ test.describe('Grammar page', () => {
     test('Should navigate to declaration via direct anchor URL', async () => {
         await grammar.gotoHash('kotlinFile');
 
-        const declaration = grammar.getDeclarationById('kotlinFile');
-        await expect(declaration).toBeInViewport();
+        await expect(grammar.getDeclarationById('kotlinFile')).toBeInViewport();
     });
 
     test('Should navigate when clicking identifier link', async () => {

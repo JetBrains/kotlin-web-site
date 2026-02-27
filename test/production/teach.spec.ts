@@ -9,7 +9,6 @@ test.describe('Teach page', () => {
         const whyTeachKotlinButton = page.getByRole('link', { name: 'Why Teach Kotlin' }).first();
         await expect(whyTeachKotlinButton).toBeVisible();
         await whyTeachKotlinButton.click();
-        await page.waitForTimeout(3000);
         await expect(page.url()).toContain('/education/why-teach-kotlin/');
     });
 
@@ -17,7 +16,6 @@ test.describe('Teach page', () => {
         const listOfCoursesButton = page.getByRole('link', { name: 'List of Courses' });
         await expect(listOfCoursesButton).toBeVisible();
         await listOfCoursesButton.click();
-        await page.waitForTimeout(3000);
         await expect(page.url()).toContain('/education/courses/');
     });
 
@@ -55,7 +53,6 @@ test.describe('Teach page', () => {
         const whyTeachKotlinButton = page.getByRole('link', { name: 'Why Teach Kotlin' }).nth(1);
         await expect(whyTeachKotlinButton).toBeVisible();
         await whyTeachKotlinButton.click();
-        await page.waitForTimeout(3000);
         await expect(page.url()).toContain('/education/why-teach-kotlin');
     });
 
@@ -63,8 +60,7 @@ test.describe('Teach page', () => {
         const allUniversitiesButton = page.getByRole('link', { name: 'All universities' });
         await expect(allUniversitiesButton).toBeVisible();
         await allUniversitiesButton.click();
-        await page.waitForTimeout(3000);
-        await expect(page.url()).toContain('/education/courses');
+        expect(page.url()).toContain('/education/courses');
     });
 
     test('Slack-channel button in context opens the related page', async ({ page, context }) => {
@@ -74,6 +70,6 @@ test.describe('Teach page', () => {
         await joinEducatorsButton.click();
         const newPage = await newPagePromise;
         await newPage.waitForLoadState();
-        await expect(newPage.url()).toContain('https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators');
+        expect(newPage.url()).toContain('https://surveys.jetbrains.com/s3/kotlin-slack-signup-educators');
     });
 });
