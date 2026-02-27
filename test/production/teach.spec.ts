@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('Teach page', () => {
     test.beforeEach(async ({ page }) => {
@@ -8,15 +8,21 @@ test.describe('Teach page', () => {
     test('Why teach Kotlin button in navbar opens the related page', async ({ page, baseURL }) => {
         const whyTeachKotlinButton = page.getByRole('link', { name: 'Why Teach Kotlin' }).first();
         await expect(whyTeachKotlinButton).toBeVisible();
-        await whyTeachKotlinButton.click();
-        expect(page.url()).toContain(`${baseURL}/education/why-teach-kotlin/`);
+
+        await Promise.all([
+            page.waitForURL(`${baseURL}/education/why-teach-kotlin/`),
+            whyTeachKotlinButton.click()
+        ]);
     });
 
     test('List of courses button in navbar opens the related page', async ({ page, baseURL }) => {
         const listOfCoursesButton = page.getByRole('link', { name: 'List of Courses' });
         await expect(listOfCoursesButton).toBeVisible();
-        await listOfCoursesButton.click();
-        expect(page.url()).toContain(`${baseURL}/education/courses/`);
+
+        await Promise.all([
+            page.waitForURL(`${baseURL}/education/courses/`),
+            listOfCoursesButton.click()
+        ]);
     });
 
     test('Join Educators button in navbar opens the related page', async ({ page, context }) => {
@@ -52,15 +58,21 @@ test.describe('Teach page', () => {
     test('Why teach Kotlin button in context opens the related page', async ({ page, baseURL }) => {
         const whyTeachKotlinButton = page.getByRole('link', { name: 'Why Teach Kotlin' }).nth(1);
         await expect(whyTeachKotlinButton).toBeVisible();
-        await whyTeachKotlinButton.click();
-        expect(page.url()).toContain(`${baseURL}/education/why-teach-kotlin`);
+
+        await Promise.all([
+            page.waitForURL(`${baseURL}/education/why-teach-kotlin/`),
+            whyTeachKotlinButton.click()
+        ]);
     });
 
     test('All universities button opens the related page', async ({ page, baseURL }) => {
         const allUniversitiesButton = page.getByRole('link', { name: 'All universities' });
         await expect(allUniversitiesButton).toBeVisible();
-        await allUniversitiesButton.click();
-        expect(page.url()).toContain(`${baseURL}/education/courses`);
+
+        await Promise.all([
+            page.waitForURL(`${baseURL}/education/courses/`),
+            allUniversitiesButton.click()
+        ]);
     });
 
     test('Slack-channel button in context opens the related page', async ({ page, context }) => {
