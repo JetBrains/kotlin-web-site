@@ -14,7 +14,7 @@ interface TeachMapMarkerProps {
 
 export const TeachMapMarker: FC<TeachMapMarkerProps> = ({ university, showTooltip, onClose }) => {
     return (
-        <div className={cn(styles.marker, { [styles.active]: showTooltip })}>
+        <div className={cn(styles.marker, { [styles.active]: showTooltip })} data-test="teach-map-marker">
             {showTooltip && <TeachMapTooltip university={university} onClose={onClose} />}
         </div>
     );

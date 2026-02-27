@@ -13,7 +13,7 @@ export const TeachNumbers: FC<TeachNumbersProps> = ({ countriesCount, universiti
                 <div className={styles.title}>
                     <div className="ktl-hero">{countriesCount}</div>
                 </div>
-                <div className={styles.subtitle}>
+                <div className={styles.subtitle} data-test="teach-number-subtitle">
                     <div className="ktl-text-2">countries</div>
                 </div>
             </div>
@@ -21,7 +21,7 @@ export const TeachNumbers: FC<TeachNumbersProps> = ({ countriesCount, universiti
                 <div className={styles.title}>
                     <div className="ktl-hero">{universitiesCount}</div>
                 </div>
-                <div className={styles.subtitle}>
+                <div className={styles.subtitle} data-test="teach-number-subtitle">
                     <div className="ktl-text-2">universities</div>
                 </div>
             </div>

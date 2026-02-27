@@ -98,33 +98,33 @@ test.describe('Server-Side landing page', async () => {
         const customerLinks = await serverSidePage.customersLink.all();
 
         for (const customerLink of customerLinks) {
-            await serverSidePage.customersBlock.hover();
             const customerLinkURL = await customerLink.getAttribute('href');
 
-            if (await customerLink.isVisible()) {
-                const [newPage] = await Promise.all([
-                    page.context().waitForEvent('page'),
-                    customerLink.click()
-                ]);
+            await test.step(`Check customer link: ${customerLinkURL}`, async () => {
+                if (await customerLink.isVisible()) {
+                    await customerLink.scrollIntoViewIfNeeded();
 
-                await newPage.waitForLoadState();
+                    const [newPage] = await Promise.all([
+                        page.context().waitForEvent('page'),
+                        customerLink.click()
+                    ]);
 
-                // Handle both relative and absolute URLs
-                const baseURL = 'https://kotlinlang.org';
-                const fullURL = customerLinkURL.startsWith('http')
-                    ? customerLinkURL
-                    : new URL(customerLinkURL, baseURL).toString();
+                    try {
+                        await newPage.waitForLoadState('domcontentloaded', { timeout: 10000 });
+                    } catch (error) {
+                        throw new Error(`Failed to load customer link: ${customerLinkURL}\n${error.message}`);
+                    }
 
-                const originalDomain = new URL(fullURL).hostname;
-                const finalDomain = new URL(newPage.url()).hostname;
+                    const originalDomain = new URL(customerLinkURL).hostname;
+                    const finalDomain = new URL(newPage.url()).hostname;
 
-                if (originalDomain === finalDomain) {
-                    const expectedPath = new URL(fullURL).pathname;
-                    expect(newPage.url()).toContain(expectedPath);
+                    if (originalDomain === finalDomain) {
+                        expect(newPage.url()).toContain(customerLinkURL);
+                    }
+
+                    await newPage.close();
                 }
-
-                await newPage.close();
-            }
+            });
         }
     });
 

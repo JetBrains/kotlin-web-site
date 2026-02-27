@@ -13,7 +13,7 @@ export class CoursesPage implements PageWithGlobalSearch {
     }
 
     async init() {
-        await this.page.goto('/education/courses.html');
+        await this.page.goto('/education/courses/');
 
         // Wait for the page to load
         await this.page.waitForSelector(testSelector('teach-courses'));

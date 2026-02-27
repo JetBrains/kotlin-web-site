@@ -28,7 +28,7 @@ function WhyTeachKotlinPage() {
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Academically recognized</h3>
 
                             <div className={styles.quoteSectionGrid}>
-                                <div className={styles.quoteSectionContent}>
+                                <div className={styles.quoteSectionContent} data-test="quote-content">
                                     <p className="ktl-text-1 ktl-offset-bottom-s">
                                         We know of over 300 universities that teach Kotlin in a variety of subjects,
                                         including object-oriented and functional programming, software development,
@@ -40,7 +40,7 @@ function WhyTeachKotlinPage() {
                                     <QuotesSlider quotes={quotes.academicallyRecognized} />
                                 </div>
 
-                                <div className={styles.quoteSectionInfo}>
+                                <div className={styles.quoteSectionInfo} data-test="quote-info">
                                     <p className="ktl-hero ktl-offset-bottom-xs">32</p>
                                     <p className={cn(textCn('rs-text-2'), "ktl-offset-bottom-s")}>
                                         of the top 100 universities in the Times Higher Education World University
@@ -61,7 +61,7 @@ function WhyTeachKotlinPage() {
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Language of the industry</h3>
 
                             <div className={styles.quoteSectionGrid}>
-                                <div className={styles.quoteSectionContent}>
+                                <div className={styles.quoteSectionContent} data-test="quote-content">
                                     <div className={cn(textCn('rs-text-1', {hardness: 'hard'}), 'ktl-offset-bottom-m')}>
                                         <ul className={cn(textCn('rs-ul'), styles.noListStyle)}>
                                             <li>
@@ -103,7 +103,7 @@ function WhyTeachKotlinPage() {
                                     <QuotesSlider quotes={quotes.languageOfTheIndustry} />
                                 </div>
 
-                                <div className={styles.quoteSectionInfo}>
+                                <div className={styles.quoteSectionInfo} data-test="quote-info">
                                     <p className={cn(textCn('rs-text-2'), 'ktl-offset-bottom-s')}>
                                         Kotlin has consistently ranked among the hottest software engineering
                                         skills.
@@ -131,7 +131,7 @@ function WhyTeachKotlinPage() {
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Multiplatform</h3>
 
                             <div className={styles.quoteSectionGrid}>
-                                <div className={styles.quoteSectionContent}>
+                                <div className={styles.quoteSectionContent} data-test="quote-content">
                                     <p className="ktl-text-1 ktl-offset-bottom-m">
                                         Kotlin is a top choice for teaching Android development. It is also being
                                         adopted for teaching multiplatform development, web, server-side
@@ -141,7 +141,7 @@ function WhyTeachKotlinPage() {
                                     <QuotesSlider quotes={quotes.multiplatform} />
                                 </div>
 
-                                <div className={styles.quoteSectionInfo}>
+                                <div className={styles.quoteSectionInfo} data-test="quote-info">
                                     <p className={cn(textCn('rs-text-2'), 'ktl-offset-bottom-s')}>
                                         The Kotlin Multiplatform Mobile and Compose Multiplatform frameworks from
                                         JetBrains help developers share code between their Android and iOS apps.
@@ -169,7 +169,7 @@ function WhyTeachKotlinPage() {
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Interoperable</h3>
 
                             <div className={styles.quoteSectionGrid}>
-                                <div className={styles.quoteSectionContent}>
+                                <div className={styles.quoteSectionContent} data-test="quote-content">
                                     <p className="ktl-text-1 ktl-offset-bottom-m">
                                         Seamless interoperability with the JVM ecosystem means that Kotlin can rely
                                         on numerous existing libraries. The Kotlin plugin bundles a Java to Kotlin
@@ -179,7 +179,7 @@ function WhyTeachKotlinPage() {
                                     <QuotesSlider quotes={quotes.interoperable} />
                                 </div>
 
-                                <div className={styles.quoteSectionInfo}>
+                                <div className={styles.quoteSectionInfo} data-test="quote-info">
                                     <p className={cn(textCn('rs-text-2'), 'ktl-offset-bottom-s')}>
                                         Kotlin can also be compiled into a standalone native binary targeting any
                                         major operating system.
@@ -231,7 +231,7 @@ function WhyTeachKotlinPage() {
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Supports multiple paradigms</h3>
 
                             <div className={styles.quoteSectionGrid}>
-                                <div className={styles.quoteSectionContent}>
+                                <div className={styles.quoteSectionContent} data-test="quote-content">
                                     <p className="ktl-text-1 ktl-offset-bottom-m">
                                         Kotlin combines all the major programming paradigms in an elegant way,
                                         making it possible to use functional, imperative, object-oriented, or
@@ -242,7 +242,7 @@ function WhyTeachKotlinPage() {
                                     <QuotesSlider quotes={quotes.supportsMultipleParadigms} />
                                 </div>
 
-                                <div className={styles.quoteSectionInfo}>
+                                <div className={styles.quoteSectionInfo} data-test="quote-info">
                                     <p className={textCn('rs-text-2')}>
                                         Kotlin supports functional, imperative, object-oriented and procedural
                                         programming
@@ -258,7 +258,7 @@ function WhyTeachKotlinPage() {
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Modern, concise, and safe</h3>
 
                             <div className={styles.quoteSectionGrid}>
-                                <div className={styles.quoteSectionContent}>
+                                <div className={styles.quoteSectionContent} data-test="quote-content">
                                     <p className="ktl-text-1 ktl-offset-bottom-s">
                                         Kotlin allows students to focus on expressing their ideas, as they don't
                                         have to write as much boilerplate code. Less code written also means less
@@ -276,7 +276,7 @@ function WhyTeachKotlinPage() {
                                     <QuotesSlider quotes={quotes.modernConciseAndSafe} />
                                 </div>
 
-                                <div className={styles.quoteSectionInfo}>
+                                <div className={styles.quoteSectionInfo} data-test="quote-info">
                                     <p className={cn(textCn('rs-text-2'), 'ktl-offset-bottom-s')}>
                                         Type safety, null safety, and expressive syntax are among educators'
                                         favorite Kotlin features.
@@ -295,7 +295,7 @@ function WhyTeachKotlinPage() {
                             <h3 className={cn(textCn('rs-h3'), 'ktl-offset-bottom-s')}>Tooling</h3>
 
                             <div className={styles.quoteSectionGrid}>
-                                <div className={styles.quoteSectionContent}>
+                                <div className={styles.quoteSectionContent} data-test="quote-content">
                                     <p className="ktl-text-1 ktl-offset-bottom-s">
                                         Many of the top professional tools are packaged with the language. IntelliJ
                                         IDEA Ultimate supports Kotlin as a first-class citizen and is free for
@@ -318,7 +318,7 @@ function WhyTeachKotlinPage() {
                                     <QuotesSlider quotes={quotes.toolingAndLearningMaterials} />
                                 </div>
 
-                                <div className={styles.quoteSectionInfo}>
+                                <div className={styles.quoteSectionInfo} data-test="quote-info">
                                     <ul className={textCn('rs-text-2')}>
                                         <li className="ktl-offset-bottom-s">
                                             <a

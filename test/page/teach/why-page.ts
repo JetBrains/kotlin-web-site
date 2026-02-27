@@ -13,7 +13,7 @@ export class WhyTeachPage implements PageWithGlobalSearch {
     }
 
     async init() {
-        await this.page.goto('/education/why-teach-kotlin.html');
+        await this.page.goto('/education/why-teach-kotlin/');
 
         // Wait for the page to load
         await this.page.waitForSelector(testSelector('teach-why-teach-page'));
