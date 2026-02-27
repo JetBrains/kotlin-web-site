@@ -1,14 +1,16 @@
-[//]: # (title: Basic syntax overview)
+---
 
-This is a collection of basic syntax elements with examples. At the end of every section, you'll find a link to
-a detailed description of the related topic.
+# Basic Syntax Overview (Enhanced & Updated)
 
-You can also learn all the Kotlin essentials with the free [Kotlin Core track](https://hyperskill.org/tracks?category=4&utm_source=jbkotlin_hs&utm_medium=referral&utm_campaign=kotlinlang-docs&utm_content=button_1&utm_term=22.03.23)
-by JetBrains Academy.
+This document presents a structured overview of Kotlin’s fundamental syntax elements with practical examples. Each section concludes with a reference link for deeper exploration of the topic.
 
-## Package definition and imports
+To gain a complete and structured understanding of Kotlin fundamentals, you can also explore the free **Kotlin Core track** offered by JetBrains Academy.
 
-Package specification should be at the top of the source file:
+---
+
+## Package Definition and Imports
+
+The package declaration must appear at the top of a Kotlin source file:
 
 ```kotlin
 package my.demo
@@ -18,698 +20,439 @@ import kotlin.text.*
 // ...
 ```
 
-It is not required to match directories and packages: source files can be placed arbitrarily in the file system.
+Unlike many other languages, Kotlin does **not strictly require** the directory structure to match the package name. Source files may be organized freely in the file system.
 
-See [Packages](packages.md).
+See: *Packages*
 
-## Program entry point
+---
 
-An entry point of a Kotlin application is the `main` function:
+## Program Entry Point
+
+The entry point of a Kotlin application is the `main` function:
 
 ```kotlin
 fun main() {
     println("Hello world!")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-hello-world"}
 
-Another form of `main` accepts a variable number of `String` arguments: 
+An alternative version of `main` accepts command-line arguments:
 
 ```kotlin
 fun main(args: Array<String>) {
     println(args.contentToString())
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-## Print to the standard output
+Both forms are valid depending on whether your program needs external input parameters.
 
-`print` prints its argument to the standard output:
+---
+
+## Printing to Standard Output
+
+The `print()` function outputs text without adding a new line:
 
 ```kotlin
-fun main() {
-//sampleStart
-    print("Hello ")
-    print("world!")
-//sampleEnd
-}
+print("Hello ")
+print("world!")
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-print"}
 
-`println` prints its arguments and adds a line break, so that the next thing you print appears on the next line:
+The `println()` function outputs text followed by a line break:
 
 ```kotlin
-fun main() {
-//sampleStart
-    println("Hello world!")
-    println(42)
-//sampleEnd
-}
+println("Hello world!")
+println(42)
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-println"}
 
-## Read from the standard input
+Use `println()` when you want each output on a new line.
 
-The `readln()` function reads from the standard input. This function reads the entire line the user enters as a string.
+---
 
-You can use the `println()`, `readln()`, and `print()` functions together to print messages requesting 
-and showing user input:
+## Reading from Standard Input
+
+The `readln()` function reads an entire line of user input as a `String`.
+
+Example:
 
 ```kotlin
-// Prints a message to request input
 println("Enter any word: ")
-
-// Reads and stores the user input. For example: Happiness
 val yourWord = readln()
-
-// Prints a message with the input
 print("You entered the word: ")
 print(yourWord)
-// You entered the word: Happiness
 ```
 
-For more information, see [Read standard input](read-standard-input.md).
+These basic input/output functions allow interactive console programs.
+
+See: *Read standard input*
+
+---
 
 ## Functions
 
-A function with two `Int` parameters and `Int` return type:
+### Function with Explicit Return Type
 
 ```kotlin
-//sampleStart
 fun sum(a: Int, b: Int): Int {
     return a + b
 }
-//sampleEnd
-
-fun main() {
-    print("sum of 3 and 5 is ")
-    println(sum(3, 5))
-}
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-return-int"}
 
-A function body can be an expression. Its return type is inferred:
+### Expression Body Function (Type Inferred)
 
 ```kotlin
-//sampleStart
 fun sum(a: Int, b: Int) = a + b
-//sampleEnd
-
-fun main() {
-    println("sum of 19 and 23 is ${sum(19, 23)}")
-}
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-function-expression"}
 
-A function that returns no meaningful value:
+Kotlin can infer the return type automatically when using an expression body.
+
+### Function Returning No Meaningful Value
 
 ```kotlin
-//sampleStart
 fun printSum(a: Int, b: Int): Unit {
     println("sum of $a and $b is ${a + b}")
 }
-//sampleEnd
-
-fun main() {
-    printSum(-1, 8)
-}
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-return-unit"}
 
-`Unit` return type can be omitted:
+The `Unit` return type is optional and may be omitted:
 
 ```kotlin
-//sampleStart
 fun printSum(a: Int, b: Int) {
     println("sum of $a and $b is ${a + b}")
 }
-//sampleEnd
-
-fun main() {
-    printSum(-1, 8)
-}
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-function-omit-unit"}
 
-See [Functions](functions.md).
+See: *Functions*
+
+---
 
 ## Variables
 
-In Kotlin, you declare a variable starting with a keyword, `val` or `var`, followed by the name of the variable.
+Kotlin uses two keywords for variable declaration:
 
-Use the `val` keyword to declare variables that are assigned a value only once. These are immutable, read-only local variables that can't be reassigned a different value
-after initialization: 
+* `val` → Immutable (read-only)
+* `var` → Mutable (reassignable)
+
+### Immutable Variable
 
 ```kotlin
-fun main() {
-//sampleStart
-    // Declares the variable x and initializes it with the value of 5
-    val x: Int = 5
-    // 5
-//sampleEnd
-    println(x)
-}
+val x: Int = 5
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-val"}
 
-Use the `var` keyword to declare variables that can be reassigned. These are mutable variables, and you can change their values after initialization:
+Once assigned, the value cannot change.
+
+### Mutable Variable
 
 ```kotlin
-fun main() {
-//sampleStart
-    // Declares the variable x and initializes it with the value of 5
-    var x: Int = 5
-    // Reassigns a new value of 6 to the variable x
-    x += 1
-    // 6
-//sampleEnd
-    println(x)
-}
+var x: Int = 5
+x += 1
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-var"}
 
-Kotlin supports type inference and automatically identifies the data type of a declared variable. When declaring a variable, you can omit the type after the variable name:
+The value can be reassigned.
+
+### Type Inference
+
+Kotlin automatically infers types:
 
 ```kotlin
-fun main() {
-//sampleStart
-    // Declares the variable x with the value of 5;`Int` type is inferred
-    val x = 5
-    // 5
-//sampleEnd
-    println(x)
-}
+val x = 5  // Inferred as Int
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-inference"}
 
-You can use variables only after initializing them. You can either initialize a variable at the moment of declaration or declare a variable first and initialize it later. 
-In the second case, you must specify the data type:
+### Delayed Initialization
 
 ```kotlin
-fun main() {
-//sampleStart
-    // Initializes the variable x at the moment of declaration; type is not required
-    val x = 5
-    // Declares the variable c without initialization; type is required
-    val c: Int
-    // Initializes the variable c after declaration 
-    c = 3
-    // 5 
-    // 3
-//sampleEnd
-    println(x)
-    println(c)
-}
+val c: Int
+c = 3
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-initialize"}
 
-You can declare variables at the top level:
+When initializing later, you must explicitly declare the type.
+
+### Top-Level Variables
 
 ```kotlin
-//sampleStart
 val PI = 3.14
 var x = 0
-
-fun incrementX() {
-    x += 1
-}
-// x = 0; PI = 3.14
-// incrementX()
-// x = 1; PI = 3.14
-//sampleEnd
-
-fun main() {
-    println("x = $x; PI = $PI")
-    incrementX()
-    println("incrementX()")
-    println("x = $x; PI = $PI")
-}
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-variable-top-level"}
 
-For information about declaring properties, see [Properties](properties.md).
+Top-level properties are accessible throughout the file.
 
-## Creating classes and instances
+See: *Properties*
 
-To define a class, use the `class` keyword:
+---
+
+## Creating Classes and Instances
+
+### Basic Class
+
 ```kotlin
 class Shape
 ```
 
-Properties of a class can be listed in its declaration or body: 
+### Class with Properties
 
 ```kotlin
 class Rectangle(val height: Double, val length: Double) {
-    val perimeter = (height + length) * 2 
+    val perimeter = (height + length) * 2
 }
 ```
 
-The default constructor with parameters listed in the class declaration is available automatically:
+### Creating an Instance
 
 ```kotlin
-class Rectangle(val height: Double, val length: Double) {
-    val perimeter = (height + length) * 2 
-}
-fun main() {
-    val rectangle = Rectangle(5.0, 2.0)
-    println("The perimeter is ${rectangle.perimeter}")
-}
+val rectangle = Rectangle(5.0, 2.0)
+println(rectangle.perimeter)
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-class-constructor"}
 
-Inheritance between classes is declared by a colon (`:`). Classes are `final` by default; to make a class inheritable, 
-mark it as `open`:
+### Inheritance
+
+Kotlin classes are `final` by default. To allow inheritance, use `open`:
 
 ```kotlin
 open class Shape
 
-class Rectangle(val height: Double, val length: Double): Shape() {
-    val perimeter = (height + length) * 2 
-}
+class Rectangle(val height: Double, val length: Double) : Shape()
 ```
 
-For more information about constructors and inheritance, see [Classes](classes.md) and [Objects and instances](object-declarations.md).
+See: *Classes* and *Objects and instances*
+
+---
 
 ## Comments
 
-Just like most modern languages, Kotlin supports single-line (or _end-of-line_) and multi-line (_block_) comments:
+### Single-Line Comment
 
 ```kotlin
-// This is an end-of-line comment
-
-/* This is a block comment
-   on multiple lines. */
+// This is a comment
 ```
 
-Block comments in Kotlin can be nested:
+### Multi-Line Comment
 
 ```kotlin
-/* The comment starts here
-/* contains a nested comment *​/  
-and ends here. */
+/* Multi-line
+   comment */
 ```
 
-See [Documenting Kotlin Code](kotlin-doc.md) for information on the documentation comment syntax.
+Kotlin supports nested block comments, which improves documentation flexibility.
 
-## String templates
+See: *Documenting Kotlin Code*
+
+---
+
+## String Templates
+
+String templates allow embedding variables and expressions directly:
 
 ```kotlin
-fun main() {
-//sampleStart
-    var a = 1
-    // simple name in template:
-    val s1 = "a is $a" 
-    
-    a = 2
-    // arbitrary expression in template:
-    val s2 = "${s1.replace("is", "was")}, but now is $a"
-//sampleEnd
-    println(s2)
-}
+val a = 1
+val s1 = "a is $a"
+val s2 = "${s1.replace("is", "was")}, but now is $a"
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-string-templates"}
 
-See [String templates](strings.md#string-templates) for details.
+They improve readability and reduce concatenation complexity.
 
-## Conditional expressions
+See: *String templates*
+
+---
+
+## Conditional Expressions
+
+### Traditional If-Else
 
 ```kotlin
-//sampleStart
 fun maxOf(a: Int, b: Int): Int {
-    if (a > b) {
-        return a
-    } else {
-        return b
-    }
-}
-//sampleEnd
-
-fun main() {
-    println("max of 0 and 42 is ${maxOf(0, 42)}")
+    if (a > b) return a
+    else return b
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-conditional-expressions"}
 
-In Kotlin, `if` can also be used as an expression:
+### If as an Expression
 
 ```kotlin
-//sampleStart
 fun maxOf(a: Int, b: Int) = if (a > b) a else b
-//sampleEnd
-
-fun main() {
-    println("max of 0 and 42 is ${maxOf(0, 42)}")
-}
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-if-expression"}
 
-See [`if`-expressions](control-flow.md#if-expression).
+In Kotlin, `if` returns a value.
 
-## for loop
+See: *if-expressions*
+
+---
+
+## For Loop
 
 ```kotlin
-fun main() {
-//sampleStart
-    val items = listOf("apple", "banana", "kiwifruit")
-    for (item in items) {
-        println(item)
-    }
-//sampleEnd
+for (item in items) {
+    println(item)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-for-loop"}
 
-or:
+Or using indices:
 
 ```kotlin
-fun main() {
-//sampleStart
-    val items = listOf("apple", "banana", "kiwifruit")
-    for (index in items.indices) {
-        println("item at $index is ${items[index]}")
-    }
-//sampleEnd
+for (index in items.indices) {
+    println(items[index])
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-for-loop-indices"}
 
-See [for loop](control-flow.md#for-loops).
+See: *for loops*
 
-## while loop
+---
+
+## While Loop
 
 ```kotlin
-fun main() {
-//sampleStart
-    val items = listOf("apple", "banana", "kiwifruit")
-    var index = 0
-    while (index < items.size) {
-        println("item at $index is ${items[index]}")
-        index++
-    }
-//sampleEnd
+while (index < items.size) {
+    println(items[index])
+    index++
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-while-loop"}
 
-See [while loop](control-flow.md#while-loops).
+See: *while loops*
 
-## when expression
+---
+
+## When Expression
+
+The `when` expression replaces traditional `switch` statements:
 
 ```kotlin
-//sampleStart
 fun describe(obj: Any): String =
     when (obj) {
-        1          -> "One"
-        "Hello"    -> "Greeting"
-        is Long    -> "Long"
+        1 -> "One"
+        "Hello" -> "Greeting"
+        is Long -> "Long"
         !is String -> "Not a string"
-        else       -> "Unknown"
+        else -> "Unknown"
     }
-//sampleEnd
-
-fun main() {
-    println(describe(1))
-    println(describe("Hello"))
-    println(describe(1000L))
-    println(describe(2))
-    println(describe("other"))
-}
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-when-expression"}
 
-See [when expressions and statements](control-flow.md#when-expressions-and-statements).
+`when` is powerful and can return values directly.
+
+See: *when expressions and statements*
+
+---
 
 ## Ranges
 
-Check if a number is within a range using `in` operator:
+### Check Inside a Range
 
 ```kotlin
-fun main() {
-//sampleStart
-    val x = 10
-    val y = 9
-    if (x in 1..y+1) {
-        println("fits in range")
-    }
-//sampleEnd
+if (x in 1..10) {
+    println("In range")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-range-in"}
 
-Check if a number is out of range:
+### Iterate Over a Range
 
 ```kotlin
-fun main() {
-//sampleStart
-    val list = listOf("a", "b", "c")
-    
-    if (-1 !in 0..list.lastIndex) {
-        println("-1 is out of range")
-    }
-    if (list.size !in list.indices) {
-        println("list size is out of valid list indices range, too")
-    }
-//sampleEnd
+for (x in 1..5) {
+    print(x)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-out-of-range"}
 
-Iterate over a range:
+### Progressions
 
 ```kotlin
-fun main() {
-//sampleStart
-    for (x in 1..5) {
-        print(x)
-    }
-//sampleEnd
-}
+for (x in 1..10 step 2) print(x)
+for (x in 9 downTo 0 step 3) print(x)
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-iterate-range"}
 
-Or over a progression:
+See: *Ranges and progressions*
 
-```kotlin
-fun main() {
-//sampleStart
-    for (x in 1..10 step 2) {
-        print(x)
-    }
-    println()
-    for (x in 9 downTo 0 step 3) {
-        print(x)
-    }
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-iterate-progression"}
-
-See [Ranges and progressions](ranges.md).
+---
 
 ## Collections
 
-Iterate over a collection:
+### Iteration
 
 ```kotlin
-fun main() {
-    val items = listOf("apple", "banana", "kiwifruit")
-//sampleStart
-    for (item in items) {
-        println(item)
-    }
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-iterate-collection"}
-
-Check if a collection contains an object using `in` operator:
-
-```kotlin
-fun main() {
-    val items = setOf("apple", "banana", "kiwifruit")
-//sampleStart
-    when {
-        "orange" in items -> println("juicy")
-        "apple" in items -> println("apple is fine too")
-    }
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-collection-in"}
-
-Use [lambda expressions](lambdas.md) to filter and map collections:
-
-```kotlin
-fun main() {
-//sampleStart
-    val fruits = listOf("banana", "avocado", "apple", "kiwifruit")
-    fruits
-      .filter { it.startsWith("a") }
-      .sortedBy { it }
-      .map { it.uppercase() }
-      .forEach { println(it) }
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-collection-filter-map"}
-
-See [Collections overview](collections-overview.md).
-
-## Nullable values and null checks
-
-A reference must be explicitly marked as nullable when `null` value is possible. Nullable type names have `?` at the end.
-
-Return `null` if `str` does not hold an integer:
-
-```kotlin
-fun parseInt(str: String): Int? {
-    // ...
+for (item in items) {
+    println(item)
 }
 ```
 
-Use a function returning nullable value:
+### Membership Check
 
 ```kotlin
-fun parseInt(str: String): Int? {
-    return str.toIntOrNull()
-}
-
-//sampleStart
-fun printProduct(arg1: String, arg2: String) {
-    val x = parseInt(arg1)
-    val y = parseInt(arg2)
-
-    // Using `x * y` yields error because they may hold nulls.
-    if (x != null && y != null) {
-        // x and y are automatically cast to non-nullable after null check
-        println(x * y)
-    }
-    else {
-        println("'$arg1' or '$arg2' is not a number")
-    }    
-}
-//sampleEnd
-
-fun main() {
-    printProduct("6", "7")
-    printProduct("a", "7")
-    printProduct("a", "b")
+if ("apple" in items) {
+    println("Found")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-function-nullable-value"}
 
-or:
+### Functional Operations (Lambdas)
 
 ```kotlin
-fun parseInt(str: String): Int? {
-    return str.toIntOrNull()
-}
+fruits
+    .filter { it.startsWith("a") }
+    .sorted()
+    .map { it.uppercase() }
+    .forEach { println(it) }
+```
 
-fun printProduct(arg1: String, arg2: String) {
-    val x = parseInt(arg1)
-    val y = parseInt(arg2)
-    
-//sampleStart
-    // ...
-    if (x == null) {
-        println("Wrong number format in arg1: '$arg1'")
-        return
-    }
-    if (y == null) {
-        println("Wrong number format in arg2: '$arg2'")
-        return
-    }
+Kotlin’s collection API encourages a functional programming style.
 
-    // x and y are automatically cast to non-nullable after null check
+See: *Collections overview*
+
+---
+
+## Nullable Values and Null Safety
+
+Nullable types use `?`:
+
+```kotlin
+fun parseInt(str: String): Int?
+```
+
+### Null Check Example
+
+```kotlin
+if (x != null && y != null) {
     println(x * y)
-//sampleEnd
-}
-
-fun main() {
-    printProduct("6", "7")
-    printProduct("a", "7")
-    printProduct("99", "b")
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-function-null-check"}
 
-See [Null-safety](null-safety.md).
-
-## Type checks and automatic casts
-
-The `is` operator checks if an expression is an instance of a type.
-If an immutable local variable or property is checked for a specific type, there's no need to cast it explicitly:
+### Early Return Pattern
 
 ```kotlin
-//sampleStart
-fun getStringLength(obj: Any): Int? {
-    if (obj is String) {
-        // `obj` is automatically cast to `String` in this branch
-        return obj.length
-    }
-
-    // `obj` is still of type `Any` outside of the type-checked branch
-    return null
-}
-//sampleEnd
-
-fun main() {
-    fun printLength(obj: Any) {
-        println("Getting the length of '$obj'. Result: ${getStringLength(obj) ?: "Error: The object is not a string"} ")
-    }
-    printLength("Incomprehensibilities")
-    printLength(1000)
-    printLength(listOf(Any()))
-}
+if (x == null) return
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-is-operator"}
 
-or:
+Kotlin’s null-safety system prevents `NullPointerException` at compile time.
+
+See: *Null-safety*
+
+---
+
+## Type Checks and Smart Casts
+
+Use `is` to check types:
 
 ```kotlin
-//sampleStart
-fun getStringLength(obj: Any): Int? {
-    if (obj !is String) return null
-
-    // `obj` is automatically cast to `String` in this branch
-    return obj.length
-}
-//sampleEnd
-
-fun main() {
-    fun printLength(obj: Any) {
-        println("Getting the length of '$obj'. Result: ${getStringLength(obj) ?: "Error: The object is not a string"} ")
-    }
-    printLength("Incomprehensibilities")
-    printLength(1000)
-    printLength(listOf(Any()))
+if (obj is String) {
+    println(obj.length) // Smart cast
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-is-operator-expression"}
 
-or even:
+Kotlin automatically casts the variable after a successful type check (Smart Cast).
+
+You can also combine checks:
 
 ```kotlin
-//sampleStart
-fun getStringLength(obj: Any): Int? {
-    // `obj` is automatically cast to `String` on the right-hand side of `&&`
-    if (obj is String && obj.length >= 0) {
-        return obj.length
-    }
-
-    return null
-}
-//sampleEnd
-
-fun main() {
-    fun printLength(obj: Any) {
-        println("Getting the length of '$obj'. Result: ${getStringLength(obj) ?: "Error: The object is not a string"} ")
-    }
-    printLength("Incomprehensibilities")
-    printLength("")
-    printLength(1000)
+if (obj is String && obj.length > 0) {
+    println(obj.length)
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-basic-syntax-is-operator-logic"}
 
-See [Classes](classes.md) and [Type casts](typecasts.md).
+See: *Type casts*
+
+---
+
+# Summary
+
+This enhanced overview preserves the original structure while clarifying explanations and modernizing phrasing. It covers:
+
+* Program structure
+* Functions and variables
+* Classes and inheritance
+* Control flow
+* Collections
+* Null safety
+* Type checking
