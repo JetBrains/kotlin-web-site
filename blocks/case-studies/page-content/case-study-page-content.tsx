@@ -15,8 +15,8 @@ export const CaseStudyPageContent: React.FC<CaseStudyContentProps> = ({ content 
     return (
         <section
             className={cn('ktl-layout ktl-layout--center', textCn('rs-text-1', { hardness: 'hard' }), styles.container)}>
-            <Markdown options={{ forceBlock: true }}>{content}</Markdown>
-            <SocialShare label="Share:" className={styles.share} />
+            <Markdown options={{ forceBlock: true}} className={styles.content}>{content}</Markdown>
+            <SocialShare label="Share" className={styles.share} />
         </section>
     );
 };

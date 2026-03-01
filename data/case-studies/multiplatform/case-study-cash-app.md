@@ -5,7 +5,7 @@ title: "Cash App"
 country: "USA"
 size: "300+"
 industry: "Finance"
-usedProductTitle: "Kotlin Multiplatform"
+usedProductTitle: "Kotlin\u00A0Multiplatform"
 usedProductLink: "/multiplatform/"
 coverImg: /images/case-studies/content/cash-app-cover.png
 ---
