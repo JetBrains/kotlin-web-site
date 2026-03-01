@@ -8,6 +8,7 @@ import { ThemeProvider } from '@rescui/ui-contexts';
 
 import { LandingLayout, LandingLayoutProps } from '../../../components/landing-layout/landing-layout';
 import { CaseStudyPageContent } from '../../../blocks/case-studies/page-content/case-study-page-content';
+import { CaseStudyCtaBlock } from '../../../blocks/case-studies/cta-block/case-study-cta-block';
 
 import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
 import { CaseStudyPageHero } from '../../../blocks/case-studies/page-hero/case-study-page-hero';
@@ -62,6 +63,7 @@ export default function MultiplatformCaseStudy({ content, frontmatter }: CaseStu
             <ThemeProvider theme="light">
                 <CaseStudyPageHero frontmatter={frontmatter} />
                 <CaseStudyPageContent content={content} />
+                <CaseStudyCtaBlock url={GET_STARTED_URL} />
             </ThemeProvider>
         </LandingLayout>
     );
