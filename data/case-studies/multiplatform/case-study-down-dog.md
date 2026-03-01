@@ -5,7 +5,7 @@ title: "Down Dog"
 country: "USA"
 size: "7"
 industry: "Health & Fitness"
-usedProductTitle: "Kotlin Multiplatform"
+usedProductTitle: "Kotlin\u00A0Multiplatform"
 usedProductLink: "/multiplatform/"
 coverImg: /images/case-studies/content/down-dog-cover.png
 ---

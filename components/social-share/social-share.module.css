@@ -45,15 +45,15 @@
 }
 
 .size_xs .icons {
-    gap: 8px;
+    gap: 4px;
 }
 
 .size_s .icons {
-    gap: 12px;
+    gap: 8px;
 }
 
 .size_m .icons {
-    gap: 16px;
+    gap: 12px;
 }
 
 .size_xs .iconLink {
