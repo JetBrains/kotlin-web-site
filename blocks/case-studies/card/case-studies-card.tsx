@@ -78,7 +78,7 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, show
 
                 {item.link &&
                     <a
-                        className={cn(styles.link, textCn('rs-link', { external: true }))}
+                        className={cn(styles.link, textCn('rs-link', { external: item.isExternal }))}
                         href={item.link}
                     >
                         {item.linkText || 'Read the full story'}

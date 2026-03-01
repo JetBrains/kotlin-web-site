@@ -309,7 +309,7 @@ items:
       - android
       - ios
       - desktop
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/autodesk
+    link: /multiplatform/case-studies/autodesk
   #------------------------------------------------------------------------
   - id: feres
     type: multiplatform
