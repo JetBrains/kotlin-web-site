@@ -2,8 +2,24 @@
   max-width: 800px;
 }
 
+.container :global(.rs-subtitle-2) {
+  font-size: 29px;
+  line-height: 39px;
+  margin-bottom: 96px;
+}
+
 .container h1, .container h2, .container h3, .container h4 {
   color: rgba(25, 25, 28);
+  margin-top: 48px;
+}
+
+.container h1, .container h2 {
+  color: rgba(25, 25, 28);
+  margin-top: 96px;
+}
+
+.container h3, .container h4 {
+  margin-top: 48px;
 }
 
 .container strong, .container b {

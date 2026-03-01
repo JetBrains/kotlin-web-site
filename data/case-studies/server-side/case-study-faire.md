@@ -7,7 +7,9 @@ size: "50+"
 industry: "Online wholesale marketplace"
 ---
 
+<div class="rs-subtitle-2">
 Like most startups, at the beginning of its journey Faire was looking for an efficient solution to base its tech stack on. Having started with Java, a year in, the company started looking for other options, and opted for Kotlin. They now use Kotlin for their Android app and for the website backend, which successfully handles up to 1K requests per second.
+</div>
 
 The current backend repo has 788,020 lines of code within 6,078 Kotlin files, with roughly 45 engineers actively committing code and more onboarding every week.
 
