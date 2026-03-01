@@ -49,7 +49,7 @@ export default function MultiplatformCaseStudy({ content, frontmatter }: CaseStu
             dataTestId={'multiplatform-case-study'}
             title={`${frontmatter.title} Case Study | Kotlin Multiplatform`}
             ogImageName={'multiplatform.png'}
-            description={''}
+            description={'Kotlin for multiplatform development'}
             currentTitle={MULTIPLATFORM_MOBILE_TITLE}
             currentUrl={MULTIPLATFORM_MOBILE_URL}
             topMenuTitle={MULTIPLATFORM_MOBILE_TITLE}
