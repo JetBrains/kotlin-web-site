@@ -10,7 +10,9 @@ usedProductLink: "/multiplatform/"
 coverImg: /images/case-studies/content/cash-app-cover.png
 ---
 
+<div class="rs-subtitle-2">
 <a href="https://cash.app/" class="wt-link" target="_blank" rel="noreferrer noopener">Cash App ↗</a> is the easiest way to send money, spend money, save money, and buy cryptocurrency. We believe in providing everyone with access to important financial services so they can fully participate in the economy.
+</div>
 
 The app launched in 2013 as a simple peer-to-peer payment app with 4 mobile engineers,
 and it now has 50 mobile engineers (split across iOS and Android) and 30

@@ -7,7 +7,9 @@ size: "150"
 industry: "Consumer learning technology"
 ---
 
+<div class="rs-subtitle-2">
 <a href="http://quizlet.com" target="_blank" rel="noreferrer noopener">Quizlet ↗</a> is a global learning platform that provides engaging study tools to help people practice and master whatever they are learning.
+</div>
 
 Every month, over 50 million students, teachers and everyday
 people use Quizlet to study any subject imaginable for school,
