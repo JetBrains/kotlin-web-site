@@ -2,6 +2,7 @@
 
 .container {
   position: relative;
+  margin-bottom: 96px;
 }
 
 .content {
@@ -19,6 +20,12 @@
   font-size: 29px;
   line-height: 39px;
   margin-bottom: 96px;
+
+  @media (--ktl-ts-down) {
+    font-size: 23px;
+    line-height: 30px;
+    margin-bottom: 48px;
+  }
 }
 
 .container h1, .container h2, .container h3, .container h4 {
