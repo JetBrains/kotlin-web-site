@@ -31,7 +31,7 @@
   grid-template-columns: repeat(3, 1fr);
 
   gap: 24px;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 
   @media (--ktl-tl-down) {
     grid-template-columns: 1fr;
