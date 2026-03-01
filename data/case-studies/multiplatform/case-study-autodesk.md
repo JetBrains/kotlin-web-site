@@ -11,7 +11,9 @@ coverImg: /images/case-studies/content/autodesk-cover.png
 ---
 
 
+<div class="rs-subtitle-2">
 At <a href="https://www.autodesk.com/" target="_blank" rel="noopener noreferrer">Autodesk ↗</a>, we exist to turn ideas into new realities that shape a thriving future. Our software and services harness emerging technologies — such as additive manufacturing (3D printing), artificial intelligence, generative design, and robotics — that give companies and individuals the power to work more quickly, effectively, and sustainably throughout the entire project lifecycle.
+</div>
 
 ### Could you say a few words about your company?
 

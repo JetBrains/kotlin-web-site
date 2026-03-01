@@ -10,7 +10,9 @@ usedProductLink: "/multiplatform/"
 coverImg: /images/case-studies/content/down-dog-cover.png
 ---
 
+<div class="rs-subtitle-2">
 <a href="https://www.downdogapp.com/" class="wt-link" target="_blank" rel="noreferrer noopener">Down Dog ↗</a> is the innovative start up that brings a studio-like yoga experience to your mobile device. With Down Dog you get a brand new yoga routine every time you come to your mat.
+</div>
 
 Unlike following pre-recorded videos, Down Dog won’t make you do the same workout
 over and over again. With over 60,000 different configurations, Down Dog gives

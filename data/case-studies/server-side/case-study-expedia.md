@@ -7,7 +7,9 @@ size: "20 000+"
 industry: "Online travel shopping"
 ---
 
+<div class="rs-subtitle-2">
 <a href="https://en.wikipedia.org/wiki/Expedia_Group" class="wt-link" target="_blank" rel="noreferrer noopener">Expedia Group ↗</a> is the world’s travel platform. We help knock down the barriers to travel, making it easier, more enjoyable, more attainable and more accessible. We are here to bring the world within reach for customers and partners around the globe. We leverage our platform and technology capabilities across an extensive portfolio of businesses and brands to orchestrate the movement of people and the delivery of travel experiences on both a local and global basis.
+</div>
 
 ## The technology stack at Expedia Group
 
