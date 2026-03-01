@@ -4,7 +4,7 @@ slug: "autodesk"
 title: "Autodesk"
 country: "United States, Israel, Global"
 size: "9000+"
-usedProductTitle: "Kotlin Multiplatform"
+usedProductTitle: "Kotlin\u00A0Multiplatform"
 usedProductLink: "/multiplatform/"
 industry: "Software Development, Mobile Development"
 coverImg: /images/case-studies/content/autodesk-cover.png

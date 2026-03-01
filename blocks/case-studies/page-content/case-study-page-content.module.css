@@ -1,5 +1,18 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
 .container {
+  position: relative;
+}
+
+.content {
   max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (--ktl-ds-only) {
+    margin-left: 190px;
+    margin-right: 0;
+  }
 }
 
 .container :global(.rs-subtitle-2) {
@@ -47,11 +60,41 @@
   }
 }
 
+.container blockquote {
+  position: relative;
+  padding-left: 72px;
+  margin: 48px 0;
+  color: rgba(25, 25, 28, 0.8);
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    width: 50px;
+    height: 30px;
+    background-image: url("/images/case-studies/content/quotes.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
 .share {
   margin-top: 64px;
   padding-top: 32px;
   margin-bottom: 64px;
   border-top: 1px solid rgba(25, 25, 28, 0.4);
+
+  @media (--ktl-ds-up) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0;
+    padding-top: 0;
+  }
 }
 
 .share a {
