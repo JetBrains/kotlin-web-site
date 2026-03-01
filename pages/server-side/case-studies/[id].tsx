@@ -34,7 +34,7 @@ export default function ServerSideCaseStudy({ content, frontmatter }: CaseStudyP
         <LandingLayout
             title={`${frontmatter.title} Case Study | Kotlin for server-side`}
             ogImageName={'server-side.png'}
-            description={''}
+            description={'Kotlin for server-side development'}
             currentTitle={SERVER_SIDE_TITLE}
             currentUrl={SERVER_SIDE_URL}
             topMenuTitle={SERVER_SIDE_TITLE}
