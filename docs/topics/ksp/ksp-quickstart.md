@@ -79,7 +79,8 @@ need to follow to create your own processor and annotations.
 5. Implement a `SymbolProcessor`:
 
     ```kotlin
-    class HelloWorld(environment: SymbolProcessorEnvironment) : SymbolProcessor {
+    // processor/src/main/kotlin/HelloWorldProcessor.kt
+    class HelloWorldProcessor(val codeGenerator: CodeGenerator) : SymbolProcessor {
         // (1) process() method
         override fun process(resolver: Resolver): List<KSAnnotated> {
             resolver
@@ -178,8 +179,8 @@ the provider:
     ```kotlin
     dependencies {
         // for the annotation:
-    implementation(project(":processor"))
-    // for the processor:
+        implementation(project(":processor"))
+        // for the processor:
         ksp(project(":processor"))
     }
     ```
