@@ -35,12 +35,12 @@
 
     <!-- Gradle, KGP, AGP -->
     <var name="minGradleVersion" value="7.6.3" type="string"/>
-    <var name="maxGradleVersion" value="9.0.0" type="string"/>
+    <var name="maxGradleVersion" value="9.3.0" type="string"/>
 
     <var name="minAndroidGradleVersion" value="8.2.2" type="string"/>
     <var name="maxAndroidGradleVersion" value="9.0.0" type="string"/>
 
-    <var name="gradleVersion" value="9.0.0" type="string"/>
+    <var name="gradleVersion" value="9.3.0" type="string"/>
     <var name="gradleLanguageVersion" value="KOTLIN_2_3" type="string"/>
     <var name="gradleApiVersion" value="KOTLIN_2_3" type="string"/>
 
