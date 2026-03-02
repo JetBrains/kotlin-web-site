@@ -166,7 +166,7 @@ The following table lists details of previous Kotlin releases:
         </td>
         <td>
             <p>A language release including both new and stable language features, tooling updates, performance improvements for different platforms, and important fixes.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.0">changelog</a>.</p>
+            <p>Learn more about Kotlin 2.3.0 in <a href="whatsnew23.md" target="_blank">What's new in Kotlin 2.3.0</a>.</p>
         </td>
     </tr> 
     <tr>
@@ -186,7 +186,7 @@ The following table lists details of previous Kotlin releases:
         </td>
         <td>
             <p>A tooling release for Kotlin 2.2.0 that contains important changes for web development and other improvements.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.20">changelog</a>.</p>
+            <p>Learn more about Kotlin 2.2.20 in <a href="whatsnew2220.md" target="_blank">What's new in Kotlin 2.2.20</a>.</p>
         </td>
     </tr>
     <tr>
@@ -206,7 +206,7 @@ The following table lists details of previous Kotlin releases:
         </td>
         <td>
             <p>A language release including both new and stable language features, tooling updates, performance improvements for different platforms, and important fixes.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0">changelog</a>.</p>
+            <p>Learn more about Kotlin 2.2.0 in <a href="whatsnew22.md" target="_blank">What's new in Kotlin 2.2.0</a>.</p>
         </td>
     </tr> 
     <tr>
