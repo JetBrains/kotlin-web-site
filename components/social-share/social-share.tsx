@@ -1,9 +1,10 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import cn from 'classnames';
 import { FacebookIcon, TwitterIcon, LinkedinIcon } from '@rescui/icons';
 import { textCn } from '@rescui/typography';
 
 import styles from './social-share.module.css';
+import { truncateText } from '../../utils';
 
 export type SocialShareTheme = 'light' | 'dark';
 export type SocialShareSize = 's' | 'm' | 'l';
@@ -11,6 +12,8 @@ export type SocialNetwork = 'facebook' | 'twitter' | 'linkedin';
 
 export interface SocialShareProps {
     url?: string;
+    text?: string;
+    via?: string;
     theme?: SocialShareTheme;
     size?: SocialShareSize;
     className?: string;
@@ -19,10 +22,13 @@ export interface SocialShareProps {
 }
 
 const DEFAULT_NETWORKS: SocialNetwork[] = ['facebook', 'twitter', 'linkedin'];
+const SHARE_TEXT_LIMIT = 240;
 
 export const SocialShare: FC<SocialShareProps> = (
     {
         url,
+        text,
+        via,
         theme = 'light',
         size = 'm',
         className,
@@ -30,24 +36,38 @@ export const SocialShare: FC<SocialShareProps> = (
         label
     }
 ) => {
-    const shareUrl = useMemo(() => {
-        if (url) {
-            return url;
+    const [shareUrl, setShareUrl] = useState(url || '');
+    const [shareText, setShareText] = useState(text || '');
+
+    useEffect(() => {
+        if (!url) {
+            setShareUrl(window.location.href);
         }
-        if (typeof window !== 'undefined') {
-            return window.location.href;
-        }
-        return '';
     }, [url]);
+
+    useEffect(() => {
+        if (!text) {
+            setShareText(document.title);
+        }
+    }, [text]);
 
     const getShareLink = (network: SocialNetwork) => {
         const encodedUrl = encodeURIComponent(shareUrl);
+        const encodedText = encodeURIComponent(truncateText(shareText, SHARE_TEXT_LIMIT));
 
         switch (network) {
             case 'facebook':
                 return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-            case 'twitter':
-                return `https://x.com/intent/tweet?url=${encodedUrl}`;
+            case 'twitter': {
+                let twitterUrl = `https://x.com/intent/tweet?url=${encodedUrl}`;
+                if (encodedText) {
+                    twitterUrl += `&text=${encodedText}`;
+                }
+                if (via) {
+                    twitterUrl += `&via=${encodeURIComponent(via)}`;
+                }
+                return twitterUrl;
+            }
             case 'linkedin':
                 return `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
             default:
