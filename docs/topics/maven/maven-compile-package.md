@@ -237,23 +237,7 @@ the official Maven documentation.
 
 ### Choose execution strategy
 
-The _Kotlin compiler execution strategy_ defines where the Kotlin compiler runs. There are two available strategies:
-
-| Strategy                | Where the Kotlin compiler is executed |
-|-------------------------|---------------------------------------|
-| Kotlin daemon (default) | Inside its own daemon process         |
-| In process              | Inside the Maven process              |
-
-By default, the [Kotlin daemon](kotlin-daemon.md) is used. You can switch to the "in process" strategy by setting the following
-property in your `pom.xml` file:
-
-```xml
-<properties>
-    <kotlin.compiler.daemon>false</kotlin.compiler.daemon>
-</properties>
-```
-
-Regardless of the compiler execution strategy that you use, you still need to explicitly configure incremental compilation.
+For information about how to configure different compiler execution strategies for Maven, see [Compiler execution strategy](compiler-execution-strategy.md#configure-in-maven).
 
 ### Enable incremental compilation
 
