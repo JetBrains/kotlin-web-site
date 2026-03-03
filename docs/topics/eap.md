@@ -53,13 +53,13 @@ In this channel, you can also get notifications about new EAP builds.
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.3.20-RC</strong>
-            <p>Released: <strong>February 19, 2026</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.20-RC" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.3.20-RC2</strong>
+            <p>Released: <strong>March 3, 2026</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.20-RC2" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
             <p>A tooling release with performance improvements, bug fixes, and tooling updates.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.20-RC">changelog</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.20-RC2">changelog</a>.</p>
         </td>
     </tr>
 </table> 
