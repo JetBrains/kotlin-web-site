@@ -21,7 +21,7 @@ export interface SocialShareProps {
     label?: string;
 }
 
-const DEFAULT_NETWORKS: SocialNetwork[] = ['facebook', 'twitter', 'linkedin'];
+const DEFAULT_NETWORKS: SocialNetwork[] = ['twitter', 'facebook', 'linkedin'];
 const SHARE_TEXT_LIMIT = 240;
 
 export const SocialShare: FC<SocialShareProps> = (

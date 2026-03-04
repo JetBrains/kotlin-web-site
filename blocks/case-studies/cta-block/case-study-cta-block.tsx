@@ -20,7 +20,7 @@ export const CaseStudyCtaBlock = ({ url }: CaseStudyCtaBlockProps) => {
                     alt="Kotlin Multiplatform"
                     className={styles.logo}
                 />
-                <p className={cn(textCn('rs-subtitle-2', { hardness: 'hard' }))}>
+                <p className={cn(textCn('rs-subtitle-2', { hardness: 'hard' }), styles.title)}>
                     Create your first app with Kotlin&nbsp;Multiplatform
                 </p>
                 <Button href={url} size={isTS ? 'm' : 'l'}>
