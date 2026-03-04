@@ -1,4 +1,4 @@
-import { ElementHandle, expect, Locator, Page, test } from '@playwright/test';
+import { expect, Locator, Page, test } from '@playwright/test';
 import { PageAssertionsToHaveScreenshotOptions } from 'playwright/types/test';
 
 export const testSelector = (name: string) => `[data-test="${name}"]`;
@@ -18,28 +18,58 @@ export async function checkAnchor(page: Page, anchor: Locator) {
 
 export const isSkipScreenshot = process.env.E2E_WITH_SCREENSHOTS !== 'true';
 
-export async function checkScreenshot(element: Locator | Page, options?: PageAssertionsToHaveScreenshotOptions) {
+type ClipType = number | PageAssertionsToHaveScreenshotOptions['clip'] | undefined;
+
+type CheckScreenshotOptions = Omit<PageAssertionsToHaveScreenshotOptions, 'clip'> & {
+    clip: ClipType;
+}
+
+export async function checkScreenshot(element: Locator | Page, options?: CheckScreenshotOptions) {
     if (isSkipScreenshot) return;
 
-    const images = element.locator('img[loading=lazy]');
+    await test.step('Check screenshot', async () => {
+        const images = element.locator('img[loading=lazy]');
 
-    if (await images.count() > 0) {
-        await images.evaluate((img: HTMLImageElement) => {
-            img.loading = 'eager';
-            img.decoding = 'sync';
+        if (await images.count() > 0) {
+            await images.evaluate((img: HTMLImageElement) => {
+                img.loading = 'eager';
+                img.decoding = 'sync';
+            });
+        }
+
+        let clip: PageAssertionsToHaveScreenshotOptions['clip'] | undefined;
+
+        if (typeof options?.clip === 'number') {
+            clip = await getClippingRect(element, options?.clip);
+            if ('page' in element) element = element.page();
+        } else {
+            clip = options?.clip;
+        }
+
+        await expect(element).toHaveScreenshot({
+            caret: 'hide',
+            animations: 'disabled',
+            ...(options || {}),
+            clip,
+            stylePath: ['test/snapshots/assets/production.css'].concat(options?.stylePath || [])
         });
-    }
-
-    await expect(element).toHaveScreenshot({
-        caret: 'hide',
-        animations: 'disabled',
-        ...(options || {}),
-        stylePath: ['test/snapshots/assets/production.css'].concat(options?.stylePath || [])
     });
 }
 
+async function getClippingRect(element: Locator | Page, padding: number): Promise<PageAssertionsToHaveScreenshotOptions['clip'] | undefined> {
+    if ('boundingBox' in element) {
+        const box = await element.boundingBox();
 
-export async function checkFullPageScreenshot(page: Page, options?: PageAssertionsToHaveScreenshotOptions) {
+        if (box !== null) return {
+            x: box.x - padding,
+            y: box.y - padding,
+            width: box.width + padding * 2,
+            height: box.height + padding * 2
+        };
+    }
+}
+
+export async function checkFullPageScreenshot(page: Page, options?: CheckScreenshotOptions) {
     if (isSkipScreenshot) return;
 
     await page.waitForLoadState('networkidle');
@@ -52,26 +82,9 @@ export async function checkFullPageScreenshot(page: Page, options?: PageAssertio
             page.locator('header[data-test="header"]'),
             page.locator('footer'),
             page.locator('video[autoplay]'),
-
-            ...(options.mask || [])
+            ...(options?.mask || [])
         ]
     });
-}
-
-export async function getElementScreenshotWithPadding(page: Page, element: ElementHandle, padding: number): Promise<Buffer | undefined> {
-    await element.scrollIntoViewIfNeeded();
-    const box = await element.boundingBox();
-
-    if (box !== null) {
-        return await page.screenshot({
-            clip: {
-                x: box.x - padding,
-                y: box.y - padding,
-                width: box.width + padding * 2,
-                height: box.height + padding * 2
-            }
-        });
-    }
 }
 
 export function isProduction(baseURL: string | undefined) {
