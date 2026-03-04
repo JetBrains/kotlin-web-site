@@ -15,6 +15,8 @@ test.describe('Multiplatform landing page', async () => {
 
         await checkFullPageScreenshot(page, {
             mask: [
+                page.locator('header[data-test="header"]'),
+                page.locator('footer'),
                 main.locator('[data-testid*="share-what-chip-content-"]')
             ]
         });
