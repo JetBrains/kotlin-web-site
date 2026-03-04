@@ -21,7 +21,7 @@ Community or Ultimate edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/
 ### Set up the environment
 
 1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/).
-2. [Set up your environment for Kotlin Multiplatform development](https://kotlinlang.org/docs/multiplatform/quickstart.html#set-up-the-environment).
+2. Install the [Kotlin Multiplatform IDE plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform) (not to be confused with the Kotlin Multiplatform Gradle plugin).
 
 ### Create your project
 
