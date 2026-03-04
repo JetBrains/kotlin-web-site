@@ -769,7 +769,6 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.3.20: report a warning
 > - 2.4.0: remove the property
 
-<<<<<<< HEAD
 ### Deprecate `CleanableStore` interface and `CleanDataTask` class
 
 > **Issue**: [KT-78104](https://youtrack.jetbrains.com/issue/KT-78104)
