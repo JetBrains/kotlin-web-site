@@ -17,7 +17,7 @@ The new architecture and enriched data structure enables the K2 compiler to prov
 * **Easier introduction of syntactic sugar for new language features**. In the future, you'll be able to use more concise,
   readable code when new features are introduced.
 * **Faster compilation times**. Compilation times can be [significantly faster](#performance-improvements).
-* **Enhanced IDE performance**. Starting with 2025.1, IntelliJ IDEA uses K2 mode to analyze your Kotlin code, increasing
+* **Enhanced IDE performance**. IntelliJ IDEA and Android Studio use the K2 compiler to analyze your Kotlin code, increasing
  stability and providing performance improvements. For more information, see [Support in IDEs](#support-in-ides).
 
 This guide:
@@ -522,9 +522,6 @@ Starting with Kotlin 2.0.0, the Kotlin K2 compiler is enabled by default.
 To upgrade the Kotlin version, change it to 2.0.0 or a later release in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
 [Maven](maven-configure-project.md#enable-and-configure-the-plugin) build scripts.
 
-To get the best experience with Android Studio, use [K2 mode](#support-in-ides) in your IDE. IntelliJ IDEA uses
-K2 mode by default, so you don't have to change anything.
-
 ### Use Kotlin build reports with Gradle
 
 Kotlin [build reports](gradle-compilation-and-caches.md#build-reports) provide information about the time spent in
@@ -555,14 +552,8 @@ For more information on what is possible with build reports, see [Build reports]
 
 ## Support in IDEs
 
-K2 mode in IntelliJ IDEA and Android Studio uses the K2 compiler to improve code analysis, code completion, and highlighting.
-
-IntelliJ IDEA 2025.3 and later always uses K2 mode.
-
-In Android Studio, you can enable K2 mode starting with 2024.1 by following these steps:
-
-1. Go to **Settings** | **Languages & Frameworks** | **Kotlin**.
-2. Select the **Enable K2 mode** option.
+Both IntelliJ IDEA and Android Studio fully support the K2 compiler and use it by default to improve code analysis, code completion, and highlighting.
+You don't need to configure anything. Update to the latest version to see the benefits.
 
 ## Try the Kotlin K2 compiler in the Kotlin Playground
 

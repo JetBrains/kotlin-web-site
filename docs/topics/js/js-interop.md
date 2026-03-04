@@ -233,9 +233,9 @@ fun main() {
     val value1 = name.substring(0, 1)
     val value2 = name.substring(0, 1)
 
-    println(if (value1 === value2) "yes" else "no")
-    // Prints 'yes' on Kotlin/JS
-    // Prints 'no' on other platforms
+    println(value1 === value2)
+    // Prints 'true' on Kotlin/JS
+    // Prints 'false' on other platforms
 }
  ```
 

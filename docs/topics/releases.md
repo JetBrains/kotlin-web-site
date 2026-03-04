@@ -121,17 +121,6 @@ libraries](maven-configure-project.md#dependency-on-a-kotlinx-library).
 Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and
 [Android Studio](https://developer.android.com/kotlin/get-started) with an official Kotlin plugin developed by JetBrains.
 
-K2 mode in IntelliJ IDEA and Android Studio uses the K2 compiler to improve code analysis, code completion, and highlighting.
-
-IntelliJ IDEA 2025.3 and later always uses K2 mode.
-
-In Android Studio, you can enable K2 mode starting with 2024.1 by following these steps:
-
-1. Go to **Settings** | **Languages & Frameworks** | **Kotlin**.
-2. Select the **Enable K2 mode** option.
-
-Learn more about K2 mode in [our blog](https://blog.jetbrains.com/idea/2025/04/k2-mode-in-intellij-idea-2025-1-current-state-and-faq/).
-
 ## Kotlin release compatibility
 
 Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution-principles.md#language-and-tooling-releases)
