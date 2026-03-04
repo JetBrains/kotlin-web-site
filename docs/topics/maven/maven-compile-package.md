@@ -35,7 +35,7 @@ Enabling the extension automatically:
 
 * Adds `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
 * Creates `src/main/kotlin` and `src/test/kotlin` directories without changing existing Kotlin or Java source roots.
-* Adds the `kotlin-stdlib` dependency unless it's already defined.
+* Adds the [`kotlin-stdlib` dependency](maven-configure-project.md#dependency-on-the-standard-library) unless it's already defined.
 
 The extension configuration replaces the whole `<executions>` section. If you do need to configure an execution,
 you need to specify its ID. You can find an example of this in the [next section](#compile-kotlin-and-java-sources).

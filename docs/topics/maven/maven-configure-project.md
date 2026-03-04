@@ -31,7 +31,7 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
    </build>
    ```
    
-3. <anchor name="extension"/>(Optional) You can also enable the extension in the Kotlin Maven plugin that simplifies project configuration.
+3. <anchor name="extension"/>(Optional) You can also enable the extension that simplifies project configuration.
    To do that, update the Kotlin Maven plugin section in your `pom.xml` file:
 
    ```xml
@@ -47,7 +47,7 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
    
    This extension automatically:
    
-   * Adds the `kotlin-stdlib` dependency unless it's already defined. You can also [opt out](#dependency-on-the-standard-library) of the automatic addition of the standard library.
+   * Adds the [`kotlin-stdlib` dependency](#dependency-on-the-standard-library) unless it's already defined.
    * Creates `src/main/kotlin` and `src/test/kotlin` directories without changing existing Kotlin or Java source roots.
 
 ### Use JDK 17
