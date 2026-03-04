@@ -54,7 +54,7 @@ for Android, such as Basecamp, Pinterest, and more. For more information, check 
 
 Yes. Kotlin is 100% compatible with the JVM, and as such you can use any existing frameworks such as Spring Boot, 
 vert.x, or JSF. In addition, there are specific frameworks written in Kotlin, such as [Ktor](https://github.com/kotlin/ktor). 
-For more information, check out [Backend development overview](server-overview.md).
+For more information, check out the [Backend development overview](server-overview.md).
 
 ### Can I use Kotlin for web development?
 

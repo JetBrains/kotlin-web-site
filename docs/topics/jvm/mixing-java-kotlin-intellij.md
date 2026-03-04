@@ -146,15 +146,15 @@ plugins that automatically adapt Kotlin's language features to framework expecta
 * The **[`all-open`](all-open-plugin.md)** plugin automatically makes classes and their members `open` when used with specific
   annotations. This is particularly useful for frameworks like Spring that require classes to be non-final.
 
-  For Spring, you can use a special [`kotlin-spring`](all-open-plugin.md#spring-support) plugin,
+  For Spring, you can use the [`kotlin-spring`](all-open-plugin.md#spring-support) plugin,
   which is a wrapper on top of `all-open`. It helps to specify Spring annotations automatically.
 * The **[`no-arg`](no-arg-plugin.md)** plugin generates an additional zero-argument constructor for classes with specific annotations.
-  This allows Java Persistence API (JPA) to instantiate classes that otherwise wouldn't have a default constructor.
+  This allows JPA to instantiate classes that otherwise wouldn't have a default constructor.
 
-  You can also use a special [`kotlin-jpa`](no-arg-plugin.md#jpa-support) plugin, which is a wrapper on top of `no-arg`.
+  You can also use the [`kotlin-jpa`](no-arg-plugin.md#jpa-support) plugin, which is a wrapper on top of `no-arg`.
   It helps to specify no-arg annotations automatically.
 * The **[`power-assert`](power-assert.md)** plugin improves the debugging experience by providing detailed failure messages with
-  contextual information for assertions, showing intermediate values, and helping you understand why a test failed.
+  contextual information for assertions. It shows intermediate values and helps you understand why a test failed.
 
 ## Next step
 

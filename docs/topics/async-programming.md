@@ -1,8 +1,8 @@
 [//]: # (title: Asynchronous programming techniques)
 
 For decades, as developers we are confronted with a problem to solve - how to prevent our applications from blocking. Whether 
-we're developing desktop, mobile, or even backend applications, we want to avoid having the user wait or what's worse cause 
-bottlenecks that would prevent an application from scaling. 
+we're developing desktop, mobile, or even backend applications, we want to avoid making the user wait or, even worse, create 
+bottlenecks that prevent the application from scaling. 
 
 There have been many approaches to solving this problem, including:
 
