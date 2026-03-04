@@ -253,7 +253,7 @@ items:
     platforms:
       - android
       - ios
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/cash-app
+    link: /multiplatform/case-studies/cash-app
   #------------------------------------------------------------------------
   - id: posten-bring
     type: multiplatform
@@ -338,7 +338,7 @@ items:
     platforms:
       - android
       - ios
-    link: https://kotlinlang.org/multiplatform/case-studies/baidu/
+    link: /multiplatform/case-studies/baidu/
   #------------------------------------------------------------------------
   - id: prezzee
     type: multiplatform
@@ -448,8 +448,7 @@ items:
       - ios
       - frontend
       - backend
-    isExternal: true
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/down-dog
+    link: /multiplatform/case-studies/down-dog
     media:
       type: image
       path: /images/case-studies/down-dog-card-preview.png
@@ -620,7 +619,7 @@ items:
       - android
       - ios
       - frontend
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/mirego
+    link: /multiplatform/case-studies/mirego
   #------------------------------------------------------------------------
   - id: wolt
     type: server-side
@@ -661,7 +660,7 @@ items:
     platforms:
       - android
       - ios
-    link: https://kotlinlang.org/lp/multiplatform/case-studies/fastwork
+    link: /multiplatform/case-studies/fastwork
   #------------------------------------------------------------------------
   - id: memrise
     type: multiplatform
@@ -771,7 +770,7 @@ items:
       - /images/case-studies/novatec-logo.svg
     carousel:
       logo: /images/case-studies/carousel/novatec.svg
-    link: https://kotlinlang.org/lp/server-side/case-studies/novatec
+    link: /server-side/case-studies/novatec
   #------------------------------------------------------------------------
   - id: fairef
     type: server-side
@@ -781,7 +780,7 @@ items:
       - /images/case-studies/faire-logo.svg
     carousel:
       logo: /images/case-studies/carousel/faire.svg
-    link: https://kotlinlang.org/lp/server-side/case-studies/faire
+    link: /server-side/case-studies/faire
   #------------------------------------------------------------------------
   - id: doordash
     type: server-side
@@ -790,7 +789,7 @@ items:
     logo:
       - /images/case-studies/doordash-logo.svg
     carousel: true
-    link: https://kotlinlang.org/lp/server-side/case-studies/doordash
+    link: /server-side/case-studies/doordash
   #------------------------------------------------------------------------
   - id: adobe
     type: server-side
@@ -834,7 +833,7 @@ items:
     logo:
       - /images/case-studies/expedia-logo.svg
     carousel: true
-    link: https://kotlinlang.org/lp/server-side/case-studies/expedia
+    link: /server-side/case-studies/expedia
   #------------------------------------------------------------------------
   - id: ing
     type: server-side

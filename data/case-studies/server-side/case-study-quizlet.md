@@ -25,7 +25,7 @@ their own, and immediately begin studying across Quizlet’s
 activities for free. In fact, over a billion questions are
 answered on Quizlet each week.
 
-Our Android app has over 10 million active installations as per the <a href="https://play.google.com/store/apps/details?id=com.quizlet.quizletandroid" target="_blank" rel="noopener noreferrer">Google Play Store ↗</a>. Our iOS app is a top 10 Education app on the App Store.
+Our Android app has over 10 million active installations as per the <a href="https://play.google.com/store/apps/details?id=com.quizlet.quizletandroid" target="_blank" rel="noopener noreferrer">Google Play Store&nbsp;↗</a>. Our iOS app is a top 10 Education app on the App Store.
 
 ## Why Kotlin — Options for Shared Code
 
@@ -57,8 +57,9 @@ While web browsers are of course tailor-made to run JavaScript, relying on JavaS
 - On Android, the J2V8 library caused our APK size to almost double
 
 
+<div class="info-block">
 All-told, these issues resulted in an ecosystem where frontend web developers might have felt did not feel comfortable consuming it (let alone writing it themselves).
-
+</div>
 
 Despite these issues, shared JavaScript allowed us to write our most critical business logic in one place, ship it across multiple platforms, and unblock our resource-constrained native mobile teams. Most importantly, we were able to do this without committing to writing our entire client with the same framework.
 
@@ -109,13 +110,13 @@ Quizlet’s Android, iOS, and backend engineers are more eager to write and main
 - iOS exception handling is a little finicky because it requires manual handling
 
 ## Advice
-### Clean interfaces are crucial.
+### Clean interfaces are crucial
 Writing code with clear interface boundaries made it much easier to extract later. By isolating our vital business logic from regular application code, we were able to share this logic across applications.
 
-### Aggressively validate inputs along the public API.
+### Aggressively validate inputs along the public API
 It’s easy for misunderstandings about the meanings of parameters to arise in a complex module. This is doubly true when the module is used by many people who may have never talked directly to each other. Aggressively validating for unexpected input, especially in a loosely-typed language like JavaScript, helps minimize issues due to miscommunication or under-documentation.
 
-### Practice Test-Driven Development.
+### Practice Test-Driven Development
 Test Driven Development (TDD) pays extra dividends with shared code. TDD is nearly always a great way to build software, but it is especially well-suited for shared modules with little dependence on external state.
 
 Particularly with shared code, investing in TDD:
@@ -124,20 +125,18 @@ Particularly with shared code, investing in TDD:
 - Minimizes the number of times we have to have to recompile/repackage shared code for inclusion into a client due to implementation errors. This multi-step processes can be awkward and takes more time than working entirely in a native environment.
 - Gives us extra confidence in the shared code we write, preventing issues that have ripple effects across multiple host apps.
 
-### Complex state machines and rule engines are ideal candidates.
+### Complex state machines and rule engines are ideal candidates
 Compared to user interfaces, persistence, or networking, state machines and rule engines are incredibly well-suited for shared code. This isn’t to say networking and persistence are bad candidates for shared code: they just have additional complications to work around.
 
 By focusing our shared code efforts on code based around state management and control flow, we saved our engineering team countless person-hours with minimal time spent on cross-platform threading or concurrency concerns.
 
-![](/images/case-studies/content/quizlet-3.svg)
-
-<p>
-  By generating actual Objective-C Frameworks, JavaScript files, and
-  Java bytecode, Kotlin Multiplatform promises the ability to write
-  code in Kotlin and have it run in each platform’s native runtime.
-</p>
-
-<p>Ankush Gupta, Staff Software Engineer, Quizlet</p>
+<div class="rs-subtitle-2">
+> By generating actual Objective-C Frameworks, JavaScript files, and
+> Java bytecode, Kotlin Multiplatform promises the ability to write
+> code in Kotlin and have it run in each platform’s native runtime.
+>
+> <small>Ankush Gupta, Staff Software Engineer, Quizlet</small>
+</div>
 
 ## Contacts and Links
 
