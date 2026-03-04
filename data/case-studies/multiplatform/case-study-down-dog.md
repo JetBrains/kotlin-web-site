@@ -11,7 +11,7 @@ coverImg: /images/case-studies/content/down-dog-cover.png
 ---
 
 <div class="rs-subtitle-2">
-<a href="https://www.downdogapp.com/" class="wt-link" target="_blank" rel="noreferrer noopener">Down Dog ↗</a> is the innovative start up that brings a studio-like yoga experience to your mobile device. With Down Dog you get a brand new yoga routine every time you come to your mat.
+<a href="https://www.downdogapp.com/" target="_blank" rel="noreferrer noopener">Down Dog ↗</a> is the innovative start up that brings a studio-like yoga experience to your mobile device. With Down Dog you get a brand new yoga routine every time you come to your mat.
 </div>
 
 Unlike following pre-recorded videos, Down Dog won’t make you do the same workout
@@ -21,7 +21,7 @@ you the power to build a yoga practice you love!
 This app brings yoga to over 500k subscribers on both Android and iOS, with
 over 100k users completing a practice daily. The app has 200k reviews on iOS
 and over 100k on Android, with an average rating of 4.9 on both platforms. And
-what is this incredible app built with? [Kotlin Multiplatform Mobile](https://kotlinlang.org/lp/mobile/)!
+what is this incredible app built with? [Kotlin Multiplatform](/multiplatform/)!
 
 ### The story behind Down Dog
 
@@ -53,7 +53,7 @@ At this point, code was not being shared between any of the three clients,
 but they were being written in parallel so that changes to the business logic
 were essentially a copy-paste job (plus syntax changes when converting to Swift).
 At the beginning of 2020, Down Dog switched to
-[Kotlin Multiplatform](https://kotlinlang.org/lp/mobile/) and began
+[Kotlin Multiplatform](/multiplatform/) and began
 sharing code among all three clients for everything but layouts and other
 platform code. The team has even moved the majority of their iOS platform code
 from Swift to Kotlin, so that their entire project is now Kotlin with the

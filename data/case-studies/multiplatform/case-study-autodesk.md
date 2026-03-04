@@ -43,8 +43,10 @@ Maintaining development workflows across multiple platforms can be challenging. 
 
 ### Do you have any life hacks or advice you'd like to share?
 
-The best advice I can give about getting into multiplatform is to read through some of the docs on <a href="http://gradle.org/" class="wt-link" target="_blank" rel="noopener noreferrer">gradle.org</a> about authoring tasks to familiarize yourself with how gradle and gradle tasks work. A good understanding of what gradle is doing has helped us a lot along the way.
+The best advice I can give about getting into multiplatform is to read through some of the docs on <a href="http://gradle.org/" target="_blank" rel="noopener noreferrer">gradle.org</a> about authoring tasks to familiarize yourself with how gradle and gradle tasks work. A good understanding of what gradle is doing has helped us a lot along the way.
 
+<div class="rs-subtitle-2">
 > With Kotlin Multiplatform an engineer can build out a new feature and test it on one platform, and then other platforms can just hook up the data models and business logic to the UI on their platform and reuse most of the groundwork. Now that we're working in a shared codebase, we collaborate more across platforms.
 >
-> **Ben Asher, iOS Developer, Autodesk**
+> <small>Ben Asher, iOS Developer, Autodesk</small>
+</div>

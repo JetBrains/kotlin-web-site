@@ -24,6 +24,11 @@
 .title {
   margin-top: 64px;
   margin-bottom: 48px;
+
+  @media (--ktl-ml-down) {
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
 }
 
 .infoSection {

@@ -17,15 +17,36 @@
 }
 
 .container :global(.rs-subtitle-2) {
-  font-size: 29px;
-  line-height: 39px;
+  font-size: 26px;
+  line-height: 32px;
   margin-bottom: 96px;
 
   @media (--ktl-ts-down) {
-    font-size: 23px;
-    line-height: 30px;
+    font-size: 18px;
+    line-height: 24px;
     margin-bottom: 48px;
   }
+}
+
+.container :global(.rs-subtitle-2) small {
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(25, 25, 28, 0.8);
+}
+
+.container :global(.rs-subtitle-2 p) {
+  margin: 12px 0;
+}
+
+.container :global(.info-block) {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 16px;
+  padding-left: 56px;
+  background-image: url("/images/case-studies/content/info.svg");
+  background-repeat: no-repeat;
+  background-position: 20px 20px;
+  background-size: 24px 24px;
 }
 
 .container h1, .container h2, .container h3, .container h4 {
@@ -83,6 +104,10 @@
     background-repeat: no-repeat;
     background-size: contain;
   }
+}
+
+.container li {
+  margin-bottom: 12px;
 }
 
 .share {

@@ -8,7 +8,7 @@ industry: "Food delivery service"
 ---
 
 <div class="rs-subtitle-2">
-<a href="https://en.wikipedia.org/wiki/DoorDash" class="wt-link" target="_blank" rel="noreferrer noopener">DoorDash ↗</a> uses Kotlin for all their backend services and infrastructure. Hundreds of engineers work with Kotlin across a massive system spanning multiple repos.
+<a href="https://en.wikipedia.org/wiki/DoorDash" target="_blank" rel="noreferrer noopener">DoorDash ↗</a> uses Kotlin for all their backend services and infrastructure. Hundreds of engineers work with Kotlin across a massive system spanning multiple repos.
 </div>
 
 Two years ago, they made the bold move to split their existing legacy Python monolith into multiple backend services, which they developed in Kotlin. This upgrade resulted in tremendous improvements:
