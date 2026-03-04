@@ -769,6 +769,81 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.3.20: report a warning
 > - 2.4.0: remove the property
 
+### Deprecate `CleanableStore` interface and `CleanDataTask` class
+
+> **Issue**: [KT-78104](https://youtrack.jetbrains.com/issue/KT-78104)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `CleanableStore` interface and `CleanDataTask` class are deprecated since they are no longer used.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+
+### Deprecate `kotlin.kmp.isolated-projects.support` Gradle property
+
+> **Issue**: [KT-79257](https://youtrack.jetbrains.com/issue/KT-79257)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Since multiplatform projects are compatible with isolated projects by default and there are no other options,
+> the `kotlin.kmp.isolated-projects.support` Gradle property is deprecated.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+
+### Deprecate `kotlin.mpp.enableKotlinToolingMetadataArtifact` Gradle property
+
+> **Issue**: [KT-79924](https://youtrack.jetbrains.com/issue/KT-79924)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Since the `kotlin-tooling-metadata.json` artifact is now always generated for multiplatform projects, the 
+> `kotlin.mpp.enableKotlinToolingMetadataArtifact` Gradle property is deprecated.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+> - 2.4.0: remove support
+
+### Deprecate `LanguageSettings.enableLanguageFeature` DSL
+
+> **Issue**: [KT-82323](https://youtrack.jetbrains.com/issue/KT-82323)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `LanguageSettings.enableLanguageFeature` DSL exposed an internal compiler configuration only intended
+> for Kotlin compiler tests. Therefore, the DSL is deprecated.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+
+### Deprecate "out of process" compiler execution strategy
+
+> **Issue**: [KT-83125](https://youtrack.jetbrains.com/issue/KT-83125)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The "out of process" compiler execution strategy is not supported by the [Build tools API](build-tools-api.md)
+> and is the slowest strategy available. In Kotlin 2.3.20, the strategy is deprecated in favor of "daemon" and "in process" compiler execution strategies.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+
 ## Build tool removal
 
 ### Remove support for Ant
