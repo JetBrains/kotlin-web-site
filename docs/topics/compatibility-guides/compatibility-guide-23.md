@@ -791,7 +791,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Since isolated projects are used by default in multiplatform projects and there are no other options,
+> **Short summary**: Since multiplatform projects are compatible with isolated projects by default and there are no other options,
 > the `kotlin.kmp.isolated-projects.support` Gradle property is deprecated.
 >
 > **Deprecation cycle**:
@@ -822,8 +822,8 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The `LanguageSettings.enableLanguageFeature` DSL uses an internal compiler option that should only be used
-> in exceptional cases. Therefore, the `LanguageSettings.enableLanguageFeature` DSL is deprecated.
+> **Short summary**: The `LanguageSettings.enableLanguageFeature` DSL exposed an internal compiler configuration that shouldn't be used
+> outside of Kotlin compiler tests. Therefore, the `LanguageSettings.enableLanguageFeature` DSL is deprecated.
 >
 > **Deprecation cycle**:
 >
