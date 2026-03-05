@@ -42,7 +42,7 @@ Here are some examples of the server-side frameworks for Kotlin:
 * [Javalin](https://javalin.io) is a very lightweight web framework for Kotlin and Java which supports WebSockets, HTTP2, and async requests.
 
 * The available options for persistence include direct JDBC access, JPA, and using NoSQL databases through their Java drivers.
-  For JPA, the [kotlin-jpa compiler plugin](no-arg-plugin.md#jpa-support) adapts
+  For JPA, the [kotlin-jpa compiler plugin](kotlin-jpa-plugin.md) adapts
   Kotlin-compiled classes to the requirements of the framework.
   
 > You can find more frameworks at [https://kotlin.link/](https://kotlin.link/resources).

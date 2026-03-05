@@ -55,7 +55,7 @@ Starting with Kotlin %kotlinEapVersion%:
 
 * The `all-open` compiler plugin provides a JPA preset.
 * The Gradle `org.jetbrains.kotlin.plugin.jpa` plugin automatically applies the `org.jetbrains.kotlin.plugin.all-open` plugin with the JPA preset enabled.
-* The [Maven JPA setup](no-arg-plugin.md#jpa-support) enables `all-open` with the JPA preset by default.
+* The [Maven JPA setup](kotlin-jpa-plugin.md) enables `all-open` with the JPA preset by default.
 * The Maven dependency `org.jetbrains.kotlin:kotlin-maven-noarg` now implicitly includes `org.jetbrains.kotlin:kotlin-maven-allopen`, so you no longer need to add it explicitly in the `<plugin><dependencies>` block.
 
 As a result, JPA entities annotated with the following annotations
