@@ -142,7 +142,7 @@ There are Kotlin/Native options that disable the Gradle daemon and compiler cach
 * `kotlin.native.disableCompilerDaemon=true`
 * `kotlin.native.cacheKind=none`
 * `kotlin.native.cacheKind.$target=none`, where `$target` is a Kotlin/Native compilation target, for example `iosSimulatorArm64`.
-* `disableNativeCache()` DSL in the `binaries {}` block of your Gradle build file.
+* [`disableNativeCache`](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#binaries) DSL in the `binaries {}` block of your Gradle build file.
 
 If you had issues with these features before and added these lines to your `gradle.properties` file or Gradle build files,
 remove them and check whether the build completes successfully. It is possible that these properties were added previously
