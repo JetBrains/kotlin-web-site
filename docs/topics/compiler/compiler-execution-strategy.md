@@ -1,15 +1,14 @@
 [//]: # (title: Compiler execution strategy)
 
 The _Kotlin compiler execution strategy_ defines where the Kotlin compiler runs.
-Build tools such as [Gradle](gradle.md) or [Maven](maven.md) configure the strategy. Some strategies
-are faster than others.
+Build tools such as [Gradle](gradle.md) or [Maven](maven.md) configure the strategy.
 
-There are three compiler execution strategies:
+There are two compiler execution strategies:
 
-| Strategy                          | Where the Kotlin compiler is executed | Other characteristics and notes                                                                                                                                             |
-|-----------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Kotlin daemon](kotlin-daemon.md) | Inside its own daemon process         | _The default and fastest strategy_ in Gradle and Maven. Can be shared between different build system processes and multiple parallel compilations.                          |
-| In process                        | Inside the build tool's process       | The simplest from the perspective of memory management, but less isolated from other logic running in the same process in terms of shared state, like JVM system properties |
+| Strategy                          | Where the Kotlin compiler runs  | Other characteristics and notes                                                                                                                                                              |
+|-----------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Kotlin daemon](kotlin-daemon.md) | Inside its own daemon process   | _The default and fastest strategy_ in Gradle and Maven. The daemon process can be shared between different build system processes and multiple parallel compilations.                        |
+| In process                        | Inside the build tool's process | The simplest strategy from the perspective of memory management, but it's less isolated from other logic running in the same process because it shares state, such as JVM system properties. |
 
 ## Configure in Gradle
 
@@ -18,8 +17,7 @@ You can define the Kotlin compiler execution strategy using one of the following
 * The `kotlin.compiler.execution.strategy` Gradle property.
 * The `compilerExecutionStrategy` compile task property.
 
-The `compilerExecutionStrategy` task property takes priority over the
-`kotlin.compiler.execution.strategy` Gradle property.
+The `compilerExecutionStrategy` task property takes priority over the `kotlin.compiler.execution.strategy` Gradle property.
 
 The possible values for the `kotlin.compiler.execution.strategy` property are:
 
@@ -129,13 +127,11 @@ If there is not enough memory to run the compilation, the logs show a related me
 
 ## Configure in Maven
 
-By default, Maven uses the Kotlin daemon strategy. To switch to the "in process" strategy, set the
-following
+By default, Maven uses the Kotlin daemon strategy. To switch to the "in process" strategy, set the following
 property in your `pom.xml` file:
 
 ```xml
-
 <properties>
-  <kotlin.compiler.daemon>false</kotlin.compiler.daemon>
+    <kotlin.compiler.daemon>false</kotlin.compiler.daemon>
 </properties>
 ```
