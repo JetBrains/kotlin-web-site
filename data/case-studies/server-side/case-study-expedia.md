@@ -35,8 +35,7 @@ Over time, the [graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin) 
 
 At KotlinConf 2019, Dariusz Kuc and Guillaume Scheibel talked about how to utilize the power of Spring Boot together with [graphql-kotlin](https://expediagroup.github.io/graphql-kotlin/docs/getting-started.html). Watch the video:
 
-<iframe width="600" height="300" src="https://www.youtube.com/embed/7YJyPXjLdug" frameborder="0" allow="accelerometer; 
-autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<YoutubePlayer id="7YJyPXjLdug" />
 
 ## The shift to Kotlin Coroutines
 
