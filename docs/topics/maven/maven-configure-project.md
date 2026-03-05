@@ -31,9 +31,8 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
    </build>
    ```
 
-<anchor name="extension"/>   
-3. (Optional) You can also enable the extension that simplifies project configuration.
-   To do that, update the Kotlin Maven plugin section in your `pom.xml` file:
+3. <p id="extension">(Optional) You can also enable the extension that simplifies project configuration.
+   To do that, update the Kotlin Maven plugin section in your `pom.xml` file:</p>
 
    ```xml
    <plugins>
