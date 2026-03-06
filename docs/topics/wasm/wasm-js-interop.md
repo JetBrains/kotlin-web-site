@@ -118,7 +118,7 @@ Therefore, external interfaces have some restrictions compared to regular interf
 * You can't use them on the right-hand side of `is` checks.
 * You can't use them in class literal expressions (such as `User::class`).
 * You can't pass them as reified type arguments.
-* Casting with `as` to external interfaces always succeed.
+* Casting with `as` to external interfaces always succeeds.
 
 #### External objects
 
@@ -171,6 +171,10 @@ fun main() {
     action("Run task")
 }
 ```
+
+> You'll see a compiler warning when `@nativeInvoke` is used. The annotation is a temporary solution until a stable interoperability is designed.
+>
+> {style="note"}
 
 ### Kotlin functions with JavaScript code
 
@@ -284,7 +288,7 @@ import org.khronos.webgl.*
     val jsInt32Array: Int32Array = intArray.toInt32Array()
     
     // Uses toIntArray() to convert JavaScript Int32Array back to Kotlin IntArray
-    val kotlnIntArray: IntArray = jsInt32Array.toIntArray()
+    val kotlinIntArray: IntArray = jsInt32Array.toIntArray()
 ```
 
 ## Use Kotlin code in JavaScript
@@ -341,7 +345,7 @@ kotlin {
 Kotlin/Wasm allows only certain types in signatures of JavaScript interop declarations.
 These limitations apply uniformly to declarations with `external`, `= js("code")` or `@JsExport`.
 
-See how Kotlin types correspond to Javascript types:
+See how Kotlin types correspond to JavaScript types:
 
 | Kotlin                                                     | JavaScript                        |
 |------------------------------------------------------------|-----------------------------------|
@@ -481,7 +485,7 @@ Although Kotlin/Wasm interoperability shares similarities with Kotlin/JS interop
 | **Dynamic types**       | Does not support the `dynamic` type. Use `JsAny` instead (see sample code below).                                                                                                                                   | Supports the `dynamic` type.                                                                                                                        |
 
 > Kotlin/JS [dynamic type](dynamic-type.md) for interoperability with untyped or loosely typed objects is not
-> supported in Kotlin/Wasm. Instead of `dynamic` type, you can use `JsAny` type:
+> supported in Kotlin/Wasm. Instead of the `dynamic` type, you can use the `JsAny` type:
 >
 > ```kotlin
 > // Kotlin/JS
