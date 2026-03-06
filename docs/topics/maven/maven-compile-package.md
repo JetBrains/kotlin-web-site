@@ -34,7 +34,7 @@ Ensure that the Kotlin Maven plugin is applied with the `extensions` option set 
 Enabling the extension automatically:
 
 * Adds `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
-* Creates `src/main/kotlin` and `src/test/kotlin` directories without changing existing Kotlin or Java source roots.
+* Creates `src/main/kotlin` and `src/test/kotlin` directories in case they don't already exist.
 * Adds the [`kotlin-stdlib` dependency](maven-configure-project.md#dependency-on-the-standard-library) in case it's not explicitly defined.
 
 The extension configuration replaces the whole `<executions>` section. If you do need to configure an execution,
