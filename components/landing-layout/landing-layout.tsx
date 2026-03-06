@@ -1,12 +1,10 @@
 import React, { FC, useCallback, useMemo } from 'react';
-
 import Head from 'next/head';
-
 import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
 import GlobalHeader from '@jetbrains/kotlin-web-site-ui/out/components/header';
 import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 import TopMenu from '@jetbrains/kotlin-web-site-ui/out/components/top-menu';
-import { ThemeProvider } from '@rescui/ui-contexts';
+import { Theme, ThemeProvider } from '@rescui/ui-contexts';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import styles from './landing-layout.module.css';
@@ -34,10 +32,22 @@ export type LandingLayoutProps = {
     children: React.ReactNode;
     dataTestId?: string;
     canonical?: string;
-    theme?: 'dark' | 'light';
+    theme?: Theme;
+    forceDarkTopMenu?: boolean;
 } & NavigationProps;
 
-export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, description, children, dataTestId, canonical, theme = 'dark', mobileOverview = true, ...navigationProps }) => {
+export const LandingLayout: FC<LandingLayoutProps> = ({
+    title,
+    ogImageName,
+    description,
+    children,
+    dataTestId,
+    canonical,
+    theme = 'dark',
+    forceDarkTopMenu = false,
+    mobileOverview = true,
+    ...navigationProps
+}) => {
     const router = useRouter();
     const pathname = addTrailingSlash(router.pathname);
 
@@ -103,21 +113,24 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
 
                 <StickyHeader>
                     <div className={styles.sticky} data-testid="top-menu">
-                        <TopMenu
-                            className={styles.topMenu}
-                            homeUrl={navigationProps.topMenuHomeUrl}
-                            title={navigationProps.topMenuTitle}
-                            activeIndex={activeIndex}
-                            items={items}
-                            linkHandler={linkHandler}
-                            mobileOverview={mobileOverview}
-                        >
-                            {navigationProps.topMenuButton}
-                        </TopMenu>
+                        <ThemeProvider theme={forceDarkTopMenu ? 'dark' : theme}>
+                            <TopMenu
+                                className={styles.topMenu}
+                                homeUrl={navigationProps.topMenuHomeUrl}
+                                title={navigationProps.topMenuTitle}
+                                activeIndex={activeIndex}
+                                items={items}
+                                linkHandler={linkHandler}
+                                mobileOverview={mobileOverview}
+                            >
+                                {navigationProps.topMenuButton}
+                            </TopMenu>
+                        </ThemeProvider>
                     </div>
                 </StickyHeader>
 
-                <div className={cn(styles.contentWrapper, { [styles.contentWrapperLight]: theme === 'light' })} data-testid={dataTestId}>
+                <div className={cn(styles.contentWrapper, { [styles.contentWrapperLight]: theme === 'light' })}
+                     data-testid={dataTestId}>
                     {children}
                 </div>
             </ThemeProvider>
