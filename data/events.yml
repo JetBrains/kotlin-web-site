@@ -1,4 +1,13 @@
 - lang: en
+  startDate: '2026-10-15'
+  endDate: '2026-10-16'
+  location: Leeds, United Kingdom
+  online: false
+  speaker: 'Adam Rush'
+  title: 'KotlinLeeds'
+  subject: 'The Unique Android & Kotlin Conference in the UK'
+  url: https://kotlinleeds.co.uk/
+- lang: en
   startDate: '2026-03-26'
   endDate: '2026-03-26'
   location: Prague, Czechia
