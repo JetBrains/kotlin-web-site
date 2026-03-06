@@ -11,9 +11,10 @@ interface CommunityLayoutProps {
     ogImageName?: string;
     darkTheme?: boolean;
     children: React.ReactNode;
+    canonical?: string;
 }
 
-export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, description, children, darkTheme }) => {
+export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, description, children, darkTheme, canonical }) => {
     const router = useRouter();
 
     const ogImagePath = useMemo(
@@ -29,7 +30,6 @@ export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, descripti
     return (
         <>
             <Head>
-
                 <title>{title}</title>
 
                 <meta property="og:title" content={title} />
@@ -46,15 +46,13 @@ export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, descripti
                 <meta name="twitter:site" content="@kotlin" />
                 <meta name="twitter:title" content={title} />
                 {description && <meta name="twitter:description" content={description} />}
+                {canonical && <link rel="canonical" href={canonical} />}
                 <meta name="twitter:image:src" content={ogImageTwitterPath} />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
-
             </Head>
 
-            <div className={styles.wrapper}>
-                {children}
-            </div>
+            <div className={styles.wrapper}>{children}</div>
         </>
     );
 };
