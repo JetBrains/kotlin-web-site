@@ -81,7 +81,6 @@ Let's create a Kotlin library and use it from a C program.
     
     kotlin {
         macosArm64("native") {    // macOS on Apple Silicon
-        // macosX64("native") {   // macOS on x86_64 platforms
         // linuxArm64("native") { // Linux on ARM64 platforms
         // linuxX64("native") {   // Linux on x86_64 platforms
         // mingwX64("native") {   // Windows
@@ -114,7 +113,6 @@ Let's create a Kotlin library and use it from a C program.
     
     kotlin {
         macosArm64("native") {    // Apple Silicon macOS
-        // macosX64("native") {   // macOS on x86_64 platforms
         // linuxArm64("native") { // Linux on ARM64 platforms
         // linuxX64("native") {   // Linux on x86_64 platforms
         // mingwX64("native") {   // Windows
