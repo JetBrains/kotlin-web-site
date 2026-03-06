@@ -149,6 +149,29 @@ external object Counter : JsAny {
 Similar to regular classes and interfaces, you can declare external declarations to extend other external classes and implement external interfaces.
 However, you can't mix external and non-external declarations in the same type hierarchy.
 
+#### Callable JavaScript objects with `@nativeInvoke`
+<primary-label ref="experimental-opt-in"/>
+
+You can use the `@nativeInvoke` annotation on a Kotlin member function of an `external` declaration (a class or an interface)
+to make it callable as a JavaScript function.
+
+It translates every call to that function in Kotlin into a direct call of the JavaScript object itself:
+
+```kotlin
+import kotlin.js.nativeInvoke
+
+@OptIn(ExperimentalWasmJsInterop::class)
+external class JsAction {
+    @nativeInvoke
+    operator fun invoke(data: String)
+}
+
+fun main() {
+    val action = JsAction() 
+    action("Run task")
+}
+```
+
 ### Kotlin functions with JavaScript code
 
 You can add a JavaScript snippet to Kotlin/Wasm code by defining a function with `= js("code")` body:
