@@ -76,7 +76,7 @@ We regularly run benchmarks on Kotlin/Wasm, and these results come from our test
 The Kotlin/Wasm standard library provides declarations for browser APIs, including the DOM API.
 With these declarations, you can directly use the Kotlin API to access and utilize various browser functionalities. 
 For example, in your Kotlin/Wasm applications, you can use manipulation with DOM elements or fetch the API 
-without defining these declarations from scratch. To learn more, see our [Kotlin/Wasm browser example](https://github.com/Kotlin/kotlin-wasm-examples/tree/main/browser-example).
+without defining these declarations from scratch. To learn more, see our [Kotlin/Wasm browser example](https://github.com/Kotlin/kotlin-wasm-browser-template).
 
 The declarations for browser API support are defined using JavaScript [interoperability capabilities](wasm-js-interop.md). 
 You can use the same capabilities to define your own declarations. In addition, Kotlin/Wasm–JavaScript interoperability 

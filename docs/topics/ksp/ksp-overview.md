@@ -1,11 +1,19 @@
 [//]: # (title: Kotlin Symbol Processing API)
 
-Kotlin Symbol Processing (_KSP_) is an API that you can use to develop lightweight compiler plugins.
-KSP provides a simplified compiler plugin API that leverages the power of Kotlin while keeping the learning curve at
-a minimum. Compared to [kapt](kapt.md), annotation processors that use KSP can run up to two times faster.
+Kotlin Symbol Processing (KSP) is a source code generation framework for Kotlin. With the KSP API, you can create 
+processors that generate code based on [annotations](annotations.md) in your source code.
 
-* To learn more about how KSP compares to kapt, check out [why KSP](ksp-why-ksp.md).
-* To get started writing a KSP processor, take a look at the [KSP quickstart](ksp-quickstart.md).
+KSP aims to simplify the creation of lightweight compiler plugins. Its well-defined API hides compiler changes, 
+so you don't need to spend much effort maintaining your processors. However, this approach comes with trade-offs. 
+For example, KSP-based processors can't examine expressions or statements, and they can't modify the source code.
+
+Typical use cases for KSP-based plugins include: 
+* Dependency injection ([Dagger](https://dagger.dev/dev-guide/ksp))
+* Serialization ([Moshi](https://github.com/square/moshi))
+* Database management ([Room](https://developer.android.com/jetpack/androidx/releases/room#2.3.0-beta02))
+
+To learn how to create your first KSP-based processor, see the [KSP quickstart](ksp-quickstart.md).
+
 
 ## Overview
 
@@ -14,8 +22,8 @@ declaration-site variance, and local functions. It also models types explicitly 
 such as equivalence and assign-compatibility.
 
 The API models Kotlin program structures at the symbol level according to [Kotlin grammar](https://kotlinlang.org/grammar/).
-When KSP-based plugins process source programs, constructs like classes, class members, functions, and associated parameters are accessible for the
-processors, while things like `if` blocks and `for` loops are not.
+When KSP-based plugins process source programs, constructs like classes, class members, functions, and associated parameters 
+are accessible for the processors, while things like `if` blocks and `for` loops are not.
 
 Conceptually, KSP is similar to [KType](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-type/) in Kotlin reflection.
 The API allows processors to navigate from class declarations to corresponding types with specific type arguments and vice-versa.
