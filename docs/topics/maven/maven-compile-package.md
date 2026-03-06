@@ -35,7 +35,7 @@ Enabling the extension automatically:
 
 * Adds `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
 * Creates `src/main/kotlin` and `src/test/kotlin` directories without changing existing Kotlin or Java source roots.
-* Adds the [`kotlin-stdlib` dependency](maven-configure-project.md#dependency-on-the-standard-library) unless it's already defined.
+* Adds the [`kotlin-stdlib` dependency](maven-configure-project.md#dependency-on-the-standard-library) in case it's not explicitly defined.
 
 The extension configuration replaces the whole `<executions>` section. If you do need to configure an execution,
 you need to specify its ID. You can find an example of this in the [next section](#compile-kotlin-and-java-sources).
@@ -329,7 +329,7 @@ The following attributes are supported:
 | `args`            |                                   | Additional compiler arguments                                                                        |                                                         | []                          |
 | `jvmTarget`       | `kotlin.compiler.jvmTarget`       | Target version of the generated JVM bytecode                                                         | "1.8", "9", "10", ..., "25"                             | "%defaultJvmTargetVersion%" |
 | `jdkHome`         | `kotlin.compiler.jdkHome`         | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |                                                         |                             |
-| `smart.defaults`  | `kotlin.smart.defaults.enabled`   | Automatically adds Kotlin's standard library to the project's configuration                          | true, false                                             | true                        |
+|                   | `kotlin.smart.defaults.enabled`   | Automatically adds Kotlin's standard library to the project's configuration                          | true, false                                             | true                        |
 
 ## Package your project
 

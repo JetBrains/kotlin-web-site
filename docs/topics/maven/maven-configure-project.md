@@ -47,7 +47,7 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
    
    This extension automatically:
    
-   * Adds the [`kotlin-stdlib` dependency](#dependency-on-the-standard-library) unless it's already defined.
+   * Adds the [`kotlin-stdlib` dependency](#dependency-on-the-standard-library) in case it's not explicitly defined.
    * Creates `src/main/kotlin` and `src/test/kotlin` directories without changing existing Kotlin or Java source roots.
 
 ### Use JDK 17
@@ -95,8 +95,8 @@ To add a dependency on a library, include it in the `<dependencies>` section:
 ### Dependency on the standard library
 
 Kotlin has an extensive standard library that you can use in your applications. The Kotlin Maven plugin provides an [extension](#extension)
-that automatically adds the `kotlin-stdlib` dependency when you create a new Kotlin project with the Maven build system or
-introduce Kotlin to your existing Java Maven project.
+that automatically adds the `kotlin-stdlib` dependency in case it's not explicitly defined, for example,
+when you create a new Kotlin project with the Maven build system or introduce Kotlin to your existing Java Maven project.
 
 You can also opt out of the automatic addition of Kotlin's standard library. For that, add the following to the `<properties>` section:
 
