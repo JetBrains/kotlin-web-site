@@ -1,4 +1,12 @@
 - lang: en
+  startDate: '2026-02-21'
+  endDate: '2026-02-21'
+  location: Ideas2IT Technologies,Chennai, India
+  speaker: 'Siva G, Niranjan venkatesan'
+  title: 'Kotlin & AI - Nexus'
+  subject: '​Join us on 21 Feb for a hands-on KUG Chennai meetup exploring the intersection of Kotlin and AI.'
+  url: https://luma.com/x2eg95bn
+- lang: en
   startDate: '2026-03-26'
   endDate: '2026-03-26'
   location: Prague, Czechia
@@ -25,14 +33,6 @@
   title: 'Cozy Kotlin MeetUp'
   subject: 'An informal gathering for Kotlin Enthusiasts.'
   url: https://luma.com/6zfm45ui
-- lang: en
-  startDate: '2026-01-24'
-  endDate: '2026-01-24'
-  location: Chennai, India
-  speaker: 'TBD'
-  title: 'Kotlin & AI - Nexus'
-  subject: '​Join us on 24 Jan for a hands-on KUG Chennai meetup exploring the intersection of Kotlin and AI.'
-  url: https://luma.com/x2eg95bn
 - lang: en
   startDate: '2025-12-20'
   endDate: '2025-12-20'
