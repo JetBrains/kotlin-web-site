@@ -325,5 +325,5 @@ Besides JUnit, you can use other libraries that support both Kotlin and Java:
 ## What's next
 
 * Improve your test output with the [Kotlin's Power-assert compiler plugin](power-assert.md).
-* Create your first [server-side application with Kotlin and Spring Boot](jvm-get-started-spring-boot.md).
+* Create your first [backend application with Kotlin and Spring Boot](jvm-get-started-spring-boot.md).
 * Explore the features of the [`kotlin.test` library](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/).
