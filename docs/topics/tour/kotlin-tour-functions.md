@@ -378,7 +378,7 @@ function called on `text`.
 
 Lambda expressions can be used in a number of ways. You can:
 
-* [Pass a lambda expression as a parameter to another function](#pass-to-another-function)
+* [Pass a lambda expression as an argument to another function](#pass-to-another-function)
 * [Return a lambda expression from a function](#return-from-a-function)
 * [Invoke a lambda expression on its own](#invoke-separately)
 
