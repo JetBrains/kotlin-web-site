@@ -7,7 +7,7 @@
     justify-content: center;
     gap: 24px;
     padding: 32px 48px;
-    margin: 64px auto;
+    margin: 64px auto 96px;
     max-width: 800px;
     border: 1px solid rgba(25, 25, 28, 0.2);
     border-radius: 16px;

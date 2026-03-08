@@ -15,6 +15,7 @@ import {  CaseType } from '../../blocks/case-studies/case-studies';
 
 import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
 import '../server-side/styles.css';
+import { GetStartedServerSide } from '../../blocks/server-side/get-started/get-started';
 
 const MULTIPLATFORM_TITLE = 'Kotlin Multiplatform';
 const MULTIPLATFORM_URL = '/multiplatform/';
@@ -100,6 +101,7 @@ export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyP
             <ThemeProvider theme="light">
                 <CaseStudyPageHero frontmatter={frontmatter} />
                 <CaseStudyPageContent content={content} />
+                <GetStartedServerSide theme="light" />
             </ThemeProvider>
         </LandingLayout>
     );
