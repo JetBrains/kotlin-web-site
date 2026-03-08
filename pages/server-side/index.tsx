@@ -10,7 +10,7 @@ import { Ecosystem } from '../../blocks/server-side/ecosystem/ecosystem';
 import { HowToStart } from '../../blocks/server-side/how-to-start/how-to-start';
 import { FavoriteTools } from '../../blocks/server-side/favorite-tools/favorite-tools';
 import { AdditionalMaterials } from '../../blocks/server-side/additional-materials/additional-materials';
-import { GetStarted } from '../../blocks/server-side/get-started/get-started';
+import { GetStartedServerSide } from '../../blocks/server-side/get-started/get-started';
 
 import logos from '../../components/customer-logo-marquee/server-side-logos';
 
@@ -47,7 +47,7 @@ function Index() {
             <HowToStart />
             <FavoriteTools />
             <AdditionalMaterials />
-            <GetStarted />
+            <GetStartedServerSide />
         </LandingLayout>
     );
 }
