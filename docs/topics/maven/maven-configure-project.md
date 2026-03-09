@@ -46,9 +46,9 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
    ```
    
    This extension automatically:
-   
-   * Adds the [`kotlin-stdlib` dependency](#dependency-on-the-standard-library) in case it's not explicitly defined.
-   * Creates `src/main/kotlin` and `src/test/kotlin` directories in case they don't already exist.
+
+   * Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots in case they already exist but are not specified in the plugin configuration.
+   * Adds the [`kotlin-stdlib` dependency](#dependency-on-the-standard-library) in case it's not already defined in the project.
 
 ### Use JDK 17
 
@@ -94,7 +94,11 @@ To add a dependency on a library, include it in the `<dependencies>` section:
 
 ### Dependency on the standard library
 
-Kotlin has an extensive standard library that you can use in your applications.
+Kotlin has an extensive standard library that you can use in your applications. You can add the standard library
+as a dependency manually or use the [extension](#extension) that sets it up automatically if it's missing.
+
+#### Manual configuration
+
 To manually add the Kotlin's standard library to your project, update the `dependencies` section in your `pom.xml` file with the following:
 
 ```xml
@@ -115,12 +119,13 @@ To manually add the Kotlin's standard library to your project, update the `depen
 >
 {style="note"}
 
-The Kotlin Maven plugin provides an [extension](#extension) that automatically adds the `kotlin-stdlib` dependency
-in case it's not already defined. For example, when you create a new Kotlin project with the Maven build system or
-introduce Kotlin to your existing Java Maven project.
+### Automatic setup
 
-You can also opt out from the automatic addition of the standard library while keeping the extension enabled.
-For that, add the following to the `<properties>` section:
+You can avoid manual configuration using the [extension](#extension) provided by the Kotlin Maven plugin. It automatically
+adds the `kotlin-stdlib` dependency in case if it's not defined in the project, for example, when you create a new Kotlin
+Maven project or introduce Kotlin to your existing Java Maven project.
+
+You can also opt out from the automatic addition of the standard library. For that, add the following to the `<properties>` section:
 
 ```xml
 <project>
@@ -129,6 +134,8 @@ For that, add the following to the `<properties>` section:
     </properties>
 </project>
 ```
+
+Note that this property disables all simplified setup features, including the registration of source root paths.
 
 ### Dependencies on test libraries
 

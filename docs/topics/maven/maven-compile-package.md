@@ -34,11 +34,11 @@ Ensure that the Kotlin Maven plugin is applied with the `extensions` option set 
 Enabling the extension automatically:
 
 * Adds `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
-* Creates `src/main/kotlin` and `src/test/kotlin` directories in case they don't already exist.
-* Adds the [`kotlin-stdlib` dependency](maven-configure-project.md#dependency-on-the-standard-library) in case it's not explicitly defined.
+* Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots in case they already exist but are not specified in the plugin configuration.
+* Adds the [`kotlin-stdlib` dependency](maven-configure-project.md#dependency-on-the-standard-library) in case it's not already defined in the project.
 
 The extension configuration replaces the whole `<executions>` section. If you do need to configure an execution,
-you need to specify its ID. You can find an example of this in the [next section](#compile-kotlin-and-java-sources).
+see an example in the [next section](#compile-kotlin-and-java-sources).
 
 > If several build plugins overwrite the default lifecycle, and you have also enabled the `extensions` option, the last plugin in
 > the `<build>` section has priority in terms of lifecycle settings. All earlier changes to lifecycle settings are ignored.
@@ -127,29 +127,6 @@ It allows skipping the Maven compiler plugin configuration:
             <artifactId>kotlin-maven-plugin</artifactId>
             <version>${kotlin.version}</version>
             <extensions>true</extensions>
-            <executions>
-                <execution>
-                    <id>default-compile</id>
-                    <phase>compile</phase>
-                    <configuration>
-                        <sourceDirs>
-                            <sourceDir>src/main/kotlin</sourceDir>
-                            <!-- Ensure Kotlin code can reference Java code -->
-                            <sourceDir>src/main/java</sourceDir>
-                        </sourceDirs>
-                    </configuration>
-                </execution>
-                <execution>
-                    <id>default-test-compile</id>
-                    <phase>test-compile</phase>
-                    <configuration>
-                        <sourceDirs>
-                            <sourceDir>src/test/kotlin</sourceDir>
-                            <sourceDir>src/test/java</sourceDir>
-                        </sourceDirs>
-                    </configuration>
-                </execution>
-            </executions>
         </plugin>
         <!-- No need to configure Maven compiler plugin with extensions -->
     </plugins>
@@ -329,7 +306,6 @@ The following attributes are supported:
 | `args`            |                                   | Additional compiler arguments                                                                        |                                                         | []                          |
 | `jvmTarget`       | `kotlin.compiler.jvmTarget`       | Target version of the generated JVM bytecode                                                         | "1.8", "9", "10", ..., "25"                             | "%defaultJvmTargetVersion%" |
 | `jdkHome`         | `kotlin.compiler.jdkHome`         | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |                                                         |                             |
-|                   | `kotlin.smart.defaults.enabled`   | Automatically adds Kotlin's standard library to the project's configuration                          | true, false                                             | true                        |
 
 ## Package your project
 
