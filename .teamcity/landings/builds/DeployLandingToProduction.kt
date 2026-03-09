@@ -22,6 +22,8 @@ class DeployLandingToProduction(private val config: LandingConfiguration) : Buil
     param("LANDING_NAME", config.name)
   }
 
+  configureAwsDeploymentParams()
+
   requirements {
     contains("docker.server.osType", "linux")
   }

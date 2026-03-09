@@ -21,6 +21,8 @@ class DeployLandingToStaging(private val config: LandingConfiguration) : BuildTy
     param("LANDING_NAME", config.name)
   }
 
+  configureAwsDeploymentParams()
+
   requirements {
     contains("docker.server.osType", "linux")
   }
