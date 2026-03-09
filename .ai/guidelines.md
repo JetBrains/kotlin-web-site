@@ -26,11 +26,10 @@ The Kotlin Website is built using a hybrid architecture combining two different 
    - CSS Modules for component-specific styling
    - Static site generation for performance
 
-2. **Flask-based Pages**:
-   - Python with Flask web framework
-   - Jinja2 templating engine
-   - Flask-Frozen for generating static pages
-   - Traditional webpack-bundled assets
+2. **Legacy Python/Flask Infrastructure**:
+   - The project contains Python/Flask code that is obsolete and will be removed soon
+   - This legacy infrastructure does not affect the way the website works
+   - New development should focus on Next.js-based approaches
 
 3. **Shared Frontend Technologies**:
    - Webpack for bundling traditional assets
@@ -53,7 +52,6 @@ The Kotlin Website is built using a hybrid architecture combining two different 
 
 - Node.js (version specified in `.nvmrc`)
 - Yarn package manager
-- Python 3.x with pip
 
 ### Setup
 
@@ -61,10 +59,6 @@ The Kotlin Website is built using a hybrid architecture combining two different 
 2. Install Node.js dependencies:
    ```bash
    yarn install
-   ```
-3. Install Python dependencies:
-   ```bash
-   pip install -r requirements.txt
    ```
 
 ### Scripts and Commands
@@ -76,14 +70,13 @@ The Kotlin Website project includes various scripts defined in `package.json` fo
 These scripts start development servers that continue running until manually stopped. They are not "builds" in the traditional sense and should not be expected to complete on their own.
 
 - **`yarn start`**: Starts the webpack development server on port 9000.
-  - **Purpose**: Main development server that integrates both Flask and Next.js components.
+  - **Purpose**: Main development server that integrates Next.js components.
   - **Behavior**: Long-running process that continues until manually stopped (Ctrl+C).
-  - **Details**: 
+  - **Details**:
     - Serves the website on http://localhost:9000
     - Proxies requests to the Next.js server (port 3000) for `/community/**` and `/_next/**` routes
-    - Proxies all other requests to the Flask server (port 8080)
     - Enables hot module replacement for frontend assets
-  - **When to use**: For general website development when working on both Flask and Next.js components.
+  - **When to use**: For general website development when working on Next.js components.
 
 - **`yarn next-dev`**: Starts the Next.js development server on port 3000.
   - **Purpose**: Development server for Next.js components only.
@@ -92,7 +85,6 @@ These scripts start development servers that continue running until manually sto
     - Serves Next.js pages on http://localhost:3000
     - Provides fast refresh for React components
   - **When to use**: When focusing solely on Next.js components (e.g., home page, community section).
-  - **Note**: This server only handles Next.js routes and won't serve Flask-based pages.
 
 #### Build Scripts (One-time Commands)
 
@@ -255,7 +247,7 @@ Before running tests, ensure the development server is running on http://localho
 yarn start
 ```
 
-This is the most common approach as the webpack development server proxies requests to both Flask and Next.js servers. Tests are configured to use port 9000 by default.
+This is the most common approach as the webpack development server proxies requests to the Next.js server. Tests are configured to use port 9000 by default.
 
 #### For Testing Next.js Pages
 
@@ -264,27 +256,6 @@ If you're specifically testing or developing Next.js-based pages (like the home 
 ```bash
 yarn next-dev
 ```
-
-#### Advanced Setup (When Needed)
-
-In some cases, if you need to test specific Flask functionality or encounter issues with certain pages not loading correctly, you may need to run additional servers:
-
-1. Start the Flask server:
-```bash
-python kotlin-website.py
-```
-
-2. Start the Next.js development server:
-```bash
-yarn next-dev
-```
-
-3. Start the webpack development server:
-```bash
-yarn start
-```
-
-Running all three servers ensures that all parts of the website are properly served, but for most testing scenarios, just running `yarn start` is sufficient.
 
 To run all tests:
 
@@ -510,38 +481,28 @@ The project uses Playwright's snapshot testing for visual regression testing:
 
 ### Project Architecture
 
-The Kotlin Website uses a hybrid architecture that combines modern frontend frameworks with a Python backend:
+The Kotlin Website uses a modern architecture based on Next.js and React:
 
 #### Component Structure
 
-1. **Web Application Core (Python/Flask)**:
-   - Core server-side application that handles routing, page generation, and content processing
-   - Key files: `kotlin-website.py` (main Flask application), `src/` (Python modules)
-   - Technologies: Python 3, Flask, Flask-Frozen, BeautifulSoup, YAML processing
-
-2. **Frontend Framework (Next.js/React)**:
+1. **Frontend Framework (Next.js/React)**:
    - Modern frontend framework that provides interactive UI components
    - Key directories: `blocks/` (page-specific section components), `components/` (reusable UI components), `pages/` (Next.js pages)
    - Technologies: Next.js, React, TypeScript, CSS Modules
 
-3. **Templates and Layouts (Jinja2)**:
-   - Server-side templates that define the structure and layout of pages
-   - Key directory: `templates/` (Jinja2 templates)
-   - Technologies: Jinja2 templating, HTML, CSS
-
-4. **Documentation System**:
+2. **Documentation System**:
    - Comprehensive documentation for the Kotlin language
    - Key directory: `docs/` (documentation files), `dokka-templates/` (API documentation templates)
    - Technologies: Markdown, JetBrains Writerside, Dokka
 
-5. **Configuration and Data**:
+3. **Configuration and Data**:
    - Configuration files and data that define the website's structure and content
    - Key directory: `data/` (data files in YAML and JSON formats)
    - Technologies: YAML, JSON
 
-#### Hybrid Architecture: Next.js and Flask Freeze
+#### Architecture Overview
 
-The Kotlin Website employs a hybrid architecture that combines two different approaches for page generation:
+The Kotlin Website employs a modern architecture based on Next.js and React:
 
 1. **Next.js-based Pages**:
    - Modern, interactive pages built with Next.js and React
@@ -556,39 +517,11 @@ The Kotlin Website employs a hybrid architecture that combines two different app
    - Client-side rendered with static generation for production
    - Components are imported directly in Next.js pages
 
-2. **Flask-based Pages**:
-   - Traditional server-rendered pages built with Flask and Jinja2
-   - Located in `templates/` directory
-   - Processed by the Flask application in `kotlin-website.py`
-   - Key pages: Documentation (`/docs/`), API Reference (`/api/`), Education section (`/education/`)
-   - Asset management: Webpack-bundled JavaScript, SCSS styles, Jinja2 templates
-   - Build process: Flask development server for development, Flask-Frozen for production
-
-3. **Flask Pages with React Components**:
-   - Some Flask-based pages use React components for enhanced interactivity
-   - React components for Flask are written in JavaScript (.jsx files)
-   - React components for Flask are located in `static/js/ktl-component/` directory (e.g., `header/index.jsx`, `footer/index.jsx`, `teach/index.jsx`)
-   - The `/education/` page is a prime example of this approach
-   - Flask handles routing and data preparation
-   - React components are server-side rendered using Node.js via `scripts/react-renderer/compile.mjs`
-   - Components are integrated into Flask templates using a custom Jinja2 extension (`KTLComponentExtension`)
-   - Integration is done using a custom Jinja2 tag: `{% ktl_component "componentName" prop1="value1" prop2=value2 %}`
-   - Data is passed from Flask to React through props
-   - The rendered HTML is included in the Flask template
-   - This approach combines the benefits of server-side rendering with React's component model
-
-4. **React Components for Dokka Templates**:
-   - API documentation uses custom Dokka templates with React components
-   - React components for Dokka are located in `static/js/page/dokka-template/` directory (e.g., `header/index.jsx`, `footer/index.jsx`)
-   - Server-side rendered using the same Node.js renderer as Flask components
-   - Used to provide consistent UI elements across API documentation pages
-
-5. **Integration Between Approaches**:
-   - Webpack dev server (port 9000) proxies requests to both Next.js server (port 3000) and Flask server (port 8080)
-   - Requests to `/community/**` and `/_next/**` are proxied to the Next.js server
-   - All other requests are proxied to the Flask server
-   - Both Next.js and Flask Freeze generate static HTML files for production
-   - Flask application configures routes to serve Next.js-generated content
+2. **Legacy Infrastructure**:
+   - The project contains legacy Python/Flask code and Jinja2 templates
+   - This infrastructure is obsolete and will be removed soon
+   - Located in `templates/` directory and `kotlin-website.py`
+   - Does not affect current website functionality
 
 #### Next.js Component Organization: Blocks vs Components
 
@@ -631,7 +564,6 @@ This organization helps maintain a clear separation between page-specific sectio
 ### Code Style
 
 - TypeScript for Next.js/React components
-- Python for Flask backend
 - ESLint and Prettier for JavaScript/TypeScript linting and formatting
 - Follow existing patterns for consistency
 
@@ -659,7 +591,7 @@ The TeamCity configuration is defined in the `.teamcity/` directory using Kotlin
 
 ### Common Issues and Solutions
 
-1. **Missing dependencies**: Ensure both Node.js and Python dependencies are installed.
+1. **Missing dependencies**: Ensure Node.js dependencies are installed.
 2. **Port conflicts**: The development server uses port 9000. Ensure it's available.
 3. **Test failures**: Visual regression tests may fail due to minor UI changes. Update snapshots if needed.
 4. **Build errors**: Check webpack and Next.js configurations if build fails.
@@ -753,9 +685,9 @@ The repository is organized with the following top-level directories:
 - `pdf/` - PDF generation assets and templates
 - `public/` - Public assets served directly by Next.js
 - `scripts/` - Utility scripts for development and deployment
-- `src/` - Source code (Python) for the backend
+- `src/` - Legacy source code (obsolete, will be removed)
 - `static/` - Static assets for the website
-- `templates/` - Jinja2 templates for server-side rendering
+- `templates/` - Legacy templates (obsolete, will be removed)
 - `test/` - Test files for automated testing
 
 ### Integration Points
@@ -915,61 +847,6 @@ The search index generation is integrated into the TeamCity CI/CD pipeline:
 
 The search index, sitemap, and statistics are automatically rebuilt from time to time to ensure they stay up-to-date with the website content.
 
-### Flask-React Integration System
-
-The project includes a specialized system for integrating React components with Flask templates. This system allows for enhanced interactivity in Flask-rendered pages while maintaining the benefits of server-side rendering.
-
-#### Integration Process
-
-1. **Flask Template**: A Flask template includes a React component using a custom Jinja2 tag:
-   ```html
-   {% ktl_component "componentName" prop1=value1 prop2=value2 %}
-   ```
-
-2. **Jinja2 Extension**: The `KTLComponentExtension` class in `src/ktl_components.py` processes the tag
-   - Parses the component name and props
-   - Calls Node.js to render the React component
-   - Returns the rendered HTML to be included in the template
-
-3. **Server-Side Rendering**: Node.js renders the React component using:
-   - `scripts/react-renderer/compile.js` - Sets up Babel configuration
-   - `scripts/react-renderer/compile.mjs` - Imports and renders the component
-   - React's `renderToString` function to convert the component to HTML
-
-4. **Client-Side Hydration**: After the page loads, JavaScript initializes the React components:
-   - `static/js/ktl-component/index.js` finds component placeholders in the DOM
-   - It initializes the appropriate React component with the same props
-   - This enables interactivity after the initial server-side render
-
-#### Education Page Example
-
-The `/education/` page is a prime example of this integration:
-
-1. **Flask Route**: Defined in `kotlin-website.py`:
-   ```python
-   @app.route('/education/')
-   def education_page():
-       return render_template(
-           'pages/education/index.html',
-           universities_count=len(site_data['universities']),
-           countries_count=get_countries_size()
-       )
-   ```
-
-2. **Template**: Located at `templates/pages/education/index.html`:
-   ```html
-   {% extends 'base.html' %}
-   {% block page_outer_content %}
-       {% ktl_component "teach" path=request.path countriesCount=countries_count universitiesCount=universities_count %}
-   {% endblock %}
-   ```
-
-3. **React Component**: Located at `static/js/ktl-component/teach/index.jsx`:
-   - Receives props: `path`, `countriesCount`, `universitiesCount`
-   - Renders various sections including an interactive map
-   - Uses sub-components for different parts of the page
-
-This approach allows for complex, interactive UI components within Flask-rendered pages, combining the benefits of both frameworks.
 
 ### Dokka Template Generator System
 
@@ -1058,7 +935,7 @@ During local development, the grammar.xml file needs to be present in the projec
 
 ### Data Files System
 
-The Kotlin Website uses a centralized data files system to manage content and configuration across the website. This system provides a structured way to store and access data that is used by various components of the website, including Flask routes, Jinja2 templates, and Next.js components. This approach separates content from presentation, making it easier to update website content without changing code.
+The Kotlin Website uses a centralized data files system to manage content and configuration across the website. This system provides a structured way to store and access data that is used by various components of the website, primarily Next.js components. This approach separates content from presentation, making it easier to update website content without changing code.
 
 The data files are stored in the `data/` directory at the project root. These files are primarily in YAML format (with some JSON files for specific purposes) and contain structured data that defines various aspects of the website:
 
@@ -1077,36 +954,19 @@ The data files are stored in the `data/` directory at the project root. These fi
 
 #### Data Loading and Processing
 
-The data files are loaded and processed in two different ways, depending on which part of the system uses them. This dual approach allows both the Flask backend and Next.js frontend to access the same data sources while using their native data loading mechanisms:
+Data files are loaded and processed by Next.js components:
 
-1. **Flask Application**:
-   - The `get_site_data()` function in `kotlin-website.py` loads all YAML files from the `data/` directory
-   - Files starting with `_` are excluded from the general loading process (these are typically configuration files used for specific purposes)
-   - Each file is loaded into a dictionary with the filename (without extension) as the key
-   - The loaded data is stored in the `site_data` variable, which is made available to the entire application
-   - The data is also made available to Jinja2 templates through the context processor `add_data_to_context()`, which makes it accessible via the `data` variable in templates
-   - Special handling is provided for the Standard Library redirects, which are loaded into `site_data["core"]`
-
-2. **Next.js Components**:
-   - Next.js components directly import data files using ES6 import syntax
-   - For example: `import releasesDataRaw from '../data/releases.yml'`
-   - This is possible because the Next.js configuration includes loaders for YAML files
-   - The imported data can be used directly in React components as JavaScript objects
-   - This approach allows for static site generation with the data embedded in the built pages
+- Next.js components directly import data files using ES6 import syntax
+- For example: `import releasesDataRaw from '../data/releases.yml'`
+- This is possible because the Next.js configuration includes loaders for YAML files
+- The imported data can be used directly in React components as JavaScript objects
+- This approach allows for static site generation with the data embedded in the built pages
 
 #### Data Usage Examples
 
 The data files are used throughout the website for various purposes:
 
-1. **Flask Routes**:
-   - The `/education/` route uses university data to display the number of universities and countries
-
-2. **Jinja2 Templates**:
-   - Templates access data through the `data` variable in the template context
-   - For example, `base.html` uses `data.releases.latest.url` to set the product URL in the header
-   - Navigation templates use data to build the site navigation structure
-
-3. **Next.js Components**:
+1. **Next.js Components**:
    - The homepage imports `releases.yml` to display the latest Kotlin version
    - The user groups page imports `user-groups.yml` to display Kotlin User Groups on a map
    - The 404 page imports `releases.yml` to provide links to the latest Kotlin version
@@ -1173,32 +1033,7 @@ The `from` field can also be a list of URLs, all of which will redirect to the s
 
 #### Redirect Processing
 
-The redirect system works through several components that work together to handle redirects efficiently:
-
-1. **Redirect Loading**:
-   - The `generate_redirect_pages()` function in `kotlin-website.py` loads all YAML files from the `redirects/` directory
-   - Each file is parsed to extract the redirect mappings using the YAML parser
-   - The function is called during application initialization to ensure all redirects are available when the server starts
-
-2. **URL Rule Creation**:
-   - For each redirect mapping, a Flask URL rule is created using `app.add_url_rule()`
-   - The rule maps the source URL to a `RedirectTemplateView` class that renders the redirect.html template
-   - This approach allows for dynamic creation of routes without hardcoding each redirect
-   - Special handling is provided for API redirects to avoid conflicts with existing files
-
-3. **Redirect Rendering**:
-   - When a user accesses a redirected URL, the `RedirectTemplateView` renders the `redirect.html` template
-   - The template includes three fallback mechanisms for maximum compatibility:
-     - A JavaScript redirect that preserves hash fragments (for modern browsers)
-     - A meta refresh tag for browsers with JavaScript disabled
-     - A fallback meta refresh with a 1-second delay as a last resort
-   - This multi-layered approach ensures redirects work across all browsers and client configurations
-
-4. **Standard Library Redirects**:
-   - The `stdlib-redirects.yml` file contains thousands of redirects for the Kotlin Standard Library API
-   - These redirects ensure that links to older API documentation versions still work
-   - The redirects are loaded into the `site_data["core"]` variable for use in templates
-   - This special handling allows for efficient lookup of API redirects without creating thousands of individual routes
+The redirect system handles URL redirects for deprecated or moved pages. Redirect files in YAML format define the mappings from old URLs to new URLs, which are processed during the build process to create appropriate redirect pages.
 
 #### Redirect Generation
 
