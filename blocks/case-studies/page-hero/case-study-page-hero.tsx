@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
-import { createTextCn, useTextStyles } from '@rescui/typography';
+import { createTextCn } from '@rescui/typography';
 import { ThemeProvider } from '@rescui/ui-contexts';
 import styles from './case-study-page-hero.module.css';
 
@@ -23,52 +23,7 @@ export const CaseStudyPageHero: React.FC<CaseStudyContentProps> = ({ frontmatter
                     {frontmatter?.title && (
                         <h1 className={cn(textCn('rs-hero'), styles.title)}>{frontmatter.title}</h1>
                     )}
-                    {frontmatter && (
-                        <div className={cn(styles.infoSection, textCn('rs-text-2'))}>
-                            <div className={styles.infoBlock}>
-                                <div>
-                                    <span className={styles.infoLabel}>Company:</span>{' '}
-                                    <span className={styles.infoValue}>{frontmatter.title}</span>
-                                </div>
-                                {frontmatter.industry && (
-                                    <div>
-                                        <span className={styles.infoLabel}>Industry:</span>{' '}
-                                        <span className={styles.infoValue}>{frontmatter.industry}</span>
-                                    </div>
-                                )}
-                            </div>
-                            <div className={styles.infoBlock}>
-                                {frontmatter.size && (
-                                    <div>
-                                        <span className={styles.infoLabel}>Size:</span>{' '}
-                                        <span className={styles.infoValue}>{frontmatter.size}</span>
-                                    </div>
-                                )}
-                                {frontmatter.usedProductTitle && (
-                                    <div>
-                                        <span className={styles.infoLabel}>JetBrains products used:</span>{' '}
-                                        <span className={styles.infoValue}>
-                                    {frontmatter.usedProductLink ? (
-                                        <Link href={frontmatter.usedProductLink}>
-                                            {frontmatter.usedProductTitle}
-                                        </Link>
-                                    ) : (
-                                        frontmatter.usedProductTitle
-                                    )}
-                                </span>
-                                    </div>
-                                )}
-                            </div>
-                            <div className={styles.infoBlock}>
-                                {frontmatter.country && (
-                                    <div>
-                                        <span className={styles.infoLabel}>Country:</span>{' '}
-                                        <span className={styles.infoValue}>{frontmatter.country}</span>
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    )}
+                    {frontmatter && <InfoColumns frontmatter={frontmatter} />}
                 </section>
             </div>
             {frontmatter.coverImg &&
@@ -76,5 +31,66 @@ export const CaseStudyPageHero: React.FC<CaseStudyContentProps> = ({ frontmatter
                     <img className={styles.coverImg} src={frontmatter.coverImg} alt={frontmatter.title} />
                 </div>}
         </ThemeProvider>
+    );
+};
+
+interface InfoItem {
+    label: string;
+    value: React.ReactNode;
+}
+
+interface InfoColumnsProps {
+    frontmatter: NonNullable<CaseStudyContentProps['frontmatter']>;
+    columnsCount?: number;
+    className?: string;
+}
+
+const InfoColumns: React.FC<InfoColumnsProps> = ({ frontmatter, columnsCount = 3, className }) => {
+    const textCn = createTextCn('dark');
+
+    const items: InfoItem[] = [
+        { label: 'Company', value: frontmatter.title },
+    ];
+
+    if (frontmatter.industry) {
+        items.push({ label: 'Industry', value: frontmatter.industry });
+    }
+    if (frontmatter.size) {
+        items.push({ label: 'Size', value: frontmatter.size });
+    }
+    if (frontmatter.usedProductTitle) {
+        items.push({
+            label: 'JetBrains products used',
+            value: frontmatter.usedProductLink ? (
+                <Link href={frontmatter.usedProductLink}>
+                    {frontmatter.usedProductTitle}
+                </Link>
+            ) : frontmatter.usedProductTitle
+        });
+    }
+    if (frontmatter.country) {
+        items.push({ label: 'Country', value: frontmatter.country });
+    }
+
+    const itemsPerColumn = Math.ceil(items.length / columnsCount);
+    const columns: InfoItem[][] = Array.from({ length: columnsCount }, (_, columnIndex) => {
+        const startIndex = columnIndex * itemsPerColumn;
+        const endIndex = startIndex + itemsPerColumn;
+        return items.slice(startIndex, endIndex);
+    });
+
+    return (
+        <div className={cn(styles.infoSection, textCn('rs-text-2'), className)}>
+            {columns.map((column, colIndex) => (
+                <div key={colIndex} className={styles.infoBlock}>
+                    {column.map((item: InfoItem) => (
+                        <div key={item.label}>
+                            <span className={styles.infoLabel}>{item.label}:</span>{' '}
+                            <span className={styles.infoValue}>{item.value}</span>
+                        </div>
+                    ))}
+                </div>
+            ))}
+        </div>
     );
 };
