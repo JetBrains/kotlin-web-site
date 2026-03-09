@@ -59,9 +59,8 @@ export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyP
     if (caseType === 'multiplatform') {
         return (
             <LandingLayout
-                dataTestId={'multiplatform-case-study'}
                 title={`${frontmatter.title} Case Study | Kotlin Multiplatform`}
-                ogImageName={'multiplatform.png'}
+                ogImageName={'case-studies.png'}
                 description={'Kotlin for multiplatform development'}
                 currentTitle={MULTIPLATFORM_TITLE}
                 currentUrl={MULTIPLATFORM_URL}
@@ -72,6 +71,7 @@ export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyP
                 canonical={`https://kotlinlang.org/case-studies/${frontmatter.slug}`}
                 theme="light"
                 forceDarkTopMenu={true}
+                dataTestId={'multiplatform-case-study'}
             >
                 <ThemeProvider theme="light">
                     <CaseStudyPageHero frontmatter={frontmatter} />
@@ -84,9 +84,9 @@ export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyP
 
     return (
         <LandingLayout
-            title={`${frontmatter.title} Case Study | Kotlin for server-side`}
+            title={`${frontmatter.title} Case Study | Kotlin for Server-side`}
             ogImageName={'case-studies.png'}
-            description={'Kotlin for server-side development'}
+            description={'Kotlin for Server-side development'}
             currentTitle={SERVER_SIDE_TITLE}
             currentUrl={SERVER_SIDE_URL}
             topMenuTitle={SERVER_SIDE_TITLE}
@@ -94,9 +94,9 @@ export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyP
             topMenuItems={SERVER_SIDE_TOP_MENU_ITEMS}
             topMenuButton={<Button href={'#get-started'}>Get started</Button>}
             canonical={`https://kotlinlang.org/case-studies/${frontmatter.slug}`}
-            dataTestId={'server-side-case-study-page'}
             theme="light"
             forceDarkTopMenu={true}
+            dataTestId={'server-side-case-study-page'}
         >
             <ThemeProvider theme="light">
                 <CaseStudyPageHero frontmatter={frontmatter} />
