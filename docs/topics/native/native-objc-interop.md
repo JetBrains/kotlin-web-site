@@ -513,9 +513,17 @@ foo {
 ```
 
 #### Explicit parameter names in Objective-C block types
+<primary-label ref="experimental-opt-in"/>
 
-Kotlin adds explicit parameter names to function types for exported Objective-C headers.
-Xcode's autocompletion then suggests these names when calling Objective-C functions in the Objective-C block.
+You can add explicit parameter names to Kotlin's function types for exported Objective-C headers. Xcode's autocompletion
+then suggests these names when calling Objective-C functions in the Objective-C block. This helps to avoid Clang warnings
+in generated blocks.
+
+To enable explicit parameter names, add the following [binary option](native-binary-options.md) to your `gradle.properties` file:
+
+```none
+kotlin.native.binary.objcExportBlockExplicitParameterNames=true
+```
 
 For example, for the following Kotlin code:
 
@@ -538,15 +546,6 @@ greetUserBlock:^(NSString *name) {
 > and generally doesn't affect calls from Swift.
 >
 {style="note"}
-
-If you encounter issues, you can disable explicit parameter names with the following [binary option](native-binary-options.md)
-in your `gradle.properties` file:
-
-```none
-kotlin.native.binary.objcExportBlockExplicitParameterNames=false
-```
-
-Please report such problems in our issue tracker, [YouTrack](https://kotl.in/issue).
 
 ### Generics
 
