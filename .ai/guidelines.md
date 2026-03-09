@@ -948,10 +948,6 @@ The data files are stored in the `data/` directory at the project root. These fi
    - `universities.yml` - List of universities teaching Kotlin, with courses and geographical information
    - `user-groups.yml` - List of Kotlin User Groups worldwide with contact information
 
-3. **API Data**:
-   - `kotlinconf.yml` - Information about KotlinConf events
-   - `api.yml` - API-related configuration
-
 #### Data Loading and Processing
 
 Data files are loaded and processed by Next.js components:
