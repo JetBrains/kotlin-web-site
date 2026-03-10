@@ -16,7 +16,7 @@ coverImg: /images/case-studies/content/baidu-cover.png
 
 ### About Wonder by Baidu
 
-<a href="https://apps.apple.com/cn/app/wonder-%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%9A%84%E5%AE%9D%E8%97%8Fapp/id1526110789" rel="noopener noreferrer" target="_blank">Wonder App  ↗</a>, an app targeted at younger users. In terms of functionality, Wonder focuses primarily on two key modules: Efficiency and Entertainment. The Efficiency module includes educational functionality as well as service tools for daily life, intended for the app to become a one-stop shop for all the users' needs. The Entertainment module aggregates current trending topics on a feed within the app. The app also provides users with entertainment media such as novels, games, comics, and videos, creating a pan-entertainment platform for young users.
+Wonder App, an app targeted at younger users. In terms of functionality, Wonder focuses primarily on two key modules: Efficiency and Entertainment. The Efficiency module includes educational functionality as well as service tools for daily life, intended for the app to become a one-stop shop for all the users' needs. The Entertainment module aggregates current trending topics on a feed within the app. The app also provides users with entertainment media such as novels, games, comics, and videos, creating a pan-entertainment platform for young users.
 
 
 ### The problem of inconsistent business logic
@@ -87,13 +87,13 @@ We also set up a Kotlin Multiplatform team responsible for the development of th
 
 When using Android Studio to execute Kotlin Multiplatform code compiled on iOS in a single step, it can be difficult to find the values of variables. Also, we can currently only debug by printing logs. As the iOS project grows, the compilation speed also slows down gradually, which can impact the efficiency of iOS debugging.
 
-*ℹ️ [Learn more about the Xcode-Kotlin plugin](https://github.com/touchlab/xcode-kotlin) , which brings a smoother development and integration experience for iOS developers using shared Kotlin code.*
+ℹ️ [Learn more about the Xcode-Kotlin plugin](https://github.com/touchlab/xcode-kotlin), which brings a smoother development and integration experience for iOS developers using shared Kotlin code.
 
 **Kotlin Native multithreading issues**
 
-Kotlin Native has a very strict memory model for object sharing between multiple threads, requiring all variables shared between multiple threads to be frozen. In the early stages of researching Kotlin Multiplatform technology, we were often stumped by the crashes caused by `InvalidMutabilityException`. The New Memory Manager is said to optimize such problems, and we hope the Kotlin team will fix this issue soon.
+Kotlin Native has a very strict memory model for object sharing between multiple threads, requiring all variables shared between multiple threads to be frozen. In the early stages of researching Kotlin Multiplatform technology, we were often stumped by the crashes caused by `InvalidMutabilityException`. [The New Memory Manager](https://blog.jetbrains.com/kotlin/2020/07/kotlin-native-memory-management-roadmap/) is said to optimize such problems, and we hope the Kotlin team will fix this issue soon.
 
-*ℹ️ [Learn more about the new Kotlin/Native memory manager](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/) , which  lifts the existing restrictions on object sharing between threads and provides fully leak-free concurrent programming primitives that are safe and don’t require any special management or annotations from the developers.*
+ℹ️ [Learn more about the new Kotlin/Native memory manager](https://blog.jetbrains.com/kotlin/2021/08/try-the-new-kotlin-native-memory-manager-development-preview/), which lifts the existing restrictions on object sharing between threads and provides fully leak-free concurrent programming primitives that are safe and don’t require any special management or annotations from the developers.
 
 **iOS framework volume problem**
 

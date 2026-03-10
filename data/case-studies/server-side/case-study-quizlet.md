@@ -143,7 +143,6 @@ By focusing our shared code efforts on code based around state management and co
 ### Relevant Links
 
 - Our blog post: <a href="https://medium.com/tech-quizlet/shared-code-at-quizlet-kotlin-multiplatform-2ee1b57646c?source=friends_link&amp;sk=f7c864464fe94552ed208e96b8a897f5" target="_blank" rel="noopener noreferrer">Shared Code at Quizlet: Deciding on Kotlin Multiplatform</a>
-- Corresponding talk at droidcon San Francisco 2019: <a href="https://www.droidcon.com/media-detail?video=380848881" target="_blank" rel="noopener noreferrer">Powering Worldwide Learning with Kotlin Multiplatform</a>
 
 ### Contacts
 
