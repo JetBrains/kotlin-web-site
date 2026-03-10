@@ -55,4 +55,4 @@ Aleem Dhanji (<a href="mailto:aleem@chalk.com">aleem@chalk.com</a>)
 
 Planboard (<a href="https://apps.apple.com/ca/app/planboard/id704514651" target="_blank" rel="noreferrer noopener">iOS</a>, <a href="https://play.google.com/store/apps/details?id=com.chalk.planboard" target="_blank" rel="noreferrer noopener">Android</a>)
 
-Markboard (<a href="https://apps.apple.com/ca/app/markboard/id1175126574" target="_blank" rel="noreferrer noopener">iOS</a>, <a href="https://play.google.com/store/apps/details?id=com.chalk.markboard" target="_blank" rel="noreferrer noopener">Android</a>)
+[//]: # (Markboard &#40;<a href="https://apps.apple.com/ca/app/markboard/id1175126574" target="_blank" rel="noreferrer noopener">iOS</a>, <a href="https://play.google.com/store/apps/details?id=com.chalk.markboard" target="_blank" rel="noreferrer noopener">Android</a>&#41;)

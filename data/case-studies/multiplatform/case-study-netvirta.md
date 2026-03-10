@@ -29,12 +29,17 @@ We are encouraged to try out different technologies to fit our requirements. We 
 
 ### What have been your most significant gains and pains?
 
-+ Code reuse – We've saved a lot of time on many projects with a relatively small team.
-+ Ease of using Platform dependent APIs using expect/actual.
-- The tooling is still immature. Some Kotlin Multiplatform errors can only be caught during runtime, especially when dealing with threadings in Kotlin Native. Some coroutine features were lacking when we first tried it, and we've had to use many workarounds.
-- Lack of choices for community libraries. For example, Ktor is the only Networking client.
-- Threading in Kotlin Native, which is not friendly to beginners.
-- Lack of SDK support – Version 1.3.70 just came out, but we still need to wait for community libraries to update to 1.3.70 before we jump aboard.
+\+ Code reuse – We've saved a lot of time on many projects with a relatively small team.
+
+\+ Ease of using Platform dependent APIs using expect/actual.
+
+\- The tooling is still immature. Some Kotlin Multiplatform errors can only be caught during runtime, especially when dealing with threadings in Kotlin Native. Some coroutine features were lacking when we first tried it, and we've had to use many workarounds.
+
+\- Lack of choices for community libraries. For example, Ktor is the only Networking client.
+
+\- Threading in Kotlin Native, which is not friendly to beginners.
+
+\- Lack of SDK support – Version 1.3.70 just came out, but we still need to wait for community libraries to update to 1.3.70 before we jump aboard.
 
 ### Do you have any tips or advice you'd like to share with our readers?
 
