@@ -9,10 +9,10 @@ _[Released: March 16, 2026](releases.md#release-history)_
 The Kotlin 2.3.20 release is out! Here are the main highlights:
 
 * **Gradle**: [Compatibility with Gradle 9.3.0](#compatibility-with-gradle-9-3-0) and [Kotlin/JVM compilation uses BTA by default](#kotlin-jvm-compilation-uses-build-tools-api-by-default)
-* **Maven**: [Simplified setup for Kotlin projects](#maven-simplified-setup-for-kotlin-projects)
+* **Maven**: [Simplified setup for Kotlin projects](#simplified-setup-for-kotlin-projects)
 * **Kotlin compiler plugins**: [Lombok is Alpha](#lombok-is-now-alpha) and [improved JPA support in the `kotlin.plugin.jpa` plugin](#improved-jpa-support-in-the-kotlin-plugin-jpa-plugin)
 * **Language**: [Support for name-based destructuring declarations](#name-based-destructuring)
-* **Standard library**: [New API for creating immutable copies of `Map.Entry`](#standard-library-new-api-for-creating-immutable-copies-of-map-entry)
+* **Standard library**: [New API for creating immutable copies of `Map.Entry`](#new-api-for-creating-immutable-copies-of-map-entry)
 * **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries)
 
 ## Update to Kotlin 2.3.20
@@ -201,7 +201,9 @@ For more information, see the feature's [KEEP](https://github.com/Kotlin/KEEP/bl
 
 We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-19627).
 
-## Standard library: New API for creating immutable copies of `Map.Entry`
+## Standard library
+
+### New API for creating immutable copies of `Map.Entry`
 <primary-label ref="experimental-opt-in"/>
 <secondary-label ref="standard-library"/>
 
@@ -687,7 +689,9 @@ In Kotlin 2.3.20, Kotlin/JVM compilation in the Kotlin Gradle plugin uses the [B
 
 If you notice any issues, share your feedback in our [issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&summary=Kotlin+Gradle+plugin+BTA+migration+issue&description=Describe+the+problem+you+encountered+here.&c=tag+kgp-bta-migration).
 
-## Maven: Simplified setup for Kotlin projects
+## Maven
+
+### Simplified setup for Kotlin projects
 <secondary-label ref="maven"/>
 
 Kotlin 2.3.20 makes it easier to set up Kotlin in Maven projects. Now Kotlin supports the automatic configuration of source roots and Kotlin's standard library.
