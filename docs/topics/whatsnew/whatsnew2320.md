@@ -1,5 +1,7 @@
 [//]: # (title: What's new in Kotlin 2.3.20)
 
+<web-summary>Read the Kotlin 2.3.20 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
 _[Released: March 16, 2026](releases.md#release-history)_
 
 The Kotlin 2.3.20 release is out! Here are the main highlights:
