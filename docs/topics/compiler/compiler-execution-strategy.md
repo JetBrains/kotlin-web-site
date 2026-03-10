@@ -17,7 +17,7 @@ You can define the Kotlin compiler execution strategy using one of the following
 * The `kotlin.compiler.execution.strategy` Gradle property.
 * The `compilerExecutionStrategy` compile task property.
 
-The `compilerExecutionStrategy` task property takes priority over the `kotlin.compiler.execution.strategy` Gradle property.
+### Use the Gradle property
 
 The possible values for the `kotlin.compiler.execution.strategy` property are:
 
@@ -30,10 +30,14 @@ Set the `kotlin.compiler.execution.strategy` property in `gradle.properties`:
 kotlin.compiler.execution.strategy=in-process
 ```
 
+### Use the compile task property
+
+The `compilerExecutionStrategy` task property takes priority over the `kotlin.compiler.execution.strategy` Gradle property.
+
 The possible values for the `compilerExecutionStrategy` task property are:
 
-* `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.DAEMON` (default)
-* `org.jetbrains.kotlin.gradle.tasks.KotlinCompilerExecutionStrategy.IN_PROCESS`
+* [`DAEMON`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compiler-execution-strategy/-d-a-e-m-o-n/) (default)
+* [`IN_PROCESS`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.tasks/-kotlin-compiler-execution-strategy/-i-n_-p-r-o-c-e-s-s/)
 
 Set the `compilerExecutionStrategy` task property in your build scripts:
 
@@ -86,11 +90,9 @@ A silent fallback can consume a lot of system resources or lead to non-determini
 For more information, see
 this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48843/Add-ability-to-disable-Kotlin-daemon-fallback-strategy).
 
-To prevent fallback, set the `kotlin.daemon.useFallbackStrategy` Gradle property to `false`. The
-default value is `true`.
+To prevent fallback, use the `kotlin.daemon.useFallbackStrategy` Gradle property. The default value is `true`.
 When set to `false`, builds fail if there are problems with the daemon's startup or communication.
-Declare this property in
-`gradle.properties`:
+Declare this property in `gradle.properties`:
 
 ```none
 kotlin.daemon.useFallbackStrategy=false
@@ -127,11 +129,4 @@ If there is not enough memory to run the compilation, the logs show a related me
 
 ## Configure in Maven
 
-By default, Maven uses the Kotlin daemon strategy. To switch to the "in process" strategy, set the following
-property in your `pom.xml` file:
-
-```xml
-<properties>
-    <kotlin.compiler.daemon>false</kotlin.compiler.daemon>
-</properties>
-```
+<include from ="maven-compile-package.md" element-id="maven-configure-execution-strategy"/>

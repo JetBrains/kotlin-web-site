@@ -237,7 +237,20 @@ the official Maven documentation.
 
 ### Choose execution strategy
 
-For information about how to configure different compiler execution strategies for Maven, see [Compiler execution strategy](compiler-execution-strategy.md#configure-in-maven).
+<snippet id="maven-configure-execution-strategy">
+
+By default, Maven uses the Kotlin daemon compiler execution strategy. To switch to the "in process" strategy, set the following
+property in your `pom.xml` file:
+
+```xml
+<properties>
+    <kotlin.compiler.daemon>false</kotlin.compiler.daemon>
+</properties>
+```
+
+</snippet>
+
+For more information about the different strategies, see [Compiler execution strategy](compiler-execution-strategy.md).
 
 ### Enable incremental compilation
 
