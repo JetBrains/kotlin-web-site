@@ -26,7 +26,58 @@ To update to the new Kotlin version, make sure your IDE is updated to the latest
 
 The following feature is [Stable](components-stability.md#stability-levels-explained) in this release:
 
-Reuse content: Maven: Simplified setup for Kotlin projects
+<snippet id="simplified-setup-for-kotlin-projects-content">
+
+<var name="id1" value="simplified-setup-for-kotlin-projects"/>
+
+<var name="id2" value="simplified-setup-for-kotlin-projects-how-to-enable"/>
+
+### Simplified setup for Kotlin projects {id="%id1%"}
+<secondary-label ref="maven"/>
+
+Kotlin 2.3.20 makes it easier to set up Kotlin in Maven projects. Now Kotlin supports the automatic configuration of source roots and Kotlin's standard library.
+
+With the new automatic configuration, when you create a new Kotlin project with the Maven build system or introduce Kotlin to your existing Java Maven project,
+you don't need to manually specify source root paths or add the `kotlin-stdlib` dependency in your POM build file.
+
+#### How to enable {id="%id2%"}
+
+In your `pom.xml` file, add `<extensions>true</extensions>` to the `<build><plugins>` section of the Kotlin Maven plugin:
+
+```xml
+<build>
+    <plugins>
+         <plugin>
+             <groupId>org.jetbrains.kotlin</groupId>
+             <artifactId>kotlin-maven-plugin</artifactId>
+             <version>%kotlinVersion%</version>
+             <extensions>true</extensions> <!-- Add this extension  -->
+         </plugin>
+    </plugins>
+</build>
+```
+
+The new extension automatically:
+
+* Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots in case they already exist but are not specified in the plugin configuration.
+* Adds the `kotlin-stdlib` dependency in case it's not explicitly defined already.
+
+You can also opt out of the automatic addition of Kotlin's standard library. For that, add the following to the `<properties>` section:
+
+```xml
+<project>
+    <properties>
+        <!-- Disable smart defaults via property -->
+        <kotlin.smart.defaults.enabled>false</kotlin.smart.defaults.enabled>         
+    </properties>
+</project>
+```
+
+Note that the property disables all simplified setup features, including the registration of source root paths.
+
+For more information on configuring Kotlin Maven projects, see our [documentation](maven-configure-project.md).
+
+</snippet>
 
 ## New features {id=new-experimental-features}
 <primary-label ref="experimental-exp"/>
@@ -36,63 +87,30 @@ This includes features with [Beta](components-stability.md#stability-levels-expl
 
 * [Compiler: Lombok is now Alpha](#lombok-is-now-alpha)
 * [Language: Name-based destructuring](#name-based-destructuring)
-* [Standard library: New API for creating immutable copies of `Map.Entry`](#standard-library-new-api-for-creating-immutable-copies-of-map-entry)
+* [Standard library: New API for creating immutable copies of `Map.Entry`](#new-api-for-creating-immutable-copies-of-map-entry)
 * [Kotlin/Native: New interoperability mode for C or Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries)
 
-Reuse content: Lombok is now Alpha
+<snippet id="lombok-is-now-alpha-content">
 
-Reuse content: Language: Name-based destructuring
+<var name="id3" value="lombok-is-now-alpha"/>
 
-Reuse content: Standard library New API for creating immutable copies of `Map.Entry`
+### Lombok is now Alpha {id="%id3%"}
+<primary-label ref="alpha"/>
+<secondary-label ref="compiler"/>
 
-Reuse content: New interoperability mode for C or Objective-C libraries
+Kotlin 1.5.20 introduced the experimental [Lombok compiler plugin](lombok.md), which lets you generate and use [Java's Lombok declarations](https://projectlombok.org/) in modules that mix Kotlin and Java code.
 
-## Language
+In 2.3.20, the Lombok compiler plugin has been promoted to [Alpha](components-stability.md#stability-levels-explained) because we plan to make this functionality production-ready, but it's still under development.
 
-Kotlin 2.3.20 adds name-based destructuring declarations that match variables to property names instead of relying on position.
-It also introduces changes to overload resolution for declarations with context parameters.
+</snippet>
 
-### Changes to overload resolution for context parameters
-<secondary-label ref="language"/>
+<snippet id="name-based-destructuring-content">
 
-Kotlin 2.3.20 introduces changes to overload resolution for declarations with context parameters.
+<var name="id4" value="name-based-destructuring"/>
 
-Previously, overload resolution treated declarations with context parameters as more specific than those without them.
+<var name="id5" value="name-based-destructuring-how-to-enable"/>
 
-Starting with Kotlin 2.3.20, this rule no longer applies, making overload selection more uniform.
-As a result, calls that previously resolved now become ambiguous, resulting in a compilation error when overloads differ only by context parameters.
-In such cases, the compiler warns about potential ambiguity.
-
-Here's an example:
-
-```kotlin
-class Logger {
-    fun info(msg: String) = println("INFO: $msg")
-}
-
-fun saveUser(id: Int) {
-    println("Saving user $id (no logger)")
-}
-
-// Reports a warning: Contextual declaration is shadowed
-context(logger: Logger)
-fun saveUser(id: Int) {
-    logger.info("Saving user $id")
-}
-
-fun main() {
-    val logger = Logger()
-
-    context(logger) {
-        // Reports an ambiguity error in 2.3.20
-        saveUser(1)
-    }
-}
-```
-
-Additionally, Kotlin 2.3.20 reduces the number of `kotlin.context` overloads from 22 to 6 to reduce excessive overload candidates during resolution and code completion.
-
-### Name-based destructuring
+### Name-based destructuring {id="%id4%"}
 <primary-label ref="experimental-opt-in"/>
 <secondary-label ref="language"/>
 
@@ -151,7 +169,7 @@ If you use `complete` mode, the short-form destructuring syntax with parentheses
 ```kotlin
 val (email, username) = user
 ```
-#### How to enable {id=how-to-enable-name-based-destructuring}
+#### How to enable {id="%id5%"}
 
 To use named-based destructuring in your project, add the compiler option to your build configuration file:
 
@@ -201,9 +219,13 @@ For more information, see the feature's [KEEP](https://github.com/Kotlin/KEEP/bl
 
 We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-19627).
 
-## Standard library
+</snippet>
 
-### New API for creating immutable copies of `Map.Entry`
+<snippet id="new-api-for-creating-immutable-copies-of-map-entry-content">
+
+<var name="id6" value="new-api-for-creating-immutable-copies-of-map-entry"/>
+
+### New API for creating immutable copies of `Map.Entry` {id="%id6%"}
 <primary-label ref="experimental-opt-in"/>
 <secondary-label ref="standard-library"/>
 
@@ -230,6 +252,126 @@ fun main() {
     // map = {1=1, 3=3}
 }
 ```
+
+</snippet>
+
+<snippet id="new-interoperability-mode-for-c-or-objective-c-libraries-content">
+
+<var name="id7" value="new-interoperability-mode-for-c-or-objective-c-libraries"/>
+
+<var name="id8" value="new-interoperability-mode-for-c-or-objective-c-libraries-how-to-enable"/>
+
+<var name="id9" value="new-interoperability-mode-for-c-or-objective-c-libraries-report-your-results"/>
+
+### New interoperability mode for C or Objective-C libraries {id="%id7%"}
+<primary-label ref="experimental-opt-in"/>
+<secondary-label ref="native"/>
+
+If you use C or Objective-C libraries in your Kotlin Multiplatform libraries or applications, we invite you to test the new interoperability mode and share the results.
+
+In general, Kotlin/Native enables importing C and Objective-C libraries into Kotlin.
+However, for Kotlin Multiplatform libraries, this functionality is currently [affected](native-lib-import-stability.md#stability-of-c-and-objective-c-library-import) by the KMP compatibility issues with older compiler versions.
+
+In other words, if you publish a Kotlin Multiplatform library compiled with one Kotlin version, importing C or Objective-C libraries might make it impossible to use that Kotlin library in projects with an earlier Kotlin version.
+
+To address this and other issues, the Kotlin team has been revising the interoperability mechanism used under the hood.
+Starting with Kotlin 2.3.20-Beta1, you can try the new mode through a compiler option.
+
+#### How to enable {id="%id8%"}
+
+1. In your Gradle build file, check whether you have a `cinterops {}` block or a `pod()` dependency.
+   If these are present, your project uses C or Objective-C libraries.
+
+2. Ensure your project uses `2.3.20-Beta1` or a later version.
+3. In the same build file, add the `-Xccall-mode` compiler option to the cinterop tool invocation:
+
+   ```kotlin
+   kotlin {
+       targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget>().configureEach {
+           compilations.configureEach {
+               cinterops.configureEach {
+                   extraOpts += listOf("-Xccall-mode", "direct")
+               }
+           }
+       }
+   }
+   ```
+
+4. Build and test your project as usual by running unit tests, the app, and so on.
+   You can also use the `--continue` option to allow Gradle to continue executing tasks even after failures, helping to find more problems at once.
+
+> Do **not** publish libraries compiled with the new interoperability mode yet, as it's still [Experimental](components-stability.md#stability-levels-explained).
+>
+{style="warning"}
+
+#### Report your results {id="%id9%"}
+
+The new interoperability mode is supposed to be a drop-in replacement in most cases.
+We're planning to eventually enable it by default. But to achieve that, we need to ensure it works as well as possible and test it on a wide range of projects, because:
+
+* Some C and Objective-C declarations aren't yet supported in the new mode (mostly because of compatibility issues). We'd like to better understand the real-world impact of this and prioritize future steps accordingly.
+* There may be bugs or things we haven't considered. Testing languages with numerous interacting features is challenging, and testing the interaction between languages (each with a unique set of features) is even more so.
+
+Help us examine real-world projects and identify challenging cases.
+Whether you encounter any issues or not, share your results in the comments to [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-83218).
+
+</snippet>
+
+## Language
+
+Kotlin 2.3.20 adds name-based destructuring declarations that match variables to property names instead of relying on position.
+It also introduces changes to overload resolution for declarations with context parameters.
+
+### Changes to overload resolution for context parameters
+<secondary-label ref="language"/>
+
+Kotlin 2.3.20 introduces changes to overload resolution for declarations with context parameters.
+
+Previously, overload resolution treated declarations with context parameters as more specific than those without them.
+
+Starting with Kotlin 2.3.20, this rule no longer applies, making overload selection more uniform.
+As a result, calls that previously resolved now become ambiguous, resulting in a compilation error when overloads differ only by context parameters.
+In such cases, the compiler warns about potential ambiguity.
+
+Here's an example:
+
+```kotlin
+class Logger {
+    fun info(msg: String) = println("INFO: $msg")
+}
+
+fun saveUser(id: Int) {
+    println("Saving user $id (no logger)")
+}
+
+// Reports a warning: Contextual declaration is shadowed
+context(logger: Logger)
+fun saveUser(id: Int) {
+    logger.info("Saving user $id")
+}
+
+fun main() {
+    val logger = Logger()
+
+    context(logger) {
+        // Reports an ambiguity error in 2.3.20
+        saveUser(1)
+    }
+}
+```
+
+Additionally, Kotlin 2.3.20 reduces the number of `kotlin.context` overloads from 22 to 6 to reduce excessive overload candidates during resolution and code completion.
+
+<include from="whatsnew2320.md" element-id="name-based-destructuring-content">
+<var name="id4" value="language-name-based-destructuring"/>
+<var name="id5" value="language-name-based-destructuring-how-to-enable"/>
+</include>
+
+## Standard library
+
+<include from="whatsnew2320.md" element-id="new-api-for-creating-immutable-copies-of-map-entry-content">
+<var name="id6" value="standard-library-new-api-for-creating-immutable-copies-of-map-entry"/>
+</include>
 
 ## Kotlin compiler plugins
 
@@ -269,13 +411,9 @@ This change simplifies build configuration and improves the out-of-the-box exper
 >
 {style="tip"}
 
-### Lombok is now Alpha
-<primary-label ref="alpha"/>
-<secondary-label ref="compiler"/>
-
-Kotlin 1.5.20 introduced the experimental [Lombok compiler plugin](lombok.md), which lets you generate and use [Java's Lombok declarations](https://projectlombok.org/) in modules that mix Kotlin and Java code.
-
-In 2.3.20, the Lombok compiler plugin has been promoted to [Alpha](components-stability.md#stability-levels-explained) because we plan to make this functionality production-ready, but it's still under development.
+<include from="whatsnew2320.md" element-id="lombok-is-now-alpha-content">
+<var name="id3" value="compiler-lombok-is-now-alpha"/>
+</include>
 
 ## Kotlin/JVM
 
@@ -415,57 +553,11 @@ The new DSL replaces the deprecated `kotlin.native.cacheKind` Gradle property; y
 
 For more tips on improving compilation times, see the [Kotlin/Native documentation](native-improving-compilation-time.md).
 
-### New interoperability mode for C or Objective-C libraries
-<primary-label ref="experimental-opt-in"/>
-<secondary-label ref="native"/>
-
-If you use C or Objective-C libraries in your Kotlin Multiplatform libraries or applications, we invite you to test the new interoperability mode and share the results.
-
-In general, Kotlin/Native enables importing C and Objective-C libraries into Kotlin.
-However, for Kotlin Multiplatform libraries, this functionality is currently [affected](native-lib-import-stability.md#stability-of-c-and-objective-c-library-import) by the KMP compatibility issues with older compiler versions.
-
-In other words, if you publish a Kotlin Multiplatform library compiled with one Kotlin version, importing C or Objective-C libraries might make it impossible to use that Kotlin library in projects with an earlier Kotlin version.
-
-To address this and other issues, the Kotlin team has been revising the interoperability mechanism used under the hood.
-Starting with Kotlin 2.3.20-Beta1, you can try the new mode through a compiler option.
-
-#### How to try {id="how-to-try-new-interoperability-mode-for-c-or-objective-c-libraries"}
-
-1. In your Gradle build file, check whether you have a `cinterops {}` block or a `pod()` dependency.
-   If these are present, your project uses C or Objective-C libraries.
-
-2. Ensure your project uses `2.3.20-Beta1` or a later version.
-3. In the same build file, add the `-Xccall-mode` compiler option to the cinterop tool invocation:
-
-   ```kotlin
-   kotlin {
-       targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget>().configureEach {
-           compilations.configureEach {
-               cinterops.configureEach {
-                   extraOpts += listOf("-Xccall-mode", "direct")
-               }
-           }
-       }
-   }
-   ```
-
-4. Build and test your project as usual by running unit tests, the app, and so on.
-   You can also use the `--continue` option to allow Gradle to continue executing tasks even after failures, helping to find more problems at once.
-
-> Do **not** publish libraries compiled with the new interoperability mode yet, as it's still [Experimental](components-stability.md#stability-levels-explained).
->
-{style="warning"}
-
-#### Report your results {id="report-your-results-new-interoperability-mode-for-c-or-objective-c-libraries"}
-
-The new interoperability mode is supposed to be a drop-in replacement in most cases.
-We're planning to eventually enable it by default. But to achieve that, we need to ensure it works as well as possible and test it on a wide range of projects, because:
-
-* Some C and Objective-C declarations aren't yet supported in the new mode (mostly because of compatibility issues). We'd like to better understand the real-world impact of this and prioritize future steps accordingly.
-* There may be bugs or things we haven't considered. Testing languages with numerous interacting features is challenging, and testing the interaction between languages (each with a unique set of features) is even more so.
-
-Help us examine real-world projects and identify challenging cases.
-Whether you encounter any issues or not, share your results in the comments to [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-83218).
+<include from="whatsnew2320.md" element-id="new-interoperability-mode-for-c-or-objective-c-libraries-content">
+<var name="id7" value="native-new-interoperability-mode-for-c-or-objective-c-libraries"/>
+<var name="id8" value="native-new-interoperability-mode-for-c-or-objective-c-libraries-how-to-enable"/>
+<var name="id9" value="native-new-interoperability-mode-for-c-or-objective-c-libraries-report-your-results"/>
+</include>
 
 ## Kotlin/Wasm
 
@@ -691,50 +783,10 @@ If you notice any issues, share your feedback in our [issue tracker](https://you
 
 ## Maven
 
-### Simplified setup for Kotlin projects
-<secondary-label ref="maven"/>
-
-Kotlin 2.3.20 makes it easier to set up Kotlin in Maven projects. Now Kotlin supports the automatic configuration of source roots and Kotlin's standard library.
-
-With the new automatic configuration, when you create a new Kotlin project with the Maven build system or introduce Kotlin to your existing Java Maven project,
-you don't need to manually specify source root paths or add the `kotlin-stdlib` dependency in your POM build file.
-
-### How to enable {id="how-to-enable-kotlin-maven-plugin-extension"}
-
-In your `pom.xml` file, add `<extensions>true</extensions>` to the `<build><plugins>` section of the Kotlin Maven plugin:
-
-```xml
-<build>
-    <plugins>
-         <plugin>
-             <groupId>org.jetbrains.kotlin</groupId>
-             <artifactId>kotlin-maven-plugin</artifactId>
-             <version>%kotlinVersion%</version>
-             <extensions>true</extensions> <!-- Add this extension  -->
-         </plugin>
-    </plugins>
-</build>
-```
-
-The new extension automatically:
-
-* Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots in case they already exist but are not specified in the plugin configuration.
-* Adds the `kotlin-stdlib` dependency in case it's not explicitly defined already.
-
-You can also opt out of the automatic addition of Kotlin's standard library. For that, add the following to the `<properties>` section:
-
-```xml
-<project>
-    <properties>
-        <!-- Disable smart defaults via property -->
-        <kotlin.smart.defaults.enabled>false</kotlin.smart.defaults.enabled>         
-    </properties>
-</project>
-```
-
-Note that the property disables all simplified setup features, including the registration of source root paths.
-
-For more information on configuring Kotlin Maven projects, see our [documentation](maven-configure-project.md).
+<include from="whatsnew2320.md" element-id="simplified-setup-for-kotlin-projects-content">
+<var name="id1" value="maven-simplified-setup-for-kotlin-projects"/>
+<var name="id2" value="maven-simplified-setup-for-kotlin-projects-how-to-enable"/>
+</include>
 
 ## Build tools API
 
@@ -823,7 +875,7 @@ In Kotlin 2.3.20, the BTA provides a new and simpler way for build tools to conf
 This approach allows build tools to propagate the configuration directly to their users.
 
 Instead of configuring compiler plugins through the command line with experimental compiler options,
-build tools can use the `org.jetbrains.kotlin.buildtools.api.arguments.CommonCompilerArguments.COMPILER_PLUGINS` option to configure a list of objects that represent compiler plugin configurations:
+build tools can use the `kotlin.buildtools.api.arguments.CommonCompilerArguments.COMPILER_PLUGINS` option to configure a list of objects that represent compiler plugin configurations:
 
 ```kotlin
 import org.jetbrains.kotlin.buildtools.api.KotlinToolchains
