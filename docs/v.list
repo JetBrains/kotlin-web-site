@@ -15,7 +15,7 @@
 
     <!-- Kotlin EAP -->
     <var name="kotlinEapVersion" value="2.3.20-RC3"/>
-    <var name="kotlinEapReleaseDate" value="March 9, 2026"/>
+    <var name="kotlinEapReleaseDate" value="March 10, 2026"/>
 
     <!-- Libraries and Frameworks -->
     <var name="coroutinesVersion" value="1.10.2"/>
