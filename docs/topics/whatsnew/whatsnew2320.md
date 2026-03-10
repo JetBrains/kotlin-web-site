@@ -1,5 +1,7 @@
 [//]: # (title: What's new in Kotlin 2.3.20)
 
+<show-structure depth="1"/>
+
 <web-summary>Read the Kotlin 2.3.20 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
 
 _[Released: March 16, 2026](releases.md#release-history)_
@@ -92,6 +94,7 @@ Additionally, Kotlin 2.3.20 reduces the number of `kotlin.context` overloads fro
 
 ### Name-based destructuring
 <primary-label ref="experimental-opt-in"/>
+<secondary-label ref="language"/>
 
 Kotlin 2.3.20 introduces *name-based destructuring declarations*,
 which match variables to property names instead of relying on position-based `componentN()` functions.
