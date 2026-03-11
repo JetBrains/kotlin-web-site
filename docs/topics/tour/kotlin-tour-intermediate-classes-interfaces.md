@@ -242,7 +242,7 @@ class CreditCardPayment(val cardNumber: String, val cardHolderName: String, val 
     PaymentType {
     override fun initiatePayment(amount: Double): String {
         // Simulate processing payment with credit card
-        return "Payment of $$amount initiated using Credit Card ending in ${cardNumber.takeLast(4)}."
+        return "Payment of $$amount initiated using $paymentType ending in ${cardNumber.takeLast(4)}."
     }
 
     override val paymentType: String = "Credit Card"
