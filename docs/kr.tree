@@ -321,6 +321,7 @@
             <toc-element toc-title="Command-line compiler" topic="command-line.md"/>
             <toc-element toc-title="Create a console app" topic="jvm-get-started.md"/>
             <toc-element toc-title="Compiler options" topic="compiler-reference.md"/>
+            <toc-element topic="compiler-execution-strategy.md"/>
         </toc-element>
         <toc-element toc-title="Kotlin compiler plugins">
             <toc-element toc-title="Overview" topic="compiler-plugins-overview.md"/>

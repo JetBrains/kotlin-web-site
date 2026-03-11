@@ -837,7 +837,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The "out of process" compiler execution strategy is not supported by the [Build tools API](build-tools-api.md)
+> **Short summary**: The "out of process" [compiler execution strategy](compiler-execution-strategy.md) is not supported by the [Build tools API](build-tools-api.md)
 > and is the slowest strategy available. In Kotlin 2.3.20, the strategy is deprecated in favor of "daemon" and "in process" compiler execution strategies.
 >
 > **Deprecation cycle**:
