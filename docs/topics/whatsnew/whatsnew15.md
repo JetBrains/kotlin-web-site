@@ -1,11 +1,17 @@
 [//]: # (title: What's new in Kotlin 1.5.0)
 
-_[Released: 5 May 2021](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.5.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 5 May 2021](releases.md#release-history)_
 
 Kotlin 1.5.0 introduces new language features, stable IR-based JVM compiler backend, performance improvements,
 and evolutionary changes such as stabilizing experimental features and deprecating outdated ones.
 
-You can also find an overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/04/kotlin-1-5-0-released/).
+You can also find an overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/05/kotlin-1-5-0-released/).
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## Language features
 
@@ -165,7 +171,7 @@ The default target version for Kotlin/JVM compilations is now `1.8`. The `1.6` t
 If you need a build for JVM 1.6, you can still switch to this target. Learn how:
 
 * [in Gradle](gradle-compiler-options.md#attributes-specific-to-jvm)
-* [in Maven](maven.md#attributes-specific-to-jvm)
+* [in Maven](maven-compile-package.md#attributes-specific-to-jvm)
 * [in the command-line compiler](compiler-reference.md#jvm-target-version)
 
 ### SAM adapters via invokedynamic
@@ -180,7 +186,7 @@ which improves the JVM startup performance.
 
 To roll back to the old implementation scheme based on anonymous class generation, add the compiler option `-Xsam-conversions=class`.
 
-Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Maven](maven.md#specify-compiler-options), and the [command-line compiler](compiler-reference.md#compiler-options).
+Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Maven](maven-compile-package.md#specify-compiler-options), and the [command-line compiler](compiler-reference.md#compiler-options).
 
 ### Lambdas via invokedynamic
 
@@ -202,7 +208,7 @@ lambda compilation:
 To try this feature, add the `-Xlambdas=indy` compiler option. We would be grateful if you could share your feedback on it using
 this [YouTrack ticket](https://youtrack.jetbrains.com/issue/KT-45375).
 
-Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Maven](maven.md#specify-compiler-options), and [command-line compiler](compiler-reference.md#compiler-options).
+Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Maven](maven-compile-package.md#specify-compiler-options), and [command-line compiler](compiler-reference.md#compiler-options).
 
 ### Deprecation of @JvmDefault and old Xjvm-default modes
 
@@ -307,7 +313,7 @@ Many well-known frameworks and libraries are already available for the IR backen
 [doodle](https://github.com/nacular/doodle), and others. If you're using them in your project, you can already build it
 with the IR backend and see the benefits it brings.
 
-If you're writing your own library, [compile it in the 'both' mode](js-ir-compiler.md#authoring-libraries-for-the-ir-compiler-with-backwards-compatibility)
+If you're writing your own library, compile it in the 'both' mode
 so that your clients can also use it with the new compiler.
 
 

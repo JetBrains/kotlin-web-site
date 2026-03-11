@@ -92,9 +92,9 @@ external class MyClass {
 }
 ```
 
-### Declare optional parameters
+### Declare parameters with default values
 
-If you are writing an external declaration for a JavaScript function which has an optional parameter, use `definedExternally`.
+If you are writing an external declaration for a JavaScript function which has a parameter with a default value, use `definedExternally`.
 This delegates the generation of the default values to the JavaScript function itself:
 
 ```kotlin
@@ -133,7 +133,7 @@ class Bar : Foo() {
 There are some limitations:
 
 - When a function of an external base class is overloaded by signature, you can't override it in a derived class.
-- You can't override a function with default arguments.
+- You can't override a function including parameters with default values.
 - Non-external classes can't be extended by external classes.
 
 ### external interfaces
@@ -233,9 +233,9 @@ fun main() {
     val value1 = name.substring(0, 1)
     val value2 = name.substring(0, 1)
 
-    println(if (value1 === value2) "yes" else "no")
-    // Prints 'yes' on Kotlin/JS
-    // Prints 'no' on other platforms
+    println(value1 === value2)
+    // Prints 'true' on Kotlin/JS
+    // Prints 'false' on other platforms
 }
  ```
 

@@ -1,12 +1,17 @@
 [//]: # (title: What's new in Kotlin 1.4.20)
 
-_[Released: 23 November 2020](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.4.20 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 23 November 2020](releases.md#release-history)_
 
 Kotlin 1.4.20 offers a number of new experimental features and provides fixes and improvements for
 existing features, including those added in 1.4.0.
 
 You can also learn about new features with more examples in [this blog post](https://blog.jetbrains.com/kotlin/2020/11/kotlin-1-4-20-released/).
 
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## Kotlin/JVM
 
@@ -197,7 +202,7 @@ If you want to disable the escape analysis phase, use the `-Xdisable-phases=Esca
 ### Performance improvements and bug fixes
 
 Kotlin/Native receives performance improvements and bug fixes in various components, including the ones added
-in 1.4.0, for example, the [code sharing mechanism](multiplatform-share-on-platforms.md#share-code-on-similar-platforms). 
+in 1.4.0, for example, the [code sharing mechanism](https://kotlinlang.org/docs/multiplatform/multiplatform-share-on-platforms.html#share-code-on-similar-platforms). 
 
 ### Opt-in wrapping of Objective-C exceptions
 
@@ -212,7 +217,7 @@ You can opt in to wrap `NSException`'s into Kotlin exceptions of type `ForeignEx
 original `NSException`'s. This lets you get the information about the root cause and handle it properly.
 
 To enable wrapping of Objective-C exceptions, specify the `-Xforeign-exception-mode objc-wrap` option in the `cinterop`
-call or add `foreignExceptionMode = objc-wrap` property to `.def` file. If you use [CocoaPods integration](native-cocoapods.md),
+call or add `foreignExceptionMode = objc-wrap` property to `.def` file. If you use [CocoaPods integration](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-overview.html),
 specify the option in the `pod {}` build script block of a dependency like this:
 
 ```kotlin
@@ -238,7 +243,7 @@ existing dependencies are not rebuilt. Adding an extra target also doesn't affec
 
 #### Extended DSL
 
-The DSL of adding [CocoaPods](native-cocoapods.md) dependencies to your Kotlin project receives new capabilites.
+The DSL of adding [CocoaPods](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-overview.html) dependencies to your Kotlin project receives new capabilites.
 
 In addition to local Pods and Pods from the CocoaPods repository, you can add dependencies on the following types of libraries:
 * A library from a custom spec repository.
@@ -247,7 +252,7 @@ In addition to local Pods and Pods from the CocoaPods repository, you can add de
 * A static library.
 * A library with custom cinterop options.
 
-Learn more about [adding CocoaPods dependencies](native-cocoapods-libraries.md) in Kotlin projects.
+Learn more about [adding CocoaPods dependencies](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-libraries.html) in Kotlin projects.
 Find examples in the [Kotlin with CocoaPods sample](https://github.com/Kotlin/kmm-with-cocoapods-sample).
 
 #### Updated integration with Xcode
@@ -260,7 +265,7 @@ To work correctly with Xcode, Kotlin requires some Podfile changes:
 
 Now integration errors have a detailed description in IDEA. So if you have problems with your Podfile, you will immediately know how to fix them.
 
-Learn more about [creating Kotlin pods](native-cocoapods-xcode.md).
+Learn more about [creating Kotlin pods](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-xcode.html).
 
 ### Support for Xcode 12 libraries
     
@@ -274,11 +279,11 @@ Starting from Kotlin 1.4.20, there is no longer a separate metadata publication.
 the _root_ publication which stands for the whole library and is automatically resolved to the appropriate platform-specific
 artifacts when added as a dependency to the common source set.
 
-Learn more about [publishing a multiplatform library](multiplatform-publish-lib.md).
+Learn more about [publishing a multiplatform library](https://kotlinlang.org/docs/multiplatform/multiplatform-publish-lib-setup.html).
 
 #### Compatibility with earlier versions
 
-This change of structure breaks the compatibility between projects with [hierarchical project structure](multiplatform-share-on-platforms.md#share-code-on-similar-platforms).
+This change of structure breaks the compatibility between projects with [hierarchical project structure](https://kotlinlang.org/docs/multiplatform/multiplatform-share-on-platforms.html#share-code-on-similar-platforms).
 If a multiplatform project and a library it depends on both have the hierarchical project structure, then you need to update
 them to Kotlin 1.4.20 or higher simultaneously. Libraries published with Kotlin 1.4.20 are not available for using from
 project published with earlier versions.

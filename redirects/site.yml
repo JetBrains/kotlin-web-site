@@ -59,3 +59,18 @@
 
 - from: /docs/foundation-faq.html
   to: https://kotlinfoundation.org/faq/
+
+- from: /docs/api
+  to: /docs/api-references.html
+
+- from: /docs/reference/grammar.html
+  to: /grammar/
+
+- from: /docs/reference/grammar/
+  to: /grammar/
+
+- from: /education/why-teach-kotlin.html
+  to: /education/why-teach-kotlin/
+
+- from: /education/courses.html
+  to: /education/courses/

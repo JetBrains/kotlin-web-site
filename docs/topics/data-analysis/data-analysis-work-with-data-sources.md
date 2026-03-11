@@ -1,6 +1,6 @@
 [//]: # (title: Retrieve data from files)
 
-[Kotlin Notebook](kotlin-notebook-overview.md), coupled with the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/gettingstarted.html), enables 
+[Kotlin Notebook](kotlin-notebook-overview.md), coupled with the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), enables 
 you to work with both non-structured and structured data. This combination offers the flexibility to transform non-structured data, 
 such as data found in TXT files, into structured datasets. 
 
@@ -22,6 +22,7 @@ see [Set up an environment](kotlin-notebook-set-up-env.md).
 Create a new Kotlin Notebook:
 
 1. Select **File** | **New** | **Kotlin Notebook**.
+
 2. In the Kotlin Notebook, import the Kotlin DataFrame library by running the following command:
 
    ```kotlin

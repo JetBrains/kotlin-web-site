@@ -1,0 +1,120 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+  position: relative;
+  padding: 72px 0;
+  overflow: hidden;
+}
+
+.heroImage {
+  position: absolute;
+  top: -655px;
+  transform: translateX(24%);
+  max-width: 1235px;
+  max-height: 1440px;
+
+  @media (--ktl-tl-down) {
+    top: 0;
+    transform: translateX(28%);
+    max-height: 369px;
+    max-width: 969px;
+  }
+
+  @media (--ktl-ml-down) {
+    transform: translateX(13%);
+    max-height: 295px;
+    max-width: 775px;
+  }
+}
+
+.githubLink {
+  position: absolute;
+  top: -81px;
+  right: -80px;
+  z-index: 1;
+  background-color: rgba(25, 25, 28, 1);
+  height: 160px;
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transform: rotate(45deg);
+}
+
+.githubLink:hover .githubIcon {
+  transform: scale(1.1);
+}
+
+.githubIcon {
+  width: 64px;
+  height: 64px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.row {
+  display: flex;
+  gap: 32px;
+
+  @media (--ktl-tl-down) {
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+
+.content {
+  position: relative;
+  padding-top: 72px;
+
+  @media (--ktl-tl-down) {
+    padding-top: 0;
+  }
+}
+
+.logo {
+  height: 144px;
+  margin-bottom: 32px;
+
+  @media (--ktl-ml-down) {
+    height: 80px;
+  }
+}
+
+.logoImg {
+  height: 100%;
+  width: auto;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  margin-top: 0;
+  margin-bottom: 48px;
+
+  @media (--ktl-ml-down) {
+    margin-bottom: 32px;
+  }
+}
+
+.button {
+  @media (--ktl-ms-down) {
+    width: 100%;
+  }
+}
+
+.carousel {
+  flex: 0 0 57%;
+  overflow: hidden;
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(58, 0, 166, 0.60) 0%, #2F0087 100%);
+
+  @media (--ktl-tl-down) {
+    flex-basis: auto;
+  }
+
+  @media (--ktl-ml-down) {
+    border-radius: 16px;
+  }
+}

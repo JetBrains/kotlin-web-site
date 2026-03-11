@@ -27,19 +27,21 @@ import { StickyHeader } from '../components/sticky-header/sticky-header';
 
 import MultiplatformPreviewImage from '../public/images/main/multiplatform-preview.svg';
 
-import GradleLogo from '../public/images/companies/gradle.svg';
+import GradleLogo from '../public/images/companies/gradle-logo.png';
 import UberLogo from '../public/images/companies/uber.svg';
 import AtlassianLogo from '../public/images/companies/atlassian.svg';
 import GoogleLogo from '../public/images/companies/google.svg';
 import JetbrainsLogo from '../assets/jetbrains-logo-dark.svg';
 import TouchlabLogo from '../public/images/companies/touchlab.svg';
-import KotzillaLogo from '../public/images/companies/kotzilla-logo.svg'
+import KotzillaLogo from '../public/images/companies/kotzilla-logo.svg';
 
 import McDonaldsLogo from '../public/images/companies/mcdonalds.svg';
 import AWSLogo from '../public/images/companies/aws.svg';
 import PhilipsLogo from '../public/images/companies/philips.svg';
 import AdobeLogo from '../public/images/companies/adobe.svg';
 import ForbesLogo from '../public/images/companies/forbes.svg';
+import MetaLogo from '../public/images/companies/meta.svg';
+import BlockLogo from '../public/images/companies/block.svg';
 
 import styles from './index.module.css';
 
@@ -47,7 +49,8 @@ import searchConfig from '../search-config.json';
 
 
 import releasesDataRaw from '../data/releases.yml';
-import Script from 'next/script';
+import { KotlinPlusAiInfo } from '../blocks/main/kotlin-plus-ai';
+import { KotlinConfBanner } from '../blocks/main/kotlin-conf-banner';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
@@ -108,6 +111,11 @@ const kotlinFoundationCompanies = [
         link: 'https://about.google/'
     },
     {
+        name: 'Meta',
+        logo: MetaLogo,
+        link: 'https://www.meta.com/'
+    },
+    {
         name: 'Gradle',
         logo: GradleLogo,
         link: 'https://gradle.org/'
@@ -127,7 +135,11 @@ const kotlinFoundationCompanies = [
         logo: KotzillaLogo,
         link: 'https://kotzilla.io/'
     },
-
+    {
+        name: 'Block',
+        logo: BlockLogo,
+        link: 'https://block.xyz/'
+    },
 ];
 
 export async function getStaticProps() {
@@ -158,6 +170,9 @@ function Index() {
                 <HeroSection title={'Kotlin'}>
                     Concise. Multiplatform. Fun.
                 </HeroSection>
+
+                <KotlinConfBanner />
+
                 <div className={'ktl-layout ktl-layout--center'}>
                     <LatestNews />
                 </div>
@@ -165,9 +180,8 @@ function Index() {
             </ThemeProvider>
 
             <ThemeProvider theme="light">
-                <div className={styles.evenSection}>
+                <div className={styles.evenSection} data-testid={"highlighted-cases-section"}>
                     <div className={'ktl-layout ktl-layout--center'}>
-
                         <KotlinUsageHighlights title="Kotlin in action" items={kotlinUsageHighlightsCases} />
 
                         <DividerLine />
@@ -184,14 +198,14 @@ function Index() {
                                 </>
                             }
                             button={
-                                <Button href="/lp/multiplatform/" size="l" mode="rock" theme="light">
+                                <Button href="/multiplatform/" size="l" mode="rock" theme="light">
                                     {isTS ? 'Learn more' : 'Learn about Kotlin Multiplatform'}
                                 </Button>
                             }
                             media={<img src={MultiplatformPreviewImage.src} alt="" />}
                         />
 
-                        <DividerLine />
+                        <KotlinPlusAiInfo />
 
                         <InfoBlock
                             title={'Big, friendly and helpful community'}
@@ -231,7 +245,13 @@ function Index() {
                         className={styles.ctaBlock}
                         mainTitle={<>Start using{isTS && <br />} Kotlin today!</>}
                         buttons={
-                            <Button href="/docs/getting-started.html" size="l" mode="rock" theme="light">
+                            <Button
+                                href="/docs/getting-started.html"
+                                size="l"
+                                mode="rock"
+                                theme="light"
+                                data-testid={'cta-get-started-button'}
+                            >
                                 Get started
                             </Button>
                         }
@@ -240,10 +260,10 @@ function Index() {
             </ThemeProvider>
 
             <ThemeProvider theme={'dark'}>
-                <GlobalFooter />
+                <div data-testid={'footer'}>
+                    <GlobalFooter />
+                </div>
             </ThemeProvider>
-
-            <Script src={'https://cdn.optimizely.com/js/26633200186.js'} strategy={"beforeInteractive"}/>
         </Layout>
     );
 }

@@ -126,13 +126,6 @@ inline fun f(crossinline body: () -> Unit) {
 
 ### Break and continue
 
-> This feature is currently [In preview](kotlin-evolution-principles.md#pre-stable-features).
-> We're planning to stabilize it in future releases.
-> To opt in, use the `-Xnon-local-break-continue` compiler option.
-> We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-1436).
->
-{style="warning"}
-
 Similar to non-local `return`, you can apply `break` and `continue` [jump expressions](returns.md) in lambdas passed
 as arguments to an inline function that encloses a loop:
 

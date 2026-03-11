@@ -1,10 +1,16 @@
 [//]: # (title: What's new in Kotlin 1.6.0)
 
-_[Released: 16 November 2021](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.6.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 16 November 2021](releases.md#release-history)_
 
 Kotlin 1.6.0 introduces new language features, optimizations and improvements to existing features, and a lot of improvements to the Kotlin standard library.
 
 You can also find an overview of the changes in the [release blog post](https://blog.jetbrains.com/kotlin/2021/11/kotlin-1-6-0-is-released/).
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## Language
 

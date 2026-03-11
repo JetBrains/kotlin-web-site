@@ -18,7 +18,7 @@ Every Kotlin release ships with a standalone version of the compiler. You can do
 To install the Kotlin compiler manually:
 
 1. Download the latest version (`kotlin-compiler-%kotlinVersion%.zip`) from [GitHub Releases](%kotlinLatestUrl%).
-2. Unzip the standalone compiler into a directory and optionally add the `bin` directory to the system path.
+2. Unzip the standalone compiler into a directory and optionally add the `kotlinc/bin` directory to the system path.
 The `bin` directory contains the scripts needed to compile and run Kotlin on Windows, macOS, and Linux.
 
 > If you want to use the Kotlin command-line compiler on Windows, we recommend installing it manually.
@@ -86,6 +86,10 @@ library in it.
    java -jar hello.jar
    ```
 
+> To compile a Kotlin/Native application, use the [Kotlin/Native compiler](native-get-started.md#using-the-command-line-compiler).
+> 
+{style="note"}
+
 ## Compile a library
 
 If you're developing a library to be used by other Kotlin applications, you can build the **.jar** file without including
@@ -106,12 +110,14 @@ kotlin -classpath hello.jar HelloKt
 
 `HelloKt` is the main class name that the Kotlin compiler generates for the file named `hello.kt`.
 
+> To compile a Kotlin/Native library, use the [Kotlin/Native compiler](native-libraries.md#using-kotlin-native-compiler).
+>
+{style="note"}
+
 ## Run the REPL
 
-You can run the compiler without parameters to have an interactive shell. In this shell, you can type any valid Kotlin code
+Run the compiler with the [`-Xrepl` compiler option](compiler-reference.md#xrepl) to have an interactive shell. In this shell, you can type any valid Kotlin code
 and see the results.
-
-<img src="kotlin-shell.png" alt="Shell" width="500"/>
 
 ## Run scripts
 
@@ -150,3 +156,7 @@ kotlinc -script-templates org.example.CustomScriptDefinition -script custom.scri
 ```
 
 For additional details, see the [KEEP-75](https://github.com/Kotlin/KEEP/blob/master/proposals/scripting-support.md).
+
+## What's next?
+
+[Create a console application based on Kotlin/JVM](jvm-get-started.md).

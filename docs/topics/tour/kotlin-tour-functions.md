@@ -12,6 +12,10 @@
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
 </tldr>
 
+> 14 min read
+>
+{style="tip"}
+
 You can declare your own functions in Kotlin using the `fun` keyword.
 
 ```kotlin
@@ -218,10 +222,16 @@ fun main() {
 Write a function called `circleArea` that takes the radius of a circle in integer format as a parameter and outputs the
 area of that circle.
 
-> In this exercise, you import a package so that you can access the value of pi via `PI`. For more information about
+> In this exercise, you import a package so that you can access the value of <math>π</math> via `PI`. For more information about
 > importing packages, see [Packages and imports](packages.md).
 >
 {style="tip"}
+
+<deflist collapsible="true" id="kotlin-tour-functions-exercise-1-hint">
+    <def title="Hint">
+        The formula for calculating the area of a circle is <math>πr^2</math>, where <math>r</math> is the radius.
+    </def>
+</deflist>
 
 |---|---|
 ```kotlin
@@ -396,10 +406,10 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-lambda-filter"}
 
-The `.filter()` function accepts a lambda expression as a predicate:
+The `.filter()` function accepts a lambda expression as a predicate and applies it to each element of the list. The function keeps an element only if the predicate returns `true`:
 
-* `{ x -> x > 0 }` takes each element of the list and returns only those that are positive.
-* `{ x -> x < 0 }` takes each element of the list and returns only those that are negative.
+* `{ x -> x > 0 }` returns `true` if the element is positive.
+* `{ x -> x < 0 }` returns `true` if the element is negative.
 
 This example demonstrates two ways of passing a lambda expression to a function:
 

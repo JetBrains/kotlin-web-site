@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 2.1.0)
 
-_[Released: November 27, 2024](releases.md#release-details)_
+<web-summary>Read the Kotlin 2.1.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: November 27, 2024](releases.md#release-history)_
 
 The Kotlin 2.1.0 release is here! Here are the main highlights:
 
@@ -14,6 +16,10 @@ The Kotlin 2.1.0 release is here! Here are the main highlights:
 * **Gradle support**: [Improved compatibility with newer versions of Gradle and the Android Gradle plugin](#gradle-improvements),
   along with [updates to the Kotlin Gradle plugin API](#new-api-for-kotlin-gradle-plugin-extensions).
 * **Documentation**: [Significant improvements to the Kotlin documentation](#documentation-updates).
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 
@@ -573,7 +579,7 @@ then the target level, and the lowest is the compilation unit (which is usually 
 ![Kotlin compiler options levels](compiler-options-levels.svg){width=700}
 
 To learn more about the different levels and how compiler options can be configured between them, 
-see [Compiler options](multiplatform-dsl-reference.md#compiler-options).
+see [Compiler options](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#compiler-options).
 
 ### Preview Gradle's Isolated Projects in Kotlin Multiplatform
 
@@ -671,7 +677,7 @@ which you can access from Xcode.
 Keep in mind that the feature is currently only in the early stages of development.
 
 Swift export currently works in projects that use
-[direct integration](multiplatform-direct-integration.md) to connect the iOS framework to the Xcode project.
+[direct integration](https://kotlinlang.org/docs/multiplatform/multiplatform-direct-integration.html) to connect the iOS framework to the Xcode project.
 This is a standard configuration for Kotlin Multiplatform projects created in Android Studio or through the [web wizard](https://kmp.jetbrains.com/).
 
 To try out Swift export in your project:
@@ -711,7 +717,7 @@ Previously, you could get the necessary artifacts from any host, except for Appl
 That put a special restraint on Kotlin Multiplatform projects that targeted iOS, macOS, tvOS, and watchOS targets.
 
 Kotlin 2.1.0 lifts this restriction, adding support for cross-compilation.
-Now you can use any host to produce `.klib` artifacts,
+Now you can use any [supported host](native-target-support.md#hosts) to produce `.klib` artifacts,
 which should greatly simplify the publishing process for Kotlin and Kotlin Multiplatform libraries.
 
 #### How to enable publishing libraries from any host
@@ -726,15 +732,15 @@ kotlin.native.enableKlibsCrossCompilation=true
 This feature is currently Experimental and has some limitations. You still need to use a Mac machine if:
 
 * Your library has a [cinterop dependency](native-c-interop.md).
-* You have [CocoaPods integration](native-cocoapods.md) set up in your project.
-* You need to build or test [final binaries](multiplatform-build-native-binaries.md) for Apple targets.
+* You have [CocoaPods integration](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-overview.html) set up in your project.
+* You need to build or test [final binaries](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html) for Apple targets.
 
 #### Leave feedback on publishing libraries from any host
 
 We're planning to stabilize this feature and further improve library publication in future Kotlin releases.
 Please leave your feedback in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-71290).
 
-For more information, see [Publishing multiplatform libraries](multiplatform-publish-lib.md).
+For more information, see [Publishing multiplatform libraries](https://kotlinlang.org/docs/multiplatform/multiplatform-publish-lib-setup.html).
 
 ### Support for non-packed klibs
 
@@ -793,7 +799,7 @@ We'll provide further migration instructions when the new plugin is available.
 The new DSL from Google will be the preferred option for Android target support in Kotlin Multiplatform.
 
 For more information,
-see the [Kotlin Multiplatform compatibility guide](multiplatform-compatibility-guide.md#rename-of-android-target-to-androidtarget).
+see the [Kotlin Multiplatform compatibility guide](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#rename-of-android-target-to-androidtarget).
 
 ### Dropped support for declaring multiple targets of the same type
 
@@ -801,7 +807,7 @@ Before Kotlin 2.1.0, you could declare multiple targets of the same type in your
 However, this made it challenging to distinguish between targets and to support shared source sets effectively.
 In most cases, a simpler setup, such as using separate Gradle projects, works better.
 For detailed guidance and an example of how to migrate,
-see [Declaring several similar targets](multiplatform-compatibility-guide.md#declaring-several-similar-targets)
+see [Declaring several similar targets](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#declaring-several-similar-targets)
 in the Kotlin Multiplatform compatibility guide.
 
 Kotlin 1.9.20 triggered a deprecation warning if you declared multiple targets of the same type in your multiplatform projects.
@@ -816,7 +822,7 @@ Kotlin 2.1.0 includes an [upgrade for the `iosArm64` target support](#iosarm64-p
 
 ### iosArm64 promoted to Tier 1
 
-The `iosArm64` target, which is crucial for [Kotlin Multiplatform](multiplatform-intro.md) development,
+The `iosArm64` target, which is crucial for [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) development,
 has been promoted to Tier 1. This is the highest level of support in the Kotlin/Native compiler.
 
 This means the target is regularly tested on the CI pipeline to ensure that it's able to compile and run.
@@ -1578,9 +1584,9 @@ The Kotlin documentation has received some notable changes:
 
 * New [Building a Kotlin library for multiplatform](https://kotlinlang.org/docs/api-guidelines-build-for-multiplatform.html) page –
   Learn how to design your Kotlin libraries for Kotlin Multiplatform.
-* New [Introduction to Kotlin Multiplatform](multiplatform-intro.md) page – Learn about Kotlin Multiplatform's key concepts, dependencies, libraries, and more.
+* New [Introduction to Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) page – Learn about Kotlin Multiplatform's key concepts, dependencies, libraries, and more.
 * Updated [Kotlin Multiplatform overview](multiplatform.topic) page – Navigate through the essentials of Kotlin Multiplatform and popular use cases.
-* New [iOS integration](multiplatform-ios-integration-overview.md) section – Learn how to integrate a Kotlin Multiplatform shared module into your iOS app.
+* New [iOS integration](https://kotlinlang.org/docs/multiplatform/multiplatform-ios-integration-overview.html) section – Learn how to integrate a Kotlin Multiplatform shared module into your iOS app.
 * New [Kotlin/Native's definition file](native-definition-file.md) page – Learn how to create a definition file to consume C and Objective-C libraries.
 * [Get started with WASI](wasm-wasi.md) –
   Learn how to run a simple Kotlin/Wasm application using WASI in various WebAssembly virtual machines.

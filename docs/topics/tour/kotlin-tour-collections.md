@@ -12,6 +12,10 @@
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
 </tldr>
 
+> 10 min read
+>
+{style="tip"}
+
 When programming, it is useful to be able to group data into structures for later processing. Kotlin provides collections
 for exactly this purpose.
 
@@ -499,7 +503,7 @@ number.
 fun main() {
     val number2word = // Write your code here
     val n = 2
-    println("$n is spelt as '${<Write your code here >}'")
+    println("$n is spelled as '${<Write your code here >}'")
 }
 ```
 {validate="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-tour-collections-exercise-3"}

@@ -12,6 +12,10 @@
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
 </tldr>
 
+> 3 min read
+> 
+{style="tip"}
+
 Here is a simple program that prints "Hello, world!":
 
 ```kotlin
@@ -71,8 +75,8 @@ fun main() {
 
 As `customers` is a mutable variable, its value can be reassigned after declaration.
 
-> We recommend that you declare all variables as read-only (`val`) by default. Declare mutable variables (`var`) only if 
-> necessary.
+> We recommend declaring all variables as read-only (`val`) by default. Only use mutable variables (`var`) if you really
+> need to. That way, you're less likely to accidentally change something that wasn't meant to change.
 > 
 {style="note"}
 

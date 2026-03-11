@@ -12,6 +12,10 @@
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
 </tldr>
 
+> 8 min read
+>
+{style="tip"}
+
 Kotlin supports object-oriented programming with classes and objects. Objects are useful for storing data in your program.
 Classes allow you to declare a set of characteristics for an object. When you create objects from a class, you can save
 time and effort because you don't have to declare these characteristics every time.
@@ -80,7 +84,7 @@ In the example:
 * `id` and `email` are used with the default constructor to create `contact`.
 
 Kotlin classes can have many constructors, including ones that you define yourself. To learn more about how to declare 
-multiple constructors, see [Constructors](classes.md#constructors).
+multiple constructors, see [Constructors](classes.md#constructors-and-initializer-blocks).
 
 ## Access properties
 
@@ -256,7 +260,7 @@ The last chapter of this tour is about Kotlin's [null safety](kotlin-tour-null-s
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true"}
 
 Define a data class `Employee` with two properties: one for a name, and another for a salary. Make sure that the property
-for salary is mutable, otherwise you won’t get a salary boost at the end of the year! The main function demonstrates how
+for salary is mutable, otherwise you won't get a salary boost at the end of the year! The main function demonstrates how
 you can use this data class.
 
 |---|---|

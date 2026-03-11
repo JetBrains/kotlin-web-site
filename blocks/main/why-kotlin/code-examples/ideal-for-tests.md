@@ -1,4 +1,3 @@
-import org.junit.Test                   // Tests
 import kotlin.test.*                    // The following example works for JVM only
 
 class SampleTest {

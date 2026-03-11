@@ -12,6 +12,10 @@
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
 </tldr>
 
+> 10 min read
+>
+{style="tip"}
+
 Like other programming languages, Kotlin is capable of making decisions based on whether a piece of code is evaluated to
 be true. Such pieces of code are called **conditional expressions**. Kotlin is also able to create and iterate
 through loops.
@@ -271,9 +275,9 @@ The most common way to create a range in Kotlin is to use the `..` operator. For
 
 To declare a range that doesn't include the end value, use the `..<` operator. For example, `1..<4` is equivalent to `1, 2, 3`.
 
-To declare a range in reverse order, use `downTo`. For example, `4 downTo 1` is equivalent to `4, 3, 2, 1`.
+To declare a range in reverse order, use [`downTo`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.ranges/down-to.html). For example, `4 downTo 1` is equivalent to `4, 3, 2, 1`.
 
-To declare a range that increments in a step that isn't 1, use `step` and your desired increment value.
+To declare a range that increments in a step that isn't 1, use [`step`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.ranges/step.html) and your desired increment value.
 For example, `1..5 step 2` is equivalent to `1, 3, 5`.
 
 You can also do the same with `Char` ranges:
@@ -395,7 +399,7 @@ Now that you know the fundamentals of Kotlin control flow, it's time to learn ho
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="loops-exercise-1"}
 
-You have a program that counts pizza slices until there’s a whole pizza with 8 slices. Refactor this program in two ways:
+You have a program that counts pizza slices until there's a whole pizza with 8 slices. Refactor this program in two ways:
 
 * Use a `while` loop.
 * Use a `do-while` loop.

@@ -40,7 +40,9 @@ export const FoundationPreview: FC<FoundationPreviewProps> = ({title, descriptio
 			<div className={styles.secondBlock}>
 				<div className={styles.companies}>
 					{companies.map(company => (
-						<img src={company.logo.src} alt={`${company.name} logo`} className={styles.companyLogo} key={company.name} />
+						<img src={company.logo.src} alt={`${company.name} logo`}
+							 className={classNames(styles.companyLogo, styles[`${company.name.toLowerCase()}Logo`])}
+							 key={company.name} />
 					))}
 				</div>
 				<div className={styles.buttonWrap}>

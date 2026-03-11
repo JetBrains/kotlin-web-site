@@ -84,7 +84,7 @@ export const WhyKotlin: FC<Props> = ({}) => {
 
     return (
         <ThemeProvider theme={'dark'}>
-            <section className={styles.whyKotlin} data-test={'main-page-why-kotlin'}>
+            <section className={styles.whyKotlin} data-testid={'why-kotlin-block'}>
                 <div className={cn('ktl-layout', 'ktl-layout--center')}>
                     <div className={cn(darkTextCn(headerClass), styles.sectionTitle)}>Why Kotlin?</div>
                 </div>

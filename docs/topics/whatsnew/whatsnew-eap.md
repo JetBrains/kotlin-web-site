@@ -1,5 +1,9 @@
 [//]: # (title: What's new in Kotlin %kotlinEapVersion%)
 
+<primary-label ref="eap"/>
+
+<web-summary>Read the Kotlin Early Access Preview release notes and try the latest experimental Kotlin features before they are officially released.</web-summary>
+
 _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 
 > This document doesn't cover all of the features of the Early Access Preview (EAP) release,
@@ -9,139 +13,191 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 >
 {style="note"}
 
-The Kotlin %kotlinEapVersion% release is out!
-Here are some details of this EAP release:
+The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
-* [Kotlin compiler: unified management of compiler warnings](#kotlin-compiler-unified-management-of-compiler-warnings)
-* [Kotlin/JVM: changes to default method generation for interface functions](#kotlin-jvm-changes-to-default-method-generation-for-interface-functions)
-* [Gradle: integration of Problems API within KGP diagnostics](#integration-of-problems-api-within-kgp-diagnostics)
-  and [KGP compatibility with '--warning-mode'](#kgp-compatibility-with-warning-mode)
+* **Kotlin compiler plugins**: [Lombok is Alpha](#lombok-is-now-alpha) and [improved JPA support in the `kotlin.plugin.jpa` plugin](#improved-jpa-support-in-the-kotlin-plugin-jpa-plugin)
+* **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#kotlin-native-new-interoperability-mode-for-c-or-objective-c-libraries)
+* **Gradle**: [Compatibility with Gradle 9.3.0](#compatibility-with-gradle-9-3-0) and [Kotlin/JVM compilation uses BTA by default](#kotlin-jvm-compilation-uses-build-tools-api-by-default)
+* **Maven**: [Simplified setup for Kotlin projects](#maven-simplified-setup-for-kotlin-projects)
+* **Standard library**: [New API for creating immutable copies of `Map.Entry`](#standard-library-new-api-for-creating-immutable-copies-of-map-entry)
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 
-The Kotlin plugins that support %kotlinEapVersion% are bundled in the latest IntelliJ IDEA and Android Studio.
+The Kotlin plugins that support %kotlinEapVersion% are bundled in the latest versions of IntelliJ IDEA and Android Studio.
 You don't need to update the Kotlin plugin in your IDE.
-All you need to do is to [change the Kotlin version](configure-build-for-eap.md) to %kotlinEapVersion% in your build scripts.
+All you need to do is [change the Kotlin version](configure-build-for-eap.md) to %kotlinEapVersion% in your build scripts.
 
 See [Update to a new release](releases.md#update-to-a-new-kotlin-version) for details.
 
-## Kotlin compiler: unified management of compiler warnings
+## Kotlin compiler plugins
 
-<primary-label ref="experimental-general"/>
+Kotlin %kotlinEapVersion% brings important updates to the Lombok and `kotlin.plugin.jpa` compiler plugins.
 
-Kotlin %kotlinEapVersion% introduces a new compiler option, `-Xwarning-level`. It's designed to provide a unified way of managing compiler warnings in Kotlin projects.
+### Lombok is now Alpha
+<primary-label ref="alpha"/>
 
-Previously, you could only apply general module-wide rules, like disabling all warnings with
-`-nowarn`, turning all warnings to compilation errors with `-Werror`, or enabling additional compiler checks with `-Wextra`. The only option to adjust them for specific warnings was the `-Xsuppress-warning` option.
+Kotlin 1.5.20 introduced the experimental [Lombok compiler plugin](lombok.md), which lets you generate and use [Java's Lombok declarations](https://projectlombok.org/) in modules that mix Kotlin and Java code.
 
-With the new solution, you can override general rules and exclude specific diagnostics in a consistent way.
+In %kotlinEapVersion%, the Lombok compiler plugin is promoted to [Alpha](components-stability.md#stability-levels-explained) because we plan to productize this functionality, but it's still under development.
 
-### How to apply
+### Improved JPA support in the `kotlin.plugin.jpa` plugin
 
-The new compiler option has the following syntax:
+The `kotlin.plugin.jpa` plugin now automatically applies the [`all-open`](all-open-plugin.md) compiler plugin with the newly added built-in JPA preset,
+in addition to the existing [`no-arg`](no-arg-plugin.md) support.
 
-```bash
--Xwarning-level=DIAGNOSTIC_NAME:(error|warning|disabled)
-```
+Previously, using `kotlin("plugin.jpa")` enabled only the `no-arg` plugin with JPA presets. And when working with JPA entities, you had to explicitly apply and configure the `all-open` plugin to make JPA entity classes `open`.
 
-* `error`: raises the specified warning to an error.
-* `warning`: emits a warning, and is enabled by default.
-* `disabled`: completely suppresses the specified warning module-wide.
+Starting with Kotlin %kotlinEapVersion%:
 
-Keep in mind that you can only configure the severity level of _warnings_ with the new compiler option.
+* The `all-open` compiler plugin provides a JPA preset.
+* The Gradle `org.jetbrains.kotlin.plugin.jpa` plugin automatically applies the `org.jetbrains.kotlin.plugin.all-open` plugin with the JPA preset enabled.
+* The [Maven JPA setup](no-arg-plugin.md#jpa-support) enables `all-open` with the JPA preset by default.
+* The Maven dependency `org.jetbrains.kotlin:kotlin-maven-noarg` now implicitly includes `org.jetbrains.kotlin:kotlin-maven-allopen`, so you no longer need to add it explicitly in the `<plugin><dependencies>` block.
 
-### Use cases
+As a result, JPA entities annotated with the following annotations
+are automatically treated as `open` and receive no-argument constructors without additional configuration:
 
-With the new solution, you can better fine-tune warning reporting in your project by combining general rules with specific ones. Choose your use case:
+* `javax.persistence.Entity`
+* `javax.persistence.Embeddable`
+* `javax.persistence.MappedSuperclass`
+* `jakarta.persistence.Entity`
+* `jakarta.persistence.Embeddable`
+* `jakarta.persistence.MappedSuperclass`
 
-#### Suppress warnings
 
-| Command                                           | Description                                                                                                             |
-|---------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| [`-nowarn`](compiler-reference.md#nowarn)         | Suppresses all warnings during compilation.                                                                             |
-| `-Xwarning-level=DIAGNOSTIC_NAME:disabled`        | Suppresses only specified warnings.  Works the same as [`-Xsuppress-warning`](compiler-reference.md#xsuppress-warning). |
-| `-nowarn -Xwarning-level=DIAGNOSTIC_NAME:warning` | Suppresses all warnings except for the specified ones.                                                                  |
+This change simplifies build configuration and improves the out-of-the-box experience when using Kotlin with JPA frameworks.
 
-#### Raise warnings to errors
+## Kotlin/Native: New interoperability mode for C or Objective-C libraries
+<primary-label ref="experimental-opt-in"/>
 
-| Command                                           | Description                                                  |
-|---------------------------------------------------|--------------------------------------------------------------|
-| [`-Werror`](compiler-reference.md#werror)         | Raises all warnings to compilation errors.                   |
-| `-Xwarning-level=DIAGNOSTIC_NAME:error`           | Raises only specified warnings to errors.                    |
-| `-Werror -Xwarning-level=DIAGNOSTIC_NAME:warning` | Raises all warnings to errors except for the specified ones. |
+If you use C or Objective-C libraries in your Kotlin Multiplatform libraries or applications, we invite you to test the new interoperability mode and share the results.
 
-#### Enable additional compiler warnings
+In general, Kotlin/Native enables importing C and Objective-C libraries into Kotlin. However, for Kotlin Multiplatform libraries, this functionality is currently [affected](native-lib-import-stability.md#stability-of-c-and-objective-c-library-import) by the KMP compatibility issues with older compiler versions.
 
-| Command                                            | Description                                                                                          |
-|----------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| [`-Wextra`](compiler-reference.md#wextra)          | Enables all additional declaration, expression, and type compiler checks that emit warnings if true. |
-| `-Xwarning-level=DIAGNOSTIC_NAME:warning`          | Enables only specified additional compiler checks.                                                   |
-| `-Wextra -Xwarning-level=DIAGNOSTIC_NAME:disabled` | Enables all additional checks except for the specified ones.                                         |
+In other words, if you publish a Kotlin Multiplatform library compiled with one Kotlin version, importing C or Objective-C libraries might make it impossible to use that Kotlin library in projects with an earlier Kotlin version.
 
-#### Warning lists
+To address this and other issues, the Kotlin team has been revising the interoperability mechanism used under the hood. Starting with Kotlin 2.3.20-Beta1, you can try the new mode through a compiler option.
 
-In case you have many warnings you want to exclude from general rules, you can list them in a separate file through [`@argfile`](compiler-reference.md#argfile).
+#### How to try
 
-### Leave feedback
+1. In your Gradle build file, check whether you have a `cinterops {}` block or a `pod()` dependency. If these are present, your project uses C or Objective-C libraries.
+2. Ensure your project uses `2.3.20-Beta1` or a later version.
+3. In the same build file, add the `-Xccall-mode` compiler option to the cinterop tool invocation:
 
-The new compiler option is still [Experimental](components-stability.md#stability-levels-explained). Please report any problems to our issue tracker, [YouTrack](https://kotl.in/issue).
-
-## Kotlin/JVM: changes to default method generation for interface functions
-
-Starting from Kotlin %kotlinEapVersion%, functions declared in interfaces are compiled to JVM default methods unless configured otherwise.
-This change affects how Kotlin's interface functions with implementations are compiled to bytecode. 
-This behavior is controlled by the new stable compiler option `-jvm-default`, replacing the deprecated `-Xjvm-default` option.
-
-You can control the behavior of the `-jvm-default` option using the following values:
-
-* `enable` (default): generates default implementations in interfaces and includes bridge functions in subclasses and `DefaultImpls` classes. Use this mode to maintain binary compatibility with older Kotlin versions.
-* `no-compatibility`: generates only default implementations in interfaces. This mode skips compatibility bridges and `DefaultImpls` classes, making it suitable for new code.
-* `disable`: disables default implementations in interfaces. Only bridge functions and `DefaultImpls` classes are generated, matching the behavior before Kotlin %kotlinEapVersion%.
-
-To configure the `-jvm-default` compiler option, set the `jvmDefault` property in your Gradle Kotlin DSL:
-
-```kotlin
-kotlin {
-    compilerOptions {
-        jvmDefault = JvmDefaultMode.NO_COMPATIBILITY
+    ```kotlin
+    kotlin {
+        targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget>().configureEach {
+            compilations.configureEach {
+                cinterops.configureEach {
+                    extraOpts += listOf("-Xccall-mode", "direct")
+                }
+            }
+        }
     }
-}
-```
+    ```
+
+4. Build and test your project as usual by running unit tests, the app, and so on.
+
+    You can also use the `--continue` option to allow Gradle to continue executing tasks even after failures, helping to find more problems at once.
+
+> Do **not** publish libraries compiled with the new interoperability mode yet, as it's still [Experimental](components-stability.md#stability-levels-explained).
+>
+{style="warning"}
+
+#### Report your results
+
+The new interoperability mode is supposed to be a drop-in replacement in most cases.
+We're planning to eventually enable it by default. But to achieve that, we need to ensure it works as well as possible and test it on a wide range of projects, because:
+
+* Some C and Objective-C declarations aren't supported yet in the new mode (mostly because they conflict with the compatibility issues). We'd like to better understand the real-world impact of this and prioritize future steps accordingly.
+* There may be bugs or things we didn't consider. Testing languages with numerous interacting features is challenging, and testing the interaction between languages (each with a unique set of features) is even more so.
+
+Help us examine real-world projects and identify challenging cases.
+Whether you encounter any issues or not, share your results in the comments to [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-83218).
 
 ## Gradle
 
-### Integration of Problems API within KGP diagnostics
+Kotlin %kotlinEapVersion% is compatible with new versions of Gradle and includes changes to Kotlin/JVM compilation in the Kotlin Gradle plugin.
 
-Previously, the Kotlin Gradle Plugin (KGP) reported diagnostics—such as warnings and errors—only as plain text output to the console or logs.
+### Compatibility with Gradle 9.3.0
 
-Starting with %kotlinEapVersion%, KGP introduces an additional reporting mechanism: it now uses [Gradle's Problems API](https://docs.gradle.org/current/kotlin-dsl/gradle/org.gradle.api.problems/index.html),
-a standardized way to report rich, structured problem information during the build process.
+Kotlin %kotlinEapVersion% is fully compatible with Gradle 7.6.3 through 9.3.0. You can also use Gradle versions up to the latest Gradle release. However, be aware that doing so may result in deprecation warnings, and some new Gradle features might not work.
 
-KGP diagnostics are now easier to read and more consistently displayed across different interfaces like the Gradle CLI and IntelliJ IDEA.
+### Kotlin/JVM compilation uses Build tools API by default
+<primary-label ref="experimental-general"/>
 
-This integration is enabled by default, starting with Gradle 8.6 or later.
-As the API is still evolving, use the most recent Gradle version to benefit from the latest improvements.
+In Kotlin %kotlinEapVersion%, Kotlin/JVM compilation in the Kotlin Gradle plugin uses the [Build tools API](build-tools-api.md)
+(BTA) by default. This change in the internal compilation infrastructure enables faster development of build tool support for the Kotlin compiler.
 
-### KGP compatibility with '--warning-mode'
+If you notice any issues, share your feedback in our [issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&summary=Kotlin+Gradle+plugin+BTA+migration+issue&description=Describe+the+problem+you+encountered+here.&c=tag+kgp-bta-migration).
 
-The Kotlin Gradle Plugin (KGP) diagnostics reported issues using fixed severity levels, meaning Gradle's [`--warning-mode` command-line option](https://docs.gradle.org/current/userguide/command_line_interface.html#sec:command_line_warnings) had no effect on how KGP displayed errors.
+## Maven: Simplified setup for Kotlin projects
 
-Now, KGP diagnostics are compatible with the `--warning-mode` option, providing more flexibility. For example,
-you can convert all warnings into errors or disable warnings entirely.
+Kotlin %kotlinEapVersion% makes it easier to set up Kotlin in Maven projects. Now Kotlin supports automatic configuration of source roots and Kotlin's standard library.
 
-With this change, KGP diagnostics adjust the output based on the selected warning mode:
-* When you set `--warning-mode=fail`, diagnostics with `Severity.Warning` are now elevated to `Severity.Error`.
-* When you set `--warning-mode=none`, diagnostics with `Severity.Warning` are not logged.
+With the new configuration, when you create a new Kotlin project with the Maven build system or introduce Kotlin to your existing Java Maven project, you don't need to manually create source roots or add the `kotlin-stdlib` dependency in your POM build file.
 
-This behavior is enabled by default starting with %kotlinEapVersion%.
+### How to enable
 
-To ignore the `--warning-mode` option, set `kotlin.internal.diagnostics.ignoreWarningMode=true` in your Gradle properties.
+In your `pom.xml` file, add `<extensions>true</extensions>` to the `<build><plugins>` section of the Kotlin Maven plugin:
 
-## How to update to Kotlin %kotlinEapVersion%
+```xml
+<build>
+    <plugins>
+         <plugin>
+             <groupId>org.jetbrains.kotlin</groupId>
+             <artifactId>kotlin-maven-plugin</artifactId>
+             <version>%kotlinEapVersion%</version>
+             <extensions>true</extensions> <!-- Add this extension  -->
+         </plugin>
+    </plugins>
+</build>
+```
 
-Starting from IntelliJ IDEA 2023.3 and Android Studio Iguana (2023.2.1) Canary 15, the Kotlin plugin is distributed as a
-bundled plugin included in your IDE. This means that you can't install the plugin from JetBrains Marketplace anymore.
-The bundled plugin supports upcoming Kotlin EAP releases.
+The new extension automatically:
 
-To update to the new Kotlin EAP version, [change the Kotlin version](configure-build-for-eap.md#adjust-the-kotlin-version)
-to %kotlinEapVersion% in your build scripts.
+* Creates `src/main/kotlin` and `src/test/kotlin` directories without changing existing Kotlin or Java source roots.
+* Adds the `kotlin-stdlib` dependency unless it's already defined.
+
+You can also opt out of the automatic addition of Kotlin's standard library. For that, add the following to the `<properties>` section:
+
+```xml
+<project>
+    <properties>
+        <!-- Disable smart defaults via property -->
+        <kotlin.smart.defaults.enabled>false</kotlin.smart.defaults.enabled>
+    </properties>
+</project>
+```
+
+For more information on Maven configuration in Kotlin projects, see [Configure a Maven project](maven-configure-project.md).
+
+## Standard library: New API for creating immutable copies of `Map.Entry`
+<primary-label ref="experimental-opt-in"/>
+
+Kotlin %kotlinEapVersion% introduces the `Map.Entry.copy()` extension function for creating an immutable copy of a [`Map.Entry`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/-entry/).
+This function allows you to reuse entries obtained from [`Map.entries`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/entries.html) after modifying the map by copying them first.
+
+`Map.Entry.copy()` is [Experimental](components-stability.md#stability-levels-explained). To opt in, use the `@OptIn(ExperimentalStdlibApi::class)` annotation or the compiler option `-opt-in=kotlin.ExperimentalStdlibApi`.
+
+Here's an example of using `Map.Entry.copy()` to remove entries from a mutable map:
+
+```kotlin
+@OptIn(ExperimentalStdlibApi::class)
+fun main() {
+    val map = mutableMapOf(1 to 1, 2 to 2, 3 to 3, 4 to 4)
+
+    val toRemove = map.entries
+        .filter { it.key % 2 == 0 }
+        .map { it.copy() }
+
+    map.entries.removeAll(toRemove)
+
+    println("map = $map")
+    // map = {1=1, 3=3}
+}
+```

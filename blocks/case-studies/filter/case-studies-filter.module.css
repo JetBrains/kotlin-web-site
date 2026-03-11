@@ -1,0 +1,57 @@
+.content {
+  padding: 24px 0 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 80px;
+  grid-template-areas:
+    "group1 group1"
+    "group2 group3";
+  @media (width <= 1000px) {
+    display: block;
+    grid-template-columns: unset;
+    grid-template-areas: unset;
+  }
+}
+
+.group:first-child {
+  grid-area: group1;
+}
+
+.group:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.groupTitle {
+  margin: 0 0 8px;
+}
+
+.checkboxes {
+  display: flex;
+  align-items: center;
+  gap: 8px 24px;
+
+  @media (width <= 1000px) {
+    flex-wrap: wrap;
+  }
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.composeLabel {
+  display: flex;
+  gap: 8px;
+
+  @media (width <= 374px) {
+    display: inline;
+
+    & img {
+      position: relative;
+      top: 6px;
+      margin-left: 5px;
+      margin-top: 5px;
+    }
+  }
+}

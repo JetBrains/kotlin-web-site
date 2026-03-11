@@ -1,4 +1,4 @@
-[//]: # (title: Get started with Kotlin/JVM)
+[//]: # (title: Create a console app – tutorial)
 
 This tutorial demonstrates how to use IntelliJ IDEA for creating a console application.
 
@@ -36,9 +36,12 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
 
 7. Click **Create**.
 
-    > If you chose the Gradle build system, you have in your project a build script file: `build.gradle(.kts)`. It includes 
-    > the `kotlin("jvm")` plugin and dependencies required for your console application. Make sure that you use the latest 
+    > If you chose the Gradle build system, you have in your project a build script file: `build.gradle(.kts)`. It includes
+    > the `kotlin("jvm")` plugin and dependencies required for your console application. Make sure that you use the latest
     > version of the plugin:
+    > 
+    > <tabs group="build-script">
+    > <tab title="Kotlin" group-key="kotlin">
     > 
     > ```kotlin
     > plugins {
@@ -46,6 +49,19 @@ To get started, first download and install the latest version of [IntelliJ IDEA]
     >     application
     > }
     > ```
+    > 
+    > </tab>
+    > <tab title="Groovy" group-key="groovy">
+    > 
+    > ```groovy
+    > plugins {
+    >     id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+    >     id 'application'
+    > }
+    > ```
+    > 
+    > </tab>
+    > </tabs>
     > 
     {style="note"}
 
@@ -92,6 +108,6 @@ Congratulations! You have just run your first Kotlin application.
 
 Once you've created this application, you can start to dive deeper into Kotlin syntax:
 
-* Add sample code from [Kotlin examples](https://play.kotlinlang.org/byExample/overview) 
+* Take the [Kotlin tour](kotlin-tour-welcome.md) 
 * Install the [JetBrains Academy plugin](https://plugins.jetbrains.com/plugin/10081-jetbrains-academy) for IDEA and complete 
   exercises from the [Kotlin Koans course](https://plugins.jetbrains.com/plugin/10081-jetbrains-academy/docs/learner-start-guide.html?section=Kotlin%20Koans)

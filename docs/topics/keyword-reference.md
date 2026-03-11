@@ -7,7 +7,7 @@ The following tokens are always interpreted as keywords and cannot be used as id
  * `as`
      - is used for [type casts](typecasts.md#unsafe-cast-operator).
      - specifies an [alias for an import](packages.md#imports)
- * `as?` is used for [safe type casts](typecasts.md#safe-nullable-cast-operator).
+ * `as?` is used for [safe type casts](typecasts.md#unsafe-cast-operator).
  * `break` [terminates the execution of a loop](returns.md).
  * `class` declares a [class](classes.md).
  * `continue` [proceeds to the next step of the nearest enclosing loop](returns.md).
@@ -43,7 +43,7 @@ The following tokens are always interpreted as keywords and cannot be used as id
      - [calls the superclass constructor from a secondary constructor](classes.md#inheritance).
  * `this`
      - refers to [the current receiver](this-expressions.md).
-     - [calls another constructor of the same class from a secondary constructor](classes.md#constructors).
+     - [calls another constructor of the same class from a secondary constructor](classes.md#constructors-and-initializer-blocks).
  * `throw` [throws an exception](exceptions.md).
  * `true` specifies the 'true' value of the [Boolean type](booleans.md).
  * `try` [begins an exception-handling block](exceptions.md).
@@ -63,22 +63,22 @@ as identifiers in other contexts:
      - [delegates the implementation of an interface to another object](delegation.md).
      - [delegates the implementation of the accessors for a property to another object](delegated-properties.md).
  * `catch` begins a block that [handles a specific exception type](exceptions.md).
- * `constructor` declares a [primary or secondary constructor](classes.md#constructors).
+ * `constructor` declares a [primary or secondary constructor](classes.md#constructors-and-initializer-blocks).
  * `delegate` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `dynamic` references a [dynamic type](dynamic-type.md) in Kotlin/JS code.
  * `field` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `file` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `finally` begins a block that [is always executed when a try block exits](exceptions.md).
  * `get`
-     - declares the [getter of a property](properties.md#getters-and-setters).
+     - declares the [getter of a property](properties.md).
      - is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `import` [imports a declaration from another package into the current file](packages.md).
- * `init` begins an [initializer block](classes.md#constructors).
+ * `init` begins an [initializer block](classes.md#constructors-and-initializer-blocks).
  * `param` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `property` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `receiver` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
  * `set`
-     - declares the [setter of a property](properties.md#getters-and-setters).
+     - declares the [setter of a property](properties.md).
      - is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
 * `setparam` is used as an [annotation use-site target](annotations.md#annotation-use-site-targets).
 * `value` with the `class` keyword declares an [inline class](inline-classes.md).
@@ -90,14 +90,14 @@ The following tokens act as keywords in modifier lists of declarations, and they
 in other contexts:
 
  * `abstract` marks a class or member as [abstract](classes.md#abstract-classes).
- * `actual` denotes a platform-specific implementation in [multiplatform projects](multiplatform-expect-actual.md).
+ * `actual` denotes a platform-specific implementation in [multiplatform projects](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html).
  * `annotation` declares an [annotation class](annotations.md).
  * `companion` declares a [companion object](object-declarations.md#companion-objects).
  * `const` marks a property as a [compile-time constant](properties.md#compile-time-constants).
  * `crossinline` forbids [non-local returns in a lambda passed to an inline function](inline-functions.md#returns).
  * `data` instructs the compiler to [generate canonical members for a class](data-classes.md).
  * `enum` declares an [enumeration](enum-classes.md).
- * `expect` marks a declaration as [platform-specific](multiplatform-expect-actual.md), expecting an implementation in platform modules.
+ * `expect` marks a declaration as [platform-specific](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html), expecting an implementation in platform modules.
  * `external` marks a declaration as implemented outside of Kotlin (accessible through [JNI](java-interop.md#using-jni-with-kotlin) or in [JavaScript](js-interop.md#external-modifier)).
  * `final` forbids [overriding a member](inheritance.md#overriding-methods).
  * `infix` allows calling a function using [infix notation](functions.md#infix-notation).
@@ -135,7 +135,7 @@ Kotlin supports the following operators and special symbols:
      - `*` is also used to [pass an array to a vararg parameter](functions.md#variable-number-of-arguments-varargs).
  * `=`
      - assignment operator.
-     - is used to specify [default values for parameters](functions.md#default-arguments).
+     - is used to specify [default values for parameters](functions.md#parameters-with-default-values).
  * `+=`, `-=`, `*=`, `/=`, `%=` - [augmented assignment operators](operator-overloading.md#augmented-assignments).
  * `++`, `--` - [increment and decrement operators](operator-overloading.md#increments-and-decrements).
  * `&&`, `||`, `!` - logical 'and', 'or', 'not' operators (for bitwise operations, use the corresponding [infix functions](numbers.md#operations-on-numbers) instead).
@@ -166,4 +166,4 @@ Kotlin supports the following operators and special symbols:
      - substitutes an unused parameter in a [lambda expression](lambdas.md#underscore-for-unused-variables).
      - substitutes an unused parameter in a [destructuring declaration](destructuring-declarations.md#underscore-for-unused-variables).
 
-For operator precedence, see [this reference](https://kotlinlang.org/docs/reference/grammar.html#expressions) in Kotlin grammar.
+For operator precedence, see [this reference](https://kotlinlang.org/grammar/#expressions) in Kotlin grammar.

@@ -17,7 +17,7 @@ The new architecture and enriched data structure enables the K2 compiler to prov
 * **Easier introduction of syntactic sugar for new language features**. In the future, you'll be able to use more concise,
   readable code when new features are introduced.
 * **Faster compilation times**. Compilation times can be [significantly faster](#performance-improvements).
-* **Enhanced IDE performance**. Starting with 2025.1, IntelliJ IDEA uses K2 mode to analyze your Kotlin code, increasing
+* **Enhanced IDE performance**. IntelliJ IDEA and Android Studio use the K2 compiler to analyze your Kotlin code, increasing
  stability and providing performance improvements. For more information, see [Support in IDEs](#support-in-ides).
 
 This guide:
@@ -347,7 +347,7 @@ at compile time. As a consequence, common code could access platform code, which
 between platforms. In addition, some compiler settings and dependencies from common code used to leak into platform code.
 
 In Kotlin 2.0.0, our implementation of the new Kotlin K2 compiler included a redesign of the compilation scheme to ensure
-strict separation between common and platform source sets. This change is most noticeable when you use [expected and actual functions](multiplatform-expect-actual.md#expected-and-actual-functions).
+strict separation between common and platform source sets. This change is most noticeable when you use [expected and actual functions](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html#expected-and-actual-functions).
 Previously, it was possible for a function call in your common code to resolve to a function in platform code. For example:
 
 <table>
@@ -392,7 +392,7 @@ In Kotlin 2.0.0, common code doesn't have access to platform code, so both platf
 function to the `foo()` function in the common code: `common foo`.
 
 In addition to the improved consistency of behavior across platforms, we also worked hard to fix cases where there was
-conflicting behavior between IntelliJ IDEA or Android Studio and the compiler. For instance, when you used [expected and actual classes](multiplatform-expect-actual.md#expected-and-actual-classes),
+conflicting behavior between IntelliJ IDEA or Android Studio and the compiler. For instance, when you used [expected and actual classes](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html#expected-and-actual-classes),
 the following would happen:
 
 <table>
@@ -493,7 +493,7 @@ In the future, these remaining cases will be more consistent with the new compil
 
 #### Different visibility levels of expected and actual declarations
 
-Before Kotlin 2.0.0, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your
+Before Kotlin 2.0.0, if you used [expected and actual declarations](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html) in your
 Kotlin Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md).
 Kotlin 2.0.0 now also supports different visibility levels but **only** if the actual declaration is _more_ permissive than
 the expected declaration. For example:
@@ -520,10 +520,7 @@ class Expanded                                  // Visibility is public by defau
 Starting with Kotlin 2.0.0, the Kotlin K2 compiler is enabled by default.
 
 To upgrade the Kotlin version, change it to 2.0.0 or a later release in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
-[Maven](maven.md#configure-and-enable-the-plugin) build scripts.
-
-To have the best experience with IntelliJ IDEA or Android Studio, consider [enabling K2 mode](#support-in-ides)
-in your IDE.
+[Maven](maven-configure-project.md#enable-and-configure-the-plugin) build scripts.
 
 ### Use Kotlin build reports with Gradle
 
@@ -555,27 +552,8 @@ For more information on what is possible with build reports, see [Build reports]
 
 ## Support in IDEs
 
-K2 mode in IntelliJ IDEA and Android Studio uses the K2 compiler to improve code analysis, code completion, and highlighting.
-
-Starting with IntelliJ IDEA 2025.1, K2 mode is [enabled by default](https://blog.jetbrains.com/idea/2025/04/k2-mode-in-intellij-idea-2025-1-current-state-and-faq/).
-
-In Android Studio, you can enable K2 mode starting with 2024.1 by following these steps:
-
-1. Go to **Settings** | **Languages & Frameworks** | **Kotlin**.
-2. Select the **Enable K2 mode** option.
-
-### Previous IDE behavior {initial-collapse-state="collapsed" collapsible="true"}
-
-If you want to go back to the previous IDE behavior, you can disable K2 mode:
-
-1. Go to **Settings** | **Languages & Frameworks** | **Kotlin**.
-2. Deselect the **Enable K2 mode** option.
-
-> We plan to introduce [Stable](components-stability.md#stability-levels-explained) language features after Kotlin 2.1.0.
-> Until then, you can continue to use the previous IDE features for code analysis, and you won't encounter any code highlighting
-> issues due to unrecognized language features.
->
-{style="note"}
+Both IntelliJ IDEA and Android Studio fully support the K2 compiler and use it by default to improve code analysis, code completion, and highlighting.
+You don't need to configure anything. Update to the latest version to see the benefits.
 
 ## Try the Kotlin K2 compiler in the Kotlin Playground
 
@@ -1258,7 +1236,7 @@ for further reading. Changes listed with an asterisk (*) next to the Issue ID ar
 | [KT-49015](https://youtrack.jetbrains.com/issue/KT-49015)  | Qualified this: change behavior in case of potential label conflicts                                                                       |
 | [KT-56545](https://youtrack.jetbrains.com/issue/KT-56545)  | Fix incorrect functions mangling in JVM backend in case of accidental clashing overload in a Java subclass                                 |
 | [KT-62019](https://youtrack.jetbrains.com/issue/KT-62019)  | [LC issue] Prohibit suspend-marked anonymous function declarations in statement positions                                                  |
-| [KT-55111](https://youtrack.jetbrains.com/issue/KT-55111)  | OptIn: forbid constructor calls with default arguments under marker                                                                        |
+| [KT-55111](https://youtrack.jetbrains.com/issue/KT-55111)  | OptIn: forbid constructor calls with default arguments (parameters with default values) under marker                                                  |
 | [KT-61182](https://youtrack.jetbrains.com/issue/KT-61182)  | Unit conversion is accidentally allowed to be used for expressions on variables + invoke resolution                                        |
 | [KT-55199](https://youtrack.jetbrains.com/issue/KT-55199)  | Forbid promoting callable references with adaptations to KFunction                                                                         |
 | [KT-65776](https://youtrack.jetbrains.com/issue/KT-65776)  | [LC] K2 breaks \`false && ...\` and \`false &VerticalLine;&VerticalLine; ...\`                                                             |
@@ -1295,6 +1273,7 @@ Currently, the Kotlin K2 compiler supports the following Kotlin compiler plugins
 * [Lombok](lombok.md)
 * [`no-arg`](no-arg-plugin.md)
 * [Parcelize](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize)
+* [Power-assert](power-assert.md)
 * [SAM with receiver](sam-with-receiver-plugin.md)
 * [Serialization](serialization.md)
 

@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 1.8.0)
 
-_[Released: 28 December 2022](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.8.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 28 December 2022](releases.md#release-history)_
 
 The Kotlin 1.8.0 release is out and here are some of its biggest highlights:
 
@@ -10,6 +12,10 @@ The Kotlin 1.8.0 release is out and here are some of its biggest highlights:
 * [`kotlin-stdlib-jdk7` and `kotlin-stdlib-jdk8` merged into `kotlin-stdlib`](#updated-jvm-compilation-target)
 * [Improved Objective-C/Swift interoperability](#improved-objective-c-swift-interoperability)
 * [Compatibility with Gradle 7.3](#gradle)
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 
@@ -161,7 +167,7 @@ If you have an existing project with a static linking type and you upgrade to Ko
 explicitly), you may encounter an error with the project's execution. To fix it, close your Xcode project and
 run `pod install` in the Podfile directory.
 
-For more information, see the [CocoaPods Gradle plugin DSL reference](native-cocoapods-dsl-reference.md).
+For more information, see the [CocoaPods Gradle plugin DSL reference](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-dsl-reference.html).
 
 ## Kotlin Multiplatform: A new Android source set layout
 
@@ -305,7 +311,7 @@ As a consequence of the stable JS IR compiler backend, the old one is deprecated
 
 Incremental compilation is enabled by default along with the stable JS IR compiler.
 
-If you still use the old compiler, switch your project to the new backend with the help of our [migration guide](js-ir-migration.md).
+If you still use the old compiler, switch your project to the new backend.
 
 ### New settings for reporting that yarn.lock has been updated
 
@@ -797,9 +803,9 @@ The Kotlin documentation has received some notable changes:
 
 * [Get started with Gradle and Kotlin/JVM](get-started-with-jvm-gradle-project.md) – create a console application using
   IntelliJ IDEA and Gradle.
-* [Create a multiplatform app using Ktor and SQLDelight](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html) – create a mobile
+* [Create a multiplatform app using Ktor and SQLDelight](https://kotlinlang.org/docs/multiplatform/multiplatform-ktor-sqldelight.html) – create a mobile
   application for iOS and Android using Kotlin Multiplatform Mobile.
-* [Get started with Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html) – learn about cross-platform
+* [Get started with Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html) – learn about cross-platform
   mobile development with Kotlin and create an app that works on both Android and iOS.
 
 ## Install Kotlin 1.8.0

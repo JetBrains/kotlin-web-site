@@ -1,5 +1,7 @@
 [//]: # (title: Intermediate: Objects)
 
+<no-index/>
+
 <tldr>
     <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-intermediate-extension-functions.md">Extension functions</a><br />
         <img src="icon-2-done.svg" width="20" alt="Second step" /> <a href="kotlin-tour-intermediate-scope-functions.md">Scope functions</a><br />
@@ -11,6 +13,10 @@
         <img src="icon-8-todo.svg" width="20" alt="Eighth step" /> <a href="kotlin-tour-intermediate-null-safety.md">Null safety</a><br />
         <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
 </tldr>
+
+> 8 min read
+>
+{style="tip"}
 
 In this chapter, you'll expand your understanding of classes by exploring object declarations. This knowledge will help 
 you efficiently manage behavior across your projects.
@@ -58,7 +64,7 @@ fun main(){
 {kotlin-runnable="true" id="kotlin-tour-object-declarations"}
 
 The object has a member function called `takeParams` that accepts `username` and `password` variables as parameters
-and returns a string to the console. The `DoAuth` object is only created when the function is called for the first time.
+and prints a string to the console. The `DoAuth` object is only created when the function is called for the first time.
 
 > Objects can inherit from classes and interfaces. For example:
 > 

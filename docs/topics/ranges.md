@@ -2,7 +2,7 @@
 
 Ranges and progressions define sequences of values in Kotlin, supporting range operators, iteration, custom step values, and arithmetic progressions.
 
-## Ranges
+## Ranges {id="range"}
 
 Kotlin lets you easily create ranges of values using the [`.rangeTo()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/range-to.html)
 and [`.rangeUntil()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.ranges/range-until.html) functions from the 
@@ -77,7 +77,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-ranges-step"}
 
-## Progression
+## Progressions
 
 The ranges of integral types, such as `Int`, `Long`, and `Char`, can be treated as
 [arithmetic progressions](https://en.wikipedia.org/wiki/Arithmetic_progression).

@@ -12,6 +12,10 @@
         <img src="icon-7-todo.svg" width="20" alt="Final step" /> <a href="kotlin-tour-null-safety.md">Null safety</a></p>
 </tldr>
 
+> 3 min read
+>
+{style="tip"}
+
 Every variable and data structure in Kotlin has a type. Types are important because they tell the compiler what you are allowed to 
 do with that variable or data structure. In other words, what functions and properties it has.
 
@@ -55,7 +59,7 @@ In total, Kotlin has the following basic types:
 | Characters             | `Char`                             | `val separator: Char = ','`                                   |
 | Strings                | `String`                           | `val message: String = "Hello, world!"`                       |
 
-For more information on basic types and their properties, see [Basic types](basic-types.md).
+For more information on basic types and their properties, see [Types overview](types-overview.md).
 
 With this knowledge, you can declare variables and initialize them later. Kotlin can manage this as long as variables
 are initialized before the first read.

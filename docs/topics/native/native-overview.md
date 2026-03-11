@@ -7,7 +7,7 @@ the Kotlin standard library.
 ## Why Kotlin/Native?
 
 Kotlin/Native is primarily designed to allow compilation for platforms on which _virtual machines_ are not desirable or
-possible, such as embedded devices or iOS. It's ideal for situations when you need to to produce a self-contained
+possible, such as embedded devices or iOS. It's ideal for situations when you need to produce a self-contained
 program that doesn't require an additional runtime or a virtual machine.
 
 It's easy to include compiled Kotlin code in existing projects written in C, C++, Swift, Objective-C, and other languages.
@@ -27,10 +27,10 @@ Kotlin/Native supports the following platforms:
 
   > To compile Apple targets, you need to install [Xcode](https://apps.apple.com/us/app/xcode/id497799835)
   > and its command-line tools.
-  > 
+  >
   {style="note"}
 
-[See the full list of supported targets](native-target-support.md).
+[See the full list of supported targets and hosts](native-target-support.md).
 
 ## Interoperability
 
@@ -46,7 +46,7 @@ To learn more, complete the following tutorials:
 
 * [Create a dynamic library with C headers for C/C++ projects](native-dynamic-libraries.md)
 * [Learn how C types are mapped into Kotlin](mapping-primitive-data-types-from-c.md)
-* [Create a native HTTP client using C interop and libcurl](native-app-with-c-and-libcurl.md) 
+* [Create a native HTTP client using C interop and libcurl](native-app-with-c-and-libcurl.md)
 
 ### Interoperability with Swift/Objective-C
 
@@ -61,7 +61,7 @@ Kotlin/Native includes a set of prebuilt [platform libraries](native-platform-li
 between projects. POSIX, gzip, OpenGL, Metal, Foundation, and many other popular libraries and Apple frameworks
 are pre-imported and included as Kotlin/Native libraries in the compiler package.
 
-Kotlin/Native is a part of the [Kotlin Multiplatform](multiplatform-intro.md) technology that helps share common code
+Kotlin/Native is a part of the [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) technology that helps share common code
 across multiple platforms, including Android, iOS, JVM, web, and native. Multiplatform libraries provide the necessary
 APIs for common Kotlin code and allow writing shared parts of projects in Kotlin all in one place.
 

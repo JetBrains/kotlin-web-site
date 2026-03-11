@@ -1,3 +1,72 @@
+- lang: en
+  startDate: '2026-10-15'
+  endDate: '2026-10-16'
+  location: Leeds, United Kingdom
+  online: false
+  speaker: 'Adam Rush'
+  title: 'KotlinLeeds'
+  subject: 'The Unique Android & Kotlin Conference in the UK'
+  url: https://kotlinleeds.co.uk/
+- lang: en
+  startDate: '2026-03-26'
+  endDate: '2026-03-26'
+  location: Prague, Czechia
+  online: false
+  speaker: 'Yasan Ghaffarian'
+  title: 'Cozy Kotlin MeetUp #3'
+  subject: 'An informal gathering for Kotlin Enthusiasts.'
+  url: https://luma.com/l9vl4nxf
+- lang: en
+  startDate: '2026-02-26'
+  endDate: '2026-02-26'
+  location: Prague, Czechia
+  online: false
+  speaker: 'Yasan Ghaffarian'
+  title: 'Cozy Kotlin MeetUp #2'
+  subject: 'An informal gathering for Kotlin Enthusiasts.'
+  url: https://luma.com/87pnwug1
+- lang: en
+  startDate: '2026-01-29'
+  endDate: '2026-01-29'
+  location: Prague, Czechia
+  online: false
+  speaker: 'Yasan Ghaffarian'
+  title: 'Cozy Kotlin MeetUp'
+  subject: 'An informal gathering for Kotlin Enthusiasts.'
+  url: https://luma.com/6zfm45ui
+- lang: en
+  startDate: '2026-01-24'
+  endDate: '2026-01-24'
+  location: Chennai, India
+  speaker: 'TBD'
+  title: 'Kotlin & AI - Nexus'
+  subject: '​Join us on 24 Jan for a hands-on KUG Chennai meetup exploring the intersection of Kotlin and AI.'
+  url: https://luma.com/x2eg95bn
+- lang: en
+  startDate: '2025-12-20'
+  endDate: '2025-12-20'
+  location: Chennai, India
+  speaker: 'TBD'
+  title: 'Kotlin Jam'
+  subject: '​Join us for a series of engaging talks by expert speakers, followed by ample opportunities to network with fellow attendees.'
+  url: https://luma.com/mj0jq8zo
+- lang: en
+  startDate: '2025-11-01'
+  endDate: '2025-11-01'
+  location: Chennai, India
+  speaker: 'Misc'
+  title: 'KoHacks #2 '
+  subject: '​Ko-Hacks is a hackathon event exclusively focused on Kotlin application development.'
+  url: https://luma.com/fdgvao4j?tk=IX5FAm
+- lang: en
+  startDate: '2025-09-19'
+  endDate: '2025-09-19'
+  location: Maasmechelen, Belgium
+  online: false
+  speaker: Duncan McGregor, Simon Vergauwen, Dmitry Kandalov, Brent Thuys, Jonathan Steylaerts, Alejandro Serrano Mena, Ivan Canet
+  title: 'KTConf'
+  subject: 'New Kotlin developer conference in Terhills hotel, Maasmechelen, Belgium with a sick line-up of speakers.'
+  url: https://ktconf.be
 - lang: fr
   startDate: '2025-03-08'
   endDate: '2025-03-08'

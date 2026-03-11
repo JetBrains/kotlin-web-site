@@ -16,7 +16,7 @@ Using Kotlin for Android development, you can benefit from:
   [KTX extensions](https://developer.android.com/kotlin/ktx) add Kotlin language features, like coroutines,
   extension functions, lambdas, and named parameters to existing Android libraries.
 * **Support for multiplatform development**. Kotlin Multiplatform allows development for not only Android but
-  also [iOS](https://kotlinlang.org/lp/multiplatform/), backend, and web applications.
+  also [iOS](https://kotlinlang.org/multiplatform/), backend, and web applications.
   [Some Jetpack libraries](https://developer.android.com/kotlin/multiplatform) are already multiplatform.
   [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/), JetBrains' declarative UI framework
   based on Kotlin and Jetpack Compose, makes it possible to share UIs across platforms – iOS, Android, desktop, and web.
@@ -35,4 +35,4 @@ on [the Google website for Android developers](https://developer.android.com/kot
 To start using Kotlin for:
 
 * Android development, read [Google's documentation for developing Android apps with Kotlin](https://developer.android.com/kotlin/get-started).
-* Developing cross-platform mobile applications, see [Create an app with shared logic and native UI](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html).
+* Developing cross-platform mobile applications, see [Create an app with shared logic and native UI](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html).

@@ -54,3 +54,47 @@ fun main() {
 ```
 {kotlin-runnable="true"}
 
+## Nested type aliases
+
+In Kotlin, you can define type aliases inside other declarations, as long as they
+don't capture type parameters from their outer class:
+
+```kotlin
+class Dijkstra {
+    typealias VisitedNodes = Set<Node>
+
+    private fun step(visited: VisitedNodes, ...) = ...
+}
+```
+
+Capturing means that the type alias refers to a type parameter defined in the outer class:
+
+```kotlin
+class Graph<Node> {
+    // Incorrect because captures Node
+    typealias Path = List<Node>
+}
+```
+
+To fix this issue, declare the type parameter directly in the type alias:
+
+```kotlin
+class Graph<Node> {
+    // Correct because Node is a type alias parameter
+    typealias Path<Node> = List<Node>
+}
+```
+
+Nested type aliases allow for cleaner, more maintainable code by improving encapsulation, reducing package-level clutter,
+and simplifying internal implementations.
+
+### Rules for nested type aliases
+
+Nested type aliases follow specific rules to ensure clear and consistent behavior:
+
+* Nested type aliases must follow all existing type alias rules.
+* In terms of visibility, the alias can't expose more than its referenced types allow.
+* Their scope is the same as [nested classes](nested-classes.md). You can define them inside classes,
+  and they hide any parent type aliases with the same name as they don't override.
+* Nested type aliases can be marked as `internal` or `private` to limit their visibility.
+* Nested type aliases are not supported in Kotlin Multiplatform's [`expect/actual` declarations](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html).

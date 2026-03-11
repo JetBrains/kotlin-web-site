@@ -1,0 +1,11 @@
+.image {
+    width: 100%;
+}
+
+.code {
+    pre {
+        margin: 0;
+        border-radius: 24px;
+        padding: 24px;
+    }
+}

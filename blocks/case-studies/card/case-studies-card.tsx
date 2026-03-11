@@ -1,0 +1,132 @@
+import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
+import { Button } from '@rescui/button';
+import { Tooltip } from '@rescui/tooltip';
+import { LinkIcon } from '@rescui/icons';
+import { useTextStyles } from '@rescui/typography';
+import React from 'react';
+import cn from 'classnames';
+import styles from './case-studies-card.module.css';
+import { CaseItem } from '../case-studies';
+import { PlatformIcon, FrameworkIcon } from '../technology-icon/technology-icon';
+import { Markdown } from '../../../utils/mdToHtml';
+import { Theme, ThemeProvider, useThemeWithUndefined } from '@rescui/ui-contexts';
+
+function reverse(theme: Theme): Theme {
+    return theme === 'light' ? 'dark' : 'light';
+}
+
+export type CaseStudyCardProps = CaseItem & {
+    className?: string;
+    mode?: 'rock' | 'classic';
+    showCopyLinkButton?: boolean;
+};
+
+export const CaseStudyCard: React.FC<CaseStudyCardProps> = props => {
+    const theme = useThemeWithUndefined();
+
+    return <ThemeProvider theme={props.mode === 'rock' ? reverse(theme) : theme}>
+        <CaseStudyCardText {...props} />
+    </ThemeProvider>;
+};
+
+const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, showCopyLinkButton, ...item }) => {
+    const textCn = useTextStyles();
+
+    const normalLogo = item.logo || [];
+    const propertyName = mode === 'rock' ? 'alternateLogo' : 'logo';
+
+    const logo = item[propertyName]?.[0] || normalLogo[0];
+    const optionalSecondLogo = item[propertyName]?.[1] || normalLogo[1];
+
+    const isYoutube = item.media?.type === 'youtube';
+    const videoId = item.media?.type === 'youtube' ? item.media.videoId : undefined;
+    const imageSrc = item.media?.type === 'image' ? item.media.path : undefined;
+
+    const handleCopyLink = () => {
+        const url = `${window.location.origin}${window.location.pathname}#${item.id}`;
+        navigator.clipboard.writeText(url);
+    };
+
+    return (
+        <article
+            id={item.id}
+            className={cn(styles.card, className, styles[mode || 'classic'], textCn('rs-text-2', { hardness: 'hard' }))}
+            data-testid="case-studies-card">
+            <div className={styles.content}>
+                {logo &&
+                    <div className={styles.logos}>
+                        <img className={styles.logo} src={logo} alt={item.id} height={64} />
+                        {optionalSecondLogo && (
+                            <img className={styles.logo} src={optionalSecondLogo} alt="" height={64} />
+                        )}
+                    </div>
+                }
+
+                {item.description &&
+                    <div className={cn(styles.description)} data-testid="case-studies-card-description">
+                        <Markdown>{item.description}</Markdown>
+                    </div>
+                }
+
+                {item.signature &&
+                    <div>
+                        <strong className={styles.name}>{item.signature.name}</strong>
+                        <div
+                            className={cn(styles.position, textCn('rs-text-2', { hardness: 'average' }))}>{item.signature.position}</div>
+                    </div>
+                }
+
+                {item.link &&
+                    <a
+                        className={cn(styles.link, textCn('rs-link', { external: true }))}
+                        href={item.link}
+                    >
+                        {item.linkText || 'Read the full story'}
+                    </a>
+                }
+
+                {(item.platforms && item.platforms.length > 0) || (item.frameworks && item.frameworks.length > 0) ? (
+                    <div className={styles.technologies} aria-label="Technologies">
+                        {item.platforms?.map((platform) =>
+                            <PlatformIcon key={platform} value={platform} />
+                        )}
+                        {item.frameworks?.map((framework) =>
+                            <FrameworkIcon key={framework} value={framework} />
+                        )}
+                    </div>
+                ) : null}
+
+                {showCopyLinkButton && (
+                    <div className={cn(styles.copyLinkButton, { [styles.copyLinkButtonRock]: mode === 'rock' })}>
+                        <Tooltip
+                            content="Copy link"
+                            placement="top">
+                            <Button
+                                title="Copy link"
+                                mode="outline"
+                                size="s"
+                                icon={<LinkIcon type="outlined" size="s" />}
+                                onClick={handleCopyLink}
+                            ></Button>
+                        </Tooltip>
+                    </div>
+                )}
+            </div>
+
+            {item.media &&
+                <div className={styles.media}>
+                    {isYoutube ?
+                        <YoutubePlayer
+                            className={styles.youtubePlayer}
+                            mode={0}
+                            id={videoId}
+                            previewImgSrc={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+                        />
+                        :
+                        <img className={styles.mediaImage} src={imageSrc} alt={`${item.id} case`} />
+                    }
+                </div>
+            }
+        </article>
+    );
+};

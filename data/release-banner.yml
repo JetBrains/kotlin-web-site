@@ -1,9 +1,0 @@
-isActive: false
-version: 1.9.0
-versionSuffix: ""
-url: https://blog.jetbrains.com/kotlin/2023/07/kotlin-1-9-0-released/
-keyFeatures:
-  - The K2 compiler for the JVM is now in Beta
-  - Great improvements for the standard library
-  - Preview of custom memory allocator in Kotlin/Native
-  - Size-related optimizations in Kotlin/Wasm

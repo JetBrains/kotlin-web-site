@@ -3033,7 +3033,7 @@
   geo:
     lat: 42.6629
     lng: 21.1655
-- title: Княгининский университет
+- title: Knyagininsky Universitet
   location: Knyaginino, Russia
   courses:
   - name: 'Разработка мобильных приложений'
@@ -3201,3 +3201,67 @@
   geo:
     lat: 39.1732
     lng: -77.2717
+- title: University of Warsaw
+  location: Warsaw, Poland
+  courses:
+  - name: 'Programming in Kotlin'
+    url: https://usosweb.uw.edu.pl/kontroler.php?_action=katalog2%2Fprzedmioty%2FpokazPrzedmiot&kod=1000-2M24KOT&lang=en
+  geo:
+    lat: 52.24048095
+    lng: 21.01863338
+- title: University of Leeds
+  location: Leeds, UK
+  courses:
+  - name: 'COMP2850 Software Engineering'
+    url: https://catalogue.leeds.ac.uk/Module/UG/COMP/2850/202526
+  geo:
+    lat: 53.80814849
+    lng: -1.553301716
+- title: Instituto Federal de Santa Catarina (IFSC)
+  location: Sao Jose, Brazil
+  courses:
+  - name: 'MOV786205 - Programação para Aplicativos Móveis'
+    url: https://sigaa.ifsc.edu.br/sigaa/link/public/curso/curriculo/54017903
+  geo:
+    lat: -27.60823235
+    lng: -48.63257895
+- title: University of British Columbia
+  location: Vancouver, Canada
+  courses:
+  - name: 'CPEN 321: Software Engineering'
+    url: https://people.ece.ubc.ca/~mjulia/teaching/CPEN321-W24T2/index.html
+  geo:
+    lat: 49.26102729
+    lng: -123.2474613
+- title: University of Bridgeport
+  location: Bridgeport, CT, USA
+  courses:
+  - name: 'CPSC 301 - Programming Languages'
+    url: https://www.bridgeport.edu/academics/programs/computer-science-bs/curriculum
+  geo:
+    lat: 41.16496661
+    lng: -73.19063205
+- title: Lycée Gustave Eiffel
+  location: Bordeaux, France
+  courses:
+  - name: 'Android development'
+    url: https://www.eiffel-bordeaux.org/formations/bts-sio-cybersecurite/
+  geo:
+    lat: 44.82887839
+    lng: -0.5645506747917626
+- title: University of Extremadura
+  location: Badajos, Spain
+  courses:
+  - name: 'Desarrollo de aplicaciones para dispositivos móviles'
+    url: https://cume.unex.es/titulaciones/1514/?subjectid=501458
+  geo:
+    lat: 38.8852401
+    lng: -7.007516846
+- title: University of Cauca
+  location: Popayán, Colombia
+  courses:
+  - name: 'Mobile Application Development'
+    url: ''
+  geo:
+    lat: 2.44119806
+    lng: -76.60484329

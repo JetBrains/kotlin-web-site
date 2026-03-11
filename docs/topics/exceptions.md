@@ -1,5 +1,7 @@
 [//]: # (title: Exceptions)
 
+<web-summary>Learn how Kotlin uses exceptions to handle runtime errors.</web-summary>
+
 Exceptions help your code run more predictably, even when runtime errors occur that could disrupt program execution.
 Kotlin treats all exceptions as _unchecked_ by default.
 Unchecked exceptions simplify the exception handling process: you can catch exceptions, but you don't need to explicitly handle or [declare](java-to-kotlin-interop.md#checked-exceptions) them. 
@@ -24,7 +26,7 @@ class`](inheritance.md), you can create [custom exceptions](#create-custom-excep
 
 You can manually throw exceptions with the `throw` keyword.
 Throwing an exception indicates that an unexpected runtime error has occurred in the code.
-Exceptions are [objects](classes.md#creating-instances-of-classes), and throwing one creates an instance of an exception class.
+Exceptions are [objects](classes.md#creating-instances), and throwing one creates an instance of an exception class.
 
 You can throw an exception without any parameters: 
 
@@ -341,8 +343,8 @@ fun main() {
 > 
 > ```kotlin
 > FileWriter("test.txt").use { writer ->
-> writer.write("some text") 
-> // After this block, the .use function automatically calls writer.close(), similar to a finally block
+>     writer.write("some text")
+>     // After this block, the .use function automatically calls writer.close(), similar to a finally block
 > }
 > ```
 > 
@@ -459,11 +461,11 @@ creating a hierarchy of exceptions can help making the code clearer and more spe
 You can achieve this by using an [abstract class](classes.md#abstract-classes) or a
 [sealed class](sealed-classes.md#constructors) as a base for common exception features and creating specific 
 subclasses for detailed exception types.
-Additionally, custom exceptions with optional parameters offer flexibility, allowing initialization with varied messages,
+Additionally, custom exceptions including parameters with default values offer flexibility, allowing initialization with varied messages,
 which enables more granular error handling.
 
 Let's look at an example using the sealed class `AccountException` as the base for an exception hierarchy, 
-and class `APIKeyExpiredException`, a subclass, which showcases the use of optional parameters for improved exception detail:
+and class `APIKeyExpiredException`, a subclass, which showcases the use of parameters with default values for improved exception detail:
 
 ```kotlin
 //sampleStart

@@ -1,5 +1,7 @@
 [//]: # (title: Intermediate: Scope functions)
 
+<no-index/>
+
 <tldr>
     <p><img src="icon-1-done.svg" width="20" alt="First step" /> <a href="kotlin-tour-intermediate-extension-functions.md">Extension functions</a><br />
         <img src="icon-2.svg" width="20" alt="Second step" /> <strong>Scope functions</strong><br />
@@ -11,6 +13,10 @@
         <img src="icon-8-todo.svg" width="20" alt="Eighth step" /> <a href="kotlin-tour-intermediate-null-safety.md">Null safety</a><br />
         <img src="icon-9-todo.svg" width="20" alt="Ninth step" /> <a href="kotlin-tour-intermediate-libraries-and-apis.md">Libraries and APIs</a></p>
 </tldr>
+
+> 13 min read
+>
+{style="tip"}
 
 In this chapter, you'll build on your understanding of extension functions to learn how to use scope functions to 
 write more idiomatic code.
@@ -72,7 +78,7 @@ the `sendNotification()` function because this function doesn't expect that `add
 The compiler reports an error as a result: 
 
 ```text
-Type mismatch: inferred type is String? but String was expected
+Argument type mismatch: actual type is 'String?', but 'String' was expected.
 ```
 
 From the beginner tour, you already know that you can perform a null check with an if condition or use the [Elvis operator `?:`](kotlin-tour-null-safety.md#use-elvis-operator). 
@@ -124,7 +130,7 @@ fun main() {
 {kotlin-runnable="true" id="kotlin-tour-scope-function-let-non-null"}
 
 The example:
-* Creates a variable called `confirm`.
+* Creates variables called `address` and `confirm`.
 * Uses a safe call for the `let` scope function on the `address` variable.
 * Creates a temporary scope within the `let` scope function.
 * Passes the `sendNotification()` function as a lambda expression into the `let` scope function.
@@ -146,7 +152,10 @@ class Client() {
     var token: String? = null
     fun connect() = println("connected!")
     fun authenticate() = println("authenticated!")
-    fun getData(): String = "Mock data"
+    fun getData() : String {
+        println("getting data!")
+        return "Mock data"
+    }
 }
 
 val client = Client()
@@ -158,6 +167,7 @@ fun main() {
     client.authenticate()
     // authenticated!
     client.getData()
+    // getting data!
 }
 ```
 {kotlin-runnable="true" id="kotlin-tour-scope-function-apply-before"}
@@ -174,22 +184,26 @@ use member functions on your class instance all in the same place in your code:
 
 ```kotlin
 class Client() {
-  var token: String? = null
-  fun connect() = println("connected!")
-  fun authenticate() = println("authenticated!")
-  fun getData(): String = "Mock data"
+    var token: String? = null
+    fun connect() = println("connected!")
+    fun authenticate() = println("authenticated!")
+    fun getData() : String {
+        println("getting data!")
+        return "Mock data"
+    }
 }
 //sampleStart
 val client = Client().apply {
-  token = "asdf"
-  connect()
-  authenticate()
+    token = "asdf"
+    connect()
+    // connected!
+    authenticate()
+    // authenticated!
 }
 
 fun main() {
-  client.getData()
-  // connected!
-  // authenticated!
+    client.getData()
+    // getting data!
 }
 //sampleEnd
 ```
@@ -220,7 +234,10 @@ class Client() {
     var token: String? = null
     fun connect() = println("connected!")
     fun authenticate() = println("authenticated!")
-    fun getData(): String = "Mock data"
+    fun getData() : String {
+        println("getting data!")
+        return "Mock data"
+    }
 }
 
 //sampleStart
@@ -235,6 +252,7 @@ fun main() {
         authenticate()
         // authenticated!
         getData()
+        // getting data!
     }
 }
 //sampleEnd
@@ -286,7 +304,7 @@ The example:
 * Uses the `.map()` extension function on the `medals` variable.
 * Passes a lambda expression to the `.map()` function that refers to `medals` via the `it` keyword and calls the `.uppercase()` extension function on it.
 * Uses the `.filter()` extension function on the `medals` variable.
-* Passes a lambda expression as a predicate to the `.filter()` function that refers to `medals` via the `it` keyword and checks if the length of the list contained in the `medals` variable is longer than 4 items.
+* Passes a lambda expression as a predicate to the `.filter()` function that refers to `medals` via the `it` keyword and checks if the item in the list has more than 4 characters.
 * Uses the `.reversed()` extension function on the `medals` variable.
 * Assigns the result to the `reversedLongUpperCaseMedals` variable.
 * Prints the list contained in the `reversedLongUpperCaseMedals` variable.
@@ -390,7 +408,7 @@ fun main() {
 {kotlin-runnable="true" id="kotlin-tour-scope-function-with-after"}
 
 This example:
-* Uses the `with` scope function with the `mainMonitorSecondaryBufferBackedCanvas` instance as the receiver object.
+* Uses the `with` scope function with the `mainMonitorSecondaryBufferBackedCanvas` instance as the receiver.
 * Creates a temporary scope within the `with` scope function so that you don't have to explicitly refer to the `mainMonitorSecondaryBufferBackedCanvas` instance when calling its member functions.
 * Passes a lambda expression to the `with` scope function that calls a sequence of member functions with different function parameters.
 

@@ -1,11 +1,17 @@
 [//]: # (title: What's new in Kotlin 1.4.30)
 
-_[Released: 3 February 2021](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.4.30 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 3 February 2021](releases.md#release-history)_
 
 Kotlin 1.4.30 offers preview versions of new language features, promotes the new IR backend of the Kotlin/JVM compiler to
 Beta, and ships various performance and functional improvements.
 
-You can also learn about new features in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/kotlin-1-4-30-released/).
+You can also learn about new features in [this blog post](https://blog.jetbrains.com/kotlin/2021/02/kotlin-1-4-30-released/).
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## Language features
 
@@ -20,7 +26,7 @@ feedback with us in the corresponding YouTrack tickets, as that will allow us to
 To enable these language features and improvements in preview mode, you need to opt in by adding specific compiler options.
 See the sections below for details.
 
-Learn more about the new features preview in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/new-language-features-preview-in-kotlin-1-4-30).
+Learn more about the new features preview in [this blog post](https://blog.jetbrains.com/kotlin/2021/02/new-language-features-preview-in-kotlin-1-4-30/).
 
 ### JVM records support
 
@@ -230,7 +236,7 @@ To enable the new JVM IR backend, add the following lines to the project's confi
   </configuration>
   ```
 
-Learn more about the changes that the JVM IR backend brings in [this blog post](https://blog.jetbrains.com/kotlin/2021/01/the-jvm-backend-is-in-beta-let-s-make-it-stable-together).
+Learn more about the changes that the JVM IR backend brings in [this blog post](https://blog.jetbrains.com/kotlin/2021/02/the-jvm-backend-is-in-beta-let-s-make-it-stable-together/).
 
 ## Kotlin/Native
 

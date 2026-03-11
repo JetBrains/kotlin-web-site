@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 2.0.0)
 
-_[Released: May 21, 2024](releases.md#release-details)_
+<web-summary>Read the Kotlin 2.0.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: May 21, 2024](releases.md#release-history)_
 
 The Kotlin 2.0.0 release is out and the [new Kotlin K2 compiler](#kotlin-k2-compiler) is Stable! Additionally, here are
 some other highlights:
@@ -21,6 +23,10 @@ Kotlin 2.0 is a huge milestone for the JetBrains team. This release was the cent
 keynote, where we announced exciting updates and addressed the recent work on the Kotlin language:
 
 <video src="https://www.youtube.com/v/Ar73Axsz2YA" title="KotlinConf'24 - Keynote"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 
@@ -383,7 +389,7 @@ at compile time. As a consequence, common code could access platform code, which
 between platforms. In addition, some compiler settings and dependencies from common code used to leak into platform code.
 
 In Kotlin 2.0.0, our implementation of the new Kotlin K2 compiler included a redesign of the compilation scheme to ensure
-strict separation between common and platform source sets. This change is most noticeable when you use [expected and actual functions](multiplatform-expect-actual.md#expected-and-actual-functions).
+strict separation between common and platform source sets. This change is most noticeable when you use [expected and actual functions](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html#expected-and-actual-functions).
 Previously, it was possible for a function call in your common code to resolve to a function in platform code. For example:
 
 <table>
@@ -429,7 +435,7 @@ In Kotlin 2.0.0, common code doesn't have access to platform code, so both platf
 function to the `foo()` function in the common code: `common foo`.
 
 In addition to the improved consistency of behavior across platforms, we also worked hard to fix cases where there was
-conflicting behavior between IntelliJ IDEA or Android Studio and the compiler. For instance, when you used [expected and actual classes](multiplatform-expect-actual.md#expected-and-actual-classes),
+conflicting behavior between IntelliJ IDEA or Android Studio and the compiler. For instance, when you used [expected and actual classes](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html#expected-and-actual-classes),
 the following would happen:
 
 <table>
@@ -532,7 +538,7 @@ In the future, these remaining cases will be more consistent with the new compil
 
 #### Different visibility levels of expected and actual declarations
 
-Before Kotlin 2.0.0, if you used [expected and actual declarations](multiplatform-expect-actual.md) in your
+Before Kotlin 2.0.0, if you used [expected and actual declarations](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html) in your
 Kotlin Multiplatform project, they had to have the same [visibility level](visibility-modifiers.md). 
 Kotlin 2.0.0 now also supports different visibility levels but **only** if the actual declaration is _more_ permissive than 
 the expected declaration. For example:
@@ -774,7 +780,7 @@ Previously, the Kotlin/Native compiler resolved standard library and platform de
 inconsistencies in the way the Kotlin Gradle plugin worked across Kotlin targets.
 
 Now, each Kotlin/Native Gradle compilation explicitly includes standard library and platform dependencies in its
-compile-time library path via the `compileDependencyFiles` [compilation parameter](multiplatform-dsl-reference.md#compilation-parameters).
+compile-time library path via the `compileDependencyFiles` [compilation parameter](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#compilation-parameters).
 
 ### Tasks error in Gradle configuration cache
 
@@ -1290,7 +1296,7 @@ simultaneously with Kotlin. This also bumps the Compose compiler version to 2.0.
 To use the new Compose compiler in your projects, apply the `org.jetbrains.kotlin.plugin.compose` Gradle plugin in
 your `build.gradle(.kts)` file and set its version equal to Kotlin 2.0.0.
 
-To learn more about this change and see the migration instructions, see the [Compose compiler](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compiler.html) documentation.
+To learn more about this change and see the migration instructions, see the [Compose compiler](https://kotlinlang.org/docs/multiplatform/compose-compiler.html) documentation.
 
 ### New attribute to distinguish JVM and Android-published libraries
 

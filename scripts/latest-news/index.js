@@ -30,6 +30,8 @@ async function getLatestNews() {
 	const latestNews = [];
 
 	for (const [i, item] of items.splice(0, 4).entries()) {
+        console.log('Processing item', i, 'with link:', item.link);
+
 		const imagePath = await saveImage(i, item.featuredImage);
 		latestNews.push({
 			title: normalizeText(item.title),
@@ -47,10 +49,12 @@ async function getLatestNewsXML() {
 	return await doRequest({
 		hostname: 'blog.jetbrains.com',
 		port: 443,
-		path: '/kotlin/feed/',
+		path: `/kotlin/feed/?rnd=${Date.now()}`,
 		method: 'GET',
 		headers: {
-			'User-Agent': 'Kotlin Parser'
+			'User-Agent': 'Kotlin Parser',
+			'Cache-Control': 'no-cache',
+			'Pragma': 'no-cache'
 		}
 	});
 }

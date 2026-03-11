@@ -4,11 +4,9 @@
 <p>Latest Kotlin release:<b> <a href="%kotlinLatestWhatsnew%">%kotlinVersion%</a></b></p>
 </tldr>
 
-Kotlin is a modern but already mature programming language designed to make developers happier.
-It's concise, safe, interoperable with Java and other languages, and provides many ways to reuse code between multiple platforms for productive programming.
+Kotlin is a modern language that's concise, multiplatform, and interoperable with Java and other languages.
 
-To start, why not take our tour of Kotlin? This tour covers the fundamentals of the Kotlin programming language and can
-be completed entirely within your browser.
+New to Kotlin? Take our tour to learn the fundamentals directly in your browser.
 
 <a href="kotlin-tour-welcome.md"><img src="start-kotlin-tour.svg" width="700" alt="Start the Kotlin tour" style="block"/></a>
 
@@ -35,30 +33,33 @@ Here you'll learn how to develop a console application and create unit tests wit
 
 Here you'll learn how to develop a backend application with Kotlin server-side.
 
-1. **Create your first backend application:**
+* **Introduce Kotlin to your Java project:**
 
-     * [Create a RESTful web service with Spring Boot](jvm-get-started-spring-boot.md)
-     * [Create HTTP APIs with Ktor](https://ktor.io/docs/creating-http-apis.html)
+  * [Configure a Java project to work with Kotlin](mixing-java-kotlin-intellij.md)
+  * [Add Kotlin tests to your Java Maven project](jvm-test-using-junit.md)
 
-2. **[Learn how to mix Kotlin and Java code in your application](mixing-java-kotlin-intellij.md).**
+* **Create a backend app from scratch with Kotlin:**
+
+  * [Create a RESTful web service with Spring Boot](jvm-get-started-spring-boot.md)
+  * [Create HTTP APIs with Ktor](https://ktor.io/docs/creating-http-apis.html)
 
 </tab>
 
 <tab id="cross-platform-mobile" title="Cross-platform">
 
-Here you'll learn how to develop a cross-platform application using [Kotlin Multiplatform](multiplatform-intro.md).
+Here you'll learn how to develop a cross-platform application using [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html).
 
-1. **[Set up your environment for cross-platform development](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-setup.html).**
+1. **[Set up your environment for cross-platform development](https://kotlinlang.org/docs/multiplatform/quickstart.html).**
 
 2. **Create your first application for iOS and Android:**
 
    * Create a cross-platform application from scratch and:
-     * [Share business logic while keeping the UI native](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-create-first-app.html)
-     * [Share business logic and UI](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-multiplatform-create-first-app.html)
-   * [Make your existing Android application work on iOS](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html)
-   * [Create a cross-platform application using Ktor and SQLdelight](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-ktor-sqldelight.html)
+     * [Share business logic while keeping the UI native](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)
+     * [Share business logic and UI](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html)
+   * [Make your existing Android application work on iOS](https://kotlinlang.org/docs/multiplatform/multiplatform-integrate-in-existing-app.html)
+   * [Create a cross-platform application using Ktor and SQLdelight](https://kotlinlang.org/docs/multiplatform/multiplatform-ktor-sqldelight.html)
 
-3. **Explore [sample projects](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-samples.html)**.
+3. **Explore [sample projects](https://kotlinlang.org/docs/multiplatform/multiplatform-samples.html)**.
 
 </tab>
 
@@ -87,18 +88,8 @@ From building data pipelines to productionizing machine learning models, Kotlin 
 
 </tabs>
 
-## Join the Kotlin community
+## Get support
 
-Stay in the loop with the latest updates across the Kotlin ecosystem and share your experience.
-
-* Join us on:
-  * ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
-  * ![StackOverflow](stackoverflow.svg){width=25}{type="joined"} StackOverflow: subscribe to the ["kotlin"](https://stackoverflow.com/questions/tagged/kotlin) tag.
-* Follow Kotlin on ![YouTube](youtube.svg){width=25}{type="joined"} [Youtube](https://www.youtube.com/channel/UCP7uiEZIqci43m22KDl0sNw), ![Twitter](twitter.svg){width=18}{type="joined"} [Twitter](https://twitter.com/kotlin), ![Bluesky](bsky.svg){width=18}{type="joined"} [Bluesky](https://bsky.app/profile/kotlinlang.org), and ![Reddit](reddit.svg){width=25}{type="joined"} [Reddit](https://www.reddit.com/r/Kotlin/).
-* Subscribe to [Kotlin news](https://info.jetbrains.com/kotlin-communication-center.html).
-
-If you encounter any difficulties or problems, report an issue in our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
-
-## Is anything missing?
+If you encounter any difficulties or problems, ask for help in ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) or report an issue in our [issue tracker](https://youtrack.jetbrains.com/issues/KT).
 
 If anything is missing or seems confusing on this page, please [share your feedback](https://surveys.hotjar.com/d82e82b0-00d9-44a7-b793-0611bf6189df).

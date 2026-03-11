@@ -11,7 +11,7 @@ simultaneously with Kotlin and will always be compatible with Kotlin of the same
 
 To use the new Compose compiler plugin in your project, apply it for each module that uses Compose.
 Read on for details on how to [migrate a Jetpack Compose project](#migrating-a-jetpack-compose-project). For a Compose Multiplatform project, 
-refer to the [multiplatform migration guide](https://www.jetbrains.com/help/kotlin-multiplatform-dev/compose-compiler.html#migrating-a-compose-multiplatform-project).
+refer to the [multiplatform migration guide](https://kotlinlang.org/docs/multiplatform/compose-compiler.html#migrating-a-compose-multiplatform-project).
 
 ## Migrating a Jetpack Compose project
 
@@ -35,6 +35,11 @@ For Android modules:
  org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
  compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
  ```
+
+> If you're using AGP 9.0.0 or later, you no longer need the `org-jetbrains-kotlin-android` plugin because the AGP has
+> built-in Kotlin support.
+> 
+{style ="note"}
 
 2. Add the Gradle plugin to the root `build.gradle.kts` file:
 
@@ -71,4 +76,4 @@ artifacts in your project:
 ## What's next
 
 * See [Google's announcement](https://android-developers.googleblog.com/2024/04/jetpack-compose-compiler-moving-to-kotlin-repository.html) about the Compose compiler moving to the Kotlin repository.
-* If you are using Jetpack Compose to build an Android app, check out [our guide on how to make it multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-integrate-in-existing-app.html).
+* If you are using Jetpack Compose to build an Android app, check out [our guide on how to make it multiplatform](https://kotlinlang.org/docs/multiplatform/multiplatform-integrate-in-existing-app.html).

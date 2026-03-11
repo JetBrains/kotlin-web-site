@@ -179,6 +179,10 @@ fun compute(x: Int) { }
 fun compute(x: UInt) { }
 ```
 
+By default, Kotlin compiles inline classes using **unboxed representations**, which makes them difficult to access from Java.
+To learn how to compile inline classes into **boxed representations** that are accessible from Java, see the guide to
+[Calling Kotlin from Java](java-to-kotlin-interop.md#inline-value-classes).
+
 ## Inline classes vs type aliases
 
 At first sight, inline classes seem very similar to [type aliases](type-aliases.md). Indeed, both seem to introduce 

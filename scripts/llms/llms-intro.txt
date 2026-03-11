@@ -1,0 +1,4 @@
+# Kotlin Documentation
+
+This file provides links to individual documentation pages for the Kotlin programming language, optimized for large language models (LLMs).
+

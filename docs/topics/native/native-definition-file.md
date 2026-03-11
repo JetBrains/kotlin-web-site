@@ -171,10 +171,7 @@ in the interop itself.
 
 ### Include a static library
 
-> This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
-> Use it only for evaluation purposes.
->
-{style="warning"}
+<primary-label ref="experimental-general"/>
 
 Sometimes it's more convenient to ship a static library with your product, rather than assume it is available within
 the user's environment. To include a static library into `.klib`, use `staticLibrary` and `libraryPaths` properties:
@@ -217,7 +214,7 @@ In this case, Objective-C exceptions are translated into Kotlin exceptions that 
 ### Help resolve linker errors
 
 Linker errors might occur when a Kotlin library depends on C or Objective-C libraries, for example, using the
-[CocoaPods integration](native-cocoapods.md). If dependent libraries aren't installed locally on the machine or configured
+[CocoaPods integration](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-overview.html). If dependent libraries aren't installed locally on the machine or configured
 explicitly in the project build script, the "Framework not found" error occurs.
 
 If you're a library author, you can help your users resolve linker errors with custom messages.

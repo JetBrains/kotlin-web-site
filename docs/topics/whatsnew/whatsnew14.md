@@ -1,9 +1,15 @@
 [//]: # (title: What's new in Kotlin 1.4.0)
 
-_[Released: 17 August 2020](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.4.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 17 August 2020](releases.md#release-history)_
 
 In Kotlin 1.4.0, we ship a number of improvements in all of its components, with the [focus on quality and performance](https://blog.jetbrains.com/kotlin/2020/08/kotlin-1-4-released-with-a-focus-on-quality-and-performance/).
 Below you will find the list of the most important changes in Kotlin 1.4.0.
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## Language features and improvements
 
@@ -165,14 +171,14 @@ val colors = listOf(
 
 Kotlin 1.4 supports more cases for using callable references:
 
-* References to functions with default argument values
+* References to functions that include parameters with default values
 * Function references in `Unit`-returning functions 
 * References that adapt based on the number of arguments in a function
 * Suspend conversion on callable references 
 
-#### References to functions with default argument values 
+#### References to functions that include parameters with default values
 
-Now you can use callable references to functions with default argument values. If the callable reference 
+Now you can use callable references to functions including parameters with default values. If the callable reference
 to the function `foo` takes no arguments, the default value `0` is used.
 
 ```kotlin
@@ -186,7 +192,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.4"}
 
-Previously, you had to write additional overloads for the function `apply` to use the default argument values.
+Previously, you had to write an additional overload for either the `apply` or `foo` function.
 
 ```kotlin
 // some new overload
@@ -660,7 +666,7 @@ kotlin {
 
 For more detailed information about how to configure the new backend, check out the [Kotlin/JS IR compiler documentation](js-ir-compiler.md).
 
-With the new [@JsExport](js-to-kotlin-interop.md#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-ir-compiler.md#preview-generation-of-typescript-declaration-files-d-ts) from Kotlin code**, the Kotlin/JS IR compiler backend improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
+With the new [@JsExport](js-to-kotlin-interop.md#jsexport-annotation) annotation and the ability to **[generate TypeScript definitions](js-project-setup.md#generation-of-typescript-declaration-files-d-ts) from Kotlin code**, the Kotlin/JS IR compiler backend improves JavaScript & TypeScript interoperability. This also makes it easier to integrate Kotlin/JS code with existing tooling, to create **hybrid applications** and leverage code-sharing functionality in multiplatform projects.
 
 [Learn more about the available features in the Kotlin/JS IR compiler backend](js-ir-compiler.md).
 
@@ -750,7 +756,7 @@ kotlin {
 }
 ```
 
-[Learn more about crash report symbolication](native-ios-symbolication.md).
+[Learn more about crash report symbolication](native-debugging.md#debug-ios-applications).
 
 ### Performance improvements
 
@@ -794,7 +800,7 @@ Depending on your needs, you can add dependencies between:
 Complete the initial configuration, and when you add a new dependency to `cocoapods`, just re-import the project in IntelliJ IDEA. 
 The new dependency will be added automatically. No additional steps are required.
 
-[Learn how to add dependencies](native-cocoapods-libraries.md).
+[Learn how to add dependencies](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-libraries.html).
 
 ## Kotlin Multiplatform
 
@@ -803,7 +809,7 @@ The new dependency will be added automatically. No additional steps are required
 >
 {style="warning"}
 
-[Kotlin Multiplatform](multiplatform-intro.md) reduces time spent writing and maintaining the same code for [different platforms](multiplatform-dsl-reference.md#targets) 
+[Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.html) reduces time spent writing and maintaining the same code for [different platforms](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets) 
 while retaining the flexibility and benefits of native programming. We continue investing our effort in multiplatform features
 and improvements:
 
@@ -817,16 +823,16 @@ and improvements:
 
 ### Sharing code in several targets with the hierarchical project structure
 
-With the new hierarchical project structure support, you can share code among [several platforms](multiplatform-dsl-reference.md#targets)
- in a [multiplatform project](multiplatform-discover-project.md).
+With the new hierarchical project structure support, you can share code among [several platforms](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#targets)
+ in a [multiplatform project](https://kotlinlang.org/docs/multiplatform/multiplatform-discover-project.html).
 
 Previously, any code added to a multiplatform project could be placed either in a platform-specific source set, which is 
 limited to one target and can't be reused by any other platform, or in a common source set, like `commonMain` or `commonTest`, 
 which is shared across all the platforms in the project. In the common source set, you could only call a platform-specific 
-API by using an [`expect` declaration that needs platform-specific `actual` implementations](multiplatform-expect-actual.md).
+API by using an [`expect` declaration that needs platform-specific `actual` implementations](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html).
 
-This made it easy to [share code on all platforms](multiplatform-share-on-platforms.md#share-code-on-all-platforms), but it was
-not so easy to [share between only some of the targets](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), 
+This made it easy to [share code on all platforms](https://kotlinlang.org/docs/multiplatform/multiplatform-share-on-platforms.html#share-code-on-all-platforms), but it was
+not so easy to [share between only some of the targets](https://kotlinlang.org/docs/multiplatform/multiplatform-share-on-platforms.html#share-code-on-similar-platforms), 
 especially similar ones that could potentially reuse a lot of the common logic and third-party APIs.
 
 For example, in a typical multiplatform project targeting iOS, there are two iOS-related targets: one for iOS ARM64 devices, 
@@ -839,7 +845,7 @@ code that could still directly call any of the APIs that are common to both the 
 
 ![Code shared for iOS targets](iosmain-hierarchy.png){width=300}
 
-Now you can do this with the [hierarchical project structure support](multiplatform-share-on-platforms.md#share-code-on-similar-platforms), which infers and adapts the API and language features 
+Now you can do this with the [hierarchical project structure support](https://kotlinlang.org/docs/multiplatform/multiplatform-share-on-platforms.html#share-code-on-similar-platforms), which infers and adapts the API and language features 
 available in each source set based on which targets consume them.
 
 For common combinations of targets, you can create a hierarchical structure with target shortcuts.
@@ -851,7 +857,7 @@ kotlin {
 }
 ```
 
-For other combinations of targets, [create a hierarchy manually](multiplatform-hierarchy.md#manual-configuration)
+For other combinations of targets, [create a hierarchy manually](https://kotlinlang.org/docs/multiplatform/multiplatform-hierarchy.html#manual-configuration)
 by connecting the source sets with the `dependsOn` relation.
 
 ![Hierarchical structure](manual-hierarchical-structure.svg)
@@ -905,7 +911,7 @@ kotlin {
 </tabs>
 
 Thanks to the hierarchical project structure, libraries can also provide common APIs for a subset of targets. Learn more
-about [sharing code in libraries](multiplatform-share-on-platforms.md#share-code-in-libraries).
+about [sharing code in libraries](https://kotlinlang.org/docs/multiplatform/multiplatform-share-on-platforms.html#share-code-in-libraries).
 
 ### Leveraging native libs in the hierarchical structure 
 
@@ -915,7 +921,7 @@ native targets. This can help you share more native code without being limited b
 No additional steps are required – everything is done automatically. IntelliJ IDEA will help you detect common declarations 
 that you can use in the shared code.
 
-[Learn more about usage of platform-dependent libraries](multiplatform-share-on-platforms.md#connect-platform-specific-libraries).
+[Learn more about usage of platform-dependent libraries](https://kotlinlang.org/docs/multiplatform/multiplatform-share-on-platforms.html#connect-platform-specific-libraries).
 
 ### Specifying dependencies only once
 
@@ -1519,8 +1525,3 @@ to help you decide which suggestions to accept and which to ignore.
 
 Kotlin 1.4.0 is a [feature release](kotlin-evolution-principles.md#language-and-tooling-releases) and therefore can 
 bring incompatible changes to the language. Find the detailed list of such changes in the **[Compatibility Guide for Kotlin 1.4](compatibility-guide-14.md)**.
-
-<!-- ### Migrating multiplatform projects
-
-To help you start using the new features of [Kotlin multiplatform](#kotlin-multiplatform) in existing projects, we
-publish the TODO: [migration guide for multiplatform projects](multiplatform-hierarchy.md). -->

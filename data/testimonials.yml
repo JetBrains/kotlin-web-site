@@ -1,9 +1,0 @@
-- company: Gradle
-  url: https://blog.gradle.org/kotlin-meets-gradle
-  text: Gradle is introducing Kotlin as a language for writing build scripts
-- company: Spring
-  url: https://spring.io/blog/2017/01/04/introducing-kotlin-support-in-spring-framework-5-0
-  text: Spring makes use of Kotlin's language features to offer more concise APIs
-- company: Atlassian
-  url: https://twitter.com/danlew42/status/809065097339564032
-  text: All new code in the Trello Android app is in Kotlin

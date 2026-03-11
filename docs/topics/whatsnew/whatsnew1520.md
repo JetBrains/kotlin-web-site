@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 1.5.20)
 
-_[Released: 24 June 2021](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.5.20 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and build tool support for Gradle and Maven.</web-summary>
+
+_[Released: 24 June 2021](releases.md#release-history)_
 
 Kotlin 1.5.20 has fixes for issues discovered in the new features of 1.5.0, and it also includes various tooling improvements.
 
@@ -8,6 +10,10 @@ You can find an overview of the changes in the [release blog post](https://blog.
 and this video:
 
 <video src="https://www.youtube.com/v/SV8CgSXQe44" title="Kotlin 1.5.20"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## Kotlin/JVM
 
@@ -26,7 +32,7 @@ for string concatenation.
 To switch back to concatenation via [`StringBuilder.append()`](https://docs.oracle.com/javase/9/docs/api/java/lang/StringBuilder.html#append-java.lang.String-)
 used in previous versions, add the compiler option `-Xstring-concat=inline`.
 
-Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Maven](maven.md#specify-compiler-options), and the [command-line compiler](compiler-reference.md#compiler-options).
+Learn how to add compiler options in [Gradle](gradle-compiler-options.md), [Maven](maven-compile-package.md#specify-compiler-options), and the [command-line compiler](compiler-reference.md#compiler-options).
 
 ### Support for JSpecify nullness annotations
 
@@ -187,7 +193,7 @@ for Kotlin/JS.
 
 ### Migration guide for the JS IR backend
 
-The new [migration guide for the JS IR backend](js-ir-migration.md) identifies issues you may encounter during migration
+The new migration guide for the JS IR backend identifies issues you may encounter during migration
 and provides solutions for them. If you find any issues that aren't covered in the guide, please report them to our [issue tracker](http://kotl.in/issue).
 
 ## Gradle

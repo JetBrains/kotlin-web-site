@@ -1,0 +1,91 @@
+# CaseItem (data contract for a single case study entry)
+#
+# Required fields:
+# - id: string — unique identifier of the case
+# - description: string — markdown-enabled text (supports **bold** and [links](https://example.com))
+# - type: string — one of: multiplatform | server-side
+#
+# Optional fields:
+# - logo: list (0–2) of image paths (strings)
+#     Use up to two logos, path relative to /public/ directory
+
+# - alternateLogo: list (0–2) of image paths (strings)
+#     Alternative logs for dark backgrounds, path relative to /public/ directory
+#     If a carousel logo is not specified, UI may pick the best option between
+#     logo and alternateLogo automatically.
+#
+# - signature: object — author or source of the quote
+#     line1: string — supports markdown (e.g., **Name Surname**, Role)
+#     line2: string — plain text
+#
+# - isExternal: boolean — shows if the case story is from an external source (default: false)
+#
+# - link: string — URL of the full case story
+#
+# - linkText: string — text for the link (default: "Read the full story")
+#
+# - linkStyle: string — 'text' or 'button' — style of the link (default: text)
+#
+# - platforms: list of strings — platform tags shown on the card
+#     Examples: android, ios, desktop, frontend, backend, compose-multiplatform
+#
+# - frameworks: list of strings — framework tags shown on the card
+#     Examples: spring, ktor, exposed
+#
+# - media: object — media block for the card
+#     type: youtube | image
+#     When type: youtube
+#       videoId: string — YouTube video ID
+#     When type: image
+#       path: string — image path relative to /public/ directory
+#
+# - featuredOnMainPage: boolean — mark this case to be highlighted on the main page
+#
+# - carousel: controls appearance in the homepage carousel
+#     Omit the field to skip showing in carousel
+#
+#     Option A — enable with defaults:
+#       carousel: true
+#
+#     Option B — custom visuals and/or link:
+#       carousel:
+#         logo: /images/case-studies/carousel/company.svg  # image path relative to /public/ directory
+#         link: https://example.com/watch                  # custom click-through link
+#
+#     Note: If no custom carousel logo is provided, the UI will try to choose between
+#           'alternateLogo' (dark) and 'logo' automatically depending on the background.
+#
+
+items:
+  - id: CompanyName        # required: unique identifier
+    type: server-side        # required: multiplatform | server-side
+    description: >        # required: markdown-supported text
+      **Case description** supporting [links](https://example.com) and emphasis.
+    logo: # optional: list of 0–2 image paths (strings)
+      - /images/case-studies/google.svg
+      - /images/case-studies/google.svg
+    alternateLogo: # optional: list of 0–2 image paths (strings)
+      - /images/case-studies/google-dark.svg
+      - /images/case-studies/google-dark.svg
+    carousel: true
+    signature: # optional
+      name: Name Surname
+      position: Position at Company or note
+    isExternal: false      # optional, default: true
+    link: https://example.com/full-story        # optional
+    linkText: Read the full story        # optional
+    linkStyle: text        # optional: button | text (default: button)
+    platforms: # optional
+      - android
+      - ios
+      - desktop
+      - frontend
+      - backend
+      - compose-multiplatform
+    media: # optional
+      type: youtube        # required: youtube | image
+      videoId: o14wGByBRAQ       # required when type: youtube
+        # when type: image
+        # type: image
+      # path: ./images/case-studies/google.svg
+    featuredOnMainPage: false   # optional: mark the case as selected for the main page

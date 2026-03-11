@@ -26,7 +26,7 @@ compilations, making them take less time to complete.
 
 When building in containers (such as Docker) or with continuous integration systems, the compiler may have to create
 the `~/.konan` directory from scratch for each build. To avoid this step, configure your environment to preserve `~/.konan`
-between builds. For example, redefine its location using the `kotlin.data.dir` Gradle property.
+between builds. For example, redefine its location using the `konan.data.dir` Gradle property.
 
 Alternatively, you can use the `-Xkonan-data-dir` compiler option to configure your custom path to the directory via
 the `cinterop` and `konanc` tools.
@@ -62,12 +62,12 @@ If you have a non-typical case or build configuration, you might need to choose 
   it's a common approach to distribute a Kotlin/Native binary as a universal (fat) framework.
 
   However, during local development, it's faster to build the `.framework` file only for the platform you're using.
-  To build a platform-specific framework, use the [embedAndSignAppleFrameworkForXcode](multiplatform-direct-integration.md#connect-the-framework-to-your-project) task.
+  To build a platform-specific framework, use the [embedAndSignAppleFrameworkForXcode](https://kotlinlang.org/docs/multiplatform/multiplatform-direct-integration.html#connect-the-framework-to-your-project) task.
 
 ### Build only for necessary targets
 
 Similarly to the recommendation above, don't build a binary for all native
-platforms at once. For example, compiling an [XCFramework](multiplatform-build-native-binaries.md#build-xcframeworks)
+platforms at once. For example, compiling an [XCFramework](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html#build-xcframeworks)
 (using an `*XCFramework` task) builds the same code for all targets, which takes proportionally more time than
 building for a single target.
 
@@ -83,7 +83,7 @@ For example, you don't need `iosX64` if you don't run this project on iOS simula
 
 ### Don't build unnecessary release binaries
 
-Kotlin/Native supports two build modes, [debug and release](multiplatform-build-native-binaries.md#declare-binaries).
+Kotlin/Native supports two build modes, [debug and release](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html#declare-binaries).
 Release is highly optimized, and this takes a lot of time: compilation of release binaries takes an order of magnitude
 more time than debug binaries.
 
@@ -104,13 +104,13 @@ When it's enabled, the same JVM process is used, and there is no need to warm it
 
 ### Don't use transitive export
 
-Using [`transitiveExport = true`](multiplatform-build-native-binaries.md#export-dependencies-to-binaries) disables dead
+Using [`transitiveExport = true`](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html#export-dependencies-to-binaries) disables dead
 code elimination in many cases, so the compiler has to process a lot of unused code. It increases the compilation time.
 Instead, use the `export` method explicitly for exporting the required projects and dependencies.
 
 ### Don't export modules too much
 
-Try to avoid unnecessary [module export](multiplatform-build-native-binaries.md#export-dependencies-to-binaries).
+Try to avoid unnecessary [module export](https://kotlinlang.org/docs/multiplatform/multiplatform-build-native-binaries.html#export-dependencies-to-binaries).
 Each exported module negatively affects compilation time and binary size.
 
 ### Use Gradle build caching
@@ -124,10 +124,13 @@ Enable the Gradle [build cache](https://docs.gradle.org/current/userguide/build_
 
 ### Use Gradle configuration cache
 
-To use the Gradle [configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html),
-add `org.gradle.configuration-cache=true` to your `gradle.properties` file.
+The Gradle [configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html) improves build performance
+by caching the results of the configuration phase. It also enables parallel execution of independent tasks within a single
+project and implicitly enables the `org.gradle.parallel` property, allowing tasks across different projects to [execute in parallel](https://docs.gradle.org/current/userguide/performance.html#sec:enable_parallel_execution).
 
-> Configuration cache also enables running `link*` tasks in parallel which could heavily load the machine, 
+To use the Gradle configuration cache, add the `org.gradle.configuration-cache=true` property to your `gradle.properties` file.
+
+> The configuration cache also enables running `link*` tasks in parallel which could heavily load the machine, 
 > specifically with a lot of CPU cores. This issue will be fixed in [KT-70915](https://youtrack.jetbrains.com/issue/KT-70915).
 >
 {style="note"}
@@ -157,3 +160,8 @@ create an [issue in YouTrack](https://kotl.in/issue).
 
 Windows Security may slow down the Kotlin/Native compiler. You can avoid this by adding the `.konan` directory,
 which is located in `%\USERPROFILE%` by default, to Windows Security exclusions. Learn how to [add exclusions to Windows Security](https://support.microsoft.com/en-us/windows/add-an-exclusion-to-windows-security-811816c0-4dfd-af4a-47e4-c301afe13b26).
+
+## LLVM configuration
+<primary-label ref="advanced"/>
+
+If the above tips didn't help with improving compilation time, consider [customizing the LLVM backend](native-llvm-passes.md).

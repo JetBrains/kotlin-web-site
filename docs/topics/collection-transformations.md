@@ -244,8 +244,8 @@ strings: [`joinToString()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.
 `joinToString()` builds a single `String` from the collection elements based on the provided arguments.
 `joinTo()` does the same but appends the result to the given [`Appendable`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/-appendable/index.html) object.
 
-When called with the default arguments, the functions return the result similar to calling `toString()` on the collection:
-a `String` of elements' string representations separated by commas with spaces. 
+When called with the parameters' default values, the functions return the result similar to calling `toString()` on the collection:
+a `String` of elements' string representations separated by commas with spaces.
 
 ```kotlin
 

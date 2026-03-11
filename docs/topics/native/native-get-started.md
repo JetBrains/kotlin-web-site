@@ -49,7 +49,7 @@ the Community Edition and the Ultimate Edition.
 
    ![Load Gradle changes button](load-gradle-changes.png){width=295}
 
-For more information about these settings, see the [Multiplatform Gradle DSL reference](multiplatform-dsl-reference.md).
+For more information about these settings, see the [Multiplatform Gradle DSL reference](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html).
 
 ### Build and run the application
 
@@ -110,14 +110,14 @@ Let's add a feature to your application so it can count the number of letters in
            binaries {
                executable {
                    entryPoint = "main"
-                   runTask?.standardInput = System.`in`
+                   runTaskProvider?.configure { standardInput = System.`in` }
                }
            }
        }
        //...
    }
    ```
-   {initial-collapse-state="collapsed" collapsible="true" collapsed-title="runTask?.standardInput = System.`in`"}
+   {initial-collapse-state="collapsed" collapsible="true" collapsed-title="runTaskProvider?.configure { standardInput = System.`in` }"}
 
 3. Eliminate the whitespaces and count the letters:
 
@@ -187,6 +187,15 @@ In this section, you'll learn how to manually create a Kotlin/Native application
 It's the default build system for Kotlin/Native and Kotlin Multiplatform projects, which is also commonly used in Java,
 Android, and other ecosystems.
 
+When building Kotlin/Native projects, the Kotlin Gradle plugin downloads the following artifacts:
+
+* The main Kotlin/Native bundle, which includes different tools like `konanc`, `cinterop`, and `jsinterop`. By default,
+  the Kotlin/Native bundle is downloaded from the [Maven Central](https://repo1.maven.org/maven2/org/jetbrains/kotlin/kotlin-native-prebuilt/)
+  repository as a simple Gradle dependency.
+* Dependencies required for `konanc` itself, like `llvm`. They are downloaded from the JetBrains CDN using custom logic.
+
+You can change the source for the main bundle download in the `repositories {}` block in your Gradle build script.
+
 ### Create project files
 
 1. To get started, install a compatible version of [Gradle](https://gradle.org/install/). See the [compatibility table](gradle-configure-project.md#apply-the-plugin)
@@ -203,6 +212,8 @@ Android, and other ecosystems.
    }
 
    repositories {
+       // Specify the source to download the main bundle
+       // Maven Central is used by default
        mavenCentral()
    }
 
@@ -232,6 +243,8 @@ Android, and other ecosystems.
    }
 
    repositories {
+       // Specify the source to download the main bundle
+       // Maven Central is used by default
        mavenCentral()
    }
 
@@ -311,9 +324,9 @@ In this section, you'll learn how to create a Kotlin/Native application using th
 
 To install the compiler:
 
-1. Go to the Kotlin's [GitHub releases](%kotlinLatestUrl%) page.
+1. Go to the Kotlin's [GitHub releases](%kotlinLatestUrl%) page and scroll down to the **Assets** section.
 2. Look for a file with `kotlin-native` in the name and download one that is suitable for your operating system,
-   for example `kotlin-native-prebuilt-linux-x86_64-2.0.21.tar.gz`.
+   for example `kotlin-native-prebuilt-linux-x86_64-%kotlinVersion%.tar.gz`.
 3. Unpack the archive to a directory of your choice.
 4. Open your shell profile and add the path to the compiler's `/bin` directory to the `PATH` environment variable: 
 
@@ -378,5 +391,5 @@ The application prints "Hello, Kotlin/Native" to the standard output.
 
 * Complete the [Create an app using C interop and libcurl](native-app-with-c-and-libcurl.md) tutorial that explains how
   to create a native HTTP client and interoperate with C libraries.
-* Learn how to [write Gradle build scripts for real-life Kotlin/Native projects](multiplatform-dsl-reference.md).
+* Learn how to [write Gradle build scripts for real-life Kotlin/Native projects](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html).
 * Read more about the Gradle build system in the [documentation](gradle.md).

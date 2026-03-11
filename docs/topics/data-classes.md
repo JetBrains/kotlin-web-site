@@ -34,7 +34,7 @@ Additionally, the generation of data class members follows these rules with rega
 Data classes may extend other classes (see [Sealed classes](sealed-classes.md) for examples).
 
 > On the JVM, if the generated class needs to have a parameterless constructor, default values for the properties have
-> to be specified (see [Constructors](classes.md#constructors)):
+> to be specified (see [Constructors](classes.md#constructors-and-initializer-blocks)):
 > 
 > ```kotlin
 > data class User(val name: String = "", val age: Int = 0)
@@ -98,6 +98,31 @@ You can then write the following:
 val jack = User(name = "Jack", age = 1)
 val olderJack = jack.copy(age = 2)
 ```
+
+The `copy()` function creates a _shallow_ copy of the instance. In other words, it doesn't copy components recursively.
+As a result, references to other objects are shared.
+
+For example, if a property holds a mutable list, changes made through the "original" value are also visible through the copy,
+and changes made through the copy are visible through the original:
+
+```kotlin
+data class Employee(val name: String, val roles: MutableList<String>)
+
+fun main() {
+    val original = Employee("Jamie", mutableListOf("developer"))
+    val duplicate = original.copy()
+
+    duplicate.roles.add("team lead")
+
+    println(original) 
+    // Employee(name=Jamie, roles=[developer, team lead])
+    println(duplicate) 
+    // Employee(name=Jamie, roles=[developer, team lead])
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+As you can see, modifying the `duplicate.roles` property also changes the `original.roles` property because both properties share the same list reference.
 
 ## Data classes and destructuring declarations
 

@@ -1,4 +1,4 @@
-[//]: # (title: Compatibility guide for Kotlin 1.7)
+[//]: # (title: Compatibility guide for Kotlin 1.7.0)
 
 _[Keeping the Language Modern](kotlin-evolution-principles.md)_ and _[Comfortable Updates](kotlin-evolution-principles.md)_ are among the fundamental principles in
 Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed, and the
@@ -463,7 +463,7 @@ perspective
 > **Incompatible change type**: source
 >
 > **Short summary**: remove the `kotlin2js` and `kotlin-dce-plugin` plugins. Instead of `kotlin2js`, use the new `org.jetbrains.kotlin.js` plugin. 
-> Dead code elimination (DCE) works when the Kotlin/JS Gradle plugin is [properly configured](http://javascript-dce.md)
+> Dead code elimination (DCE) works when the Kotlin/JS Gradle plugin is properly configured
 
 >
 > **Deprecation cycle:**

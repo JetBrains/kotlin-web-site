@@ -1,0 +1,35 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.wrapper {
+    padding-top: 72px;
+    padding-bottom: 255px;
+    background-repeat: no-repeat;
+    background-image: url("/images/compose-multiplatform/cta-block/cta-img-raster.png"), url("/images/compose-multiplatform/cta-block/cta-img-gradient.png");
+    background-position: left 50% bottom 0, left calc(50% - 100px) bottom 0;
+    background-size: auto 380px, auto 380px;
+
+    @media (--ktl-ts-up) {
+        padding-bottom: 72px;
+        background-position: left calc(50% + 180px) bottom 0, left calc(50% + 100px) bottom 0;
+    }
+
+    @media (--ktl-ds-up) {
+        background-size: auto 550px, auto 550px;
+        background-position: left calc(50% + 250px) bottom 0, left calc(50% + 50px) bottom 0;
+    }
+}
+
+.title {
+    @media (--ktl-ds-up) {
+        max-width: 360px;
+    }
+}
+
+.text {
+    margin-bottom: 0;
+    max-width: 360px;
+}
+
+.button {
+    margin-top: 32px;
+}

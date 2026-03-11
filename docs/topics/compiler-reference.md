@@ -9,7 +9,7 @@ These compilers are used by:
 * Maven, when you call `mvn compile` or `mvn test-compile` in a console or in the IDE.
 
 You can also run Kotlin compilers manually from the command line as described 
-in the [Working with command-line compiler](command-line.md) tutorial. 
+in the [Working with command-line compiler](command-line.md) tutorial.
 
 ## Compiler options
 
@@ -22,7 +22,7 @@ There are several ways to set the compiler options and their values (_compiler a
 * If you're using Gradle, specify the compiler arguments in the `compilerOptions` property of the Kotlin compilation task.
 For details, see [Gradle compiler options](gradle-compiler-options.md#how-to-define-options).
 * If you're using Maven, specify the compiler arguments in the `<configuration>` element of the Maven plugin node. 
-For details, see [Maven](maven.md#specify-compiler-options).
+For details, see [Maven](maven-compile-package.md#specify-compiler-options).
 * If you run a command-line compiler, add the compiler arguments directly to the utility call or write them into an [argfile](#argfile).
 
   For example:
@@ -38,6 +38,12 @@ For details, see [Maven](maven.md#specify-compiler-options).
   > ```
   {style="note"}
 
+## Schema for compiler options
+
+A common schema for all compiler options is published under [`org.jetbrains.kotlin:kotlin-compiler-arguments-description`](https://central.sonatype.com/artifact/org.jetbrains.kotlin/kotlin-compiler-arguments-description)
+as a JAR artifact. This artifact includes both a code representation and a JSON equivalent of all compiler option
+descriptions (for non-Kotlin consumers). As well as metadata, such as the version in which each option was introduced or stabilized.
+
 ## Common options
 
 The following options are common for all Kotlin compilers.
@@ -45,19 +51,6 @@ The following options are common for all Kotlin compilers.
 ### -version
 
 Display the compiler version.
-
-### -nowarn
-
-Suppress the compiler from displaying warnings during compilation.
-
-### -Werror
-
-Turn any warnings into a compilation error. 
-
-### -Wextra
-
-Enable [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that
-emit warnings if true.
 
 ### -verbose
 
@@ -75,6 +68,8 @@ To show advanced options, use `-X`.
 
 ### -X
 
+<primary-label ref="experimental-general"/>
+
 Display information about the advanced options and exit. These options are currently unstable: 
 their names and behavior may be changed without notice.
 
@@ -89,7 +84,9 @@ Core plugins and their options are listed in the [Core compiler plugins](compone
   
 ### -language-version _version_
 
-Provide source compatibility with the specified version of Kotlin.
+This option sets the supported syntax and semantics according to the specified language version. For example, using 
+Kotlin compiler version 2.2.0 with `-language-version=1.9` lets you use only the language features and standard library APIs from
+version 1.9 or earlier. This can help with a gradual migration to newer Kotlin versions.
 
 ### -api-version _version_
 
@@ -136,13 +133,162 @@ $ kotlinc @options/compiler.options hello.kt
 Enable usages of API that [requires opt-in](opt-in-requirements.md) with a requirement annotation with the given 
 fully qualified name.
 
-### -Xsuppress-warning
+### -Xrepl
 
-Suppresses specific warnings [globally across the whole project](whatsnew21.md#global-warning-suppression), for example:
+<primary-label ref="experimental-general"/>
+
+Activates the Kotlin REPL.
 
 ```bash
-kotlinc -Xsuppress-warning=NOTHING_TO_INLINE -Xsuppress-warning=NO_TAIL_CALLS_FOUND main.kt
+kotlinc -Xrepl
 ```
+
+### -Xannotation-target-all
+
+<primary-label ref="experimental-general"/>
+
+Enables the experimental [`all` use-site target for annotations](annotations.md#all-meta-target):
+
+```bash
+kotlinc -Xannotation-target-all
+```
+
+### -Xannotation-default-target=param-property
+
+<primary-label ref="experimental-general"/>
+
+Enables the new experimental [defaulting rule for annotation use-site targets](annotations.md#defaults-when-no-use-site-targets-are-specified):
+
+```bash
+kotlinc -Xannotation-default-target=param-property
+```
+
+### Warning management
+
+#### -nowarn
+
+Suppress all warnings during compilation.
+
+#### -Werror
+
+Treat all warnings as compilation errors.
+
+#### -Wextra
+
+Enable [additional declaration, expression, and type compiler checks](whatsnew21.md#extra-compiler-checks) that
+emit warnings if true.
+
+#### -Xrender-internal-diagnostic-names
+<primary-label ref="experimental-general"/>
+
+Prints internal diagnostic names alongside warnings. This is useful for identifying the `DIAGNOSTIC_NAME` configured for the `-Xwarning-level` option.
+
+#### -Xwarning-level
+<primary-label ref="experimental-general"/>
+
+Configure the severity level of specific compiler warnings:
+
+```bash
+kotlinc -Xwarning-level=DIAGNOSTIC_NAME:(error|warning|disabled)
+```
+
+* `error`: raises only the specified warning to an error.
+* `warning`: emits a warning for the specified diagnostic and is enabled by default.
+* `disabled`: suppresses only the specified warning module-wide.
+
+You can adjust warning reporting in your project by combining module-wide rules with specific ones:
+
+| Command                                            | Description                                                 |
+|----------------------------------------------------|-------------------------------------------------------------|
+| `-nowarn -Xwarning-level=DIAGNOSTIC_NAME:warning`  | Suppress all warnings except for the specified ones.        |
+| `-Werror -Xwarning-level=DIAGNOSTIC_NAME:warning`  | Raise all warnings to errors except for the specified ones. |
+| `-Wextra -Xwarning-level=DIAGNOSTIC_NAME:disabled` | Enable all additional checks except for the specified ones. |
+
+If you have many warnings to exclude from the general rules, you can list them in a separate file using [`@argfile`](#argfile).
+
+You can use [`-Xrender-internal-diagnostic-names`](#xrender-internal-diagnostic-names) to discover the `DIAGNOSTIC_NAME`.
+
+### -Xdata-flow-based-exhaustiveness
+<primary-label ref="experimental-general"/>
+
+Enables data-flow–based exhaustiveness checks for `when` expressions.
+
+### -Xallow-reified-type-in-catch
+<primary-label ref="experimental-general"/>
+
+Enables support for reified `Throwable` type parameters in `catch` clauses of `inline` functions.
+
+### Kotlin contract options
+<primary-label ref="experimental-general"/>
+
+The following options enable experimental Kotlin contract features.
+
+#### -Xallow-contracts-on-more-functions
+
+Enables contracts in additional declarations, including property accessors, specific operator functions,
+and type assertions on generic types.
+
+#### -Xallow-condition-implies-returns-contracts
+
+Allows using the `returnsNotNull()` function in contracts to assume a non-null return value for specified conditions.
+
+#### -Xallow-holdsin-contract
+
+Allows using the `holdsIn` keyword in contracts to assume that a boolean condition is `true` inside a lambda.
+
+### -Xreturn-value-checker
+<primary-label ref="experimental-general"/>
+
+Configure how the compiler [reports ignored results](unused-return-value-checker.md):
+
+* `disable`: disables the unused return value checker (default).
+* `check`: enables the checker, and reports warnings for ignored results from marked functions.
+* `full`: enables the checker, treats all functions in your project as marked, and reports warnings for ignored results.
+
+### -Xcompiler-plugin-order={plugin.before>plugin.after}
+
+Configure the running order of compiler plugins. The compiler runs `plugin.before` first, and then `plugin.after`:
+
+You can define multiple ordering rules for three or more plugins. For example:
+
+```bash
+kotlinc -Xcompiler-plugin-order=plugin.first>plugin.middle
+kotlinc -Xcompiler-plugin-order=plugin.middle>plugin.last
+```
+
+This results in the following running order:
+
+1. `plugin.first`
+2. `plugin.middle`
+3. `plugin.last`
+
+If a compiler plugin isn't present, the corresponding rule is ignored.
+
+You can configure the following plugins by their IDs:
+
+| Compiler plugin             | Plugin ID                                  |
+|-----------------------------|--------------------------------------------|
+| `all-open`, `kotlin-spring` | `org.jetbrains.kotlin.allopen`             |
+| AtomicFU                    | `org.jetbrains.kotlinx.atomicfu`           |
+| Compose                     | `androidx.compose.compiler.plugins.kotlin` |
+| `js-plain-objects`          | `org.jetbrains.kotlinx.jspo`               |
+| `jvm-abi-gen`               | `org.jetbrains.kotlin.jvm.abi`             |
+| kapt                        | `org.jetbrains.kotlin.kapt3`               |
+| Lombok                      | `org.jetbrains.kotlin.lombok`              |
+| `no-arg`, `kotlin-jpa`      | `org.jetbrains.kotlin.noarg`               |
+| Parcelize                   | `org.jetbrains.kotlin.parcelize`           |
+| Power-assert                | `org.jetbrains.kotlin.powerassert`         |
+| SAM with receiver           | `org.jetbrains.kotlin.samWithReceiver`     |
+| Serialization               | `org.jetbrains.kotlinx.serialization`      |
+
+This running order controls only the backend of compiler plugins and not the frontend.
+
+### -Xphases-to-dump-before
+
+<primary-label ref="experimental-general"/>
+
+Set to `ExternalPackageParentPatcherLowering` to create a dump file after the IR lowering compilation stage. Configure
+the output directory for the Kotlin/JVM with the [`-Xdump-directory`](#xdump-directory) compiler option.
 
 ## Kotlin/JVM compiler options
 
@@ -172,9 +318,11 @@ Use a custom JDK home directory to include into the classpath if it differs from
 
 ### -Xjdk-release=version
 
+<primary-label ref="experimental-general"/>
+
 Specify the target version of the generated JVM bytecode. Limit the API of the JDK in the classpath to the specified Java version. 
 Automatically sets [`-jvm-target version`](#jvm-target-version).
-Possible values are `1.8`, `9`, `10`, ..., `21`.
+Possible values are `1.8`, `9`, `10`, ..., `25`.
 
 > This option is [not guaranteed](https://youtrack.jetbrains.com/issue/KT-29974) to be effective for each JDK distribution.
 >
@@ -182,7 +330,7 @@ Possible values are `1.8`, `9`, `10`, ..., `21`.
 
 ### -jvm-target _version_
 
-Specify the target version of the generated JVM bytecode. Possible values are `1.8`, `9`, `10`, ..., `21`.
+Specify the target version of the generated JVM bytecode. Possible values are `1.8`, `9`, `10`, ..., `25`.
 The default value is `%defaultJvmTargetVersion%`.
 
 ### -java-parameters
@@ -209,6 +357,30 @@ into the classpath.
 ### -script-templates _classnames[,]_
 
 Script definition template classes. Use fully qualified class names and separate them with commas (**,**).
+
+### -Xjvm-expose-boxed
+
+<primary-label ref="experimental-general"/>
+
+Generate boxed versions of all inline value classes in the module, along with boxed variants of functions that use them,
+making both accessible from Java. For more information, see [Inline value classes](java-to-kotlin-interop.md#inline-value-classes)
+in the guide to calling Kotlin from Java.
+
+### -jvm-default _mode_
+
+Control how functions declared in interfaces are compiled to default methods on the JVM.
+
+| Mode               | Description                                                                                                                       |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `enable`           | Generates default implementations in interfaces and includes bridge functions in subclasses and `DefaultImpls` classes. (Default) |
+| `no-compatibility` | Generates only default implementations in interfaces, skipping compatibility bridges and `DefaultImpls` classes.                  |
+| `disable`          | Generates only compatibility bridges and `DefaultImpls` classes, skipping default methods.                                        |
+
+### -Xdump-directory
+
+<primary-label ref="experimental-general"/>
+
+Configure the dump file directory for the [-Xphases-to-dump-before`](#xphases-to-dump-before) compiler option.
 
 ## Kotlin/JS compiler options
 
@@ -287,6 +459,11 @@ Add variable and function names that you declared in Kotlin code into the source
 ### -source-map-prefix
 
 Add the specified prefix to paths in the source map.
+
+### -Xes-long-as-bigint
+<primary-label ref="experimental-general"/>
+
+Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
 
 ## Kotlin/Native compiler options
 

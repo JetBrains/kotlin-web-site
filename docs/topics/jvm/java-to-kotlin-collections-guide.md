@@ -1,5 +1,6 @@
 [//]: # (title: Collections in Java and Kotlin)
-[//]: # (description: Learn how to migrate from Java collections to Kotlin collections. This guide covers such data structures as Kotlin and Java Lists, ArrayLists, Maps, Sets, and others.)
+
+<web-summary>Learn how to migrate from Java collections to Kotlin collections. This guide covers such data structures as Kotlin and Java Lists, ArrayLists, Maps, Sets, and others.</web-summary>
 
 _Collections_ are groups of a variable number of items (possibly zero) that are significant to the problem being solved and are commonly operated on. 
 This guide explains and compares collection concepts and operations in Java and Kotlin. 
@@ -673,7 +674,7 @@ public void zip() {
 {id="zip-elements-java"}
 
 If you want to do something more complex than just printing pairs of elements into the output, 
-you can use [Records](https://blogs.oracle.com/javamagazine/post/records-come-to-java). 
+you can use [Records](https://docs.oracle.com/en/java/javase/17/language/records.html).
 In the example above, the record would be `record AnimalDescription(String animal, String color) {}`.
 
 In Kotlin, use the [`zip()`](collection-transformations.md#zip) function to do the same thing:
@@ -732,7 +733,7 @@ fun main() {
 
 * Visit [Kotlin Koans](koans.md) – complete exercises to learn Kotlin syntax. Each exercise is created as a failing unit test and your job is to make it pass.
 * Look through other [Kotlin idioms](idioms.md).
-* Learn how to convert existing Java code to Kotlin with the [Java to Kotlin converter](mixing-java-kotlin-intellij.md#converting-an-existing-java-file-to-kotlin-with-j2k).
+* Learn how to convert existing Java code to Kotlin with the [Java to Kotlin converter](mixing-java-kotlin-intellij.md#convert-java-files-to-kotlin).
 * Discover [collections in Kotlin](collections-overview.md).
 
 If you have a favorite idiom, we invite you to share it by sending a pull request.

@@ -48,8 +48,8 @@ object RuntimeError : Error
 
 This example could represent a library's API that contains error classes to let library users handle errors that it can throw. 
 If the hierarchy of such error classes includes interfaces or abstract classes visible in the public API, then nothing 
-prevents other developers from implementing or extending them in the client code. 
-Since the library doesn't know about errors declared outside of it, it can’t treat them consistently with its own classes. 
+prevents other developers from implementing or extending them in the client code.
+Since the library doesn't know about errors declared outside of it, it can't treat them consistently with its own classes. 
 However, with a **sealed** hierarchy of error classes, library authors can be sure that they know all the possible error 
 types and that other error types can't appear later.
 
@@ -153,14 +153,14 @@ open class CustomError(): Error
 
 ### Inheritance in multiplatform projects
 
-There is one more inheritance restriction in [multiplatform projects](multiplatform-intro.md): direct subclasses of sealed classes must
-reside in the same [source set](multiplatform-discover-project.md#source-sets). It applies to sealed classes without the [expected and actual modifiers](multiplatform-expect-actual.md).
+There is one more inheritance restriction in [multiplatform projects](https://kotlinlang.org/docs/multiplatform/get-started.html): direct subclasses of sealed classes must
+reside in the same [source set](https://kotlinlang.org/docs/multiplatform/multiplatform-discover-project.html#source-sets). It applies to sealed classes without the [expected and actual modifiers](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html).
 
 If a sealed class is declared as `expect` in a common source set and have `actual` implementations in platform source sets,
 both `expect` and `actual` versions can have subclasses in their source sets. Moreover, if you use a hierarchical structure,
 you can create subclasses in any source set between the `expect` and `actual` declarations. 
 
-[Learn more about the hierarchical structure of multiplatform projects](multiplatform-hierarchy.md). 
+[Learn more about the hierarchical structure of multiplatform projects](https://kotlinlang.org/docs/multiplatform/multiplatform-hierarchy.html). 
 
 ## Use sealed classes with when expression
 
@@ -200,11 +200,18 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.5"}
 
+> To reduce repetition in `when` expressions, try out context-sensitive resolution (currently in preview).
+> This feature allows you to omit the type name when matching sealed class members if the expected type is known.
+>
+> For more information, see [Preview of context-sensitive resolution](whatsnew22.md#preview-of-context-sensitive-resolution) or the related [KEEP proposal](https://github.com/Kotlin/KEEP/blob/improved-resolution-expected-type/proposals/context-sensitive-resolution.md).
+> 
+{style="tip"}
+
 When using sealed classes with `when` expressions, you can also add guard conditions to include additional checks in a single branch.
 For more information, see [Guard conditions in when expressions](control-flow.md#guard-conditions-in-when-expressions).
 
 > In multiplatform projects, if you have a sealed class with a `when` expression as an 
-> [expected declaration](multiplatform-expect-actual.md) in your common code, you still need an `else` branch. 
+> [expected declaration](https://kotlinlang.org/docs/multiplatform/multiplatform-expect-actual.html) in your common code, you still need an `else` branch. 
 > This is because subclasses of `actual` platform implementations may extend sealed classes that 
 > aren't known in the common code.
 >

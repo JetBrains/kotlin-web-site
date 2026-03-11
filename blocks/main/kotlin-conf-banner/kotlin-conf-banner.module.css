@@ -1,0 +1,32 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.wrapper {
+    display: block;
+    margin-bottom: 48px;
+
+    @media (--ktl-ts-min) {
+        margin-bottom: 64px;
+    }
+
+    @media (--ktl-ds-min) {
+        margin-bottom: 96px;
+    }
+}
+
+.link {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease-in-out;
+
+    &:hover {
+        border-color: white;
+    }
+}
+
+.image {
+    display: block;
+    width: 100%;
+    border-radius: 6px;
+}

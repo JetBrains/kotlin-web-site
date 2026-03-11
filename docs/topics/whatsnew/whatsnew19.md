@@ -1,6 +1,8 @@
 [//]: # (title: What's new in Kotlin 1.9.0)
 
-_[Release date: July 6, 2023](releases.md#release-details)_
+<web-summary>Read the Kotlin 1.9.0 release notes covering new language features, updates to Kotlin Multiplatform, JVM, Native, JS, and Wasm, and build tool support for Gradle and Maven.</web-summary>
+
+_[Release date: July 6, 2023](releases.md#release-history)_
 
 The Kotlin 1.9.0 release is out and the K2 compiler for the JVM is now in **Beta**. Additionally, here are some of the main highlights:
 
@@ -18,6 +20,10 @@ The Kotlin 1.9.0 release is out and the K2 compiler for the JVM is now in **Beta
 You can also find a short overview of the updates in this video:
 
 <video src="https://www.youtube.com/v/fvwTZc-dxsM" title="What's new in Kotlin 1.9.0"/>
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## IDE support
 
@@ -493,7 +499,7 @@ directories, which was confusing in multiple ways. The new layout has a number o
 * Clear naming schema for Gradle configurations – The schema is now more consistent and predictable in both `KotlinSourceSets` and `AndroidSourceSets`.
 
 The new layout requires the Android Gradle plugin version 7.0 or later and is supported in Android Studio 2022.3 and later. See our
-[migration guide](multiplatform-android-layout.md) to make the necessary changes in your `build.gradle(.kts)` file.
+[migration guide](https://kotlinlang.org/docs/multiplatform/multiplatform-android-layout.html) to make the necessary changes in your `build.gradle(.kts)` file.
 
 ### Preview of the Gradle configuration cache
 
@@ -506,7 +512,7 @@ The Gradle configuration cache speeds up the build process by reusing the result
 builds. The feature has become Stable since Gradle 8.1. To enable it, follow the instructions in the [Gradle documentation](https://docs.gradle.org/current/userguide/configuration_cache.html#config_cache:usage).
 
 > The Kotlin Multiplatform plugin still doesn't support the Gradle configuration cache with Xcode integration tasks or the
-> [Kotlin CocoaPods Gradle plugin](native-cocoapods-dsl-reference.md). We expect to add this feature in future Kotlin releases.
+> [Kotlin CocoaPods Gradle plugin](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-dsl-reference.html). We expect to add this feature in future Kotlin releases.
 >
 {style="note"}
 
@@ -563,7 +569,7 @@ You can write, run, and share your Kotlin code that targets the Kotlin/Wasm. [Ch
 
 > Using Kotlin/Wasm requires enabling experimental features in your browser.
 >
-> [Learn more about how to enable these features](wasm-troubleshooting.md).
+> [Learn more about how to enable these features](wasm-configuration.md).
 >
 {style="note"}
 
@@ -615,7 +621,7 @@ support for ES2015:
 In Kotlin 1.8.0, we [announced](whatsnew18.md#stable-js-ir-compiler-backend) that the IR-based backend became [Stable](components-stability.md).
 Since then, not specifying the compiler has become an error, and using the old compiler leads to warnings.
 
-In Kotlin 1.9.0, using the old backend results in an error. Please migrate to the IR compiler by following our [migration guide](js-ir-migration.md).
+In Kotlin 1.9.0, using the old backend results in an error. Please migrate to the IR compiler.
 
 ### Deprecation of the Kotlin/JS Gradle plugin
 
@@ -625,7 +631,7 @@ deprecated. We encourage you to use the `kotlin-multiplatform` Gradle plugin wit
 The functionality of the Kotlin/JS Gradle plugin essentially duplicated the `kotlin-multiplatform` plugin and shared the
 same implementation under the hood. This overlap created confusion and increased maintenance load on the Kotlin team.
 
-Refer to our [Compatibility guide for Kotlin Multiplatform](multiplatform-compatibility-guide.md#migration-from-kotlin-js-gradle-plugin-to-kotlin-multiplatform-gradle-plugin) 
+Refer to our [Compatibility guide for Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#migration-from-kotlin-js-gradle-plugin-to-kotlin-multiplatform-gradle-plugin) 
 for migration instructions. If you find any issues that aren't covered in the guide, please report them to our [issue tracker](http://kotl.in/issue).
 
 ### Deprecation of external enum
@@ -1196,8 +1202,8 @@ println("0x3a".hexToInt(HexFormat { number.prefix = "0x" })) // "58"
 
 The Kotlin documentation has received some notable changes:
 * The [tour of Kotlin](kotlin-tour-welcome.md) – Learn the fundamentals of the Kotlin programming language with chapters including both theory and practice.
-* [Android source set layout](multiplatform-android-layout.md) – Learn about the new Android source set layout.
-* [Compatibility guide for Kotlin Multiplatform](multiplatform-compatibility-guide.md) – Learn about the incompatible changes you might encounter while developing projects with Kotlin Multiplatform.
+* [Android source set layout](https://kotlinlang.org/docs/multiplatform/multiplatform-android-layout.html) – Learn about the new Android source set layout.
+* [Compatibility guide for Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html) – Learn about the incompatible changes you might encounter while developing projects with Kotlin Multiplatform.
 * [Kotlin Wasm](wasm-overview.md) – Learn about Kotlin/Wasm and how you can use it in your Kotlin Multiplatform projects.
 
 ## Install Kotlin 1.9.0

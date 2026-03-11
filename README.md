@@ -15,44 +15,46 @@ This repository is the source for [https://kotlinlang.org](https://kotlinlang.or
 
 ### Content
 
-|Website page|Source files|
-|------------|--------|
-| [Main page](https://kotlinlang.org/) | [templates/pages/index.html](templates/pages/index.html) |
-| [Kotlin docs](https://kotlinlang.org/docs/home.html) |[docs/topics](docs/topics)| 
-| [Community](https://kotlinlang.org/community/) | [pages/community](pages/community) | 
-| [Education](https://kotlinlang.org/education/) | [templates/pages/education](templates/pages/education)| 
-
-Note that source files for the [server-side landing page](https://kotlinlang.org/lp/server-side/) and [Kotlin Multiplatform landing page](https://kotlinlang.org/lp/multiplatform/) are not publicly available.
+| Website page                                              | Source files                                             |
+|-----------------------------------------------------------|----------------------------------------------------------|
+| [Main page](https://kotlinlang.org/)                      | [templates/pages/index.html](templates/pages/index.html) |
+| [Kotlin docs](https://kotlinlang.org/docs/home.html)      | [docs/topics](docs/topics)                               |
+| [Server-side](https://kotlinlang.org/server-side/)        | [pages/server-side](pages/server-side)                   |
+| [Multiplatform](https://kotlinlang.org/multiplatform/)    | [pages/multiplatform](pages/multiplatform)               |
+| [Case Studies](https://kotlinlang.org/case-studies/)      | [pages/case-studies](pages/case-studies)                 |
+| [Community](https://kotlinlang.org/community/)            | [pages/community](pages/community)                       | 
+| [Education](https://kotlinlang.org/education/)            | [templates/pages/education](templates/pages/education)   | 
 
 #### Sources in different repositories
 
-Source files for the language specification and the docs for coroutines, lincheck, Dokka, and Library creators' guidelines
-are stored in separate repositories
+Source files for the language specification and the docs for Kotlin Mulitplatform, coroutines, lincheck, Dokka,
+and Library creators' guidelines are stored in separate repositories
 
-| Website page                                                                                     | GitHub repository                                                   |
-|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
-| [Coroutines docs](https://kotlinlang.org/docs/coroutines-guide.html)                             | [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/) |
-| [Lincheck docs](https://kotlinlang.org/docs/lincheck-guide.html)                                 | [kotlinx.lincheck](https://github.com/Kotlin/kotlinx-lincheck/)     |
-| [Dokka docs](https://kotlinlang.org/docs/dokka-introduction.html)                                | [Dokka](https://github.com/Kotlin/dokka/)                           |
-| [Library creators' guidelines](https://kotlinlang.org/docs/jvm-api-guidelines-introduction.html) | [api-guidelines](https://github.com/Kotlin/api-guidelines)          |
-| [Language specification](https://kotlinlang.org/spec/introduction.html)                          | [kotlin-spec](https://github.com/Kotlin/kotlin-spec)                |
+| Website page                                                                                     | GitHub repository                                                                           |
+|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| [Kotlin Multiplafrom docs](https://kotlinlang.org/docs/multiplatform/get-started.html)           | [kotlin-multiplatform-dev-docs](https://github.com/JetBrains/kotlin-multiplatform-dev-docs) |
+| [Coroutines docs](https://kotlinlang.org/docs/coroutines-guide.html)                             | [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines/)                         |
+| [Lincheck docs](https://kotlinlang.org/docs/lincheck-guide.html)                                 | [kotlinx.lincheck](https://github.com/Kotlin/kotlinx-lincheck/)                             |
+| [Dokka docs](https://kotlinlang.org/docs/dokka-introduction.html)                                | [dokka](https://github.com/Kotlin/dokka/)                                                   |
+| [Library creators' guidelines](https://kotlinlang.org/docs/jvm-api-guidelines-introduction.html) | [api-guidelines](https://github.com/Kotlin/api-guidelines)                                  |
+| [Language specification](https://kotlinlang.org/spec/introduction.html)                          | [kotlin-spec](https://github.com/Kotlin/kotlin-spec)                                        |
 
 #### Auto-generated content
 
 [API reference documentation](https://kotlinlang.org/api/latest/jvm/stdlib/) is generated based on comments in the Kotlin code. 
 Learn more about [documenting the Kotlin code](https://kotlinlang.org/docs/kotlin-doc.html).
 
-The [Kotlin grammar reference](https://kotlinlang.org/docs/reference/grammar.html) is generated by the [Kotlin grammar generator](https://github.com/Kotlin/website-grammar-generator) from the
+The [Kotlin grammar reference](https://kotlinlang.org/grammar/) is generated by the [Kotlin grammar generator](https://github.com/Kotlin/website-grammar-generator) from the
 [Kotlin grammar definition](https://github.com/Kotlin/kotlin-spec/tree/release/grammar/src/main/antlr).
 
 ### Configuration files
 
-|Configuration| File                                                                                 |
-|-----|--------------------------------------------------------------------------------------|
-|Navigation and structure| [kr.tree](docs/kr.tree) for docs and [_nav.yml](data/_nav.yml) for other pages       |
+|Configuration| File                                                                                |
+|-----|-------------------------------------------------------------------------------------|
+|Navigation and structure| [kr.tree](docs/kr.tree) for docs |
 |Variables, such as release version | [v.list](docs/v.list) for docs and [releases.yml](data/releases.yml) for other pages |
-|Community events on the map | [events.xml](data/events.yml)                                                          |
-|Video list (outdated) | [videos.yml](data/videos.yml)                                                        |
+|Community events on the map | [events.xml](data/events.yml)                                                         |
+
 
 ### Templates
 
@@ -82,23 +84,13 @@ To add a Kotlin User Group (KUG), proceed the following way:
     - `isVirtual`, set this key with `true` value if the group is online only.
     - `position`, the geo-position of the group, defined by pair of keys: `lat` and `lng`. It better to run `scripts/user_group`.
 4. If the group is not virtual, you also need to specify a group's position.
-   You can do it manually adding `position` key with the `lat` and `lng` values, as next: 
+   Add manually `position` key with the `lat` and `lng` values, as next: 
 
    ```yaml
    position:
      lat: 1.1111111
      lng: 1.1111111
    ```
-
-   or, to run the geo script (`scripts/user_groups_geolocator.py`) that will do it for you.
-   You need to obtain GOOGLE_API_KEY and then run the following script:
-
-   ```
-   $ GOOGLE_API_KEY="..." python scripts/universities_geolocator.py
-   ```
-
-   You can find more details about `GOOGLE_API_KEY` param in [this article by Google](https://developers.google.com/maps/documentation/geocoding/get-api-key).
-   The manual way sometimes is better, because it allows you to specify the position more precisely.  
 
 You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/user-groups.json).
 Once you publish a pull request, the changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-user-groups-data.yml) to prevent misconfiguration.
@@ -119,11 +111,47 @@ To add an event to the Community Events, do the following:
    You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/events.json).
 2. Publish the changes creating a pull request. The changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-events-data.yml) to prevent misconfiguration.
 
+### Case Studies
+
+To add a case study, do the following:
+1. Fill the case study info in the [case-studies.yml](/data/case-studies/case-studies.yml) with the next:
+   - `id`, a unique identifier for the case study.
+    - `type`, the case study category: either `multiplatform` or `server-side`.
+    - `description`, a markdown-enabled text description of the case study (supports # header  **bold** and [links](https://example.com), paragraphs are made with two new lines).
+    - `logo` (optional), an array of 0-2 image paths relative to the `/public/` directory.
+    - `signature` (optional), an object with `name` and `position` fields for the quote author.
+    - `isExternal` (optional), a boolean indicating if the case story is from an external source (default: false).
+    - `link` (optional), a URL to the full case story.
+    - `linkText` (optional), custom text for the link (default: "Read the full story").
+    - `linkStyle` (optional), either `button` or `text` for the link style.
+    - `platforms` (optional), an array of platform tags such as `android`, `ios`, `desktop`, `frontend`, `backend`, or `compose-multiplatform`.
+    - `media` (optional), a media object with `type` set to either `youtube` (with `videoId`) or `image` (with `path` relative to `/public/`).
+    - `featuredOnMainPage` (optional), a boolean to mark the case as featured on the main page.
+
+   You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/case-studies.json) and in the [example file](/data/case-studies/_case-study.example.yaml).
+2. The order of case studies in the file defines the order of their appearance on the website. Place new case studies accordingly.
+3. Publish the changes creating a pull request. The changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-case-studies-data.yml) to prevent misconfiguration.
+
 ## Local deployment
 
 Currently, there is no way to deploy the Kotlin website locally. This ticket tracks the effort of adding support for local testing: [KT-47049](https://youtrack.jetbrains.com/issue/KT-47049).
 
 You can contribute to the Kotlin website by sending us a pull request.
+
+## PDF Generation
+
+To generate a PDF version of the Kotlin documentation:
+
+1. Download the documentation artifacts from the [Reference Docs CI build](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildReferenceDocs) and place them in the `dist` folder.
+2. Run:
+   ```bash
+   yarn install
+   yarn generate-pdf
+   ```
+
+The PDF will be created at `assets/kotlin-reference.pdf`. Generation may take several minutes.
+
+For more details, see [scripts/pdf/README.md](scripts/pdf/README.md).
 
 ## Feedback and issues
 
@@ -131,13 +159,25 @@ You can:
 
 * Report an issue to [our issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT).
 * Share feedback in the [#kotlin-website](https://kotlinlang.slack.com/archives/C02B3PECK6E) channel in our Kotlin public Slack ([get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)).
-* Email us at [doc-feedback@kotlinlang.org](mailto:doc-feedback@kotlinlang.org).
 
 [project-url]: https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub
 [project-badge]: https://jb.gg/badges/official.svg
 [slack-url]: https://slack.kotlinlang.org
 
 ## Local development
+For the frontend development, you need to connect to the WebTeam registry.
+Visit [the registry](https://jetbrains.team/p/wt/packages/npm/npm) page in Space:
+- On the top right, click Connect;
+- Click Generate personal token;
+- Copy your personal token.
+- Add your personal token to the environmental variable. This step differs based on your OS.
+
+##### For macOS:
+Add your token to the ~/.zshenv file:
+- Open the Terminal;
+- Use this command to access .zshenv file `nano ~/.zshenv`;
+- Replace your_token with your actual Space token and use this command to add an environment variable: `export WEBTEAM_UI_NPM_TOKEN=yourtoken`.
+Then install frontend dependencies `npm install`.
 
 #### preliminaries: python3 installed
 
@@ -209,6 +249,7 @@ There are also additional options to run tests:
 To ease the process of adding and maintaining e2e tests:
 - `yarn test:e2e:new` to generate the test for the user interactions.
 - `yarn test:e2e:update`  to update screenshots when something on page has changed intentionally.
+- `yarn test:e2e:screenshots` to run e2e tests with screenshots across different breakpoints (breakpoints-v2).
 
 ## Write Tests
 

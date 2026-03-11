@@ -1,4 +1,3 @@
-_nav-mapped.yml
 .DS_Store
 obj/
 _ReSharper.*
@@ -30,9 +29,8 @@ uiDesigner.xml
 grammar.xml
 /build/
 node_modules
-pdf/kotlin-docs.pdf
-pdf/kotlin-reference.pdf
 pdf/tmp.html
+.vivliostyle/
 *.pyc
 google-credentials.json
 package-lock.json
@@ -50,3 +48,10 @@ generated
 
 /reports*
 /data/page_views_map.json
+test-results
+
+public/data
+test/storage-state.json
+
+
+.junie/memory

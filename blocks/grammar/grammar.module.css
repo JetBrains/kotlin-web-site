@@ -1,0 +1,83 @@
+.wrap {
+    background: #fff;
+    overflow-x: auto;
+}
+
+.grammar {
+    padding-bottom: 40px;
+}
+
+.grammar :global {
+    .grammar-string {
+        color: #009c00;
+    }
+
+    .grammar-items-set {
+        margin-bottom: 40px;
+    }
+
+    .grammar-item, .grammar-description {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .grammar-item {
+        margin-bottom: 20px;
+    }
+
+    .grammar-declaration-name {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .grammar-declaration-usedby {
+        display: inline-block;
+        color: #999;
+    }
+
+    .grammar-comment :is(.grammar-string, .grammar-symbol) {
+        margin-inline-end: 7px;
+    }
+
+    .grammar-comment {
+        margin-block-end: 15px;
+    }
+}
+
+.link, .grammar :global(.grammar-identifier-name) {
+    line-height: 1.60;
+}
+
+.grammar :global(.grammar-comment ) :global {
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border-color: gray;
+        margin-bottom: 30px;
+    }
+
+    table thead {
+        background-color: #f7f7f7;
+        border-bottom-width: 2px;
+    }
+
+    table tr {
+        border-bottom: 1px solid #dcdcdc;
+    }
+
+    table td:first-child, table th:first-child {
+        padding-left: 12px;
+    }
+
+    table td, table th {
+        padding: 6px 10px;
+        vertical-align: top;
+    }
+
+    table th {
+        text-align: left;
+        font-weight: 700;
+    }
+}

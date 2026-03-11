@@ -1,5 +1,7 @@
 [//]: # (title: What's new in Kotlin 1.1)
 
+<web-summary>Read the Kotlin 1.1 release notes covering new language features, updates to Kotlin/JVM, and JS, and build tool support for Gradle and Maven.</web-summary>
+
 _Released: 15 February 2016_
 
 ## Table of contents
@@ -9,6 +11,10 @@ _Released: 15 February 2016_
 * [Standard library](#standard-library)
 * [JVM backend](#jvm-backend)
 * [JavaScript backend](#javascript-backend)
+
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
 
 ## JavaScript
 
@@ -23,7 +29,7 @@ patterns. The key feature of Kotlin's design is that the implementation of corou
 not the language, so you aren't bound to any specific programming paradigm or concurrency library.
 
 A coroutine is effectively a light-weight thread that can be suspended and resumed later.
-Coroutines are supported through _[suspending functions](coroutines-basics.md#extract-function-refactoring)_:
+Coroutines are supported through _[suspending functions](coroutines-basics.md)_:
 a call to such a function can potentially suspend a coroutine, and to start a new coroutine we usually use an anonymous suspending functions (i.e. suspending lambdas).  
 
 Let's look at `async`/`await` which is implemented in an external library, [kotlinx.coroutines](https://github.com/kotlin/kotlinx.coroutines): 
@@ -654,7 +660,7 @@ fun main(args: Array<String>) {
 ### Java 8 bytecode support
 
 Kotlin has now the option of generating Java 8 bytecode (`-jvm-target 1.8` command line option or the corresponding options
-in Ant/Maven/Gradle). For now this doesn't change the semantics of the bytecode (in particular, default methods in interfaces
+in Maven/Gradle). For now this doesn't change the semantics of the bytecode (in particular, default methods in interfaces
 and lambdas are generated exactly as in Kotlin 1.0), but we plan to make further use of this later.
 
 ### Java 8 standard library support

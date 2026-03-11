@@ -1,10 +1,9 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
-<!--
 <tldr>
+    <!--<p>No preview versions are currently available.</p>-->
     <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
 </tldr>
--->
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
 
@@ -46,31 +45,21 @@ In this channel, you can also get notifications about new EAP builds.
 
 ## Build details
 
-<!--_No preview versions are currently available._-->  
+<!-- _No preview versions are currently available._ -->
 
-<table>
+ <table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
     </tr>
     <tr>
-        <td><strong>2.2.0-Beta2</strong>
-            <p>Released: <strong>April 30, 2025</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0-Beta2" target="_blank">Release on GitHub</a></p>
+        <td><strong>2.3.20-RC3</strong>
+            <p>Released: <strong>March 10, 2026</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.20-RC3" target="_blank">Release on GitHub</a></p>
         </td>
         <td>
-            <p>A language release with previews of new features and tooling updates.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.2.0-Beta2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.2.0-Beta2</a>.</p>
+            <p>A tooling release with performance improvements, bug fixes, and tooling updates.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.20-RC3">changelog</a>.</p>
         </td>
     </tr>
-    <tr>
-        <td><strong>2.1.21-RC2</strong>
-            <p>Released: <strong>May 1, 2025</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.21-RC2" target="_blank">Release on GitHub</a></p>
-        </td>
-        <td>
-            <p>A bug fix release for Kotlin 2.1.20.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.1.21-RC2">changelog</a>.</p>
-        </td>
-    </tr> 
-</table>
+</table> 

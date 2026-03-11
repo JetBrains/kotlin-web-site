@@ -79,7 +79,9 @@ export function initFeedback() {
                     email: fields.email.value || '',
                     url: document.location.href || '',
                     articleId: articleId || 'core-api',
-                    title: title || 'Core API: Untitled'
+                    title: title || 'Core API: Untitled',
+                    privacyConsentType: ["mkt.general.jb-intention"],
+                    formId: 'youtrack-feedback'
                 })
             });
 
