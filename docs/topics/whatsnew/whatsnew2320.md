@@ -369,6 +369,8 @@ Additionally, Kotlin 2.3.20 reduces the number of `kotlin.context` overloads fro
 
 ## Standard library
 
+Kotlin 2.3.20 includes a new experimental feature for the standard library.
+
 <include from="whatsnew2320.md" element-id="new-api-for-creating-immutable-copies-of-map-entry-content">
 <var name="id6" value="standard-library-new-api-for-creating-immutable-copies-of-map-entry"/>
 </include>
@@ -782,6 +784,8 @@ In Kotlin 2.3.20, Kotlin/JVM compilation in the Kotlin Gradle plugin uses the [B
 If you notice any issues, share your feedback in our [issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&summary=Kotlin+Gradle+plugin+BTA+migration+issue&description=Describe+the+problem+you+encountered+here.&c=tag+kgp-bta-migration).
 
 ## Maven
+
+Kotlin 2.3.20 brings an important change to make it easier to set up your Maven projects.
 
 <include from="whatsnew2320.md" element-id="simplified-setup-for-kotlin-projects-content">
 <var name="id1" value="maven-simplified-setup-for-kotlin-projects"/>
