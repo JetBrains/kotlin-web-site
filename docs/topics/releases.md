@@ -18,7 +18,7 @@ Since Kotlin 2.0.0, we ship the following types of releases:
     Released in 3 months after corresponding _language release_.
 * _Bug fix releases_ (2._x_._yz_) that include bug fixes for _tooling releases_. There is no exact release schedule for these releases.
 
-> For example, for the language release 2.2.0, there was only one tooling release 2.2.20 and one bugfix release 2.2.21.
+> For example, for the language release 2.2.0, there was only one tooling release 2.2.20 and one bug fix release 2.2.21.
 >
 {style="tip"}
 
