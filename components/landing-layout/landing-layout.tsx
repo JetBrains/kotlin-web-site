@@ -13,6 +13,7 @@ import styles from './landing-layout.module.css';
 import releasesDataRaw from '../../data/releases.yml';
 import searchConfig from '../../search-config.json';
 import { StickyHeader } from '../sticky-header/sticky-header';
+import { getCanonicalUrl, getSiteUrl } from '../../utils/site-config';
 
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
@@ -39,6 +40,7 @@ export type LandingLayoutProps = {
 
 export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, description, children, dataTestId, canonical, theme = 'dark', mobileOverview = true, ...navigationProps }) => {
     const router = useRouter();
+    const siteUrl = getSiteUrl();
     const pathname = addTrailingSlash(router.pathname);
 
     let items = navigationProps.topMenuItems || [];
@@ -57,14 +59,21 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
     );
 
     const ogImagePath = useMemo(
-        () => `https://kotlinlang.org/assets/images/open-graph/${ogImageName ? ogImageName : 'general.png'}`,
-        [ogImageName]
+        () => `${siteUrl}/assets/images/open-graph/${ogImageName ? ogImageName : 'general.png'}`,
+        [ogImageName, siteUrl]
     );
 
     const ogImageTwitterPath = useMemo(
-        () => (ogImageName ? ogImagePath : 'https://kotlinlang.org/assets/images/twitter/general.png'),
-        [ogImageName, ogImagePath]
+        () => (ogImageName ? ogImagePath : `${siteUrl}/assets/images/twitter/general.png`),
+        [ogImageName, ogImagePath, siteUrl]
     );
+
+    const canonicalUrl = useMemo(() => {
+        if (canonical) {
+            return canonical;
+        }
+        return getCanonicalUrl(router.pathname);
+    }, [canonical, router.pathname]);
 
     return (
         <>
@@ -73,7 +82,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
 
                 <meta property="og:title" content={title} />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content={'https://kotlinlang.org' + router.pathname} />
+                <meta property="og:url" content={siteUrl + router.pathname} />
 
                 {description && <meta name="description" content={description} />}
 
@@ -87,7 +96,7 @@ export const LandingLayout: FC<LandingLayoutProps> = ({ title, ogImageName, desc
                 <meta name="twitter:title" content={title} />
                 {description && <meta name="twitter:description" content={description} />}
                 <meta name="twitter:image:src" content={ogImageTwitterPath} />
-                {canonical && <link rel="canonical" href={canonical} />}
+                <link rel="canonical" href={canonicalUrl} />
             </Head>
 
             <ThemeProvider theme={theme}>

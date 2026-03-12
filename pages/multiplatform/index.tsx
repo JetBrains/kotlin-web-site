@@ -49,7 +49,6 @@ export default function MultiplatformLanding() {
             topMenuHomeUrl={MULTIPLATFORM_MOBILE_URL}
             topMenuItems={TOP_MENU_ITEMS}
             topMenuButton={<Button href={GET_STARTED_URL}>Get started</Button>}
-            canonical={'https://kotlinlang.org/multiplatform/'}
         >
             <div className="ktl-layout-to-2">
                 <ThemeProvider theme={'dark'}>
