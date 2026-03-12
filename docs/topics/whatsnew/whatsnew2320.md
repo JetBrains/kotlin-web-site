@@ -233,7 +233,11 @@ Kotlin 2.3.20 introduces the `Map.Entry.copy()` extension function for creating 
 This function allows you to reuse entries obtained from [`Map.entries`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/entries.html) after modifying the map by copying them first.
 
 `Map.Entry.copy()` is [Experimental](components-stability.md#stability-levels-explained).
-To opt in, use the `@OptIn(ExperimentalStdlibApi::class)` annotation or the compiler option `-opt-in=kotlin.ExperimentalStdlibApi`.
+To opt in, use the `@OptIn(ExperimentalStdlibApi::class)` annotation or the compiler option:
+
+```bash
+-opt-in=kotlin.ExperimentalStdlibApi
+```
 
 Here's an example of using `Map.Entry.copy()` to remove entries from a mutable map:
 
@@ -313,7 +317,7 @@ We're planning to eventually enable it by default. But to achieve that, we need 
 * There may be bugs or things we haven't considered. Testing languages with numerous interacting features is challenging, and testing the interaction between languages (each with a unique set of features) is even more so.
 
 Help us examine real-world projects and identify challenging cases.
-Whether you encounter any issues or not, share your results in the comments to [this YouTrack issue](https://youtrack.jetbrains.com/issue/KT-83218).
+Whether you encounter any issues or not, share your results in the comments to in [YouTrack](https://youtrack.jetbrains.com/issue/KT-83218).
 
 </snippet>
 
@@ -547,9 +551,9 @@ kotlin {
 }
 ```
 
-* `version` — the Kotlin version for which the compilation cache is disabled.
-* `reason` (mandatory) — the reason why the compilation cache is disabled.
-* `issue` (optional) — a URL to the corresponding issue in your bug tracker.
+* `version` – the Kotlin version for which the compilation cache is disabled.
+* `reason` (mandatory) – the reason why the compilation cache is disabled.
+* `issue` (optional) – a URL to the corresponding issue in your bug tracker.
 
 The new DSL replaces the deprecated `kotlin.native.cacheKind` Gradle property. You can safely remove it from your `gradle.properties` file.
 
@@ -586,7 +590,7 @@ It results in:
 Kotlin 2.3.20 adds compiler optimizations that significantly reduce memory consumption during compilation, especially in large projects.
 These optimizations also improve incremental build performance.
 
-In our testing, we observed a 65% improvement in full build times and a 21% improvement in incremental builds.
+In our testing, we observed a 65% improvement in full build times and a 21% improvement in incremental build times.
 
 ### Support for `@nativeInvoke` annotation
 <primary-label ref="experimental-opt-in"/>
@@ -616,7 +620,7 @@ fun main() {
 This is a temporary solution until stable interoperability between Kotlin/Wasm and JavaScript is designed.
 It may be modified or removed in future releases, and the compiler reports a warning when you use it.
 
-For more information on the Kotlin/Wasm interoperability with JavaScript, see our [documentation](wasm-js-interop.md).
+For more information on the Kotlin/Wasm interoperability with JavaScript, see [Interoperability with JavaScript](wasm-js-interop.md).
 
 ## Kotlin/JS
 
@@ -934,4 +938,4 @@ We made the following documentation changes in the Kotlin ecosystem:
 * [Application structure](https://ktor.io/docs/server-application-structure.html) – Choose the best application structure for your Ktor Server app.
 * [HTTP request lifecycle](https://ktor.io/docs/server-http-request-lifecycle.html) – Learn how to cancel request processing in Ktor when a client disconnects using the HTTP request lifecycle.
 * [Dependency injection](https://ktor.io/docs/server-dependency-injection.html) – Learn how to configure dependency injection in Ktor Server, with updated guidance and practical examples.
-* [Exposed’s Spring Boot integration](https://www.jetbrains.com/help/exposed/spring-boot-integration.html#requirements) – Learn how to use Exposed with Spring Boot 3 and 4.
+* [Exposed's Spring Boot integration](https://www.jetbrains.com/help/exposed/spring-boot-integration.html#requirements) – Learn how to use Exposed with Spring Boot 3 and 4.

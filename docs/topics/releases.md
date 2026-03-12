@@ -4,7 +4,7 @@
 
 <tldr>
     <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
-    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.3.20</a> and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>.</p>
+    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.3.20</a><!-- and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>.--></p>
 </tldr>
 
 This page explains the Kotlin release cycle and the different types of releases we ship. It also includes details

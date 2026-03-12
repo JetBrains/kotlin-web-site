@@ -382,7 +382,7 @@ Control how functions declared in interfaces are compiled to default methods on 
 
 Configure the dump file directory for the [-Xphases-to-dump-before`](#xphases-to-dump-before) compiler option.
 
-### -Xnullability-annotations=@<package-name>:<report-level>
+### -Xnullability-annotations
 
 <primary-label ref="experimental-general"/>
 
