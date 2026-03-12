@@ -267,22 +267,22 @@ fun main() {
 <primary-label ref="experimental-opt-in"/>
 <secondary-label ref="native"/>
 
-If you use C or Objective-C libraries in your Kotlin Multiplatform libraries or applications, we invite you to test the new interoperability mode and share the results.
+If you use C or Objective-C libraries in your Kotlin Multiplatform (KMP) libraries or applications, we invite you to test the new interoperability mode and share the results.
 
 In general, Kotlin/Native enables importing C and Objective-C libraries into Kotlin.
-However, for Kotlin Multiplatform libraries, this functionality is currently [affected](native-lib-import-stability.md#stability-of-c-and-objective-c-library-import) by the KMP compatibility issues with older compiler versions.
+However, for KMP libraries, this functionality is currently [affected](native-lib-import-stability.md#stability-of-c-and-objective-c-library-import) by the KMP compatibility issues with older compiler versions.
 
-In other words, if you publish a Kotlin Multiplatform library compiled with one Kotlin version, importing C or Objective-C libraries might make it impossible to use that Kotlin library in projects with an earlier Kotlin version.
+In other words, if you publish a KMP library compiled with one Kotlin version, importing C or Objective-C libraries might make it impossible to use that Kotlin library in projects with an earlier Kotlin version.
 
 To address this and other issues, the Kotlin team has been revising the interoperability mechanism used under the hood.
-Starting with Kotlin 2.3.20-Beta1, you can try the new mode through a compiler option.
+Starting with Kotlin 2.3.20, you can try the new mode through a compiler option.
 
 #### How to enable {id="%id8%"}
 
 1. In your Gradle build file, check whether you have a `cinterops {}` block or a `pod()` dependency.
    If these are present, your project uses C or Objective-C libraries.
 
-2. Ensure your project uses `2.3.20-Beta1` or a later version.
+2. Ensure your project uses `2.3.20` or a later version.
 3. In the same build file, add the `-Xccall-mode` compiler option to the cinterop tool invocation:
 
    ```kotlin
@@ -547,9 +547,9 @@ kotlin {
 }
 ```
 
-* `version` − the Kotlin version for which the compilation cache is disabled.
-* `reason` (mandatory) − the reason why the compilation cache is disabled.
-* `issue` (optional) − a URL to the corresponding issue in your bug tracker.
+* `version` — the Kotlin version for which the compilation cache is disabled.
+* `reason` (mandatory) — the reason why the compilation cache is disabled.
+* `issue` (optional) — a URL to the corresponding issue in your bug tracker.
 
 The new DSL replaces the deprecated `kotlin.native.cacheKind` Gradle property. You can safely remove it from your `gradle.properties` file.
 
@@ -613,7 +613,7 @@ fun main() {
 }
 ```
 
-This is a temporary solution until a stable interoperability between Kotlin/Wasm and JavaScript is designed.
+This is a temporary solution until stable interoperability between Kotlin/Wasm and JavaScript is designed.
 It may be modified or removed in future releases, and the compiler reports a warning when you use it.
 
 For more information on the Kotlin/Wasm interoperability with JavaScript, see our [documentation](wasm-js-interop.md).
@@ -709,7 +709,7 @@ kotlin {
 }
 ```
 
-For more information on the `@JsExport` annotation, see our [documentation](js-to-kotlin-interop.md#jsexport-annotation).
+For more information, see [`@JsExport` annotation](js-to-kotlin-interop.md#jsexport-annotation).
 
 ### Support for SWC compilation platform
 <primary-label ref="experimental-opt-in"/>
