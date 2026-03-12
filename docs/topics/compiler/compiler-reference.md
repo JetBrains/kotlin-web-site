@@ -382,6 +382,14 @@ Control how functions declared in interfaces are compiled to default methods on 
 
 Configure the dump file directory for the [-Xphases-to-dump-before`](#xphases-to-dump-before) compiler option.
 
+### -Xnullability-annotations=@<package-name>:<report-level>
+
+<primary-label ref="experimental-general"/>
+
+Configure how the Kotlin compiler interprets nullability annotations from specific Java packages.
+
+For the full list of supported annotations and configuration options, see [Nullability annotations](java-interop.md#nullability-annotations).
+
 ## Kotlin/JS compiler options
 
 The Kotlin compiler for JS compiles Kotlin source files into JavaScript code. 
