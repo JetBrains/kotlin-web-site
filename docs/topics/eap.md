@@ -1,8 +1,8 @@
 [//]: # (title: Participate in the Kotlin Early Access Preview)
 
 <tldr>
-    <!--<p>No preview versions are currently available.</p>-->
-    <p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>
+    <p>No preview versions are currently available.</p>
+    <!--<p>Latest Kotlin EAP release: <strong>%kotlinEapVersion%</strong></p>-->
 </tldr>
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
@@ -45,8 +45,9 @@ In this channel, you can also get notifications about new EAP builds.
 
 ## Build details
 
-<!-- _No preview versions are currently available._ -->
+_No preview versions are currently available._
 
+<!--
  <table>
     <tr>
         <th>Build info</th>
@@ -63,3 +64,4 @@ In this channel, you can also get notifications about new EAP builds.
         </td>
     </tr>
 </table> 
+-->

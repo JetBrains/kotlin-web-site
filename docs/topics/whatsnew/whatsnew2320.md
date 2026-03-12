@@ -10,7 +10,7 @@ The Kotlin 2.3.20 release is out! Here are the main highlights:
 
 * **Gradle**: [Compatibility with Gradle 9.3.0](#compatibility-with-gradle-9-3-0) and [Kotlin/JVM compilation uses BTA by default](#kotlin-jvm-compilation-uses-build-tools-api-by-default)
 * **Maven**: [Simplified setup for Kotlin projects](#simplified-setup-for-kotlin-projects)
-* **Kotlin compiler plugins**: [Lombok is Alpha](#lombok-is-now-alpha) and [improved JPA support in the `kotlin.plugin.jpa` plugin](#improved-jpa-support-in-the-kotlin-plugin-jpa-plugin)
+* **Kotlin compiler plugins**: [Lombok is in Alpha](#lombok-is-now-alpha) and [improved JPA support in the `kotlin.plugin.jpa` plugin](#improved-jpa-support-in-the-kotlin-plugin-jpa-plugin)
 * **Language**: [Support for name-based destructuring declarations](#name-based-destructuring)
 * **Standard library**: [New API for creating immutable copies of `Map.Entry`](#new-api-for-creating-immutable-copies-of-map-entry)
 * **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries)
@@ -75,7 +75,7 @@ You can also opt out of the automatic addition of Kotlin's standard library. For
 
 Note that the property disables all simplified setup features, including the registration of source root paths.
 
-For more information on configuring Kotlin Maven projects, see our [documentation](maven-configure-project.md).
+For more information on configuring Kotlin Maven projects, see [Configure a Maven project](maven-configure-project.md).
 
 </snippet>
 
@@ -85,7 +85,7 @@ For more information on configuring Kotlin Maven projects, see our [documentatio
 The following pre-stable features are available in this release.
 This includes features with [Beta](components-stability.md#stability-levels-explained), [Alpha](components-stability.md#stability-levels-explained), and [Experimental](components-stability.md#stability-levels-explained) status:
 
-* [Compiler: Lombok is now Alpha](#lombok-is-now-alpha)
+* [Compiler: Lombok is now in Alpha](#lombok-is-now-alpha)
 * [Language: Name-based destructuring](#name-based-destructuring)
 * [Standard library: New API for creating immutable copies of `Map.Entry`](#new-api-for-creating-immutable-copies-of-map-entry)
 * [Kotlin/Native: New interoperability mode for C or Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries)
@@ -94,7 +94,7 @@ This includes features with [Beta](components-stability.md#stability-levels-expl
 
 <var name="id3" value="lombok-is-now-alpha"/>
 
-### Lombok is now Alpha {id="%id3%"}
+### Lombok is now in Alpha {id="%id3%"}
 <primary-label ref="alpha"/>
 <secondary-label ref="compiler"/>
 
@@ -516,13 +516,13 @@ For more information on supported targets and hosts, see the [Kotlin/Native docu
 ### New DSL for disabling compilation cache
 <secondary-label ref="native"/>
 
-Kotlin 2.3.20 comes with a new DSL for disabling compilation cache in Kotlin/Native projects.
-It's intended to make the decision of disabling cache more considered and explicit.
+Kotlin 2.3.20 comes with a new DSL for disabling the compilation cache in Kotlin/Native projects.
+It's intended to make the decision of disabling the cache more considered and explicit.
 
-Since disabling cache makes Kotlin/Native builds significantly slower, it should be used only temporarily and in exceptional cases.
-That's why disabling cache is now tied to a specific Kotlin version and must include a reason, which acts as documentation.
+Since disabling the cache makes Kotlin/Native builds significantly slower, it should be used only temporarily and in exceptional cases.
+That's why disabling the cache is now tied to a specific Kotlin version and must include a reason, which acts as documentation.
 
-If you do need to disable compilation cache in your project, update the `binaries {}` block in your Gradle build file as follows:
+If you do need to disable the compilation cache in your project, update the `binaries {}` block in your Gradle build file as follows:
 
 ```kotlin
 kotlin {
@@ -551,7 +551,7 @@ kotlin {
 * `reason` (mandatory) − the reason why the compilation cache is disabled.
 * `issue` (optional) − a URL to the corresponding issue in your bug tracker.
 
-The new DSL replaces the deprecated `kotlin.native.cacheKind` Gradle property; you can safely remove it from your `gradle.properties` file.
+The new DSL replaces the deprecated `kotlin.native.cacheKind` Gradle property. You can safely remove it from your `gradle.properties` file.
 
 For more tips on improving compilation times, see the [Kotlin/Native documentation](native-improving-compilation-time.md).
 
@@ -584,8 +584,9 @@ It results in:
 <secondary-label ref="wasm"/>
 
 Kotlin 2.3.20 adds compiler optimizations that significantly reduce memory consumption during compilation, especially in large projects.
-
 These optimizations also improve incremental build performance.
+
+In our testing, we observed a 65% improvement in full build times and a 21% improvement in incremental builds.
 
 ### Support for `@nativeInvoke` annotation
 <primary-label ref="experimental-opt-in"/>
@@ -674,7 +675,6 @@ interface Logger {
 // TypeScript
 import { Logger, acceptLogger } from "my-kmp-library"
 
-
 class ConsoleLogger implements Logger {
     readonly [Logger.Symbol] = true
 
@@ -684,13 +684,11 @@ class ConsoleLogger implements Logger {
         return Logger.DefaultImpls.log(this);
     }
 
-
     // Delegates to the default property implementation
     get prefix(): string {
         return Logger.DefaultImpls.prefix.get(this);
     }
 }
-
 
 acceptLogger(new ConsoleLogger())
 ```
@@ -721,7 +719,7 @@ Starting with Kotlin 2.3.20, Kotlin/JS supports the [SWC](https://swc.rs/) compi
 It helps transpile newer versions of JavaScript/TypeScript code into older and more compatible JavaScript code.
 
 Delegating code conversion to an external tool allows us to reduce the number of variants produced by the Kotlin/JS compiler and speed up compiler modernization, only focusing on supporting the latest JavaScript features.
-Currently, the latest supported Ecma version is still `es2015`.
+Currently, the latest supported ECMAScript version is still `es2015`.
 
 Additionally, delegating the transpilation work lets us improve the [inlined JavaScript](js-interop.md#inline-javascript) feature.
 Currently, it only supports ES5 syntax (this will change in 2.4.0).
@@ -804,9 +802,7 @@ Each build operation is an implementation of the [`BuildOperation`](https://gith
 
 You can now cancel build operations that implement the [`CancellableBuildOperation`](https://github.com/JetBrains/kotlin/blob/master/compiler/build-tools/kotlin-build-tools-api/src/main/kotlin/org/jetbrains/kotlin/buildtools/api/BuildOperation.kt#L94) interface with the [`cancel()`](https://github.com/JetBrains/kotlin/blob/master/compiler/build-tools/kotlin-build-tools-api/src/main/kotlin/org/jetbrains/kotlin/buildtools/api/BuildOperation.kt#L108) function.
 
-> The `cancel()` function works on a "best effort" basis. This means the operation isn't guaranteed to be canceled.
->
-{style="note"}
+The `cancel()` function works on a "best effort" basis. This means the operation isn't guaranteed to be canceled.
 
 For example:
 
@@ -818,7 +814,7 @@ toolchains.createBuildSession().use {
         it.executeOperation(operation.build())
     } catch (e: OperationCancelledException) {
         println("Build operation has been cancelled.")
-   }
+    }
 }
 
 // ...
@@ -838,11 +834,11 @@ For example:
 fun prepareBuildOperation(toolchains: KotlinToolchains, sources: List<Path>, destination: Path): JvmCompilationOperation {
     val builder = toolchains.jvm.jvmCompilationOperationBuilder(sources, destination)
 
-    // configure the operation using the builder
+    // Configure the operation using the builder
     builder.compilerArguments[CommonToolArguments.VERBOSE] = true
     builder[COMPILER_ARGUMENTS_LOG_LEVEL] = CompilerArgumentsLogLevel.ERROR
 
-    // return an immutable operation
+    // Return an immutable operation
     return builder.build()
 }
 ```
@@ -850,7 +846,7 @@ fun prepareBuildOperation(toolchains: KotlinToolchains, sources: List<Path>, des
 ### Consistent metric collection across build tools
 
 Before Kotlin 2.3.20, the build metrics infrastructure was centered around Gradle, which influenced parts of the infrastructure, like metric names.
-In addition, not all metrics were available for different [compiler execution strategies](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy).
+In addition, not all metrics were available for different [compiler execution strategies](compiler-execution-strategy.md).
 
 In Kotlin 2.3.20, the BTA provides build-tool-agnostic metric collection for the JVM.
 The BTA also introduces a consistent set of metrics, regardless of the compiler execution strategy.
@@ -914,7 +910,7 @@ operation.compilerArguments[COMPILER_PLUGINS] = listOf(
 
 This section highlights important breaking changes and deprecations. For more information about deprecations in Kotlin 2.3.0 and 2.3.20, see the [Compatibility guide](compatibility-guide-23.md).
 
-* In Kotlin 2.3.20, Kotlin/Wasm performs module initialization as part of the Wasm module's instantiation, instead of relying on external JS to call an `_initialize()` function afterward.
+* In Kotlin 2.3.20, Kotlin/Wasm performs module initialization as part of the Wasm module's instantiation, instead of relying on external JavaScript to call an `_initialize()` function afterward.
   This change makes Kotlin/Wasm more independent and prepares it for the [ES module integration proposal](https://github.com/WebAssembly/esm-integration).
 
   If you use the [`@EagerInitialization`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-eager-initialization/) annotation, related code may fail if it runs before module initialization completes. We recommend avoiding using the `@EagerInitialization` annotation unless you truly need it.
@@ -922,7 +918,7 @@ This section highlights important breaking changes and deprecations. For more in
 * This release takes the next step in the [deprecation cycle for Intel chip-based Apple targets](whatsnew2220.md#deprecation-of-x86-64-apple-targets). Starting with Kotlin 2.3.20, we deprecate the `macosX64`, `tvosX64`, and `watchosX64` targets. We plan to completely remove support for these targets in the next Kotlin release.
 
   Because many third-party libraries still rely on the `iosX64` target, we'll keep it in support tier 3 for now. This means we don't guarantee CI testing, and we may not provide source and binary compatibility between different compiler releases. For more information about support tiers, see [Kotlin/Native target support](native-target-support.md).
-* In Kotlin 2.3.20, stricter dependency matching in Kotlin Multiplatform can cause metadata compilation failures when dependency resolution differs between common and platform source sets. See [KT-84533](https://youtrack.jetbrains.com/issue/KT-84533#tldr-workaround) for details and a workaround.
+* In Kotlin 2.3.20, stricter dependency matching in Kotlin Multiplatform can cause metadata compilation failures when dependency resolution differs between common and platform source sets. See the issue in [YouTrack](https://youtrack.jetbrains.com/issue/KT-84533#tldr-workaround) for details and a workaround.
 
 ## Documentation updates
 
@@ -937,3 +933,5 @@ We made the following documentation changes in the Kotlin ecosystem:
 * [Custom compiler plugins](custom-compiler-plugins.md) – Learn how compiler plugins work and what you can do if you can't find one that fits your use case.
 * [Application structure](https://ktor.io/docs/server-application-structure.html) – Choose the best application structure for your Ktor Server app.
 * [HTTP request lifecycle](https://ktor.io/docs/server-http-request-lifecycle.html) – Learn how to cancel request processing in Ktor when a client disconnects using the HTTP request lifecycle.
+* [Dependency injection](https://ktor.io/docs/server-dependency-injection.html) – Learn how to configure dependency injection in Ktor Server, with updated guidance and practical examples.
+* [Exposed’s Spring Boot integration](https://www.jetbrains.com/help/exposed/spring-boot-integration.html#requirements) – Learn how to use Exposed with Spring Boot 3 and 4.
