@@ -1,5 +1,7 @@
 [//]: # (title: Kotlin compiler options)
 
+<show-structure depth="1"/>
+
 Each release of Kotlin includes compilers for the supported targets: 
 JVM, JavaScript, and native binaries for [supported platforms](native-overview.md#target-platforms).
 
@@ -592,5 +594,5 @@ Set the hardware target. To see the list of available targets, use the [`-list-t
 ### -Xccall-mode
 <primary-label ref="experimental-general"/>
 
-Enable the [new interoperability mode](whatsnew2320.md##native-new-interoperability-mode-for-c-or-objective-c-libraries)
+Enable the [new interoperability mode](whatsnew2320.md#new-interoperability-mode-for-c-or-objective-c-libraries)
 for C or Objective-C libraries imported via cinterop.
