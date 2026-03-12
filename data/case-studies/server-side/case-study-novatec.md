@@ -6,7 +6,7 @@ country: "Germany"
 size: "250+"
 industry: "IT consulting and agile software development"
 ---
-# About Novatec
+## About Novatec
 Novatec is an owner-managed, medium-sized IT company that has led customers into the digital future for the last 25 years. This starts with a requirements analysis, proceeds to architectural and process recommendations, and continues above and beyond to the agile software development phase.
 Their target customers are from the insurance, finance, manufacturing, automotive, and energy sectors. Together with them, Novatec explores how they can use BPM, IoT, robot-controlled process automation, mixed and augmented reality, and other innovations to improve processes and develop new products.
 

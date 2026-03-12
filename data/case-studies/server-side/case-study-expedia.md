@@ -33,7 +33,7 @@ Expedia adopted Kotlin because of its [null-safety](https://kotlinlang.org/docs/
 
 Over time, the [graphql-kotlin](https://github.com/ExpediaGroup/graphql-kotlin) libraries grew to provide additional functionality, including a Spring Boot autoconfiguration library that eliminates all the boilerplate code needed to configure and run a GraphQL server. As a result, developers can simply write functions that return data classes, and the graphql-kotlin libraries will automatically convert them to a valid GraphQL schema and start a reactive Spring Boot web application.
 
-At KotlinConf 2019, Dariusz Kuc and Guillaume Scheibel talked about how to utilize the power of Spring Boot together with [graphql-kotlin](https://expediagroup.github.io/graphql-kotlin/docs/getting-started.html). Watch the video:
+At KotlinConf 2019, Dariusz Kuc and Guillaume Scheibel talked about how to utilize the power of Spring Boot together with [graphql-kotlin](https://opensource.expediagroup.com/graphql-kotlin/docs/blogs-and-videos/). Watch the video:
 
 <YoutubePlayer id="7YJyPXjLdug" />
 
