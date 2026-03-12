@@ -590,7 +590,7 @@ It results in:
 Kotlin 2.3.20 adds compiler optimizations that significantly reduce memory consumption during compilation, especially in large projects.
 These optimizations also improve incremental build performance.
 
-In our testing, we observed a 65% improvement in full build times and a 21% improvement in incremental build times.
+In our testing, we observed a 65% improvement in clean build times and a 21% improvement in incremental build times.
 
 ### Support for `@nativeInvoke` annotation
 <primary-label ref="experimental-opt-in"/>
