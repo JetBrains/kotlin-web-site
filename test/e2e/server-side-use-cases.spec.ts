@@ -55,7 +55,7 @@ test.describe('Server-Side landing page', async () => {
         await expect(serverSidePage.heroCaseStudiesLink).toBeVisible();
         await serverSidePage.heroCaseStudiesLink.click();
 
-        expect(page.url()).toContain('/lp/server-side/case-studies/');
+        expect(page.url()).toContain('/case-studies/?type=server-side');
     });
 
     test('Server-side: check Ktor get started link', async ({ page }) => {
@@ -66,7 +66,7 @@ test.describe('Server-Side landing page', async () => {
         await expect(serverSidePage.ktorGetStartedLink).toBeVisible();
         await serverSidePage.ktorGetStartedLink.click();
 
-        // the url is hardcoded due to reditect
+        // the url is hardcoded due to redirect
         const ktorGetStartedLinkURL = 'https://ktor.io/docs/welcome.html';
 
         await page.waitForURL(url => url.toString().includes(ktorGetStartedLinkURL));
@@ -109,11 +109,18 @@ test.describe('Server-Side landing page', async () => {
 
                 await newPage.waitForLoadState();
 
-                const originalDomain = new URL(customerLinkURL).hostname;
+                // Handle both relative and absolute URLs
+                const baseURL = 'https://kotlinlang.org';
+                const fullURL = customerLinkURL.startsWith('http')
+                    ? customerLinkURL
+                    : new URL(customerLinkURL, baseURL).toString();
+
+                const originalDomain = new URL(fullURL).hostname;
                 const finalDomain = new URL(newPage.url()).hostname;
 
                 if (originalDomain === finalDomain) {
-                    expect(newPage.url()).toContain(customerLinkURL);
+                    const expectedPath = new URL(fullURL).pathname;
+                    expect(newPage.url()).toContain(expectedPath);
                 }
 
                 await newPage.close();
