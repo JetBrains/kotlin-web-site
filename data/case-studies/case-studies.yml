@@ -253,7 +253,7 @@ items:
     platforms:
       - android
       - ios
-    link: /case-studies/cash-app
+    link: /case-studies/cash-app/
   #------------------------------------------------------------------------
   - id: posten-bring
     type: multiplatform
@@ -309,7 +309,7 @@ items:
       - android
       - ios
       - desktop
-    link: /case-studies/autodesk
+    link: /case-studies/autodesk/
   #------------------------------------------------------------------------
   - id: feres
     type: multiplatform
@@ -338,7 +338,7 @@ items:
     platforms:
       - android
       - ios
-    link: /case-studies/baidu
+    link: /case-studies/baidu/
   #------------------------------------------------------------------------
   - id: prezzee
     type: multiplatform
@@ -448,7 +448,7 @@ items:
       - ios
       - frontend
       - backend
-    link: /case-studies/down-dog
+    link: /case-studies/down-dog/
     media:
       type: image
       path: /images/case-studies/down-dog-card-preview.png
@@ -619,7 +619,7 @@ items:
       - android
       - ios
       - frontend
-    link: /case-studies/mirego
+    link: /case-studies/mirego/
   #------------------------------------------------------------------------
   - id: wolt
     type: server-side
@@ -660,7 +660,7 @@ items:
     platforms:
       - android
       - ios
-    link: /case-studies/fastwork
+    link: /case-studies/fastwork/
   #------------------------------------------------------------------------
   - id: memrise
     type: multiplatform
@@ -770,7 +770,7 @@ items:
       - /images/case-studies/novatec-logo.svg
     carousel:
       logo: /images/case-studies/carousel/novatec.svg
-    link: /case-studies/novatec
+    link: /case-studies/novatec/
   #------------------------------------------------------------------------
   - id: fairef
     type: server-side
@@ -780,7 +780,7 @@ items:
       - /images/case-studies/faire-logo.svg
     carousel:
       logo: /images/case-studies/carousel/faire.svg
-    link: /case-studies/faire
+    link: /case-studies/faire/
   #------------------------------------------------------------------------
   - id: doordash
     type: server-side
@@ -789,7 +789,7 @@ items:
     logo:
       - /images/case-studies/doordash-logo.svg
     carousel: true
-    link: /case-studies/doordash
+    link: /case-studies/doordash/
   #------------------------------------------------------------------------
   - id: adobe
     type: server-side
@@ -833,7 +833,7 @@ items:
     logo:
       - /images/case-studies/expedia-logo.svg
     carousel: true
-    link: /case-studies/expedia
+    link: /case-studies/expedia/
   #------------------------------------------------------------------------
   - id: ing
     type: server-side
@@ -956,7 +956,7 @@ items:
       - /images/case-studies/corda-logo.svg
     carousel: true
     isExternal: true
-    link: https://kotlin.link/articles/corda-kotlin.html
+    link: https://kotlin.link/articles/Corda-Kotlin.html
   #------------------------------------------------------------------------
   - id: pincode
     type: multiplatform
