@@ -956,7 +956,7 @@ items:
       - /images/case-studies/corda-logo.svg
     carousel: true
     isExternal: true
-    link: https://www.corda.net/blog/kotlin/
+    link: https://kotlin.link/articles/corda-kotlin.html
   #------------------------------------------------------------------------
   - id: pincode
     type: multiplatform
