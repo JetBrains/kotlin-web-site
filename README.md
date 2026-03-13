@@ -264,7 +264,7 @@ To run these tests locally, follow the next steps:
 2. Open the last successful build of [Reference Docs](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildReferenceDocs?branch=&mode=builds#all-projects) on TeamCity.
 3. Download the artifacts of this build and place them in the `dist` folder.
 4. Run the tests locally with the following command `yarn run test:e2e`
-5. Run the tests in docker container with the following command `docker compose -f docker-compose-e2e-statics.yml up --build  --exit-code-from playwright`
+5. Run the tests in docker container with the following command `docker compose -f docker-compose-e2e.yml up --build  --exit-code-from playwright`
 
 ## API references tests
 
