@@ -78,7 +78,7 @@ const kotlinUsageHighlightsCases = [
     },
     {
         company: 'Adobe',
-        url: 'https://blog.developer.adobe.com/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a',
+        url: 'https://medium.com/adobetech/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a',
         text: 'Adobe Experience Platform chose Kotlin for server-side development because of its concise syntax, async capabilities, and interoperability with Java. This shift boosted productivity and improved the developer experience, replacing Java for real-time services.',
         tag: 'Server-side',
         logo: AdobeLogo
