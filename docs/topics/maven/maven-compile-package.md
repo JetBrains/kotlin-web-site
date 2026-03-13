@@ -25,7 +25,7 @@ Ensure that the Kotlin Maven plugin is applied with the `extensions` option set 
            <groupId>org.jetbrains.kotlin</groupId>
            <artifactId>kotlin-maven-plugin</artifactId>
            <version>%kotlinVersion%</version>
-           <extensions>true</extensions> <!-- Enable the extension  -->
+           <extensions>true</extensions> <!-- Enable the extension -->
        </plugin>
    </plugins>
 </build>
@@ -34,14 +34,14 @@ Ensure that the Kotlin Maven plugin is applied with the `extensions` option set 
 Enabling the extension automatically:
 
 * Adds `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
-* Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots in case they already exist but are not specified in the plugin configuration.
-* Adds the [`kotlin-stdlib` dependency](maven-configure-project.md#dependency-on-the-standard-library) in case it's not already defined in the project.
+* Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots if they already exist but are not specified in the plugin configuration.
+* Adds the [`kotlin-stdlib` dependency](maven-configure-project.md#dependency-on-the-standard-library) if it's not already defined in the project.
 
-The extension configuration replaces the whole `<executions>` section. If you do need to configure an execution,
-see an example in the [next section](#compile-kotlin-and-java-sources).
+The extension configuration replaces the whole `<executions>` section. If you need to configure an execution,
+see an example in [Compile Kotlin-only sources](#compile-kotlin-and-java-sources).
 
 > If several build plugins overwrite the default lifecycle, and you have also enabled the `extensions` option, the last plugin in
-> the `<build>` section has priority in terms of lifecycle settings. All earlier changes to lifecycle settings are ignored.
+> the `<build>` section has priority for lifecycle settings. All earlier changes to lifecycle settings are ignored.
 >
 {style="note"}
 
