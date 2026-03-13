@@ -6,8 +6,8 @@ On this page, you can learn about the following topics:
 * [Gradle configuration cache support](#gradle-configuration-cache-support)
 * [The Kotlin daemon and how to use it with Gradle](#the-kotlin-daemon-and-how-to-use-it-with-gradle)
 * [Rolling back to the previous compiler](#rolling-back-to-the-previous-compiler)
-* [Defining Kotlin compiler execution strategy](#defining-kotlin-compiler-execution-strategy)
-* [Kotlin compiler fallback strategy](#kotlin-compiler-fallback-strategy)
+* [Defining Kotlin compiler execution strategy](compiler-execution-strategy.md)
+* [Kotlin compiler fallback strategy](compiler-execution-strategy.md#fallback-strategy)
 * [Trying the latest language version](#trying-the-latest-language-version)
 * [Build reports](#build-reports)
 
