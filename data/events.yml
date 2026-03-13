@@ -1,3 +1,11 @@
+- lang: fr
+  startDate: '2026-03-29'
+  endDate: '2026-03-29'
+  online: true
+  speaker: 'TBD'
+  title: 'Kotlin workshop'
+  subject: 'An informal gathering for Kotlin Enthusiasts.'
+  url: https://discord.gg/2WQHjQaS?event=1480562583613214750
 - lang: en
   startDate: '2026-10-15'
   endDate: '2026-10-16'
