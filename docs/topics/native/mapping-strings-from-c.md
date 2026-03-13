@@ -228,11 +228,11 @@ fun main() {
 }
 ```
 
-To verify that everything works as expected, run the `runDebugExecutableNative` Gradle task [in your IDE](native-get-started.md)
-or use the following command to run the code:
+To verify that everything works as expected, run the `runDebugExecutable<YourTargetName>` Gradle task [in your IDE](native-get-started.md#build-and-run-the-application)
+or use the command line, for example:
 
 ```bash
-./gradlew runDebugExecutableNative
+./gradlew runDebugExecutableMacosArm64
 ```
 
 ## What's next
