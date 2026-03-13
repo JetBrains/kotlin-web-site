@@ -44,8 +44,8 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
        </plugin>
    </plugins>
    ```
-   
-   Enabling the `extensions` option automatically:
+
+   The `extensions` option in the Kotlin Maven plugin automatically:
 
    * Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots if they already exist but are not specified in the plugin configuration.
    * Adds the [`kotlin-stdlib` dependency](#dependency-on-the-standard-library) if it's not already defined in the project.
@@ -95,7 +95,7 @@ To add a dependency on a library, include it in the `<dependencies>` section:
 ### Dependency on the standard library
 
 Kotlin has an extensive standard library that you can use in your applications. You can add the standard library
-dependency manually or enable the [`extensions` option](#extension) to add it automatically if it's missing.
+dependency manually or enable the [`extensions` option](#extension) to set it up automatically if it's missing.
 
 #### Manual configuration
 

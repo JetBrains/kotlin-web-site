@@ -31,7 +31,7 @@ Ensure that the Kotlin Maven plugin is applied with the `extensions` option set 
 </build>
 ```
 
-Enabling the extension automatically:
+The `extensions` option in the Kotlin Maven plugin automatically:
 
 * Adds `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
 * Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots if they already exist but are not specified in the plugin configuration.
@@ -106,7 +106,7 @@ To control the execution order:
 
 * Declare `kotlin-maven-plugin` before `maven-compiler-plugin`.
 * Disable the Java compiler plugin's default executions.
-* Add custom executions to control the compile phases explicitly.
+* Add custom executions to control compile phases explicitly.
 
 > You can use the special `none` phase in Maven to disable a default execution.
 >
