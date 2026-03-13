@@ -80,7 +80,7 @@ plans to address this in future Kotlin releases.
 
 ### Enable incremental compilation with "in process" strategy
 
-The KGP supports three [compiler execution strategies](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy).
+The KGP supports three [compiler execution strategies](compiler-execution-strategy.md).
 Ordinarily, the "in-process" strategy (which runs the compiler in the Gradle daemon) doesn't support incremental compilation.
 
 With the BTA, the "in-process" strategy now supports incremental compilation. To enable it, add the following property to
