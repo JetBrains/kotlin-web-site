@@ -704,7 +704,7 @@ items:
 
       Kotlin Multiplatform is used by over 20,000 companies worldwide, including industry leaders across various sectors such as finance, e-commerce, social media, and more.
     linkText: Explore the stories
-    link: https://www.jetbrains.com/help/kotlin-multiplatform-dev/use-cases-examples.html
+    link: /docs/multiplatform/use-cases-examples.html
     linkStyle: button
   #------------------------------------------------------------------------
   - id: google-server-side
