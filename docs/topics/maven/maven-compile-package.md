@@ -11,7 +11,42 @@ of [Kotlin and Java sources](#compile-kotlin-and-java-sources).
 
 ### Compile Kotlin-only sources
 
-To compile your Kotlin source code:
+You can simplify the configuration of Kotlin compilation using `extensions`:
+
+<tabs group="kotlin-java-maven">
+<tab title="With extensions" group-key="with-extensions">
+
+Ensure that the Kotlin Maven plugin is applied with the `extensions` option set to `true`:
+
+```xml
+<build>
+   <plugins>
+       <plugin>
+           <groupId>org.jetbrains.kotlin</groupId>
+           <artifactId>kotlin-maven-plugin</artifactId>
+           <version>%kotlinVersion%</version>
+           <extensions>true</extensions> <!-- Enable the extension -->
+       </plugin>
+   </plugins>
+</build>
+```
+
+The `extensions` option in the Kotlin Maven plugin automatically:
+
+* Adds `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
+* Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots if they already exist but are not specified in the plugin configuration.
+* Adds the [`kotlin-stdlib` dependency](maven-configure-project.md#dependency-on-the-standard-library) if it's not already defined in the project.
+
+The extension configuration replaces the whole `<executions>` section. If you need to configure an execution,
+see an example in [Compile Kotlin-only sources](#compile-kotlin-and-java-sources).
+
+> If several build plugins overwrite the default lifecycle, and you have also enabled the `extensions` option, the last plugin in
+> the `<build>` section has priority for lifecycle settings. All earlier changes to lifecycle settings are ignored.
+>
+{style="note"}
+
+</tab>
+<tab title="Without extensions" group-key="no-extensions">
 
 1. Specify the source directories in the `<build>` section:
 
@@ -31,7 +66,6 @@ To compile your Kotlin source code:
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
-    
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -39,7 +73,6 @@ To compile your Kotlin source code:
                             <goal>compile</goal>
                         </goals>
                     </execution>
-    
                     <execution>
                         <id>test-compile</id>
                         <goals>
@@ -52,15 +85,8 @@ To compile your Kotlin source code:
     </build>
     ```
 
-You can replace the whole `<executions>` section above with `<extensions>true</extensions>`.
-Enabling extensions automatically adds the `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build,
-bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
-If you need to configure an execution, you need to specify its ID. You can find an example of this in the next section.
-
-> If several build plugins overwrite the default lifecycle and you have also enabled the `extensions` option, the last plugin in
-> the `<build>` section has priority in terms of lifecycle settings. All earlier changes to lifecycle settings are ignored.
->
-{style="note"}
+</tab>
+</tabs>
 
 <!-- The following header is used in the Mari link service. If you wish to change it here, change the link there too -->
 
@@ -80,7 +106,7 @@ To control the execution order:
 
 * Declare `kotlin-maven-plugin` before `maven-compiler-plugin`.
 * Disable the Java compiler plugin's default executions.
-* Add custom executions to control the compile phases explicitly.
+* Add custom executions to control compile phases explicitly.
 
 > You can use the special `none` phase in Maven to disable a default execution.
 >
@@ -101,45 +127,11 @@ It allows skipping the Maven compiler plugin configuration:
             <artifactId>kotlin-maven-plugin</artifactId>
             <version>${kotlin.version}</version>
             <extensions>true</extensions>
-            <executions>
-                <execution>
-                    <id>default-compile</id>
-                    <phase>compile</phase>
-                    <configuration>
-                        <sourceDirs>
-                            <sourceDir>src/main/kotlin</sourceDir>
-                            <!-- Ensure Kotlin code can reference Java code -->
-                            <sourceDir>src/main/java</sourceDir>
-                        </sourceDirs>
-                    </configuration>
-                </execution>
-                <execution>
-                    <id>default-test-compile</id>
-                    <phase>test-compile</phase>
-                    <configuration>
-                        <sourceDirs>
-                            <sourceDir>src/test/kotlin</sourceDir>
-                            <sourceDir>src/test/java</sourceDir>
-                        </sourceDirs>
-                    </configuration>
-                </execution>
-            </executions>
         </plugin>
         <!-- No need to configure Maven compiler plugin with extensions -->
     </plugins>
 </build>
 ```
-
-If your project previously had a Kotlin-only configuration, you also need to remove the following lines from the `<build>` section:
-
-```xml
-<build>
-    <sourceDirectory>src/main/kotlin</sourceDirectory>
-    <testSourceDirectory>src/test/kotlin</testSourceDirectory>
-</build>
-```
-
-It ensures that both Kotlin code can reference Java code and vice versa with the `extensions` setup.
 
 </tab>
 <tab title="Without extensions" group-key="no-extensions">
@@ -300,17 +292,17 @@ The following attributes are supported:
 
 #### Attributes specific to JVM
 
-| Name              | Property name                   | Description                                                                                          | Possible values                                         | Default value               |
-|-------------------|---------------------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------|-----------------------------|
-| `nowarn`          |                                 | Generate no warnings                                                                                 | true, false                                             | false                       |
-| `languageVersion` | kotlin.compiler.languageVersion | Provide source compatibility with the specified version of Kotlin                                    | "1.9", "2.0", "2.1", "2.2", "2.3", "2.4" (EXPERIMENTAL) |                             |
-| `apiVersion`      | kotlin.compiler.apiVersion      | Allow using declarations only from the specified version of bundled libraries                        | "1.9", "2.0", "2.1", "2.2", "2.3", "2.4" (EXPERIMENTAL) |                             |
-| `sourceDirs`      |                                 | The directories containing the source files to compile                                               |                                                         | The project source roots    |
-| `compilerPlugins` |                                 | Enabled compiler plugins                                                                             |                                                         | []                          |
-| `pluginOptions`   |                                 | Options for compiler plugins                                                                         |                                                         | []                          |
-| `args`            |                                 | Additional compiler arguments                                                                        |                                                         | []                          |
-| `jvmTarget`       | `kotlin.compiler.jvmTarget`     | Target version of the generated JVM bytecode                                                         | "1.8", "9", "10", ..., "25"                             | "%defaultJvmTargetVersion%" |
-| `jdkHome`         | `kotlin.compiler.jdkHome`       | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |                                                         |                             |
+| Name              | Property name                     | Description                                                                                          | Possible values                                         | Default value               |
+|-------------------|-----------------------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------|-----------------------------|
+| `nowarn`          |                                   | Generate no warnings                                                                                 | true, false                                             | false                       |
+| `languageVersion` | `kotlin.compiler.languageVersion` | Provide source compatibility with the specified version of Kotlin                                    | "1.9", "2.0", "2.1", "2.2", "2.3", "2.4" (EXPERIMENTAL) |                             |
+| `apiVersion`      | `kotlin.compiler.apiVersion`      | Allow using declarations only from the specified version of bundled libraries                        | "1.9", "2.0", "2.1", "2.2", "2.3", "2.4" (EXPERIMENTAL) |                             |
+| `sourceDirs`      |                                   | The directories containing the source files to compile                                               |                                                         | The project source roots    |
+| `compilerPlugins` |                                   | Enabled compiler plugins                                                                             |                                                         | []                          |
+| `pluginOptions`   |                                   | Options for compiler plugins                                                                         |                                                         | []                          |
+| `args`            |                                   | Additional compiler arguments                                                                        |                                                         | []                          |
+| `jvmTarget`       | `kotlin.compiler.jvmTarget`       | Target version of the generated JVM bytecode                                                         | "1.8", "9", "10", ..., "25"                             | "%defaultJvmTargetVersion%" |
+| `jdkHome`         | `kotlin.compiler.jdkHome`         | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |                                                         |                             |
 
 ## Package your project
 
