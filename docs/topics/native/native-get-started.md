@@ -60,15 +60,15 @@ Open the `Main.kt` file in the `src/nativeMain/kotlin/` directory:
 
 Press the green icon in the gutter to run the code:
 
-![Run the application](native-run-gutter.png){width=478}
+![Run the application](native-run-gutter.png){width=450}
 
 IntelliJ IDEA runs the code using the Gradle task and outputs the result in the **Run** tab:
 
-![Application output](native-output-gutter-1.png){width=331}
+![Application output](native-output-gutter-1.png){width=450}
 
 After the first run, the IDE creates the corresponding run configuration at the top:
 
-![Gradle run configuration](native-run-config.png){width=503}
+![Gradle run configuration](native-run-config.png){width=500}
 
 > IntelliJ IDEA Ultimate users can install
 > the [Native Debugging Support](https://plugins.jetbrains.com/plugin/12775-native-debugging-support)
@@ -106,7 +106,7 @@ Let's add a feature to your application so it can count the number of letters in
    ```kotlin
    kotlin {
        //...
-       nativeTarget.apply {
+       targets.withType<KotlinNativeTarget>().configureEach {
            binaries {
                executable {
                    entryPoint = "main"
@@ -142,7 +142,7 @@ Let's add a feature to your application so it can count the number of letters in
 4. Run the application.
 5. Enter your name and enjoy the result:
 
-   ![Application output](native-output-gutter-2.png){width=422}
+   ![Application output](native-output-gutter-2.png){width=500}
 
 Now let's count only the unique letters in your name:
 
@@ -179,7 +179,7 @@ Now let's count only the unique letters in your name:
 3. Run the application.
 4. Enter your name and see the result:
 
-   ![Application output](native-output-gutter-3.png){width=422}
+   ![Application output](native-output-gutter-3.png){width=500}
 
 ## Using Gradle
 
@@ -207,6 +207,8 @@ You can change the source for the main bundle download in the `repositories {}` 
 
    ```kotlin
    // build.gradle.kts
+   import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
    plugins {
        kotlin("multiplatform") version "%kotlinVersion%"
    }
@@ -218,9 +220,11 @@ You can change the source for the main bundle download in the `repositories {}` 
    }
 
    kotlin {
-       macosArm64("native") {  // on macOS
-       // linuxArm64("native") // on Linux
-       // mingwX64("native")   // on Windows
+       macosArm64()    // on macOS
+       // linuxArm64() // on Linux
+       // mingwX64()   // on Windows
+   
+       targets.withType<KotlinNativeTarget>().configureEach {
            binaries {
                executable()
            }
@@ -238,6 +242,8 @@ You can change the source for the main bundle download in the `repositories {}` 
 
    ```groovy
    // build.gradle
+   import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
    plugins {
        id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
    }
@@ -249,9 +255,11 @@ You can change the source for the main bundle download in the `repositories {}` 
    }
 
    kotlin {
-       macosArm64('native') {  // on macOS
-       // linuxArm64('native') // on Linux
-       // mingwX64('native')   // on Windows
+       macosArm64()    // on macOS
+       // linuxArm64() // on Linux
+       // mingwX64()   // on Windows
+   
+       targets.withType(KotlinNativeTarget).configureEach {
            binaries {
                executable()
            }
@@ -269,8 +277,7 @@ You can change the source for the main bundle download in the `repositories {}` 
 
    You can use different [target names](native-target-support.md), such as `macosArm64`, `iosArm64` `linuxArm64`,
    and `mingwX64` to define the targets for which you are compiling your code.
-   These target names can optionally take the platform name as a parameter, which in this case is `native`.
-   The platform name is used to generate the source paths and task names in the project.
+   The target name is used to generate the source paths and task names in the project.
 
 3. Create an empty `settings.gradle(.kts)` file in the project directory.
 4. Create a `src/nativeMain/kotlin` directory and place a `hello.kt` file inside with the following content:
@@ -287,10 +294,10 @@ as specified in the build file.
 
 ### Build and run the project
 
-1. From the root project directory, run the build command:
+1. From the root project directory, run the build command for your target, for example:
 
    ```bash
-   ./gradlew nativeBinaries
+   ./gradlew macosArm64Binaries
    ```
 
    This command creates the `build/bin/native` directory with two directories inside: `debugExecutable` and
@@ -298,10 +305,10 @@ as specified in the build file.
 
    By default, the name of the binary file is the same as the project directory.
 
-2. To run the project, execute the following command:
+2. To run the project, execute the run command for your target, for example:
 
    ```bash
-   build/bin/native/debugExecutable/<project_name>.kexe
+   ./gradlew runDebugExecutableMacosArm64
    ```
 
 The terminal prints "Hello, Kotlin/Native!".
