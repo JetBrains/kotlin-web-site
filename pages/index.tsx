@@ -64,7 +64,7 @@ const kotlinUsageHighlightsCases = [
     },
     {
         company: 'AWS',
-        url: 'https://talkingkotlin.com/qldb/',
+        url: 'https://open.spotify.com/episode/3jtfD8a5vwutOrfHZMqAj1',
         text: 'AWS opted for Kotlin over Java for Amazon Quantum Ledger Database (QLDB) thanks to its expressiveness and structured concurrency. They rewrote QLDB in Kotlin, enhancing the user experience, benefiting from its development workflow, and adopting it fully for server-side development.',
         tag: 'Server-side',
         logo: AWSLogo
