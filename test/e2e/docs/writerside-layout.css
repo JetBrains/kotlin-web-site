@@ -1,0 +1,47 @@
+[data-test="toc"] {
+    background: lavender !important;
+}
+
+[data-test="toc"] > * {
+    visibility: hidden !important;
+}
+
+.kt-header {
+    background: #3c3d40 !important;
+}
+
+.kt-header > * {
+    visibility: hidden !important;
+}
+
+[data-test="footer"] {
+    background: #6B70FC !important;
+}
+
+[data-test="footer"] > * {
+    visibility: hidden !important;
+}
+
+[data-test="virtual-toc"] {
+    background: #CC7832 !important;
+}
+
+[data-test="virtual-toc"] > * {
+    visibility: hidden !important;
+}
+
+[data-test="article"] {
+    background: #d4f1ec !important;
+}
+
+[data-test="article"] > * {
+    visibility: hidden !important;
+}
+
+[data-e2e="toc-subnav"] {
+    background: hotpink !important;
+}
+
+[data-e2e="toc-subnav"] > * {
+    visibility: hidden !important;
+}

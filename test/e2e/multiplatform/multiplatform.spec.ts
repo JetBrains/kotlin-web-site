@@ -1,7 +1,7 @@
 import { expect, Locator, test } from '@playwright/test';
 import { MultiplatformPage } from '../../page/multiplatform-page';
 import { checkAnchor, checkScreenshot } from '../../utils';
-import { checkFullPageScreenshot } from '../utils';
+import { checkFullPageScreenshot } from '../../utils';
 
 test.describe('Multiplatform landing page', async () => {
     let multiplatformPage: MultiplatformPage;
@@ -15,9 +15,7 @@ test.describe('Multiplatform landing page', async () => {
         const { main, page } = multiplatformPage;
 
         await checkFullPageScreenshot(page, {
-            mask: [
-                main.locator('[data-testid*="share-what-chip-content-"]')
-            ]
+            mask: [main.locator('[data-testid*="share-what-chip-content-"]')],
         });
     });
 
@@ -35,7 +33,7 @@ test.describe('Multiplatform landing page', async () => {
         await expect(heroActionButton).toBeVisible();
 
         await checkScreenshot(multiplatformPage.heroBanner, {
-            stylePath: 'test/e2e/hide-sticky-banner.css'
+            stylePath: 'test/e2e/hide-sticky-banner.css',
         });
 
         const href = await heroActionButton.getAttribute('href');
@@ -55,7 +53,7 @@ test.describe('Multiplatform landing page', async () => {
 
         for (const anchor of await anchors.all()) {
             // Check that the "both-logic-ui-tab" chip is selected by default
-            if (await anchor.getAttribute('id') === 'choose-share-what-both-logic-ui-tab') {
+            if ((await anchor.getAttribute('id')) === 'choose-share-what-both-logic-ui-tab') {
                 await anchor.scrollIntoViewIfNeeded();
                 await checkChooseWhatToShare(multiplatformPage, anchor);
                 continue;
@@ -89,7 +87,7 @@ test.describe('Multiplatform landing page', async () => {
         await expect(multiplatformPage.ctaBlockAction).not.toBeEmpty();
 
         await checkScreenshot(multiplatformPage.ctaBlock, {
-            stylePath: 'test/e2e/hide-sticky-banner.css'
+            stylePath: 'test/e2e/hide-sticky-banner.css',
         });
 
         const href = await multiplatformPage.ctaBlockAction.getAttribute('href');
@@ -124,7 +122,7 @@ async function checkChooseWhatToShare({ page, main, shareWhatBlock }: Multiplatf
     await expect(link).not.toBeEmpty();
 
     await checkScreenshot(shareWhatBlock, {
-        stylePath: 'test/e2e/hide-sticky-banner.css'
+        stylePath: 'test/e2e/hide-sticky-banner.css',
     });
 
     // Check that links work as links
