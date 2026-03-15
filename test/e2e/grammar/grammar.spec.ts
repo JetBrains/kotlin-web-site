@@ -1,9 +1,29 @@
 import { expect, test } from '@playwright/test';
-import { GrammarPage } from '../page/grammar-page';
-import { checkScreenshot } from '../utils';
-import { MICRO_ANIMATION_TIMEOUT_LONG } from './visual-constants';
+import { GrammarPage } from './page';
+import { checkScreenshot } from '../../utils';
+import { MICRO_ANIMATION_TIMEOUT_LONG } from '../visual-constants';
 
-test.describe('Grammar page', () => {
+test.describe('Grammar: support', () => {
+    test('Should redirect from .html to clean URL', async ({ page }) => {
+        await page.goto('/docs/reference/grammar.html');
+
+        await expect(page).toHaveURL('/grammar/');
+
+        const redirected = new GrammarPage(page);
+        await expect(redirected.layout).toBeVisible();
+    });
+
+    test('Should redirect from nested URL', async ({ page }) => {
+        await page.goto('/docs/reference/grammar/');
+
+        await expect(page).toHaveURL('/grammar/');
+
+        const redirected = new GrammarPage(page);
+        await expect(redirected.layout).toBeVisible();
+    });
+})
+
+test.describe('Grammar: content', () => {
     let grammar: GrammarPage;
 
     test.beforeEach(async ({ page }) => {
@@ -82,7 +102,7 @@ test.describe('Grammar page', () => {
         const docsLink = grammar.layout.locator('a[href*="packages.html"]').first();
         await expect(docsLink).toBeVisible();
         const docsHref = await docsLink.getAttribute('href');
-        expect(docsHref).toMatch(/^\/docs\/.*packages\.html/);
+        expect(docsHref).toMatch('/docs/reference/packages.html');
     });
 
     test('Should render links with Inline Attribute List (target="_blank")', async () => {
