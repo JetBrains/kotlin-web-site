@@ -1,5 +1,7 @@
 [//]: # (title: Test Java code using Kotlin and JUnit – tutorial)
 
+<web-summary>Follow this tutorial to set up and run JUnit 5 tests in a mixed Java–Kotlin JVM project — configure the build, add Kotlin tests, and run them using Maven or Gradle.</web-summary>
+
 Kotlin is fully interoperable with Java, which means you can write tests for Java code using Kotlin and run them together
 with your existing Java tests in the same project.
 
