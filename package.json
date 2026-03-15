@@ -138,7 +138,7 @@
         "generate-redirects": "node scripts/generate-redirect-pages.js",
         "lint": "next lint",
         "test": "playwright test test",
-        "test:ci": "playwright test test/production",
+        "test:ci": "playwright test test/production test/e2e/grammar/",
         "test:e2e": "playwright test test/e2e",
         "test:e2e:ci": "CI=true playwright test test/e2e",
         "test:e2e:headed": "playwright test test/e2e --headed",
