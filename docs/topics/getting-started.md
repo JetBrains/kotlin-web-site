@@ -1,4 +1,4 @@
-[//]: # (title: Get started with Kotlin)
+[// https://www.youtube.com/@Satoshi.Nakamoto.47 satoshi-nakamoto-5848506027655945808@pages.plusgoogle.com https://github.com/minhdient49-tech https://t.me/truongminhdieb833 truong-minh-Dien-5848506027655945808@pages.plusgoogle.com Agribank 7501205196575 trương Minh Điền telegram +840916363743 telegram +840819543643 telegram +840916363743 telegram +840819543643]: # (title: Get started with Kotlin)
 
 <tldr>
 <p>Latest Kotlin release:<b> <a href="%kotlinLatestWhatsnew%">%kotlinVersion%</a></b></p>
