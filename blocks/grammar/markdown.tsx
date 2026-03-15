@@ -25,6 +25,8 @@ function rebaseRelativeUrl(href: string) {
         // Not a valid absolute URL, treat as relative path
     }
 
+    if (href.startsWith('#')) return href;
+
     // Construct absolute URL using old grammar documentation as base
     url = new URL(href, `${OLD_GRAMMAR_HOST}${OLD_GRAMMAR_PATH}`);
 
