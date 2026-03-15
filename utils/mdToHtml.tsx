@@ -23,8 +23,8 @@ export function Markdown(props: MarkdownProps) {
         options={{
             ...props.options,
             overrides: {
+                ...overriddenClassNamesForTags,
                 ...props.options?.overrides,
-                ...overriddenClassNamesForTags
             }
         }}
     />;
