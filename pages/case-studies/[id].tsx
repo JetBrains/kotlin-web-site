@@ -68,6 +68,7 @@ export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyP
                 topMenuHomeUrl={MULTIPLATFORM_URL}
                 topMenuItems={MULTIPLATFORM_TOP_MENU_ITEMS}
                 topMenuButton={<Button href={MULTIPLATFORM_GET_STARTED_URL}>Get started</Button>}
+                canonical={`https://kotlinlang.org/case-studies/${frontmatter.slug}/`}
                 theme="light"
                 forceDarkTopMenu={true}
                 dataTestId={'multiplatform-case-study'}
@@ -92,6 +93,7 @@ export default function CaseStudy({ content, caseType, frontmatter }: CaseStudyP
             topMenuHomeUrl={SERVER_SIDE_URL}
             topMenuItems={SERVER_SIDE_TOP_MENU_ITEMS}
             topMenuButton={<Button href={'#get-started'}>Get started</Button>}
+            canonical={`https://kotlinlang.org/case-studies/${frontmatter.slug}/`}
             theme="light"
             forceDarkTopMenu={true}
             dataTestId={'server-side-case-study-page'}

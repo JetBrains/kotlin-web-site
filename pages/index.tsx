@@ -64,7 +64,7 @@ const kotlinUsageHighlightsCases = [
     },
     {
         company: 'AWS',
-        url: 'https://talkingkotlin.com/qldb/',
+        url: 'https://open.spotify.com/episode/3jtfD8a5vwutOrfHZMqAj1',
         text: 'AWS opted for Kotlin over Java for Amazon Quantum Ledger Database (QLDB) thanks to its expressiveness and structured concurrency. They rewrote QLDB in Kotlin, enhancing the user experience, benefiting from its development workflow, and adopting it fully for server-side development.',
         tag: 'Server-side',
         logo: AWSLogo
@@ -78,7 +78,7 @@ const kotlinUsageHighlightsCases = [
     },
     {
         company: 'Adobe',
-        url: 'https://blog.developer.adobe.com/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a',
+        url: 'https://medium.com/adobetech/streamlining-server-side-app-development-with-kotlin-be8cf9d8b61a',
         text: 'Adobe Experience Platform chose Kotlin for server-side development because of its concise syntax, async capabilities, and interoperability with Java. This shift boosted productivity and improved the developer experience, replacing Java for real-time services.',
         tag: 'Server-side',
         logo: AdobeLogo

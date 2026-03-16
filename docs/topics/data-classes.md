@@ -13,7 +13,7 @@ The compiler automatically derives the following members from all properties dec
 * `equals()`/`hashCode()` pair.
 * `toString()` of the form `"User(name=John, age=42)"`.
 * [`componentN()` functions](destructuring-declarations.md) corresponding to the properties in their order of declaration.
-* `copy()` function (see below).
+* [`copy()` function](#copying).
 
 To ensure consistency and meaningful behavior of the generated code, data classes have to fulfill the following requirements:
 

@@ -498,8 +498,8 @@ to run the compilation, you can see a message about it in the logs.
 
 The Kotlin compiler's fallback strategy is to run a compilation outside the Kotlin daemon if the daemon somehow fails.
 If the Gradle daemon is on, the compiler uses the "In process" strategy. If the Gradle daemon is off, the compiler uses
-the "Out of process" strategy. Learn more about these
-[execution strategies in the documentation](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy).
+the "Out of process" strategy. For more information, see
+[Compiler execution strategy](compiler-execution-strategy.md).
 Note that silent fallback to another strategy can consume a lot of system resources or lead to non-deterministic builds;
 see this [YouTrack issue](https://youtrack.jetbrains.com/issue/KT-48843/Add-ability-to-disable-Kotlin-daemon-fallback-strategy)
 for more details.
@@ -581,7 +581,7 @@ In Kotlin 1.8.0, the deprecation cycle continues for the following properties an
   By default, [kapt has been using Gradle workers](kapt.md#run-kapt-tasks-in-parallel) since Kotlin 1.3.70,
   and we recommend sticking to this method.
 * In Kotlin 1.7.0, we [announced the start of a deprecation cycle for the `kotlin.compiler.execution.strategy` property](whatsnew17.md#deprecation-of-the-kotlin-compiler-execution-strategy-system-property).
-  In this release, we removed this property. Learn how to [define a Kotlin compiler execution strategy](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy)
+  In this release, we removed this property. Learn how to [define a Kotlin compiler execution strategy](compiler-execution-strategy.md)
   in other ways.
 
 ## Standard library

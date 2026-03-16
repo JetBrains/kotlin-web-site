@@ -1,4 +1,4 @@
-[//]: # (title: Compatibility guide for Kotlin 2.3)
+[//]: # (title: Compatibility guide for Kotlin 2.3.x)
 
 _[Keeping the Language Modern](kotlin-evolution-principles.md)_ and _[Comfortable Updates](kotlin-evolution-principles.md)_ are among the fundamental principles in
 Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed, and the
@@ -751,6 +751,98 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Migration advice**:
 > * To register generated sources, use the [`generatedKotlin`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/generated-kotlin.html) property.
 > * To access all sources, including non-generated sources, use the [`allKotlinSources`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-source-set/all-kotlin-sources.html) property.
+
+### Deprecate `kotlin.publishJvmEnvironmentAttribute` property
+
+> **Issue**: [KT-83678](https://youtrack.jetbrains.com/issue/KT-83678)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: In Kotlin 2.3.20, the `kotlin.publishJvmEnvironmentAttribute` property is deprecated.
+> This property allowed disabling the publication of the `org.gradle.jvm.environment` attribute for multiplatform libraries.
+> Starting with Kotlin 2.0.20, `org.gradle.jvm.environment` is published by default to ensure conventional dependency resolution.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+> - 2.4.0: remove the property
+
+### Deprecate `CleanableStore` interface and `CleanDataTask` class
+
+> **Issue**: [KT-78104](https://youtrack.jetbrains.com/issue/KT-78104)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `CleanableStore` interface and `CleanDataTask` class are deprecated since they are no longer used.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+
+### Deprecate `kotlin.kmp.isolated-projects.support` Gradle property
+
+> **Issue**: [KT-79257](https://youtrack.jetbrains.com/issue/KT-79257)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Since multiplatform projects are compatible with isolated projects by default and there are no other options,
+> the `kotlin.kmp.isolated-projects.support` Gradle property is deprecated.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+
+### Deprecate `kotlin.mpp.enableKotlinToolingMetadataArtifact` Gradle property
+
+> **Issue**: [KT-79924](https://youtrack.jetbrains.com/issue/KT-79924)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Since the `kotlin-tooling-metadata.json` artifact is now always generated for multiplatform projects, the 
+> `kotlin.mpp.enableKotlinToolingMetadataArtifact` Gradle property is deprecated.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+> - 2.4.0: remove support
+
+### Deprecate `LanguageSettings.enableLanguageFeature` DSL
+
+> **Issue**: [KT-82323](https://youtrack.jetbrains.com/issue/KT-82323)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `LanguageSettings.enableLanguageFeature` DSL exposed an internal compiler configuration only intended
+> for Kotlin compiler tests. Therefore, the DSL is deprecated.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+
+### Deprecate "out of process" compiler execution strategy
+
+> **Issue**: [KT-83125](https://youtrack.jetbrains.com/issue/KT-83125)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The "out of process" [compiler execution strategy](compiler-execution-strategy.md) is not supported by the [Build tools API](build-tools-api.md)
+> and is the slowest strategy available. In Kotlin 2.3.20, the strategy is deprecated in favor of "daemon" and "in process" compiler execution strategies.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
 
 ## Build tool removal
 

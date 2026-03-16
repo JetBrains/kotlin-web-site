@@ -4,11 +4,11 @@
 
 <tldr>Currently, the BTA supports Kotlin/JVM only.</tldr>
 
-Kotlin 2.2.0 introduces an experimental Build tools API (BTA) that simplifies how build systems integrate with the 
+Kotlin has an experimental Build tools API (BTA) that simplifies how build systems integrate with the 
 Kotlin compiler.
 
-Previously, adding full Kotlin support to a build system (like incremental compilation, Kotlin compiler plugins, 
-daemons, and Kotlin Multiplatform) required significant effort. The BTA aims to reduce this complexity by providing
+Adding full Kotlin support to a build system (like incremental compilation, Kotlin compiler plugins, 
+daemons, and Kotlin Multiplatform) requires significant effort. The BTA aims to reduce this complexity by providing
 a unified API between build systems and the Kotlin compiler ecosystem.
 
 The BTA defines a single entry point that build systems can implement. This removes the need to deeply integrate with internal compiler details.
@@ -21,19 +21,11 @@ The BTA defines a single entry point that build systems can implement. This remo
 
 ## Integration with Gradle
 
-The Kotlin Gradle plugin (KGP) has experimental support for the BTA, and you need to opt in to use it.
+The Kotlin Gradle plugin (KGP) has experimental support for the BTA. The KGP uses the BTA by default for Kotlin/JVM compilation.
 
 > We'd appreciate your feedback on your experience with the KGP in [YouTrack](https://youtrack.jetbrains.com/issue/KT-56574).
 > 
 {style="note"}
-
-### How to enable
-
-Add the following property to your `gradle.properties` file:
-
-```kotlin
-kotlin.compiler.runViaBuildToolsApi=true
-```
 
 ### Configure different compiler versions
 
@@ -88,7 +80,7 @@ plans to address this in future Kotlin releases.
 
 ### Enable incremental compilation with "in process" strategy
 
-The KGP supports three [compiler execution strategies](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy).
+The KGP supports three [compiler execution strategies](compiler-execution-strategy.md).
 Ordinarily, the "in-process" strategy (which runs the compiler in the Gradle daemon) doesn't support incremental compilation.
 
 With the BTA, the "in-process" strategy now supports incremental compilation. To enable it, add the following property to
