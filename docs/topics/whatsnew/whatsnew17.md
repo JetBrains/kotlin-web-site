@@ -977,7 +977,7 @@ kotlin.compiler.execution.strategy=out-of-process
 ```
 
 You can also use the compile task property `compilerExecutionStrategy`. Learn more about this on
-the [Gradle page](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy).
+the [Compiler execution strategy page](compiler-execution-strategy.md).
 
 ### Removal of deprecated options, methods, and plugins
 
