@@ -1,6 +1,6 @@
 [//]: # (title: Adding Kotlin to a Java project – tutorial)
 
-<web-summary>Learn how to integrate Kotlin into an existing Java project using IntelliJ IDEA — configure Maven or Gradle, organize source files, and convert Java code to Kotlin.</web-summary>
+<web-summary>Integrate Kotlin into an existing Java project − configure Maven or Gradle build files, organize source files, and convert Java code to Kotlin in IntelliJ IDEA.</web-summary>
 
 Kotlin is fully interoperable with Java, so you can gradually introduce it into your existing Java projects without
 having to rewrite everything.
