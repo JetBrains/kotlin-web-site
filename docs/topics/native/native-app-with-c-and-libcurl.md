@@ -195,8 +195,8 @@ the same as the C version. All the calls you'd expect in the libcurl library are
 
 ## Compile and run the application
 
-1. Compile the application. To do that, run the `runDebugExecutable<YourTargetName>` Gradle task from the task list or use the 
-   command line, for example:
+1. To compile the application, run the `runDebugExecutable<yourTargetName>` Gradle task from the task list or use the 
+   console command in your terminal, for example:
  
    ```bash
    ./gradlew runDebugExecutableMacosArm64

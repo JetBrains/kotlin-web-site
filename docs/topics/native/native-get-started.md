@@ -288,27 +288,26 @@ You can change the source for the main bundle download in the `repositories {}` 
    }
    ```
 
-By convention, all sources are located in the `src/<target name>[Main|Test]/kotlin` directories, where `Main` is for the
-source code and `Test` is for tests. `<target name>` corresponds to the target platform (in this case, `native`),
-as specified in the build file.
+By convention, all sources are located in the `src/<platform name>[Main|Test]/kotlin` directories, where `Main` is for the
+source code and `Test` is for tests. In this case, `<platform name>` is `native`.
 
 ### Build and run the project
 
-1. From the root project directory, run the build command for your target, for example:
+1. From the root project directory, run the `<yourTargetName>Binaries` build command for your target, for example:
 
    ```bash
    ./gradlew macosArm64Binaries
    ```
 
-   This command creates the `build/bin/native` directory with two directories inside: `debugExecutable` and
+   This command creates the `build/bin/<yourTargetName>` directory with two directories inside: `debugExecutable` and
    `releaseExecutable`. They contain the corresponding binary files.
 
    By default, the name of the binary file is the same as the project directory.
 
-2. To run the project, execute the run command for your target, for example:
+2. To run the project, execute the run `build/bin/<yourTargetName>/debugExecutable/<project_name>.kexe` command for your target, for example:
 
    ```bash
-   ./gradlew runDebugExecutableMacosArm64
+   build/bin/MacosArm64/DebugExecutable/hello.kexe
    ```
 
 The terminal prints "Hello, Kotlin/Native!".

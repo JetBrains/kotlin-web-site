@@ -146,8 +146,8 @@ Let's create a Kotlin library and use it from a C program.
     * `libnative` is used as the library name, the prefix for the generated header file name. It also prefixes all
       declarations in the header file.
 
-3. Run the `linkDebugShared<YourTargetName>` Gradle task in the IDE or use the console command in your terminal to build
-   the library, for example:
+3. To build the library, run the `linkDebugShared<yourTargetName>` Gradle task in your IDE
+   or use the console command in your terminal, for example:
 
    ```bash
    ./gradlew linkDebugSharedMacosArm64
