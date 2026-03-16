@@ -503,7 +503,7 @@ The new layout requires the Android Gradle plugin version 7.0 or later and is su
 
 ### Preview of the Gradle configuration cache
 
-<p id="preview-of-gradle-configuration-cache">Kotlin 1.9.0 comes with support for the [Gradle configuration cache](https://docs.gradle.org/current/userguide/configuration_cache.html)
+<p id="preview-of-gradle-configuration-cache">Kotlin 1.9.0 comes with support for the <a href="https://docs.gradle.org/current/userguide/configuration_cache.html">Gradle configuration cache</a>
 in multiplatform libraries. If you're a library author, you can already benefit from the improved build performance.</p>
 
 The Gradle configuration cache speeds up the build process by reusing the results of the configuration phase for subsequent

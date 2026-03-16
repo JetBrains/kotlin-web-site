@@ -172,8 +172,8 @@ fun main() {
 }
 ```
 
-> The `@nativeInvoke` annotation is a temporary solution until a stable interoperability is designed.
-> So, currently, when you use `@nativeInvoke`, the compiler reports a warning.
+> The `@nativeInvoke` annotation is a temporary solution until there's a design for stable interoperability.
+> Currently, when you use `@nativeInvoke`, the compiler reports a warning.
 >
 > {style="note"}
 
