@@ -78,8 +78,7 @@ dependencies {
 ## Create your own processor
 
 By following these steps you will create a simple annotation processor that will generate a `helloWorld()` function. 
-While it’s not likely to be a very useful processor in real-world scenarios, it will help you cover the basic steps you 
-need to follow to create your own processor and annotations.
+While not very useful in practice, it demonstrates the basics of creating your own processors and annotations.
 
 > More complex, real-world examples are available in [the KSP repository](https://github.com/google/ksp/blob/main/examples/playground/test-processor/src/main/kotlin/BuilderProcessor.kt).
 > 
