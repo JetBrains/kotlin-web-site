@@ -8,11 +8,11 @@ In this guide you will learn:
 
 ## Add a KSP-based processor to your project
 
-KSP is officially supported by many third-party libraries and frameworks. See 
-[Supported libraries](ksp-overview.md#supported-libraries) for a comprehensive list of libraries and their state of 
-support.
+KSP is officially supported by many third-party libraries and frameworks. For a comprehensive list of libraries and their state of 
+support, see 
+[Supported libraries](ksp-overview.md#supported-libraries) .
 
-To use an external processor in your project, add it to the plugins block in `build.gradle(.kts)`. If the processor is 
+To use an external processor in your project, add it to the [`plugins{}` block](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block) in your `build.gradle(.kts)` file. If the processor is 
 only needed in a specific module, add it to that module's `build.gradle(.kts)` file instead.
 
 <tabs group="add-processor-plugins">
@@ -42,12 +42,12 @@ plugins {
 </tab>
 </tabs>
 
-> See [KSP Releases](https://github.com/google/ksp/releases) to find out what the latest version of KSP is.
+> To find the latest version of KSP, check the GitHub [Releases](https://github.com/google/ksp/releases).
 > 
 {style="tip"}
 
-Then, add the processor to the dependencies block in top-level `build.gradle(.kts)`. In this example we’re using 
-[Moshi](https://github.com/square/moshi?tab=readme-ov-file#codegen), but the process is the same for any other processor: 
+In the top-level `dependencies{}` block, add the processor you want to use. In this example, we use 
+[Moshi](https://github.com/square/moshi?tab=readme-ov-file#codegen), but the approach is the same for other processors: 
 
 <tabs group="add-processor-dependencies">
 <tab title="Kotlin" group-key="kotlin">
@@ -113,8 +113,8 @@ plugins {
 </tab>
 </tabs>
 
-2. Create a new Kotlin module in the project from `file > new > module`. You can give it whatever name you wnat. In this
-guide we will name it `processor`.
+2. Create a new Kotlin module in the project from `file > new > module`. You can give it whatever name you want. In this
+guide we name it `processor`.
 
 3. Add the KSP-API dependency to the module's `build.gradle(.kts)`:
 
