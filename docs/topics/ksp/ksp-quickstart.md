@@ -8,10 +8,6 @@ In this guide you will learn:
 
 ## Add a KSP-based processor to your project
 
-KSP is officially supported by many third-party libraries and frameworks. For a comprehensive list of libraries and their state of 
-support, see 
-[Supported libraries](ksp-overview.md#supported-libraries) .
-
 To use an external processor in your project, add it to the [`plugins{}` block](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block) in your `build.gradle(.kts)` file. If the processor is 
 only needed in a specific module, add it to that module's `build.gradle(.kts)` file instead.
 
@@ -80,11 +76,9 @@ dependencies {
 By following these steps you will create a simple annotation processor that will generate a `helloWorld()` function. 
 While not very useful in practice, it demonstrates the basics of creating your own processors and annotations.
 
-> More complex, real-world examples are available in [the KSP repository](https://github.com/google/ksp/blob/main/examples/playground/test-processor/src/main/kotlin/BuilderProcessor.kt).
-> 
-{style="tip"}
+### Add KSP to the project
 
-1. Add KSP as a plugin in the top-level `build.gradle(.kts)` file:
+Add KSP as a plugin in the top-level `build.gradle(.kts)` file:
 
 <tabs group="1-build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -113,10 +107,12 @@ plugins {
 </tab>
 </tabs>
 
-2. Create a new Kotlin module in the project from `file > new > module`. You can give it whatever name you want. In this
-guide we name it `processor`.
+### Create an annotation
 
-3. Add the KSP-API dependency to the module's `build.gradle(.kts)`:
+Create a new Kotlin module in the project from **File** | **New** | **Module**. You can give it whatever name you want. 
+In this guide we name it `processor`.
+
+First, add the KSP-API dependency to the module's `build.gradle(.kts)`:
 
 <tabs group="3-processor-build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -151,14 +147,15 @@ dependencies {
 </tab>
 </tabs>
 
-4. Create the following file and declare the annotation `MyAnnotation`:
+Next, create the following file and declare the annotation `MyAnnotation`:
 
 ```kotlin
 //processor/src/main/kotlin/MyAnnotation.kt
 annotation class MyAnnotation
 ```
+### Create and register a processor
 
-5. Implement a `SymbolProcessor`:
+Copy the following code in `HelloWorldProcessor.kt`:
 
 ```kotlin
 // processor/src/main/kotlin/HelloWorldProcessor.kt
@@ -210,33 +207,32 @@ fun OutputStream.write(string: String): Unit {
 }
 ```
 
-   Let's go through it:
+Let's go through it:
 
-   1. The main logic of the processor is in the process() method. In this case, the method gets a list of every symbol
-      annotated with MyAnnotation, and calls HelloWorldVisitor for each of them.
+1. The main logic of the processor is in the `process()` method. In this case, the method gets a list of every symbol
+annotated with `MyAnnotatio`n, and calls `HelloWorldVisitor` for each of them.
 
-      > `process()` returns a list of unprocessed symbols, to be processed at a later round. In our case, we can 
-      > safely return an emptyList(). For more information, see [Multiple round processing](ksp-multi-round.md). 
-      > 
-      {style="note"}
+    The method `process()` returns a list of unprocessed symbols, to be processed at a later round. In our case, we can 
+    safely return an emptyList(). For more information, see [Multiple round processing](ksp-multi-round.md). 
 
-      2. Processors traverse KSP's view of the Kotlin abstract syntax tree (AST) using visitors. Inside the
-         `HelloWorldPocessor` class, create a visitor class. `MyAnnotation` will only be used on a function, so we only need to override the
-         `visitFunctionDeclaration()` method.
 
-      > `KSVisitorVoid` is one of the visitors KSP provides to be overridden and adapted. It is also possible to create 
-      > your own by implementing the `KSVisitor<D, R>` [interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/KSVisitor.kt). 
-      > 
-         {style="tip"}
+2. Processors traverse KSP's view of the Kotlin abstract syntax tree (AST) using visitors. Inside the
+`HelloWorldPocessor` class, create a visitor class. `MyAnnotation` will only be used on a function, so we only need to override the
+`visitFunctionDeclaration()` method.
 
-   3. `createNewFile()` and `createDependency()` are used to create the file where KSP will put the generated code.
+    > `KSVisitorVoid` is one of the visitors KSP provides to be overridden and adapted. It is also possible to create 
+    > your own by implementing the `KSVisitor<D, R>` [interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/KSVisitor.kt). 
+    > 
+    {style="tip"}
 
-6. Implement a `SymbolProcessorProvider`. The KSP framework calls this class to construct the processor.
+3. `createNewFile()` and `createDependency()` are used to create the file where KSP will put the generated code.
 
-   > Any dependencies your processor needs (such as `CodeGenerator`) will be passed as parameters to the `create()` 
-   > method. 
-   > 
-   {style="tip"}
+Next, implement a `SymbolProcessorProvider`. The KSP framework calls this class to construct the processor.
+
+> Any dependencies your processor needs (such as `CodeGenerator`) will be passed as parameters to the `create()` 
+> method. 
+> 
+{style="tip"}
 
 ```kotlin
 // processor/src/main/kotlin/MyProcessorProvider.kt
@@ -248,7 +244,7 @@ class HelloWorldProcessorProvider : SymbolProcessorProvider {
 }
 ```
    
-7. Register the processor provider. To do that, create the following file, and add to it the fully qualified name of 
+Finally, register the processor provider. To do that, create the following file, and add to it the fully qualified name of 
 the provider:
 
 ```kotlin
@@ -256,8 +252,10 @@ the provider:
     
 HelloWorldProcessorProvider
 ```
-   
-8. Add your processor as a dependency in the top-level `build.gradle(.kts)`:
+
+### Test your processor
+
+Add your processor as a dependency in the top-level `build.gradle(.kts)`:
 
 <tabs group="8-build-gradle">
 <tab title="Kotlin" group-key="kotlin">
@@ -316,16 +314,16 @@ include 'processor'
 </tab>
 </tabs>
 
-9. Now you are ready to try it. In `Main.kt`, use the annotation:
+Now you are ready to try it. In `Main.kt`, use the annotation:
 
-    ```kotlin
-    // src/main/kotlin/Main.kt
+```kotlin
+// src/main/kotlin/Main.kt
     
-    @MyAnnotation
-    fun main() {
-        helloWorld()
-    }
-    ```
+@MyAnnotation
+fun main() {
+    helloWorld()
+}
+```
 
 Notice that, in `main()`, the function `helloWorld()` is called. It doesn’t exist yet, and your IDE might flag this. 
 But KSP will create it when you compile and run your project, so it won’t be a problem!
@@ -361,6 +359,8 @@ The code generated by KSP can be found here:
 build/generated/ksp/main/kotlin/GeneratedHelloWorld.kt
 ```
 
-That’s it! Now you know how to create a KSP-based annotation processor.
+## What's next?
 
-The full code of this and other examples is available in [the KSP repository](https://github.com/google/ksp/pull/2804/changes). 
+* Explore the full code for this example in [the KSP repository](https://github.com/google/ksp/pull/2804/changes).
+* Find more complex, real-world examples in [the KSP repository](https://github.com/google/ksp/blob/main/examples/playground/test-processor/src/main/kotlin/BuilderProcessor.kt).
+* Browse the list of [supported libraries](ksp-overview.md#supported-libraries).
