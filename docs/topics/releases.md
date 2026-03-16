@@ -36,7 +36,7 @@ new features before they are released. See [Early Access Preview](eap.md) for de
 Here is the approximate schedule for upcoming stable Kotlin releases:
 
 * **2.4.0**: Planned for June – July 2026
-* **2.4.20**: Planned for July – September 2026
+* **2.4.20**: Planned for September 2026
 
 ## Update to a new Kotlin version
 
