@@ -304,10 +304,10 @@ source code and `Test` is for tests. In this case, `<platform name>` is `native`
 
    By default, the name of the binary file is the same as the project directory.
 
-2. To run the project, execute the run `build/bin/<yourTargetName>/debugExecutable/<project_name>.kexe` command for your target, for example:
+2. To run the project, execute the `build/bin/<yourTargetName>/debugExecutable/<project_name>.kexe` command for your target, for example:
 
    ```bash
-   build/bin/MacosArm64/DebugExecutable/hello.kexe
+   build/bin/macosArm64/DebugExecutable/hello.kexe
    ```
 
 The terminal prints "Hello, Kotlin/Native!".

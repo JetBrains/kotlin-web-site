@@ -146,14 +146,14 @@ Let's create a Kotlin library and use it from a C program.
     * `libnative` is used as the library name, the prefix for the generated header file name. It also prefixes all
       declarations in the header file.
 
-3. To build the library, run the `linkDebugShared<yourTargetName>` Gradle task in your IDE
+3. To build the library, run the `linkDebugShared<YourTargetName>` Gradle task in your IDE
    or use the console command in your terminal, for example:
 
    ```bash
    ./gradlew linkDebugSharedMacosArm64
    ```
 
-The build generates the library into the `build/bin/native/debugShared` directory with the following files:
+The build generates the library into the `build/bin/<yourTargetName>/debugShared` directory with the following files:
 
 * macOS: `libnative_api.h` and `libnative.dylib`
 * Linux: `libnative_api.h` and `libnative.so`
@@ -170,7 +170,7 @@ the Kotlin library.
 
 Let's examine how Kotlin/Native declarations are mapped to C functions.
 
-In the `build/bin/native/debugShared` directory, open the `libnative_api.h` header file.
+In the `build/bin/<yourTargetName>/debugShared` directory, open the `libnative_api.h` header file.
 The very first part contains the standard C/C++ header and footer:
 
 ```c
