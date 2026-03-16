@@ -15,7 +15,7 @@ Before you create your first [Kotlin Notebook](kotlin-notebook-overview.md), you
 Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook), 
 which is bundled and enabled in IntelliJ IDEA by default.
 
-To use Kotlin Notebook, download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
+To use Kotlin Notebook, download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
 
 If the Kotlin Notebook features are not available, ensure the plugin is enabled:
 

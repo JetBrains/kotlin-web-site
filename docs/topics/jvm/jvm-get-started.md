@@ -4,7 +4,7 @@
 
 This tutorial demonstrates how to use IntelliJ IDEA for creating a console application.
 
-To get started, first download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
+To get started, first download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
 
 ## Create a project
 
