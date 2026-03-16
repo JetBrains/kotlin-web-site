@@ -113,13 +113,13 @@ plugins {
 
 Create a new Kotlin module in the project from **File** | **New** | **Module** and name it `annotations`.
 
-Next, create the following file and declare the annotation `MyAnnotation`:
+Next, create the following file and declare the annotation `HelloWorldAnnotation`:
 
 ```kotlin
 //annotations/src/main/kotlin/com/example/annotations/MyAnnotation.kt
 package com.example.annotations
 
-annotation class MyAnnotation
+annotation class HelloWorldAnnotation
 ```
 
 ### Create and register a processor
@@ -172,7 +172,7 @@ class HelloWorldProcessor(val codeGenerator: CodeGenerator) : SymbolProcessor {
     // (1) process() method
     override fun process(resolver: Resolver): List<KSAnnotated> {
         resolver
-            .getSymbolsWithAnnotation("com.example.annotations.MyAnnotation")
+            .getSymbolsWithAnnotation("com.example.annotations.HelloWorldAnnotation")
             .filter { it.validate() }
             .filterIsInstance<KSFunctionDeclaration>()
             .forEach { it.accept(HelloWorldVisitor(), Unit) }
@@ -219,14 +219,14 @@ fun OutputStream.write(string: String): Unit {
 Let's go through it:
 
 1. The main logic of the processor is in the `process()` method. In this case, the method gets a list of every symbol
-    annotated with `MyAnnotatio`n, and calls `HelloWorldVisitor` for each of them.
+    annotated with `HelloWorldAnnotation`, and calls `HelloWorldVisitor` for each of them.
 
     The method `process()` returns a list of unprocessed symbols, to be processed at a later round. In our case, we can 
     safely return an emptyList(). For more information, see [Multiple round processing](ksp-multi-round.md). 
 
 
 2. Processors traverse KSP's view of the Kotlin abstract syntax tree (AST) using visitors. Inside the
-    `HelloWorldPocessor` class, create a visitor class. `MyAnnotation` will only be used on a function, so we only need 
+    `HelloWorldPocessor` class, create a visitor class. `HelloWorldAnnotation` will only be used on a function, so we only need 
     to override the `visitFunctionDeclaration()` method.
 
     > `KSVisitorVoid` is one of the visitors KSP provides to be overridden and adapted. It is also possible to create 
@@ -337,9 +337,9 @@ Now you are ready to try it. In the `app` module, create `Main.kt` and add the f
 
 ```kotlin
 // app/src/main/kotlin/Main.kt
-import com.example.annotations.MyAnnotation
+import com.example.annotations.HelloWorldAnnotation
 
-@MyAnnotation
+@HelloWorldAnnotation
 fun main() {
     helloWorld()
 }
@@ -377,7 +377,7 @@ Your project’s final file structure should look like this (you might have addi
 |				└── com  
 |	                └── example
 |						└── annotations
-|							└── MyAnnotation.kt  
+|							└── HelloWorldAnnotation.kt  
 ├── processor  
 │   ├── build.gradle.kts  
 │   └── src  
