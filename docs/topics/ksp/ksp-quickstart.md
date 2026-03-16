@@ -8,7 +8,7 @@ In this guide you will learn:
 
 ## Add a KSP-based processor to your project
 
-To use an external processor in your project, add it to the [`plugins{}` block](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block) in your `build.gradle(.kts)` file. If the processor is 
+To use an external processor in your project, add KSP to the [`plugins{}` block](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block) in your `build.gradle(.kts)` file. If the processor is 
 only needed in a specific module, add it to that module's `build.gradle(.kts)` file instead.
 
 <tabs group="add-processor-plugins">
@@ -76,9 +76,11 @@ dependencies {
 By following these steps you will create a simple annotation processor that will generate a `helloWorld()` function. 
 While not very useful in practice, it demonstrates the basics of creating your own processors and annotations.
 
+An outline of the final [project structure](#project-structure) is available below for reference.
+
 ### Add KSP to the project
 
-Add KSP as a plugin in the top-level `build.gradle(.kts)` file:
+Start from an empty project, and add KSP as a plugin in the top-level `build.gradle(.kts)` file:
 
 <tabs group="1-build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -109,10 +111,23 @@ plugins {
 
 ### Create an annotation
 
-Create a new Kotlin module in the project from **File** | **New** | **Module**. You can give it whatever name you want. 
-In this guide we name it `processor`.
+Create a new Kotlin module in the project from **File** | **New** | **Module** and name it `annotations`.
 
-First, add the KSP-API dependency to the module's `build.gradle(.kts)`:
+Next, create the following file and declare the annotation `MyAnnotation`:
+
+```kotlin
+//annotations/src/main/kotlin/com/example/annotations/MyAnnotation.kt
+package com.example.annotations
+
+annotation class MyAnnotation
+```
+
+### Create and register a processor
+
+Create another Kotlin module. You can give it whatever name you want. In this guide we name it `processor`.
+
+First, add the necessary dependencies to the module's `build.gradle(.kts)`. You will need the KSP API and the annotation
+you just declared:
 
 <tabs group="3-processor-build-script">
 <tab title="Kotlin" group-key="kotlin">
@@ -125,7 +140,8 @@ plugins {
 }
     
 dependencies {
-    implementation("com.google.devtools.ksp:symbol-processing-api:2.3.5")  
+    implementation(project(":annotations"))
+    implementation("com.google.devtools.ksp:symbol-processing-api:2.3.6")  
 }
 ```
 
@@ -140,22 +156,15 @@ plugins {
 }
 
 dependencies {
-   implementation 'com.google.devtools.ksp:symbol-processing-api:2.3.5'
+    implementation project ':annotations'
+    implementation 'com.google.devtools.ksp:symbol-processing-api:2.3.6'
 }
 ```
 
 </tab>
 </tabs>
 
-Next, create the following file and declare the annotation `MyAnnotation`:
-
-```kotlin
-//processor/src/main/kotlin/MyAnnotation.kt
-annotation class MyAnnotation
-```
-### Create and register a processor
-
-Copy the following code in `HelloWorldProcessor.kt`:
+Copy the following code in a new file called `HelloWorldProcessor.kt`:
 
 ```kotlin
 // processor/src/main/kotlin/HelloWorldProcessor.kt
@@ -163,7 +172,7 @@ class HelloWorldProcessor(val codeGenerator: CodeGenerator) : SymbolProcessor {
     // (1) process() method
     override fun process(resolver: Resolver): List<KSAnnotated> {
         resolver
-            .getSymbolsWithAnnotation("MyAnnotation")
+            .getSymbolsWithAnnotation("com.example.annotations.MyAnnotation")
             .filter { it.validate() }
             .filterIsInstance<KSFunctionDeclaration>()
             .forEach { it.accept(HelloWorldVisitor(), Unit) }
@@ -210,15 +219,15 @@ fun OutputStream.write(string: String): Unit {
 Let's go through it:
 
 1. The main logic of the processor is in the `process()` method. In this case, the method gets a list of every symbol
-annotated with `MyAnnotatio`n, and calls `HelloWorldVisitor` for each of them.
+    annotated with `MyAnnotatio`n, and calls `HelloWorldVisitor` for each of them.
 
     The method `process()` returns a list of unprocessed symbols, to be processed at a later round. In our case, we can 
     safely return an emptyList(). For more information, see [Multiple round processing](ksp-multi-round.md). 
 
 
 2. Processors traverse KSP's view of the Kotlin abstract syntax tree (AST) using visitors. Inside the
-`HelloWorldPocessor` class, create a visitor class. `MyAnnotation` will only be used on a function, so we only need to override the
-`visitFunctionDeclaration()` method.
+    `HelloWorldPocessor` class, create a visitor class. `MyAnnotation` will only be used on a function, so we only need 
+    to override the `visitFunctionDeclaration()` method.
 
     > `KSVisitorVoid` is one of the visitors KSP provides to be overridden and adapted. It is also possible to create 
     > your own by implementing the `KSVisitor<D, R>` [interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/KSVisitor.kt). 
@@ -227,12 +236,8 @@ annotated with `MyAnnotatio`n, and calls `HelloWorldVisitor` for each of them.
 
 3. `createNewFile()` and `createDependency()` are used to create the file where KSP will put the generated code.
 
-Next, implement a `SymbolProcessorProvider`. The KSP framework calls this class to construct the processor.
-
-> Any dependencies your processor needs (such as `CodeGenerator`) will be passed as parameters to the `create()` 
-> method. 
-> 
-{style="tip"}
+Next, you need to implement a `SymbolProcessorProvider`. The KSP framework calls this class to construct the processor.
+Create a file and copy the following code:
 
 ```kotlin
 // processor/src/main/kotlin/MyProcessorProvider.kt
@@ -243,9 +248,14 @@ class HelloWorldProcessorProvider : SymbolProcessorProvider {
     }  
 }
 ```
-   
-Finally, register the processor provider. To do that, create the following file, and add to it the fully qualified name of 
-the provider:
+
+> Any dependencies your processor needs (such as `CodeGenerator`) will be passed as parameters to the `create()`
+> method.
+>
+{style="tip"}
+
+Finally, register the processor provider. To do that, create the following file, and copy in it the fully qualified 
+name of the provider:
 
 ```kotlin
 //processor/src/main/resources/META-INF/services/com.google.devtools.ksp.processing.SymbolProcessorProvider
@@ -255,16 +265,17 @@ HelloWorldProcessorProvider
 
 ### Test your processor
 
-Add your processor as a dependency in the top-level `build.gradle(.kts)`:
+Create one last module and name it `app`. Add your processor and annotation as dependencies in the module's 
+`build.gradle(.kts)` file:
 
 <tabs group="8-build-gradle">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
-// build.gradle.kts
+// app/build.gradle.kts
 
 dependencies { 
-    implementation(project(":processor"))
+    implementation(project(":annotations"))
     ksp(project(":processor"))
 }
 ```
@@ -273,10 +284,10 @@ dependencies {
 <tab title="Groovy" group-key="groovy">
 
 ```groovy
-// build.gradle
+// app/build.gradle
 
 dependencies {
-    implementation project (':processor')
+    implementation project (':annotations')
     ksp project (':processor')
 }
 ```
@@ -284,14 +295,7 @@ dependencies {
 </tab>
 </tabs>
 
-The `implementation` line tells the project where to find the annotations. In this case, your annotation is in the same
-place as the processor, but it could be in its own submodule. The `ksp` line tells KSP where to find your processor.
-
-> If you were planning to use your processor in a submodule only, you would add the dependency to that module's
-> `build.gradle(.kts)` instead.
-{style="tip"}
-
-And in `settings.gradle.kts`:
+In the top-level `settings.gradle.kts`, include all the submodules:
     
 <tabs group="8-settings-gradle">
 <tab title="Kotlin" group-key="kotlin">
@@ -299,6 +303,8 @@ And in `settings.gradle.kts`:
 ```kotlin
 // settings.gradle.kts
 
+include(":annotations")
+include(":app")
 include(":processor")
 ```
 
@@ -309,6 +315,8 @@ include(":processor")
 // settings.gradle
 
 include 'processor'
+include 'annotations'
+include 'app'
 ```
 
 </tab>
@@ -317,8 +325,9 @@ include 'processor'
 Now you are ready to try it. In `Main.kt`, use the annotation:
 
 ```kotlin
-// src/main/kotlin/Main.kt
-    
+// app/src/main/kotlin/Main.kt
+import com.example.annotations.MyAnnotation
+
 @MyAnnotation
 fun main() {
     helloWorld()
@@ -328,29 +337,6 @@ fun main() {
 Notice that, in `main()`, the function `helloWorld()` is called. It doesn’t exist yet, and your IDE might flag this. 
 But KSP will create it when you compile and run your project, so it won’t be a problem!
 
-By this point, your project’s file structure should look like this (you might have additional directories, for example 
-`gradle` or `gradlew`):
-
-```text
-.
-├── processor
-│   ├── build.gradle.kts
-│   └── src
-│       └── main
-│           ├── kotlin
-│           │   ├── HelloWorldProcessor.kt
-│           │   ├── HelloWorldProcessorProvider.kt
-│           │   └── MyAnnotation.kt
-│           └── resources
-├── build.gradle.kts
-├── settings.gradle.kts
-└── src
-    └── main
-        └── kotlin
-            └── Main.kt
-
-```
-
 Run the program. You should see the output of the `helloWorld()` function in your console.
 
 The code generated by KSP can be found here:
@@ -358,6 +344,43 @@ The code generated by KSP can be found here:
 ```text
 build/generated/ksp/main/kotlin/GeneratedHelloWorld.kt
 ```
+
+### Project structure
+
+Your project’s final file structure should look like this (you might have additional directories, for example
+`gradle`, `gradlew`, or `.idea`):
+
+```text
+.
+├── app  
+│   ├── build.gradle.kts  
+│   └── src  
+│       └── main  
+│           └── kotlin  
+│               └── Main.kt   
+├── annotations  
+│   ├── build.gradle.kts  
+│   └── src  
+│       └── main  
+│           └── kotlin
+|				└── com  
+|	                └── example
+|						└── annotations
+|							└── MyAnnotation.kt  
+├── processor  
+│   ├── build.gradle.kts  
+│   └── src  
+│       └── main  
+│           ├── kotlin  
+│           │   ├── HelloWorldProcessor.kt  
+│           │   └── HelloWorldProcessorProvider.kt  
+│           └── resources/META-INF/services
+|				└── com.google.devtools.ksp.processing.SymbolProcessorProvider 
+├── build.gradle.kts  
+└── settings.gradle.kts
+
+```
+
 
 ## What's next?
 
