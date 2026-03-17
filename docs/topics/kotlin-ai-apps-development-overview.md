@@ -27,7 +27,7 @@ fun main() {
 }
 ```
 
-<a href="https://docs.koog.ai/getting-started/"><img src="get-started-with-koog.svg" width="700" alt="Get started with Koog" style="block"/></a>
+<a href="https://docs.koog.ai/quickstart/"><img src="get-started-with-koog.svg" width="700" alt="Get started with Koog" style="block"/></a>
 
 ### Key features
 
@@ -53,7 +53,7 @@ fun main() {
 ### Where to start
 
 * Explore Koog capabilities in the [Overview](https://docs.koog.ai/).
-* Build your first Koog agent with the [Getting started guide](https://docs.koog.ai/getting-started/).
+* Build your first Koog agent with the [Quickstart guide](https://docs.koog.ai/quickstart/).
 * See the latest updates in the [Koog release notes](https://github.com/JetBrains/koog/blob/main/CHANGELOG.md).
 * Learn from the [examples](https://docs.koog.ai/examples/).
 
