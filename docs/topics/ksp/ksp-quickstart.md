@@ -90,7 +90,7 @@ Start from an empty project, and add KSP as a plugin in the top-level `build.gra
 
 plugins { 
     kotlin("jvm") version "2.3.0"
-    id("com.google.devtools.ksp") version "2.3.6"
+    id("com.google.devtools.ksp") version "2.3.6" apply false
 }
 ```
 
@@ -102,7 +102,7 @@ plugins {
 
 plugins {
    id 'org.jetbrains.kotlin.jvm' version '2.3.0'
-   id 'com.google.devtools.ksp' version '2.3.6'
+   id 'com.google.devtools.ksp' version '2.3.6' apply false
 }
 ```
 
