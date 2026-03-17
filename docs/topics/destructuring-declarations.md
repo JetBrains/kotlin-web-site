@@ -132,3 +132,107 @@ map.mapValues { (_, value): Map.Entry<Int, String> -> "$value!" }
 map.mapValues { (_, value: String) -> "$value!" }
 ```
 
+## Name-based destructuring
+<primary-label ref="experimental-opt-in"/>
+
+Kotlin supports *name-based destructuring declarations*,
+where variables match properties by name instead of the position defined by `componentN()` functions in position-based destructuring.
+
+> For more information about name-based destructuring, see the feature's [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0438-name-based-destructuring.md).
+>
+{style="tip"}
+
+In position-based destructuring, variables correspond to the order of `componentN()` functions, for example:
+
+```kotlin
+data class User(val username: String, val email: String)
+
+fun main() {
+    val user = User("alice", "alice@example.com")
+
+    val (email, username) = user
+
+    println(email)
+    // alice
+
+    println(username)
+    // alice@example.com
+}
+```
+{kotlin-runnable="true"}
+
+In this example, because destructuring relies on the order of `componentN()` functions, `email` receives the value of `username`, and `username` receives the value of `email`.
+
+With name-based destructuring, property names determine which values are extracted rather than the position of `componentN()` functions:
+
+```kotlin
+fun main() {
+    val user = User("alice", "alice@example.com")
+
+    // Uses name-based destructuring with explicit form
+    (val mail = email, val name = username) = user
+
+    println(name)
+    // alice
+
+    println(mail)
+    // alice@example.com
+}
+```
+
+Name-based destructuring is [Experimental](components-stability.md#stability-levels-explained).
+You can control how the compiler interprets destructuring declarations with the `-Xname-based-destructuring` compiler option.
+
+It has the following modes:
+
+* `only-syntax` enables the explicit form of name-based destructuring without changing the behavior of existing destructuring declarations.
+* `name-mismatch` reports warnings when position-based destructuring in data classes uses variable names that don't match the property names.
+* `complete` enables short-form name-based destructuring with parentheses and continues supporting position-based destructuring with square bracket syntax.
+
+If you use `complete` mode, the short-form destructuring syntax with parentheses matches variables to property names instead of relying on position:
+
+```kotlin
+val (email, username) = user
+```
+
+To opt in to name-based destructuring in your project, add the compiler option to your build configuration file:
+
+<tabs group="build-system">
+<tab title="Gradle" group-key="gradle">
+
+```kotlin
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xname-based-destructuring=only-syntax")
+    }
+}
+```
+
+</tab> 
+<tab title="Maven" group-key="maven">
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-Xname-based-destructuring=only-syntax</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
+</tab> 
+</tabs>
+
+Opting in to name-based destructuring also introduces a new syntax for position-based destructuring using square brackets:
+
+```kotlin
+// Uses explicit position-based destructuring
+val [username, email] = user
+```
