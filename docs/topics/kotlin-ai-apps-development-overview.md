@@ -54,7 +54,7 @@ fun main() {
 
 * Explore Koog capabilities in the [Overview](https://docs.koog.ai/).
 * Build your first Koog agent with the [Quickstart guide](https://docs.koog.ai/quickstart/).
-* See the latest updates in the [Koog release notes](https://github.com/JetBrains/koog/blob/main/CHANGELOG.md).
+* See the latest updates in the [Koog release notes](https://github.com/JetBrains/koog/releases).
 * Learn from the [examples](https://docs.koog.ai/examples/).
 
 ## Model Context Protocol (MCP) Kotlin SDK
