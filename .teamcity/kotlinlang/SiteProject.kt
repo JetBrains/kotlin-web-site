@@ -20,7 +20,6 @@ object SiteProject : Project({
         BuildKotlinSpec,
         BuildJsAssets,
         PageViews,
-        BuildPythonContainer
     )
 
     buildTypesOrder.forEach {
