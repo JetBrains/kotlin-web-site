@@ -802,9 +802,9 @@ Kotlin 2.3.20 introduces more changes for developers who want to integrate their
 
 In this release, the BTA improves how build tools manage build operations.
 Build operations let build tools interact with the Kotlin compiler.
-Each build operation is an implementation of the [`BuildOperation`](https://github.com/JetBrains/kotlin/blob/master/compiler/build-tools/kotlin-build-tools-api/src/main/kotlin/org/jetbrains/kotlin/buildtools/api/BuildOperation.kt#L25) interface.
+Each build operation is an implementation of the [`BuildOperation`](https://github.com/JetBrains/kotlin/blob/v2.3.20/compiler/build-tools/kotlin-build-tools-api/src/main/kotlin/org/jetbrains/kotlin/buildtools/api/BuildOperation.kt#L25) interface.
 
-You can now cancel build operations that implement the [`CancellableBuildOperation`](https://github.com/JetBrains/kotlin/blob/master/compiler/build-tools/kotlin-build-tools-api/src/main/kotlin/org/jetbrains/kotlin/buildtools/api/BuildOperation.kt#L94) interface with the [`cancel()`](https://github.com/JetBrains/kotlin/blob/master/compiler/build-tools/kotlin-build-tools-api/src/main/kotlin/org/jetbrains/kotlin/buildtools/api/BuildOperation.kt#L108) function.
+You can now cancel build operations that implement the [`CancellableBuildOperation`](https://github.com/JetBrains/kotlin/blob/v2.3.20/compiler/build-tools/kotlin-build-tools-api/src/main/kotlin/org/jetbrains/kotlin/buildtools/api/BuildOperation.kt#L94) interface with the [`cancel()`](https://github.com/JetBrains/kotlin/blob/v2.3.20/compiler/build-tools/kotlin-build-tools-api/src/main/kotlin/org/jetbrains/kotlin/buildtools/api/BuildOperation.kt#L108) function.
 
 The `cancel()` function works on a "best effort" basis. This means the operation isn't guaranteed to be canceled.
 
@@ -830,7 +830,7 @@ operation.cancel()
 In addition, build operations are now more robust because you can create them so that they can't be changed once they start. To do this, a build tool must use the builder pattern:
 
 1. Configure the object using a mutable builder.
-2. Call the [`build()`](https://github.com/JetBrains/kotlin/blob/master/compiler/build-tools/kotlin-build-tools-api/src/main/kotlin/org/jetbrains/kotlin/buildtools/api/jvm/operations/JvmCompilationOperation.kt#L59) function to create an immutable instance of the object.
+2. Call the [`build()`](https://github.com/JetBrains/kotlin/blob/v2.3.20/compiler/build-tools/kotlin-build-tools-api/src/main/kotlin/org/jetbrains/kotlin/buildtools/api/jvm/operations/JvmCompilationOperation.kt#L59) function to create an immutable instance of the object.
 
 For example:
 
