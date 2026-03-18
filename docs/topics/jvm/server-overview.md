@@ -2,7 +2,7 @@
 
 <web-summary>Build server applications with Kotlin using Spring, Ktor, and other backend frameworks</web-summary>
 
-Kotlin is a great fit for developing server-side applications. It allows you to write concise and expressive code while
+Kotlin is a great fit for developing server-side applications. With Kotlin, you can write concise and expressive code while
 maintaining full compatibility with existing Java-based technology stacks.
 
 ## Get started
@@ -30,42 +30,37 @@ The [online project generator](https://start.spring.io/#!language=kotlin) allows
 
 ### Ktor
 
-[Ktor](https://github.com/kotlin/ktor) is a framework built by JetBrains for creating web applications in Kotlin, making use of coroutines for
-high scalability and offering an easy-to-use and idiomatic API.
+[Ktor](https://github.com/kotlin/ktor) is a JetBrains framework for creating web applications in Kotlin.
+It uses coroutines for high scalability and offers an easy-to-use idiomatic API.
 
 <a href="https://ktor.io/docs/server-create-a-new-project.html"><img src="ktor-get-started-button.svg" alt="Create a new Ktor project" style="block"/></a>
 
+### Other frameworks
+
 Here are some other examples of the backend frameworks for Kotlin:
 
-| Framework                                              | Description                                                                                                                                                                                                                                                                                   |
-|--------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Quarkus](https://quarkus.io/guides/kotlin)            | Provides first-class support for using Kotlin. The framework is open source and maintained by Red Hat. Quarkus was built from the ground up for Kubernetes and provides a cohesive full-stack framework by leveraging a growing list of hundreds of best-of-breed libraries.                  |
-| [Vert.x](https://vertx.io)                             | A framework for building reactive Web applications on the JVM, offers [dedicated support](https://github.com/vert-x3/vertx-lang-kotlin) for Kotlin, including [integration of Kotlin coroutines](https://vertx.io/docs/vertx-lang-kotlin-coroutines/kotlin/).                                 |
-| [kotlinx.html](https://github.com/kotlin/kotlinx.html) | A DSL that can be used to build HTML in Web applications. It serves as an alternative to traditional templating systems such as JSP and FreeMarker.                                                                                                                                           |
-| [Micronaut](https://micronaut.io/)                     | A modern JVM-based full-stack framework for building modular, easily testable microservices and serverless applications. It comes with a lot of useful built-in features.                                                                                                                     |
-| [http4k](https://http4k.org/)                          | The functional toolkit with a tiny footprint for Kotlin HTTP applications, written in pure Kotlin. The library is based on the "Your Server as a Function" paper from Twitter and represents modeling both HTTP servers and clients as simple Kotlin functions that can be composed together. |
-| [Javalin](https://javalin.io)                          | A very lightweight web framework for Kotlin and Java which supports WebSockets, HTTP2, and async requests.                                                                                                                                                                                    |
+| Framework                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Quarkus](https://quarkus.io/guides/kotlin)            | An open-sourced framework that provides first-class support for Kotlin. Quarkus was built from the ground up for Kubernetes and provides a cohesive full-stack framework by leveraging a growing list of hundreds of best-of-breed libraries.                                                                                                                                                                                                                                                   |
+| [Vert.x](https://vertx.io)                             | A framework for building reactive web applications on the JVM. Vert.x offers [dedicated support](https://github.com/vert-x3/vertx-lang-kotlin) for Kotlin, including [integration of Kotlin coroutines](https://vertx.io/docs/vertx-lang-kotlin-coroutines/kotlin/).                                                                                                                                                                                                                            |
+| [kotlinx.html](https://github.com/kotlin/kotlinx.html) | A DSL that can be used to build HTML in web applications. It serves as an alternative to traditional templating systems such as JSP and FreeMarker.                                                                                                                                                                                                                                                                                                                                             |
+| [Micronaut](https://micronaut.io/)                     | A modern JVM-based full-stack framework for building modular, easily testable microservices and serverless applications. Watch a webinar [Micronaut for microservices with Kotlin](https://micronaut.io/2020/12/03/webinar-micronaut-for-microservices-with-kotlin/) and explore a detailed [guide](https://guides.micronaut.io/latest/micronaut-kotlin-extension-fns.html) showing how you can use [Kotlin extension functions](extensions.md#extension-functions) in the Micronaut framework. |
+| [http4k](https://http4k.org/)                          | A functional toolkit with a small footprint for Kotlin HTTP applications, written in pure Kotlin. http4k provides the [CLI-enabled toolbox](https://toolbox.http4k.org) to generate fully formed project templates, and a web-based [project wizard](https://toolbox.http4k.org/project) to bootstrap a working http4k application with selected backend, modules, and build tooling.                                                                                                           |
+| [Javalin](https://javalin.io)                          | A very lightweight web framework for Kotlin and Java which supports WebSockets, HTTP2, and async requests.                                                                                                                                                                                                                                                                                                                                                                                      |
 
 ## Deploy your applications
 
-Kotlin applications can be deployed into any host that supports Java Web applications, including Amazon Web Services,
-Google Cloud Platform, and more.
+Kotlin applications can be deployed to any host that supports Java web applications, including Amazon Web Services (AWS),
+Google Cloud Platform (GCP), and many others.
 
-AWS provides an [SDK for Kotlin](https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/home.html)
-for interacting with AWS services. For serverless deployments, see [AWS Lambda code examples for Kotlin](https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/kotlin_lambda_code_examples.html).
-
-With Ktor, you can publish Kotlin applications to different cloud providers. Follow Ktor tutorials to learn more about
-deploying to [Google App Engine](https://ktor.io/docs/google-app-engine.html) and other services.
-
-Spring applications are also compatible with most popular cloud providers. See how to [deploy Spring Boot applications to the cloud](https://docs.spring.io/spring-boot/how-to/deployment/cloud.html).
+* **AWS** provides a dedicated [SDK for Kotlin](https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/home.html)
+  to interact with its services. For serverless deployments, you can refer to [AWS Lambda code examples for Kotlin](https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/kotlin_lambda_code_examples.html).
+* **Ktor** allows you to publish Kotlin applications to various cloud providers. For instance, you can follow Ktor tutorials
+  to learn more about deploying to [Google App Engine](https://ktor.io/docs/google-app-engine.html) and other services.
+* **Spring** applications are also compatible with most popular cloud providers. See how to deploy Spring Boot applications
+  to the cloud in the [official Spring documentation](https://docs.spring.io/spring-boot/how-to/deployment/cloud.html).
 
 ## Next steps
 
-* Learn how to [test your Java Maven project with Kotlin and JUnit](jvm-test-using-junit.md).
-* Explore how to [build asynchronous server applications with Ktor](https://ktor.io/docs/server-create-a-new-project.html).
-* Watch a webinar [Micronaut for microservices with Kotlin](https://micronaut.io/2020/12/03/webinar-micronaut-for-microservices-with-kotlin/)
-  and explore a detailed [guide](https://guides.micronaut.io/latest/micronaut-kotlin-extension-fns.html) 
-  showing how you can use [Kotlin extension functions](extensions.md#extension-functions) in the Micronaut framework.
-* http4k provides the [CLI-enabled toolbox](https://toolbox.http4k.org) to generate fully formed project templates,
-  and a web-based [project wizard](https://toolbox.http4k.org/project) to bootstrap a working http4k application with 
-  selected backend, modules, and build tooling.
+* [Learn how to test your Java Maven project with Kotlin and JUnit](jvm-test-using-junit.md)
+* [Explore how to build asynchronous server applications with Ktor](https://ktor.io/docs/server-create-a-new-project.html)
