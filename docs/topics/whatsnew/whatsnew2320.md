@@ -37,7 +37,7 @@ The following feature is [Stable](components-stability.md#stability-levels-expla
 
 Kotlin 2.3.20 makes it easier to set up Kotlin in Maven projects. Now Kotlin supports the automatic configuration of source roots and Kotlin's standard library.
 
-With the new automatic configuration, when you create a new Kotlin project with the Maven build system or introduce Kotlin to your existing Java Maven project,
+With the new configuration, when you create a new Kotlin project with the Maven build system or introduce Kotlin to your existing Java Maven project,
 you don't need to manually specify source root paths or add the `kotlin-stdlib` dependency in your POM build file.
 
 #### How to enable {id="%id2%"}
@@ -57,7 +57,7 @@ In your `pom.xml` file, add `<extensions>true</extensions>` to the `<build><plug
 </build>
 ```
 
-The new extension automatically:
+The new features of the `<extensions>` option here are:
 
 * Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots in case they already exist but are not specified in the plugin configuration.
 * Adds the `kotlin-stdlib` dependency in case it's not explicitly defined already.
@@ -73,7 +73,8 @@ You can also opt out of the automatic addition of Kotlin's standard library. For
 </project>
 ```
 
-Note that the property disables all simplified setup features, including the registration of source root paths.
+Note that this property disables not only automatic addition of the standard library, but also the registration of source root paths.
+Other `<extensions>` features are not affected.
 
 For more information on configuring Kotlin Maven projects, see [Configure a Maven project](maven-configure-project.md).
 
