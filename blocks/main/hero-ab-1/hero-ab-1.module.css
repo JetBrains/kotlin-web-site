@@ -1,0 +1,59 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+
+.heroSection {
+    background: #000;
+    padding: 72px 0;
+}
+
+.heroText {
+    margin: 0;
+}
+
+.subtitle {
+    margin: 0;
+    margin-top: 16px;
+}
+
+.developer {
+    border-left: 0px;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+    margin-top: 120px;
+}
+
+.developerContent {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.developerLogo {
+    margin: 0;
+}
+
+.developerCaption {
+    display: block;
+    margin-right: 8px;
+}
+
+.heroPlatforms {
+    margin-top: 32px;
+}
+
+.kotlinTour {
+    border-radius: 16px;
+    border: 1px solid var(--product-primary-colors-amethyst-purple-data-grip-ruby-mine-primary-dim, rgba(126, 66, 255, 0.80));
+    background: linear-gradient(90deg, rgba(127, 82, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    margin-top: 32px;
+}
+
+.kotlinTourTitle {
+    margin: 0;
+}
