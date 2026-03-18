@@ -234,7 +234,8 @@ Opting in to name-based destructuring also introduces a new syntax for position-
 Use this syntax for types where the order of elements matters, such as lists and other ordered collections, as well as unnamed tuples like `Pair` or `Triple`:
 
 ```kotlin
-// Uses explicit position-based destructuring
 val point = Pair(10, 20)
+
+// Uses position-based destructuring
 val [x, y] = point
 ```
