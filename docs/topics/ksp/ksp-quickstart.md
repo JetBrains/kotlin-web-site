@@ -82,7 +82,7 @@ An outline of the final [project structure](#project-structure) is available bel
 
 Start from an empty project, and add KSP as a plugin in the top-level `build.gradle(.kts)` file:
 
-<tabs group="1-build-script">
+<tabs group="top-level-build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
@@ -129,7 +129,7 @@ Create another Kotlin module. You can give it whatever name you want. In this gu
 Add the necessary dependencies to the module's `build.gradle(.kts)`. You will need the KSP API and the annotation
 you just declared:
 
-<tabs group="3-processor-build-script">
+<tabs group="processor-build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
@@ -222,21 +222,21 @@ Let's go through it:
     annotated with `HelloWorldAnnotation`, and calls `HelloWorldVisitor` for each of them.
 
     The method `process()` returns a list of unprocessed symbols, to be processed at a later round. In our case, we can 
-    safely return an emptyList(). For more information, see [Multiple round processing](ksp-multi-round.md). 
+    safely return an `emptyList()`. For more information, see [Multiple round processing](ksp-multi-round.md). 
 
 
 2. Processors traverse KSP's view of the Kotlin abstract syntax tree (AST) using visitors. Inside the
     `HelloWorldPocessor` class, create a visitor class. `HelloWorldAnnotation` will only be used on a function, so we only need 
     to override the `visitFunctionDeclaration()` method.
 
-    > `KSVisitorVoid` is one of the visitors KSP provides to be overridden and adapted. It is also possible to create 
+    > `KSVisitorVoid` is one of the visitors KSP provides to be overridden and adapted. It's also possible to create 
     > your own by implementing the `KSVisitor<D, R>` [interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/KSVisitor.kt). 
     > 
     {style="tip"}
 
 3. `createNewFile()` and `createDependency()` are used to create the file where KSP will put the generated code.
 
-Next, you need to implement a `SymbolProcessorProvider`. The KSP framework calls this class to construct the processor.
+Next, implement a `SymbolProcessorProvider`. The KSP framework calls this class to construct the processor.
 Create a file and copy the following code:
 
 ```kotlin
@@ -270,7 +270,7 @@ Create one last module and name it `app`. In the module's `build.gradle(.kts)`:
 * Add KSP to the `plugins {}` block.
 * Add your processor and annotation to the `dependencies {}` block.
 
-<tabs group="8-build-gradle">
+<tabs group="app-build-gradle">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
@@ -308,7 +308,7 @@ dependencies {
 
 In the top-level `settings.gradle.kts`, include all the submodules:
     
-<tabs group="8-settings-gradle">
+<tabs group="settings-gradle">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
@@ -346,7 +346,7 @@ fun main() {
 ```
 
 Notice that, in `main()`, the function `helloWorld()` is called. It doesn’t exist yet, and your IDE might flag this. 
-But KSP will create it when you compile and run your project, so it won’t be a problem!
+But KSP will create it when you compile and run your project, so it won't be a problem!
 
 Run the program. You should see the output of the `helloWorld()` function in your console.
 
@@ -358,7 +358,7 @@ app/build/generated/ksp/main/kotlin/GeneratedHelloWorld.kt
 
 ### Project structure
 
-Your project’s final file structure should look like this (you might have additional directories, for example
+Your project's final file structure should look like this (you might have additional directories, for example
 `gradle`, `gradlew`, or `.idea`):
 
 ```text
