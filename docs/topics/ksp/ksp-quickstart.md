@@ -42,7 +42,7 @@ plugins {
 > 
 {style="tip"}
 
-In the top-level `dependencies{}` block, add the processor you want to use. In this example, we use 
+In the top-level `dependencies{}` block, add the processor you want to use. In this example we use 
 [Moshi](https://github.com/square/moshi?tab=readme-ov-file#codegen), but the approach is the same for other processors: 
 
 <tabs group="add-processor-dependencies">
@@ -110,13 +110,12 @@ plugins {
 
 ### Create an annotation
 
-Create a new Kotlin module in the project. Select **File** | **New** | **Module** and name it `annotations` Choose
-Gradle as a build system.
+Create a new Kotlin module in the project. Select **File** | **New** | **Module** and name it `annotations`.
 
 In the module, create a `HelloWorldAnnotation.kt` file and declare an annotation called `HelloWorldAnnotation`:
 
 ```kotlin
-// annotations/src/main/kotlin/com/example/annotations/MyAnnotation.kt
+// annotations/src/main/kotlin/com/example/annotations/HelloWorldAnnotation.kt
 package com.example.annotations
 
 annotation class HelloWorldAnnotation
@@ -126,7 +125,7 @@ annotation class HelloWorldAnnotation
 
 Create another module called `processor`.
 
-Add the following dependencies to the module's `build.gradle(.kts)` file. You need the KSP API and the annotation:
+Add the required dependencies to the module's `build.gradle(.kts)` file. You need the KSP API and the annotation
 you just declared:
 
 <tabs group="processor-build-script">
