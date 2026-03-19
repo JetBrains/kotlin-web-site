@@ -9,8 +9,10 @@ import '@jetbrains/kotlin-web-site-ui/out/components/layout';
 
 import styles from './hero-ab-1.module.css';
 
-import JBLogo from '../../../assets/jetbrains-logo.svg';
-import { HeroPlatforms } from '../hero-platforms/hero-platforms';
+import JBLogo from '../../../../assets/jetbrains-logo.svg';
+import { HeroPlatforms } from '../components/hero-platforms/hero-platforms';
+
+import BGImage from '../images/hero-ab-bg.webp';
 
 interface Props {
 }
@@ -21,6 +23,7 @@ export const HeroSectionAB1: FC<Props> = ({}) => {
     return (
         <ThemeProvider theme={'dark'}>
             <section className={cn(styles.heroSection)} data-testid={'hero-block-ab-1'}>
+                <img className={styles.backgroundImg} src={BGImage.src} alt={'Hero Image'} />
                 <div className={cn('ktl-layout', 'ktl-layout--center', 'hero-b')}>
                     <div className={styles.grid}>
                         <div className={styles.content}>

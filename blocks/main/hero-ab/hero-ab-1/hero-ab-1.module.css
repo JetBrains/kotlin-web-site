@@ -1,9 +1,19 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+@import "../../../../node_modules/@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
 
 
 .heroSection {
     background: #000;
     padding: 72px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.backgroundImg {
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 1768px;
+    height: 1768px;
 }
 
 .heroText {

@@ -2,10 +2,9 @@ import React, { FC, useCallback, useState } from 'react';
 import classNames from 'classnames';
 import { useTextStyles } from '@rescui/typography';
 import { Button } from '@rescui/button';
-import { CodeHighlight } from '../../../../components/code-highlight/code-highlight';
+import { CodeHighlight } from '@/components/code-highlight/code-highlight';
 
 import styles from './index.module.css';
-import { trackEvent } from '../../../../utils/event-logger';
 
 interface CopyCodeButtonProps {
     codeSample: string;
@@ -72,7 +71,7 @@ export const FeaturesSwitcher: FC<FeaturesSwitcherProps> = ({ slides, className,
                                 className={classNames(styles.tab, i === currentSlideIndex ? styles.tabActive : '')}
                             >
 
-                                {i === currentSlideIndex && (<img src={slide.icon} alt={`${slide.title} icon`} />)}
+                                {i === currentSlideIndex && (<img src={slide.icon.src} alt={`${slide.title} icon`} />)}
 
                                 <p className={classNames(textCn('rs-h3'), styles.tabTitle)}>{slide.title}</p>
 

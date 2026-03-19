@@ -1,15 +1,12 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames';
 import { useTextStyles } from '@rescui/typography';
-import SwipeableViews from 'react-swipeable-views';
 import { Button } from '@rescui/button';
-import { CodeHighlight } from '../../../../components/code-highlight/code-highlight';
+import { CodeHighlight } from '@/components/code-highlight/code-highlight';
 
-import { ArrowLeftIcon, ArrowRightIcon } from '@rescui/icons';
 
 import styles from './index.module.css';
-import { SnapCarousel } from '../../../../components/snap-carousel/snap-carousel';
-import { trackEvent } from '../../../../utils/event-logger';
+import { SnapCarousel } from '@/components/snap-carousel/snap-carousel';
 
 interface FeatureSlideItem {
     id: string;
