@@ -12,7 +12,7 @@ import styles from './hero-ab-1.module.css';
 import JBLogo from '../../../../assets/jetbrains-logo.svg';
 import { HeroPlatforms } from '../components/hero-platforms/hero-platforms';
 
-import BGImage from '../images/hero-ab-bg.webp';
+import HeroImg from '../images/hero-3600.webp';
 
 interface Props {
 }
@@ -23,7 +23,13 @@ export const HeroSectionAB1: FC<Props> = ({}) => {
     return (
         <ThemeProvider theme={'dark'}>
             <section className={cn(styles.heroSection)} data-testid={'hero-block-ab-1'}>
-                <img className={styles.backgroundImg} src={BGImage.src} alt={'Hero Image'} />
+                <img
+                    className={styles.backgroundImg}
+                    src={HeroImg.src}
+                    width={1786}
+                    height={1786}
+                    alt={'Hero Image'}
+                />
                 <div className={cn('ktl-layout', 'ktl-layout--center', 'hero-b')}>
                     <div className={styles.grid}>
                         <div className={styles.content}>

@@ -10,10 +10,17 @@
 
 .backgroundImg {
     position: absolute;
-    top: -50%;
-    right: -30%;
-    width: 1768px;
-    height: 1768px;
+    top: -700px;
+    right: 50%;
+    transform: translateX(50%);
+    margin-right: -350px;
+    width: 1786px;
+    height: 1786px;
+}
+
+.grid {
+    position: relative;
+    z-index: 1;
 }
 
 .heroText {
