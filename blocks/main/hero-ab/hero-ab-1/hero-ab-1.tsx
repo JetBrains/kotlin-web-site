@@ -6,8 +6,6 @@ import { ArrowRightIcon } from '@rescui/icons';
 import { createTextCn } from '@rescui/typography';
 import { ThemeProvider } from '@rescui/ui-contexts';
 
-import '@jetbrains/kotlin-web-site-ui/out/components/layout';
-
 import styles from './hero-ab-1.module.css';
 
 import { HeroPlatforms } from '../components/hero-platforms/hero-platforms';
@@ -25,31 +23,27 @@ export const HeroSectionAB1: FC<Props> = ({}) => {
     return (
         <ThemeProvider theme={'dark'}>
             <HeroLayout>
-                <div className={styles.grid}>
-                    <div className={styles.content}>
-                        <h1 className={cn(darkTextCn('rs-super-hero'), styles.heroText)}>Kotlin</h1>
-                        <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform.
-                            Fun.</p>
 
-                        <Developer />
+                <h1 className={cn(darkTextCn('rs-super-hero'), styles.heroText)}>Kotlin</h1>
+                <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform.
+                    Fun.</p>
 
+                <Developer />
 
-                        <div className={styles.heroPlatforms}>
-                            <HeroPlatforms />
-                        </div>
+                <div className={styles.heroPlatforms}>
+                    <HeroPlatforms />
+                </div>
 
-                        <div className={styles.kotlinTour}>
-                            <div className={styles.kotlinTourTitle}>
-                                <h3 className={cn(darkTextCn('rs-h3'), styles.kotlinTourTitle)}>Start Kotlin tour</h3>
-                            </div>
-                            <div>
-                                <Button size="m" mode={'outline'} icon={<ArrowRightIcon />} iconPosition={'right'}>Quick
-                                    Start</Button>
-                            </div>
-                        </div>
-
+                <div className={styles.kotlinTour}>
+                    <div className={styles.kotlinTourTitle}>
+                        <h3 className={cn(darkTextCn('rs-h3'), styles.kotlinTourTitle)}>Start Kotlin tour</h3>
+                    </div>
+                    <div>
+                        <Button size="m" mode={'outline'} icon={<ArrowRightIcon />} iconPosition={'right'}>Quick
+                            Start</Button>
                     </div>
                 </div>
+
             </HeroLayout>
         </ThemeProvider>
     );

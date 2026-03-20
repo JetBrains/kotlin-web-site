@@ -16,3 +16,8 @@
     width: 1786px;
     height: 1786px;
 }
+
+.content {
+    position: relative;
+    z-index: 1;
+}

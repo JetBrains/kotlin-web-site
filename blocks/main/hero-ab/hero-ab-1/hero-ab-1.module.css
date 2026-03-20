@@ -1,10 +1,5 @@
 @import "../../../../node_modules/@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
 
-.grid {
-    position: relative;
-    z-index: 1;
-}
-
 .heroText {
     margin: 0;
 }

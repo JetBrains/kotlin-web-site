@@ -9,6 +9,7 @@ import styles from './hero-ab-2.module.css';
 
 import { HeroLayout } from '../components/layout/layout';
 import { Developer } from '../components/developer/developer';
+import { Playground } from '../components/playground/playground';
 
 interface Props {
 }
@@ -18,27 +19,18 @@ export const HeroSectionAB2: FC<Props> = ({}) => {
 
     return (
         <HeroLayout>
+
             <div className={styles.grid}>
-                <div className={styles.content}>
-                    <h1 className={cn(darkTextCn('rs-super-hero'), styles.heroText)}>Kotlin</h1>
-                    <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform.
-                        Fun.</p>
 
-                    <Developer />
-
-                    variant 2
-
-                    <div className={styles.kotlinTour}>
-                        <div className={styles.kotlinTourTitle}>
-                            <h3 className={cn(darkTextCn('rs-h3'), styles.kotlinTourTitle)}>Start Kotlin tour</h3>
-                        </div>
-                        <div>
-                            <Button size='m' mode={'outline'} icon={<ArrowRightIcon />} iconPosition={'right'}>Quick Start</Button>
-                        </div>
-                    </div>
-
-                </div>
             </div>
+
+            <h1 className={cn(darkTextCn('rs-super-hero'), styles.heroText)}>Kotlin</h1>
+            <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform.
+                Fun.</p>
+
+            <Developer />
+            <Playground />
+
         </HeroLayout>
     );
 };

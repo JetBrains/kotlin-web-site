@@ -25,7 +25,9 @@ export const HeroLayout: FC<Props> = ({ children }) => {
                     alt={'Hero Image'}
                 />
                 <div className={cn('ktl-layout', 'ktl-layout--center', 'hero-b')}>
-                    {children}
+                    <div className={styles.content}>
+                        {children}
+                    </div>
                 </div>
             </section>
         </ThemeProvider>
