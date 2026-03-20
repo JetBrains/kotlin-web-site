@@ -7,8 +7,8 @@ import { createTextCn } from '@rescui/typography';
 
 import styles from './hero-ab-2.module.css';
 
-import JBLogo from '../../../../assets/jetbrains-logo.svg';
 import { HeroLayout } from '../components/layout/layout';
+import { Developer } from '../components/developer/developer';
 
 interface Props {
 }
@@ -24,22 +24,7 @@ export const HeroSectionAB2: FC<Props> = ({}) => {
                     <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform.
                         Fun.</p>
 
-                    <div className={styles.developer}>
-                        <div className={styles.developerContent}>
-                            <div
-                                className={cn(darkTextCn('rs-text-2', { hardness: 'hard' }), styles.developerCaption)}>Developed
-                                by
-                            </div>
-                            <a
-                                href="https://www.jetbrains.com/"
-                                target={'_blank'}
-                                rel={'noreferrer noopener'}
-                            >
-                                <img src={JBLogo.src} alt="jetbrains logo"
-                                     className={styles.developerLogo} />{' '}
-                            </a>
-                        </div>
-                    </div>
+                    <Developer />
 
                     variant 2
 

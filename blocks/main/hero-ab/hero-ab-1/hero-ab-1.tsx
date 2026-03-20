@@ -10,8 +10,8 @@ import '@jetbrains/kotlin-web-site-ui/out/components/layout';
 
 import styles from './hero-ab-1.module.css';
 
-import JBLogo from '../../../../assets/jetbrains-logo.svg';
 import { HeroPlatforms } from '../components/hero-platforms/hero-platforms';
+import { Developer } from '../components/developer/developer';
 
 
 import { HeroLayout } from '@/blocks/main/hero-ab/components/layout/layout';
@@ -31,22 +31,7 @@ export const HeroSectionAB1: FC<Props> = ({}) => {
                         <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform.
                             Fun.</p>
 
-                        <div className={styles.developer}>
-                            <div className={styles.developerContent}>
-                                <div
-                                    className={cn(darkTextCn('rs-text-2', { hardness: 'hard' }), styles.developerCaption)}>Developed
-                                    by
-                                </div>
-                                <a
-                                    href="https://www.jetbrains.com/"
-                                    target={'_blank'}
-                                    rel={'noreferrer noopener'}
-                                >
-                                    <img src={JBLogo.src} alt="jetbrains logo"
-                                         className={styles.developerLogo} />{' '}
-                                </a>
-                            </div>
-                        </div>
+                        <Developer />
 
 
                         <div className={styles.heroPlatforms}>
