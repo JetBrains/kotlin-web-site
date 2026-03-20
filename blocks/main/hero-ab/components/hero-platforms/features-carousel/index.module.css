@@ -28,7 +28,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: rgba(126, 66, 255, 0.8);
+  background: rgba(126, 66, 255, 0.30);
+  backdrop-filter: blur(8px);
   border-radius: 16px;
 }
 

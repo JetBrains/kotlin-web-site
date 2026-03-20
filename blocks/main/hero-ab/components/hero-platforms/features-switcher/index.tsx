@@ -6,20 +6,6 @@ import { CodeHighlight } from '@/components/code-highlight/code-highlight';
 
 import styles from './index.module.css';
 
-interface CopyCodeButtonProps {
-    codeSample: string;
-    label: string;
-}
-
-const CopyCodeButton: FC<CopyCodeButtonProps> = ({ codeSample, label }) => {
-
-    return (
-        <Button size="m" mode="rock" theme="dark" href="/" className={styles.copyButton}>
-            Learn more
-        </Button>
-    );
-};
-
 interface CustomSlideProps {
     codeSample: string;
     label: string;
@@ -27,7 +13,9 @@ interface CustomSlideProps {
 
 const CustomSlide: FC<CustomSlideProps> = ({ codeSample, label }) => (
     <div className={styles.slide}>
-        <CopyCodeButton codeSample={codeSample} label={label} />
+        <Button size="m" mode="rock" theme="dark" href="/" className={styles.copyButton}>
+            Learn more
+        </Button>
         <CodeHighlight code={codeSample} className={styles.codeBlock} />
     </div>
 );

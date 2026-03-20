@@ -52,6 +52,7 @@ import releasesDataRaw from '../data/releases.yml';
 import { KotlinPlusAiInfo } from '../blocks/main/kotlin-plus-ai';
 import { KotlinConfBanner } from '../blocks/main/kotlin-conf-banner';
 import { HeroSectionAB1 } from '../blocks/main/hero-ab/hero-ab-1/hero-ab-1';
+import { HeroSectionAB2 } from '@/blocks/main/hero-ab/hero-ab-2/hero-ab-2';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
@@ -169,6 +170,8 @@ function Index() {
                 </StickyHeader>
 
                 <HeroSectionAB1 />
+
+                <HeroSectionAB2 />
 
                 <HeroSection title={'Kotlin'}>
                     Concise. Multiplatform. Fun.

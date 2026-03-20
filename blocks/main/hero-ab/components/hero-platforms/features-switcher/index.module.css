@@ -104,6 +104,7 @@
   cursor: pointer;
   text-align: left;
   background: rgba(126, 66, 255, 0.30);
+  backdrop-filter: blur(12px);
 }
 
 @media (max-width: 992px) {
@@ -122,10 +123,15 @@
 }
 
 .tab:hover {
+  background: rgba(126, 66, 255, 0.40);
   border: 1px solid rgba(107, 87, 255, 0.80);
 }
 
 .tabActive {
+  background-color: #7E42FF;
+}
+
+.tabActive:hover {
   background-color: #7E42FF;
 }
 
