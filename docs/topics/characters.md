@@ -100,9 +100,9 @@ Every escape sequence begins with a backslash (`\`).
 For example: 
 
 ```kotlin
-val newLine: Char = '\n'
-val dollar: Char = '\$'
-val backslash: Char = '\\'
+val newLine = '\n'
+val dollar = '\$'
+val backslash = '\\'
 ```
 
 ## Operations
