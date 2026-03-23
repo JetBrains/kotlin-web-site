@@ -22,7 +22,7 @@ export const HeroSectionAB1: FC<Props> = ({}) => {
 
     return (
         <ThemeProvider theme={'dark'}>
-            <HeroLayout>
+            <HeroLayout testId={'hero-block-ab-1'}>
 
                 <h1 className={cn(darkTextCn('rs-super-hero'), styles.heroText)}>Kotlin</h1>
                 <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform.

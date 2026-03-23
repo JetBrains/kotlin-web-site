@@ -24,7 +24,7 @@ export const HeroSectionAB2: FC<Props> = ({}) => {
     const darkTextCn = createTextCn('dark');
 
     return (
-        <HeroLayout>
+        <HeroLayout testId={'hero-block-ab-2'}>
 
             <div className={styles.grid}>
                 <div className={styles.heading}>

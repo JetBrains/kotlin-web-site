@@ -25,7 +25,7 @@ export const HeroSectionAB4: FC<Props> = ({}) => {
 
     return (
         <ThemeProvider theme={'dark'}>
-            <HeroLayout>
+            <HeroLayout testId={'hero-block-ab-4'}>
                 <div className={styles.wrapper}>
                     <div className={styles.heading}>
                         <h1 className={cn(darkTextCn('rs-middle-hero'), styles.heroText)}>Kotlin</h1>

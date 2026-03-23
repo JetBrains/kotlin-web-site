@@ -11,12 +11,13 @@ import HeroImg from '../../images/hero-3600.webp';
 
 interface Props {
     children: ReactNode;
+    testId?: string;
 }
 
-export const HeroLayout: FC<Props> = ({ children }) => {
+export const HeroLayout: FC<Props> = ({ children, testId }) => {
     return (
         <ThemeProvider theme={'dark'}>
-            <section className={cn(styles.heroSection)} data-testid={'hero-block-ab-1'}>
+            <section className={cn(styles.heroSection)} data-testid={testId}>
                 <img
                     className={styles.backgroundImg}
                     src={HeroImg.src}

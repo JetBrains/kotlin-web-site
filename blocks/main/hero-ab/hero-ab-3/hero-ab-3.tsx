@@ -22,7 +22,7 @@ export const HeroSectionAB3: FC<Props> = ({}) => {
 
     return (
         <ThemeProvider theme={'dark'}>
-            <HeroLayout>
+            <HeroLayout testId={'hero-block-ab-3'}>
                 <div className={styles.wrapper}>
 
                     <div className={styles.heading}>
