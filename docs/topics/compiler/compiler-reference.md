@@ -292,6 +292,17 @@ This running order controls only the backend of compiler plugins and not the fro
 Set to `ExternalPackageParentPatcherLowering` to create a dump file after the IR lowering compilation stage. Configure
 the output directory for the Kotlin/JVM with the [`-Xdump-directory`](#xdump-directory) compiler option.
 
+### -Xname-based-destructuring
+<primary-label ref="experimental-opt-in"/>
+
+Configure how the compiler interprets [destructuring declarations](destructuring-declarations.md#name-based-destructuring) based on property names.
+
+The option supports the following modes:
+
+* `only-syntax`: enables the explicit form of name-based destructuring without changing the behavior of existing destructuring declarations.
+* `name-mismatch`: reports warnings when position-based destructuring in data classes uses variable names that don't match the property names.
+* `complete`: enables short-form name-based destructuring with parentheses and continues supporting position-based destructuring with square bracket syntax.
+
 ## Kotlin/JVM compiler options
 
 The Kotlin compiler for JVM compiles Kotlin source files into Java class files. 
