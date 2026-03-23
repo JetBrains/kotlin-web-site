@@ -25,8 +25,7 @@ export const HeroSectionAB1: FC<Props> = ({}) => {
             <HeroLayout testId={'hero-block-ab-1'}>
 
                 <h1 className={cn(darkTextCn('rs-super-hero'), styles.heroText)}>Kotlin</h1>
-                <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform.
-                    Fun.</p>
+                <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform. Fun.</p>
 
                 <Developer />
 
@@ -39,7 +38,7 @@ export const HeroSectionAB1: FC<Props> = ({}) => {
                         <h3 className={cn(darkTextCn('rs-h3'), styles.kotlinTourTitle)}>Start Kotlin tour</h3>
                     </div>
                     <div>
-                        <Button size="m" mode={'outline'} icon={<ArrowRightIcon />} iconPosition={'right'}>Quick
+                        <Button href={'/docs/kotlin-tour-welcome.html'} size="m" mode={'outline'} icon={<ArrowRightIcon />} iconPosition={'right'}>Quick
                             Start</Button>
                     </div>
                 </div>
