@@ -7,6 +7,7 @@
 .subtitle {
     margin: 0;
     margin-top: 16px;
+    margin-bottom: 48px;
 }
 
 
@@ -28,4 +29,47 @@
 
 .kotlinTourTitle {
     margin: 0;
+}
+
+.grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navItems {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 64px;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    background: rgba(11, 0, 44, 0.30);
+    backdrop-filter: blur(8px);
+    text-decoration: none;
+    color: #ffffff;
+    padding: 16px 24px;
+    width: 381px;
+}
+
+.navItem:last-child {
+    background: rgba(126, 66, 255, 0.40);
+}
+
+.navItem:hover {
+    outline: 1px solid #7E42FF;
+    background: rgba(126, 66, 255, 0.40);
+}
+
+.navIcon {
+    width: 48px;
+    height: 48px;
+    margin-right: 24px;
+}
+
+.navArrow {
+    margin-left: auto;
 }

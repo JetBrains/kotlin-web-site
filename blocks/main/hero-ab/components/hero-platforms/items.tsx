@@ -2,10 +2,10 @@ import React, { ReactNode } from 'react';
 
 import DiamondIcon from '../../server-side/features-section/diamond.svg';
 
-import MultiplatformIcon from './icons/multiplatform.svg';
-import BackendIcon from './icons/backend.svg';
-import AndroidIcon from './icons/android.svg';
-import AIIcon from './icons/ai.svg';
+import MultiplatformIcon from '@/blocks/main/hero-ab/images/icons/multiplatform.svg';
+import BackendIcon from '@/blocks/main/hero-ab/images/icons/backend.svg';
+import AndroidIcon from '@/blocks/main/hero-ab/images/icons/android.svg';
+import AIIcon from '@/blocks/main/hero-ab/images/icons/ai.svg';
 
 interface FeatureItem {
     id: string;
