@@ -1,20 +1,17 @@
 [//]: # (title: Migrate from kapt to KSP)
 
-[Kapt](kapt.md) (Kotlin Annotation Processing Tool) was created to allow Kotlin developers to use popular annotation processing 
-tools originally made for Java. It works by first translating the Kotlin source code into Java "stubs", and then running 
+[Kapt](kapt.md) (Kotlin Annotation Processing Tool) was created to allow Java annotation processors to be used in Kotlin. 
+It works by first translating the Kotlin source code into Java "stubs", and then running 
 the annotation processors on those stubs. This is an expensive process that causes a significant increase in build time, 
 and some Kotlin specific features are lost in translation.
 
 [KSP](ksp-overview.md) (Kotlin Symbol Processing) is an alternative to kapt, designed specifically for Kotlin. KSP understands all Kotlin 
 features and can analyze it directly, greatly increasing build speed.
 
-Kapt is now in maintenance mode. We encourage you to migrate the processors in your projects from kapt to KSP. Most 
-libraries already support KSP and new libraries are prioritizing it over kapt.
+To see if the processors in your project support KSP, check the [supported libraries](ksp-overview.md#supported-libraries)
+or their own documentation.
 
 You can migrate your project in stages, one library or module at a time, as kapt and KSP can run alongside each other.
-
-Before you migrate, check the [supported libraries table](ksp-overview.md#supported-libraries) to see if the libraries 
-in your project are already supported. If they are, follow these steps to migrate to KSP.
 
 ## Add the KSP plugin to your project
 
