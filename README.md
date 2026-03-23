@@ -23,7 +23,7 @@ This repository is the source for [https://kotlinlang.org](https://kotlinlang.or
 | [Multiplatform](https://kotlinlang.org/multiplatform/)    | [pages/multiplatform](pages/multiplatform)               |
 | [Case Studies](https://kotlinlang.org/case-studies/)      | [pages/case-studies](pages/case-studies)                 |
 | [Community](https://kotlinlang.org/community/)            | [pages/community](pages/community)                       | 
-| [Education](https://kotlinlang.org/education/)            | [templates/pages/education](templates/pages/education)   | 
+| [Education](https://kotlinlang.org/education/)            | [pages/education](pages/education)                       | 
 
 #### Sources in different repositories
 
