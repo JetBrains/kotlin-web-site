@@ -45,3 +45,55 @@ body {
         box-shadow: none;
     }
 }
+
+/* ==========================================================================
+   A/B Hero Experiment
+   Controlled by body classes set by Optimizely:
+     ab-hero-variant-1, ab-hero-variant-2, ab-hero-variant-3, ab-hero-variant-4
+   ========================================================================== */
+
+/* DEFAULT: Hide all AB hero variants */
+body [data-testid="hero-block-ab-1"],
+body [data-testid="hero-block-ab-2"],
+body [data-testid="hero-block-ab-3"],
+body [data-testid="hero-block-ab-4"] {
+    display: none;
+}
+
+/* VARIANT SWITCHING + WHY KOTLIN HIDING + BACKGROUND (desktop only, > 1000px) */
+@media (min-width: 1001px) {
+    /* Variant 1: show AB1, hide default */
+    body.ab-hero-variant-1 [data-testid="hero-block"] { display: none; }
+    body.ab-hero-variant-1 [data-testid="hero-block-ab-1"] { display: block; }
+
+    /* Variant 2: show AB2, hide default + Why Kotlin */
+    body.ab-hero-variant-2 [data-testid="hero-block"] { display: none; }
+    body.ab-hero-variant-2 [data-testid="hero-block-ab-2"] { display: block; }
+    body.ab-hero-variant-2 [data-testid="why-kotlin-block"] { display: none; }
+
+    /* Variant 3: show AB3, hide default + Why Kotlin */
+    body.ab-hero-variant-3 [data-testid="hero-block"] { display: none; }
+    body.ab-hero-variant-3 [data-testid="hero-block-ab-3"] { display: block; }
+    body.ab-hero-variant-3 [data-testid="why-kotlin-block"] { display: none; }
+
+    /* Variant 4: show AB4, hide default + Why Kotlin */
+    body.ab-hero-variant-4 [data-testid="hero-block"] { display: none; }
+    body.ab-hero-variant-4 [data-testid="hero-block-ab-4"] { display: block; }
+    body.ab-hero-variant-4 [data-testid="why-kotlin-block"] { display: none; }
+
+    /* Background: #000 for body when any variant is active */
+    body.dark-theme.ab-hero-variant-1,
+    body.dark-theme.ab-hero-variant-2,
+    body.dark-theme.ab-hero-variant-3,
+    body.dark-theme.ab-hero-variant-4 {
+        background: #000;
+    }
+
+    /* Override Why Kotlin's explicit #19191C background */
+    body.ab-hero-variant-1 [data-testid="why-kotlin-block"],
+    body.ab-hero-variant-2 [data-testid="why-kotlin-block"],
+    body.ab-hero-variant-3 [data-testid="why-kotlin-block"],
+    body.ab-hero-variant-4 [data-testid="why-kotlin-block"] {
+        background: #000;
+    }
+}
