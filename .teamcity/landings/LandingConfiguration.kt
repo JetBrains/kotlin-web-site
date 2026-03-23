@@ -1,5 +1,7 @@
 package landings
 
+import common.sanitizeId
+
 /**
  * Configuration for a landing page instance.
  * Each landing page is a separate client app.
@@ -14,7 +16,9 @@ data class LandingConfiguration(
   val repositoryUrl: String,
   val branch: String = "main",
   val autoDeployToProduction: Boolean = false
-)
+) {
+  val id: String get() = sanitizeId(name)
+}
 
 /**
  * List of all landing pages to be built.

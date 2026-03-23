@@ -2,6 +2,8 @@
 
 /**
  * Patches Vite config to add the correct base path for deployment.
+ * This is required for the landing pages to work correctly on kotlinlang.org.
+ * Important: This can't be done in vite.config.ts directly on GitHub because it will break preview on Lovable.
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'fs';

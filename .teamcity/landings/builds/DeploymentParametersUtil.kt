@@ -11,7 +11,6 @@ import jetbrains.buildServer.configs.kotlin.remoteParameters.hashiCorpVaultParam
 fun BuildType.configureAwsDeploymentParams() {
   params {
     param("teamcity.vault.set.env", "true")
-    param("env.AWS_DEFAULT_REGION", "eu-west-1")
     param("env.AWS_ACCESS_KEY_ID", "%KOTLIN_AWS_ACCESS_KEY_ID%")
     param("env.AWS_SECRET_ACCESS_KEY", "%KOTLIN_AWS_SECRET_ACCESS_KEY%")
     param("env.AWS_SESSION_TOKEN", "%KOTLIN_AWS_SESSION_TOKEN%")

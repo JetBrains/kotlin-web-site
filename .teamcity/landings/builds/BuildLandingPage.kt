@@ -5,7 +5,6 @@ import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import landings.LandingConfiguration
-import common.sanitizeId
 import landings.createVcsRootForLanding
 import vcsRoots.KotlinLangOrg
 
@@ -18,8 +17,8 @@ import vcsRoots.KotlinLangOrg
  * 4. Builds the static page
  * 5. Publishes the dist folder as an artifact
  */
-class BuildLandingPage(private val config: LandingConfiguration) : BuildType({
-  id("build_landing_${sanitizeId(config.name)}")
+class BuildLandingPage(val config: LandingConfiguration) : BuildType({
+  id(idFor(config))
   name = "Build ${config.name} langing page"
 
   params {
@@ -58,7 +57,7 @@ class BuildLandingPage(private val config: LandingConfiguration) : BuildType({
         node kotlin-web-site-scripts/patch-vite-base.mjs ${config.name}
 
         # Install dependencies
-        npm i
+        npm ci
 
         # Build
         npm run build
@@ -73,4 +72,8 @@ class BuildLandingPage(private val config: LandingConfiguration) : BuildType({
       dockerPull = true
     }
   }
-})
+}) {
+  companion object {
+    fun idFor(config: LandingConfiguration) = "build_landing_${config.id}"
+  }
+}

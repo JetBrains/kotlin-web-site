@@ -1,11 +1,10 @@
 package landings
 
-import common.sanitizeId
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 fun createVcsRootForLanding(config: LandingConfiguration): GitVcsRoot {
   return GitVcsRoot {
-      id("landing_vcs_${sanitizeId(config.name)}")
+      id("landing_vcs_${config.id}")
       name = "Landing: ${config.name}"
       url = config.repositoryUrl
       authMethod = uploadedKey {

@@ -1,19 +1,33 @@
 package landings.builds
 
-import common.sanitizeId
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.finishBuildTrigger
 import landings.LandingConfiguration
 
+enum class LandingDeployTarget(
+  val idPrefix: String,
+  val displayName: String,
+  val bucket: String
+) {
+  STAGING("staging", "Staging", "kotlinlang-staging-landings.jetbrains.com"),
+  PRODUCTION("production", "Production", "kotlinlang-prod-landings.jetbrains.com")
+}
+
 /**
- * Deployment build type for deploying a landing page to staging environment.
- * Automatically triggered when the landing page build succeeds.
+ * Deployment build type for deploying a landing page to staging or production.
+ *
+ * Staging is automatically triggered when the landing page build succeeds.
+ * Production is automatically triggered after staging only if autoDeployToProduction = true,
+ * and can always be triggered manually.
  */
-class DeployLandingToStaging(private val config: LandingConfiguration) : BuildType({
-  id("deploy_landing_staging_${sanitizeId(config.name)}")
-  name = "Deploy ${config.name} to Staging"
+class DeployLanding(
+  private val config: LandingConfiguration,
+  private val target: LandingDeployTarget
+) : BuildType({
+  id("deploy_landing_${target.idPrefix}_${config.id}")
+  name = "Deploy ${config.name} to ${target.displayName}"
 
   type = Type.DEPLOYMENT
 
@@ -27,10 +41,12 @@ class DeployLandingToStaging(private val config: LandingConfiguration) : BuildTy
     contains("docker.server.osType", "linux")
   }
 
-  triggers {
-    finishBuildTrigger {
-      buildType = "build_landing_${sanitizeId(config.name)}"
-      successfulOnly = true
+  if (target == LandingDeployTarget.STAGING || config.autoDeployToProduction) {
+    triggers {
+      finishBuildTrigger {
+        buildType = BuildLandingPage.idFor(config)
+        successfulOnly = true
+      }
     }
   }
 
@@ -51,17 +67,17 @@ class DeployLandingToStaging(private val config: LandingConfiguration) : BuildTy
 
   steps {
     script {
-      name = "Deploy to S3 Staging"
+      name = "Deploy to S3 ${target.displayName}"
       scriptContent = """
         rclone config create s3 s3 provider=AWS env_auth=true region=us-east-1 && \
-        rclone sync -P content// s3:kotlinlang-staging-landings.jetbrains.com/lp/%LANDING_NAME%/ \
+        rclone sync -P content/ s3:${target.bucket}/lp/%LANDING_NAME%/ \
           --delete-after \
           --s3-acl private \
           --check-first \
           --fast-list \
           --checksum
       """.trimIndent()
-      dockerImage = "rclone/rclone:latest"
+      dockerImage = "rclone/rclone:1.68"
       dockerPull = true
     }
   }
