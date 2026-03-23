@@ -136,7 +136,7 @@ map.mapValues { (_, value: String) -> "$value!" }
 <primary-label ref="experimental-opt-in"/>
 
 Kotlin supports *name-based destructuring declarations*,
-where variables match properties by name instead of the position defined by `componentN()` functions in position-based destructuring.
+where variables match properties by name instead of the position defined by `componentN()` functions in *position-based* destructuring.
 
 > For more information about name-based destructuring, see the feature's [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0438-name-based-destructuring.md).
 >
@@ -181,6 +181,16 @@ fun main() {
 ```
 
 Name-based destructuring is [Experimental](components-stability.md#stability-levels-explained).
+When you enable this feature, it also introduces a new syntax for position-based destructuring using square brackets.
+Use this syntax for types where the order of elements matters, such as lists and other ordered collections, as well as unnamed tuples like `Pair` or `Triple`:
+
+```kotlin
+val point = Pair(10, 20)
+
+// Uses position-based destructuring
+val [x, y] = point
+```
+
 You can control how the compiler interprets destructuring declarations with the `-Xname-based-destructuring` compiler option.
 
 It has the following modes:
@@ -195,7 +205,7 @@ If you use `complete` mode, the short-form destructuring syntax with parentheses
 val (email, username) = user
 ```
 
-To opt in to name-based destructuring in your project, add the compiler option to your build configuration file:
+To enable name-based destructuring in your project, add the compiler option to your build configuration file:
 
 <tabs group="build-system">
 <tab title="Gradle" group-key="gradle">
@@ -229,13 +239,3 @@ kotlin {
 
 </tab> 
 </tabs>
-
-Opting in to name-based destructuring also introduces a new syntax for position-based destructuring using square brackets.
-Use this syntax for types where the order of elements matters, such as lists and other ordered collections, as well as unnamed tuples like `Pair` or `Triple`:
-
-```kotlin
-val point = Pair(10, 20)
-
-// Uses position-based destructuring
-val [x, y] = point
-```
