@@ -10,7 +10,7 @@ import { Ecosystem } from '../../blocks/server-side/ecosystem/ecosystem';
 import { HowToStart } from '../../blocks/server-side/how-to-start/how-to-start';
 import { FavoriteTools } from '../../blocks/server-side/favorite-tools/favorite-tools';
 import { AdditionalMaterials } from '../../blocks/server-side/additional-materials/additional-materials';
-import { GetStarted } from '../../blocks/server-side/get-started/get-started';
+import { GetStartedServerSide } from '../../blocks/server-side/get-started/get-started';
 
 import logos from '../../components/customer-logo-marquee/server-side-logos';
 
@@ -37,7 +37,6 @@ function Index() {
             topMenuHomeUrl={SERVER_SIDE_URL}
             topMenuItems={TOP_MENU_ITEMS}
             topMenuButton={<Button href={'#get-started'}>Get started</Button>}
-            canonical={'https://kotlinlang.org/server-side/'}
             dataTestId={'server-side-page'}
         >
             <ServerSideHero />
@@ -48,7 +47,7 @@ function Index() {
             <HowToStart />
             <FavoriteTools />
             <AdditionalMaterials />
-            <GetStarted />
+            <GetStartedServerSide />
         </LandingLayout>
     );
 }

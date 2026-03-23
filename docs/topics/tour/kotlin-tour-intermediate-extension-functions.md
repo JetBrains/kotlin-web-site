@@ -38,7 +38,7 @@ In this example, the `main()` function calls the [`.first()`](https://kotlinlang
 The `.first()` function is called **on** the `readOnlyShapes` variable, so the `readOnlyShapes` variable is the receiver.
 
 To create an extension function, write the name of the class that you want to extend followed by a `.` and the name of
-your function. Continue with the rest of the function declaration, including its arguments and return type.
+your function. Continue with the rest of the function declaration, including its parameters and return type.
 
 For example:
 

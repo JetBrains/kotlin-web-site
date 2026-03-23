@@ -20,14 +20,35 @@ To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
 2. In the `<build><plugins>` section, add the Kotlin Maven plugin:
 
    ```xml
+   <build>
+       <plugins>
+           <plugin>
+               <groupId>org.jetbrains.kotlin</groupId>
+               <artifactId>kotlin-maven-plugin</artifactId>
+               <version>${kotlin.version}</version>
+           </plugin>
+       </plugins>
+   </build>
+   ```
+
+3. <p id="extension">(Optional) You can also enable the <code>extensions</code> option to simplify project configuration.
+   To do so, update the Kotlin Maven plugin section in your `pom.xml` file:</p>
+
+   ```xml
    <plugins>
        <plugin>
-           <artifactId>kotlin-maven-plugin</artifactId>
            <groupId>org.jetbrains.kotlin</groupId>
+           <artifactId>kotlin-maven-plugin</artifactId>
            <version>${kotlin.version}</version>
+           <extensions>true</extensions> <!-- Add this extension  -->
        </plugin>
    </plugins>
    ```
+
+   The `extensions` option in the Kotlin Maven plugin automatically:
+
+   * Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots if they already exist but are not specified in the plugin configuration.
+   * Adds the [`kotlin-stdlib` dependency](#dependency-on-the-standard-library) if it's not already defined in the project.
 
 ### Use JDK 17
 
@@ -73,8 +94,12 @@ To add a dependency on a library, include it in the `<dependencies>` section:
 
 ### Dependency on the standard library
 
-Kotlin has an extensive standard library that you can use in your applications.
-To use the standard library in your project, add the following dependency to your `pom.xml` file:
+Kotlin has an extensive standard library that you can use in your applications. You can add the standard library
+dependency manually or enable the [`extensions` option](#extension) to set it up automatically if it's missing.
+
+#### Manual configuration
+
+To manually add the Kotlin's standard library to your project, update the `dependencies` section in your `pom.xml` file with the following:
 
 ```xml
 <dependencies>
@@ -93,6 +118,24 @@ To use the standard library in your project, add the following dependency to you
 > * 1.2, use `kotlin-stdlib-jre7` or `kotlin-stdlib-jre8`, respectively.
 >
 {style="note"}
+
+### Automatic setup
+
+You can avoid manual configuration using the [`extensions` option](#extension) provided by the Kotlin Maven plugin. It automatically
+adds the `kotlin-stdlib` dependency if it's not defined in the project, for example, when you create a new Kotlin
+Maven project or introduce Kotlin to your existing Java Maven project.
+
+You can also opt out from the automatic addition of the standard library. For that, add the following to the `<properties>` section:
+
+```xml
+<project>
+    <properties>
+        <kotlin.smart.defaults.enabled>false</kotlin.smart.defaults.enabled>         
+    </properties>
+</project>
+```
+
+Note that this property disables all simplified setup features, including the registration of source root paths.
 
 ### Dependencies on test libraries
 

@@ -4,7 +4,7 @@
 
 <tldr>
     <p>Latest Kotlin version: <strong>%kotlinVersion%</strong></p>
-    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.3.0</a> and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>.</p>
+    <p>See <a href="%kotlinLatestWhatsnew%">What's new in Kotlin 2.3.20</a><!-- and find the bug fix details in the <a href="%kotlinLatestUrl%">changelog</a>.--></p>
 </tldr>
 
 This page explains the Kotlin release cycle and the different types of releases we ship. It also includes details
@@ -18,7 +18,7 @@ Since Kotlin 2.0.0, we ship the following types of releases:
     Released in 3 months after corresponding _language release_.
 * _Bug fix releases_ (2._x_._yz_) that include bug fixes for _tooling releases_. There is no exact release schedule for these releases.
 
-> For example, for the language release 2.2.0, there was only one tooling release 2.2.20 and one bugfix release 2.2.21.
+> For example, for the language release 2.2.0, there was only one tooling release 2.2.20 and one bug fix release 2.2.21.
 >
 {style="tip"}
 
@@ -35,8 +35,8 @@ new features before they are released. See [Early Access Preview](eap.md) for de
 
 Here is the approximate schedule for upcoming stable Kotlin releases:
 
-* **2.3.20**: Planned for March – April 2026
 * **2.4.0**: Planned for June – July 2026
+* **2.4.20**: Planned for September 2026
 
 ## Update to a new Kotlin version
 
@@ -121,17 +121,6 @@ libraries](maven-configure-project.md#dependency-on-a-kotlinx-library).
 Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and
 [Android Studio](https://developer.android.com/kotlin/get-started) with an official Kotlin plugin developed by JetBrains.
 
-K2 mode in IntelliJ IDEA and Android Studio uses the K2 compiler to improve code analysis, code completion, and highlighting.
-
-IntelliJ IDEA 2025.3 and later always uses K2 mode.
-
-In Android Studio, you can enable K2 mode starting with 2024.1 by following these steps:
-
-1. Go to **Settings** | **Languages & Frameworks** | **Kotlin**.
-2. Select the **Enable K2 mode** option.
-
-Learn more about K2 mode in [our blog](https://blog.jetbrains.com/idea/2025/04/k2-mode-in-intellij-idea-2025-1-current-state-and-faq/).
-
 ## Kotlin release compatibility
 
 Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution-principles.md#language-and-tooling-releases)
@@ -148,6 +137,16 @@ The following table lists details of previous Kotlin releases:
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
+    </tr>
+    <tr>
+        <td><strong>2.3.20</strong>
+            <p>Released: <strong>March 16, 2026</strong></p>
+            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.20" target="_blank">Release on GitHub</a></p>
+        </td>
+        <td>
+            <p>A tooling release with performance improvements, bug fixes, and tooling updates.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.20">changelog</a>.</p>
+        </td>
     </tr>
     <tr>
         <td><strong>2.3.10</strong>

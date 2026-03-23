@@ -52,3 +52,6 @@ test-results
 
 public/data
 test/storage-state.json
+
+
+.junie/memory

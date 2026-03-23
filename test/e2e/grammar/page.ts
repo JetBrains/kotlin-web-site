@@ -1,5 +1,5 @@
 import { Locator, Page } from '@playwright/test';
-import { BasePage } from './base-page';
+import { BasePage } from '../../page/base-page';
 
 export const GRAMMAR_URL = '/grammar/';
 

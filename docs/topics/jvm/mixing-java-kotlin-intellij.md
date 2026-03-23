@@ -1,5 +1,7 @@
 [//]: # (title: Adding Kotlin to a Java project – tutorial)
 
+<web-summary>Integrate Kotlin into an existing Java project − configure Maven or Gradle build files, organize source files, and convert Java code to Kotlin in IntelliJ IDEA.</web-summary>
+
 Kotlin is fully interoperable with Java, so you can gradually introduce it into your existing Java projects without
 having to rewrite everything.
 
@@ -43,21 +45,22 @@ To use Kotlin and Java together in a Maven project, apply the Kotlin Maven plugi
 
     ```xml
     ```
-   {src="jvm-test-tutorial/pom.xml" include-lines="32,38-43,45-49,62"}
+   {src="jvm-test-tutorial/pom.xml" include-lines="32,38-43,45-49,55"}
 
 3. In the `<build><plugins>` section, add the Kotlin plugin:
 
     ```xml
     ```
-   {src="jvm-test-tutorial/pom.xml" include-lines="64-66,102-104,105-137"}
+   {src="jvm-test-tutorial/pom.xml" include-lines="57-58,95-96,99-107"}
 
-   In this configuration:
+   Enabling `<extensions>true</extensions>` in the Kotlin Maven plugin helps to:
 
-    * `<extensions>true</extensions>` lets Maven integrate the Kotlin plugin into the build lifecycle.
-    * Custom execution phases allow the Kotlin plugin to compile Kotlin first, then Java.
-    * Kotlin and Java code can reference each other through the configured `sourceDirs` directories.
-    * You don't need a separate `maven-compiler-plugin` in the `<build><pluginManagement>` section when using the Kotlin
-      Maven plugin with extensions.
+   * Automatically add the `kotlin-stdlib` dependency to the project.
+   * Configure execution phases to compile Kotlin first, then Java.
+   * Reference Kotlin code in Java code and vice versa.
+
+   You don't need a separate `maven-compiler-plugin` in the `<build><pluginManagement>` section when using the Kotlin
+   Maven plugin with extensions.
 
 4. Reload the Maven project in your IDE.
 5. Run tests to verify the configuration:

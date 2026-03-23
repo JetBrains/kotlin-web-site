@@ -23,7 +23,6 @@ export default function GrammarPage({ data }: GrammarPageProps) {
             title={'Grammar - Kotlin Programming Language'} description={'Kotlin Grammar Reference'}
             topMenuTitle={'Grammar'}
             topMenuItems={TOP_MENU_ITEMS}
-            canonical={'https://kotlinlang.org/grammar/'}
         >
             <ThemeProvider theme={'light'}>
                 <Grammar data={data} />

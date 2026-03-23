@@ -1128,7 +1128,7 @@ For the KGP, using the BTA already has the following benefits:
 
 ### Improved "in process" compiler execution strategy
 
-The KGP supports three [Kotlin compiler execution strategies](gradle-compilation-and-caches.md#defining-kotlin-compiler-execution-strategy). 
+The KGP supports three [Kotlin compiler execution strategies](compiler-execution-strategy.md). 
 The "in process" strategy, which runs the compiler 
 inside the Gradle daemon process, previously didn't support incremental compilation.
 

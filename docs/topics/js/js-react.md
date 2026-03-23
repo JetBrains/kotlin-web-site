@@ -22,7 +22,7 @@ concepts behind React may help you understand some sample code, but it is not st
 
 ## Before you start
 
-1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
+1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
 2. Clone the [project template](https://github.com/kotlin-hands-on/web-app-react-kotlin-js-gradle) and open it in IntelliJ
    IDEA. The template includes a basic Kotlin Multiplatform Gradle project with all required configurations and dependencies
 

@@ -1,9 +1,7 @@
 package templates
 
-import jetbrains.buildServer.configs.kotlin.FailureAction
 import jetbrains.buildServer.configs.kotlin.Template
 import jetbrains.buildServer.configs.kotlin.buildFeatures.dockerRegistryConnections
-import kotlinlang.builds.BuildPythonContainer
 
 object DockerImageBuilder : Template({
   name = "Site builder docker container"
@@ -23,13 +21,6 @@ object DockerImageBuilder : Template({
       loginToRegistry = on {
         dockerRegistryId = "PROJECT_EXT_357"
       }
-    }
-  }
-
-  dependencies {
-    snapshot(BuildPythonContainer) {
-      onDependencyFailure = FailureAction.FAIL_TO_START
-      onDependencyCancel = FailureAction.CANCEL
     }
   }
 })

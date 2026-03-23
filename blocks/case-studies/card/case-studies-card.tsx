@@ -5,6 +5,7 @@ import { LinkIcon } from '@rescui/icons';
 import { useTextStyles } from '@rescui/typography';
 import React from 'react';
 import cn from 'classnames';
+import Link from 'next/link';
 import styles from './case-studies-card.module.css';
 import { CaseItem } from '../case-studies';
 import { PlatformIcon, FrameworkIcon } from '../technology-icon/technology-icon';
@@ -42,6 +43,9 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, show
     const videoId = item.media?.type === 'youtube' ? item.media.videoId : undefined;
     const imageSrc = item.media?.type === 'image' ? item.media.path : undefined;
 
+    const linkClassName = cn(styles.link, textCn('rs-link', { external: item.isExternal }));
+    const linkContent = item.linkText || 'Read the full story';
+
     const handleCopyLink = () => {
         const url = `${window.location.origin}${window.location.pathname}#${item.id}`;
         navigator.clipboard.writeText(url);
@@ -76,14 +80,17 @@ const CaseStudyCardText: React.FC<CaseStudyCardProps> = ({ className, mode, show
                     </div>
                 }
 
-                {item.link &&
-                    <a
-                        className={cn(styles.link, textCn('rs-link', { external: true }))}
-                        href={item.link}
-                    >
-                        {item.linkText || 'Read the full story'}
-                    </a>
-                }
+                {item.link && (
+                    item.isExternal ? (
+                        <a className={linkClassName} href={item.link}>
+                            {linkContent}
+                        </a>
+                    ) : (
+                        <Link className={linkClassName} href={item.link}>
+                            {linkContent}
+                        </Link>
+                    )
+                )}
 
                 {(item.platforms && item.platforms.length > 0) || (item.frameworks && item.frameworks.length > 0) ? (
                     <div className={styles.technologies} aria-label="Technologies">

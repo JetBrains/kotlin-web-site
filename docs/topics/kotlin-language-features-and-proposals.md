@@ -32,22 +32,6 @@ guided by pragmatic design.
 </td>
 <td>
 
-**Name-based destructuring**
-
-* KEEP proposal: [name-based-destructuring.md](https://github.com/Kotlin/KEEP/blob/name-based-destructuring/proposals/name-based-destructuring.md)
-* YouTrack issue: [KT-19627](https://youtrack.jetbrains.com/issue/KT-19627)
-
-</td>
-</tr>
-
-<tr filter="exploration-and-design">
-<td>
-
-**Exploration and design**
-
-</td>
-<td>
-
 **Support immutability**
 
 * KEEP notes: [immutability](https://github.com/Kotlin/KEEP/blob/master/notes/value-classes.md#immutability-and-value-classes)
@@ -190,6 +174,24 @@ guided by pragmatic design.
 <!-- END OF KEEP DISCUSSION BLOCK -->
 
 <!-- IN PREVIEW BLOCK -->
+
+<tr filter="in-preview">
+<td width="200">
+
+**In preview**
+
+</td>
+<td>
+
+**Name-based destructuring**
+
+* KEEP proposal: [name-based-destructuring.md](https://github.com/Kotlin/KEEP/blob/name-based-destructuring/proposals/name-based-destructuring.md)
+* YouTrack issue: [KT-19627](https://youtrack.jetbrains.com/issue/KT-19627)
+* Stability level: [Experimental](components-stability.md#stability-levels-explained)
+* Available since: 2.3.20
+
+</td>
+</tr>
 
 <tr filter="in-preview">
 <td width="200">

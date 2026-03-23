@@ -50,7 +50,7 @@ With all of this in mind, it's best to split the project into two modules.
 
 ## Before you start
 
-Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html).
+Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
 
 ## Create a project
 
