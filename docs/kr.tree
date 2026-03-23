@@ -232,8 +232,10 @@
                 <toc-element topic="data-analysis-work-with-api.md"/>
                 <toc-element topic="data-analysis-connect-to-db.md"/>
             </toc-element>
-            <toc-element toc-title="Data visualization with Kandy" topic="data-analysis-visualization.md"/>
-            <toc-element toc-title="Data visualization with Lets-Plot" topic="lets-plot.md"/>
+            <toc-element toc-title="Visualizing data">
+                <toc-element toc-title="With Kandy" topic="data-analysis-visualization.md"/>
+                <toc-element toc-title="With Lets-Plot for Kotlin" topic="lets-plot.md"/>
+            </toc-element>
             <toc-element toc-title="Libraries for data analysis" topic="data-analysis-libraries.md"/>
         </toc-element>
         <toc-element toc-title="Kotlin for AI-powered apps">
