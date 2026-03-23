@@ -34,19 +34,19 @@ export const HeroSectionAB3: FC<Props> = ({}) => {
                     </div>
 
                     <div className={styles.navItems}>
-                        <a className={styles.navItem} href={'/'}>
+                        <a className={styles.navItem} href={'/multiplatform/'}>
                             <p className={darkTextCn('rs-text-2', {hardness: 'hard'})}>Multiplatform</p>
                         </a>
-                        <a className={styles.navItem} href={'/'}>
+                        <a className={styles.navItem} href={'/docs/kotlin-ai-apps-development-overview.html'}>
                             <p className={darkTextCn('rs-text-2', {hardness: 'hard'})}>AI</p>
                         </a>
-                        <a className={styles.navItem} href={'/'}>
+                        <a className={styles.navItem} href={'/server-side/'}>
                             <p className={darkTextCn('rs-text-2', {hardness: 'hard'})}>Backend</p>
                         </a>
-                        <a className={styles.navItem} href={'/'}>
+                        <a className={styles.navItem} href={'/docs/android-overview.html'}>
                             <p className={darkTextCn('rs-text-2', {hardness: 'hard'})}>Android</p>
                         </a>
-                        <a className={styles.navItem} href={'/'}>
+                        <a className={styles.navItem} href={'/docs/kotlin-tour-welcome.html'}>
                             <div className={styles.kotlinTour}>
                                 <p className={darkTextCn('rs-text-2', {hardness: 'hard'})}>Kotlin Tour</p>
                                 <Button size="m" mode={'outline'}>Quick Start</Button>

@@ -9,11 +9,12 @@ import styles from './index.module.css';
 interface CustomSlideProps {
     codeSample: string;
     label: string;
+    linkUrl: string
 }
 
-const CustomSlide: FC<CustomSlideProps> = ({ codeSample, label }) => (
+const CustomSlide: FC<CustomSlideProps> = ({ codeSample, linkUrl }) => (
     <div className={styles.slide}>
-        <Button size="m" mode="rock" theme="dark" href="/" className={styles.copyButton}>
+        <Button size="m" mode="rock" theme="dark" href={linkUrl} className={styles.copyButton}>
             Learn more
         </Button>
         <CodeHighlight code={codeSample} className={styles.codeBlock} />
@@ -26,6 +27,7 @@ interface FeatureSlideItem {
     title: React.ReactNode;
     description: React.ReactNode;
     codeSample: string;
+    linkUrl: string;
 }
 
 interface FeaturesSwitcherProps {
@@ -93,7 +95,7 @@ export const FeaturesSwitcher: FC<FeaturesSwitcherProps> = ({ slides, className,
                                 : styles.slideHidden
                         )}
                     >
-                        <CustomSlide key={slide.id} label={slide.title.toString()} {...slide} />
+                        <CustomSlide linkUrl={slide.linkUrl} key={slide.id} label={slide.title.toString()} {...slide} />
                     </div>
                 ))}
             </div>

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useTL } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
 
-import { heroPlatformItems } from '../../data/items';
+import { heroPlatformItems } from './items';
 import { FeaturesCarousel } from './features-carousel';
 import { FeaturesSwitcher } from './features-switcher';
 

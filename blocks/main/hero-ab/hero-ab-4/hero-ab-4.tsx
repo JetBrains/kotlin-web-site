@@ -36,28 +36,28 @@ export const HeroSectionAB4: FC<Props> = ({}) => {
                     </div>
 
                     <div className={styles.navItems}>
-                        <a className={styles.navItem} href={'/'}>
+                        <a className={styles.navItem} href={'/multiplatform/'}>
                             <img src={KMPIcon.src} className={styles.icon} alt={`KMP icon`} />
                             <h3 className={cn(darkTextCn('rs-h3'), styles.title)}>Multiplatform</h3>
                             <p className={cn(darkTextCn('rs-text-2'), styles.text)}>
                                 Build modern Android applications using Kotlin and the official Android toolkit.
                             </p>
                         </a>
-                        <a className={styles.navItem} href={'/'}>
+                        <a className={styles.navItem} href={'/docs/kotlin-ai-apps-development-overview.html'}>
                             <img src={AIIcon.src} className={styles.icon} alt={`AI icon`} />
                             <h3 className={cn(darkTextCn('rs-h3'), styles.title)}>AI development</h3>
                             <p className={cn(darkTextCn('rs-text-2'), styles.text)}>
                                 Share code across Android, iOS, web, and desktop using Kotlin Multiplatform.
                             </p>
                         </a>
-                        <a className={styles.navItem} href={'/'}>
+                        <a className={styles.navItem} href={'/server-side/'}>
                             <img src={BackendIcon.src} className={styles.icon} alt={`Backend icon`} />
                             <h3 className={cn(darkTextCn('rs-h3'), styles.title)}>Backend</h3>
                             <p className={cn(darkTextCn('rs-text-2'), styles.text)}>
                                 Develop scalable server-side applications and APIs with Kotlin on the JVM.
                             </p>
                         </a>
-                        <a className={styles.navItem} href={'/'}>
+                        <a className={styles.navItem} href={'/docs/android-overview.html'}>
                             <img src={AndroidIcon.src} className={styles.icon} alt={`Android icon`} />
                             <h3 className={cn(darkTextCn('rs-h3'), styles.title)}>Android</h3>
                             <p className={cn(darkTextCn('rs-text-2'), styles.text)}>
@@ -65,7 +65,7 @@ export const HeroSectionAB4: FC<Props> = ({}) => {
                             </p>
                         </a>
 
-                        <a className={styles.navItem} href={'/'}>
+                        <a className={styles.navItem} href={'/docs/kotlin-tour-welcome.html'}>
                             <div className={styles.kotlinTour}>
                                 <img src={KotlinIcon.src} className={styles.kotlinIcon} alt={`Kotlin icon`} />
                                 <h3 className={darkTextCn('rs-h3')}>Kotlin Tour</h3>

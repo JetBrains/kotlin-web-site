@@ -36,27 +36,27 @@ export const HeroSectionAB2: FC<Props> = ({}) => {
                 </div>
 
                 <div className={styles.navItems}>
-                    <a className={styles.navItem} href={'/'}>
+                    <a className={styles.navItem} href={'/multiplatform/'}>
                         <img src={KMPIcon.src} className={styles.navIcon} alt={`KMP icon`} />
                         <p className={darkTextCn('rs-text-2')}>Multiplatform</p>
                         <ArrowRightIcon className={styles.navArrow} />
                     </a>
-                    <a className={styles.navItem} href={'/'}>
+                    <a className={styles.navItem} href={'/server-side/'}>
                         <img src={BackendIcon.src} className={styles.navIcon} alt={`Backend icon`} />
                         <p className={darkTextCn('rs-text-2')}>Backend</p>
                         <ArrowRightIcon className={styles.navArrow} />
                     </a>
-                    <a className={styles.navItem} href={'/'}>
+                    <a className={styles.navItem} href={'/docs/kotlin-ai-apps-development-overview.html'}>
                         <img src={AIIcon.src} className={styles.navIcon} alt={`AI icon`} />
                         <p className={darkTextCn('rs-text-2')}>AI</p>
                         <ArrowRightIcon className={styles.navArrow} />
                     </a>
-                    <a className={styles.navItem} href={'/'}>
+                    <a className={styles.navItem} href={'/docs/android-overview.html'}>
                         <img src={AndroidIcon.src} className={styles.navIcon} alt={`Android icon`} />
                         <p className={darkTextCn('rs-text-2')}>Android</p>
                         <ArrowRightIcon className={styles.navArrow} />
                     </a>
-                    <a className={styles.navItem} href={'/'}>
+                    <a className={styles.navItem} href={'/docs/kotlin-tour-welcome.html'}>
                         <img src={KotlinIcon.src} className={styles.navIcon} alt={`Kotlin icon`} />
                         <p className={darkTextCn('rs-text-2')}>Kotlin tour</p>
                         <ArrowRightIcon className={styles.navArrow} />
