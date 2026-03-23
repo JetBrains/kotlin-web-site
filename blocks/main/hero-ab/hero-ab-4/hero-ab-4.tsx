@@ -14,7 +14,7 @@ import KMPIcon from '@/blocks/main/hero-ab/images/icons/multiplatform.svg';
 import BackendIcon from '@/blocks/main/hero-ab/images/icons/backend.svg';
 import AIIcon from '@/blocks/main/hero-ab/images/icons/ai.svg';
 import AndroidIcon from '@/blocks/main/hero-ab/images/icons/android.svg';
-import KotlinIcon from '@/blocks/main/hero-ab/images/icons/Kotlin.svg';
+import KotlinIcon from '@/blocks/main/hero-ab/images/icons/kotlin-icon-4.svg';
 import { Button } from '@rescui/button';
 
 interface Props {
