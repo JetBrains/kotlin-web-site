@@ -35,10 +35,6 @@ For web platforms, Compose Multiplatform uses
 Kotlin/Wasm as its compilation target. Applications built with Kotlin/Wasm and Compose Multiplatform use a 
 `wasm-js` target and run in browsers.
 
-[Explore our online demo of an application built with Compose Multiplatform and Kotlin/Wasm](https://zal.im/wasm/jetsnack/)
-
-![Kotlin/Wasm demo](wasm-demo.png){width=700}
-
 Additionally, you can use the most popular Kotlin libraries in Kotlin/Wasm out of the box. Like in other Kotlin and Multiplatform
 projects, you can include dependency declarations in the build script. For more information,
 see [Adding dependencies on multiplatform libraries](https://kotlinlang.org/docs/multiplatform/multiplatform-add-dependencies.html).
