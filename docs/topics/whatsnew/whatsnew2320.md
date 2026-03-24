@@ -59,8 +59,8 @@ In your `pom.xml` file, add `<extensions>true</extensions>` to the `<build><plug
 
 The new features of the `<extensions>` option here are:
 
-* Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots in case they already exist but are not specified in the plugin configuration.
-* Adds the `kotlin-stdlib` dependency in case it's not explicitly defined already.
+* Registering `src/main/kotlin` and `src/test/kotlin` directories as source roots in case they already exist but are not specified in the plugin configuration.
+* Adding the `kotlin-stdlib` dependency in case it's not explicitly defined already.
 
 You can also opt out of the automatic addition of Kotlin's standard library. For that, add the following to the `<properties>` section:
 
