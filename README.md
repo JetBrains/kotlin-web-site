@@ -1,6 +1,5 @@
 # Kotlin website
 [![Official project][project-badge]][project-url]
-[![Qodana Code Quality Check](https://github.com/JetBrains/kotlin-web-site/actions/workflows/qodana-code-quality-check.yml/badge.svg)](https://github.com/JetBrains/kotlin-web-site/actions/workflows/qodana-code-quality-check.yml)
 
 This repository is the source for [https://kotlinlang.org](https://kotlinlang.org).
 
@@ -140,12 +139,15 @@ You can contribute to the Kotlin website by sending us a pull request.
 
 ## PDF Generation
 
+Before you begin, make sure your local environment is connected to to the WebTeam registry. Learn more about it [in the section below](#local-development).
+
 To generate a PDF version of the Kotlin documentation:
 
 1. Download the documentation artifacts from the [Reference Docs CI build](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildReferenceDocs) and place them in the `dist` folder.
 2. Run:
    ```bash
    yarn install
+   cd scripts/dist && npm install && cd ../../
    yarn generate-pdf
    ```
 
