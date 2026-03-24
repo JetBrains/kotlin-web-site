@@ -7,9 +7,12 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en" className="no-js">
                 <Head>
-                    <script dangerouslySetInnerHTML={{
-                        __html: `document.documentElement.classList.replace('no-js', 'js');`,
-                    }}/>
+                    <script src="https://cdn.optimizely.com/js/26633200186.js" />
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `document.documentElement.classList.replace('no-js', 'js');`,
+                        }}
+                    />
                 </Head>
                 <body className={cn(pageProps.isDarkTheme ? 'dark-theme' : '', 'nextjs')}>
                     <Main />
