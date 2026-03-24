@@ -109,20 +109,6 @@ val text = """
 
 By default, a pipe symbol `|` is used as margin prefix, but you can choose another character and pass it as a parameter, like `trimMargin(">")`.
 
-
-## String operations 
-
-Kotlin provides many options for working with `String`. You can use them to inspect text, access individual 
-characters, or create modified copies. The operations return a new `String`. 
-
-This section introduces some of the most commonly used ``String` operations.
-Refer to the [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/) 
-to see all available functions. 
-
-### String Length 
-
-
-
 ## String templates
 
 String literals may contain _template expressions_ – pieces of code that are evaluated and whose results are concatenated into a string.
