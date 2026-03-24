@@ -14,20 +14,22 @@ To declare a character, use the `Char` type and enclose the value in single quot
 
 ```kotlin
 val letter: Char = 'a'
-val digit: Char = '1'
-val symbol: Char = '!'
-val space: Char = ' '
 
 // Type inference also works with character literals
+val digit = '1'
+val symbol = '!'
+val space = ' '
 val separator = ':'
 ```
 
 A character literal must contain exactly one character. Otherwise, Kotlin reports an error:
 
 ```kotlin
-val invalid: Char = 'AB' // Error
+val invalid = 'AB' // Error
 val invalidEmpty = '' // Error
 ```
+
+### Nullable values
 
 To store a value that can be absent, use `Char?`:
 
@@ -35,7 +37,9 @@ To store a value that can be absent, use `Char?`:
 val maybeAbsent: Char? = null
 ```
 
-On the JVM, nullable `Char` values are boxed when needed.
+> On the JVM, nullable `Char` values are boxed when needed.
+{style="note"}
+
 
 ## Unicode support
 
@@ -57,6 +61,7 @@ val unicodeNumber = '\u0031' // equals '1'
 ```
 
 ### Supplementary characters 
+
 Unicode characters outside the BMP, such as emojis and some historic scripts, 
 cannot be represented by a single `Char`. In UTF-16, they are encoded as a **surrogate pair**.
 This means, two `Char` values that together encode one Unicode character in a `String`. For example:
@@ -72,7 +77,6 @@ fun main() {
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 > To handle 32-bit symbols individually, use Unicode code points stored as `Int` values.
 {style="tip"}
@@ -112,7 +116,9 @@ val backslash = '\\'
 ### Comparison operations 
 
 To compare `Char` values, use standard [comparison operators](keyword-reference.md#operators-and-special-symbols) such
-as `==`, `!=`, `<`, `>`, `<=`, and `>=`. Kotlin compares `Char` values by their numeric Unicode values and returns
+as `==`, `!=`, `<`, `>`, `<=`, and `>=`. 
+
+Kotlin compares `Char` values by their numeric Unicode values and returns
 a `Boolean` value:
 
 ```kotlin
@@ -124,10 +130,7 @@ val equal = 'A' == 'A' // true
 
 ### Character arithmetic
 
-You can create another character value by adding or subtracting an integer.
-These operations follow Unicode values, not language-specific alphabet rules.
-
-For example:
+You can create another character value by adding or subtracting an integer:
 
 ```kotlin
 fun main() {
@@ -141,6 +144,9 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+> These operations follow Unicode values, not language-specific alphabet rules.
+{style="note"}
 
 You can also use the increment (`++`) and decrement (`--`) operators in the prefix and postfix forms
 with mutable variables:
@@ -187,32 +193,29 @@ functions.
 
 To convert `Char` to a numeric type, use explicit conversion. 
 
-Use `.code` to get the numeric Unicode value of a character:
+* Use `.code` to get the numeric Unicode value of a character:
 
-```kotlin
-fun main() { 
-//sampleStart
-  val letter = 'A'
-  println(letter.code) 
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+  ```kotlin
+  fun main() { 
+  //sampleStart
+      val letter = 'A'
+      println(letter.code) // 65
+  //sampleEnd
+  }
+  ```
+  {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-If a character represents a decimal digit, use `digitToInt()`. If the character may not be a valid digit, 
-use `digitToIntOrNull()`:
+* If a character represents a decimal digit, use `digitToInt()`:
+  ```kotlin
+  fun main() { 
+  //sampleStart
+      val digit = '7'
+      println(digit.digitToInt()) // 7
+  //sampleEnd
+  }
+  ```
+  {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-```kotlin
-fun main() { 
-//sampleStart
-  val digit = '7'
-  println(digit.digitToInt()) 
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-
-
-
-
+  > If the character may not be a valid digit, use `digitToIntOrNull()`. 
+  {style="tip"}
+  
