@@ -39,7 +39,7 @@ See the latest supported language version in [Kotlin releases](releases.md#ide-s
 ## Other IDEs support
 
 JetBrains doesn't provide Kotlin plugins for other IDEs.
-However, some other IDEs and code editors, such as Visual Studio Code and Atom, have Kotlin plugins supported by the Kotlin community.
+However, some other IDEs and code editors, such as Visual Studio Code, have Kotlin plugins supported by the Kotlin community.
 
 You can use any text editor to write the Kotlin code, but without IDE-related features: code formatting, debugging tools, and so on.
 To use Kotlin in text editors, you can download the latest Kotlin command-line compiler (`kotlin-compiler-%kotlinVersion%.zip`) from Kotlin [GitHub Releases](%kotlinLatestUrl%) and [install it manually](command-line.md#manual-install).
