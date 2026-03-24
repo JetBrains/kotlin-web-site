@@ -199,6 +199,11 @@ It has the following modes:
 * `name-mismatch` reports warnings when position-based destructuring in data classes uses variable names that don't match the property names.
 * `complete` enables short-form name-based destructuring with parentheses and continues supporting position-based destructuring with square bracket syntax.
 
+> Before enabling `complete` mode, review and resolve the warnings reported in `name-mismatch` mode.
+> These warnings show which destructuring declarations the compiler interprets differently in `complete` mode and include suggestions for rewriting those declarations accordingly.
+> 
+{style="tip"}
+
 If you use `complete` mode, the short-form destructuring syntax with parentheses matches variables to property names instead of relying on position:
 
 ```kotlin
