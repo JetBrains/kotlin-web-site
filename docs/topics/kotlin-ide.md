@@ -32,20 +32,20 @@ Read more about Android Studio in the [official documentation](https://developer
 
 ## Compatibility with the Kotlin language versions
 
-For IntelliJ IDEA and Android Studio, the Kotlin IDE plugin is bundled with each release.
+For IntelliJ IDEA and Android Studio, the Kotlin plugin is bundled with each release.
 When the new Kotlin version is released, these tools will suggest updating Kotlin to the latest version automatically.
 See the latest supported language version in [Kotlin releases](releases.md#ide-support).
 
 ## Other IDEs support
 
 JetBrains doesn't provide Kotlin plugins for other IDEs.
-Other IDEs may have community-supported plugins.
+However, some other IDEs and code editors, such as Visual Studio Code and Atom, have Kotlin plugins supported by the Kotlin community.
 
 You can use any text editor to write the Kotlin code, but without IDE-related features: code formatting, debugging tools, and so on.
-
-Build your project from the command line using [Gradle](gradle/gradle.md) or [Maven](maven/maven.md), or use the [Kotlin CLI compiler](command-line.md).
+To use Kotlin in text editors, you can download the latest Kotlin command-line compiler (`kotlin-compiler-%kotlinVersion%.zip`) from Kotlin [GitHub Releases](%kotlinLatestUrl%) and [install it manually](command-line.md#manual-install).
+Also, you could use package managers, such as [Homebrew](command-line.md#homebrew), [SDKMAN!](command-line.md#sdkman), and [Snap package](command-line.md#snap-package).
 
 ## What's next?
 
-* [Create a console application in IntelliJ IDEA](jvm/jvm-get-started.md)
+* [Create a console application in IntelliJ IDEA](jvm-get-started.md)
 * [Create your first cross-platform mobile app using Android Studio](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)
