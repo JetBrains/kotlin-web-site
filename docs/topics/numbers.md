@@ -129,51 +129,53 @@ val bigFractional = 1_234_567.7182818284
 
 ## Boxing and caching numbers on the Java Virtual Machine
 
-The way the JVM stores numbers can make your code behave counterintuitively because of the cache used by default
-for small (byte-sized) numbers.
-
-The JVM stores numbers as primitive types: `int`, `double`, and so on.
-When you use [generic types](generics.md) or create a nullable number reference such as `Int?`, numbers are boxed in Java classes
-such as `Integer` or `Double`.
+The JVM stores non-nullable numeric values using primitive types, such as `int`, `long`, `double`.
+However, when you use [generic types](generics.md) or nullable numeric types, such as `Int?`, the value is boxed and 
+represented as an object. 
 
 The JVM applies a [memory optimization technique](https://docs.oracle.com/javase/specs/jls/se22/html/jls-5.html#jls-5.1.7)
-to `Integer` and other objects that represent numbers between `−128` and `127`.
-All nullable references to such objects refer to the same cached object.
-For example, nullable objects in the following code are [referentially equal](equality.md#referential-equality):
+to small numbers by caching their boxed representations. As a result, 
+boxed numbers with the same value can be [referentially equal](equality.md#referential-equality). 
+
+For example, the JVM caches boxed `Integer` values in the range from `-128` to `127`. Therefore, the following 
+code results in `true`:
 
 ```kotlin
 fun main() {
 //sampleStart
     val a: Int = 100
-    val boxedA: Int? = a
-    val anotherBoxedA: Int? = a
+    val first: Int? = a
+    val second: Int? = a
     
-    println(boxedA === anotherBoxedA) // true
+    println(first === second) // true
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-For numbers outside this range, the nullable objects are different but [structurally equal](equality.md#structural-equality):
+For numbers outside the cached range, boxed values are stored as separate objects. In that case, 
+they are not referentially equal, even if their values are [structurally equal](equality.md#structural-equality):
 
 ```kotlin
 fun main() {
 //sampleStart
     val b: Int = 10000
-    val boxedB: Int? = b
-    val anotherBoxedB: Int? = b
+    val first: Int? = b
+    val second: Int? = b
     
-    println(boxedB === anotherBoxedB) // false
-    println(boxedB == anotherBoxedB) // true
+    println(first === second) // false
+    println(first == second) // true
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-For this reason, Kotlin warns about using referential equality with boxable numbers and literals
-with the following message: `"Identity equality for arguments of types ... and ... is prohibited."`
-When comparing `Int`, `Short`, `Long`, and `Byte` types (as well as `Char` and `Boolean`), use 
-structural equality checks to get consistent results.
+> Use `==` to compare numeric values. 
+> 
+> Do not use `===`, because referential equality depends on JMV-specific caching behavior. 
+>
+{style="note"}
+
 
 ## Explicit number conversions
 
