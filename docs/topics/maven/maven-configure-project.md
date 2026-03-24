@@ -1,9 +1,9 @@
 [//]: # (title: Configure a Maven project)
 
-When you want to introduce Kotlin to your existing Java Maven project or create a new Kotlin Maven project, you need
-to add the Kotlin Maven plugin to your `pom.xml` build file and declare repositories.
+When you introduce Kotlin to your existing Java Maven project or create a new Kotlin Maven project, you need
+to add the Kotlin Maven plugin that compiles Kotlin sources and modules.
 
-The Kotlin Maven project `kotlin-maven-plugin` compiles Kotlin sources and modules. Currently, only Maven v3 is supported.
+Currently, only Maven v3 is supported.
 
 ## Automatic configuration with extensions
 
@@ -112,6 +112,8 @@ To control the execution order:
 > You can use the special `none` phase in Maven to disable a default execution.
 >
 {style="note"}
+
+To apply the Kotlin Maven plugin, update your `pom.xml` build file as follows:
 
 ```xml
 <build>
@@ -248,25 +250,6 @@ To use JDK 17, in your `.mvn/jvm.config` file, add:
 --add-opens=java.base/java.lang=ALL-UNNAMED
 --add-opens=java.base/java.io=ALL-UNNAMED
 ```
-
-## Declare repositories
-
-By default, the `mavenCentral` repository is available for all Maven projects. To access artifacts in other repositories,
-specify a custom ID for the repository name and its URL in the `<repositories>` section:
-
-```xml
-<repositories>
-    <repository>
-        <id>spring-repo</id>
-        <url>https://repo.spring.io/release</url>
-    </repository>
-</repositories>
-```
-
-> If you declare `mavenLocal()` as a repository in a Gradle project, you may experience problems when switching
-> between Gradle and Maven projects. For more information, see [Declare repositories](gradle-configure-project.md#declare-repositories).
->
-{style="note"}
 
 ## What's next?
 

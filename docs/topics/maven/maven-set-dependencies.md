@@ -1,4 +1,26 @@
-[//]: # (title: Set dependencies in a Maven project)
+[//]: # (title: Set repositories and dependencies in a Maven project)
+
+For your Kotlin Maven project, you can configure where Maven looks for artifacts beyond the default Maven Central repository
+and define the libraries your project depends on.
+
+## Declare repositories
+
+By default, the `mavenCentral` repository is available for all Maven projects. To access artifacts in other repositories,
+specify a custom ID for the repository name and its URL in the `<repositories>` section:
+
+```xml
+<repositories>
+    <repository>
+        <id>spring-repo</id>
+        <url>https://repo.spring.io/release</url>
+    </repository>
+</repositories>
+```
+
+> If you declare `mavenLocal()` as a repository in a Gradle project, you may experience problems when switching
+> between Gradle and Maven projects. For more information, see [Declare repositories](gradle-configure-project.md#declare-repositories).
+>
+{style="note"}
 
 In general, to add a dependency on a library, you should declare a new `<dependency>` entry in the `<dependencies>` section:
 
@@ -12,12 +34,14 @@ In general, to add a dependency on a library, you should declare a new `<depende
 </dependencies>
 ```
 
-## Dependency on the standard library
+## Set dependencies
+
+### Dependency on the standard library
 
 Kotlin has an extensive standard library that you can use in your applications. You can add the standard library
 dependency manually or enable the `<extensions>` option to set it up automatically if it's missing.
 
-### Manual configuration
+#### Manual configuration
 
 To manually add the Kotlin's standard library to your project, update the `dependencies` section in your `pom.xml` file with the following:
 
@@ -38,7 +62,7 @@ To manually add the Kotlin's standard library to your project, update the `depen
 >
 {style="note"}
 
-### Automatic setup
+#### Automatic setup
 
 You can avoid manual configuration using the [`<extensions>` option](maven-configure-project.md#automatic-configuration-with-extensions) provided
 by the Kotlin Maven plugin. It automatically adds the `kotlin-stdlib` dependency if it's not defined in the project,
@@ -63,7 +87,7 @@ section:
 >
 {style="note"}
 
-## Dependencies on test libraries
+### Dependencies on test libraries
 
 If your project uses [Kotlin reflection](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect.full/)
 or testing frameworks, add the relevant dependencies.
@@ -84,7 +108,7 @@ Use `kotlin-reflect` for the reflection library, and `kotlin-test` and `kotlin-t
 </dependencies>
 ```
 
-## Dependency on a kotlinx library
+### Dependency on a kotlinx library
 
 For kotlinx libraries, you can either add the base artifact name or the name with a `-jvm` suffix. Refer to
 the library's README file on [klibs.io](https://klibs.io/).
@@ -113,7 +137,7 @@ To add a dependency on the [`kotlinx-datetime`](https://kotlinlang.org/api/kotli
 </dependencies>
 ```
 
-## Use BOM dependency mechanism
+### Use BOM dependency mechanism
 
 To use a Kotlin [Bill of Materials (BOM)](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#bill-of-materials-bom-poms),
 add a dependency on [`kotlin-bom`](https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-bom):
