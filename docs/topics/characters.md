@@ -6,6 +6,7 @@ Use `Char` for individual character values, such as letters, digits,
 punctuation marks, or whitespace. For sequences of characters, use [`String`](strings.md).
 
 > `Char` is not a numeric type, but each character has a numeric Unicode value that you can access.
+> 
 {style="tip"}
 
 ## Syntax 
@@ -38,6 +39,7 @@ val maybeAbsent: Char? = null
 ```
 
 > On the JVM, nullable `Char` values are boxed when needed.
+> 
 {style="note"}
 
 
@@ -79,6 +81,7 @@ fun main() {
 ```
 
 > To handle 32-bit symbols individually, use Unicode code points stored as `Int` values.
+> 
 {style="tip"}
 
 
@@ -148,9 +151,10 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Refer to the 
-[API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/) to see all available 
-functions.
+> Refer to the [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/) to see all available functions.
+> 
+{style="tip"}
+
 
 ### Character arithmetic
 
@@ -170,6 +174,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 > These operations follow Unicode values, not language-specific alphabet rules.
+> 
 {style="note"}
 
 You can also use the increment (`++`) and decrement (`--`) operators in the prefix and postfix forms
@@ -216,6 +221,7 @@ To convert `Char` to a numeric type, use explicit conversion.
   ```
   {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-  > If the character may not be a valid digit, use `digitToIntOrNull()`. 
+  > If the character may not be a valid digit, use `digitToIntOrNull()`.
+  > 
   {style="tip"}
   
