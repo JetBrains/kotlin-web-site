@@ -90,7 +90,8 @@ Let's create a Kotlin library and use it from a C program.
         targets.withType<KotlinNativeTarget>().configureEach {
             binaries {
                 sharedLib {
-                    baseName = "native"       // macOS and Linux
+                    baseName = "native"       // macOS
+                    // baseName = "native"    // Linux
                     // baseName = "libnative" // Windows
                 }
             }
@@ -126,7 +127,8 @@ Let's create a Kotlin library and use it from a C program.
         targets.withType(KotlinNativeTarget).configureEach {
             binaries {
                 sharedLib {
-                    baseName = "native"       // macOS and Linux
+                    baseName = "native"       // macOS
+                    // baseName = "native"    // Linux
                     // baseName = "libnative" // Windows
                 }
             }
