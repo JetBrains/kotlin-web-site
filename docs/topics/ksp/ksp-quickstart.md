@@ -82,7 +82,7 @@ Create a new Kotlin project. In IntelliJ IDEA, go to **File** | **New** | **Proj
 
 ![Creating a new project](ksp-new-project.png){width=700}
 
-Then, dd the KSP plugin to the `build.gradle(.kts)` file:
+Then, add the KSP plugin to the `build.gradle(.kts)` file:
 
 <tabs group="top-level-build-script">
 <tab title="Kotlin" group-key="kotlin">
