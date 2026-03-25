@@ -167,6 +167,17 @@ In the `processor` module, create a new `HelloWorldProcessor.kt` file and add th
 
 ```kotlin
 // processor/src/main/kotlin/HelloWorldProcessor.kt
+
+import com.google.devtools.ksp.processing.CodeGenerator
+import com.google.devtools.ksp.processing.Dependencies
+import com.google.devtools.ksp.processing.Resolver
+import com.google.devtools.ksp.processing.SymbolProcessor
+import com.google.devtools.ksp.symbol.KSAnnotated
+import com.google.devtools.ksp.symbol.KSFunctionDeclaration
+import com.google.devtools.ksp.symbol.KSVisitorVoid
+import com.google.devtools.ksp.validate
+import java.io.OutputStream
+
 class HelloWorldProcessor(val codeGenerator: CodeGenerator) : SymbolProcessor {
     // (1) process() method
     override fun process(resolver: Resolver): List<KSAnnotated> {
@@ -239,6 +250,10 @@ Create a `HelloWorldProcessorProvider.kt` file and add the following code:
 
 ```kotlin
 // processor/src/main/kotlin/HelloWorldProcessorProvider.kt
+
+import com.google.devtools.ksp.processing.SymbolProcessor
+import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
+import com.google.devtools.ksp.processing.SymbolProcessorProvider
 
 class HelloWorldProcessorProvider : SymbolProcessorProvider {  
     override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor {  
@@ -340,6 +355,7 @@ generate code based on an annotated element.
 
     ```kotlin
     // app/src/main/kotlin/Main.kt
+   
     import com.example.annotations.HelloWorldAnnotation
     
     @HelloWorldAnnotation
