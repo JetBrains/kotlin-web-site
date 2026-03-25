@@ -126,6 +126,5 @@ Join the Kotlin/Wasm community in Kotlin Slack:
 Try more Kotlin/Wasm examples:
 
 * [Compose image viewer](https://github.com/JetBrains/compose-multiplatform/tree/master/examples/imageviewer)
-* [Jetsnack application](https://github.com/JetBrains/compose-multiplatform/tree/master/examples/jetsnack)
 * [Node.js example](https://github.com/Kotlin/kotlin-wasm-nodejs-template)
 * [Compose example](https://github.com/Kotlin/kotlin-wasm-compose-template)
