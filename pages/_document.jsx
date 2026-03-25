@@ -7,6 +7,7 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en" className="no-js">
                 <Head>
+                    {/* eslint-disable-next-line @next/next/no-sync-scripts */}
                     <script src="https://cdn.optimizely.com/js/26633200186.js" />
                     <script
                         dangerouslySetInnerHTML={{
