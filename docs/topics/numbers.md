@@ -153,7 +153,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-For numbers outside the cached range, boxed values are stored as separate objects. In that case, 
+For numbers outside the cached range, boxed values are separate objects. In that case, 
 they are not referentially equal, even if their values are [structurally equal](equality.md#structural-equality):
 
 ```kotlin
@@ -172,7 +172,7 @@ fun main() {
 
 > Use `==` to compare numeric values. 
 > 
-> Do not use `===`, because referential equality depends on JMV-specific caching behavior. 
+> Do not use `===`, because referential equality depends on JVM-specific caching behavior. 
 >
 {style="note"}
 
