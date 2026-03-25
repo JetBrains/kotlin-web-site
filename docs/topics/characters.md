@@ -128,6 +128,30 @@ val different = 'A' == 'a' // false
 val equal = 'A' == 'A' // true
 ```
 
+### Processing characters
+
+Kotlin provides functions for inspection and case conversion of character values.
+For example:
+
+```kotlin
+fun main() {
+//sampleStart
+    val myChar = 'A'
+    // Checks if the character represents a digit
+    println(myChar.isDigit()) // false
+    // Checks if the character represents an uppercase letter
+    println(myChar.isUpperCase()) // true
+    // Returns a lowercase version
+    println(myChar.lowercaseChar()) // 'a'
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Refer to the 
+[API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/) to see all available 
+functions.
+
 ### Character arithmetic
 
 You can create another character value by adding or subtracting an integer:
@@ -164,30 +188,6 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-### Processing characters
-
-Kotlin provides functions for inspection and case conversion of character values.
-For example:
-
-```kotlin
-fun main() {
-//sampleStart
-    val myChar = 'A'
-    // Checks if the character represents a digit
-    println(myChar.isDigit()) // false
-    // Checks if the character represents an uppercase letter
-    println(myChar.isUpperCase()) // true
-    // Returns a lowercase version
-    println(myChar.lowercaseChar()) // 'a'
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-Refer to the 
-[API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/) to see all available 
-functions.
 
 ### Numeric conversion
 
