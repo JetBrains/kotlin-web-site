@@ -29,7 +29,8 @@ To apply the Kotlin Maven plugin with `<extensions>`, update your `pom.xml` buil
            <plugin>
                <groupId>org.jetbrains.kotlin</groupId>
                <artifactId>kotlin-maven-plugin</artifactId>
-               <version>${kotlin.version}</version> <!-- Enable the extension -->
+               <version>${kotlin.version}</version>
+               <extensions>true</extensions> <!-- Enable the extension -->
            </plugin>
            <!-- No need to configure Maven compiler plugin with extensions -->
        </plugins>
@@ -59,7 +60,7 @@ see an example in [Compile Kotlin and Java sources](#compile-kotlin-and-java-sou
 
 ### Change Maven compiler version
 
-Currently, the default version of the Maven compiler plugin used with `<extensions>` is %mavenExtensionsVersion%.
+Currently, the default version of the Maven compiler plugin used with `<extensions>` is **%mavenExtensionsVersion%**.
 You can set a different version separately:
 
 ```xml
