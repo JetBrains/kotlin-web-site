@@ -171,16 +171,6 @@ In the `processor` module, create a new `HelloWorldProcessor.kt` file and add th
 ```kotlin
 // processor/src/main/kotlin/HelloWorldProcessor.kt
 
-import com.google.devtools.ksp.processing.CodeGenerator
-import com.google.devtools.ksp.processing.Dependencies
-import com.google.devtools.ksp.processing.Resolver
-import com.google.devtools.ksp.processing.SymbolProcessor
-import com.google.devtools.ksp.symbol.KSAnnotated
-import com.google.devtools.ksp.symbol.KSFunctionDeclaration
-import com.google.devtools.ksp.symbol.KSVisitorVoid
-import com.google.devtools.ksp.validate
-import java.io.OutputStream
-
 class HelloWorldProcessor(val codeGenerator: CodeGenerator) : SymbolProcessor {
     // (1) process() method
     override fun process(resolver: Resolver): List<KSAnnotated> {
@@ -228,6 +218,8 @@ fun OutputStream.write(string: String): Unit {
     this.write(string.toByteArray())
 }
 ```
+Add the imports that are suggested by the IDE. Make sure to import the `Resolver` and `Dependencies` classes from 
+`com.google.devtools.ksp.processing`.
 
 Let's go through it:
 
@@ -249,14 +241,10 @@ Let's go through it:
 3. The `createNewFileFrom()` and `createDependencyOn()` functions create the file where KSP generates code.
 
 Next, create a `SymbolProcessorProvider` class. The KSP framework calls this class to construct the processor.
-Create a `HelloWorldProcessorProvider.kt` file and add the following code:
+Create a `HelloWorldProcessorProvider.kt` file, add the following code, and add the imports suggested by the IDE:
 
 ```kotlin
 // processor/src/main/kotlin/HelloWorldProcessorProvider.kt
-
-import com.google.devtools.ksp.processing.SymbolProcessor
-import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
-import com.google.devtools.ksp.processing.SymbolProcessorProvider
 
 class HelloWorldProcessorProvider : SymbolProcessorProvider {  
     override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor {  
@@ -273,8 +261,8 @@ class HelloWorldProcessorProvider : SymbolProcessorProvider {
 Finally, register the processor provider. In the `resources/META-INF/services` directory, create a 
 `com.google.devtools.ksp.processing.SymbolProcessorProvider` file and add the fully qualified name of the provider:
 
-```kotlin
-// processor/src/main/resources/META-INF/services/com.google.devtools.ksp.processing.SymbolProcessorProvider
+```text
+## processor/src/main/resources/META-INF/services/com.google.devtools.ksp.processing.SymbolProcessorProvider
     
 HelloWorldProcessorProvider
 ```
@@ -327,7 +315,7 @@ generate code based on an annotated element.
     </tab>
     </tabs>
 
-2. In the project-level `settings.gradle.kts` file, include all the submodules:
+2. In the project-level `settings.gradle.kts` file, verify that all the submodules were automatically included:
     
     <tabs group="settings-gradle">
     <tab title="Kotlin" group-key="kotlin">
