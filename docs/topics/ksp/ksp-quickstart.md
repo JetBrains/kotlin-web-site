@@ -113,7 +113,10 @@ plugins {
 
 ### Create an annotation
 
-Create a new Kotlin module in the project. Select **File** | **New** | **Module** and name it `annotations`.
+Create a new module in the project. Go to **File** | **New** | **Module**. On the left side, select Kotlin. Choose Gradle 
+as the build system. Name the module `annotations`:
+
+![Creating a new module](ksp-new-module.png){width=700}
 
 In the module, create a `HelloWorldAnnotation.kt` file and declare an annotation called `HelloWorldAnnotation`:
 
