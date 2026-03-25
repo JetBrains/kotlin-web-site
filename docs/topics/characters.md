@@ -1,5 +1,9 @@
 [//]: # (title: Characters)
 
+<tldr>
+<p><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/">API Reference</a></p>
+</tldr>
+
 The `Char` type represents a single character as a UTF-16 code unit.
 
 Use `Char` for individual character values, such as letters, digits, 
