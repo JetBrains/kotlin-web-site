@@ -143,7 +143,7 @@ Before you begin, make sure your local environment is connected to to the WebTea
 
 To generate a PDF version of the Kotlin documentation:
 
-1. Download the documentation artifacts from the [Reference Docs CI build](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildReferenceDocs) and place them in the `dist` folder.
+1. Download the documentation artifacts from the [Kolin Reference with coroutines CI build](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_KotlinWithCoroutines) and place them in the `dist` folder. Note that images should be placed into /dist/images.
 2. Run:
    ```bash
    yarn install
