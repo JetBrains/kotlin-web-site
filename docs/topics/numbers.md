@@ -160,12 +160,10 @@ For this reason, use `==` to compare numeric values:
 ```kotlin
 fun main() {
 //sampleStart
-    val score: Int = 10000
-    val first: Int? = b
-    val second: Int? = b
-    
-    println(first === second) // false
-    println(first == second) // true
+    val savedScore: Int? = score
+    val displayedScore: Int? = score
+    println(savedScore === displayedScore) // false
+    println(savedScore == displayedScore) // true
 //sampleEnd
 }
 ```
