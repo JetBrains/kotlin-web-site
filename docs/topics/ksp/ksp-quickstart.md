@@ -372,7 +372,7 @@ generate code based on an annotated element.
     Your IDE might highlight this. However, KSP generates the `helloWorld()` function when you compile and run your project, 
     so this isn't a problem.
 
-5. Run the program. You should see the output of the `helloWorld()` function in your console.
+5. Run the `Main.kt` file. You see the output of the `helloWorld()` function in your console.
 
 KSP generates code in the `GeneratedHelloWorld.kt` file:
 
