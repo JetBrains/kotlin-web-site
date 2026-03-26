@@ -129,8 +129,8 @@ val bigFractional = 1_234_567.7182818284
 
 ## Boxing and caching numbers on the Java Virtual Machine
 
-The JVM stores non-nullable numeric values using primitive types, such as `int`, `long`, `double`.
-However, when you use [generic types](generics.md) or nullable numeric types, such as `Int?`, the value is boxed and 
+The JVM stores non-nullable numeric values using primitive types, such as `int`, `long`, or `double`.
+However, when you use [generic types](generics.md) or nullable numeric types like `Int?`, the value is boxed and 
 represented as an object. 
 
 The JVM applies a [memory optimization technique](https://docs.oracle.com/javase/specs/jls/se22/html/jls-5.html#jls-5.1.7)
@@ -143,9 +143,9 @@ code results in `true`:
 ```kotlin
 fun main() {
 //sampleStart
-    val a: Int = 100
-    val first: Int? = a
-    val second: Int? = a
+    val score: Int = 100
+    val savedScore: Int? = a
+    val displayedScore: Int? = a
     
     println(first === second) // true
 //sampleEnd
@@ -154,7 +154,8 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 For numbers outside the cached range, boxed values are separate objects. In that case, 
-they are not referentially equal, even if their values are [structurally equal](equality.md#structural-equality):
+they are not referentially equal, even if their values are [structurally equal](equality.md#structural-equality).
+For this reason, use `==` to compare numeric values:
 
 ```kotlin
 fun main() {
@@ -170,11 +171,6 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-> Use `==` to compare numeric values. 
-> 
-> Do not use `===`, because referential equality depends on JVM-specific caching behavior. 
->
-{style="note"}
 
 
 ## Explicit number conversions
