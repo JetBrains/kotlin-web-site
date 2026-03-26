@@ -147,7 +147,7 @@ fun main() {
     val savedScore: Int? = a
     val displayedScore: Int? = a
     
-    println(first === second) // true
+    println(savedScore === displayedScore) // true
 //sampleEnd
 }
 ```
