@@ -63,7 +63,7 @@ To specify a character by the Unicode value, use
 [Unicode table](https://www.unicode.org/charts/):
 
 ```kotlin
-val unicodeNumber = '\u0031' // equals '1'
+val unicodeNumber = '\u0031' // Equals '1'
 ```
 
 ### Supplementary characters 
@@ -78,8 +78,8 @@ fun main() {
     val emoji = "🥦"
     
     println(emoji.length) // 2
-    println(emoji[0])     // first surrogate
-    println(emoji[1])     // second surrogate
+    println(emoji[0])     // First surrogate
+    println(emoji[1])     // Second surrogate
 //sampleEnd
 }
 ```
@@ -200,7 +200,7 @@ fun main() {
 
 ### Numeric conversion
 
-To convert `Char` to a numeric type, use explicit conversion. 
+To convert `Char` to a numeric type, use explicit conversion:
 
 * Use `.code` to get the numeric Unicode value of a character:
 
@@ -228,4 +228,3 @@ To convert `Char` to a numeric type, use explicit conversion.
   > If the character may not be a valid digit, use `digitToIntOrNull()`.
   > 
   {style="tip"}
-  
