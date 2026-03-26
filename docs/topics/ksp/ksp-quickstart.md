@@ -138,9 +138,9 @@ annotation class HelloWorldAnnotation
 
 ### Create and register a processor
 
-Create another module at the root of the project called `processor`.
+1. Create another module at the root of the project called `processor`.
 
-Add the required dependencies to the module's `build.gradle(.kts)` file. You need the KSP API and the annotation
+2. Add the required dependencies to the module's `build.gradle(.kts)` file. You need the KSP API and the annotation
 you just declared:
 
 <tabs group="processor-build-script">
@@ -178,13 +178,13 @@ dependencies {
 </tab>
 </tabs>
 
-In the `processor` module, create a new `HelloWorldProcessor.kt` file and add the following code:
+3. In the `processor` module, create a new `HelloWorldProcessor.kt` file and add the following code:
 
 ```kotlin
 // processor/src/main/kotlin/HelloWorldProcessor.kt
 
 class HelloWorldProcessor(val codeGenerator: CodeGenerator) : SymbolProcessor {
-    // (1) process() function
+    // 1️⃣ process() function
     override fun process(resolver: Resolver): List<KSAnnotated> {
         resolver
             .getSymbolsWithAnnotation("com.example.annotations.HelloWorldAnnotation")
@@ -195,7 +195,7 @@ class HelloWorldProcessor(val codeGenerator: CodeGenerator) : SymbolProcessor {
        return emptyList()
     }
     
-   // (2) Visitor
+   // 2️⃣ Visitor
    inner class HelloWorldVisitor : KSVisitorVoid() {
        override fun visitFunctionDeclaration(function: KSFunctionDeclaration, data: Unit) {
            createNewFileFrom(function).use { file ->
@@ -210,7 +210,7 @@ class HelloWorldProcessor(val codeGenerator: CodeGenerator) : SymbolProcessor {
        } 
    }
         
-   // (3a)
+   // 3️⃣ createNewFileFrom() function
    private fun createNewFileFrom(function: KSFunctionDeclaration): OutputStream { 
        return codeGenerator.createNewFile(
           dependencies = createDependencyOn(function),
@@ -219,7 +219,7 @@ class HelloWorldProcessor(val codeGenerator: CodeGenerator) : SymbolProcessor {
        )
    }
     
-   // (3b)
+   // 3️⃣ createDependencyOn() function
    private fun createDependencyOn(function: KSFunctionDeclaration): Dependencies {
        return Dependencies(aggregating = false, function.containingFile!!)
    }
@@ -230,18 +230,18 @@ fun OutputStream.write(string: String): Unit {
     this.write(string.toByteArray())
 }
 ```
-Add the imports that are suggested by the IDE. Make sure to import the `Resolver` and `Dependencies` classes from 
+4. Add the imports that are suggested by the IDE. Make sure to import the `Resolver` and `Dependencies` classes from 
 `com.google.devtools.ksp.processing`.
 
 Let's go through the code:
 
-1. The `process()` function contains the main logic of the processor. The function gets a list of every symbol
+* 1️⃣ The `process()` function contains the main logic of the processor. The function gets a list of every symbol
     annotated with `HelloWorldAnnotation` and calls `HelloWorldVisitor` for each of them.
 
     The `process()` function returns a list of unprocessed symbols to process in a later round. This example
     safely returns an `emptyList()`. For more information, see [Multiple round processing](ksp-multi-round.md).
 
-2. Processors traverse KSP's view of the Kotlin abstract syntax tree (AST) using visitors. Inside the `HelloWorldPocessor` 
+* 2️⃣ Processors traverse KSP's view of the Kotlin abstract syntax tree (AST) using visitors. Inside the `HelloWorldPocessor` 
     class, the `HelloWorldVisitor` class is the visitor. Since the `HelloWorldAnnotation` will only be used on a function, 
     only the `visitFunctionDeclaration()` is overridden.
 
@@ -250,9 +250,9 @@ Let's go through the code:
     > 
     {style="tip"}
 
-3. The `createNewFileFrom()` and `createDependencyOn()` functions create the file where KSP generates code.
+* 3️⃣ The `createNewFileFrom()` and `createDependencyOn()` functions create the file where KSP generates code.
 
-Next, you need to create a `SymbolProcessorProvider` class. The KSP framework calls this class to construct the processor.
+5. Next, you need to create a `SymbolProcessorProvider` class. The KSP framework calls this class to construct the processor.
 Create a `HelloWorldProcessorProvider.kt` file, add the following code, and add the imports suggested by the IDE:
 
 ```kotlin
@@ -270,7 +270,7 @@ class HelloWorldProcessorProvider : SymbolProcessorProvider {
 >
 {style="tip"}
 
-Finally, register the processor provider. In the `resources/META-INF/services` directory, create a 
+6. Finally, register the processor provider. In the `resources/META-INF/services` directory, create a 
 `com.google.devtools.ksp.processing.SymbolProcessorProvider` file and add the provider's fully qualified name:
 
 ```text
