@@ -144,8 +144,8 @@ code results in `true`:
 fun main() {
 //sampleStart
     val score: Int = 100
-    val savedScore: Int? = a
-    val displayedScore: Int? = a
+    val savedScore: Int? = score
+    val displayedScore: Int? = score
     
     println(savedScore === displayedScore) // true
 //sampleEnd
@@ -160,8 +160,10 @@ For this reason, use `==` to compare numeric values:
 ```kotlin
 fun main() {
 //sampleStart
-    val savedScore: Int? = 10000
-    val displayedScore: Int? = savedScore
+    val score: Int = 10000
+    val savedScore: Int? = score
+    val displayedScore: Int? = score
+
     println(savedScore === displayedScore) // false
     println(savedScore == displayedScore) // true
 //sampleEnd
