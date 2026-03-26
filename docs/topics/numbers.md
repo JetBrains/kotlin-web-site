@@ -160,7 +160,7 @@ For this reason, use `==` to compare numeric values:
 ```kotlin
 fun main() {
 //sampleStart
-    val b: Int = 10000
+    val score: Int = 10000
     val first: Int? = b
     val second: Int? = b
     
