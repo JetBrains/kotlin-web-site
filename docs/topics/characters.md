@@ -27,22 +27,24 @@ val space = ' '
 val separator = ':'
 ```
 
-A character literal must contain exactly one character. Otherwise, Kotlin reports an error:
+A character literal must contain exactly one character. Otherwise, the Kotlin compiler reports an error:
 
 ```kotlin
 val invalid = 'AB' // Error
 val invalidEmpty = '' // Error
 ```
+{validate="false"}
 
 ### Nullable values
 
-To store a value that can be absent, use `Char?`:
+To store a nullable value, use `Char?`:
 
 ```kotlin
 val maybeAbsent: Char? = null
 ```
 
-> On the JVM, nullable `Char` values are boxed when needed.
+> On the JVM, nullable `Char` values are boxed when needed. The same applies to
+> [numeric types](numbers.md#boxing-and-caching-numbers-on-the-java-virtual-machine)
 > 
 {style="note"}
 
@@ -69,8 +71,8 @@ val unicodeNumber = '\u0031' // Equals '1'
 ### Supplementary characters 
 
 Unicode characters outside the BMP, such as emojis and some historic scripts, 
-cannot be represented by a single `Char`. In UTF-16, they are encoded as a **surrogate pair**.
-This means, two `Char` values that together encode one Unicode character in a `String`. For example:
+cannot be represented by a single `Char`. In UTF-16, they are encoded as a _surrogate pair_.
+This means, two `Char` values that together encode one Unicode character in a `String`:
 
 ```kotlin
 fun main() {
@@ -157,7 +159,7 @@ fun main() {
 
 > Refer to the [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/) to see all available functions.
 > 
-{style="tip"}
+{style="note"}
 
 
 ### Character arithmetic
