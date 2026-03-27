@@ -16,10 +16,13 @@ and the level of risk users take on when adopting it.
 Here's a quick guide to these stability levels and their meaning:
 
 **Experimental** means "try it only in toy projects":
-* We are just trying out an idea and want some users to play with it and give feedback. If it doesn't work out, we may drop it any minute.
+* We're just testing an idea and its feasibility. We want some users to try it out and give feedback.
+  The scope is minimal, and the feature may change or disappear at any time, with no guarantees of stability or compatibility.
 
-**Alpha** means "use at your own risk, expect migration issues":
-* We intend to productize this idea, but it hasn't reached its final shape yet.
+**Alpha** means "we are testing whether this should become a product":
+* We intend to turn this into a product and are validating its user value and market fit to find its final shape.
+  The feature set is still incomplete, breaking changes are expected, and if the hypothesis does not hold,
+  the feature may still change significantly or be discontinued.
 
 **Beta** means "you can use it, we'll do our best to minimize migration issues for you":
 * It's almost done, user feedback is especially important now.
