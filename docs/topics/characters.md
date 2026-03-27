@@ -6,21 +6,22 @@
 
 The `Char` type represents a single character as a UTF-16 code unit.
 
-Use `Char` for individual character values, such as letters, digits, 
+Use `Char` for individual character values, such as letters, digits,
 punctuation marks, or whitespace. For sequences of characters, use [`String`](strings.md).
 
 > `Char` is not a numeric type, but each character has a numeric Unicode value that you can access.
-> 
+>
 {style="tip"}
 
-## Syntax 
+## Syntax
 
-To declare a character, use the `Char` type and enclose the value in single quotes (`' '`):
+To declare a character, enclose the value in single quotes (`' '`). You can specify the `Char` type explicitly or 
+let Kotlin infer it from the value:
 
 ```kotlin
 val letter: Char = 'a'
 
-// Type inference also works with character literals
+// Kotlin infers Char because the values are written in single quotes
 val digit = '1'
 val symbol = '!'
 val space = ' '
@@ -45,22 +46,22 @@ val maybeAbsent: Char? = null
 
 > On the JVM, nullable `Char` values are boxed when needed. The same applies to
 > [numeric types](numbers.md#boxing-and-caching-numbers-on-the-java-virtual-machine)
-> 
+>
 {style="note"}
 
 
 ## Unicode support
 
-Kotlin represents `Char` values as UTF-16 code units. This means that a single `Char` stores one UTF-16 code unit, 
+Kotlin represents `Char` values as UTF-16 code units. This means that a single `Char` stores one UTF-16 code unit,
 not necessarily one complete Unicode character.
 
 ### Basic Multilingual Plane
 
-A single `Char` can store values in the range from `\u0000` to `\uFFFF`. 
+A single `Char` can store values in the range from `\u0000` to `\uFFFF`.
 This range covers the Basic Multilingual Plane (BMP) that includes characters for
 almost all modern languages and a large number of symbols.
 
-To specify a character by the Unicode value, use 
+To specify a character by the Unicode value, use
 `\u` followed by four-digit hexadecimal value from the
 [Unicode table](https://www.unicode.org/charts/):
 
@@ -68,11 +69,11 @@ To specify a character by the Unicode value, use
 val unicodeNumber = '\u0031' // Equals '1'
 ```
 
-### Supplementary characters 
+### Supplementary characters
 
-Unicode characters outside the BMP, such as emojis and some historic scripts, 
-cannot be represented by a single `Char`. In UTF-16, they are encoded as a _surrogate pair_.
-This means, two `Char` values that together encode one Unicode character in a `String`:
+Unicode characters outside the BMP, such as emojis and some historic scripts,
+cannot be represented by a single `Char`. In UTF-16, they are encoded as a _surrogate pair_,
+where two `Char` values together represent one Unicode character in a `String`:
 
 ```kotlin
 fun main() {
@@ -87,13 +88,13 @@ fun main() {
 ```
 
 > To handle 32-bit symbols individually, use Unicode code points stored as `Int` values.
-> 
+>
 {style="tip"}
 
 
-## Escape sequences 
+## Escape sequences
 
-Use escape sequences for special characters that are difficult to write directly in source code or have a 
+Use escape sequences for special characters that are difficult to write directly in source code or have a
 special meaning.
 
 Every escape sequence begins with a backslash (`\`).
@@ -110,7 +111,7 @@ Every escape sequence begins with a backslash (`\`).
 | `\$`                   | Dollar sign           | 
 
 
-For example: 
+For example:
 
 ```kotlin
 val newLine = '\n'
@@ -122,10 +123,10 @@ val backslash = '\\'
 
 `Char` supports comparison, inspection, case conversion, and explicit numeric conversion.
 
-### Comparison operations 
+### Character comparison
 
 To compare `Char` values, use standard [comparison operators](keyword-reference.md#operators-and-special-symbols) such
-as `==`, `!=`, `<`, `>`, `<=`, and `>=`. 
+as `==`, `!=`, `<`, `>`, `<=`, and `>=`.
 
 Kotlin compares `Char` values by their numeric Unicode values and returns
 a `Boolean` value:
@@ -137,7 +138,7 @@ val different = 'A' == 'a' // false
 val equal = 'A' == 'A' // true
 ```
 
-### Processing characters
+### Character processing
 
 Kotlin provides functions for inspection and case conversion of character values.
 For example:
@@ -157,8 +158,9 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-> Refer to the [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/) to see all available functions.
-> 
+> To learn more about available functions, refer to the 
+> [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/).
+>
 {style="note"}
 
 
@@ -180,7 +182,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 > These operations follow Unicode values, not language-specific alphabet rules.
-> 
+>
 {style="note"}
 
 You can also use the increment (`++`) and decrement (`--`) operators in the prefix and postfix forms
@@ -192,15 +194,21 @@ fun main() {
     var a = 'A'
     
     a += 10
-    println(a)  // 'K'
-    println(++a)  // 'L'
-    println(--a) // 'K'
+    println(a)   // 'K'
+    
+    println(++a) // 'L'  prefix increment
+    println(a++) // 'L'  postfix increment
+    println(a)   // 'M'
+    
+    println(--a) // 'L'  prefix decrement
+    println(a--) // 'L'  postfix decrement
+    println(a)   // 'K'
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-### Numeric conversion
+### Character conversion
 
 To convert `Char` to a numeric type, use explicit conversion:
 
@@ -228,5 +236,5 @@ To convert `Char` to a numeric type, use explicit conversion:
   {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
   > If the character may not be a valid digit, use `digitToIntOrNull()`.
-  > 
+  >
   {style="tip"}
