@@ -135,7 +135,7 @@ To create project files:
        macosArm64()    // macOS on Apple Silicon
        // linuxArm64() // Linux on ARM64 platforms
        // linuxX64()   // Linux on x86_64 platforms
-       // mingwX64()   // on Windows
+       // mingwX64()   // Windows on x86_64 platforms
    
        targets.withType<KotlinNativeTarget>().configureEach {
             val main by compilations.getting
