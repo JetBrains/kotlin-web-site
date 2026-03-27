@@ -149,7 +149,7 @@ Let's create a Kotlin library and use it from a C program.
       declarations in the header file.
 
 3. To build the library, run the `linkDebugShared<YourTargetName>` Gradle task in your IDE
-   or use the console command in your terminal, for example:
+   or use the console command in your terminal, in this example:
 
    ```bash
    ./gradlew linkDebugSharedMacosArm64

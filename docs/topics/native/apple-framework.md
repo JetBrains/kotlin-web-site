@@ -167,7 +167,7 @@ Let's first create a Kotlin library:
    ```bash
    ./gradlew linkDebugFrameworkIosArm64
    ```
-    
+
 The build generates the framework into the `build/bin/<yourTargetName>/debugFramework` directory.
 
 > You can also use the general `link<YourTargetName>` Gradle task to generate both `debug` and `release` variants of the framework.

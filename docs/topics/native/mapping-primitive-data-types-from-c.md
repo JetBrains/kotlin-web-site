@@ -122,31 +122,31 @@ To create project files:
 
     ```kotlin
     import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-   
+
     plugins {
         kotlin("multiplatform") version "%kotlinVersion%"
     }
-    
+
     repositories {
         mavenCentral()
     }
-    
+
     kotlin {
-       macosArm64()    // macOS on Apple Silicon
-       // linuxArm64() // Linux on ARM64 platforms
-       // linuxX64()   // Linux on x86_64 platforms
-       // mingwX64()   // Windows on x86_64 platforms
-   
-       targets.withType<KotlinNativeTarget>().configureEach {
+        macosArm64()    // macOS on Apple Silicon
+        // linuxArm64() // Linux on ARM64 platforms
+        // linuxX64()   // Linux on x86_64 platforms
+        // mingwX64()   // Windows on x86_64 platforms
+
+        targets.withType<KotlinNativeTarget>().configureEach {
             val main by compilations.getting
             val interop by main.cinterops.creating
-   
-           binaries {
-               executable()
-           }
+
+            binaries {
+                executable()
+            }
         }
     }
-    
+
     tasks.wrapper {
         gradleVersion = "%gradleVersion%"
         distributionType = Wrapper.DistributionType.BIN
@@ -162,11 +162,11 @@ To create project files:
     plugins {
         id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
     }
-    
+
     repositories {
         mavenCentral()
     }
-    
+
     kotlin {
         macosArm64()    // Apple Silicon macOS
         // linuxArm64() // Linux on ARM64 platforms
@@ -183,7 +183,7 @@ To create project files:
             }
         }
     }
-    
+
     wrapper {
         gradleVersion = '%gradleVersion%'
         distributionType = 'BIN'
@@ -212,7 +212,7 @@ To create project files:
     @OptIn(ExperimentalForeignApi::class)
     fun main() {
         println("Hello Kotlin/Native!")
-      
+
         ints(/* fix me*/)
         uints(/* fix me*/)
         doubles(/* fix me*/)
@@ -263,7 +263,7 @@ import kotlinx.cinterop.ExperimentalForeignApi
 @OptIn(ExperimentalForeignApi::class)
 fun main() {
     println("Hello Kotlin/Native!")
-  
+
     ints(1, 2, 3, 4)
     uints(5u, 6u, 7u, 8u)
     doubles(9.0f, 10.0)
@@ -271,7 +271,7 @@ fun main() {
 ```
 
 To verify that everything works as expected, run the `runDebugExecutable<YourTargetName>` Gradle task [in your IDE](native-get-started.md#build-and-run-the-application)
-or use the console command in your terminal, for example:
+or use the console command in your terminal, in this example:
 
 ```bash
 ./gradlew runDebugExecutableMacosArm64

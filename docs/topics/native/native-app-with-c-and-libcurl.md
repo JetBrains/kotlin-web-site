@@ -27,7 +27,7 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the 
 
    ```none
    https://github.com/Kotlin/kmp-native-wizard
-   ```  
+   ```
 
 3. Explore the project structure:
 
@@ -43,7 +43,7 @@ Kotlin/Native can use the [Gradle](https://gradle.org) build system through the 
 
     ```kotlin
     import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-   
+
     kotlin {
         macosArm64()
         linuxArm64()
