@@ -6,14 +6,14 @@ _[Released: March 20, 2025](releases.md#release-history)_
 
 The Kotlin 2.1.20 release is here! Here are the main highlights:
 
-* **K2 compiler updates**: [updates to the new kapt and Lombok plugins](#kotlin-k2-compiler)
-* **Kotlin Multiplatform**: [new DSL to replace Gradle's Application plugin](#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin)
-* **Kotlin/Native**: [support for Xcode 16.3 and a new inlining optimization](#kotlin-native)
-* **Kotlin/Wasm**: [default custom formatters, support for DWARF, and migration to Provider API](#kotlin-wasm)
-* **Gradle support**: [compatibility with Gradle's Isolated Projects and custom publication variants](#gradle)
-* **Standard library**: [common atomic types, improved UUID support, and new time-tracking functionality](#standard-library)
-* **Compose compiler**: [relaxed restrictions on `@Composable` functions and other updates](#compose-compiler)
-* **Documentation**: [notable improvements to the Kotlin documentation](#documentation-updates).
+* **K2 compiler updates**: [Updates to the new kapt and Lombok plugins](#kotlin-k2-compiler)
+* **Kotlin Multiplatform**: [New DSL to replace Gradle's Application plugin](#kotlin-multiplatform-new-dsl-to-replace-gradle-s-application-plugin)
+* **Kotlin/Native**: [Support for Xcode 16.3 and a new inlining optimization](#kotlin-native)
+* **Kotlin/Wasm**: [Default custom formatters, support for DWARF, and migration to Provider API](#kotlin-wasm)
+* **Gradle support**: [Compatibility with Gradle's Isolated Projects and custom publication variants](#gradle)
+* **Standard library**: [Common atomic types, improved UUID support, and new time-tracking functionality](#standard-library)
+* **Compose compiler**: [Relaxed restrictions on `@Composable` functions and other updates](#compose-compiler)
+* **Documentation**: [Important improvements to the Kotlin documentation](#documentation-updates)
 
 > For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
 >
