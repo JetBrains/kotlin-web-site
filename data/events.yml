@@ -1,4 +1,12 @@
 - lang: en
+  startDate: '2026-03-21'
+  endDate: '2026-03-21'
+  location: Mako IT Lab - Indian Delivery Center in Tharamani, Chennai, Tamil Nadu, India
+  online: false
+  title: 'Kotlin Agentic Buildathon by KUG Chennai'
+  subject: 'Hosted by KUG Chennai, the Kotlin Buildathon brings together students and professionals for a focused day of ideation, coding, and live demos.',
+  url: https://luma.com/alx6brav
+- lang: en
   startDate: '2026-10-15'
   endDate: '2026-10-16'
   location: Leeds, United Kingdom
