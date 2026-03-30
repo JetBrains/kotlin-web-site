@@ -61,7 +61,7 @@ _No preview versions are currently available._
         </td>
         <td>
             <p>A language release with major changes in the language and tooling updates.</p>
-            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.0-Beta1">changelog</a>.</p>
+            <p>For more details, please refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.0-Beta1">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.4.0-Beta1</a>.</p>
         </td>
     </tr>
 </table>

@@ -18,8 +18,8 @@ _[Released: %kotlinEapReleaseDate%](eap.md#build-details)_
 The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP release:
 
 * **Language:** [Stable context parameters and multiple features for annotation use-site targets](#stable-features-context-parameters-and-features-for-annotation-use-site-targets)
-* **Standard library:** [New API for converting unsigned integers to `BigInteger`](#new-api-for-converting-unsigned-integers-to-biginteger-on-the-jvm) and [support for checking sorted order](#support-for-checking-sorted-order).
-* **Kotlin/JVM:** [Support for Java 26](#support-for-java-26) and [annotations in metadata enabled by default](#annotations-in-metadata-enabled-by-default).
+* **Standard library:** [New API for converting unsigned integers to `BigInteger`](#new-api-for-converting-unsigned-integers-to-biginteger-on-the-jvm) and [support for checking sorted order](#support-for-checking-sorted-order)
+* **Kotlin/JVM:** [Support for Java 26](#support-for-java-26) and [annotations in metadata enabled by default](#annotations-in-metadata-enabled-by-default)
 * **Kotlin/Native:** [Support for Swift packages as dependencies](#swift-package-import)
 * **Kotlin compiler:** [More consistent inline function behavior during `.klib` compilation](#consistent-intra-module-function-inlining-during-klib-compilation)
 
@@ -59,9 +59,9 @@ Kotlin %kotlinEapVersion% promotes context parameters and annotation use-site ta
 ### Stable features: Context parameters and features for annotation use-site targets
 <secondary-label ref="language"/>
 
-Kotlin 2.2.0 introduced a few language features as [Experimental](components-stability.md#stability-levels-explained). We’re happy to announce that the following language features are now [Stable](components-stability.md#stability-levels-explained) in this release:
+Kotlin 2.2.0 introduced a few language features as [Experimental](components-stability.md#stability-levels-explained). We're happy to announce that the following language features are now [Stable](components-stability.md#stability-levels-explained) in this release:
 
-* [Context parameters](whatsnew22.md#preview-of-context-parameters), except for [context arguments](#explicit-context-arguments-for-context-parameters) and [callable references](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md#callable-references).
+* [Context parameters](whatsnew22.md#preview-of-context-parameters), except for [context arguments](#explicit-context-arguments-for-context-parameters) and [callable references](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md#callable-references)
 * [Features for annotation use-site targets](whatsnew22.md#preview-of-features-for-annotation-use-site-targets)
 
 [See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
@@ -277,8 +277,8 @@ compiler, the resulting class files have no inline function calls in the bytecod
 are inlined into their call sites, so their behavior is fixed during compilation.
 
 On the contrary, on Kotlin/Native, Kotlin/JS, and Kotlin/Wasm, function inlining did not happen during source-to-klib 
-compilation, only during binary generation. As a result, the behavior of inline functions wasn’t fixed during `.klib` compilation,
-and `.klib` libraries didn’t provide the same compatibility guarantees for inline functions as Kotlin/JVM does.
+compilation, only during binary generation. As a result, the behavior of inline functions wasn't fixed during `.klib` compilation,
+and `.klib` libraries didn't provide the same compatibility guarantees for inline functions as Kotlin/JVM does.
 
 Kotlin %kotlinEapVersion% takes the first step in unifying the behavior of inline functions by enabling intra-module 
 inlining when generating `.klib` artifacts:
