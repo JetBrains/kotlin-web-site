@@ -10,14 +10,14 @@ _[Released: December 16, 2025](releases.md#release-history)_
 
 The Kotlin 2.3.0 release is out! Here are the main highlights:
 
-* **Language**: [more stable and default features, unused return value checker, explicit backing fields, and changes to context-sensitive resolution](#language).
-* **Kotlin/JVM**: [support for Java 25](#kotlin-jvm-support-for-java-25).
-* **Kotlin/Native**: [improved interop through Swift export, faster build time for release tasks, C and Objective-C library import in Beta](#kotlin-native).
-* **Kotlin/Wasm**: [fully qualified names and new exception handling proposal enabled by default, as well as new compact storage for Latin-1 characters](#kotlin-wasm).
-* **Kotlin/JS**: [new experimental suspend function export, `LongArray` representation, unified companion object access, and more](#kotlin-js).
-* **Gradle**: [compatibility with Gradle 9.0 and a new API for registering generated sources](#gradle).
-* **Compose compiler**: [stack traces for minified Android applications](#compose-compiler-stack-traces-for-minified-android-applications).
-* **Standard library**: [stable time tracking functionality and improved UUID generation and parsing](#standard-library).
+* **Language**: [More stable and default features, unused return value checker, explicit backing fields, and changes to context-sensitive resolution](#language).
+* **Kotlin/JVM**: [Support for Java 25](#kotlin-jvm-support-for-java-25).
+* **Kotlin/Native**: [Improved interop through Swift export, faster build time for release tasks, C and Objective-C library import in Beta](#kotlin-native).
+* **Kotlin/Wasm**: [Fully qualified names and new exception handling proposal enabled by default, as well as new compact storage for Latin-1 characters](#kotlin-wasm).
+* **Kotlin/JS**: [New experimental suspend function export, `LongArray` representation, unified companion object access, and more](#kotlin-js).
+* **Gradle**: [Compatibility with Gradle 9.0 and a new API for registering generated sources](#gradle).
+* **Compose compiler**: [Stack traces for minified Android applications](#compose-compiler-stack-traces-for-minified-android-applications).
+* **Standard library**: [Stable time tracking functionality and improved UUID generation and parsing](#standard-library).
 
 You can also find an overview of the updates in this video:
 
