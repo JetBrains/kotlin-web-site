@@ -225,6 +225,10 @@ We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/i
 Kotlin 2.3.0 introduces explicit backing fields – a new syntax for explicitly declaring the underlying field that holds
 a property's value, in contrast to the existing implicit backing fields.
 
+You can find an overview of this feature in this video:
+
+<video src="https://www.youtube.com/v/PU-VdH8HhVA" title="Explicit Backing Fields are experimental in Kotlin 2.3"/>
+
 The new explicit syntax simplifies the common backing properties pattern where a property's internal type is different
 from its exposed API type. For example, you might use an `ArrayList` while exposing it as a read-only `List` or a `MutableList`.
 Previously, this required an additional private property.
