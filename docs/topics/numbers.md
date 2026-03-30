@@ -165,7 +165,7 @@ fun main() {
     val displayedScore: Int? = score
 
     println(savedScore === displayedScore) // false
-    println(savedScore == displayedScore) // true
+    println(savedScore == displayedScore)  // true
 //sampleEnd
 }
 ```
