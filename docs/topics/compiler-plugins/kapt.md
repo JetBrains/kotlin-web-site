@@ -6,7 +6,7 @@ In a nutshell, kapt helps you use libraries like [Dagger](https://google.github.
 [Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html) in your Kotlin projects by 
 enabling Java-based annotation processing.
 
-> To use annotation processors made for Kotlin, use [Kotlin Symbol Processing (KSP)](ksp-overview.md)
+> To use annotation processors made for Kotlin, use [Kotlin Symbol Processing (KSP)](ksp-overview.md).
 >
 {style="note"}
 
