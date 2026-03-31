@@ -81,6 +81,14 @@ html [data-testid="hero-block-ab-4"] {
     html.ab-hero-variant-4 [data-testid="hero-block-ab-4"] { display: block; }
     html.ab-hero-variant-4 [data-testid="why-kotlin-block"] { display: none; }
 
+    /* Show AB hero button for all variants */
+    html.ab-hero-variant-1 [data-testid="ab-hero-button"],
+    html.ab-hero-variant-2 [data-testid="ab-hero-button"],
+    html.ab-hero-variant-3 [data-testid="ab-hero-button"],
+    html.ab-hero-variant-4 [data-testid="ab-hero-button"] {
+        display: inline-flex !important;
+    }
+
     /* Background: #000 for body when any variant is active */
     .ab-hero-variant-1,
     .ab-hero-variant-2,
