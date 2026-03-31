@@ -764,9 +764,7 @@
     - /docs/reference/mpp-intro.html
     - /docs/mpp-intro.html
     - /docs/multiplatform-intro.html
-  to: /docs/multiplatform.html
-
-- from:
+    - /docs/multiplatform.html
     - /docs/mpp-get-started.html
     - /docs/multiplatform-tutorials.html
     - /docs/multiplatform-get-started.html

@@ -97,6 +97,15 @@ Similarly, instead of running `assembleXCFramework`, you can run `assembleShared
 >
 {style="tip"}
 
+### Reduce the size of release binaries
+<primary-label ref="experimental-opt-in"/>
+
+To reduce the size of release binaries and improve build time, try [enabling the binary option](native-binary-options.md#how-to-enable)
+`smallBinary`.
+
+It effectively sets `-Oz` as the default optimization argument for the compiler during the LLVM compilation phase.
+The option is still [Experimental](components-stability.md#stability-levels-explained) and might affect runtime performance in some cases.
+
 ### Don't disable Gradle daemon
 
 Don't disable the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html) without having a good reason. By default, [Kotlin/Native runs from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native).

@@ -103,7 +103,6 @@ Once your site is created, open the browser and navigate to your platform's page
 
   * [KotlinConf application](https://github.com/JetBrains/kotlinconf-app)
   * [Compose image viewer](https://github.com/JetBrains/compose-multiplatform/tree/master/examples/imageviewer)
-  * [Jetsnack application](https://github.com/JetBrains/compose-multiplatform/tree/master/examples/jetsnack)
   * [Node.js example](https://github.com/Kotlin/kotlin-wasm-nodejs-template)
   * [WASI example](https://github.com/Kotlin/kotlin-wasm-wasi-template)
   * [Compose example](https://github.com/Kotlin/kotlin-wasm-compose-template)
