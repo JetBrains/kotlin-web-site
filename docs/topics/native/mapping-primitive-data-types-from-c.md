@@ -121,28 +121,32 @@ To create project files:
     <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
+    import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
     plugins {
         kotlin("multiplatform") version "%kotlinVersion%"
     }
-    
+
     repositories {
         mavenCentral()
     }
-    
+
     kotlin {
-        macosArm64("native") {    // macOS on Apple Silicon
-        // linuxArm64("native") { // Linux on ARM64 platforms 
-        // linuxX64("native") {   // Linux on x86_64 platforms
-        // mingwX64("native") {   // on Windows
+        macosArm64()    // macOS on Apple Silicon
+        // linuxArm64() // Linux on ARM64 platforms
+        // linuxX64()   // Linux on x86_64 platforms
+        // mingwX64()   // Windows on x86_64 platforms
+
+        targets.withType<KotlinNativeTarget>().configureEach {
             val main by compilations.getting
             val interop by main.cinterops.creating
-        
+
             binaries {
                 executable()
             }
         }
     }
-    
+
     tasks.wrapper {
         gradleVersion = "%gradleVersion%"
         distributionType = Wrapper.DistributionType.BIN
@@ -153,29 +157,33 @@ To create project files:
     <tab title="Groovy" group-key="groovy">
 
     ```groovy
+    import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
     plugins {
         id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
     }
-    
+
     repositories {
         mavenCentral()
     }
-    
+
     kotlin {
-        macosArm64("native") {    // Apple Silicon macOS
-        // linuxArm64("native") { // Linux on ARM64 platforms
-        // linuxX64("native") {   // Linux on x86_64 platforms
-        // mingwX64("native") {   // Windows
+        macosArm64()    // Apple Silicon macOS
+        // linuxArm64() // Linux on ARM64 platforms
+        // linuxX64()   // Linux on x86_64 platforms
+        // mingwX64()   // Windows
+
+        targets.withType(KotlinNativeTarget).configureEach {
             compilations.main.cinterops {
-                interop 
+                interop
             }
-        
+
             binaries {
                 executable()
             }
         }
     }
-    
+
     wrapper {
         gradleVersion = '%gradleVersion%'
         distributionType = 'BIN'
@@ -204,7 +212,7 @@ To create project files:
     @OptIn(ExperimentalForeignApi::class)
     fun main() {
         println("Hello Kotlin/Native!")
-      
+
         ints(/* fix me*/)
         uints(/* fix me*/)
         doubles(/* fix me*/)
@@ -255,18 +263,18 @@ import kotlinx.cinterop.ExperimentalForeignApi
 @OptIn(ExperimentalForeignApi::class)
 fun main() {
     println("Hello Kotlin/Native!")
-  
+
     ints(1, 2, 3, 4)
     uints(5u, 6u, 7u, 8u)
     doubles(9.0f, 10.0)
 }
 ```
 
-To verify that everything works as expected, run the `runDebugExecutableNative` Gradle task [in your IDE](native-get-started.md#build-and-run-the-application)
-or use the following command to run the code:
+To verify that everything works as expected, run the `runDebugExecutable<YourTargetName>` Gradle task [in your IDE](native-get-started.md#build-and-run-the-application)
+or use the console command in your terminal, in this example:
 
 ```bash
-./gradlew runDebugExecutableNative
+./gradlew runDebugExecutableMacosArm64
 ```
 
 ## Next step
