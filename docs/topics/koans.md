@@ -1,7 +1,12 @@
 [//]: # (title: Kotlin Koans)
 
-Kotlin Koans are a series of exercises designed primarily for Java developers, to help you become familiar with the Kotlin syntax.
+Kotlin Koans are a series of exercises designed primarily for Java developers to help you become familiar with the Kotlin syntax.
 Each exercise is created as a failing unit test, and your job is to make it pass.
+
+> You can check out the task content in our [GitHub repository](https://github.com/Kotlin/kotlin-koans-edu).
+> 
+{style="note"}
+
 You can complete the Kotlin Koans tasks in one of the following ways:
 
 * You can play with [Koans online](https://play.kotlinlang.org/koans).

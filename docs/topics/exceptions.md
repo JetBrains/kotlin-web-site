@@ -1,4 +1,4 @@
-[//]: # (title: Exceptions)
+[//]: # (title: Exception and error handling)
 
 <web-summary>Learn how Kotlin uses exceptions to handle runtime errors.</web-summary>
 

@@ -71,6 +71,8 @@ Let's create a Kotlin library and use it from a C program.
     <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
+    import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+   
     plugins {
         kotlin("multiplatform") version "%kotlinVersion%"
     }
@@ -80,13 +82,16 @@ Let's create a Kotlin library and use it from a C program.
     }
     
     kotlin {
-        macosArm64("native") {    // macOS on Apple Silicon
-        // linuxArm64("native") { // Linux on ARM64 platforms
-        // linuxX64("native") {   // Linux on x86_64 platforms
-        // mingwX64("native") {   // Windows
+        macosArm64()    // macOS on Apple Silicon
+        // linuxArm64() // Linux on ARM64 platforms
+        // linuxX64()   // Linux on x86_64 platforms
+        // mingwX64()   // on Windows
+
+        targets.withType<KotlinNativeTarget>().configureEach {
             binaries {
                 sharedLib {
-                    baseName = "native"       // macOS and Linux 
+                    baseName = "native"       // macOS
+                    // baseName = "native"    // Linux
                     // baseName = "libnative" // Windows
                 }
             }
@@ -103,6 +108,8 @@ Let's create a Kotlin library and use it from a C program.
     <tab title="Groovy" group-key="groovy">
 
     ```groovy
+    import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+    
     plugins {
         id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
     }
@@ -112,13 +119,16 @@ Let's create a Kotlin library and use it from a C program.
     }
     
     kotlin {
-        macosArm64("native") {    // Apple Silicon macOS
-        // linuxArm64("native") { // Linux on ARM64 platforms
-        // linuxX64("native") {   // Linux on x86_64 platforms
-        // mingwX64("native") {   // Windows
+        macosArm64()    // Apple Silicon macOS
+        // linuxArm64() // Linux on ARM64 platforms
+        // linuxX64()   // Linux on x86_64 platforms
+        // mingwX64()   // Windows
+
+        targets.withType(KotlinNativeTarget).configureEach {
             binaries {
                 sharedLib {
-                    baseName = "native"       // macOS and Linux 
+                    baseName = "native"       // macOS
+                    // baseName = "native"    // Linux
                     // baseName = "libnative" // Windows
                 }
             }
@@ -138,14 +148,14 @@ Let's create a Kotlin library and use it from a C program.
     * `libnative` is used as the library name, the prefix for the generated header file name. It also prefixes all
       declarations in the header file.
 
-3. Run the `linkDebugSharedNative` Gradle task in the IDE or use the following console command in your terminal to build
-   the library:
+3. To build the library, run the `linkDebugShared<YourTargetName>` Gradle task in your IDE
+   or use the console command in your terminal, in this example:
 
    ```bash
-   ./gradlew linkDebugSharedNative
+   ./gradlew linkDebugSharedMacosArm64
    ```
 
-The build generates the library into the `build/bin/native/debugShared` directory with the following files:
+The build generates the library into the `build/bin/<yourTargetName>/debugShared` directory with the following files:
 
 * macOS: `libnative_api.h` and `libnative.dylib`
 * Linux: `libnative_api.h` and `libnative.so`
@@ -162,7 +172,7 @@ the Kotlin library.
 
 Let's examine how Kotlin/Native declarations are mapped to C functions.
 
-In the `build/bin/native/debugShared` directory, open the `libnative_api.h` header file.
+In the `build/bin/<yourTargetName>/debugShared` directory, open the `libnative_api.h` header file.
 The very first part contains the standard C/C++ header and footer:
 
 ```c

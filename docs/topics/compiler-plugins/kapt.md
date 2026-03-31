@@ -1,16 +1,15 @@
 [//]: # (title: kapt compiler plugin)
 
-> kapt is in maintenance mode. We are keeping it up to date with recent Kotlin and Java releases 
-> but have no plans to implement new features. Please use the [Kotlin Symbol Processing API (KSP)](ksp-overview.md) for annotation processing.
-> [See the list of libraries supported by KSP](ksp-overview.md#supported-libraries).
+The kapt compiler plugin allows you to use Java annotation processors in Kotlin.
+
+In a nutshell, kapt helps you use libraries like [Dagger](https://google.github.io/dagger/) and 
+[Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html) in your Kotlin projects by 
+enabling Java-based annotation processing.
+
+> To use annotation processors made for Kotlin, use [Kotlin Symbol Processing (KSP)](ksp-overview.md).
 >
-{style="warning"}
+{style="note"}
 
-Annotation processors (see [JSR 269](https://jcp.org/en/jsr/detail?id=269)) are supported in Kotlin with the _kapt_ compiler plugin.
-
-In a nutshell, kapt helps you use libraries like [Dagger](https://google.github.io/dagger/)
-and [Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html)
-in your Kotlin projects by enabling Java-based annotation processing.
 
 ## Use in Gradle
 
