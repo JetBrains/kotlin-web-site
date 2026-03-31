@@ -1,12 +1,14 @@
 [//]: # (title: Characters)
+[//]: # (description: Learn how to use the Char type in Kotlin, including syntax, Unicode support, escape sequences, and common operations on characters.)
 
 The [`Char`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/) type represents a single character as a UTF-16 code unit.
 
 Use `Char` for individual character values, such as letters, digits,
 punctuation marks, or whitespace. For sequences of characters, use [`String`](strings.md).
 
-> `Char` is not a numeric type, but each character has a numeric Unicode value that you can access.
->
+> `Char` is not a numeric type, but each character has a numeric Unicode value that you can access. 
+> See [](#numeric-conversion).
+> 
 {style="tip"}
 
 ## Syntax
@@ -41,7 +43,7 @@ val maybeAbsent: Char? = null
 ```
 
 > On the JVM, nullable `Char` values are boxed when needed. The same applies to
-> [numeric types](numbers.md#boxing-and-caching-numbers-on-the-java-virtual-machine)
+> [numeric types](numbers.md#boxing-and-caching-numbers-on-the-java-virtual-machine).
 >
 {style="note"}
 
