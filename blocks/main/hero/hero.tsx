@@ -36,7 +36,7 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
 
     return (
         <ThemeProvider theme={'dark'}>
-            <section className={cn(styles.heroSection)} data-testid={"hero-block"}>
+            <section className={cn(styles.heroSection)} data-testid={"hero-block-main-page"}>
                 <div className={cn('ktl-layout', 'ktl-layout--center', 'hero-b')}>
                     <div className={styles.grid}>
                         <div className={styles.content}>

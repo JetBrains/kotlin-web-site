@@ -17,15 +17,18 @@ interface FeatureSlideItem extends FeatureItem {
     codeSample: string;
 }
 
-const kmpCodeSample = `fun main() {
-    val name = "stranger"        // Declare your first variable
-    println("Hi, $name!")        // ...and use it!
-    print("Current count:")
-    for (i in 0..10) {           // Loop over a range from 0 to 10
-        print(" $i")
+const kmpCodeSample = `@Composable
+fun App() {
+    MaterialTheme {
+        var showGreeting by remember { mutableStateOf(false) }
+        Column {
+            Button(onClick = { showGreeting = !showGreeting }) { Text("Click me!") }
+            AnimatedVisibility(showGreeting) {
+                Text(Greeting().greet())
+            }
+        }
     }
 }`;
-
 const backendCodeSample = `fun main() {
     embeddedServer(Netty, port = 8080) {
         routing {
