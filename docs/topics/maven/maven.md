@@ -9,7 +9,7 @@ Here's a general workflow when working with a Kotlin Maven project:
 1. [Configure your Java or Kotlin project](maven-configure-project.md).
 2. [Declare repositories](maven-set-dependencies.md#declare-repositories).
 3. [Set project dependencies](maven-set-dependencies.md).
-4. [Define Kotlin Maven compiler options](maven-kotlin-compiler.md).
+4. [Configure Kotlin compiler](maven-kotlin-compiler.md).
 5. [Package your application](maven-compile-package.md).
 
 To get started, you can also follow our step-by-step tutorials:

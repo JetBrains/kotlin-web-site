@@ -1,4 +1,9 @@
-[//]: # (title: Set Kotlin Maven compiler options)
+[//]: # (title: Configure Kotlin compiler for your Maven project)
+
+The `kotlin-maven-plugin` allows you to configure the Kotlin compiler for your Maven projects.
+You can specify compiler options, choose an execution strategy, and enable incremental compilation.
+
+## Specify compiler options
 
 You can specify additional options and arguments for the compiler as elements in the `<configuration>` section of the
 Kotlin Maven plugin node:
@@ -11,7 +16,7 @@ Kotlin Maven plugin node:
     <extensions>true</extensions> <!-- If you want to enable automatic addition of executions to your build -->
     <executions>...</executions>
     <configuration>
-        <nowarn>true</nowarn>  <!-- Disable warnings -->
+        <nowarn>true</nowarn> <!-- Disable warnings -->
         <args>
             <arg>-Xjsr305=strict</arg> <!-- Enable strict mode for JSR-305 annotations -->
             ...
@@ -32,7 +37,7 @@ Many of the options can also be configured through properties:
 
 The following attributes are supported:
 
-## Attributes specific to JVM
+### Attributes specific to JVM
 
 | Name              | Property name                     | Description                                                                                          | Possible values                                         | Default value               |
 |-------------------|-----------------------------------|------------------------------------------------------------------------------------------------------|---------------------------------------------------------|-----------------------------|
