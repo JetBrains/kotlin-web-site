@@ -1,50 +1,53 @@
 [//]: # (title: Migrate from kapt to KSP)
 
 [Kapt](kapt.md) (Kotlin Annotation Processing Tool) was created to allow Java annotation processors to be used in Kotlin. 
-It works by first translating the Kotlin source code into Java "stubs", and then running 
+It works by first translating the Kotlin source code into Java "stubs" and then running 
 the annotation processors on those stubs. This is an expensive process that causes a significant increase in build time, 
-and some Kotlin specific features are lost in translation.
+and some Kotlin-specific features are lost in translation.
 
-[KSP](ksp-overview.md) (Kotlin Symbol Processing) is an alternative to kapt, designed specifically for Kotlin. KSP understands all Kotlin 
-features and can analyze it directly, greatly increasing build speed.
+[KSP](ksp-overview.md) (Kotlin Symbol Processing) is an alternative to kapt, designed specifically for Kotlin. KSP understands all
+Kotlin features and can analyze the source code directly, increasing build speed.
 
 To see if the processors in your project support KSP, check the [supported libraries](ksp-overview.md#supported-libraries)
 or their own documentation.
 
-You can migrate your project in stages, one library or module at a time, as kapt and KSP can run alongside each other.
+> Kapt and KSP can run alongside each other. You can migrate your project in stages, one library or module at a time.
+> 
+{style="note"}
 
 ## Add the KSP plugin to your project
 
-In the top-level `build.gradle(.kts)`, add KSP to the `plugins {}` block:
+Add KSP to the `plugins {}` block in the project-level `build.gradle(.kts)`:
 
 ```kotlin
 plugins {
     id("com.google.devtools.ksp") version "2.3.6" apply false 
 }
 ```
-> Find out what the latest version of the plugin is in the [KSP repository](https://github.com/google/ksp/releases)
->
+> To find the latest version of KSP, check the GitHub [Releases](https://github.com/google/ksp/releases).
 {style=”tip”}
 
-Next, enable KSP in the module that uses the library you want to migrate. In the module-level `build.gradle(.kts)`:
+## Update your processor
 
-```kotlin
-plugins {
-    id("com.google.devtools.ksp")
-}
-```
+Identify the module in which the processor you want to migrate is used. In the module's `build.gradle(.kts)` file:
 
-## Update your project’s dependencies
+1. Add KSP to the `plugins {}` block:
 
-In the module-level `build.gradle(.kts)` file, replace `kapt` with `KSP` in the dependency declaration:
+    ```kotlin
+    plugins {
+        id("com.google.devtools.ksp")
+    }
+    ```
 
-```kotlin
-dependencies {
-    implementation("com.google.dagger:dagger:2.48")
-    // kapt("com.google.dagger:dagger-compiler:2.48")
-    ksp("com.google.dagger:dagger-compiler:2.48") // KSP processor dependency
-}
-```
+2. Replace `kapt` with `KSP` in the `dependencies {}` block:
+
+    ```kotlin
+    dependencies {
+        implementation("com.google.dagger:dagger:2.48")
+        // kapt("com.google.dagger:dagger-compiler:2.48")
+        ksp("com.google.dagger:dagger-compiler:2.48") // KSP processor dependency
+    }
+    ```
 
 > For most libraries, this replacement is enough. Make sure to consult each specific library's
 > documentation to see if more changes are needed.
