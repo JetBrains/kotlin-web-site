@@ -8,18 +8,19 @@ In this guide you will learn:
 
 ## Add a KSP-based processor to your project
 
-To use an external processor in your project, add KSP to the [`plugins{}` block](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block) in your `build.gradle(.kts)` file. If the processor is 
-only needed in a specific module, add it to that module's `build.gradle(.kts)` file instead.
+To use an external processor in your project, add KSP to the [`plugins {}` block](https://docs.gradle.org/current/userguide/plugins.html#sec:plugins_block)
+in your `build.gradle(.kts)` file. If the processor is only needed in a specific module, add it to that module's 
+`build.gradle(.kts)` file instead:
 
-<tabs group="add-processor-plugins">
+<tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 // build.gradle.kts
 
 plugins {  
-    kotlin("jvm") version "2.3.0"  
-    id("com.google.devtools.ksp") version "2.3.6"
+    kotlin("jvm") version "%kotlinVersion%"  
+    id("com.google.devtools.ksp") version "%kspVersion%"
 }
 ```
 
@@ -30,8 +31,8 @@ plugins {
 // build.gradle
 
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '2.3.0'
-    id 'com.google.devtools.ksp' version '2.3.6'
+    id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+    id 'com.google.devtools.ksp' version '%kspVersion%'
 }
 ```
 
@@ -42,10 +43,10 @@ plugins {
 > 
 {style="tip"}
 
-In the top-level `dependencies{}` block, add the processor you want to use. In this example we use 
+In the top-level `dependencies {}` block, add the processor you want to use. This example uses 
 [Moshi](https://github.com/square/moshi?tab=readme-ov-file#codegen), but the approach is the same for other processors: 
 
-<tabs group="add-processor-dependencies">
+<tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
@@ -82,21 +83,21 @@ Create a new Kotlin project:
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**. 
 2. In the list on the left, choose **Kotlin**.
-3. Choose Gradle as the build system and click **Create**.
+3. Choose **Gradle** as the build system and click **Create**.
 
 ![Creating a new project](ksp-new-project.png){width=700}
 
 Then, add the KSP plugin to the `build.gradle(.kts)` file:
 
-<tabs group="top-level-build-script">
+<tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
 // build.gradle.kts
 
 plugins { 
-    kotlin("jvm") version "2.3.0"
-    id("com.google.devtools.ksp") version "2.3.6" apply false
+    kotlin("jvm") version "%kotlinVersion%"
+    id("com.google.devtools.ksp") version "%kspVersion%" apply false
 }
 ```
 
@@ -107,8 +108,8 @@ plugins {
 // build.gradle
 
 plugins {
-   id 'org.jetbrains.kotlin.jvm' version '2.3.0'
-   id 'com.google.devtools.ksp' version '2.3.6' apply false
+   id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+   id 'com.google.devtools.ksp' version '%kspVersion%' apply false
 }
 ```
 
@@ -122,7 +123,7 @@ Create a new module at the root of the project:
 1. Select **File** | **New** | **Module**. 
 2. In the list on the left, select **Kotlin**.
 3. Name the module `annotations`.
-4. Choose Gradle as the build system and click **Create**.
+4. Choose **Gradle** as the build system and click **Create**.
 
 ![Creating a new module](ksp-new-module.png){width=700}
 
@@ -143,7 +144,7 @@ annotation class HelloWorldAnnotation
 2. Add the required dependencies to the module's `build.gradle(.kts)` file. You need the KSP API and the annotation
 you just declared:
 
-<tabs group="processor-build-script">
+<tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
 
 ```kotlin
@@ -246,13 +247,13 @@ Let's go through the code:
     only the `visitFunctionDeclaration()` is overridden.
 
     > `KSVisitorVoid` is one of the visitors KSP provides to be overridden and adapted. You can create your own by 
-    > implementing the `KSVisitor<D, R>` [interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/KSVisitor.kt). 
+    > implementing the [`KSVisitor<D, R>` interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/KSVisitor.kt). 
     > 
     {style="tip"}
 
 * 3️⃣ The `createNewFileFrom()` and `createDependencyOn()` functions create the file where KSP generates code.
 
-5. Next, you need to create a `SymbolProcessorProvider` class. The KSP framework calls this class to construct the processor.
+5. Create a `HelloWorldProcessorProvider` class. The KSP framework calls this class to construct the processor.
 Create a `HelloWorldProcessorProvider.kt` file, add the following code, and add the imports suggested by the IDE:
 
 ```kotlin
@@ -270,7 +271,7 @@ class HelloWorldProcessorProvider : SymbolProcessorProvider {
 >
 {style="tip"}
 
-6. Finally, register the processor provider. In the `resources/META-INF/services` directory, create a 
+6. Register the processor provider. In the `resources/META-INF/services` directory, create a 
 `com.google.devtools.ksp.processing.SymbolProcessorProvider` file and add the provider's fully qualified name:
 
 ```text
@@ -284,7 +285,7 @@ HelloWorldProcessorProvider
 Now you are ready to test your processor. Follow these steps to create a client module and have your processor
 generate code based on an annotated element.
 
-1. Create one last module called `app` at the root of your project. 
+1. Create a module called `app` at the root of your project. 
 2. In the module's `build.gradle(.kts)` file:
 
    * Add the KSP plugin to the `plugins {}` block.
@@ -292,7 +293,7 @@ generate code based on an annotated element.
 
     For example:
 
-    <tabs group="app-build-gradle">
+    <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
 
     ```kotlin
@@ -328,9 +329,9 @@ generate code based on an annotated element.
     </tab>
     </tabs>
 
-3. In the project-level `settings.gradle.kts` file, verify that all the submodules were automatically included:
+3. In the project-level `settings.gradle.kts` file, ensure that all the submodules were automatically included:
     
-    <tabs group="settings-gradle">
+    <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
     
     ```kotlin
