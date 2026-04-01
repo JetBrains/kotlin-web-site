@@ -156,7 +156,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-> To learn more about available functions, refer to the 
+> Learn more about available functions in the 
 > [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-char/).
 >
 {style="note"}
