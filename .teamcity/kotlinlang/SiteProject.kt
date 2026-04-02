@@ -3,7 +3,7 @@ package kotlinlang
 import jetbrains.buildServer.configs.kotlin.Project
 import kotlinlang.builds.*
 import kotlinlang.vcsRoots.GrammarGenerator
-import kotlinlang.vcsRoots.KotlinSpec
+import kotlinlang.vcsRoots.KotlinSpecGrammar
 import kotlinlang.vcsRoots.WebHelp
 import templates.DockerImageBuilder
 
@@ -29,6 +29,6 @@ object SiteProject : Project({
     template(DockerImageBuilder)
 
     vcsRoot(GrammarGenerator)
-    vcsRoot(KotlinSpec)
+    vcsRoot(KotlinSpecGrammar)
     vcsRoot(WebHelp)
 })

@@ -3,7 +3,7 @@ package kotlinlang.builds
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.gradle
 import kotlinlang.vcsRoots.GrammarGenerator
-import kotlinlang.vcsRoots.KotlinSpec
+import kotlinlang.vcsRoots.KotlinSpecGrammar
 
 object BuildKotlinGrammar : BuildType({
   name = "Kotlin Grammar"
@@ -12,7 +12,7 @@ object BuildKotlinGrammar : BuildType({
 
   vcs {
     root(GrammarGenerator)
-    root(KotlinSpec, "+:/grammar/src/main/antlr => grammar", "-:/grammar/testData")
+    root(KotlinSpecGrammar, "+:/grammar/src/main/antlr => grammar")
 
     cleanCheckout = true
   }
