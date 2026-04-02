@@ -373,9 +373,8 @@ generate code based on an annotated element.
     }
     ```
 
-    > You may have noticed that the `main()` function calls the `helloWorld()` function, but this function doesn't 
-    > exist yet. Your IDE might highlight this. However, KSP generates the `helloWorld()` function when you compile and 
-    > run your project, so this isn't a problem.
+    > The `main()` function calls `helloWorld()`, even though this function does not exist yet. Your IDE may highlight 
+    > this as an error. This is expected: KSP generates the helloWorld() function when you build and run the project.
     >
     {style="note"}
 
