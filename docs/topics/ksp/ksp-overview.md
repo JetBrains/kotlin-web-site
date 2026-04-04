@@ -186,6 +186,7 @@ The table includes a list of popular libraries on Android and their various stag
 | SealedX          | [Officially supported](https://github.com/skydoves/sealedx)                                       |
 | Ktorfit          | [Officially supported](https://github.com/Foso/Ktorfit)                                           |
 | Mockative        | [Officially supported](https://github.com/mockative/mockative)                                    |
+| Kotest           | [Officially supported](https://github.com/kotest/kotest)                                          |
 | DeeplinkDispatch | [Supported via airbnb/DeepLinkDispatch#323](https://github.com/airbnb/DeepLinkDispatch/pull/323)  |
 | Dagger           | [Alpha](https://dagger.dev/dev-guide/ksp)                                                         |
 | Motif            | [Alpha](https://github.com/uber/motif)                                                            |
