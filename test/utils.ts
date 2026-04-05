@@ -31,9 +31,11 @@ export async function checkScreenshot(element: Locator | Page, options?: CheckSc
         const images = element.locator('img[loading=lazy]');
 
         if ((await images.count()) > 0) {
-            await images.evaluate((img: HTMLImageElement) => {
-                img.loading = 'eager';
-                img.decoding = 'sync';
+            await images.evaluateAll((imgs: HTMLImageElement[]) => {
+                for (const img of imgs) {
+                    img.loading = 'eager';
+                    img.decoding = 'sync';
+                }
             });
         }
 
