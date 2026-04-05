@@ -1,7 +1,6 @@
 import { expect, Locator, test } from '@playwright/test';
 import { MultiplatformPage } from '../../page/multiplatform-page';
-import { checkAnchor, checkScreenshot } from '../../utils';
-import { checkFullPageScreenshot } from '../../utils';
+import { checkAnchor, checkFullPageScreenshot, checkScreenshot } from '../../utils';
 
 test.describe('Multiplatform landing page', async () => {
     let multiplatformPage: MultiplatformPage;
@@ -15,7 +14,9 @@ test.describe('Multiplatform landing page', async () => {
         const { main, page } = multiplatformPage;
 
         await checkFullPageScreenshot(page, {
-            mask: [main.locator('[data-testid*="share-what-chip-content-"]')],
+            mask: [
+                main.locator('[data-testid*="share-what-chip-content-"]')
+            ]
         });
     });
 
@@ -32,9 +33,7 @@ test.describe('Multiplatform landing page', async () => {
         const heroActionButton = multiplatformPage.heroActionButon;
         await expect(heroActionButton).toBeVisible();
 
-        await checkScreenshot(multiplatformPage.heroBanner, {
-            stylePath: 'test/e2e/hide-sticky-banner.css',
-        });
+        await checkScreenshot(multiplatformPage.heroBanner);
 
         const href = await heroActionButton.getAttribute('href');
         await heroActionButton.click();
@@ -86,9 +85,7 @@ test.describe('Multiplatform landing page', async () => {
         await expect(multiplatformPage.ctaBlockAction).toBeVisible();
         await expect(multiplatformPage.ctaBlockAction).not.toBeEmpty();
 
-        await checkScreenshot(multiplatformPage.ctaBlock, {
-            stylePath: 'test/e2e/hide-sticky-banner.css',
-        });
+        await checkScreenshot(multiplatformPage.ctaBlock);
 
         const href = await multiplatformPage.ctaBlockAction.getAttribute('href');
         await multiplatformPage.ctaBlockAction.click();
@@ -121,9 +118,7 @@ async function checkChooseWhatToShare({ page, main, shareWhatBlock }: Multiplatf
     await expect(link).toBeVisible();
     await expect(link).not.toBeEmpty();
 
-    await checkScreenshot(shareWhatBlock, {
-        stylePath: 'test/e2e/hide-sticky-banner.css',
-    });
+    await checkScreenshot(shareWhatBlock);
 
     // Check that links work as links
     const href = await link.getAttribute('href');

@@ -53,7 +53,7 @@ export async function checkScreenshot(element: Locator | Page, options?: CheckSc
             animations: 'disabled',
             ...(options || {}),
             clip,
-            stylePath: ['test/production/production.css'].concat(options?.stylePath || []),
+            stylePath: ['test/production/production.css'].concat(options?.stylePath || [])
         });
     });
 }
@@ -70,7 +70,7 @@ async function getClippingRect(
                 x: box.x - padding,
                 y: box.y - padding,
                 width: box.width + padding * 2,
-                height: box.height + padding * 2,
+                height: box.height + padding * 2
             };
     }
 }
@@ -84,7 +84,7 @@ export async function checkFullPageScreenshot(page: Page, options?: CheckScreens
     await checkScreenshot(page, {
         ...options,
         fullPage: true,
-        mask: [page.locator('video[autoplay]'), ...(options?.mask || [])],
+        mask: [page.locator('video[autoplay]'), ...(options?.mask || [])]
     });
 }
 
