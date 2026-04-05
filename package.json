@@ -137,8 +137,6 @@
         "generate-redirects": "node scripts/generate-redirect-pages.js",
         "lint": "next lint",
         "test": "playwright test test",
-        "test:ci": "playwright test test/production test/e2e/grammar/",
-        "test:e2e": "playwright test test/e2e",
         "generate-pdf:html": "cd scripts/dist && yarn generate-pdf",
         "generate-pdf:convert": "node scripts/pdf/generate-pdf.js",
         "generate-pdf": "yarn generate-pdf:html && yarn generate-pdf:convert"
