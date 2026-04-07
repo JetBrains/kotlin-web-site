@@ -1,6 +1,5 @@
 [//]: # (title: Getting started with KSP)
-[//]: # (description: Add an annotation processor based on Kotlin Symbol Processing (KSP) to your project, or use the 
-KSP API to create your own.)
+[//]: # (description: Add an annotation processor based on Kotlin Symbol Processing (KSP) to your project, or use the KSP API to create your own.)
 
 In this guide you will learn:
 
@@ -186,16 +185,6 @@ Create a new module at the root of the project and declare an annotation:
 
     ```kotlin
     // processor/src/main/kotlin/HelloWorldProcessor.kt
-    
-   import com.google.devtools.ksp.processing.CodeGenerator
-   import com.google.devtools.ksp.processing.Dependencies
-   import com.google.devtools.ksp.processing.Resolver
-   import com.google.devtools.ksp.processing.SymbolProcessor
-   import com.google.devtools.ksp.symbol.KSAnnotated
-   import com.google.devtools.ksp.symbol.KSFunctionDeclaration
-   import com.google.devtools.ksp.symbol.KSVisitorVoid
-   import com.google.devtools.ksp.validate
-   import java.io.OutputStream
 
     class HelloWorldProcessor(val codeGenerator: CodeGenerator) : SymbolProcessor {
         // 1️⃣ process() function
@@ -245,6 +234,25 @@ Create a new module at the root of the project and declare an annotation:
     }
     ```
 
+    Add the imports that are suggested by the IDE. Make sure to import the `Resolver` and `Dependencies` classes 
+    from `com.google.devtools.ksp.processing`. Alternatively, copy these lines at the top of `HelloWorldProcessor.kt`:
+
+    ```kotlin
+    // processor/src/main/kotlin/HelloWorldProcessor.kt
+   
+    import com.google.devtools.ksp.processing.CodeGenerator
+    import com.google.devtools.ksp.processing.Dependencies
+    import com.google.devtools.ksp.processing.Resolver
+    import com.google.devtools.ksp.processing.SymbolProcessor
+    import com.google.devtools.ksp.symbol.KSAnnotated
+    import com.google.devtools.ksp.symbol.KSFunctionDeclaration
+    import com.google.devtools.ksp.symbol.KSVisitorVoid
+    import com.google.devtools.ksp.validate
+    import java.io.OutputStream
+    ```
+    {collapsible="true" collapsed-title="Import statements"}
+   
+
     Let's go through the code:
     
     * 1️⃣ The `process()` function contains the main logic of the processor. It gets all symbols
@@ -257,28 +265,28 @@ Create a new module at the root of the project and declare an annotation:
         class, the `HelloWorldVisitor` class is the visitor. Since the `HelloWorldAnnotation` is only used on a function, 
         only `visitFunctionDeclaration()` is overridden.
     
-           > `KSVisitorVoid` is one of the visitor classes provided by KSP that you can override and adapt.
-           > You can also create your own visitor by implementing the [`KSVisitor<D, R>` interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/KSVisitor.kt). 
-           > 
+        >   `KSVisitorVoid` is one of the visitor classes provided by KSP that you can override and adapt.
+        >   You can also create your own visitor by implementing the [`KSVisitor<D, R>` interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/symbol/KSVisitor.kt). 
+        > 
         {style="tip"}
     
     * 3️⃣ `createNewFileFrom()` creates the file where KSP generates code. `createDependencyOn()` makes the output
         file depend on the source file where the annotation is used.
 
-           > To learn more about how KSP creates and manages files, visit the source code for the 
-           > [`CodeGenerator` interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/processing/CodeGenerator.kt)
-           > 
+        >   To learn more about how KSP creates and manages files, visit the source code for the 
+        >   [`CodeGenerator` interface](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/processing/CodeGenerator.kt)
+        > 
         {style="tip"} 
 
 4. Create a `HelloWorldProcessorProvider.kt` file. In it, declare a `HelloWorldProcessorProvider` class which inherits 
-from `SymbolProcessorProvider`:
+    from `SymbolProcessorProvider`:
 
     ```kotlin
     // processor/src/main/kotlin/HelloWorldProcessorProvider.kt
     
-   import com.google.devtools.ksp.processing.SymbolProcessor
-   import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
-   import com.google.devtools.ksp.processing.SymbolProcessorProvider
+    import com.google.devtools.ksp.processing.SymbolProcessor
+    import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
+    import com.google.devtools.ksp.processing.SymbolProcessorProvider
 
     class HelloWorldProcessorProvider : SymbolProcessorProvider {  
         override fun create(environment: SymbolProcessorEnvironment): SymbolProcessor {  
@@ -304,8 +312,8 @@ generate code based on an annotated element:
 1. Create a module called `app` at the root of your project. 
 2. In the module's `build.gradle(.kts)` file:
 
-   * Add the KSP plugin to the `plugins {}` block.
-   * Add your processor and annotation to the `dependencies {}` block.
+    * Add the KSP plugin to the `plugins {}` block.
+    * Add your processor and annotation to the `dependencies {}` block.
 
     For example:
 
@@ -393,15 +401,15 @@ generate code based on an annotated element:
 
 5. Run the program. You see the output of the `helloWorld()` function in your console:
 
-   ```text
-   Hello world from function generated by KSP
-   ```
+    ```text
+    Hello world from function generated by KSP
+    ```
 
-KSP generates code in the `GeneratedHelloWorld.kt` file:
-
-```text
-app/build/generated/ksp/main/kotlin/GeneratedHelloWorld.kt
-```
+    KSP generates code in the `GeneratedHelloWorld.kt` file:
+   
+    ```text
+    app/build/generated/ksp/main/kotlin/GeneratedHelloWorld.kt
+    ```
 
 ### Explore the project structure
 
