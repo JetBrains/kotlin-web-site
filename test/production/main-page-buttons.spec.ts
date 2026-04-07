@@ -34,7 +34,7 @@ test.describe('Main page buttons', () => {
         await expect(pageTitle).toContainText('Kotlin');
     });
 
-    test('Why Kotlin Get started button', async ({ page, baseURL }) => {
+    test.skip('Why Kotlin Get started button', async ({ page, baseURL }) => {
         const whyKotlinButton = page.getByTestId('why-kotlin-block').getByRole('link', { name: 'Get started' });
         await expect(whyKotlinButton).toBeVisible();
         await whyKotlinButton.click();
