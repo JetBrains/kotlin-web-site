@@ -11,7 +11,7 @@
         "@babel/register": "7.15.3",
         "@babel/runtime": "7.28.4",
         "@jetbrains/babel-preset-jetbrains": "^2.3.1",
-        "@jetbrains/kotlin-web-site-ui": "4.14.5",
+        "@jetbrains/kotlin-web-site-ui": "4.14.6-alpha.3",
         "@react-hook/resize-observer": "1.2.5",
         "@rescui/button": "0.18.0",
         "@rescui/card": "^0.8.1",
@@ -148,5 +148,6 @@
         "generate-pdf:html": "cd scripts/dist && yarn generate-pdf",
         "generate-pdf:convert": "node scripts/pdf/generate-pdf.js",
         "generate-pdf": "yarn generate-pdf:html && yarn generate-pdf:convert"
-    }
+    },
+    "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
