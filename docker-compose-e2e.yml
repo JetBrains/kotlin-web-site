@@ -1,6 +1,7 @@
 services:
   reverse-proxy:
     image: nginx:stable-alpine
+    command: ["nginx", "-g", "daemon off; error_log /dev/null;"]
     networks:
       - test-network
     volumes:
