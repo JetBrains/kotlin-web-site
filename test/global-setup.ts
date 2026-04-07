@@ -36,12 +36,19 @@ async function closeProductionElements(baseURL: string, storageStatePath: string
             console.log('[Global Setup] Cookie banner not found - continuing');
         }
 
-        const closeBanner = page.locator('#optly-banner_close');
+        const urls = [baseURL, `${baseURL}/docs/`, `${baseURL}/api/core/`];
 
-        if (await closeBanner.count() > 0) {
-            console.log('[Global Setup] Closing "purple" banner');
-            await closeBanner.click();
-            await page.waitForSelector('#optly-banner_close', { state: 'hidden' });
+        for (const url of urls) {
+            await page.goto(url, { waitUntil: 'domcontentloaded' });
+
+            try {
+                const closeBanner = page.locator('#optly-banner_close');
+                await closeBanner.click();
+                console.log(`[Global Setup] Closing "purple" banner - ${url}`);
+                await page.waitForSelector('#optly-banner_close', { state: 'hidden' });
+            } catch (error) {
+                console.log(`[Global Setup] Closing "purple" banner - continuing - ${url}`);
+            }
         }
 
         await context.storageState({ path: storageStatePath });
