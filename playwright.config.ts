@@ -1,10 +1,17 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices, ReporterDescription } from '@playwright/test';
 
 const MAX_DIFF_PIXEL_RATIO = 0.025 as const;
 
 const isDevelopment = !process.env.CI;
 
-const reporter = isDevelopment ? 'list' : 'playwright-teamcity-reporter';
+const reporter: ReporterDescription[] = isDevelopment ? [['list']] : [
+    ['html', { open: 'never' }],
+    ['playwright-teamcity-reporter', {
+        'testMetadataArtifacts': 'test-results',
+        logConfig: false
+    }]
+];
+
 const retries = isDevelopment ? 0 : 2;
 const timeout = isDevelopment ? 10000 : 5000;
 
