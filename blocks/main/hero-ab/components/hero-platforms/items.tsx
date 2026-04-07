@@ -17,15 +17,15 @@ interface FeatureSlideItem extends FeatureItem {
     codeSample: string;
 }
 
-const kmpCodeSample = `@Composable
+const kmpCodeSample = `
+expect fun platform(): String
+
+@Composable
 fun App() {
+    var greeting by remember { mutableStateOf("") }
     MaterialTheme {
-        var showGreeting by remember { mutableStateOf(false) }
-        Column {
-            Button(onClick = { showGreeting = !showGreeting }) { Text("Click me!") }
-            AnimatedVisibility(showGreeting) {
-                Text(Greeting().greet())
-            }
+        Button(onClick = { greeting = "Hello from \${platform()}!" }) {
+            Text(if (greeting.isEmpty()) "Click me!" else greeting)
         }
     }
 }`;
