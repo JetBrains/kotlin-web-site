@@ -29,8 +29,7 @@ export const HeroSectionAB4: FC<Props> = ({}) => {
                 <div className={styles.wrapper}>
                     <div className={styles.heading}>
                         <h1 className={cn(darkTextCn('rs-middle-hero'), styles.heroText)}>Kotlin</h1>
-                        <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform.
-                            Fun.</p>
+                        <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform. Fun.</p>
 
                         <Developer />
                     </div>
@@ -40,28 +39,31 @@ export const HeroSectionAB4: FC<Props> = ({}) => {
                             <img src={KMPIcon.src} className={styles.icon} alt={`KMP icon`} />
                             <h3 className={cn(darkTextCn('rs-h3'), styles.title)}>Multiplatform</h3>
                             <p className={cn(darkTextCn('rs-text-2'), styles.text)}>
-                                Build modern Android applications using Kotlin and the official Android toolkit.
+                                Go cross‑platform without compromising performance, UX, or code quality.
                             </p>
                         </a>
                         <a className={styles.navItem} href={'/docs/kotlin-ai-apps-development-overview.html'}>
                             <img src={AIIcon.src} className={styles.icon} alt={`AI icon`} />
                             <h3 className={cn(darkTextCn('rs-h3'), styles.title)}>AI development</h3>
                             <p className={cn(darkTextCn('rs-text-2'), styles.text)}>
-                                Share code across Android, iOS, web, and desktop using Kotlin Multiplatform.
+                                Leverage AI models tailored for Kotlin, backed by JetBrains' open data, benchmarks, and
+                                tooling built into your workflow.
                             </p>
                         </a>
                         <a className={styles.navItem} href={'/server-side/'}>
                             <img src={BackendIcon.src} className={styles.icon} alt={`Backend icon`} />
                             <h3 className={cn(darkTextCn('rs-h3'), styles.title)}>Backend</h3>
                             <p className={cn(darkTextCn('rs-text-2'), styles.text)}>
-                                Develop scalable server-side applications and APIs with Kotlin on the JVM.
+                                Build fast applications with Spring or Ktor. Kotlin's expressiveness makes backend code
+                                a pleasure to write and maintain.
                             </p>
                         </a>
                         <a className={styles.navItem} href={'/docs/android-overview.html'}>
                             <img src={AndroidIcon.src} className={styles.icon} alt={`Android icon`} />
                             <h3 className={cn(darkTextCn('rs-h3'), styles.title)}>Android</h3>
                             <p className={cn(darkTextCn('rs-text-2'), styles.text)}>
-                                Leverage Kotlin for machine learning, data processing, and AI-driven applications.
+                                Write less boilerplate, ship more features with the official language of Android
+                                development since 2019.
                             </p>
                         </a>
 
@@ -69,14 +71,14 @@ export const HeroSectionAB4: FC<Props> = ({}) => {
                             <div className={styles.kotlinTour}>
                                 <img src={KotlinIcon.src} className={styles.kotlinIcon} alt={`Kotlin icon`} />
                                 <h3 className={darkTextCn('rs-h3')}>Kotlin Tour</h3>
-                                <Button size="m" mode={'outline'} className={styles.quickStartButton}>Quick Start</Button>
+                                <Button size="m" mode={'outline'} className={styles.quickStartButton}>
+                                    Quick Start
+                                </Button>
                             </div>
                         </a>
-
                     </div>
 
                     <Playground />
-
                 </div>
             </HeroLayout>
         </ThemeProvider>
