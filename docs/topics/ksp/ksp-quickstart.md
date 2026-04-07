@@ -228,7 +228,7 @@ Create a new module at the root of the project and declare an annotation:
        }
     }
     
-    // Utility function
+    // Utility function for writing string to OutputStream
     fun OutputStream.write(string: String): Unit {
         this.write(string.toByteArray())
     }
