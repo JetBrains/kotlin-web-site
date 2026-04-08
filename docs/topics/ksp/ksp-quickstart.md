@@ -109,8 +109,8 @@ Create a new Kotlin project and add the KSP plugin:
     // build.gradle
     
     plugins {
-       id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
-       id 'com.google.devtools.ksp' version '%kspVersion%' apply false
+        id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+        id 'com.google.devtools.ksp' version '%kspVersion%' apply false
     }
     ```
     
@@ -169,7 +169,7 @@ Create a new module at the root of the project and declare an annotation:
     // processor/build.gradle
     
     plugins {
-       id 'org.jetbrains.kotlin.jvm'
+        id 'org.jetbrains.kotlin.jvm'
     }
     
     dependencies {
