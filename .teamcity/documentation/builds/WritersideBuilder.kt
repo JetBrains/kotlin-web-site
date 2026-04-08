@@ -1,5 +1,6 @@
 package documentation.builds
 
+import common.extensions.isProjectPlayground
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
@@ -25,6 +26,7 @@ abstract class WritersideBuilder(
 
     triggers {
         vcs {
+            enabled = !isProjectPlayground()
             branchFilter = "+:<default>"
         }
     }

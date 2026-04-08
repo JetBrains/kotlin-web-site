@@ -2,6 +2,7 @@ package kotlinlang.builds
 
 import BuildParams.API_URLS
 import BuildParams.KLANG_NODE_CONTAINER
+import common.extensions.isProjectPlayground
 import documentation.builds.KotlinMultiplatform
 import documentation.builds.KotlinWithCoroutines
 import jetbrains.buildServer.configs.kotlin.BuildType
@@ -27,6 +28,7 @@ object BuildSitePages : BuildType({
 
     triggers {
         vcs {
+            enabled = !isProjectPlayground()
             branchFilter = "+:<default>"
         }
         finishBuildTrigger {
