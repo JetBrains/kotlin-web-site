@@ -453,6 +453,6 @@ Your project's final file structure should look like this:
 
 ## What's next?
 
-* Explore the full code for this example in [the KSP repository](https://github.com/google/ksp/pull/2804/changes).
+* Explore the full code for this example in [the KSP repository](https://github.com/google/ksp/tree/main/examples/hello-world).
 * Find more complex, real-world examples in [the KSP repository](https://github.com/google/ksp/blob/main/examples/playground/test-processor/src/main/kotlin/BuilderProcessor.kt).
 * Browse the list of [KSP supported libraries](ksp-overview.md#supported-libraries).
