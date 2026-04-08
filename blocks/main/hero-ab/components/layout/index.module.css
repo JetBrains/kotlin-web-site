@@ -15,6 +15,7 @@
     margin-right: -350px;
     width: 1786px;
     height: 1786px;
+    max-width: none;
 }
 
 .content {
