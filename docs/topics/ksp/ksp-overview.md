@@ -160,7 +160,7 @@ class HelloFunctionFinderProcessor : SymbolProcessor() {
 * [Incremental processing notes](ksp-incremental.md)
 * [Multiple round processing notes](ksp-multi-round.md)
 * [KSP on multiplatform projects](ksp-multiplatform.md)
-* [Running KSP from command line](ksp-command-line.md)
+* [Running KSP from command line](https://github.com/google/ksp/blob/main/docs/ksp2cmdline.md)
 * [FAQ](ksp-faq.md)
 
 ## Supported libraries
