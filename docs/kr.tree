@@ -349,7 +349,7 @@
             <toc-element topic="ksp-incremental.md"/>
             <toc-element topic="ksp-multi-round.md"/>
             <toc-element topic="ksp-multiplatform.md"/>
-            <toc-element toc-title="ksp-command-line.md" href="https://github.com/google/ksp/blob/main/docs/ksp2cmdline.md"/>
+            <toc-element toc-title="Running KSP from the command line" href="https://github.com/google/ksp/blob/main/docs/ksp2cmdline.md"/>
             <toc-element toc-title="FAQ" topic="ksp-faq.md"/>
         </toc-element>
     </toc-element>
