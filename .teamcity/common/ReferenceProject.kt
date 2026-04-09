@@ -118,6 +118,7 @@ open class ReferenceProject(val urlPart: String, val projectTitle: String = urlP
         currentVersion.apply {
             triggers {
                 vcs {
+                    enabled = !isProjectPlayground()
                     id = "trigger-vcs-default-trigger-id"
                     branchFilter = "+:<default>"
                 }

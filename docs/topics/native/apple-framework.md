@@ -80,6 +80,8 @@ Let's first create a Kotlin library:
     <tab title="Kotlin" group-key="kotlin">
     
     ```kotlin
+    import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
     plugins {
         kotlin("multiplatform") version "%kotlinVersion%"
     }
@@ -89,7 +91,11 @@ Let's first create a Kotlin library:
     }
     
     kotlin {
-        iosArm64("native") {
+        iosArm64()
+        // macosArm64()
+        // iosSimulatorArm64()
+
+        targets.withType<KotlinNativeTarget>().configureEach {
             binaries {
                 framework {
                     baseName = "Demo"
@@ -108,6 +114,8 @@ Let's first create a Kotlin library:
     <tab title="Groovy" group-key="groovy">
     
     ```groovy
+    import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
     plugins {
         id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
     }
@@ -117,7 +125,11 @@ Let's first create a Kotlin library:
     }
     
     kotlin {
-        iosArm64("native") {
+        iosArm64()
+        // macosArm64()
+        // iosSimulatorArm64()
+
+        targets.withType(KotlinNativeTarget).configureEach {
             binaries {
                 framework {
                     baseName = "Demo"
@@ -137,30 +149,28 @@ Let's first create a Kotlin library:
 
     The `binaries {}` block configures the project to generate a dynamic or shared library.
 
-    Kotlin/Native supports the `iosArm64`, `iosX64`, and `iosSimulatorArm64` targets for iOS, as well as `macosArm64` and
-    `macosX64` targets for macOS. So, you can replace the `iosArm64()` with the respective Gradle function for your
+    Kotlin/Native supports the `iosArm64` and `iosSimulatorArm64` targets for iOS, as well as the `macosArm64`
+    target for macOS. So, you can replace `iosArm64()` with the respective Gradle function for your
     target platform:
 
-    | Target platform/device | Gradle function       |
+    | Target/device          | Gradle function       |
     |------------------------|-----------------------|
     | macOS ARM64            | `macosArm64()`        |
-    | macOS x86_64           | `macosX64()`          |
     | iOS ARM64              | `iosArm64()`          |
     | iOS Simulator (ARM64)  | `iosSimulatorArm64()` |
-    | iOS Simulator (x86_64) | `iosX64()`            |
 
     For information on other supported Apple targets, see [Kotlin/Native target support](native-target-support.md).
 
-3. Run the `linkDebugFrameworkNative` Gradle task in the IDE or use the following console command in your terminal to
-   build the framework:
+3. To build the framework, run the `linkDebugFramework<YourTargetName>` Gradle task in your IDE or use the console command
+   in your terminal, for example:
 
    ```bash
-   ./gradlew linkDebugFrameworkNative
+   ./gradlew linkDebugFrameworkIosArm64
    ```
-    
-The build generates the framework into the `build/bin/native/debugFramework` directory.
 
-> You can also use the `linkNative` Gradle task to generate both `debug` and `release` variants of the framework.
+The build generates the framework into the `build/bin/<yourTargetName>/debugFramework` directory.
+
+> You can also use the general `link<YourTargetName>` Gradle task to generate both `debug` and `release` variants of the framework.
 >
 {style="tip"}
 
@@ -171,7 +181,7 @@ definitions for your Kotlin code and a few Kotlin-wide declarations. Let's see w
 
 ### Kotlin/Native runtime declarations
 
-In the `build/bin/native/debugFramework/Demo.framework/Headers` directory, open the `Demo.h` header file.
+In the `build/bin/<yourTargetName>/debugFramework/Demo.framework/Headers` directory, open the `Demo.h` header file.
 Take a look at Kotlin runtime declarations:
 
 ```objc

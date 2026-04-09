@@ -1,5 +1,7 @@
 [//]: # (title: Test Java code using Kotlin and JUnit – tutorial)
 
+<web-summary>Set up a Java project built with Maven or Gradle to integrate JUnit tests written in Kotlin.</web-summary>
+
 Kotlin is fully interoperable with Java, which means you can write tests for Java code using Kotlin and run them together
 with your existing Java tests in the same project.
 
@@ -49,10 +51,9 @@ In this tutorial, you'll learn how to:
    {src="jvm-test-tutorial/pom.xml" initial-collapse-state="collapsed" collapsible="true" ignore-vars="false" collapsed-title="pom.xml file"}
 
     * In the `<properties>` section, set the Kotlin version.
-    * In the `<dependencies>` section, add JUnit Jupiter dependencies and the `kotlin-stdlib` (test scope) to compile and
-      run Kotlin tests.
-    * In the `<build><plugins>` section, apply `kotlin-maven-plugin` with `extensions` enabled and configure `compile`
-      and `test-compile` executions with `sourceDirs` for both Kotlin and Java.
+    * In the `<dependencies>` section, add JUnit Jupiter dependencies to run tests.
+    * In the `<build><plugins>` section, apply `kotlin-maven-plugin` with `<extensions>` set to `true`. It automatically
+      adds corresponding executions and the `kotlin-stdlib` dependency to the build.
     * You don't need to add `maven-compiler-plugin` to the `<build><pluginManagement>` section when using the Kotlin
       Maven plugin with extensions.
 
@@ -60,7 +61,7 @@ In this tutorial, you'll learn how to:
     <tab title="Gradle" group-key="gradle">
 
     ```kotlin
-   // build.gradle.kts
+    // build.gradle.kts
     group = "org.jetbrains.kotlin"
     version = "1.0-SNAPSHOT"
     description = "kotlin-junit-complete"
@@ -111,7 +112,7 @@ In this tutorial, you'll learn how to:
     # gradle/libs.versions.toml
     [versions]
     kotlin = "%kotlinVersion%"
-    junit = "6.0.2"
+    junit = "6.0.3"
 
     [libraries]
     org-junit-jupiter-junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
@@ -164,7 +165,7 @@ You can expand the test coverage by adding a Kotlin test that verifies repositor
    }
    ```
 
-    * JUnit 5 annotations work the same in Kotlin as in Java.
+    * JUnit annotations work the same in Kotlin as in Java.
     * In Kotlin, the [`lateinit` keyword](properties.md#late-initialized-properties-and-variables) allows declaring
       non-null properties that are initialized later.
       This helps to avoid having to use nullable types (`TodoRepository?`) in your tests.
@@ -325,5 +326,5 @@ Besides JUnit, you can use other libraries that support both Kotlin and Java:
 ## What's next
 
 * Improve your test output with the [Kotlin's Power-assert compiler plugin](power-assert.md).
-* Create your first [server-side application with Kotlin and Spring Boot](jvm-get-started-spring-boot.md).
+* Create your first [backend application with Kotlin and Spring Boot](jvm-get-started-spring-boot.md).
 * Explore the features of the [`kotlin.test` library](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/).

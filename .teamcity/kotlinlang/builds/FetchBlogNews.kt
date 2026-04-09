@@ -28,6 +28,7 @@ object FetchBlogNews : BuildType({
 
     triggers {
         schedule {
+            enabled = !isProjectPlayground()
             branchFilter = "+:<default>"
             schedulingPolicy = cron {
                 hours = "9"

@@ -1,6 +1,5 @@
 # Kotlin website
 [![Official project][project-badge]][project-url]
-[![Qodana Code Quality Check](https://github.com/JetBrains/kotlin-web-site/actions/workflows/qodana-code-quality-check.yml/badge.svg)](https://github.com/JetBrains/kotlin-web-site/actions/workflows/qodana-code-quality-check.yml)
 
 This repository is the source for [https://kotlinlang.org](https://kotlinlang.org).
 
@@ -23,7 +22,7 @@ This repository is the source for [https://kotlinlang.org](https://kotlinlang.or
 | [Multiplatform](https://kotlinlang.org/multiplatform/)    | [pages/multiplatform](pages/multiplatform)               |
 | [Case Studies](https://kotlinlang.org/case-studies/)      | [pages/case-studies](pages/case-studies)                 |
 | [Community](https://kotlinlang.org/community/)            | [pages/community](pages/community)                       | 
-| [Education](https://kotlinlang.org/education/)            | [templates/pages/education](templates/pages/education)   | 
+| [Education](https://kotlinlang.org/education/)            | [pages/education](pages/education)                       | 
 
 #### Sources in different repositories
 
@@ -140,12 +139,15 @@ You can contribute to the Kotlin website by sending us a pull request.
 
 ## PDF Generation
 
+Before you begin, make sure your local environment is connected to to the WebTeam registry. Learn more about it [in the section below](#local-development).
+
 To generate a PDF version of the Kotlin documentation:
 
-1. Download the documentation artifacts from the [Reference Docs CI build](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildReferenceDocs) and place them in the `dist` folder.
+1. Download the documentation artifacts from the [Kolin Reference with coroutines CI build](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_KotlinWithCoroutines) and place them in the `dist` folder. Note that images should be placed into /dist/images.
 2. Run:
    ```bash
    yarn install
+   cd scripts/dist && npm install && cd ../../
    yarn generate-pdf
    ```
 
@@ -262,7 +264,7 @@ To run these tests locally, follow the next steps:
 2. Open the last successful build of [Reference Docs](https://buildserver.labs.intellij.net/buildConfiguration/Kotlin_KotlinSites_KotlinlangTeamcityDsl_BuildReferenceDocs?branch=&mode=builds#all-projects) on TeamCity.
 3. Download the artifacts of this build and place them in the `dist` folder.
 4. Run the tests locally with the following command `yarn run test:e2e`
-5. Run the tests in docker container with the following command `docker compose -f docker-compose-e2e-statics.yml up --build  --exit-code-from playwright`
+5. Run the tests in docker container with the following command `docker compose -f docker-compose-e2e.yml up --build  --exit-code-from playwright`
 
 ## API references tests
 

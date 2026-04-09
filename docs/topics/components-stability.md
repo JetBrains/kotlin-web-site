@@ -16,10 +16,13 @@ and the level of risk users take on when adopting it.
 Here's a quick guide to these stability levels and their meaning:
 
 **Experimental** means "try it only in toy projects":
-* We are just trying out an idea and want some users to play with it and give feedback. If it doesn't work out, we may drop it any minute.
+* We're just testing an idea and its feasibility. We want some users to try it out and share their feedback.
+  The scope is minimal, and the feature may change or disappear at any time. We don't guarantee stability or compatibility.
 
-**Alpha** means "use at your own risk, expect migration issues":
-* We intend to productize this idea, but it hasn't reached its final shape yet.
+**Alpha** means "we are testing whether this should become production-ready":
+* We intend to turn this into a product and are validating its user value and market fit to shape its final form.
+  The feature set is still incomplete, and breaking changes are expected. If the hypothesis doesn't hold,
+  we may significantly change or discontinue the feature.
 
 **Beta** means "you can use it, we'll do our best to minimize migration issues for you":
 * It's almost done, user feedback is especially important now.
@@ -88,7 +91,7 @@ to avoid the accidental use of features that have not been released as stable.
 | [No-arg](no-arg-plugin.md)                       | Stable       | 1.3.0                    |              |
 | [SAM-with-receiver](sam-with-receiver-plugin.md) | Stable       | 1.3.0                    |              |
 | [kapt](kapt.md)                                  | Stable       | 1.3.0                    |              |
-| [Lombok](lombok.md)                              | Experimental | 1.5.20                   |              |
+| [Lombok](lombok.md)                              | Alpha        | 2.3.20                   |              |
 | [Power-assert](power-assert.md)                  | Experimental | 2.0.0                    |              |
 
 ### Kotlin libraries

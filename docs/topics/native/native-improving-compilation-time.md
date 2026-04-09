@@ -97,6 +97,15 @@ Similarly, instead of running `assembleXCFramework`, you can run `assembleShared
 >
 {style="tip"}
 
+### Reduce the size of release binaries
+<primary-label ref="experimental-opt-in"/>
+
+To reduce the size of release binaries and improve build time, try [enabling the binary option](native-binary-options.md#how-to-enable)
+`smallBinary`.
+
+It effectively sets `-Oz` as the default optimization argument for the compiler during the LLVM compilation phase.
+The option is still [Experimental](components-stability.md#stability-levels-explained) and might affect runtime performance in some cases.
+
 ### Don't disable Gradle daemon
 
 Don't disable the [Gradle daemon](https://docs.gradle.org/current/userguide/gradle_daemon.html) without having a good reason. By default, [Kotlin/Native runs from the Gradle daemon](https://blog.jetbrains.com/kotlin/2020/03/kotlin-1-3-70-released/#kotlin-native).
@@ -137,13 +146,13 @@ To use the Gradle configuration cache, add the `org.gradle.configuration-cache=t
 
 ### Enable previously disabled features
 
-There are Kotlin/Native properties that disable the Gradle daemon and compiler caches:
+There are Kotlin/Native options that disable the Gradle daemon and compiler caches:
 
 * `kotlin.native.disableCompilerDaemon=true`
-* `kotlin.native.cacheKind=none`
-* `kotlin.native.cacheKind.$target=none`, where `$target` is a Kotlin/Native compilation target, for example `iosSimulatorArm64`.
+* [`disableNativeCache`](https://kotlinlang.org/docs/multiplatform/multiplatform-dsl-reference.html#binaries) DSL
+  in the `binaries {}` block of your Gradle build file.
 
-If you had issues with these features before and added these lines to your `gradle.properties` file or Gradle arguments,
+If you had issues with these features before and added these lines to your `gradle.properties` file or Gradle build files,
 remove them and check whether the build completes successfully. It is possible that these properties were added previously
 to work around issues that have already been fixed.
 

@@ -14,7 +14,7 @@ You will use the following tools during this tutorial:
 
 ## Before you start
 
-1. Download and install the latest version of [IntelliJ IDEA Ultimate Edition](https://www.jetbrains.com/idea/download/index.html).
+1. Download and install the latest version of [IntelliJ IDEA Ultimate Edition](https://www.jetbrains.com/idea/download/).
 
     > If you use IntelliJ IDEA Community Edition or another IDE, you can generate a Spring Boot project using
     > a [web-based project generator](https://start.spring.io/#!language=kotlin&type=gradle-project-kotlin).

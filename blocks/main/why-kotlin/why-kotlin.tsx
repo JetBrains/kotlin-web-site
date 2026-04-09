@@ -24,6 +24,7 @@ import functionalExample from './code-examples/functional.md';
 import testsExample from './code-examples/ideal-for-tests.md';
 
 import { generateCrosslink } from 'kotlin-playground/dist/crosslink';
+import { trackOptimizelyEvent } from '../../../utils/optimizely';
 
 interface Props {}
 
@@ -56,15 +57,24 @@ export const WhyKotlin: FC<Props> = ({}) => {
     const handleRunButton = useCallback(() => {
         codeInstanceRef?.current?.runInstance();
         codeInstanceRef?.current?.scrollResultsToView();
+
+        trackOptimizelyEvent('opt_main-page_run');
     }, [codeInstanceRef]);
 
     const { codeExample, children, ...options } = codeExamplesList[activeIndex];
     const handleOpenInPlaygroundButton = useCallback(() => {
         const link = generateCrosslink(codeExample, options);
+
+        trackOptimizelyEvent('opt_main-page_open_in_playground');
         if (typeof window !== 'undefined') {
             window.open(link, '_blank');
         }
     }, [activeIndex]);
+
+    const handleTabClick = (index, tabName) => {
+        trackOptimizelyEvent('opt_main-page_tab_click', { tab: tabName });
+        setActiveIndex(index);
+    };
 
     const handleMobileMenuItemClick = useCallback(
         (index) => {
@@ -122,7 +132,7 @@ export const WhyKotlin: FC<Props> = ({}) => {
                                     {codeExamplesList.map((item, index) => (
                                         <NavItem
                                             key={index}
-                                            onClick={() => setActiveIndex(index)}
+                                            onClick={() => handleTabClick(index, item.children)}
                                             active={activeIndex === index}
                                         >
                                             {item.children}

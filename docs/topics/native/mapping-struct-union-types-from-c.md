@@ -88,16 +88,17 @@ Let's see how C struct and union types are mapped into Kotlin/Native and update 
 
     ```kotlin
     kotlin {
-        macosArm64("native") {    // macOS on Apple Silicon
-        // macosX64("native") {   // macOS on x86_64 platforms
-        // linuxArm64("native") { // Linux on ARM64 platforms 
-        // linuxX64("native") {   // Linux on x86_64 platforms
-        // mingwX64("native") {   // on Windows
+        macosArm64()    // macOS on Apple Silicon
+        // linuxArm64() // Linux on ARM64 platforms
+        // linuxX64()   // Linux on x86_64 platforms
+        // mingwX64()   // on Windows
+
+        targets.withType<KotlinNativeTarget>().configureEach {
             val main by compilations.getting
             val interop by main.cinterops.creating {
                 definitionFile.set(project.file("src/nativeInterop/cinterop/interop.def"))
             }
-        
+
             binaries {
                 executable()
             }
@@ -110,17 +111,18 @@ Let's see how C struct and union types are mapped into Kotlin/Native and update 
 
     ```groovy
     kotlin {
-        macosArm64("native") {    // Apple Silicon macOS
-        // macosX64("native") {   // macOS on x86_64 platforms
-        // linuxArm64("native") { // Linux on ARM64 platforms
-        // linuxX64("native") {   // Linux on x86_64 platforms
-        // mingwX64("native") {   // Windows
+        macosArm64()    // Apple Silicon macOS
+        // linuxArm64() // Linux on ARM64 platforms
+        // linuxX64()   // Linux on x86_64 platforms
+        // mingwX64()   // Windows
+
+        targets.withType(KotlinNativeTarget).configureEach {
             compilations.main.cinterops {
-                interop {   
+                interop {
                     definitionFile = project.file('src/nativeInterop/cinterop/interop.def')
                 }
             }
-        
+
             binaries {
                 executable()
             }
@@ -340,11 +342,11 @@ fun main() {
 }
 ```
 
-To verify that everything works as expected, run the `runDebugExecutableNative` Gradle task [in your IDE](native-get-started.md#build-and-run-the-application)
-or use the following command to run the code:
+To verify that everything works as expected, run the `runDebugExecutable<YourTargetName>` Gradle task [in your IDE](native-get-started.md#build-and-run-the-application)
+or use the console command in your terminal, in this example:
 
 ```bash
-./gradlew runDebugExecutableNative
+./gradlew runDebugExecutableMacosArm64
 ```
 
 ## Next step

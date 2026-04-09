@@ -1,0 +1,69 @@
+@import "../../../../node_modules/@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+
+.wrapper {
+
+}
+
+.heroText {
+    margin: 0;
+}
+
+.subtitle {
+    margin: 16px 0 48px;
+}
+
+.navItems {
+    margin: 64px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+}
+
+.navItems > :last-child {
+    grid-column: 1 / -1;
+}
+
+.navItem {
+    border-radius: 16px;
+    border: 1px solid rgba(126, 66, 255, 0.80);
+    background: radial-gradient(60.16% 107.21% at 52.25% -4.33%, rgba(127, 82, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    text-decoration: none;
+}
+
+.navItem:hover {
+    background: radial-gradient(60.16% 107.21% at 52.25% -4.33%, rgba(186, 82, 255, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%);
+}
+
+.icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+}
+
+.title {
+    margin: 0 0 8px;
+}
+
+.text {
+    margin: 0;
+}
+
+.kotlinTour {
+    display: flex;
+    align-items: center;
+}
+
+.kotlinIcon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+
+.quickStartButton {
+    margin-left: auto;
+}

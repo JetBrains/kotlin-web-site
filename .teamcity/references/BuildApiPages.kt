@@ -1,6 +1,7 @@
 package references
 
 import BuildParams.DOKKA_TEMPLATES_VERSION
+import common.extensions.isProjectPlayground
 import common.extensions.scriptGenerateSitemap
 import jetbrains.buildServer.configs.kotlin.BuildStep
 import jetbrains.buildServer.configs.kotlin.BuildSteps
@@ -50,6 +51,7 @@ abstract class BuildApiPages(
 
     triggers {
         vcs {
+            enabled = !isProjectPlayground()
             id = "trigger-vcs-default-trigger-id"
             branchFilter = "+:<default>"
         }.apply(vcsDefaultTrigger)

@@ -16,7 +16,7 @@ To create your app, choose the tool that best fits your workflow:
 ## Create your application in IntelliJ IDEA 
 
 To create your Kotlin/JS web application, you can use either the
-Community or Ultimate edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/?section=mac).
+Community or Ultimate edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
 
 ### Set up the environment
 

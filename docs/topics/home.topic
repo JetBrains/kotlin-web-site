@@ -29,10 +29,10 @@
         <misc>
             <cards narrow="false">
                 <title>Featured topics</title>
-                <a href="whatsnew23.md" summary="New experimental and stable features, performance improvements, and bug fixes">What's new in Kotlin 2.3.0</a>
-                <a href="releases.md" summary="Learn about the Kotlin release cycle and history">Kotlin release process</a>
+                <a href="whatsnew2320.md" summary="New experimental and stable features, performance improvements, and bug fixes">What's new in Kotlin 2.3.20</a>
                 <a href="https://kotlinlang.org/api/latest/jvm/stdlib/" summary="Living essentials for everyday work with Kotlin: IO, files, threading, collections, and much more">Standard library API reference</a>
-                <a href="types-overview.md" summary="Kotlin type system: numbers, strings, arrays, and other built-in types">Types overview</a>
+                <a href="gradle.md" summary="Learn about Gradle as a build tool to automate and manage building your projects">Gradle</a>
+                <a href="maven.md" summary="Learn about Maven as a build tool to automate and manage building your projects">Maven</a>
                 <a href="collections-overview.md" summary="Collections: lists, sets, and maps">Collections</a>
                 <a href="coroutines-overview.md" summary="Concurrency: coroutines, flows, channels">Coroutines</a>
             </cards>

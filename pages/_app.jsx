@@ -31,7 +31,6 @@ export default function MyApp({ Component, pageProps }) {
 
             <HydrationEvent/>
 
-            <Script src={'https://cdn.optimizely.com/js/26633200186.js'} strategy={"beforeInteractive"}/>
             <Script
                 id={'google-tag-manager-inline-script'}
                 strategy="afterInteractive"

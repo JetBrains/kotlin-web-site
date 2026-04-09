@@ -557,13 +557,14 @@ See [Collections overview](collections-overview.md).
 
 ## Nullable values and null checks
 
-A reference must be explicitly marked as nullable when `null` value is possible. Nullable type names have `?` at the end.
+A reference must be explicitly marked as nullable when a `null` value is possible. Nullable type names have `?` at the end.
+For example, `Int?`.
 
 Return `null` if `str` does not hold an integer:
 
 ```kotlin
 fun parseInt(str: String): Int? {
-    // ...
+    return str.toIntOrNull()
 }
 ```
 
