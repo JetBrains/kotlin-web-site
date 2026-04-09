@@ -1,5 +1,7 @@
 [//]: # (title: Strings)
-[//]: # (description: Learn how to work with strings in Kotlin, including string literals, templates, multiline strings, and common text operations.)
+[//]: # (description: Learn how to work with strings in Kotlin, including string literals, string templates, multiline strings, and common text operations.)
+
+<show-structure depth="1"/>
 
 The [`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/) type represents a sequence of
 [characters](characters.md). 
@@ -8,7 +10,7 @@ Use `String` for text values, such as words, sentences, messages, or structured 
 
 The `String` type is immutable. This means that once you create a `String`, you cannot change its contents.
 
-## Declare `String`
+## Declare strings
 
 To declare a `String`, enclose the value in double quotes (`""`). 
 
@@ -27,8 +29,8 @@ val maybeAbsent: String? = null
 ```
 
 ### Escape sequences
-Double-quoted strings support [escape sequences](characters.md#escape-sequences) such as
-`\n` or `\t`: 
+
+Double-quoted strings support [escape sequences](characters.md#escape-sequences) such as `\n` or `\t`: 
 
 ```kotlin
 val message = "Hello,\nworld!"
@@ -52,11 +54,12 @@ Kotlin
 val quote = """Kotlin says, "Hi"."""
 ```
 
-> Multiline strings do not support escape sequences. Kotlin treats such characters as part of the `String`. 
+> Multiline strings do not support escape sequences. 
+> Characters such as `\n` and `\t` are treated as regular text. 
 >
 {style="note"}
 
-### Line breaks and indentations
+### Line breaks and indentation
 
 Multiline strings preserve **line breaks** and **indentations** as written in the source code. 
 
@@ -91,7 +94,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 To control indentation more explicitly, use 
-[`trimMargin()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html). The function 
+[`trimMargin()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html). This function 
 removes everything before and including the margin prefix on each line:
 
 ```kotlin
@@ -108,7 +111,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-By default, `trimMargin()` uses a pipe symbol (`|`) as margin prefix, but you can pass another character 
+By default, `trimMargin()` uses a pipe symbol (`|`) as the margin prefix, but you can pass another character 
 as a parameter. For example: `trimMargin(">")`.
 
 > When you process a `String` with functions like `trimIndent()` or `trimMargin()`, the resulting `String`
@@ -122,16 +125,16 @@ as a parameter. For example: `trimMargin(">")`.
 String templates let you insert variables and expressions directly into a `String`. This process is called 
 _interpolation_. 
 
-You can use string templates both in regular and multiline strings.
+You can use string templates in both regular and multiline strings.
 
 * To insert a variable, use the `$` symbol:
 
   ```kotlin
   fun main() {
   //sampleStart
-  val name = "Kotlin"
-  println ("Hello, $name") 
-  // Hello, Kotlin
+      val name = "Kotlin"
+      println("Hello, $name") 
+      // Hello, Kotlin
   //sampleEnd
   }
   ```
@@ -142,25 +145,31 @@ You can use string templates both in regular and multiline strings.
   ```kotlin
   fun main() {
   //sampleStart
-  val text = "abc"
-  println("$text.length is ${text.length}")
-  // abc.length is 3
-  val language = "Kotlin"
-  println("${language}Lang")
-  // KotlinLang
-  //sampleEnd
+      val text = "abc"
+      println("The length of $text is ${text.length}")
+      // // The length of abc is 3
+      val language = "Kotlin"
+      println("${language}Lang")
+      // KotlinLang
+  // sampleEnd
   }
   ```
   {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
+> You can also combine strings with the `+` operator. However, string templates are usually easier 
+> to read and more idiomatic.
+>
+{style="tip"}
+
 In multiline strings, template expressions can contain double-quoted strings without escaping:
+
 ```kotlin
 val result = """
 Result: ${"OK".lowercase()}
 """
 ```
 
-### Null safety
+### Nullable values in string templates
 
 If a template expression has a nullable type and a `null` value, the Kotlin compiler 
 inserts the text `null` into the resulting `String`:
@@ -169,7 +178,7 @@ inserts the text `null` into the resulting `String`:
 fun main(){
     //sampleStart
     val text: String? = null
-    println ("Hello, $text")
+    println("Hello, $text")
     // Hello, null
     //sampleEnd
 }
@@ -290,6 +299,7 @@ text relative to a delimiter:
 fun main() { 
 //sampleStart  
     val domain = "kotlinlang.org"
+  
     println(domain.substringBefore(".")) // kotlinlang
     println(domain.substringAfter("."))  // org
 //sampleEnd
@@ -301,9 +311,9 @@ fun main() {
   >
   {style="tip"}
 
-## Common `String` Operations
+## Common string operations
 
-Kotlin provides a range of operations for reading, extracting, combining, and transforming strings.
+Kotlin provides a range of operations for working with strings.
 
 This section introduces some of the most commonly used operations.
 
@@ -313,7 +323,7 @@ This section introduces some of the most commonly used operations.
 {style="note"}
 
 
-### Read input into a `String`
+### Read input into a string
 
 * To read a single line from the standard input, use `readln()` 
   or `readlnOrNull()` (if end-of-file is possible):
@@ -330,7 +340,7 @@ This section introduces some of the most commonly used operations.
       .joinToString("\n")
   ```
 
-### Get `String` length
+### Get string length
 
 To get the number of characters in a `String`, use the
 [`length`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/length.html) property:
@@ -345,68 +355,45 @@ fun main (){
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-### Concatenate strings
+### Inspect string content
 
-To concatenate strings, use the `+` operator:
-
-```kotlin
-fun main() {
-//sampleStart
-    val first = "Hello"
-    val second = "Kotlin"
-    val message = first + ", " + second
-    println(message) // Hello, Kotlin
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-This creates a new `String` that contains the combined text of both operands.
-
-You can also concatenate strings with values
-of other types, as long as the first element in the expression is a `String`.
-
-> Use concatenation for simple cases.
->
-> When a string includes variables or expressions,
-> [string templates](#string-templates) are usually easier to read.
->
-> For longer or more structured text, prefer string templates or [multiline strings](#multiline-strings).
->
-{style="note"}
-
-### Inspect `String` 
-
-To inspect a `String`, you can use `contains()`, `startsWith()`, and `endsWith()`:
+To inspect string content, you can use functions like `contains()`, `startsWith()`, or `endsWith()`:
 
 ```kotlin
 fun main() { 
 //sampleStart
     val domain = "kotlinlang.org"
     
-    println(domain.contains("."))     // true
+    // Checks if the string contains "."
+    println(domain.contains(".")) // true
+    // Checks if the string starts with "kotlin"
     println(domain.startsWith("kotlin")) // true
+    // Checks if the string ends with ".org"
     println(domain.endsWith(".org"))  // true
 //sampleEnd
 }
  ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-### Modify `String`
+### Create modified copies
 
 > Strings are immutable. Functions that change text return a new `String`.
 > 
 {style="note"}
 
-To create a modified copy of a `String`, you can use `replace()`, `uppercase()`, and `lowercase()`:
+To create a modified copy of a `String`, you can use functions like 
+`replace()`, `uppercase()`, or `lowercase()`:
 
 ```kotlin
 fun main() { 
 //sampleStart
     val text = "Hello, Kotlin"
-
+    
+    // Replaces "Kotlin" with "world" 
     println(text.replace("Kotlin", "world"))  // Hello, world  
+    // Converts all letters to uppercase
     println(text.uppercase()) // HELLO, KOTLIN  
+    // Converts all letters to lowercase
     println(text.lowercase()) // hello, kotlin
 //sampleEnd
 }
@@ -414,7 +401,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 
-### Split `String` 
+### Split strings
 
 * To divide a `String` into parts around a delimiter, use 
   [`split()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/split.html):
@@ -423,7 +410,7 @@ fun main() {
   fun main() { 
   //sampleStart
       val numbers = "one, two, three"
-      println(numbers.split(", ")) // [one,  two,  three]
+      println(numbers.split(", ")) // [one, two, three]
   //sampleEnd
   }
   ```
@@ -441,6 +428,34 @@ fun main() {
     }
     ```
     {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+### Use regular expressions
+
+If you need to work with text patterns instead of fixed characters or delimiters, use
+regular expressions
+([`Regex`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-regex/)).
+
+Regular expressions can:
+* Search string content
+* Check whether text matches a pattern
+* Split strings by a pattern
+* Replace matching parts of a string
+
+For example, you can use [`find()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-regex/find.html) 
+to return the first match of a regular expression:
+
+```kotlin
+fun main() {
+//sampleStart
+    val text = "User: Kotlin123"
+
+    // Finds the first sequence of one or more digits and gets its value  
+    val number = Regex("\\d+").find(text)?.value 
+    println(number) // 123
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 ### Build and format strings
 
