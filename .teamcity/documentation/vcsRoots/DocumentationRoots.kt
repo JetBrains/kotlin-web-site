@@ -8,7 +8,7 @@ object KotlinMultiplatformVCS: GitVcsRoot ({
     url = "git@github.com:JetBrains/kotlin-multiplatform-dev-docs.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
-    checkoutPolicy = AgentCheckoutPolicy.AUTO
+    checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS
     authMethod = uploadedKey {
         uploadedKey = "default teamcity key"
     }
@@ -20,7 +20,7 @@ object KotlinReferenceRoot: GitVcsRoot ({
     url = "git@github.com:JetBrains/kotlin-web-site.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
-    checkoutPolicy = AgentCheckoutPolicy.AUTO
+    checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS
     checkoutSubmodules = CheckoutSubmodules.SUBMODULES_CHECKOUT
     authMethod = uploadedKey {
         uploadedKey = "default teamcity key"
@@ -32,7 +32,7 @@ object KotlinxCoroutinesRoot: GitVcsRoot ({
     url = "git@github.com:Kotlin/kotlinx.coroutines.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
-    checkoutPolicy = AgentCheckoutPolicy.AUTO
+    checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS
     authMethod = uploadedKey {
         uploadedKey = "default teamcity key"
     }
@@ -43,7 +43,7 @@ object KotlinxLincheckRoot: GitVcsRoot ({
     url = "git@github.com:JetBrains/lincheck.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
-    checkoutPolicy = AgentCheckoutPolicy.AUTO
+    checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS
     authMethod = uploadedKey {
         uploadedKey = "default teamcity key"
     }
@@ -54,7 +54,7 @@ object DokkaRoot: GitVcsRoot ({
     url = "git@github.com:Kotlin/dokka.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
-    checkoutPolicy = AgentCheckoutPolicy.AUTO
+    checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS
     authMethod = uploadedKey {
         uploadedKey = "default teamcity key"
     }
@@ -65,7 +65,7 @@ object APIGuidelinesRoot: GitVcsRoot ({
     url = "git@github.com:Kotlin/api-guidelines.git"
     branch = "refs/heads/main"
     branchSpec = "+:refs/heads/*"
-    checkoutPolicy = AgentCheckoutPolicy.NO_MIRRORS
+    checkoutPolicy = AgentCheckoutPolicy.USE_MIRRORS
     authMethod = uploadedKey {
         uploadedKey = "default teamcity key"
     }
