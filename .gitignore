@@ -48,7 +48,8 @@ generated
 
 /reports*
 /data/page_views_map.json
-test-results
+/test-results
+/playwright-report
 
 public/data
 test/storage-state.json

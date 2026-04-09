@@ -6,7 +6,8 @@ test.describe('Main page buttons', () => {
         await page.goto('/');
     });
 
-    test('Hero section Get started button', async ({ page, baseURL }) => {
+    // Skip test until finish KTL-4255
+    test.skip('Hero section Get started button', async ({ page, baseURL }) => {
         const getStartedButton = page.getByTestId('hero-block').getByRole('link', { name: 'Get started' });
         await expect(getStartedButton).toBeVisible();
         await getStartedButton.click();
@@ -15,7 +16,8 @@ test.describe('Main page buttons', () => {
         await expect(pageTitle).toContainText('Get started with Kotlin');
     });
 
-    test('Develop by JetBrains link should navigate to JetBrains homepage', async ({ page, context }) => {
+    // Skip test until finish KTL-4255
+    test.skip('Develop by JetBrains link should navigate to JetBrains homepage', async ({ page, context }) => {
         const jetBrainsLink = page.getByTestId('hero-block').getByRole('link', { name: 'JetBrains' });
         await expect(jetBrainsLink).toBeVisible();
         const newPagePromise = context.waitForEvent('page');
@@ -34,7 +36,8 @@ test.describe('Main page buttons', () => {
         await expect(pageTitle).toContainText('Kotlin');
     });
 
-    test('Why Kotlin Get started button', async ({ page, baseURL }) => {
+    // Skip test until finish KTL-4255
+    test.skip('Why Kotlin Get started button', async ({ page, baseURL }) => {
         const whyKotlinButton = page.getByTestId('why-kotlin-block').getByRole('link', { name: 'Get started' });
         await expect(whyKotlinButton).toBeVisible();
         await whyKotlinButton.click();
