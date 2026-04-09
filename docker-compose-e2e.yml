@@ -1,0 +1,34 @@
+services:
+  reverse-proxy:
+    image: nginx:stable-alpine
+    command: ["nginx", "-g", "daemon off; error_log /dev/null;"]
+    networks:
+      - test-network
+    volumes:
+      - ./dist:/usr/share/nginx/html
+    healthcheck:
+      test: [ "CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost" ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: "none"
+
+  playwright:
+    image: mcr.microsoft.com/playwright:v1.57.0-noble
+    environment:
+      BASE_URL: "http://reverse-proxy"
+      WEBTEAM_UI_NPM_TOKEN: ${WEBTEAM_UI_NPM_TOKEN}
+      CI: ${CI}
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+    command: sh -c "yarn install --immutable && yarn run test:ci"
+    depends_on:
+      reverse-proxy:
+        condition: service_healthy
+    networks:
+      - test-network
+
+networks:
+  test-network:

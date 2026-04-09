@@ -4,4 +4,4 @@ set +x
 set -o pipefail
 set -u
 
-docker compose -f docker-compose-e2e-statics.yml up --exit-code-from playwright
+docker compose -f docker-compose-e2e.yml up --exit-code-from playwright

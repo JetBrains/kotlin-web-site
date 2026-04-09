@@ -1,12 +1,10 @@
 package common
 
-import jetbrains.buildServer.configs.kotlin.BuildStep
 import jetbrains.buildServer.configs.kotlin.BuildType
-import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 
 open class E2ERunner(init: BuildType.() -> Unit) : BuildType({
     artifactRules = """
-        +:test-results/* => test-results.zip
+        +:playwright-report/** => playwright-report.zip
     """.trimIndent()
 
     params {

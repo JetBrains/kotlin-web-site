@@ -857,3 +857,6 @@
 
 - from: /docs/multiplatform/choosing-web-target.html
   to: /docs/web-overview.html
+
+- from: /docs/ksp-command-line.html
+  to: https://github.com/google/ksp/blob/main/docs/ksp2cmdline.md

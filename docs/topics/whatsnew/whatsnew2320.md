@@ -15,6 +15,10 @@ The Kotlin 2.3.20 release is out! Here are the main highlights:
 * **Standard library**: [New API for creating immutable copies of `Map.Entry`](#new-api-for-creating-immutable-copies-of-map-entry)
 * **Kotlin/Native**: [New interoperability mode for C and Objective-C libraries](#new-interoperability-mode-for-c-or-objective-c-libraries)
 
+> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+>
+{style="tip"}
+
 ## Update to Kotlin 2.3.20
 
 The latest version of Kotlin is included in the latest versions of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [Android Studio](https://developer.android.com/studio).
