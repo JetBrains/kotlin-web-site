@@ -1,12 +1,12 @@
 package landings.builds
 
 import BuildParams.KLANG_NODE_CONTAINER
+import common.extensions.isProjectPlayground
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import landings.LandingConfiguration
 import landings.createVcsRootForLanding
-import vcsRoots.KotlinLangOrg
 
 /**
  * Build type for building a Vite landing page.
@@ -34,6 +34,7 @@ class BuildLandingPage(val config: LandingConfiguration) : BuildType({
 
   triggers {
     vcs {
+      enabled = !isProjectPlayground()
       branchFilter = "+:${config.branch}"
     }
   }

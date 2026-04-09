@@ -2,13 +2,14 @@ package templates
 
 import BuildParams.SEARCH_APP_ID
 import BuildParams.KLANG_NODE_CONTAINER
+import common.extensions.isProjectPlayground
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.triggers.schedule
 import kotlinlang.builds.PageViews
 import vcsRoots.KotlinLangOrg
 
-const val SCRIPT_PATH = "scripts/dist";
+const val SCRIPT_PATH = "scripts/dist"
 
 fun scriptDistAnalyze(block: ScriptBuildStep.() -> Unit) = ScriptBuildStep {
     id = "script-dist-analyze"
@@ -50,6 +51,7 @@ open class TemplateSearchIndex(init: BuildType.() -> Unit) : BuildType({
 
     triggers {
         schedule {
+            enabled = isProjectPlayground()
             schedulingPolicy = cron {
                 hours = "4"
                 dayOfMonth = "*/2"

@@ -356,7 +356,7 @@ annotation class MyDateTime
 Opt-in requirement annotations must meet several requirements. They must have:
 
 * `BINARY` or `RUNTIME` [retention](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-retention/).
-* `EXPRESSION`, `FILE`, `TYPE`, or `TYPE_PARAMETER` as a [target](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/).
+* No `EXPRESSION`, `FILE`, `TYPE`, or `TYPE_PARAMETER` as a [target](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.annotation/-target/).
 * No parameters.
 
 An opt-in requirement can have one of two severity [levels](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-requires-opt-in/-level/):

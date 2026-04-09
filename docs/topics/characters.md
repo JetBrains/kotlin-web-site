@@ -7,7 +7,7 @@ Use `Char` for individual character values, such as letters, digits,
 punctuation marks, or whitespace. For sequences of characters, use [`String`](strings.md).
 
 > `Char` is not a numeric type, but each character has a numeric Unicode value that you can access. 
-> See [](#numeric-conversion).
+> See [](#character-conversion).
 > 
 {style="tip"}
 

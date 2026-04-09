@@ -1,0 +1,21 @@
+.developer {
+    border-left: 0px;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.developerContent {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.developerLogo {
+    margin: 0;
+}
+
+.developerCaption {
+    display: block;
+    margin-right: 8px;
+}

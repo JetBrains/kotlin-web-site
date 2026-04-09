@@ -101,7 +101,7 @@
         </toc-element>
     </toc-element>
     <toc-element toc-title="Development">
-        <toc-element toc-title="Server-side development">
+        <toc-element toc-title="Backend development">
             <toc-element toc-title="Overview" accepts-web-file-names="httpservlets.html" topic="server-overview.md"/>
             <toc-element topic="mixing-java-kotlin-intellij.md" toc-title="Add Kotlin to a Java project"/>
             <toc-element topic="jvm-test-using-junit.md" toc-title="Test Java code with Kotlin"/>
@@ -341,7 +341,7 @@
         </toc-element>
         <toc-element toc-title="Kotlin Symbol Processing API">
             <toc-element toc-title="KSP overview" topic="ksp-overview.md"/>
-            <toc-element toc-title="Quickstart" topic="ksp-quickstart.md"/>
+            <toc-element toc-title="Getting started" topic="ksp-quickstart.md"/>
             <toc-element topic="ksp-why-ksp.md"/>
             <toc-element toc-title="Examples" topic="ksp-examples.md"/>
             <toc-element topic="ksp-additional-details.md"/>
@@ -349,7 +349,7 @@
             <toc-element topic="ksp-incremental.md"/>
             <toc-element topic="ksp-multi-round.md"/>
             <toc-element topic="ksp-multiplatform.md"/>
-            <toc-element topic="ksp-command-line.md"/>
+            <toc-element toc-title="Running KSP from the command line" href="https://github.com/google/ksp/blob/main/docs/ksp2cmdline.md"/>
             <toc-element toc-title="FAQ" topic="ksp-faq.md"/>
         </toc-element>
     </toc-element>

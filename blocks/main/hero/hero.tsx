@@ -36,43 +36,71 @@ export const HeroSection: FC<Props> = ({ children, title }) => {
 
     return (
         <ThemeProvider theme={'dark'}>
-            <section className={cn(styles.heroSection)} data-testid={"hero-block"}>
+            <section className={cn(styles.heroSection)} data-testid={'hero-block-main-page'}>
                 <div className={cn('ktl-layout', 'ktl-layout--center', 'hero-b')}>
                     <div className={styles.grid}>
                         <div className={styles.content}>
                             <h1 className={cn(darkTextCn('rs-hero'), styles.heroText)}>{title}</h1>
                             <p className={cn(darkTextCn('rs-subtitle-2'), styles.subtitle)}>{children}</p>
 
-                            <Image src={HeroImg} alt={"kotlin"} className={styles.imageMobile} />
+                            <Image src={HeroImg} alt={'kotlin'} className={styles.imageMobile} />
 
                             <div className={styles.info}>
-                                <Button size={'l'} href="/docs/getting-started.html" className={styles.getStartedButton}>
+                                <Button
+                                    size={'l'}
+                                    href="/docs/getting-started.html"
+                                    className={styles.getStartedButton}
+                                    data-testid={'ab-hero-button'}
+                                >
                                     Get started
                                 </Button>
                                 <div className={styles.developer}>
                                     <div className={styles.developerContent}>
-                                        <div className={cn(darkTextCn('rs-text-2', { hardness: 'hard' }), styles.developerCaption)}>Developed by</div>
+                                        <div
+                                            className={cn(
+                                                darkTextCn('rs-text-2', { hardness: 'hard' }),
+                                                styles.developerCaption
+                                            )}
+                                        >
+                                            Developed by
+                                        </div>
                                         <a
                                             href="https://www.jetbrains.com/"
                                             target={'_blank'}
                                             rel={'noreferrer noopener'}
                                         >
-                                            <img src={JBLogo.src} alt="jetbrains logo" className={styles.developerLogo} />{' '}
+                                            <img
+                                                src={JBLogo.src}
+                                                alt="jetbrains logo"
+                                                className={styles.developerLogo}
+                                            />{' '}
                                         </a>
                                     </div>
                                 </div>
-                                {(heroBannerList||[]).map((banner, i) => <div
-                                    key={banner.variant || i}
-                                    className={styles.banner}
-                                    data-banner-variant={banner.variant || null}
-                                >
-                                    <div className={cn(styles.bannerContent)}>
-                                        <h5 className={cn(darkTextCn('rs-h2'), styles.bannerTitle)}>{banner.title}</h5>
-                                        <p className={cn(darkTextCn('rs-text-2'), styles.bannerCaption)}>{banner.caption}</p>
+                                {(heroBannerList || []).map((banner, i) => (
+                                    <div
+                                        key={banner.variant || i}
+                                        className={styles.banner}
+                                        data-banner-variant={banner.variant || null}
+                                    >
+                                        <div className={cn(styles.bannerContent)}>
+                                            <h5 className={cn(darkTextCn('rs-h2'), styles.bannerTitle)}>
+                                                {banner.title}
+                                            </h5>
+                                            <p className={cn(darkTextCn('rs-text-2'), styles.bannerCaption)}>
+                                                {banner.caption}
+                                            </p>
+                                        </div>
+                                        <Button
+                                            mode="outline"
+                                            size="m"
+                                            href={banner.buttonUrl}
+                                            className={styles.bannerButton}
+                                        >
+                                            {banner.buttonLabel}
+                                        </Button>
                                     </div>
-                                    <Button mode="outline" size="m" href={banner.buttonUrl}
-                                            className={styles.bannerButton}>{banner.buttonLabel}</Button>
-                                </div>)}
+                                ))}
                             </div>
                         </div>
 
