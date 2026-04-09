@@ -105,6 +105,7 @@
             <toc-element toc-title="Overview" accepts-web-file-names="httpservlets.html" topic="server-overview.md"/>
             <toc-element topic="mixing-java-kotlin-intellij.md" toc-title="Add Kotlin to a Java project"/>
             <toc-element topic="jvm-test-using-junit.md" toc-title="Test Java code with Kotlin"/>
+            <toc-element topic="jvm-test-maven.md" toc-title="Testing with Maven"/>
             <toc-element toc-title="Create a web app with Kotlin and Spring Boot">
                 <toc-element accepts-web-file-names="jvm-spring-boot-restful.html,spring-boot-restful.html,spring-boot-restful-db.html,jvm-spring-boot-restful-db.html" topic="jvm-get-started-spring-boot.md"/>
                 <toc-element toc-title="Create a Spring Boot project" topic="jvm-create-project-with-spring-boot.md"/>
