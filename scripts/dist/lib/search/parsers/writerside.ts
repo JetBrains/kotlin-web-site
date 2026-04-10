@@ -174,11 +174,15 @@ async function docs($: CheerioAPI, url: string) {
             }
         }
 
+        const resolvedUrl = new URL(finalUrl, pageUrl);
+        // h1 title has extra anchor with .md which doesn't seem useful here
+        const resolvedUrlHash = resolvedUrl.hash.endsWith('.md') ? '' : resolvedUrl.hash;
+
         const result: SearchRecord = {
             ...DEFAULT_RECORD,
 
             objectID: finalUrl,
-            url: new URL(finalUrl, pageUrl).pathname,
+            url: resolvedUrl.pathname + resolvedUrlHash,
             parent: '/' + url,
 
             headings: headings.reverse().join(' | '),
