@@ -4,6 +4,10 @@ Kotlin integrates seamlessly with the Maven ecosystem, allowing you to use indus
 applications. In this guide, you'll learn how to create tests with JUnit and use Maven plugins to run unit and integration
 tests.
 
+> For a detailed guide on setting up your Maven project to use both Kotlin and Java, see [](mixing-java-kotlin-intellij.md#project-configuration).
+> 
+{style="tip"}
+
 ## Create tests with JUnit
 
 [JUnit](https://junit.org/) is the standard testing framework for Kotlin backend development. While Kotlin is compatible
@@ -18,7 +22,7 @@ in the necessary JUnit artifacts.
 
 #### JUnit 5 and later
 
-For all new projects, use the `kotlin-test-junit5` artifact. It provides full support for the JUnit, including features
+For all new projects, use the `kotlin-test-junit5` artifact. It provides full support for JUnit, including features
 like nested tests and parallel execution. Kotlin/JVM supports the latest stable JUnit version, JUnit 6.
 
 Update your `pom.xml` file as follows:
@@ -33,6 +37,10 @@ Update your `pom.xml` file as follows:
     </dependency>
 </dependencies>
 ```
+
+> Despite its name, `kotlin-test-junit5` supports all latest JUnit versions, including JUnit 6.
+>
+{style="note"}
 
 #### JUnit 4
 
@@ -50,6 +58,10 @@ that utilizes JUnit 4:
     </dependency>
 </dependencies>
 ```
+
+> For a detailed guide on using JUnit for testing and a sample project, see the [Test Java code with Kotlin](jvm-test-using-junit.md) tutorial.
+>
+{style="tip"}
 
 ### Write unit tests
 
@@ -108,7 +120,7 @@ By default, it executes during the `test` phase of the build lifecycle and fails
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-surefire-plugin</artifactId>
-    <version>3.2.5</version>
+    <version>3.5.5</version>
 </plugin>
 ```
 
@@ -131,7 +143,7 @@ The build finally fails during the `verify` phase if there were any test failure
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-failsafe-plugin</artifactId>
-    <version>3.2.5</version>
+    <version>3.5.5</version>
     <executions>
         <execution>
             <goals>
