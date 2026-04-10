@@ -2,10 +2,10 @@ package kotlinlang.vcsRoots
 
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
-object KotlinSpec: GitVcsRoot({
-  name = "Kotlin Spec VCS root"
+object KotlinSpecGrammar: GitVcsRoot({
+  name = "Kotlin Spec Grammar VCS root"
   url = "ssh://git@github.com/Kotlin/kotlin-spec"
-  branch = "refs/heads/release"
+  branch = "refs/tags/grammar/latest"
   authMethod = uploadedKey {
     uploadedKey = "default teamcity key"
   }
