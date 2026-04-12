@@ -4,8 +4,8 @@ import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 object WebHelp : GitVcsRoot({
   name = "webhelp"
-  url = "ssh://git@github.com/JetBrains/webhelp"
-  branch = "refs/heads/master"
+  url = "ssh://git@git.jetbrains.team/writerside/writerside-webhelp.git"
+  branch = "refs/heads/chernenko/ktl-4235-ked-migration"
   branchSpec = """
         refs/heads/(*)
         refs/tags/(*)
