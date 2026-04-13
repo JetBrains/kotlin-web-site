@@ -610,9 +610,6 @@
     position:
       lat: -22.9068467
       lng: -43.1728965
-- section: Australia/Oceania
-  anchorId: australiaoceania
-  groups:
 - section: Africa
   anchorId: africa
   groups:
