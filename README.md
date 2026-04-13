@@ -94,22 +94,6 @@ To add a Kotlin User Group (KUG), proceed the following way:
 You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/user-groups.json).
 Once you publish a pull request, the changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-user-groups-data.yml) to prevent misconfiguration.
 
-### Community Events
-
-To add an event to the Community Events, do the following: 
-1. Fill the event info in the [events.yml](/data/events.yml) with the next:
-   - `lang`, two-letter code considering [ISO 639-1 format](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
-   - `startDate`, in the format 'yyyy-mm-dd'.
-   - `endDate`, in the format 'yyyy-mm-dd'. For the on day event fill the same date as in the startDate.
-   - `location`, in the form of 'City, Country'. You can omit it for an online event.
-   - `online`, set this key with `true` value in case of online event.
-   - `speaker`, the speaker's name.
-   - `title`, event's title.
-   - `subject`, a title of a talk.
-   - `url`, link to the event web page.
-   You can see the structure and types of the expected configuration in [the JSON schema](/data/schemas/events.json).
-2. Publish the changes creating a pull request. The changes will be validated by [GitHub Actions Workflow](.github/workflows/validate-events-data.yml) to prevent misconfiguration.
-
 ### Case Studies
 
 To add a case study, do the following:
