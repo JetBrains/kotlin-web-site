@@ -3,7 +3,7 @@
 
 <show-structure depth="1"/>
 
-The [`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/) type represents a sequence of
+The [`String`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/) type represents a sequence of
 [characters](characters.md). 
 
 Use `String` for text values, such as words, sentences, messages, or structured text. 
@@ -12,7 +12,7 @@ The `String` type is immutable. This means that once you create a `String`, you 
 
 ## Declare strings
 
-To declare a `String`, enclose the value in double quotes (`""`). 
+To declare a `String` literal, enclose the value in double quotes (`""`). 
 
 You can specify the `String` type explicitly or let Kotlin infer it from the value:
 
@@ -30,7 +30,7 @@ val maybeAbsent: String? = null
 
 ### Escape sequences
 
-Double-quoted strings support [escape sequences](characters.md#escape-sequences) such as `\n` or `\t`: 
+Double-quoted string literals support [escape sequences](characters.md#escape-sequences) such as `\n` or `\t`: 
 
 ```kotlin
 val message = "Hello,\nworld!"
@@ -94,7 +94,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 To control indentation more explicitly, use 
-[`trimMargin()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html). This function 
+[`trimMargin()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/trim-margin.html). This function 
 removes everything before and including the margin prefix on each line:
 
 ```kotlin
@@ -161,9 +161,12 @@ You can use string templates in both regular and multiline strings.
 >
 {style="tip"}
 
-In multiline strings, template expressions can contain double-quoted strings without escaping:
+Template expressions can also contain double-quoted strings without escaping:
 
 ```kotlin
+// Double-quoted string
+val test = "${"test".uppercase()}"
+// Multiline string
 val result = """
 Result: ${"OK".lowercase()}
 """
@@ -307,9 +310,6 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-  > Use delimiter-based functions to separate structured text, such as file names, paths, or key-value pairs.
-  >
-  {style="tip"}
 
 ## Common string operations
 
