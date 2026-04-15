@@ -8,7 +8,7 @@ Currently, only Maven v3 is supported.
 ## Automatic configuration with extensions
 
 You can simplify Maven configuration in both mixed Java-Kotlin projects and in pure Kotlin projects using the `<extensions>` option.
-It allows skipping the Maven compiler plugin configuration.
+This approach saves you time because you don't need to configure the Maven compiler plugin.
 
 To apply the Kotlin Maven plugin with `<extensions>`, update your `pom.xml` build file as follows:
 
@@ -85,8 +85,8 @@ You can set a different version separately:
 
 ## Manual configuration without extensions
 
-Without enabling `<extensions>` in the Kotlin Maven plugin, a manual project configuration is necessary to ensure that
-the source code is compiled correctly.
+Without enabling `<extensions>` in the Kotlin Maven plugin, you need to configure the project manually to ensure that
+the source code compiles correctly.
 
 You can set up your Maven project to compile a combination of [Java and Kotlin sources](#compile-kotlin-and-java-sources)
 or [Kotlin-only sources](#compile-kotlin-only-sources).
