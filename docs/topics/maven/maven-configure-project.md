@@ -5,7 +5,7 @@ to add the Kotlin Maven plugin that compiles Kotlin sources and modules.
 
 Currently, only Maven v3 is supported.
 
-## Automatic configuration with extensions
+## Automatic configuration
 
 You can simplify Maven configuration in both mixed Java-Kotlin projects and in pure Kotlin projects using the `<extensions>` option.
 This approach saves you time because you don't need to configure the Maven compiler plugin.
@@ -42,7 +42,7 @@ The `<extensions>` option:
 * Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots if they already exist but are not specified in the plugin configuration.
 * Adds the [`kotlin-stdlib` dependency](maven-set-dependencies.md#dependency-on-the-standard-library) if it's not already defined in the project.
 * Adds `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
-  So, you don't need to manually set up the `<executions>` section with `<id>` and `<goals>`.
+  So you don't need to manually set up the `<executions>` section with `<id>` and `<goals>`.
    
 If you have a mixed Java and Kotlin project, the configuration ensures that:
 
@@ -83,7 +83,7 @@ You can set a different version separately:
 </build>
 ```
 
-## Manual configuration without extensions
+## Manual configuration
 
 Without enabling `<extensions>` in the Kotlin Maven plugin, you need to configure the project manually to ensure that
 the source code compiles correctly.

@@ -41,30 +41,9 @@ In general, to add a dependency on a library, you should declare a new `<depende
 Kotlin has an extensive standard library that you can use in your applications. You can add the standard library
 dependency manually or enable the `<extensions>` option to set it up automatically if it's missing.
 
-#### Manual configuration
-
-To manually add the Kotlin's standard library to your project, update the `dependencies` section in your `pom.xml` file with the following:
-
-```xml
-<dependencies>
-    <dependency>
-        <groupId>org.jetbrains.kotlin</groupId>
-        <artifactId>kotlin-stdlib</artifactId>
-        <!-- Uses kotlin.version specified in <properties/>: --> 
-        <version>${kotlin.version}</version>
-    </dependency>
-</dependencies>
-```
-
-> If you're targeting JDK 7 or 8 with Kotlin versions older than:
-> * 1.8, use `kotlin-stdlib-jdk7` or `kotlin-stdlib-jdk8`, respectively.
-> * 1.2, use `kotlin-stdlib-jre7` or `kotlin-stdlib-jre8`, respectively.
->
-{style="note"}
-
 #### Automatic setup
 
-You can avoid manual configuration using the [`<extensions>` option](maven-configure-project.md#automatic-configuration-with-extensions) provided
+You can avoid manual configuration using the [`<extensions>` option](maven-configure-project.md#automatic-configuration) provided
 by the Kotlin Maven plugin. It automatically adds the `kotlin-stdlib` dependency if it's not defined in the project.
 For example, when you create a new Kotlin Maven project or introduce Kotlin to your existing Java Maven project.
 
@@ -84,6 +63,27 @@ section:
 
 > This property disables not only automatic addition of the standard library, but also the registration of source root paths.
 > Other `<extensions>` features are not affected.
+>
+{style="note"}
+
+#### Manual configuration
+
+To manually add Kotlin's standard library to your project, update the `dependencies` section in your `pom.xml` file with the following:
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-stdlib</artifactId>
+        <!-- Uses kotlin.version specified in <properties/>: --> 
+        <version>${kotlin.version}</version>
+    </dependency>
+</dependencies>
+```
+
+> If you're targeting JDK 7 or 8 with Kotlin versions older than:
+> * 1.8, use `kotlin-stdlib-jdk7` or `kotlin-stdlib-jdk8`, respectively.
+> * 1.2, use `kotlin-stdlib-jre7` or `kotlin-stdlib-jre8`, respectively.
 >
 {style="note"}
 
