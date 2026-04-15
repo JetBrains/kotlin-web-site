@@ -72,7 +72,7 @@ Find the module that uses the processor you want to migrate. In the module's `bu
     </tab>
     </tabs>
    
-2. Replace `kapt` with `KSP` in the `dependencies {}` block:
+2. In the `dependencies {}` block, replace `kapt` with `ksp`:
 
     <tabs group="build-script">
     <tab title="Kotlin" group-key="kotlin">
