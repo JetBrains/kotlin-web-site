@@ -129,4 +129,4 @@ If there is not enough memory to run the compilation, the logs show a related me
 
 ## Configure in Maven
 
-<include from ="maven-compile-package.md" element-id="maven-configure-execution-strategy"/>
+<include from ="maven-kotlin-compiler.md" element-id="maven-configure-execution-strategy"/>
