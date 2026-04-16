@@ -115,7 +115,9 @@ val d = true xor true   // false
 ## Operator precedence
 
 Logical operators follow precedence rules. They determine how to group variables in
-the absence of parentheses:
+the absence of parentheses. 
+
+The subsequence of execution is: 
 
 1. `!`
 2. `xor`
