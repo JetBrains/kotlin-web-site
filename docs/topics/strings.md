@@ -21,8 +21,6 @@ val name: String = "Kotlin"
 val message = "Hello, world!" // Kotlin infers String
 ```
 
-### Nullable values
-
 To declare a nullable value, use `String?`:
 ```kotlin
 val maybeAbsent: String? = null
