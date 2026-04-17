@@ -7,12 +7,13 @@ The [`Boolean`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/) 
 
 A `Boolean` has one of two values: `true` or `false`.
 
-Use `Boolean` values in comparisons, conditions, loops, and functions that answer yes-or-no questions.
+Use `Boolean` values in functions that answer yes-or-no questions, and in the
+`while`, `if`, and `when` conditions.
 
 
 ## Declare `Boolean`
 
-To declare a `Boolean`, assign it `true` or `false`.
+To declare a `Boolean` variable, assign it `true` or `false`.
 
 You can specify the `Boolean` type explicitly or let Kotlin infer it from the value:
 
@@ -46,19 +47,17 @@ val isEmpty = language.isEmpty() // false
 
 You can use the results in conditions and other expressions.
 
->Learn more about `Boolean` functions in the [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/).
->
-{style="tip"}
+## `Boolean` operations
 
-## `Boolean` operators
-
-Use logical operators to combine or invert `Boolean` values.
+Kotlin provides operators and infix functions for working with `Boolean` values. 
+You can use them to invert a `Boolean` value or combine multiple `Boolean` values into a single result.
 
 ### Negation (NOT)
 
-Negation inverts a `Boolean` value.
+The NOT operator inverts a `Boolean` value. 
 
-Use the `!` operator:
+To use it, place the `!` operator before a `Boolean` value:
+
 
 ```kotlin
 val isOn = true
@@ -67,9 +66,9 @@ val isOff = !isOn // isOff is false
 
 ### Logical AND
 
-AND returns `true` only if both operands are `true`.
+The AND operator returns `true` only if both operands are `true`. 
 
-Use the `&&` operator:
+To use it, place the `&&` operator between operands:
 
 ```kotlin
 val a = false && false // false
@@ -84,9 +83,9 @@ val d = true && true  // true
 
 ### Logical OR
 
-OR returns `true` if at least one operand is `true`.
+The OR operator returns `true` if at least one operand is `true`.
 
-Use the `||` operator:
+To use it, place the `||` operator between operands:
 
 ```kotlin
 val a = false || false // false
@@ -101,9 +100,9 @@ val d = true || true   // true
 
 ### Exclusive OR (XOR)
 
-XOR returns `true` if the operands have different values.
+The XOR operation returns `true` if the operands have different values.
 
-Use the `xor` infix function:
+To use it, write `xor` between operands:
 
 ```kotlin
 val a = false xor false // false
@@ -111,13 +110,19 @@ val b = false xor true  // true
 val c = true xor false  // true
 val d = true xor true   // false
 ```
+> `xor` is an infix function, not an operator. 
+> 
+> Learn more about `Boolean` functions in the [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/).
+>
+{style="note"} 
 
 ## Operator precedence
 
-Logical operators follow precedence rules. They determine how to group variables in
-the absence of parentheses. 
+If an expression contains multiple logical operations and no parentheses to specify the evaluation order, 
+Kotlin applies precedence rules. That means, operations with higher precedence are evaluated before 
+operations with lower precedence. 
 
-The subsequence of execution is: 
+For the `Boolean` operations described in this section, the precedence order is as follows:
 
 1. `!`
 2. `xor`
@@ -142,7 +147,7 @@ fun main() {
 
 ## `Boolean` in conditions
 
-You can use `Boolean` expressions to control program flow with `if`, `when`, and loops.
+You can use `Boolean` expressions to control program flow with `if`, `when`, and `while`.
 
 ### `if` expressions
 
@@ -183,7 +188,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-### Loops
+### `while` loops
 
 ```kotlin
 fun main() {
