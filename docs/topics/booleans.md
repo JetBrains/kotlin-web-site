@@ -11,7 +11,7 @@ Use `Boolean` values in functions that answer yes-or-no questions, and in the
 `while`, `if`, and `when` conditions.
 
 
-## Declare `Boolean`
+## Declare a `Boolean` variable
 
 To declare a `Boolean` variable, assign it `true` or `false`.
 
