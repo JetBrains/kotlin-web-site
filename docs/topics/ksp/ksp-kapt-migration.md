@@ -3,7 +3,7 @@
 
 In this guide you will learn how to migrate your annotation processors from [kapt](kapt.md) to [KSP](ksp-overview.md).
 
-[Kapt](kapt.md) (Kotlin Annotation Processing Tool) lets you use Java annotation processors in Kotlin. 
+[kapt](kapt.md) (Kotlin Annotation Processing Tool) lets you use Java annotation processors in Kotlin. 
 It works by translating Kotlin source code into Java "stubs" and then running 
 the annotation processors on those stubs. This process is expensive, causes a significant increase in build time, 
 and loses some Kotlin-specific features in translation.
@@ -14,7 +14,7 @@ Kotlin features and analyzes the source code directly, reducing build speed.
 To check if the processors in your project support KSP, see the list of [supported libraries](ksp-overview.md#supported-libraries)
 or consult their documentation.
 
-> Kapt and KSP can run alongside each other, so you can migrate your project in stages, one library or module at a time.
+> KSP and kapt can run alongside each other, so you can migrate your project in stages, one library or module at a time.
 > 
 {style="note"}
 
