@@ -1,45 +1,237 @@
 [//]: # (title: Booleans)
+[//]: # (description: Learn how to use Boolean values in Kotlin, including declaration, logical operators, and conditions.)
 
-The type `Boolean` represents boolean objects that can have two values: `true` and `false`.
-`Boolean` has a [nullable](null-safety.md) counterpart declared as `Boolean?`.
+<show-structure depth="1"/>
 
-> On the JVM, booleans stored as the primitive `boolean` type typically use 8 bits.
+The [`Boolean`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/) type represents 
+logical values: `true` and `false`.
+
+Use `Boolean` values in functions that answer yes-or-no questions, and in the
+`while`, `if`, and `when` conditions.
+
+
+## Declare a `Boolean` variable
+
+To declare a `Boolean` variable, assign it `true` or `false`.
+
+You can specify the `Boolean` type explicitly or let Kotlin infer it from the value:
+
+```kotlin
+val isTrue: Boolean = true
+val isFalse = false // Kotlin infers Boolean
+```
+
+If a value can be `null`, use `Boolean?`:
+
+```kotlin
+val isEnabled: Boolean? = null
+```
+
+> You cannot assign an integer value to a `Boolean` variable.
+> In Kotlin, `0` and `1` are not `Boolean` values.
 >
 {style="note"}
 
-Built-in operations on booleans include:
+## Produce `Boolean` values
 
-* `||` – disjunction (logical _OR_)
-* `&&` – conjunction (logical _AND_)
-* `!` – negation (logical _NOT_)
-
-For example:
+You can use comparison expressions and functions to produce `Boolean` values:
 
 ```kotlin
 fun main() {
 //sampleStart
-    val myTrue: Boolean = true
-    val myFalse: Boolean = false
-    val boolNull: Boolean? = null
+    val number = 10
+    val isPositive = number > 0 
+    println(isPositive) // true
 
-    println(myTrue || myFalse)
-    // true
-    println(myTrue && myFalse)
-    // false
-    println(!myTrue)
-    // false
-    println(boolNull)
-    // null
+    val language = "Kotlin"
+    val isEmpty = language.isEmpty() 
+    println(isEmpty) // false
 //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-The `||` and `&&` operators work lazily, which means:
+You can use the results in conditions and other expressions as well:
 
-* If the first operand is `true`, the `||` operator does not evaluate the second operand.
-* If the first operand is `false`, the `&&` operator does not evaluate the second operand.
+```kotlin
+fun main() {
+//sampleStart
+    val number = 10
+    val isPositive = number > 0 // true
 
-> On the JVM, nullable references to boolean objects are boxed in Java classes, just like with [numbers](numbers.md#boxing-and-caching-numbers-on-the-java-virtual-machine).
+    if (isPositive) {
+        println("The number is positive.")
+    }
+//sampleEnd    
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+## `Boolean` operations
+
+Kotlin provides operators and infix functions for working with `Boolean` values. 
+You can use them to invert a `Boolean` value or combine multiple `Boolean` values into a single result.
+
+### Negation (NOT)
+
+The NOT operator inverts a `Boolean` value. 
+
+To use NOT, place the `!` operator before a `Boolean` value:
+
+
+```kotlin
+val isOn = true
+val isOff = !isOn // isOff is false
+```
+
+### Logical AND
+
+The AND operator returns `true` only if both operands are `true`. 
+
+To use logical AND, place the `&&` operator between operands:
+
+```kotlin
+val a = false && false // false
+val b = false && true // false
+val c = true && false // false
+val d = true && true  // true
+```
+
+> If the first operand is `false`, the `&&` operator skips the second operand.
+> To evaluate both operands, use the `and` [infix function](functions.md#infix-notation) instead. 
+> 
+{style="note"}
+
+### Logical OR
+
+The OR operator returns `true` if at least one operand is `true`.
+
+To use logical OR, place the `||` operator between operands:
+
+```kotlin
+val a = false || false // false
+val b = false || true  // true
+val c = true || false  // true
+val d = true || true   // true
+```
+
+> If the first operand is `true`, the `||` operator skips the second operand.
+> To evaluate both operands, use the `or` [infix function](functions.md#infix-notation) instead.
 >
 {style="note"}
+
+### Exclusive OR (XOR)
+
+The exclusive OR (XOR) operation returns `true` if the operands have different values.
+
+To use XOR, write `xor` between operands:
+
+```kotlin
+val a = false xor false // false
+val b = false xor true  // true
+val c = true xor false  // true
+val d = true xor true   // false
+```
+
+> `xor` is an [infix function](functions.md#infix-notation), not an operator. 
+> 
+> Learn more about `Boolean` functions in the [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/).
+>
+{style="note"} 
+
+## Operator precedence
+
+If an expression contains multiple logical operations and no parentheses to specify the evaluation order, 
+Kotlin applies precedence rules. Operations with higher precedence are evaluated before 
+operations with lower precedence. 
+
+For the `Boolean` operations described in this section, the precedence order is as follows:
+
+1. `!`
+2. `xor` (and other infix functions)
+3. `&&`
+4. `||`
+
+In the following example, the compiler evaluates `&&` before `||`:
+
+```kotlin
+fun main() {
+//sampleStart
+    val result = true || false && false
+    println(result) // true
+//sampleEnd    
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+To make evaluation order explicit, use parentheses:
+
+```kotlin
+fun main() {
+//sampleStart
+    val result = (true || false) && false
+    println(result) // false
+//sampleEnd    
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+
+## `Boolean` in conditions
+
+[`if`](control-flow.md#if-expression), [`when`](control-flow.md#when-expressions-and-statements), 
+and [`while`](control-flow.md#while-loops) evaluate `Boolean` expressions to direct program flow.
+
+### `if` expressions
+
+```kotlin
+fun main() {
+//sampleStart
+    val number = 4
+    val isEven = number % 2 == 0
+
+    // Condition already has the `Boolean` type
+    // You do not need to compare it to `true` or `false`
+    if (isEven) { 
+        println("The number is even.")
+    } else {
+        println("The number is odd.")
+    }
+//sampleEnd    
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+
+### `when` expressions
+
+```kotlin
+fun main() {
+//sampleStart
+    val number = 3
+
+    when {
+        number > 0 -> println("The number is positive.")
+        number < 0 -> println("The number is negative.")
+        else -> println("The number is zero.")
+    }
+//sampleEnd    
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+### `while` loops
+
+```kotlin
+fun main() {
+//sampleStart
+    var isCalculating = true
+    
+    while (isCalculating) {
+        println("Calculating...")
+        isCalculating = false
+    }
+//sampleEnd    
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
