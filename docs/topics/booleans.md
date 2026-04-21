@@ -76,7 +76,7 @@ You can use them to invert a `Boolean` value or combine multiple `Boolean` value
 
 The NOT operator inverts a `Boolean` value. 
 
-To use it, place the `!` operator before a `Boolean` value:
+To use NOT, place the `!` operator before a `Boolean` value:
 
 
 ```kotlin
@@ -88,7 +88,7 @@ val isOff = !isOn // isOff is false
 
 The AND operator returns `true` only if both operands are `true`. 
 
-To use it, place the `&&` operator between operands:
+To use logical AND, place the `&&` operator between operands:
 
 ```kotlin
 val a = false && false // false
@@ -106,7 +106,7 @@ val d = true && true  // true
 
 The OR operator returns `true` if at least one operand is `true`.
 
-To use it, place the `||` operator between operands:
+To use logical OR, place the `||` operator between operands:
 
 ```kotlin
 val a = false || false // false
@@ -122,9 +122,9 @@ val d = true || true   // true
 
 ### Exclusive OR (XOR)
 
-The XOR operation returns `true` if the operands have different values.
+The exclusive OR (XOR) operation returns `true` if the operands have different values.
 
-To use it, write `xor` between operands:
+To use XOR, write `xor` between operands:
 
 ```kotlin
 val a = false xor false // false
@@ -148,7 +148,7 @@ operations with lower precedence.
 For the `Boolean` operations described in this section, the precedence order is as follows:
 
 1. `!`
-2. `xor`
+2. `xor` (and other infix functions)
 3. `&&`
 4. `||`
 
