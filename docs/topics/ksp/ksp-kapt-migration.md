@@ -1,17 +1,18 @@
 [//]: # (title: Migrate from kapt to KSP)
-[//]: # (description: Guide on how to migrate annotation processors from kapt to KSP.)
+[//]: # (description: Learn how to migrate annotation processors in your Kotlin project from kapt to KSP.)
 
-In this guide you will learn how to migrate your annotation processors from [kapt](kapt.md) to [KSP](ksp-overview.md).
+In this guide, you will learn how to migrate your annotation processors from [kapt](kapt.md) to [KSP](ksp-overview.md)
+so that your project can take full advantage of Kotlin features and improve build performance.
 
-[kapt](kapt.md) (Kotlin Annotation Processing Tool) lets you use Java annotation processors in Kotlin. 
+[kapt](kapt.md) (Kotlin Annotation Processing Tool) is a useful tool that lets you use Java annotation processors in Kotlin. 
 It works by translating Kotlin source code into Java "stubs" and then running 
-the annotation processors on those stubs. This process is expensive, causes a significant increase in build time, 
+the annotation processors on those stubs. However, this process is expensive, significantly increases build time, 
 and loses some Kotlin-specific features in translation.
 
-[KSP](ksp-overview.md) (Kotlin Symbol Processing) is an alternative to kapt designed specifically for Kotlin. KSP understands all
-Kotlin features and analyzes the source code directly, reducing build speed.
+In contrast, [KSP](ksp-overview.md) (Kotlin Symbol Processing) is an alternative to kapt designed specifically for Kotlin. KSP understands all
+Kotlin features and analyzes the source code directly, reducing build time.
 
-To check if the processors in your project support KSP, see the list of [supported libraries](ksp-overview.md#supported-libraries)
+Before you begin, check whether the processors in your project support KSP. See the list of [supported libraries](ksp-overview.md#supported-libraries)
 or consult their documentation.
 
 > KSP and kapt can run alongside each other, so you can migrate your project in stages, one library or module at a time.
@@ -20,7 +21,7 @@ or consult their documentation.
 
 ## Add the KSP plugin to your project
 
-Add KSP to the `plugins {}` block in the project-level `build.gradle(.kts)`:
+Add KSP to the `plugins {}` block in the project-level `build.gradle(.kts)` file:
 
 <tabs group="build-script">
 <tab title="Kotlin" group-key="kotlin">
