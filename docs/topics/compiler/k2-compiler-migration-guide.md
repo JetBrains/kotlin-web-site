@@ -520,7 +520,7 @@ class Expanded                                  // Visibility is public by defau
 Starting with Kotlin 2.0.0, the Kotlin K2 compiler is enabled by default.
 
 To upgrade the Kotlin version, change it to 2.0.0 or a later release in your [Gradle](gradle-configure-project.md#apply-the-plugin) and
-[Maven](maven-configure-project.md#enable-and-configure-the-plugin) build scripts.
+[Maven](maven-configure-project.md) build scripts.
 
 ### Use Kotlin build reports with Gradle
 
