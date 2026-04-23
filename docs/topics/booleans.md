@@ -40,6 +40,6 @@ The `||` and `&&` operators work lazily, which means:
 * If the first operand is `true`, the `||` operator does not evaluate the second operand.
 * If the first operand is `false`, the `&&` operator does not evaluate the second operand.
 
-> On the JVM, nullable references to boolean objects are boxed in Java classes, just like with [numbers](numbers.md#boxing-and-caching-numbers-on-the-java-virtual-machine).
+> On the JVM, nullable references to boolean objects are boxed in Java classes, just like with [numbers](numbers.md#boxing-and-caching-numbers-on-the-jvm).
 >
 {style="note"}
