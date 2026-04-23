@@ -6,6 +6,10 @@
 
 _[Released: March 16, 2026](releases.md#release-history)_
 
+<tldr>
+    <p>For details about bug fix release 2.3.21, see the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.21">changelog</a></p>
+</tldr>
+
 The Kotlin 2.3.20 release is out! Here are the main highlights:
 
 * **Gradle**: [Compatibility with Gradle 9.3.0](#compatibility-with-gradle-9-3-0) and [Kotlin/JVM compilation uses BTA by default](#kotlin-jvm-compilation-uses-build-tools-api-by-default)
