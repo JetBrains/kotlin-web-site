@@ -64,14 +64,4 @@ _No preview versions are currently available._
             <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.4.0-Beta2">changelog</a> or <a href="whatsnew-eap.md">What's new in Kotlin 2.4.0-Beta2</a>.</p>
         </td>
     </tr>
-    <tr>
-        <td><strong>2.3.21-RC2</strong>
-            <p>Released: <strong>April 16, 2026</strong></p>
-            <p><a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.21-RC2" target="_blank">Release on GitHub</a></p>
-        </td>
-        <td>
-            <p>A bug fix release with performance improvements for Kotlin 2.3.20.</p>
-            <p>For more details, refer to the <a href="https://github.com/JetBrains/kotlin/releases/tag/v2.3.21-RC2">changelog</a> or <a href="whatsnew2320.md">What's new in Kotlin 2.3.20</a>.</p>
-        </td>
-    </tr>
 </table>
