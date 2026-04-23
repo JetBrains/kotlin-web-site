@@ -16,7 +16,7 @@ and other calculations.
 ## Choose a number type
 
 In most cases, you can refer to the following rules to determine the
-correct number type:
+correct number type for your task:
 
 * Use `Int` for whole numbers.
 * Use `Long` for whole numbers outside the `Int` range.
@@ -112,19 +112,19 @@ Floating-point types differ in size and precision:
 
 **Declare floating-point values**
 
-To declare a floating-point literal, include a decimal point or use an exponent notation. 
+To declare a floating-point literal, include a decimal point (`.`) or use an exponent notation. 
 
 By default, Kotlin infers floating-point literals as `Double`:
 
 ```kotlin
-val pi = 3.14          
-val oneDouble = 1.0    
+val pi = 3.14 // Double         
+val oneDouble = 1.0 // Double   
 ```
 
 To declare a `Float`, add the `f` or `F` suffix:
 
 ```kotlin
-val eFloat = 2.7182818284f    
+val eFloat = 2.7182818284f // Float   
 // Actual value is 2.7182817
 ```
 
@@ -391,7 +391,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-numbers-floating-comp"}
 
-## Boxing and caching numbers on the Java Virtual Machine
+## Boxing and caching numbers on the JVM
 
 On the JVM, non-nullable numeric values are usually stored using primitive types, such as `int`, `long`, or `double`.
 However, when you use [generic types](generics.md) or nullable numeric types like `Int?`, the value is boxed and
@@ -428,8 +428,8 @@ fun main() {
     val savedScore: Int? = score
     val displayedScore: Int? = score
 
+    println(savedScore == displayedScore) // true
     println(savedScore === displayedScore) // false
-    println(savedScore == displayedScore)  // true
 //sampleEnd
 }
 ```
