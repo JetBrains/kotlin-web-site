@@ -32,6 +32,7 @@ project {
     tests.TestsProject,
     documentation.DocumentationProject,
     landings.LandingPagesProject,
+    kotlinlang_featured.SiteProject,
   ).also {
     it.forEach { subProject(it) }
   }
