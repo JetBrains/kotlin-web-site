@@ -27,12 +27,13 @@ version = "2025.07"
 project {
 
   subProjectsOrder = arrayListOf(
-    kotlinlang.SiteProject,
-    references.BuildApiReferencesProject,
-    tests.TestsProject,
-    documentation.DocumentationProject,
-    landings.LandingPagesProject,
+//    kotlinlang.SiteProject,
+//    references.BuildApiReferencesProject,
+//    tests.TestsProject,
+//    documentation.DocumentationProject,
+//    landings.LandingPagesProject,
     kotlinlang_featured.SiteProject,
+    kotlinlang_featured.DocumentationProject,
   ).also {
     it.forEach { subProject(it) }
   }
