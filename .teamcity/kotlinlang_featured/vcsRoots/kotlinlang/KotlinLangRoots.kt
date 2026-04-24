@@ -4,7 +4,7 @@ import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 // Grammar Generator
 object GrammarGeneratorRoot: GitVcsRoot({
-    name = "Grammar Generator VCS root"
+    name = "Grammar Generator Root"
     url = "ssh://git@github.com/Kotlin/kotlin-website-grammar-generator"
     branch = "refs/heads/master"
     authMethod = uploadedKey {
@@ -14,7 +14,7 @@ object GrammarGeneratorRoot: GitVcsRoot({
 
 // Kotlin Specs
 object KotlinSpecRoot: GitVcsRoot({
-    name = "Kotlin Spec VCS root"
+    name = "Kotlin Spec Root"
     url = "ssh://git@github.com/Kotlin/kotlin-spec"
     branch = "refs/heads/release"
     authMethod = uploadedKey {
@@ -24,7 +24,7 @@ object KotlinSpecRoot: GitVcsRoot({
 
 // Webhelp
 object WebHelpRoot : GitVcsRoot({
-    name = "webhelp"
+    name = "WebHelp Root"
     url = "ssh://git@github.com/JetBrains/webhelp"
     branch = "refs/heads/master"
     branchSpec = """

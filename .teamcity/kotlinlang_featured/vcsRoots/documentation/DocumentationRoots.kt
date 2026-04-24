@@ -15,7 +15,7 @@ object KotlinMultiplatformRoot: GitVcsRoot({
 
 // Kotlin Reference Root
 object KotlinReferenceRoot: GitVcsRoot ({
-    name = "Kotlin Reference"
+    name = "Kotlin Reference Root"
     url = "git@github.com:JetBrains/kotlin-web-site.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
@@ -25,7 +25,7 @@ object KotlinReferenceRoot: GitVcsRoot ({
 })
 
 object KotlinxCoroutinesRoot: GitVcsRoot ({
-    name = "Kotlinx Coroutines"
+    name = "Kotlinx Coroutines Root"
     url = "git@github.com:Kotlin/kotlinx.coroutines.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
@@ -35,7 +35,7 @@ object KotlinxCoroutinesRoot: GitVcsRoot ({
 })
 
 object KotlinxLincheckRoot: GitVcsRoot ({
-    name = "Kotlinx Lincheck"
+    name = "Kotlinx Lincheck Root"
     url = "git@github.com:JetBrains/lincheck.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
@@ -45,7 +45,7 @@ object KotlinxLincheckRoot: GitVcsRoot ({
 })
 
 object DokkaRoot: GitVcsRoot ({
-    name = "Dokka"
+    name = "Dokka Root"
     url = "git@github.com:Kotlin/dokka.git"
     branch = "refs/heads/master"
     branchSpec = "+:refs/heads/*"
@@ -55,7 +55,7 @@ object DokkaRoot: GitVcsRoot ({
 })
 
 object APIGuidelinesRoot: GitVcsRoot ({
-    name = "API Guidelines"
+    name = "API Guidelines Root"
     url = "git@github.com:Kotlin/api-guidelines.git"
     branch = "refs/heads/main"
     branchSpec = "+:refs/heads/*"
