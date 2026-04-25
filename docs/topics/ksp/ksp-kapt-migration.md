@@ -143,6 +143,6 @@ Delete any leftover kapt configurations if you have them.
 
 ## What's next?
 
-* Learn how to make your own KSP-based annotation processor in [Getting started with KSP](ksp-quickstart.md#create-your-own-processor)
+* Learn how to make your own KSP-based annotation processor in [Getting started with KSP](ksp-quickstart.md#create-your-own-processor).
 * Explore example projects that use KSP in the [KSP repository](https://github.com/google/ksp/tree/main/examples).
 * Read more about KSP in the [Overview](ksp-overview.md).
