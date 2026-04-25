@@ -84,6 +84,7 @@ Find the module that uses the processor you want to migrate. In the module's `bu
     dependencies {
         implementation("com.google.dagger:dagger:2.48")
         // kapt("com.google.dagger:dagger-compiler:2.48")
+        
         // KSP processor dependency:
         ksp("com.google.dagger:dagger-compiler:2.48") 
     }
