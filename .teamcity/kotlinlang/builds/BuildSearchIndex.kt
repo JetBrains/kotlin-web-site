@@ -16,7 +16,7 @@ object BuildSearchIndex : TemplateSearchIndex({
 
     triggers {
         schedule {
-            enabled = !isProjectPlayground()
+            enabled = false
             schedulingPolicy = cron {
                 hours = "3"
                 dayOfMonth = "*/2"
