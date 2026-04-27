@@ -26,6 +26,10 @@ object BuildSitePages : BuildType({
         cleanCheckout = true
     }
 
+    requirements {
+        doesNotContain("docker.server.osType", "windows")
+    }
+
     triggers {
         vcs {
             enabled = !isProjectPlayground()
