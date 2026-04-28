@@ -45,7 +45,6 @@ Kotlin provides four integer types with different sizes and value ranges:
 Kotlin supports the following literal forms for integer values:
 
 * Decimals: `123`
-* `Long`, with the capital `L` suffix: `123L`
 * Hexadecimals: `0x0F`
 * Binaries: `0b00001011`
 
@@ -53,38 +52,26 @@ Kotlin supports the following literal forms for integer values:
 >
 {style="note"}
 
-To declare `Int` and `Long` values, you can specify the type explicitly or let Kotlin infer it.
-You can also use underscores to make numeric literals easier to read:
+To declare a numeric value, specify the type explicitly: 
 
 ```kotlin
-// Int
 val one: Int = 1
-val hexBytes = 0xFF_EC_DE_5E // Hexadecimal form
-val bytes = 0b11010010_01101001_10010100_10010010 // Binary form
-
-// Long
-val oneBillion: Long = 1000000000 
-val threeBillion = 3_000_000_000
+val oneBillion: Long = 1_000_000_000 // Use underscores to improve readability 
+val oneByte: Byte = 1
+val oneShort: Short = 1
 ```
 
-To declare a `Long` value explicitly, you can also append the `L` suffix to the value:
+You can also append the `L` suffix, to declare a `Long` value:
 
 ```kotlin
 val oneLong = 1L
 ```
 
-To declare a `Byte` or `Short` value, specify the type explicitly:
-
-```kotlin 
-val oneByte: Byte = 1
-val oneShort: Short = 1
-```
-
 > When you declare a numeric type explicitly, the compiler checks that the value
 > fits in the range of that type.
 >
-> When you do not specify a numeric type, Kotlin infers `Int` if the 
-> value fits in the `Int` range. Otherwise, Kotlin infers `Long`. 
+> When you do not specify a numeric type, Kotlin infers `Int` if the
+> value fits in the `Int` range. Otherwise, Kotlin infers `Long`.
 >
 {style="note"}
 
@@ -112,20 +99,20 @@ Floating-point types differ in size and precision:
 
 **Declare floating-point values**
 
-To declare a floating-point literal, include a decimal point (`.`) or use an exponent notation. 
-
-By default, Kotlin infers floating-point literals as `Double`:
+To declare a floating-point literal, include a decimal point (`.`) or use an exponent notation:
 
 ```kotlin
-val pi = 3.14 // Double         
-val oneDouble = 1.0 // Double   
+val pi = 3.14
+val avogadro = 6.02214076e23  
 ```
 
+
+By default, Kotlin infers floating-point literals as `Double`. 
 To declare a `Float`, add the `f` or `F` suffix:
 
 ```kotlin
-val eFloat = 2.7182818284f // Float   
-// Actual value is 2.7182817
+val pi = 3.14 // Double         
+val eFloat = 2.7182818284f // Float
 ```
 
 > Kotlin rounds a `Float` literal that contains more precision than `Float` can store.
@@ -258,8 +245,8 @@ fun main() {
 All number types support conversions to other numeric types.
 To convert a number to another type, use an explicit conversion function:
 
-* `toByte()` (deprecated for [Float](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/to-byte.html) and [Double](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/to-byte.html))
-* `toShort()` (deprecated for [Float](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/to-short.html) and [Double](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/to-short.html))
+* `toByte()`
+* `toShort()`
 * `toInt()`
 * `toLong()`
 * `toFloat()`
@@ -271,7 +258,7 @@ For example, the following code converts an `Int` value to `Double`:
 fun main() {
 //sampleStart
     val intValue: Int = 1
-    val doubleValue= intValue.toDouble()
+    val doubleValue = intValue.toDouble()
     
     println(doubleValue) // 1.0
 //sampleEnd
@@ -297,7 +284,7 @@ fun main() {
 
 Kotlin does not support implicit conversion for assignments or function arguments. 
 However, you can combine different numeric types in arithmetic expressions. In such cases, 
-Kotlin infers a result type based on the operand types, 
+Kotlin determines a result type based on the operand types, 
 and arithmetic operators handle the conversion automatically:
 
 ```kotlin
@@ -315,8 +302,7 @@ val result: Int = intNumber + longNumber
 // Error: Initializer type mismatch
 ```
 
-> This behavior applies to expressions only. It does not replace explicit conversions
-> when a specific target type is required.
+> This behavior applies to arithmetic expressions only.
 >
 {style="note"}
 
@@ -340,19 +326,19 @@ fun main() {
 
 Bitwise operations include:
 
-* `shl(bits)` – signed shift left
-* `shr(bits)` – signed shift right
-* `ushr(bits)` – unsigned shift right
-* `and(bits)` – bitwise **AND**
-* `or(bits)` – bitwise **OR**
-* `xor(bits)` – bitwise **XOR**
+* `shl()` – signed shift left
+* `shr()` – signed shift right
+* `ushr()` – unsigned shift right
+* `and()` – bitwise AND
+* `or()` – bitwise OR
+* `xor()` – bitwise XOR
 * `inv()` – bitwise inversion
 
 ## Floating-point number comparison
 
 In Kotlin, floating-point comparison depends on the static type of the operands.
 
-When the operands are statically known to be `Float` or `Double` (including their nullable counterparts),
+When the operands are statically known to be `Float` or `Double`,
 operations on the numbers and the range that they form
 follow the [IEEE 754 Standard for Floating-Point Arithmetic](https://en.wikipedia.org/wiki/IEEE_754).
 
@@ -370,23 +356,20 @@ The following example shows the difference between operands statically typed as 
 and operands used through generic types:
 
 ```kotlin
+//sampleStart  
+fun generalizedEquals(a: Any, b: Any): Boolean {
+  return a == b
+}
+
 fun main() {
-    //sampleStart
-    // Operand statically typed as floating-point number
-    println(Double.NaN == Double.NaN) // false
-    
-    // Operand NOT statically typed as floating-point number
-    println(listOf(Double.NaN) == listOf(Double.NaN)) // true
+  // Operands statically typed as floating-point numbers
+  println(Double.NaN == Double.NaN) // false
+  println(0.0 == -0.0) // true
 
-    // Operand statically typed as floating-point number
-    println(0.0 == -0.0) // true
-    
-    // Operand NOT statically typed as floating-point number
-    println(listOf(0.0) == listOf(-0.0)) // false
-
-    println(listOf(Double.NaN, Double.POSITIVE_INFINITY, 0.0, -0.0).sorted())
-    // [-0.0, 0.0, Infinity, NaN]
-    //sampleEnd
+  // Operands used through a non-floating-point static type
+  println(generalizedEquals(Double.NaN, Double.NaN)) // true
+  println(generalizedEquals(0.0, -0.0)) // false
+//sampleEnd  
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-numbers-floating-comp"}
