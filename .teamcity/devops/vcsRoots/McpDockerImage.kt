@@ -1,6 +1,7 @@
 package devops.vcsRoots
 
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.buildFeatures.dockerRegistryConnections
 import jetbrains.buildServer.configs.kotlin.buildSteps.dockerCommand
 
 private const val mcpDockerFQDN = "registry.jetbrains.team/p/kotlin-website-team/containers/kotlinlang-mcp:latest"
@@ -33,6 +34,15 @@ object BuildMcpDockerImage: BuildType({
                     $mcpDockerFQDN
                 """.trimIndent()
             }
+        }
+    }
+
+    features {
+        dockerRegistryConnections {
+            loginToRegistry = on {
+                dockerRegistryId = "PROJECT_EXT_357"
+            }
+            cleanupPushedImages = true
         }
     }
 })

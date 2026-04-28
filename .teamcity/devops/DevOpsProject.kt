@@ -13,14 +13,14 @@ object DevOpsProject: Project({
 
     buildType(BuildMcpDockerImage)
 
-    // TODO: Add Application Connection Later
-    features {
-        dockerRegistry {
-            id = "jetbrains-docker-registry"
-            name = "jetbrains-docker-registry"
-            url = "https://registry.jetbrains.team"
-            userName = "andrei.ezerskii@jetbrains.com"
-            password = "credentialsJSON:a75dc617-b711-4c41-a0a7-fb0d552e6097"
-        }
-    }
+//    // TODO: Add Application Connection Later
+//    features {
+//        dockerRegistry {
+//            id = "jetbrains-docker-registry"
+//            name = "jetbrains-docker-registry"
+//            url = "https://registry.jetbrains.team"
+//            userName = "andrei.ezerskii@jetbrains.com"
+//            password = "credentialsJSON:a75dc617-b711-4c41-a0a7-fb0d552e6097"
+//        }
+//    }
 })
