@@ -166,9 +166,7 @@ To disable this behavior, add the following to your `build.gradle.kts` file:
 kotlin {
     @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
     abiValidation {
-        klib {
-            keepUnsupportedTargets.set(false)
-        }
+        keepLocallyUnsupportedTargets.set(false)
     }
 }
 ```
@@ -179,9 +177,7 @@ kotlin {
 ```groovy
 kotlin {
     abiValidation {
-        klib {
-            keepUnsupportedTargets = false
-        }
+        keepLocallyUnsupportedTargets = false
     }
 }
 ```
@@ -191,3 +187,38 @@ kotlin {
 
 If a target is unsupported and inference is disabled, the `checkKotlinAbi` task fails because it can't generate a complete
 ABI dump. This behavior may be useful if you'd prefer the task to fail rather than risk missing a binary-incompatible change.
+
+## Include publications from the `maven-publish` plugin
+
+By default, binary compatibility validation uses Kotlin compilation outputs. If your project publishes artifacts with
+the [`maven-publish` plugin](https://docs.gradle.org/current/userguide/publishing_maven.html), this approach means the ABI dumps may not reflect the actual published artifacts. For example,
+this can happen when post-processing steps such as relocation modify the artifact.
+
+To make sure the ABI dumps accurately reflect the artifacts published by the `maven-publish` plugin, add the following to 
+your `build.gradle.kts` file:
+
+<tabs group="build-script">
+<tab title="Kotlin" group-key="kotlin">
+
+```kotlin
+kotlin {
+    @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
+    abiValidation {
+        binariesSource.set(MAVEN_PUBLICATIONS)
+    }
+}
+```
+
+</tab>
+<tab title="Groovy" group-key="groovy">
+
+```groovy
+kotlin {
+    abiValidation {
+        binariesSource = MAVEN_PUBLICATIONS
+    }
+}
+```
+
+</tab>
+</tabs>
