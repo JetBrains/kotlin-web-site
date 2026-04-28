@@ -48,7 +48,7 @@ The following attributes are supported:
 | `compilerPlugins` |                                   | Enabled compiler plugins                                                                             |                                                         | []                          |
 | `pluginOptions`   |                                   | Options for compiler plugins                                                                         |                                                         | []                          |
 | `args`            |                                   | Additional compiler arguments                                                                        |                                                         | []                          |
-| `jvmTarget`       | `kotlin.compiler.jvmTarget`       | Target version of the generated JVM bytecode                                                         | "1.8", "9", "10", ..., "25"                             | "%defaultJvmTargetVersion%" |
+| `jvmTarget`       | `kotlin.compiler.jvmTarget`       | Target version of the generated JVM bytecode                                                         | "1.8", "9", "10", ..., "26"                             | "%defaultJvmTargetVersion%" |
 | `jdkHome`         | `kotlin.compiler.jdkHome`         | Include a custom JDK from the specified location into the classpath instead of the default JAVA_HOME |                                                         |                             |
 
 ## Choose execution strategy
