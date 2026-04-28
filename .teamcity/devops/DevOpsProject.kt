@@ -19,7 +19,7 @@ object DevOpsProject: Project({
             id = "jetbrains-docker-registry"
             name = "jetbrains-docker-registry"
             url = "https://registry.jetbrains.team"
-            userName = "andrei.ezerskii@jetbrains.com"
+            userName = "andrei.ezerskii"
             password = "credentialsJSON:a75dc617-b711-4c41-a0a7-fb0d552e6097"
         }
     }
