@@ -32,6 +32,7 @@ project {
     tests.TestsProject,
     documentation.DocumentationProject,
     landings.LandingPagesProject,
+    devops.DevOpsProject,
   ).also {
     it.forEach { subProject(it) }
   }
