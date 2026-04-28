@@ -561,12 +561,14 @@ The Kotlin Playground supports Kotlin 2.0.0 and later releases. [Check it out!](
 
 ## How to roll back to the previous compiler
 
-To use the previous compiler in Kotlin 2.0.0 and later releases, either:
+To use the previous compiler in Kotlin 2.0.0–2.3.21, either:
 
 * In your `build.gradle.kts` file, [set your language version](gradle-compiler-options.md#example-of-setting-languageversion) to `1.9`.
 
   OR
 * Use the following compiler option: `-language-version 1.9`.
+
+From Kotlin 2.4.0 onward, you can't roll back to the previous compiler.
 
 ## Changes
 
