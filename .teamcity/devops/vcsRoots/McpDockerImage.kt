@@ -10,7 +10,7 @@ object BuildMcpDockerImage: BuildType({
     description = "Build and publish kotlinglang MCP docker image to the jetbrains registry"
 
     vcs {
-        root(mcpRoot, "+:* => kotlinlang-mcp")
+        root(mcpRoot, "+:. => kotlinlang-mcp")
         cleanCheckout = true
     }
 
