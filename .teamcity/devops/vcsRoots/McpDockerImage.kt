@@ -45,4 +45,8 @@ object BuildMcpDockerImage: BuildType({
             cleanupPushedImages = true
         }
     }
+
+    requirements {
+        contains("teamcity.agent.jvm.os.name", "Linux")
+    }
 })
