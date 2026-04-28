@@ -150,7 +150,7 @@ mapper implementations between Java beans at compile time.
 
 ## Use KSP in Gradle projects
 
-With [KSP](ksp-overview.md), you can use existing Java annotation processors in Gradle projects and create your own 
+With [KSP](ksp-overview.md), you can use existing annotation processors in Gradle projects and create your own 
 processors that generate code based on annotations in your source code.
 
 ### Use KSP with Java annotation processors
@@ -248,7 +248,7 @@ For more information on Dagger support for KSP, see its [documentation](https://
 ### Create your own annotation processor
 
 You can use the KSP API to write your own annotation processors that generate code at compile time.
-A processor consists of three parts:
+A new processor requires three modules:
 
 * An `annotation` module that declares the custom annotation.
 * A `processor` module that implements the `SymbolProcessor` with the main logic and the `SymbolProcessorProvider` factory
@@ -261,4 +261,4 @@ For a complete step-by-step instructions, see the [KSP quickstart](ksp-quickstar
 
 * [Learn more about kapt configuration](kapt.md)
 * [Get started with KSP](ksp-quickstart.md)
-<!-- * [See how to migrate from kapt to KSP](ksp-kapt-migration.md) -->
+* [See how to migrate from kapt to KSP](ksp-kapt-migration.md)

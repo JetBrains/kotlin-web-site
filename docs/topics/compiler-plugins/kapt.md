@@ -460,6 +460,6 @@ kapt {
 If you use Maven, you need to specify concrete plugin settings.
 See this [example of settings for the Lombok compiler plugin](lombok.md#using-with-kapt).
 
-<!-- ## What's next
+## What's next
 
-* [See how to migrate from kapt to KSP](ksp-kapt-migration.md) -->
+* [See how to migrate from kapt to KSP](ksp-kapt-migration.md)
