@@ -1,11 +1,26 @@
 [//]: # (title: Connect and retrieve data from databases)
+[//]: # (description: Learn how to connect to SQL databases from Kotlin Notebook, inspect table schemas, and retrieve data with Kotlin DataFrame.)
 
 [Kotlin Notebook](kotlin-notebook-overview.md) offers capabilities for connecting to and retrieving data from various types of SQL databases, such as 
 MariaDB, PostgreSQL, MySQL, and SQLite. 
 Utilizing the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), Kotlin Notebook can establish 
 connections to databases, execute SQL queries, and import the results for further operations.
 
-For a detailed example, see the [Notebook in the KotlinDataFrame SQL Examples GitHub repository](https://github.com/zaleslaw/KotlinDataFrame-SQL-Examples/blob/master/notebooks/imdb.ipynb).
+[Kotlin Notebook](kotlin-notebook-overview.md) provides support for the most common SQL databases:
+* [PostgreSQL](https://kotlin.github.io/dataframe/postgresql.html)
+* [MySQL](https://kotlin.github.io/dataframe/mysql.html)
+* [Microsoft SQL Server](https://kotlin.github.io/dataframe/microsoft-sql-server.html)
+* [SQLite](https://kotlin.github.io/dataframe/sqlite.html)
+* [H2](https://kotlin.github.io/dataframe/h2.html)
+* [MariaDB](https://kotlin.github.io/dataframe/mariadb.html)
+* [DuckDB](https://kotlin.github.io/dataframe/duckdb.html)
+
+With [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), Kotlin Notebook can establish connections to databases, 
+execute SQL queries, and import the results for further operations.
+
+> For a detailed example, see the [Notebook in the KotlinDataFrame SQL Examples GitHub repository](https://github.com/zaleslaw/KotlinDataFrame-SQL-Examples/blob/master/notebooks/imdb.ipynb).
+>
+{style="tip"}
 
 ## Before you start
 
@@ -15,169 +30,157 @@ which is bundled and enabled in IntelliJ IDEA by default.
 If the Kotlin Notebook features are not available, ensure the plugin is enabled. For more information,
 see [Set up an environment](kotlin-notebook-set-up-env.md).
 
-Create a new Kotlin Notebook:
+To follow this tutorial:
+1. Create a [new Kotlin Notebook](kotlin-notebook-create.md).
+2. Add the Java Database Connectivity (JDBS) driver dependency for your database. 
+   For example, to connect to a MariaDB database, add:
 
-1. Select **File** | **New** | **Kotlin Notebook**.
-
-2. Ensure you have access to an SQL database, such as MariaDB or MySQL.
-
-## Connect to database
-
-You can connect to and interact with an SQL database using specific functions from the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html). 
-You can use `DatabaseConfiguration` to establish a connection to your database and `getSchemaForAllSqlTables()` to retrieve 
-the schema of all tables within it.
-
-Let's look at an example:
-
-1. Open your Kotlin Notebook file (`.ipynb`).
-2. Add a dependency for a JDBC (Java Database Connectivity) driver, and specify the JDBC driver version.
-This example uses MariaDB:
-
-   ```kotlin
+   ```kotlin 
    USE {
       dependencies("org.mariadb.jdbc:mariadb-java-client:$version")
    }
    ```
+3. Import the Kotlin DataFrame library:
+```kotlin
+%use dataframe
+```
 
-3. Import the Kotlin DataFrame library, which is essential for data manipulation tasks, along with
-the necessary Java libraries for SQL connectivity and utility functions: 
+> Make sure to run the code cell with the `%use dataframe` line before you run any other code cells
+> that rely on the Kotlin DataFrame library.
+>
+{style="note"}
 
+## Connect to a database
+
+To connect to a database, create a connection configuration using `DbConnectionConfig`:
+
+1. Import required functionality:
+   
    ```kotlin
-   %use dataframe
-   import java.sql.DriverManager
-   import java.util.*
+   import org.jetbrains.kotlinx.dataframe.io.DbConnectionConfig
+   import org.jetbrains.kotlinx.dataframe.schema.DataFrameSchema
    ```
 
-4. Use the `DatabaseConfiguration` class to define your database's connection parameters, 
-including the URL, username, and password:
+2. Define connection parameters (URL, username, password) using `DbConnectionConfig`:
+
 
    ```kotlin
    val URL = "YOUR_URL"
    val USER_NAME = "YOUR_USERNAME"
    val PASSWORD = "YOUR_PASSWORD"
    
-   val dbConfig = DatabaseConfiguration(URL, USER_NAME, PASSWORD)
+   val dbConfig = DbConnectionConfig(URL, USER_NAME, PASSWORD)
    ```
 
-5. Once connected, use the `getSchemaForAllSqlTables()` function to fetch and display the 
-schema information for each table in the database:
+> For more information on connecting to SQL databases, see [Read from SQL databases in the Kotlin DataFrame documentation](https://kotlin.github.io/dataframe/readsqldatabases.html).
+>
+{style="tip"}
 
-   ```kotlin
-   val dataschemas = DataFrame.getSchemaForAllSqlTables(dbConfig)
-   
-   dataschemas.forEach { 
-       println("---Yet another table schema---")
-       println(it)
-       println()
-   }
-   ```
+## Inspect database schema
 
-   > For more information on connecting to SQL databases, see [Read from SQL databases in the Kotlin DataFrame documentation](https://kotlin.github.io/dataframe/readsqldatabases.html).
-   > 
-   {style="tip"}
+Before loading the data, you can inspect the table schemas. 
+This helps you understand what tables you have and what columns they contain. 
+You can also use the schemas to decide which table to load into a `DataFrame`.
 
-## Retrieve and manipulate data
+To retrieve schemas for all non-system tables in your database, use `.readAllSqlTables()`:
 
-After [establishing a connection to an SQL database](#connect-to-database), you can retrieve and manipulate data in Kotlin Notebook, utilizing the Kotlin DataFrame library. 
-You can use the `readSqlTable()` function to retrieve data. To manipulate data, you can use methods, such as [`filter`](https://kotlin.github.io/dataframe/filter.html), [`groupBy`](https://kotlin.github.io/dataframe/groupby.html), 
-and [`convert`](https://kotlin.github.io/dataframe/convert.html). 
+```kotlin
+val dataSchemas = DataFrameSchema.readAllSqlTables(dbConfig)
 
-Let's look at an example of connecting to an IMDB database and retrieving data about movies directed by Quentin Tarantino:
+dataSchemas.forEach { (tableName, schema) ->
+    println("---Schema for table: $tableName---")
+    println(schema)
+    println()
+}
+```
 
-1. Use the `readSqlTable()` function to retrieve data from the "movies" table, setting `limit` 
-to restrict the query to the first 100 records for efficiency:
+## Retrieve data
 
-   ```kotlin
-   val dfs = DataFrame.readSqlTable(dbConfig, tableName = "movies", limit = 100)
-   ```
+After establishing connection to an SQL database, you can retrieve data from a table
+or with an SQL query.
 
-2. Use an SQL query to retrieve a specific dataset related to movies directed by Quentin Tarantino. 
+### Retrieve data from a table
+
+To retrieve data from a table, use [`DataFrame.readSqlTable`](https://kotlin.github.io/dataframe/readsqldatabases.html#reading-specific-tables).
+
+The following example reads the first 100 rows from the `movies` table:
+
+```kotlin
+val moviesDf = DataFrame.readSqlTable(
+    dbConfig = dbConfig,
+    tableName = "movies",
+    limit = 100
+)
+
+moviesDf
+```
+The result is a `DataFrame` that you can process and inspect in Kotlin Notebook.
+
+### Retrieve data with an SQL query
+
+To execute a specific SQL query on your database, use [`DataFrame.readSqlQuery`](https://kotlin.github.io/dataframe/readsqldatabases.html#executing-sql-queries). 
+This helps when you need to retrieve specific columns, join tables, filter rows, or aggregate data.
+
+Let’s retrieve a specific dataset related to movies directed by Quentin Tarantino. 
 This query selects movie details and combines genres for each movie:
 
-   ```kotlin
-   val props = Properties()
-   props.setProperty("user", USER_NAME)
-   props.setProperty("password", PASSWORD)
+```kotlin
+val TARANTINO_FILMS_SQL_QUERY = """
+    SELECT name, year, rank, GROUP_CONCAT(genre) as "genres"
+    FROM movies JOIN movies_directors ON movie_id = movies.id
+    JOIN directors ON directors.id=director_id LEFT JOIN movies_genres ON movies.id = movies_genres.movie_id
+    WHERE directors.first_name = "Quentin" AND directors.last_name = "Tarantino"
+    GROUP BY name, year, rank
+    ORDER BY year
+    """
+
+val tarantinoMoviesDf = DataFrame.readSqlQuery(dbConfig, TARANTINO_FILMS_SQL_QUERY)
+
+tarantinoMoviesDf
+```
+
+## Process data
+After loading your database into a `DataFrame`, you can use Kotlin DataFrame
+operations to process retrieved data.
+
+For example, let’s manipulate data from the previous example. The following code:
+1. Replaces missing values in the `year` column using [`fillNA`](https://kotlin.github.io/dataframe/fill.html#fillna).
+2. Converts the column to `Int` using [`convert`](https://kotlin.github.io/dataframe/convert.html).
+3. Keeps only films released after 2000 using [`filter`](https://kotlin.github.io/dataframe/filter.html).
+
+```kotlin
+val filteredTarantinoMovies = tarantinoMoviesDf
+    .fillNA { year }.with { 0 }
+    .convert { year }.toInt()
+    .filter { year > 2000 }
+
+filteredTarantinoMovies
+```
+
+## Analyze data
+
+You can use [Kotlin Notebook](kotlin-notebook-overview.md) and [DataFrame library](https://kotlin.github.io/dataframe/home.html)
+to group, sort, and aggregate data. 
+This helps you uncover and understand patterns of your data.
+
+For example, let’s read actor data from the `actors` table and find the 20 most common first names:
+
+```kotlin
+// Extract data from the actors table
+val actorDf = DataFrame.readSqlTable(dbConfig, "actors", 10000)
+val top20ActorNames = actorDf
+   // Groups the data by the first_name column
+   .groupBy { first_name }
    
-   val TARANTINO_FILMS_SQL_QUERY = """
-       SELECT name, year, rank, GROUP_CONCAT(genre) as "genres"
-       FROM movies JOIN movies_directors ON movie_id = movies.id
-       JOIN directors ON directors.id=director_id LEFT JOIN movies_genres ON movies.id = movies_genres.movie_id
-       WHERE directors.first_name = "Quentin" AND directors.last_name = "Tarantino"
-       GROUP BY name, year, rank
-       ORDER BY year
-       """
+   // Counts the occurrences of each unique first name
+   .count()
    
-   // Retrieves a list of Quentin Tarantino's movies, including their name, year, rank, and a concatenated string of all genres. 
-   // The results are grouped by name, year, rank, and sorted by year.
-   
-   var dfTarantinoMovies: DataFrame<*>
-   
-   DriverManager.getConnection(URL, props).use { connection ->
-      connection.createStatement().use { st ->
-         st.executeQuery(TARANTINO_FILMS_SQL_QUERY).use { rs ->
-            val dfTarantinoFilmsSchema = DataFrame.getSchemaForResultSet(rs, connection)
-            dfTarantinoFilmsSchema.print()
-   
-            dfTarantinoMovies = DataFrame.readResultSet(rs, connection)
-            dfTarantinoMovies
-         }
-      }
-   }
-   ```
-
-3. After fetching the Tarantino movies dataset, you can further manipulate and filter the data.
-
-   ```kotlin
-   val df = dfTarantinoMovies
-       // Replaces any missing values in the 'year' column with 0.
-       .fillNA { year }.with { 0 }
-       
-       // Converts the 'year' column to integers.
-       .convert { year }.toInt()
-   
-       // Filters the data to include only movies released after the year 2000.
-       .filter { year > 2000 }
-   df
-   ```
-
-The resulting output is a DataFrame where missing values in the year column are replaced with 0 using the 
-[`fillNA`](https://kotlin.github.io/dataframe/fill.html#fillna) method. The year column is converted to integer values 
-with the [`convert`](https://kotlin.github.io/dataframe/convert.html) method, and the data is filtered to include only 
-rows from the year 2000 onwards using the [`filter`](https://kotlin.github.io/dataframe/filter.html) method.
-
-## Analyze data in Kotlin Notebook
-
-After [establishing a connection to an SQL database](#connect-to-database), you can use Kotlin Notebook for in-depth data analysis 
-utilizing the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html). This includes functions for 
-grouping, sorting, and aggregating data, helping you to uncover and understand patterns within your data.
-
-Let's dive into an example that involves analyzing actor data from a movie database, focusing on the most frequently 
-occurring first names of actors:
-
-1. Extract data from the "actors" table using the [`readSqlTable()`](https://kotlin.github.io/dataframe/readsqldatabases.html#reading-specific-tables) function:
-
-   ```kotlin
-   val actorDf = DataFrame.readSqlTable(dbConfig, "actors", 10000)
-   ```
-
-2. Process the retrieved data to identify the top 20 most common actor first names. This analysis involves several DataFrame methods:
-
-   ```kotlin
-   val top20ActorNames = actorDf
-       // Groups the data by the first_name column to organize it based on actor first names.
-      .groupBy { first_name }
-   
-       // Counts the occurrences of each unique first name, providing a frequency distribution.
-      .count()
-   
-       // Sorts the results in descending order of count to identify the most common names.
-      .sortByDesc("count")
-   
-       // Selects the top 20 most frequent names for analysis.
-      .take(20)
-   top20ActorNames
-   ```
+    // Sorts the results in descending order of count
+   .sortByDesc("count")
+    
+   // Selects the top 20 most frequent names for analysis.
+   .take(20)
+```
 
 ## What's next
 
