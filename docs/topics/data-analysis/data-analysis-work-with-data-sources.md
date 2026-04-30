@@ -24,7 +24,7 @@ see [Set up an environment](kotlin-notebook-set-up-env.md).
 To follow this tutorial:
 
 1. Create a [new Kotlin Notebook](kotlin-notebook-create.md).
-2. Import the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html):
+2. Import Kotlin DataFrame:
 
    ```kotlin
    %use dataframe
@@ -46,7 +46,7 @@ val movies = DataFrame.read(“movies.csv”)
 `DataFrame.read()` detects the input format based on the file extension and content.
 
 You can also pass additional arguments to control how `DataFrame` reads the input data.
-For example, you can specify a custom delimiter (`;`) for a CSV file:
+For example, the following code specifies a custom delimiter (`;`) for a CSV file:
 
 ```kotlin
 val movies = DataFrame.read(“movies.csv”, delimiter = ‘;’)
@@ -78,13 +78,13 @@ the state of your dataset.
 
 To gain insights into the structure or schema of your data, apply the `.schema()` function on your `DataFrame` variable. 
 
-For example, `dfJson.schema()` lists the type of each column in your JSON dataset.
+For example, `dfJson.schema()` lists the type of each column in your JSON dataset:
 
 ![Schema example](schema-data-analysis.png){width=700}
 
-You can also use the autocompletion feature in Kotlin Notebook to quickly access and manipulate the properties of your 
-`DataFrame`. After loading your data, simply type the `DataFrame` variable followed by a dot(`.`) 
-to see a list of available columns and their types.
+With Kotlin Notebook, you can also use the autocompletion feature. It allows you to quickly access
+and manipulate the properties of your `DataFrame`. After loading your data, simply type the 
+`DataFrame` variable followed by a dot(`.`) to see a list of available columns and their types.
 
 ![Available properties](auto-completion-data-analysis.png){width=700}
 
@@ -109,7 +109,7 @@ in the same cell. The goal is to refine this dataset for easier analysis:
 
 2. **Add a column** 
 
-   To extract the release year from the `title column`, add a new `year` column:
+   To extract the release year from the `title` column, add a new `year` column:
 
    ```kotlin
    val moviesWithYear = movies
@@ -127,7 +127,7 @@ in the same cell. The goal is to refine this dataset for easier analysis:
 
 3. **Update values**
 
-   To remove the release year from the movie titles, update the `title` column:
+   To remove the release year from the movie title, update the `title` column:
 
    ```kotlin
    val moviesTitle = moviesWithYear
@@ -170,7 +170,7 @@ For comparison, here is the dataset before refinement:
 
 ![Original dataset](original-dataset.png){width=700}
 
-The refined dataset:
+The dataset after refinement:
 
 ![Data refinement result](refined-data.png){width=700}
 
@@ -180,12 +180,14 @@ The refined dataset:
 
 ## Export data
 
-After [refining data in Kotlin Notebook](#refine-data) using the Kotlin DataFrame library, you can easily export your processed 
+After [refining data in Kotlin Notebook](#refine-data), you can easily export your processed 
 data. 
 
-You can utilize a variety of [`.write()`](https://kotlin.github.io/dataframe/write.html) functions for this purpose, which support saving in multiple formats,
-including CSV, JSON, XLS, XLSX, Apache Arrow, and even HTML tables. See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html)
-This can be particularly useful for sharing your findings, creating reports, or making your data available for further analysis.
+You can utilize a variety of [`.write()`](https://kotlin.github.io/dataframe/write.html) functions for this purpose. It supports saving in multiple formats,
+including CSV, JSON, XLS, XLSX, Apache Arrow, and even HTML tables. 
+See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
+This can be particularly useful for sharing your findings, creating reports, or making your data available
+for further analysis.
 
 For example, let’s save the result as:
 

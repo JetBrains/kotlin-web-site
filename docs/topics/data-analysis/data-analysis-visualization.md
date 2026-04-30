@@ -72,7 +72,7 @@ To preview the data, use the [`head()`](https://kotlin.github.io/dataframe/head.
 df.head(4) // Returns first four rows
 ```
 
-Since the `DataFrame` has three columns (Month, Temperature, and City). The first four rows store temperature 
+In our dataset, the first four rows store temperature 
 in Berlin from January to April:
 
 ![Dataframe exploration](visualization-dataframe-temperature.png){width=600}

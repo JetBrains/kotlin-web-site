@@ -1,12 +1,8 @@
 [//]: # (title: Connect and retrieve data from databases)
 [//]: # (description: Learn how to connect to SQL databases from Kotlin Notebook, inspect table schemas, and retrieve data with Kotlin DataFrame.)
 
-[Kotlin Notebook](kotlin-notebook-overview.md) offers capabilities for connecting to and retrieving data from various types of SQL databases, such as 
-MariaDB, PostgreSQL, MySQL, and SQLite. 
-Utilizing the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), Kotlin Notebook can establish 
-connections to databases, execute SQL queries, and import the results for further operations.
-
 [Kotlin Notebook](kotlin-notebook-overview.md) provides support for the most common SQL databases:
+
 * [PostgreSQL](https://kotlin.github.io/dataframe/postgresql.html)
 * [MySQL](https://kotlin.github.io/dataframe/mysql.html)
 * [Microsoft SQL Server](https://kotlin.github.io/dataframe/microsoft-sql-server.html)
@@ -40,7 +36,7 @@ To follow this tutorial:
       dependencies("org.mariadb.jdbc:mariadb-java-client:$version")
    }
    ```
-3. Import the Kotlin DataFrame library:
+3. Import Kotlin DataFrame:
 ```kotlin
 %use dataframe
 ```
@@ -78,11 +74,11 @@ To connect to a database, create a connection configuration using `DbConnectionC
 
 ## Inspect database schema
 
-Before loading the data, you can inspect the table schemas. 
+Before [loading the data](#load-data), you can inspect the database schemas. 
 This helps you understand what tables you have and what columns they contain. 
 You can also use the schemas to decide which table to load into a `DataFrame`.
 
-To retrieve schemas for all non-system tables in your database, use `.readAllSqlTables()`:
+To retrieve schemas for all non-system tables in your database, use `DataFrameSchema.readAllSqlTables()`:
 
 ```kotlin
 val dataSchemas = DataFrameSchema.readAllSqlTables(dbConfig)
@@ -94,16 +90,23 @@ dataSchemas.forEach { (tableName, schema) ->
 }
 ```
 
-## Retrieve data
+## Load data
 
-After establishing connection to an SQL database, you can retrieve data from a table
-or with an SQL query.
+After you [inspect the database schemas](#inspect-database-schema) and select the data, load the
+data into a `DataFrame`.
 
-### Retrieve data from a table
+Kotlin DataFrame provides two main ways to load data from a database:
 
-To retrieve data from a table, use [`DataFrame.readSqlTable`](https://kotlin.github.io/dataframe/readsqldatabases.html#reading-specific-tables).
+* Use [`DataFrame.readSqlTable`](https://kotlin.github.io/dataframe/readsqldatabases.html#reading-specific-tables) to load data directly from a table.
+* Use [`DataFrame.readSqlQuery`](https://kotlin.github.io/dataframe/readsqldatabases.html#executing-sql-queries) to load the result of a custom SQL query.
 
-The following example reads the first 100 rows from the `movies` table:
+Both functions return a `DataFrame` that you can inspect, transform, and analyze in Kotlin Notebook.
+
+### Load data from a table
+
+To load data from a table, use [`DataFrame.readSqlTable`](https://kotlin.github.io/dataframe/readsqldatabases.html#reading-specific-tables).
+
+The following example loads the first 100 rows from the `movies`:
 
 ```kotlin
 val moviesDf = DataFrame.readSqlTable(
@@ -114,12 +117,12 @@ val moviesDf = DataFrame.readSqlTable(
 
 moviesDf
 ```
-The result is a `DataFrame` that you can process and inspect in Kotlin Notebook.
 
-### Retrieve data with an SQL query
+
+### Load data with an SQL query
 
 To execute a specific SQL query on your database, use [`DataFrame.readSqlQuery`](https://kotlin.github.io/dataframe/readsqldatabases.html#executing-sql-queries). 
-This helps when you need to retrieve specific columns, join tables, filter rows, or aggregate data.
+This helps when you need to load specific columns, join tables, filter rows, or aggregate data in a database.
 
 Let’s retrieve a specific dataset related to movies directed by Quentin Tarantino. 
 This query selects movie details and combines genres for each movie:
@@ -140,10 +143,11 @@ tarantinoMoviesDf
 ```
 
 ## Process data
-After loading your database into a `DataFrame`, you can use Kotlin DataFrame
+
+After [loading your database](#load-data) into a `DataFrame`, you can use DataFrame
 operations to process retrieved data.
 
-For example, let’s manipulate data from the previous example. The following code:
+For example, let’s manipulate data from the previous section. The following code:
 1. Replaces missing values in the `year` column using [`fillNA`](https://kotlin.github.io/dataframe/fill.html#fillna).
 2. Converts the column to `Int` using [`convert`](https://kotlin.github.io/dataframe/convert.html).
 3. Keeps only films released after 2000 using [`filter`](https://kotlin.github.io/dataframe/filter.html).
@@ -159,7 +163,7 @@ filteredTarantinoMovies
 
 ## Analyze data
 
-You can use [Kotlin Notebook](kotlin-notebook-overview.md) and [DataFrame library](https://kotlin.github.io/dataframe/home.html)
+Use [Kotlin Notebook](kotlin-notebook-overview.md) and [DataFrame library](https://kotlin.github.io/dataframe/home.html)
 to group, sort, and aggregate data. 
 This helps you uncover and understand patterns of your data.
 
