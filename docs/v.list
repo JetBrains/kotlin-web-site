@@ -49,7 +49,7 @@
     <var name="mavenExtensionsVersion" value="3.10.1" type="string"/>
 
     <!-- KSP -->
-    <var name="kspVersion" value="2.3.6"/>
+    <var name="kspVersion" value="2.3.7"/>
 
     <!-- Spring -->
     <var name="springBootSupportedKotlinVersion" value="2.2.21"/>
