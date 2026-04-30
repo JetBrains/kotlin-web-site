@@ -43,7 +43,7 @@ val maybeAbsent: Char? = null
 ```
 
 > On the JVM, nullable `Char` values are boxed when needed. The same applies to
-> [numeric types](numbers.md#boxing-and-caching-numbers-on-the-java-virtual-machine).
+> [numeric types](numbers.md#boxing-and-caching-numbers-on-the-jvm).
 >
 {style="note"}
 

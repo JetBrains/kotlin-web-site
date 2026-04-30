@@ -122,7 +122,7 @@ IEEE standard. In this scenario:
 * `NaN` is greater than any other element (including `POSITIVE_INFINITY`) 
 * `-0.0` is not equal to `0.0`
 
-For more information, see [Floating-point numbers comparison](numbers.md#floating-point-numbers-comparison).
+For more information, see [Floating-point numbers comparison](numbers.md#floating-point-number-comparison).
 
 ## Array equality
 

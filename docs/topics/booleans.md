@@ -3,7 +3,7 @@
 
 <show-structure depth="1"/>
 
-The [`Boolean`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/) type represents 
+The [`Boolean`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/) type represents
 logical values: `true` and `false`.
 
 Use `Boolean` values in functions that answer yes-or-no questions, and in the
@@ -69,12 +69,12 @@ fun main() {
 
 ## `Boolean` operations
 
-Kotlin provides operators and infix functions for working with `Boolean` values. 
+Kotlin provides operators and infix functions for working with `Boolean` values.
 You can use them to invert a `Boolean` value or combine multiple `Boolean` values into a single result.
 
 ### Negation (NOT)
 
-The NOT operator inverts a `Boolean` value. 
+The NOT operator inverts a `Boolean` value.
 
 To use NOT, place the `!` operator before a `Boolean` value:
 
@@ -86,7 +86,7 @@ val isOff = !isOn // isOff is false
 
 ### Logical AND
 
-The AND operator returns `true` only if both operands are `true`. 
+The AND operator returns `true` only if both operands are `true`.
 
 To use logical AND, place the `&&` operator between operands:
 
@@ -98,8 +98,8 @@ val d = true && true  // true
 ```
 
 > If the first operand is `false`, the `&&` operator skips the second operand.
-> To evaluate both operands, use the `and` [infix function](functions.md#infix-notation) instead. 
-> 
+> To evaluate both operands, use the `and` [infix function](functions.md#infix-notation) instead.
+>
 {style="note"}
 
 ### Logical OR
@@ -133,17 +133,17 @@ val c = true xor false  // true
 val d = true xor true   // false
 ```
 
-> `xor` is an [infix function](functions.md#infix-notation), not an operator. 
-> 
+> `xor` is an [infix function](functions.md#infix-notation), not an operator.
+>
 > Learn more about `Boolean` functions in the [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/).
 >
-{style="note"} 
+{style="note"}
 
 ## Operator precedence
 
-If an expression contains multiple logical operations and no parentheses to specify the evaluation order, 
-Kotlin applies precedence rules. Operations with higher precedence are evaluated before 
-operations with lower precedence. 
+If an expression contains multiple logical operations and no parentheses to specify the evaluation order,
+Kotlin applies precedence rules. Operations with higher precedence are evaluated before
+operations with lower precedence.
 
 For the `Boolean` operations described in this section, the precedence order is as follows:
 
@@ -179,7 +179,7 @@ fun main() {
 
 ## `Boolean` in conditions
 
-[`if`](control-flow.md#if-expression), [`when`](control-flow.md#when-expressions-and-statements), 
+[`if`](control-flow.md#if-expression), [`when`](control-flow.md#when-expressions-and-statements),
 and [`while`](control-flow.md#while-loops) evaluate `Boolean` expressions to direct program flow.
 
 ### `if` expressions
