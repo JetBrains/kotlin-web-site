@@ -1,7 +1,6 @@
 [//]: # (title: Numbers)
 [//]: # (description: Learn how to use numbers in Kotlin, including numeric types, literals, conversions, arithmetic operations, overflow, and JVM-specific behavior.)
 
-
 The Kotlin number types represent:
 * Integer values ([Byte](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte/),
   [Short](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-short/),
@@ -10,7 +9,7 @@ The Kotlin number types represent:
 * Floating-point values ([Float](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/)
   and [Double](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/))
 
-Use numbers to store and process numeric data, for example, in arithmetic, counters, measurements,
+Use number types to store and process numeric data, for example, in arithmetic, counters, measurements,
 and other calculations.
 
 ## Choose a number type
@@ -56,7 +55,12 @@ To declare a numeric value, specify the type explicitly:
 
 ```kotlin
 val one: Int = 1
-val oneBillion: Long = 1_000_000_000 // Use underscores to improve readability 
+
+// Use underscores to improve readability
+val oneBillion: Long = 1_000_000_000
+val hexBytes: Int = 0xFF_EC_DE_5E
+val bytes: Int = 0b11010010_01101001_10010100_10010010
+
 val oneByte: Byte = 1
 val oneShort: Short = 1
 ```
@@ -99,11 +103,11 @@ Floating-point types differ in size and precision:
 
 **Declare floating-point values**
 
-To declare a floating-point literal, include a decimal point (`.`) or use an exponent notation:
+To declare a floating-point literal, include a decimal point (`.`) or use exponent notation:
 
 ```kotlin
 val pi = 3.14
-val avogadro = 6.02214076e23  
+val avogadro = 6.02214076e23
 ```
 
 
@@ -242,7 +246,7 @@ fun main() {
 ```
 {kotlin-runnable="true" validate="false"}
 
-All number types support conversions to other numeric types.
+All number types support conversions to other number types.
 To convert a number to another type, use an explicit conversion function:
 
 * `toByte()`
@@ -302,15 +306,10 @@ val result: Int = intNumber + longNumber
 // Error: Initializer type mismatch
 ```
 
-> This behavior applies to arithmetic expressions only.
->
-{style="note"}
-
-
 ## Bitwise operations
 
-Kotlin provides _bitwise operations_ for `Int` and `Long`. These operations are represented by functions that can
-be called in [infix form](functions.md#infix-notation):
+Kotlin provides _bitwise operations_ for `Int` and `Long`. These operations are represented by
+a set of [infix functions](functions.md#infix-notation) and `inv()`.
 
 ```kotlin
 fun main() {
@@ -358,17 +357,17 @@ and operands used through generic types:
 ```kotlin
 //sampleStart  
 fun generalizedEquals(a: Any, b: Any): Boolean {
-  return a == b
+    return a == b
 }
 
 fun main() {
-  // Operands statically typed as floating-point numbers
-  println(Double.NaN == Double.NaN) // false
-  println(0.0 == -0.0) // true
+    // Operands statically typed as floating-point numbers
+    println(Double.NaN == Double.NaN) // false
+    println(0.0 == -0.0) // true
 
-  // Operands used through a non-floating-point static type
-  println(generalizedEquals(Double.NaN, Double.NaN)) // true
-  println(generalizedEquals(0.0, -0.0)) // false
+    // Operands used through a non-floating-point static type
+    println(generalizedEquals(Double.NaN, Double.NaN)) // true
+    println(generalizedEquals(0.0, -0.0)) // false
 //sampleEnd  
 }
 ```
@@ -411,8 +410,8 @@ fun main() {
     val savedScore: Int? = score
     val displayedScore: Int? = score
 
-    println(savedScore == displayedScore) // true
     println(savedScore === displayedScore) // false
+    println(savedScore == displayedScore) // true
 //sampleEnd
 }
 ```
