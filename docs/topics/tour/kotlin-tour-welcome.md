@@ -12,10 +12,10 @@ tour. Deepen your understanding with the intermediate tour.
 <p></p> <!-- workaround for MRK057: Paragraph can only contain inline elements-->
 <list columns="2">
     <li>
-        <a href="kotlin-tour-hello-world.md"><img src="kotlin-tour-beginner.svg" alt="Start the beginner Kotlin tour" type="block"/></a>
+        <a href="kotlin-tour-hello-world.md" data-button-link="true" data-button-icon="arrow-right" data-button-icon-position="right">Beginner</a>
     </li>
     <li>
-        <a href="kotlin-tour-intermediate-extension-functions.md"><img src="kotlin-tour-intermediate.svg" alt="Start the intermediate Kotlin tour" type="block"/></a>
+        <a href="kotlin-tour-intermediate-extension-functions.md" data-button-link="true" data-button-icon="arrow-right" data-button-icon-position="right">Intermediate</a>
     </li>
     <li>
         <p><img src="icon-1.svg" width="20" /> <a href="kotlin-tour-hello-world.md">Hello world</a></p>
