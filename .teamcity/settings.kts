@@ -1,4 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
+import kotlinlang_featured.projects.DocumentationProject
+import kotlinlang_featured.projects.PartsProject
+import kotlinlang_featured.projects.SiteProject
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -32,8 +35,9 @@ project {
 //    tests.TestsProject,
 //    documentation.DocumentationProject,
 //    landings.LandingPagesProject,
-    kotlinlang_featured.SiteProject,
-    kotlinlang_featured.DocumentationProject,
+      SiteProject,
+      DocumentationProject,
+      PartsProject
   ).also {
     it.forEach { subProject(it) }
   }

@@ -1,4 +1,4 @@
-package kotlinlang_featured
+package kotlinlang_featured.projects
 
 import jetbrains.buildServer.configs.kotlin.Project
 import kotlinlang_featured.vcsRoots.kotlinlang.GrammarGeneratorRoot
