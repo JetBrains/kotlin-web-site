@@ -16,9 +16,8 @@ object BuildSearchIndex : TemplateSearchIndex({
 
     triggers {
         schedule {
-            enabled = false
             schedulingPolicy = cron {
-                hours = "3"
+                hours = "10"
                 dayOfMonth = "*/2"
             }
             branchFilter = "+:<default>"
