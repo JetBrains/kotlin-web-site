@@ -23,7 +23,7 @@ correct number type for your task:
 * Use `Float` when lower precision is acceptable or required.
 * Use `Byte` and `Short` when an API or data format requires them.
 
-> Kotlin also provides [](unsigned-integer-types.md).
+> Kotlin also provides [](unsigned-integer-types.md) as a Beta feature. 
 >
 {style="tip"}
 
@@ -39,7 +39,7 @@ Kotlin provides four integer types with different sizes and value ranges:
 | `Long`	  | 64          | -9,223,372,036,854,775,808 (-2<sup>63</sup>) | 9,223,372,036,854,775,807 (2<sup>63</sup> - 1) |
 
 
-**Declare integer values**
+### Declare integer values
 
 Kotlin supports the following literal forms for integer values:
 
@@ -71,13 +71,24 @@ You can also append the `L` suffix, to declare a `Long` value:
 val oneLong = 1L
 ```
 
-> When you declare a numeric type explicitly, the compiler checks that the value
-> fits in the range of that type.
->
-> When you do not specify a numeric type, Kotlin infers `Int` if the
-> value fits in the `Int` range. Otherwise, Kotlin infers `Long`.
->
-{style="note"}
+When you declare a numeric type explicitly, the compiler checks that the value
+fits in the range of that type:
+
+```kotlin
+// Value fits in Byte
+val oneByte: Byte = 1
+
+// Error: the value does not fit in Byte
+val tooBig: Byte = 128
+```
+
+When you do not specify a numeric type, Kotlin infers `Int` if the
+value fits in the `Int` range. Otherwise, Kotlin infers `Long`:
+
+```kotlin
+val million = 1_000_000 // Int
+val threeBillion = 3_000_000_000 // Long
+```
 
 If a value can be absent, use nullable types:
 
@@ -101,7 +112,7 @@ Floating-point types differ in size and precision:
 | `Double` | 64          | 53               | 11            | 15-16          |    
 
 
-**Declare floating-point values**
+### Declare floating-point values
 
 To declare a floating-point literal, include a decimal point (`.`) or use exponent notation:
 
@@ -186,40 +197,6 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-### Data overflow
-
-Each integer type can store only values within its defined range. When the result of an
-arithmetic operation exceeds that range, _data overflow_ occurs:
-
-```kotlin
-fun main(){
-//sampleStart
-    val intNumber: Int = 2147483647
-    // Max Int value is 2147483647
-    println(intNumber + 1) // -2147483648
-//sampleEnd    
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-Here, the result wraps around because the value no longer fits in `Int`.
-
-> The compiler does not automatically produce an error when integer overflow occurs.
->
-{style="note"}
-
-However, since floating-point types follow the
-[IEEE 754 Standard](https://en.wikipedia.org/wiki/IEEE_754), very large results can become `Infinity`:
-
-```kotlin
-fun main() {
-//sampleStart
-    println(Double.MAX_VALUE * 2) // Infinity
-//sampleEnd    
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
 ## Type conversion
 
 Numeric types are not subtypes of one another. Kotlin requires explicit
@@ -237,6 +214,7 @@ fun main() {
     val x = 1.0
     val xInt = 1    
     val xFloat = 1.0f
+    val one: Double = 1 // Error: initializer type mismatch
 
     printDouble(x) // OK
     printDouble(xInt) // Error: argument type mismatch
@@ -305,6 +283,82 @@ val longNumber: Long = 1000
 val result: Int = intNumber + longNumber 
 // Error: Initializer type mismatch
 ```
+
+## Data overflow
+
+Numeric types can represent only values within their defined ranges.
+
+If the result of an operation falls outside that range, overflow occurs. 
+If you convert a value to a smaller numeric type, the converted value may not preserve 
+the original numeric value.
+
+This behavior can affect the result of your code even when the compiler accepts it.
+
+### Overflow in operations
+
+Each integer type can store only values within its defined range. When the result of an
+arithmetic operation exceeds that range, _data overflow_ occurs:
+
+```kotlin
+fun main(){
+//sampleStart
+    val intNumber: Int = 2147483647
+    // Max Int value is 2147483647
+    println(intNumber + 1) // -2147483648
+//sampleEnd    
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Here, the result wraps around because the value no longer fits in `Int`.
+
+> The compiler does not automatically produce an error when integer overflow occurs.
+>
+{style="note"}
+
+### Overflow in negation
+
+Overflow can also occur during negation. 
+For example, you cannot represent the positive counterpart of `Int.MIN_VALUE` as an `Int`.
+
+```kotlin
+fun main(){
+//sampleStart
+    val min = Int.MIN_VALUE
+    println(-min) // -2147483648
+//sampleEnd    
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+### Narrowing conversions
+
+When you convert a value to a smaller integer type, 
+the result may not preserve the original numeric value:
+
+```kotlin
+fun main() {
+//sampleStart
+    val large: Int = 130
+    val narrowed: Byte = large.toByte()
+
+    println(narrowed) // -126
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+However, since floating-point types follow the
+[IEEE 754 Standard](https://en.wikipedia.org/wiki/IEEE_754), very large results can become `Infinity`:
+
+```kotlin
+fun main() {
+//sampleStart
+    println(Double.MAX_VALUE * 2) // Infinity
+//sampleEnd    
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 ## Bitwise operations
 
