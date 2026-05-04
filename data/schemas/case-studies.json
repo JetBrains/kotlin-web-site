@@ -15,7 +15,7 @@
       "type": "object",
       "properties": {
         "id": { "type": "string", "minLength": 1 },
-        "type": { "enum": ["multiplatform", "server-side"] },
+        "type": { "enum": ["multiplatform", "server-side", "ai"] },
         "description": { "type": "string", "minLength": 1 },
         "logo": {
           "type": "array",
