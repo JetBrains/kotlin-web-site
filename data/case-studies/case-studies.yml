@@ -74,6 +74,18 @@ items:
       type: image
       path: /images/case-studies/bilibili-card-preview.png
   #------------------------------------------------------------------------
+  - id: jetbrains
+    type: ai
+    description: >-
+      To build AI tools that deeply understand the Kotlin ecosystem, **JetBrains** implemented a hybrid
+      architecture. They use on-device machine learning to gather project context and index official
+      documentation, delivering fast, Kotlin-aware code completions while keeping cloud costs low.
+    logo:
+      - /images/case-studies/jetbrains-logo.svg
+    media:
+      type: youtube
+      videoId: 1ipJ-tdcmwE
+  #------------------------------------------------------------------------
   - id: mcdonalds-umain
     type: multiplatform
     description: >-
@@ -128,6 +140,20 @@ items:
       type: youtube
       videoId: z-u99yZFn5o
   #------------------------------------------------------------------------
+  - id: deutsche-telekom
+    type: ai
+    description: >-
+      **Deutsche Telekom** built one of the largest LLM-powered chatbots in Europe, handling 500,000
+      conversations a month, using a multi-agent platform written entirely in Kotlin. To scale their AI
+      development, they created ARC, an open-source agentic framework that utilizes a custom Kotlin DSL.
+      This approach allows their teams to rapidly prototype, deploy, and observe distinct AI agents as
+      independent microservices without disrupting the entire ecosystem.
+    logo:
+      - /images/case-studies/deutsche-telekom-logo.svg
+    media:
+      type: youtube
+      videoId: mQhtLCMiUMA
+  #------------------------------------------------------------------------
   - id: bolt
     type: multiplatform
     description: >-
@@ -179,6 +205,20 @@ items:
     media:
       type: youtube
       videoId: GtJBS7B3eyM
+  #------------------------------------------------------------------------
+  - id: uber
+    type: ai
+    description: >-
+      To accelerate the migration of millions of lines of Java code to Kotlin, **Uber** integrated LLMs
+      into their internal platform tooling. Rather than relying on raw AI code generation, which can be
+      risky for a flagship mobile app, Uber uses a dual-LLM setup to analyze thousands of past manual
+      commits and generate deterministic, reusable migration rules. This AI-assisted workflow safely and
+      drastically reduced the timeline required to transition to a modern Kotlin codebase.
+    logo:
+      - /images/case-studies/uber-logo.svg
+    media:
+      type: youtube
+      videoId: K2PN03AepC0
   #------------------------------------------------------------------------
   - id: travelperk
     type: multiplatform
@@ -239,6 +279,21 @@ items:
     media:
       type: youtube
       videoId: Qu3jZX8RyFk
+  #------------------------------------------------------------------------
+  - id: mercedes-benz
+    type: ai
+    description: >-
+      "Since Kotlin is the language of choice for server-side applications, it's a natural decision to
+      experiment with it using the Koog framework by JetBrains, aligning with our goals of reliability
+      and maintainability. […] Thanks to Kotlin's strong typing and concise syntax, reasoning steps
+      remain explicit and testable."
+    signature:
+      name: Bruno Ferreira
+      position: Software Architect at Mercedes-Benz.io
+    logo:
+      - /images/case-studies/mercedes-benz-logo.svg
+    isExternal: true
+    link: https://www.mercedes-benz.io/blog/2025-11-14-the-guardrails-your-llm-needs-reliable-agent-based-systems
   #------------------------------------------------------------------------
   - id: cash-app
     type: multiplatform
