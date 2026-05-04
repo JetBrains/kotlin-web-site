@@ -7,22 +7,30 @@
 
 You can participate in the Kotlin Early Access Preview (EAP) to try out the latest Kotlin features before they are released.
 
-We ship a few Beta (_Beta_) and Release Candidate (_RC_) builds before every language (_2.x.0_) and tooling (_2.x.20_) release. 
+Before every language (_2.x.0_) and tooling (_2.x.20_) release, we ship Early Access Preview (EAP) builds for you to test in real projects and share early feedback.
+Kotlin EAP builds typically include the following stages:
 
-We'll be very thankful if you find and report bugs to our issue tracker [YouTrack](https://kotl.in/issue). 
-It is very likely that we'll be able to fix them before the final release, which means you won't need to wait until the next Kotlin release for your issues to be addressed. 
+| EAP build | Description                                                                                                                                                                                         |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Beta1** | Introduces the first set of upcoming features, improvements, and other significant changes. Gives you an early opportunity to evaluate new functionality and share feedback.                        |
+| **Beta2** | Usually adds more features and refinements based on the feedback we've received. Is feature-complete and continues the preview of the upcoming release, further maturing previously introduced features. |
+| **RC**    | The first release candidate. Focuses on stabilizing the changes delivered in Beta1 and Beta2, as well as fixing regressions found during testing.                                                   |
+| **RC2**   | Includes important fixes to finalize the release and confirm readiness.                                                                                                                             | 
+
+We'd appreciate it if you report any bugs you find to our issue tracker, [YouTrack](https://kotl.in/issue). 
+In most cases, we can fix them before the final release, so you won't need to wait for the next Kotlin release to see your issues resolved. 
 
 By participating in the Early Access Preview and reporting bugs, you contribute to Kotlin and help us make it better 
-for everyone in [the growing Kotlin community](https://kotlinlang.org/community/). We appreciate your help a lot! 
+for everyone in [the growing Kotlin community](https://kotlinlang.org/community/).
 
-If you have any questions and want to participate in discussions, you are welcome to join the [#eap channel in Kotlin Slack](https://app.slack.com/client/T09229ZC6/C0KLZSCHF). 
+If you have any questions or want to join the discussion, you're welcome to join the [#eap channel in Kotlin Slack](https://app.slack.com/client/T09229ZC6/C0KLZSCHF). 
 In this channel, you can also get notifications about new EAP builds.
 
 **[Configure your project for the Kotlin EAP version](configure-build-for-eap.md)**
 
 > By participating in the EAP, you expressly acknowledge that the EAP version may not be reliable, may not work as intended, and may contain errors.
 >
-> Please note that we don't provide any guarantees of compatibility between EAP and final versions of the same release. 
+> We don't guarantee compatibility between EAP and final versions of the same release. 
 >
 {style="note"}
 

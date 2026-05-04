@@ -119,7 +119,7 @@ Before releasing stable versions of language and tooling releases,
 we publish a number of preview builds dubbed EAP (for "Early Access Preview") that let us iterate faster and gather feedback from the community.
 EAPs of language releases usually produce binaries that will be later rejected by the stable compiler
 to make sure that possible bugs in the binary format survive no longer than the preview period.
-Final Release Candidates normally do not bear this limitation.
+Final Release Candidates normally don't bear this limitation. For more information, see [Participate in the Kotlin Early Access Preview](eap.md).
 
 ### Pre-stable features
 
