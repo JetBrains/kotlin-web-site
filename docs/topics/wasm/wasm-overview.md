@@ -45,18 +45,33 @@ Would you like to try it yourself?
 
 ## Kotlin/Wasm and WASI
 
-Kotlin/Wasm uses the [WebAssembly System Interface (WASI)](https://wasi.dev/) for server-side applications.
+Kotlin/Wasm uses the [WebAssembly System Interface (WASI)](https://wasi.dev/) for backend applications.
 Applications built with Kotlin/Wasm and WASI use a Wasm-WASI target, allowing you to call the WASI API and run applications 
 outside the browser environment.
 
 Kotlin/Wasm leverages WASI to abstract away platform-specific details, allowing the same Kotlin code to run across diverse 
 platforms. This expands the reach of Kotlin/Wasm beyond web applications without requiring custom handling for each runtime.
 
-WASI provides a secure standard interface for running Kotlin applications compiled to WebAssembly across different environments.
+WASI provides a secure, standardized interface for running Kotlin applications compiled to WebAssembly across different environments.
 
 > To see Kotlin/Wasm and WASI in action, check the [Get started with Kotlin/Wasm and WASI tutorial](wasm-wasi.md).
 >
 {style="tip"}
+
+### WebAssembly Component Model
+<primary-label ref="experimental-general"/>
+
+> Support for the WebAssembly Component Model is currently available only in an EAP release: [Kotlin %kotlinEapVersion%](whatsnew-eap.md).
+>
+{style="note"}
+
+WASI 0.2 is built on the [WebAssembly Component Model](https://github.com/WebAssembly/component-model), which defines a way to build components from Wasm modules using
+standardized interfaces and types. The model lets you define language-agnostic components in applications or libraries.
+You can also compose Wasm modules and existing components into new components.
+
+To explore what's possible with the WebAssembly Component Model and Kotlin/Wasm, check out this demo of [a simple server built with `wasi:http`](https://github.com/Kotlin/sample-wasi-http-kotlin/).
+
+<img src="kotlin-wasm-wasi-http.gif" alt="Kotlin/Wasm with WebAssembly Component Model" width="600"/>
 
 ## Kotlin/Wasm performance
 
