@@ -1,14 +1,12 @@
 [//]: # (title: Strings)
 [//]: # (description: Learn how to work with strings in Kotlin, including string literals, string templates, multiline strings, and common text operations.)
 
-<show-structure depth="1"/>
-
 The [`String`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/) type represents a sequence of
 [characters](characters.md). 
 
 Use `String` for text values, such as words, sentences, messages, or structured text. 
 
-The `String` type is immutable. This means that once you create a `String`, you cannot change its contents.
+The `String` type is immutable. 
 
 ## Declare strings
 
@@ -38,7 +36,7 @@ val quote = "Kotlin says, \"Hi\"."
 Use escape sequences for special characters that are difficult to write directly in source code or have a
 special meaning.
 
-## Multiline strings
+### Multiline strings
 
 To store text that consists of multiple lines or contains quotes that you do not want to escape,
 use a multiline `String` enclosed in triple quotes (`""" """`):
@@ -56,8 +54,6 @@ val quote = """Kotlin says, "Hi"."""
 > Characters such as `\n` and `\t` are treated as regular text. 
 >
 {style="note"}
-
-### Line breaks and indentation
 
 Multiline strings preserve **line breaks** and **indentations** as written in the source code. 
 
@@ -120,8 +116,8 @@ as a parameter. For example: `trimMargin(">")`.
 
 ## String templates
 
-String templates let you insert variables and expressions directly into a `String`. This process is called 
-_interpolation_. 
+String templates let you embed variables and expressions directly inside a `String` literal. 
+This process is called _interpolation_. 
 
 You can use string templates in both regular and multiline strings.
 
@@ -172,7 +168,7 @@ Result: ${"OK".lowercase()}
 
 ### Nullable values in string templates
 
-If a template expression has a nullable type and a `null` value, the Kotlin compiler 
+If an interpolated expression or variable evaluates to `null`, the Kotlin compiler 
 inserts the text `null` into the resulting `String`:
 
 ```kotlin 
@@ -231,10 +227,37 @@ val KClass<*>.jsonSchema : String
 >
 {style="tip"}
 
+## Basic string operations
 
-## Access characters in a string
+Kotlin provides a range of operations for working with strings.
 
-You can access an individual character in a `String` by its index. To do so, 
+This section introduces some of the most commonly used operations.
+
+> Learn more about all available functions in the
+> [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/).
+
+Since the `String` type is immutable, you cannot change its contents. 
+String operations return new strings with modifications applied and do not update
+the original variable. 
+
+### Get string length
+
+To get the number of characters in a `String`, use the
+[`length`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/length.html) property:
+
+```kotlin 
+fun main (){
+    //sampleStart
+    val language = "Kotlin"
+    println(language.length) // 6
+    //sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+### Access characters by index
+
+To access an individual character in a `String`, 
 use the indexing operator (`[]`): 
 
 ```kotlin 
@@ -265,17 +288,16 @@ fun main (){
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-## Extract parts of a string
+### Extract parts of a string
 
-To extract part of a `String`, use substring functions. 
+To extract part of a `String`, use
+[`substring()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/substring.html) functions
+or [`subSequence()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/sub-sequence.html). 
 
 Substring functions return a new `String` that contains the selected part of the original text. 
 The original `String` is not modified.
 
-### Extract by index
-
-Use [`substring()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/substring.html) when you know the position 
-of the characters you want to extract:
+For example:
   
 ```kotlin
 fun main() {
@@ -283,72 +305,8 @@ fun main() {
     val text = "Kotlin"
     println(text.substring(1))    // otlin
     println(text.substring(1, 5)) // otli
+    println(text.subSequence(1, 5)) // otli
 //sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-The start index is **inclusive**, and the end index is **exclusive**.
-
-### Extract around a delimiter
-
-Use [`substringBefore()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/substring-before.html) 
-and [`substringAfter()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/substring-after.html) to extract 
-text relative to a delimiter:
-
-```kotlin
-fun main() { 
-//sampleStart  
-    val domain = "kotlinlang.org"
-  
-    println(domain.substringBefore(".")) // kotlinlang
-    println(domain.substringAfter("."))  // org
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-
-## Common string operations
-
-Kotlin provides a range of operations for working with strings.
-
-This section introduces some of the most commonly used operations.
-
-> Learn more about all available functions in the
-> [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/).
->
-{style="note"}
-
-
-### Read input into a string
-
-* To read a single line from the standard input, use `readln()` 
-  or `readlnOrNull()` (if end-of-file is possible):
- 
-  ```kotlin
-  val firstInput = readln()
-  val secondInput = readlnOrNull() // End-of-file is possible
-  ```
-
-* To read multiline input as one `String`, join it with newline characters:
-
-  ```kotlin
-  val input = generateSequence(::readlnOrNull)
-      .joinToString("\n")
-  ```
-
-### Get string length
-
-To get the number of characters in a `String`, use the
-[`length`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/length.html) property:
-
-```kotlin 
-fun main (){
-    //sampleStart
-    val language = "Kotlin"
-    println(language.length) // 6
-    //sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
@@ -372,32 +330,6 @@ fun main() {
 }
  ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-### Create modified copies
-
-> Strings are immutable. Functions that change text return a new `String`.
-> 
-{style="note"}
-
-To create a modified copy of a `String`, you can use functions like 
-`replace()`, `uppercase()`, or `lowercase()`:
-
-```kotlin
-fun main() { 
-//sampleStart
-    val text = "Hello, Kotlin"
-    
-    // Replaces "Kotlin" with "world" 
-    println(text.replace("Kotlin", "world"))  // Hello, world  
-    // Converts all letters to uppercase
-    println(text.uppercase()) // HELLO, KOTLIN  
-    // Converts all letters to lowercase
-    println(text.lowercase()) // hello, kotlin
-//sampleEnd
-}
- ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
 
 ### Split strings
 
@@ -426,64 +358,3 @@ fun main() {
     }
     ```
     {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-### Use regular expressions
-
-If you need to work with text patterns instead of fixed characters or delimiters, use
-regular expressions
-([`Regex`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-regex/)).
-
-Regular expressions can:
-* Search string content
-* Check whether text matches a pattern
-* Split strings by a pattern
-* Replace matching parts of a string
-
-For example, you can use [`find()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-regex/find.html) 
-to return the first match of a regular expression:
-
-```kotlin
-fun main() {
-//sampleStart
-    val text = "User: Kotlin123"
-
-    // Finds the first sequence of one or more digits and gets its value  
-    val number = Regex("\\d+").find(text)?.value 
-    println(number) // 123
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-### Build and format strings
-
-> For most formatting tasks in Kotlin, use [string templates](#string-templates).
->
-{style="note"}
-
-* To build a `String` step by step, use 
-  [`buildString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/build-string.html):
-
-  ```kotlin 
-  val result = buildString {
-      append("Hours: ")
-      append("12")
-      append(", minutes: ")
-      append("30")
-  }
-  ```
-
-  You can use it to assemble text incrementally, for example, in loops or conditional logic.
-
-* On the JVM, you can also format a `String` using [`String.format()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/format.html):
-
-  ```kotlin
-  val text = String.format("Hello, %s", "Kotlin")
-  ```
-
-  > Use `String.format()` only when you specifically need formatter-style specifiers on the JVM.
-  >
-  > Learn more about format specifiers in the
-  > [Java Class Formatter documentation](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#summary).
-  >
-  {style="note"}
