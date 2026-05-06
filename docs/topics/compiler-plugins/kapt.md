@@ -4,7 +4,7 @@
 
 * Use **kapt** if:
    * You have a Maven project.
-   * You have a Gradle project, but the required Java annotation processor does not yet support KSP. [See the list of supported libraries](ksp-overview.md#supported-libraries).
+   * You have a Gradle project, but the required Java annotation processor doesn't support KSP yet. [See the list of supported libraries](ksp-overview.md#supported-libraries).
 * Use **[KSP](ksp-overview.md)** if:
    * You have a Gradle project, and the required Java annotation processor supports KSP.
    * You want to create your own annotation processors.
@@ -457,7 +457,7 @@ kapt {
 }
 ```
 
-If you use Maven, you need to specify concrete plugin settings.
+If you use Maven, configure the plugin explicitly.
 See this [example of settings for the Lombok compiler plugin](lombok.md#using-with-kapt).
 
 ## What's next

@@ -4,7 +4,7 @@
 
 * Use **[kapt](kapt.md)** if:
   * You have a Maven project.
-  * You have a Gradle project, but the required Java annotation processor does not yet support KSP. [See the list of supported libraries](ksp-overview.md#supported-libraries).
+  * You have a Gradle project, but the required Java annotation processor doesn't support KSP yet. [See the list of supported libraries](ksp-overview.md#supported-libraries).
 * Use **[KSP](ksp-overview.md)** if:
   * You have a Gradle project, and the required Java annotation processor supports KSP.
   * You want to create your own annotation processors.
@@ -16,10 +16,10 @@ Kotlin supports two ways to work with annotation processors:
 
 * [The kapt compiler plugin](#use-kapt-with-java-annotation-processors) works by generating stub files from Kotlin source
   code and then running the Java annotation processors on those stubs. This extra stub-generation step makes
-  the build time slower and means it cannot understand Kotlin-specific constructs, such as extension functions or null safety.
+  the build time slower and means it can't understand Kotlin-specific constructs, such as extension functions or null safety.
 
   kapt supports both Maven and Gradle. It's recommended for all Maven projects and for Gradle projects with processor
-  libraries that have not yet adopted KSP, such as [MapStruct](https://mapstruct.org/).
+  libraries that haven't yet adopted KSP, such as [MapStruct](https://mapstruct.org/).
 
 * [The KSP framework](#use-ksp-in-gradle-projects) reads Kotlin source code directly through a Kotlin-first API,
   without generating stubs. It understands Kotlin-specific features natively and runs builds faster than kapt.
@@ -35,7 +35,7 @@ themselves.
 The example below shows how to use the [MapStruct](https://mapstruct.org/) annotation processor, which generates type-safe
 mapper implementations between Java beans at compile time.
 
-1. Apply the `kapt` plugin and add MapStruct as a dependency:
+1. Apply the `kapt` plugin and add the MapStruct dependencies:
 
    <tabs group="build-tool">
    <tab title="Maven" group-key="maven">
@@ -232,7 +232,7 @@ generates the wiring code for your dependency graph.
    }
    ```
 
-3. Build the project. Dagger generates implementation classes, for example `DaggerAppComponent`, in the
+3. Build the project. Dagger generates implementation classes,  such as `DaggerAppComponent` in the
    `build/generated/ksp` directory. Use the generated class in your code:
 
     ```kotlin
@@ -255,7 +255,7 @@ A new processor requires three modules:
   that creates your processor, and registers the provider in the `META-INF/services/` path.
 * An `app` module that applies the KSP plugin, depends on the processor, and uses the annotation.
 
-For a complete step-by-step instructions, see the [KSP quickstart](ksp-quickstart.md#create-your-own-processor).
+For complete step-by-step instructions, see the [KSP quickstart](ksp-quickstart.md#create-your-own-processor).
 
 ## What's next
 
