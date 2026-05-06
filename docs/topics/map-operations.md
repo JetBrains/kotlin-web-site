@@ -11,25 +11,44 @@ For retrieving a value from a map, you must provide its key as an argument of th
 The shorthand `[key]` syntax is also supported. If the given key is not found, it returns `null`.
 There is also the function [`getValue()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-value.html)
 which has slightly different behavior: it throws an exception if the key is not found in the map.
-Additionally, you have two more options to handle the key absence: 
+Additionally, you have more options to handle missing keys and nullable values:
 
 * [`getOrElse()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-else.html) works the same way as for lists: the values for non-existent keys are returned from the given lambda function.
+* `getOrElseIfNull()` returns the result of the specified default value if the key is missing or has a `null` value.
+* `getOrElseIfMissing()` returns the result of the specified default value if the key is missing.
 * [`getOrDefault()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-default.html) returns the specified default value if the key is not found.
 
 ```kotlin
-
+@OptIn(ExperimentalStdlibApi::class)
 fun main() {
 //sampleStart
     val numbersMap = mapOf("one" to 1, "two" to 2, "three" to 3)
     println(numbersMap.get("one"))
+    // 1
+
     println(numbersMap["one"])
+    // 1
+
     println(numbersMap.getOrDefault("four", 10))
-    println(numbersMap["five"])               // null
-    //numbersMap.getValue("six")      // exception!
+    // 10
+
+    println(numbersMap["five"])
+    // null
+    
+    val nullableMap = mapOf("one" to 1, "two" to null)
+    println(nullableMap.getOrElseIfNull("two") { 0 })
+    // 0
+
+    println(nullableMap.getOrElseIfMissing("two") { 0 })
+    // null
+
+    // Throws an exception because "six" is missing from the map
+    // numbersMap.getValue("six")
+
 //sampleEnd
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.4"}
 
 To perform operations on all keys or all values of a map, you can retrieve them from the properties `keys` and `values` accordingly.
 `keys` is a set of all map keys and `values` is a collection of all map values.
@@ -203,6 +222,44 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 When called with the key present in the map, operators overwrite the values of the corresponding entries. 
+
+#### Add default values for missing entries
+
+To return an existing value or add a default value when no value is available, use the [`.getOrPut()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-put.html) extension function.
+If the key is missing or has a `null` value, `.getOrPut()` stores the default value and returns it.
+
+For maps with nullable values, you can use the `.getOrPutIfNull()` and `.getOrPutIfMissing()` functions to control how `null` values are treated:
+
+* `getOrPutIfNull()` behaves like `getOrPut()` and uses the default value if the key is missing or has a `null` value.
+* `getOrPutIfMissing()` uses the default value only if the key is missing.
+
+The `getOrPutIfNull()` and `getOrPutIfMissing()` functions are [Experimental](components-stability.md#stability-levels-explained).
+To opt in, use the `@OptIn(ExperimentalStdlibApi::class)` annotation.
+
+Here's an example:
+
+```kotlin
+@OptIn(ExperimentalStdlibApi::class)
+fun main() {
+//sampleStart
+    val mapForNull = mutableMapOf<String, Int?>("one" to null)
+    val mapForMissing = mutableMapOf<String, Int?>("one" to null)
+
+    // Replaces the value if "one" has a null value
+    mapForNull.getOrPutIfNull("one") { 1 }
+
+    println(mapForNull)
+    // {one=1}
+
+    // Keeps the null value because "one" exists in the map
+    mapForMissing.getOrPutIfMissing("one") { 1 }
+
+    println(mapForMissing)
+    // {one=null}
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.4"}
 
 ### Remove entries
 
