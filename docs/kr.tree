@@ -241,6 +241,7 @@
         <toc-element toc-title="Kotlin for AI-powered apps">
             <toc-element toc-title="Overview" topic="kotlin-ai-apps-development-overview.md"/>
             <toc-element toc-title="Build a Kotlin app with Spring AI – tutorial" topic="spring-ai-guide.md"/>
+            <toc-element toc-title="Create a Kotlin app with Spring Boot and Claude – tutorial" topic="spring-boot-claude.md"/>
         </toc-element>
     </toc-element>
     <toc-element toc-title="Library guides">
