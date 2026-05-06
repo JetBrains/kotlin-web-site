@@ -15,8 +15,8 @@ Annotation processors analyze your source code at compile time to generate boile
 Kotlin supports two ways to work with annotation processors:
 
 * [The kapt compiler plugin](#use-kapt-with-java-annotation-processors) works by generating stub files from Kotlin source
-  code and then running the Java annotation processors on those stubs. This extra stub-generation step makes
-  the build time slower and means it can't understand Kotlin-specific constructs, such as extension functions or null safety.
+  code and then running the Java annotation processors on those stubs. This extra stub-generation step makes the build
+  time slower and means kapt can't understand Kotlin-specific constructs, such as [extension functions](extensions.md) or [null safety](null-safety.md).
 
   kapt supports both Maven and Gradle. It's recommended for all Maven projects and for Gradle projects with processor
   libraries that haven't yet adopted KSP, such as [MapStruct](https://mapstruct.org/).
@@ -35,7 +35,7 @@ themselves.
 The example below shows how to use the [MapStruct](https://mapstruct.org/) annotation processor, which generates type-safe
 mapper implementations between Java beans at compile time.
 
-1. Apply the `kapt` plugin and add the MapStruct dependencies:
+1. Apply the `kapt` plugin and add MapStruct to the `<dependencies>` section:
 
    <tabs group="build-tool">
    <tab title="Maven" group-key="maven">
@@ -84,8 +84,8 @@ mapper implementations between Java beans at compile time.
    </plugin>
    ```
    
-   * The execution of the `kapt` goal from `kotlin-maven-plugin` is added **before** the `compile` execution.
-   * The `aptMode` option configures the [level of annotation processing](kapt.md#use-in-maven).
+   * Always add the execution of the `kapt` goal from `kotlin-maven-plugin` **before** the `compile` execution.
+   * Configure the [level of annotation processing](kapt.md#use-in-maven) using the `aptMode` option .
 
    </tab>
    <tab title="Gradle Kotlin" group-key="kotlin">
@@ -144,7 +144,8 @@ mapper implementations between Java beans at compile time.
    fun main() {
        val entity = UserEntity(id = 1L, firstName = "John", lastName = "Doe")
        val dto = UserMapper.toDto(entity)
-       println(dto) // UserDto(id=1, firstName=John, lastName=Doe)
+       println(dto)
+       // UserDto(id=1, firstName=John, lastName=Doe)
    }
    ```
 
@@ -155,13 +156,13 @@ processors that generate code based on annotations in your source code.
 
 ### Use KSP with Java annotation processors
 
-For Gradle projects, it's recommended to use KSP and its compatible annotation processors since it's faster than kapt and
+For Gradle projects, use KSP with the compatible annotation processors. KSP is faster than kapt and
 can understand Kotlin-specific features natively. See the list of [libraries that already support KSP](ksp-overview.md#supported-libraries).
 
 The example below shows how to use [Dagger](https://dagger.dev/), a compile-time dependency injection framework that
 generates the wiring code for your dependency graph.
 
-1. Add the KSP plugin and the Dagger dependency to your `build.gradle(.kts)` file:
+1. Apply the KSP plugin and add Dagger to the `dependencies` block of your `build.gradle(.kts)` file:
  
    <tabs group="build-script">
    <tab title="Kotlin" group-key="kotlin">
@@ -239,7 +240,8 @@ generates the wiring code for your dependency graph.
     fun main() {
         val appComponent = DaggerAppComponent.create()
         val userRepository = appComponent.userRepository()
-        println("User: ${userRepository.getUser()}") // User: John Doe
+        println("User: ${userRepository.getUser()}")
+        // User: John Doe
     }
     ```
 
@@ -251,8 +253,8 @@ You can use the KSP API to write your own annotation processors that generate co
 A new processor requires three modules:
 
 * An `annotation` module that declares the custom annotation.
-* A `processor` module that implements the `SymbolProcessor` with the main logic and the `SymbolProcessorProvider` factory
-  that creates your processor, and registers the provider in the `META-INF/services/` path.
+* A `processor` module that implements the `SymbolProcessor` and `SymbolProcessorProvider` factories. `SymbolProcessor`
+  contains the main logic, while `SymbolProcessorProvider` creates the processor and registers the provider in the `META-INF/services/` path.
 * An `app` module that applies the KSP plugin, depends on the processor, and uses the annotation.
 
 For complete step-by-step instructions, see the [KSP quickstart](ksp-quickstart.md#create-your-own-processor).

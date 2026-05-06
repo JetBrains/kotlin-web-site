@@ -14,9 +14,8 @@
 The kapt compiler plugin allows you to use existing Java annotation processors in Kotlin and works with both Maven and Gradle.
 It generates stub files from Kotlin source code and then runs the Java annotation processors on those stubs.
 
-In a nutshell, kapt helps you use libraries like [MapStruct](https://mapstruct.org/) and 
-[Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html) in your Kotlin projects by 
-enabling Java-based annotation processing.
+This enables Java-based annotation processing in your Kotlin projects for libraries like [MapStruct](https://mapstruct.org/)
+and [Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html).
 
 ## Use in Gradle
 
@@ -458,7 +457,7 @@ kapt {
 ```
 
 If you use Maven, configure the plugin explicitly.
-See this [example of settings for the Lombok compiler plugin](lombok.md#using-with-kapt).
+See this [example of setting up the Lombok compiler plugin](lombok.md#using-with-kapt).
 
 ## What's next
 
