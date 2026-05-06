@@ -14,6 +14,23 @@ println(readln())
 // Hi, Kotlin!
 ```
 
+You can also read multiline input as one string.
+For that join it with newline characters using 
+[`joinToString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.sequences/join-to-string.html):
+
+```kotlin
+val input = generateSequence(::readlnOrNull)
+  .joinToString("\n")
+```
+
+> This code does not work correctly with `readln()`, because the function throws an
+> exception at end of input instead of returning `null`.
+> 
+> To read input until end-of-file, use
+> [`readlnOrNull()`](#handle-standard-input-safely).
+> 
+{style="note"}
+
 To work with data types other than strings, you can convert the input using conversion functions like `.toInt()`, `.toLong()`, `.toDouble()`, `.toFloat()`, or `.toBoolean()`.
 It is possible to read multiple inputs of different data types and store each input in a variable:
 
