@@ -4,14 +4,13 @@ Kotlin integrates seamlessly with the Maven ecosystem, allowing you to use indus
 applications. In this guide, you'll learn how to create tests with JUnit and use Maven plugins to run unit and integration
 tests.
 
-> For a detailed guide on setting up your Maven project to use both Kotlin and Java, see [](mixing-java-kotlin-intellij.md#project-configuration).
+> For a detailed guide to setting up your Maven project to use both Kotlin and Java, see [](mixing-java-kotlin-intellij.md#project-configuration).
 > 
 {style="tip"}
 
 ## Create tests with JUnit
 
-[JUnit](https://junit.org/) is the standard testing framework for Kotlin backend development. While Kotlin is compatible
-with multiple Junit versions, most modern projects should use JUnit 6.
+[JUnit](https://junit.org/) is the standard testing framework for Kotlin backend development. While Kotlin supports multiple JUnit versions, most modern projects should use JUnit 6.
 
 To create a test in Kotlin using JUnit, use the `@Test` annotation from the `kotlin.test` or JUnit package.
 
@@ -66,7 +65,7 @@ that utilizes JUnit 4:
 ### Write unit tests
 
 Unit tests verify isolated parts of your code, such as individual functions or classes. 
-By convention, unit tests are named with the `*Test` suffix, for example:
+By convention, unit tests are named with the `*Test` suffix. For example:
 
 ```kotlin
 import kotlin.test.Test
@@ -84,8 +83,8 @@ class OrderServiceTest {
 
 ### Write integration tests
 
-Integration tests verify interaction between components (like a service and a database). 
-By convention, integration tests are named with the `*IT` suffix, for example:
+Integration tests verify interaction between components, like a service and a database. 
+By convention, integration tests are named with the `*IT` suffix. For example:
 
 ```kotlin
 import kotlin.test.Test
@@ -176,4 +175,4 @@ Besides JUnit, you can use other popular frameworks to make Kotlin tests more id
 ## What's next
 
 * Explore the features of the [`kotlin.test` library](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/).
-* Improve your test output with the [Kotlin's Power-assert compiler plugin](power-assert.md).
+* Improve your test output with [Kotlin's Power-assert compiler plugin](power-assert.md).
