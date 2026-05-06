@@ -41,6 +41,10 @@ fun formatGreeting(name: String): String {
 }
 ```
 
+> You can also use the [experimental `returnsResultOf()` contract](whatsnew24.md#improve-unused-result-checks-for-higher-order-functions) to enable the checker to distinguish between meaningful and ignorable unused results from higher-order functions that return the result of a lambda.
+>
+{style="note"}
+
 ## Configure the unused return value checker
 
 You can control how the compiler reports ignored results with the `-Xreturn-value-checker` compiler option.
