@@ -350,6 +350,18 @@ items:
       type: youtube
       videoId: jhBmom8z3Qg
   #------------------------------------------------------------------------
+  - id: doist
+    type: multiplatform
+    description: >-
+      Why did iOS developers at **Doist** want Kotlin Multiplatform?
+      Doist uses KMP in its award-winning Todoist app to share core logic between Android and iOS – maintaining consistent behavior and streamlining development across platforms.
+    platforms:
+      - android
+      - ios
+    media:
+      type: youtube
+      videoId: z-o9MqN86eE
+  #------------------------------------------------------------------------
   - id: autodesk
     type: multiplatform
     description: >-
