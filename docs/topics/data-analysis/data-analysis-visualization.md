@@ -1,5 +1,5 @@
 [//]: # (title: Data visualization with Kandy)
-[//]: # (description: Learn how to visualize data in Kotlin Notebook with Kandy and Kotlin DataFrame by creating line, points, and bar charts.)
+[//]: # (description: Learn how to visualize data with Kandy and Kotlin DataFrame by creating line, points, and bar charts.)
 
 Kotlin offers an all-in-one-place solution for powerful and flexible data visualization, providing an intuitive way to present and explore data 
 before diving into complex models.

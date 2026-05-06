@@ -1,5 +1,5 @@
 [//]: # (title: Kotlin for data analysis)
-[//]: # (description: Learn how to use Kotlin for data analysis with Kotlin Notebook, Kotlin DataFrame, and Kandy to retrieve, transform, analyze, and visualize data.)
+[//]: # (description: Learn how to use Kotlin for data analysis with Kotlin DataFrame, and Kandy to retrieve, transform, analyze, and visualize data.)
 
 Exploring and analyzing data is something you may not do every day, but it's a crucial skill you need as a software developer. 
 
@@ -10,7 +10,7 @@ With Kotlin's Exploratory Data Analysis (EDA) tools, such as [Kotlin notebooks](
 have at your disposal a rich set of capabilities to enhance your analytics skills and support you across different scenarios:
 
 * **Load, transform, and visualize data in various formats:** with our Kotlin EDA tools, you can perform tasks like filtering, sorting, and aggregating data. Our tools can seamlessly
-read data right in the IDE from different data sources, including CSV, JSON, and TXT.
+read data right in the IDE from different data sources, such as CSV, JSON, SQL Databases, or Parquet files.
 See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
 
 

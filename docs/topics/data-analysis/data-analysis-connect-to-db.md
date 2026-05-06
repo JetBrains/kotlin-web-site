@@ -1,5 +1,5 @@
 [//]: # (title: Connect and retrieve data from databases)
-[//]: # (description: Learn how to connect to SQL databases from Kotlin Notebook, inspect table schemas, and retrieve data with Kotlin DataFrame.)
+[//]: # (description: Learn how to connect to SQL databases, inspect table schemas, and retrieve data with Kotlin DataFrame.)
 
 [Kotlin Notebook](kotlin-notebook-overview.md) provides support for the most common SQL databases:
 

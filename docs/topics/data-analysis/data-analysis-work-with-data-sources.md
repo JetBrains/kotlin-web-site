@@ -1,5 +1,5 @@
 [//]: # (title: Retrieve data from files)
-[//]: # (description: Learn how to load data from files in Kotlin Notebook using Kotlin DataFrame, including CSV, JSON, SQL, Excel, Apache Arrow files.)
+[//]: # (description: Learn how to load data from files using Kotlin DataFrame, including CSV, JSON, SQL, Excel, Apache Arrow files.)
 
 [Kotlin Notebook](kotlin-notebook-overview.md), coupled with the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), enables 
 you to work with both non-structured and structured data. This combination offers the flexibility to transform non-structured data, 
@@ -8,7 +8,7 @@ such as data found in TXT files, into structured datasets.
 For data transformations, you can use such methods as [`add`](https://kotlin.github.io/dataframe/adddf.html), [`split`](https://kotlin.github.io/dataframe/split.html),
 [`convert`](https://kotlin.github.io/dataframe/convert.html), and [`parse`](https://kotlin.github.io/dataframe/parse.html). 
 Additionally, this toolset enables the retrieval and manipulation of data from various structured file formats, 
-including CSV, JSON, XLS, and Apache Arrow. 
+including CSV, JSON, XLS, Parquet, and Apache Arrow. 
 See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
 
 In this guide, you can learn how to retrieve, refine, and handle data through multiple examples.
@@ -63,8 +63,8 @@ Once you [have the data in your notebook](#retrieve-data), you can display it. F
 store your data in a variable and then return it:
 
 ```kotlin
-val dfJson = DataFrame.read("jsonFile.json")
-dfJson
+val jsonDf = DataFrame.read("jsonFile.json")
+jsonDf
 ```
 
 This code displays the data from your file as an interactive table:
@@ -78,7 +78,7 @@ the state of your dataset.
 
 To gain insights into the structure or schema of your data, apply the `.schema()` function on your `DataFrame` variable. 
 
-For example, `dfJson.schema()` lists the type of each column in your JSON dataset:
+For example, `jsonDf.schema()` lists the type of each column in your JSON dataset:
 
 ![Schema example](schema-data-analysis.png){width=700}
 
