@@ -35,7 +35,7 @@ themselves.
 The example below shows how to use the [MapStruct](https://mapstruct.org/) annotation processor, which generates type-safe
 mapper implementations between Java beans at compile time.
 
-1. Apply the `kapt` plugin and add MapStruct to the `<dependencies>` section:
+1. In your build file, apply the `kapt` plugin and add MapStruct to the `dependencies` section:
 
    <tabs group="build-tool">
    <tab title="Maven" group-key="maven">
@@ -84,8 +84,8 @@ mapper implementations between Java beans at compile time.
    </plugin>
    ```
    
-   * Always add the execution of the `kapt` goal from `kotlin-maven-plugin` **before** the `compile` execution.
-   * Configure the [level of annotation processing](kapt.md#use-in-maven) using the `aptMode` option .
+   * Add the execution of the `kapt` goal from `kotlin-maven-plugin` **before** the `compile` execution.
+   * Configure the [level of annotation processing](kapt.md#use-in-maven) using the `aptMode` option.
 
    </tab>
    <tab title="Gradle Kotlin" group-key="kotlin">
@@ -137,8 +137,8 @@ mapper implementations between Java beans at compile time.
    }
    ```
 
-3. Build the project. MapStruct generates the `UserMapperImpl` class in the generated sources directory.
-   Use the generated mapper in your code:
+3. Build the project. MapStruct generates the `UserMapperImpl` class in the generated sources' directory.
+   Use the `UserMapper` companion object to call the generated implementation:
 
    ```kotlin
    fun main() {
@@ -162,7 +162,7 @@ can understand Kotlin-specific features natively. See the list of [libraries tha
 The example below shows how to use [Dagger](https://dagger.dev/), a compile-time dependency injection framework that
 generates the wiring code for your dependency graph.
 
-1. Apply the KSP plugin and add Dagger to the `dependencies` block of your `build.gradle(.kts)` file:
+1. In your `build.gradle(.kts)` file, apply the KSP plugin and add Dagger to the `dependencies` block:
  
    <tabs group="build-script">
    <tab title="Kotlin" group-key="kotlin">
@@ -233,7 +233,7 @@ generates the wiring code for your dependency graph.
    }
    ```
 
-3. Build the project. Dagger generates implementation classes,  such as `DaggerAppComponent` in the
+3. Build the project. Dagger generates implementation classes, such as `DaggerAppComponent` in the
    `build/generated/ksp` directory. Use the generated class in your code:
 
     ```kotlin
