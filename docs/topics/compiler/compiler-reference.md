@@ -238,6 +238,10 @@ Allows using the `returnsNotNull()` function in contracts to assume a non-null r
 
 Allows using the `holdsIn` keyword in contracts to assume that a boolean condition is `true` inside a lambda.
 
+#### -Xallow-returns-result-of
+
+Allows using the `returnsResultOf()` contract to improve unused result checks for higher-order functions.
+
 ### -Xreturn-value-checker
 <primary-label ref="experimental-general"/>
 
