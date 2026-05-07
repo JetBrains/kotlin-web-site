@@ -1,7 +1,5 @@
 [//]: # (title: Context parameters)
 
-<primary-label ref="experimental-general"/>
-
 > Context parameters replace an older experimental feature called [context receivers](whatsnew1620.md#prototype-of-context-receivers-for-kotlin-jvm).
 > You can find their main differences in the [design document for context parameters](https://github.com/Kotlin/KEEP/blob/master/proposals/context-parameters.md#summary-of-changes-from-the-previous-proposal).
 > To migrate from context receivers to context
@@ -37,7 +35,26 @@ context(users: UserService)
 val firstUser: String
     // Uses findUserById from the context    
     get() = users.findUserById(1)
+
+fun main() {
+    val users = object : UserService {
+        override fun log(message: String) {
+            println(message)
+        }
+
+        override fun findUserById(id: Int): String {
+            return "User $id"
+        }
+    }
+
+    context(users) {
+        outputMessage("Looking up the first user")
+        println(firstUser)
+        // User 1
+    }
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.4"}
 
 You can use `_` as a context parameter name. In this case, the parameter's value is available for resolution but is not accessible by name inside the block:
 
@@ -50,7 +67,7 @@ fun logWelcome() {
 }
 ```
 
-#### Context parameters resolution
+## Context parameters resolution
 
 Kotlin resolves context parameters at the call site by searching for matching context values in the current scope. Kotlin matches them by their type.
 If multiple compatible values exist at the same scope level, the compiler reports an ambiguity:
@@ -86,7 +103,76 @@ fun main() {
 }
 ```
 
-#### Restrictions
+### Pass context arguments explicitly
+<primary-label ref="experimental-opt-in"/>
+
+When overloads differ only by context parameters, a call can become ambiguous if multiple matching context values are available.
+You can resolve this ambiguity by passing an explicit context argument at the call site.
+
+Here's an example:
+
+```kotlin
+class EmailSender
+class SmsSender
+
+context(emailSender: EmailSender)
+fun sendNotification() {
+    println("Sent email notification")
+}
+
+context(smsSender: SmsSender)
+fun sendNotification() {
+    println("Sent SMS notification")
+}
+
+context(defaultEmailSender: EmailSender, defaultSmsSender: SmsSender)
+fun notifyUser() {
+    // Selects the overload with the EmailSender context parameter
+    sendNotification(emailSender = defaultEmailSender)
+
+    // Selects the overload with the SmsSender context parameter
+    sendNotification(smsSender = defaultSmsSender)
+}
+```
+
+You can also use explicit context arguments instead of the `context()` function to reduce nesting and make some calls easier to read. If you need to use the same context arguments in multiple calls, use the `context()` function instead.
+
+This feature is [Experimental](components-stability.md#stability-levels-explained). To opt in, add the following compiler option to your build file:
+
+<tabs group="build-system">
+<tab title="Gradle" group-key="gradle">
+
+```kotlin
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xexplicit-context-arguments")
+    }
+}
+```
+
+</tab>
+<tab title="Maven" group-key="maven">
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-Xexplicit-context-arguments</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
+</tab>
+</tabs>
+
+## Restrictions
 
 Context parameters are in continuous improvement, and some of the current restrictions include:
 
@@ -96,29 +182,3 @@ Context parameters are in continuous improvement, and some of the current restri
 
 Despite these restrictions, context parameters simplify managing dependencies through simplified dependency injection,
 improved DSL design, and scoped operations.
-
-#### How to enable context parameters
-
-To enable context parameters in your project, use the following compiler option in the command line:
-
-```Bash
--Xcontext-parameters
-```
-
-Or add it to the `compilerOptions {}` block of your Gradle build file:
-
-```kotlin
-// build.gradle.kts
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xcontext-parameters")
-    }
-}
-```
-
-> Specifying both `-Xcontext-receivers` and `-Xcontext-parameters` compiler options simultaneously leads to an error.
->
-{style="warning"}
-
-This feature is planned to be [stabilized](components-stability.md#stability-levels-explained) and improved in future Kotlin releases.
-We would appreciate your feedback in our issue tracker [YouTrack](https://youtrack.jetbrains.com/issue/KT-10468/Context-Parameters-expanding-extension-receivers-to-work-with-scopes).

@@ -184,7 +184,7 @@ The full list of supported use-site targets is:
   * `property` (annotations with this target are not visible to Java)
   * `get` (property getter)
   * `set` (property setter)
-  * `all` (an experimental meta-target for properties, see [below](#all-meta-target) for its purpose and usage)
+  * `all` (a meta-target for properties, see the [`all` meta-target](#all-meta-target) section for more information)
   * `receiver` (receiver parameter of an extension function or property)
 
     To annotate the receiver parameter of an extension function, use the following syntax:
@@ -274,8 +274,6 @@ Whenever you'd like to use the old behavior, you can:
 
 ### `all` meta-target
 
-<primary-label ref="experimental-opt-in"/>
-
 The `all` target makes it easier to apply the same annotation not only to the parameter and the property or field, but also to the corresponding getter and setter.
 
 Specifically, the annotation marked with `all` is propagated, if applicable:
@@ -323,25 +321,6 @@ The `all` target comes with some limitations:
     val x: Int = 5
     ```
 * It cannot be used with [delegated properties](delegated-properties.md).
-
-#### How to enable
-
-To enable the `all` meta-target in your project, use the following compiler option in the command line:
-
-```Bash
--Xannotation-target-all
-```
-
-Or add it to the `compilerOptions {}` block of your Gradle build file:
-
-```kotlin
-// build.gradle.kts
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xannotation-target-all")
-    }
-}
-```
 
 ## Java annotations
 
