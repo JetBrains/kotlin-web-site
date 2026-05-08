@@ -41,10 +41,6 @@ fun formatGreeting(name: String): String {
 }
 ```
 
-> You can also use the [experimental `returnsResultOf()` contract](whatsnew24.md#improve-unused-result-checks-for-higher-order-functions) to enable the checker to distinguish between meaningful and ignorable unused results from higher-order functions that return the result of a lambda.
->
-{style="note"}
-
 ## Configure the unused return value checker
 
 You can control how the compiler reports ignored results with the `-Xreturn-value-checker` compiler option.
@@ -185,6 +181,81 @@ fun check(g: Greeter) {
     SilentGreeter.greet("John")
 }
 ```
+
+## Check for unused results in higher-order functions
+
+Some higher-order functions, such as the `.let()` extension function, return the result of a lambda.
+To check for unused results in these functions, add the [Experimental](components-stability.md#stability-levels-explained) `returnsResultOf()` contract to the function's `contract` block.
+
+> Kotlin contracts are Experimental. To opt in, add the `@OptIn(ExperimentalContracts::class)` annotation when declaring a function with a contract.
+>
+{style="warning"}
+
+Here's an example:
+
+```kotlin
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.contract
+
+@OptIn(ExperimentalContracts::class)
+inline fun <T, R> T.myLet(block: (T) -> R): R {
+    contract {
+        returnsResultOf(block)
+    }
+    return block(this)
+}
+```
+
+You can then use a function with this contract, such as `.myLet()`, to check the lambda result for unused results:
+
+```kotlin
+fun handleNullablePackageName(s: String?, sb: StringBuilder) {
+    // The checker doesn't report a warning because append() has an ignorable return value
+    s?.myLet { sb.append(it) }
+
+    // The checker reports a warning because the returned String is unused
+    s?.myLet { "kotlin.$it" }
+    // Unused return value.
+}
+```
+
+The `returnsResultOf()` contract requires a separate compiler option to opt in, and using it produces pre-release binaries that Kotlin compiler versions earlier than 2.4.0 can't read.
+
+To enable it in your project, add the following compiler option to your build file:
+
+<tabs group="build-system">
+<tab title="Gradle" group-key="gradle">
+
+```kotlin
+// build.gradle(.kts)
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-Xallow-returns-result-of")
+    }
+}
+```
+
+</tab> 
+<tab title="Maven" group-key="maven">
+
+```xml
+<!-- pom.xml -->
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-Xallow-returns-result-of</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+</tab> 
+</tabs>
 
 ## Interoperability with Java annotations
 
