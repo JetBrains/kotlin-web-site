@@ -18,22 +18,23 @@ see [Set up an environment](kotlin-notebook-set-up-env.md).
 To follow this tutorial:
 
 1. Create a [new Kotlin Notebook](kotlin-notebook-create.md).
-2. Import [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html):
+2. In your notebook, import [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html):
 
    ```kotlin
    %use kandy
    %use dataframe
    ```
 
-> Make sure to run the code cell with the `%use dataframe` line before you run any other code cells
-> that rely on the Kotlin DataFrame library.
+> Make sure to run the code cell with the `%use dataframe` line before any other code cells
+> that use Kotlin DataFrame. This loads the library and makes APIs available
+> in the notebook.
 >
 {style="note"}
 
 
 ## Create a DataFrame
 
-To start, let's create a `DataFrame` with data to visualize. This `DataFrame` stores
+To start, let's create a DataFrame with data to visualize. This DataFrame stores
 simulated monthly average temperatures for Berlin, Madrid, and Caracas:
 
 ```kotlin
@@ -55,8 +56,8 @@ val tempCaracas =
     listOf(27.5, 28.9, 29.6, 30.9, 31.7, 35.1, 33.8, 32.2, 31.3, 29.4, 28.9, 27.6)
 ```
 
-Now let’s create a new variable (`df`) and use
-[`dataFrameOf()`](https://kotlin.github.io/dataframe/createdataframe.html#dataframeof)
+Now let's create a new variable (`df`) and use
+the [`dataFrameOf()`](https://kotlin.github.io/dataframe/createdataframe.html#dataframeof) function
 to generate a DataFrame of three columns (Month, Temperature, and City):
 
 ```kotlin
@@ -69,7 +70,7 @@ val df = dataFrameOf(
 To preview the data, use the [`head()`](https://kotlin.github.io/dataframe/head.html) function:
 
 ```kotlin
-df.head(4) // Returns first four rows
+df.head(4) // Returns the first four rows
 ```
 
 In our dataset, the first four rows store temperature 
@@ -84,8 +85,7 @@ in Berlin from January to April:
 
 ## Create a line chart
 
-Let's create a line chart in Kotlin Notebook using the `df` DataFrame from the previous section.
-For that:
+Let's create a line chart in Kotlin Notebook using the `df` DataFrame from the previous section:
 
 1. Call the `plot()` function from the Kandy library. 
 2. Apply the `line` layer. 
@@ -120,7 +120,7 @@ Here's the result:
 
 ## Create a points chart
 
-Now, let's visualize the `df` DataFrame in a points (scatter) chart. For that:
+Now, let's visualize the `df` DataFrame in a points (scatter) chart:
 
 1. Call the `plot()` function from the Kandy library. 
 2. Apply the `points` layer. 
@@ -160,10 +160,9 @@ Here's the result:
 
 ## Create a bar chart
 
-Finally, let's create a bar chart for each city.
-For that:
+Finally, let's create a bar chart for each city:
 
-1. Use `groupBy` to group the `DataFrame` by the `City` column. 
+1. Use the `groupBy` function to group the DataFrame by the `City` column. 
 2. Call the `plot()` function from the Kandy library. 
 3. Apply the `bars` layer.
 4. (Optional) Add a title for the chart, customize colors.

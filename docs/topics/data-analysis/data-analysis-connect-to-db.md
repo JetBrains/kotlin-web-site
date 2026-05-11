@@ -3,18 +3,18 @@
 
 [Kotlin Notebook](kotlin-notebook-overview.md) provides support for the most common SQL databases:
 
-* [PostgreSQL](https://kotlin.github.io/dataframe/postgresql.html)
-* [MySQL](https://kotlin.github.io/dataframe/mysql.html)
-* [Microsoft SQL Server](https://kotlin.github.io/dataframe/microsoft-sql-server.html)
-* [SQLite](https://kotlin.github.io/dataframe/sqlite.html)
+* [DuckDB](https://kotlin.github.io/dataframe/duckdb.html)
 * [H2](https://kotlin.github.io/dataframe/h2.html)
 * [MariaDB](https://kotlin.github.io/dataframe/mariadb.html)
-* [DuckDB](https://kotlin.github.io/dataframe/duckdb.html)
+* [Microsoft SQL Server](https://kotlin.github.io/dataframe/microsoft-sql-server.html)
+* [MySQL](https://kotlin.github.io/dataframe/mysql.html)
+* [PostgreSQL](https://kotlin.github.io/dataframe/postgresql.html)
+* [SQLite](https://kotlin.github.io/dataframe/sqlite.html)
 
 With [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), Kotlin Notebook can establish connections to databases, 
 execute SQL queries, and import the results for further operations.
 
-> For a detailed example, see the [Notebook in the KotlinDataFrame SQL Examples GitHub repository](https://github.com/zaleslaw/KotlinDataFrame-SQL-Examples/blob/master/notebooks/imdb.ipynb).
+> For a detailed example, explore the notebook in the [KotlinDataFrame SQL Examples GitHub repository](https://github.com/zaleslaw/KotlinDataFrame-SQL-Examples/blob/master/notebooks/imdb.ipynb).
 >
 {style="tip"}
 
@@ -28,7 +28,8 @@ see [Set up an environment](kotlin-notebook-set-up-env.md).
 
 To follow this tutorial:
 1. Create a [new Kotlin Notebook](kotlin-notebook-create.md).
-2. Add the Java Database Connectivity (JDBS) driver dependency for your database. 
+2. Add the Java Database Connectivity (JDBC) driver dependency for your database in the first cell of your notebook.
+   
    For example, to connect to a MariaDB database, add:
 
    ```kotlin 
@@ -41,24 +42,24 @@ To follow this tutorial:
 %use dataframe
 ```
 
-> Make sure to run the code cell with the `%use dataframe` line before you run any other code cells
-> that rely on the Kotlin DataFrame library.
+> Make sure to run the code cell with the `%use dataframe` line before any other code cells
+> that use Kotlin DataFrame. This loads the library and makes APIs available
+> in the notebook. 
 >
 {style="note"}
 
 ## Connect to a database
 
-To connect to a database, create a connection configuration using `DbConnectionConfig`:
+To connect to a database, create a connection configuration using the `DbConnectionConfig` function:
 
-1. Import required functionality:
+1. Import the following functionality:
    
    ```kotlin
    import org.jetbrains.kotlinx.dataframe.io.DbConnectionConfig
    import org.jetbrains.kotlinx.dataframe.schema.DataFrameSchema
    ```
 
-2. Define connection parameters (URL, username, password) using `DbConnectionConfig`:
-
+2. Define connection parameters (URL, username, password) using the `DbConnectionConfig` function:
 
    ```kotlin
    val URL = "YOUR_URL"
@@ -74,11 +75,11 @@ To connect to a database, create a connection configuration using `DbConnectionC
 
 ## Inspect database schema
 
-Before [loading the data](#load-data), you can inspect the database schemas. 
-This helps you understand what tables you have and what columns they contain. 
-You can also use the schemas to decide which table to load into a `DataFrame`.
+Before loading the data, inspect the database schemas
+to understand what tables you have and what columns they contain. 
+You can use the schemas to decide which table to load into a DataFrame.
 
-To retrieve schemas for all non-system tables in your database, use `DataFrameSchema.readAllSqlTables()`:
+To retrieve schemas for all user-created tables in your database, use `DataFrameSchema.readAllSqlTables()`:
 
 ```kotlin
 val dataSchemas = DataFrameSchema.readAllSqlTables(dbConfig)
@@ -92,21 +93,21 @@ dataSchemas.forEach { (tableName, schema) ->
 
 ## Load data
 
-After you [inspect the database schemas](#inspect-database-schema) and select the data, load the
-data into a `DataFrame`.
+After you inspect the database schemas and select the data, load the
+data into a DataFrame.
 
-Kotlin DataFrame provides two main ways to load data from a database:
+Kotlin DataFrame provides two ways to load data from a database:
 
-* Use [`DataFrame.readSqlTable`](https://kotlin.github.io/dataframe/readsqldatabases.html#reading-specific-tables) to load data directly from a table.
-* Use [`DataFrame.readSqlQuery`](https://kotlin.github.io/dataframe/readsqldatabases.html#executing-sql-queries) to load the result of a custom SQL query.
+* Load data directly from a table.
+* Load the result of a custom SQL query.
 
-Both functions return a `DataFrame` that you can inspect, transform, and analyze in Kotlin Notebook.
+Both approaches return a DataFrame that you can inspect, transform, and analyze in Kotlin Notebook.
 
 ### Load data from a table
 
-To load data from a table, use [`DataFrame.readSqlTable`](https://kotlin.github.io/dataframe/readsqldatabases.html#reading-specific-tables).
+To load data from a table, use the [`DataFrame.readSqlTable`](https://kotlin.github.io/dataframe/readsqldatabases.html#reading-specific-tables) function.
 
-The following example loads the first 100 rows from the `movies`:
+The following example loads the first 100 rows from the `movies` table:
 
 ```kotlin
 val moviesDf = DataFrame.readSqlTable(
@@ -121,10 +122,10 @@ moviesDf
 
 ### Load data with an SQL query
 
-To execute a specific SQL query on your database, use [`DataFrame.readSqlQuery`](https://kotlin.github.io/dataframe/readsqldatabases.html#executing-sql-queries). 
-This helps when you need to load specific columns, join tables, filter rows, or aggregate data in a database.
+To execute a specific SQL query on your database, use the [`DataFrame.readSqlQuery`](https://kotlin.github.io/dataframe/readsqldatabases.html#executing-sql-queries) function.
+This approach is useful when you need to load specific columns, join tables, filter rows, or aggregate data in a database.
 
-Let’s retrieve a specific dataset related to movies directed by Quentin Tarantino. 
+Let's retrieve a specific dataset related to movies directed by Quentin Tarantino.
 This query selects movie details and combines genres for each movie:
 
 ```kotlin
@@ -144,13 +145,13 @@ tarantinoMoviesDf
 
 ## Process data
 
-After [loading your database](#load-data) into a `DataFrame`, you can use DataFrame
+After loading your database into a DataFrame, you can use DataFrame
 operations to process retrieved data.
 
-For example, let’s manipulate data from the previous section. The following code:
-1. Replaces missing values in the `year` column using [`fillNA`](https://kotlin.github.io/dataframe/fill.html#fillna).
-2. Converts the column to `Int` using [`convert`](https://kotlin.github.io/dataframe/convert.html).
-3. Keeps only films released after 2000 using [`filter`](https://kotlin.github.io/dataframe/filter.html).
+For example, let's manipulate data from the previous section. The following code:
+1. Replaces missing values in the `year` column using the [`fillNA`](https://kotlin.github.io/dataframe/fill.html#fillna) function.
+2. Converts the column to `Int` using the [`convert`](https://kotlin.github.io/dataframe/convert.html) function.
+3. Keeps only films released after 2000 using the [`filter`](https://kotlin.github.io/dataframe/filter.html) function.
 
 ```kotlin
 val filteredTarantinoMovies = tarantinoMoviesDf
@@ -164,10 +165,10 @@ filteredTarantinoMovies
 ## Analyze data
 
 Use [Kotlin Notebook](kotlin-notebook-overview.md) and [DataFrame library](https://kotlin.github.io/dataframe/home.html)
-to group, sort, and aggregate data. 
-This helps you uncover and understand patterns of your data.
+to group, sort, and aggregate data so you can uncover and understand
+patterns in your data.
 
-For example, let’s read actor data from the `actors` table and find the 20 most common first names:
+For example, let's read actor data from the `actors` table and find the 20 most common first names:
 
 ```kotlin
 // Extract data from the actors table
