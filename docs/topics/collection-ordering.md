@@ -167,6 +167,40 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
+## Check sorted order
+
+You can use the following extension functions to check whether elements already follow a specified order:
+
+* `.isSorted()`
+* `.isSortedDescending()`
+* `.isSortedWith(comparator)`
+* `.isSortedBy(selector)`
+* `.isSortedByDescending(selector)`
+
+These extension functions return `true` if the elements are in the specified order or if there are fewer than two elements.
+They return `false` and stop checking as soon as they find an out-of-order pair.
+
+Here's an example of checking sorted order with the `.isSorted()` and `.isSortedBy()` functions:
+
+```kotlin
+data class User(val name: String, val age: Int)
+
+fun main() {
+    val numbers = listOf(1, 2, 3, 4)
+    println(numbers.isSorted())
+    // true
+
+    val users = listOf(
+        User("Alice", 24),
+        User("Bob", 31),
+        User("Charlie", 29),
+    )
+    println(users.isSortedBy(User::age))
+    // false
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.4"}
+
 ## Reverse order
 
 You can retrieve the collection in the reversed order using the [`reversed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reversed.html) function. 
