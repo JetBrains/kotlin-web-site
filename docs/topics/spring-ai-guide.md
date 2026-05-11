@@ -14,9 +14,9 @@ You will use the following tools during this tutorial:
 
 ## Before you start
 
-1. Download and install the latest version of [IntelliJ IDEA Ultimate Edition](https://www.jetbrains.com/idea/download/).
+1. Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and use an Ultimate subscription.
 
-    > If you use IntelliJ IDEA Community Edition or another IDE, you can generate a Spring Boot project using
+    > If you use IntelliJ IDEA without an Ultimate subscription or you use another IDE, you can generate a Spring Boot project using
     > a [web-based project generator](https://start.spring.io/#!language=kotlin&type=gradle-project-kotlin).
     >
     {style="tip"}
@@ -31,11 +31,11 @@ You will use the following tools during this tutorial:
 
 ## Create the project
 
-> You can use [Spring Boot web-based project generator](https://start.spring.io/) as an alternative to generate your project.
+> You can use the [Spring Boot web-based project generator](https://start.spring.io/) as an alternative to generate your project.
 >
 {style="note"}
 
-Create a new Spring Boot project in IntelliJ IDEA Ultimate Edition:
+Create a new Spring Boot project in IntelliJ IDEA with an Ultimate subscription:
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**.
 2. In the panel on the left, select **New Project** | **Spring Boot**.
