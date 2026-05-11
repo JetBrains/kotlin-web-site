@@ -180,6 +180,10 @@ You can use the following extension functions to check whether elements already 
 These extension functions return `true` if the elements are in the specified order or if there are fewer than two elements.
 They return `false` and stop checking as soon as they find an out-of-order pair.
 
+For collections and sequences, the result depends on the order in which elements are iterated.
+When checking `Double` and `Float` values, these functions treat `NaN` as greater than any other value and `-0.0` as less than `0.0`.
+Additionally, the `.isSortedBy()` and `.isSortedByDescending()` functions treat `null` selector results as less than any non-null value.
+
 Here's an example of checking sorted order with the `.isSorted()` and `.isSortedBy()` functions:
 
 ```kotlin
