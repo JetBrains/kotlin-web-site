@@ -23,7 +23,7 @@ The Kotlin %kotlinEapVersion% release is out! Here are some details of this EAP 
 * **Kotlin/Native:** [Support for Swift packages as dependencies, updates on Swift export, and default CMS GC](#kotlin-native)
 * **Kotlin/Wasm:** [Incremental compilation enabled by default and support for WebAssembly Component Model](#kotlin-wasm)
 * **Kotlin/JS**: [Support for value class export and ES2015 features in JS code inlining](#kotlin-js)
-* **Gradle:** [Compatibility with Gradle 9.4.1](#gradle)
+* **Gradle:** [Compatibility with Gradle 9.5.0](#gradle)
 * **Maven:** [Automatic alignment between Java and JVM target versions](#maven)
 * **Kotlin compiler:** [More consistent inline function behavior during `.klib` compilation](#consistent-intra-module-function-inlining-during-klib-compilation)
 
@@ -296,7 +296,7 @@ This feature is [Experimental](components-stability.md#stability-levels-explaine
 ```kotlin
 kotlin {
     compilerOptions {
-        freeCompilerArgs.add("-XXLanguage:+IntrinsicConstEvaluation")
+        freeCompilerArgs.add("-XIntrinsic-const-evaluation")
     }
 }
 ```
@@ -312,7 +312,7 @@ kotlin {
             <artifactId>kotlin-maven-plugin</artifactId>
             <configuration>
                 <args>
-                    <arg>-XXLanguage:+IntrinsicConstEvaluation</arg>
+                    <arg>-XIntrinsic-const-evaluation</arg>
                 </args>
             </configuration>
         </plugin>
@@ -630,7 +630,7 @@ For more information on inlining inline JavaScript code, see [our documentation]
 
 ## Gradle
 
-Kotlin %kotlinEapVersion% is fully compatible with Gradle 7.6.3 through 9.4.1. You can also use Gradle versions up to 
+Kotlin %kotlinEapVersion% is fully compatible with Gradle 7.6.3 through 9.5.0. You can also use Gradle versions up to 
 the latest Gradle release. However, be aware that doing so may result in deprecation warnings, and some new Gradle features might not work.
 
 ## Maven
