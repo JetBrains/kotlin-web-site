@@ -17,8 +17,8 @@ For teams, skills also provide a shared framework for common tasks, so everyone 
 {style="note"}
 
 Kotlin AI skills follow the [Agent Skills standard](https://agentskills.io/home), so you can use them
-with compatible AI agents. For example, [Junie](https://www.jetbrains.com/junie/), Claude Code, Google Gemini,
-GitHub Copilot, and Mistral Code.
+with compatible AI agents. For example, [Junie](https://www.jetbrains.com/junie/), Claude Code, OpenAI Codex, Google Gemini,
+and GitHub Copilot.
 
 ## Supported workflows
 
