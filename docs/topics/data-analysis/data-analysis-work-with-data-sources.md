@@ -5,8 +5,8 @@
 you to work with both non-structured and structured data. This combination offers the flexibility to transform non-structured data, 
 such as data found in TXT files, into structured datasets. 
 
-For data transformations, you can use such methods as [`add`](https://kotlin.github.io/dataframe/adddf.html), [`split`](https://kotlin.github.io/dataframe/split.html),
-[`convert`](https://kotlin.github.io/dataframe/convert.html), and [`parse`](https://kotlin.github.io/dataframe/parse.html). 
+For data transformations, you can use such methods as [`.add()`](https://kotlin.github.io/dataframe/adddf.html), [`.split()`](https://kotlin.github.io/dataframe/split.html),
+[`.convert()`](https://kotlin.github.io/dataframe/convert.html), and [`parse()`](https://kotlin.github.io/dataframe/parse.html). 
 Additionally, this toolset enables the retrieval and manipulation of data from various structured file formats, 
 including CSV, JSON, XLS, Parquet, and Apache Arrow. 
 See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
@@ -38,7 +38,8 @@ To follow this tutorial:
 
 ## Retrieve data
 
-To retrieve data from a file into your Kotlin Notebook, use the `DataFrame.read()` function:
+To retrieve data from a file into your Kotlin Notebook,
+use the `DataFrame.read()` function:
 
 ```kotlin
 val movies = DataFrame.read(“movies.csv”)
@@ -77,7 +78,8 @@ the state of your dataset.
 
 ## Inspect data structure
 
-To gain insights into the structure or schema of your data, use the `.schema()` function on your DataFrame variable. 
+To gain insights into the structure or schema of your data, use the
+[`.schema()`](https://kotlin.github.io/dataframe/schema.html) function on your DataFrame variable. 
 
 For example, run `jsonDf.schema()` to list the type of each column in your JSON dataset:
 
@@ -143,7 +145,7 @@ in the same cell. The goal is to refine this dataset for easier analysis:
 
 4. **Filter rows**
 
-   To focus on specific data, use the `filter` function. For example, to keep only the movies
+   To focus on specific data, use the `.filter()` function. For example, to keep only the movies
    released after 1986, run:
 
    ```kotlin
@@ -156,7 +158,7 @@ in the same cell. The goal is to refine this dataset for easier analysis:
    
 5. **Remove column**
 
-   To remove a column that you do not need, use the `remove` function:
+   To remove a column that you do not need, use the `.remove()` function:
 
    ```kotlin
    val refinedMovies = newMovies.remove { 
@@ -192,17 +194,17 @@ for further analysis.
 
 For example, let's save the result as:
 
-* JSON file using [`.writeJson()`](https://kotlin.github.io/dataframe/write.html#writing-to-json):
+* JSON file using the [`.writeJson()`](https://kotlin.github.io/dataframe/write.html#writing-to-json) function:
  
   ```kotlin
   refinedMovies.writeJson("movies.json")
   ```
-* CSV file using [`writeCsv()`](https://kotlin.github.io/dataframe/write.html#writing-to-csv): 
+* CSV file using the [`.writeCsv()`](https://kotlin.github.io/dataframe/write.html#writing-to-csv) function: 
 
   ```kotlin
   refinedMovies.writeCsv("movies.csv")
   ```
-* [Apache Arrow files](https://kotlin.github.io/dataframe/write.html#writing-to-apache-arrow-formats) using `writeArrorIPC()` or `writeArrorFeather()`:
+* [Apache Arrow files](https://kotlin.github.io/dataframe/write.html#writing-to-apache-arrow-formats) using the `.writeArrorIPC()` and `.writeArrorFeather()` functions:
 
   ```kotlin
   refinedMovies.writeArrowIPC("movies.arrow")

@@ -88,7 +88,7 @@ in Berlin from January to April:
 Let's create a line chart in Kotlin Notebook using the `df` DataFrame from the previous section:
 
 1. Call the `plot()` function from the Kandy library. 
-2. Apply the `line` layer. 
+2. Apply the `line()` layer. 
 3. Map the `Month` and `Temperature` columns to the `X` and `Y` axes accordingly.
 4. (Optional) Customize colors and sizes.
 
@@ -123,7 +123,7 @@ Here's the result:
 Now, let's visualize the `df` DataFrame in a points (scatter) chart:
 
 1. Call the `plot()` function from the Kandy library. 
-2. Apply the `points` layer. 
+2. Apply the `points()` layer. 
 3. Map the `Month` and `Temperature` columns to the `X` and `Y` axes accordingly.
 4. (Optional) Customize colors, axis labels, point sizes, and chart title.
 
@@ -162,9 +162,9 @@ Here's the result:
 
 Finally, let's create a bar chart for each city:
 
-1. Use the `groupBy` function to group the DataFrame by the `City` column. 
+1. Use the `groupBy()` function to group the DataFrame by the `City` column. 
 2. Call the `plot()` function from the Kandy library. 
-3. Apply the `bars` layer.
+3. Apply the `bars()` layer.
 4. (Optional) Add a title for the chart, customize colors.
 
 

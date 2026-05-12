@@ -50,7 +50,7 @@ To follow this tutorial:
 
 ## Connect to a database
 
-To connect to a database, create a connection configuration using the `DbConnectionConfig` function:
+To connect to a database, create a connection configuration using the `DbConnectionConfig()` function:
 
 1. Import the following functionality:
    
@@ -59,7 +59,7 @@ To connect to a database, create a connection configuration using the `DbConnect
    import org.jetbrains.kotlinx.dataframe.schema.DataFrameSchema
    ```
 
-2. Define connection parameters (URL, username, password) using the `DbConnectionConfig` function:
+2. Define connection parameters (URL, username, password) using the `DbConnectionConfig()` function:
 
    ```kotlin
    val URL = "YOUR_URL"
@@ -79,7 +79,8 @@ Before loading the data, inspect the database schemas
 to understand what tables you have and what columns they contain. 
 You can use the schemas to decide which table to load into a DataFrame.
 
-To retrieve schemas for all user-created tables in your database, use `DataFrameSchema.readAllSqlTables()`:
+To retrieve schemas for all user-created tables in your database, use the `DataFrameSchema.readAllSqlTables()`
+function:
 
 ```kotlin
 val dataSchemas = DataFrameSchema.readAllSqlTables(dbConfig)
@@ -105,7 +106,7 @@ Both approaches return a DataFrame that you can inspect, transform, and analyze 
 
 ### Load data from a table
 
-To load data from a table, use the [`DataFrame.readSqlTable`](https://kotlin.github.io/dataframe/readsqldatabases.html#reading-specific-tables) function.
+To load data from a table, use the [`DataFrame.readSqlTable()`](https://kotlin.github.io/dataframe/readsqldatabases.html#reading-specific-tables) function.
 
 The following example loads the first 100 rows from the `movies` table:
 
@@ -122,7 +123,7 @@ moviesDf
 
 ### Load data with an SQL query
 
-To execute a specific SQL query on your database, use the [`DataFrame.readSqlQuery`](https://kotlin.github.io/dataframe/readsqldatabases.html#executing-sql-queries) function.
+To execute a specific SQL query on your database, use the [`DataFrame.readSqlQuery()`](https://kotlin.github.io/dataframe/readsqldatabases.html#executing-sql-queries) function.
 This approach is useful when you need to load specific columns, join tables, filter rows, or aggregate data in a database.
 
 Let's retrieve a specific dataset related to movies directed by Quentin Tarantino.
@@ -149,9 +150,9 @@ After loading your database into a DataFrame, you can use DataFrame
 operations to process retrieved data.
 
 For example, let's manipulate data from the previous section. The following code:
-1. Replaces missing values in the `year` column using the [`fillNA`](https://kotlin.github.io/dataframe/fill.html#fillna) function.
-2. Converts the column to `Int` using the [`convert`](https://kotlin.github.io/dataframe/convert.html) function.
-3. Keeps only films released after 2000 using the [`filter`](https://kotlin.github.io/dataframe/filter.html) function.
+1. Replaces missing values in the `year` column using the [`fillNA()`](https://kotlin.github.io/dataframe/fill.html#fillna) function.
+2. Converts the column to `Int` using the [`convert()`](https://kotlin.github.io/dataframe/convert.html) function.
+3. Keeps only films released after 2000 using the [`filter()`](https://kotlin.github.io/dataframe/filter.html) function.
 
 ```kotlin
 val filteredTarantinoMovies = tarantinoMoviesDf
