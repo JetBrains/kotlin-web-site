@@ -38,13 +38,13 @@ To follow this tutorial:
    }
    ```
 3. Import Kotlin DataFrame:
-```kotlin
-%use dataframe
-```
 
-> Make sure to run the code cell with the `%use dataframe` line before any other code cells
-> that use Kotlin DataFrame. This loads the library and makes APIs available
-> in the notebook. 
+   ```kotlin
+   %use dataframe
+   ```
+
+> Run the code cell with the `%use dataframe` line before any other code cells
+> to make sure the DataFrame library and its APIs are available in the notebook.
 >
 {style="note"}
 
@@ -150,9 +150,9 @@ After loading your database into a DataFrame, you can use DataFrame
 operations to process retrieved data.
 
 For example, let's manipulate data from the previous section. The following code:
-1. Replaces missing values in the `year` column using the [`fillNA()`](https://kotlin.github.io/dataframe/fill.html#fillna) function.
-2. Converts the column to `Int` using the [`convert()`](https://kotlin.github.io/dataframe/convert.html) function.
-3. Keeps only films released after 2000 using the [`filter()`](https://kotlin.github.io/dataframe/filter.html) function.
+1. Replaces missing values in the `year` column using the [`.fillNA()`](https://kotlin.github.io/dataframe/fill.html#fillna) function.
+2. Converts the column to `Int` using the [`.convert()`](https://kotlin.github.io/dataframe/convert.html) function.
+3. Keeps only films released after 2000 using the [`.filter()`](https://kotlin.github.io/dataframe/filter.html) function.
 
 ```kotlin
 val filteredTarantinoMovies = tarantinoMoviesDf

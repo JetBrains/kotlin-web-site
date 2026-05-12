@@ -6,7 +6,7 @@ you to work with both non-structured and structured data. This combination offer
 such as data found in TXT files, into structured datasets. 
 
 For data transformations, you can use such methods as [`.add()`](https://kotlin.github.io/dataframe/adddf.html), [`.split()`](https://kotlin.github.io/dataframe/split.html),
-[`.convert()`](https://kotlin.github.io/dataframe/convert.html), and [`parse()`](https://kotlin.github.io/dataframe/parse.html). 
+[`.convert()`](https://kotlin.github.io/dataframe/convert.html), and [`.parse()`](https://kotlin.github.io/dataframe/parse.html). 
 Additionally, this toolset enables the retrieval and manipulation of data from various structured file formats, 
 including CSV, JSON, XLS, Parquet, and Apache Arrow. 
 See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
@@ -30,9 +30,8 @@ To follow this tutorial:
    %use dataframe
    ```
 
-> Make sure to run the code cell with the `%use dataframe` line before any other code cells
-> that use Kotlin DataFrame. This loads the library and makes APIs available
-> in the notebook.
+> Run the code cell with the `%use dataframe` line before any other code cells
+> to make sure the DataFrame library and its APIs are available in the notebook.
 > 
 {style="note"}
 
@@ -42,7 +41,7 @@ To retrieve data from a file into your Kotlin Notebook,
 use the `DataFrame.read()` function:
 
 ```kotlin
-val movies = DataFrame.read(“movies.csv”)
+val movies = DataFrame.read("movies.csv")
 ```
 
 The `DataFrame.read()` function detects the input format based on the file extension and content.
@@ -51,7 +50,7 @@ You can also pass additional arguments to control how the DataFrame library read
 For example, the following code specifies a custom delimiter (`;`) for a CSV file:
 
 ```kotlin
-val movies = DataFrame.read(“movies.csv”, delimiter = ‘;’)
+val movies = DataFrame.read("movies.csv", delimiter = ';')
 ```
 
 > For a comprehensive overview of additional file formats and a variety of read functions, see the 

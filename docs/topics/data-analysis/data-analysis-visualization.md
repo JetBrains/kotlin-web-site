@@ -25,9 +25,8 @@ To follow this tutorial:
    %use dataframe
    ```
 
-> Make sure to run the code cell with the `%use dataframe` line before any other code cells
-> that use Kotlin DataFrame. This loads the library and makes APIs available
-> in the notebook.
+> Run the code cell with the `%use dataframe` line before any other code cells
+> to make sure the DataFrame library and its APIs are available in the notebook.
 >
 {style="note"}
 
@@ -67,7 +66,7 @@ val df = dataFrameOf(
     "City" to List(12) { "Berlin" } + List(12) { "Madrid" } + List(12) { "Caracas" }
 )
 ```
-To preview the data, use the [`head()`](https://kotlin.github.io/dataframe/head.html) function:
+To preview the data, use the [`.head()`](https://kotlin.github.io/dataframe/head.html) function:
 
 ```kotlin
 df.head(4) // Returns the first four rows
