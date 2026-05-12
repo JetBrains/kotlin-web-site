@@ -1,4 +1,4 @@
-[//]: # (title: Intermediate: Properties)
+[//]: # (title: Properties)
 
 <no-index/>
 

@@ -1,4 +1,4 @@
-[//]: # (title: Intermediate: Lambda expressions with receiver)
+[//]: # (title: Lambda expressions with receiver)
 
 <no-index/>
 
