@@ -72,7 +72,6 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.0.0: report a warning for `is` checks with definitely incompatible types
 > - 2.4.0: raise the warning to an error
 
-
 ### Prohibit exposing types and declarations with lower visibility in inline functions
 
 > **Issue**: [KTLC-283](https://youtrack.jetbrains.com/issue/KTLC-283)
@@ -108,7 +107,6 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.2.0: report a warning when the new defaulting rule changes the chosen use-site targets
 > - 2.4.0: enable the new defaulting rule
 
-
 ### Forbid implicit references to inaccessible types
 
 > **Issue**: [KTLC-384](https://youtrack.jetbrains.com/issue/KTLC-384)
@@ -119,11 +117,12 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Short summary**: Using declarations that implicitly reference inaccessible types from indirect dependencies now results in an error.
 > 
+> To migrate, add an explicit dependency on the module that declares the inaccessible type, or update the intermediate API so it doesn't expose that type.
+> 
 > **Deprecation cycle**:
 >
 > - 2.3.0: report a warning for implicit references to inaccessible types
 > - 2.4.0: raise the warning to an error
-
 
 ### Deprecate `kotlin.io.readLine()` function
 
@@ -133,11 +132,155 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The `kotlin.io.readLine()` function is deprecated. Use `readln()` instead of `readLine()!!`, and `readlnOrNull()` instead of `readLine()`.
+> **Short summary**: The [`kotlin.io.readLine()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/read-line.html) function is deprecated. Use [`readln()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/readln.html) instead of `readLine()`, and [`readlnOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/readln-or-null.html) instead of `readLine()!!`.
 >
 > **Deprecation cycle**:
 >
 > - 2.4.0: report a warning when using `kotlin.io.readLine()`
+
+### Enforce Jakarta nullability annotations
+
+> **Issue**: [KTLC-285](https://youtrack.jetbrains.com/issue/KTLC-285)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now enforces declared nullability in Kotlin for Java declarations that use [`jakarta.annotation.Nullable`](https://jakarta.ee/specifications/annotations/2.1/apidocs/jakarta.annotation/jakarta/annotation/nullable) or [`jakarta.annotation.Nonnull`](https://jakarta.ee/specifications/annotations/2.1/apidocs/jakarta.annotation/jakarta/annotation/nonnull).
+> If you assign a Java declaration marked as nullable by these annotations to a non-null Kotlin type, the compiler reports an error.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.0: report a warning for nullability mismatches in Java declarations annotated with Jakarta nullability annotations
+> - 2.4.0: raise the warning to an error
+
+### Report misplaced type arguments in callable reference qualifiers
+
+> **Issue**: [KTLC-388](https://youtrack.jetbrains.com/issue/KTLC-388)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now checks the left-hand side of callable references and reports a warning if an inner class contains type arguments in the wrong part of the qualifier.
+> 
+> To migrate, update the reference so that each type argument belongs to the class that declares it.
+> For example, write the full type `Outer<Int>.Inner<String>::toString` instead of `Inner<String, Int>::toString`.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when type arguments in the left-hand side of a callable reference belong to another part of the qualifier
+
+### Report errors for class literals from reified type parameters with nullable upper bounds
+
+> **Issue**: [KTLC-370](https://youtrack.jetbrains.com/issue/KTLC-370)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The compiler now reports an error when you use `::class` on an expression whose type comes from a reified type parameter with a nullable upper bound.
+> If you use `::class` on such an expression, make the value non-null first with an explicit null check or the `!!` operator.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: report a warning when `::class` is used on an expression whose type comes from a reified type parameter with a nullable upper bound
+> - 2.4.0: raise the warning to an error
+
+### Prohibit initialization before declarations in anonymous objects
+
+> **Issue**: [KTLC-290](https://youtrack.jetbrains.com/issue/KTLC-290)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin now reports an error when you initialize a property in an `init` block of an anonymous object before declaring that property.
+> 
+> **Deprecation cycle**:
+>
+> - 2.2.20: report a warning when an `init` block in an anonymous object initializes a property before the property declaration
+> - 2.4.0: raise the warning to an error
+
+### Enforce exhaustiveness for `when` expressions with non-abstract Java sealed classes
+
+> **Issue**: [KTLC-366](https://youtrack.jetbrains.com/issue/KTLC-366)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin now checks exhaustiveness more strictly and requires an `else` branch or a branch that matches the sealed class itself when you use a `when` expression with a non-abstract Java sealed class.
+> Previously, Kotlin could treat such `when` expressions as exhaustive even though the Java sealed class itself could be instantiated directly.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: report a warning for non-exhaustive `when` expressions with non-abstract Java sealed classes
+> - 2.4.0: raise the warning to an error
+
+### Prohibit `operator` modifier on `getValue()` and `setValue()` functions with too many parameters
+
+> **Issue**: [KTLC-289](https://youtrack.jetbrains.com/issue/KTLC-289)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: When you mark the [`getValue()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.properties/-read-only-property/get-value.html) or [`setValue()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.properties/-read-write-property/set-value.html) functions with the `operator` modifier, the compiler now checks that they have the required number of value parameters.
+> The `getValue()` function must have exactly two value parameters, and the `setValue()` function must have exactly three.
+> To migrate, remove the `operator` modifier or change the function signature.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.20: report a warning for `operator` `getValue()` and `setValue()` functions with too many value parameters
+> - 2.4.0: raise the warning to an error
+
+### Prohibit inconsistent type arguments in generic calls
+
+> **Issue**: [KTLC-373](https://youtrack.jetbrains.com/issue/KTLC-373)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: When you specify type arguments in a generic call, the compiler now reports an error if one type argument violates an upper-bound constraint that depends on another type argument.
+> If type parameters depend on each other, use type arguments that match those constraints, for example `Container<Alpha, AlphaKey>()` instead of `Container<Alpha, BetaKey>()`.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: report a warning when explicit type arguments in a generic call violate upper-bound constraints between type parameters
+> - 2.4.0: raise the warning to an error
+
+### Deprecate references to the `javaClass` property
+
+> **Issue**: [KTLC-375](https://youtrack.jetbrains.com/issue/KTLC-375)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.4.0 deprecates property references to the [`javaClass`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.jvm/java-class.html) property to reduce confusion with `::class.java`.
+> Use `.javaClass` to get the runtime Java class of an object, or `::class.java` to get a Java class reference.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning for property references to the `javaClass` property
+
+### Report errors for implicit enum constructor calls that require opt-in
+
+> **Issue**: [KTLC-359](https://youtrack.jetbrains.com/issue/KTLC-359)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin now reports an error when an enum entry implicitly calls an enum primary constructor that requires opt-in.
+> To migrate, add `@OptIn` to the enum class or to each enum entry that calls the constructor.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.20: report a warning when an enum entry implicitly calls an enum primary constructor that requires opt-in
+> - 2.4.0: raise the warning to an error
 
 <!--
 
