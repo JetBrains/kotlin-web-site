@@ -45,4 +45,4 @@ Learn more in [Migrate multiplatform projects from CocoaPods to SwiftPM dependen
 
 If you have questions or encounter problems, ask for help in ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
 
-Share your experience in the `TBD` channel.
+Share your experience in the `#ked-ai-value-stream` channel.
