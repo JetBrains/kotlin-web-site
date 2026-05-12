@@ -1,4 +1,4 @@
-[//]: # (title: Intermediate: Libraries and APIs)
+[//]: # (title: Libraries and APIs)
 
 <no-index/>
 

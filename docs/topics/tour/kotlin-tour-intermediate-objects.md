@@ -1,4 +1,4 @@
-[//]: # (title: Intermediate: Objects)
+[//]: # (title: Objects)
 
 <no-index/>
 

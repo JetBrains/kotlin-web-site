@@ -1,4 +1,4 @@
-[//]: # (title: Intermediate: Scope functions)
+[//]: # (title: Scope functions)
 
 <no-index/>
 
