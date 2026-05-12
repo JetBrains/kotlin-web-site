@@ -1,4 +1,4 @@
-[//]: # (title: Intermediate: Null safety)
+[//]: # (title: Null safety)
 
 <no-index/>
 

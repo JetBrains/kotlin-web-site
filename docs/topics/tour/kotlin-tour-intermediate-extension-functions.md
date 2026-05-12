@@ -1,4 +1,4 @@
-[//]: # (title: Intermediate: Extension functions)
+[//]: # (title: Extension functions)
 
 <no-index/>
 
