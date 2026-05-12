@@ -23,7 +23,7 @@ Since Kotlin 2.0.0, we ship the following types of releases:
 {style="tip"}
 
 For each language and tooling release, we also ship several preview (_EAP_) versions for you to try
-new features before they are released. See [Early Access Preview](eap.md) for details.
+new features before they are released. For more information, see [Participate in the Kotlin Early Access Preview](eap.md).
 
 > If you want to be notified about new Kotlin releases, subscribe to the [Kotlin newsletter](https://lp.jetbrains.com/subscribe-to-kotlin-news/), 
 > follow [Kotlin on X](https://x.com/kotlin), 
@@ -119,11 +119,51 @@ libraries](maven-set-dependencies.md#dependency-on-a-kotlinx-library).
 ## IDE support
 
 Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and
-[Android Studio](https://developer.android.com/kotlin/get-started) with an official Kotlin plugin developed by JetBrains.
+[Android Studio](https://developer.android.com/kotlin/get-started).
 
-## Kotlin release compatibility
+## Standard library security support
 
-Learn more about [types of Kotlin releases and their compatibility](kotlin-evolution-principles.md#language-and-tooling-releases)
+Starting with Kotlin 2.4.0, the Kotlin standard library for the JVM has an 18–month support window for each release line.
+Language releases (2._x_._0_) and the following tooling releases (2._x_._20_) belong to the same release line (2._x_).
+
+If we discover a security vulnerability that affects the Kotlin standard library for the JVM, we ship the following simultaneously:
+
+* A bug fix release based on the latest Kotlin release in the release line that includes the security fix.
+* Bug fix releases for every release line within its active support window.
+
+For example, if we discover a security vulnerability and the latest Kotlin release is Kotlin 2.4.20, we release a bug fix
+version for Kotlin 2.4.20 only. We don't release a bug fix version for Kotlin 2.4.0.
+
+<!--
+The following table lists all Kotlin releases and their support windows:
+
+<table>
+    <tr>
+        <th>Kotlin release line</th>
+        <th>Release date</th>
+        <th>End of support</th>
+        <th>Latest bug fix release</th>
+    </tr>
+    <tr>
+        <td><strong>2.4</strong>
+        </td>
+        <td>
+            <p>TBD</p>
+        </td>
+        <td>
+            <p>TBD</p>
+        </td>
+        <td>
+            <p>None available</p>
+        </td>
+    </tr>
+</table>
+-->
+
+> We always want to hear about any security issues you find. To report problems that you discover in Kotlin,
+> post a message directly to our [issue tracker](https://youtrack.jetbrains.com/newIssue?project=KT&c=Type%20Security%20Problem) or send us an [email](mailto:security@jetbrains.org).
+> 
+{style="tip"}
 
 ## Release history
 

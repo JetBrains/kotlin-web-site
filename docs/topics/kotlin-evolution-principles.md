@@ -102,7 +102,7 @@ In doing so, it relies on a set of [Language committee guidelines](https://kotli
 
 ## Language feature delivery
 
-As per the [Kotlin release process](releases.md), language features are shipped in _language releases_ (2._x_._0_)
+As described in the [Kotlin release process](releases.md), language features are shipped in _language releases_ (2._x_._0_)
 or their following _tooling releases_ (2._x_._20_).
 
 We try to keep language and tooling releases compatible with each other, so changes to the compiler are mostly optimizations and warning additions/removals.
