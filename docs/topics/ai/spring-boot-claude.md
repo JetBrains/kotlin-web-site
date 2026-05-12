@@ -191,5 +191,5 @@ Congratulations! You used Claude to plan, build, test, and refine a Kotlin Sprin
 
 ## What's next?
 
-* Learn about Kotlin AI skills
+* Learn about [](kotlin-ai-skills.md)
 * Check out our tutorial on using Junie with Kotlin AI skills

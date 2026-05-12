@@ -112,6 +112,7 @@
                 <toc-element topic="jvm-spring-boot-add-db-support.md"/>
                 <toc-element toc-title="Use Spring Data CrudRepository" topic="jvm-spring-boot-using-crudrepository.md"/>
             </toc-element>
+            <toc-element toc-title="Create a Kotlin app with Spring Boot and Claude – tutorial" topic="spring-boot-claude.md"/>
         </toc-element>
         <toc-element toc-title="Web development">
             <toc-element topic="web-overview.md"/>
