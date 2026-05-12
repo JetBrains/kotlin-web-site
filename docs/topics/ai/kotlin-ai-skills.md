@@ -17,15 +17,15 @@ For teams, skills also provide a shared framework for common tasks, so everyone 
 {style="note"}
 
 Kotlin AI skills follow the [Agent Skills standard](https://agentskills.io/home), so you can use them
-with compatible AI agents. For example, [Junie](https://www.jetbrains.com/junie/), Claude Code, Gemini,
-GitHub Copilot, and Mistral AI.
+with compatible AI agents. For example, [Junie](https://www.jetbrains.com/junie/), Claude Code, Google Gemini,
+GitHub Copilot, and Mistral Code.
 
 ## Supported workflows
 
 You can use Kotlin AI skills for different Kotlin-specific scenarios. 
 The following examples show some tasks that AI skills can help with.
 
-### Update multiplatform projects with Android apps to use AGP 9
+### Migrate multiplatform projects with Android apps to use AGP 9
 
 [This skill](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-agp9-migration) helps update Kotlin Multiplatform projects with Android apps to use Android Gradle Plugin 9.
 
