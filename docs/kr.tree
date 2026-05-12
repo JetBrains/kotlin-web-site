@@ -275,6 +275,7 @@
             <toc-element topic="opt-in-requirements.md"/>
             <toc-element topic="scope-functions.md"/>
             <toc-element topic="time-measurement.md"/>
+            <toc-element topic="uuids.md"/>
         </toc-element>
         <toc-element toc-title="Coroutines (kotlinx.coroutines)">
             <include from="kc.tree" origin="coroutines" element-id="coroutines"/>
