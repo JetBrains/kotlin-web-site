@@ -1,4 +1,4 @@
-[//]: # (title: Intermediate: Open and special classes)
+[//]: # (title: Open and special classes)
 
 <no-index/>
 

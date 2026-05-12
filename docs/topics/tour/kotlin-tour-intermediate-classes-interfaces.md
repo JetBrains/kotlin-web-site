@@ -1,4 +1,4 @@
-[//]: # (title: Intermediate: Classes and interfaces)
+[//]: # (title: Classes and interfaces)
 
 <no-index/>
 
