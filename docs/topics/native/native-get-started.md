@@ -23,8 +23,7 @@ in this tutorial, you'll be targeting the same platform you're compiling on.
 
 ## In IDE
 
-In this section, you'll learn how to use IntelliJ IDEA to create a Kotlin/Native application. You can use both
-the Community Edition and the Ultimate Edition.
+In this section, you'll learn how to use IntelliJ IDEA to create a Kotlin/Native application.
 
 ### Create the project
 
@@ -70,7 +69,7 @@ After the first run, the IDE creates the corresponding run configuration at the 
 
 ![Gradle run configuration](native-run-config.png){width=500}
 
-> IntelliJ IDEA Ultimate users can install
+> IntelliJ IDEA users with an Ultimate subscription can install
 > the [Native Debugging Support](https://plugins.jetbrains.com/plugin/12775-native-debugging-support)
 > plugin that allows debugging compiled native executables and also automatically creates run configurations for
 > imported Kotlin/Native projects.

@@ -2,7 +2,7 @@ import { CasePlatform, CaseTypeSwitch, Platforms } from './case-studies';
 import { parseBoolean, parseEnum, parseStringArray } from '../../utils';
 
 export function parseType(v: unknown): CaseTypeSwitch {
-    return parseEnum(v, ['all', 'multiplatform', 'server-side'], 'all');
+    return parseEnum(v, ['all', 'multiplatform', 'server-side', 'ai'], 'all');
 }
 
 export function serializeType(v: CaseTypeSwitch): string | undefined {

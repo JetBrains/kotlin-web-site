@@ -155,7 +155,7 @@ object BuildSitePages : BuildType({
                 synchronizeRevisions = false
             }
             artifacts {
-                buildRule = lastSuccessful()
+                buildRule = build("2609")
                 cleanDestination = true
                 artifactRules = """
                     +: spec.zip!html => spec

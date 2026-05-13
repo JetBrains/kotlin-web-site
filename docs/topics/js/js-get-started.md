@@ -15,8 +15,7 @@ To create your app, choose the tool that best fits your workflow:
 
 ## Create your application in IntelliJ IDEA 
 
-To create your Kotlin/JS web application, you can use either the
-Community or Ultimate edition of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
+To create your Kotlin/JS web application, you can use [IntelliJ IDEA](https://www.jetbrains.com/idea/download/).
 
 ### Set up the environment
 
@@ -84,7 +83,7 @@ After you run the application for the first time, IntelliJ IDEA creates its corr
 
 ![Gradle run configuration](js-run-config.png){width=500}
 
-> In IntelliJ IDEA Ultimate,
+> In IntelliJ IDEA with an Ultimate subscription,
 > you can use the [JS Debugger](https://www.jetbrains.com/help/idea/configuring-javascript-debugger.html)
 > to debug code directly from the IDE.
 > 

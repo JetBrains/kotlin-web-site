@@ -9,7 +9,7 @@ const CaseStudiesContext = createContext<CaseItem[]>([]);
 /**
  * Returns the list of case studies from a static source filtered according to the URL query parameters.
  * Supported query parameters:
- * - type: 'all' | 'multiplatform' | 'server-side'
+ * - type: 'all' | 'multiplatform' | 'server-side' | 'ai'
  * - platforms: string[] (array of platform ids)
  * - compose: boolean
  */
@@ -117,6 +117,11 @@ export const filterCaseStudies = (
     return source.filter((caseItem) => {
         const isMultiplatformCase = caseItem.type === 'multiplatform';
         const isServerSideCase = caseItem.type === 'server-side';
+        const isAiCase = caseItem.type === 'ai'
+
+        if (type === 'ai') {
+            return isAiCase;
+        }
 
         if (type === 'server-side') {
             return isServerSideCase;

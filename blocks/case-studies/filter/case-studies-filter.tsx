@@ -12,7 +12,8 @@ import { parseCompose, parsePlatforms, parseType, serializeCompose, serializePla
 const caseTypeOptions: Array<{ value: CaseTypeSwitch, label: string }> = [
     { value: 'all', label: 'All' },
     { value: 'multiplatform', label: 'Kotlin Multiplatform' },
-    { value: 'server-side', label: 'Server-side' }
+    { value: 'server-side', label: 'Server-side' },
+    { value: 'ai', label: 'AI'},
 ];
 
 export const CaseStudiesFilter: React.FC = () => {

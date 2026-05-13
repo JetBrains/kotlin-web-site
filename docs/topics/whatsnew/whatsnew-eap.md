@@ -380,6 +380,7 @@ fun main() {
     // false
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.4.0-Beta2" id="kotlin-2-4-0-check-sorted-order"}
 
 We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-78499).
 
@@ -395,6 +396,7 @@ Here's an example:
 
 ```kotlin
 fun main() {
+    //sampleStart
     val unsignedLong = Long.MAX_VALUE.toULong() + 1uL
     val unsignedInt = UInt.MAX_VALUE
 
@@ -403,8 +405,10 @@ fun main() {
 
     println(unsignedInt.toBigInteger())
     // 4294967295
+   //sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.4.0-Beta2" id="kotlin-2-4-0-convert-unsigned-int"}
 
 We would appreciate your feedback in [YouTrack](https://youtrack.jetbrains.com/issue/KT-73111).
 

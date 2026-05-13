@@ -19,7 +19,7 @@ included in IntelliJ IDEA:
 
 Kotlin is fully compatible with all Java-based frameworks, so you can use your familiar technology stack while
 benefiting from Kotlin syntax. In addition to great IDE support, Kotlin offers framework-specific tooling,
-such as support for Spring and Ktor in IntelliJ IDEA Ultimate.
+such as support for Spring and Ktor in IntelliJ IDEA with an Ultimate subscription.
 
 ### Spring
 

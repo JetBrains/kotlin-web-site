@@ -15,16 +15,16 @@ The first part of the tutorial shows how to create a Spring Boot project with Gr
 
 ## Before you start
 
-Download and install the latest version of [IntelliJ IDEA Ultimate Edition](https://www.jetbrains.com/idea/download/).
+Download and install the latest version of [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and use an Ultimate subscription.
 
-> If you use IntelliJ IDEA Community Edition or another IDE, you can generate a Spring Boot project using
+> If you use IntelliJ IDEA without an Ultimate subscription or you use another IDE, you can generate a Spring Boot project using
 > a [web-based project generator](https://start.spring.io/#!language=kotlin&type=gradle-project-kotlin).
 > 
 {style="tip"}
 
 ## Create a Spring Boot project
 
-Create a new Spring Boot project with Kotlin by using the Project Wizard in IntelliJ IDEA Ultimate Edition:
+Create a new Spring Boot project with Kotlin by using the Project Wizard in IntelliJ IDEA:
 
 1. In IntelliJ IDEA, select **File** | **New** | **Project**. 
 2. In the panel on the left, select **Spring Boot** in the **Generators** section.

@@ -561,7 +561,7 @@ Previously, we published the migration guide for the JS IR backend to help you m
 
 Kotlin 1.5.30 brings JavaScript source map generation for the Kotlin/JS IR backend. This will improve the Kotlin/JS debugging experience when the IR backend is enabled, with full debugging support that includes breakpoints, stepping, and readable stack traces with proper source references.
 
-Learn how to [debug Kotlin/JS in the browser or IntelliJ IDEA Ultimate](js-debugging.md).
+Learn how to [debug Kotlin/JS in the browser or IntelliJ IDEA](js-debugging.md).
 
 ## Gradle
 

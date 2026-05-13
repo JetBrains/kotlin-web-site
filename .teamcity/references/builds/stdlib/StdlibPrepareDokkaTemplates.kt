@@ -17,7 +17,6 @@ object StdlibPrepareDokkaTemplates : BuildType({
     params {
         param("env.ALGOLIA_INDEX_NAME", SEARCH_INDEX_NAME)
         param("env.DOKKA_CUSTOM_BODY", "core-api")
-        param("env.DOKKA_FEEDBACK", "true")
         param("env.API_REFERENCE_NAME", CORE_API_TITLE)
     }
 })
