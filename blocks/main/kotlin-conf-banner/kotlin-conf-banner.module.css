@@ -1,10 +1,10 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .wrapper {
     display: block;
     margin-bottom: 48px;
 
-    @media (--ktl-ts-min) {
+    @media (--ktl-ml-min) {
         margin-bottom: 64px;
     }
 

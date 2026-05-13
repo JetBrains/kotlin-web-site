@@ -4,7 +4,7 @@ import { cardCn } from '@rescui/card';
 import classNames from 'classnames';
 import styles from './kotlin-usage-highlights.module.css';
 import { useTextStyles } from '@rescui/typography';
-import { useTS, useTM } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
+import { useML, useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 import { Tag, presets } from '@rescui/tag';
 
 interface KotlinUsageHighlightsItem {
@@ -23,11 +23,11 @@ interface KotlinUsageHighlightsProps {
 export const KotlinUsageHighlights: FC<KotlinUsageHighlightsProps> = ({ title, items }) => {
     const cardClassName = classNames(cardCn({ paddings: 16, isClickable: true }), styles.card);
     const textCn = useTextStyles();
+    const isML = useML();
     const isTS = useTS();
-    const isTM = useTM();
-    const visibleItems = isTS ? items.slice(0, 4) : items;
-    const headerClass = isTS ? 'rs-h3' : 'rs-h2';
-    const textClass = isTM ? 'rs-text-3' : 'rs-text-2';
+    const visibleItems = isML ? items.slice(0, 4) : items;
+    const headerClass = isML ? 'rs-h3' : 'rs-h2';
+    const textClass = isTS ? 'rs-text-3' : 'rs-text-2';
 
 
     const tagStyle= {
