@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { Button } from '@rescui/button';
 import { ThemeProvider } from '@rescui/ui-contexts';
 import { useTextStyles } from '@rescui/typography';
-import { useMS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
+import { useMS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 import { BlockScheme } from './block-scheme';
 
 import styles from './kotlin-plus-ai.module.css';

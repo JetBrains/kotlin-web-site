@@ -4,40 +4,38 @@ import { ArrowRightIcon } from '@rescui/icons';
 
 import { createTextCn } from '@rescui/typography';
 
-import styles from './hero-ab-2.module.css';
+import styles from './hero-block.module.css';
 
-import { HeroLayout } from '../components/layout/layout';
-import { Developer } from '../components/developer/developer';
-import { Playground } from '../components/playground/playground';
+import { HeroLayout } from './components/layout/layout';
+import { Developer } from './components/developer/developer';
 
-import KMPIcon from '@/blocks/main/hero-ab/images/icons/multiplatform.svg';
-import BackendIcon from '@/blocks/main/hero-ab/images/icons/backend.svg';
-import AIIcon from '@/blocks/main/hero-ab/images/icons/ai.svg';
-import AndroidIcon from '@/blocks/main/hero-ab/images/icons/android.svg';
-import KotlinIcon from '@/blocks/main/hero-ab/images/icons/Kotlin.svg';
+import KMPIcon from './images/icons/multiplatform.svg';
+import BackendIcon from './images/icons/backend.svg';
+import AIIcon from './images/icons/ai.svg';
+import AndroidIcon from './images/icons/android.svg';
+import KotlinIcon from './images/icons/Kotlin.svg';
+import { WhyKotlin } from '@/blocks/main/why-kotlin/why-kotlin';
 
 interface Props {
 }
 
 
-export const HeroSectionAB2: FC<Props> = ({}) => {
+export const HeroBlock: FC<Props> = ({}) => {
     const darkTextCn = createTextCn('dark');
 
     return (
-        <HeroLayout testId={'hero-block-ab-2'}>
-
+        <HeroLayout>
             <div className={styles.grid}>
                 <div className={styles.heading}>
                     <h1 className={cn(darkTextCn('rs-super-hero'), styles.heroText)}>Kotlin</h1>
-                    <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform.
-                        Fun.</p>
+                    <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform. Fun.</p>
 
                     <Developer />
                 </div>
 
                 <div className={styles.navItems}>
                     <a className={styles.navItem} href={'/multiplatform/'}>
-                        <img src={KMPIcon.src} className={styles.navIcon} alt={`KMP icon`} />
+                        <img src={KMPIcon.src} className={cn(styles.navIcon, styles.navIconKmp)} alt={`KMP icon`} />
                         <p className={darkTextCn('rs-text-2')}>Multiplatform</p>
                         <ArrowRightIcon className={styles.navArrow} />
                     </a>
@@ -64,7 +62,7 @@ export const HeroSectionAB2: FC<Props> = ({}) => {
                 </div>
             </div>
 
-            <Playground />
+            <WhyKotlin />
 
         </HeroLayout>
     );

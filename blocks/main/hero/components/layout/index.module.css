@@ -1,0 +1,43 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.heroSection {
+    background: #000;
+    padding: 72px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+.backgroundImg {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    max-width: none;
+    top: -180px;
+    margin-right: -150px;
+    width: 1500px;
+    height: 1500px;
+}
+
+@media (--ktl-ml-min) {
+    .backgroundImg {
+        margin-right: -300px;
+        width: 1800px;
+        height: 1800px;
+        margin-top: -150px;
+    }
+}
+
+@media (--ktl-ts-min) {
+    .backgroundImg {
+        top: -450px;
+        margin-right: -320px;
+        width: 1786px;
+        height: 1786px;
+    }
+}
+

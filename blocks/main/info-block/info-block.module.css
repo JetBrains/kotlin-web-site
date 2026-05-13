@@ -1,4 +1,4 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .container {
     display: flex;
@@ -52,7 +52,7 @@
     }
 }
 
-@media (--ktl-tm) {
+@media (--ktl-ts) {
     .container {
         margin-top: 48px;
     }
@@ -62,7 +62,7 @@
     }
 }
 
-@media (--ktl-ts) {
+@media (--ktl-ml) {
     .container {
         margin-top: 72px;
     }

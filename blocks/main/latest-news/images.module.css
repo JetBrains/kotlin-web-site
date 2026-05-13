@@ -1,4 +1,4 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .image {
     background: #000;
@@ -15,21 +15,17 @@
         width: 248px;
         height: 139px;
     }
-    @media (--ktl-tm) {
+    @media (--ktl-ts) {
         width: 280px;
         height: 156px;
     }
-    @media (--ktl-ts) {
+    @media (--ktl-ml) {
         width: 424px;
         height: 238px;
     }
-    @media (--ktl-mm) {
-        width: 328px;
-        height: 185px;
-    }
     @media (--ktl-ms) {
-        width: 272px;
-        height: 152px;
+        width: 312px;
+        height: 175px;
     }
 }
 
