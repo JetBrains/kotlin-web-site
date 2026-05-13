@@ -11,7 +11,7 @@ or provide step-by-step workflow guidance.
 Kotlin AI skills help agents produce more accurate results and reduce the time you spend explaining the task manually.
 For teams, skills also provide a shared framework for common tasks, so everyone gets consistent results.
 
-[Explore Kotlin AI skills](https://github.com/Kotlin/kotlin-agent-skills){type="button"}
+<a href="https://github.com/Kotlin/kotlin-agent-skills"><img src="kotlin-ai-skills.svg" alt="Explore Kotlin AI skills" type="block"/></a>
 
 Kotlin AI skills follow the [Agent Skills standard](https://agentskills.io/home), so you can use them
 with compatible AI agents. For example, [Junie](https://www.jetbrains.com/junie/), Claude Code, OpenAI Codex, Google Gemini,
@@ -39,7 +39,7 @@ Learn more in [Update multiplatform projects with Android apps to use AGP 9](htt
 ### Migrate multiplatform projects from CocoaPods to SwiftPM dependencies
 
 Use [this skill](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-cocoapods-spm-migration) when your Kotlin Multiplatform project
-uses CocoaPods for iOS integration and you want an AI agent to move the setup to SwiftPM.
+uses CocoaPods for iOS integration, and you want an AI agent to move the setup to SwiftPM.
 
 Learn more in [Migrate multiplatform projects from CocoaPods to SwiftPM dependencies](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-spm-migration.html).
 
