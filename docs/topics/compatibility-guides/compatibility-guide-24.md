@@ -408,9 +408,83 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.4.0: report a warning when using the deprecated APIs
 
-## Build tools
+## Tools
 
+### Deprecate the `kotlin-js` Gradle plugin
 
+> **Issue**: [KT-59305](https://youtrack.jetbrains.com/issue/KT-59305)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Starting with Kotlin 2.4.0, the Kotlin Gradle plugin now reports an error when you use the deprecated `kotlin-js` Gradle plugin.
+> To migrate, use the [`kotlin-multiplatform` Gradle plugin with the `js()` target](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#migration-from-kotlin-js-gradle-plugin-to-kotlin-multiplatform-gradle-plugin) instead.
+>
+> **Deprecation cycle**:
+>
+> - 1.9.0: report a warning when the `kotlin-js` Gradle plugin is used
+> - 2.4.0: raise the warning to an error
+
+### Remove legacy Kotlin/JS compiler type selection APIs
+
+> **Issue**: [KT-64275](https://youtrack.jetbrains.com/issue/KT-64275)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.4.0 removes deprecated Gradle APIs related to selecting the legacy Kotlin/JS compiler type.
+>
+> **Deprecation cycle**:
+>
+> - 1.8.0: deprecate legacy Kotlin/JS compiler type constants
+> - 2.4.0: remove the deprecated APIs
+
+### Deprecate `sourceSets` in the Kotlin Android extension
+
+> **Issue**: [KT-74451](https://youtrack.jetbrains.com/issue/KT-74451)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `sourceSets` property in `KotlinAndroidProjectExtension` is deprecated.
+> To migrate, configure source sets through the Android Gradle plugin's `android { sourceSets { ... } }` block instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when accessing `sourceSets` from `KotlinAndroidProjectExtension`
+
+### Remove consumable configurations for Kotlin/Native Apple frameworks
+
+> **Issue**: [KT-74503](https://youtrack.jetbrains.com/issue/KT-74503)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.4.0 removes generated consumable Gradle configurations that expose Kotlin/Native Apple frameworks as outgoing artifacts.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: remove consumable configurations for Kotlin/Native Apple frameworks
+
+### Remove the `createTestExecutionSpec()` function
+
+> **Issue**: [KT-75449](https://youtrack.jetbrains.com/issue/KT-75449)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: In Kotlin 2.4.0, the deprecated `createTestExecutionSpec()` function is removed from the `KotlinJsTestFramework` interface.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.20: report a warning when using `createTestExecutionSpec()`
+> - 2.3.0: raise the warning to an error
+> - 2.4.0: remove the function
 
 <!--
 
