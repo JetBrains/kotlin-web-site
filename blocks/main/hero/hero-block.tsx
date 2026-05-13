@@ -25,7 +25,7 @@ export const HeroBlock: FC<Props> = ({}) => {
 
     return (
         <HeroLayout>
-            <div className={styles.grid}>
+            <div className={styles.grid} data-testid={'hero-block-main-page'}>
                 <div className={styles.heading}>
                     <h1 className={cn(darkTextCn('rs-super-hero'), styles.heroText)}>Kotlin</h1>
                     <p className={cn(darkTextCn('rs-subtitle-1'), styles.subtitle)}>Concise. Multiplatform. Fun.</p>
@@ -63,7 +63,6 @@ export const HeroBlock: FC<Props> = ({}) => {
             </div>
 
             <WhyKotlin />
-
         </HeroLayout>
     );
 };
