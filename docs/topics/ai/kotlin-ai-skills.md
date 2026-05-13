@@ -11,10 +11,7 @@ or provide step-by-step workflow guidance.
 Kotlin AI skills help agents produce more accurate results and reduce the time you spend explaining the task manually.
 For teams, skills also provide a shared framework for common tasks, so everyone gets consistent results.
 
-> Explore Kotlin AI skills in the
-> [AI agent skills for Kotlin repository](https://github.com/Kotlin/kotlin-agent-skills).
->
-{style="note"}
+[Explore Kotlin AI skills](https://github.com/Kotlin/kotlin-agent-skills){type="button"}
 
 Kotlin AI skills follow the [Agent Skills standard](https://agentskills.io/home), so you can use them
 with compatible AI agents. For example, [Junie](https://www.jetbrains.com/junie/), Claude Code, OpenAI Codex, Google Gemini,
