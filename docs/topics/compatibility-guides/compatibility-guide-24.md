@@ -124,20 +124,6 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.3.0: report a warning for implicit references to inaccessible types
 > - 2.4.0: raise the warning to an error
 
-### Deprecate `kotlin.io.readLine()` function
-
-> **Issue**: [KTLC-394](https://youtrack.jetbrains.com/issue/KTLC-394)
->
-> **Component**: kotlin-stdlib
->
-> **Incompatible change type**: source
->
-> **Short summary**: The [`kotlin.io.readLine()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/read-line.html) function is deprecated. Use [`readln()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/readln.html) instead of `readLine()`, and [`readlnOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/readln-or-null.html) instead of `readLine()!!`.
->
-> **Deprecation cycle**:
->
-> - 2.4.0: report a warning when using `kotlin.io.readLine()`
-
 ### Enforce Jakarta nullability annotations
 
 > **Issue**: [KTLC-285](https://youtrack.jetbrains.com/issue/KTLC-285)
@@ -389,6 +375,22 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.3.0: report a warning when an inferred type contains a declaration that isn't accessible in the current scope
 > - 2.4.0: raise the warning to an error
+
+## Standard library
+
+### Deprecate `kotlin.io.readLine()` function
+
+> **Issue**: [KTLC-394](https://youtrack.jetbrains.com/issue/KTLC-394)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The [`kotlin.io.readLine()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/read-line.html) function is deprecated. Use [`readln()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/readln.html) instead of `readLine()`, and [`readlnOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/readln-or-null.html) instead of `readLine()!!`.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when using `kotlin.io.readLine()`
 
 <!--
 
