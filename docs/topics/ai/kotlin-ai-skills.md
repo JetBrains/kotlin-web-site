@@ -8,10 +8,10 @@ A skill gives an AI agent the context it needs before it starts executing a task
 For example, a skill can point to a relevant API, define prerequisites,
 or provide step-by-step workflow guidance.
 
-Skills help agents produce more accurate results and reduce the time you spend explaining the task manually.
+Kotlin AI skills help agents produce more accurate results and reduce the time you spend explaining the task manually.
 For teams, skills also provide a shared framework for common tasks, so everyone gets consistent results.
 
-> You can find Kotlin AI skills in the
+> Explore Kotlin AI skills in the
 > [AI agent skills for Kotlin repository](https://github.com/Kotlin/kotlin-agent-skills).
 >
 {style="note"}
@@ -48,6 +48,5 @@ Learn more in [Migrate multiplatform projects from CocoaPods to SwiftPM dependen
 
 ## Get support
 
-If you have questions or encounter problems, ask for help in ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up).
-
-Share your experience in the `#ai` channel.
+If you have questions or encounter problems, ask for help in ![Slack](slack.svg){width=25}{type="joined"} Slack: [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up) 
+and share your experience in the `#ai` channel.
