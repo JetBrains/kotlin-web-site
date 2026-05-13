@@ -80,7 +80,7 @@ you can use the following functions:
 
 ## Parse UUIDs
 
-Some UUIDs can be first declared as strings.
+Some UUIDs can be first represented as strings.
 For example, when you receive a UUID from a URL parameter or database record.
 
 To convert a `String` value to a `Uuid` value,
