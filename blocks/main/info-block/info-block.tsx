@@ -3,7 +3,7 @@ import { useTextStyles } from '@rescui/typography';
 
 import styles from './info-block.module.css';
 import classNames from 'classnames';
-import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
+import { useML } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 
 interface InfoBlockProps {
     title: ReactNode;
@@ -14,9 +14,9 @@ interface InfoBlockProps {
 
 export const InfoBlock: FC<InfoBlockProps> = ({title, text, button, media}) => {
     const textCn = useTextStyles();
-    const isTS = useTS();
-    const headerClass = isTS ? 'rs-h3' : 'rs-h2';
-    const textClass = isTS ? 'rs-text-3' : 'rs-text-2';
+    const isML = useML();
+    const headerClass = isML ? 'rs-h3' : 'rs-h2';
+    const textClass = isML ? 'rs-text-3' : 'rs-text-2';
 
     return (
         <div className={styles.container}>

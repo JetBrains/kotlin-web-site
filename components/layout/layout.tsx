@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 
 import styles from './layout.module.css';
 import { getCanonicalUrl, getSiteUrl } from '../../utils/site-config';
+import cn from 'classnames';
 
 interface CommunityLayoutProps {
     title: string;
@@ -13,9 +14,10 @@ interface CommunityLayoutProps {
     darkTheme?: boolean;
     children: React.ReactNode;
     canonical?: string;
+    className?: string;
 }
 
-export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, description, children, darkTheme, canonical }) => {
+export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, description, children, darkTheme, canonical, className }) => {
     const router = useRouter();
 
     const siteUrl = getSiteUrl();
@@ -62,7 +64,7 @@ export const Layout: FC<CommunityLayoutProps> = ({ title, ogImageName, descripti
                 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
             </Head>
 
-            <div className={styles.wrapper}>{children}</div>
+            <div className={cn(styles.wrapper, className ? className : undefined)}>{children}</div>
         </>
     );
 };

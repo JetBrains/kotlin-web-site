@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { ThemeProvider } from '@rescui/ui-contexts';
 import { Button } from '@rescui/button';
 
-import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
-import '@jetbrains/kotlin-web-site-ui/out/components/layout';
+import '@jetbrains/kotlin-web-site-ui/out/components/layout-v2';
+import { useML } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 
 import GlobalHeader from '@jetbrains/kotlin-web-site-ui/out/components/header';
 import { CtaBlock } from '@jetbrains/kotlin-web-site-ui/out/components/cta-block-v2';
@@ -15,13 +15,11 @@ import GlobalFooter from '@jetbrains/kotlin-web-site-ui/out/components/footer';
 
 import { Layout } from '../components/layout/layout';
 
-import { HeroSection } from '../blocks/main/hero/hero';
 import { LatestNews } from '../blocks/main/latest-news';
 import { KotlinUsageHighlights } from '../blocks/main/kotlin-usage-highlights/kotlin-usage-highlights';
 import { InfoBlock } from '../blocks/main/info-block/info-block';
 import { DividerLine } from '../blocks/main/divider-line/divider-line';
 import { FoundationLearnMoreButton, FoundationPreview } from '../blocks/main/foundation-preview/foundation-preview';
-import { WhyKotlin } from '../blocks/main/why-kotlin/why-kotlin';
 
 import { StickyHeader } from '../components/sticky-header/sticky-header';
 
@@ -49,11 +47,9 @@ import searchConfig from '../search-config.json';
 
 
 import releasesDataRaw from '../data/releases.yml';
-import { KotlinPlusAiInfo } from '../blocks/main/kotlin-plus-ai';
-import { HeroSectionAB1 } from '../blocks/main/hero-ab/hero-ab-1/hero-ab-1';
-import { HeroSectionAB2 } from '@/blocks/main/hero-ab/hero-ab-2/hero-ab-2';
-import { HeroSectionAB3 } from '@/blocks/main/hero-ab/hero-ab-3/hero-ab-3';
-import { HeroSectionAB4 } from '@/blocks/main/hero-ab/hero-ab-4/hero-ab-4';
+import { KotlinPlusAiInfo } from '@/blocks/main/kotlin-plus-ai';
+import { HeroBlock } from '../blocks/main/hero/hero-block';
+import cn from 'classnames';
 import { PromoBanner } from '../blocks/main/promo-banner';
 import { KotlinEffectBanner } from '@/blocks/main/kotlin-effect-banner';
 
@@ -152,7 +148,7 @@ export async function getStaticProps() {
 }
 
 function Index() {
-    const isTS = useTS();
+    const isML = useML();
 
     return (
         <Layout
@@ -161,6 +157,7 @@ function Index() {
             description={
                 'Kotlin is a concise and multiplatform programming language by JetBrains. Enjoy coding and build backend, mobile, web, and desktop applications efficiently.'
             }
+            className={cn(styles.mainPage, 'ktl-layout-to-2')}
         >
             <ThemeProvider theme="dark">
                 <StickyHeader>
@@ -172,22 +169,13 @@ function Index() {
                     ></GlobalHeader>
                 </StickyHeader>
 
-                <HeroSectionAB1 />
-
-                <HeroSectionAB2 />
-
-                <HeroSectionAB3 />
-
-                <HeroSectionAB4 />
-
-                <HeroSection title={'Kotlin'}>Concise. Multiplatform. Fun.</HeroSection>
+                <HeroBlock />
 
                 <div className={'ktl-layout ktl-layout--center'}>
                     <KotlinEffectBanner />
 
                     <LatestNews />
                 </div>
-                <WhyKotlin />
             </ThemeProvider>
 
             <ThemeProvider theme="light">
@@ -210,7 +198,7 @@ function Index() {
                             }
                             button={
                                 <Button href="/multiplatform/" size="l" mode="rock" theme="light">
-                                    {isTS ? 'Learn more' : 'Learn about Kotlin Multiplatform'}
+                                    {isML ? 'Learn more' : 'Learn about Kotlin Multiplatform'}
                                 </Button>
                             }
                             media={<img src={MultiplatformPreviewImage.src} alt="" />}
@@ -254,7 +242,7 @@ function Index() {
 
                     <CtaBlock
                         className={styles.ctaBlock}
-                        mainTitle={<>Start using{isTS && <br />} Kotlin today!</>}
+                        mainTitle={<>Start using{isML && <br />} Kotlin today!</>}
                         buttons={
                             <Button
                                 href="/docs/getting-started.html"

@@ -1,4 +1,4 @@
-@import "../../../../node_modules/@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .heroText {
     margin: 0;
@@ -31,16 +31,12 @@
     margin: 0;
 }
 
-.grid {
-    display: flex;
-    justify-content: space-between;
-}
-
 .navItems {
     display: flex;
     flex-direction: column;
     gap: 5px;
     margin-bottom: 64px;
+    margin-top: 72px;
 }
 
 .navItem {
@@ -52,7 +48,6 @@
     text-decoration: none;
     color: #ffffff;
     padding: 16px 24px;
-    width: 381px;
 }
 
 .navItem:last-child {
@@ -68,8 +63,52 @@
     width: 48px;
     height: 48px;
     margin-right: 24px;
+    opacity: 0.6;
+}
+
+.navItem:hover .navIcon {
+    opacity: 1;
+}
+
+.navIconKmp {
+    width: 32px;
+    height: 32px;
+    padding: 8px;
 }
 
 .navArrow {
     margin-left: auto;
+}
+
+@media (--ktl-ml-min) {
+    .subtitle {
+        font-size: 29px;
+    }
+}
+
+@media (--ktl-ts-min) {
+    .grid {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navItems {
+        margin-top: 0;
+    }
+
+    .navItem {
+        width: 280px;
+    }
+}
+
+@media (--ktl-tl-min) {
+    .navItem {
+        width: 381px;
+    }
+}
+
+@media (--ktl-ds-min) {
+    .subtitle {
+        font-size: 39px;
+    }
 }

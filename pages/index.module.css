@@ -1,7 +1,12 @@
-@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints/media.pcss";
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
-.pageWrapper {
-    overflow: hidden;
+.mainPage {
+    @media (--ktl-ml-min) {
+        a[data-testid="ab-hero-button"] {
+            display: inline-flex !important;
+            position: static;
+        }
+    }
 }
 
 .evenSection {
@@ -24,7 +29,7 @@
     margin-top: 96px;
 }
 
-@media (--ktl-ts) {
+@media (--ktl-ml) {
     .ctaBlock {
         margin-top: 24px;
     }
