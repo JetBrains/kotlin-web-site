@@ -386,11 +386,31 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: The [`kotlin.io.readLine()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/read-line.html) function is deprecated. Use [`readln()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/readln.html) instead of `readLine()`, and [`readlnOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/readln-or-null.html) instead of `readLine()!!`.
+> **Short summary**: The [`kotlin.io.readLine()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/read-line.html) function is deprecated.
+> Use the [`readln()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/readln.html) function instead of `readLine()!!`, and the [`readlnOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.io/readln-or-null.html) function instead of `readLine()`.
 >
 > **Deprecation cycle**:
 >
 > - 2.4.0: report a warning when using `kotlin.io.readLine()`
+
+### Deprecate `AbstractCoroutineContextKey` and related APIs
+
+> **Issue**: [KT-84970](https://youtrack.jetbrains.com/issue/KT-84970)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The [`AbstractCoroutineContextKey`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/-abstract-coroutine-context-key/) class and its related APIs were experimental since Kotlin 1.3 and proved to be error-prone.
+> For this reason, this class and the related [`getPolymorphicElement()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/get-polymorphic-element.html) and [`minusPolymorphicKey()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.coroutines/minus-polymorphic-key.html) functions are deprecated.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when using the deprecated APIs
+
+## Build tools
+
+
 
 <!--
 
