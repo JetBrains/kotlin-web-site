@@ -24,7 +24,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ## Language
 
-### Drop support in `-language-version` for 1.9
+### Drop support for `-language-version=1.9` and the K1 compiler
 
 > **Issue**: [KT-80590](https://youtrack.jetbrains.com/issue/KT-80590)
 >
@@ -37,7 +37,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Deprecation cycle**:
 >
-> - 2.2.0: report a warning when using `-language-version` with versions 1.8 and 1.9
+> - 2.2.0: report a warning when using `-language-version` with version 1.9
 > - 2.4.0: raise the warning to an error
 
 ### Prohibit flexible explicit nullable type arguments for Java types
@@ -280,6 +280,114 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.2.20: report a warning when an enum entry implicitly calls an enum primary constructor that requires opt-in
+> - 2.4.0: raise the warning to an error
+
+### Forbid `inline` modifier on enum entries
+
+> **Issue**: [KTLC-361](https://youtrack.jetbrains.com/issue/KTLC-361)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin now reports an error when you use the `inline` modifier on an enum entry.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: report a warning when the `inline` modifier is used on an enum entry
+> - 2.4.0: raise the warning to an error
+
+### Prohibit array literals outside annotation calls and parameter defaults
+
+> **Issue**: [KTLC-369](https://youtrack.jetbrains.com/issue/KTLC-369)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Using array literals outside annotation calls and default values for annotation parameters now results in an error.
+> To migrate, use `arrayOf(...)`, for example `Roles(arrayOf("admin", "user"))` instead of `Roles(["admin", "user"])`.
+> 
+> **Deprecation cycle**:
+>
+> - 2.3.0: report a warning for array literals outside annotation calls and default values for annotation parameters
+> - 2.4.0: raise the warning to an error
+
+### Prohibit `_root_ide_package_` in CLI compiler mode
+
+> **Issue**: [KTLC-378](https://youtrack.jetbrains.com/issue/KTLC-378)
+>
+> **Component**: Compiler
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Using the IDE-only `_root_ide_package_` qualifier in CLI compiler mode now results in an error.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning for `_root_ide_package_` references in CLI compiler mode
+> - 2.4.0: raise the warning to an error
+
+### Correct equality for function references with vararg conversions
+
+> **Issue**: [KTLC-385](https://youtrack.jetbrains.com/issue/KTLC-385)
+>
+> **Component**: Kotlin/JVM
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: Kotlin/JVM now treats function references with different conversions as unequal.
+> Previously, Kotlin/JVM ignored vararg conversion in equality checks when the same function reference also used another conversion, so `getDefault(::foo) == getDefaultAndVararg(::foo)` could return `true` even though only one side used vararg conversion.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: introduce the new behavior
+
+### Enforce opt-in for companion object access
+
+> **Issue**: [KTLC-386](https://youtrack.jetbrains.com/issue/KTLC-386)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin now reports an opt-in error when a class name reference resolves to a companion object that requires opt-in.
+> For example, `val p = C` requires opt-in if `C` resolves to a companion object marked with an opt-in annotation.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning when companion object access requires opt-in
+> - 2.4.0: raise the warning to an error for `ERROR`-level opt-in requirements
+
+### Report type mismatches from supertypes with nested generic arguments
+
+> **Issue**: [KTLC-372](https://youtrack.jetbrains.com/issue/KTLC-372)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin now reports an error when the compiler detects a type mismatch involving a supertype with nested generic arguments.
+> Previously, the compiler could miss this mismatch, which later failed with a `ClassCastException`.
+> To migrate, use a type argument that matches the receiver's generic type, or remove the explicit type argument so the compiler can infer it.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report an error for type mismatches involving supertypes with nested generic arguments
+
+### Prohibit inferred types with inaccessible declarations
+
+> **Issue**: [KTLC-363](https://youtrack.jetbrains.com/issue/KTLC-363)
+>
+> **Component**: Core language
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Using an inferred type that contains a declaration inaccessible in the current scope now results in an error.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: report a warning when an inferred type contains a declaration that isn't accessible in the current scope
 > - 2.4.0: raise the warning to an error
 
 <!--
