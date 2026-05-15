@@ -485,22 +485,6 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.4.0: remove consumable configurations for Kotlin/Native Apple frameworks
 
-### Remove `NpmProject.useTool()` function
-
-> **Issue**: [KT-76251](https://youtrack.jetbrains.com/issue/KT-76251)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: source
->
-> **Short summary**: In Kotlin 2.4.0, the deprecated `NpmProject.useTool()` function is removed.
->
-> **Deprecation cycle**:
->
-> - 2.2.20: report a warning when using `NpmProject.useTool()`
-> - 2.3.0: raise the warning to an error
-> - 2.4.0: remove the function
-
 ### Remove `kotlin-android-extensions` plugin ID
 
 > **Issue**: [KT-78659](https://youtrack.jetbrains.com/issue/KT-78659)
@@ -518,28 +502,6 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.1.20: introduce a configuration error, and stop executing plugin code
 > - 2.2.0: remove the plugin code
 > - 2.4.0: remove the plugin ID
-
-### Remove deprecated Kotlin/JS and Kotlin/Wasm Gradle APIs
-
-> **Issue**: [KT-81030](https://youtrack.jetbrains.com/issue/KT-81030), [KT-81032](https://youtrack.jetbrains.com/issue/KT-81032), [KT-81033](https://youtrack.jetbrains.com/issue/KT-81033), [KT-81034](https://youtrack.jetbrains.com/issue/KT-81034), [KT-81036](https://youtrack.jetbrains.com/issue/KT-81036), [KT-81037](https://youtrack.jetbrains.com/issue/KT-81037), [KT-81039](https://youtrack.jetbrains.com/issue/KT-81039), [KT-81040](https://youtrack.jetbrains.com/issue/KT-81040)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: source
->
-> **Short summary**: Kotlin 2.4.0 removes the following deprecated Kotlin/JS and Kotlin/Wasm Gradle APIs:
->
-> * [`NodeJsExec.create()` function](compatibility-guide-23.md#deprecate-create-function-in-nodejsexec-dsl).
-> * [`ExperimentalWasmDsl`](compatibility-guide-23.md#deprecate-experimentalwasmdsl-annotation-class) and [`ExperimentalDceDsl`](compatibility-guide-23.md#deprecate-experimentaldcedsl-annotation-class) annotation classes.
-> * [Migrated D8 and Binaryen properties](compatibility-guide-23.md#deprecate-migrated-d8-and-binaryen-properties).
-> * [Public constructors of classes that set up Kotlin/JS test runs or JavaScript runtime](compatibility-guide-23.md#prohibit-subclassing-of-classes-that-set-up-test-runs-or-javascript-runtime), including `KotlinTest`, `KotlinJsTest`, `KotlinJsIrTarget`, and `KotlinWebpack`.
-> * [Internal JavaScript utility functions and properties](compatibility-guide-23.md#deprecate-javascript-utilities), including `KotlinJsIrLink.mode`, `JsIrBinary.generateTs`, and `String.jsQuoted()`.
-> * [Internal npm and Yarn package manager functions and properties](compatibility-guide-23.md#deprecate-npm-and-yarn-package-manager-internal-functions-and-properties), including `NpmProject.useTool()`, `NpmProject.require()`, `Npm.npmExec()`, and `YarnBasics.yarnExec()`.
->
-> **Deprecation cycle**:
->
-> - 2.3.0: report an error when using these APIs
-> - 2.4.0: remove the deprecated APIs
 
 ### Remove legacy Android source set layout
 
