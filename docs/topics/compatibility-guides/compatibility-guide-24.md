@@ -408,6 +408,21 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.4.0: report a warning when using the deprecated APIs
 
+### Change `Random.nextDouble()` contract for infinite bounds
+
+> **Issue**: [KT-84368](https://youtrack.jetbrains.com/issue/KT-84368)
+>
+> **Component**: kotlin-stdlib
+>
+> **Incompatible change type**: behavioral
+>
+> **Short summary**: The documented contract for [`Random.nextDouble(until)`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.random/-random/next-double.html) now requires the `until` bound to be finite.
+> Use a finite bound instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: enable the new behavior
+
 ## Tools
 
 ### Deprecate the `kotlin-js` Gradle plugin
@@ -458,7 +473,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Remove consumable configurations for Kotlin/Native Apple frameworks
 
-> **Issue**: [KT-74503](https://youtrack.jetbrains.com/issue/KT-74503)
+> **Issue**: [KT-74503](https://youtrack.jetbrains.com/issue/KT-74503), [KT-82230](https://youtrack.jetbrains.com/issue/KT-82230)
 >
 > **Component**: Gradle
 >
@@ -470,21 +485,96 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.4.0: remove consumable configurations for Kotlin/Native Apple frameworks
 
-### Remove the `createTestExecutionSpec()` function
+### Remove `KotlinJsTestFramework.createTestExecutionSpec()` function
 
-> **Issue**: [KT-75449](https://youtrack.jetbrains.com/issue/KT-75449)
+> **Issue**: [KT-75450](https://youtrack.jetbrains.com/issue/KT-75450)
 >
 > **Component**: Gradle
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: In Kotlin 2.4.0, the deprecated `createTestExecutionSpec()` function is removed from the `KotlinJsTestFramework` interface.
+> **Short summary**: In Kotlin 2.4.0, the deprecated `KotlinJsTestFramework.createTestExecutionSpec()` function is removed.
 >
 > **Deprecation cycle**:
 >
-> - 2.2.20: report a warning when using `createTestExecutionSpec()`
+> - 2.2.20: report a warning when using `KotlinJsTestFramework.createTestExecutionSpec()`
 > - 2.3.0: raise the warning to an error
 > - 2.4.0: remove the function
+
+### Remove `NpmProject.useTool()` function
+
+> **Issue**: [KT-76251](https://youtrack.jetbrains.com/issue/KT-76251)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: In Kotlin 2.4.0, the deprecated `NpmProject.useTool()` function is removed.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.20: report a warning when using `NpmProject.useTool()`
+> - 2.3.0: raise the warning to an error
+> - 2.4.0: remove the function
+
+### Remove `kotlin-android-extensions` plugin ID
+
+> **Issue**: [KT-78659](https://youtrack.jetbrains.com/issue/KT-78659)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: In Kotlin 2.4.0, the `kotlin-android-extensions` plugin ID is removed from the Kotlin Gradle plugin.
+> To migrate, remove the plugin from your build scripts, use the [`kotlin-parcelize`](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize) plugin for `Parcelable`, and use [Android Jetpack View Binding](https://developer.android.com/topic/libraries/view-binding) for synthetic views.
+>
+> **Deprecation cycle**:
+>
+> - 1.4.20: deprecate the `kotlin-android-extensions` plugin
+> - 2.1.20: introduce a configuration error, and stop executing plugin code
+> - 2.2.0: remove the plugin code
+> - 2.4.0: remove the plugin ID
+
+### Remove `getPluginArtifactForNative()` function
+
+> **Issue**: [KT-80466](https://youtrack.jetbrains.com/issue/KT-80466)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: In Kotlin 2.4.0, the [deprecated `getPluginArtifactForNative()` function](whatsnew2220.md#reduced-size-of-kotlin-native-distribution) is now removed.
+> To migrate, use the [`getPluginArtifact()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-compiler-plugin-support-plugin/get-plugin-artifact.html) function instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.2.20: report a warning
+> - 2.3.0: raise the warning to an error
+> - 2.4.0: remove the function
+
+### Remove deprecated Kotlin/JS and Kotlin/Wasm Gradle APIs
+
+> **Issue**: [KT-81030](https://youtrack.jetbrains.com/issue/KT-81030), [KT-81032](https://youtrack.jetbrains.com/issue/KT-81032), [KT-81033](https://youtrack.jetbrains.com/issue/KT-81033), [KT-81034](https://youtrack.jetbrains.com/issue/KT-81034), [KT-81036](https://youtrack.jetbrains.com/issue/KT-81036), [KT-81037](https://youtrack.jetbrains.com/issue/KT-81037), [KT-81039](https://youtrack.jetbrains.com/issue/KT-81039), [KT-81040](https://youtrack.jetbrains.com/issue/KT-81040)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.4.0 removes the following deprecated Kotlin/JS and Kotlin/Wasm Gradle APIs:
+>
+> * [`NodeJsExec.create()` function](compatibility-guide-23.md#deprecate-create-function-in-nodejsexec-dsl).
+> * [`ExperimentalWasmDsl`](compatibility-guide-23.md#deprecate-experimentalwasmdsl-annotation-class) and [`ExperimentalDceDsl`](compatibility-guide-23.md#deprecate-experimentaldcedsl-annotation-class) annotation classes.
+> * [Migrated D8 and Binaryen properties](compatibility-guide-23.md#deprecate-migrated-d8-and-binaryen-properties).
+> * [Public constructors of classes that set up Kotlin/JS test runs or JavaScript runtime](compatibility-guide-23.md#prohibit-subclassing-of-classes-that-set-up-test-runs-or-javascript-runtime), including `KotlinTest`, `KotlinJsTest`, `KotlinJsIrTarget`, and `KotlinWebpack`.
+> * [Internal JavaScript utility functions and properties](compatibility-guide-23.md#deprecate-javascript-utilities), including `KotlinJsIrLink.mode`, `JsIrBinary.generateTs`, and `String.jsQuoted()`.
+> * [Internal npm and Yarn package manager functions and properties](compatibility-guide-23.md#deprecate-npm-and-yarn-package-manager-internal-functions-and-properties), including `NpmProject.useTool()`, `NpmProject.require()`, `Npm.npmExec()`, and `YarnBasics.yarnExec()`.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.0: report an error when using these APIs
+> - 2.4.0: remove the deprecated APIs
+
+
 
 <!--
 
