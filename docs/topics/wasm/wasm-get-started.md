@@ -19,9 +19,8 @@ app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts to publish
 
    * **Name:** WasmDemo
    * **Group:** wasm.project.demo
-   * **Artifact:** wasmdemo
 
-   > If you use the web wizard, specify "WasmDemo" as Project Name and "wasm.project.demo" as Project ID.
+   > If you use the web wizard, specify "WasmDemo" as **Project Name** and "wasm.project.demo" as **Project ID**.
    >
    {style="note"}
 
@@ -32,9 +31,9 @@ app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts to publish
 
 ## Run the application
 
-Once the project loads, select **composeApp [wasmJs]** in the list of run configurations and click **Run**.
+Once the project loads, select **webApp [wasmJs]** in the list of run configurations and click **Run**.
 
-![Run the Compose Multiplatform app on web](compose-run-web-black.png){width=300}
+![Run the Compose Multiplatform app on web](compose-run-web-light.png){width=300}
 
 The web application opens automatically in your browser. Alternatively, you can open the following URL in your browser when the run is finished:
 
@@ -74,7 +73,7 @@ Generate your project's artifacts to publish on a website:
     ./gradlew wasmJsBrowserDistribution
     ```
 
-Once the application task completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
+Once the application task completes, you can find the generated artifacts in the `webApp/build/dist/wasmJs/productionExecutable`
 directory:
 
 ![Artifacts directory](wasm-composeapp-directory.png){width=400}
