@@ -8,13 +8,13 @@ A skill gives an AI agent the context it needs before it starts executing a task
 For example, a skill can point to a relevant API, define prerequisites,
 or provide step-by-step workflow guidance.
 
-Kotlin AI skills help agents produce more accurate results and reduce the time you spend explaining the task manually.
+Kotlin AI skills help agents produce more accurate results and reduce the time you spend explaining the task yourself.
 For teams, skills also provide a shared framework for common tasks, so everyone gets consistent results.
 
 <a href="https://github.com/Kotlin/kotlin-agent-skills"><img src="kotlin-ai-skills.svg" alt="Explore Kotlin AI skills" type="block"/></a>
 
 Kotlin AI skills follow the [Agent Skills standard](https://agentskills.io/home), so you can use them
-with compatible AI agents. For example, [Junie](https://www.jetbrains.com/junie/), Claude Code, OpenAI Codex, Google Gemini,
+with compatible AI agents, for example, [Junie](https://www.jetbrains.com/junie/), Claude Code, OpenAI Codex, Google Gemini,
 and GitHub Copilot.
 
 ## Supported workflows
@@ -24,24 +24,24 @@ The following examples show some of the tasks that AI skills can help you with.
 
 ### Convert Java source files to Kotlin
 
-Use [this skill](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-java-to-kotlin) when you want to
+Use the [kotlin-tooling-java-to-kotlin](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-java-to-kotlin) skill when you want to
 convert your Java source files to idiomatic Kotlin while preserving behavior and applying Kotlin-specific conventions. 
 
-Learn more in [](mixing-java-kotlin-intellij.md#convert-java-files-to-kotlin).
+Learn more about this scenario in [](mixing-java-kotlin-intellij.md#convert-java-files-to-kotlin).
 
 ### Migrate multiplatform projects with Android apps to use AGP 9
 
-Use [this skill](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-agp9-migration) when your Kotlin Multiplatform project needs to migrate to AGP 9,
+Use the [kotlin-tooling-agp9-migration](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-agp9-migration) skill when your Kotlin Multiplatform project needs to migrate to AGP 9,
 and you want an AI agent to apply the required project and Gradle configuration changes.
 
-Learn more in [Update multiplatform projects with Android apps to use AGP 9](https://kotlinlang.org/docs/multiplatform/multiplatform-project-agp-9-migration.html).
+Learn more about this scenario in [Update multiplatform projects with Android apps to use AGP 9](https://kotlinlang.org/docs/multiplatform/multiplatform-project-agp-9-migration.html).
 
 ### Migrate multiplatform projects from CocoaPods to SwiftPM dependencies
 
-Use [this skill](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-cocoapods-spm-migration) when your Kotlin Multiplatform project
+Use the [kotlin-tooling-cocoapods-spm-migration](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-cocoapods-spm-migration) when your Kotlin Multiplatform project
 uses CocoaPods for iOS integration, and you want an AI agent to move the setup to SwiftPM.
 
-Learn more in [Migrate multiplatform projects from CocoaPods to SwiftPM dependencies](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-spm-migration.html).
+Learn more about this scenario in [Migrate multiplatform projects from CocoaPods to SwiftPM dependencies](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-spm-migration.html).
 
 ## Get support
 
