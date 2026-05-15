@@ -11,12 +11,17 @@ For retrieving a value from a map, you must provide its key as an argument of th
 The shorthand `[key]` syntax is also supported. If the given key is not found, it returns `null`.
 There is also the function [`getValue()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-value.html)
 which has slightly different behavior: it throws an exception if the key is not found in the map.
-Additionally, you have more options to handle missing keys and nullable values:
+Additionally, you have more options to handle the key absence:
 
 * [`getOrElse()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-else.html) works the same way as for lists: the values for non-existent keys are returned from the given lambda function.
+* [`getOrDefault()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-default.html) returns the specified default value if the key is not found.
+
+For maps with nullable values, use the following functions instead, which handle missing keys and `null` values explicitly:
+
 * `getOrElseIfNull()` returns the result of the specified default value if the key is missing or has a `null` value.
 * `getOrElseIfMissing()` returns the result of the specified default value if the key is missing.
-* [`getOrDefault()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/get-or-default.html) returns the specified default value if the key is not found.
+
+Here's an example that shows the difference between these functions:
 
 ```kotlin
 @OptIn(ExperimentalStdlibApi::class)
