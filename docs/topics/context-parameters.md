@@ -107,9 +107,8 @@ fun main() {
 <primary-label ref="experimental-opt-in"/>
 
 When overloads differ only by context parameters, a call can become ambiguous if multiple matching context values are available.
-You can resolve this ambiguity by passing an explicit context argument at the call site.
 
-Here's an example:
+To resolve the ambiguity, pass an explicit context argument at the call site:
 
 ```kotlin
 class EmailSender
@@ -135,7 +134,10 @@ fun notifyUser() {
 }
 ```
 
-You can also use explicit context arguments instead of the `context()` function to reduce nesting and make some calls easier to read. If you need to use the same context arguments in multiple calls, use the `context()` function instead.
+You can also use explicit context arguments to reduce nesting in some function calls:
+
+* For a single call, use explicit context arguments to make the call easier to read.
+* If multiple calls use the same context arguments, use the `context()` function.
 
 This feature is [Experimental](components-stability.md#stability-levels-explained). To opt in, add the following compiler option to your build file:
 
