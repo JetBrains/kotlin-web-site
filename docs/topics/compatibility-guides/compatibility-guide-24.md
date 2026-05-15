@@ -485,22 +485,6 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.4.0: remove consumable configurations for Kotlin/Native Apple frameworks
 
-### Remove `KotlinJsTestFramework.createTestExecutionSpec()` function
-
-> **Issue**: [KT-75450](https://youtrack.jetbrains.com/issue/KT-75450)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: source
->
-> **Short summary**: In Kotlin 2.4.0, the deprecated `KotlinJsTestFramework.createTestExecutionSpec()` function is removed.
->
-> **Deprecation cycle**:
->
-> - 2.2.20: report a warning when using `KotlinJsTestFramework.createTestExecutionSpec()`
-> - 2.3.0: raise the warning to an error
-> - 2.4.0: remove the function
-
 ### Remove `NpmProject.useTool()` function
 
 > **Issue**: [KT-76251](https://youtrack.jetbrains.com/issue/KT-76251)
@@ -535,23 +519,6 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.2.0: remove the plugin code
 > - 2.4.0: remove the plugin ID
 
-### Remove `getPluginArtifactForNative()` function
-
-> **Issue**: [KT-80466](https://youtrack.jetbrains.com/issue/KT-80466)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: source
->
-> **Short summary**: In Kotlin 2.4.0, the [deprecated `getPluginArtifactForNative()` function](whatsnew2220.md#reduced-size-of-kotlin-native-distribution) is now removed.
-> To migrate, use the [`getPluginArtifact()`](https://kotlinlang.org/api/kotlin-gradle-plugin/kotlin-gradle-plugin-api/org.jetbrains.kotlin.gradle.plugin/-kotlin-compiler-plugin-support-plugin/get-plugin-artifact.html) function instead.
->
-> **Deprecation cycle**:
->
-> - 2.2.20: report a warning
-> - 2.3.0: raise the warning to an error
-> - 2.4.0: remove the function
-
 ### Remove deprecated Kotlin/JS and Kotlin/Wasm Gradle APIs
 
 > **Issue**: [KT-81030](https://youtrack.jetbrains.com/issue/KT-81030), [KT-81032](https://youtrack.jetbrains.com/issue/KT-81032), [KT-81033](https://youtrack.jetbrains.com/issue/KT-81033), [KT-81034](https://youtrack.jetbrains.com/issue/KT-81034), [KT-81036](https://youtrack.jetbrains.com/issue/KT-81036), [KT-81037](https://youtrack.jetbrains.com/issue/KT-81037), [KT-81039](https://youtrack.jetbrains.com/issue/KT-81039), [KT-81040](https://youtrack.jetbrains.com/issue/KT-81040)
@@ -572,6 +539,131 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.3.0: report an error when using these APIs
+> - 2.4.0: remove the deprecated APIs
+
+### Remove legacy Android source set layout
+
+> **Issue**: [KT-82265](https://youtrack.jetbrains.com/issue/KT-82265)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.4.0 removes the `kotlin.mpp.androidSourceSetLayoutVersion` Gradle property and support for the legacy Android source set layout.
+> To migrate, remove the property and use the current [Android source set layout](https://kotlinlang.org/docs/multiplatform/multiplatform-android-layout.html).
+>
+> **Deprecation cycle**:
+>
+> - 1.9.20: report an error when `kotlin.mpp.androidSourceSetLayoutVersion=1` is used
+> - 2.4.0: remove the Gradle property and support for the legacy Android source set layout
+
+### Report errors for `LanguageSettings.enableLanguageFeature` DSL
+
+> **Issue**: [KT-82847](https://youtrack.jetbrains.com/issue/KT-82847)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `LanguageSettings.enableLanguageFeature` DSL exposes an internal compiler configuration only intended for Kotlin compiler tests.
+> Using this DSL now results in an error.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning when using `LanguageSettings.enableLanguageFeature`
+> - 2.4.0: raise the warning to an error
+
+### Remove `kotlin.mpp.enableKotlinToolingMetadataArtifact` Gradle property
+
+> **Issue**: [KT-82960](https://youtrack.jetbrains.com/issue/KT-82960)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Since the `kotlin-tooling-metadata.json` artifact is now always generated for multiplatform projects,
+> the `kotlin.mpp.enableKotlinToolingMetadataArtifact` Gradle property is deprecated and support is removed.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+> - 2.4.0: remove support
+
+### Remove "out of process" compiler execution strategy
+
+> **Issue**: [KT-83126](https://youtrack.jetbrains.com/issue/KT-83126)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The "out of process" [compiler execution strategy](compiler-execution-strategy.md) isn't supported by the [Build tools API](build-tools-api.md) and is the slowest strategy available.
+> In Kotlin 2.4.0, the deprecated strategy is removed in favor of "daemon" and "in process" compiler execution strategies.
+>
+> **Deprecation cycle**:
+>
+> - 2.3.20: report a warning
+> - 2.4.0: remove the "out of process" compiler execution strategy
+
+### Deprecate Kotlin/JS compiler type selection APIs
+
+> **Issue**: [KT-84753](https://youtrack.jetbrains.com/issue/KT-84753)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `KotlinJsCompilerType` enum and the `KotlinProjectExtension.js()` overloads with a compiler type parameter are deprecated.
+> To migrate, remove the compiler type argument from the `js()` target declaration and use `js { ... }` instead.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when using `KotlinJsCompilerType` or `KotlinProjectExtension.js()` overloads with a compiler type parameter
+
+### Remove deprecated task, compilation, and DSL APIs from the Kotlin Gradle plugin
+
+> **Issue**: [KT-85509](https://youtrack.jetbrains.com/issue/KT-85509)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.4.0 removes the following deprecated Kotlin Gradle plugin APIs:
+>
+> Compile task configuration APIs:
+>   * `KotlinJvmCompile.parentKotlinOptions`
+>   * `KotlinJvmCompile.moduleName`
+>   * `KotlinJvmFactory.createKotlinJvmOptions()`
+>   * `BaseKotlinCompile.moduleName` from `KotlinCompile` and `Kotlin2JsCompile` tasks
+> 
+> Kotlin Multiplatform hierarchy and target APIs:
+>   * `DeprecatedKotlinTargetHierarchyDsl`
+>   * `KotlinMultiplatformExtension.targetHierarchy`
+>   * `KotlinTargetComponent.sourcesArtifacts`
+>   * `KotlinTarget.sourceSets`
+>   * `KotlinHierarchyBuilder.withoutCompilations()`
+>   * `KotlinHierarchyBuilder.filterCompilations()`
+>   * `KotlinHierarchyBuilder.withWasm()`
+>   * `KotlinCompilation.defaultSourceSetName`
+> 
+> Kotlin compilation task APIs:
+>   * `KotlinCompilation.compileKotlinTaskProvider`
+>   * `KotlinCompilation.compileKotlinTask`
+>
+> Kotlin dependency handler APIs:
+>   * `KotlinDependencyHandler.enforcedPlatform()`
+>   * `KotlinDependencyHandler.platform()`
+> Other deprecated task and extension APIs:
+>   * `KaptExtension.processors`
+>   * `KotlinTest.excludes`
+>   * `KotlinTest.fileResolver`
+>   * `KotlinTest.execHandleFactory`
+>   * `IncrementalSyncTask.destinationDir`
+>
+> To migrate, remove usages of these APIs and use the replacements suggested by the deprecation diagnostics.
+>
+> **Deprecation cycle**:
+>
 > - 2.4.0: remove the deprecated APIs
 
 

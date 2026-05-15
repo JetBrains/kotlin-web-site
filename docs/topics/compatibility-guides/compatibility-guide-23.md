@@ -365,6 +365,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.20: report a warning
 > - 2.3.0: raise the warning to an error
+> - 2.4.0: remove the function
 
 ### Remove `closureTo()`, `createResultSet()`, and `KotlinToolingVersionOrNull()` functions
 
@@ -734,6 +735,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.20: report a warning
 > - 2.3.0: raise the warning to an error
+> - 2.4.0: remove the function
 
 ### Change the approach to registering all generated sources
 
