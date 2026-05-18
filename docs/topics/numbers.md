@@ -58,10 +58,8 @@ val one: Int = 1
 
 // Use underscores to improve readability
 val oneBillion: Long = 1_000_000_000
-val hexBytes: Long = 0x80_EC_DE_5E
-val hexBytesInt: Int = 0x7F_EC_DE_5E
-val bytes: Long = 0b11010010_01101001_10010100_10010010
-val bytesInt: Int = 0b01010010_01101001_10010100_10010010
+val hexBytes: Int = 0x7F_EC_DE_5E
+val bytes: Int = 0b01010010_01101001_10010100_10010010
 
 val oneByte: Byte = 1
 val oneShort: Short = 1
