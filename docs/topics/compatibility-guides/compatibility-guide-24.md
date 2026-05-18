@@ -628,7 +628,36 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.4.0: remove the deprecated APIs
 
+### Deprecate explicit shrunk classpath snapshot configuration
 
+> **Issue**: [KT-75837](https://youtrack.jetbrains.com/issue/KT-75837)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The `shrunkClasspathSnapshot` configuration parameter in `ClasspathSnapshotBasedIncrementalCompilationApproachParameters` is deprecated.
+> The shrunk classpath snapshot is an internal incremental compilation cache, so the compiler now creates and manages it automatically under the incremental compiler metadata `workingDirectory`.
+> To migrate, use the automatically managed snapshot file, instead of passing a value to `shrunkClasspathSnapshot`, 
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report a warning when using `shrunkClasspathSnapshot`
+
+### Remove redundant ABI validation Gradle DSL elements
+
+> **Issue**: [KT-80685](https://youtrack.jetbrains.com/issue/KT-80685)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: Kotlin 2.4.0 simplifies the [ABI validation](gradle-binary-compatibility-validation.md) Gradle DSL and removes redundant configuration entries.
+> To migrate, configure report settings directly in `abiValidation {}` instead of `abiValidation { legacyDump { ... } }`, remove `abiValidation { klib { enabled = ... } }`, and use `keepLocallyUnsupportedTargets` instead of `klib.keepUnsupportedTargets`.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: remove redundant ABI validation DSL elements
 
 <!--
 
