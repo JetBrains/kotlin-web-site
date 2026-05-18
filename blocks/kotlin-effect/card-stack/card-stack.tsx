@@ -1,11 +1,12 @@
 import React, { FC, useLayoutEffect, useRef } from 'react';
 
+import cn from 'classnames';
+
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import styles from './card-stack.module.css';
 
-const CARDS = [0, 1, 2];
 // Resting tilt for each card in the stack. The last card tilts the other way
 // so its right corner peeks out from behind the card in front of it.
 const CARD_TILTS_DEG = [0, 2, -4];
@@ -16,7 +17,7 @@ const EXIT_ROTATION_DEG = -12;
 const STEP_VH = 40;
 // Extra scroll distance spent "holding" on the first and last card so the
 // pinned section dwells there before/after the transitions.
-const HOLD_VH = 40;
+const HOLD_VH = 20;
 
 export const CardStack: FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -94,16 +95,27 @@ export const CardStack: FC = () => {
             <div className="ktl-layout ktl-layout--center">
                 <div className="ktl-container">
                     <div className={styles.stack}>
-                        {CARDS.map((i) => (
-                            <div
-                                key={i}
-                                ref={(el) => setCardRef(el, i)}
-                                className={styles.card}
-                                data-test="card-stack-card"
-                            >
-                                content {i + 1}
-                            </div>
-                        ))}
+                        <div
+                            ref={(el) => setCardRef(el, 0)}
+                            className={styles.card}
+                            data-test="card-stack-card"
+                        >
+                            content 1
+                        </div>
+                        <div
+                            ref={(el) => setCardRef(el, 1)}
+                            className={styles.card}
+                            data-test="card-stack-card"
+                        >
+                            content 2
+                        </div>
+                        <div
+                            ref={(el) => setCardRef(el, 2)}
+                            className={cn(styles.card, styles.cardGradient)}
+                            data-test="card-stack-card"
+                        >
+                            content 3
+                        </div>
                     </div>
                 </div>
             </div>
