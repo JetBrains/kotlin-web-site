@@ -331,11 +331,11 @@ fun main() {
 
 ## Use UUIDs with Java APIs
 
-When you work on the JVM, you can interoperate your Kotlin code with Java libraries
-that use the `java.util.UUID` class.
+To represent UUIDs, Java uses `java.util.UUID` class. On the JVM, Java APIs may
+accept or return this type. Although `java.util.UUID` and `kotlin.unit.UUID` both represent UUIDs,
+they are two distinct types. 
 
-The `java.util.UUID` and `kotlin.unit.UUID` classes represent the same kind of values,
-but they are two distinct types. You need to convert values explicitly to pass UUIDs between Kotlin and Java:
+Convert values explicitly to pass UUIDs between Kotlin and Java:
 
 * Convert a Java UUID to Kotlin with the [`.toKotlinUuid()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/to-kotlin-uuid.html) extension function:
 
