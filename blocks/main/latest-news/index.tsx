@@ -8,7 +8,7 @@ import { useTextStyles } from '@rescui/typography';
 import { Button } from '@rescui/button';
 import { ArrowTopRightIcon } from '@rescui/icons';
 
-import { useTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints';
+import { useML } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 
 const MascotAnimation = dynamic(import('./mascot'), {
     loading: () => null,
@@ -71,8 +71,8 @@ function Item({ title, date, link, description, position }: ItemProps) {
 export function LatestNews() {
     const textCn = useTextStyles();
 
-    const isTS = useTS();
-    const headerClass = isTS ? 'rs-h3' : 'rs-h2';
+    const isML = useML();
+    const headerClass = isML ? 'rs-h3' : 'rs-h2';
 
     return (
         <section className={styles.latestNews}>
