@@ -2,7 +2,7 @@
 [//]: # (description: Learn how to use UUIDs in Kotlin, including creating, parsing, formatting, serializing, and working with UUID values across multiplatform and JVM code.)
 
 The [`Uuid`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/)
-class represents universally unique identifiers (UUIDs),
+class represents Universally Unique Identifiers (UUIDs),
 also known as Globally Unique Identifiers (GUIDs).
 
 A `Uuid` is a 128-bit value used to uniquely identify an entity without
@@ -13,20 +13,20 @@ or [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform/get-started.
 Use the `Uuid` class to work with UUID values. Unlike plain strings, a dedicated UUID
 type makes your code more explicit and prevents accidental use of invalid values.
 
-The Kotlin standard library provides the `Uuid` class in the `kotlin.uuid` package:
+To use UUIDs in your project, import the `Uuid` class from the `kotlin.uuid` package:
 
 ```kotlin
 import kotlin.uuid.Uuid
 ```
+
 ## Generate UUIDs
 
-To create a new random UUID, use the [`Uuid.random()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/random.html) function.
-It generates a version 4 UUID from random values.
-
-Use the `Uuid.random()` function for regular identifiers, such as user or database IDs.
+To generate a random version 4 UUID for regular identifiers, such as user or database IDs, 
+use the [`Uuid.random()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/random.html) function:
 
 ```kotlin
 import kotlin.uuid.Uuid
+
 fun main() {
 //sampleStart    
     val id = Uuid.random()
@@ -34,34 +34,33 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0"}
 
-If your application require a specific version of UUIDs,
-you can use the following functions:
+You can also generate a specific version of UUIDs:
 
-* The [`Uuid.generateV4()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v4.html) function creates the same type of UUID as the `Uuid.random()` function
-  but explicitly states that the value is a version 4 UUID.
-
-  Use it when version 4 UUIDs are specifically required.
+* Use the [`Uuid.generateV4()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v4.html) function to generate a version 4 UUID: 
 
   ```kotlin
   import kotlin.uuid.Uuid
-  fun main() {
+  
+  fun main() { 
   //sampleStart    
       val id = Uuid.generateV4()
       println(id)
   //sampleEnd    
   }
   ```
-  {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+  {kotlin-runnable="true" kotlin-min-compiler-version="2.3"}
 
-* The [`Uuid.generateV7()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v7.html) function creates a version 7 UUID that contains
-  a time-based component and random data.
+  This function makes the UUID version explicit, but otherwise works
+  the same as the `Uuid.random()` function.
 
-  Use it when you need to sort UUIDs by creation time:
+* Use the [`Uuid.generateV7()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v7.html) function to generate a version 7 UUID that contains
+  a time-based component and random data:
 
   ```kotlin
   import kotlin.uuid.Uuid
+  
   fun main() {
   //sampleStart    
       val id = Uuid.generateV7()
@@ -69,26 +68,32 @@ you can use the following functions:
   //sampleEnd    
   }
   ```
-  {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+  {kotlin-runnable="true" kotlin-min-compiler-version="2.3"}
 
-  You can also generate a version 7 UUID for a specific moment in time,
-  using the [`Uuid.generateV7NonMonotonicAt()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v7-non-monotonic-at.html) function.
+  Use the `Uuid.generateV7()` function when you need to sort UUIDs by creation time.
 
-> Learn more about the generation algorithm in the [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/).
->
-{style="tip"}
+  You can also generate a version 7 UUID for a specific moment in time
+  with the [`Uuid.generateV7NonMonotonicAt()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v7-non-monotonic-at.html) function.
 
 ## Parse UUIDs
 
-Some UUIDs can be first represented as strings.
-For example, when you receive a UUID from a URL parameter or database record.
+UUID values are often represented as strings,
+such as in URL parameters or database records.
 
 To convert a `String` value to a `Uuid` value,
 use the [`Uuid.parse()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse.htm) function:
 
 ```kotlin
-val id = Uuid.parse("de2bc56c-ea73-4f3c-8a37-5a46fdb2d79a")
+import kotlin.uuid.Uuid
+
+fun main() {
+//sampleStart
+    val id = Uuid.parse("de2bc56c-ea73-4f3c-8a37-5a46fdb2d79a")
+    println(id)
+//sampleEnd    
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" validate="true"}
 
 The `Uuid.parse()` function accepts both the standard hex-and-dash
 format and hexadecimal format without dashes.
@@ -97,6 +102,7 @@ If the input is invalid, the `Uuid.parse()` function throws an `IllegalArgumentE
 
 ```kotlin
 import kotlin.uuid.Uuid
+
 fun main() { 
 //sampleStart    
     val id = Uuid.parse("10")
@@ -104,89 +110,103 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" validate="false"}
 
-If your application accepts only one representation, use:
+If your application accepts only one representation, use
+the format specific-functions:
 
-* The [`Uuid.parseHexDash()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex-dash.html) function to parse from the hex-and dash string representation.
-* The [`Uuid.parseHex()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex.html) function to parse from the hexadecimal string representation without dashes.
-
-For example:
-
-```kotlin
-val standard = Uuid.parseHexDash("de2bc56c-ea73-4f3c-8a37-5a46fdb2d79a")
-val compact = Uuid.parseHex("de2bc56cea734f3c8a375a46fdb2d79a")
-```
-
-If you have UUIDs from external input, use the
-[`Uuid.parseOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-or-null.html), [`Uuid.parseHexDashOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex-dash-or-null.html),
-or [`Uuid.parseHexOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex-or-null.html)
-functions to handle invalid values safely:
-
-```kotlin
-fun parseId (input: String): Uuid? {
-    return Uuid.parseOrNull(input)
-}
-```
-
-> Use the `Uuid.parseOrNull()`, `Uuid.parseHexDashOrNull()`, and `Uuid.parseHexOrNull()` functions
-> when invalid input is part of your normal application workflow.
->
-{style="tip"}
-
-## Convert UUIDs
-
-You can convert a `Uuid` value to a `String` value using the following functions:
-
-* [`.toString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-string.html) for the standard string representation
-* [`.toHexDashString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-hex-dash-string.html) for the hex-and-dash format
-* [`.toHexString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-hex-string.html) for the hexadecimal format without dashes
+* [`Uuid.parseHexDash()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex-dash.html) for the hex-and-dash string representation.
+* [`Uuid.parseHex()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex.html) for the hexadecimal string representation without dashes.
 
 For example:
 
 ```kotlin
 import kotlin.uuid.Uuid
+
+fun main() {
+//sampleStart  
+    val standard = Uuid.parseHexDash("de2bc56c-ea73-4f3c-8a37-5a46fdb2d79a")
+    val compact = Uuid.parseHex("de2bc56cea734f3c8a375a46fdb2d79a")
+    
+    println(standard)
+    println(compact)
+//sampleEnd    
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.3" validate="true"}
+
+If you have UUIDs from external sources and must handle invalid input safely,
+use [`Uuid.parseOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-or-null.html), [`Uuid.parseHexDashOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex-dash-or-null.html),
+or [`Uuid.parseHexOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex-or-null.html). 
+These functions return `null` if the input is invalid:
+
+```kotlin
+fun parseId (input: String): Uuid? { 
+    return Uuid.parseOrNull(input) 
+}
+```
+
+## Convert UUIDs to strings
+
+You can convert a `Uuid` value to a `String` value with the following functions:
+
+* [`toString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-string.html) for the standard string representation
+* [`toHexDashString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-hex-dash-string.html) for the hex-and-dash format
+* [`toHexString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-hex-string.html) for the hexadecimal format without dashes
+
+For example:
+
+```kotlin
+import kotlin.uuid.Uuid
+
 fun main() {
 //sampleStart    
     val id = Uuid.parse("de2bc56c-ea73-4f3c-8a37-5a46fdb2d79a")
     
-    println(id.toString()) // de2bc56c-ea73-4f3c-8a37-5a46fdb2d79a
-    println(id.toHexDashString()) // de2bc56c-ea73-4f3c-8a37-5a46fdb2d79a
-    println(id.toHexString()) // de2bc56cea734f3c8a375a46fdb2d79a 
+    println(id.toString())
+    // de2bc56c-ea73-4f3c-8a37-5a46fdb2d79a
+    println(id.toHexDashString())
+    // de2bc56c-ea73-4f3c-8a37-5a46fdb2d79a
+    println(id.toHexString())
+    // de2bc56cea734f3c8a375a46fdb2d79a 
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.3" validate="true"}
 
 ## Compare UUIDs
 
-You can perform equality checks on the `Uuid` values using the `==` operator.
+You can check whether `Uuid` values are equal using the `==` operator.
 
-Kotlin evaluates values according to the UUID value, not to the textual representation.
-For example, two values in the different forms are equal if they represent the same 128-bit value:
+Kotlin compares values according to the UUID value, not to the textual representation.
+For example, two values in different forms are equal if they represent the same 128-bit value:
 
 ```kotlin
 import kotlin.uuid.Uuid
+
 fun main() {
 //sampleStart    
     val first = Uuid.parse("de2bc56c-ea73-4f3c-8a37-5a46fdb2d79a")
     val second = Uuid.parse("de2bc56cea734f3c8a375a46fdb2d79a")
 
-    println(first == second) // true 
+    println(first == second) 
+    // true 
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.3" validate="true"}
 
-This functionality makes the `Uuid` comparison safer than comparing UUIDs as strings.
-String comparison fails if you write the same value in different formats.
+This makes the `Uuid` comparison more reliable than string comparing,
+which treats the same value in different formats as different values.
 `Uuid` comparison checks the actual identifier value.
 
-You can also sort UUIDs using the `Comparable<Uuid>` interface. In that case,
+`Uuid` implements the `Comparable<Uuid>` interface, so UUID values can be sorted with standard collection
+functions such as `sorted()`. In that case,
 Kotlin compares values lexicographically (from the most to the least significant bit):
 
 ```kotlin
 import kotlin.uuid.Uuid
+
 fun main() {
 //sampleStart    
     val first = Uuid.generateV7()
@@ -197,18 +217,24 @@ fun main() {
 //sampleEnd    
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.3"}
 
-## Work with bytes
+## Work with binary representations
 
-Kotlin provides functionality to work with the 128-bit value of a UUID.
-Use it when you need binary storage, custom serialization, or interoperability with other systems.
+Some APIs, storage formats, and binary protocols do not represent UUIDs as strings. 
+Instead, they store the 128-bit UUID value as either:
+
+* A 16-byte array 
+* Two 64-bit values
+
+Use these representations when you need to exchange UUIDs with systems that expect binary UUID data.
 
 To convert a UUID to and from 16-byte representation, use the [`.toByteArray()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-byte-array.html)
 and [`Uuid.fromByteArray()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/from-byte-array.html) functions:
 
 ```kotlin
 import kotlin.uuid.Uuid
+
 fun main() {
 //sampleStart 
     val id = Uuid.random()
@@ -221,38 +247,43 @@ fun main() {
     println(bytes)
     println(original)
 
-    println(id == original) // true
+    println(id == original) 
+    // true
 //sampleEnd  
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0"}
 
-You can also create a UUID from two 64-bit values. Since Kotlin does not provide a built-in 128-bit integer type,
-the API represents a UUID as two `Long` values using:
+You can also represent the same 128-bit UUID value as two `Long` values. 
+This is useful because Kotlin does not provide a built-in 128-bit integer type. 
+The two `Long` values store the UUID in two parts:
 * The `mostSignificantBits` parameter for the first 64 bits of a UUID.
 * The `leastSignificantBits` parameter for the last 64 bits of a UUID.
 
-If another system gives you a UUID in the two-part format,
-use the [`Uuid.fromLongs()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/from-longs.html) function to create a single `Uuid` value:
+To create a `Uuid` value from two `Long` values,
+use the [`Uuid.fromLongs()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/from-longs.html) function:
 
 ```kotlin
 import kotlin.uuid.Uuid
+
 fun main() {
 //sampleStart 
     val id = Uuid.fromLongs(
         mostSignificantBits = -4653685776373167443,
         leastSignificantBits = -6288180676521310383.toLong()
     )
-    println(id) // bf6ac971-52fd-4aad-a8bb-e4fdac78c751
+    println(id) 
+    // bf6ac971-52fd-4aad-a8bb-e4fdac78c751
 //sampleEnd  
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" validate="true"}
 
 To extract two parts from an existing `Uuid` value, use the [`Uuid.toLongs()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-longs.html) function:
 
 ```kotlin
 import kotlin.uuid.Uuid
+
 fun main() {
 //sampleStart 
     val id = Uuid.random().toLongs { mostSignificantBits, leastSignificantBits ->
@@ -262,15 +293,15 @@ fun main() {
 //sampleEnd  
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.0" validate="true"}
 
 ## Serialize UUIDs
 
-Kotlin supports serialization for the `Uuid` values.
+Kotlin supports serialization for `Uuid` values.
 Use it to store or transfer a UUID value outside Kotlin code, for example, in JSON APIs or configuration files.
 
-To serialize a `Uuid` value, represent it as a `String` value unless otherwise required by your system.
-The [`kotlinx.serialization`](https://kotlinlang.org/docs/serialization.html) functionality uses the standard hex-and-dash format:
+To serialize a `Uuid` value, represent it as a string unless your application requires another format.
+The [`kotlinx.serialization`](https://kotlinlang.org/docs/serialization.html) library uses the hex-and-dash format:
 
 ```kotlin
 //sampleStart 
@@ -296,9 +327,9 @@ fun main() {
 }
 //sampleEnd
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.3" validate="true"}
 
-## Use UUIDs on the JVM
+## Use UUIDs with Java APIs
 
 When you work on the JVM, you can interoperate your Kotlin code with Java libraries
 that use the `java.util.UUID` class.
@@ -306,17 +337,19 @@ that use the `java.util.UUID` class.
 The `java.util.UUID` and `kotlin.unit.UUID` classes represent the same kind of values,
 but they are two distinct types. You need to convert values explicitly to pass UUIDs between Kotlin and Java:
 
-* Convert a Java UUID to Kotlin using the [`.toKotlinUuid()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/to-kotlin-uuid.html) function:
+* Convert a Java UUID to Kotlin with the [`.toKotlinUuid()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/to-kotlin-uuid.html) extension function:
 
   ```kotlin
   import kotlin.uuid.toKotlinUuid
+  
   val kotlinId: Uuid = javaId.toKotlinUuid()
   ```
 
-* Convert a Kotlin UUID to Java using the [`.toJavaUuid()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/to-java-uuid.html) function:
+* Convert a Kotlin UUID to Java with the [`.toJavaUuid()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/to-java-uuid.html) extension function:
 
   ```kotlin
   import kotlin.uuid.toJavaUuid
+  
   val javaId: java.util.UUID = kotlinId.toJavaUuid()
   ```
 
