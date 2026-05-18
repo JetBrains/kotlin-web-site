@@ -61,10 +61,6 @@ WASI provides a secure, standardized interface for running Kotlin applications c
 ### WebAssembly Component Model
 <primary-label ref="experimental-general"/>
 
-> Support for the WebAssembly Component Model is currently available only in an EAP release: [Kotlin %kotlinEapVersion%](whatsnew-eap.md).
->
-{style="note"}
-
 WASI 0.2 is built on the [WebAssembly Component Model](https://github.com/WebAssembly/component-model), which defines a way to build components from Wasm modules using
 standardized interfaces and types. The model lets you define language-agnostic components in applications or libraries.
 You can also compose Wasm modules and existing components into new components.
