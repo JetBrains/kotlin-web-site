@@ -3,6 +3,7 @@
     padding: 140px 0 96px 0;
     box-sizing: border-box;
     display: flex;
+    overflow: hidden;
 }
 
 .section > :global(.ktl-layout) {
