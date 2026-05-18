@@ -623,6 +623,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.0: report a warning when the `kotlinArtifacts` API is used
 > - 2.3.0: raise this warning to an error
+> - 2.4.0: remove the API
 
 ### Remove `kotlin.mpp.resourcesResolutionStrategy` Gradle property
 
