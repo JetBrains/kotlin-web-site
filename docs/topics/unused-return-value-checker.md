@@ -215,7 +215,6 @@ fun handleNullablePackageName(s: String?, sb: StringBuilder) {
 
     // The checker reports a warning because the returned String is unused
     s?.myLet { "kotlin.$it" }
-    // Unused return value.
 }
 ```
 
