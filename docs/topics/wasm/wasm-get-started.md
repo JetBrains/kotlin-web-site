@@ -21,7 +21,7 @@ app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts you can pu
    * **Project ID:** wasm.project.demo
 
    > This tutorial uses `wasm.project.demo` as the Project ID for consistency. 
-   > However, we recommend keeping your usual Project ID, such as `org.example`.
+   > However, we recommend keeping your usual group ID, such as `org.example`.
    > Whatever you enter here will be suggested as the default in future projects.
    >
    {style="note"}
@@ -47,11 +47,7 @@ app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts you can pu
     The port number may vary if port `8080` is already in use.
     You can find the actual port number in the output of the Gradle build.
 
-2. Click the **Click me!** button:
-
-    ![Click me](wasm-composeapp-browser-clickme.png){width=600}
-    
-    This reveals the Compose Multiplatform logo:
+2. Click the **Click me!** button. This reveals the Compose Multiplatform logo:
     
     ![Compose app in browser](wasm-composeapp-browser.png){width=600}
 
@@ -83,7 +79,7 @@ directory:
 ## Publish the application
 
 Use the generated artifacts to deploy your Kotlin/Wasm application. 
-Select a publishing option of your preference and follow the instructions:
+Select a publishing option that you prefer and follow the instructions:
 
 * [GitHub pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site)
 * [Cloudflare](https://developers.cloudflare.com/workers/)
