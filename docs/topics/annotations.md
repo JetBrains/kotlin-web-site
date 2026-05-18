@@ -199,13 +199,14 @@ The full list of supported use-site targets is:
 
 ### Defaults when no use-site targets are specified
 
-If you don't specify a use-site target, the target is chosen according to the `@Target` annotation of the annotation
-being used.
-If there are multiple applicable targets, the first applicable target from the following list is used:
+If you don't specify a use-site target, the compiler chooses the target according to the `@Target` annotation of the annotation
+you use. If there are multiple applicable targets, the compiler chooses one or more of them in the following order:
 
-* `param`
-* `property`
-* `field`
+* The constructor parameter target (`param`).
+* The property target (`property`).
+* The field target (`field`), if it's applicable and the property target (`property`) isn't.
+
+If none of `param`, `property`, or `field` are applicable, the annotation is invalid, and you need to specify a use-site target explicitly.
 
 Let's use the [`@Email` annotation from Jakarta Bean Validation](https://jakarta.ee/specifications/bean-validation/3.0/apidocs/jakarta/validation/constraints/email):
 
@@ -218,26 +219,6 @@ With this annotation, consider the following example:
 
 ```kotlin
 data class User(val username: String,
-                // @Email is equivalent to @param:Email
-                @Email val email: String) {
-    // @Email is equivalent to @field:Email
-    @Email val secondaryEmail: String? = null
-}
-```
-
-Kotlin 2.2.0 introduced an experimental defaulting rule which should
-make propagating annotations to parameters, fields, and properties more predictable.
-
-With the new rule, if there are multiple applicable targets, one or more is chosen as follows:
-
-* If the constructor parameter target (`param`) is applicable, it is used.
-* If the property target (`property`) is applicable, it is used.
-* If the field target (`field`) is applicable while `property` isn't, `field` is used.
-
-Using the same example:
-
-```kotlin
-data class User(val username: String,
                 // @Email is now equivalent to @param:Email @field:Email
                 @Email val email: String) {
     // @Email is still equivalent to @field:Email
@@ -245,32 +226,15 @@ data class User(val username: String,
 }
 ```
 
-If there are multiple targets, and none of `param`, `property`, or `field` are applicable, the annotation is invalid.
+In this example, the `@Email` annotation applies to both the constructor parameter and the field targets for the `email` property because the property:
 
-To enable the new defaulting rule, use the following line in your Gradle configuration:
+* Is declared in the primary constructor.
+* Has no custom getter or setter, so the compiler generates a backing field.
 
-```kotlin
-// build.gradle.kts
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xannotation-default-target=param-property")
-    }
-}
-```
+The `@Email` annotation only applies to the field target for the `secondaryEmail` property because the property:
 
-Whenever you'd like to use the old behavior, you can:
-
-* In a specific case, specify the necessary target explicitly, for example, using `@param:Annotation` instead of `@Annotation`.
-* For a whole project, use this flag in your Gradle build file:
-
-    ```kotlin
-    // build.gradle.kts
-    kotlin {
-        compilerOptions {
-            freeCompilerArgs.add("-Xannotation-default-target=first-only")
-        }
-    }
-    ```
+* Isn't declared in the primary constructor.
+* Has no custom getter or setter, so the compiler generates a backing field.
 
 ### `all` meta-target
 
