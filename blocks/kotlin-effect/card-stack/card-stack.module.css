@@ -1,0 +1,37 @@
+.section {
+    height: 100vh;
+    padding: 96px 0;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.section > :global(.ktl-layout) {
+    flex: 1;
+    display: flex;
+}
+
+.section > :global(.ktl-layout) > :global(.ktl-container) {
+    flex: 1;
+    display: flex;
+}
+
+.stack {
+    position: relative;
+    flex: 1;
+}
+
+.card {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 48px;
+    border: 12px solid #997BED;
+    background: #000;
+    backdrop-filter: blur(17px);
+    color: #FFFFFF;
+    padding: 12px;
+    box-sizing: border-box;
+    transform-origin: center;
+    will-change: transform, opacity;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button } from '@rescui/button';
 import { LandingLayout } from '../../components/landing-layout/landing-layout';
+import { CardStack } from '@/blocks/kotlin-effect/card-stack/card-stack';
+import { KotlinEffectPlaceholder } from '../../blocks/kotlin-effect/placeholder/placeholder';
 
 export const KOTLIN_EFFECT_TITLE = 'Kotlin Effect';
 export const KOTLIN_EFFECT_URL = '/kotlin-effect/';
@@ -26,6 +28,9 @@ function Index() {
             topMenuButton={<Button href="https://kotlinlang.org/docs/getting-started.html">Get started</Button>}
             dataTestId={'kotlin-effect-page'}
         >
+            <KotlinEffectPlaceholder />
+            <CardStack />
+            <KotlinEffectPlaceholder />
         </LandingLayout>
     );
 }
