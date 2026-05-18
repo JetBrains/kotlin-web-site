@@ -58,8 +58,8 @@ val one: Int = 1
 
 // Use underscores to improve readability
 val oneBillion: Long = 1_000_000_000
-val hexBytes: Int = 0xFF_EC_DE_5E
-val bytes: Int = 0b11010010_01101001_10010100_10010010
+val hexBytes: Int = 0x7F_EC_DE_5E
+val bytes: Int = 0b01010010_01101001_10010100_10010010
 
 val oneByte: Byte = 1
 val oneShort: Short = 1
@@ -126,8 +126,8 @@ By default, Kotlin infers floating-point literals as `Double`.
 To declare a `Float`, add the `f` or `F` suffix:
 
 ```kotlin
-val pi = 3.14 // Double         
-val eFloat = 2.7182818284f // Float
+val pi = 3.14 // Double
+val eFloat = 2.7182817f // Float
 ```
 
 > Kotlin rounds a `Float` literal that contains more precision than `Float` can store.
@@ -212,7 +212,7 @@ fun main() {
     }
 
     val x = 1.0
-    val xInt = 1    
+    val xInt = 1
     val xFloat = 1.0f
     val one: Double = 1 // Error: initializer type mismatch
 
@@ -370,7 +370,7 @@ fun main() {
 //sampleStart
     val x = 1
     
-    println(x shl 2) // 4 
+    println(x shl 2) // 4
     println(x and 0x000FF000) // 0
 //sampleEnd
 }
@@ -422,8 +422,8 @@ fun main() {
     // Operands used through a non-floating-point static type
     println(generalizedEquals(Double.NaN, Double.NaN)) // true
     println(generalizedEquals(0.0, -0.0)) // false
-//sampleEnd  
 }
+//sampleEnd  
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-numbers-floating-comp"}
 
