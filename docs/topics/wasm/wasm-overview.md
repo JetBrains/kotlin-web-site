@@ -22,6 +22,8 @@ browser in standalone Wasm virtual machines. In the outside-of-browser case,
 >
 {style="tip"}
 
+[//]: # (TODO KT-85415: For Kotlin/Wasm-compatible standalone runtimes, see Standalone runtimes).
+
 ## Kotlin/Wasm and Compose Multiplatform
 
 With Kotlin, you have the power to build applications and reuse mobile and desktop user interfaces (UIs) in your web projects through
