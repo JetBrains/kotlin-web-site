@@ -659,6 +659,32 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.4.0: remove redundant ABI validation DSL elements
 
+### Deprecate obsolete Compose compiler Gradle plugin options
+
+> **Issue**: [KT-85343](https://youtrack.jetbrains.com/issue/KT-85343)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: In Kotlin 2.4.0, the following deprecated Compose compiler Gradle plugin options now report an error when used:
+>
+> * `generateFunctionKeyMetaClasses`
+> * `enableIntrinsicRemember`
+> * `enableNonSkippingGroupOptimization`
+> * `enableStrongSkippingMode`
+> * `stabilityConfigurationFile`
+> * `ComposeFeatureFlag.StrongSkipping`
+> * `ComposeFeatureFlag.IntrinsicRemember`
+>
+> Use `featureFlags` instead of the deprecated feature options, and `stabilityConfigurationFiles` instead of `stabilityConfigurationFile`.
+>
+> **Deprecation cycle**:
+>
+> - 2.0.20: report warnings for `enableIntrinsicRemember`, `enableNonSkippingGroupOptimization`, and `enableStrongSkippingMode`
+> - 2.1.0: report a warning for `stabilityConfigurationFile`
+> - 2.4.0: raise the warnings to errors
+
 <!--
 
 ### Title
