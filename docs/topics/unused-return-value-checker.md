@@ -184,8 +184,8 @@ fun check(g: Greeter) {
 
 ## Check for unused results in higher-order functions
 
-Some higher-order functions, such as the `.let()` extension function, return the result of a lambda.
-To check for unused results for these functions, add the [Experimental](components-stability.md#stability-levels-explained) `returnsResultOf()` contract to the function's `contract` block.
+Some higher-order functions, such as the `let()` scope function, return the result of a lambda.
+To check for unused lambda results of higher-order functions, add the [Experimental](components-stability.md#stability-levels-explained) `returnsResultOf()` contract to the function's contract.
 
 > Kotlin contracts are Experimental. To opt in, add the `@OptIn(ExperimentalContracts::class)` annotation when declaring a function with a contract.
 >
@@ -209,18 +209,21 @@ inline fun <T, R> T.myLet(block: (T) -> R): R {
 You can then use a function with this contract, such as `.myLet()`, to check if the lambda result is used:
 
 ```kotlin
-fun handleNullablePackageName(s: String?, sb: StringBuilder) {
-    // The checker doesn't report a warning because append() has an ignorable return value
-    s?.myLet { sb.append(it) }
+fun handleNullablePackageName(packageName: String?, builder: StringBuilder) {
+    // The checker doesn't report a warning because the return value of append() can be ignored
+    packageName?.myLet { builder.append(it) }
 
-    // The checker reports a warning because the returned String is unused
-    s?.myLet { "kotlin.$it" }
+    // The checker reports a warning because the returned string is unused
+    packageName?.myLet { "kotlin.$it" }
 }
 ```
 
-The `returnsResultOf()` contract requires a separate compiler option to opt in, and using it produces pre-release binaries that Kotlin compiler versions earlier than 2.4.0 can't read.
+> The `returnsResultOf()` contract requires a separate compiler option to opt in.
+> Be aware that using it produces pre-release binaries that Kotlin compiler versions earlier than 2.4.0 can't read.
+>
+{style="warning"}
 
-To enable it in your project, add the following compiler option to your build file:
+To opt in for your project, add the following compiler option to your build file:
 
 <tabs group="build-system">
 <tab title="Gradle" group-key="gradle">

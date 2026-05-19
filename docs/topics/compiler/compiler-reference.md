@@ -240,7 +240,7 @@ Allows using the `holdsIn` keyword in contracts to assume that a boolean conditi
 
 #### -Xallow-returns-result-of
 
-Allows using the `returnsResultOf()` contract to enable the unused return value checker to distinguish between ignorable and meaningful unused results from higher-order functions.
+Allows using the `returnsResultOf()` contract so that the unused return value checker can distinguish between results that can be ignored and meaningful results from higher-order functions.
 
 ### -Xreturn-value-checker
 <primary-label ref="experimental-general"/>
