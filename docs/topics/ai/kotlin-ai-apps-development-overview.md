@@ -1,5 +1,7 @@
 [//]: # (title: Kotlin for AI-powered app development)
 
+<web-summary>Learn how Koog can help you build AI-powered applications with Kotlin.</web-summary>
+
 Kotlin provides a modern and pragmatic foundation for building AI-powered applications.  
 It can be used across platforms, integrates well with established AI frameworks, and supports common AI development patterns.
 
