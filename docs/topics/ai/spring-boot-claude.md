@@ -194,4 +194,4 @@ Congratulations! You used Claude to plan, build, test, and refine a Kotlin Sprin
 ## What's next?
 
 * Learn about [](kotlin-ai-skills.md)
-* Check out our tutorial on using [Junie with Kotlin AI skills](https://kotlinlang.org/docs/multiplatform-cocoapods-spm-migration-ai.html)
+* Check out our tutorial on using [Junie with Kotlin AI skills](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-spm-migration-ai.html)
