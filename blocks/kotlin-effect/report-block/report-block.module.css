@@ -1,0 +1,39 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.reportBlock {
+    margin-top: 96px;
+    padding: 12px;
+    border-radius: 32px;
+    border: 12px solid #997BED;
+    background: #000;
+}
+
+.title {
+    margin: 0;
+}
+
+.text {
+    margin-top: 16px;
+}
+
+.button {
+    margin-top: 32px;
+    width: 100%;
+}
+
+@media (--ktl-ts-min) {
+    .reportBlock {
+        padding: 36px;
+        margin-top: 144px;
+    }
+
+    .button {
+        width: auto;
+    }
+}
+
+@media (--ktl-ds-min) {
+    .text {
+        max-width: 872px;
+    }
+}
