@@ -1,8 +1,11 @@
 .section {
-    height: 100vh;
-    padding: 140px 0 96px 0;
+    padding: 72px 0 72px 0;
     box-sizing: border-box;
     display: flex;
+}
+
+.sectionStack {
+    height: calc(100vh - 64px);
     overflow: hidden;
 }
 
@@ -17,15 +20,20 @@
 }
 
 .stack {
-    position: relative;
+    display: flex;
     flex: 1;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.stackAnimated {
+    position: relative;
+    display: block;
 }
 
 .card {
-    position: absolute;
-    inset: 0;
     width: 100%;
-    height: 100%;
+    min-height: 700px;
     border-radius: 48px;
     border: 12px solid #997BED;
     background: #000;
@@ -34,6 +42,13 @@
     padding: 12px;
     box-sizing: border-box;
     transform-origin: center;
+}
+
+.stackAnimated .card {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    min-height: 0;
     will-change: transform, opacity;
 }
 
