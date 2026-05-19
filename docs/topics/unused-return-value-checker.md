@@ -184,7 +184,7 @@ fun check(g: Greeter) {
 
 ## Check for unused results in higher-order functions
 
-Some higher-order functions, such as the `let()` scope function, return the result of a lambda.
+Some higher-order functions, such as the `let` scope function, return the result of a lambda.
 To check for unused lambda results of higher-order functions, add the [Experimental](components-stability.md#stability-levels-explained) `returnsResultOf()` contract to the function's contract.
 
 > Kotlin contracts are Experimental. To opt in, add the `@OptIn(ExperimentalContracts::class)` annotation when declaring a function with a contract.
@@ -206,15 +206,15 @@ inline fun <T, R> T.myLet(block: (T) -> R): R {
 }
 ```
 
-You can then use a function with this contract, such as `.myLet()`, to check if the lambda result is used:
+You can then use a function with this contract, such as `.customLet()`, to check if the lambda result is used:
 
 ```kotlin
 fun handleNullablePackageName(packageName: String?, builder: StringBuilder) {
     // The checker doesn't report a warning because the return value of append() can be ignored
-    packageName?.myLet { builder.append(it) }
+    packageName?.customLet { builder.append(it) }
 
     // The checker reports a warning because the returned string is unused
-    packageName?.myLet { "kotlin.$it" }
+    packageName?.customLet { "kotlin.$it" }
 }
 ```
 
