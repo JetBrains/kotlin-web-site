@@ -41,7 +41,7 @@ Learn more about this scenario in [Update multiplatform projects with Android ap
 Use the [kotlin-tooling-cocoapods-spm-migration](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-cocoapods-spm-migration) when your Kotlin Multiplatform project
 uses CocoaPods for iOS integration, and you want an AI agent to move the setup to SwiftPM.
 
-Learn more about this scenario in [Migrate multiplatform projects from CocoaPods to SwiftPM dependencies](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-spm-migration.html).
+Learn more about this scenario in [Migrate multiplatform projects from CocoaPods to SwiftPM dependencies](https://kotlinlang.org/docs/multiplatform/multiplatform-cocoapods-spm-migration-ai.html).
 
 ## Get support
 

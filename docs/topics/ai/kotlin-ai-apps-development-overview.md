@@ -98,3 +98,4 @@ Use Kotlin to connect to major model providers such as OpenAI, Anthropic, Google
 * Complete the [Create a Kotlin app that answers questions with Spring AI](spring-ai-guide.md)
   tutorial to learn more about using Spring AI with Kotlin in IntelliJ IDEA
 * Join the [Kotlin community](https://kotlinlang.org/community/) to connect with other developers building AI applications with Kotlin
+* Learn about [](kotlin-ai-skills.md)

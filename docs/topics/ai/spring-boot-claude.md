@@ -3,7 +3,9 @@
 <web-summary>Learn how to create a Kotlin app with Claude and Spring Boot.</web-summary>
 
 In this tutorial, you'll learn how to use [Claude](https://claude.com/product/overview) to create a Kotlin app to manage tasks. The tutorial uses Spring Boot
-to manage the backend infrastructure, while Claude plans and develops the application. 
+to manage the backend infrastructure, while Claude plans and develops the application.
+
+If you prefer to create an app without the help of AI, you can follow our [Create a web app with Kotlin and Spring Boot](jvm-get-started-spring-boot.md) tutorial.
 
 > As with any AI-powered tool, Claude can make mistakes. Review Claude's changes carefully and only use it with code you trust.
 > For more information on Claude's security policy, see [Claude Code Docs](https://code.claude.com/docs/en/security).

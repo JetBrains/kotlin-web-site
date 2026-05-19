@@ -344,5 +344,9 @@ Congratulations! You now have a Kotlin app that connects to OpenAI and answers q
 documentation stored in Qdrant.
 Try experimenting with different queries or importing other documents to explore more possibilities.
 
-You can view the completed project in the [Spring AI demo GitHub repository](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/springAI-demo),
-or explore other Spring AI examples in [Kotlin AI Examples](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master).
+You can view the completed project in the [Spring AI demo GitHub repository](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/springAI-demo).
+
+## What's next
+
+* Explore other Spring AI examples in [Kotlin AI Examples](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master)
+* [Create a task manager application with Spring Boot and Claude](spring-boot-claude.md)
