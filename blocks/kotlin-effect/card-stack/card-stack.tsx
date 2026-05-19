@@ -17,7 +17,7 @@ const EXIT_Y = '60vh';
 const EXIT_ROTATION_DEG = -12;
 const SCRUB_SMOOTHING = 2;
 const SNAP_DELAY = 0.06;
-const SNAP_MIN_DURATION = 0.18;
+const SNAP_MIN_DURATION = 0.2;
 const SNAP_MAX_DURATION = 0.4;
 
 export const CardStack: FC = () => {
