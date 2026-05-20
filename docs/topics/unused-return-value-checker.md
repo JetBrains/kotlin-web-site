@@ -198,7 +198,7 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.contract
 
 @OptIn(ExperimentalContracts::class)
-inline fun <T, R> T.myLet(block: (T) -> R): R {
+inline fun <T, R> T.customLet(block: (T) -> R): R {
     contract {
         returnsResultOf(block)
     }
