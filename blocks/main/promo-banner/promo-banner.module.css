@@ -2,14 +2,14 @@
 
 .wrapper {
     display: block;
-    margin-bottom: 48px;
+    margin-top: 48px;
 
     @media (--ktl-ts-min) {
-        margin-bottom: 64px;
+        margin-top: 64px;
     }
 
     @media (--ktl-ds-min) {
-        margin-bottom: 96px;
+        margin-top: 96px;
     }
 }
 
