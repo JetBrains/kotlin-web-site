@@ -9,15 +9,16 @@ the following features:
 
 ## Garbage collector
 
-Kotlin/Native's garbage collector (GC) algorithm is constantly evolving. Currently, it functions as a stop-the-world mark
-and concurrent sweep collector that does not separate the heap into generations.
+Kotlin/Native's garbage collector (GC) algorithm is constantly evolving. Currently, it functions as a concurrent mark
+and sweep (CMS) collector that does not separate the heap into generations.
 
 The GC is executed on a separate thread and started based on the memory pressure heuristics or by a timer. Alternatively,
 it can be [called manually](#enable-garbage-collection-manually).
 
 The GC processes the mark queue on several threads in parallel, including application threads, the GC thread,
 and optional marker threads. Application threads and at least one GC thread participate in the marking process.
-By default, application threads must be paused when the GC is marking objects in the heap.
+By default, the marking phase runs concurrently with application threads, which decreases the GC pause time.
+You can monitor GC performance [through logs](#monitor-gc-performance).
 
 > You can disable the parallelization of the mark phase with the `kotlin.native.binary.gcMarkSingleThreaded=true` compiler option.
 > However, this may increase the garbage collector's pause time on large heaps.
@@ -27,7 +28,12 @@ By default, application threads must be paused when the GC is marking objects in
 When the marking phase is completed, the GC processes weak references and nullifies reference points to an unmarked object.
 By default, weak references are processed concurrently to decrease the GC pause time.
 
-See how to [monitor](#monitor-gc-performance) and [optimize](#optimize-gc-performance) garbage collection.
+If you face problems with CMS, switch back to parallel mark concurrent sweep (PMCS) setup.
+To do that, set the following [binary option](native-binary-options.md) in your `gradle.properties` file:
+
+```none
+kotlin.native.binary.gc=pmcs
+```
 
 ### Enable garbage collection manually
 
@@ -66,17 +72,6 @@ To track GC-related pauses in your app:
    ![Tracking GC pauses as signposts](native-gc-signposts.png){width=700}
 
    Here, each blue blob on the lowest graph represents a separate signpost event, which is a GC pause.
-
-### Optimize GC performance
-
-To improve GC performance, you can enable concurrent marking to decrease the GC pause time. This allows the marking phase of garbage collection to run simultaneously with application threads.
-
-The feature is currently [Experimental](components-stability.md#stability-levels-explained). To enable it, set the
-following compiler option in your `gradle.properties` file:
-  
-```none
-kotlin.native.binary.gc=cms
-```
 
 ### Disable garbage collection
 
