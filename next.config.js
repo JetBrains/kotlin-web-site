@@ -54,6 +54,14 @@ const nextConfig = {
             type: 'asset/source'
         });
 
+        config.module.rules.push({
+            test: /\.(webm|mov)$/,
+            type: 'asset/resource',
+            generator: {
+                filename: 'static/media/[name].[hash][ext]',
+            },
+        });
+
         return config;
     },
 };

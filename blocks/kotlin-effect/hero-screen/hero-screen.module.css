@@ -1,0 +1,31 @@
+.section {
+    position: relative;
+    overflow: hidden;
+    height: 800px;
+    width: 100%;
+    background: #000;
+    padding: 72px 0;
+    box-sizing: border-box;
+}
+
+.neonTitle {
+    text-align: left;
+}
+
+.textContainer {
+    position: relative;
+    z-index: 5;
+}
+
+.neonTitle {
+    position: relative;
+    margin: 0;
+}
+
+.subtitle {
+    margin: 16px 0 0;
+}
+
+.text {
+    margin: 16px 0 0;
+}

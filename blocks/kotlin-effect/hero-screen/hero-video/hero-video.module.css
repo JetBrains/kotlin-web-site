@@ -1,0 +1,43 @@
+.videoContainer {
+    /*display: none;*/
+}
+
+.animationLayer {
+    position: absolute;
+    inset: 0;
+}
+
+.shapesLayer {
+    z-index: 1;
+}
+
+.kodeeLayer {
+    z-index: 2;
+}
+
+.video {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.appearVideo {
+    z-index: 1;
+}
+
+.loopVideo {
+    z-index: 2;
+    opacity: 0;
+}
+
+.visibleVideo {
+    opacity: 1;
+}
+
+.hiddenVideo {
+    opacity: 0;
+}

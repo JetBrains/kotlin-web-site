@@ -5,15 +5,17 @@ import cn from 'classnames';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import { useTextStyles } from '@rescui/typography';
+
 import styles from './card-stack.module.css';
 
 const CARD_TILTS_DEG = [0, 2, -4];
 const FIXED_HEADER_HEIGHT = 64;
-const CARD_CONTENT_HEIGHT = 700;
+const CARD_CONTENT_HEIGHT = 620;
 const SECTION_VERTICAL_PADDING = 140 + 96;
 const CARD_VERTICAL_PADDING = 12 * 2;
 const MIN_STACK_VIEWPORT_HEIGHT = FIXED_HEADER_HEIGHT + CARD_CONTENT_HEIGHT + SECTION_VERTICAL_PADDING + CARD_VERTICAL_PADDING;
-const EXIT_Y = '60vh';
+const EXIT_Y = '100vh';
 const EXIT_ROTATION_DEG = -12;
 const SCRUB_SMOOTHING = 2;
 const SNAP_DELAY = 0.06;
@@ -69,24 +71,27 @@ export const CardStack: FC = () => {
                         snapTo: 1 / (cards.length - 1),
                         duration: { min: SNAP_MIN_DURATION, max: SNAP_MAX_DURATION },
                         delay: SNAP_DELAY,
-                        ease: 'power1.out',
+                        ease: 'power1.out'
                     },
                     anticipatePin: 1,
-                    invalidateOnRefresh: true,
-                },
+                    invalidateOnRefresh: true
+                }
             });
 
             cards.slice(0, -1).forEach((card, i) => {
                 tl.to(card, {
                     y: EXIT_Y,
                     rotation: EXIT_ROTATION_DEG,
-                    opacity: 0,
                     ease: 'none',
                     force3D: true,
+                    keyframes: {
+                        '50%': { opacity: 1 },
+                        '100%': { opacity: 0 }
+                    }
                 }).to(cards[i + 1], {
                     rotation: 0,
                     ease: 'none',
-                    force3D: true,
+                    force3D: true
                 }, '<');
             });
         }, sectionRef);
@@ -96,6 +101,8 @@ export const CardStack: FC = () => {
             resetCards();
         };
     }, [isStackEnabled]);
+
+    const textCn = useTextStyles();
 
     return (
         <section ref={sectionRef} className={cn(styles.section, isStackEnabled && styles.sectionStack)}>
@@ -107,21 +114,54 @@ export const CardStack: FC = () => {
                             className={styles.card}
                             data-test="card-stack-card"
                         >
-                            content 1
+                            <div className={styles.cardInner}>
+                                <div className={styles.cardContent}>
+                                    <h2 className={cn(textCn('rs-h1'), styles.cardTitle)}>The Kotlin Effect in Real
+                                        Life</h2>
+                                    <p className={cn(textCn('rs-subtitle-2'), styles.cardSubtitle)}>
+                                        What happens when Kotlin’s logic goes beyond code? In
+                                        this video, we bring the Kotlin Effect into everyday life – making things more
+                                        concise,
+                                        efficient, and fun.
+                                    </p>
+                                </div>
+
+                                <div className={styles.videoPlaceholder}>
+                                    video
+                                </div>
+                            </div>
+
                         </div>
                         <div
                             ref={card2Ref}
                             className={styles.card}
                             data-test="card-stack-card"
                         >
-                            content 2
+                            <div className={styles.cardInner}>
+                                <div className={styles.cardContent}>
+                                    <h2 className={textCn('rs-h1')}>The Kotlin Effect in Action</h2>
+                                    <p className={textCn('rs-subtitle-2')}>
+                                        Step into a pixel-art world where Kodee battles bugs,
+                                        breaks through boilerplate, and rises from a gray legacy underworld to a vibrant
+                                        Kotlin-powered future.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                         <div
                             ref={card3Ref}
                             className={cn(styles.card, styles.cardGradient)}
                             data-test="card-stack-card"
                         >
-                            content 3
+                            <div className={styles.cardInner}>
+                                <div className={styles.cardContent}>
+                                    <h2 className={textCn('rs-h1')}>Make the Kotlin Effect Yours</h2>
+                                    <p className={textCn('rs-subtitle-2')}>
+                                        Move from fundamentals to real-world development – across mobile, backend, web,
+                                        and desktop applications.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
