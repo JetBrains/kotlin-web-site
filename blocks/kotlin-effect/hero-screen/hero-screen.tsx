@@ -17,7 +17,11 @@ export const HeroScreen: FC = () => {
                 <div className="ktl-container">
 
                     <div className={styles.textContainer}>
-                        <NeonHoverTitle text={'The Kotlin Effect'} className={styles.neonTitle} />
+                        <NeonHoverTitle
+                            text={'The Kotlin Effect'}
+                            className={styles.neonTitle}
+                            introAnimation
+                        />
                         <h2 className={cn(textCn('rs-subtitle-1'), styles.subtitle)}>Write less. Do more. Enjoy the
                             process.</h2>
                         <p className={cn(textCn('rs-subtitle-2'), styles.text)}>A programming language designed to
