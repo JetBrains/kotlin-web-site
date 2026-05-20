@@ -441,20 +441,23 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 1.9.0: report a warning when the `kotlin-js` Gradle plugin is used
 > - 2.4.0: raise the warning to an error
 
-### Remove legacy Kotlin/JS compiler type selection APIs
+### Deprecate legacy Kotlin/JS compiler type selection APIs
 
-> **Issue**: [KT-64275](https://youtrack.jetbrains.com/issue/KT-64275)
+> **Issue**: [KT-64275](https://youtrack.jetbrains.com/issue/KT-64275), [KT-84753](https://youtrack.jetbrains.com/issue/KT-84753)
 >
 > **Component**: Gradle
 >
 > **Incompatible change type**: source
 >
 > **Short summary**: Kotlin 2.4.0 removes deprecated Gradle APIs related to selecting the legacy Kotlin/JS compiler type.
+> 
+> Additionally, the `KotlinJsCompilerType` enum and the `KotlinProjectExtension.js()` overloads with a compiler type parameter are deprecated.
+> To migrate, remove the compiler type argument from the `js()` target declaration and use `js { ... }` instead.
 >
 > **Deprecation cycle**:
 >
 > - 1.8.0: deprecate legacy Kotlin/JS compiler type constants
-> - 2.4.0: remove the deprecated APIs
+> - 2.4.0: remove the deprecated legacy compiler type APIs and report a warning when using `KotlinJsCompilerType` or `KotlinProjectExtension.js()` overloads with a compiler type parameter
 
 ### Deprecate `sourceSets` in the Kotlin Android extension
 
@@ -535,53 +538,6 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.3.20: report a warning when using `LanguageSettings.enableLanguageFeature`
 > - 2.4.0: raise the warning to an error
 
-### Remove `kotlin.mpp.enableKotlinToolingMetadataArtifact` Gradle property
-
-> **Issue**: [KT-82960](https://youtrack.jetbrains.com/issue/KT-82960)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: source
->
-> **Short summary**: Since the `kotlin-tooling-metadata.json` artifact is now always generated for multiplatform projects,
-> the `kotlin.mpp.enableKotlinToolingMetadataArtifact` Gradle property is deprecated and support is removed.
->
-> **Deprecation cycle**:
->
-> - 2.3.20: report a warning
-> - 2.4.0: remove support
-
-### Remove "out of process" compiler execution strategy
-
-> **Issue**: [KT-83126](https://youtrack.jetbrains.com/issue/KT-83126)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: source
->
-> **Short summary**: The "out of process" [compiler execution strategy](compiler-execution-strategy.md) isn't supported by the [Build tools API](build-tools-api.md) and is the slowest strategy available.
-> In Kotlin 2.4.0, the deprecated strategy is removed in favor of "daemon" and "in process" compiler execution strategies.
->
-> **Deprecation cycle**:
->
-> - 2.3.20: report a warning
-> - 2.4.0: remove the "out of process" compiler execution strategy
-
-### Deprecate Kotlin/JS compiler type selection APIs
-
-> **Issue**: [KT-84753](https://youtrack.jetbrains.com/issue/KT-84753)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: source
->
-> **Short summary**: The `KotlinJsCompilerType` enum and the `KotlinProjectExtension.js()` overloads with a compiler type parameter are deprecated.
-> To migrate, remove the compiler type argument from the `js()` target declaration and use `js { ... }` instead.
->
-> **Deprecation cycle**:
->
-> - 2.4.0: report a warning when using `KotlinJsCompilerType` or `KotlinProjectExtension.js()` overloads with a compiler type parameter
-
 ### Remove deprecated task, compilation, and DSL APIs from the Kotlin Gradle plugin
 
 > **Issue**: [KT-85509](https://youtrack.jetbrains.com/issue/KT-85509)
@@ -632,7 +588,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 > **Issue**: [KT-75837](https://youtrack.jetbrains.com/issue/KT-75837)
 >
-> **Component**: Gradle
+> **Component**: Build tools API 
 >
 > **Incompatible change type**: source
 >
@@ -684,22 +640,3 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.0.20: report warnings for `enableIntrinsicRemember`, `enableNonSkippingGroupOptimization`, and `enableStrongSkippingMode`
 > - 2.1.0: report a warning for `stabilityConfigurationFile`
 > - 2.4.0: raise the warnings to errors
-
-<!--
-
-### Title
-
-> **Issue**: [KTLC-xxx](xxx)
->
-> **Component**: Core language
->
-> **Incompatible change type**: source
->
-> **Short summary**:
->
-> **Deprecation cycle**:
->
-> - 1.5.20: warning
-> - 1.7.0: report an error
-
--->

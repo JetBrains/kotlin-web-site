@@ -853,6 +853,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.3.20: report a warning
+> - 2.4.0: remove the "out of process" compiler execution strategy
 
 ## Build tool removal
 
