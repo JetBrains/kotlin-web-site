@@ -54,6 +54,7 @@ import { HeroSectionAB1 } from '../blocks/main/hero-ab/hero-ab-1/hero-ab-1';
 import { HeroSectionAB2 } from '@/blocks/main/hero-ab/hero-ab-2/hero-ab-2';
 import { HeroSectionAB3 } from '@/blocks/main/hero-ab/hero-ab-3/hero-ab-3';
 import { HeroSectionAB4 } from '@/blocks/main/hero-ab/hero-ab-4/hero-ab-4';
+import { PromoBanner } from '../blocks/main/promo-banner';
 
 const releasesData: ReleasesData = releasesDataRaw as ReleasesData;
 
@@ -178,9 +179,7 @@ function Index() {
 
                 <HeroSectionAB4 />
 
-                <HeroSection title={'Kotlin'}>
-                    Concise. Multiplatform. Fun.
-                </HeroSection>
+                <HeroSection title={'Kotlin'}>Concise. Multiplatform. Fun.</HeroSection>
 
                 <div className={'ktl-layout ktl-layout--center'}>
                     <LatestNews />
@@ -189,7 +188,7 @@ function Index() {
             </ThemeProvider>
 
             <ThemeProvider theme="light">
-                <div className={styles.evenSection} data-testid={"highlighted-cases-section"}>
+                <div className={styles.evenSection} data-testid={'highlighted-cases-section'}>
                     <div className={'ktl-layout ktl-layout--center'}>
                         <KotlinUsageHighlights title="Kotlin in action" items={kotlinUsageHighlightsCases} />
 
@@ -249,6 +248,8 @@ function Index() {
                             companies={kotlinFoundationCompanies}
                         />
                     </div>
+
+                    <PromoBanner />
 
                     <CtaBlock
                         className={styles.ctaBlock}
