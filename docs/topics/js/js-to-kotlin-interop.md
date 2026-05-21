@@ -66,7 +66,7 @@ import { foo } from 'myModule';
 alert(foo());
 ```
 
-### @JsName annotation
+### `@JsName` annotation
 
 In some cases (for example, to support overloads), the Kotlin compiler mangles the names of generated functions and attributes
 in JavaScript code. To control the generated names, you can use the `@JsName` annotation:
@@ -110,24 +110,68 @@ The following example produces a compile-time error:
 external fun newC()
 ```
 
-### @JsExport annotation
+### `@JsExport` annotation
+<primary-label ref="experimental-general"/>
 
-> This feature is [Experimental](components-stability.md#stability-levels-explained).
-> Its design may change in future versions.
->
-{style="warning"} 
+By applying the `@JsExport` annotation to a top-level declaration (like a class, interface, or function), you can make
+Kotlin declarations available from JavaScript or TypeScript. The annotation exports all nested declarations with the
+name given in Kotlin.
 
-By applying the `@JsExport` annotation to a top-level declaration (like a class or function), you make the Kotlin
-declaration available from JavaScript. The annotation exports all nested declarations with the name given in Kotlin.
-It can also be applied on file-level using `@file:JsExport`.
+For example, here's how you can export a Kotlin interface with a nested class and a named companion object:
 
-To resolve ambiguities in exports (like overloads for functions with the same name), you can use the `@JsExport`
-annotation together with `@JsName` to specify the names for the generated and exported functions.
+```kotlin
+@JsExport
+interface Identity {
+     class Metadata(val tag: String)
+
+    companion object Registry {
+        val defaultTag = "GUEST"
+    }
+}
+```
 
 Currently, the `@JsExport` annotation is the only way to make your functions visible from Kotlin.
 
-For multiplatform projects, `@JsExport` is available in common code as well. It only has an effect when compiling for
-the JavaScript target, and allows you to also export Kotlin declarations that are not platform specific.
+`@JsExport` is also available:
+
+* In common code in multiplatform projects. It only has an effect when compiling for the JavaScript target and allows you
+  to also export Kotlin declarations that are not platform-specific.
+* Together with the [`@JsName` annotation](#jsname-annotation) to specify the names for the generated and exported functions.
+  This helps to resolve ambiguities in exports (like overloads for functions with the same name),
+* At the file level using `@file:JsExport`.
+
+#### Support for value class export
+
+You can export Kotlin's [inline value classes](inline-classes.md) as regular TypeScript classes.
+
+To export a value class, mark it with the `@JsExport` annotation on the Kotlin side:
+
+```kotlin
+// Kotlin
+@JsExport
+@JvmInline
+value class Email(val address: String) {
+    init { require(address.contains("@")) { "Invalid email" } }
+}
+
+@JsExport
+class AuthService {
+    suspend fun login(email: Email): String = ...
+}
+```
+
+From the TypeScript side, it looks like a regular class:
+
+```typescript
+// TypeScript
+import { AuthService, Email } from "..."
+const auth = new AuthService();
+
+console.log(await auth.login(new Email("jane@example.com"))); 
+// "Welcome, jane@example.com!"
+console.log(await auth.login(new Email("not-an-email"))); 
+// "Invalid email"
+```
 
 ### `@JsNoRuntime` annotation
 
