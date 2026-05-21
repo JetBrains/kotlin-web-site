@@ -36,39 +36,36 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0"}
 
-You can also generate a specific version of UUIDs:
+You can also generate a specific version of UUIDs with the following functions:
 
-* The [`Uuid.generateV4()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v4.html) function generates a version 4 UUID: 
+* The [`Uuid.generateV4()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v4.html) function generates the same type of UUID as the `Uuid.random()` function 
+  but explicitly states that the value is a version 4 UUID.
+*  The [`Uuid.generateV7()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v7.html) function generates a version 7 UUID with a timestamp
+   that you can use for UUIDs sorting.
+* The [`Uuid.generateV7NonMonotonicAt()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v7-non-monotonic-at.html) function generates a version 7 UUID for a specific moment in time.
 
-  ```kotlin
-  import kotlin.uuid.Uuid
+Here's an example that generates version-specific UUIDs:
+
+```kotlin
+import kotlin.time.Instant
+import kotlin.uuid.Uuid
   
-  fun main() { 
-  //sampleStart    
-      val id = Uuid.generateV4()
-      println(id)
-  //sampleEnd    
-  }
-  ```
-  {kotlin-runnable="true" kotlin-min-compiler-version="2.3"}
+fun main() { 
+//sampleStart    
+    val idVersion4 = Uuid.generateV4()
+    println(idVersion4)
+    
+    val idVersion7 = Uuid.generateV7()
+    println(idVersion7)
 
-* The [`Uuid.generateV7()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v7.html) function generates a version 7 UUID with a timestamp
-  that you can use for UUIDs sorting:
-
-  ```kotlin
-  import kotlin.uuid.Uuid
-  
-  fun main() {
-  //sampleStart    
-      val id = Uuid.generateV7()
-      println(id)
-  //sampleEnd    
-  }
-  ```
-  {kotlin-runnable="true" kotlin-min-compiler-version="2.3"}
-
-  You can also generate a version 7 UUID for a specific moment in time
-  with the [`Uuid.generateV7NonMonotonicAt()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v7-non-monotonic-at.html) function.
+   val timestamp = Instant.fromEpochMilliseconds(1757440583000L)
+   val idVersion7SpecificTime = Uuid.generateV7NonMonotonicAt(timestamp)
+   println(idVersion7SpecificTime)
+    
+//sampleEnd 
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="2.3"}
 
 ## Parse UUIDs
 
@@ -91,7 +88,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0"}
 
 The `Uuid.parse()` function accepts both the standard hex-and-dash
-format and hexadecimal format without dashes.
+format and the hexadecimal format without dashes.
 
 If the input is invalid, the `Uuid.parse()` function throws an `IllegalArgumentException`:
 
@@ -224,7 +221,7 @@ Instead, they store the 128-bit UUID value as either:
 
 Use these representations when you need to exchange UUIDs with systems that expect binary UUID data.
 
-To convert a UUID to and from 16-byte representation, use the [`.toByteArray()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-byte-array.html)
+To convert a UUID to and from a 16-byte representation, use the [`.toByteArray()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-byte-array.html)
 and [`Uuid.fromByteArray()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/from-byte-array.html) functions:
 
 ```kotlin
@@ -250,7 +247,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0"}
 
 You can also represent the same 128-bit UUID value as two `Long` values. 
-This is useful because Kotlin does not provide a built-in 128-bit integer type. 
+This is useful because Kotlin doesn't provide a built-in 128-bit integer type. 
 The two `Long` values store the UUID in two parts:
 
 * The `mostSignificantBits` parameter for the first 64 bits of a UUID.
@@ -275,16 +272,18 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0"}
 
-To extract two parts from an existing `Uuid` value, use the [`Uuid.toLongs()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-longs.html) function:
+To extract the two parts from an existing `Uuid` value, use the [`Uuid.toLongs()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-longs.html) function:
 
 ```kotlin
 import kotlin.uuid.Uuid
 
 fun main() {
 //sampleStart 
-    val id = Uuid.random().toLongs { mostSignificantBits, leastSignificantBits ->
-    println(mostSignificantBits)
-    println(leastSignificantBits)
+    val id = Uuid.random()
+    
+    id.toLongs { mostSignificantBits, leastSignificantBits ->
+        println(mostSignificantBits)
+        println(leastSignificantBits)
     }
 //sampleEnd  
 }
@@ -327,8 +326,8 @@ fun main() {
 
 ## Use UUIDs with Java APIs
 
-To represent UUIDs, Java uses `java.util.UUID` class. On the JVM, Java APIs may
-accept or return this type. Although `java.util.UUID` and `kotlin.unit.Uuid` both represent UUIDs,
+Java uses the `java.util.UUID` class to represent UUIDs. On the JVM, Java APIs may
+accept or return this type. Although `java.util.UUID` and `kotlin.uuid.Uuid` both represent UUIDs,
 they are two distinct types. 
 
 Convert values explicitly to pass UUIDs between Kotlin and Java:
@@ -351,13 +350,13 @@ Convert values explicitly to pass UUIDs between Kotlin and Java:
 
 These functions allow you to represent your UUID values using `Uuid` at JVM interoperability boundaries.
 
-> The `java.util.UUID` and `kotlin.unit.Uuid` classes are comparable, but the ordering may differ.
+> The `java.util.UUID` and `kotlin.uuid.Uuid` classes are comparable, but the ordering may differ.
 > Make sure to check your code that depends on UUID ordering before migrating from Java API to Kotlin API.
 >
 {style="note"}
 
 Kotlin also provides support for working with Java buffers.
-Use JVM-specific functions to work with UUIDs from a `ByteBuffer`:
+Use JVM-specific functions to work with UUIDs in a `ByteBuffer`:
 
 * Use the [`.getUuid()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/get-uuid.html) function to read a UUID from a buffer.
 * Use the [`.putUuid()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/put-uuid.html) function to write a UUID to a buffer.
