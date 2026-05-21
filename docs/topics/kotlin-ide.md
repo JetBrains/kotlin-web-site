@@ -38,14 +38,14 @@ Read more about Android Studio in the [official documentation](https://developer
 including the [official Kotlin by JetBrains extension](https://marketplace.visualstudio.com/items?itemName=JetBrains.kotlin-server).
 
 The Kotlin extension provides code completion, navigation, debugging, and other Kotlin development features through
-the Kotlin Language Server Protocol (LSP).
+the Kotlin Language Server.
 
 For more information, see [Kotlin Language Server and Visual Studio Code](kotlin-lsp.md#kotlin-in-visual-studio-code).
 
 ## Other IDEs support
 
 JetBrains doesn't provide official Kotlin plugins for other IDEs.
-You can use the [Kotlin language server](kotlin-lsp.md) with other code editors.
+You can use the [Kotlin Language Server](kotlin-lsp.md) with other code editors.
 
 To use Kotlin in text editors without IDE-related features (such as code formatting, debugging tools, refactoring),
 you can download the latest Kotlin command-line compiler (`kotlin-compiler-%kotlinVersion%.zip`) from Kotlin [GitHub Releases](%kotlinLatestUrl%)

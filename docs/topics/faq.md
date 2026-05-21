@@ -79,8 +79,8 @@ Kotlin has full out-of-the-box support in [IntelliJ IDEA](https://www.jetbrains.
 [Android Studio](https://developer.android.com/kotlin/get-started)
 with an official Kotlin plugin developed by JetBrains.
 You can also install the official
-[Kotlin by JetBrains extension for Visual Studio Code](kotlin-lsp.md#kotlin-in-visual-studio-code), powered by Kotlin LSP
-which is in [Alpha](components-stability.md#stability-levels-explained) stage.
+[Kotlin by JetBrains extension for Visual Studio Code](kotlin-lsp.md#kotlin-in-visual-studio-code), powered 
+by Kotlin Language Server which is in [Alpha](components-stability.md#stability-levels-explained).
 
 Other IDEs and code editors only have Kotlin community-supported plugins.
 
