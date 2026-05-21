@@ -129,12 +129,53 @@ Currently, the `@JsExport` annotation is the only way to make your functions vis
 For multiplatform projects, `@JsExport` is available in common code as well. It only has an effect when compiling for
 the JavaScript target, and allows you to also export Kotlin declarations that are not platform specific.
 
-### @JsStatic
+### `@JsNoRuntime` annotation
 
-> This feature is [Experimental](components-stability.md#stability-levels-explained). It may be dropped or changed at any time.
-> Use it only for evaluation purposes. We would appreciate your feedback on it in [YouTrack](https://youtrack.jetbrains.com/issue/KT-18891/JS-provide-a-way-to-declare-static-members-JsStatic).
+You can more export Kotlin interfaces to JavaScript/TypeScript from common code with the `@JsNoRuntime` annotation.
+It allows for direct mapping to regular TypeScript interfaces.
+
+To export a Kotlin interface from your Kotlin Multiplatform project:
+
+1. Annotate the Kotlin interface with `@JsNoRuntime` in common code:
+
+    ```kotlin
+    // commonMain
+    import kotlin.js.JsNoRuntime
+    
+    @JsNoRuntime
+    expect interface DataProcessor {
+        fun process(data: String): Int 
+    }
+    ```
+
+2. Provide the actual implementation with `@JsNoRuntime` in your JS-specific source code:
+
+    ```kotlin
+    // jsMain
+    import kotlin.js.JsNoRuntime
+    
+    @JsNoRuntime
+    actual interface DataProcessor {
+        actual fun process(data: String): Int
+    } 
+    ```
+    
+3. On the TypeScript side, the interface will be mapped to a regular TypeScript interface:
+    
+    ```typescript
+    // Generated .d.ts
+    export interface DataProcessor {
+        process(data: string): number;
+    }
+    ```
+
+> Annotated interfaces can't be used with `is` or `as` operators and for [reflection](js-reflection.md).
+> This way, TypeScript can treat Kotlin interfaces as regular TypeScript interfaces.
 >
-{style="warning"}
+{type="note"}
+
+### `@JsStatic`
+<primary-label ref="experimental-general"/>
 
 The `@JsStatic` annotation instructs the compiler to generate additional static methods for the target declaration.
 This helps you use static members from your Kotlin code directly in JavaScript.
@@ -166,6 +207,9 @@ C.Companion.callNonStatic(); // The only way it works
 
 It's also possible to apply the `@JsStatic` annotation to a property of an object or a companion object, making its getter
 and setter methods static members in that object or the class containing the companion object.
+
+This feature is [Experimental](components-stability.md#stability-levels-explained). Share your feedback in our issue tracker,
+[YouTrack](https://youtrack.jetbrains.com/issue/KT-18891/JS-provide-a-way-to-declare-static-members-JsStatic).
 
 ### Use `BigInt` type to represent Kotlin's `Long` type
 <primary-label ref="experimental-general"/>
