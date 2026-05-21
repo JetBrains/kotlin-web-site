@@ -1,35 +1,40 @@
-[//]: # (title: Kotlin LSP support)
+[//]: # (title: Kotlin Language Server)
 <primary-label ref="alpha"/>
 
-[Kotlin LSP](https://github.com/Kotlin/kotlin-lsp) is JetBrains' official implementation of the
+The [Kotlin Language Server](https://github.com/Kotlin/kotlin-lsp) is JetBrains' official implementation of the
 [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) for Kotlin.
 
-The server is based on IntelliJ IDEA, the IntelliJ IDEA Kotlin Plugin, JetBrains AIR, and Fleet. 
+The server is based on IntelliJ IDEA, the IntelliJ IDEA Kotlin plugin, JetBrains AIR, and Fleet.
 It is designed to work with any code editor that supports LSP.
 
-> [IntelliJ IDEA](https://www.jetbrains.com/idea/) and [Android Studio](https://developer.android.com/studio) 
-> remain the most complete environments for Kotlin development.
+> [IntelliJ IDEA](https://www.jetbrains.com/idea/) and [Android Studio](https://developer.android.com/studio)
+> provide the best Kotlin development experience.
 >
 {style="note"}
 
 ## Kotlin in Visual Studio Code
 
-Kotlin LSP provides official Kotlin language support for [Visual Studio Code](https://code.visualstudio.com/).
+Kotlin Language Server provides official Kotlin language support for [Visual Studio Code](https://code.visualstudio.com/).
 
 If you use Visual Studio Code for Kotlin development,
-install the official [Kotlin by JetBrains]((https://marketplace.visualstudio.com/items?itemName=org.jetbrains.kotlin-server)
+install the official [Kotlin by JetBrains](https://marketplace.visualstudio.com/items?itemName=JetBrains.kotlin-server)
 extension from the Visual Studio Marketplace.
 
-To activate the Kotlin LSP extension, open a Kotlin project in Visual Studio Code and then open any Kotlin file.
+To activate the **Kotlin by JetBrains** extension, open a Kotlin project in Visual Studio Code, and then open any Kotlin file.
 
 ## Supported features
 
-Kotlin LSP includes core language features such as:
+The Kotlin Language Server includes core language features such as:
 
 * Support for up-to-date Kotlin language versions
 * IntelliJ-powered code completion
-* IntelliJ-powered diagnostics and quick fixes for Kotlin and `kotlinx.` libraries
-* Build system support for Gradle and Maven, with experimental Android Gradle Plugin (AGP) support
+* IntelliJ-powered diagnostics and quick fixes for Kotlin and `kotlinx.*` libraries
+* Build system support for JVM projects: Gradle, Maven, and experimental Android Gradle Plugin support
+
+  > Support for Kotlin Multiplatform projects is under development.
+  >
+  {style=”tip”}
+
 * Semantic highlighting
 * Organize imports
 * Rename refactoring
@@ -40,10 +45,10 @@ Kotlin LSP includes core language features such as:
 
 ## Feedback
 
-Kotlin LSP is under active development, and feedback is especially valuable during the Alpha stage.
+The Kotlin Language Server is under active development, and feedback is especially valuable during the Alpha stage.
 
 If you run into problems or want to suggest improvements, report them in the [Kotlin LSP repository](https://github.com/Kotlin/kotlin-lsp).
 
 ## What's next?
 
-* Explore the [Kotlin LSP repository on GitHub](https://github.com/Kotlin/kotlin-lsp)
+* Explore the [Kotlin Language Server repository on GitHub](https://github.com/Kotlin/kotlin-lsp)

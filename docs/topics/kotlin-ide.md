@@ -34,13 +34,13 @@ Read more about Android Studio in the [official documentation](https://developer
 ## Visual Studio Code
 <primary-label ref="alpha"/>
 
-[Visual Studio Code](https://code.visualstudio.com/) is a popular code editor with a wide range of extensions,
-including the [official Kotlin by JetBrains extension](https://marketplace.visualstudio.com/items?itemName=jetbrains.kotlin).
+[Visual Studio Code](https://code.visualstudio.com/) is a code editor with a wide range of extensions,
+including the [official Kotlin by JetBrains extension](https://marketplace.visualstudio.com/items?itemName=JetBrains.kotlin-server).
 
 The Kotlin extension provides code completion, navigation, debugging, and other Kotlin development features through
 the Kotlin Language Server Protocol (LSP).
 
-For more information, see [Kotlin LSP and Visual Studio Code](kotlin-lsp.md#kotlin-in-visual-studio-code).
+For more information, see [Kotlin Language Server and Visual Studio Code](kotlin-lsp.md#kotlin-in-visual-studio-code).
 
 ## Other IDEs support
 
