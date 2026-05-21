@@ -10,14 +10,22 @@ the surrounding tooling.
 
 ## Inline JavaScript
 
-You can inline JavaScript code into your Kotlin code using the [`js()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/js.html) function.
-For example:
+You can inline JavaScript code into your Kotlin code using the [`js()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.js/js.html) function:
 
 ```kotlin
 fun jsTypeOf(o: Any): String {
     return js("typeof o")
 }
 ```
+
+JavaScript code inlining has full support for [ES2015 features](js-project-setup.md#support-for-es2015-features), including:
+
+* Lambdas ([arrow functions](whatsnew21.md#support-for-generating-es2015-arrow-functions))
+* ES classes
+* Template strings
+* Spread operators
+* `const` and `let` variable declarations
+* Generators
 
 Because the parameter of `js` is parsed at compile time and translated to JavaScript code "as-is", it is required to be
 a string constant. So, the following code is incorrect:
@@ -30,12 +38,25 @@ fun jsTypeOf(o: Any): String {
 fun getTypeof() = "typeof"
 ```
 
-> As the JavaScript code is parsed by the Kotlin compiler, not all ECMAScript features might be supported.
-> In this case, you can encounter compilation errors.
-> 
-{style="note"}
+Instead, for example for the spread operator, use:
 
-Note that invoking `js()` returns a result of type [`dynamic`](dynamic-type.md), which provides no type safety at compile time.
+```kotlin
+fun spreadExample(): dynamic = js("""
+    const add = (a, b, c) => a + b + c;
+
+    const nums = [1, 2, 3];
+    const sum = add(...nums);
+
+    const a = [1, 2, 3];
+    const b = [...a, 4, 5, 6];
+
+    return { sum, b: b };
+""")
+```
+
+> Invoking `js()` returns a result of type [`dynamic`](dynamic-type.md), which provides no type safety at compile time.
+>
+{style="note"}
 
 ## external modifier
 
