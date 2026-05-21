@@ -25,7 +25,7 @@ the default for Gradle builds.
 Use a version catalog in a `libs.versions.toml` file to centralize dependency management. This enables you to define and 
 reuse versions, libraries, and plugins consistently across projects.
 
-```kotlin
+```toml
 [versions]
 kotlinxCoroutines = "%coroutinesVersion%"
 
