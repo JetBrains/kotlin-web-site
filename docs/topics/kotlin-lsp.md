@@ -1,6 +1,8 @@
 [//]: # (title: Kotlin Language Server)
 <primary-label ref="alpha"/>
 
+<web-summary>Kotlin Language Server is JetBrains' official LSP implementation for Kotlin, with VS Code support, code completion, diagnostics, formatting, and refactoring.</web-summary>
+
 The [Kotlin Language Server](https://github.com/Kotlin/kotlin-lsp) is JetBrains' official implementation of the
 [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) for Kotlin.
 
