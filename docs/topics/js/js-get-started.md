@@ -39,7 +39,7 @@ To create your Kotlin/JS web application, you can use [IntelliJ IDEA](https://ww
 2. Make sure the Kotlin version matches the version of the Kotlin Multiplatform Gradle plugin, which is required 
    to create a web application targeting Kotlin/JS:
 
-   ```text
+   ```toml
    [versions]
    kotlin = "%kotlinVersion%"
    
