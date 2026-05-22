@@ -62,8 +62,12 @@ export const KotlinUsageHighlights: FC<KotlinUsageHighlightsProps> = ({ title, i
                 ))}
             </div>
             <div className={styles.buttonWrapper}>
-                <Button href="/case-studies/" size="l" mode="rock" theme="light">
+                <Button href="/case-studies/" size="l" mode="rock" theme="light" className={styles.primaryButton}>
                     See all case studies
+                </Button>
+                <Button href={"/lp/enterprise-playbook/"}
+                    size="l" mode="outline" theme="light" className={styles.secondaryButton}>
+                    Enterprise playbook
                 </Button>
             </div>
         </div>

@@ -1523,5 +1523,5 @@ to help you decide which suggestions to accept and which to ignore.
 
 ![Migration inspections](migration-inspection-wn.png)
 
-Kotlin 1.4.0 is a [feature release](kotlin-evolution-principles.md#language-and-tooling-releases) and therefore can 
+Kotlin 1.4.0 is a feature release and therefore can 
 bring incompatible changes to the language. Find the detailed list of such changes in the **[Compatibility Guide for Kotlin 1.4](compatibility-guide-14.md)**.

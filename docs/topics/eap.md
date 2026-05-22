@@ -57,7 +57,7 @@ In this channel, you can also get notifications about new EAP builds.
 _No preview versions are currently available._
 -->
 
- <table>
+<table>
     <tr>
         <th>Build info</th>
         <th>Build highlights</th>
