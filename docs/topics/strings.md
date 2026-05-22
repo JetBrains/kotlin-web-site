@@ -28,7 +28,7 @@ val quote = "Kotlin says, \"Hi\"."
 ### Multiline strings
 
 To store text that consists of multiple lines or contains quotes that you don't want to escape,
-use a multiline `String` enclosed in triple quotes (`""" """`):
+use a multiline string enclosed in triple quotes (`""" """`):
 
 ```kotlin
 val text = """
@@ -207,36 +207,6 @@ val KClass<*>.jsonSchema : String
 >
 {style="tip"}
 
-## String conversion
-
-Often you may use strings to represent values of other types, such as numbers, Boolean values, or identifiers from the input.
-Kotlin provides functions for converting values to strings and for parsing strings into other types.
-
-To return a string representation of a value, use the [`toString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/to-string.html) function:
-
-```kotlin
-val number = 10
-val text = number.toString()
-```
-
-In string templates and string concatenation, Kotlin converts values to strings automatically.
-
-To convert a string to another type, use the corresponding parsing functions:
-
-* For integer values: [`toByte()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-byte.html), [`toShort()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-short.html), [`toInt()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-int.html), [`toLong()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-long.html)
-* For floating-point values: [`toDouble()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-double.html), [`toFloat()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-float.html)
-* For booleans: [`toBoolean()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-boolean.html)
-
-These functions return a value of the requested type if the string has a valid format.
-If the input may be invalid, use the `OrNull` variants. These functions return null instead of throwing an exception:
-
-```kotlin
-val toInt = "10".toInt()
-val toBoolean = "true".toBoolean()
-
-val toIntInvalid= "1000000000000".toIntOrNull()
-```
-
 ## Basic string operations
 
 Kotlin provides a range of operations for working with strings. This section introduces some of
@@ -309,8 +279,6 @@ To extract parts of a string, use one of the following functions:
 * [`subSequence()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/sub-sequence.html) to return a `CharSequence` with the selected
   part of the original text.
 
-Since the `String` type is immutable, the functions do not modify the original string.
-
 For example:
 
 ```kotlin
@@ -327,6 +295,8 @@ fun main() {
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Since the `String` type is immutable, these functions don't modify the original string.
 
 ### Compare strings
 
@@ -346,20 +316,20 @@ fun main(){
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 You can also compare strings lexicographically (character by character) with the [`compareTo()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/compare-to.html)
-function. The comparison continues until it finds the first different pair of characters.
-If the characters differ, the result of the functions depends on their order.
-The `compareTo()` function also allows you to ignore the case differences
+function. It scans both strings until it finds the first differing pair of characters and returns the
+difference between their Unicode code points. If strings are equal, the function returns `0`.
+The `compareTo()` function also allows you to ignore case differences
 by passing the `true` to the `ignoreCase` parameter:
 
 ```kotlin
 fun main() {
 //sampleStart    
-    println("abc".compareTo("abd"))
+    println("abc".compareTo("abd")) // 'c' is 99, 'd' is 100
     // -1
-    println("abc".compareTo("ABC"))
+    println("abc".compareTo("ABC")) // 'a' is 97, 'A' is 65
     // 32
-    println("abc".compareTo("ABC", true))
-    // 0
+    println("abc".compareTo("ABC", true)) // ignores case, strings are equal
+    // 0 
 //sampleEnd  
 }
 ```
@@ -453,29 +423,73 @@ fun main() {
 >
 {style="tip"}
 
-To build a string step by step, use the [`buildString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/build-string.html) function:
+When you concatenate strings with the `+` operator,
+Kotlin creates a new `String` object for each operation. However, this approach
+may not be beneficial in loops or when you assemble many pieces. 
+To avoid such issues, you can use the `buildString()` function or `StringBuilder`. They collect all pieces in a single mutable buffer
+and produce only one string at the end.
+
+Use the [`buildString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/build-string.html) function
+when the logic that determines what to append is complex. For example, when you have multiple conditions
+that contribute a different fragment. With `buildString()`, you don't handle the buffer directly.
+The function creates a `StringBuilder` internally, runs your block, and returns the resulting string.
 
 ```kotlin
-val hasErrors = true
-val hasWarnings = true
-val isComplete = false
+fun main() {
+//sampleStart
 
-val status = buildString {
-    if (hasErrors) {
-        append("Errors found")
+    val hasErrors = true
+    val hasWarnings = true
+    val isComplete = false
+    
+    // buildString creates an empty buffer
+    val status = buildString {
+        // Appends "Errors found" to the buffer
+        if (hasErrors) append("Errors found")
+        if (hasWarnings) {
+            // The buffer is not empty, appends "; "
+            if (isNotEmpty()) append("; ")
+            // Appends "Warnings found"
+            append("Warnings found")
+        }
+        // isComplete = false, nothing to append
+        if (isComplete) {
+            if (isNotEmpty()) append("; ")
+            append("Completed")
+        }
+        // The buffer is not empty, skips the fallback
+        if (isEmpty()) append("OK")
     }
-    if (hasWarnings) {
-        if (isNotEmpty()) append("; ")
-        append("Warnings found")
-    }
-    if (isComplete) {
-        if (isNotEmpty()) append("; ")
-        append("Processing complete")
-    }
+    
+    println(status)
+    // Errors found; Warnings found
+//sampleEnd
 }
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-You can use it to assemble text incrementally, for example, in loops or conditional logic.
+Use [`StringBuilder`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-string-builder/) when you need the buffer as an explicit value. For example, to pass
+it into another function or build it in separate steps:
+
+```kotlin
+fun main() {
+//sampleStart
+    // Creates a new empty StringBuilder
+    val sb = StringBuilder()
+    
+    // Adds arguments to the end of the buffer
+    sb.append("Hello")
+    sb.append(", ")
+    sb.append("Kotlin")
+    sb.append("!")
+
+    // Converts the buffer to a string
+    println(sb.toString())
+    // Hello, Kotlin!
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 On the JVM, you can also format a string with the [`String.format()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/format.html) function:
 
@@ -487,3 +501,36 @@ val text = String.format("Hello, %s", "Kotlin")
 > Learn more about format specifiers in the [Java Class Formatter documentation](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#summary).
 >
 {style="note"}
+
+## String conversion
+
+Often you may use strings to represent values of other types, such as numbers, Boolean values, or identifiers from the input.
+Kotlin provides functions for converting values to strings and for parsing strings into other types.
+
+To return a string representation of a value, use the [`toString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/to-string.html) function:
+
+```kotlin
+val number = 10
+val text = number.toString()
+```
+
+In string templates and string concatenation, Kotlin converts values to strings automatically.
+
+To convert a string to another type, use the corresponding parsing functions:
+
+* For integer values: [`toByte()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-byte.html), [`toShort()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-short.html), [`toInt()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-int.html), [`toLong()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-long.html)
+* For floating-point values: [`toDouble()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-double.html), [`toFloat()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-float.html)
+* For booleans: [`toBoolean()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-boolean.html)
+
+These functions return a value of the requested type if the string has a valid format.
+If the input may be invalid, use the `OrNull` variants. These functions return `null` 
+instead of throwing an exception making them safe for user input or data that you don't
+fully control:
+
+```kotlin
+val toInt = "10".toInt()
+val toBoolean = "true".toBoolean()
+
+// 1000000000000 exceeds maximum value of Int
+val toIntInvalid= "1000000000000".toIntOrNull()
+```
