@@ -36,12 +36,12 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0"}
 
-You can also generate a specific version of UUIDs with the following functions:
+You can also generate specific versions of UUIDs with the following functions:
 
 * The [`Uuid.generateV4()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v4.html) function generates the same type of UUID as the `Uuid.random()` function 
   but explicitly states that the value is a version 4 UUID.
-*  The [`Uuid.generateV7()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v7.html) function generates a version 7 UUID with a timestamp
-   that you can use for UUIDs sorting.
+* The [`Uuid.generateV7()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v7.html) function generates a version 7 UUID with a timestamp
+   that you can use for UUID sorting.
 * The [`Uuid.generateV7NonMonotonicAt()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v7-non-monotonic-at.html) function generates a version 7 UUID for a specific moment in time.
 
 Here's an example that generates version-specific UUIDs:
@@ -51,17 +51,19 @@ import kotlin.time.Instant
 import kotlin.uuid.Uuid
   
 fun main() { 
-//sampleStart    
+//sampleStart
+    // Generates a version 4 UUID
     val idVersion4 = Uuid.generateV4()
     println(idVersion4)
-    
+
+    // Generates a version 7 UUID
     val idVersion7 = Uuid.generateV7()
     println(idVersion7)
 
-   val timestamp = Instant.fromEpochMilliseconds(1757440583000L)
-   val idVersion7SpecificTime = Uuid.generateV7NonMonotonicAt(timestamp)
-   println(idVersion7SpecificTime)
-    
+    // Generates a version 7 UUID for the specified timestamp
+    val timestamp = Instant.fromEpochMilliseconds(1757440583000L)
+    val idVersion7SpecificTime = Uuid.generateV7NonMonotonicAt(timestamp)
+    println(idVersion7SpecificTime)
 //sampleEnd 
 }
 ```
@@ -129,7 +131,7 @@ fun main() {
 
 If you have UUIDs from external sources and must handle invalid input safely,
 use [`Uuid.parseOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-or-null.html), [`Uuid.parseHexDashOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex-dash-or-null.html),
-or [`Uuid.parseHexOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex-or-null.html). 
+or [`Uuid.parseHexOrNull()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/parse-hex-or-null.html).
 These functions return `null` if the input is invalid:
 
 ```kotlin
@@ -221,7 +223,7 @@ Instead, they store the 128-bit UUID value as either:
 
 Use these representations when you need to exchange UUIDs with systems that expect binary UUID data.
 
-To convert a UUID to and from a 16-byte representation, use the [`.toByteArray()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-byte-array.html)
+To convert between a UUID and a 16-byte representation, use the [`.toByteArray()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/to-byte-array.html)
 and [`Uuid.fromByteArray()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/from-byte-array.html) functions:
 
 ```kotlin
@@ -351,7 +353,7 @@ Convert values explicitly to pass UUIDs between Kotlin and Java:
 These functions allow you to represent your UUID values using `Uuid` at JVM interoperability boundaries.
 
 > The `java.util.UUID` and `kotlin.uuid.Uuid` classes are comparable, but the ordering may differ.
-> Make sure to check your code that depends on UUID ordering before migrating from Java API to Kotlin API.
+> Make sure to check your code that depends on UUID ordering before migrating from the Java API to the Kotlin API.
 >
 {style="note"}
 
