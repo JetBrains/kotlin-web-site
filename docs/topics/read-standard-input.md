@@ -15,19 +15,15 @@ println(readln())
 ```
 
 You can also read multiline input as one string.
-For that join it with newline characters using 
-[`joinToString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.sequences/join-to-string.html):
+Use the [`joinToString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.sequences/join-to-string.html) function to combine the lines:
 
 ```kotlin
 val input = generateSequence(::readlnOrNull)
   .joinToString("\n")
 ```
 
-> This code does not work correctly with `readln()`, because the function throws an
-> exception at end of input instead of returning `null`.
-> 
-> To read input until end-of-file, use
-> [`readlnOrNull()`](#handle-standard-input-safely).
+> Use [`readlnOrNull()`](#handle-standard-input-safely) instead of `readln()` to read input until end-of-file
+> without throwing an exception.
 > 
 {style="note"}
 
