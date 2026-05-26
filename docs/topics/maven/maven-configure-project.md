@@ -243,7 +243,67 @@ To compile a project with just Kotlin source files, declare source roots and con
     </build>
     ```
 
-### Use JDK 17
+### Set JDK version
+
+Kotlin supports [Maven Toolchains](https://maven.apache.org/guides/mini/guide-using-toolchains.html) that help manage
+the JDK version in your build.
+
+When the `maven-toolchains-plugin` is configured in the build, you can specify the JDK version used for Kotlin compilation,
+independent of the JVM version running Maven (set in the `JAVA_HOME` path). The Kotlin Maven plugin then automatically picks up
+the selected JDK toolchain.
+
+This allows you to configure a single toolchain to control the JDK used across all plugins in the build, including Kotlin
+compilation. For example:
+
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-toolchains-plugin</artifactId>
+    <version>3.2.0</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>toolchain</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <toolchains>
+            <jdk>
+                <version>21</version>
+            </jdk>
+        </toolchains>
+    </configuration>
+</plugin>
+```
+
+Keep in mind the priority of different ways to set up the JDK version:
+
+```Mermaid
+graph TD
+    A["<b>Priority 1</b><br/>jdkHome option of the kotlin-maven-plugin"]
+    B["<b>Priority 2</b><br/>JDK version set in the <br/>maven-toolchains-plugin"]
+    C["<b>Priority 3</b><br/>JAVA_HOME version"]
+
+    A --> B
+    B --> C
+```
+
+* JDK version set in the `jdkHome` option of the `kotlin-maven-plugin` configuration always takes precedence over
+   the toolchain version.
+* JDK version in the `maven-toolchains-plugin` overrides the JDK version set in the `JAVA_HOME` path.
+
+You can also use a plugin-specific `<jdkToolchain>` option to directly set the JDK version in the toolchain of the
+`kotlin-maven-plugin`. Compared to using the `maven-toolchains-plugin`, this parameter only affects Kotlin compilation
+and has no impact on other plugins in the build.
+
+> Currently, setting `maven-toolchains-plugin` to use a specific JDK version does not affect the `kapt` and `test-kapt`
+> goals of the `kotlin-maven-plugin`. To work around this, set the necessary version in the `JAVA_HOME` path.
+> For more details, see [KT-79897](https://youtrack.jetbrains.com/issue/KT-79897).
+>
+{style="note"}
+
+#### Use JDK 17
 
 To use JDK 17, in your `.mvn/jvm.config` file, add:
 
