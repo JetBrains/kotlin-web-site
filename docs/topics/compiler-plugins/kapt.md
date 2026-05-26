@@ -329,7 +329,7 @@ kapt {
 ### Automatic configuration
 
 You can simplify kapt configuration by enabling the `<extensions>` option for the Kotlin Maven plugin. In this case,
-you don't need to manually set up executions or specify source directories.
+you don't need to manually set up kapt's `<execution>` section with goals or source directories.
 
 To automatically configure kapt, in your `pom.xml` build file, set the `<extensions>` option to `true` for the `kotlin-maven-plugin`:
 
