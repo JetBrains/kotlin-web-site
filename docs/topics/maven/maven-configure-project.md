@@ -42,7 +42,8 @@ The `<extensions>` option:
 * Registers `src/main/kotlin` and `src/test/kotlin` directories as source roots if they already exist but are not specified in the plugin configuration.
 * Adds the [`kotlin-stdlib` dependency](maven-set-dependencies.md#dependency-on-the-standard-library) if it's not already defined in the project.
 * Adds `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
-  So you don't need to manually set up the `<executions>` section with `<id>` and `<goals>`.
+  So you don't need to manually set up the `<executions>` section with `<id>` and `<goals>` for `kapt`, Kotlin's `compile`,
+  and Java's `compile` executions to run in the correct order.
    
 If you have a mixed Java and Kotlin project, the configuration ensures that:
 

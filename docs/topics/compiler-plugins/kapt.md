@@ -376,14 +376,43 @@ kapt {
 
 ## Use in Maven
 
-Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`: 
+### Automatic configuration
+
+You can simplify kapt configuration by enabling the `<extensions>` option for the Kotlin Maven plugin. In this case,
+you don't need to manually set up executions or specify source directories.
+
+To automatically configure kapt, in your `pom.xml` build file, set the `<extensions>` option to `true` for the `kotlin-maven-plugin`:
+
+```xml
+<plugin>
+    <groupId>org.jetbrains.kotlin</groupId>
+    <artifactId>kotlin-maven-plugin</artifactId>
+    <version>${kotlin.version}</version>
+    <extensions>true</extensions>
+    <configuration>
+        <annotationProcessorPaths>
+            <!-- Specify your annotation processors here -->
+            <annotationProcessorPath>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.6.3</version>
+            </annotationProcessorPath>
+        </annotationProcessorPaths>
+    </configuration>
+</plugin>
+```
+
+For more information on the `<extensions>` option, see [Automatic configuration](maven-configure-project.md#automatic-configuration).
+
+### Manual configuration
+
+To manually set up kapt in your Kotlin Maven project, add an execution of the `kapt` goal from `kotlin-maven-plugin` before `compile`: 
 
 ```xml
 <execution>
     <id>kapt</id>
     <goals>
-        <goal>kapt</goal> <!-- You can skip the <goals> element 
-        if you enable extensions for the plugin -->
+        <goal>kapt</goal>
     </goals>
     <configuration>
         <sourceDirs>
@@ -402,11 +431,13 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
 </execution>
 ```
 
+### Configure kapt annotation processing
+
 To configure the level of annotation processing, set one of the following as the `aptMode` in the `<configuration>` block:
 
-   * `stubs` – only generate stubs needed for annotation processing.
-   * `apt` – only run annotation processing.
-   * `stubsAndApt` – (default) generate stubs and run annotation processing.
+* `stubs` – only generate stubs needed for annotation processing.
+* `apt` – only run annotation processing.
+* `stubsAndApt` – (default) generate stubs and run annotation processing.
 
 For example:
 
