@@ -131,7 +131,7 @@ the JavaScript target, and allows you to also export Kotlin declarations that ar
 
 ### `@JsNoRuntime` annotation
 
-You can more export Kotlin interfaces to JavaScript/TypeScript from common code with the `@JsNoRuntime` annotation.
+You can export Kotlin interfaces to JavaScript/TypeScript from common code with the `@JsNoRuntime` annotation.
 It allows for direct mapping to regular TypeScript interfaces.
 
 To export a Kotlin interface from your Kotlin Multiplatform project:
