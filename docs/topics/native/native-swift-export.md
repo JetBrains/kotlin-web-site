@@ -253,9 +253,7 @@ public enum Color: Swift.CaseIterable, Swift.LosslessStringConvertible, Swift.Ra
 
 #### Functions
 
-Swift export supports simple top-level functions and methods, including suspending ones.
-
-##### Regular functions
+Swift export supports simple top-level functions and methods:
 
 ```kotlin
 // Kotlin
