@@ -145,16 +145,6 @@ Activates the Kotlin REPL.
 kotlinc -Xrepl
 ```
 
-### -Xannotation-target-all
-
-<primary-label ref="experimental-general"/>
-
-Enables the experimental [`all` use-site target for annotations](annotations.md#all-meta-target):
-
-```bash
-kotlinc -Xannotation-target-all
-```
-
 ### -Xannotation-default-target=param-property
 
 <primary-label ref="experimental-general"/>
