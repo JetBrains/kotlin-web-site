@@ -94,9 +94,9 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Since sorting by multiple criteria is a common scenario, the Kotlin standard library provides the [`thenBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.comparisons/then-by.html) function that you can use to add a secondary sorting rule.
+Since sorting by multiple criteria is a common scenario, the Kotlin standard library provides the [`.thenBy()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.comparisons/then-by.html) function that you can use to add a secondary sorting rule.
 
-For example, you can combine `compareBy()` with `thenBy()` to sort strings by their length first and alphabetically second, just like in the previous example:
+For example, you can combine `compareBy()` with `.thenBy()` to sort strings by their length first and alphabetically second, just like in the previous example:
 
 ```kotlin
 fun main() {
@@ -118,7 +118,7 @@ To learn about functions for sorting [mutable](collections-overview.md#collectio
 
 ## Natural order
 
-The basic functions [`sorted()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted.html) and [`sortedDescending()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-descending.html)
+The basic functions [`.sorted()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted.html) and [`.sortedDescending()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-descending.html)
 return elements of a collection sorted into ascending and descending sequence according to their natural order.
 These functions apply to collections of `Comparable` elements.
 
@@ -136,7 +136,7 @@ fun main() {
 
 ## Custom orders
  
-For sorting in custom orders or sorting non-comparable objects, there are the functions [`sortedBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-by.html) and [`sortedByDescending()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-by-descending.html).
+For sorting in custom orders or sorting non-comparable objects, there are the functions [`.sortedBy()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-by.html) and [`.sortedByDescending()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-by-descending.html).
 They take a selector function that maps collection elements to `Comparable` values and sort the collection in natural order of that values.
 
 ```kotlin
@@ -154,7 +154,7 @@ fun main() {
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 To define a custom order for the collection sorting, you can provide your own `Comparator`.
-To do this, call the [`sortedWith()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-with.html) function passing in your `Comparator`.
+To do this, call the [`.sortedWith()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/sorted-with.html) extension function passing in your `Comparator`.
 With this function, sorting strings by their length looks like this:
 
 ```kotlin
@@ -180,9 +180,19 @@ You can use the following extension functions to check whether elements already 
 These extension functions return `true` if the elements are in the specified order or if there are fewer than two elements.
 They return `false` and stop checking as soon as they find an out-of-order pair.
 
-For collections and sequences, the result depends on the order in which elements are iterated.
+For collections without a guaranteed iteration order, such as `HashSet`, and sequences that don't produce elements in a consistent order, the result may vary across calls.
+For ordered collections, such as `List`, repeated calls on the same elements return the same result.
+
 When checking `Double` and `Float` values, these functions treat `NaN` as greater than any other value and `-0.0` as less than `0.0`.
 Additionally, the `.isSortedBy()` and `.isSortedByDescending()` functions treat `null` selector results as less than any non-null value.
+
+When you call these functions on a `Sequence`, the operation is terminal.
+It consumes the sequence to produce a `Boolean` instead of returning another sequence.
+
+> These sorted-order functions are also available for arrays, primitive arrays, and unsigned arrays.
+> Unsigned arrays and operations on them are [Experimental](components-stability.md#stability-levels-explained) and require opt-in with the `@ExperimentalUnsignedTypes` annotation.
+> 
+{style="note"}
 
 Here's an example of checking sorted order with the `.isSorted()` and `.isSortedBy()` functions:
 
@@ -190,6 +200,7 @@ Here's an example of checking sorted order with the `.isSorted()` and `.isSorted
 data class User(val name: String, val age: Int)
 
 fun main() {
+//sampleStart
     val numbers = listOf(1, 2, 3, 4)
     println(numbers.isSorted())
     // true
@@ -201,16 +212,21 @@ fun main() {
     )
     println(users.isSortedBy(User::age))
     // false
+
+    val descending = listOf(4, 3, 2, 1)
+    println(descending.isSortedDescending())
+    // true
+   
+//sampleEnd
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.4"}
 
 ## Reverse order
 
-You can retrieve the collection in the reversed order using the [`reversed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reversed.html) function. 
+You can retrieve the collection in the reversed order using the [`.reversed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/reversed.html) function. 
 
 ```kotlin
-
 fun main() {
 //sampleStart
     val numbers = listOf("one", "two", "three", "four")
@@ -220,11 +236,11 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-`reversed()` returns a new collection with the copies of the elements.
-So, if you change the original collection later, this won't affect the previously obtained results of `reversed()`.
+The `.reversed()` extension function returns a new collection with the copies of the elements.
+So, if you change the original collection later, this won't affect the previously obtained results of `.reversed()`.
 
-Another reversing function - [`asReversed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/as-reversed.html)
-- returns a reversed view of the same collection instance, so it may be more lightweight and preferable than `reversed()`
+Another reversing function - [`.asReversed()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/as-reversed.html)
+- returns a reversed view of the same collection instance, so it may be more lightweight and preferable than `.reversed()`
 if the original list is not going to change. 
 
 ```kotlin
@@ -253,12 +269,12 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-However, if the mutability of the list is unknown or the source is not a list at all, `reversed()` is more preferable
+However, if the mutability of the list is unknown or the source is not a list at all, `.reversed()` is more preferable
 since its result is a copy that won't change in the future.
 
 ## Random order
 
-Finally, there is a function that returns a new `List` containing the collection elements in a random order - [`shuffled()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/shuffled.html).
+Finally, there is a function that returns a new `List` containing the collection elements in a random order - [`.shuffled()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/shuffled.html).
 You can call it without arguments or with a [`Random`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.random/-random/index.html) object.
 
 ```kotlin
