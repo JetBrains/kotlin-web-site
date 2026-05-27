@@ -172,8 +172,8 @@ To export a Kotlin interface, for example from a Kotlin Multiplatform project:
 For Kotlin Multiplatform projects, the general rules are:
 
 * Both `expect` and `actual` interface declarations must be annotated with `@JsNoRuntime`. The only exception is
-  `external` implementations in platform-specific code on the `actual` side.
-* Using `external` interface declarations in common code on the `expect` side is not recommended. Instead, use regular 
+  `external` implementations in platform-specific code on the `actual` side that require no annotation.
+* Using `external` interface declarations in common code on the `expect` side is prohibited. Instead, use regular 
   interfaces annotated with `@JsNoRuntime`.
 
 Exporting Kotlin interfaces with `@JsNoRuntime` has some restrictions. The annotation is not allowed with:
