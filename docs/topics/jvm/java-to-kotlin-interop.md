@@ -457,7 +457,37 @@ fun Button(
 }
 ```
 
-If you want to expose multiple overloads to Java callers, you can use the
+Based on these versions, the compiler generates hidden overloads for the original API and for each API version that
+introduced new optional parameters:
+
+```kotlin
+// Original API
+Button(
+    label: String,
+    color: Color,
+    onClick: () -> Unit
+)
+
+// Version 1.1
+Button(
+    label: String,
+    color: Color,
+    borderColor: Color,
+    onClick: () -> Unit
+)
+
+// Version 1.2
+Button(
+    label: String,
+    color: Color,
+    borderColor: Color,
+    borderStyle: Style,
+    borderWidth: Int,
+    onClick: () -> Unit
+)
+```
+
+If you want to expose multiple overloads to Java callers, you can also use the
 [`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html) annotation.
 
 The annotation also works for constructors, static methods, and so on. It can't be used on abstract methods, including
