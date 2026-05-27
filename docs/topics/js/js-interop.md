@@ -41,17 +41,10 @@ fun getTypeof() = "typeof"
 Instead, for example for the spread operator, use:
 
 ```kotlin
-fun spreadExample(): dynamic = js("""
-    const add = (a, b, c) => a + b + c;
-
-    const nums = [1, 2, 3];
-    const sum = add(...nums);
-
-    const a = [1, 2, 3];
-    const b = [...a, 4, 5, 6];
-
-    return { sum, b: b };
-""")
+fun runSpreadExample() {
+    val sum = js("(...nums) => nums.reduce((a, b) => a + b, 0)")
+    println(sum(1, 2, 3, 4))
+}
 ```
 
 > Invoking `js()` returns a result of type [`dynamic`](dynamic-type.md), which provides no type safety at compile time.
