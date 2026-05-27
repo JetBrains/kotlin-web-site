@@ -23,7 +23,7 @@ JavaScript code inlining has full support for [ES2015 features](js-project-setup
 * Lambdas ([arrow functions](whatsnew21.md#support-for-generating-es2015-arrow-functions))
 * ES classes
 * Template strings
-* Spread operators
+* Spread and rest operators
 * `const` and `let` variable declarations
 * Generators
 
@@ -38,10 +38,10 @@ fun jsTypeOf(o: Any): String {
 fun getTypeof() = "typeof"
 ```
 
-Instead, for example for the spread operator, use:
+Instead, for example for the rest operator, use:
 
 ```kotlin
-fun runSpreadExample() {
+fun runSumExample() {
     val sum = js("(...nums) => nums.reduce((a, b) => a + b, 0)")
     println(sum(1, 2, 3, 4))
 }
