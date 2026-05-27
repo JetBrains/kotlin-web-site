@@ -75,10 +75,6 @@ graph TD
 
     A --> B
     B --> C
-
-    %% Clean design for exactly 3 blocks
-    classDef cleanBlock fill:#fff,stroke:#333,stroke-width:1px;
-    class A,B,C cleanBlock;
 ```
 
 * The version set in `kotlin.compiler.jvmTarget` property takes priority if it's defined in the project.
