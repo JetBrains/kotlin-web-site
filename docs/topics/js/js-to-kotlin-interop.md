@@ -131,10 +131,10 @@ the JavaScript target, and allows you to also export Kotlin declarations that ar
 
 ### `@JsNoRuntime` annotation
 
-You can export Kotlin interfaces to JavaScript/TypeScript from common code with the `@JsNoRuntime` annotation.
+You can export Kotlin interfaces to JavaScript/TypeScript with the `@JsNoRuntime` annotation.
 It allows for direct mapping to regular TypeScript interfaces.
 
-To export a Kotlin interface from your Kotlin Multiplatform project:
+To export a Kotlin interface, for example from a Kotlin Multiplatform project:
 
 1. Annotate the Kotlin interface with `@JsNoRuntime` in common code:
 
@@ -169,10 +169,19 @@ To export a Kotlin interface from your Kotlin Multiplatform project:
     }
     ```
 
-> Annotated interfaces can't be used with `is` or `as` operators and for [reflection](js-reflection.md).
-> This way, TypeScript can treat Kotlin interfaces as regular TypeScript interfaces.
->
-{type="note"}
+For Kotlin Multiplatform projects, the general rules are:
+
+* Both `expect` and `actual` interface declarations must be annotated with `@JsNoRuntime`. The only exception is
+  `external` implementations in platform-specific code on the `actual` side.
+* Using `external` interface declarations in common code on the `expect` side is not recommended. Instead, use regular 
+  interfaces annotated with `@JsNoRuntime`.
+
+Exporting Kotlin interfaces with `@JsNoRuntime` has some restrictions. The annotation is not allowed with:
+
+* `external` interfaces as they already behave as if they have `@JsNoRuntime` by default. Adding it will result in a compiler warning.
+* `is` and `as` type checks.
+* Class references that use the [`::class` syntax](js-reflection.md).
+* Interfaces that are passed as reified type argument.
 
 ### `@JsStatic`
 <primary-label ref="experimental-general"/>
