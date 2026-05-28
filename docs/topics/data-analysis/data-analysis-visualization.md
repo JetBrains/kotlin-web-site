@@ -1,4 +1,5 @@
 [//]: # (title: Data visualization with Kandy)
+[//]: # (description: Learn how to visualize data with Kandy and Kotlin DataFrame by creating line, points, and bar charts.)
 
 Kotlin offers an all-in-one-place solution for powerful and flexible data visualization, providing an intuitive way to present and explore data 
 before diving into complex models.
@@ -14,24 +15,26 @@ which is bundled and enabled in IntelliJ IDEA by default.
 If the Kotlin Notebook features are not available, ensure the plugin is enabled. For more information,
 see [Set up an environment](kotlin-notebook-set-up-env.md).
 
-Create a new Kotlin Notebook:
+To follow this tutorial:
 
-1. Select **File** | **New** | **Kotlin Notebook**.
+1. Create a [new Kotlin Notebook](kotlin-notebook-create.md).
+2. In your notebook, import [Kandy](https://kotlin.github.io/kandy/welcome.html) and [Kotlin DataFrame](https://kotlin.github.io/dataframe/home.html):
 
-2. In your notebook, import the Kandy and Kotlin DataFrame libraries by running the following command:
+   ```kotlin
+   %use kandy
+   %use dataframe
+   ```
 
-    ```kotlin
-    %use kandy
-    %use dataframe
-    ```
+> Run the code cell with the `%use dataframe` line before any other code cells
+> to make sure the DataFrame library and its APIs are available in the notebook.
+>
+{style="note"}
 
-## Create the DataFrame
 
-Start by creating the DataFrame containing the records to visualize. This DataFrame stores simulated numbers of the 
-monthly average temperature in three cities: Berlin, Madrid, and Caracas.
+## Create a DataFrame
 
-Use the `dataFrameOf()` function from the Kotlin DataFrame library
-to generate the DataFrame. Run the following code snippet in Kotlin Notebook:
+To start, let's create a DataFrame with data to visualize. This DataFrame stores
+simulated monthly average temperatures for Berlin, Madrid, and Caracas:
 
 ```kotlin
 // The months variable stores a list with the 12 months of the year
@@ -42,30 +45,35 @@ val months = listOf(
     "September", "October", "November",
     "December"
 )
-// The tempBerlin, tempMadrid, and tempCaracas variables store a list with temperature values for each month
+// The tempBerlin, tempMadrid, and tempCaracas variables store a list 
+// with temperature values for each month
 val tempBerlin =
     listOf(-0.5, 0.0, 4.8, 9.0, 14.3, 17.5, 19.2, 18.9, 14.5, 9.7, 4.7, 1.0)
 val tempMadrid =
     listOf(6.3, 7.9, 11.2, 12.9, 16.7, 21.1, 24.7, 24.2, 20.3, 15.4, 9.9, 6.6)
 val tempCaracas =
     listOf(27.5, 28.9, 29.6, 30.9, 31.7, 35.1, 33.8, 32.2, 31.3, 29.4, 28.9, 27.6)
+```
 
-// The df variable stores a DataFrame of three columns, including records of months, temperature, and cities
+Now let's create a new variable (`df`) and use
+the [`dataFrameOf()`](https://kotlin.github.io/dataframe/createdataframe.html#dataframeof) function
+to generate a DataFrame of three columns (Month, Temperature, and City):
+
+```kotlin
 val df = dataFrameOf(
     "Month" to months + months + months,
     "Temperature" to tempBerlin + tempMadrid + tempCaracas,
     "City" to List(12) { "Berlin" } + List(12) { "Madrid" } + List(12) { "Caracas" }
 )
 ```
-
-Explore the structure of the new DataFrame by looking into the first four rows:
+To preview the data, use the [`.head()`](https://kotlin.github.io/dataframe/head.html) function:
 
 ```kotlin
-df.head(4)
+df.head(4) // Returns the first four rows
 ```
 
-You can see that the DataFrame has three columns: Month, Temperature, and City. 
-The first four rows of the DataFrame contain records of the temperature in Berlin from January to April:
+In our dataset, the first four rows store temperature 
+in Berlin from January to April:
 
 ![Dataframe exploration](visualization-dataframe-temperature.png){width=600}
 
@@ -76,26 +84,32 @@ The first four rows of the DataFrame contain records of the temperature in Berli
 
 ## Create a line chart
 
-Let's create a line chart in Kotlin Notebook using the `df` DataFrame from the previous section.
+Let's create a line chart in Kotlin Notebook using the `df` DataFrame from the previous section:
 
-Use the `plot()` function from the Kandy library. Within the `plot()` function, specify the type of chart (in this case, it's `line`) 
-and the values for the X and Y axes. You can customize colors and sizes:
+1. Call the `.plot()` function from the Kandy library. 
+2. Apply the `line()` layer. 
+3. Map the `Month` and `Temperature` columns to the `X` and `Y` axes accordingly.
+4. (Optional) Customize colors and sizes.
+
 
 ```kotlin
 df.plot {
-    line {
-        // Accesses the DataFrame's columns used for the X and Y axes 
-        x(Month)
-        y(Temperature)
-        // Accesses the DataFrame's column used for categories and sets colors for these categories 
-        color(City) {
-            scale = categorical("Berlin" to Color.PURPLE, "Madrid" to Color.ORANGE, "Caracas" to Color.GREEN)
-        }
-        // Customizes the line's size
-        width = 1.5
-    }
-    // Customizes the chart's layout size
-    layout.size = 1000 to 450
+   line {
+      x(Month)
+      y(Temperature)
+
+      color(City) {
+         scale = categorical(
+            "Berlin" to Color.hex("#6F4E37"),
+            "Madrid" to Color.hex("#C2D4AB"),
+            "Caracas" to Color.hex("#B5651D")
+         )
+      }
+      width = 1.5
+   }
+   layout {
+      size = 1000 to 450
+   }
 }
 ```
 
@@ -105,27 +119,38 @@ Here's the result:
 
 ## Create a points chart
 
-Now, let's visualize the `df` DataFrame in a points (scatter) chart. 
+Now, let's visualize the `df` DataFrame in a points (scatter) chart:
 
-Within the `plot()` function, specify the `points` chart type. Add the X and Y axes' values and the categorical values from the `df` columns.
-You can also include a heading to your chart:
+1. Call the `.plot()` function from the Kandy library. 
+2. Apply the `points()` layer. 
+3. Map the `Month` and `Temperature` columns to the `X` and `Y` axes accordingly.
+4. (Optional) Customize colors, axis labels, point sizes, and chart title.
+
 
 ```kotlin
 df.plot {
-    points {
-        // Accesses the DataFrame's columns used for the X and Y axes 
-        x(Month) { axis.name = "Month" }
-        y(Temperature) { axis.name = "Temperature" }
-        // Customizes the point's size
-        size = 5.5
-        // Accesses the DataFrame's column used for categories and sets colors for these categories 
-        color(City) {
-            scale = categorical("Berlin" to Color.LIGHT_GREEN, "Madrid" to Color.BLACK, "Caracas" to Color.YELLOW)
-        }
-    }
-    // Adds a chart heading
-    layout.title = "Temperature per month"
+   points {
+      x(Month) {
+         axis.name = "Month"
+      }
+      y(Temperature) {
+         axis.name = "Temperature"
+      }
+
+      color(City) {
+         scale = categorical(
+            "Berlin" to Color.hex("#6F4E37"),
+            "Madrid" to Color.hex("#C2D4AB"),
+            "Caracas" to Color.hex("#B5651D")
+         )
+      }
+      size = 5.5
+   }
+   layout {
+      title = "Temperature per month"
+   }
 }
+
 ```
 
 Here's the result:
@@ -134,19 +159,20 @@ Here's the result:
 
 ## Create a bar chart
 
-Finally, let's create a bar chart grouped by city using the same data as in the previous charts. 
-For colors, you can also use hexadecimal codes: 
+Finally, let's create a bar chart for each city:
+
+1. Use the `.groupBy()` function to group the DataFrame by the `City` column. 
+2. Call the `plot()` function from the Kandy library. 
+3. Apply the `bars()` layer.
+4. (Optional) Add a title for the chart, customize colors.
+
 
 ```kotlin
-// Groups by cities  
 df.groupBy { City }.plot {
-    // Adds a chart heading
-    layout.title = "Temperature per month"
     bars {
-        // Accesses the DataFrame's columns used for the X and Y axes 
         x(Month)
         y(Temperature)
-        // Accesses the DataFrame's column used for categories and sets colors for these categories 
+        
         fillColor(City) {
             scale = categorical(
                 "Berlin" to Color.hex("#6F4E37"),
@@ -154,6 +180,9 @@ df.groupBy { City }.plot {
                 "Caracas" to Color.hex("#B5651D")
             )
         }
+    }
+    layout.title {
+       title = "Temperature per month"
     }
 }
 ```

@@ -1,4 +1,5 @@
 [//]: # (title: Kotlin Notebook)
+[//]: # (description: Create and edit interactive Kotlin notebooks in IntelliJ IDEA to run code, visualize data, prototype ideas, and share results.)
 
 Kotlin Notebook provides an interactive environment to create and edit notebooks, leveraging the full potential of Kotlin's capabilities. 
 Kotlin Notebook relies on the [Kotlin Notebook plugin](https://plugins.jetbrains.com/plugin/16340-kotlin-notebook),
@@ -46,7 +47,8 @@ For analytics-related tasks, the [Kotlin DataFrame](https://kotlin.github.io/dat
 provides robust solutions. This library facilitates loading, creating, filtering, and cleaning structured data.
 
 Kotlin DataFrame also supports seamless connection with SQL databases and reads data right in the IDE from 
-different file formats, including CSV, JSON, and TXT.
+different data sources, including CSV, JSON, and TXT. 
+See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
 
 [Kandy](https://kotlin.github.io/kandy/welcome.html), an open-source Kotlin library, allows you to create charts of various types.
 Kandy's idiomatic, readable, and type-safe features let you visualize data effectively and gain valuable insights.

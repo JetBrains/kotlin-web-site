@@ -13,9 +13,8 @@ In this tutorial, you'll learn how to:
 
 > Before you start, make sure you have:
 >
-> * [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) (Community or Ultimate edition) that has a bundled Kotlin plugin
-> or [VS Code](https://code.visualstudio.com/Download) with the installed [Kotlin extension](https://github.com/Kotlin/kotlin-lsp/tree/main?tab=readme-ov-file#vs-code-quick-start).
-> * Java 17 or later
+> * [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) or [VS Code](https://code.visualstudio.com/Download) with the installed [Kotlin extension](https://github.com/Kotlin/kotlin-lsp/tree/main?tab=readme-ov-file#vs-code-quick-start).
+> * Java 17 or later.
 >
 {style="note"}
 
@@ -311,20 +310,7 @@ Run both Java and Kotlin tests to verify your project works as expected:
 >
 {style="tip"}
 
-## Explore other test libraries
-
-Besides JUnit, you can use other libraries that support both Kotlin and Java:
-
-| Library                                                     | Description                                                                                                        |
-|-------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| [AssertJ](https://github.com/assertj/assertj)               | Fluent assertion library with chainable assertions.                                                                |
-| [Mockito-Kotlin](https://github.com/mockito/mockito-kotlin) | Kotlin wrapper for Mockito that provides helper functions and better integration with Kotlin type system.          |
-| [MockK](https://github.com/mockk/mockk)                     | Native Kotlin mocking library that supports Kotlin-specific features including coroutines and extension functions. |
-| [Kotest](https://github.com/kotest/kotest)                  | Assertion library for Kotlin offering multiple assertion styles and extensive matcher support.                     |
-| [Strikt](https://github.com/robfletcher/strikt)             | Assertion library for Kotlin with type-safe assertions and support for data classes.                               |
-
 ## What's next
 
-* Improve your test output with the [Kotlin's Power-assert compiler plugin](power-assert.md).
-* Create your first [backend application with Kotlin and Spring Boot](jvm-get-started-spring-boot.md).
-* Explore the features of the [`kotlin.test` library](https://kotlinlang.org/api/latest/kotlin.test/kotlin.test/).
+Learn more about [testing Kotlin projects with Maven](jvm-test-maven.md).
+

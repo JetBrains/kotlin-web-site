@@ -1,7 +1,29 @@
 services:
   reverse-proxy:
     image: nginx:stable-alpine
-    command: ["nginx", "-g", "daemon off; error_log /dev/null;"]
+    command: |
+      sh -c '
+        cat > /etc/nginx/conf.d/default.conf <<EOF
+        server {
+          listen 80;
+          listen [::]:80;
+      
+          access_log off;
+
+          location / {
+            root /usr/share/nginx/html;
+            index index.html index.htm;
+          }
+
+          location = /50x.html {
+            root /usr/share/nginx/html;
+          }
+        }
+      EOF
+      nginx -g "daemon off; error_log /dev/null;"
+      '
+    ports:
+      - "3000:80"
     networks:
       - test-network
     volumes:

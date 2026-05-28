@@ -18,7 +18,7 @@
     <secondary-label id="wasm" name="Kotlin/Wasm" color="purple"></secondary-label>
     <secondary-label id="js" name="Kotlin/JS" color="yellow"></secondary-label>
     <secondary-label id="language" name="Language" color="marine"></secondary-label>
-    <secondary-label id="standard-library" name="Standard library" color="tangerine"></secondary-label>
+    <secondary-label id="standard-library" name="Standard library" color="blue"></secondary-label>
     <secondary-label id="compiler" name="Compiler" color="black"></secondary-label>
     <secondary-label id="compose-compiler" name="Compose compiler" color="blue"></secondary-label>
 </labels>

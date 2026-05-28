@@ -1,4 +1,5 @@
 [//]: # (title: Kotlin for data analysis)
+[//]: # (description: Learn how to use Kotlin for data analysis with Kotlin DataFrame and Kandy to retrieve, transform, analyze, and visualize data.)
 
 Exploring and analyzing data is something you may not do every day, but it's a crucial skill you need as a software developer. 
 
@@ -9,7 +10,9 @@ With Kotlin's Exploratory Data Analysis (EDA) tools, such as [Kotlin notebooks](
 have at your disposal a rich set of capabilities to enhance your analytics skills and support you across different scenarios:
 
 * **Load, transform, and visualize data in various formats:** with our Kotlin EDA tools, you can perform tasks like filtering, sorting, and aggregating data. Our tools can seamlessly
-read data right in the IDE from different file formats, including CSV, JSON, and TXT. 
+read data right in the IDE from different data sources, such as CSV, JSON, SQL Databases, or Parquet files.
+See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
+
 
     Kandy, our plotting tool, allows you to create a wide range of charts to visualize and gain insights from the dataset.
 
@@ -18,10 +21,6 @@ You can retrieve, manipulate, and visualize data directly from various databases
 
 * **Fetch and analyze real-time and dynamic datasets from web APIs:** the EDA tools' flexibility allows integration with external APIs via protocols like OpenAPI. 
 This feature helps you fetch data from web APIs, to then clean and transform the data to your needs.
-
-Would you like to try our Kotlin tools for data analysis?
-
-<a href="get-started-with-kotlin-notebooks.md"><img src="kotlin-notebooks-button.svg" width="600" alt="Get started with Kotlin Notebook" style="block"/></a>
 
 Our Kotlin data analysis tools let you smoothly handle your data from start to finish. Effortlessly 
 retrieve your data with simple drag-and-drop functionality in our Kotlin Notebook. Clean, transform, and visualize it with just a few lines of code. 
@@ -41,11 +40,6 @@ These Kotlin notebook solutions are based on our [Kotlin Kernel](https://github.
 
 You can seamlessly share your code among Kotlin Notebook, Datalore, and Kotlin-Jupyter Notebook. Create a project in one of our Kotlin notebooks
 and continue working in another notebook without compatibility issues.
-
-Benefit from the features of our powerful Kotlin notebooks and the perks of coding with Kotlin. Kotlin integrates with these notebooks 
-to help you manage data and share your findings with colleagues while building up your data science and machine learning skills.
-
-Discover the features of our different Kotlin notebook solutions and choose the one that best aligns with your project requirements. 
 
 ![Kotlin Notebook](kotlin-notebook.png){width=700}
 
@@ -74,7 +68,8 @@ The [Kotlin DataFrame](https://kotlin.github.io/dataframe/overview.html) library
 cleaning to in-depth analysis and feature engineering, this library has you covered.
 
 With the Kotlin DataFrame library, you can work with different file formats, including CSV, JSON, XLS, and XLSX. This library also facilitates the data retrieval process
-with its ability to connect with SQL databases or APIs.
+with its ability to connect with SQL databases or APIs. 
+See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
 
 ![Kotlin DataFrame](data-analysis-dataframe-example.png){width=700}
 
@@ -90,7 +85,6 @@ Kotlin DataFrame libraries to complete different data-related tasks.
 
 ## What's next
 
-* [Get started with Kotlin Notebook](get-started-with-kotlin-notebooks.md)
 * [Retrieve and transform data using the Kotlin DataFrame library](data-analysis-work-with-data-sources.md)
 * [Visualize data using the Kandy library](data-analysis-visualization.md)
 * [Learn more about Kotlin and Java libraries for data analysis](data-analysis-libraries.md)

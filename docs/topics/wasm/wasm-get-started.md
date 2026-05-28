@@ -3,25 +3,26 @@
 <primary-label ref="beta"/> 
 
 This tutorial demonstrates how to run a [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) 
-app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts to publish as part of a website.
+app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts you can publish as a website.
 
 ## Create a project
 
 1. [Set up your environment for Kotlin Multiplatform development](https://kotlinlang.org/docs/multiplatform/quickstart.html#set-up-the-environment).
 2. In IntelliJ IDEA, select **File | New | Project**.
-3. In the panel on the left, select **Kotlin Multiplatform**.
+3. In the list of project templates, select **Kotlin Multiplatform**.
 
    > If you're not using the Kotlin Multiplatform IDE plugin, you can generate the same project using the [KMP web wizard](https://kmp.jetbrains.com/?web=true&webui=compose&includeTests=true).
    >
-   {style="note"}
+   {style="tip"}
 
 4. Specify the following fields in the **New Project** window:
 
    * **Name:** WasmDemo
-   * **Group:** wasm.project.demo
-   * **Artifact:** wasmdemo
+   * **Project ID:** wasm.project.demo
 
-   > If you use the web wizard, specify "WasmDemo" as Project Name and "wasm.project.demo" as Project ID.
+   > This tutorial uses `wasm.project.demo` as the Project ID for consistency. 
+   > However, we recommend keeping your usual group ID, such as `org.example`.
+   > Whatever you enter here will be suggested as the default in future projects.
    >
    {style="note"}
 
@@ -32,37 +33,33 @@ app with [](wasm-overview.md) in IntelliJ IDEA and generate artifacts to publish
 
 ## Run the application
 
-Once the project loads, select **composeApp [wasmJs]** in the list of run configurations and click **Run**.
+1. Once the project loads, select **webApp [wasmJs]** in the list of run configurations and click **Run**.
 
-![Run the Compose Multiplatform app on web](compose-run-web-black.png){width=300}
+    ![Run the Compose Multiplatform app on web](compose-run-web-light.png){width=300}
+    
+    The web application opens automatically in your browser. 
+    Alternatively, once the build finishes, you can open the following URL manually:
+    
+    ```shell
+       http://localhost:8080/
+    ```
+    
+    The port number may vary if port `8080` is already in use.
+    You can find the actual port number in the output of the Gradle build.
 
-The web application opens automatically in your browser. Alternatively, you can open the following URL in your browser when the run is finished:
-
-```shell
-   http://localhost:8080/
-```
-> The port number can vary because the 8080 port may be unavailable.
-> You can find the actual port number in the output of the Gradle build.
->
-{style="tip"}
-
-Click the "Click me!" button:
-
-![Click me](wasm-composeapp-browser-clickme.png){width=600}
-
-It reveals the Compose Multiplatform logo:
-
-![Compose app in browser](wasm-composeapp-browser.png){width=600}
+2. Click the **Click me!** button. This reveals the Compose Multiplatform logo:
+    
+    ![Compose app in browser](wasm-composeapp-browser.png){width=600}
 
 ## Generate artifacts
 
 Generate your project's artifacts to publish on a website:
 
 1. Open the **Gradle** tool window by selecting **View** | **Tool Windows** | **Gradle**.
-2. In **wasmdemo** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDistribution** task.
+2. In **WasmDemo** | **Tasks** | **kotlin browser**, select and run the **wasmJsBrowserDistribution** task.
 
-   > You need at least Java 11 as your Gradle JVM for the tasks to load successfully, and we recommend at least 
-   > Java 17 for Compose Multiplatform projects in general.
+   > You need at least Java 11 as your Gradle JVM for the tasks to load successfully.
+   > For Compose Multiplatform projects in general, we recommend Java 17 or later.
    >
    {style="note"}
 
@@ -74,7 +71,7 @@ Generate your project's artifacts to publish on a website:
     ./gradlew wasmJsBrowserDistribution
     ```
 
-Once the application task completes, you can find the generated artifacts in the `composeApp/build/dist/wasmJs/productionExecutable`
+Once the task completes, you can find the generated artifacts in the `webApp/build/dist/wasmJs/productionExecutable`
 directory:
 
 ![Artifacts directory](wasm-composeapp-directory.png){width=400}
@@ -82,9 +79,7 @@ directory:
 ## Publish the application
 
 Use the generated artifacts to deploy your Kotlin/Wasm application. 
-Select a publishing option of your preference
-and follow the instructions to deploy the artifacts. 
-Some alternatives are:
+Select a publishing option that you prefer and follow the instructions:
 
 * [GitHub pages](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site)
 * [Cloudflare](https://developers.cloudflare.com/workers/)

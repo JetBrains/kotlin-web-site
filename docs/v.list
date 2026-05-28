@@ -5,17 +5,17 @@
 <vars>
 
     <!-- Kotlin -->
-    <var name="kotlinVersion" value="2.3.20"/>
-    <var name="kotlinReleaseDate" value="March 16, 2026"/>
-    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.3.20"/>
+    <var name="kotlinVersion" value="2.3.21"/>
+    <var name="kotlinReleaseDate" value="April 23, 2026"/>
+    <var name="kotlinLatestUrl" value="https://github.com/JetBrains/kotlin/releases/tag/v2.3.21"/>
     <var name="kotlinLatestWhatsnew" value="whatsnew2320.md"/>
 
     <var name="languageVersion" value="2.3"/>
     <var name="apiVersion" value="2.3"/>
 
     <!-- Kotlin EAP -->
-    <var name="kotlinEapVersion" value="2.4.0-Beta1"/>
-    <var name="kotlinEapReleaseDate" value="March 31, 2026"/>
+    <var name="kotlinEapVersion" value="2.4.0-RC2"/>
+    <var name="kotlinEapReleaseDate" value="May 27, 2026"/>
 
     <!-- Libraries and Frameworks -->
     <var name="coroutinesVersion" value="1.10.2"/>
@@ -23,7 +23,7 @@
 
     <var name="serializationVersion" value="1.10.0"/>
 
-    <var name="dateTimeVersion" value="0.7.1"/>
+    <var name="dateTimeVersion" value="0.8.0"/>
 
     <var name="lincheckVersion" value="3.4"/>
 
@@ -49,7 +49,7 @@
     <var name="mavenExtensionsVersion" value="3.10.1" type="string"/>
 
     <!-- KSP -->
-    <var name="kspVersion" value="2.3.6"/>
+    <var name="kspVersion" value="2.3.7"/>
 
     <!-- Spring -->
     <var name="springBootSupportedKotlinVersion" value="2.2.21"/>

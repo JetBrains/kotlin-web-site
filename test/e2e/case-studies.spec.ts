@@ -50,6 +50,16 @@ test.describe('Case-studies landing page', async () => {
         await expect(caseStudiesPage.filterByComposeUI).toBeHidden();
     });
 
+    test('Case-studies: AI has no KMP filters', async ({ page }) => {
+        const caseStudiesPage = new CaseStudiesPage(page);
+        await caseStudiesPage.init();
+
+        await caseStudiesPage.selectType(caseStudiesPage.switchAi);
+        await caseStudiesPage.isSwitchActive(caseStudiesPage.switchAi);
+
+        await expect(caseStudiesPage.filterByComposeUI).toBeHidden();
+    });
+
     test('Case-studies: selected type is presented in url', async ({ page }) => {
         const caseStudiesPage = new CaseStudiesPage(page);
         await caseStudiesPage.init();
@@ -69,6 +79,13 @@ test.describe('Case-studies landing page', async () => {
         ]);
 
         expect(page.url()).toContain('type=server-side');
+
+        await Promise.all([
+            page.waitForNavigation({ waitUntil: 'networkidle' }),
+            caseStudiesPage.selectType(caseStudiesPage.switchAi)
+        ]);
+
+        expect(page.url()).toContain('type=ai');
     });
 
 

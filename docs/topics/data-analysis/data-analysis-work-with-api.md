@@ -32,7 +32,7 @@ Create a new Kotlin Notebook:
 ## Fetch data from an API
 
 Fetching data from APIs using the Kotlin Notebook with the Kotlin DataFrame library is achieved through the [`.read()`](https://kotlin.github.io/dataframe/read.html) 
-function, which is similar to [retrieving data from files](data-analysis-work-with-data-sources.md#retrieve-data-from-a-file), such as CSV or JSON.
+function, which is similar to [retrieving data from files](data-analysis-work-with-data-sources.md#retrieve-data), such as CSV or JSON.
 However, when working with web-based sources, you might require additional formatting to transform the raw API data into 
 a structured format.
 

@@ -34,7 +34,7 @@ fun main() {
     // true
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false"}
 
 Note that there's no point in optimizing your code when comparing to `null` explicitly:
 `a == null` will be automatically translated to `a === null`.
@@ -100,7 +100,7 @@ fun main() {
 
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" validate="false"}
 
 For values represented by primitive types at runtime
 (for example, `Int`), the `===` equality check is equivalent to the `==` check.
@@ -122,7 +122,7 @@ IEEE standard. In this scenario:
 * `NaN` is greater than any other element (including `POSITIVE_INFINITY`) 
 * `-0.0` is not equal to `0.0`
 
-For more information, see [Floating-point numbers comparison](numbers.md#floating-point-numbers-comparison).
+For more information, see [Floating-point numbers comparison](numbers.md#floating-point-number-comparison).
 
 ## Array equality
 

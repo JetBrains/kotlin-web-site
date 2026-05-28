@@ -9,7 +9,7 @@ object BuildParams {
   const val DOKKA_TEMPLATES_VERSION = "2.0.0"
 
   const val KOTLINX_COROUTINES_RELEASE_TAG = "master"
-  const val KOTLINX_COROUTINES_RELEASE_LABEL = "1.11.0-rc01"
+  const val KOTLINX_COROUTINES_RELEASE_LABEL = "1.11.0"
   const val KOTLINX_COROUTINES_ID = "kotlinx.coroutines"
   const val KOTLINX_COROUTINES_TITLE = KOTLINX_COROUTINES_ID
 
@@ -19,7 +19,7 @@ object BuildParams {
   const val KOTLINX_SERIALIZATION_TITLE = KOTLINX_SERIALIZATION_ID
 
   const val KOTLINX_DATETIME_RELEASE_TAG = "latest-release"
-  const val KOTLINX_DATETIME_RELEASE_LABEL = "v0.7.0"
+  const val KOTLINX_DATETIME_RELEASE_LABEL = "v0.8.0"
   const val KOTLINX_DATETIME_ID = "kotlinx-datetime"
   const val KOTLINX_DATETIME_TITLE = KOTLINX_DATETIME_ID
 

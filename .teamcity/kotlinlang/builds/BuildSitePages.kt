@@ -26,6 +26,10 @@ object BuildSitePages : BuildType({
         cleanCheckout = true
     }
 
+    requirements {
+        doesNotContain("docker.server.osType", "windows")
+    }
+
     triggers {
         vcs {
             enabled = !isProjectPlayground()
@@ -151,7 +155,7 @@ object BuildSitePages : BuildType({
                 synchronizeRevisions = false
             }
             artifacts {
-                buildRule = lastSuccessful()
+                buildRule = build("2609")
                 cleanDestination = true
                 artifactRules = """
                     +: spec.zip!html => spec

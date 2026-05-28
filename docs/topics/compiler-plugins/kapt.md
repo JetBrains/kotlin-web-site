@@ -1,15 +1,21 @@
 [//]: # (title: kapt compiler plugin)
 
-The kapt compiler plugin allows you to use Java annotation processors in Kotlin.
+<tldr>
 
-In a nutshell, kapt helps you use libraries like [Dagger](https://google.github.io/dagger/) and 
-[Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html) in your Kotlin projects by 
-enabling Java-based annotation processing.
+* Use **kapt** if:
+   * You have a Maven project.
+   * You have a Gradle project, but the required Java annotation processor doesn't support KSP yet. [See the list of supported libraries](ksp-overview.md#supported-libraries).
+* Use **[KSP](ksp-overview.md)** if:
+   * You have a Gradle project, and the required Java annotation processor supports KSP.
+   * You want to create your own annotation processors.
 
-> To use annotation processors made for Kotlin, use [Kotlin Symbol Processing (KSP)](ksp-overview.md).
->
-{style="note"}
+</tldr>
 
+The kapt compiler plugin allows you to use existing Java annotation processors in Kotlin and works with both Maven and Gradle.
+It generates stub files from Kotlin source code and then runs the Java annotation processors on those stubs.
+
+This enables Java-based annotation processing in your Kotlin projects for libraries like [MapStruct](https://mapstruct.org/)
+and [Data Binding](https://developer.android.com/topic/libraries/data-binding/index.html).
 
 ## Use in Gradle
 
@@ -273,22 +279,22 @@ to be enabled as well.
 You can define a common set of annotation processors in a separate Gradle configuration as a 
 superconfiguration and extend it further in kapt-specific configurations for your subprojects.
 
-As an example, for a subproject using [Dagger](https://dagger.dev/), in your `build.gradle(.kts)` file, use the following configuration:
+As an example, for a subproject using [MapStruct](https://mapstruct.org/), in your `build.gradle(.kts)` file, use the following configuration:
 
 ```kotlin
 val commonAnnotationProcessors by configurations.creating
 configurations.named("kapt") { extendsFrom(commonAnnotationProcessors) }
 
 dependencies {
-    implementation("com.google.dagger:dagger:2.48.1")
-    commonAnnotationProcessors("com.google.dagger:dagger-compiler:2.48.1")
+    implementation("org.mapstruct:mapstruct:1.6.3")
+    commonAnnotationProcessors("org.mapstruct:mapstruct-processor:1.6.3")
 }
 ```
 
 In this example, the `commonAnnotationProcessors` Gradle configuration is your common superconfiguration for annotation processing
 that you want to be used for all your projects. You use the [`extendsFrom()`](https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.Configuration.html#org.gradle.api.artifacts.Configuration:extendsFrom)
 method to add `commonAnnotationProcessors` as a superconfiguration. kapt sees that the `commonAnnotationProcessors` 
-Gradle configuration has a dependency on the Dagger annotation processor. Therefore, kapt includes the Dagger annotation processor
+Gradle configuration has a dependency on the MapStruct annotation processor. Therefore, kapt includes the MapStruct annotation processor
 in its configuration for annotation processing.
  
 ## Java compiler options
@@ -337,9 +343,9 @@ Add an execution of the `kapt` goal from kotlin-maven-plugin before `compile`:
         <annotationProcessorPaths>
             <!-- Specify your annotation processors here -->
             <annotationProcessorPath>
-                <groupId>com.google.dagger</groupId>
-                <artifactId>dagger-compiler</artifactId>
-                <version>2.9</version>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>1.6.3</version>
             </annotationProcessorPath>
         </annotationProcessorPaths>
     </configuration>
@@ -450,5 +456,9 @@ kapt {
 }
 ```
 
-If you use Maven, you need to specify concrete plugin settings.
-See this [example of settings for the Lombok compiler plugin](lombok.md#using-with-kapt).
+If you use Maven, configure the plugin explicitly.
+See this [example of setting up the Lombok compiler plugin](lombok.md#using-with-kapt).
+
+## What's next
+
+* [See how to migrate from kapt to KSP](ksp-kapt-migration.md)

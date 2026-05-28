@@ -1,13 +1,15 @@
 [//]: # (title: Retrieve data from files)
+[//]: # (description: Learn how to load data from files using Kotlin DataFrame, including CSV, JSON, SQL, Excel, and Apache Arrow files.)
 
 [Kotlin Notebook](kotlin-notebook-overview.md), coupled with the [Kotlin DataFrame library](https://kotlin.github.io/dataframe/home.html), enables 
 you to work with both non-structured and structured data. This combination offers the flexibility to transform non-structured data, 
 such as data found in TXT files, into structured datasets. 
 
-For data transformations, you can use such methods as [`add`](https://kotlin.github.io/dataframe/adddf.html), [`split`](https://kotlin.github.io/dataframe/split.html),
-[`convert`](https://kotlin.github.io/dataframe/convert.html), and [`parse`](https://kotlin.github.io/dataframe/parse.html). 
+For data transformations, you can use such methods as [`.add()`](https://kotlin.github.io/dataframe/adddf.html), [`.split()`](https://kotlin.github.io/dataframe/split.html),
+[`.convert()`](https://kotlin.github.io/dataframe/convert.html), and [`.parse()`](https://kotlin.github.io/dataframe/parse.html). 
 Additionally, this toolset enables the retrieval and manipulation of data from various structured file formats, 
-including CSV, JSON, XLS, XLSX, and Apache Arrow.
+including CSV, JSON, XLS, Parquet, and Apache Arrow. 
+See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
 
 In this guide, you can learn how to retrieve, refine, and handle data through multiple examples.
 
@@ -19,31 +21,37 @@ which is bundled and enabled in IntelliJ IDEA by default.
 If the Kotlin Notebook features are not available, ensure the plugin is enabled. For more information,
 see [Set up an environment](kotlin-notebook-set-up-env.md).
 
-Create a new Kotlin Notebook:
+To follow this tutorial:
 
-1. Select **File** | **New** | **Kotlin Notebook**.
-
-2. In the Kotlin Notebook, import the Kotlin DataFrame library by running the following command:
+1. Create a [new Kotlin Notebook](kotlin-notebook-create.md).
+2. Import Kotlin DataFrame:
 
    ```kotlin
    %use dataframe
    ```
 
-## Retrieve data from a file
+> Run the code cell with the `%use dataframe` line before any other code cells
+> to make sure the DataFrame library and its APIs are available in the notebook.
+> 
+{style="note"}
 
-To retrieve data from a file in Kotlin Notebook:
+## Retrieve data
 
-1. Open your Kotlin Notebook file (`.ipynb`).
-2. Import the Kotlin DataFrame library by adding `%use dataframe` in a code cell at the start of your notebook.
-   > Make sure to run the code cell with the `%use dataframe` line before you run any other code cells that rely on the Kotlin DataFrame library.
-   >
-   {style="note"}
+To retrieve data from a file into your Kotlin Notebook,
+use the `DataFrame.read()` function:
 
-3. Use the [`.read()`](https://kotlin.github.io/dataframe/read.html) function from the Kotlin DataFrame library to retrieve data. 
-For example, to read a CSV file, use: `DataFrame.read("example.csv")`.
+```kotlin
+val movies = DataFrame.read("movies.csv")
+```
 
-The `.read()` function automatically detects the input format based on the file extension and content.
-You can also add other arguments to customize the function, such as specifying the delimiter with `delimiter = ';'`.
+The `DataFrame.read()` function detects the input format based on the file extension and content.
+
+You can also pass additional arguments to control how the DataFrame library reads the input data.
+For example, the following code specifies a custom delimiter (`;`) for a CSV file:
+
+```kotlin
+val movies = DataFrame.read("movies.csv", delimiter = ';')
+```
 
 > For a comprehensive overview of additional file formats and a variety of read functions, see the 
 > [Kotlin DataFrame library documentation](https://kotlin.github.io/dataframe/read.html).
@@ -52,47 +60,58 @@ You can also add other arguments to customize the function, such as specifying t
 
 ## Display data
 
-Once you [have the data in your notebook](#retrieve-data-from-a-file), you can easily store it in a variable and access it by running the 
-following in a code cell: 
+Once you have the data in your notebook, you can display it. The easiest way is to 
+store your data in a variable and then return it:
 
 ```kotlin
-val dfJson = DataFrame.read("jsonFile.json")
-dfJson
+val jsonDf = DataFrame.read("jsonFile.json")
+jsonDf
 ```
 
-This code displays the data from the file of your choice, such as CSV, JSON, XLS, XLSX, or Apache Arrow.
+This code displays the data from your file as an interactive table:
 
 ![Display data](display-data.png){width=700}
 
-To gain insights into the structure or schema of your data, apply the `.schema()` function on your DataFrame variable. 
-For example, `dfJson.schema()` lists the type of each column in your JSON dataset.
+You can use this view to inspect values, check column names, and easily understand 
+the state of your dataset.
+
+## Inspect data structure
+
+To gain insights into the structure or schema of your data, use the
+[`.schema()`](https://kotlin.github.io/dataframe/schema.html) function on your DataFrame variable. 
+
+For example, run `jsonDf.schema()` to list the type of each column in your JSON dataset:
 
 ![Schema example](schema-data-analysis.png){width=700}
 
-You can also use the autocompletion feature in Kotlin Notebook to quickly access and manipulate the properties of your 
-DataFrame. After loading your data, simply type the DataFrame variable followed by a dot to see a list of available columns 
-and their types.
+With Kotlin Notebook, you can also use the autocompletion feature. It allows you to quickly access
+and manipulate the properties of your DataFrame. After loading your data, simply type the 
+DataFrame variable followed by a period (`.`) to see a list of available columns and their types.
 
 ![Available properties](auto-completion-data-analysis.png){width=700}
 
 ## Refine data
 
-Among the various operations available in the Kotlin DataFrame library for refining your dataset, key examples include [grouping](https://kotlin.github.io/dataframe/group.html),
-[filtering](https://kotlin.github.io/dataframe/filter.html), [updating](https://kotlin.github.io/dataframe/update.html), 
-and [adding new columns](https://kotlin.github.io/dataframe/add.html). These functions are essential for data analysis, allowing you to organize, clean, and 
-transform your data effectively. 
+Kotlin DataFrame provides various operations for refining your dataset. 
+For example, [grouping](https://kotlin.github.io/dataframe/group.html),
+[filtering](https://kotlin.github.io/dataframe/filter.html), [updating](https://kotlin.github.io/dataframe/update.html), or
+[adding new columns](https://kotlin.github.io/dataframe/add.html). These functions are essential for data analysis, 
+allowing you to organize, clean, and transform your data effectively.
 
-Let's look at an example where the data includes movie titles and their corresponding release year in the same cell. 
-The goal is to refine this dataset for easier analysis:
+For example, let's look at the `movies.csv` dataset. It stores movie titles and release years 
+in the same cell. The goal is to refine this dataset for easier analysis:
 
-1. Load your data into the notebook using the `.read()` function. This example involves reading data from a CSV file named 
-`movies.csv` and creating a DataFrame called `movies`:
+1. **Load the data**
+   
+   Load the file into a `DataFrame` using the `.read()` function:
 
    ```kotlin
    val movies = DataFrame.read("movies.csv")
    ```
 
-2. Extract the release year from the movie titles using regex and add it as a new column:
+2. **Add a column** 
+
+   To extract the release year from the `title` column, add a new `year` column:
 
    ```kotlin
    val moviesWithYear = movies
@@ -104,84 +123,100 @@ The goal is to refine this dataset for easier analysis:
                ?.toInt()
                ?: -1
        }
+   
+   moviesWithYear
    ```
 
-3. Modify the movie titles by removing the release year from each title. 
-This cleans up the titles for consistency:
+3. **Update values**
+
+   To remove the release year from the movie title, update the `title` column:
 
    ```kotlin
    val moviesTitle = moviesWithYear
        .update("title") {
-           "\\s*\\(\\d{4}\\)\\s*$".toRegex().replace(title, "")
-       }
+           "\\s*\\(\\d{4}\\)\\s*$".toRegex().replace(title, "") 
+   }
+   
+   moviesTitle
    ```
 
-4. Use the `filter` method to focus on specific data. 
-In this case, the dataset is filtered to focus on movies that were released after the year 1996:
+   The code keeps the movie titles in one column and moves the release years into another column.
+
+4. **Filter rows**
+
+   To focus on specific data, use the `.filter()` function. For example, to keep only the movies
+   released after 1986, run:
 
    ```kotlin
-   val moviesNew = moviesWithYear.filter { year >= 1996 }
-   moviesNew
+   val newMovies = moviesTitle.filter { 
+       year >= 1996 
+   }
+   
+   newMovies
    ```
+   
+5. **Remove column**
+
+   To remove a column that you do not need, use the `.remove()` function:
+
+   ```kotlin
+   val refinedMovies = newMovies.remove { 
+       movieID 
+   }
+   
+   refinedMovies
+   ```
+
 
 For comparison, here is the dataset before refinement:
 
 ![Original dataset](original-dataset.png){width=700}
 
-The refined dataset:
+The dataset after refinement:
 
 ![Data refinement result](refined-data.png){width=700}
-
-This is a practical demonstration of how you can use the Kotlin DataFrame library's methods, like `add`, `update`, and `filter` to 
-effectively refine and analyze data in Kotlin.
 
 > For additional use cases and detailed examples, see [Examples of Kotlin Dataframe](https://github.com/Kotlin/dataframe/tree/master/examples).
 > 
 {style="tip"}
 
-## Save DataFrame
+## Export data
 
-After [refining data in Kotlin Notebook](#refine-data) using the Kotlin DataFrame library, you can easily export your processed 
-data. You can utilize a variety of [`.write()`](https://kotlin.github.io/dataframe/write.html) functions for this purpose, which support saving in multiple formats,
-including CSV, JSON, XLS, XLSX, Apache Arrow, and even HTML tables.
-This can be particularly useful for sharing your findings, creating reports, or making your data available for further analysis.
+After refining data in Kotlin Notebook, you can easily export your processed 
+data. 
 
-Here's how you can filter a DataFrame, remove a column, save the refined data to a JSON file, and open an HTML table 
-in your browser:
+You can utilize a variety of [`.write()`](https://kotlin.github.io/dataframe/write.html) functions for this purpose. It supports saving in multiple formats,
+including CSV, JSON, XLS, XLSX, Apache Arrow, and even HTML tables. 
+See all supported formats in the [DataFrame documentation](https://kotlin.github.io/dataframe/data-sources.html).
+This can be particularly useful for sharing your findings, creating reports, or making your data available
+for further analysis.
 
-1. In Kotlin Notebook, use the `.read()` function to load a file named
-`movies.csv` into a DataFrame named `moviesDf`:
+For example, let's save the result as:
 
-   ```kotlin
-   val moviesDf = DataFrame.read("movies.csv")
-   ```
+* JSON file using the [`.writeJson()`](https://kotlin.github.io/dataframe/write.html#writing-to-json) function:
+ 
+  ```kotlin
+  refinedMovies.writeJson("movies.json")
+  ```
+* CSV file using the [`.writeCsv()`](https://kotlin.github.io/dataframe/write.html#writing-to-csv) function: 
 
-2. Filter the DataFrame to only include movies that belong to the "Action" genre using the `.filter` method:
+  ```kotlin
+  refinedMovies.writeCsv("movies.csv")
+  ```
+* [Apache Arrow files](https://kotlin.github.io/dataframe/write.html#writing-to-apache-arrow-formats) using the `.writeArrorIPC()` and `.writeArrorFeather()` functions:
 
-   ```kotlin
-   val actionMoviesDf = moviesDf.filter { genres.equals("Action") }
-   ```
+  ```kotlin
+  refinedMovies.writeArrowIPC("movies.arrow")
+  refinedMovies.writeArrowFeather("movies.feather")
+  ```
 
-3. Remove the `movieId` column from the DataFrame using `.remove`:
+You can also open a standalone HTML table in your browser with the [`.toStandaloneHTML()`](https://kotlin.github.io/dataframe/tohtml.html) function:
 
-   ```kotlin
-   val refinedMoviesDf = actionMoviesDf.remove { movieId }
-   refinedMoviesDf
-   ```
-
-4. The Kotlin DataFrame library offers various write functions to save data in different formats. In this example, 
-the [`.writeJson()`](https://kotlin.github.io/dataframe/write.html#writing-to-json) function is used to save the modified `movies.csv` as a JSON file:
-
-   ```kotlin
-   refinedMoviesDf.writeJson("movies.json")
-   ```
-
-5. Use the `.toStandaloneHTML()` function to convert the DataFrame into a standalone HTML 
-table and open it in your default web browser:
-
-   ```kotlin
-   refinedMoviesDf.toStandaloneHTML(DisplayConfiguration(rowsLimit = null)).openInBrowser()
-   ```
+```kotlin
+refinedMoviesDf
+    .toStandaloneHTML(DisplayConfiguration(rowsLimit = null))
+    .openInBrowser()
+```
 
 ## What's next
 
