@@ -25,7 +25,7 @@
 
     <var name="dateTimeVersion" value="0.8.0"/>
 
-    <var name="lincheckVersion" value="3.4"/>
+    <var name="lincheckVersion" value="3.6"/>
 
     <var name="ktorVersion" value="3.5.0"/>
 
@@ -49,7 +49,7 @@
     <var name="mavenExtensionsVersion" value="3.10.1" type="string"/>
 
     <!-- KSP -->
-    <var name="kspVersion" value="2.3.8"/>
+    <var name="kspVersion" value="2.3.9"/>
 
     <!-- Spring -->
     <var name="springBootSupportedKotlinVersion" value="2.2.21"/>
@@ -63,7 +63,7 @@
     <var name="webpackMajorVersion" value="5"/>
     <var name="webpackPreviousMajorVersion" value="4"/>
 
-    <var name="foojayResolver" value="0.9.0"/>
+    <var name="foojayResolver" value="1.0.0"/>
     <var name="jctoolsVersion" value="3.3.0"/>
 
     <var name="dokkaVersion" value="2.2.0"/>
