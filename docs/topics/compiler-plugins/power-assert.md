@@ -30,6 +30,10 @@ The Power-assert plugin key features:
 * **Support for multiple functions**: By default, it transforms `assert()` function calls but can also transform other functions,
    such as `require()`, `check()`, and `assertTrue()`.
 
+The plugin also includes a runtime library that provides the `@PowerAssert` annotation and the `CallExplanation` class.
+They make Power-assert capable functions more discoverable and easier to configure by integrating them directly with
+the compiler plugin transformations.
+
 ## Apply the plugin
 
 ### Gradle
@@ -93,7 +97,7 @@ powerAssert {
 </tab>
 </tabs>
 
-Since the plugin is Experimental, you will see warnings every time you build your app.
+Since the plugin is [Experimental](components-stability.md#stability-levels-explained), you will see warnings every time you build your app.
 To exclude these warnings, add this `@OptIn` annotation before declaring the `powerAssert {}` block:
 
 ```kotlin
@@ -372,6 +376,48 @@ powerAssert {
 </tab>
 </tabs>
 
+### `@PowerAssert`-annotated functions
+
+If a library function is annotated with `@PowerAssert`, the Power-assert plugin transforms calls to it automatically.
+You don't need to register the function in your build configuration — just call it with the plugin enabled:
+
+```kotlin
+import kotlin.test.Test
+
+data class Mascot(val name: String)
+
+class SampleTest {
+
+    @Test
+    fun testAnnotatedFunction() {
+        val subject: Any? = Mascot(name = "Unknown")
+        // If assertThat() is annotated with @PowerAssert in the library,
+        // the plugin transforms this call automatically
+        assertThat(subject) {
+            require(subject is Mascot)
+            check(subject.name == "Kodee")
+        }
+    }
+}
+```
+
+The plugin provides detailed failure messages with intermediate expression values, just like with `assert()`:
+
+```text
+Assertion failed:
+ * Condition failed: subject.name == "Kodee"
+assertThat(subject) {
+           |
+           Mascot(name=Unknown)
+    require(subject is Mascot)
+    check(subject.name == "Kodee")
+                  |    |
+                  |    false
+                  "Unknown"
+}
+```
+
+No additional build configuration is needed for functions annotated with `@PowerAssert`.
 
 ### Assert function
 
@@ -703,7 +749,169 @@ assert(employee.age < 100) { "${employee.name} has an invalid age: ${employee.ag
        Employee(name=Dave, age=150, salary=70000)
 ```
 
+## Support the Power-assert plugin
+
+If you are a library author, you can add out-of-the-box Power-assert support to your library using the `@PowerAssert`
+annotation and the `CallExplanation` class from the Power-assert runtime library.
+
+### The @PowerAssert annotation
+
+The [`@PowerAssert` annotation](https://github.com/JetBrains/kotlin/blob/master/plugins/power-assert/power-assert-runtime/src/commonMain/kotlin/kotlin/powerassert/PowerAssert.kt)
+marks a function as Power-assert capable. If users of your library have the Power-assert compiler plugin in their projects
+and make calls to your annotated functions they calls automatically transformed without additional build configuration.
+
+To add support for Power-assert to your library:
+
+1. Add the Power-assert runtime library as a dependency:
+
+   <tabs group="build-script">
+   <tab title="Gradle (Kotlin)" group-key="kotlin">
+
+   ```kotlin
+   // build.gradle.kts
+   dependencies {
+       implementation("org.jetbrains.kotlin:kotlin-power-assert-runtime:%kotlinVersion%")
+   }
+   ```
+
+   </tab>
+   <tab title="Gradle (Groovy)" group-key="groovy">
+
+   ```groovy
+   // build.gradle
+   dependencies {
+       implementation 'org.jetbrains.kotlin:kotlin-power-assert-runtime:%kotlinVersion%'
+   }
+   ```
+
+   </tab>
+   <tab title="Maven" group-key="maven">
+
+   ```xml
+   <!-- pom.xml -->
+   <dependencies>
+       <dependency>
+           <groupId>org.jetbrains.kotlin</groupId>
+           <artifactId>kotlin-power-assert-runtime</artifactId>
+           <version>%kotlinVersion%</version>
+       </dependency>
+   </dependencies>
+   ```
+
+   </tab>
+   </tabs>
+
+2. Annotate your assertion functions with `@PowerAssert`:
+
+   ```kotlin
+   import kotlin.powerassert.PowerAssert
+   import kotlin.powerassert.toDefaultMessage
+   import kotlin.contracts.ExperimentalContracts
+   import kotlin.contracts.contract
+   
+   @OptIn(ExperimentalContracts::class)
+   @PowerAssert
+   fun powerAssert(condition: Boolean, @PowerAssert.Ignore message: String? = null) {
+       contract { returns() implies condition }
+       if (!condition) {
+           val explanation = PowerAssert.explanation
+           val failureMessage = buildString {
+               if (message?.isNotBlank() == true) appendLine(message)
+               if (explanation != null) append(explanation.toDefaultMessage())
+           }
+           throw AssertionError(failureMessage)
+       }
+   }
+   ```
+
+   * The `PowerAssert.explanation` property provides access to the `Explanation` object containing the call site information.
+   * The `toDefaultMessage()` function renders the standard Power-assert diagram.
+   * The `@PowerAssert.Ignore` annotation on the `message` parameter excludes it from the diagram.
+
+The compiler plugin detects the `@PowerAssert` annotation and transforms calls to the function at compile time.
+
+> For a full example, see the [`kotlin-test-power-assert`](https://github.com/bnorm/power-assert-examples/tree/main/kotlin-test-power-assert) project.
+>
+{style="tip"}
+
+### The CallExplanation class
+
+The [`CallExplanation`](https://github.com/JetBrains/kotlin/blob/master/plugins/power-assert/power-assert-runtime/src/commonMain/kotlin/kotlin/powerassert/CallExplanation.kt)
+data structure provides detailed information about the call site, including intermediate expression values.
+This enables dynamic diagram rendering for assertion failures and better integration with external tools.
+
+The `CallExplanation` parameter must be the last parameter of the function and must have a default value of `null`.
+The compiler plugin automatically fills in this parameter at the call site with the relevant call information.
+
+Here is an example of how to use `CallExplanation` to build a fluent assertion library that collects
+multiple failures and renders a combined diagram:
+
+```kotlin
+import kotlin.powerassert.*
+
+interface AssertScope<T> {
+    val subject: T
+    fun collect(message: String?, explanation: Explanation? = null)
+    fun fail(message: String?, explanation: Explanation? = null)
+}
+
+@PowerAssert
+fun <T> assertThat(subject: T, block: AssertScope<T>.() -> Unit) {
+    val primary = PowerAssert.explanation ?: error("power-assert compiler plugin is required")
+    val failures = mutableListOf<Pair<String?, List<Expression>>>()
+    val scope = object : AssertScope<T> {
+        override val subject: T get() = subject
+        override fun collect(message: String?, explanation: Explanation?) {
+            val adjusted = explanation?.expressions
+                ?.map { it.copy(explanation.offset - primary.offset) }
+                .orEmpty()
+            failures.add(message to adjusted)
+        }
+        override fun fail(message: String?, explanation: Explanation?) {
+            collect(message, explanation)
+            reportFailures(primary, failures)
+        }
+    }
+    scope.block()
+    reportFailures(primary, failures)
+}
+
+private fun reportFailures(
+    primary: CallExplanation,
+    failures: List<Pair<String?, List<Expression>>>,
+) {
+    if (failures.isNotEmpty()) {
+        val expressions = failures.flatMap { it.second }
+        val synthetic = CallExplanation.Argument(
+            -1, -1, CallExplanation.Argument.Kind.VALUE, expressions
+        )
+        val combined = CallExplanation(
+            primary.offset, primary.source, primary.arguments + synthetic
+        )
+        val message = buildString {
+            appendLine("Assertion failed:")
+            for ((msg, _) in failures) {
+                if (msg != null) appendLine(" * $msg")
+            }
+            appendLine()
+            append(combined.toDefaultMessage())
+        }
+        throw AssertionError(message)
+    }
+}
+```
+
+With this setup, users of your library get Power-assert diagrams automatically when they call `assertThat()`,
+without any additional build configuration on their side.
+
+> For a full example, see the [`fluent-assert`](https://github.com/bnorm/power-assert-examples/tree/main/fluent-assert) project.
+> 
+{style="tip"}
+
 ## What's next
 
-* Look through a [simple project with the plugin enabled](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/powerAssertSourceSets)
-   and a more [complex project with multiple source sets](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/powerAssertSimple).
+Look through our sample projects:
+
+* [A simple project with the plugin enabled](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/powerAssertSourceSets)
+* [A more complex project with multiple source sets](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/powerAssertSimple)
+* [Example collection for experimenting with runtime library features](https://github.com/bnorm/power-assert-examples#power-assert-examples)
