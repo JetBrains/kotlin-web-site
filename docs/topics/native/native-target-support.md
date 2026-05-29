@@ -93,7 +93,7 @@ Currently, the default minimum supported versions of Apple targets are:
 * For macOS, 12.0.
 * For watchOS, 8.0.
 
-If you need to support a lower version in your project than the default one, use the `freeCompilerArgs` option in your build file:
+If your project needs to support a version lower than the default one, use the `freeCompilerArgs` option in your build file:
 
 ```kotlin
 kotlin {
