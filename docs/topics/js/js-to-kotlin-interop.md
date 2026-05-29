@@ -132,12 +132,12 @@ interface Identity {
 
 Currently, the `@JsExport` annotation is the only way to make your functions visible from Kotlin.
 
-`@JsExport` is also available:
+The `@JsExport` annotation is also available:
 
 * In common code in multiplatform projects. It only has an effect when compiling for the JavaScript target and allows you
   to also export Kotlin declarations that are not platform-specific.
 * Together with the [`@JsName` annotation](#jsname-annotation) to specify the names for the generated and exported functions.
-  This helps to resolve ambiguities in exports (like overloads for functions with the same name),
+  This helps to resolve ambiguities in exports (like overloads for functions with the same name).
 * At the file level using `@file:JsExport`.
 
 #### Support for value class export
