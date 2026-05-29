@@ -1,3 +1,5 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
 .section {
     padding: 72px 0 72px 0;
     box-sizing: border-box;
@@ -12,6 +14,9 @@
     display: flex;
     flex: 1;
     flex-direction: column;
+    @media (--ktl-ds-down) {
+        grid-gap: 64px;
+    }
 }
 
 .stackAnimated {
@@ -33,6 +38,10 @@
     transform-origin: center;
     display: flex;
     flex-direction: column;
+    position: relative;
+    @media (--ktl-ds-down) {
+        height: fit-content;
+    }
 }
 
 .stackAnimated .card {
@@ -51,6 +60,11 @@
 
 .cardInner {
     height: 620px;
+    display: flex;
+    flex-direction: column;
+    @media (--ktl-ds-down) {
+        height: fit-content;
+    }
 }
 
 .cardContent {
@@ -66,14 +80,100 @@
     margin: 0;
 }
 
+.textInverted {
+    color: #19191C;
+}
+
+.tagsContainer {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.tagLinksContainer {
+    display: inline-flex;
+    gap: 16px;
+}
+
+.icon svg {
+    fill: #997BED
+}
+
+.iconDark svg {
+    fill: #531CEE;
+}
+
 .videoPlaceholder {
     width: 100%;
     background: #e3e3e3;
-    border-radius: 48px;
-    min-height: 452px;
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 64px;
+    overflow: hidden;
 }
+
+.screenshots {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin: 48px 0;
+}
+
+.screenshot {
+    background: #e3e3e3;
+    border-radius: 32px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.screenshotImg {
+    display: block;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+.linksGrid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin: 48px 0;
+    @media (--ktl-ds-down) {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 8px;
+    }
+}
+
+.linksContainer {
+    background: #241C2C;
+    border-radius: 24px;
+    padding: 32px;
+}
+
+.linksSubtitle {
+    margin: 0 0 32px;
+}
+
+.linksUl {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.linksLi {
+    padding-left: 0 !important;
+    &:before {
+        display: none !important;
+    }
+}
+
+

@@ -55,7 +55,7 @@ const nextConfig = {
         });
 
         config.module.rules.push({
-            test: /\.(webm|mov)$/,
+            test: /\.(webm|mp4)$/,
             type: 'asset/resource',
             generator: {
                 filename: 'static/media/[name].[hash][ext]',

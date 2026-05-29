@@ -1,11 +1,30 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
 .section {
     position: relative;
-    overflow: hidden;
-    height: 800px;
+    height: 600px;
     width: 100%;
     background: #000;
-    padding: 72px 0;
     box-sizing: border-box;
+    @media (--ktl-ds-down) {
+        height: auto;
+    }
+}
+
+.wrapper {
+    position: relative;
+    padding: 145px 0 200px 0;
+    @media (--ktl-ds-down) {
+        padding: 64px 0;
+    }
+}
+
+.videoContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(250px) translateY(-50px);
+    pointer-events: none;
 }
 
 .neonTitle {
@@ -27,5 +46,10 @@
 }
 
 .text {
-    margin: 16px 0 0;
+    margin: 16px 0 48px 0;
+}
+
+.buttons {
+    display: flex;
+    gap: 16px;
 }
