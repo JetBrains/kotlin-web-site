@@ -6628,6 +6628,11 @@ gray-matter@4.0.3:
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
 
+gsap@3.15.0:
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.15.0.tgz#7851baaffc77642f2db3b1749d3634f9b5a19d14"
+  integrity sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==
+
 handle-thing@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-2.0.1.tgz#857f79ce359580c340d43081cc648970d0bb234e"
