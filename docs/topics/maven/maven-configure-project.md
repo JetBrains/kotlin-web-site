@@ -69,23 +69,44 @@ The Kotlin Maven plugin automatically resolves the JVM target version in the fol
 
 ```mermaid
 graph TD
-    A["<b>Priority 1</b><br/>JVM version set in</br>kotlin.compiler.jvmTarget"]
-    B["<b>Priority 2</b><br/>JVM version set in</br>maven.compiler.release"]
-    C["<b>Priority 3</b><br/>JVM version set in</br>maven.compiler.target"]
+    A["<b>Priority 1</b><br/>kotlin.compiler.jdkRelease</br>or kotlin.compiler.jvmTarget"]
+    B["<b>Priority 2</b><br/>maven.compiler.release"]
+    C["<b>Priority 3</b><br/>maven.compiler.target"]
 
     A --> B
     B --> C
 ```
 
-* The version set in `kotlin.compiler.jvmTarget` property takes priority if it's defined in the project.
-* If `kotlin.compiler.jvmTarget` isn't set, the plugin takes the `maven.compiler.release` version. It can be defined
-  either as a project property or within the `maven-compiler-plugin` configuration.
-* If the Maven release version isn't set, the plugin takes the `maven.compiler.target` version. It can be defined either
-  as a project property or within the `maven-compiler-plugin` configuration.
+#### Kotlin compiler versions
+
+The version set in `kotlin.compiler.jdkRelease` or `kotlin.compiler.jvmTarget` property takes priority if either
+is defined in the project.
+
+Keep in mind that these options of the Kotlin compiler behave differently:
+
+| Kotlin compiler option       | Controls bytecode version of the output | Limits API to specified JDK                                                                   |
+|------------------------------|-----------------------------------------|-----------------------------------------------------------------------------------------------|
+| `kotlin.compiler.jvmTarget`  | Yes                                     | No restrictions on JDK APIs in your code                                                      |
+| `kotlin.compiler.jdkRelease` | Yes                                     | Yes − only specific API version is allowed (equivalent to Java's `--release` compiler option) |
+
+> You cannot set different JDK options for `kotlin.compiler.jdkRelease` and `kotlin.compiler.jvmTarget` at the same time.
+> This results in an error.
+>
+{style="note"}
+
+#### Maven compiler versions
+
+* If neither `kotlin.compiler.jdkRelease` nor `kotlin.compiler.jvmTarget` is set, the plugin takes
+  the `maven.compiler.release` version.
+
+  It can be defined either as a project property or within the `maven-compiler-plugin` configuration.
+* If the Maven release version isn't set, the plugin takes the `maven.compiler.target` version.
+
+  It can be defined either as a project property or within the `maven-compiler-plugin` configuration.
 
 Keep in mind that `target` and `release` options of the Maven compiler behave differently:
 
-| Maven option             | Sets Kotlin's `jvmTarget` | Sets Kotlin's `jdkRelease` | Limits API to target JDK                 |
+| Maven compiler option    | Sets Kotlin's `jvmTarget` | Sets Kotlin's `jdkRelease` | Limits API to specified JDK              |
 |--------------------------|---------------------------|----------------------------|------------------------------------------|
 | `maven.compiler.target`  | Yes                       | No                         | No − build's JDK classpath stays visible |
 | `maven.compiler.release` | Yes                       | Yes                        | Yes − specific API version only          |
