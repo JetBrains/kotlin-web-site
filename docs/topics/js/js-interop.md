@@ -20,25 +20,26 @@ fun jsTypeOf(o: Any): String {
 
 JavaScript code inlining has full support for [ES2015 features](js-project-setup.md#support-for-es2015-features), including:
 
-* Lambdas ([arrow functions](whatsnew21.md#support-for-generating-es2015-arrow-functions))
-* ES classes
-* Template strings
-* Spread and rest operators
 * `const` and `let` variable declarations
+* ES classes
 * Generators
+* Lambdas ([arrow functions](whatsnew21.md#support-for-generating-es2015-arrow-functions))
+* Spread and rest operators
+* Template strings
 
 Because the parameter of `js` is parsed at compile time and translated to JavaScript code "as-is", it is required to be
 a string constant. So, the following code is incorrect:
 
 ```kotlin
 fun jsTypeOf(o: Any): String {
-    return js(getTypeof() + " o") // error reported here
+    return js(getTypeof() + " o") // Error: Argument must be a string constant
+    // The compiler cannot evaluate string concatenations
 }
 
 fun getTypeof() = "typeof"
 ```
 
-Instead, for example for the rest operator, use:
+Instead, for example to inline the rest operator, use a string constant:
 
 ```kotlin
 fun runSumExample() {
