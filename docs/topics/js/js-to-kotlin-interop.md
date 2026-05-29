@@ -181,7 +181,7 @@ Exporting Kotlin interfaces with `@JsNoRuntime` has some restrictions. The annot
 * `external` interfaces as they already behave as if they have `@JsNoRuntime` by default. Adding it results in a compiler warning.
 * `is` and `as` type checks.
 * Class references that use the [`::class` syntax](js-reflection.md).
-* Interfaces that are passed as reified type argument.
+* Interfaces that are passed as [reified type argument](inline-functions.md#reified-type-parameters).
 
 ### `@JsStatic`
 <primary-label ref="experimental-general"/>
