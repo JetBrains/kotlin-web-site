@@ -176,9 +176,9 @@ For Kotlin Multiplatform projects, the general rules are:
 * Using `external` interface declarations in common code on the `expect` side is prohibited. Instead, use regular 
   interfaces annotated with `@JsNoRuntime`.
 
-Exporting Kotlin interfaces with `@JsNoRuntime` has some restrictions. The annotation is not allowed with:
+Exporting Kotlin interfaces with `@JsNoRuntime` has some restrictions. The annotation isn't allowed with:
 
-* `external` interfaces as they already behave as if they have `@JsNoRuntime` by default. Adding it will result in a compiler warning.
+* `external` interfaces as they already behave as if they have `@JsNoRuntime` by default. Adding it results in a compiler warning.
 * `is` and `as` type checks.
 * Class references that use the [`::class` syntax](js-reflection.md).
 * Interfaces that are passed as reified type argument.
