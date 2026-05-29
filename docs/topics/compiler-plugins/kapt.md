@@ -245,25 +245,24 @@ This effectively excludes unnecessary annotation processors from the compile cla
 
 #### In Gradle
 
-In Gradle, excluding annotation processors from the compile classpath enables Gradle's [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance).
-
-With compile avoidance, Gradle can skip annotation processing during project rebuild, improving incremental build times
-with kapt. Particularly, annotation processing is skipped when:
+Gradle uses [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance)
+to skip annotation processing during project rebuild, improving incremental build times with kapt. Particularly,
+annotation processing is skipped when:
 
 * The project's source files are unchanged.
 * The changes in dependencies are [ABI](https://en.wikipedia.org/wiki/Application_binary_interface)-compatible.
   For example, the only changes are in method bodies.
 
-However, compile avoidance can't be used for annotation processors discovered on the compile classpath, since _any changes_
-to them require running the annotation processing tasks.
+However, compile avoidance can't be used for annotation processors discovered on the compile classpath, since changes
+in their internal implementation require running the annotation processing tasks, even if the ABI remains unchanged.
 
-To turn off the discovery of annotation processors, add the `kapt.include.compile.classpath` property to your
-`gradle.properties` file:
+That's why it's not recommended to use annotation processors from the compile classpath. To exclude such annotations
+from processing, add the `kapt.include.compile.classpath` property to your `gradle.properties` file:
 
-   ```none
-   # gradle.properties
-   kapt.include.compile.classpath=false
-   ```
+```none
+# gradle.properties
+kapt.include.compile.classpath=false
+```
 
 With the option set to `false`, annotation processor dependencies that are not included in the processor path
 (the `kapt*` configurations) are excluded from the kapt processing.
