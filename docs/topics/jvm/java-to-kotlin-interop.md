@@ -423,12 +423,75 @@ var x: Int = 23
 
 ## Overloads generation
 
-Normally, if you write a Kotlin function with default parameter values, it is visible in Java only as a full
-signature, with all parameters present. If you wish to expose multiple overloads to Java callers, you can use the
+Normally, if you write a Kotlin function with default parameter values, it's visible in Java only as a full
+signature, with all parameters present.
+
+You can use the [`@IntroducedAt`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-introduced-at/) annotation or the
+[`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html) annotation to generate overloads for optional parameters.
+
+Use `@IntroducedAt` when you add new optional parameters to published APIs and want the generated overloads to reflect
+the version in which each parameter was introduced.
+The compiler uses this information to automatically generate the corresponding hidden overloads.
+
+This gives you version-based overload generation and helps preserve
+binary compatibility for callers compiled against older versions of your library.
+
+> The `@IntroducedAt` annotation is [Experimental](components-stability.md#stability-levels-explained). To opt in, use the
+> `@OptIn(ExperimentalVersionOverloading::class)` annotation.
+> 
+{style="warning"}
+
+Here's an example where the `Button()` function receives multiple optional parameters over several API versions:
+
+```kotlin
+@OptIn(ExperimentalVersionOverloading::class)
+fun Button(
+    label: String = "",
+    color: Color = DefaultColor,
+    @IntroducedAt("1.1") borderColor: Color = DefaultBorderColor,
+    @IntroducedAt("1.2") borderStyle: Style = DefaultBorderStyle,
+    @IntroducedAt("1.2") borderWidth: Int = 1,
+    onClick: () -> Unit
+) {
+    // Function body
+}
+```
+
+Based on these versions, the compiler generates hidden overloads for the original API and for each API version that
+introduced new optional parameters:
+
+```kotlin
+// Original API
+Button(
+    label: String,
+    color: Color,
+    onClick: () -> Unit
+)
+
+// Version 1.1
+Button(
+    label: String,
+    color: Color,
+    borderColor: Color,
+    onClick: () -> Unit
+)
+
+// Version 1.2
+Button(
+    label: String,
+    color: Color,
+    borderColor: Color,
+    borderStyle: Style,
+    borderWidth: Int,
+    onClick: () -> Unit
+)
+```
+
+If you want to expose multiple overloads to Java callers, you can also use the
 [`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html) annotation.
 
 The annotation also works for constructors, static methods, and so on. It can't be used on abstract methods, including
-methods defined in interfaces.
+methods defined in interfaces. For example, consider a `Circle` class with default parameter values:
 
 ```kotlin
 class Circle @JvmOverloads constructor(centerX: Int, centerY: Int, radius: Double = 1.0) {
@@ -449,6 +512,10 @@ void draw(String label, int lineWidth, String color) { }
 void draw(String label, int lineWidth) { }
 void draw(String label) { }
 ```
+
+Since both `@IntroducedAt` and `@JvmOverloads` annotations generate overloads, using them together can create conflicting overloads.
+If you use both annotations, the compiler reports a warning. If you suppress the warning, the compiler prioritizes
+overloads generated from the `@IntroducedAt` annotation.
 
 Note that, as described in [Secondary constructors](classes.md#secondary-constructors), if a class has default
 values for all constructor parameters, a public constructor with no arguments is generated for it. This works even
