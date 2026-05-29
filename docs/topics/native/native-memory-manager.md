@@ -17,8 +17,8 @@ it can be [called manually](#enable-garbage-collection-manually).
 
 The GC processes the mark queue on several threads in parallel, including application threads, the GC thread,
 and optional marker threads. Application threads and at least one GC thread participate in the marking process.
-By default, the marking phase runs concurrently with application threads, which decreases the GC pause time.
-You can monitor GC performance [through logs](#monitor-gc-performance).
+By default, the marking phase runs concurrently with application threads, which reduces the GC pause time.
+You can monitor GC performance through the [GC logs](#monitor-gc-performance).
 
 > You can disable the parallelization of the mark phase with the `kotlin.native.binary.gcMarkSingleThreaded=true` compiler option.
 > However, this may increase the garbage collector's pause time on large heaps.
@@ -28,7 +28,7 @@ You can monitor GC performance [through logs](#monitor-gc-performance).
 When the marking phase is completed, the GC processes weak references and nullifies reference points to an unmarked object.
 By default, weak references are processed concurrently to decrease the GC pause time.
 
-If you face problems with CMS, switch back to parallel mark concurrent sweep (PMCS) setup.
+If you encounter problems with CMS, switch back to the parallel mark concurrent sweep (PMCS) setup.
 To do that, set the following [binary option](native-binary-options.md) in your `gradle.properties` file:
 
 ```none
