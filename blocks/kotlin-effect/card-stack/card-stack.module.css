@@ -114,6 +114,7 @@
     justify-content: center;
     margin-top: 64px;
     overflow: hidden;
+    border-radius: 32px;
 }
 
 .screenshots {
