@@ -1,0 +1,67 @@
+.stamp {
+    position: relative;
+    width: 108px;
+    height: 142px;
+    flex-shrink: 0;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.kodee {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 188px;
+    height: auto;
+    z-index: 2;
+    opacity: 0;
+    /* start slightly zoomed in — matches the entry animation's from-state */
+    transform: translate(-50%, -50%) scale(1.12);
+    will-change: transform, opacity;
+}
+
+/* purple border frame on top — 5px inset so it doesn't cover the svg edges */
+.frame {
+    position: absolute;
+    inset: 5px;
+    border: 5px solid #997BED;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* entry: zooms out from slightly large → resting size */
+.kodeeEntering {
+    animation: kodeeEnter 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* settled: centered at natural size, ease-out transition owns hover */
+.kodeeSettled {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* hover: zoom in ~8px worth — no rotation, stays inside the frame */
+.stamp:hover .kodeeSettled {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+@keyframes kodeeEnter {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.12);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}

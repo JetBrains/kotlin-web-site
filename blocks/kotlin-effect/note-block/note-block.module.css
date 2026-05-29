@@ -1,0 +1,140 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.noteBlock {
+    margin-top: 48px;
+    padding: 12px;
+    border-radius: 32px;
+    border: 12px solid #997BED;
+    background: #000;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.headerContent {
+    flex: 1;
+    min-width: 0;
+}
+
+.title {
+    margin: 0;
+}
+
+.subtitle {
+    margin-top: 16px;
+}
+
+/* stamp hidden on mobile, shown on tablet+ */
+.stampDesktop {
+    display: none;
+}
+
+/* form: stacked on mobile */
+.form {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.textareaWrapper {
+    position: relative;
+}
+
+.textarea {
+    display: block;
+    width: 100%;
+}
+
+.textarea [data-test="textarea__label"] {
+    margin-bottom: 8px;
+}
+
+/* stamp inside textarea on mobile */
+.stampMobile {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    pointer-events: none;
+    transform: scale(0.68);
+    transform-origin: top right;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input {
+    width: 100%;
+}
+
+.submitButton {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.successMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+@media (--ktl-ts-min) {
+    .noteBlock {
+        padding: 36px;
+        margin-top: 48px;
+    }
+
+    /* show stamp in header, hide inside textarea */
+    .stampDesktop {
+        display: block;
+    }
+
+    .stampMobile {
+        display: none;
+    }
+
+    .textarea textarea {
+        min-height: 456px;
+    }
+
+    /* 2-column form layout: textarea left, fields right */
+    .form {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 24px;
+        margin-top: 32px;
+        align-items: flex-start;
+    }
+
+    .textareaWrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .textarea {
+        flex: 1;
+    }
+
+    .textarea textarea {
+        height: 100%;
+    }
+
+    .submitButton {
+        width: 100%;
+    }
+
+    .successMessage {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

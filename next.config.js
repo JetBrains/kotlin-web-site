@@ -6,11 +6,16 @@ const nextTranspileModules = require('next-transpile-modules');
 const optimizedImages = require('next-optimized-images');
 
 let transpiledPackages = [
-  '@jetbrains/kotlin-web-site-ui',
-  ...(Object.keys(packageJSON.dependencies).filter(it => it.includes('@rescui/'))),
-  // transitive deps needed too:
+    '@jetbrains/kotlin-web-site-ui',
+    ...Object.keys(packageJSON.dependencies).filter((it) => it.includes('@rescui/')),
+    // transitive deps needed too:
     '@rescui/dropdown',
     '@rescui/menu',
+    '@rescui/radio-button',
+    '@rescui/rate',
+    '@rescui/select',
+    '@rescui/textarea',
+    '@rescui/form-field',
     '@webteam/youtube-playlist',
     '@webteam/ui-contexts',
     '@webteam/colors',
@@ -20,7 +25,16 @@ let transpiledPackages = [
     '@webteam/use-async-data',
     '@webteam/bem-cn-fast',
     '@webteam/list',
-    '@webteam/video-player'
+    '@webteam/video-player',
+    '@webteam/forms',
+    '@webteam/error-boundary',
+    '@webteam/layout',
+    '@webteam/breakpoints',
+    '@webteam/data-services',
+    '@webteam/promise-cache',
+    '@webteam/file-uploader',
+    '@webteam/client-traits',
+    '@webteam/country-select',
 ];
 
 const withTranspile = nextTranspileModules(transpiledPackages);
