@@ -25,6 +25,9 @@
     right: 0;
     transform: translateX(250px) translateY(-50px);
     pointer-events: none;
+    @media (--ktl-tl-down) {
+        transform: translateX(350px) translateY(-200px);
+    }
 }
 
 .neonTitle {
