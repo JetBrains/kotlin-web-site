@@ -11,6 +11,7 @@ import { useTextStyles, createTextCn } from '@rescui/typography';
 import { Tag, presets as basePresets } from '@rescui/tag';
 import { RocketIcon, PresentIcon, WinIcon } from '@rescui/icons';
 import YoutubePlayer from '@jetbrains/kotlin-web-site-ui/out/components/youtube-player';
+import { BREAKPOINTS } from '@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2';
 
 import styles from './card-stack.module.css';
 
@@ -40,7 +41,9 @@ export const CardStack: FC = () => {
 
     useLayoutEffect(() => {
         const updateStackAvailability = () => {
-            setIsStackEnabled(window.innerHeight >= MIN_STACK_VIEWPORT_HEIGHT);
+            setIsStackEnabled(
+                window.innerWidth > BREAKPOINTS.DS && window.innerHeight >= MIN_STACK_VIEWPORT_HEIGHT
+            );
         };
 
         updateStackAvailability();
