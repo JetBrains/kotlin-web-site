@@ -180,14 +180,15 @@ You can use the following extension functions to check whether elements already 
 These extension functions return `true` if the elements are in the specified order or if there are fewer than two elements.
 They return `false` and stop checking as soon as they find an out-of-order pair.
 
-For collections without a guaranteed iteration order, such as `HashSet`, and sequences that don't produce elements in a consistent order, the result may vary across calls.
-For ordered collections, such as `List`, repeated calls on the same elements return the same result.
+For collections without a guaranteed iteration order, such as `HashSet`, the result may vary across calls.
+The same applies to sequences that don't produce elements in a consistent order.
+To get the same result across calls, use these functions only on collections with a guaranteed iteration order, such as `List`.
 
 When checking `Double` and `Float` values, these functions treat `NaN` as greater than any other value and `-0.0` as less than `0.0`.
 Additionally, the `.isSortedBy()` and `.isSortedByDescending()` functions treat `null` selector results as less than any non-null value.
 
-When you call these functions on a `Sequence`, the operation is terminal.
-It consumes the sequence to produce a `Boolean` instead of returning another sequence.
+When you call these functions on a sequence, the operation is terminal.
+It consumes the sequence to produce a `Boolean` value instead of returning another sequence.
 
 > These sorted-order functions are also available for arrays, primitive arrays, and unsigned arrays.
 > Unsigned arrays and operations on them are [Experimental](components-stability.md#stability-levels-explained) and require opt-in with the `@ExperimentalUnsignedTypes` annotation.
