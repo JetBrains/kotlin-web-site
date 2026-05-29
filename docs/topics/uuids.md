@@ -36,7 +36,7 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.0"}
 
-You can also generate specific versions of UUIDs with the following functions:
+You can also generate specific versions of UUIDs with the following [Experimental](components-stability.md#stability-levels-explained) functions:
 
 * The [`Uuid.generateV4()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v4.html) function generates the same type of UUID as the `Uuid.random()` function 
   but explicitly states that the value is a version 4 UUID.
@@ -44,14 +44,51 @@ You can also generate specific versions of UUIDs with the following functions:
    that you can use for UUID sorting.
 * The [`Uuid.generateV7NonMonotonicAt()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/-companion/generate-v7-non-monotonic-at.html) function generates a version 7 UUID for a specific moment in time.
 
+These UUID generation functions are Experimental.
+To opt in, use the `@OptIn(ExperimentalUuidApi::class)` annotation or add the following compiler option to your build file:
+
+<tabs group="build-system">
+<tab title="Gradle" group-key="gradle">
+
+```kotlin
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add("-opt-in=kotlin.uuid.ExperimentalUuidApi")
+    }
+}
+```
+
+</tab>
+<tab title="Maven" group-key="maven">
+
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-maven-plugin</artifactId>
+            <configuration>
+                <args>
+                    <arg>-opt-in=kotlin.uuid.ExperimentalUuidApi</arg>
+                </args>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
+</tab>
+</tabs>
+
 Here's an example that generates version-specific UUIDs:
 
 ```kotlin
 import kotlin.time.Instant
+import kotlin.time.ExperimentalTime
 import kotlin.uuid.Uuid
-  
-fun main() { 
-//sampleStart
+
+@OptIn(kotlin.uuid.ExperimentalUuidApi::class, ExperimentalTime::class)
+fun main() {
     // Generates a version 4 UUID
     val idVersion4 = Uuid.generateV4()
     println(idVersion4)
@@ -64,7 +101,6 @@ fun main() {
     val timestamp = Instant.fromEpochMilliseconds(1757440583000L)
     val idVersion7SpecificTime = Uuid.generateV7NonMonotonicAt(timestamp)
     println(idVersion7SpecificTime)
-//sampleEnd 
 }
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="2.3"}
