@@ -137,7 +137,7 @@ The table below shows how Kotlin concepts are mapped to Swift.
 | [`typealias`](#type-aliases)               | `typealias`                    |
 | [Function](#functions)                     | Function                       |
 | [`suspend fun`](#suspending-functions)     | `async`                        |
-| [`kotlinx.coroutines`' flows](#flow-types) | `AsyncSequence`                |
+| [`kotlinx.coroutines` flows](#flows) | `AsyncSequence`                |
 | [Property](#properties)                    | Property                       |
 | [Constructor](#constructors)               | Initializer                    |
 | [Package](#packages)                       | Nested enum                    |
