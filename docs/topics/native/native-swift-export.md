@@ -439,7 +439,7 @@ suspend fun hello(): String {
 let msg = try await hello()
 ```
 
-#### Flow types
+#### Flows
 
 You can also export `kotlinx.coroutines` flows as Swift's [`AsyncSequence`](https://developer.apple.com/documentation/Swift/AsyncSequence):
 
@@ -459,12 +459,14 @@ for try await element in flowOfStrings().asAsyncSequence() {
 }
 ```
 
-#### Dispatcher management
+#### Coroutine dispatchers
 
-By default, when calling a Kotlin `suspend` function from Swift, as well as when using `asAsyncSequence`, a coroutine
-context utilizing the `Default` dispatcher is created on the Kotlin side, and execution is delegated to it.
+By default, when you call a Kotlin suspending function from Swift or use the `asAsyncSequence` function,
+Kotlin creates a coroutine context that uses the [`Dispatchers.Default`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-default.html)
+dispatcher and executes the exported code there.
 
-To run the exported code on a different dispatcher, use `withContext()` to switch the coroutine context in Kotlin:
+To run the exported code on a [different dispatcher](coroutines-basics.md#coroutine-dispatchers), use the `withContext()`
+function to switch the coroutine context in Kotlin. For example:
 
 ```kotlin
 suspend fun runOnMain(): Int = withContext(Dispatchers.Main) {
