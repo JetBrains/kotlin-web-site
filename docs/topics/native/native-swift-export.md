@@ -22,12 +22,12 @@ Current Swift export features are:
   generated Swift code.
 * **Module name customization**. You can customize the resulting Swift module names in the Gradle configuration of your
   Kotlin project.
-* **Concurrency support**. You can seamlessly call suspending Kotlin code from Swift and export `kotlinx.coroutines`'
-  flows out of the box into Swift's `AsyncSequence`.
+* **Concurrency support**. You can seamlessly call suspending Kotlin code from Swift and export `kotlinx.coroutines`
+  flows as Swift's `AsyncSequence` out of the box.
 
 ## Enable Swift export
 
-Swift export is currently in [Alpha](components-stability.md#stability-levels-explained) and is still incomplete, so breaking changes are expected.
+Swift export is currently in [Alpha](components-stability.md#stability-levels-explained) and still incomplete, so breaking changes are expected.
 To try it out, [configure the build file](#configure-kotlin-project) in your Kotlin project and [set up Xcode](#configure-xcode-project)
 to integrate Swift export.
 
@@ -423,8 +423,8 @@ public enum foo {
 
 #### Suspending functions
 
-You can call suspending Kotlin code from Swift. Kotlin [`suspend` functions](composing-suspending-functions.md) and
-suspend functional types are exported as Swift's `async` counterparts:
+You can call suspending Kotlin code from Swift. Kotlin [suspending functions](coroutines-basics.md#suspending-functions) and
+suspending functional types are exported as Swift's `async` counterparts:
 
 ```kotlin
 // Kotlin
@@ -441,11 +441,11 @@ let msg = try await hello()
 
 #### Flow types
 
-You can also export `kotlinx.coroutines`' flows as Swift's [`AsyncSequence`](https://developer.apple.com/documentation/Swift/AsyncSequence):
+You can also export `kotlinx.coroutines` flows as Swift's [`AsyncSequence`](https://developer.apple.com/documentation/Swift/AsyncSequence):
 
 ```kotlin
 // Kotlin
-// Type String is preserved when exporting Flow
+// Preserves the String type when exporting Flow
 fun flowOfStrings(): Flow<String> = flowOf("hello", "any", "world")
 ```
 
@@ -453,7 +453,7 @@ fun flowOfStrings(): Flow<String> = flowOf("hello", "any", "world")
 // Swift
 var actual: [String] = []
 
-// Type String is correctly inferred from Kotlin
+// Infers the String type from Kotlin
 for try await element in flowOfStrings().asAsyncSequence() {
     actual.append(element)
 }
@@ -464,7 +464,7 @@ for try await element in flowOfStrings().asAsyncSequence() {
 By default, when calling a Kotlin `suspend` function from Swift, as well as when using `asAsyncSequence`, a coroutine
 context utilizing the `Default` dispatcher is created on the Kotlin side, and execution is delegated to it.
 
-If you want to execute Kotlin code on a different dispatcher, you switch the context manually in Kotlin:
+To run the exported code on a different dispatcher, use `withContext()` to switch the coroutine context in Kotlin:
 
 ```kotlin
 suspend fun runOnMain(): Int = withContext(Dispatchers.Main) {
