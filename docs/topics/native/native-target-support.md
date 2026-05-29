@@ -102,7 +102,7 @@ kotlin {
             freeCompilerArgs += "-Xoverride-konan-properties=minVersion.ios=14.0"
             freeCompilerArgs += "-Xoverride-konan-properties=minVersion.macos=11.0"
             freeCompilerArgs += "-Xoverride-konan-properties=minVersion.tvos=14.0"
-            freeCompilerArgs += "-Xoverride-konan-properties=minVersion.watchos=8.0"
+            freeCompilerArgs += "-Xoverride-konan-properties=minVersion.watchos=7.0"
         }
     }
 }
