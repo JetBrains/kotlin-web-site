@@ -3,6 +3,7 @@ import { Button } from '@rescui/button';
 import { LandingLayout } from '../../components/landing-layout/landing-layout';
 import { CardStack } from '@/blocks/kotlin-effect/card-stack/card-stack';
 import { HeroScreen } from '@/blocks/kotlin-effect/hero-screen/hero-screen';
+import { ReportBlock } from '@/blocks/kotlin-effect/report-block/report-block';
 
 import styles from './index.module.css';
 
@@ -35,6 +36,11 @@ function Index() {
                 <CardStack />
             </div>
 
+            <div className="ktl-layout-to-2">
+                <div className={'ktl-layout ktl-layout--center'}>
+                    <ReportBlock />
+                </div>
+            </div>
         </LandingLayout>
     );
 }
