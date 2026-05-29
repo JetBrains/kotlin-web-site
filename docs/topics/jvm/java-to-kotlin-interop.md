@@ -491,7 +491,7 @@ If you want to expose multiple overloads to Java callers, you can also use the
 [`@JvmOverloads`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html) annotation.
 
 The annotation also works for constructors, static methods, and so on. It can't be used on abstract methods, including
-methods defined in interfaces.
+methods defined in interfaces. For example, consider a `Circle` class with default parameter values:
 
 ```kotlin
 class Circle @JvmOverloads constructor(centerX: Int, centerY: Int, radius: Double = 1.0) {
@@ -513,7 +513,7 @@ void draw(String label, int lineWidth) { }
 void draw(String label) { }
 ```
 
-Since both `@IntroducedAt` and `@JvmOverloads` generate overloads, using them together can cause conflicting overloads.
+Since both `@IntroducedAt` and `@JvmOverloads` annotations generate overloads, using them together can create conflicting overloads.
 If you use both annotations, the compiler reports a warning. If you suppress the warning, the compiler prioritizes
 overloads generated from the `@IntroducedAt` annotation.
 
