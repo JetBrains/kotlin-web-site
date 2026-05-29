@@ -27,7 +27,7 @@ JavaScript code inlining has full support for [ES2015 features](js-project-setup
 * Spread and rest operators
 * Template strings
 
-Because the parameter of `js` is parsed at compile time and translated to JavaScript code "as-is", it is required to be
+Because the parameter of `js` is parsed at compile time and translated to JavaScript code "as-is", it must be
 a string constant. So, the following code is incorrect:
 
 ```kotlin
@@ -48,11 +48,11 @@ fun runSumExample() {
 }
 ```
 
-> Invoking `js()` returns a result of type [`dynamic`](dynamic-type.md), which provides no type safety at compile time.
+> Invoking `js()` returns a result of [`dynamic`](dynamic-type.md) type, which doesn't provide type safety at compile time.
 >
 {style="note"}
 
-## external modifier
+## `external` modifier
 
 To tell Kotlin that a certain declaration is written in pure JavaScript, you should mark it with the `external` modifier.
 When the compiler sees such a declaration, it assumes that the implementation for the corresponding class, function or
