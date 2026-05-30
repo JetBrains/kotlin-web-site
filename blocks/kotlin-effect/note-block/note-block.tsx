@@ -15,7 +15,7 @@ export const NoteBlock = () => {
         const textCn = createTextCn('dark');
         return (
             <div className={styles.successMessage}>
-                <span className={textCn('rs-sub2')}>Thank you for your note!</span>
+                <span className={textCn('rs-subtitle-2')}>Thank you for your note!</span>
                 <Button mode="outline" onClick={() => setFormKey(k => k + 1)}>Send more</Button>
             </div>
         );
