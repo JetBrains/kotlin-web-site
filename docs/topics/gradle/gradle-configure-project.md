@@ -525,17 +525,11 @@ tasks.named("compileJava", JavaCompile::class.java) {
 
 ```groovy
 // Add the following three lines if you use a Gradle version less than 7.0
-java {
-    modularity.inferModulePath = true
-}
-
-tasks.named("compileJava", JavaCompile.class) {
-    options.compilerArgumentProviders.add(new CommandLineArgumentProvider() {
-        @Override
-        Iterable<String> asArguments() {
-            // Provide compiled Kotlin classes to javac – needed for Java/Kotlin mixed sources to work
-            return ["--patch-module", "YOUR_MODULE_NAME=${sourceSets["main"].output.asPath}"]
-        }
+tasks.named("compileJava", JavaCompile::class.java) {
+    // Use FileCollection to ensure compatibility with Gradle configuration cache
+    val mainOutput: FileCollection = sourceSets["main"].output
+    options.compilerArgumentProviders.add(CommandLineArgumentProvider {
+        listOf("--patch-module", "YOUR_MODULE_NAME=${mainOutput.asPath}")
     })
 }
 ```
