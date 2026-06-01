@@ -826,7 +826,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate `LanguageSettings.enableLanguageFeature` DSL
 
-> **Issue**: [KT-82323](https://youtrack.jetbrains.com/issue/KT-82323)
+> **Issue**: [KT-82323](https://youtrack.jetbrains.com/issue/KT-82323), [KT-82847](https://youtrack.jetbrains.com/issue/KT-82847)
 >
 > **Component**: Gradle
 >
@@ -837,7 +837,8 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Deprecation cycle**:
 >
-> - 2.3.20: report a warning
+> - 2.3.20: report a warning when using `LanguageSettings.enableLanguageFeature`
+> - 2.4.0: raise the warning to an error
 
 ### Deprecate "out of process" compiler execution strategy
 

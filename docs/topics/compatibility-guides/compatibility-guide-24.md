@@ -472,22 +472,6 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.4.0: remove consumable configurations for Kotlin/Native Apple frameworks
 
-### Report errors for `LanguageSettings.enableLanguageFeature` DSL
-
-> **Issue**: [KT-82847](https://youtrack.jetbrains.com/issue/KT-82847)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: source
->
-> **Short summary**: The `LanguageSettings.enableLanguageFeature` DSL exposes an internal compiler configuration only intended for Kotlin compiler tests.
-> Using this DSL now results in an error.
->
-> **Deprecation cycle**:
->
-> - 2.3.20: report a warning when using `LanguageSettings.enableLanguageFeature`
-> - 2.4.0: raise the warning to an error
-
 ### Remove deprecated task, compilation, and DSL APIs from the Kotlin Gradle plugin
 
 > **Issue**: [KT-85509](https://youtrack.jetbrains.com/issue/KT-85509)
@@ -590,3 +574,50 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.0.20: report warnings for `enableIntrinsicRemember`, `enableNonSkippingGroupOptimization`, and `enableStrongSkippingMode`
 > - 2.1.0: report a warning for `stabilityConfigurationFile`
 > - 2.4.0: raise the warnings to errors
+
+### Report errors for obsolete Kotlin/Native Gradle task APIs
+
+> **Issue**: [KT-85510](https://youtrack.jetbrains.com/issue/KT-85510)
+>
+> **Component**: Gradle
+>
+> **Incompatible change type**: source
+>
+> **Short summary**: The following deprecated Kotlin/Native Gradle task APIs now report an error when used:
+>
+> `AbstractKotlinNativeCompile` properties:
+>
+> * `additionalCompilerOptions`
+> * `languageSettings`
+> * `progressiveMode`
+>
+> `KotlinNativeCompile` properties:
+>
+> * `moduleName`
+> * `konanDataDir`
+> * `konanHome`
+> * `languageVersion`
+> * `apiVersion`
+> * `enabledLanguageFeatures`
+> * `optInAnnotationsInUse`
+> * `additionalCompilerOptions`
+>
+> `CInteropProcess` properties:
+>
+> * `outputFile`
+> * `konanDataDir`
+> * `konanHome`
+> * `defFile`
+>
+> `KotlinNativeLink` properties:
+>
+> * `languageSettings`
+> * `additionalCompilerOptions`
+> * `konanDataDir`
+> * `konanHome`
+>
+> Additionally, the `KotlinNativeLink.compilation` property is removed.
+>
+> **Deprecation cycle**:
+>
+> - 2.4.0: report an error for the deprecated Kotlin/Native Gradle task APIs, remove the `KotlinNativeLink.compilation` property
