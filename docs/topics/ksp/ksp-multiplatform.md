@@ -206,15 +206,22 @@ visit the [source repository](https://github.com/google/ksp/tree/main/examples/m
 
 ## Compilation and processing
 
-In a multiplatform project, Kotlin compilation may happen multiple times for each platform (for example with main, test, 
-or other build flavors). Symbol processing may also happen multiple times. For each Kotlin compilation task whose target 
-is marked for KSP processing, KSP generates a corresponding symbol processing task.
+In a multiplatform project, Kotlin creates a separate compilation for each target and source set, such as `main` and 
+`test`. For every eligible Kotlin compilation task, KSP creates a corresponding symbol processing task.
 
-In the [example project](https://github.com/google/ksp/tree/main/examples/multiplatform), there are 6 target platforms 
-configured: JVM, JS, Linux X64, Android Native X64, Android Native Arm64, and Mingw X64. Each of these targets has a 
-main and a test compilation, resulting in at least 12 compilation tasks.
+The [example project](https://github.com/google/ksp/tree/main/examples/multiplatform) defines six targets:
 
-In this specific example's `workload/build.gradle.kts`, KSP dependencies are added to 10 specific configurations:
+* JVM
+* JS
+* Linux X64
+* Android Native X64
+* Android Native Arm64
+* Mingw X64
+
+Each of these targets includes a `main` and a `test` compilation. As a result, the project creates at least 12 Kotlin 
+compilation tasks.
+
+In the example's `workload/build.gradle.kts`, KSP dependencies are declared for the following configurations:
 
 * `kspJvm` and `kspJvmTest`
 * `kspJs` and `kspJsTest`
@@ -223,6 +230,7 @@ In this specific example's `workload/build.gradle.kts`, KSP dependencies are add
 * `kspLinuxX64` (test is omitted/commented out)
 * `kspMingwX64` (test is omitted/commented out)
 
-Therefore, in this example, there are at least 12 compilation tasks and 10 symbol processing tasks: one for 
-each of the configurations listed above where KSP was explicitly applied.
+KSP creates one symbol processing task for each configuration where a KSP dependency is declared. In this example, the 
+project creates at least 12 Kotlin compilation tasks and 10 symbol processing tasks. The remaining compilations don't 
+have corresponding KSP tasks because KSP isn't configured for them.
 
