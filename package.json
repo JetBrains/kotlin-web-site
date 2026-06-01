@@ -52,6 +52,7 @@
         "file-loader": "6.2.0",
         "formik": "2.2.9",
         "google-map-react": "2.1.10",
+        "gsap": "3.15.0",
         "inter-ui": "3.19.3",
         "iso-639-1": "2.1.13",
         "jquery": "3.5.0",

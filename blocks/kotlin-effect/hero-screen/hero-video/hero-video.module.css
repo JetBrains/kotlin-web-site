@@ -1,0 +1,21 @@
+@import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
+
+.video {
+    display: block;
+    width: 800px;
+    height: 800px;
+    pointer-events: none;
+}
+
+.videoDesktop {
+    @media (--ktl-tl-down) {
+        display: none;
+    }
+}
+
+.videoMobile {
+    display: none;
+    @media (--ktl-tl-down) {
+        display: block;
+    }
+}
