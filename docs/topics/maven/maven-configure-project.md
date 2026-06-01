@@ -245,14 +245,14 @@ To compile a project with just Kotlin source files, declare source roots and con
 
 ### Set JDK version
 
-Kotlin supports [Maven Toolchains](https://maven.apache.org/guides/mini/guide-using-toolchains.html) that help manage
+Kotlin supports [Maven Toolchains](https://maven.apache.org/guides/mini/guide-using-toolchains.html) that help you manage
 the JDK version in your build.
 
-When the `maven-toolchains-plugin` is configured in the build, you can specify the JDK version used for Kotlin compilation,
+If you configure the `maven-toolchains-plugin` in your build, you can specify the JDK version used for Kotlin compilation,
 independent of the JVM version running Maven (set in the `JAVA_HOME` path). The Kotlin Maven plugin then automatically picks up
 the selected JDK toolchain.
 
-This allows you to configure a single toolchain to control the JDK used across all plugins in the build, including Kotlin
+This allows you to configure a single toolchain that controls the JDK used across all plugins in the build, including Kotlin
 compilation. For example:
 
 ```xml
@@ -289,9 +289,9 @@ graph TD
     B --> C
 ```
 
-* JDK version set in the `jdkHome` option of the `kotlin-maven-plugin` configuration always takes precedence over
+* The JDK version set in the `jdkHome` option of the `kotlin-maven-plugin` configuration always takes precedence over
    the toolchain version.
-* JDK version in the `maven-toolchains-plugin` overrides the JDK version set in the `JAVA_HOME` path.
+* The JDK version in the `maven-toolchains-plugin` overrides the JDK version set in the `JAVA_HOME` path.
 
 You can also use a plugin-specific `<jdkToolchain>` option to directly set the JDK version in the toolchain of the
 `kotlin-maven-plugin`. Compared to using the `maven-toolchains-plugin`, this parameter only affects Kotlin compilation
