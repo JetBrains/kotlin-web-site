@@ -535,6 +535,12 @@
     position:
       lat: 40.1872023
       lng: 44.515209
+  - name: Kotlin User Group Chhattisgarh (KUG-CG)
+    country: India
+    url: https://www.linkedin.com/company/kotlin-user-group-chhattisgarh
+    position:
+      lat: 21.27866
+      lng: 81.86614
 - section: North & South America
   anchorId: north-south-america
   groups:
