@@ -240,7 +240,7 @@ generated files for each annotation processor. For example:
 
 ### Exclude annotation processors from compile classpath
 
-You can disable the discovery of annotation processors that are not included in the kapt's processor path.
+You can disable the discovery of annotation processors that aren't included in kapt's processor path.
 This effectively excludes unnecessary annotation processors from the compile classpath.
 
 #### In Gradle
@@ -256,7 +256,7 @@ annotation processing is skipped when:
 However, compile avoidance can't be used for annotation processors discovered on the compile classpath, since changes
 in their internal implementation require running the annotation processing tasks, even if the ABI remains unchanged.
 
-That's why it's not recommended to use annotation processors from the compile classpath. To exclude such annotations
+That's why we don't recommend using annotation processors from the compile classpath. To exclude these annotations
 from processing, add the `kapt.include.compile.classpath` property to your `gradle.properties` file:
 
 ```none
@@ -264,12 +264,12 @@ from processing, add the `kapt.include.compile.classpath` property to your `grad
 kapt.include.compile.classpath=false
 ```
 
-With the option set to `false`, annotation processor dependencies that are not included in the processor path
-(the `kapt*` configurations) are excluded from the kapt processing.
+With the option set to `false`, annotation processor dependencies that aren't included in the processor path
+(the `kapt*` configurations) are excluded from kapt processing.
 
 #### In Maven
 
-To exclude annotation processors that are missing from the kapt's processor path, set the `includeCompileClasspath`
+To exclude annotation processors that are missing from kapt's processor path, set the `includeCompileClasspath`
 option to `false` in the `<execution>` section of the kapt plugin:
 
 ```xml
@@ -294,10 +294,10 @@ Alternatively, you can use the `kapt.include.compile.classpath` property in the 
 </properties>
 ```
 
-With the option set to `false`, annotation processors not included in the `<annotationProcessorPaths>` section are
+With the option set to `false`, annotation processors that aren't included in the `<annotationProcessorPaths>` section are
 excluded from kapt processing.
 
-If `includeCompileClasspath` is not set and kapt detects an annotation processor on the compile classpath that is not
+If the `includeCompileClasspath` option isn't set and kapt detects an annotation processor on the compile classpath that isn't
 explicitly defined in the processor path, you'll see a deprecation warning:
 
 ```none
@@ -305,7 +305,7 @@ explicitly defined in the processor path, you'll see a deprecation warning:
 Set 'kapt.include.compile.classpath=false' to disable discovery.
 ```
 
-> To see the list of annotation processors that are not present on the kapt classpath, run the build with the `--info` log
+> To see the list of annotation processors that aren't present on the kapt classpath, run the build with the `--info` log
 > level option.
 > 
 {style="tip"}
