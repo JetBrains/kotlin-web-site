@@ -50,49 +50,34 @@ descriptions (for non-Kotlin consumers). As well as metadata, such as the versio
 
 The following options are common for all Kotlin compilers.
 
-### -version
+### -api-version _version_
 
-Display the compiler version.
-
-### -verbose
-
-Enable verbose logging output which includes details of the compilation process.
-
-### -script
-
-Evaluate a Kotlin script file. When called with this option, the compiler executes the first Kotlin script (`*.kts`) 
-file among the given arguments.
+Allow using declarations only from the specified version of Kotlin bundled libraries.
 
 ### -help (-h)
 
 Display usage information and exit. Only standard options are shown.
 To show advanced options, use `-X`.
 
-### -X
-
-<primary-label ref="experimental-general"/>
-
-Display information about the advanced options and exit. These options are currently unstable: 
-their names and behavior may be changed without notice.
-
 ### -kotlin-home _path_
 
 Specify a custom path to the Kotlin compiler used for the discovery of runtime libraries.
-  
+
+### -language-version _version_
+
+This option sets the supported syntax and semantics according to the specified language version. For example, using
+Kotlin compiler version 2.4.0 with `-language-version=2.2` lets you use only the language features and standard library APIs from
+version 2.2 or earlier. This can help with a gradual migration to newer Kotlin versions.
+
+### -opt-in _annotation_
+
+Enable usages of API that [requires opt-in](opt-in-requirements.md) with a requirement annotation with the given
+fully qualified name.
+
 ### -P plugin:pluginId:optionName=value
 
 Pass an option to a Kotlin compiler plugin.
 Core plugins and their options are listed in the [Core compiler plugins](components-stability.md#core-compiler-plugins) section of the documentation.
-  
-### -language-version _version_
-
-This option sets the supported syntax and semantics according to the specified language version. For example, using 
-Kotlin compiler version 2.4.0 with `-language-version=2.2` lets you use only the language features and standard library APIs from
-version 2.2 or earlier. This can help with a gradual migration to newer Kotlin versions.
-
-### -api-version _version_
-
-Allow using declarations only from the specified version of Kotlin bundled libraries.
 
 ### -progressive
 
@@ -103,40 +88,122 @@ instead of going through a graceful migration cycle.
 Code written in the progressive mode is backwards compatible; however, code written in
 a non-progressive mode may cause compilation errors in the progressive mode.
 
-### @argfile
+### -script
 
-Read the compiler options from the given file. Such a file can contain compiler options with values 
-and paths to the source files. Options and paths should be separated by whitespaces. For example:
+Evaluate a Kotlin script file. When called with this option, the compiler executes the first Kotlin script (`*.kts`)
+file among the given arguments.
 
-```
--include-runtime -d hello.jar hello.kt
-```
+### -verbose
 
-To pass values that contain whitespaces, surround them with single (**'**) or double (**"**) quotes. If a value contains 
-quotation marks in it, escape them with a backslash (**\\**).
-```
--include-runtime -d 'My folder'
-```
+Enable verbose logging output which includes details of the compilation process.
 
-You can also pass multiple argument files, for example, to separate compiler options from source files.
+### -version
+
+Display the compiler version.
+
+### -X
+
+<primary-label ref="experimental-general"/>
+
+Display information about the advanced options and exit. These options are currently unstable: 
+their names and behavior may be changed without notice.
+
+### Kotlin contract options
+<primary-label ref="experimental-general"/>
+
+The following options enable experimental Kotlin contract features.
+
+#### -Xallow-contracts-on-more-functions
+
+Enables contracts in additional declarations, including property accessors, specific operator functions,
+and type assertions on generic types.
+
+#### -Xallow-condition-implies-returns-contracts
+
+Allows using the `returnsNotNull()` function in contracts to assume a non-null return value for specified conditions.
+
+#### -Xallow-holdsin-contract
+
+Allows using the `holdsIn` keyword in contracts to assume that a boolean condition is `true` inside a lambda.
+
+#### -Xallow-returns-result-of
+
+Allows using the `returnsResultOf()` contract so that the unused return value checker can distinguish between results that can be ignored and meaningful results from higher-order functions.
+
+### -Xallow-reified-type-in-catch
+<primary-label ref="experimental-general"/>
+
+Enables support for reified `Throwable` type parameters in `catch` clauses of `inline` functions.
+
+### -Xcompiler-plugin-order={plugin.before>plugin.after}
+<primary-label ref="experimental-general"/>
+
+Configure the running order of compiler plugins. The compiler runs `plugin.before` first, and then `plugin.after`:
+
+You can define multiple ordering rules for three or more plugins. For example:
 
 ```bash
-$ kotlinc @compiler.options @classes
+kotlinc -Xcompiler-plugin-order=plugin.first>plugin.middle
+kotlinc -Xcompiler-plugin-order=plugin.middle>plugin.last
 ```
 
-If the files reside in locations different from the current directory, use relative paths.
+This results in the following running order:
 
-```bash
-$ kotlinc @options/compiler.options hello.kt
-```
+1. `plugin.first`
+2. `plugin.middle`
+3. `plugin.last`
 
-### -opt-in _annotation_
+If a compiler plugin isn't present, the corresponding rule is ignored.
 
-Enable usages of API that [requires opt-in](opt-in-requirements.md) with a requirement annotation with the given 
-fully qualified name.
+You can configure the following plugins by their IDs:
+
+| Compiler plugin             | Plugin ID                                  |
+|-----------------------------|--------------------------------------------|
+| `all-open`, `kotlin-spring` | `org.jetbrains.kotlin.allopen`             |
+| AtomicFU                    | `org.jetbrains.kotlinx.atomicfu`           |
+| Compose                     | `androidx.compose.compiler.plugins.kotlin` |
+| `js-plain-objects`          | `org.jetbrains.kotlinx.jspo`               |
+| `jvm-abi-gen`               | `org.jetbrains.kotlin.jvm.abi`             |
+| kapt                        | `org.jetbrains.kotlin.kapt3`               |
+| Lombok                      | `org.jetbrains.kotlin.lombok`              |
+| `no-arg`, `kotlin-jpa`      | `org.jetbrains.kotlin.noarg`               |
+| Parcelize                   | `org.jetbrains.kotlin.parcelize`           |
+| Power-assert                | `org.jetbrains.kotlin.powerassert`         |
+| SAM with receiver           | `org.jetbrains.kotlin.samWithReceiver`     |
+| Serialization               | `org.jetbrains.kotlinx.serialization`      |
+
+This running order controls only the backend of compiler plugins and not the frontend.
+
+### -Xdata-flow-based-exhaustiveness
+<primary-label ref="experimental-general"/>
+
+Enables data-flow–based exhaustiveness checks for `when` expressions.
+
+### -Xexplicit-context-arguments
+<primary-label ref="experimental-general"/>
+
+Enables explicit [context arguments](context-parameters.md#pass-context-arguments-explicitly) for context parameters.
+
+This lets you resolve overload ambiguity by passing context arguments at the call site.
+
+### -Xname-based-destructuring
+<primary-label ref="experimental-opt-in"/>
+
+Configure how the compiler interprets [destructuring declarations](destructuring-declarations.md#name-based-destructuring) based on property names.
+
+The option supports the following modes:
+
+* `only-syntax`: enables the explicit form of name-based destructuring without changing the behavior of existing destructuring declarations.
+* `name-mismatch`: reports warnings when position-based destructuring in data classes uses variable names that don't match the property names.
+* `complete`: enables short-form name-based destructuring with parentheses and continues supporting position-based destructuring with square bracket syntax.
+
+### -Xphases-to-dump-before
+<primary-label ref="experimental-general"/>
+
+Set to `ExternalPackageParentPatcherLowering` to create a dump file after the IR lowering compilation stage. Configure
+the output directory for the Kotlin/JVM with the [`-Xdump-directory`](#xdump-directory) compiler option.
 
 ### -Xrepl
-
 <primary-label ref="experimental-general"/>
 
 Activates the Kotlin REPL.
@@ -145,15 +212,14 @@ Activates the Kotlin REPL.
 kotlinc -Xrepl
 ```
 
-### -Xannotation-default-target=param-property
-
+### -Xreturn-value-checker
 <primary-label ref="experimental-general"/>
 
-Enables the new experimental [defaulting rule for annotation use-site targets](annotations.md#defaults-when-no-use-site-targets-are-specified):
+Configure how the compiler [reports ignored results](unused-return-value-checker.md):
 
-```bash
-kotlinc -Xannotation-default-target=param-property
-```
+* `disable`: disables the unused return value checker (default).
+* `check`: enables the checker and reports warnings for ignored results from marked functions.
+* `full`: enables the checker, treats all functions in your project as marked, and reports warnings for ignored results.
 
 ### Warning management
 
@@ -200,102 +266,32 @@ If you have many warnings to exclude from the general rules, you can list them i
 
 You can use [`-Xrender-internal-diagnostic-names`](#xrender-internal-diagnostic-names) to discover the `DIAGNOSTIC_NAME`.
 
-### -Xdata-flow-based-exhaustiveness
-<primary-label ref="experimental-general"/>
+### @argfile
 
-Enables data-flow–based exhaustiveness checks for `when` expressions.
+Read the compiler options from the given file. Such a file can contain compiler options with values
+and paths to the source files. Options and paths should be separated by whitespaces. For example:
 
-### -Xallow-reified-type-in-catch
-<primary-label ref="experimental-general"/>
-
-Enables support for reified `Throwable` type parameters in `catch` clauses of `inline` functions.
-
-### Kotlin contract options
-<primary-label ref="experimental-general"/>
-
-The following options enable experimental Kotlin contract features.
-
-#### -Xallow-contracts-on-more-functions
-
-Enables contracts in additional declarations, including property accessors, specific operator functions,
-and type assertions on generic types.
-
-#### -Xallow-condition-implies-returns-contracts
-
-Allows using the `returnsNotNull()` function in contracts to assume a non-null return value for specified conditions.
-
-#### -Xallow-holdsin-contract
-
-Allows using the `holdsIn` keyword in contracts to assume that a boolean condition is `true` inside a lambda.
-
-#### -Xallow-returns-result-of
-
-Allows using the `returnsResultOf()` contract so that the unused return value checker can distinguish between results that can be ignored and meaningful results from higher-order functions.
-
-### -Xreturn-value-checker
-<primary-label ref="experimental-general"/>
-
-Configure how the compiler [reports ignored results](unused-return-value-checker.md):
-
-* `disable`: disables the unused return value checker (default).
-* `check`: enables the checker and reports warnings for ignored results from marked functions.
-* `full`: enables the checker, treats all functions in your project as marked, and reports warnings for ignored results.
-
-### -Xcompiler-plugin-order={plugin.before>plugin.after}
-
-Configure the running order of compiler plugins. The compiler runs `plugin.before` first, and then `plugin.after`:
-
-You can define multiple ordering rules for three or more plugins. For example:
-
-```bash
-kotlinc -Xcompiler-plugin-order=plugin.first>plugin.middle
-kotlinc -Xcompiler-plugin-order=plugin.middle>plugin.last
+```
+-include-runtime -d hello.jar hello.kt
 ```
 
-This results in the following running order:
+To pass values that contain whitespaces, surround them with single (**'**) or double (**"**) quotes. If a value contains
+quotation marks in it, escape them with a backslash (**\\**).
+```
+-include-runtime -d 'My folder'
+```
 
-1. `plugin.first`
-2. `plugin.middle`
-3. `plugin.last`
+You can also pass multiple argument files, for example, to separate compiler options from source files.
 
-If a compiler plugin isn't present, the corresponding rule is ignored.
+```bash
+$ kotlinc @compiler.options @classes
+```
 
-You can configure the following plugins by their IDs:
+If the files reside in locations different from the current directory, use relative paths.
 
-| Compiler plugin             | Plugin ID                                  |
-|-----------------------------|--------------------------------------------|
-| `all-open`, `kotlin-spring` | `org.jetbrains.kotlin.allopen`             |
-| AtomicFU                    | `org.jetbrains.kotlinx.atomicfu`           |
-| Compose                     | `androidx.compose.compiler.plugins.kotlin` |
-| `js-plain-objects`          | `org.jetbrains.kotlinx.jspo`               |
-| `jvm-abi-gen`               | `org.jetbrains.kotlin.jvm.abi`             |
-| kapt                        | `org.jetbrains.kotlin.kapt3`               |
-| Lombok                      | `org.jetbrains.kotlin.lombok`              |
-| `no-arg`, `kotlin-jpa`      | `org.jetbrains.kotlin.noarg`               |
-| Parcelize                   | `org.jetbrains.kotlin.parcelize`           |
-| Power-assert                | `org.jetbrains.kotlin.powerassert`         |
-| SAM with receiver           | `org.jetbrains.kotlin.samWithReceiver`     |
-| Serialization               | `org.jetbrains.kotlinx.serialization`      |
-
-This running order controls only the backend of compiler plugins and not the frontend.
-
-### -Xphases-to-dump-before
-
-<primary-label ref="experimental-general"/>
-
-Set to `ExternalPackageParentPatcherLowering` to create a dump file after the IR lowering compilation stage. Configure
-the output directory for the Kotlin/JVM with the [`-Xdump-directory`](#xdump-directory) compiler option.
-
-### -Xname-based-destructuring
-<primary-label ref="experimental-opt-in"/>
-
-Configure how the compiler interprets [destructuring declarations](destructuring-declarations.md#name-based-destructuring) based on property names.
-
-The option supports the following modes:
-
-* `only-syntax`: enables the explicit form of name-based destructuring without changing the behavior of existing destructuring declarations.
-* `name-mismatch`: reports warnings when position-based destructuring in data classes uses variable names that don't match the property names.
-* `complete`: enables short-form name-based destructuring with parentheses and continues supporting position-based destructuring with square bracket syntax.
+```bash
+$ kotlinc @options/compiler.options hello.kt
+```
 
 ## Kotlin/JVM compiler options
 
@@ -335,6 +331,16 @@ Possible values are `1.8`, `9`, `10`, ..., `26`.
 >
 {style="note"}
 
+### -jvm-default _mode_
+
+Control how functions declared in interfaces are compiled to default methods on the JVM.
+
+| Mode               | Description                                                                                                                       |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `enable`           | Generates default implementations in interfaces and includes bridge functions in subclasses and `DefaultImpls` classes. (Default) |
+| `no-compatibility` | Generates only default implementations in interfaces, skipping compatibility bridges and `DefaultImpls` classes.                  |
+| `disable`          | Generates only compatibility bridges and `DefaultImpls` classes, skipping default methods.                                        |
+
 ### -jvm-target _version_
 
 Specify the target version of the generated JVM bytecode. Possible values are `1.8`, `9`, `10`, ..., `26`.
@@ -365,29 +371,17 @@ into the classpath.
 
 Script definition template classes. Use fully qualified class names and separate them with commas (**,**).
 
-### -Xjvm-expose-boxed
+### -Xdump-directory
+<primary-label ref="experimental-general"/>
 
+Configure the dump file directory for the [-Xphases-to-dump-before`](#xphases-to-dump-before) compiler option.
+
+### -Xjvm-expose-boxed
 <primary-label ref="experimental-general"/>
 
 Generate boxed versions of all inline value classes in the module, along with boxed variants of functions that use them,
 making both accessible from Java. For more information, see [Inline value classes](java-to-kotlin-interop.md#inline-value-classes)
 in the guide to calling Kotlin from Java.
-
-### -jvm-default _mode_
-
-Control how functions declared in interfaces are compiled to default methods on the JVM.
-
-| Mode               | Description                                                                                                                       |
-|--------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `enable`           | Generates default implementations in interfaces and includes bridge functions in subclasses and `DefaultImpls` classes. (Default) |
-| `no-compatibility` | Generates only default implementations in interfaces, skipping compatibility bridges and `DefaultImpls` classes.                  |
-| `disable`          | Generates only compatibility bridges and `DefaultImpls` classes, skipping default methods.                                        |
-
-### -Xdump-directory
-
-<primary-label ref="experimental-general"/>
-
-Configure the dump file directory for the [-Xphases-to-dump-before`](#xphases-to-dump-before) compiler option.
 
 ### -Xnullability-annotations
 <primary-label ref="experimental-general"/>
@@ -402,10 +396,6 @@ The Kotlin compiler for JS compiles Kotlin source files into JavaScript code.
 The command-line tool for Kotlin to JS compilation is `kotlinc-js`.
 
 In addition to the [common options](#common-options), Kotlin/JS compiler has the options listed below.
-
-### -target {es5|es2015}
-
-Generate JS files for the specified ECMA version.
 
 ### -libraries _path_
 
@@ -474,16 +464,20 @@ Add variable and function names that you declared in Kotlin code into the source
 
 Add the specified prefix to paths in the source map.
 
-### -Xes-long-as-bigint
-<primary-label ref="experimental-general"/>
+### -target {es5|es2015}
 
-Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
+Generate JS files for the specified ECMA version.
 
 ### -Xenable-implementing-interfaces-from-typescript
 <primary-label ref="experimental-general"/>
 
 Allow [implementing Kotlin interfaces](whatsnew2320.md#implementing-kotlin-interfaces-from-javascript-typescript)
 exported with the `@JsExport` annotation from JavaScript/TypeScript.
+
+### -Xes-long-as-bigint
+<primary-label ref="experimental-general"/>
+
+Enable support for the JavaScript `BigInt` type to represent Kotlin `Long` values when compiling to modern JavaScript (ES2020).
 
 ## Kotlin/Native compiler options
 
@@ -495,6 +489,10 @@ In addition to the [common options](#common-options), Kotlin/Native compiler has
 ### -enable-assertions (-ea)
 
 Enable runtime assertions in the generated code.
+
+### -entry _name_ (-e _name_)
+
+Specify the qualified entry point name.
 
 ### -g
 
@@ -521,6 +519,14 @@ Link with the library. To learn about using libraries in Kotlin/native projects,
 ### -library-version _version_ (-lv _version_)
 
 Set the library version.
+
+### -linker-option
+
+Pass an argument to the linker during binary building. This can be used for linking against some native library.
+
+### -linker-options _args_
+
+Pass multiple arguments to the linker during binary building. Separate arguments with whitespaces.
     
 ### -list-targets
 
@@ -552,14 +558,6 @@ Assume the `main` entry point to be provided by external libraries.
 
 Don't pack the library into a klib file.
 
-### -linker-option
-
-Pass an argument to the linker during binary building. This can be used for linking against some native library.
-
-### -linker-options _args_
-
-Pass multiple arguments to the linker during binary building. Separate arguments with whitespaces.
-
 ### -nostdlib
 
 Don't link with stdlib.
@@ -572,10 +570,6 @@ with the [`-g`](#g) option, which lowers the optimization level.
 ### -output _name_ (-o _name_)
 
 Set the name for the output file.
-
-### -entry _name_ (-e _name_)
-
-Specify the qualified entry point name.
 
 ### -produce _output_ (-p _output_)
 
