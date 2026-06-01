@@ -28,7 +28,7 @@ object KotlinxMetadataJvmBuildApiReference : BuildApiPages(
                 scriptContent = """
                     #!/bin/bash
                      set -e -u
-                    ./gradlew :kotlin-metadata-jvm:dokkaHtml -PdeployVersion=${KOTLIN_RELEASE_LABEL} --no-daemon --no-configuration-cache
+                    ./gradlew :kotlin-metadata-jvm:dokkaGenerate -PdeployVersion=${KOTLIN_RELEASE_LABEL}
                 """.trimIndent()
             }
         }
