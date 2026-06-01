@@ -1,177 +1,191 @@
 [//]: # (title: Strings)
+[//]: # (description: Learn how to work with strings in Kotlin, including string literals, string templates, multiline strings, and common text operations.)
 
-Strings in Kotlin are represented by the type [`String`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/). 
+The [`String`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/) type represents a sequence of
+[characters](characters.md). You can use it for text values, such as words, sentences, messages, or structured text.
 
-> On the JVM, an object of `String` type in UTF-16 encoding uses approximately 2 bytes per character.
-> 
-{style="note"}
+The `String` type is immutable. After you create a `String` object,
+its contents stay the same for the rest of its lifetime. Any operation that appears
+to modify the string actually creates a new string.
 
-Generally, a string value is a sequence of characters in double quotes (`"`):
+## Declare strings
 
-```kotlin
-val str = "abcd 123"
-```
-
-Elements of a string are characters that you can access via the indexing operation: `s[i]`.
-You can iterate over these characters with a `for` loop:
+To declare a `String` literal, enclose the value in double quotes (`""`). You can specify the `String` type
+explicitly or let Kotlin infer it from the value:
 
 ```kotlin
-fun main() {
-    val str = "abcd" 
-//sampleStart
-    for (c in str) {
-        println(c)
-    }
-//sampleEnd
-}
+val name: String = "Kotlin"
+val message = "Hello, world!" // Kotlin infers String
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Strings are immutable. Once you initialize a string, you can't change its value or assign a new value to it.
-All operations that transform strings return their results in a new `String` object, leaving the original string unchanged:
+Double-quoted string literals support [escape sequences](characters.md#escape-sequences) such as `\n` or `\t`:
 
 ```kotlin
-fun main() {
-//sampleStart
-    val str = "abcd"
-   
-    // Creates and prints a new String object
-    println(str.uppercase())
-    // ABCD
-   
-    // The original string remains the same
-    println(str) 
-    // abcd
-//sampleEnd
-}
+val message = "Hello,\nworld!"
+val quote = "Kotlin says, \"Hi\"."
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-To concatenate strings, use the `+` operator. This also works for concatenating strings with values of other types, as long
-as the first element in the expression is a string:
-
-```kotlin
-fun main() {
-//sampleStart
-    val s = "abc" + 1
-    println(s + "def")
-    // abc1def    
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-> In most cases using [string templates](#string-templates) or [multiline strings](#multiline-strings) is preferable to string concatenation.
-> 
-{style="note"}
-
-## String literals
-
-Kotlin has two types of string literals:
-
-* [Escaped strings](#escaped-strings)
-* [Multiline strings](#multiline-strings)
-
-### Escaped strings
-
-_Escaped strings_ can contain escaped characters.  
-Here's an example of an escaped string:
-
-```kotlin
-val s = "Hello, world!\n"
-```
-
-Escaping is done in the conventional way, with a backslash (`\`).  
-See [Characters](characters.md) page for the list of supported escape sequences.
 
 ### Multiline strings
 
-_Multiline strings_ can contain newlines and arbitrary text. It is delimited by a triple quote (`"""`),
-contains no escaping and can contain newlines and any other characters:
+To store text that consists of multiple lines or contains quotes that you don't want to escape,
+use a multiline string enclosed in triple quotes (`""" """`):
 
 ```kotlin
 val text = """
-    for (c in "foo")
-        print(c)
-    """
-```
-
-To remove leading whitespace from multiline strings, use the [`trimMargin()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html) function:
-
-```kotlin
-val text = """
-    |Tell me and I forget.
-    |Teach me and I remember.
-    |Involve me and I learn.
-    |(Benjamin Franklin)
-    """.trimMargin()
-```
-
-By default, a pipe symbol `|` is used as margin prefix, but you can choose another character and pass it as a parameter, like `trimMargin(">")`.
-
-## String templates
-
-String literals may contain _template expressions_ – pieces of code that are evaluated and whose results are concatenated into a string.
-When a template expression is processed, Kotlin automatically calls the `.toString()` function on the expression's result
-to convert it into a string. A template expression starts with a dollar sign (`$`) and consists of either a variable name:
-
-```kotlin
-fun main() {
-//sampleStart
-    val i = 10
-    println("i = $i") 
-    // i = 10
-    
-    val letters = listOf("a","b","c","d","e")
-    println("Letters: $letters") 
-    // Letters: [a, b, c, d, e]
-
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-or an expression in curly braces:
-
-```kotlin
-fun main() {
-//sampleStart
-    val s = "abc"
-    println("$s.length is ${s.length}") 
-    // abc.length is 3
-//sampleEnd
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
-
-You can use templates both in multiline and escaped strings. However, multiline strings don't support backslash escaping. 
-To insert the dollar sign `$` in a multiline string
-before any symbol allowed at the beginning of an [identifier](https://kotlinlang.org/grammar/#identifiers),
-use the following syntax:
-
-```kotlin
-val price = """
-${'$'}_9.99
+Hello,
+Kotlin
 """
+
+val quote = """Kotlin says, "Hi"."""
 ```
 
-> To avoid `${'$'}` sequences in strings, you can use the Experimental [multi-dollar string interpolation feature](#multi-dollar-string-interpolation).
+> Multiline strings don't support escape sequences.
+> Kotlin treats such characters as a regular text.
 >
 {style="note"}
 
+Multiline strings preserve line breaks and indentations as written in the source code.
+This behavior is useful when you want the runtime value to match the text layout in your file.
+
+In the following example, the spaces before each line are part
+of the resulting string:
+
+```kotlin
+val text = """
+    Hello,
+    Kotlin
+"""
+```
+
+To remove common leading indentation, use
+the [`trimIndent()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/trim-indent.html) function. It detects the common
+minimal indent of non-empty lines and removes it:
+
+```kotlin
+fun main() {
+//sampleStart
+    val text = """
+        Hello,
+        Kotlin
+    """.trimIndent()
+    
+    println(text)
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+To control indentation removal more explicitly, use
+the [`trimMargin()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/trim-margin.html) function. It
+removes everything before and including the margin prefix on each line:
+
+```kotlin
+fun main() {
+//sampleStart
+    val text = """
+        |Hello,
+        |Kotlin
+    """.trimMargin()
+    
+    println(text)
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+By default, the `trimMargin()` function uses a pipe symbol (`|`) as the margin prefix, but you can pass another character
+as a parameter. For example: `trimMargin(">")`.
+
+> When you process a string with functions like `trimIndent()` or `trimMargin()`, the resulting string
+> uses only newline (`\n`) separators, regardless of the platform.
+>
+{style="note"}
+
+
+## String templates
+
+String templates let you embed variables and expressions directly inside a `String` literal.
+This process is called _interpolation_. You can use string templates in both
+regular and multiline strings.
+
+To insert a variable into a string, use the `$` symbol:
+
+```kotlin
+fun main() { 
+//sampleStart
+    val name = "Kotlin"
+    println("Hello, $name") 
+    // Hello, Kotlin
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+To insert an expression into a string or to place a variable directly next to other text, use `${}`:
+
+```kotlin
+fun main() {
+//sampleStart
+    val text = "abc"
+    println("The length of $text is ${text.length}")
+    // The length of abc is 3
+      
+    val language = "Kotlin"
+    println("${language}Lang")
+    // KotlinLang
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+> You can also combine strings with the `+` operator. However, string templates are usually easier
+> to read and more idiomatic.
+>
+{style="tip"}
+
+Template expressions can also contain double-quoted strings without escaping:
+
+```kotlin
+// Double-quoted string
+val test = "${"test".uppercase()}"
+
+// Multiline string
+val result = """
+Result: ${"OK".lowercase()}
+"""
+```
+
+### Nullable values in string templates
+
+If an interpolated expression or variable evaluates to `null`, the Kotlin compiler
+inserts the text `null` into the resulting string. To replace `null` with another value,
+use the [Elvis operator](null-safety.md#elvis-operator) (`?:`):
+
+```kotlin 
+fun main(){
+//sampleStart
+    val text: String? = null
+  
+    println("Hello, $text")
+    // Hello, null
+
+    println("Hello, ${text ?: "Kotlin"}")
+    // Hello, Kotlin
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
 ### Multi-dollar string interpolation
 
-Multi-dollar string interpolation allows you to specify how many consecutive dollar signs are required to trigger interpolation.
-Interpolation is the process of embedding variables or expressions directly into a string.
+In regular string templates, a single dollar sign (`$`) starts interpolation. If you need
+to include literal dollar signs in a `String` value, use **multi-dollar string interpolation**.
 
-While you can [escape literals](#escaped-strings) for single-line strings,
-multiline strings in Kotlin don't support backslash escaping.
-To include dollar signs (`$`) as literal characters, you must use the `${'$'}` construct to prevent string interpolation.
-This approach can make code harder to read, especially when strings contain multiple dollar signs.
+Multi-dollar string interpolation allows you to specify how many consecutive dollar signs are required
+to trigger interpolation. Dollar signs below that number are treated as literal characters.
 
-Multi-dollar string interpolation simplifies this
-by letting you treat dollar signs as literal characters in both single-line and multiline strings.
-For example:
+For example, when you use `$$` before a `String` literal,
+interpolation begins only with two consecutive dollar signs:
 
 ```kotlin
 val KClass<*>.jsonSchema : String
@@ -186,93 +200,337 @@ val KClass<*>.jsonSchema : String
     """
 ```
 
-Here, the `$$` prefix specifies that two consecutive dollar signs are required to trigger string interpolation. 
-Single dollar signs remain as literal characters.
 
-You can adjust how many dollar signs trigger interpolation.
-For example, using three consecutive dollar signs (`$$$`) allows `$` and `$$` to remain as literals 
-while enabling interpolation with `$$$`:
+> If you use single-dollar string interpolation, multi-dollar string interpolation doesn't affect your code.
+> You can continue using a single `$` and apply multi-dollar signs
+> when needed.
+>
+{style="tip"}
+
+## Basic string operations
+
+Kotlin provides a range of operations for working with strings. This section introduces some of
+the most commonly used operations.
+
+> Learn more about all available functions in the
+> [API Reference](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/).
+>
+{style="tip"}
+
+### Get string length
+
+To get the number of characters in a string, use the
+[`length`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/length.html) property:
+
+```kotlin 
+fun main (){
+//sampleStart
+    val language = "Kotlin"
+    println(language.length)
+    // 6
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+### Access characters
+
+You can access an individual character in a string
+with the indexing operator (`[]`):
+
+```kotlin 
+fun main (){
+//sampleStart
+    val language = "Kotlin"
+    
+    println(language[0])
+    // K
+    println(language[5])
+    // n
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+> A string index starts at zero.
+> If you try to access an index outside the valid range, Kotlin throws an exception.
+>
+{style="tip"}
+
+You can also iterate over the characters in a string:
 
 ```kotlin
-val productName = "carrot"
-val requestedData =
-    $$$"""{
-      "currency": "$",
-      "enteredAmount": "42.45 $$",
-      "$$serviceField": "none",
-      "product": "$$$productName"
+fun main(){
+//sampleStart
+    for (char in "Kotlin") {
+      println(char)
     }
-    """
-
-println(requestedData)
-//{
-//    "currency": "$",
-//    "enteredAmount": "42.45 $$",
-//    "$$serviceField": "none",
-//    "product": "carrot"
-//}
+//sampleEnd    
+}
 ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Here, the `$$$` prefix allows the string to include `$` and `$$` without requiring the `${'$'}` construct for escaping.
+### Extract parts of a string
 
-Multi-dollar string interpolation doesn't affect existing code that uses single-dollar string interpolation. 
-You can continue using a single `$`
-as before and apply multi-dollar signs when you need to handle literal dollar signs in strings.
+To extract parts of a string, use one of the following functions:
 
-## String formatting
+* [`substring()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/substring.html) to return a new string with the selected part of
+  the original text.
+* [`subSequence()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/sub-sequence.html) to return a `CharSequence` with the selected
+  part of the original text.
 
-> String formatting with the `String.format()` function is only available in Kotlin/JVM.
->
-{style="note"}
+For example:
 
-To format a string to your specific requirements, use the [`String.format()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/format.html) 
-function. 
+```kotlin
+fun main() {
+//sampleStart    
+    val text = "Kotlin"
+    println(text.substring(1))
+    // otlin
+    println(text.substring(1, 5))
+    // otli
+    println(text.subSequence(1, 5))
+    // otli
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-The `String.format()` function accepts a format string and one or more arguments. The format string contains one placeholder 
-(indicated by `%`) for a given argument, followed by format specifiers.
-Format specifiers are formatting instructions for the respective argument, consisting of flags, width, precision, and 
-conversion type. Collectively, format specifiers shape the output's formatting. Common format specifiers include 
-`%d` for integers, `%f` for floating-point numbers, and `%s` for strings. You can also use the `argument_index$` syntax 
-to reference the same argument multiple times within the format string in different formats.
+Since the `String` type is immutable, these functions don't modify the original string.
 
-> For a detailed understanding and an extensive list of format specifiers, see [Java's Class Formatter documentation](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#summary).
->
-{style="note"}
+### Compare strings
 
-Let's look at an example:
+You can check whether two strings have the same content with the `==` operator:
+
+```kotlin
+fun main(){
+//sampleStart
+    println("kotlin" == "kotlin")
+    // true
+  
+    println("kotlin" == "Kotlin")
+    // false
+//sampleEnd    
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+You can also compare strings lexicographically (character by character) with the [`compareTo()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/compare-to.html)
+function. It scans both strings until it finds the first differing pair of characters and returns the
+difference between their Unicode code points. If strings are equal, the function returns `0`.
+The `compareTo()` function also allows you to ignore case differences
+by passing the `true` to the `ignoreCase` parameter:
+
+```kotlin
+fun main() {
+//sampleStart    
+    println("abc".compareTo("abd")) // 'c' is 99, 'd' is 100
+    // -1
+    println("abc".compareTo("ABC")) // 'a' is 97, 'A' is 65
+    // 32
+    println("abc".compareTo("ABC", true)) // ignores case, strings are equal
+    // 0 
+//sampleEnd  
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+### Work with string content
+
+If you want to change the content of a string, create a modified copy of it
+with functions like [`replace()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/replace.html), [`trim()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/trim.html),
+[`uppercase()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/uppercase.html), and [`lowercase()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/lowercase.html):
+
+```kotlin
+fun main() {
+//sampleStart
+    val text = "  Hello, Kotlin  "
+
+    println(text.trim())
+    // Hello, Kotlin
+
+    println(text.replace("Kotlin", "world"))
+    //   Hello, world  
+
+    println(text.uppercase())
+    //   HELLO, KOTLIN  
+
+    println(text.lowercase())
+    //   hello, kotlin  
+//sampleEnd    
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+You can also inspect the string content with the
+[`contains()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/contains.html), [`startsWith()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/starts-with.html),
+and [`endsWith()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/ends-with.html) functions:
 
 ```kotlin
 fun main() { 
 //sampleStart
-    // Formats an integer, adding leading zeroes to reach a length of seven characters
-    val integerNumber = String.format("%07d", 31416)
-    println(integerNumber)
-    // 0031416
-
-    // Formats a floating-point number to display with a + sign and four decimal places
-    val floatNumber = String.format("%+.4f", 3.141592)
-    println(floatNumber)
-    // +3.1416
-
-    // Formats two strings to uppercase, each taking one placeholder
-    val helloString = String.format("%S %S", "hello", "world")
-    println(helloString)
-    // HELLO WORLD
+    val domain = "kotlinlang.org"
     
-    // Formats a negative number to be enclosed in parentheses, then repeats the same number in a different format (without parentheses) using `argument_index$`.
-    val negativeNumberInParentheses = String.format("%(d means %1\$d", -31416)
-    println(negativeNumberInParentheses)
-    //(31416) means -31416
-//sampleEnd    
+    // Checks if the string contains "."
+    println(domain.contains("."))
+    // true
+    
+    // Checks if the string starts with "kotlin"
+    println(domain.startsWith("kotlin"))
+    // true
+    
+    // Checks if the string ends with ".org"
+    println(domain.endsWith(".org"))
+    // true
+//sampleEnd
+}
+ ```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+### Split strings
+
+You can divide a string into parts around a delimiter with
+the [`split()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/split.html) function:
+
+```kotlin
+fun main() { 
+//sampleStart
+    val numbers = "one, two, three"
+    println(numbers.split(", "))
+    // [one, two, three]
+//sampleEnd
 }
 ```
-{interpolate-variables="false" kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-The `String.format()` function provides similar functionality to string templates. However, the 
-`String.format()` function is more versatile because there are more formatting options available. 
+If you want to split a string into individual lines, use
+the [`lines()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/lines.html) function:
 
-In addition, you can assign the format string from a variable. This can be useful when the format string changes, 
-for example, in localization cases that depend on the user locale.
+```kotlin
+fun main() { 
+//sampleStart
+    val numbers = "one\ntwo\nthree"
+    println(numbers.lines())
+    // [one, two, three]
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Be careful when using the `String.format()` function because it can be easy to mismatch the number or position of the 
-arguments with their corresponding placeholders.
+### Build and format strings
+
+> For most formatting tasks in Kotlin, use [string templates](#string-templates).
+>
+{style="tip"}
+
+When you concatenate strings with the `+` operator,
+Kotlin creates a new `String` object for each operation. However, this approach
+may not be beneficial in loops or when you assemble many pieces. 
+To avoid such issues, you can use the `buildString()` function or `StringBuilder`. They collect all pieces in a single mutable buffer
+and produce only one string at the end.
+
+Use the [`buildString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/build-string.html) function
+when the logic that determines what to append is complex. For example, when you have multiple conditions
+that contribute a different fragment. With `buildString()`, you don't handle the buffer directly.
+The function creates a `StringBuilder` internally, runs your block, and returns the resulting string.
+
+```kotlin
+fun main() {
+//sampleStart
+
+    val hasErrors = true
+    val hasWarnings = true
+    val isComplete = false
+    
+    // buildString creates an empty buffer
+    val status = buildString {
+        // Appends "Errors found" to the buffer
+        if (hasErrors) append("Errors found")
+        if (hasWarnings) {
+            // The buffer is not empty, appends "; "
+            if (isNotEmpty()) append("; ")
+            // Appends "Warnings found"
+            append("Warnings found")
+        }
+        // isComplete = false, nothing to append
+        if (isComplete) {
+            if (isNotEmpty()) append("; ")
+            append("Completed")
+        }
+        // The buffer is not empty, skips the fallback
+        if (isEmpty()) append("OK")
+    }
+    
+    println(status)
+    // Errors found; Warnings found
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+Use [`StringBuilder`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-string-builder/) when you need the buffer as an explicit value. For example, to pass
+it into another function or build it in separate steps:
+
+```kotlin
+fun main() {
+//sampleStart
+    // Creates a new empty StringBuilder
+    val sb = StringBuilder()
+    
+    // Adds arguments to the end of the buffer
+    sb.append("Hello")
+    sb.append(", ")
+    sb.append("Kotlin")
+    sb.append("!")
+
+    // Converts the buffer to a string
+    println(sb.toString())
+    // Hello, Kotlin!
+//sampleEnd
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
+
+On the JVM, you can also format a string with the [`String.format()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/format.html) function:
+
+```kotlin
+val text = String.format("Hello, %s", "Kotlin") 
+```  
+
+> Use the `String.format()` function only when you specifically need formatter-style specifiers on the JVM.
+> Learn more about format specifiers in the [Java Class Formatter documentation](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html#summary).
+>
+{style="note"}
+
+## String conversion
+
+Often you may use strings to represent values of other types, such as numbers, Boolean values, or identifiers from the input.
+Kotlin provides functions for converting values to strings and for parsing strings into other types.
+
+To return a string representation of a value, use the [`toString()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/to-string.html) function:
+
+```kotlin
+val number = 10
+val text = number.toString()
+```
+
+In string templates and string concatenation, Kotlin converts values to strings automatically.
+
+To convert a string to another type, use the corresponding parsing functions:
+
+* For integer values: [`toByte()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-byte.html), [`toShort()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-short.html), [`toInt()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-int.html), [`toLong()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-long.html)
+* For floating-point values: [`toDouble()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-double.html), [`toFloat()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-float.html)
+* For booleans: [`toBoolean()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/to-boolean.html)
+
+These functions return a value of the requested type if the string has a valid format.
+If the input may be invalid, use the `OrNull` variants. These functions return `null` 
+instead of throwing an exception making them safe for user input or data that you don't
+fully control:
+
+```kotlin
+val toInt = "10".toInt()
+val toBoolean = "true".toBoolean()
+
+// 1000000000000 exceeds maximum value of Int
+val toIntInvalid= "1000000000000".toIntOrNull()
+```
