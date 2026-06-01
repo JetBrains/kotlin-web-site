@@ -297,9 +297,8 @@ You can also use a plugin-specific `<jdkToolchain>` option to directly set the J
 `kotlin-maven-plugin`. Compared to using the `maven-toolchains-plugin`, this parameter only affects Kotlin compilation
 and has no impact on other plugins in the build.
 
-> Currently, setting `maven-toolchains-plugin` to use a specific JDK version does not affect the `kapt` and `test-kapt`
-> goals of the `kotlin-maven-plugin`. To work around this, set the necessary version in the `JAVA_HOME` path.
-> For more details, see [KT-79897](https://youtrack.jetbrains.com/issue/KT-79897).
+> Currently, setting up the `maven-toolchains-plugin` to use a specific JDK version [does not affect the `kapt` and `test-kapt` goals](https://youtrack.jetbrains.com/issue/KT-79897)
+> of the `kotlin-maven-plugin`. Instead, set the necessary version in the `JAVA_HOME` path.
 >
 {style="note"}
 
