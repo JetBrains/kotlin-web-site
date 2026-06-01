@@ -7,21 +7,28 @@
     <p><img src="icon-1-done.svg" width="20" alt="First step"/> <a href="jvm-create-project-with-spring-boot.md">Create a Spring Boot project with Kotlin</a><br/><img src="icon-2-done.svg" width="20" alt="Second step"/> <a href="jvm-spring-boot-add-data-class.md">Add a data class to the Spring Boot project</a><br/><img src="icon-3-done.svg" width="20" alt="Third step"/> <a href="jvm-spring-boot-add-db-support.md">Add database support for Spring Boot project</a><br/><img src="icon-4.svg" width="20" alt="Fourth step"/> <strong>Use Spring Data CrudRepository for database access</strong></p>
 </tldr>
 
-In this part, you will migrate the service layer to use the [Spring Data](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html) `CrudRepository` instead of `JdbcTemplate` for database access.
-_CrudRepository_ is a Spring Data interface for generic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on a repository of a specific type.
-It provides several methods out of the box for interacting with a database.
-
-## Update your application
-
-First, you need to adjust the `Message` class for work with the `CrudRepository` API:
-
-1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table.  
-   Add the `@Id` annotation before the `id` field.
+ In this part, you will migrate the service layer to use the [Spring Data](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html) `CrudRepository` instead of `JdbcTemplate` for database access.
+ _CrudRepository_ is a Spring Data interface for generic [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on a repository of a specific type.
+ It provides several methods out of the box for interacting with a database.
+ 
+ ## Update your application
+ 
+ First, you need to adjust the `Message` class for work with the `CrudRepository` API:
+ 
+Before proceeding, make sure `spring-boot-starter-data-jdbc` is declared in your `build.gradle.kts`.
+This starter brings `@Id`, `@Table`, `CrudRepository`, and `findByIdOrNull` onto the classpath.
+Without it, the imports in the steps below cannot be resolved.
+```kotlin
+// build.gradle.kts
+dependencies {
+    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+}
+```
+ 1. Add the `@Table` annotation to the `Message` class to declare mapping to a database table.  
+    Add the `@Id` annotation before the `id` field.
 
     > These annotations also require additional imports.
-    >  
-    {style="note"}
-
+    >
     ```kotlin
     // Message.kt
     package com.example.demo
