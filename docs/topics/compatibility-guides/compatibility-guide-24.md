@@ -64,7 +64,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Incompatible change type**: source
 >
-> **Short summary**: Starting with Kotlin 2.4.0, the compiler prevents meaningless `is` checks that are always false because the checked types are definitely incompatible.
+> **Short summary**: The compiler now prevents meaningless `is` checks that are always false because the checked types are definitely incompatible.
 > This keeps the behavior consistent with other operations involving incompatible types.
 >
 > **Deprecation cycle**:
@@ -425,22 +425,6 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ## Tools
 
-### Deprecate the `kotlin-js` Gradle plugin
-
-> **Issue**: [KT-59305](https://youtrack.jetbrains.com/issue/KT-59305)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: source
->
-> **Short summary**: Starting with Kotlin 2.4.0, the Kotlin Gradle plugin now reports an error when you use the deprecated `kotlin-js` Gradle plugin.
-> To migrate, use the [`kotlin-multiplatform` Gradle plugin with the `js()` target](https://kotlinlang.org/docs/multiplatform/multiplatform-compatibility-guide.html#migration-from-kotlin-js-gradle-plugin-to-kotlin-multiplatform-gradle-plugin) instead.
->
-> **Deprecation cycle**:
->
-> - 1.9.0: report a warning when the `kotlin-js` Gradle plugin is used
-> - 2.4.0: raise the warning to an error
-
 ### Deprecate legacy Kotlin/JS compiler type selection APIs
 
 > **Issue**: [KT-64275](https://youtrack.jetbrains.com/issue/KT-64275), [KT-84753](https://youtrack.jetbrains.com/issue/KT-84753)
@@ -452,7 +436,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Short summary**: Kotlin 2.4.0 removes deprecated Gradle APIs related to selecting the legacy Kotlin/JS compiler type.
 > 
 > Additionally, the `KotlinJsCompilerType` enum and the `KotlinProjectExtension.js()` overloads with a compiler type parameter are deprecated.
-> To migrate, remove the compiler type argument from the `js()` target declaration and use `js { ... }` instead.
+> To migrate, remove the compiler type argument from the `js()` target declaration and use the `js {}` block instead.
 >
 > **Deprecation cycle**:
 >
@@ -487,40 +471,6 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.4.0: remove consumable configurations for Kotlin/Native Apple frameworks
-
-### Remove `kotlin-android-extensions` plugin ID
-
-> **Issue**: [KT-78659](https://youtrack.jetbrains.com/issue/KT-78659)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: source
->
-> **Short summary**: In Kotlin 2.4.0, the `kotlin-android-extensions` plugin ID is removed from the Kotlin Gradle plugin.
-> To migrate, remove the plugin from your build scripts, use the [`kotlin-parcelize`](https://plugins.gradle.org/plugin/org.jetbrains.kotlin.plugin.parcelize) plugin for `Parcelable`, and use [Android Jetpack View Binding](https://developer.android.com/topic/libraries/view-binding) for synthetic views.
->
-> **Deprecation cycle**:
->
-> - 1.4.20: deprecate the `kotlin-android-extensions` plugin
-> - 2.1.20: introduce a configuration error, and stop executing plugin code
-> - 2.2.0: remove the plugin code
-> - 2.4.0: remove the plugin ID
-
-### Remove legacy Android source set layout
-
-> **Issue**: [KT-82265](https://youtrack.jetbrains.com/issue/KT-82265)
->
-> **Component**: Gradle
->
-> **Incompatible change type**: source
->
-> **Short summary**: Kotlin 2.4.0 removes the `kotlin.mpp.androidSourceSetLayoutVersion` Gradle property and support for the legacy Android source set layout.
-> To migrate, remove the property and use the current [Android source set layout](https://kotlinlang.org/docs/multiplatform/multiplatform-android-layout.html).
->
-> **Deprecation cycle**:
->
-> - 1.9.20: report an error when `kotlin.mpp.androidSourceSetLayoutVersion=1` is used
-> - 2.4.0: remove the Gradle property and support for the legacy Android source set layout
 
 ### Report errors for `LanguageSettings.enableLanguageFeature` DSL
 
