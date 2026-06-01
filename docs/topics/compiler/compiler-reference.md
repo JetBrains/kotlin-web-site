@@ -135,6 +135,11 @@ Allows using the `returnsResultOf()` contract so that the unused return value ch
 
 Enables support for reified `Throwable` type parameters in `catch` clauses of `inline` functions.
 
+### -Xcollection-literals
+<primary-label ref="experimental-general"/>
+
+Enables support for collection literals with brackets syntax `[]`.
+
 ### -Xcompiler-plugin-order={plugin.before>plugin.after}
 <primary-label ref="experimental-general"/>
 
@@ -185,6 +190,21 @@ Enables data-flow–based exhaustiveness checks for `when` expressions.
 Enables explicit [context arguments](context-parameters.md#pass-context-arguments-explicitly) for context parameters.
 
 This lets you resolve overload ambiguity by passing context arguments at the call site.
+
+### -Xklib-ir-inliner
+<primary-label ref="experimental-general"/>
+
+Configure whether intra-module inlining is enabled for Kotlin/Native, Kotlin/JS, and Kotlin/Wasm. By default, it's enabled.
+
+The option supports the following modes:
+
+* `disabled`: disables intra-module inlining for Kotlin/Native, Kotlin/JS, and Kotlin/Wasm.
+* `full`: enables cross-module inlining.
+
+### -XIntrinsic-const-evaluation
+<primary-label ref="experimental-general"/>
+
+Enables improved compile-time constants.
 
 ### -Xname-based-destructuring
 <primary-label ref="experimental-opt-in"/>
@@ -595,3 +615,15 @@ Set the hardware target. To see the list of available targets, use the [`-list-t
 
 Enable the [new interoperability mode](whatsnew2320.md#new-interoperability-mode-for-c-or-objective-c-libraries)
 for C or Objective-C libraries imported via cinterop.
+
+### -Xoverride-konan-properties=min.version.*
+<primary-label ref="experimental-general"/>
+
+Configure lower supported versions of Apple targets than the Kotlin defaults. For example:
+
+```bash
+kotlinc -Xoverride-konan-properties=minVersion.ios=14.0
+kotlinc -Xoverride-konan-properties=minVersion.macos=11.0
+kotlinc -Xoverride-konan-properties=minVersion.tvos=14.0
+kotlinc -Xoverride-konan-properties=minVersion.watchos=7.0
+```
