@@ -89,8 +89,8 @@ Keep in mind that these Kotlin compiler options behave differently:
 | `kotlin.compiler.jvmTarget`  | Yes                                     | No restrictions on JDK APIs in your code                                                      |
 | `kotlin.compiler.jdkRelease` | Yes                                     | Yes − only specific API version is allowed (equivalent to Java's `--release` compiler option) |
 
-> You cannot set different JDK options for `kotlin.compiler.jdkRelease` and `kotlin.compiler.jvmTarget` at the same time.
-> This results in an error.
+> Do not set different JDK options for `kotlin.compiler.jdkRelease` and `kotlin.compiler.jvmTarget` at the same time.
+> Otherwise, you'll get an error.
 >
 {style="note"}
 
@@ -106,10 +106,10 @@ Keep in mind that these Kotlin compiler options behave differently:
 
 Keep in mind that `target` and `release` options of the Maven compiler behave differently:
 
-| Maven compiler option    | Sets Kotlin's `jvmTarget` | Sets Kotlin's `jdkRelease` | Limits API to specified JDK              |
-|--------------------------|---------------------------|----------------------------|------------------------------------------|
+| Maven compiler option    | Sets Kotlin's `jvmTarget` | Sets Kotlin's `jdkRelease` | Limits API to specified JDK                  |
+|--------------------------|---------------------------|----------------------------|----------------------------------------------|
 | `maven.compiler.target`  | Yes                       | No                         | No − the build's JDK classpath stays visible |
-| `maven.compiler.release` | Yes                       | Yes                        | Yes − to the specific API version only          |
+| `maven.compiler.release` | Yes                       | Yes                        | Yes − to the specific API version only       |
 
 
 > The `<extensions>` option only checks project-level properties and the global `maven-compiler-plugin` configuration.
