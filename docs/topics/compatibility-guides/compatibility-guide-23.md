@@ -365,6 +365,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.20: report a warning
 > - 2.3.0: raise the warning to an error
+> - 2.4.0: remove the function
 
 ### Remove `closureTo()`, `createResultSet()`, and `KotlinToolingVersionOrNull()` functions
 
@@ -438,6 +439,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.0 and 2.2.20: report warnings when using these functions or properties
 > - 2.3.0: raise the warnings to errors
+> - 2.4.0: remove the functions and properties
 
 ### Deprecate support for PhantomJS
 
@@ -484,6 +486,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.0: report a warning for code that creates subclasses from these classes
 > - 2.3.0: raise the warnings to errors
+> - 2.4.0: remove the APIs
 
 ### Deprecate `ExperimentalWasmDsl` annotation class
 
@@ -499,6 +502,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.0.20: report a warning
 > - 2.3.0: raise the warning to an error
+> - 2.4.0: remove the annotation class
 
 ### Deprecate `ExperimentalDceDsl` annotation class
 
@@ -514,6 +518,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.0: report a warning
 > - 2.3.0: raise the warning to an error
+> - 2.4.0: remove the annotation class
 
 ### Deprecate JavaScript utilities
 
@@ -538,6 +543,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > - 2.2.0: report a warning when the `NodeJsSetupTask.Companion.NAME` property and functions are used
 > - 2.2.20: report a warning when the `JsIrBinary.generateTs` property is used
 > - 2.3.0: raise the warnings to errors
+> - 2.4.0: remove the APIs
 
 ### Deprecate migrated D8 and Binaryen properties
 
@@ -563,6 +569,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.0: report a warning
 > - 2.3.0: raise the warning to an error
+> - 2.4.0: remove the properties
 
 ### Deprecate `create()` function in `NodeJsExec` DSL
 
@@ -579,6 +586,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.1.20: report a warning
 > - 2.3.0: raise the warning to an error
+> - 2.4.0: remove the function
 
 ### Deprecate properties in `kotlinOptions` DSL
 
@@ -615,6 +623,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.0: report a warning when the `kotlinArtifacts` API is used
 > - 2.3.0: raise this warning to an error
+> - 2.4.0: remove the API
 
 ### Remove `kotlin.mpp.resourcesResolutionStrategy` Gradle property
 
@@ -734,6 +743,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > - 2.2.20: report a warning
 > - 2.3.0: raise the warning to an error
+> - 2.4.0: remove the function
 
 ### Change the approach to registering all generated sources
 
@@ -816,7 +826,7 @@ perspective (for example, from Java) is out of the scope of this document.
 
 ### Deprecate `LanguageSettings.enableLanguageFeature` DSL
 
-> **Issue**: [KT-82323](https://youtrack.jetbrains.com/issue/KT-82323)
+> **Issue**: [KT-82323](https://youtrack.jetbrains.com/issue/KT-82323), [KT-82847](https://youtrack.jetbrains.com/issue/KT-82847)
 >
 > **Component**: Gradle
 >
@@ -827,7 +837,8 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Deprecation cycle**:
 >
-> - 2.3.20: report a warning
+> - 2.3.20: report a warning when using `LanguageSettings.enableLanguageFeature`
+> - 2.4.0: raise the warning to an error
 
 ### Deprecate "out of process" compiler execution strategy
 
@@ -843,6 +854,7 @@ perspective (for example, from Java) is out of the scope of this document.
 > **Deprecation cycle**:
 >
 > - 2.3.20: report a warning
+> - 2.4.0: remove the "out of process" compiler execution strategy
 
 ## Build tool removal
 
