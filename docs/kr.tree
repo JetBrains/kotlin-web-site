@@ -370,7 +370,6 @@
         <toc-element accepts-web-file-names="plugin-releases.html" topic="releases.md"/>
         <toc-element toc-title="Earlier Kotlin releases">
             <toc-element toc-title="Kotlin 2.3.x">
-                <toc-element toc-title="Kotlin 2.3.20" topic="whatsnew2320.md"/>
                 <toc-element toc-title="Kotlin 2.3.0" topic="whatsnew23.md"/>
                 <toc-element toc-title="Compatibility guide" topic="compatibility-guide-23.md"/>
             </toc-element>
