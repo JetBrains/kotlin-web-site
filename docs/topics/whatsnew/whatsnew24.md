@@ -1014,7 +1014,7 @@ Now you can export Kotlin interfaces with nested classes and named companion obj
 ```kotlin
 @JsExport
 interface Identity {
-     class Metadata(val tag: String)
+    class Metadata(val tag: String)
 
     companion object Registry {
         val defaultTag = "GUEST"
@@ -1290,21 +1290,19 @@ this behavior in your projects, set the `-Xpartial-linkage-loglevel` compiler op
 ```kotlin
 // build.gradle.kts
 kotlin {
-   macosX64("native") {
-       binaries.executable()
+    macosX64("native") {
+        binaries.executable()
+        
+        compilations.configureEach {
+            compilerOptions.configure {
+                // To report linkage issues with the “info” log level:
+                freeCompilerArgs.add("-Xpartial-linkage-loglevel=INFO")
 
-
-       compilations.configureEach {
-           compilerOptions.configure {
-               // To report linkage issues with the “info” log level:
-               freeCompilerArgs.add("-Xpartial-linkage-loglevel=INFO")
-
-
-               // To report issues as errors:
-               freeCompilerArgs.add("-Xpartial-linkage-loglevel=ERROR")
-           }
-       }
-   }
+                // To report issues as errors:
+                freeCompilerArgs.add("-Xpartial-linkage-loglevel=ERROR")
+            }
+        }
+    }
 }
 ```
 {validate="false"}
