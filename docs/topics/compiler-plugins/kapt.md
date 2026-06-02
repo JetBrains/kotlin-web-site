@@ -238,27 +238,77 @@ generated files for each annotation processor. For example:
 [INFO] org.mapstruct.ap.MappingProcessor: total sources: 2, sources per round: 2, 0, 0
 ```
 
-## Compile avoidance for kapt
+### Exclude annotation processors from compile classpath
 
-To improve the times of incremental builds with kapt, it can use the Gradle [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance).
-With compile avoidance enabled, Gradle can skip annotation processing when rebuilding a project. Particularly, annotation
-processing is skipped when:
+You can disable the discovery of annotation processors that aren't included in kapt's processor path.
+This effectively excludes unnecessary annotation processors from the compile classpath.
+
+#### In Gradle
+
+Gradle uses [compile avoidance](https://docs.gradle.org/current/userguide/java_plugin.html#sec:java_compile_avoidance)
+to skip annotation processing during project rebuild, improving incremental build times with kapt. Particularly,
+annotation processing is skipped when:
 
 * The project's source files are unchanged.
 * The changes in dependencies are [ABI](https://en.wikipedia.org/wiki/Application_binary_interface)-compatible.
-   For example, the only changes are in method bodies. 
+  For example, the only changes are in method bodies.
 
-However, compile avoidance can't be used for annotation processors discovered in the compile classpath since _any changes_
-in them require running the annotation processing tasks. 
+However, compile avoidance can't be used for annotation processors discovered on the compile classpath, since changes
+in their internal implementation require running the annotation processing tasks, even if the ABI remains unchanged.
 
-To run kapt with compile avoidance:
-* [Add the annotation processor dependencies to the `kapt*` configurations manually](#use-in-gradle).
-* Turn off the discovery of annotation processors in the compile classpath in the `gradle.properties` file:
+That's why we don't recommend using annotation processors from the compile classpath. To exclude these annotations
+from processing, add the `kapt.include.compile.classpath` property to your `gradle.properties` file:
 
-   ```none
-   # gradle.properties
-   kapt.include.compile.classpath=false
-   ```
+```none
+# gradle.properties
+kapt.include.compile.classpath=false
+```
+
+With the option set to `false`, annotation processor dependencies that aren't included in the processor path
+(the `kapt*` configurations) are excluded from kapt processing.
+
+#### In Maven
+
+To exclude annotation processors that are missing from kapt's processor path, set the `includeCompileClasspath`
+option to `false` in the `<execution>` section of the kapt plugin:
+
+```xml
+<execution>
+    <id>kapt</id>
+    <goals>
+        <goal>kapt</goal>
+    </goals>
+    <configuration>
+        <includeCompileClasspath>false</includeCompileClasspath>
+        <sourceDirs>...</sourceDirs>
+        <annotationProcessorPaths>...</annotationProcessorPaths>
+    </configuration>
+</execution>
+```
+
+Alternatively, you can use the `kapt.include.compile.classpath` property in the `<properties>` section of your `pom.xml`:
+
+```xml
+<properties>
+    <kapt.include.compile.classpath>false</kapt.include.compile.classpath>
+</properties>
+```
+
+With the option set to `false`, annotation processors that aren't included in the `<annotationProcessorPaths>` section are
+excluded from kapt processing.
+
+If the `includeCompileClasspath` option isn't set and kapt detects an annotation processor on the compile classpath that isn't
+explicitly defined in the processor path, you'll see a deprecation warning:
+
+```none
+[WARNING] Annotation processors discovery from compile classpath is deprecated.
+Set 'kapt.include.compile.classpath=false' to disable discovery.
+```
+
+> To see the list of annotation processors that aren't present on the kapt classpath, run the build with the `--info` log
+> level option.
+> 
+{style="tip"}
 
 ## Incremental annotation processing
 
