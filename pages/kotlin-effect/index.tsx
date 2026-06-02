@@ -37,11 +37,9 @@ function Index() {
                 <CardStack />
             </div>
 
-            <div className="ktl-layout-to-2">
-                <div className={'ktl-layout ktl-layout--center'}>
-                    <ReportBlock />
-                    <NoteBlock />
-                </div>
+            <div className={'ktl-layout-v2 ktl-layout--center'}>
+                <ReportBlock />
+                <NoteBlock />
             </div>
         </LandingLayout>
     );

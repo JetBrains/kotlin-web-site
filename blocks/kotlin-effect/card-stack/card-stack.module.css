@@ -1,7 +1,7 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .section {
-    padding: 72px 0 72px 0;
+    padding-top: 72px;
     box-sizing: border-box;
     display: flex;
 }

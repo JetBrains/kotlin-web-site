@@ -1,7 +1,7 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .noteBlock {
-    margin-top: 48px;
+    margin-top: 96px;
     padding: 12px;
     border-radius: 32px;
     border: 12px solid #997BED;
@@ -18,6 +18,7 @@
 .headerContent {
     flex: 1;
     min-width: 0;
+    max-width: 754px;
 }
 
 .title {
@@ -47,17 +48,20 @@
 
 .textarea {
     display: block;
-    width: 100%;
 }
 
 .textarea [data-test="textarea__label"] {
     margin-bottom: 8px;
 }
 
+.textarea textarea {
+    padding-right: 100px;
+}
+
 /* stamp inside textarea on mobile */
 .stampMobile {
     position: absolute;
-    top: 12px;
+    top: 44px;
     right: 12px;
     pointer-events: none;
     transform: scale(0.68);
@@ -82,7 +86,7 @@
 .successMessage {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 16px;
     margin-top: 24px;
 }
@@ -90,7 +94,7 @@
 @media (--ktl-ts-min) {
     .noteBlock {
         padding: 36px;
-        margin-top: 48px;
+        margin-top: 144px;
     }
 
     /* show stamp in header, hide inside textarea */
@@ -104,9 +108,9 @@
 
     .textarea textarea {
         min-height: 456px;
+        padding-right: 8px;
     }
 
-    /* 2-column form layout: textarea left, fields right */
     .form {
         display: grid;
         grid-template-columns: 3fr 2fr;
@@ -136,5 +140,11 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        margin-top: 144px;
+    }
+
+    .sendMoreButton {
+        width: 33.333%;
+        flex-shrink: 0;
     }
 }

@@ -6,27 +6,28 @@ import styles from './note-block.module.css';
 import { Stamp } from './stamp';
 import { Form, Textarea, Input, SubmitButton, PrivacyConsent, createFormServiceSubmitter } from '@webteam/forms';
 
+const textCn = createTextCn('dark');
+
+function SubmitMessage({ onSendMore }: { onSendMore: () => void }) {
+    return (
+        <div className={styles.successMessage}>
+            <span className={textCn('rs-subtitle-2')}>Thank you for your note!</span>
+            <Button mode="outline" size={'l'} className={styles.sendMoreButton} onClick={onSendMore}>Send more</Button>
+        </div>
+    );
+}
+
 export const NoteBlock = () => {
     const [formKey, setFormKey] = React.useState(0);
     const submitter = createFormServiceSubmitter('https://forms-service.jetbrains.com/feedback');
-    const darkTextCn = createTextCn('dark');
-
-    const SubmitMessage = React.useMemo(() => function SubmitMessage() {
-        const textCn = createTextCn('dark');
-        return (
-            <div className={styles.successMessage}>
-                <span className={textCn('rs-subtitle-2')}>Thank you for your note!</span>
-                <Button mode="outline" onClick={() => setFormKey(k => k + 1)}>Send more</Button>
-            </div>
-        );
-    }, []);
+    const submitMessage = React.useCallback(() => <SubmitMessage onSendMore={() => setFormKey(k => k + 1)} />, []);
 
     return (
         <div className={styles.noteBlock}>
             <div className={styles.header}>
                 <div className={styles.headerContent}>
-                    <h2 className={cn(darkTextCn('rs-h1'), styles.title)}>Leave a Note for Kotlin&apos;s Future!</h2>
-                    <div className={cn(darkTextCn('rs-text-1', { hardness: 'hard' }), styles.subtitle)}>
+                    <h2 className={cn(textCn('rs-h1'), styles.title)}>Leave a Note for Kotlin&apos;s Future!</h2>
+                    <div className={cn(textCn('rs-subtitle-2', { hardness: 'hard' }), styles.subtitle)}>
                         Share a birthday wish or a bold prediction for where Kotlin&apos;s headed next.
                     </div>
                 </div>
@@ -40,7 +41,7 @@ export const NoteBlock = () => {
                 formId="9613"
                 debug={true}
                 submitter={submitter}
-                submitMessage={SubmitMessage}
+                submitMessage={submitMessage}
                 className={styles.form}
             >
                 <div className={styles.textareaWrapper}>
@@ -61,10 +62,10 @@ export const NoteBlock = () => {
                 </div>
 
                 <div className={styles.fields}>
-                    <Input label="First Name" name="FirstName" type="text" className={styles.input} />
+                    <Input label="First Name" name="FirstName" type="text" required className={styles.input} />
                     <Input label="Last Name" name="LastName" type="text" className={styles.input} />
                     <Input label="Your Email" name="email" type="email" className={styles.input} required />
-                    <PrivacyConsent consentId="mkt.general.user-intention" />
+                    <PrivacyConsent consentId="mkt.general.user-intention" required />
                     <SubmitButton mode="rock" className={styles.submitButton}>
                         Send the Note
                     </SubmitButton>
