@@ -1406,7 +1406,7 @@ Kotlin 2.4.0 advances the deprecation cycle of experimental feature flags that g
 
 ## Breaking changes and deprecations
 
-This section highlights important breaking changes and deprecations. For a complete overview, see our [Compatibility guide](compatibility-guide-24.md).
+This section highlights important breaking changes and deprecations. For a complete overview, see our Compatibility guide<!--[Compatibility guide](compatibility-guide-24.md)-->.
 
 * Starting with Kotlin 2.4.0, the compiler no longer supports `-language-version=1.9`. As a result, the K1 compiler is no longer supported.
 * Kotlin 2.4.0 streamlines the DSL for binary compatibility validation in the Kotlin Gradle plugin and deprecates some parts. For the latest DSL, see [Binary compatibility validation in the Kotlin Gradle plugin](gradle-binary-compatibility-validation.md).
