@@ -1,10 +1,9 @@
 [//]: # (title: Incremental processing)
 
-KSP uses incremental processing. This means KSP reprocesses files only when one or more of the file’s dependencies have 
-been changed. The goal of incremental processing is to reduce repeated compilation time.
+KSP supports incremental processing. KSP reprocesses a file only when one or more of its dependencies change. This 
+reduces compilation time by avoiding unnecessary reprocessing.
 
-Incremental processing is enabled by default. To disable it, add the following Gradle property to your 
-`gradle.properties` file:
+Incremental processing is enabled by default. To disable it, add this line to your `gradle.properties` file:
 
 ```
 ksp.incremental=false
