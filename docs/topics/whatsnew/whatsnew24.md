@@ -16,7 +16,7 @@ The Kotlin 2.4.0 release is out! Here are the main highlights:
 * **Maven:** [Automatic alignment between Java and JVM target versions](#maven)
 * **Kotlin compiler:** [More consistent inline function behavior during `.klib` compilation](#consistent-intra-module-function-inlining-during-klib-compilation)
 
-> For information about the Kotlin release cycle, see [Kotlin release process](releases.md).
+> For information about the Kotlin release cycle, see the [Kotlin release process](releases.md).
 >
 {style="tip"}
 
@@ -34,9 +34,9 @@ to 2.4.0 in your build scripts.
 In previous Kotlin releases, several new features were introduced as Experimental.
 The following features have now graduated to [Stable](components-stability.md#stability-levels-explained) in Kotlin 2.4.0, so you no longer need to opt in to use them:
 
-* [Context parameters](whatsnew22.md#preview-of-context-parameters), except for [context arguments](#explicit-context-arguments-for-context-parameters) and [callable references](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md#callable-references)
-* [`@all` meta-target for properties](whatsnew22.md#all-meta-target-for-properties)
-* [New defaulting rules for use-site annotation targets](whatsnew22.md#new-defaulting-rules-for-use-site-annotation-targets)
+* [Context parameters](context-parameters.md), except for [context arguments](#explicit-context-arguments-for-context-parameters) and [callable references](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md#callable-references)
+* [`@all` meta-target for properties](annotations.md#all-meta-target)
+* [New defaulting rules for use-site annotation targets](annotations.md#defaults-when-no-use-site-targets-are-specified)
 * [Explicit backing fields](properties.md#explicit-backing-fields)
 * [Stable UUID API in the common Kotlin standard library](#stable-uuid-api-in-the-common-kotlin-standard-library)
 * [New API for converting unsigned integers to `BigInteger` on the JVM](#new-api-for-converting-unsigned-integers-to-biginteger-on-the-jvm)
@@ -70,8 +70,8 @@ This release also introduces [explicit context arguments for context parameters]
 Kotlin 2.2.0 and 2.3.0 introduced a few language features as [Experimental](components-stability.md#stability-levels-explained). We're happy to announce that the following language features are now [Stable](components-stability.md#stability-levels-explained) in this release:
 
 * [Context parameters](whatsnew22.md#preview-of-context-parameters), except for [context arguments](#explicit-context-arguments-for-context-parameters) and [callable references](https://github.com/Kotlin/KEEP/blob/context-parameters/proposals/context-parameters.md#callable-references)
-* [`@all` meta-target for properties](whatsnew22.md#all-meta-target-for-properties)
-* [New defaulting rules for use-site annotation targets](whatsnew22.md#new-defaulting-rules-for-use-site-annotation-targets)
+* [`@all` meta-target for properties](annotations.md#all-meta-target)
+* [New defaulting rules for use-site annotation targets](annotations.md#defaults-when-no-use-site-targets-are-specified)
 * [Explicit backing fields](properties.md#explicit-backing-fields)
 
 [See the full list of Kotlin language design features and proposals](kotlin-language-features-and-proposals.md).
@@ -467,7 +467,7 @@ Kotlin 2.0.20 introduced a [class for generating UUIDs](whatsnew2020.md#support-
 improved this experimental feature by adding support for:
 
 * [Comparing UUIDs with `<` and `>` operators](whatsnew2120.md#changes-in-uuid-parsing-formatting-and-comparability)
-* [Parsing UUIDs from hex-and-dash and plain text formats](whatsnew2120.md#changes-in-uuid-parsing-formatting-and-comparability)
+* [Parsing UUIDs from hex-and-dash and plain text formats](uuids.md#parse-uuids)
 * [Returning `null` when parsing invalid UUIDs](whatsnew23.md#support-for-returning-null-when-parsing-invalid-uuids).
 
 In Kotlin 2.4.0, [the `kotlin.uuid.Uuid` API](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.uuid/-uuid/) becomes [Stable](components-stability.md#stability-levels-explained).
@@ -488,7 +488,7 @@ This includes the following extension functions:
 * `.isSortedBy(selector)`
 * `.isSortedByDescending(selector)`
 
-You can use these extension functions to check whether elements are already sorted without sorting them again or creating your own helper functions.
+You can use these extension functions to check whether elements are already sorted, without sorting them again or creating your own helper functions.
 They return `true` if the elements are in the specified order, or if there are fewer than two elements, and `false` otherwise.
 These functions stop as soon as they encounter an out-of-order pair, which makes them efficient for large inputs.
 
@@ -741,7 +741,7 @@ let msg = try await hello()
 ```
 #### Export of flow types to Swift
 
-This update also adds support for exporting `kotlinx.coroutines`’ flows to Swift. Flows in `kotlinx.coroutines` represent
+This update also adds support for exporting `kotlinx.coroutines` flows to Swift. Flows in `kotlinx.coroutines` represent
 an asynchronous stream of data that can be emitted and consumed concurrently. They are commonly used for reactive programming
 patterns, such as listening for database updates, network requests, or UI events.
 
@@ -803,7 +803,7 @@ Kotlin 2.4.0 enables incremental compilation for Kotlin/Wasm by default and intr
 ### Incremental compilation enabled by default
 <secondary-label ref="wasm"/>
 
-Kotlin/Wasm introduced incremental compilation in 2.1.0. Starting with Kotlin 2.4.0, it is [Stable](components-stability.md#stability-levels-explained) and enabled by default.
+Kotlin/Wasm introduced incremental compilation in Kotlin 2.1.0. Starting with Kotlin 2.4.0, it is [Stable](components-stability.md#stability-levels-explained) and enabled by default.
 With this feature, the compiler rebuilds only the files affected by recent changes, which significantly reduces build time.
 
 To disable incremental compilation, add the following line to your project's `local.properties` or `gradle.properties` file:
@@ -1082,8 +1082,8 @@ JVM target version with the Java compiler version configured in the project.
 This ensures that the Kotlin and Maven compilers target the same bytecode version, avoiding issues where Kotlin-generated
 bytecode is incompatible with the rest of the project or the intended deployment environment.
 
-With the `<extensions>` option enabled, you don't need the `kotlin.compiler.jvmTarget` property. If it's not already defined,
-the Kotlin Maven plugin automatically resolves the JVM target version in the following order:
+With the `<extensions>` option enabled, you don't need to set the `kotlin.compiler.jvmTarget` or `kotlin.compiler.jdkRelease` options.
+If neither of them is defined, the Kotlin Maven plugin automatically resolves the JVM target version in the following order:
 
 1. As the `maven.compiler.release` version defined either as a project property or within the `maven-compiler-plugin` configuration.
 
@@ -1091,7 +1091,7 @@ the Kotlin Maven plugin automatically resolves the JVM target version in the fol
 
 2. As the `maven.compiler.target` version in case the Maven release version is not set. The compiler target can be defined either as a project property or within the `maven-compiler-plugin` configuration.
 
-   In this case, only Kotlin's `jvmTarget` is set and the API is not limited to a specific JDK version.
+   In this case, only Kotlin's `jvmTarget` is set, and the API is not limited to a specific JDK version.
 
 This greatly simplifies your Kotlin project configuration, so your `pom.xml` file can look like this:
 
@@ -1124,7 +1124,7 @@ During the build, the plugin outputs a similar message:
 >
 {style="note"}
 
-For more information about automatic project configuration, see [our documentation](maven-configure-project.md#automatic-configuration).
+For more information about automatic project configuration, see [our documentation](maven-configure-project.md#jvm-target-version).
 
 ### Support for Maven Toolchains
 
@@ -1405,7 +1405,7 @@ Kotlin 2.4.0 advances the deprecation cycle of experimental feature flags that g
 
 ## Breaking changes and deprecations
 
-This section highlights important breaking changes and deprecations. For a complete overview, see our Compatibility guide<!--[Compatibility guide](compatibility-guide-24.md)-->.
+This section highlights important breaking changes and deprecations. For a complete overview, see our [Compatibility guide](compatibility-guide-24.md).
 
 * Starting with Kotlin 2.4.0, the compiler no longer supports `-language-version=1.9`. As a result, the K1 compiler is no longer supported.
 * Kotlin 2.4.0 streamlines the DSL for binary compatibility validation in the Kotlin Gradle plugin and deprecates some parts. For the latest DSL, see [Binary compatibility validation in the Kotlin Gradle plugin](gradle-binary-compatibility-validation.md).
@@ -1422,9 +1422,9 @@ We made the following documentation changes in the Kotlin ecosystem:
 * [Multiplatform ViewModel](https://kotlinlang.org/docs/multiplatform/compose-viewmodel.html) – Learn how to set up and work with ViewModels in a multiplatform project.
 * [Backend development with Kotlin](server-overview.md) – Explore the different frameworks you can use for backend development.
 * [Create a task manager app with Spring Boot and Claude](spring-boot-claude.md) – Learn how Claude can help you create an app with Spring Boot from scratch.
-* [Configure a Maven project](maven-configure-project.md) – Introduce Kotlin to your existing Java Maven project or create a new Kotlin Maven project.
+* [Configure a Maven project](maven-configure-project.md) – Set up Kotlin compilation in your existing Java Maven project or in a new Kotlin Maven project.
 * [Test Kotlin projects with Maven](jvm-test-maven.md) – Learn how to create tests with JUnit and use Maven plugins to run unit and integration tests.
-* [Use annotation processors in Kotlin projects](jvm-annotation-processors.md) – Understand when to use kapt or KSP to process annotations in your backend project.
+* [Use annotation processors in Kotlin projects](jvm-annotation-processors.md) – Choose between kapt and KSP to process annotations in your backend project.
 * [Kotlin AI skills](kotlin-ai-skills.md) – Use agent skills to help you perform Kotlin-specific tasks.
 * [Kotlin Language Server](kotlin-lsp.md) – Read about JetBrains' official implementation of the Language Server Protocol (LSP) for Kotlin.
 * [Numbers](numbers.md) – Explore Kotlin's number types and how to work with them.
