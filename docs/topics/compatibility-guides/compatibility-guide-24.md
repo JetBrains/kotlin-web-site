@@ -528,7 +528,7 @@ perspective (for example, from Java) is out of the scope of this document.
 >
 > **Short summary**: The `shrunkClasspathSnapshot` configuration parameter in `ClasspathSnapshotBasedIncrementalCompilationApproachParameters` is deprecated.
 > The shrunk classpath snapshot is an internal incremental compilation cache, so the compiler now creates and manages it automatically under the incremental compiler metadata `workingDirectory`.
-> To migrate, use the automatically managed snapshot file, instead of passing a value to `shrunkClasspathSnapshot`, 
+> To migrate, use the automatically managed snapshot file, instead of passing a value to `shrunkClasspathSnapshot`.
 >
 > **Deprecation cycle**:
 >
