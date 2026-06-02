@@ -61,6 +61,7 @@ To use Kotlin and Java together in a Maven project, apply the Kotlin Maven plugi
    * Automatically add the `kotlin-stdlib` dependency to the project.
    * Configure execution phases to compile Kotlin first, then Java.
    * Reference Kotlin code in Java code and vice versa.
+   * Automatically align the JVM target version with the Java compiler version.
 
    You don't need a separate `maven-compiler-plugin` in the `<build><pluginManagement>` section when using the Kotlin
    Maven plugin with extensions.
