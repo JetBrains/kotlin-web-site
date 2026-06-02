@@ -728,6 +728,7 @@ You can now seamlessly call suspending Kotlin code from Swift. Kotlin [`suspend`
 and suspend functional types are exported as Swift's idiomatic `async` counterparts:
 
 ```kotlin
+// Kotlin
 suspend fun hello(): String {
     delay(1000)
     return "Hello Swift! This is Kotlin."
@@ -735,6 +736,7 @@ suspend fun hello(): String {
 ```
 
 ```swift
+// Swift
 let msg = try await hello()
 ```
 #### Export of flow types to Swift
@@ -777,7 +779,6 @@ Kotlin Multiplatform projects now can declare [Swift packages](https://docs.swif
 ```kotlin
 // build.gradle.kts
 kotlin {
-
     swiftPMDependencies {
         swiftPackage(
             url = url("https://github.com/firebase/firebase-ios-sdk.git"),
