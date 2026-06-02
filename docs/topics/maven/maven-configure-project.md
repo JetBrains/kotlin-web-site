@@ -12,7 +12,7 @@ This approach saves you time because you don't need to configure the Maven compi
 
 To apply the Kotlin Maven plugin with `<extensions>`, update your `pom.xml` build file as follows:
 
-1. In the `<properties>` section, define the target versions of Kotlin and JVM:
+1. In the `<properties>` section, define the target versions of Kotlin and the JVM:
 
    ```xml
    <properties>
@@ -44,7 +44,7 @@ The `<extensions>` option:
 * Adds the [`kotlin-stdlib` dependency](maven-set-dependencies.md#dependency-on-the-standard-library) if it's not already defined in the project.
 * Adds `compile`, `test-compile`, `kapt`, and `test-kapt` executions to your build, bound to their appropriate [lifecycle phases](https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html).
   So you don't need to manually set up the `<executions>` section with `<id>` and `<goals>` for `kapt`, Kotlin's `compile`,
-  and Java's `compile` executions to run in the correct order.
+  and Java's `compile` executions to ensure they run in the correct order.
 * [Automatically aligns the JVM target version with the Java compiler version configured in the project.](#jvm-target-version)
    
 If you have a mixed Java and Kotlin project, the configuration ensures that:
@@ -82,7 +82,7 @@ graph TD
 The version set in `kotlin.compiler.jdkRelease` or `kotlin.compiler.jvmTarget` property takes priority if either
 is defined in the project.
 
-Keep in mind that these options of the Kotlin compiler behave differently:
+Keep in mind that these Kotlin compiler options behave differently:
 
 | Kotlin compiler option       | Controls bytecode version of the output | Limits API to specified JDK                                                                   |
 |------------------------------|-----------------------------------------|-----------------------------------------------------------------------------------------------|
@@ -96,10 +96,10 @@ Keep in mind that these options of the Kotlin compiler behave differently:
 
 #### Maven compiler versions
 
-* If neither `kotlin.compiler.jdkRelease` nor `kotlin.compiler.jvmTarget` is set, the plugin takes
+* If neither the `kotlin.compiler.jdkRelease` nor the `kotlin.compiler.jvmTarget` option is set, the plugin takes
   the `maven.compiler.release` version.
 
-  It can be defined either as a project property or within the `maven-compiler-plugin` configuration.
+  The `maven.compiler.release` version can be defined either as a project property or within the `maven-compiler-plugin` configuration.
 * If the Maven release version isn't set, the plugin takes the `maven.compiler.target` version.
 
   It can be defined either as a project property or within the `maven-compiler-plugin` configuration.
@@ -108,12 +108,12 @@ Keep in mind that `target` and `release` options of the Maven compiler behave di
 
 | Maven compiler option    | Sets Kotlin's `jvmTarget` | Sets Kotlin's `jdkRelease` | Limits API to specified JDK              |
 |--------------------------|---------------------------|----------------------------|------------------------------------------|
-| `maven.compiler.target`  | Yes                       | No                         | No − build's JDK classpath stays visible |
-| `maven.compiler.release` | Yes                       | Yes                        | Yes − specific API version only          |
+| `maven.compiler.target`  | Yes                       | No                         | No − the build's JDK classpath stays visible |
+| `maven.compiler.release` | Yes                       | Yes                        | Yes − to the specific API version only          |
 
 
 > The `<extensions>` option only checks project-level properties and the global `maven-compiler-plugin` configuration.
-> It doesn’t check the configurations defined in the plugin’s `<executions>` section.
+> It doesn't check the configurations defined in the plugin's `<executions>` section.
 >
 {style="note"}
 

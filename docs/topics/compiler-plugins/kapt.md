@@ -406,7 +406,7 @@ For more information on the `<extensions>` option, see [Automatic configuration]
 
 ### Manual configuration
 
-To manually set up kapt in your Kotlin Maven project, add an execution of the `kapt` goal from `kotlin-maven-plugin` before `compile`: 
+To manually set up kapt in your Kotlin Maven project, add an execution of the `kapt` goal from `kotlin-maven-plugin` before the `compile` execution: 
 
 ```xml
 <execution>
