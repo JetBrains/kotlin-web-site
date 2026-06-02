@@ -1,11 +1,11 @@
-[//]: # (title: Compatibility guide for Kotlin 2.4.0)
+[//]: # (title: Compatibility guide for Kotlin 2.4.x)
 
 _[Keeping the Language Modern](kotlin-evolution-principles.md)_ and _[Comfortable Updates](kotlin-evolution-principles.md)_ are among the fundamental principles in
 Kotlin Language Design. The former says that constructs which obstruct language evolution should be removed, and the
 latter says that this removal should be well-communicated beforehand to make code migration as smooth as possible.
 
 While most of the language changes were already announced through other channels, like update changelogs or compiler
-warnings, this document summarizes them all, providing a complete reference for migration from Kotlin 2.2 to Kotlin 2.3.
+warnings, this document summarizes them all, providing a complete reference for migration from Kotlin 2.3 to Kotlin 2.4.
 This document also includes information about tool-related changes.
 
 ## Basic terms
