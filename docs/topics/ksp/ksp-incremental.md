@@ -61,12 +61,13 @@ output will also be reprocessed. This happens repeatedly until there is no new d
 
 * If an unchanged input file isn't associated with any aggregating outputs, it won't be reprocessed.
 
-    **Why?** If an output file is categorized as isolating, the processor is sure that the information comes from a 
-specific set of input files. If those files don’t change, neither will the output file.
+    **Why?** This file can't affect any outputs because it is unchanged and isn't associated with an aggregating output. 
+It won't be reprocessed unless one of the above rules applies.
 
 ## Dirtiness propagation
 
 A file is considered dirty if it is either directly modified by the user or indirectly affected by changes in other dirty files.
+
 KSP propagates dirtiness in two steps:
 
 * Propagation by **resolution tracing**: Type resolution is the only way to traverse from one file to another. When a 
@@ -82,12 +83,7 @@ Note that both of these steps will be repeated until there are no dirty files.
 
 ## Example 1
 
-A processor generates `outputForA` after reading class A in `A.kt` and class B in `B.kt`, where A extends B.
-
-The processor gets A by `Resolver.getSymbolsWithAnnotation` and B by `KSClassDeclaration.superTypes` from A.
-
-Because the inclusion of B is due to A, `B.kt` doesn't need to be specified in dependencies for `outputForA`. You can 
-still specify `B.kt` in this case, but it is unnecessary.
+Consider a project that contains classes `A` and `B`, where `A` extends `B`:
 
 ```kotlin
 // A.kt
@@ -115,22 +111,43 @@ class Example1Processor : SymbolProcessor {
 }
 ```
 
+To generate `outputForA`, the processor:
+
+1. gets A by calling `Resolver.getSymbolsWithAnnotation`.
+
+2. gets B by calling `KSClassDeclaration.superTypes` on A.
+
+KSP tracks this relationship through resolution tracing and automatically records B as a dependency of A. Therefore, 
+the processor doesn't need to explicitly declare B.kt as a dependency of outputForA.
+
+
 ## Example 2
+
+```none
+.
+├── src
+│   ├── sourceA.kt
+│   └── sourceB.kt
+└── generated
+    ├── outputA
+    └── outputB
+```
 
 A processor generates `outputA` after reading `sourceA` and `outputB` after reading `sourceB`.
 
-When `sourceA` is changed:
+If `sourceA` changes:
 
-* If outputB is aggregating, both sourceA and sourceB are reprocessed.
+* If `outputB` is aggregating, KSP reprocesses both `sourceA` and `sourceB`.
 
-* If outputB is isolating, only sourceA is reprocessed.
+* If `outputB` is isolating, KSP reprocesses `sourceA`only.
 
-When `sourceC` is added:
+If `sourceC` is added:
 
-* If `outputB` is aggregating, both `sourceC` and `sourceB` are reprocessed.
-* If `outputB` is isolating, only `sourceC` is reprocessed.
+* If `outputB` is aggregating, KSP reprocesses `sourceC` and `sourceB`.
 
-When either `sourceA` or `sourceB` is removed, nothing needs to be reprocessed.
+* If `outputB` is isolating, KSP reprocesses only `sourceC`.
+
+If either `sourceA` or `sourceB` is removed, KSP doesn't need to reprocess any files.
 
 
 ## Reporting bugs
