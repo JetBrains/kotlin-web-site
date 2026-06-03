@@ -100,26 +100,23 @@ The Language Committee makes final decisions on which incompatible changes will 
 what exact measures should be taken to make user updates as seamless as possible.
 In doing so, it relies on a set of [Language committee guidelines](https://kotlinfoundation.org/language-committee-guidelines/).
 
-## Language and tooling releases
+## Language feature delivery
 
-Stable releases with versions, such as 2.0.0, are usually considered to be _language releases_ bringing major changes in the language.
-Normally, we publish _tooling releases_, numbered x.x.**20** in between language releases. 
+As described in the [Kotlin release process](releases.md), language features are shipped in _language releases_ (2._x_._0_)
+or their following _tooling releases_ (2._x_._20_).
 
-Tooling releases bring updates in the tooling (often including features), performance improvements, and bug fixes.
-We try to keep such versions compatible with each other,
-so changes to the compiler are mostly optimizations and warning additions/removals.
+We try to keep language and tooling releases compatible with each other, so changes to the compiler are mostly optimizations and warning additions/removals.
 Pre-stable features may be added, removed, or changed at any time.
 
-Language releases often add new features and may remove or change previously deprecated ones. 
-Feature graduation from pre-stable to stable also happens in language releases.
+Language releases often add new features, promote pre-stable features to stable, and may remove or change previously deprecated ones.
 
 ### EAP builds
 
 Before releasing stable versions of language and tooling releases, 
-we publish a number of preview builds dubbed EAP (for "Early Access Preview") that let us iterate faster and gather feedback from the community.
+we publish a number of preview builds dubbed _EAP_ (for "Early Access Preview") that let us iterate faster and gather feedback from the community.
 EAPs of language releases usually produce binaries that will be later rejected by the stable compiler
 to make sure that possible bugs in the binary format survive no longer than the preview period.
-Final Release Candidates normally don't bear this limitation. For more information, see [Participate in the Kotlin Early Access Preview](eap.md).
+Final release candidates, such as RC2 or RC3, normally don't bear this limitation. For more information, see [Participate in the Kotlin Early Access Preview](eap.md).
 
 ### Pre-stable features
 

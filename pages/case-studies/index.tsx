@@ -10,8 +10,12 @@ import { RouterCasesProvider } from '../../blocks/case-studies/filter/use-filter
 const TOP_MENU_ITEMS = [
     {
         url: '/case-studies/',
-        title: 'Success stories'
-    }
+        title: 'Success stories',
+    },
+    {
+        url: '/lp/enterprise-playbook/',
+        title: 'Enterprise playbook',
+    },
 ];
 
 function Index() {

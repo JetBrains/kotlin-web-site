@@ -1,5 +1,7 @@
 [//]: # (title: Create a Kotlin app that answers questions with Spring AI — tutorial)
 
+<web-summary>Learn how to create a Kotlin app that answers questions with Spring AI.</web-summary>
+
 In this tutorial, you'll learn how to build a Kotlin app that connects to an LLM via [Spring AI](https://spring.io/projects/spring-ai),
 stores documents in a vector database, and answers questions using context from those documents.
 
@@ -344,5 +346,9 @@ Congratulations! You now have a Kotlin app that connects to OpenAI and answers q
 documentation stored in Qdrant.
 Try experimenting with different queries or importing other documents to explore more possibilities.
 
-You can view the completed project in the [Spring AI demo GitHub repository](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/springAI-demo),
-or explore other Spring AI examples in [Kotlin AI Examples](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master).
+You can view the completed project in the [Spring AI demo GitHub repository](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master/projects/spring-ai/springAI-demo).
+
+## What's next
+
+* Explore other Spring AI examples in [Kotlin AI Examples](https://github.com/Kotlin/Kotlin-AI-Examples/tree/master)
+* [Create a task manager application with Spring Boot and Claude](spring-boot-claude.md)
