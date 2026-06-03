@@ -22,7 +22,7 @@ function Index() {
     return (
         <LandingLayout
             title="The Kotlin Effect | Write Less. Do More."
-            ogImageName={''}
+            ogImageName={'kotlin-effect.jpg'}
             description="Discover the Kotlin Effect. Write less code, do more, and enjoy the process. Watch the video, play the game, and explore learning resources."
             currentTitle={KOTLIN_EFFECT_TITLE}
             currentUrl={KOTLIN_EFFECT_URL}
