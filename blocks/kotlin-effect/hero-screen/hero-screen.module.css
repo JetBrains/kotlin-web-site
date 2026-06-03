@@ -6,14 +6,16 @@
     width: 100%;
     background: #000;
     box-sizing: border-box;
+    margin-bottom: 24px;
     @media (--ktl-ds-down) {
         height: auto;
+        margin-bottom: 0;
     }
 }
 
 .wrapper {
     position: relative;
-    padding: 145px 0 200px 0;
+    padding: 145px 0 0 0;
     @media (--ktl-ds-down) {
         padding: 96px 0 48px 0;
     }
