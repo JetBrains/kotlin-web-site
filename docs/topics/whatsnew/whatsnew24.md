@@ -44,6 +44,7 @@ The following features have now graduated to [Stable](components-stability.md#st
 * [Support for value class export to JavaScript/TypeScript](#support-for-value-class-export-to-javascript-typescript)
 * [Support for ES2015 features when inlining JS code](#support-for-es2015-features-when-inlining-js-code)
 * [Maven: Automatic alignment between Java and JVM target versions](#automatic-alignment-between-java-and-jvm-target-versions)
+* [Support for Maven Toolchains](#support-for-maven-toolchains)
 
 > Support for using explicit backing fields in IntelliJ IDEA without the `-Xexplicit-backing-fields` compiler option will be available in 2026.1.4.
 >
@@ -55,6 +56,9 @@ The following features have now graduated to [Stable](components-stability.md#st
 * [Explicit context arguments for context parameters](#explicit-context-arguments-for-context-parameters)
 * [Support for collection literals](#support-for-collection-literals)
 * [Improved compile-time constants](#improved-compile-time-constants)
+* [Improved unused result checks for higher-order functions](#improved-unused-result-checks-for-higher-order-functions) 
+* [New `@IntroducedAt` annotation to generate version-based overloads for optional parameters](#new-introducedat-annotation-to-generate-version-based-overloads-for-optional-parameters)
+* [New map fallback functions to distinguish `null` values and missing keys](#new-map-fallback-functions-to-distinguish-null-values-and-missing-keys)
 * [Swift package import](#swift-package-import)
 * [Swift export goes Alpha with improved concurrency support](#swift-export-goes-alpha-with-improved-concurrency-support)
 * [Support for the WebAssembly Component Model](#support-for-the-webassembly-component-model)
@@ -331,7 +335,7 @@ kotlin {
 
 For more information, see the feature's [KEEP](https://github.com/Kotlin/KEEP/blob/main/proposals/KEEP-0444-improve-compile-time-constants.md).
 
-### Improve unused result checks for higher-order functions
+### Improved unused result checks for higher-order functions
 <primary-label ref="experimental-opt-in"/>
 
 <secondary-label ref="language"/>
