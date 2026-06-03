@@ -120,8 +120,7 @@ export const CardStack: FC = () => {
 
     const tagPresets = {
         ...basePresets,
-        light: { color: 'white', backgroundColor: '#19191C' },
-        dark: { color: '#19191C', backgroundColor: '#19191C1A' }
+        light: { color: 'white', backgroundColor: '#19191C' }
     };
 
     return (
@@ -187,7 +186,7 @@ export const CardStack: FC = () => {
                             </div>
 
                             <div>
-                                <Button size="l" mode={'rock'}>Play the Game</Button>
+                                <Button className={styles.button} size="l" mode={'rock'}>Play the Game</Button>
                             </div>
                         </div>
                     </div>
@@ -207,9 +206,16 @@ export const CardStack: FC = () => {
                             </div>
 
                             <div className={styles.tagsContainer}>
-                                <Tag {...tagPresets.dark} size={'m'} icon={<RocketIcon className={styles.iconDark} />}>
-                                    Exclusive anniversary offer: Get free access to select Kotlin courses on Hyperskill!
-                                </Tag>
+
+                                <div className={styles.multilineTag}>
+
+                                    <p className={cn(darkLinkCn('rs-text-2'), styles.multilineTagText)}>
+                                        <WinIcon className={styles.multilineTagIcon} />
+                                        Exclusive anniversary offer: Get free
+                                        access to select Kotlin courses on Hyperskill!
+                                    </p>
+                                </div>
+
                                 <p className={cn(textCn('rs-text-2'), styles.tagLinksContainer)}>
                                     <a className={cn(darkLinkCn('rs-link', { mode: 'standalone' }), styles.darkLink)}
                                        href="#">
@@ -294,7 +300,7 @@ export const CardStack: FC = () => {
                             </div>
 
                             <div>
-                                <Button size="l" mode={'rock'} theme={'light'}>Build Your First Project</Button>
+                                <Button className={styles.button} size="l" mode={'rock'} theme={'light'}>Build Your First Project</Button>
                             </div>
                         </div>
                     </div>

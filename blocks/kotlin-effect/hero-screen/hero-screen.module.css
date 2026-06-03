@@ -15,7 +15,7 @@
     position: relative;
     padding: 145px 0 200px 0;
     @media (--ktl-ds-down) {
-        padding: 64px 0;
+        padding: 96px 0 48px 0;
     }
 }
 
@@ -26,7 +26,7 @@
     transform: translateX(250px) translateY(-50px);
     pointer-events: none;
     @media (--ktl-tl-down) {
-        transform: translateX(350px) translateY(-200px);
+        transform: translateX(330px) translateY(-150px);
     }
 }
 
@@ -55,4 +55,12 @@
 .buttons {
     display: flex;
     gap: 16px;
+}
+
+
+.mobileBr {
+    display: none;
+    @media (--ktl-ts-down) {
+        display: block;
+    }
 }

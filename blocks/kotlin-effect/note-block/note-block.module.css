@@ -23,6 +23,9 @@
     background: #000;
     border-radius: calc(48px - 12px);
     padding: 36px;
+    @media (--ktl-ts-down) {
+        padding: 20px;
+    }
 }
 
 .header {

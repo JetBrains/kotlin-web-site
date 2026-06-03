@@ -4,6 +4,9 @@
     padding-top: 72px;
     box-sizing: border-box;
     display: flex;
+    @media (--ktl-ds-down) {
+        padding-top: 48px;
+    }
 }
 
 .sectionStack {
@@ -16,7 +19,7 @@
     flex: 1;
     flex-direction: column;
     @media (--ktl-ds-down) {
-        grid-gap: 64px;
+        grid-gap: 48px;
     }
 }
 
@@ -47,12 +50,12 @@
 }
 
 @keyframes gradient-flow {
-  from {
-    background-position: center top;
-  }
-  to {
-    background-position: center bottom;
-  }
+    from {
+        background-position: center top;
+    }
+    to {
+        background-position: center bottom;
+    }
 }
 
 .stackAnimated .card {
@@ -67,6 +70,7 @@
     border: 0;
     background: linear-gradient(180deg, #997BED 62.24%, #D01AD8 136.49%, rgba(0, 196, 255, 0.70) 200.56%, rgba(39, 175, 216, 0.00) 270.03%);
     backdrop-filter: blur(17px);
+
     .cardInner {
         background: transparent;
     }
@@ -81,6 +85,9 @@
     padding: 36px;
     @media (--ktl-ds-down) {
         height: fit-content;
+    }
+    @media (--ktl-ts-down) {
+        padding: 20px;
     }
 }
 
@@ -140,6 +147,14 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
     margin: 48px 0;
+
+    @media (--ktl-ds-down) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (--ktl-ts-down) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .screenshot {
@@ -148,6 +163,12 @@
     display: flex;
     overflow: hidden;
     position: relative;
+
+    @media (--ktl-ds-down) {
+        width: 100%;
+        min-height: 200px;
+    }
+
 }
 
 .screenshotImg {
@@ -163,7 +184,7 @@
     flex: 1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    gap: 16px;
     margin: 48px 0;
     @media (--ktl-ds-down) {
         grid-template-columns: repeat(1, 1fr);
@@ -174,7 +195,7 @@
 .linksContainer {
     background: #241C2C;
     border-radius: 24px;
-    padding: 32px;
+    padding: 24px;
 }
 
 .linksSubtitle {
@@ -189,13 +210,43 @@
 
 .linksLi {
     padding-left: 0 !important;
+
     &:before {
         display: none !important;
     }
 }
 
-
-.darkLink {
-    /*color: #19191C !important;*/
+.multilineTag {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: #19191C;
+    background: #19191C1A;
+    padding: 6px 12px;
+    border-radius: 6px;
+    box-sizing: border-box;
 }
 
+.button {
+    @media (--ktl-ts-down) {
+        width: 100%;
+    }
+}
+
+.multilineTagIcon {
+    margin-right: 8px;
+    display: inline;
+}
+
+.multilineTagIcon {
+    fill: #531CEE;
+    flex-shrink: 0;
+}
+
+.multilineTagText {
+    display: inline-flex;
+    align-items: center;
+    color: #19191C !important;
+    padding: 0;
+    margin: 0;
+}
