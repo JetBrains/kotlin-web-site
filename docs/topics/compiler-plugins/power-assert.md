@@ -3,8 +3,8 @@
 
 The Kotlin Power-assert compiler plugin improves the debugging experience
 by providing detailed failure messages with contextual information.
-It simplifies the process of writing tests by automatically generating 
-intermediate values in failure messages. 
+It simplifies the process of writing tests by automatically generating
+intermediate values in failure messages.
 It helps you understand why a test failed without needing complex assertion libraries.
 
 This is an example message provided by the plugin:
@@ -20,16 +20,15 @@ assert(hello.length == world.substring(1, 4).length) { "Incorrect length" }
 
 The Power-assert plugin key features:
 
-* **Enhanced error messages**: The plugin captures and displays the values of variables and 
-   sub-expressions within the assertion to clearly identify the cause of failure.
+* **Enhanced error messages**: The plugin captures and displays the values of variables and
+  sub-expressions within the assertion to clearly identify the cause of failure.
+* **Runtime library**: The library provides the `@PowerAssert` annotation and the `CallExplanation` class. They make
+  Power-assert capable functions more discoverable and easier to configure by integrating them directly with
+  the compiler plugin transformations.
 * **Simplified testing**: Automatically generates informative failure messages,
-   reducing the need for complex assertion libraries.
+  reducing the need for complex assertion libraries.
 * **Support for multiple functions**: By default, it transforms `assert()` function calls but can also transform other functions,
-   such as `require()`, `check()`, and `assertTrue()`.
-
-The plugin also includes a runtime library that provides the `@PowerAssert` annotation and the `CallExplanation` class.
-They make Power-assert capable functions more discoverable and easier to configure by integrating them directly with
-the compiler plugin transformations.
+  such as `require()`, `check()`, and `assertTrue()`.
 
 ## Apply the plugin
 
@@ -375,9 +374,13 @@ powerAssert {
 
 ### `@PowerAssert`-annotated functions
 
-If a library function is annotated with `@PowerAssert`, the Power-assert plugin transforms calls to it automatically.
-You don't need to register the function in your build configuration. To get detailed failure messages, call the function
-with the plugin enabled:
+If a function is annotated with `@PowerAssert`, the Power-assert plugin transforms calls to it automatically.
+You don't need to register the function in your build configuration.
+
+You can add `@PowerAssert` annotations when declaring assertion functions yourself, or use [libraries that support Power-assert](#add-support-for-power-assert-to-your-library)
+and provide annotated functions.
+
+To get detailed failure messages, call the function with the Power-assert plugin enabled in your project:
 
 ```kotlin
 import kotlin.test.Test
@@ -399,7 +402,7 @@ class SampleTest {
 }
 ```
 
-The plugin provides detailed failure messages with intermediate expression values, just like with `assert()`:
+The plugin provides detailed failure messages with intermediate expression values:
 
 ```text
 check(subject.name == "Kodee")
@@ -445,7 +448,7 @@ Consider the following test function:
 class ComplexExampleTest {
 
     data class Person(val name: String, val age: Int)
- 
+
     @Test
     fun testComplexAssertion() {
         val person = Person("Alice", 10)
@@ -676,7 +679,7 @@ After that, you could use it in your test code:
 ```kotlin
 // Import the assertSoftly() function
 import com.example.assertSoftly
-        
+
 class SoftAssertExampleTest1 {
 
     data class Employee(val name: String, val age: Int, val salary: Int)
@@ -716,7 +719,7 @@ assert(employee.age < 100) { "${employee.name} has an invalid age: ${employee.ag
        Employee(name=Dave, age=150, salary=70000)
 ```
 
-## Support the Power-assert plugin
+## Add support for Power-assert to your library
 
 If you are a library author, you can add out-of-the-box Power-assert support to your library using the `@PowerAssert`
 annotation and the `CallExplanation` class from the Power-assert runtime library.
@@ -756,32 +759,32 @@ To add support for Power-assert to your library:
    @OptIn(ExperimentalContracts::class)
    @PowerAssert
    fun powerAssert(condition: Boolean, @PowerAssert.Ignore message: String? = null) {
-      contract { returns() implies condition }
-      if (!condition) {
-         val explanation = PowerAssert.explanation
-            ?: fail(message)
+       contract { returns() implies condition }
+       if (!condition) {
+           val explanation = PowerAssert.explanation
+               ?: fail(message)
    
-         val equalityErrors = buildList {
-            for (expression in explanation.expressions) {
-               if (expression is EqualityExpression && expression.value == false) {
-                  add(expression)
+           val equalityErrors = buildList {
+               for (expression in explanation.expressions) {
+                   if (expression is EqualityExpression && expression.value == false) {
+                       add(expression)
+                   }
                }
-            }
-         }
-   
-         val failureMessage = buildString {
-            if (message?.isNotBlank() == true) appendLine(message)
-            append(explanation.toDefaultMessage())
-         }
-   
-         fail(failureMessage, equalityErrors)
-      }
+           }
+
+           val failureMessage = buildString {
+               if (message?.isNotBlank() == true) appendLine(message)
+               append(explanation.toDefaultMessage())
+           }
+
+           fail(failureMessage, equalityErrors)
+       }
    }
    ```
 
-   * The `PowerAssert.explanation` property provides access to the `CallExplanation` object containing the call site information.
-   * The `toDefaultMessage()` function renders the standard Power-assert diagram.
-   * The `@PowerAssert.Ignore` annotation on the `message` parameter excludes it from the diagram.
+    * The `PowerAssert.explanation` property provides access to the `CallExplanation` object containing the call site information.
+    * The `toDefaultMessage()` function renders the standard Power-assert failure message.
+    * The `@PowerAssert.Ignore` annotation on the `message` parameter excludes it from the failure message.
 
 The compiler plugin detects the `@PowerAssert` annotation and transforms calls to the function at compile time.
 
@@ -792,15 +795,15 @@ The compiler plugin detects the `@PowerAssert` annotation and transforms calls t
 ### The `CallExplanation` class
 
 The [`CallExplanation`](https://github.com/JetBrains/kotlin/blob/master/plugins/power-assert/power-assert-runtime/src/commonMain/kotlin/kotlin/powerassert/CallExplanation.kt)
-data structure provides detailed information about the call site, including intermediate expression values.
-This enables dynamic diagram rendering for assertion failures and better integration with external tools.
+class provides detailed information about the call site, including intermediate expression values.
+This enables dynamic message rendering for assertion failures and better integration with external tools.
 
-When a function is annotated with `@PowerAssert` and the compiler plugin is applied, the transformation
-is performed automatically. The `PowerAssert.explanation`
+When a function in your library is annotated with `@PowerAssert` and the compiler plugin is applied, the transformation
+is performed automatically at each call site. The `PowerAssert.explanation`
 property provides access to the `CallExplanation` object inside the function body.
 
 > The `PowerAssert.explanation` property can return `null` if the annotated function is called from Java,
-> from a project where the Power-assert plugin is not applied, or via reflection.
+> from a project where the Power-assert plugin is not applied, or via [reflection](reflection.md).
 >
 {style="note"}
 
@@ -848,7 +851,7 @@ fails immediately. Both functions use `CallExplanation` to extract the source co
 and include it in the failure message.
 
 > For a full example, see the [`fluent-assert`](https://github.com/bnorm/power-assert-examples/tree/main/fluent-assert) project.
-> 
+>
 {style="tip"}
 
 ## What's next
