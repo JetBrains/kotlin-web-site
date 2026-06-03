@@ -138,7 +138,7 @@ Enables support for reified `Throwable` type parameters in `catch` clauses of `i
 ### -Xcollection-literals
 <primary-label ref="experimental-general"/>
 
-Enables support for collection literals with brackets syntax `[]`.
+Enables support for [collection literals](whatsnew24.md#support-for-collection-literals) with brackets syntax `[]`.
 
 ### -Xcompiler-plugin-order={plugin.before>plugin.after}
 <primary-label ref="experimental-general"/>
@@ -194,7 +194,7 @@ This lets you resolve overload ambiguity by passing context arguments at the cal
 ### -Xklib-ir-inliner
 <primary-label ref="experimental-general"/>
 
-Configure whether intra-module inlining is enabled for Kotlin/Native, Kotlin/JS, and Kotlin/Wasm. By default, it's enabled.
+Configure whether [intra-module inlining](whatsnew24.md#consistent-intra-module-function-inlining-during-klib-compilation) is enabled for Kotlin/Native, Kotlin/JS, and Kotlin/Wasm. By default, it's enabled.
 
 The option supports the following modes:
 
@@ -204,7 +204,7 @@ The option supports the following modes:
 ### -XIntrinsic-const-evaluation
 <primary-label ref="experimental-general"/>
 
-Enables improved compile-time constants.
+Enables [improved compile-time constants](whatsnew24.md#improved-compile-time-constants).
 
 ### -Xname-based-destructuring
 <primary-label ref="experimental-opt-in"/>
