@@ -743,7 +743,7 @@ To add support for Power-assert to your library:
    </dependencies>
    ```
 
-   For Gradle, this dependency is automatically added together with the Power-assert compiler plugin.
+   For Gradle, this dependency is automatically added with the Power-assert compiler plugin.
 
 3. Annotate your assertion functions with `@PowerAssert`:
 
@@ -785,7 +785,7 @@ To add support for Power-assert to your library:
 
 The compiler plugin detects the `@PowerAssert` annotation and transforms calls to the function at compile time.
 
-> For a full example, see the [`kotlin-test-power-assert`](https://github.com/bnorm/power-assert-examples/tree/main/kotlin-test-power-assert) project.
+> For a complete example, see the [`kotlin-test-power-assert`](https://github.com/bnorm/power-assert-examples/tree/main/kotlin-test-power-assert) project.
 >
 {style="tip"}
 
