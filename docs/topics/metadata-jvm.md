@@ -177,32 +177,19 @@ fun main() {
 ```
 
 ### Write and read annotations in metadata
-<primary-label ref="experimental-general"/>
 
-You can store annotations in Kotlin metadata and access them using the `kotlin-metadata-jvm` library.
-This removes the need to match annotations by signature, making access more reliable for overloaded declarations.
+Kotlin stores annotations in both bytecode and Kotlin metadata. If you use the `kotlin-metadata-jvm` library to read or
+write annotations, you work with their metadata representation.
 
-To make annotations available in the metadata of your compiled files, add the following compiler option:
+> Kotlin stores annotations in Kotlin metadata starting with Kotlin 2.4.0. If you inspect class files compiled with earlier versions,
+> the annotations aren't present in the metadata.
+>
+{style="note"}
 
-```kotlin
--Xannotations-in-metadata
-```
+When you change the annotations in metadata, make sure they stay consistent with the annotations stored in bytecode.
+If they get out of sync, tools that rely on reflection or bytecode analysis may report different results than tools that read Kotlin metadata.
 
-Alternatively, add it to the `compilerOptions {}` block of your Gradle build file:
-
-```kotlin
-// build.gradle.kts
-kotlin {
-    compilerOptions {
-        freeCompilerArgs.add("-Xannotations-in-metadata")
-    }
-}
-```
-
-When you enable this option, the Kotlin compiler writes annotations into metadata alongside the JVM bytecode,
-making them accessible to the `kotlin-metadata-jvm` library.
-
-The library provides the following APIs for accessing annotations:
+The `kotlin-metadata-jvm` library provides the following APIs for accessing annotations:
 
 * `KmClass.annotations`
 * `KmFunction.annotations`
@@ -216,14 +203,9 @@ The library provides the following APIs for accessing annotations:
 * `KmProperty.delegateFieldAnnotations`
 * `KmEnumEntry.annotations`
 
-These APIs are [Experimental](components-stability.md#stability-levels-explained).
-To opt in, use the `@OptIn(ExperimentalAnnotationsInMetadata::class)` annotation.
-
 Here's an example of reading annotations from Kotlin metadata:
 
 ```kotlin
-@file:OptIn(ExperimentalAnnotationsInMetadata::class)
-
 import kotlin.metadata.ExperimentalAnnotationsInMetadata
 import kotlin.metadata.jvm.KotlinClassMetadata
 
@@ -239,14 +221,6 @@ fun main() {
     // [@Label(value = StringValue("Message class"))]
 }
 ```
-
-> If you use the `kotlin-metadata-jvm` library in your projects, we recommend updating and testing your code to support annotations.
-> Otherwise, when annotations in metadata become [enabled by default](https://youtrack.jetbrains.com/issue/KT-75736) in a future Kotlin version,
-> your projects may produce invalid or incomplete metadata.
->
-> If you experience any problems, please report them in our [issue tracker](https://youtrack.jetbrains.com/issue/KT-31857).
->
-{style="warning"}
 
 ### Extract metadata from bytecode
 
@@ -486,7 +460,7 @@ fun main() {
 > 
 {style="tip"}
 
-## What's next
+## What's next?
 
 * [See the API reference for the Kotlin Metadata JVM library](https://kotlinlang.org/api/kotlinx-metadata-jvm/).
 * [Check out the Kotlin Metadata JVM GitHub repository](https://github.com/JetBrains/kotlin/tree/master/libraries/kotlinx-metadata/jvm).

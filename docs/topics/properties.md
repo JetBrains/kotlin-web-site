@@ -237,25 +237,21 @@ fun main() {
 
 This example uses [reflection](reflection.md) to show which annotations are present on the getter and setter.
 
-### Backing fields
+## Backing fields
 
-In Kotlin, accessors use backing fields to store the property's value in memory. Backing fields are useful
-when you want to add extra logic to a getter or setter, or when you want to trigger an additional action whenever the property
-changes.
+The compiler automatically generates backing fields for properties when a value needs to be stored in memory.
 
-You can't declare backing fields directly. Kotlin generates them only when necessary. You can reference the backing field
-in accessors using the `field` keyword.
-
-Kotlin only generates backing fields if you use the default getter or setter, or if you use ` field` in at least one custom accessor.
-
-For example, the `isEmpty` property has no backing field because it uses a custom getter without the `field` keyword:
+For example, the compiler creates a backing field when you use the default `get()` and `set()` functions because they
+read and write the stored value:
 
 ```kotlin
-val isEmpty: Boolean
-    get() = this.size == 0
+var count = 0
 ```
 
-In this example, the `score` property has a backing field because the setter uses the `field` keyword:
+You can access backing fields by using the `field` keyword in a [custom `get()` or `set()` function](#custom-getters-and-setters).
+For example, you can add extra logic to a getter or setter, or trigger an additional action when a property changes.
+
+In this example, the `score` property uses the backing field inside the `set()` function so that updating the value also triggers a log event:
 
 ```kotlin
 class Scoreboard {
@@ -277,32 +273,35 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-backing-field"}
 
-### Backing properties
+Backing fields aren't created by default for all properties because they might not need them. For example, the `isEmpty`
+property doesn't have a backing field because the value is calculated from the `size` property each time you access it:
 
-Sometimes you might need more flexibility than using a [backing field](#backing-fields) can provide. For example, if you have an API
-where you want to be able to modify the property internally but not externally. In such cases, you can use a coding pattern
-called a _backing property_.
+```kotlin
+val isEmpty: Boolean
+    get() = this.size == 0
+```
+
+### Explicit backing fields
+
+Sometimes you might need more flexibility. For example, if you have an API where you want to be able to modify the property
+internally but not externally. In such cases, you can use an _explicit backing field_.
 
 In the following example, the `ShoppingCart` class has an `items` property that represents everything in the shopping cart.
-You want the `items` property to be read-only outside the class but still allow one "approved" way for the user to modify
-the `items` property directly. To achieve this, you can define a private backing property called `_items` and a public property
-called `items` that delegates to the backing property's value.
+The class exposes the `items` property as a read-only list of strings, but internally it stores the data in a mutable list
+with an explicit backing field:
 
 ```kotlin
 class ShoppingCart {
-    // Backing property
-    private val _items = mutableListOf<String>()
-
-    // Public read-only view
+    // Public read-only view with explicit backing field
     val items: List<String>
-        get() = _items
-
+        field = mutableListOf()
+    
     fun addItem(item: String) {
-        _items.add(item)
+        items.add(item)
     }
 
     fun removeItem(item: String) {
-        _items.remove(item)
+        items.remove(item)
     }
 }
 
@@ -319,48 +318,76 @@ fun main() {
     // [Banana]
 }
 ```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-backing-property"}
+{kotlin-runnable="true" kotlin-min-compiler-version="2.4" id="kotlin-explicit-backing-field"}
 
-In this example, the user can only add items to the cart through the `addItem()` function, but can still access the 
-`items` property to see what's inside.
+In this example, the compiler infers the type of the backing field from the `mutableListOf()` call: `MutableList<String>`.
+You can also declare the type of the backing field explicitly:
+
+```kotlin
+val items: List<String>
+    // Explicit backing field with explicit type
+    field: MutableList<String> = mutableListOf()
+```
+{validate="false"}
+
+In the example of the `ShoppingCart` class, the compiler smart casts the `items` property to the `MutableList<String>` type, so the
+class can add and remove items from the cart through the `add()` and `remove()` functions. Outside the class, the compiler
+uses the public property type `List<String>`, so API users can only read what's in the `items` list.
+
+#### Limitations
+
+To use explicit backing fields, their properties and the backing fields themselves must follow certain rules. Properties
+can have explicit backing fields only if they:
+
+* Don't have a custom getter.
+* Are read-only (`val`).
+* Aren't `open`.
+* Aren't a [delegated property](delegated-properties.md).
+* Aren't [compile-time constants](#compile-time-constants).
+
+In addition, the backing field type must be a subtype of the property's type and have [`private` visibility](visibility-modifiers.md).
+
+You can work around these restrictions by using backing properties instead.
+
+### Backing properties
+
+If explicit backing fields don't fit your use case, you can try using a coding pattern called a _backing property_.
+
+For example, if your property needs a custom getter:
+
+```kotlin
+class UserDirectory {
+    private val _users = mutableListOf(
+        "sarah",
+        "mike",
+        "emma"
+    )
+
+    val users: List<String>
+        get() = _users.sorted()
+
+    fun addUser(username: String) {
+        _users.add(username)
+    }
+}
+
+fun main() {
+    val directory = UserDirectory()
+
+    directory.addUser("alex")
+    println(directory.users)
+    // [alex, emma, mike, sarah]
+}
+```
+{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-backing-property-custom-getter"}
 
 > Use a leading underscore when naming backing properties to follow Kotlin [coding conventions](coding-conventions.md#names-for-backing-properties).
 >
 {style="tip"}
 
-On the JVM, the compiler optimizes access to private properties with default accessors to avoid function call overhead.
-
-Backing properties are also useful when you want more than one public property to share a state. For example:
-
-```kotlin
-class Temperature {
-    // Backing property storing temperature in Celsius
-    private var _celsius: Double = 0.0
-
-    var celsius: Double
-        get() = _celsius
-        set(value) { _celsius = value }
-
-    var fahrenheit: Double
-        get() = _celsius * 9 / 5 + 32
-        set(value) { _celsius = (value - 32) * 5 / 9 }
-}
-
-fun main() {
-    val temp = Temperature()
-    temp.celsius = 25.0
-    println("${temp.celsius}°C = ${temp.fahrenheit}°F") 
-    // 25.0°C = 77.0°F
-
-    temp.fahrenheit = 212.0
-    println("${temp.celsius}°C = ${temp.fahrenheit}°F") 
-    // 100.0°C = 212.0°F
-}
-```
-{kotlin-runnable="true" kotlin-min-compiler-version="1.3" id="kotlin-backing-property-multiple-properties"}
-
-In this example, the `_celsius` backing property is accessed by both the `celsius` and `fahrenheit` properties. This setup
-provides a single source of truth with two public views.
+In this example, the `UserDirectory` class has a read-only `users` property that lists every user in the directory. The 
+`_users` variable is the private backing property containing the real list. The getter for the public `users` property
+sorts the entries before returning them.
 
 ## Compile-time constants
 

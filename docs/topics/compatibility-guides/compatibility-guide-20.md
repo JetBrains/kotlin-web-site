@@ -651,6 +651,7 @@ perspective
 > **Deprecation cycle**:
 >
 > - 2.0.0: `defFile` and `defFileProperty` parameters are deprecated
+> - 2.4.0: [report an error for the deprecated `defFile` property](compatibility-guide-24.md#report-errors-for-obsolete-kotlin-native-gradle-task-apis)
 
 ### Remove kotlin.useK2 Gradle property
 

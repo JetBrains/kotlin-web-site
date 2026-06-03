@@ -72,19 +72,6 @@ To specify it explicitly, use the `jvmTarget` compiler option in [Gradle](gradle
 In Java, [annotations](annotations.md) on a record component are automatically propagated to the backing field, getter, setter, and constructor parameter.
 You can replicate this behavior in Kotlin by using the [`all`](annotations.md#all-meta-target) use-site target.
 
-> To use the `all` use-site target, you must opt in. Either use the `-Xannotation-target-all` compiler option or add
-> the following to your `build.gradle.kts` file:
->
-> ```kotlin
-> kotlin {
->     compilerOptions {
->         freeCompilerArgs.add("-Xannotation-target-all")
->     }
-> }
-> ```
->
-{style="warning"}
-
 For example:
 
 ```kotlin
