@@ -1066,6 +1066,7 @@ kotlin {
 ```
 
 ### Compiler messages written to Problems API for Kotlin/JVM
+<secondary-label ref="gradle"/>
 
 In Kotlin 2.2.0, the Kotlin Gradle plugin (KGP) started reporting diagnostics to [Gradle's Problems API](https://docs.gradle.org/current/userguide/reporting_problems.html)
 to provide a consistent experience both in Gradle's CLI and in IntelliJ IDEA.
@@ -1131,6 +1132,7 @@ During the build, the plugin outputs a similar message:
 For more information about automatic project configuration, see [our documentation](maven-configure-project.md#jvm-target-version).
 
 ### Support for Maven Toolchains
+<secondary-label ref="maven"/>
 
 Kotlin 2.4.0 introduces support for [Maven Toolchains](https://maven.apache.org/guides/mini/guide-using-toolchains.html) to the Kotlin Maven plugin.
 
