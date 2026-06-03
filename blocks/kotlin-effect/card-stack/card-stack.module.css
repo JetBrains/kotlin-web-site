@@ -8,6 +8,7 @@
 
 .sectionStack {
     height: calc(100vh - 64px);
+    max-height: 950px;
 }
 
 .stack {
@@ -193,4 +194,8 @@
     }
 }
 
+
+.darkLink {
+    /*color: #19191C !important;*/
+}
 
