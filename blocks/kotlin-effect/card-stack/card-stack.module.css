@@ -1,7 +1,7 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .section {
-    padding-top: 72px;
+    padding-top: 48px;
     box-sizing: border-box;
     display: flex;
     @media (--ktl-ds-down) {
@@ -18,9 +18,7 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    @media (--ktl-ds-down) {
-        grid-gap: 48px;
-    }
+    grid-gap: 64px;
 }
 
 .stackAnimated {

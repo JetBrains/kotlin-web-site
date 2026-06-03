@@ -23,7 +23,7 @@ import { ThemeProvider } from '@rescui/ui-contexts';
 const CARD_TILTS_DEG = [0, 2, -4];
 const FIXED_HEADER_HEIGHT = 64;
 const CARD_CONTENT_HEIGHT = 620;
-const SECTION_VERTICAL_PADDING = 140 + 96;
+const SECTION_VERTICAL_PADDING = 48;
 const CARD_VERTICAL_PADDING = 12 * 2;
 const MIN_STACK_VIEWPORT_HEIGHT = FIXED_HEADER_HEIGHT + CARD_CONTENT_HEIGHT + SECTION_VERTICAL_PADDING + CARD_VERTICAL_PADDING;
 const EXIT_Y = '100vh';
@@ -42,6 +42,7 @@ export const CardStack: FC = () => {
 
     useLayoutEffect(() => {
         const updateStackAvailability = () => {
+
             setIsStackEnabled(
                 window.innerWidth > BREAKPOINTS.DS && window.innerHeight >= MIN_STACK_VIEWPORT_HEIGHT
             );
