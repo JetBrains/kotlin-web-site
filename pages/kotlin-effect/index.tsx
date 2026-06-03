@@ -35,12 +35,14 @@ function Index() {
             <div className={styles.wrapper}>
                 <HeroScreen />
                 <CardStack />
+
+                <div className={'ktl-layout-v2 ktl-layout--center'}>
+                    <ReportBlock />
+                    <NoteBlock />
+                </div>
             </div>
 
-            <div className={'ktl-layout-v2 ktl-layout--center'}>
-                <ReportBlock />
-                <NoteBlock />
-            </div>
+
         </LandingLayout>
     );
 }

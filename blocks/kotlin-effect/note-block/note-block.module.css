@@ -3,9 +3,29 @@
 .noteBlock {
     margin-top: 96px;
     padding: 12px;
-    border-radius: 32px;
-    border: 12px solid #997BED;
+    border-radius: 48px;
+    background: linear-gradient(180deg, #997BED -17.32%, #D01AD8 46.61%, rgba(0, 196, 255, 0.70) 101.77%, rgba(39, 175, 216, 0.00) 161.59%);
+    box-sizing: border-box;
+    background-size: 100% 200%;
+    animation: gradient-flow 3s ease-in-out infinite alternate;
+}
+
+@keyframes gradient-flow {
+  from {
+    background-position: center top;
+  }
+  to {
+    background-position: center bottom;
+  }
+}
+
+.inner {
     background: #000;
+    border-radius: calc(48px - 12px);
+    padding: 36px;
+    @media (--ktl-ts-down) {
+        padding: 20px;
+    }
 }
 
 .header {
@@ -93,7 +113,7 @@
 
 @media (--ktl-ts-min) {
     .noteBlock {
-        padding: 36px;
+        padding: 12px;
         margin-top: 144px;
     }
 
