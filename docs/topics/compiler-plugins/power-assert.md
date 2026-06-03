@@ -186,7 +186,7 @@ See the complete code of the build script file `build.gradle.kts` or `pom.xml` f
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
-    kotlin("jvm") version "%kotlinVersion%"
+    kotlin("multiplatform") version "%kotlinVersion%"
     kotlin("plugin.power-assert") version "%kotlinVersion%"
 }
 
@@ -218,7 +218,7 @@ powerAssert {
 ```groovy
 // build.gradle
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
     id 'org.jetbrains.kotlin.plugin.power-assert' version '%kotlinVersion%'
 }
 
