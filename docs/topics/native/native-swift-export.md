@@ -1,8 +1,8 @@
 [//]: # (title: Interoperability with Swift using Swift export)
 
-<primary-label ref="experimental-general"/>
+<primary-label ref="alpha"/>
 
-Kotlin provides experimental support for Swift export. It allows you to export Kotlin sources
+Kotlin's interoperability with Swift through Swift export is currently in Alpha. Swift export allows you to export Kotlin sources
 directly and call Kotlin code from Swift idiomatically, eliminating the need for Objective-C headers.
 
 Swift export makes multiplatform development for Apple targets more streamlined. For example, if you have a Kotlin module
@@ -22,10 +22,12 @@ Current Swift export features are:
   generated Swift code.
 * **Module name customization**. You can customize the resulting Swift module names in the Gradle configuration of your
   Kotlin project.
+* **Concurrency support**. You can seamlessly call suspending Kotlin code from Swift and export `kotlinx.coroutines`
+  flows as Swift's `AsyncSequence` out of the box.
 
 ## Enable Swift export
 
-The feature is currently [Experimental](components-stability.md#stability-levels-explained) and not ready for production.
+Swift export is currently in [Alpha](components-stability.md#stability-levels-explained) and still incomplete, so breaking changes are expected.
 To try it out, [configure the build file](#configure-kotlin-project) in your Kotlin project and [set up Xcode](#configure-xcode-project)
 to integrate Swift export.
 
@@ -98,11 +100,9 @@ IDEA or through the [web wizard](https://kmp.jetbrains.com/).
 
 Other known issues:
 
-* Swift export breaks when modules have the same name in Gradle coordinates, for example SQLDelight's Runtime module and Compose Runtime module ([KT-80185](https://youtrack.jetbrains.com/issue/KT-80185)).
 * Types that inherit from `List`, `Set`, or `Map` are ignored during the export ([KT-80416](https://youtrack.jetbrains.com/issue/KT-80416)).
 * Inheritors of `List`, `Set`, or `Map` cannot be instantiated on the Swift side ([KT-80417](https://youtrack.jetbrains.com/issue/KT-80417)).
 * When exported to Swift, Kotlin generic type parameters are type-erased to their upper bounds.
-* Swift closures can be passed into Kotlin, but Kotlin cannot export functional types to Swift.
 * Cross-language inheritance is not supported, so Swift classes cannot directly subclass from Kotlin-exported classes or
   interfaces.
 * No IDE migration tips or automation are available.
@@ -129,31 +129,33 @@ Other known issues:
 
 The table below shows how Kotlin concepts are mapped to Swift.
 
-| Kotlin                 | Swift                          | Notes                   |
-|------------------------|--------------------------------|-------------------------|
-| `class`                | `class`                        | [note](#classes)        |
-| `object`               | `class` with `shared` property | [note](#objects)        |
-| `enum class`           | `enum`                         | [note](#enums)          |
-| `typealias`            | `typealias`                    | [note](#type-aliases)   |
-| Function               | Function                       | [note](#functions)      |
-| Property               | Property                       | [note](#properties)     |
-| Constructor            | Initializer                    | [note](#constructors)   |
-| Package                | Nested enum                    | [note](#packages)       |
-| `Boolean`              | `Bool`                         |                         |
-| `Char`                 | `Unicode.UTF16.CodeUnit`       |                         |
-| `Byte`                 | `Int8`                         |                         |
-| `Short`                | `Int16`                        |                         |
-| `Int`                  | `Int32`                        |                         |
-| `Long`                 | `Int64`                        |                         |
-| `UByte`                | `UInt8`                        |                         |
-| `UShort`               | `UInt16`                       |                         |
-| `UInt`                 | `UInt32`                       |                         |
-| `ULong`                | `UInt64`                       |                         |
-| `Float`                | `Float`                        |                         |
-| `Double`               | `Double`                       |                         |
-| `Any`                  | `KotlinBase` class             |                         |
-| `Unit`                 | `Void`                         |                         |
-| `Nothing`              | `Never`                        | [note](#kotlin-nothing) |
+| Kotlin                                     | Swift                          |
+|--------------------------------------------|--------------------------------|
+| [`class`](#classes)                        | `class`                        |
+| [`object`](#objects)                       | `class` with `shared` property |
+| [`enum class`](#enums)                     | `enum`                         |
+| [`typealias`](#type-aliases)               | `typealias`                    |
+| [Function](#functions)                     | Function                       |
+| [`suspend fun`](#suspending-functions)     | `async`                        |
+| [`kotlinx.coroutines` flows](#flows) | `AsyncSequence`                |
+| [Property](#properties)                    | Property                       |
+| [Constructor](#constructors)               | Initializer                    |
+| [Package](#packages)                       | Nested enum                    |
+| `Boolean`                                  | `Bool`                         |
+| `Char`                                     | `Unicode.UTF16.CodeUnit`       |
+| `Byte`                                     | `Int8`                         |
+| `Short`                                    | `Int16`                        |
+| `Int`                                      | `Int32`                        |
+| `Long`                                     | `Int64`                        |
+| `UByte`                                    | `UInt8`                        |
+| `UShort`                                   | `UInt16`                       |
+| `UInt`                                     | `UInt32`                       |
+| `ULong`                                    | `UInt64`                       |
+| `Float`                                    | `Float`                        |
+| `Double`                                   | `Double`                       |
+| `Any`                                      | `KotlinBase` class             |
+| `Unit`                                     | `Void`                         |
+| [`Nothing`](#kotlin-nothing)               | `Never`                        |
 
 ### Declarations
 
@@ -296,8 +298,8 @@ fun log(vararg messages: String)
 public func log(messages: Swift.String...)
 ```
 
-> Support for functions with `suspend`, `inline`, and `operator` keywords is currently limited.
-> Generic types are generally not supported.
+> * Support for functions with the [`operator` modifier](operator-overloading.md) is currently limited.
+> * Generic types are generally not supported.
 >
 {style="note"}
 
@@ -417,12 +419,66 @@ public enum foo {
 }
 ```
 
+### Concurrency
+
+#### Suspending functions
+
+You can call suspending Kotlin code from Swift. Kotlin [suspending functions](coroutines-basics.md#suspending-functions) and
+suspending functional types are exported as Swift's `async` counterparts:
+
+```kotlin
+// Kotlin
+suspend fun hello(): String {
+    delay(1000)
+    return "Hello Swift! This is Kotlin."
+}
+```
+
+```swift
+// Swift
+let msg = try await hello()
+```
+
+#### Flows
+
+You can also export `kotlinx.coroutines` flows as Swift's [`AsyncSequence`](https://developer.apple.com/documentation/Swift/AsyncSequence):
+
+```kotlin
+// Kotlin
+// Preserves the String type when exporting Flow
+fun flowOfStrings(): Flow<String> = flowOf("hello", "any", "world")
+```
+
+```swift
+// Swift
+var actual: [String] = []
+
+// Infers the String type from Kotlin
+for try await element in flowOfStrings().asAsyncSequence() {
+    actual.append(element)
+}
+```
+
+#### Coroutine dispatchers
+
+By default, when you call a Kotlin suspending function from Swift or use the `asAsyncSequence` function,
+Kotlin creates a coroutine context that uses the [`Dispatchers.Default`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-dispatchers/-default.html)
+dispatcher and executes the exported code there.
+
+To run the exported code on a [different dispatcher](coroutines-basics.md#coroutine-dispatchers), use the `withContext()`
+function to switch the coroutine context in Kotlin. For example:
+
+```kotlin
+suspend fun runOnMain(): Int = withContext(Dispatchers.Main) {
+    delay(10L)
+    42
+}
+```
+
 ## Evolution of Swift export
 
 We're planning to expand and gradually stabilize Swift export in future Kotlin releases, improving interoperability
-between Kotlin and Swift, particularly around coroutines and flows.
-
-You can leave your feedback:
+between Kotlin and Swift. You can leave your feedback:
 
 * In Kotlin Slack – [get an invite](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up?_gl=1*ju6cbn*_ga*MTA3MTk5NDkzMC4xNjQ2MDY3MDU4*_ga_9J976DJZ68*MTY1ODMzNzA3OS4xMDAuMS4xNjU4MzQwODEwLjYw)
   and join the [#swift-export](https://kotlinlang.slack.com/archives/C073GUW6WN9) channel.
