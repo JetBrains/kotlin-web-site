@@ -1,4 +1,3 @@
 {
-  "presets": ["next/babel"],
-  "plugins": ["react-optimized-image/plugin"]
+  "presets": ["next/babel"]
 }

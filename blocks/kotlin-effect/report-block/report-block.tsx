@@ -1,11 +1,10 @@
 import cn from 'classnames';
-import { createTextCn, useTextStyles } from '@rescui/typography';
+import { createTextCn } from '@rescui/typography';
 
 import styles from './report-block.module.css';
 import { Button } from '@rescui/button';
 
 export const ReportBlock = () => {
-    const textCn = useTextStyles();
     const darkTextCn = createTextCn('dark');
 
     return (

@@ -1,4 +1,4 @@
-/// <reference types="optimized-images-loader" />
+type ImgSrc = import('next/image').StaticImageData;
 
 declare module '*.yml' {
     const content: any
