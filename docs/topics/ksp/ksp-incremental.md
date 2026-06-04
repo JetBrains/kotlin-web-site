@@ -133,13 +133,21 @@ the processor doesn't need to explicitly declare B.kt as a dependency of outputF
     └── outputB
 ```
 
-A processor generates `outputA` after reading `sourceA` and `outputB` after reading `sourceB`.
+A processor:
+
+1. reads `sourceB`.
+
+2. generates `outputB`.
+
+3. reads `sourceA`.
+
+4. generates `outputA`.
 
 If `sourceA` changes:
 
 * If `outputB` is aggregating, KSP reprocesses both `sourceA` and `sourceB`.
 
-* If `outputB` is isolating, KSP reprocesses `sourceA`only.
+* If `outputB` is isolating, KSP reprocesses `sourceA` only.
 
 If `sourceC` is added:
 
