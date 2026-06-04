@@ -201,7 +201,7 @@ The option supports the following modes:
 * `disabled`: disables intra-module inlining for Kotlin/Native, Kotlin/JS, and Kotlin/Wasm.
 * `full`: enables cross-module inlining.
 
-### -XIntrinsic-const-evaluation
+### -Xintrinsic-const-evaluation
 <primary-label ref="experimental-general"/>
 
 Enables [improved compile-time constants](whatsnew24.md#improved-compile-time-constants).
