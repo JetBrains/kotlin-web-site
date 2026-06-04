@@ -850,7 +850,7 @@ In this example, the `check()` function collects failures for later reporting, w
 fails immediately. Both functions use `CallExplanation` to extract the source code of the failed condition
 and include it in the failure message.
 
-> For a full example, see the [`fluent-assert`](https://github.com/bnorm/power-assert-examples/tree/main/fluent-assert) project.
+> For a complete example, see the [`fluent-assert`](https://github.com/bnorm/power-assert-examples/tree/main/fluent-assert) project.
 >
 {style="tip"}
 
