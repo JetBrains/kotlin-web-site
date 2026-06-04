@@ -12,10 +12,7 @@ export const KOTLIN_EFFECT_TITLE = 'Kotlin Effect';
 export const KOTLIN_EFFECT_URL = '/kotlin-effect/';
 
 const TOP_MENU_ITEMS = [
-    {
-        url: '/kotlin-effect/',
-        title: 'Kotlin Effect'
-    }
+
 ];
 
 function Index() {
@@ -29,7 +26,7 @@ function Index() {
             topMenuTitle={KOTLIN_EFFECT_TITLE}
             topMenuHomeUrl={KOTLIN_EFFECT_URL}
             topMenuItems={TOP_MENU_ITEMS}
-            topMenuButton={<Button href="https://kotlinlang.org/docs/getting-started.html">Get started</Button>}
+            topMenuButton={<Button href="https://play.kotlinlang.org/">Try Kotlin</Button>}
             dataTestId={'kotlin-effect-page'}
         >
             <div className={styles.wrapper}>

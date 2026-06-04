@@ -33,29 +33,28 @@ export const HeroScreen: FC = () => {
 
     return (
         <section className={styles.section}>
-
             <div className="ktl-layout-v2 ktl-layout--center">
-
-
                 <div className={styles.wrapper}>
-
                     <div ref={textContainerRef} className={styles.textContainer}>
-                        <NeonHoverTitle
-                            text={'The Kotlin Effect'}
-                            className={styles.neonTitle}
-                            introAnimation
-                        />
+                        <NeonHoverTitle text={'The Kotlin Effect'} className={styles.neonTitle} introAnimation />
                         <h2 ref={subtitleRef} className={cn(textCn('rs-subtitle-1'), styles.subtitle)}>
-                            Write less.<br className={styles.mobileBr} />
-                            Do more.<br className={styles.mobileBr} />
-                            Enjoy the process.<br className={styles.mobileBr} />
+                            Write less. <br className={styles.mobileBr} />
+                            Do more. <br className={styles.mobileBr} />
+                            Enjoy the process.
+                            <br className={styles.mobileBr} />
                         </h2>
-                        <p ref={textRef} className={cn(textCn('rs-subtitle-2'), styles.text)}>A programming language designed to
-                            reduce friction<br /> and help teams move faster.</p>
+                        <p ref={textRef} className={cn(textCn('rs-subtitle-2'), styles.text)}>
+                            A programming language designed to reduce friction
+                            <br /> and help teams move faster.
+                        </p>
 
                         <div className={styles.buttons} ref={buttonRef}>
-                            <Button size='l' mode={'rock'}>Try Kotlin</Button>
-                            <Button size='l' mode={'outline'}>Learn more</Button>
+                            <Button size="l" mode={'rock'} href={'https://play.kotlinlang.org/'}>
+                                Try Kotlin
+                            </Button>
+                            <Button size="l" mode={'outline'} href={'/'}>
+                                Learn more
+                            </Button>
                         </div>
                     </div>
 
@@ -63,9 +62,7 @@ export const HeroScreen: FC = () => {
                         <HeroVideo />
                     </div>
                 </div>
-
             </div>
-
         </section>
     );
 };

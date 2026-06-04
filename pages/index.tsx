@@ -195,7 +195,7 @@ function Index() {
                     <div className={'ktl-layout ktl-layout--center'}>
                         <KotlinUsageHighlights title="Kotlin in action" items={kotlinUsageHighlightsCases} />
 
-                        <DividerLine />
+                        <PromoBanner />
 
                         <InfoBlock
                             title={<>Share code on&nbsp;your terms and&nbsp;for different platforms</>}
@@ -251,8 +251,6 @@ function Index() {
                             companies={kotlinFoundationCompanies}
                         />
                     </div>
-
-                    <PromoBanner />
 
                     <CtaBlock
                         className={styles.ctaBlock}
