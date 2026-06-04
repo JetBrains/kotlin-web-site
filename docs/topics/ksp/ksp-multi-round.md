@@ -1,15 +1,12 @@
 [//]: # (title: Multiple round processing)
 
-KSP supports _multiple round processing_, or processing files over multiple rounds. It means that subsequent rounds
-use an output from previous rounds as additional input.
+KSP supports multiple round processing, or processing files over multiple rounds. The output from each processing round 
+is used as additional input in each subsequent round.
 
-## Changes to your processor
+To use multiple-round processing, return deferred symbols from `SymbolProcessor.process()` as a `List<KSAnnotated>`. KSP 
+processes these symbols in the next round.
 
-To use multiple round processing, the `SymbolProcessor.process()` function needs to return a list of deferred symbols
-(`List<KSAnnotated>`) for invalid symbols. Use `KSAnnotated.validate()` to filter invalid symbols to be deferred
-to the next round.
-
-The following sample code shows how to defer invalid symbols by using a validation check:
+To defer invalid symbols, filter them with `KSAnnotated.validate()`, as shown in the following example:
 
 ```kotlin
 override fun process(resolver: Resolver): List<KSAnnotated> {
@@ -22,88 +19,93 @@ override fun process(resolver: Resolver): List<KSAnnotated> {
 }
 ```
 
-## Multiple round behavior
+Multiple-round processing ends when an entire round generates no new files. If deferred symbols remain unprocessed, KSP
+logs an error for each processor with remaining deferred symbols.
 
-### Deferring symbols to the next round
+## Deferring symbols to the next round
 
-Processors can defer the processing of certain symbols to the next round. When a symbol is deferred, processor is waiting for
-other processors to provide additional information. It can continue deferring the symbol as many rounds as needed.
-Once the other processors provide the required information, the processor can then process the deferred symbol.
-Processor should only defer invalid symbols which are lacking necessary information. Therefore, processors should **not** 
-defer symbols from classpath, KSP will also filter out any deferred symbols that are not from source code.
+Processors can defer symbols to a later round when additional information is required from other processors. A processor 
+can continue deferring a symbol across multiple rounds until the required information becomes available. Once the 
+information is available, the processor can process the symbol.
 
-As an example, a processor that creates a builder for an annotated class might require all parameter types of its
-constructors to be valid (resolved to a concrete type). In the first round, one of the parameter type is not resolvable.
-Then in the second round, it becomes resolvable because of the generated files from the first round.
+> Processors should only defer invalid symbols when necessary information is lacking.
+> Processors should not defer symbols from classpath. KSP will also filter out any deferred
+> symbols that are not from source code.
+>
+{style=”note”}
 
-### Validating symbols
+For example, a processor that generates a builder for an annotated class might require all constructor parameter types 
+to resolve to concrete types. In the first round, one of the parameter types might not be resolvable. In a later round, 
+it can become resolvable because of files generated in an earlier round. The processor can then process the class.
 
-A convenient way to decide if a symbol should be deferred is through validation. A processor should know which information
-is necessary to properly process the symbol.
-Note that validation usually requires resolution which can be expensive, so we recommend checking only what is required.
-Continuing with the previous example, an ideal validation for the builder processor checks only whether all resolved
-parameter types of the constructors of annotated symbols contain `isError == false`.
+## Validating symbols
 
-KSP provides a default validation utility. For more information, see the [Advanced](#advanced) section.
+Validation is a convenient way to decide whether to defer a symbol to a later round. A processor should define the 
+information required to process a symbol correctly.
 
-### Termination condition
+> Validation often requires type resolution, which can be expensive. Check only the information required to process the symbol.
+>
+{style=”tip”}
 
-Multiple round processing terminates when a full round of processing generates no new files. If unprocessed deferred
-symbols still exist when the termination condition is met, KSP logs an error message for each processor with unprocessed
-deferred symbols.
+Continuing the previous example, the builder processor might validate only the constructor parameter types of annotated 
+classes. Specifically, it can check that each resolved parameter type has `isError == false`.
 
-### Files accessible at each round
+KSP validates all symbols that are directly reachable within the validated symbol's enclosing scope. By default, 
+validation checks whether references in that scope resolve to concrete types. Validation does not recursively validate 
+the referenced types.
 
-Both newly generated files and existing files are accessible through a `Resolver`. KSP provides two APIs for accessing
-files: `Resolver.getAllFiles()` and `Resolver.getNewFiles()`. `getAllFiles()` returns a combined list of both existing files
-and newly generated files, while `getNewFiles()` returns only newly generated files.
+> Default validation behavior might not be suitable for all use cases. To customize validation, use `KSValidateVisitor` 
+> and provide a `predicate` lambda that selects the symbols to validate. `KSValidateVisitor` uses the `predicate` to 
+> determine which symbols to check.
+>
+{style=”tip”}
 
-### Changes to getSymbolsAnnotatedWith()
+## Files accessible at each round
 
-To avoid unnecessary reprocessing of symbols, `getSymbolsAnnotatedWith()` returns only those symbols found in newly
-generated files, together with the symbols from deferred symbols from the last round.
+Both newly generated files and existing files are accessible through a `Resolver`.
 
-### Processor instantiating
+KSP provides two APIs for accessing files:
 
-A processor instance is created only once, which means you can store information in the processor object to be used for
-later rounds.
+* `Resolver.getAllFiles()` returns a list of both previously existing and newly generated files.
 
-### Information consistent cross rounds
+* `Resolver.getNewFiles()` returns only newly generated files.
 
-All KSP symbols will not be reusable across multiple rounds, as the resolution result can potentially change based on
-what was generated in a previous round. However, since KSP does not allow modifying existing code, some information
-such as the string value for a symbol name should still be reusable.
-To summarize, processors can store information from previous rounds but need to bear in mind that this information
-might be invalid in future rounds.
+## `getSymbolsAnnotatedWith()`
 
-### Error and exception handling
+Use `getSymbolsAnnotatedWith()` as the primary entry point for obtaining relevant symbols.
 
-When an error (defined by processor calling `KSPLogger.error()`) or exception occurs, processing stops after the
-current round completes. All processors will call the `onError()` method and will **not** call the `finish()` method.
+In each round, `getSymbolsAnnotatedWith()` returns only symbols from newly generated files and symbols deferred from 
+the previous round. This helps avoid unnecessary reprocessing.
 
-Note that even though an error has occurred, other processors continue processing normally for that round.
-This means that error handling occurs after processing has completed for the round.
+## Processor instantiation
 
-Upon exceptions, KSP will try to distinguish the exceptions from KSP and exceptions from processors.
-Exceptions will result in a termination of processing immediately and be logged as an error in KSPLogger.
-Exceptions from KSP should be reported to KSP developers for further investigation.
-At the end of the round where exceptions or errors happened, all processors will invoke onError() function to do
-their own error handling.
+KSP creates a processor instance only once. You can store information in the processor instance and reuse it across 
+multiple rounds.
 
-KSP provides a default no-op implementation for `onError()` as part of the `SymbolProcessor` interface.
-You can override this method to provide your own error handling logic.
+However, not all KSP symbols can be reused across rounds. Symbol resolution results can change when processors generate 
+new files, which can affect the validity of previously resolved symbols.
 
-## Advanced
+## Error and exception handling
 
-### Default behavior for validation
+1. **Errors**
 
-The default validation logic provided by KSP validates all directly reachable symbols inside the enclosing scope of
-the symbol that is being validated.
-Default validation checks whether references in the enclosed scope are resolvable to a concrete type but does not
-recursively dive into the referenced types to perform validation.
+    A processor reports an error by calling `KSPLogger.error()`.
 
-### Write your own validation logic
+    When a processor reports an error, KSP calls `SymbolProcessor.onError()` instead of `SymbolProcessor.finish()`. 
+    Processing stops after the current round completes.
 
-Default validation behavior might not be suitable for all cases. You can reference `KSValidateVisitor` and write your
-own validation logic by providing a custom `predicate` lambda, which is then used by `KSValidateVisitor` to filter out
-symbols that need to be checked.
+    Other processors continue processing normally during that round. KSP handles errors only after all processors finish 
+    the current round.
+
+2. **Exceptions**
+
+   KSP distinguishes between exceptions thrown by KSP and exceptions thrown by processors. Exceptions cause processing 
+   to terminate immediately and are logged as an error through `KSPLogger`.
+
+    > Report exceptions thrown by KSP to the KSP developers for investigation.
+    >
+    {style=”note”}
+
+At the end of a round in which an error or exception occurs, KSP calls `SymbolProcessor.onError()` on all processors.
+`SymbolProcessor` provides a default no-op implementation of `onError()`. Override this method to implement custom 
+error-handling logic.
