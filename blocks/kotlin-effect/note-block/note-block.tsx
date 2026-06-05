@@ -23,7 +23,7 @@ export const NoteBlock = () => {
     const submitMessage = React.useCallback(() => <SubmitMessage onSendMore={() => setFormKey(k => k + 1)} />, []);
 
     return (
-        <div className={styles.noteBlock}>
+        <div className={styles.noteBlock} id={'kotlin-note'}>
             <div className={styles.inner}>
                 <div className={styles.header}>
                     <div className={styles.headerContent}>
@@ -66,7 +66,7 @@ export const NoteBlock = () => {
                         <Input label="First Name" name="FirstName" type="text" required className={styles.input} />
                         <Input label="Last Name" name="LastName" type="text" className={styles.input} />
                         <Input label="Your Email" name="email" type="email" className={styles.input} required />
-                        <PrivacyConsent consentId="mkt.general.user-intention" required />
+                        <PrivacyConsent consentId="mkt.general.user-intention" />
                         <SubmitButton mode="rock" className={styles.submitButton}>
                             Send the Note
                         </SubmitButton>

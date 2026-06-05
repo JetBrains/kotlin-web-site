@@ -8,7 +8,7 @@ export const ReportBlock = () => {
     const darkTextCn = createTextCn('dark');
 
     return (
-        <div className={styles.reportBlock}>
+        <div className={styles.reportBlock} id={'foundation-report'}>
             <div className={styles.inner}>
                 <h2 className={cn(darkTextCn('rs-h1'), styles.title)}>The State of Kotlin Report 2025</h2>
                 <div className={cn(darkTextCn('rs-text-1', { hardness: 'hard' }), styles.text)}>

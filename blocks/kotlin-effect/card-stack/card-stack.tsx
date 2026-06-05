@@ -132,62 +132,72 @@ export const CardStack: FC = () => {
                         ref={card1Ref}
                         className={styles.card}
                         data-test="card-stack-card"
+                        id={'kotlin-effect-in-real-life'}
                     >
                         <div className={styles.cardInner}>
                             <div className={styles.cardContent}>
-                                <h2 className={cn(textCn('rs-h1'), styles.cardTitle)}>The Kotlin Effect in Real
-                                    Life</h2>
+                                <h2 className={cn(textCn('rs-h1'), styles.cardTitle)}>
+                                    The Kotlin Effect in Real Life
+                                </h2>
                                 <p className={cn(textCn('rs-subtitle-2'), styles.cardSubtitle)}>
-                                    What happens when Kotlin’s logic goes beyond code? In
-                                    this video, we bring the Kotlin Effect into everyday life – making things more
-                                    concise,
-                                    efficient, and fun.
+                                    What happens when Kotlin’s logic goes beyond code? In this video, we bring the
+                                    Kotlin Effect into everyday life – making things more concise, efficient, and fun.
                                 </p>
                             </div>
 
                             <div className={styles.videoPlaceholder}>
-                                <YoutubePlayer id={'7YJyPXjLdug'} />
+                                <YoutubePlayer id={'4Qey8yExPNg'} />
                             </div>
                         </div>
-
                     </div>
-                    <div
-                        ref={card2Ref}
-                        className={styles.card}
-                        data-test="card-stack-card"
-                    >
+                    <div ref={card2Ref} className={styles.card} data-test="card-stack-card" id={'kotlin-effect-action'}>
                         <div className={styles.cardInner}>
                             <div className={styles.cardContent}>
                                 <h2 className={cn(textCn('rs-h1'), styles.cardTitle)}>The Kotlin Effect in Action</h2>
                                 <p className={cn(textCn('rs-subtitle-2'), styles.cardSubtitle)}>
-                                    Step into a pixel-art world where Kodee battles bugs,
-                                    breaks through boilerplate, and rises from a gray legacy underworld to a vibrant
-                                    Kotlin-powered future.
+                                    Step into a pixel-art world where Kodee battles bugs, breaks through boilerplate,
+                                    and rises from a gray legacy underworld to a vibrant Kotlin-powered future.
                                 </p>
                             </div>
 
                             <div className={styles.tagsContainer}>
-                                <Tag {...tagPresets.light} size={'m'} icon={<RocketIcon className={styles.icon} />}>Survive
-                                    the chaos</Tag>
-                                <Tag {...tagPresets.light} size={'m'} icon={<PresentIcon className={styles.icon} />}>Unlock
-                                    Kotlin-inspired power-ups</Tag>
-                                <Tag {...tagPresets.light} size={'m'} icon={<WinIcon className={styles.icon} />}>Climb
-                                    the leaderboard</Tag>
+                                <Tag {...tagPresets.light} size={'m'} icon={<RocketIcon className={styles.icon} />}>
+                                    Survive the chaos
+                                </Tag>
+                                <Tag {...tagPresets.light} size={'m'} icon={<PresentIcon className={styles.icon} />}>
+                                    Unlock Kotlin-inspired power-ups
+                                </Tag>
+                                <Tag {...tagPresets.light} size={'m'} icon={<WinIcon className={styles.icon} />}>
+                                    Climb the leaderboard
+                                </Tag>
                             </div>
 
                             <div className={styles.screenshots}>
                                 <div className={styles.screenshot}>
-                                    <Image className={styles.screenshotImg} src={gameScreen1}
-                                           alt={'Game screenshot 1'} />
+                                    <Image
+                                        className={styles.screenshotImg}
+                                        src={gameScreen1}
+                                        alt={'Game screenshot 1'}
+                                    />
                                 </div>
                                 <div className={styles.screenshot}>
-                                    <Image className={styles.screenshotImg} src={gameScreen2}
-                                           alt={'Game screenshot 2'} />
+                                    <Image
+                                        className={styles.screenshotImg}
+                                        src={gameScreen2}
+                                        alt={'Game screenshot 2'}
+                                    />
                                 </div>
                             </div>
 
                             <div>
-                                <Button className={styles.button} size="l" mode={'rock'}>Play the Game</Button>
+                                <Button
+                                    className={styles.button}
+                                    size="l"
+                                    mode={'rock'}
+                                    href={'https://game.kotlinlang.org/'}
+                                >
+                                    Play the Game
+                                </Button>
                             </div>
                         </div>
                     </div>
@@ -195,36 +205,34 @@ export const CardStack: FC = () => {
                         ref={card3Ref}
                         className={cn(styles.card, styles.cardGradient)}
                         data-test="card-stack-card"
+                        id={'yours-kotlin-effect'}
                     >
                         <div className={styles.cardInner}>
                             <div className={styles.cardContent}>
-                                <h2 className={cn(textCn('rs-h1'), styles.cardTitle, styles.textInverted)}>Make the
-                                    Kotlin Effect Yours</h2>
+                                <h2 className={cn(textCn('rs-h1'), styles.cardTitle, styles.textInverted)}>
+                                    Make the Kotlin Effect Yours
+                                </h2>
                                 <p className={cn(textCn('rs-subtitle-2'), styles.cardSubtitle, styles.textInverted)}>
-                                    Move from fundamentals to real-world development – across mobile, backend, web,
-                                    and desktop applications.
+                                    Move from fundamentals to real-world development – across mobile, backend, web, and
+                                    desktop applications.
                                 </p>
                             </div>
 
                             <div className={styles.tagsContainer}>
-
                                 <div className={styles.multilineTag}>
-
                                     <p className={cn(darkLinkCn('rs-text-2'), styles.multilineTagText)}>
                                         <WinIcon className={styles.multilineTagIcon} />
-                                        Exclusive anniversary offer: Get free
-                                        access to select Kotlin courses on Hyperskill!
+                                        Exclusive anniversary offer: Get free access to select Kotlin courses on
+                                        Hyperskill!
                                     </p>
                                 </div>
 
                                 <p className={cn(textCn('rs-text-2'), styles.tagLinksContainer)}>
-                                    <a className={cn(darkLinkCn('rs-link', { mode: 'standalone' }), styles.darkLink)}
-                                       href="#">
+                                    <a
+                                        className={cn(darkLinkCn('rs-link', { mode: 'standalone' }), styles.darkLink)}
+                                        href="https://hyperskill.org/categories/37"
+                                    >
                                         Start Learning
-                                    </a>
-                                    <a className={cn(darkLinkCn('rs-link', { mode: 'standalone' }), styles.darkLink)}
-                                       href="#">
-                                        See All Courses
                                     </a>
                                 </p>
                             </div>
@@ -234,74 +242,101 @@ export const CardStack: FC = () => {
                                     <h3 className={cn(darkTextCn('rs-h3'), styles.linksSubtitle)}>Get started</h3>
                                     <ul className={cn(textCn('rs-ul'), styles.linksUl)}>
                                         <li className={styles.linksLi}>
-                                            <a href="https://hyperskill.org/courses/69-introduction-to-kotlin"
-                                               className={darkTextCn('rs-link', { mode: 'clear' })}>Introduction
-                                                to Kotlin</a>
+                                            <a
+                                                href="https://hyperskill.org/courses/69-introduction-to-kotlin"
+                                                className={darkTextCn('rs-link', { mode: 'clear' })}
+                                            >
+                                                Introduction to Kotlin
+                                            </a>
                                         </li>
                                         <li className={styles.linksLi}>
-                                            <a href="https://academy.jetbrains.com/course/21067"
-                                               className={darkTextCn('rs-link', { mode: 'clear' })}>Kotlin
-                                                Onboarding</a>
+                                            <a
+                                                href="https://academy.jetbrains.com/course/21067"
+                                                className={darkTextCn('rs-link', { mode: 'clear' })}
+                                            >
+                                                Kotlin Onboarding
+                                            </a>
                                         </li>
                                         <li className={styles.linksLi}>
-                                            <a href="https://academy.jetbrains.com/course/17654"
-                                               className={darkTextCn('rs-link', { mode: 'clear' })}>Atomic Kotlin</a>
+                                            <a
+                                                href="https://academy.jetbrains.com/course/17654"
+                                                className={darkTextCn('rs-link', { mode: 'clear' })}
+                                            >
+                                                Atomic Kotlin
+                                            </a>
                                         </li>
                                         <li className={styles.linksLi}>
-                                            <a href="https://academy.jetbrains.com/course/16628"
-                                               className={darkTextCn('rs-link', { mode: 'clear' })}>Kotlin Koans</a>
+                                            <a
+                                                href="https://academy.jetbrains.com/course/16628"
+                                                className={darkTextCn('rs-link', { mode: 'clear' })}
+                                            >
+                                                Kotlin Koans
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className={styles.linksContainer}>
-                                    <h3 className={cn(darkTextCn('rs-h3'), styles.linksSubtitle)}>Build real
-                                        projects</h3>
+                                    <h3 className={cn(darkTextCn('rs-h3'), styles.linksSubtitle)}>
+                                        Build real projects
+                                    </h3>
                                     <ul className={cn(textCn('rs-ul'), styles.linksUl)}>
                                         <li className={styles.linksLi}>
-                                            <a href="https://hyperskill.org/courses/18-kotlin-core"
-                                               className={darkTextCn('rs-link', { mode: 'clear' })}>Kotlin Core</a>
+                                            <a
+                                                href="https://hyperskill.org/courses/18-kotlin-core"
+                                                className={darkTextCn('rs-link', { mode: 'clear' })}
+                                            >
+                                                Kotlin Core
+                                            </a>
                                         </li>
                                         <li className={styles.linksLi}>
-                                            <a href="https://hyperskill.org/courses/3-kotlin-developer"
-                                               className={darkTextCn('rs-link', { mode: 'clear' })}>Kotlin Developer</a>
+                                            <a
+                                                href="https://hyperskill.org/courses/3-kotlin-developer"
+                                                className={darkTextCn('rs-link', { mode: 'clear' })}
+                                            >
+                                                Kotlin Developer
+                                            </a>
                                         </li>
                                         <li className={styles.linksLi}>
-                                            <a href="https://developer.android.com/courses/jetpack-compose/course"
-                                               className={darkTextCn('rs-link', { mode: 'clear' })}>Jetpack Compose for
-                                                Android Developers</a>
+                                            <a
+                                                href="https://developer.android.com/courses/jetpack-compose/course"
+                                                className={darkTextCn('rs-link', { mode: 'clear' })}
+                                            >
+                                                Jetpack Compose for Android Developers
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className={styles.linksContainer}>
-                                    <h3 className={cn(darkTextCn('rs-h3'), styles.linksSubtitle)}>Explore professional
-                                        tracks</h3>
+                                    <h3 className={cn(darkTextCn('rs-h3'), styles.linksSubtitle)}>
+                                        Explore professional tracks
+                                    </h3>
                                     <ul className={cn(textCn('rs-ul'), styles.linksUl)}>
                                         <li className={styles.linksLi}>
-                                            <a href="https://hyperskill.org/courses/37-kotlin-backend-developer-spring-boot"
-                                               className={darkTextCn('rs-link', { mode: 'clear' })}>Kotlin Backend
-                                                Developer Spring Boot</a>
+                                            <a
+                                                href="https://hyperskill.org/courses/45-introduction-to-ktor"
+                                                className={darkTextCn('rs-link', { mode: 'clear' })}
+                                            >
+                                                Introduction to Ktor
+                                            </a>
                                         </li>
                                         <li className={styles.linksLi}>
-                                            <a href="https://hyperskill.org/courses/45-introduction-to-ktor"
-                                               className={darkTextCn('rs-link', { mode: 'clear' })}>Introduction to
-                                                Ktor</a>
+                                            <a
+                                                href="https://academy.jetbrains.com/course/23312"
+                                                className={darkTextCn('rs-link', { mode: 'clear' })}
+                                            >
+                                                Kotlin Coroutines and Channels
+                                            </a>
                                         </li>
                                         <li className={styles.linksLi}>
-                                            <a href="https://academy.jetbrains.com/course/23312"
-                                               className={darkTextCn('rs-link', { mode: 'clear' })}>Kotlin Coroutines
-                                                and Channels</a>
-                                        </li>
-                                        <li className={styles.linksLi}>
-                                            <a href="https://hyperskill.org/courses/107"
-                                               className={darkTextCn('rs-link', { mode: 'clear' })}>Advanced Kotlin
-                                                Libraries and Techniques</a>
+                                            <a
+                                                href="https://hyperskill.org/courses/107"
+                                                className={darkTextCn('rs-link', { mode: 'clear' })}
+                                            >
+                                                Advanced Kotlin Libraries and Techniques
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-
-                            <div>
-                                <Button className={styles.button} size="l" mode={'rock'} theme={'light'}>Build Your First Project</Button>
                             </div>
                         </div>
                     </div>
