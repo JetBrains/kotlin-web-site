@@ -49,10 +49,10 @@ export const HeroScreen: FC = () => {
                         </p>
 
                         <div className={styles.buttons} ref={buttonRef}>
-                            <Button size="l" mode={'rock'} href={'https://play.kotlinlang.org/'}>
+                            <Button size="l" mode={'rock'} target={"_blank"} href={'https://play.kotlinlang.org/'}>
                                 Try Kotlin
                             </Button>
-                            <Button size="l" mode={'outline'} href={'/'}>
+                            <Button size="l" mode={'outline'} target={"_blank"} href={'/'}>
                                 Learn more
                             </Button>
                         </div>

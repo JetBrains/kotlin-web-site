@@ -29,7 +29,8 @@ export const NoteBlock = () => {
                     <div className={styles.headerContent}>
                         <h2 className={cn(textCn('rs-h1'), styles.title)}>Leave a Note for Kotlin&apos;s Future!</h2>
                         <div className={cn(textCn('rs-subtitle-2', { hardness: 'hard' }), styles.subtitle)}>
-                            Share a birthday wish or a bold prediction for where Kotlin&apos;s headed next.
+                            Celebrating 15 years of Kotlin together!<br />
+                            Write a birthday wish or a bold prediction<br /> for Kotlin’s future
                         </div>
                     </div>
                     <div className={styles.stampDesktop}>
@@ -63,9 +64,9 @@ export const NoteBlock = () => {
                     </div>
 
                     <div className={styles.fields}>
-                        <Input label="First Name" name="FirstName" type="text" required className={styles.input} />
+                        <Input label="Name" name="FirstName" type="text" required className={styles.input} />
                         <Input label="Last Name" name="LastName" type="text" className={styles.input} />
-                        <Input label="Your Email" name="email" type="email" className={styles.input} required />
+                        {/*<Input label="Your Email" name="email" type="email" className={styles.input} required />*/}
                         <PrivacyConsent consentId="mkt.general.user-intention" />
                         <SubmitButton mode="rock" className={styles.submitButton}>
                             Send the Note

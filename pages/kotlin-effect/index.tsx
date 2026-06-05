@@ -34,7 +34,7 @@ function Index() {
                 <CardStack />
 
                 <div className={'ktl-layout-v2 ktl-layout--center'}>
-                    <ReportBlock />
+                    {/*<ReportBlock />*/}
                     <NoteBlock />
                 </div>
             </div>
