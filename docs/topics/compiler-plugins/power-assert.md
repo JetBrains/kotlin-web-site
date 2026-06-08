@@ -3,8 +3,8 @@
 
 The Kotlin Power-assert compiler plugin improves the debugging experience
 by providing detailed failure messages with contextual information.
-It simplifies the process of writing tests by automatically generating 
-intermediate values in failure messages. 
+It simplifies the process of writing tests by automatically generating
+intermediate values in failure messages.
 It helps you understand why a test failed without needing complex assertion libraries.
 
 This is an example message provided by the plugin:
@@ -13,22 +13,22 @@ This is an example message provided by the plugin:
 Incorrect length
 assert(hello.length == world.substring(1, 4).length) { "Incorrect length" }
        |     |      |  |     |               |
-       |     |      |  |     |               3
-       |     |      |  |     orl
-       |     |      |  world!
-       |     |      false
-       |     5
-       Hello
+       |     5      |  |     "orl"           3
+       "Hello"      |  "world!"
+                    false
 ```
 
 The Power-assert plugin key features:
 
-* **Enhanced error messages**: The plugin captures and displays the values of variables and 
-   sub-expressions within the assertion to clearly identify the cause of failure.
+* **Enhanced error messages**: The plugin captures and displays the values of variables and
+  sub-expressions within the assertion to clearly identify the cause of failure.
+* **Runtime library**: The library provides the `@PowerAssert` annotation and the `CallExplanation` class. They make
+  Power-assert capable functions more discoverable and easier to configure by integrating them directly with
+  the compiler plugin transformations.
 * **Simplified testing**: Automatically generates informative failure messages,
-   reducing the need for complex assertion libraries.
+  reducing the need for complex assertion libraries.
 * **Support for multiple functions**: By default, it transforms `assert()` function calls but can also transform other functions,
-   such as `require()`, `check()`, and `assertTrue()`.
+  such as `require()`, `check()`, and `assertTrue()`.
 
 ## Apply the plugin
 
@@ -93,7 +93,7 @@ powerAssert {
 </tab>
 </tabs>
 
-Since the plugin is Experimental, you will see warnings every time you build your app.
+Since the plugin is [Experimental](components-stability.md#stability-levels-explained), you will see warnings every time you build your app.
 To exclude these warnings, add this `@OptIn` annotation before declaring the `powerAssert {}` block:
 
 ```kotlin
@@ -186,7 +186,7 @@ See the complete code of the build script file `build.gradle.kts` or `pom.xml` f
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 
 plugins {
-    kotlin("jvm") version "%kotlinVersion%"
+    kotlin("multiplatform") version "%kotlinVersion%"
     kotlin("plugin.power-assert") version "%kotlinVersion%"
 }
 
@@ -218,7 +218,7 @@ powerAssert {
 ```groovy
 // build.gradle
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '%kotlinVersion%'
+    id 'org.jetbrains.kotlin.multiplatform' version '%kotlinVersion%'
     id 'org.jetbrains.kotlin.plugin.power-assert' version '%kotlinVersion%'
 }
 
@@ -372,6 +372,45 @@ powerAssert {
 </tab>
 </tabs>
 
+### `@PowerAssert`-annotated functions
+
+If a function is annotated with `@PowerAssert`, the Power-assert plugin transforms calls to it automatically.
+You don't need to register the function in your build configuration.
+
+You can add `@PowerAssert` annotations when declaring assertion functions yourself, or use [libraries that support Power-assert](#add-support-for-power-assert-to-your-library)
+and provide annotated functions.
+
+To get detailed failure messages, call the function with the Power-assert plugin enabled in your project:
+
+```kotlin
+import kotlin.test.Test
+
+data class Mascot(val name: String)
+
+class SampleTest {
+
+    @Test
+    fun testAnnotatedFunction() {
+        val subject: Any? = Mascot(name = "Unknown")
+        // If assertThat() is annotated with @PowerAssert in the library,
+        // the plugin transforms this call automatically
+        assertThat(subject) {
+            require(subject is Mascot)
+            check(subject.name == "Kodee")
+        }
+    }
+}
+```
+
+The plugin provides detailed failure messages with intermediate expression values:
+
+```text
+check(subject.name == "Kodee")
+      |       |    |
+      |       |    false
+      |       "Unknown"
+      Mascot(name=Unknown)
+```
 
 ### Assert function
 
@@ -397,12 +436,9 @@ If you run the `testFunction()` test with the Power-assert plugin enabled, you g
 Incorrect length
 assert(hello.length == world.substring(1, 4).length) { "Incorrect length" }
        |     |      |  |     |               |
-       |     |      |  |     |               3
-       |     |      |  |     orl
-       |     |      |  world!
-       |     |      false
-       |     5
-       Hello
+       |     5      |  |     "orl"           3
+       "Hello"      |  "world!"
+                    false
 ```
 
 To get a more complete error message, always inline the variable into the test function parameters.
@@ -412,7 +448,7 @@ Consider the following test function:
 class ComplexExampleTest {
 
     data class Person(val name: String, val age: Int)
- 
+
     @Test
     fun testComplexAssertion() {
         val person = Person("Alice", 10)
@@ -426,11 +462,9 @@ class ComplexExampleTest {
 The output of the executed code doesn't provide enough information to find the cause of the problem:
 
 ```text
-Assertion failed
 assert(isValidName && isValidAge)
        |              |
-       |              false
-       true
+       true           false
 ```
 
 Inline the variable into the `assert()` function:
@@ -451,19 +485,11 @@ class ComplexExampleTest {
 After execution, you get more explicit information about what went wrong:
 
 ```text
-Assertion failed
 assert(person.name.startsWith("A") && person.name.length > 3 && person.age > 20 && person.age < 29)
        |      |    |                  |      |    |      |      |      |   |
-       |      |    |                  |      |    |      |      |      |   false
-       |      |    |                  |      |    |      |      |      10
-       |      |    |                  |      |    |      |      Person(name=Alice, age=10)
-       |      |    |                  |      |    |      true
-       |      |    |                  |      |    5
-       |      |    |                  |      Alice
-       |      |    |                  Person(name=Alice, age=10)
-       |      |    true
-       |      Alice
-       Person(name=Alice, age=10)
+       |      |    true               |      |    5      true   |      10  false
+       |      "Alice"                 |      "Alice"            Person(name=Alice, age=10)
+       Person(name=Alice, age=10)     Person(name=Alice, age=10)
 ```
 
 ### Beyond assert function
@@ -535,8 +561,7 @@ The output for this example uses the Power-assert plugin to provide detailed inf
 Value should not be empty
 require(value.isNotEmpty()) { "Value should not be empty" }
         |     |
-        |     false
-        
+        ""    false
 ```
 
 The message shows the intermediate values that lead to the failure, making it easier to debug.
@@ -563,15 +588,9 @@ class FunctionTrailingExampleTest {
 The output shows the intermediate results of functions calls:
 
 ```text
-Assertion failed
 assert(exampleFunction(2, 3) + exampleFunction(1, 2) == 9)
        |                     | |                     |
-       |                     | |                     false
-       |                     | 3
-       |                     | FunctionTrailingExampleTest@533bda92
-       |                     8
-       5
-       FunctionTrailingExampleTest@533bda92
+       5                     8 3                     false
 ```
 -->
 
@@ -651,8 +670,6 @@ powerAssert {
 </tab>
 </tabs>
 
-
-
 > You should specify the full name of the package where you declare the `AssertScope.assert()` function.
 >
 {style="tip"}
@@ -662,7 +679,7 @@ After that, you could use it in your test code:
 ```kotlin
 // Import the assertSoftly() function
 import com.example.assertSoftly
-        
+
 class SoftAssertExampleTest1 {
 
     data class Employee(val name: String, val age: Int, val salary: Int)
@@ -692,18 +709,155 @@ In the output, all the `assert()` function error messages will be printed one af
 Charlie has an invalid salary: 40000
 assert(employee.salary > 50000) { "${employee.name} has an invalid salary: ${employee.salary}" }
        |        |      |
-       |        |      false
-       |        40000
+       |        40000  false
        Employee(name=Charlie, age=55, salary=40000)
+
 Dave has an invalid age: 150
 assert(employee.age < 100) { "${employee.name} has an invalid age: ${employee.age}" }
        |        |   |
-       |        |   false
-       |        150
+       |        150 false
        Employee(name=Dave, age=150, salary=70000)
 ```
 
+## Add support for Power-assert to your library
+
+If you are a library author, you can add out-of-the-box Power-assert support to your library using the `@PowerAssert`
+annotation and the `CallExplanation` class from the Power-assert runtime library.
+
+### The `@PowerAssert` annotation
+
+The [`@PowerAssert` annotation](https://github.com/JetBrains/kotlin/blob/master/plugins/power-assert/power-assert-runtime/src/commonMain/kotlin/kotlin/powerassert/PowerAssert.kt)
+marks a function as Power-assert capable. If users of your library have the Power-assert compiler plugin in their projects
+and make calls to your annotated functions, the calls are automatically transformed without additional build configuration.
+
+To add support for Power-assert to your library:
+
+1. In your build file, [apply the Power-assert plugin](#apply-the-plugin).
+2. For Maven, add the Power-assert runtime library as a dependency:
+
+   ```xml
+   <!-- pom.xml -->
+   <dependencies>
+       <dependency>
+           <groupId>org.jetbrains.kotlin</groupId>
+           <artifactId>kotlin-power-assert-runtime</artifactId>
+           <version>%kotlinVersion%</version>
+       </dependency>
+   </dependencies>
+   ```
+
+   For Gradle, this dependency is automatically added with the Power-assert compiler plugin.
+
+3. Annotate your assertion functions with `@PowerAssert`:
+
+   ```kotlin
+   import kotlin.powerassert.PowerAssert
+   import kotlin.powerassert.toDefaultMessage
+   import kotlin.contracts.ExperimentalContracts
+   import kotlin.contracts.contract
+   
+   @OptIn(ExperimentalContracts::class)
+   @PowerAssert
+   fun powerAssert(condition: Boolean, @PowerAssert.Ignore message: String? = null) {
+       contract { returns() implies condition }
+       if (!condition) {
+           val explanation = PowerAssert.explanation
+               ?: fail(message)
+   
+           val equalityErrors = buildList {
+               for (expression in explanation.expressions) {
+                   if (expression is EqualityExpression && expression.value == false) {
+                       add(expression)
+                   }
+               }
+           }
+
+           val failureMessage = buildString {
+               if (message?.isNotBlank() == true) appendLine(message)
+               append(explanation.toDefaultMessage())
+           }
+
+           fail(failureMessage, equalityErrors)
+       }
+   }
+   ```
+
+    * The `PowerAssert.explanation` property provides access to the `CallExplanation` object containing the call site information.
+    * The `toDefaultMessage()` function renders the standard Power-assert failure message.
+    * The `@PowerAssert.Ignore` annotation on the `message` parameter excludes it from the failure message.
+
+The compiler plugin detects the `@PowerAssert` annotation and transforms calls to the function at compile time.
+
+> For a complete example, see the [`kotlin-test-power-assert`](https://github.com/bnorm/power-assert-examples/tree/main/kotlin-test-power-assert) project.
+>
+{style="tip"}
+
+### The `CallExplanation` class
+
+The [`CallExplanation`](https://github.com/JetBrains/kotlin/blob/master/plugins/power-assert/power-assert-runtime/src/commonMain/kotlin/kotlin/powerassert/CallExplanation.kt)
+class provides detailed information about the call site, including intermediate expression values.
+This enables dynamic message rendering for assertion failures and better integration with external tools.
+
+When a function in your library is annotated with `@PowerAssert` and the compiler plugin is applied, the transformation
+is performed automatically at each call site. The `PowerAssert.explanation`
+property provides access to the `CallExplanation` object inside the function body.
+
+> The `PowerAssert.explanation` property can return `null` if the annotated function is called from Java,
+> from a project where the Power-assert plugin is not applied, or via [reflection](reflection.md).
+>
+{style="note"}
+
+Here is an example of how to use `CallExplanation` inside `@PowerAssert`-annotated functions
+to extract source code information and build custom failure messages:
+
+```kotlin
+package kotlinx.test.fluent
+
+import kotlin.powerassert.PowerAssert
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.contract
+
+@PowerAssert
+fun AssertScope<*>.check(condition: Boolean) {
+    if (!condition) {
+        val explanation = PowerAssert.explanation
+        val message = if (explanation == null) null else {
+            val conditionArg = explanation.arguments.last()!!
+            val source = explanation.source.substring(conditionArg.startOffset, conditionArg.endOffset)
+            "Condition failed: $source"
+        }
+        collect(message, explanation)
+    }
+}
+
+@OptIn(ExperimentalContracts::class)
+@PowerAssert
+fun AssertScope<*>.require(condition: Boolean) {
+    contract { returns() implies condition }
+    if (!condition) {
+        val explanation = PowerAssert.explanation
+        val message = if (explanation == null) null else {
+            val conditionArg = explanation.arguments.last()!!
+            val source = explanation.source.substring(conditionArg.startOffset, conditionArg.endOffset)
+            "Condition failed: $source"
+        }
+        fail(message, explanation)
+    }
+}
+```
+
+In this example, the `check()` function collects failures for later reporting, while the `require()` function
+fails immediately. Both functions use `CallExplanation` to extract the source code of the failed condition
+and include it in the failure message.
+
+> For a complete example, see the [`fluent-assert`](https://github.com/bnorm/power-assert-examples/tree/main/fluent-assert) project.
+>
+{style="tip"}
+
 ## What's next
 
-* Look through a [simple project with the plugin enabled](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/powerAssertSourceSets)
-   and a more [complex project with multiple source sets](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/powerAssertSimple).
+Look through our sample projects:
+
+* [A simple project with the plugin enabled](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/powerAssertSourceSets)
+* [A more complex project with multiple source sets](https://github.com/JetBrains/kotlin/tree/master/libraries/tools/kotlin-gradle-plugin-integration-tests/src/test/resources/testProject/powerAssertSimple)
+* [Example collection for experimenting with runtime library features](https://github.com/bnorm/power-assert-examples#power-assert-examples)

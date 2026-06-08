@@ -306,7 +306,7 @@ This feature is [Experimental](components-stability.md#stability-levels-explaine
 ```kotlin
 kotlin {
     compilerOptions {
-        freeCompilerArgs.add("-XIntrinsic-const-evaluation")
+        freeCompilerArgs.add("-Xintrinsic-const-evaluation")
     }
 }
 ```
@@ -322,7 +322,7 @@ kotlin {
             <artifactId>kotlin-maven-plugin</artifactId>
             <configuration>
                 <args>
-                    <arg>-XIntrinsic-const-evaluation</arg>
+                    <arg>-Xintrinsic-const-evaluation</arg>
                 </args>
             </configuration>
         </plugin>
