@@ -73,6 +73,16 @@ items:
       type: youtube
       videoId: 5lkZj4v4-ks
   #------------------------------------------------------------------------
+  - id: booking
+    type: multiplatform
+    description: >-
+      “Adopting KMP for our experimentation library was a calculated bet. Best case: we save time and guarantee cross-platform consistency. Worst case: we rewrite the library in Swift. The reality exceeded our expectations: KMP performed great on iOS, proving it’s a viable, long-term solution for our team.”
+    signature:
+      name: Diego Gómez Olvera
+      position: Principal Android Developer
+    link: https://medium.com/booking-com-development/kotlin-multiplatform-in-production-two-real-world-use-cases-from-booking-com-46ffe13a773d
+    isExternal: true
+  #------------------------------------------------------------------------
   - id: bilibili
     type: multiplatform
     logo:
