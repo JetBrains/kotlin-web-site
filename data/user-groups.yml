@@ -34,6 +34,12 @@
     position:
       lat: 54.597285
       lng: -5.93012
+  - name: Belgium KUG
+    country: Belgium
+    url: https://www.meetup.com/belgian-kotlin-user-group/
+    position:
+      lat: 50.8503396
+      lng: 4.3517103
   - name: Berlin KUG
     country: Germany
     url: https://www.meetup.com/kotlin-berlin/
