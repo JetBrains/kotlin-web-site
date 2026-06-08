@@ -68,13 +68,13 @@ KSP provides two APIs for accessing files:
 
 * `Resolver.getAllFiles()` returns a list of both previously existing and newly generated files.
 
-* `Resolver.getNewFiles()` returns only newly generated files.
+* `Resolver.getNewFiles()` returns only the files that were generated in the previous round.
 
 ## `getSymbolsAnnotatedWith()`
 
-Use `getSymbolsAnnotatedWith()` as the primary entry point for obtaining relevant symbols.
+Use `Resolver.getSymbolsAnnotatedWith()` as the primary entry point for obtaining relevant symbols.
 
-In each round, `getSymbolsAnnotatedWith()` returns only symbols from newly generated files and symbols deferred from 
+In each round, `Resolver.getSymbolsAnnotatedWith()` returns only symbols from newly generated files and symbols deferred from 
 the previous round. This helps avoid unnecessary reprocessing.
 
 ## Processor instantiation
