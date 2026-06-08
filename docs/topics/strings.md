@@ -200,7 +200,6 @@ val KClass<*>.jsonSchema : String
     """
 ```
 
-
 > If you use single-dollar string interpolation, multi-dollar string interpolation doesn't affect your code.
 > You can continue using a single `$` and apply multi-dollar signs
 > when needed.
@@ -316,20 +315,24 @@ fun main(){
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
 You can also compare strings lexicographically (character by character) with the [`compareTo()`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/compare-to.html)
-function. It scans both strings until it finds the first differing pair of characters and returns the
-difference between their Unicode code points. If strings are equal, the function returns `0`.
-The `compareTo()` function also allows you to ignore case differences
-by passing the `true` to the `ignoreCase` parameter:
+function. It scans both strings until it finds the first differing pair of characters and returns:
+
+* `0` when the strings are equal.
+* A value less than `0` when the receiver is smaller than the argument.
+* A value greater than `0` when the receiver is greater than the argument.
 
 ```kotlin
 fun main() {
 //sampleStart    
-    println("abc".compareTo("abd")) // 'c' is 99, 'd' is 100
-    // -1
-    println("abc".compareTo("ABC")) // 'a' is 97, 'A' is 65
-    // 32
-    println("abc".compareTo("ABC", true)) // ignores case, strings are equal
-    // 0 
+    println("abc".compareTo("abd") < 0)
+    // true
+    
+    println("abc".compareTo("ABC") > 0)
+    // true
+    
+    // Pass true to ignore case differences
+    println("abc".compareTo("ABC", true) == 0)
+    // true
 //sampleEnd  
 }
 ```
@@ -468,24 +471,18 @@ fun main() {
 ```
 {kotlin-runnable="true" kotlin-min-compiler-version="1.3"}
 
-Use [`StringBuilder`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-string-builder/) when you need the buffer as an explicit value. For example, to pass
-it into another function or build it in separate steps:
+Use [`StringBuilder`](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.text/-string-builder/) when you need the buffer as an explicit value.
+For example, to change the existing text:
 
 ```kotlin
 fun main() {
 //sampleStart
-    // Creates a new empty StringBuilder
-    val sb = StringBuilder()
-    
-    // Adds arguments to the end of the buffer
-    sb.append("Hello")
-    sb.append(", ")
-    sb.append("Kotlin")
-    sb.append("!")
+    val text = "Hello, Kotlin"
+    val builder = StringBuilder(text)
 
-    // Converts the buffer to a string
-    println(sb.toString())
-    // Hello, Kotlin!
+    builder.replace(7, 13, "world")
+    println(builder.toString()) 
+    // Hello, world
 //sampleEnd
 }
 ```
