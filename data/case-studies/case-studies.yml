@@ -36,6 +36,23 @@ items:
     isExternal: true
     link: https://www.forbes.com/sites/forbes-engineering/2023/11/13/forbes-mobile-app-shifts-to-kotlin-multiplatform/
   #------------------------------------------------------------------------
+  - id: sony
+    type: multiplatform
+    description: >-
+      Sony's journey to Kotlin Multiplatform wasn't just about efficiency; it was about capability.
+
+
+      We migrated from native plans to a unified KMP and Compose Multiplatform workflow, delivering a robust companion app for our flagship headphones, with background execution and sensor integration to millions of users worldwide.
+    signature:
+      name: Sergio Carrilho
+      position: TechLead at Sony
+    link: https://youtu.be/TKUxeZ34dNI
+    linkText: Watch the full video
+    isExternal: true
+    media:
+      type: image
+      path: /images/case-studies/sony-preview.png
+  #------------------------------------------------------------------------
   - id: google-workspace
     type: multiplatform
     description: >-
