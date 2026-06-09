@@ -35,11 +35,30 @@ KSP classifies generated outputs into two types: aggregating and isolating.
 >
 {style=”note”}
 
-| **Output type**   | **Description**                                                                                   | **Behavior**                                                                                                                                   | **Example**                                                       |
-|-------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-| Aggregating       | Can be affected by changes in any source file, except for removals that do not impact other files | Any input change triggers a rebuild of all aggregating outputs and reprocessing of all corresponding registered, new, or modified source files | An output that collects all symbols with a particular annotation  |
-| Isolating         | Depends only on its specified sources                                                             | Changes to other sources do not affect the output. Multiple source files can be associated with a single output                                | A generated class that is dedicated to an interface it implements |
+<deflist collapsible="true">
 
+<def title="Aggregating">
+
+Aggregating outputs can be affected by changes in any source file, except for removals that do not impact other files.
+
+Any input change triggers a rebuild of all aggregating outputs and reprocessing of all corresponding registered, new, 
+or modified source files.
+
+For example, an output that collects all symbols with a particular annotation is aggregating.
+
+</def>
+
+<def title="Isolating">
+
+Isolating outputs depend only on their specified sources.
+
+Changes to other sources do not affect the output. Multiple source files can be associated with a single output
+
+For example, a generated class that is dedicated to an interface it implements is isolating.
+
+</def>
+
+</deflist>
 
 ## Implementation
 
