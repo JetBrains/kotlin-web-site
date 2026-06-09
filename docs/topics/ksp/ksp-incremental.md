@@ -1,7 +1,7 @@
 [//]: # (title: Incremental processing)
 
-KSP supports incremental processing. KSP reprocesses a file only when one or more of its dependencies change. This 
-reduces compilation time by avoiding unnecessary reprocessing.
+KSP supports incremental processing: KSP reprocesses a file only when one or more of its dependencies change. This 
+avoids unnecessary reprocessing and therefore reduces compilation time.
 
 Incremental processing is enabled by default. To disable it, add this line to your `gradle.properties` file:
 
@@ -9,15 +9,11 @@ Incremental processing is enabled by default. To disable it, add this line to yo
 ksp.incremental=false
 ```
 
-> For general information, see Wikipedia's article on [incremental computing](https://en.wikipedia.org/wiki/Incremental_computing).
->
-{style=”tip”}
-
 ## Dirty files
 
-A source that requires reprocessing is considered dirty. To determine which sources are dirty, KSP relies on processors 
-to associate generated outputs with their corresponding input sources. KSP uses these associations to identify the 
-sources that must be reprocessed when changes occur.
+A source that requires reprocessing is considered _dirty_. To determine which sources are dirty, KSP relies on processors, 
+which associate generated outputs with their corresponding input sources. KSP uses these associations to identify the 
+sources that must be reprocessed when a change occurs.
 
 KSP requires only a minimal set of root sources. Processors use these sources as entry points to navigate the code structure.
 
@@ -34,15 +30,16 @@ association is required if the `KSNode` is obtained from any of the following me
 
 KSP classifies generated outputs into two types: aggregating and isolating.
 
+> Unlike Gradle annotation processing, KSP applies the categorization to individual outputs
+> rather than entire processors.
+>
+{style=”note”}
+
 | **Output type**   | **Description**                                                                                   | **Behavior**                                                                                                                                   | **Example**                                                       |
 |-------------------|---------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
 | Aggregating       | Can be affected by changes in any source file, except for removals that do not impact other files | Any input change triggers a rebuild of all aggregating outputs and reprocessing of all corresponding registered, new, or modified source files | An output that collects all symbols with a particular annotation  |
 | Isolating         | Depends only on its specified sources                                                             | Changes to other sources do not affect the output. Multiple source files can be associated with a single output                                | A generated class that is dedicated to an interface it implements |
 
-> Unlike Gradle annotation processing, KSP applies the categorization to individual outputs
-> rather than entire processors.
->
-{style=”note”}
 
 ## Implementation
 
@@ -68,7 +65,7 @@ It won't be reprocessed unless one of the above rules applies.
 
 A file is considered dirty if it is either directly modified by the user or indirectly affected by changes in other dirty files.
 
-KSP propagates dirtiness in two steps:
+KSP propagates dirtiness in two steps, which are repeated until there are no dirty files:
 
 * Propagation by **resolution tracing**: Type resolution is the only way to traverse from one file to another. When a 
 processor resolves a type reference (explicitly or implicitly), KSP considers dependencies between the file containing 
@@ -78,8 +75,6 @@ may mark the referencing file as dirty.
 * Propagation by **input-output correspondence**: If a source file is changed or affected, all other source files that 
 share generated outputs with it are also marked as affected. This groups related files into equivalence classes based on 
 shared outputs.
-
-Note that both of these steps will be repeated until there are no dirty files.
 
 ## Example 1
 
@@ -117,8 +112,8 @@ To generate `outputForA`, the processor:
 
 2. gets B by calling `KSClassDeclaration.superTypes` on A.
 
-KSP tracks this relationship through resolution tracing and automatically records B as a dependency of A. Therefore, 
-the processor doesn't need to explicitly declare B.kt as a dependency of outputForA.
+KSP tracks this relationship through resolution tracing and automatically records `B` as a dependency of `A`. Therefore, 
+the processor doesn't need to explicitly declare `B.kt` as a dependency of `outputForA`.
 
 
 ## Example 2
@@ -143,7 +138,7 @@ A processor:
 
 4. generates `outputA`.
 
-If `sourceA` changes:
+When `sourceA` changes:
 
 * If `outputB` is aggregating, KSP reprocesses both `sourceA` and `sourceB`.
 
@@ -160,8 +155,8 @@ If either `sourceA` or `sourceB` is removed, KSP doesn't need to reprocess any f
 
 ## Reporting bugs
 
-If you encounter any error that only occurs in incremental mode, report it by creating an issue in GitHub. Follow the 
-following steps to retrieve the relevant logs:
+If you encounter any error that only occurs in incremental mode, report it by creating an issue in
+[the GitHub repository](https://github.com/google/ksp/issues). Attach the relevant logs to the issue:
 
 1. Enable logs that dump the dirty set according to dependencies and outputs. To do this, add this line to 
 `gradle.properties`: 
