@@ -52,6 +52,10 @@ items:
     media:
       type: image
       path: /images/case-studies/sony-preview.png
+    platforms:
+      - android
+      - ios
+      - compose-multiplatform
   #------------------------------------------------------------------------
   - id: google-workspace
     type: multiplatform
@@ -75,6 +79,8 @@ items:
   #------------------------------------------------------------------------
   - id: booking
     type: multiplatform
+    logo:
+      - /images/case-studies/booking-logo.svg
     description: >-
       “Adopting KMP for our experimentation library was a calculated bet. Best case: we save time and guarantee cross-platform consistency. Worst case: we rewrite the library in Swift. The reality exceeded our expectations: KMP performed great on iOS, proving it’s a viable, long-term solution for our team.”
     signature:
@@ -82,6 +88,11 @@ items:
       position: Principal Android Developer
     link: https://medium.com/booking-com-development/kotlin-multiplatform-in-production-two-real-world-use-cases-from-booking-com-46ffe13a773d
     isExternal: true
+    carousel: true
+    platforms:
+      - android
+      - ios
+      - compose-multiplatform
   #------------------------------------------------------------------------
   - id: bilibili
     type: multiplatform
