@@ -85,6 +85,10 @@ multiple rounds.
 However, not all KSP symbols can be reused across rounds. Symbol resolution results can change when processors generate 
 new files, which can affect the validity of previously resolved symbols.
 
+> Use only the Resolver instance passed to the processor in the current round. Do not store a Resolver and reuse it 
+> across rounds.
+{style="note"}
+
 ## Error and exception handling
 
 1. **Errors**
