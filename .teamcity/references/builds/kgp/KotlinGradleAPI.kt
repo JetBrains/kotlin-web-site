@@ -15,7 +15,10 @@ class KotlinGradleAPI(init: KotlinGradleAPI.() -> Unit) : ReferenceProject("kotl
     fun addV1Version(version: String, tagsOrBranch: String) =
         addVersion(version, tagsOrBranch, ":gradle:documentation:dokkaKotlinlangDocumentation")
 
-    fun addVersion(version: String, tagsOrBranch: String, task: String? = null) = addReference(version) {
+    fun addVersion(version: String, tagsOrBranch: String) =
+        addVersion(version, tagsOrBranch, ":gradle:documentation:dokkaGenerate")
+
+    private fun addVersion(version: String, tagsOrBranch: String, task: String? = null) = addReference(version) {
         apiReference(
             version = version,
             gitBranch = tagsOrBranch,
@@ -25,7 +28,8 @@ class KotlinGradleAPI(init: KotlinGradleAPI.() -> Unit) : ReferenceProject("kotl
             previousVersionDir = "libraries/tools/gradle/documentation/build/documentation/kotlinlangOld",
         ) {
             dokkaBuildHtml(version) {
-                tasks = task ?: ":gradle:documentation:dokkaGenerate"
+                tasks = task
+                gradleParams = "$gradleParams -Pteamcity=true"
             }
         }
     }
