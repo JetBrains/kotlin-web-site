@@ -42,7 +42,7 @@ object BuildParams {
     addV1Version("2.1.20", VCS.branch("whyoleg/dokka2-sync"))
     addV1Version("2.2.0", VCS.branch("2.2.0"))
     addV1Version("2.3.0", VCS.branch("2.3.0"))
-    addVersion("2.4.0", VCS.branch("2.4.0"))
+    addVersion("2.4.0", VCS.branch("chernenko/ktl-4571-kotlin-inheretence-240"))
   }
 
   val API_COMPOSE = ComposeMultiplatformCore {
