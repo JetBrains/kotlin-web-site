@@ -1,7 +1,7 @@
 @import "@jetbrains/kotlin-web-site-ui/out/components/breakpoints-v2/media.pcss";
 
 .section {
-    padding-top: 48px;
+    padding-top: 72px;
     box-sizing: border-box;
     display: flex;
     @media (--ktl-ds-down) {
@@ -9,101 +9,27 @@
     }
 }
 
-.sectionStack {
-    height: calc(100vh - 64px);
-    max-height: 950px;
-}
-
-.stack {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    grid-gap: 64px;
-}
-
-.stackAnimated {
-    position: relative;
-    display: block;
-}
-
 .card {
     width: 100%;
-    height: 100%;
-    min-height: fit-content;
-    border-radius: 48px;
-    background: linear-gradient(180deg, #997BED -17.32%, #D01AD8 46.61%, rgba(0, 196, 255, 0.70) 101.77%, rgba(39, 175, 216, 0.00) 161.59%);
-    backdrop-filter: blur(17px);
+    border-radius: 32px;
+    border: 12px solid #6B57FF;
     color: #FFFFFF;
-    padding: 12px;
+    padding: 32px;
     box-sizing: border-box;
-    transform-origin: center;
-    display: flex;
     flex-direction: column;
     position: relative;
-    background-size: 100% 200%;
-    animation: gradient-flow 3s ease-in-out infinite alternate;
-    @media (--ktl-ds-down) {
-        height: fit-content;
-    }
-}
-
-@keyframes gradient-flow {
-    from {
-        background-position: center top;
-    }
-    to {
-        background-position: center bottom;
-    }
-}
-
-.stackAnimated .card {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    will-change: transform, opacity;
-}
-
-.cardGradient {
-    border: 0;
-    background: linear-gradient(180deg, #997BED 62.24%, #D01AD8 136.49%, rgba(0, 196, 255, 0.70) 200.56%, rgba(39, 175, 216, 0.00) 270.03%);
-    backdrop-filter: blur(17px);
-
-    .cardInner {
-        background: transparent;
-    }
-}
-
-.cardInner {
-    height: 620px;
-    display: flex;
-    flex-direction: column;
-    background: #000;
-    border-radius: calc(48px - 12px);
-    padding: 36px;
-    @media (--ktl-ds-down) {
-        height: fit-content;
-    }
-    @media (--ktl-ts-down) {
-        padding: 20px;
-    }
-}
-
-.cardContent {
-    max-width: 800px;
 }
 
 .cardTitle {
     margin-top: 0;
     margin-bottom: 16px;
+    span {
+        color: #6B57FF;
+    }
 }
 
 .cardSubtitle {
     margin: 0;
-}
-
-.textInverted {
-    color: #19191C;
 }
 
 .tagsContainer {
@@ -111,11 +37,6 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
-}
-
-.tagLinksContainer {
-    display: inline-flex;
     gap: 16px;
 }
 
@@ -137,6 +58,11 @@
     margin-top: 64px;
     overflow: hidden;
     border-radius: 32px;
+    margin-bottom: 144px;
+    height: 390px;
+    @media (--ktl-ds-down) {
+        margin-bottom: 96px;
+    }
 }
 
 .screenshots {
@@ -161,6 +87,7 @@
     display: flex;
     overflow: hidden;
     position: relative;
+    min-height: 230px;
 
     @media (--ktl-ds-down) {
         width: 100%;
@@ -178,73 +105,9 @@
     transform: translate(50%, -50%);
 }
 
-.linksGrid {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin: 48px 0;
-    @media (--ktl-ds-down) {
-        grid-template-columns: repeat(1, 1fr);
-        gap: 8px;
-    }
-}
-
-.linksContainer {
-    background: #241C2C;
-    border-radius: 24px;
-    padding: 24px;
-}
-
-.linksSubtitle {
-    margin: 0 0 32px;
-}
-
-.linksUl {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-.linksLi {
-    padding-left: 0 !important;
-
-    &:before {
-        display: none !important;
-    }
-}
-
-.multilineTag {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-    color: #19191C;
-    background: #19191C1A;
-    padding: 6px 12px;
-    border-radius: 6px;
-    box-sizing: border-box;
-}
-
 .button {
     @media (--ktl-ts-down) {
         width: 100%;
     }
 }
 
-.multilineTagIcon {
-    margin-right: 8px;
-    display: inline;
-}
-
-.multilineTagIcon {
-    fill: #531CEE;
-    flex-shrink: 0;
-}
-
-.multilineTagText {
-    display: inline-flex;
-    align-items: center;
-    color: #19191C !important;
-    padding: 0;
-    margin: 0;
-}
