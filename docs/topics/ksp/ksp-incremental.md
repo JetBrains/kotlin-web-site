@@ -1,6 +1,6 @@
 [//]: # (title: Incremental processing)
 
-KSP supports incremental processing: KSP reprocesses a file only when one or more of its dependencies change. This 
+KSP supports incremental processing: KSP reprocesses a file only when one or more of its dependencies change. This
 avoids unnecessary reprocessing and therefore reduces compilation time.
 
 Incremental processing is enabled by default. To disable it, add this line to your `gradle.properties` file:
@@ -9,28 +9,36 @@ Incremental processing is enabled by default. To disable it, add this line to yo
 ksp.incremental=false
 ```
 
+You might want to disable incremental processing when troubleshooting or to force a full rebuild.
+
 ## Dirty files
 
 A file is considered _dirty_ if it is either directly modified by the user or indirectly affected by changes in other
 dirty files. A dirty source requires reprocessing.
 
-To determine which sources are dirty, KSP relies on processors, which associate generated outputs with their 
-corresponding input sources. KSP uses these associations to identify the sources that must be reprocessed when a change 
+To determine which sources are dirty, KSP relies on processors, which associate generated outputs with their
+corresponding input sources. KSP uses these associations to identify the sources that must be reprocessed when a change
 occurs.
 
 KSP requires only a minimal set of root sources. Processors use these sources as entry points to navigate the code structure.
 
-When a processor generates an output, it must associate that output with the sources of the corresponding `KSNode`. This 
-association is required if the `KSNode` is obtained from any of the following methods:
+A root source is a source file whose symbols are obtained directly from any of the following methods:
 
 * `Resolver.getAllFiles()`
 * `Resolver.getSymbolsWithAnnotation()`
 * `Resolver.getClassDeclarationByName()`
 * `Resolver.getDeclarationsFromPackage()`
 
-> To learn more about the `KSNode` API, see the diagram in [How KSP models Kotlin code](https://kotlinlang.org/docs/ksp-additional-details.html).
-> 
-> {style="tip"}
+A processor can obtain additional symbols from other source files by resolving information from a root source. KSP 
+automatically tracks these dependencies.
+
+When generating an output, the processor must declare the root sources that contribute to that output. KSP uses those 
+root sources and their tracked dependencies to determine when the output needs to be regenerated.
+
+> Use the `CodeGenerator` interface to create output files and associate inputs with outputs. For more information, 
+> see [`CodeGenerator.kt` in the source code](https://github.com/google/ksp/blob/main/api/src/main/kotlin/com/google/devtools/ksp/processing/CodeGenerator.kt).
+>
+{style="tip"}
 
 ### Aggregating and isolating outputs
 
@@ -39,7 +47,7 @@ KSP classifies generated outputs into two types: aggregating and isolating.
 > Unlike Gradle annotation processing, KSP applies the categorization to individual outputs
 > rather than entire processors.
 >
-{style=”note”}
+{style="note"}
 
 <deflist collapsible="true">
 <def title="Aggregating">
@@ -65,16 +73,21 @@ For example, a generated class that is dedicated to an interface it implements i
 
 ### Dirtiness propagation
 
-KSP propagates dirtiness in two steps, which are repeated until there are no dirty files:
+KSP propagates dirtiness in two ways:
 
-* Propagation by **resolution tracing**: Type resolution is the only way to traverse from one file to another. When a
-  processor resolves a type reference (explicitly or implicitly), KSP considers dependencies between the file containing
-  the reference and any file that defines a symbol affecting that resolution. As a result, a change in a resolved symbol
-  may mark the referencing file as dirty.
+1. by **resolution tracing**: Type resolution is the only way to traverse from one file to another. When a
+   processor resolves a type reference (explicitly or implicitly), KSP considers dependencies between the file containing
+   the reference and any file that defines a symbol affecting that resolution. As a result, a change in a resolved symbol
+   may mark the referencing file as dirty.
 
-* Propagation by **input-output correspondence**: If a source file is changed or affected, all other source files that
-  share generated outputs with it are also marked as affected. This groups related files into equivalence classes based on
-  shared outputs.
+2. by **input-output correspondence**: If a source file is changed or affected, all other source files that
+   share generated outputs with it are also marked as affected. This groups related files into equivalence classes based on
+   shared outputs.
+
+> Rules (1) and (2) can trigger each other repeatedly. For example, rule (1)
+> can trigger rule (2), which can then trigger rule (1) again.
+>
+{style="tip"}
 
 ## Implementation
 
@@ -84,16 +97,16 @@ This is how KSP determines which files need to be reprocessed:
 
 * If an input file is changed, it will always be reprocessed.
 
-    **Why?** If an input is changed, new information can be introduced. Processors need to run again with the input.
+**Why?** If an input is changed, new information can be introduced. Processors need to run again with the input.
 
-* If an input file is changed and is associated with an output, then all other input files associated with the same 
-output will also be reprocessed. This happens repeatedly until there is no new dirty file.
+* If an input file is changed and is associated with an output, then all other input files associated with the same
+  output will also be reprocessed. This happens repeatedly until there is no new dirty file.
 
-    **Why?** An output is made out of a set of inputs. Processors may need all the inputs to regenerate the output.
+**Why?** An output is made out of a set of inputs. Processors may need all the inputs to regenerate the output.
 
 * If an unchanged input file isn't associated with any aggregating outputs, it won't be reprocessed.
 
-    **Why?** This file can't affect any outputs because it is unchanged and isn't associated with an aggregating output. 
+**Why?** This file can't affect any outputs because it is unchanged and isn't associated with an aggregating output.
 It won't be reprocessed unless one of the above rules applies.
 
 For example, consider a project with the following structure:
@@ -104,19 +117,19 @@ For example, consider a project with the following structure:
 │   ├── sourceA.kt
 │   └── sourceB.kt
 └── generated
-    ├── outputA
-    └── outputB
+   ├── outputA
+   └── outputB
 ```
 
 A processor:
 
-1. reads `sourceB`.
+1. reads `sourceA`.
 
-2. generates `outputB`.
+2. generates `outputA`.
 
-3. reads `sourceA`.
+3. reads `sourceB`.
 
-4. generates `outputA`.
+4. generates `outputB`.
 
 When `sourceA` changes:
 
@@ -146,19 +159,19 @@ open class B
 
 // Example1Processor.kt
 class Example1Processor : SymbolProcessor {
-    override fun process(resolver: Resolver) {
-        val declA = resolver.getSymbolsWithAnnotation("Interesting").first() as KSClassDeclaration
-        val declB = declA.superTypes.first().resolve().declaration
-        // B.kt isn't required, because it can be deduced as a dependency by KSP
-        val dependencies = Dependencies(aggregating = true, declA.containingFile!!)
-        // outputForA.kt
-        val outputName = "outputFor${declA.simpleName.asString()}"
-        // outputForA depends on A.kt and B.kt
-        val output = codeGenerator.createNewFile(dependencies, "com.example", outputName, "kt")
-        output.write("// $declA : $declB\n".toByteArray())
-        output.close()
-    }
-    // ...
+   override fun process(resolver: Resolver) {
+       val declA = resolver.getSymbolsWithAnnotation("Interesting").first() as KSClassDeclaration
+       val declB = declA.superTypes.first().resolve().declaration
+       // B.kt isn't required, because it can be deduced as a dependency by KSP
+       val dependencies = Dependencies(aggregating = true, declA.containingFile!!)
+       // outputForA.kt
+       val outputName = "outputFor${declA.simpleName.asString()}"
+       // outputForA depends on A.kt and B.kt
+       val output = codeGenerator.createNewFile(dependencies, "com.example", outputName, "kt")
+       output.write("// $declA : $declB\n".toByteArray())
+       output.close()
+   }
+   // ...
 }
 ```
 
@@ -168,7 +181,7 @@ To generate `outputForA`, the processor:
 
 2. gets B by calling `KSClassDeclaration.superTypes` on A.
 
-KSP tracks this relationship through resolution tracing and automatically records `B` as a dependency of `A`. Therefore, 
+KSP tracks this relationship through resolution tracing and automatically records `B` as a dependency of `A`. Therefore,
 you don't need to explicitly declare `B.kt` as a dependency of `outputForA`.
 
 ## Reporting bugs
@@ -176,21 +189,21 @@ you don't need to explicitly declare `B.kt` as a dependency of `outputForA`.
 If you encounter any error that only occurs in incremental mode, report it by creating an issue in
 [the GitHub repository](https://github.com/google/ksp/issues). Attach the relevant logs to the issue:
 
-1. Enable logs that dump the dirty set according to dependencies and outputs. To do this, add this line to 
-`gradle.properties`: 
+1. Enable logs that dump the dirty set according to dependencies and outputs. To do this, add this line to
+   `gradle.properties`:
 
-    ```
-    ksp.incremental.log=true
-    ```
+  ```
+  ksp.incremental.log=true
+   ```
 
 2. Perform a clean build. This build produces two log files in the build output directory with a `.log` file extension:
 
-    * `build/kspCaches/<source set>/logs/kspDirtySet.log`
-    * `build/kspCaches/<source set>/logs/kspSourceToOutputs.log`
+* `build/kspCaches/<source set>/logs/kspDirtySet.log`
+* `build/kspCaches/<source set>/logs/kspSourceToOutputs.log`
 
-    You can then run successive incremental builds, which will generate two additional log files:
+You can then run successive incremental builds, which will generate two additional log files:
 
-    * `build/kspCaches/<source set>/logs/kspDirtySetByDeps.log`
-    * `build/kspCaches/<source set>/logs/kspDirtySetByOutputs.log`
+* `build/kspCaches/<source set>/logs/kspDirtySetByDeps.log`
+* `build/kspCaches/<source set>/logs/kspDirtySetByOutputs.log`
 
-   These logs contain file names of sources and outputs, plus the timestamps of the builds.
+These logs contain file names of sources and outputs, plus the timestamps of the builds.
