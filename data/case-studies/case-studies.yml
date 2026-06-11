@@ -148,6 +148,22 @@ items:
       type: youtube
       videoId: uCkYZ-PvCmw
   #------------------------------------------------------------------------
+  - id: case-study-workday
+    type: multiplatform
+    description: >-
+      At **Workday**, Kotlin Multiplatform (KMP) entered the landscape not as another framework, but as a flexible technology that empowered us to share code where it makes sense, without sacrificing the quality and the performance of the native experience our users expect.
+    signature:
+      name: Ahmed Mohamed
+      position: Senior Software Engineer, Workday
+    logo:
+      - /images/case-studies/workday-logo.png
+    carousel: true
+    platforms:
+      - android
+      - ios
+    isExternal: true
+    link: https://medium.com/workday-engineering/adopting-kotlin-multiplatform-a-practical-guide-to-unifying-codebases-1b333436061e
+  #------------------------------------------------------------------------
   - id: h&m
     type: multiplatform
     description: >-
