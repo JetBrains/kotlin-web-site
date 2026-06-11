@@ -16,7 +16,7 @@ class KotlinGradleAPI(init: KotlinGradleAPI.() -> Unit) : ReferenceProject("kotl
         addVersion(version, tagsOrBranch, ":gradle:documentation:dokkaKotlinlangDocumentation")
 
     fun addVersion(version: String, tagsOrBranch: String) =
-        addVersion(version, tagsOrBranch, ":gradle:documentation:dokkaGenerate")
+        addVersion(version, tagsOrBranch, ":gradle:documentation:dokkaGenerateModuleHtml")
 
     private fun addVersion(version: String, tagsOrBranch: String, task: String? = null) = addReference(version) {
         apiReference(
