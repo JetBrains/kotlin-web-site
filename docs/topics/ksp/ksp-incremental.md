@@ -13,8 +13,8 @@ You might want to disable incremental processing when troubleshooting or to forc
 
 ## Dirty files
 
-A file is considered _dirty_ if it is either directly modified by the user or indirectly affected by changes in other
-dirty files. A dirty source requires reprocessing.
+A file is considered _dirty_ (needing to be reprocessed) if it is either directly modified by the user or indirectly 
+affected by changes in other dirty files.
 
 To determine which sources are dirty, KSP relies on processors, which associate generated outputs with their
 corresponding input sources. KSP uses these associations to identify the sources that must be reprocessed when a change
