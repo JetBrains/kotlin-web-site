@@ -128,4 +128,4 @@ For more information, see [Floating-point numbers comparison](numbers.md#floatin
 
 To compare whether two arrays have the same elements in the same order, use [`contentEquals()`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/content-equals.html).
 
-For more information, see [Compare arrays](arrays.md#compare-arrays).
+For more information, see [Compare arrays](arrays.md#compare).
