@@ -39,9 +39,9 @@ object BuildParams {
   const val KOTLINX_METADATA_TITLE = KOTLINX_METADATA_ID
 
   val KGP_REFERENCE = KotlinGradleAPI {
-    addVersion("2.1.20", VCS.branch("whyoleg/dokka2-sync"))
-    addVersion("2.2.0", VCS.branch("2.2.0"))
-    addVersion("2.3.0", VCS.branch("2.3.0"))
+    addV1Version("2.1.20", VCS.branch("whyoleg/dokka2-sync"))
+    addV1Version("2.2.0", VCS.branch("2.2.0"))
+    addV1Version("2.3.0", VCS.branch("2.3.0"))
     addVersion("2.4.0", VCS.branch("2.4.0"))
   }
 
