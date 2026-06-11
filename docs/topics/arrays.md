@@ -66,7 +66,7 @@ val emptyArrayLeft: Array<String> = emptyArray()
 ```
 
 Since arrays have a fixed size, you can't add new elements to an existing array. Instead,
-you need to create a new array. Learn more in [](#add-and-remove-elementsqx).
+you need to create a new array. Learn more in [](#add-and-remove-elements).
 
 ### Array with nulls
 
