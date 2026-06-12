@@ -415,7 +415,7 @@ of how these functions work in order to use them in your code.
 
 For more information about scope functions, see [Scope functions](scope-functions.md).
 
-## Practice
+## Practice {id="mark-as-completed"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="scope-functions-exercise-1"}
 
@@ -536,6 +536,13 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-scope-functions-solution-2"}
 
-## Next step
+<seealso></seealso>
 
-[Intermediate: Lambda expressions with receiver](kotlin-tour-intermediate-lambdas-receiver.md)
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-extension-functions.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-lambdas-receiver.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

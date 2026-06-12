@@ -90,7 +90,7 @@ fun main() {
 
 Now that you know how to declare basic types, it's time to learn about [collections](kotlin-tour-collections.md).
 
-## Practice
+## Practice {id="mark-as-completed"}
 
 ### Exercise {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -122,7 +122,14 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-basic-types-solution"}
 
-## Next step
+<seealso></seealso>
 
-[Collections](kotlin-tour-collections.md)
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-hello-world.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-collections.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>
 

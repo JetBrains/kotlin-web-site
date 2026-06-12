@@ -165,7 +165,7 @@ fun main() {
 
 This is the easiest way to opt in, but there are other ways. To learn more, see [Opt-in requirements](opt-in-requirements.md).
 
-## Practice
+## Practice {id="mark-as-completed"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="libraries-exercise-1"}
 
@@ -297,3 +297,11 @@ As a next step, check out our tutorials for popular Kotlin applications:
 * Create a cross-platform application for Android and iOS from scratch and:
     * [Share business logic while keeping the UI native](https://kotlinlang.org/docs/multiplatform/multiplatform-create-first-app.html)
     * [Share business logic and UI](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html)
+
+<seealso></seealso>
+
+<list id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-null-safety.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+</list>

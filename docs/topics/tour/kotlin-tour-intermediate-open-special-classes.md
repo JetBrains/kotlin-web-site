@@ -379,7 +379,7 @@ This can significantly reduce memory footprint and improve your code's runtime p
 
 For more information about inline value classes, see [Inline value classes](inline-classes.md).
 
-## Practice
+## Practice {id="mark-as-completed"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="special-classes-exercise-1"}
 
@@ -552,6 +552,13 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-special-classes-solution-2"}
 
-## Next step
+<seealso></seealso>
 
-[Intermediate: Properties](kotlin-tour-intermediate-properties.md)
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-objects.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-properties.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

@@ -415,7 +415,7 @@ updating a UI or to perform additional checks, like verifying the validity of da
 
 For more information, see [Observable properties](delegated-properties.md#observable-properties).
 
-## Practice
+## Practice {id="mark-as-completed"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="properties-exercise-1"}
 
@@ -657,6 +657,13 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-properties-solution-4"}
 
-## Next step
+<seealso></seealso>
 
-[Intermediate: Null safety](kotlin-tour-intermediate-null-safety.md)
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-open-special-classes.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-null-safety.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

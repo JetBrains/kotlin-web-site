@@ -246,7 +246,7 @@ For more information about data classes, see [Data classes](data-classes.md).
 
 The last chapter of this tour is about Kotlin's [null safety](kotlin-tour-null-safety.md).
 
-## Practice
+## Practice {id="mark-as-completed"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -387,6 +387,13 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-classes-solution-3"}
 
-## Next step
+<seealso></seealso>
 
-[Null safety](kotlin-tour-null-safety.md)
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-functions.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-null-safety.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>
