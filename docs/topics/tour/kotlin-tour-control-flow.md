@@ -382,7 +382,7 @@ For more information and examples of conditional expressions and loops, see [Con
 
 Now that you know the fundamentals of Kotlin control flow, it's time to learn how to write your own [functions](kotlin-tour-functions.md).
 
-## Loops practice
+## Loops practice {id="mark-as-completed"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="loops-exercise-1"}
 
@@ -523,6 +523,13 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-control-flow-loops-solution-3"}
 
-## Next step
+<seealso></seealso>
 
-[Functions](kotlin-tour-functions.md)
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-collections.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-functions.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

@@ -418,7 +418,7 @@ For more information on what you can do with collections, see [Collections](coll
 Now that you know about basic types and how to manage collections, it's time to explore the [control flow](kotlin-tour-control-flow.md)
 that you can use in your programs.
 
-## Practice
+## Practice {id="mark-as-completed"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -505,6 +505,13 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-collections-solution-3"}
 
-## Next step
+<seealso></seealso>
 
-[Control flow](kotlin-tour-control-flow.md)
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-basic-types.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-control-flow.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>

@@ -108,7 +108,7 @@ to help you work with strings.
 
 For more information about extension functions, see [Extensions](extensions.md).
 
-## Practice
+## Practice {id="mark-as-completed"}
 
 ### Exercise 1 {initial-collapse-state="collapsed" collapsible="true" id="extension-functions-exercise-1"}
 
@@ -169,6 +169,13 @@ fun main() {
 ```
 {initial-collapse-state="collapsed" collapsible="true" collapsed-title="Example solution" id="kotlin-tour-extension-functions-solution-2"}
 
-## Next step
+<seealso></seealso>
 
-[Intermediate: Scope functions](kotlin-tour-intermediate-scope-functions.md)
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-null-safety.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-scope-functions.md" mode="classic" icon="arrow-right" icon-position="right">Next step</a>
+  </li>
+</list>
