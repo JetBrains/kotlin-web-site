@@ -147,7 +147,7 @@ fun main() {
 
 For more information about null safety in Kotlin, see [Null safety](null-safety.md).
 
-## Practice
+## Practice {id="mark-as-completed"}
 
 ### Exercise {initial-collapse-state="collapsed" collapsible="true"}
 
@@ -200,4 +200,13 @@ fun main() {
 Congratulations! Now that you have completed the beginner tour, take your understanding of Kotlin to the next level with
 our intermediate tour:
 
-<a href="kotlin-tour-intermediate-extension-functions.md"><img src="start-intermediate-tour.svg" width="700" alt="Start the intermediate Kotlin tour" style="block"/></a>
+<seealso></seealso>
+
+<list columns="2" id="tour-nav">
+  <li>
+    <a as="button" href="kotlin-tour-classes.md" mode="outline" icon="arrow-left" icon-position="left">Previous step</a>
+  </li>
+  <li>
+    <a as="button" href="kotlin-tour-intermediate-extension-functions.md" mode="classic" icon="arrow-right" icon-position="right">Start intermediate Kotlin tour</a>
+  </li>
+</list>
