@@ -64,7 +64,7 @@ To safely manage shared mutable state, use [`StateFlow`](https://kotlinlang.org/
 Then, you can update it from one coroutine and collect its latest value from others.
 <!-- Learn more in [Shared mutable state and concurrency](shared-mutable-state-and-concurrency.md). -->
 
-For more information, see [Asynchronous flow](flow.md), [Channels](channels.md), and the [Coroutines and channels tutorial](coroutines-and-channels.md).
+For more information, see [Flows](coroutines-flow.md), [Channels](channels.md), and the [Coroutines and channels tutorial](coroutines-and-channels.md).
 
 ## What's next
 
